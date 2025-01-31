@@ -64,7 +64,7 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_property_string_data_new(ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define ptr @ossl_property_string_data_new(ptr noundef readnone captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 97) #6
   %cmp = icmp eq ptr %call, null
@@ -112,7 +112,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @CRYPTO_THREAD_lock_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @property_hash(ptr nocapture noundef readonly %a) #0 {
+define internal i64 @property_hash(ptr noundef readonly captures(none) %a) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %call = tail call i64 @OPENSSL_LH_strhash(ptr noundef %0) #6
@@ -120,7 +120,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @property_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal i32 @property_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -200,7 +200,7 @@ land.lhs.true24:                                  ; preds = %if.end16
 if.then.i:                                        ; preds = %land.lhs.true24
   %body.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 12
   %add2.i = add i64 %call.i29, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %body.i, ptr readonly align 1 %s, i64 %add2.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %body.i, ptr nonnull readonly align 1 %s, i64 %add2.i, i1 false)
   store ptr %body.i, ptr %call1.i, align 8
   %3 = load i32, ptr %cond21, align 4
   %inc.i = add nsw i32 %3, 1
@@ -341,7 +341,7 @@ declare ptr @OPENSSL_LH_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @OPENSSL_LH_strhash(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @ossl_lib_ctx_get_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -364,12 +364,12 @@ declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @OPENSSL_LH_insert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -378,7 +378,7 @@ declare i32 @OPENSSL_LH_error(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -131,7 +131,7 @@ entry:
 declare void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN17DecorationManager13placeAllDecosEP6MapgenjN3irr4core8vector3dIsEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef %mg, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZN17DecorationManager13placeAllDecosEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef %mg, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %m_objects = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -174,10 +174,10 @@ cleanup:                                          ; preds = %if.end, %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i64 @_ZN10Decoration9placeDecoEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %mg, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -773,7 +773,7 @@ _ZNSt6vectorIsSaIsEED2Ev.exit547:                 ; preds = %if.then.i.i.i546, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_ZNK17DecorationManager5cloneEv(ptr noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -820,7 +820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN10Decoration18canPlaceDecorationEP8MMVManipN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr nocapture noundef readonly %vm, i48 %p.coerce) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZN10Decoration18canPlaceDecorationEP8MMVManipN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef readonly captures(none) %vm, i48 %p.coerce) local_unnamed_addr #9 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc = trunc i48 %p.coerce to i16
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 16
@@ -2098,7 +2098,7 @@ lpad.body:                                        ; preds = %if.then.i.i.i7.i.i,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10DecoSimple16resolveNodeNamesEv(ptr noundef nonnull align 8 dereferenceable(342) %this) unnamed_addr #3 align 2 {
@@ -2126,7 +2126,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 2) i64 @_ZN10DecoSimple8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(342) %this, ptr nocapture noundef readonly %vm, ptr noundef %pr, i48 %p.coerce, i1 noundef zeroext %ceiling) unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 0, 2) i64 @_ZN10DecoSimple8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(342) %this, ptr noundef readonly captures(none) %vm, ptr noundef %pr, i48 %p.coerce, i1 noundef zeroext %ceiling) unnamed_addr #3 align 2 {
 entry:
   %p.sroa.3.0.extract.shift = lshr i48 %p.coerce, 16
   %p.sroa.3.0.extract.trunc = trunc nuw i48 %p.sroa.3.0.extract.shift to i32
@@ -2758,7 +2758,7 @@ declare void @_ZNK12NodeResolver7cloneToEPS_(ptr noundef nonnull align 8 derefer
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 2) i64 @_ZN13DecoSchematic8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(329) %this, ptr noundef %vm, ptr noundef %pr, i48 %p.coerce, i1 noundef zeroext %ceiling) unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 0, 2) i64 @_ZN13DecoSchematic8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(329) %this, ptr noundef %vm, ptr noundef %pr, i48 %p.coerce, i1 noundef zeroext %ceiling) unnamed_addr #3 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc = trunc i48 %p.coerce to i16
   %p.sroa.7.0.extract.shift = lshr i48 %p.coerce, 16
@@ -3129,7 +3129,7 @@ lpad.body:                                        ; preds = %if.then.i.i.i7.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 4294967296) i64 @_ZN11DecoLSystem8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %this, ptr noundef %vm, ptr nocapture readnone %pr, i48 %p.coerce, i1 zeroext %ceiling) unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZN11DecoLSystem8generateEP8MMVManipP9PcgRandomN3irr4core8vector3dIsEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(328) %this, ptr noundef %vm, ptr readnone captures(none) %pr, i48 %p.coerce, i1 zeroext %ceiling) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN10Decoration18canPlaceDecorationEP8MMVManipN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %vm, i48 %p.coerce)
   br i1 %call, label %if.end, label %return
@@ -4085,7 +4085,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_mg_decoration.cpp() #8 section ".text.startup" {

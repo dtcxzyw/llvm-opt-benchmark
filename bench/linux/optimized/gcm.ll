@@ -362,7 +362,7 @@ define internal i32 @crypto_rfc4543_create(ptr noundef %0, ptr noundef %1) #2 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @crypto_attr_alg_name(ptr noundef) local_unnamed_addr #1
@@ -502,7 +502,7 @@ define internal fastcc i32 @crypto_gcm_create_common(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @crypto_check_attr_type(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -511,19 +511,19 @@ declare dso_local i32 @crypto_check_attr_type(ptr noundef, i32 noundef, ptr noun
 declare dso_local i32 @crypto_grab_ahash(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @crypto_grab_skcipher(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_gcm_init_tfm(ptr nocapture noundef %0) #2 align 16 {
+define internal i32 @crypto_gcm_init_tfm(ptr noundef captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -574,7 +574,7 @@ define internal i32 @crypto_gcm_init_tfm(ptr nocapture noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_gcm_exit_tfm(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @crypto_gcm_exit_tfm(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -587,7 +587,7 @@ define internal void @crypto_gcm_exit_tfm(ptr nocapture noundef readonly %0) #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_gcm_setkey(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal i32 @crypto_gcm_setkey(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -679,7 +679,7 @@ define internal i32 @crypto_gcm_setkey(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef range(i32 -22, 1) i32 @crypto_gcm_setauthsize(ptr nocapture readnone %0, i32 noundef %1) #6 align 16 {
+define internal noundef range(i32 -22, 1) i32 @crypto_gcm_setauthsize(ptr readnone captures(none) %0, i32 noundef %1) #6 align 16 {
   switch i32 %1, label %4 [
     i32 4, label %3
     i32 8, label %3
@@ -1154,10 +1154,10 @@ define internal void @gcm_encrypt_done(ptr noundef %0, i32 noundef %1) #2 align 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sg_init_table(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1988,7 +1988,7 @@ declare dso_local void @crypto_drop_spawn(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @crypto_grab_aead(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_rfc4106_init_tfm(ptr nocapture noundef %0) #2 align 16 {
+define internal i32 @crypto_rfc4106_init_tfm(ptr noundef captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
@@ -2025,7 +2025,7 @@ define internal i32 @crypto_rfc4106_init_tfm(ptr nocapture noundef %0) #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_rfc4106_exit_tfm(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @crypto_rfc4106_exit_tfm(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2034,7 +2034,7 @@ define internal void @crypto_rfc4106_exit_tfm(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_rfc4106_setkey(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal i32 @crypto_rfc4106_setkey(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %21, label %5
 
@@ -2065,7 +2065,7 @@ define internal i32 @crypto_rfc4106_setkey(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_rfc4106_setauthsize(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal i32 @crypto_rfc4106_setauthsize(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   switch i32 %1, label %7 [
     i32 8, label %3
     i32 12, label %3
@@ -2326,7 +2326,7 @@ declare dso_local i32 @crypto_aead_encrypt(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @crypto_aead_decrypt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_rfc4543_init_tfm(ptr nocapture noundef %0) #2 align 16 {
+define internal i32 @crypto_rfc4543_init_tfm(ptr noundef captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 440
@@ -2377,7 +2377,7 @@ define internal i32 @crypto_rfc4543_init_tfm(ptr nocapture noundef %0) #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_rfc4543_exit_tfm(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @crypto_rfc4543_exit_tfm(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2387,7 +2387,7 @@ define internal void @crypto_rfc4543_exit_tfm(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_rfc4543_setkey(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal i32 @crypto_rfc4543_setkey(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %21, label %5
 
@@ -2418,7 +2418,7 @@ define internal i32 @crypto_rfc4543_setkey(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @crypto_rfc4543_setauthsize(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal i32 @crypto_rfc4543_setauthsize(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = icmp eq i32 %1, 16
   br i1 %3, label %4, label %8
 

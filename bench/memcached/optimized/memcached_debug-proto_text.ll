@@ -552,7 +552,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @out_string(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -911,7 +911,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 declare void @conn_set_state(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare zeroext i1 @safe_strtoul(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1639,10 +1639,10 @@ return:                                           ; preds = %sw.default, %sw.bb3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_mget_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_mget_command(ptr noundef %c, ptr noundef nonnull captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %of = alloca %struct._meta_flags, align 8
   %hv = alloca i32, align 4
@@ -2398,7 +2398,7 @@ return:                                           ; preds = %if.end401, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_mset_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_mset_command(ptr noundef %c, ptr noundef nonnull captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %of = alloca %struct._meta_flags, align 8
   %errstr = alloca ptr, align 8
@@ -2769,7 +2769,7 @@ return:                                           ; preds = %error, %if.end196, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_mdelete_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_mdelete_command(ptr noundef %c, ptr noundef nonnull captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %hv = alloca i32, align 4
   %of = alloca %struct._meta_flags, align 8
@@ -3080,7 +3080,7 @@ return:                                           ; preds = %if.then25, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_marithmetic_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_marithmetic_command(ptr noundef %c, ptr noundef nonnull captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %of = alloca %struct._meta_flags, align 8
   %errstr = alloca ptr, align 8
@@ -3579,7 +3579,7 @@ return:                                           ; preds = %if.end283, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_meta_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_meta_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %overflow = alloca i8, align 1
   %cmp = icmp ult i64 %ntokens, 3
@@ -3765,7 +3765,7 @@ return:                                           ; preds = %if.end115, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_get_command(ptr noundef %c, ptr nocapture noundef nonnull %tokens, i1 noundef zeroext %return_cas, i1 noundef zeroext %should_touch) unnamed_addr #0 {
+define internal fastcc void @process_get_command(ptr noundef %c, ptr noundef nonnull captures(none) %tokens, i1 noundef zeroext %return_cas, i1 noundef zeroext %should_touch) unnamed_addr #0 {
 entry:
   %exptime_int = alloca i32, align 4
   %overflow = alloca i8, align 1
@@ -4239,7 +4239,7 @@ if.end212:                                        ; preds = %if.then208, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_update_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens, i32 noundef range(i32 1, 7) %comm, i1 noundef zeroext %handle_cas) unnamed_addr #0 {
+define internal fastcc void @process_update_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens, i32 noundef range(i32 1, 7) %comm, i1 noundef zeroext %handle_cas) unnamed_addr #0 {
 entry:
   %flags = alloca i32, align 4
   %exptime_int = alloca i32, align 4
@@ -4472,7 +4472,7 @@ return:                                           ; preds = %do.end, %if.then78,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_stat(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_stat(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %bytes = alloca i32, align 4
   %id = alloca i32, align 4
@@ -4601,7 +4601,7 @@ if.then48:                                        ; preds = %if.else45
 if.else49:                                        ; preds = %if.else45
   %call50 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #13
   %conv = trunc i64 %call50 to i32
-  %call51 = tail call zeroext i1 @get_stats(ptr noundef %0, i32 noundef %conv, ptr noundef nonnull @append_stats, ptr noundef %c) #12
+  %call51 = tail call zeroext i1 @get_stats(ptr noundef nonnull %0, i32 noundef %conv, ptr noundef nonnull @append_stats, ptr noundef %c) #12
   br i1 %call51, label %if.then52, label %if.else64
 
 if.then52:                                        ; preds = %if.else49
@@ -4650,7 +4650,7 @@ if.end86:                                         ; preds = %if.else64, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_shutdown_command(ptr noundef %c, ptr nocapture readonly %tokens.16.val, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_shutdown_command(ptr noundef %c, ptr readonly captures(none) %tokens.16.val, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %0 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 168), align 8
   %tobool = trunc i8 %0 to i1
@@ -4694,7 +4694,7 @@ if.end10:                                         ; preds = %if.then5, %if.else8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_slabs_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_slabs_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %level.i = alloca i32, align 4
   %ratio.i = alloca double, align 8
@@ -4827,7 +4827,7 @@ if.end.i:                                         ; preds = %lor.lhs.false.i
   br label %process_slabs_automove_command.exit
 
 if.else.i:                                        ; preds = %set_noreply_maybe.exit.i
-  %call9.i = call zeroext i1 @safe_strtoul(ptr noundef %10, ptr noundef nonnull %level.i) #12
+  %call9.i = call zeroext i1 @safe_strtoul(ptr noundef nonnull %10, ptr noundef nonnull %level.i) #12
   br i1 %call9.i, label %if.end11.i, label %process_slabs_automove_command.exit
 
 if.end11.i:                                       ; preds = %if.else.i
@@ -4863,7 +4863,7 @@ if.end32:                                         ; preds = %process_slabs_autom
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_memlimit_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_memlimit_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %memlimit = alloca i32, align 4
   %conv.i = shl i64 %ntokens, 32
@@ -4924,7 +4924,7 @@ if.end19:                                         ; preds = %if.else6, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_arithmetic_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens, i1 noundef zeroext %incr) unnamed_addr #0 {
+define internal fastcc void @process_arithmetic_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens, i1 noundef zeroext %incr) unnamed_addr #0 {
 entry:
   %temp = alloca [24 x i8], align 16
   %delta = alloca i64, align 8
@@ -5013,7 +5013,7 @@ sw.epilog:                                        ; preds = %sw.bb13, %sw.bb12, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_delete_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 3, 6) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_delete_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 3, 6) %ntokens) unnamed_addr #0 {
 entry:
   %hv = alloca i32, align 4
   %cmp = icmp samesign ugt i64 %ntokens, 3
@@ -5224,7 +5224,7 @@ return:                                           ; preds = %if.then1, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_touch_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_touch_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %exptime_int = alloca i32, align 4
   store i32 0, ptr %exptime_int, align 4
@@ -5323,7 +5323,7 @@ if.end41:                                         ; preds = %if.else, %if.then12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_flush_all_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 5) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_flush_all_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 5) %ntokens) unnamed_addr #0 {
 entry:
   %exptime = alloca i32, align 4
   store i32 0, ptr %exptime, align 4
@@ -5429,7 +5429,7 @@ return:                                           ; preds = %if.end29, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_lru_crawler_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_lru_crawler_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %tocrawl = alloca i32, align 4
   %tosleep = alloca i32, align 4
@@ -5725,7 +5725,7 @@ if.end151:                                        ; preds = %if.else127, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_watch_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_watch_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %conv.i = shl i64 %ntokens, 32
   %sext.i = add i64 %conv.i, -8589934592
@@ -5825,7 +5825,7 @@ if.else100:                                       ; preds = %if.else89
   br i1 %cmp105, label %for.inc, label %if.else111
 
 if.else111:                                       ; preds = %if.else100
-  tail call void @out_string(ptr noundef %c, ptr noundef nonnull @.str.15) #12
+  tail call void @out_string(ptr noundef nonnull %c, ptr noundef nonnull @.str.15) #12
   br label %sw.epilog
 
 for.inc:                                          ; preds = %if.else100, %if.else89, %if.else78, %if.else67, %if.else56, %if.else45, %if.else34, %if.else23, %if.else, %for.body
@@ -5839,7 +5839,7 @@ if.end126:                                        ; preds = %for.inc, %if.end3
   %f.2 = phi i16 [ 4, %if.end3 ], [ %5, %for.inc ]
   %sfd = getelementptr inbounds nuw i8, ptr %c, i64 8
   %6 = load i32, ptr %sfd, align 8
-  %call127 = tail call i32 @logger_add_watcher(ptr noundef %c, i32 noundef %6, i16 noundef zeroext %f.2) #12
+  %call127 = tail call i32 @logger_add_watcher(ptr noundef nonnull %c, i32 noundef %6, i16 noundef zeroext %f.2) #12
   switch i32 %call127, label %sw.epilog [
     i32 0, label %sw.bb
     i32 2, label %sw.bb128
@@ -5865,7 +5865,7 @@ sw.epilog:                                        ; preds = %sw.bb129, %sw.bb128
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_verbosity_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_verbosity_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 2, 0) %ntokens) unnamed_addr #0 {
 entry:
   %level = alloca i32, align 4
   %conv.i = shl i64 %ntokens, 32
@@ -5905,7 +5905,7 @@ return:                                           ; preds = %set_noreply_maybe.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_lru_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 3, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_lru_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 3, 0) %ntokens) unnamed_addr #0 {
 entry:
   %pct_hot = alloca i32, align 4
   %pct_warm = alloca i32, align 4
@@ -6101,7 +6101,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_extstore_command(ptr noundef %c, ptr nocapture noundef nonnull readonly %tokens, i64 noundef range(i64 3, 0) %ntokens) unnamed_addr #0 {
+define internal fastcc void @process_extstore_command(ptr noundef %c, ptr noundef nonnull readonly captures(none) %tokens, i64 noundef range(i64 3, 0) %ntokens) unnamed_addr #0 {
 entry:
   %clsid = alloca i32, align 4
   %limit = alloca i32, align 4
@@ -6270,7 +6270,7 @@ if.end133:                                        ; preds = %if.end129, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @base64_encode(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -6281,15 +6281,15 @@ declare ptr @itoa_u32(i32 noundef, ptr noundef) local_unnamed_addr #3
 declare void @resp_add_iov(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @out_errstring(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_meta_flag_preparse(ptr nocapture noundef nonnull %tokens, i64 noundef range(i64 2, 4) %start, ptr noundef nonnull %of, ptr nocapture noundef nonnull writeonly %errstr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_meta_flag_preparse(ptr noundef nonnull captures(none) %tokens, i64 noundef range(i64 2, 4) %start, ptr noundef nonnull %of, ptr noundef nonnull writeonly captures(none) %errstr) unnamed_addr #0 {
 entry:
   %tmp_int = alloca i32, align 4
   %seen = alloca [127 x i8], align 16
@@ -6640,7 +6640,7 @@ declare i32 @do_add_delta(ptr noundef, ptr noundef, i64 noundef, i1 noundef zero
 declare i32 @do_store_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @stats_prefix_record_get(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
@@ -6663,7 +6663,7 @@ declare zeroext i1 @get_stats(ptr noundef, i32 noundef, ptr noundef, ptr noundef
 declare void @stats_reset() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_stats_detail(ptr noundef %c, ptr nocapture noundef readonly %command) unnamed_addr #0 {
+define internal fastcc void @process_stats_detail(ptr noundef %c, ptr noundef readonly captures(none) %command) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   %0 = load i8, ptr %command, align 1
@@ -6763,25 +6763,25 @@ declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

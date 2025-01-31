@@ -45,15 +45,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -254,7 +254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16DirectionalLight19createSplitMatricesEPK6Camera(ptr nocapture noundef nonnull align 4 dereferenceable(429) initializes((260, 426)) %this, ptr nocapture noundef readonly %cam) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN16DirectionalLight19createSplitMatricesEPK6Camera(ptr noundef nonnull align 4 captures(none) dereferenceable(429) initializes((260, 426)) %this, ptr noundef readonly captures(none) %cam) local_unnamed_addr #5 align 2 {
 entry:
   %ref.tmp116 = alloca %"class.irr::core::vector3d", align 8
   %m_camera_direction.i = getelementptr inbounds nuw i8, ptr %cam, i64 72
@@ -685,7 +685,7 @@ _ZN3irr4core8CMatrix4IfE25buildCameraLookAtMatrixLHERKNS0_8vector3dIfEES6_S6_.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare float @tanf(float noundef) local_unnamed_addr #7
@@ -696,7 +696,7 @@ declare noundef signext i16 @_Z10adjustDistsf(i16 noundef signext, float noundef
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN16DirectionalLightC2EjRKN3irr4core8vector3dIfEENS0_5video7SColorfEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(429) initializes((0, 1), (4, 250), (252, 426), (428, 429)) %this, i32 noundef %shadowMapResolution, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %position, <2 x float> %lightColor.coerce0, <2 x float> %lightColor.coerce1, float noundef %farValue) unnamed_addr #9 align 2 {
+define dso_local void @_ZN16DirectionalLightC2EjRKN3irr4core8vector3dIfEENS0_5video7SColorfEf(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(429) initializes((0, 1), (4, 250), (252, 426), (428, 429)) %this, i32 noundef %shadowMapResolution, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %position, <2 x float> %lightColor.coerce0, <2 x float> %lightColor.coerce1, float noundef %farValue) unnamed_addr #9 align 2 {
 entry:
   store i8 1, ptr %this, align 4, !tbaa !64
   %diffuseColor = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -763,7 +763,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16DirectionalLight14update_frustumEPK6CameraP6Clientb(ptr nocapture noundef nonnull align 4 dereferenceable(429) %this, ptr nocapture noundef readonly %cam, ptr noundef %client, i1 noundef zeroext %force) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN16DirectionalLight14update_frustumEPK6CameraP6Clientb(ptr noundef nonnull align 4 captures(none) dereferenceable(429) %this, ptr noundef readonly captures(none) %cam, ptr noundef %client, i1 noundef zeroext %force) local_unnamed_addr #5 align 2 {
 entry:
   %dirty = getelementptr inbounds nuw i8, ptr %this, i64 428
   %0 = load i8, ptr %dirty, align 4, !tbaa !69, !range !70, !noundef !71
@@ -929,7 +929,7 @@ declare noundef nonnull align 8 dereferenceable(648) ptr @_ZN17ClientEnvironment
 declare void @_ZN9ClientMap20updateDrawListShadowEN3irr4core8vector3dIfEES3_ff(ptr noundef nonnull align 8 dereferenceable(648), <2 x float>, float, <2 x float>, float, float noundef, float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, float } @_ZNK16DirectionalLight11getPositionEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #10 align 2 {
+define dso_local { <2 x float>, float } @_ZNK16DirectionalLight11getPositionEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(429) %this) local_unnamed_addr #10 align 2 {
 entry:
   %position = getelementptr inbounds nuw i8, ptr %this, i64 220
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %position, align 4, !tbaa.struct !12
@@ -941,7 +941,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN16DirectionalLight13commitFrustumEv(ptr nocapture noundef nonnull align 4 dereferenceable(429) %this) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN16DirectionalLight13commitFrustumEv(ptr noundef nonnull align 4 captures(none) dereferenceable(429) %this) local_unnamed_addr #11 align 2 {
 entry:
   %dirty = getelementptr inbounds nuw i8, ptr %this, i64 428
   %0 = load i8, ptr %dirty, align 4, !tbaa !69, !range !70, !noundef !71
@@ -960,7 +960,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16DirectionalLight12setDirectionEN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(429) initializes((40, 52)) %this, <2 x float> %dir.coerce0, float %dir.coerce1) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN16DirectionalLight12setDirectionEN3irr4core8vector3dIfEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(429) initializes((40, 52)) %this, <2 x float> %dir.coerce0, float %dir.coerce1) local_unnamed_addr #12 align 2 {
 entry:
   %0 = extractelement <2 x float> %dir.coerce0, i64 0
   %1 = fneg nsz <2 x float> %dir.coerce0
@@ -997,7 +997,7 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit:        ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, float } @_ZNK16DirectionalLight12getPlayerPosEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #10 align 2 {
+define dso_local { <2 x float>, float } @_ZNK16DirectionalLight12getPlayerPosEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(429) %this) local_unnamed_addr #10 align 2 {
 entry:
   %player = getelementptr inbounds nuw i8, ptr %this, i64 232
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %player, align 4, !tbaa.struct !12
@@ -1009,7 +1009,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #10 align 2 {
+define dso_local { <2 x float>, float } @_ZNK16DirectionalLight18getFuturePlayerPosEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(429) %this) local_unnamed_addr #10 align 2 {
 entry:
   %player = getelementptr inbounds nuw i8, ptr %this, i64 408
   %retval.sroa.0.0.copyload = load <2 x float>, ptr %player, align 4, !tbaa.struct !12
@@ -1049,7 +1049,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN16DirectionalLight17getViewProjMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::CMatrix4") align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(429) %this) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN16DirectionalLight17getViewProjMatrixEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.irr::core::CMatrix4") align 4 captures(none) initializes((0, 64)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(429) %this) local_unnamed_addr #14 align 2 {
 entry:
   %ProjOrthMat = getelementptr inbounds nuw i8, ptr %this, i64 92
   %ViewMat = getelementptr inbounds nuw i8, ptr %this, i64 156
@@ -1173,7 +1173,7 @@ declare float @asinf(float noundef) local_unnamed_addr #7
 declare float @llvm.sin.f32(float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #18

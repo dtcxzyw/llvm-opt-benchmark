@@ -3333,7 +3333,7 @@ declare ptr @zend_shared_alloc_get_xlat_entry(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_shared_memdup_put(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_hash_persist(ptr nocapture noundef initializes((36, 40), (48, 56)) %0) unnamed_addr #2 {
+define internal fastcc void @zend_hash_persist(ptr noundef captures(none) initializes((36, 40), (48, 56)) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 16
@@ -3631,7 +3631,7 @@ declare void @llvm.assume(i1 noundef) #3
 declare ptr @zend_shared_memdup_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_zval(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @zend_persist_zval(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %190 [
@@ -4895,7 +4895,7 @@ define hidden void @zend_update_parent_ce(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare zeroext i1 @zend_class_implements_interface(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -6151,7 +6151,7 @@ declare void @zend_jit_unprotect() local_unnamed_addr #1
 declare void @zend_map_ptr_extend(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_op_array(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @zend_persist_op_array(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 8
   %4 = icmp eq i8 %3, 2
@@ -7452,7 +7452,7 @@ declare void @_efree(ptr noundef) local_unnamed_addr #1
 declare i64 @zend_string_hash_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare zeroext i1 @zend_accel_in_shm(ptr noundef) local_unnamed_addr #1
 

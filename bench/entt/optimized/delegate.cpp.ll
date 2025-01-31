@@ -624,7 +624,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z12power_of_twoRKi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %i) local_unnamed_addr #3 {
+define hidden noundef i32 @_Z12power_of_twoRKi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %i) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %i, align 4, !tbaa !4
   %mul = mul nsw i32 %0, %0
@@ -632,7 +632,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z12sum_with_refRKii(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %i, i32 noundef %j) local_unnamed_addr #3 {
+define hidden noundef i32 @_Z12sum_with_refRKii(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %i, i32 noundef %j) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %i, align 4, !tbaa !4
   %add = add nsw i32 %0, %j
@@ -640,7 +640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z12sum_with_ptrPKii(ptr nocapture noundef readonly %i, i32 noundef %j) local_unnamed_addr #3 {
+define hidden noundef i32 @_Z12sum_with_ptrPKii(ptr noundef readonly captures(none) %i, i32 noundef %j) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %i, align 4, !tbaa !4
   %add = add nsw i32 %0, %j
@@ -648,7 +648,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_Z19non_const_referenceRi(ptr nocapture noundef nonnull align 4 dereferenceable(4) %i) local_unnamed_addr #4 {
+define hidden noundef i32 @_Z19non_const_referenceRi(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %i) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %i, align 4, !tbaa !4
   %mul = mul nsw i32 %0, %0
@@ -657,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_Z14move_only_typeSt10unique_ptrIiSt14default_deleteIiEE(ptr nocapture noundef readonly %ptr) local_unnamed_addr #5 {
+define hidden noundef i32 @_Z14move_only_typeSt10unique_ptrIiSt14default_deleteIiEE(ptr noundef readonly captures(none) %ptr) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %ptr, align 8, !tbaa !8
   %1 = load i32, ptr %0, align 4, !tbaa !4
@@ -667,7 +667,7 @@ entry:
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -802,13 +802,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #6
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN29Delegate_Functionalities_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN29Delegate_Functionalities_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIN4entt8delegateIFiiEEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit:
   %ff_del = alloca %"class.entt::delegate", align 16
   %mf_del = alloca %"class.entt::delegate", align 16
@@ -3359,7 +3359,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN43DelegateDeathTest_DISABLED_InvokeEmpty_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN43DelegateDeathTest_DISABLED_InvokeEmpty_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 cleanup.cont:
   %gtest_dt = alloca ptr, align 8
   %agg.tmp = alloca %"class.testing::Matcher", align 8
@@ -4246,17 +4246,17 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #15
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #15
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZN7testing8internal9DeathTest11LastMessageEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN25Delegate_DataMembers_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN25Delegate_DataMembers_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIdiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp4 = alloca %"class.testing::Message", align 8
@@ -4380,7 +4380,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24Delegate_Comparison_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24Delegate_Comparison_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIN4entt8delegateIFiiEEES6_TnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSG_RKS8_RKS9_.exit:
   %lhs = alloca %"class.entt::delegate", align 16
   %rhs = alloca %"class.entt::delegate", align 16
@@ -11691,7 +11691,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35Delegate_ConstNonConstNoExcept_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35Delegate_ConstNonConstNoExcept_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp2 = alloca %"class.testing::Message", align 8
@@ -11815,13 +11815,13 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN28Delegate_DeductionGuide_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN28Delegate_DeductionGuide_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing15AssertionResultD2Ev.exit20:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN27Delegate_ConstInstance_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN27Delegate_ConstInstance_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp61 = alloca %"class.testing::Message", align 8
@@ -12097,7 +12097,7 @@ ehcleanup146:                                     ; preds = %ehcleanup137, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN31Delegate_NonConstReference_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN31Delegate_NonConstReference_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp3 = alloca %"class.testing::Message", align 8
@@ -12373,7 +12373,7 @@ ehcleanup47:                                      ; preds = %ehcleanup38, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26Delegate_MoveOnlyType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26Delegate_MoveOnlyType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp10 = alloca %"class.testing::Message", align 8
@@ -12517,7 +12517,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit140: ; preds = %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN25Delegate_DiscardLast_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN25Delegate_DiscardLast_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i274:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp37 = alloca %"class.testing::Message", align 8
@@ -12974,7 +12974,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit488: ; preds = %ehcleanup195, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23Delegate_SkipFirst_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23Delegate_SkipFirst_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i274:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp37 = alloca %"class.testing::Message", align 8
@@ -13431,7 +13431,7 @@ _ZNSt10unique_ptrIiSt14default_deleteIiEED2Ev.exit488: ; preds = %ehcleanup195, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26Delegate_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26Delegate_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp65 = alloca %"class.testing::Message", align 8
@@ -13997,13 +13997,13 @@ ehcleanup270:                                     ; preds = %ehcleanup261, %ehcl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN37Delegate_VoidVsNonVoidReturnType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37Delegate_VoidVsNonVoidReturnType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 cleanup80:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN31Delegate_UnboundDataMember_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN31Delegate_UnboundDataMember_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp4 = alloca %"class.testing::Message", align 8
@@ -14127,7 +14127,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35Delegate_UnboundMemberFunction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35Delegate_UnboundMemberFunction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp5 = alloca %"class.testing::Message", align 8
@@ -14251,7 +14251,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30Delegate_TheLessTheBetter_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30Delegate_TheLessTheBetter_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIiiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp4 = alloca %"class.testing::Message", align 8
@@ -14960,7 +14960,7 @@ entry:
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryImplI29Delegate_Functionalities_TestED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #10 comdat align 2 {
@@ -14990,7 +14990,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @"_ZZN29Delegate_Functionalities_Test8TestBodyEvEN3$_08__invokeEPKvi"(ptr nocapture readnone %ptr, i32 noundef returned %value) #18 align 2 {
+define internal noundef i32 @"_ZZN29Delegate_Functionalities_Test8TestBodyEvEN3$_08__invokeEPKvi"(ptr readnone captures(none) %ptr, i32 noundef returned %value) #18 align 2 {
 entry:
   ret i32 %value
 }
@@ -15541,7 +15541,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK7testing8internal19MatchesRegexMatcher10DescribeToEPSo(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef %os) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15981,7 +15981,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16149,28 +16149,28 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_08__invokeEPKvi"(ptr nocapture readnone %ptr, i32 noundef %val) #18 align 2 {
+define internal noundef i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_08__invokeEPKvi"(ptr readnone captures(none) %ptr, i32 noundef %val) #18 align 2 {
 entry:
   %mul.i = mul nsw i32 %val, %val
   ret i32 %mul.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -2147483648, 2147483647) i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_18__invokeEPKvi"(ptr nocapture readnone %0, i32 noundef %val) #18 align 2 {
+define internal noundef range(i32 -2147483648, 2147483647) i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_18__invokeEPKvi"(ptr readnone captures(none) %0, i32 noundef %val) #18 align 2 {
 entry:
   %add.i = shl nsw i32 %val, 1
   ret i32 %add.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -2147483648, 2147483647) i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_28__invokeEPKvi"(ptr nocapture readnone %ptr, i32 noundef %val) #18 align 2 {
+define internal noundef range(i32 -2147483648, 2147483647) i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_28__invokeEPKvi"(ptr readnone captures(none) %ptr, i32 noundef %val) #18 align 2 {
 entry:
   %add.i = shl nsw i32 %val, 1
   ret i32 %add.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_38__invokeEPKvi"(ptr nocapture readnone %0, i32 noundef %val) #18 align 2 {
+define internal noundef i32 @"_ZZN24Delegate_Comparison_Test8TestBodyEvEN3$_38__invokeEPKvi"(ptr readnone captures(none) %0, i32 noundef %val) #18 align 2 {
 entry:
   %mul.i = mul nsw i32 %val, %val
   ret i32 %mul.i
@@ -17679,7 +17679,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %if.end
-  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 noundef %call.i.i)
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i

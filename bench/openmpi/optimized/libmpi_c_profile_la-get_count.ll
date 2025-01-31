@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Get_count = weak alias i32 (ptr, ptr, ptr), ptr @PMPI_Get_count
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @PMPI_Get_count(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
+define range(i32 0, 4) i32 @PMPI_Get_count(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = load i8, ptr @ompi_mpi_param_check, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %18

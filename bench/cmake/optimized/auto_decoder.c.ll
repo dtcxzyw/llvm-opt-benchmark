@@ -240,7 +240,7 @@ define internal void @auto_decoder_end(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @auto_decoder_get_check(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @auto_decoder_get_check(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -257,7 +257,7 @@ define internal i32 @auto_decoder_get_check(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @auto_decoder_memconfig(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+define internal i32 @auto_decoder_memconfig(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -300,7 +300,7 @@ define internal i32 @auto_decoder_memconfig(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @lzma_stream_decoder_init(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 

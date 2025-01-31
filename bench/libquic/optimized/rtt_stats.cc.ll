@@ -25,7 +25,7 @@ $_ZN3net14WindowedFilterINS_8QuicTime5DeltaENS_9MinFilterIS2_EES1_S2_E6UpdateES2
 @_ZN3net8RttStatsC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net8RttStatsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net8RttStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((0, 116), (120, 224)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net8RttStatsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 116), (120, 224)) %this) unnamed_addr #0 align 2 {
 entry:
   %initial_rtt_us_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net8RttStats23SampleNewWindowedMinRttEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((88, 116)) %this, i32 noundef %num_samples) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net8RttStats23SampleNewWindowedMinRttEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((88, 116)) %this, i32 noundef %num_samples) local_unnamed_addr #0 align 2 {
 entry:
   %num_samples_for_forced_min_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i32 %num_samples, ptr %num_samples_for_forced_min_, align 8
@@ -52,7 +52,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net8RttStats21ExpireSmoothedMetricsEv(ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net8RttStats21ExpireSmoothedMetricsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
 entry:
   %mean_deviation_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %smoothed_rtt_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -482,7 +482,7 @@ if.end175:                                        ; preds = %if.then65, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net8RttStats21OnConnectionMigrationEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((0, 48), (64, 88), (112, 116), (152, 224)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net8RttStats21OnConnectionMigrationEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(224) initializes((0, 48), (64, 88), (112, 116), (152, 224)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %mean_deviation_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %initial_rtt_us_ = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -503,7 +503,7 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #5
 declare i64 @llround(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #7

@@ -2079,7 +2079,7 @@ $_ZZN5folly14AccessSpreaderISt6atomicE8cpuCacheEvE8cpuCache = comdat any
 @_ZN5folly10jsonschema9ValidatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly10jsonschema9ValidatorD2Ev
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly9SingletonINS_10jsonschema9ValidatorENS_6detail10DefaultTagES4_EC2ESt8functionIFPS2_vEES6_IFvS7_EE(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %c, ptr noundef %t) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2288,13 +2288,13 @@ _ZNSt14_Function_baseD2Ev.exit56:                 ; preds = %if.then.i53, %_ZNSt
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZNSt17_Function_handlerIFPN5folly10jsonschema9ValidatorEvENS1_12_GLOBAL__N_13$_0EE9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZNSt17_Function_handlerIFPN5folly10jsonschema9ValidatorEvENS1_12_GLOBAL__N_13$_0EE9_M_invokeERKSt9_Any_data"(ptr nonnull readnone align 8 captures(none) %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp2.i.i.i = alloca %"struct.folly::dynamic", align 8
@@ -2321,7 +2321,7 @@ lpad.i.i.i:                                       ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN5folly10jsonschema9ValidatorEvENS1_12_GLOBAL__N_13$_0EE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFPN5folly10jsonschema9ValidatorEvENS1_12_GLOBAL__N_13$_0EE10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.epilog.sink.split
@@ -2353,7 +2353,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10jsonschema13makeValidatorERKNS_7dynamicE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %schema) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10jsonschema13makeValidatorERKNS_7dynamicE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %schema) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.std::unique_ptr.240", align 8
   %context = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidatorContext", align 8
@@ -2634,7 +2634,7 @@ ehcleanup12:                                      ; preds = %lpad10, %ehcleanup
 declare void @_ZN5folly9parseJsonENS_5RangeIPKcEE(ptr dead_on_unwind writable sret(%"struct.folly::dynamic") align 8, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #8
@@ -5476,7 +5476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
@@ -6311,7 +6311,7 @@ invoke.cont:                                      ; preds = %if.else.i.i, %if.th
   store i8 0, ptr %3, align 8, !tbaa !16
   call void @llvm.experimental.noalias.scope.decl(metadata !278)
   %call.i.i.i16 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %__what) #41, !noalias !278
-  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef %__what, i64 noundef %call.i.i.i16)
+  %call3.i.i.i28 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %__what, i64 noundef %call.i.i.i16)
           to label %call3.i.i.i.noexc27 unwind label %lpad4
 
 call3.i.i.i.noexc27:                              ; preds = %invoke.cont
@@ -10281,7 +10281,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #13 comdat align 2 {
@@ -11214,7 +11214,7 @@ _ZNSt12__shared_ptrISt10shared_ptrIN5folly10jsonschema9ValidatorEELN9__gnu_cxx12
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #23
@@ -12930,7 +12930,7 @@ terminate.lpad:                                   ; preds = %if.else.i.i53, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN5folly8FunctionIFvvEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 16 dereferenceable(64) %__args) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13409,13 +13409,13 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN5folly10jsonschema9ValidatorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #24 align 2 {
+define void @_ZN5folly10jsonschema9ValidatorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #24 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN5folly10jsonschema9ValidatorD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) unnamed_addr #25 align 2 {
+define void @_ZN5folly10jsonschema9ValidatorD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %this) unnamed_addr #25 align 2 {
 entry:
   tail call void @llvm.trap() #40
   unreachable
@@ -20533,7 +20533,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5foll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -20589,7 +20589,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %validators_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %validators_, align 8, !tbaa !466
@@ -20682,7 +20682,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorD2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_115SchemaValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_115SchemaValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %validators_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %validators_.val = load ptr, ptr %validators_, align 8, !tbaa !22
@@ -20718,7 +20718,7 @@ return:                                           ; preds = %for.body, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_115SchemaValidator8validateERKNS_7dynamicE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_115SchemaValidator8validateERKNS_7dynamicE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vc = alloca %"struct.folly::jsonschema::(anonymous namespace)::ValidationContext", align 8
   %se = alloca %"class.folly::Optional", align 8
@@ -20854,7 +20854,7 @@ unreachable:                                      ; preds = %invoke.cont3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_115SchemaValidator12try_validateERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::exception_wrapper") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_115SchemaValidator12try_validateERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::exception_wrapper") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %vc = alloca %"struct.folly::jsonschema::(anonymous namespace)::ValidationContext", align 8
@@ -20978,7 +20978,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn8_N5folly10jsonschema12_GLOBAL__N_115SchemaValidatorD1Ev(ptr nocapture noundef readonly %this) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn8_N5folly10jsonschema12_GLOBAL__N_115SchemaValidatorD1Ev(ptr noundef readonly captures(none) %this) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %validators_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %validators_.i, align 8, !tbaa !466
@@ -21072,7 +21072,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorD0Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn8_NK5folly10jsonschema12_GLOBAL__N_115SchemaValidator8validateERKNS_7dynamicE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #28 align 2 {
+define internal void @_ZThn8_NK5folly10jsonschema12_GLOBAL__N_115SchemaValidator8validateERKNS_7dynamicE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #28 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNK5folly10jsonschema12_GLOBAL__N_115SchemaValidator8validateERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %value)
@@ -21080,7 +21080,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_NK5folly10jsonschema12_GLOBAL__N_115SchemaValidator12try_validateERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::exception_wrapper") align 8 %agg.result, ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #29 align 2 {
+define internal void @_ZThn8_NK5folly10jsonschema12_GLOBAL__N_115SchemaValidator12try_validateERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::exception_wrapper") align 8 %agg.result, ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #29 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZNK5folly10jsonschema12_GLOBAL__N_115SchemaValidator12try_validateERKNS_7dynamicE(ptr dead_on_unwind writable sret(%"class.folly::exception_wrapper") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) #41
@@ -21088,7 +21088,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !466
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -21803,7 +21803,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
@@ -21813,7 +21813,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare noundef ptr @_ZNKR5folly7dynamic7get_ptrENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(40), ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12RefValidatorES5_ISB_EEEEERS7_DpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %__args) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_12RefValidatorES5_ISB_EEEEERS7_DpOT_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %__args) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish, align 8, !tbaa !22
@@ -22040,7 +22040,7 @@ _ZN5folly2toImEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4t
 declare noundef i64 @_ZNK5folly7dynamic4sizeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5folly10jsonschema12_GLOBAL__N_110IValidatorESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %__k) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5folly10jsonschema12_GLOBAL__N_110IValidatorESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEixERSG_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %__k) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i.i.i.i = alloca i64, align 8
   %__k.val.i = load ptr, ptr %__k, align 8, !tbaa !46
@@ -22223,7 +22223,7 @@ _ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %__args) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteIS4_EESaIS7_EE12emplace_backIJS0_INS3_15SchemaValidatorES5_ISB_EEEEERS7_DpOT_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %__args) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish, align 8, !tbaa !22
@@ -22413,7 +22413,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119MultipleOfValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119MultipleOfValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22431,7 +22431,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119ComparisonValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119ComparisonValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22449,7 +22449,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_122StringPatternValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_122StringPatternValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22515,7 +22515,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119ArrayItemsValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119ArrayItemsValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22598,7 +22598,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119PropertiesValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119PropertiesValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22615,7 +22615,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_117RequiredValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_117RequiredValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22675,7 +22675,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22692,7 +22692,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22710,7 +22710,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_113TypeValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22754,7 +22754,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22810,7 +22810,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22866,7 +22866,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112NotValidatorESt14default_deleteIS3_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_112NotValidatorESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !22
   %cmp.not = icmp eq ptr %0, null
@@ -22985,7 +22985,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_112RefValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_112RefValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 {
 entry:
   %validator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %validator_, align 8, !tbaa !427
@@ -27366,7 +27366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119MultipleOfValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119MultipleOfValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i52 = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
@@ -28487,7 +28487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119ComparisonValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119ComparisonValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i42.i61 = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %ref.tmp.i40.i62 = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
@@ -28772,7 +28772,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEE8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((16, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEE8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((16, 17)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -29031,7 +29031,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEE8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((16, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEE8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((16, 17)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -29141,7 +29141,7 @@ _ZNSt12__shared_ptrIN5boost13re_detail_50026basic_regex_implementationIcNS0_12re
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_122StringPatternValidatorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_122StringPatternValidatorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !56
@@ -29254,7 +29254,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_122StringPatternValidatorD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_122StringPatternValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((16, 17)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_122StringPatternValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((16, 17)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %1 = load i32, ptr %value, align 8, !tbaa !416
@@ -80791,7 +80791,7 @@ _ZN5boost13match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_st
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_119ArrayItemsValidatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_119ArrayItemsValidatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %additionalItemsValidator_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %additionalItemsValidator_, align 8, !tbaa !22
@@ -80939,7 +80939,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_119ArrayItemsValidatorD2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119ArrayItemsValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119ArrayItemsValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i107 = alloca %"struct.folly::dynamic", align 8
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
@@ -81132,7 +81132,7 @@ declare void @llvm.assume(i1 noundef) #33
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZNKR5folly7dynamic6atImplERKS0_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_110IValidatorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #24 align 2 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_110IValidatorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #24 align 2 {
 entry:
   ret void
 }
@@ -81145,7 +81145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_120ArrayUniqueValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_120ArrayUniqueValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %unique_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -81230,7 +81230,7 @@ return:                                           ; preds = %for.end33, %cleanup
 declare noundef zeroext i1 @_ZN5follyeqERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorISt4pairIN5boost11basic_regexIcNS1_12regex_traitsIcNS1_16cpp_regex_traitsIcEEEEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISC_EEESaISG_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt4pairIN5boost11basic_regexIcNS1_12regex_traitsIcNS1_16cpp_regex_traitsIcEEEEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISC_EEESaISG_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !722
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -81574,7 +81574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119PropertiesValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119PropertiesValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %0 = load i32, ptr %value, align 8, !tbaa !416
@@ -81943,13 +81943,13 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #34
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #34
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #16
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_117RequiredValidatorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_117RequiredValidatorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %properties_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %properties_, align 8, !tbaa !433
@@ -82050,7 +82050,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_117RequiredValidatorD2Ev.exit: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_117RequiredValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_117RequiredValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load i32, ptr %value, align 8, !tbaa !416
   %cmp.not.i.i.i = icmp eq i32 %1, 5
@@ -82316,7 +82316,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA10_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr nocapture readonly %args1.0.val, i64 %args1.8.val, ptr noundef nonnull align 8 dereferenceable(40) %args3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA10_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_7dynamicEEEENS_8OptionalINS1_11SchemaErrorEEEDpOT_(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr readonly captures(none) %args1.0.val, i64 %args1.8.val, ptr noundef nonnull align 8 dereferenceable(40) %args3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
@@ -82514,7 +82514,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN5folly10jsonschema12_GLOBAL__N_110IValidatorESt14default_deleteISB_EEESaISF_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !823
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -82670,7 +82670,7 @@ _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %schemaDep_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %schemaDep_, align 8, !tbaa !823
@@ -82830,7 +82830,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119DependencyValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_119DependencyValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seed.addr.i.i.i.i.i.i = alloca i64, align 8
   %hash1.i.i.i.i.i.i = alloca i64, align 8
@@ -83543,7 +83543,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_113EnumValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_113EnumValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %schema_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -84495,7 +84495,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_113TypeValidatorD2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_113TypeValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_113TypeValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
@@ -84818,7 +84818,7 @@ _ZNSt6vectorIN5folly7dynamic4TypeESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit: 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %validators_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %validators_, align 8, !tbaa !466
@@ -84911,7 +84911,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorD2Ev.exit: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_114AllOfValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_114AllOfValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %validators_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %validators_.val = load ptr, ptr %validators_, align 8, !tbaa !22
@@ -84947,7 +84947,7 @@ return:                                           ; preds = %for.body, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorC2ERNS1_22SchemaValidatorContextERKNS_7dynamicENS2_4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %schema, i32 noundef range(i32 0, 2) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorC2ERNS1_22SchemaValidatorContextERKNS_7dynamicENS2_4TypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 12), (16, 40)) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %schema, i32 noundef range(i32 0, 2) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.240", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorE, i64 16), ptr %this, align 8, !tbaa !26
@@ -85167,7 +85167,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %validators_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %validators_, align 8, !tbaa !466
@@ -85260,7 +85260,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorD2Ev.exit: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_114AnyOfValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_114AnyOfValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i65 = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
@@ -85548,7 +85548,7 @@ _ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EED2Ev.
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly10jsonschema12_GLOBAL__N_112NotValidatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly10jsonschema12_GLOBAL__N_112NotValidatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %validator_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %validator_, align 8, !tbaa !22
@@ -85588,7 +85588,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_112NotValidatorD2Ev.exit: ; preds = %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_112NotValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((16, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly10jsonschema12_GLOBAL__N_112NotValidator8validateERNS1_17ValidationContextERKNS_7dynamicE(ptr dead_on_unwind noalias writable sret(%"class.folly::Optional") align 8 initializes((16, 17)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(56) %vc, ptr noundef nonnull align 8 dereferenceable(40) %value) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", align 8
   %ref.tmp = alloca %"class.folly::Optional", align 8
@@ -85855,7 +85855,7 @@ __cxx_global_var_init.exit:                       ; preds = %if.then.i5.i, %_ZNS
 declare i32 @llvm.fshl.i32(i32, i32, i32) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #36
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #36
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #16

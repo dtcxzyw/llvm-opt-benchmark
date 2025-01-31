@@ -538,7 +538,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.createInputDataType.2 = private unnamed_addr constant [8 x ptr] [ptr @H5T_NATIVE_UCHAR_g, ptr @H5T_NATIVE_USHORT_g, ptr poison, ptr @H5T_NATIVE_UINT_g, ptr poison, ptr poison, ptr poison, ptr @H5T_NATIVE_ULLONG_g], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i16, align 2
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
@@ -862,7 +862,7 @@ sub_2:                                            ; preds = %sub_1
   %180 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull readonly dereferenceable(1) %82, i64 noundef 255) #17
   store i8 0, ptr %68, align 2
   %181 = call ptr @strtok(ptr noundef nonnull %40, ptr noundef nonnull @__const.parseDimensions.delimiter) #17
-  %182 = call i64 @strtoull(ptr nocapture noundef %181, ptr noundef null, i32 noundef 10) #17
+  %182 = call i64 @strtoull(ptr noundef captures(none) %181, ptr noundef null, i32 noundef 10) #17
   %183 = load ptr, ptr %177, align 8
   store i64 %182, ptr %183, align 8
   %184 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.parseDimensions.delimiter) #17
@@ -872,7 +872,7 @@ sub_2:                                            ; preds = %sub_1
 .lr.ph.i:                                         ; preds = %179, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %179 ]
   %186 = phi ptr [ %190, %.lr.ph.i ], [ %184, %179 ]
-  %187 = call i64 @strtoull(ptr nocapture noundef nonnull %186, ptr noundef null, i32 noundef 10) #17
+  %187 = call i64 @strtoull(ptr noundef nonnull captures(none) %186, ptr noundef null, i32 noundef 10) #17
   %188 = load ptr, ptr %177, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %189 = getelementptr inbounds nuw i64, ptr %188, i64 %indvars.iv.i
@@ -964,7 +964,7 @@ parseDimensions.exit.thread:                      ; preds = %.lr.ph.i, %179
   br label %252
 
 230:                                              ; preds = %111
-  %231 = call i64 @strtol(ptr nocapture noundef nonnull %82, ptr noundef null, i32 noundef 10) #17
+  %231 = call i64 @strtol(ptr noundef nonnull captures(none) %82, ptr noundef null, i32 noundef 10) #17
   %232 = trunc i64 %231 to i32
   br label %234
 
@@ -1493,7 +1493,7 @@ allocateIntegerStorage.exit.i.i:                  ; preds = %352, %347, %342, %3
   br label %474
 
 456:                                              ; preds = %.lr.ph114.i.i.i
-  %457 = call i64 @strtoll(ptr nocapture noundef nonnull %30, ptr noundef null, i32 noundef 10) #17
+  %457 = call i64 @strtoll(ptr noundef nonnull captures(none) %30, ptr noundef null, i32 noundef 10) #17
   store i64 %457, ptr %.085112.i.i.i, align 8
   %458 = add nuw i64 %.6113.i.i.i, 1
   %459 = getelementptr inbounds nuw i8, ptr %.085112.i.i.i, i64 8
@@ -2650,7 +2650,7 @@ allocateUIntegerStorage.exit.i.i:                 ; preds = %823, %818, %813, %8
   br label %945
 
 927:                                              ; preds = %.lr.ph113.i.i.i
-  %928 = call i64 @strtoll(ptr nocapture noundef nonnull %6, ptr noundef null, i32 noundef 10) #17
+  %928 = call i64 @strtoll(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 10) #17
   store i64 %928, ptr %.084111.i.i.i, align 8
   %929 = add nuw i64 %.6112.i.i.i, 1
   %930 = getelementptr inbounds nuw i8, ptr %.084111.i.i.i, i64 8
@@ -3155,13 +3155,13 @@ declare void @h5tools_setstatus(i32 noundef) local_unnamed_addr #1
 declare void @h5tools_init() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @setvbuf(ptr nocapture noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i32 @setvbuf(ptr noundef captures(none), ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @print_version(ptr noundef) local_unnamed_addr #1
 
@@ -3169,7 +3169,7 @@ declare void @print_version(ptr noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @usage(ptr noundef %0) local_unnamed_addr #6 {
@@ -3181,7 +3181,7 @@ define dso_local void @usage(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @setDefaultValues(ptr noundef initializes((0, 4), (5104, 5116), (5120, 5128), (5136, 5144)) %0, i32 noundef %1) local_unnamed_addr #6 {
@@ -3219,7 +3219,7 @@ define dso_local void @setDefaultValues(ptr noundef initializes((0, 4), (5104, 5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @help(ptr noundef %0) local_unnamed_addr #6 {
@@ -3834,19 +3834,19 @@ define internal fastcc range(i32 -1, 1) i32 @parsePathInfo(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @createOutputDataType(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @createOutputDataType(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5136
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %269 [
@@ -4397,7 +4397,7 @@ declare i32 @H5open() local_unnamed_addr #1
 declare i32 @H5Tset_order(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @createInputDataType(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @createInputDataType(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5108
@@ -5124,19 +5124,19 @@ define dso_local noundef i64 @swap_uint64(i64 noundef %0) local_unnamed_addr #10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare i32 @H5Eauto_is_v2(i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5258,7 +5258,7 @@ validateConfigurationParameters.exit.thread720:   ; preds = %OutputByteOrderStrT
   br label %validateConfigurationParameters.exit
 
 71:                                               ; preds = %65
-  %72 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %72 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not451 = icmp eq i32 %72, 1
   br i1 %.not451, label %76, label %73
 
@@ -5279,7 +5279,7 @@ validateConfigurationParameters.exit.thread720:   ; preds = %OutputByteOrderStrT
 
 82:                                               ; preds = %76
   store i32 1, ptr %62, align 8
-  %83 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %83 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   br label %.loopexit
 
 84:                                               ; preds = %64
@@ -5298,7 +5298,7 @@ validateConfigurationParameters.exit.thread720:   ; preds = %OutputByteOrderStrT
   br label %validateConfigurationParameters.exit
 
 91:                                               ; preds = %85
-  %92 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %92 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not454 = icmp eq i32 %92, 1
   br i1 %.not454, label %96, label %93
 
@@ -6751,7 +6751,7 @@ OutputArchStrToInt.exit931.thread.i:              ; preds = %471
 
 496:                                              ; preds = %495
   store i32 -1, ptr %61, align 8
-  %497 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %497 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not455 = icmp eq i32 %497, 1
   br i1 %.not455, label %501, label %498
 
@@ -6761,7 +6761,7 @@ OutputArchStrToInt.exit931.thread.i:              ; preds = %471
   br label %validateConfigurationParameters.exit
 
 501:                                              ; preds = %496
-  %502 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %502 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not456 = icmp eq i32 %502, 1
   br i1 %.not456, label %.critedge, label %503
 
@@ -6776,7 +6776,7 @@ OutputArchStrToInt.exit931.thread.i:              ; preds = %471
   br i1 %.not460, label %506, label %525
 
 506:                                              ; preds = %.critedge
-  %507 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %507 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not461 = icmp eq i32 %507, 1
   br i1 %.not461, label %511, label %508
 
@@ -6826,7 +6826,7 @@ getInputSize.exit:                                ; preds = %516
   br i1 %.not465, label %526, label %531
 
 526:                                              ; preds = %525
-  %527 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %527 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not466 = icmp eq i32 %527, 1
   br i1 %.not466, label %543, label %528
 
@@ -6841,7 +6841,7 @@ getInputSize.exit:                                ; preds = %516
   br i1 %.not468, label %532, label %537
 
 532:                                              ; preds = %531
-  %533 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %533 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not469 = icmp eq i32 %533, 1
   br i1 %.not469, label %543, label %534
 
@@ -6856,7 +6856,7 @@ getInputSize.exit:                                ; preds = %516
   br i1 %.not471, label %538, label %543
 
 538:                                              ; preds = %537
-  %539 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %539 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not472 = icmp eq i32 %539, 1
   br i1 %.not472, label %543, label %540
 
@@ -6866,7 +6866,7 @@ getInputSize.exit:                                ; preds = %516
   br label %validateConfigurationParameters.exit
 
 543:                                              ; preds = %getInputSize.exit, %526, %537, %538, %532, %511
-  %544 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %544 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not473 = icmp eq i32 %544, 1
   br i1 %.not473, label %select.unfold, label %545
 
@@ -6886,7 +6886,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not478, label %549, label %658
 
 549:                                              ; preds = %548
-  %550 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %550 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not479 = icmp eq i32 %550, 1
   br i1 %.not479, label %554, label %551
 
@@ -6920,7 +6920,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not485, label %561, label %655
 
 561:                                              ; preds = %560
-  %562 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %562 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not486 = icmp eq i32 %562, 1
   br i1 %.not486, label %566, label %563
 
@@ -6930,7 +6930,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit
 
 566:                                              ; preds = %561
-  %567 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %567 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not487 = icmp eq i32 %567, 1
   br i1 %.not487, label %571, label %568
 
@@ -6945,7 +6945,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not490, label %572, label %604
 
 572:                                              ; preds = %571
-  %573 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %573 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not491 = icmp eq i32 %573, 1
   br i1 %.not491, label %.preheader789, label %574
 
@@ -6961,7 +6961,7 @@ select.unfold:                                    ; preds = %543
   %578 = zext nneg i32 %.0424859 to i64
   %579 = getelementptr inbounds nuw [32 x i64], ptr %19, i64 0, i64 %578
   store i64 %577, ptr %579, align 8
-  %580 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %580 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not511 = icmp eq i32 %580, 1
   br i1 %.not511, label %584, label %581
 
@@ -7010,7 +7010,7 @@ select.unfold:                                    ; preds = %543
 
 ._crit_edge862:                                   ; preds = %.lr.ph861
   store i32 1, ptr %44, align 8
-  %603 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %603 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not493 = icmp eq i32 %603, 1
   br i1 %.not493, label %610, label %607
 
@@ -7039,7 +7039,7 @@ select.unfold:                                    ; preds = %543
   br i1 %616, label %validateConfigurationParameters.exit, label %617
 
 617:                                              ; preds = %611
-  %618 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %618 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not497 = icmp eq i32 %618, 1
   br i1 %.not497, label %622, label %619
 
@@ -7054,7 +7054,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not500, label %623, label %650
 
 623:                                              ; preds = %622
-  %624 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %624 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not501 = icmp eq i32 %624, 1
   br i1 %.not501, label %.preheader787, label %625
 
@@ -7092,7 +7092,7 @@ select.unfold:                                    ; preds = %543
   br label %638
 
 638:                                              ; preds = %633, %629
-  %639 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %639 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not507 = icmp eq i32 %639, 1
   br i1 %.not507, label %643, label %640
 
@@ -7122,7 +7122,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit
 
 653:                                              ; preds = %643
-  %654 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %654 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   br label %.loopexit
 
 655:                                              ; preds = %560
@@ -7136,7 +7136,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not516, label %659, label %726
 
 659:                                              ; preds = %658
-  %660 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %660 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not517 = icmp eq i32 %660, 1
   br i1 %.not517, label %664, label %661
 
@@ -7146,7 +7146,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit
 
 664:                                              ; preds = %659
-  %665 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %665 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not518 = icmp eq i32 %665, 1
   br i1 %.not518, label %669, label %666
 
@@ -7175,7 +7175,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit
 
 679:                                              ; preds = %670
-  %680 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %680 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not522 = icmp eq i32 %680, 1
   br i1 %.not522, label %684, label %681
 
@@ -7190,7 +7190,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not525, label %685, label %707
 
 685:                                              ; preds = %684
-  %686 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %686 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not526 = icmp eq i32 %686, 1
   br i1 %.not526, label %.preheader790, label %687
 
@@ -7207,7 +7207,7 @@ select.unfold:                                    ; preds = %543
   %692 = zext nneg i32 %.0413858 to i64
   %693 = getelementptr inbounds nuw i64, ptr %691, i64 %692
   store i64 %690, ptr %693, align 8
-  %694 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %694 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not536 = icmp eq i32 %694, 1
   br i1 %.not536, label %698, label %695
 
@@ -7234,7 +7234,7 @@ select.unfold:                                    ; preds = %543
 705:                                              ; preds = %698
   store i32 1, ptr %42, align 4
   store i32 1, ptr %44, align 8
-  %706 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %706 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not528 = icmp eq i32 %706, 1
   br i1 %.not528, label %713, label %710
 
@@ -7257,7 +7257,7 @@ select.unfold:                                    ; preds = %543
   br label %719
 
 714:                                              ; preds = %713
-  %715 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.14, ptr noundef nonnull %16) #17
+  %715 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.14, ptr noundef nonnull %16) #17
   %.not531 = icmp eq i32 %715, 1
   br i1 %.not531, label %.preheader1100, label %716
 
@@ -7272,7 +7272,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not534, label %725, label %720
 
 720:                                              ; preds = %719
-  %721 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %721 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not535 = icmp eq i32 %721, 1
   br i1 %.not535, label %719, label %722
 
@@ -7290,7 +7290,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not542, label %727, label %772
 
 727:                                              ; preds = %726
-  %728 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %728 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not543 = icmp eq i32 %728, 1
   br i1 %.not543, label %732, label %729
 
@@ -7300,7 +7300,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit
 
 732:                                              ; preds = %727
-  %733 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %733 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not544 = icmp eq i32 %733, 1
   br i1 %.not544, label %737, label %734
 
@@ -7315,7 +7315,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not546, label %738, label %765
 
 738:                                              ; preds = %737
-  %739 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %739 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not547 = icmp eq i32 %739, 1
   br i1 %.not547, label %743, label %740
 
@@ -7325,7 +7325,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit
 
 743:                                              ; preds = %738
-  %744 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %744 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not548 = icmp eq i32 %744, 1
   br i1 %.not548, label %748, label %745
 
@@ -7335,7 +7335,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit
 
 748:                                              ; preds = %743
-  %749 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %749 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not549 = icmp eq i32 %749, 1
   br i1 %.not549, label %753, label %750
 
@@ -7345,7 +7345,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit
 
 753:                                              ; preds = %748
-  %754 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.14, ptr noundef nonnull %16) #17
+  %754 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.14, ptr noundef nonnull %16) #17
   %.not550 = icmp eq i32 %754, 1
   br i1 %.not550, label %758, label %755
 
@@ -7357,7 +7357,7 @@ select.unfold:                                    ; preds = %543
 758:                                              ; preds = %753
   %759 = load i32, ptr %16, align 4
   store i32 %759, ptr %46, align 4
-  %760 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %760 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not551 = icmp eq i32 %760, 1
   br i1 %.not551, label %764, label %761
 
@@ -7386,7 +7386,7 @@ select.unfold:                                    ; preds = %543
   br label %767
 
 767:                                              ; preds = %.sink.split1018, %766
-  %768 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %768 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not556 = icmp eq i32 %768, 1
   br i1 %.not556, label %.loopexit, label %769
 
@@ -7401,7 +7401,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not558, label %773, label %855
 
 773:                                              ; preds = %772
-  %774 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %774 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not559 = icmp eq i32 %774, 1
   br i1 %.not559, label %778, label %775
 
@@ -7411,7 +7411,7 @@ select.unfold:                                    ; preds = %543
   br label %validateConfigurationParameters.exit
 
 778:                                              ; preds = %773
-  %779 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %779 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not560 = icmp eq i32 %779, 1
   br i1 %.not560, label %.critedge776, label %780
 
@@ -7426,7 +7426,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not563, label %783, label %815
 
 783:                                              ; preds = %.critedge776
-  %784 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %784 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not564 = icmp eq i32 %784, 1
   br i1 %.not564, label %788, label %785
 
@@ -7441,7 +7441,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not567, label %789, label %815
 
 789:                                              ; preds = %788
-  %790 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %790 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not568 = icmp eq i32 %790, 1
   br i1 %.not568, label %.preheader786, label %791
 
@@ -7462,7 +7462,7 @@ select.unfold:                                    ; preds = %543
   %795 = zext nneg i32 %.0409851 to i64
   %796 = getelementptr inbounds nuw [32 x i64], ptr %23, i64 0, i64 %795
   store i64 %794, ptr %796, align 8
-  %797 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %797 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not570 = icmp eq i32 %797, 1
   br i1 %.not570, label %801, label %798
 
@@ -7509,7 +7509,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not574, label %816, label %850
 
 816:                                              ; preds = %815
-  %817 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %817 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not575 = icmp eq i32 %817, 1
   br i1 %.not575, label %821, label %818
 
@@ -7524,7 +7524,7 @@ select.unfold:                                    ; preds = %543
   br i1 %.not578, label %822, label %850
 
 822:                                              ; preds = %821
-  %823 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %823 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not579 = icmp eq i32 %823, 1
   br i1 %.not579, label %.preheader784, label %824
 
@@ -7545,7 +7545,7 @@ select.unfold:                                    ; preds = %543
   %828 = zext nneg i32 %.0404854 to i64
   %829 = getelementptr inbounds nuw [32 x i64], ptr %23, i64 0, i64 %828
   store i64 %827, ptr %829, align 8
-  %830 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %830 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not581 = icmp eq i32 %830, 1
   br i1 %.not581, label %834, label %831
 
@@ -7589,7 +7589,7 @@ select.unfold:                                    ; preds = %543
   br label %850
 
 850:                                              ; preds = %821, %._crit_edge857, %815
-  %851 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %851 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not584 = icmp eq i32 %851, 1
   br i1 %.not584, label %select.unfold700, label %852
 
@@ -7609,7 +7609,7 @@ select.unfold700:                                 ; preds = %850
   br i1 %.not589, label %validateConfigurationParameters.exit, label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold700, %select.unfold, %495, %725, %669, %855, %767, %555, %653, %610, %82
-  %856 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %14) #17
+  %856 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %14) #17
   %857 = icmp eq i32 %856, 1
   br i1 %857, label %64, label %validateConfigurationParameters.exit
 
@@ -7698,7 +7698,7 @@ mapKeywordToIndex.exit.thread:                    ; preds = %mapKeywordToIndex.e
   br label %validateConfigurationParameters.exit
 
 899:                                              ; preds = %893
-  %900 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %900 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not592 = icmp eq i32 %900, 1
   br i1 %.not592, label %904, label %901
 
@@ -7732,7 +7732,7 @@ mapKeywordToIndex.exit.thread:                    ; preds = %mapKeywordToIndex.e
   br label %validateConfigurationParameters.exit
 
 917:                                              ; preds = %911
-  %918 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
+  %918 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %15) #17
   %.not591 = icmp eq i32 %918, 1
   br i1 %.not591, label %.preheader793, label %919
 
@@ -7807,7 +7807,7 @@ mapKeywordToIndex.exit.thread:                    ; preds = %mapKeywordToIndex.e
   br label %validateConfigurationParameters.exit
 
 946:                                              ; preds = %940
-  %947 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.394, ptr noundef nonnull %16) #17
+  %947 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.394, ptr noundef nonnull %16) #17
   %.not590 = icmp eq i32 %947, 1
   br i1 %.not590, label %951, label %948
 
@@ -8590,7 +8590,7 @@ OutputByteOrderStrToInt.exit.thread.i689:         ; preds = %1297
   br label %1305
 
 1305:                                             ; preds = %.thread703, %937, %mapKeywordToIndex.exit, %1209, %1212, %1181, %1184, %963, %966, %930, %939, %1303, %.loopexit795, %1226, %.loopexit794, %1111, %1089, %1069, %1044, %1024, %987, %910
-  %1306 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %14) #17
+  %1306 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %29, ptr noundef nonnull @.str.362, ptr noundef nonnull %14) #17
   %1307 = icmp eq i32 %1306, 1
   br i1 %1307, label %.preheader796.backedge, label %._crit_edge
 
@@ -8741,7 +8741,7 @@ declare i32 @H5Pset_chunk(i64 noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare i32 @H5Pset_deflate(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare i32 @H5Pclose(i64 noundef) local_unnamed_addr #1
 
@@ -8750,7 +8750,7 @@ declare i32 @H5Sclose(i64 noundef) local_unnamed_addr #1
 declare i32 @H5Fclose(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @H5Pset_external(i64 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -8765,20 +8765,20 @@ declare i32 @H5Dclose(i64 noundef) local_unnamed_addr #1
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare i32 @H5Tset_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 declare i64 @H5Screate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -8793,16 +8793,16 @@ declare i32 @H5Sselect_hyperslab(i64 noundef, i32 noundef, ptr noundef, ptr noun
 declare i32 @H5Tclose(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseeko64(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @fseeko64(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #13
@@ -8814,13 +8814,13 @@ declare i32 @llvm.bswap.i32(i32) #13
 declare i64 @llvm.bswap.i64(i64) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1223,7 +1223,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13GCMutexLockerC2EP5Mutex(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13GCMutexLockerC2EP5Mutex(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((8, 9)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %7

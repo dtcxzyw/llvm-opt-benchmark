@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cast_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 %enc) #1 {
+define internal range(i32 0, 2) i32 @cast_init_key(ptr noundef %ctx, ptr noundef %key, ptr readnone captures(none) %iv, i32 %enc) #1 {
 entry:
   %call = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #4
   %cmp = icmp slt i32 %call, 1

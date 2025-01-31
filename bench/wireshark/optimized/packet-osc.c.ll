@@ -595,7 +595,7 @@ dissect_osc_tcp_1_1.exit:                         ; preds = %slip_decoded_len.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_osc_udp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_osc_udp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
   tail call fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %5)
   ret i32 %5
@@ -613,7 +613,7 @@ define hidden void @proto_reg_handoff_osc() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_osc_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_osc_heur_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -802,7 +802,7 @@ declare ptr @tvb_new_child_real_data(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 0, 5) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.116) #5
@@ -1419,14 +1419,14 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #3
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_osc_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_osc_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #5
   %6 = add i32 %5, 4
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_osc_tcp_pdu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_osc_tcp_pdu(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #5
   tail call fastcc void @dissect_osc_pdu_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 4, i32 noundef %5)
   ret i32 %5

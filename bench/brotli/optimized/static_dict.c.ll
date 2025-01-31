@@ -90,7 +90,7 @@ if.end38:                                         ; preds = %if.end38.loopexit, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @BrotliFindAllStaticDictionaryMatchesFor(ptr nocapture noundef readonly %dictionary, ptr noundef readonly %data, i64 noundef %min_length, i64 noundef %max_length, ptr noundef %matches) unnamed_addr #1 {
+define internal fastcc i32 @BrotliFindAllStaticDictionaryMatchesFor(ptr noundef readonly captures(none) %dictionary, ptr noundef readonly %data, i64 noundef %min_length, i64 noundef %max_length, ptr noundef %matches) unnamed_addr #1 {
 entry:
   %buckets = getelementptr inbounds nuw i8, ptr %dictionary, i64 40
   %0 = load ptr, ptr %buckets, align 8

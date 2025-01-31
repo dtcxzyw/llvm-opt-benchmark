@@ -29,10 +29,10 @@ define dso_local void @cmsysMD5_Delete(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cmsysMD5_Initialize(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #4 {
+define dso_local void @cmsysMD5_Initialize(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %0, align 4
@@ -141,10 +141,10 @@ md5_append.exit:                                  ; preds = %9, %27, %._crit_edg
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %3 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   br label %4
@@ -323,7 +323,7 @@ md5_finish.exit:                                  ; preds = %77
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @cmsysMD5_FinalizeHex(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
+define dso_local void @cmsysMD5_FinalizeHex(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %3 = alloca [16 x i8], align 16
   call void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef nonnull %3)
   br label %4
@@ -354,7 +354,7 @@ cmsysMD5_DigestToHex.exit:                        ; preds = %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @cmsysMD5_DigestToHex(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define dso_local void @cmsysMD5_DigestToHex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -384,10 +384,10 @@ define dso_local void @cmsysMD5_DigestToHex(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @md5_process(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #10 {
+define internal fastcc void @md5_process(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -967,10 +967,10 @@ define internal fastcc void @md5_process(ptr nocapture noundef %0, ptr noundef %
 declare i32 @llvm.fshl.i32(i32, i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

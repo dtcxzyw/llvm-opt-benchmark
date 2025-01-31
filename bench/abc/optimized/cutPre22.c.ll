@@ -156,11 +156,11 @@ Cut_CManStart.exit:                               ; preds = %25
   store i32 1, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 84
   %47 = call i32 @Extra_ReadHexadecimal(ptr noundef nonnull %46, ptr noundef nonnull %1, i32 noundef %44) #15
-  call fastcc void @Cut_CellSuppMin(ptr noundef %38)
+  call fastcc void @Cut_CellSuppMin(ptr noundef nonnull %38)
   %48 = load i32, ptr %27, align 8
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %27, align 8
-  %50 = call fastcc i32 @Cut_CellTableLookup(ptr noundef nonnull %calloc.i, ptr noundef %38)
+  %50 = call fastcc i32 @Cut_CellTableLookup(ptr noundef nonnull %calloc.i, ptr noundef nonnull %38)
   %.not22 = icmp eq i32 %50, 0
   br i1 %.not22, label %51, label %.backedge
 
@@ -189,21 +189,21 @@ Cut_CManStart.exit:                               ; preds = %25
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @Extra_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @Extra_ReadHexadecimal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -307,7 +307,7 @@ Extra_TruthCopy.exit:                             ; preds = %.preheader, %Extra_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Cut_CellTableLookup(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Cut_CellTableLookup(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -398,7 +398,7 @@ Extra_TruthIsEqual.exit:                          ; preds = %select.unfold.i, %.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @Cut_CellPrecompute() local_unnamed_addr #0 {
@@ -754,7 +754,7 @@ Extra_TruthIsEqual.exit.thread.i:                 ; preds = %160, %153
 165:                                              ; preds = %select.unfold.i.i244
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %166 = load ptr, ptr %calloc.i, align 8
-  call void @Extra_MmFixedEntryRecycle(ptr noundef %166, ptr noundef %67) #15
+  call void @Extra_MmFixedEntryRecycle(ptr noundef %166, ptr noundef nonnull %67) #15
   br label %.loopexit310
 
 .loopexit311:                                     ; preds = %Extra_TruthIsEqual.exit.thread.i, %145
@@ -1300,7 +1300,7 @@ select.unfold.i.i293.us:                          ; preds = %448, %443
 446:                                              ; preds = %select.unfold.i.i293.us
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %447 = load ptr, ptr %calloc.i, align 8
-  call void @Extra_MmFixedEntryRecycle(ptr noundef %447, ptr noundef %272) #15
+  call void @Extra_MmFixedEntryRecycle(ptr noundef %447, ptr noundef nonnull %272) #15
   br label %.loopexit.us
 
 448:                                              ; preds = %select.unfold.i.i293.us
@@ -1547,7 +1547,7 @@ Abc_Clock.exit299:                                ; preds = %._crit_edge359, %52
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Cut_CellTruthElem(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc void @Cut_CellTruthElem(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) unnamed_addr #5 {
   switch i32 %4, label %.loopexit [
     i32 0, label %.preheader.preheader
     i32 1, label %.preheader280.preheader
@@ -1945,7 +1945,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #15
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #15
   call void @free(ptr noundef %9) #15
   br label %16
 
@@ -2292,7 +2292,7 @@ Abc_Clock.exit86:                                 ; preds = %119, %124
 declare void @Extra_PrintHexadecimal(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cut_CellTruthLookup(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Cut_CellTruthLookup(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.Cut_Cell_t_, align 8
   %5 = load ptr, ptr @s_pCMan, align 8
@@ -2449,10 +2449,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #1
 
 declare i32 @st__find_or_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2484,10 +2484,10 @@ declare void @llvm.va_end.p0(ptr) #9
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11
@@ -2499,13 +2499,13 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

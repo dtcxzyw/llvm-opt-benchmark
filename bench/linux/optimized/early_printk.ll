@@ -168,13 +168,13 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @early_serial_init(ptr noundef %0) unnamed_addr #0 section ".init.text" align 16 {
@@ -412,13 +412,13 @@ define internal fastcc void @early_pci_serial_init(ptr noundef %0) unnamed_addr 
 declare dso_local i32 @early_dbgp_init(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @simple_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -487,7 +487,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 declare dso_local void @register_console(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @early_serial_write(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 align 16 {
+define internal void @early_serial_write(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %.loopexit7, label %.preheader6
@@ -600,13 +600,13 @@ define internal void @mem32_serial_out(i64 noundef %0, i32 noundef %1, i32 nound
 declare dso_local ptr @early_ioremap(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kstrtoull(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @early_vga_write(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 align 16 {
+define internal void @early_vga_write(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 align 16 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %.loopexit11, label %.preheader10

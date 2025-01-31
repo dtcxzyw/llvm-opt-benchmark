@@ -330,7 +330,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -567,7 +567,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl11CompactDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1375) initializes((0, 1375)) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_756number4impl11CompactDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1375) initializes((0, 1375)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl11CompactDataE, i64 16), ptr %this, align 8
   %patterns = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -578,10 +578,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl11CompactData8populateERKNS_6LocaleEPKc19UNumberCompactStyleNS1_11CompactTypeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1375) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef %nsName, i32 noundef %compactStyle, i32 noundef %compactType, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl11CompactData8populateERKNS_6LocaleEPKc19UNumberCompactStyleNS1_11CompactTypeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1375) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(217) %locale, ptr noundef %nsName, i32 noundef %compactStyle, i32 noundef %compactType, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sink = alloca %"class.icu_75::number::impl::CompactData::CompactDataSink", align 8
   %rb = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
@@ -623,7 +623,7 @@ invoke.cont11:                                    ; preds = %if.end
   store i32 0, ptr %len.i, align 8
   %4 = load ptr, ptr %resourceKey, align 8
   store i8 0, ptr %4, align 1
-  invoke fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_756number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef %nsName, i32 noundef %compactStyle, i32 noundef %compactType, ptr noundef nonnull align 8 dereferenceable(60) %resourceKey, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_756number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef nonnull %nsName, i32 noundef %compactStyle, i32 noundef %compactType, ptr noundef nonnull align 8 dereferenceable(60) %resourceKey, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont13 unwind label %lpad12
 
 invoke.cont13:                                    ; preds = %invoke.cont11
@@ -666,7 +666,7 @@ if.end28:                                         ; preds = %invoke.cont22.if.en
   br i1 %brmerge18, label %if.end40, label %if.then33
 
 if.then33:                                        ; preds = %if.end28
-  invoke fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_756number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef %nsName, i32 noundef 0, i32 noundef %compactType, ptr noundef nonnull align 8 dereferenceable(60) %resourceKey, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  invoke fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_756number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef nonnull %nsName, i32 noundef 0, i32 noundef %compactType, ptr noundef nonnull align 8 dereferenceable(60) %resourceKey, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont34 unwind label %lpad12
 
 invoke.cont34:                                    ; preds = %if.then33
@@ -746,7 +746,7 @@ ehcleanup60:                                      ; preds = %ehcleanup, %lpad
 declare ptr @ures_open_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_756number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef %nsName, i32 noundef %compactStyle, i32 noundef %compactType, ptr noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %sb, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 {
@@ -818,7 +818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -128, 128) i32 @_ZNK6icu_756number4impl11CompactData13getMultiplierEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1375) %this, i32 noundef %magnitude) unnamed_addr #10 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK6icu_756number4impl11CompactData13getMultiplierEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1375) %this, i32 noundef %magnitude) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp slt i32 %magnitude, 0
   br i1 %cmp, label %return, label %if.end
@@ -841,7 +841,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_756number4impl11CompactData10getPatternEiPKNS_11PluralRulesERKNS1_15DecimalQuantityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1375) %this, i32 noundef %magnitude, ptr noundef %rules, ptr noundef nonnull align 8 dereferenceable(66) %dq) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6icu_756number4impl11CompactData10getPatternEiPKNS_11PluralRulesERKNS1_15DecimalQuantityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1375) %this, i32 noundef %magnitude, ptr noundef %rules, ptr noundef nonnull align 8 dereferenceable(66) %dq) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ruleString.i = alloca %"class.icu_75::UnicodeString", align 8
   %cmp = icmp slt i32 %magnitude, 0
@@ -936,7 +936,7 @@ return:                                           ; preds = %if.end19, %entry, %
 declare noundef i64 @_ZNK6icu_756number4impl15DecimalQuantity6toLongEb(ptr noundef nonnull align 8 dereferenceable(66), i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number4impl11CompactData17getUniquePatternsERNS_7UVectorER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1375) %this, ptr noundef nonnull align 8 dereferenceable(40) %output, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_756number4impl11CompactData17getUniquePatternsERNS_7UVectorER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1375) %this, ptr noundef nonnull align 8 dereferenceable(40) %output, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %count.i = getelementptr inbounds nuw i8, ptr %output, i64 8
   br label %for.body
@@ -984,7 +984,7 @@ declare i32 @u_strcmp_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare void @_ZN6icu_757UVector10addElementEPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl11CompactData15CompactDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl11CompactData15CompactDataSink3putEPKcRNS_13ResourceValueEaR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %key, ptr noundef nonnull align 8 dereferenceable(8) %value, i8 signext %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %key.addr = alloca ptr, align 8
   %powersOfTenTable = alloca %"class.icu_75::ResourceTable", align 8
@@ -1177,10 +1177,10 @@ for.end83:                                        ; preds = %for.inc81, %if.end7
 declare noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl14CompactHandlerC2E19UNumberCompactStyleRKNS_6LocaleEPKcNS1_11CompactTypeEPKNS_11PluralRulesEPNS1_22MutablePatternModifierEbPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2065) initializes((0, 24)) %this, i32 noundef %compactStyle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef %nsName, i32 noundef %compactType, ptr noundef %rules, ptr noundef %buildReference, i1 noundef zeroext %safe, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl14CompactHandlerC2E19UNumberCompactStyleRKNS_6LocaleEPKcNS1_11CompactTypeEPKNS_11PluralRulesEPNS1_22MutablePatternModifierEbPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2065) initializes((0, 24)) %this, i32 noundef %compactStyle, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(217) %locale, ptr noundef %nsName, i32 noundef %compactType, ptr noundef %rules, ptr noundef %buildReference, i1 noundef zeroext %safe, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %safe to i8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756number4impl14CompactHandlerE, i64 16), ptr %this, align 8
@@ -1333,7 +1333,7 @@ ehcleanup9:                                       ; preds = %lpad4, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl14CompactHandler22precomputeAllModifiersERNS1_22MutablePatternModifierER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(2065) %this, ptr noundef nonnull align 8 dereferenceable(392) %buildReference, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl14CompactHandler22precomputeAllModifiersERNS1_22MutablePatternModifierER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(2065) %this, ptr noundef nonnull align 8 dereferenceable(392) %buildReference, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %allPatterns = alloca %"class.icu_75::UVector", align 8
   %hello = alloca %"class.icu_75::UnicodeString", align 8
@@ -1941,10 +1941,10 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

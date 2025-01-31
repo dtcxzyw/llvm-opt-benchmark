@@ -1867,7 +1867,7 @@ default.unreachable917:                           ; preds = %yy_get_next_buffer.
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @jq_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @jq_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @jv_mem_alloc(i64 noundef 64) #19
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -1899,19 +1899,19 @@ define nonnull ptr @jq_yy_create_buffer(ptr noundef %0, i32 noundef %1, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @jq_yyget_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @jq_yyget_extra(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_extra(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #2 {
+define void @jq_yyset_extra(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #2 {
   store i32 %0, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yy_push_state(i32 noundef range(i32 0, 7) %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @yy_push_state(i32 noundef range(i32 0, 7) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1975,7 +1975,7 @@ define internal fastcc void @yy_push_state(i32 noundef range(i32 0, 7) %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @yy_pop_state(ptr nocapture noundef %0) unnamed_addr #3 {
+define internal fastcc void @yy_pop_state(ptr noundef captures(none) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -2001,7 +2001,7 @@ define internal fastcc void @yy_pop_state(ptr nocapture noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -128, 300) i32 @enter(i32 noundef returned range(i32 -128, 300) %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -128, 300) i32 @enter(i32 noundef returned range(i32 -128, 300) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   switch i32 %0, label %7 [
     i32 40, label %3
     i32 91, label %4
@@ -2084,7 +2084,7 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 41, 301) i32 @try_exit(i32 noundef range(i32 -128, 128) %0, i32 noundef range(i32 -1073741824, 1073741824) %1, ptr nocapture noundef %2) unnamed_addr #3 {
+define internal fastcc range(i32 41, 301) i32 @try_exit(i32 noundef range(i32 -128, 128) %0, i32 noundef range(i32 -1073741824, 1073741824) %1, ptr noundef captures(none) %2) unnamed_addr #3 {
   %switch.tableidx = add nsw i32 %1, -1
   %4 = icmp ult i32 %switch.tableidx, 4
   br i1 %4, label %switch.lookup, label %22
@@ -2153,7 +2153,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #5 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unnamed_addr #6 {
+define internal fastcc i32 @yy_get_previous_state(ptr noundef captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2248,7 +2248,7 @@ define internal fastcc i32 @yy_get_previous_state(ptr nocapture noundef %0) unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr nocapture noundef %1) unnamed_addr #7 {
+define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 noundef %0, ptr noundef captures(none) %1) unnamed_addr #7 {
   %3 = sext i32 %0 to i64
   %4 = getelementptr inbounds [168 x i16], ptr @yy_accept, i64 0, i64 %3
   %5 = load i16, ptr %4, align 2
@@ -2300,7 +2300,7 @@ define internal fastcc range(i32 -32768, 32768) i32 @yy_try_NUL_trans(i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jq_yyrestart(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @jq_yyrestart(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2433,7 +2433,7 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %13, %16, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jq_yy_init_buffer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @jq_yy_init_buffer(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = tail call ptr @__errno_location() #21
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq ptr %0, null
@@ -2533,7 +2533,7 @@ jq_yy_flush_buffer.exit:                          ; preds = %3, %6, %18, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jq_yy_switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @jq_yy_switch_to_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2668,13 +2668,13 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %8, %11, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @jq_yyalloc(i64 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @jq_yyalloc(i64 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @jv_mem_alloc(i64 noundef %0) #19
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jq_yy_delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @jq_yy_delete_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -2717,13 +2717,13 @@ define void @jq_yy_delete_buffer(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jq_yyfree(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @jq_yyfree(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @jv_mem_free(ptr noundef %0) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @jq_yy_flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
+define void @jq_yy_flush_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -2782,7 +2782,7 @@ define void @jq_yy_flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jq_yypush_buffer_state(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @jq_yypush_buffer_state(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %73, label %4
 
@@ -2917,7 +2917,7 @@ jq_yyensure_buffer_stack.exit:                    ; preds = %10, %13, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jq_yypop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @jq_yypop_buffer_state(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2999,7 +2999,7 @@ jq_yy_delete_buffer.exit:                         ; preds = %.thread.i, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @jq_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define ptr @jq_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %1, 2
   br i1 %4, label %27, label %5
 
@@ -3056,15 +3056,15 @@ define ptr @jq_yy_scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @jq_yy_scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define nonnull ptr @jq_yy_scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #24
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @jq_yy_scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
+  %5 = tail call ptr @jq_yy_scan_bytes(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @jq_yy_scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = tail call ptr @jv_mem_alloc(i64 noundef %5) #19
@@ -3141,10 +3141,10 @@ define nonnull ptr @jq_yy_scan_bytes(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @jq_yyget_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i32 @jq_yyget_lineno(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3169,7 +3169,7 @@ define i32 @jq_yyget_lineno(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @jq_yyget_column(ptr nocapture noundef readonly %0) local_unnamed_addr #10 {
+define i32 @jq_yyget_column(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3194,35 +3194,35 @@ define i32 @jq_yyget_column(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @jq_yyget_in(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @jq_yyget_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @jq_yyget_out(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @jq_yyget_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @jq_yyget_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @jq_yyget_leng(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @jq_yyget_text(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @jq_yyget_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @jq_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @jq_yyset_lineno(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3247,7 +3247,7 @@ define void @jq_yyset_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @jq_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @jq_yyset_column(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3272,56 +3272,56 @@ define void @jq_yyset_column(i32 noundef %0, ptr nocapture noundef readonly %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #2 {
+define void @jq_yyset_in(ptr noundef %0, ptr noundef writeonly captures(none) initializes((8, 16)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #2 {
+define void @jq_yyset_out(ptr noundef %0, ptr noundef writeonly captures(none) initializes((16, 24)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @jq_yyget_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i32 @jq_yyget_debug(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #2 {
+define void @jq_yyset_debug(i32 noundef %0, ptr noundef writeonly captures(none) initializes((124, 128)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @jq_yyget_lval(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @jq_yyget_lval(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly initializes((144, 152)) %1) local_unnamed_addr #2 {
+define void @jq_yyset_lval(ptr noundef %0, ptr noundef writeonly captures(none) initializes((144, 152)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @jq_yyget_lloc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define ptr @jq_yyget_lloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_yyset_lloc(ptr noundef %0, ptr nocapture noundef writeonly initializes((152, 160)) %1) local_unnamed_addr #2 {
+define void @jq_yyset_lloc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((152, 160)) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr %0, ptr %3, align 8
   ret void
@@ -3372,7 +3372,7 @@ define range(i32 0, 2) i32 @jq_yylex_init(ptr noundef %0) local_unnamed_addr #0 
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @jq_yylex_init_extra(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -3558,7 +3558,7 @@ jq_yypop_buffer_state.exit:                       ; preds = %26, %44, %47
 declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @jq_yyrealloc(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define ptr @jq_yyrealloc(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @jv_mem_realloc(ptr noundef %0, i64 noundef %1) #19
   ret ptr %4
 }
@@ -3568,25 +3568,25 @@ declare ptr @jv_mem_realloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @jv_mem_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #13
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare i32 @isatty(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #16

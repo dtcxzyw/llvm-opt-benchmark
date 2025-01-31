@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [16 x i8] c"bad-combination\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @prte_state_base_set_default_rto(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_state_base_set_default_rto(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @prte_state_base_set_runtime_options(ptr noundef %0, ptr noundef null)
   ret i32 %3
 }
@@ -449,7 +449,7 @@ pmix_pointer_array_get_item.exit.thread:          ; preds = %.lr.ph122, %99, %10
   br label %389
 
 227:                                              ; preds = %218
-  %228 = call i64 @strtol(ptr nocapture noundef nonnull %.098, ptr noundef null, i32 noundef 10) #6
+  %228 = call i64 @strtol(ptr noundef nonnull captures(none) %.098, ptr noundef null, i32 noundef 10) #6
   %229 = trunc i64 %228 to i32
   store i32 %229, ptr %6, align 4
   store i32 0, ptr %3, align 4
@@ -759,7 +759,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
 
 6:                                                ; preds = %4, %2
   %7 = tail call ptr @PMIx_Argv_split(ptr noundef %0, i32 noundef 45) #6
-  %8 = tail call ptr @PMIx_Argv_split(ptr noundef %1, i32 noundef 45) #6
+  %8 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %1, i32 noundef 45) #6
   %9 = tail call i32 @PMIx_Argv_count(ptr noundef %7) #6
   %10 = tail call i32 @PMIx_Argv_count(ptr noundef %8) #6
   %11 = icmp sgt i32 %9, %10
@@ -820,7 +820,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #7
   %33 = tail call i64 @llvm.umin.i64(i64 %31, i64 %32)
-  %34 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef %1, i64 noundef %33) #7
+  %34 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %33) #7
   %35 = icmp eq i32 %34, 0
   br label %36
 
@@ -834,7 +834,7 @@ declare i32 @PMIx_Value_true(ptr noundef) local_unnamed_addr #1
 declare ptr @prte_get_job_data_object(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
@@ -848,7 +848,7 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
   %5 = getelementptr ptr, ptr %2, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #6
+  %8 = tail call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #6
   %9 = icmp sgt i32 %3, 1
   br i1 %9, label %10, label %.thread32
 
@@ -861,7 +861,7 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
   br i1 %.not, label %19, label %15
 
 15:                                               ; preds = %10
-  %16 = tail call i64 @strtoul(ptr nocapture noundef nonnull %14, ptr noundef null, i32 noundef 10) #6
+  %16 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #6
   %17 = mul i64 %16, 60
   %18 = add i64 %17, %8
   br label %19
@@ -878,7 +878,7 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
   br i1 %.not29, label %27, label %23
 
 23:                                               ; preds = %20
-  %24 = tail call i64 @strtoul(ptr nocapture noundef nonnull %22, ptr noundef null, i32 noundef 10) #6
+  %24 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %22, ptr noundef null, i32 noundef 10) #6
   %25 = mul i64 %24, 3600
   %26 = add i64 %25, %.0.in
   br label %27
@@ -895,7 +895,7 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
   br i1 %.not30, label %.thread32, label %32
 
 32:                                               ; preds = %29
-  %33 = tail call i64 @strtoul(ptr nocapture noundef nonnull %31, ptr noundef null, i32 noundef 10) #6
+  %33 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %31, ptr noundef null, i32 noundef 10) #6
   %34 = mul i64 %33, 86400
   %35 = add i64 %34, %.1.in
   br label %.thread32
@@ -910,13 +910,13 @@ define internal fastcc i32 @pmix_convert_string_to_time(ptr noundef %0) unnamed_
 declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

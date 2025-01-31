@@ -2819,7 +2819,7 @@ fbuffer_free.exit35:                              ; preds = %37, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i64 @State_memsize(ptr nocapture noundef readonly %0) #2 {
+define internal i64 @State_memsize(ptr noundef readonly captures(none) %0) #2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -2962,10 +2962,10 @@ declare i32 @rb_scan_args(i32 noundef, ptr noundef, ptr noundef, ...) local_unna
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: allocsize(0,1)
 declare noalias nonnull ptr @ruby_xmalloc2(i64 noundef, i64 noundef) local_unnamed_addr #6
@@ -4656,7 +4656,7 @@ fbuffer_append_char.exit112:                      ; preds = %196, %198
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_json_string(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @generate_json_string(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [6 x i8], align 1
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -6117,7 +6117,7 @@ fbuffer_append_char.exit36:                       ; preds = %639, %641
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_json_fixnum(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @generate_json_fixnum(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = ashr i64 %1, 1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3)
@@ -6232,7 +6232,7 @@ fbuffer_append_long.exit:                         ; preds = %fltoa.exit.i, %ruby
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_json_bignum(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @generate_json_bignum(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = load i64, ptr @i_to_s, align 8
   %4 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1, i64 noundef %3, i32 noundef 0) #15
   tail call fastcc void @fbuffer_append_str(ptr noundef %0, i64 noundef %4)
@@ -6276,7 +6276,7 @@ define internal fastcc void @generate_json_float(ptr noundef %0, i8 %.112.val, i
 declare i32 @rb_respond_to(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fbuffer_append_str(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @fbuffer_append_str(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   store i64 %1, ptr %3, align 8
@@ -6733,7 +6733,7 @@ declare nonnull ptr @rb_utf8_encoding() local_unnamed_addr #1
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext range(i8 0, 2) i8 @isLegalUTF8(ptr nocapture noundef readonly %0, i64 noundef range(i64 0, 65537) %1) unnamed_addr #11 {
+define internal fastcc zeroext range(i8 0, 2) i8 @isLegalUTF8(ptr noundef readonly captures(none) %0, i64 noundef range(i64 0, 65537) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   switch i64 %1, label %30 [
     i64 4, label %4
@@ -6833,10 +6833,10 @@ declare i64 @rb_obj_class(i64 noundef) local_unnamed_addr #1
 declare i64 @llvm.fshl.i64(i64, i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #13

@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.readtup_datum = private unnamed_addr constant [14 x i8] c"readtup_datum\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define dso_local ptr @tuplesort_begin_heap(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = tail call ptr @tuplesort_begin_common(i32 noundef %6, ptr noundef %7, i32 noundef %8) #10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load ptr, ptr %11, align 8
@@ -166,7 +166,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @removeabbrev_heap(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal void @removeabbrev_heap(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca %struct.HeapTupleData, align 8
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -205,7 +205,7 @@ define internal void @removeabbrev_heap(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @comparetup_heap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @comparetup_heap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -269,7 +269,7 @@ ApplySortComparator.exit.thread:                  ; preds = %33, %22, %17, %Appl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @comparetup_heap_tiebreak(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @comparetup_heap_tiebreak(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.HeapTupleData, align 8
   %5 = alloca %struct.HeapTupleData, align 8
   %6 = alloca i8, align 1
@@ -420,7 +420,7 @@ ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @writetup_heap(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @writetup_heap(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr i8, ptr %5, i64 10
@@ -653,7 +653,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
   %92 = and i32 %91, 16777216
   %.not62 = icmp eq i32 %92, 0
   %93 = select i1 %.not62, i16 1, i16 5
-  tail call void @PrepareSortSupportFromIndexRel(ptr noundef %1, i16 noundef signext %93, ptr noundef nonnull %70) #10
+  tail call void @PrepareSortSupportFromIndexRel(ptr noundef nonnull %1, i16 noundef signext %93, ptr noundef nonnull %70) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %94 = load i32, ptr %30, align 4
   %95 = sext i32 %94 to i64
@@ -667,7 +667,7 @@ define dso_local ptr @tuplesort_begin_cluster(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @removeabbrev_cluster(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal void @removeabbrev_cluster(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = icmp sgt i32 %2, 0
@@ -700,7 +700,7 @@ define internal void @removeabbrev_cluster(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @comparetup_cluster(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @comparetup_cluster(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -770,7 +770,7 @@ ApplySortComparator.exit.thread:                  ; preds = %37, %26, %21, %Appl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @comparetup_cluster_tiebreak(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @comparetup_cluster_tiebreak(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca [32 x i64], align 16
@@ -1058,7 +1058,7 @@ ApplySortAbbrevFullComparator.exit.thread:        ; preds = %ApplySortComparator
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @writetup_cluster(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @writetup_cluster(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %2, align 8
   %6 = load i32, ptr %5, align 8
@@ -1175,7 +1175,7 @@ define internal void @readtup_cluster(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @freestate_cluster(ptr nocapture noundef readonly %0) #0 {
+define internal void @freestate_cluster(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1343,7 +1343,7 @@ define dso_local ptr @tuplesort_begin_index_btree(ptr noundef %0, ptr noundef %1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @removeabbrev_index(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal void @removeabbrev_index(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1374,7 +1374,7 @@ define internal void @removeabbrev_index(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @comparetup_index_btree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @comparetup_index_btree(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1438,7 +1438,7 @@ ApplySortComparator.exit.thread:                  ; preds = %33, %22, %17, %Appl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @comparetup_index_btree_tiebreak(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @comparetup_index_btree_tiebreak(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca [32 x i64], align 16
@@ -1664,7 +1664,7 @@ ApplySortAbbrevFullComparator.exit.thread:        ; preds = %74, %ApplySortCompa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @writetup_index(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @writetup_index(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
@@ -1693,7 +1693,7 @@ define internal void @writetup_index(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @readtup_index(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal void @readtup_index(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
@@ -1798,7 +1798,7 @@ define dso_local ptr @tuplesort_begin_index_hash(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @comparetup_index_hash(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @comparetup_index_hash(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1881,7 +1881,7 @@ define internal range(i32 -1, 2) i32 @comparetup_index_hash(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @comparetup_index_hash_tiebreak(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #3 {
+define internal noundef i32 @comparetup_index_hash_tiebreak(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #3 {
   ret i32 0
 }
 
@@ -2030,7 +2030,7 @@ define dso_local ptr @tuplesort_begin_index_brin(i32 noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @removeabbrev_index_brin(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2) #4 {
+define internal void @removeabbrev_index_brin(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #4 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2056,7 +2056,7 @@ define internal void @removeabbrev_index_brin(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @comparetup_index_brin(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #5 {
+define internal range(i32 -1, 2) i32 @comparetup_index_brin(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = trunc i64 %5 to i32
@@ -2068,7 +2068,7 @@ define internal range(i32 -1, 2) i32 @comparetup_index_brin(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @writetup_index_brin(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @writetup_index_brin(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %2, align 8
   %6 = load i64, ptr %5, align 8
@@ -2094,7 +2094,7 @@ define internal void @writetup_index_brin(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @readtup_index_brin(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3) #0 {
+define internal void @readtup_index_brin(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = add i32 %3, -4
   store i32 %6, ptr %5, align 4
@@ -2232,7 +2232,7 @@ define dso_local ptr @tuplesort_begin_datum(i32 noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @removeabbrev_datum(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2) #6 {
+define internal void @removeabbrev_datum(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #6 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2256,7 +2256,7 @@ define internal void @removeabbrev_datum(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @comparetup_datum(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @comparetup_datum(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2373,7 +2373,7 @@ comparetup_datum_tiebreak.exit:                   ; preds = %33, %22, %17, %65, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @comparetup_datum_tiebreak(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @comparetup_datum_tiebreak(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -2435,7 +2435,7 @@ ApplySortAbbrevFullComparator.exit:               ; preds = %36, %29, %25, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @writetup_datum(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @writetup_datum(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
@@ -2801,7 +2801,7 @@ define dso_local void @tuplesort_putheaptuple(ptr noundef %0, ptr noundef %1) lo
 declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplesort_putindextuplevalues(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @tuplesort_putindextuplevalues(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.SortTuple, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load ptr, ptr %7, align 8
@@ -2817,7 +2817,7 @@ define dso_local void @tuplesort_putindextuplevalues(ptr noundef %0, ptr nocaptu
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %19 = call fastcc i64 @index_getattr(ptr noundef %13, i32 noundef 1, ptr noundef %17, ptr noundef nonnull %18)
+  %19 = call fastcc i64 @index_getattr(ptr noundef nonnull %13, i32 noundef 1, ptr noundef %17, ptr noundef nonnull %18)
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 %19, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2846,10 +2846,10 @@ define dso_local void @tuplesort_putindextuplevalues(ptr noundef %0, ptr nocaptu
 declare ptr @index_form_tuple_context(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %6 = load i16, ptr %5, align 2
@@ -2948,7 +2948,7 @@ fetch_att.exit:                                   ; preds = %40, %34, %31, %28, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tuplesort_putbrintuple(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @tuplesort_putbrintuple(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SortTuple, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -3146,7 +3146,7 @@ define dso_local ptr @tuplesort_getindextuple(ptr noundef %0, i1 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @tuplesort_getbrintuple(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @tuplesort_getbrintuple(ptr noundef %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SortTuple, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
@@ -3177,7 +3177,7 @@ define dso_local ptr @tuplesort_getbrintuple(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @tuplesort_getdatum(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @tuplesort_getdatum(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.SortTuple, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8

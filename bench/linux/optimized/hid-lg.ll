@@ -90,7 +90,7 @@ declare dso_local void @hid_unregister_driver(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__hid_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @lg_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @lg_probe(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca %struct.wait_queue_head, align 8
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = tail call zeroext i1 @hid_is_usb(ptr noundef %0) #8
@@ -343,7 +343,7 @@ define internal i32 @lg_event(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @lg_report_fixup(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #2 align 16 {
+define internal noundef ptr @lg_report_fixup(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
@@ -567,7 +567,7 @@ define internal noundef ptr @lg_report_fixup(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -1, 2) i32 @lg_input_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
+define internal noundef range(i32 -1, 2) i32 @lg_input_mapping(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #2 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %3, align 4
@@ -1602,7 +1602,7 @@ define internal noundef range(i32 -1, 2) i32 @lg_input_mapping(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @lg_input_mapped(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #2 align 16 {
+define internal noundef i32 @lg_input_mapped(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #2 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %8, align 8
@@ -1694,13 +1694,13 @@ define internal noundef i32 @lg_input_mapped(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @hid_is_usb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -1715,7 +1715,7 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 declare dso_local i32 @hid_hw_raw_request(ptr noundef, i8 noundef zeroext, ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

@@ -57,7 +57,7 @@ define hidden void @_ZN17StringDedupThreadC2Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17StringDedupThread12thread_entryEP10JavaThreadS1_(ptr noundef %0, ptr nocapture readnone %1) #0 align 2 {
+define hidden void @_ZN17StringDedupThread12thread_entryEP10JavaThreadS1_(ptr noundef %0, ptr readnone captures(none) %1) #0 align 2 {
   %3 = load ptr, ptr @_ZN11StringDedup10_processorE, align 8
   tail call void @_ZN11StringDedup9Processor3runEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %0) #4
   ret void
@@ -103,7 +103,7 @@ declare void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN11StringDedup9Processor3runEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK17StringDedupThread28is_hidden_from_external_viewEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK17StringDedupThread28is_hidden_from_external_viewEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret i1 true
 }
 

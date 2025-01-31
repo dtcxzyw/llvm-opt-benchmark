@@ -570,10 +570,10 @@ _ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EEPS4_.exit58: ; preds = %171
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -619,7 +619,7 @@ _ZN5boost10function_nIiJEE5clearEv.exit:          ; preds = %_ZNK5boost6detail8f
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: inlinehint mustprogress uwtable
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #7
@@ -816,10 +816,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %_ZN
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5boost6detail8function15functor_managerIN12_GLOBAL__N_115cpp_main_callerEE6manageERKNS1_15function_bufferERS6_NS1_30functor_manager_operation_typeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #14 align 2 {
+define internal void @_ZN5boost6detail8function15functor_managerIN12_GLOBAL__N_115cpp_main_callerEE6manageERKNS1_15function_bufferERS6_NS1_30functor_manager_operation_typeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) #14 align 2 {
   switch i32 %2, label %18 [
     i32 4, label %4
     i32 0, label %7
@@ -882,7 +882,7 @@ _ZN5boost6detail8function15functor_managerIN12_GLOBAL__N_115cpp_main_callerEE7ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN5boost6detail8function20function_obj_invokerIN12_GLOBAL__N_115cpp_main_callerEiJEE6invokeERNS1_15function_bufferE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) #3 align 2 {
+define internal noundef i32 @_ZN5boost6detail8function20function_obj_invokerIN12_GLOBAL__N_115cpp_main_callerEiJEE6invokeERNS1_15function_bufferE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) #3 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !60
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !62
@@ -893,7 +893,7 @@ define internal noundef i32 @_ZN5boost6detail8function20function_obj_invokerIN12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 

@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.usb_desc_attach = private unnamed_addr constant [4 x i64] [i64 16, i64 16, i64 24, i64 32], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 19) i32 @usb_desc_device(ptr nocapture noundef readonly %id, ptr nocapture noundef readonly %dev, i1 noundef zeroext %msos, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 19) i32 @usb_desc_device(ptr noundef readonly captures(none) %id, ptr noundef readonly captures(none) %dev, i1 noundef zeroext %msos, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 18
   br i1 %cmp, label %return, label %if.end
@@ -168,7 +168,7 @@ return:                                           ; preds = %entry, %if.end18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 11) i32 @usb_desc_device_qualifier(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 11) i32 @usb_desc_device_qualifier(ptr noundef readonly captures(none) %dev, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 10
   br i1 %cmp, label %return, label %if.end
@@ -216,7 +216,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2147483648, 65536) i32 @usb_desc_config(ptr nocapture noundef readonly %conf, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 -2147483648, 65536) i32 @usb_desc_config(ptr noundef readonly captures(none) %conf, i32 noundef %flags, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %len, 9
   br i1 %cmp, label %return, label %if.end
@@ -381,7 +381,7 @@ return:                                           ; preds = %for.body, %usb_desc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @usb_desc_iface_group(ptr nocapture noundef readonly %iad, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local i32 @usb_desc_iface_group(ptr noundef readonly captures(none) %iad, i32 noundef %flags, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %len, 8
   br i1 %cmp, label %return, label %if.end
@@ -445,7 +445,7 @@ return:                                           ; preds = %for.body, %if.end18
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @usb_desc_iface(ptr nocapture noundef readonly %iface, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local i32 @usb_desc_iface(ptr noundef readonly captures(none) %iface, i32 noundef %flags, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i64 %len, 9
   br i1 %cmp, label %return, label %if.end
@@ -667,7 +667,7 @@ return:                                           ; preds = %cond.end.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 256) i32 @usb_desc_other(ptr nocapture noundef readonly %desc, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 256) i32 @usb_desc_other(ptr noundef readonly captures(none) %desc, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %desc, align 8
   %tobool.not = icmp eq i8 %0, 0
@@ -698,7 +698,7 @@ return:                                           ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 271) i32 @usb_desc_endpoint(ptr nocapture noundef readonly %ep, i32 noundef %flags, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 271) i32 @usb_desc_endpoint(ptr noundef readonly captures(none) %ep, i32 noundef %flags, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   %is_audio = getelementptr inbounds nuw i8, ptr %ep, i64 7
   %0 = load i8, ptr %is_audio, align 1
@@ -815,7 +815,7 @@ return:                                           ; preds = %if.end48, %if.then5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @usb_desc_init(ptr noundef %dev) local_unnamed_addr #4 {
@@ -1242,7 +1242,7 @@ declare ptr @qdev_get_dev_path(ptr noundef) local_unnamed_addr #5
 declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @usb_desc_get_string(ptr nocapture noundef readonly %dev, i8 noundef zeroext %index) local_unnamed_addr #8 {
+define dso_local ptr @usb_desc_get_string(ptr noundef readonly captures(none) %dev, i8 noundef zeroext %index) local_unnamed_addr #8 {
 entry:
   %strings = getelementptr inbounds nuw i8, ptr %dev, i64 5632
   %s.05 = load ptr, ptr %strings, align 8
@@ -1272,7 +1272,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 256) i32 @usb_desc_string(ptr noundef %dev, i32 noundef %index, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 256) i32 @usb_desc_string(ptr noundef %dev, i32 noundef %index, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i64 %len, 4
   br i1 %cmp, label %return, label %if.end
@@ -1368,10 +1368,10 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @usb_desc_get_descriptor(ptr noundef %dev, ptr nocapture noundef writeonly %p, i32 noundef %value, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #4 {
+define dso_local range(i32 -2147483648, 1) i32 @usb_desc_get_descriptor(ptr noundef %dev, ptr noundef writeonly captures(none) %p, i32 noundef %value, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #4 {
 entry:
   %_now.i.i128 = alloca %struct.timeval, align 8
   %_now.i.i110 = alloca %struct.timeval, align 8
@@ -1636,7 +1636,7 @@ usb_desc_get_string.exit.i:                       ; preds = %for.body.i.i
   br i1 %cmp7.i, label %if.then9.i, label %if.end17.i
 
 if.then9.i:                                       ; preds = %for.inc.i.i, %usb_desc_get_string.exit.i, %if.end6.i
-  %call10.i = tail call ptr @usb_device_get_usb_desc(ptr noundef %dev) #13
+  %call10.i = tail call ptr @usb_device_get_usb_desc(ptr noundef nonnull %dev) #13
   %str11.i = getelementptr inbounds nuw i8, ptr %call10.i, i64 40
   %41 = load ptr, ptr %str11.i, align 8
   %idxprom.i = zext nneg i32 %conv35 to i64
@@ -2057,7 +2057,7 @@ if.end89:                                         ; preds = %entry, %sw.default,
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @usb_desc_handle_control(ptr noundef %dev, ptr noundef %p, i32 noundef %request, i32 noundef %value, i32 noundef %index, i32 noundef %length, ptr noundef %data) local_unnamed_addr #4 {
@@ -2860,7 +2860,7 @@ return:                                           ; preds = %for.inc49.i, %for.c
 declare i32 @usb_desc_msos(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
 
@@ -2879,10 +2879,10 @@ declare void @usb_ep_set_max_packet_size(ptr noundef, i32 noundef, i32 noundef, 
 declare void @usb_ep_set_max_streams(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12

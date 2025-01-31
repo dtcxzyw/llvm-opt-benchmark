@@ -3134,7 +3134,7 @@ fixup.exit519:                                    ; preds = %615
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @copy_range(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @copy_range(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3181,7 +3181,7 @@ define dso_local void @copy_range(ptr noundef %0, ptr nocapture noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @doc_ast_copy(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @doc_ast_copy(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 15
   switch i8 %4, label %49 [
@@ -6632,7 +6632,7 @@ define dso_local void @copy_decl_type(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: noreturn
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #3
@@ -6831,7 +6831,7 @@ declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_const_initializer(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @copy_const_initializer(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [21 x i8] c"io_uring/filetable.h\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @io_alloc_file_tables(ptr nocapture noundef initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @io_alloc_file_tables(ptr noundef captures(none) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 3
   %5 = tail call noalias ptr @kvmalloc_node(i64 noundef %4, i32 noundef 4197824, i32 noundef -1) #7
@@ -41,7 +41,7 @@ declare dso_local ptr @bitmap_zalloc(i32 noundef, i32 noundef) local_unnamed_add
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @io_free_file_tables(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @io_free_file_tables(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   tail call void @kvfree(ptr noundef %2) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55,7 +55,7 @@ define dso_local void @io_free_file_tables(ptr nocapture noundef %0) local_unnam
 declare dso_local void @bitmap_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__io_fixed_fd_install(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @__io_fixed_fd_install(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq i32 %2, -1
   br i1 %4, label %5, label %34
 
@@ -221,13 +221,13 @@ define dso_local i32 @__io_fixed_fd_install(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_fixed_fd_install(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @io_fixed_fd_install(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = and i32 %1, 2
@@ -262,7 +262,7 @@ define dso_local i32 @io_fixed_fd_install(ptr nocapture noundef readonly %0, i32
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_fixed_fd_remove(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @io_fixed_fd_remove(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %4 = load ptr, ptr %3, align 32
   %5 = icmp eq ptr %4, null
@@ -329,7 +329,7 @@ define dso_local i32 @io_fixed_fd_remove(ptr nocapture noundef %0, i32 noundef %
 declare dso_local i32 @io_queue_rsrc_removal(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -75, 1) i32 @io_register_file_alloc_range(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @io_register_file_alloc_range(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.io_uring_file_index_range, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !20
@@ -374,7 +374,7 @@ define dso_local noundef range(i32 -75, 1) i32 @io_register_file_alloc_range(ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.uadd.with.overflow.i32(i32, i32) #4

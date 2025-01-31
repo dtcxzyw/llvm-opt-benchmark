@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.initHyperLogLog = private unnamed_addr constant [16 x i8] c"initHyperLogLog\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initHyperLogLog(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @initHyperLogLog(ptr noundef captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = add i8 %1, -17
   %or.cond = icmp ult i8 %3, -13
   br i1 %or.cond, label %4, label %7
@@ -72,7 +72,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initHyperLogLogError(ptr nocapture noundef %0, double noundef %1) local_unnamed_addr #0 {
+define dso_local void @initHyperLogLogError(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %2, %8
@@ -146,7 +146,7 @@ initHyperLogLog.exit:                             ; preds = %.thread, %23, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeHyperLogLog(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @freeHyperLogLog(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @pfree(ptr noundef %3) #11
@@ -156,7 +156,7 @@ define dso_local void @freeHyperLogLog(ptr nocapture noundef readonly %0) local_
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @addHyperLogLog(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local void @addHyperLogLog(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = load i8, ptr %0, align 8
   %4 = zext i8 %3 to i64
   %5 = sub nsw i64 32, %4
@@ -195,7 +195,7 @@ rho.exit:                                         ; preds = %10, %12
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local double @estimateHyperLogLog(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not40 = icmp eq i64 %3, 0

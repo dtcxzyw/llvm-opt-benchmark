@@ -235,14 +235,14 @@ for.end24:                                        ; preds = %for.inc22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5arrow4util12ValidateUTF8EPKhl(ptr nocapture noundef readonly %data, i64 noundef %size) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN5arrow4util12ValidateUTF8EPKhl(ptr noundef readonly captures(none) %data, i64 noundef %size) local_unnamed_addr #3 {
 entry:
   %call = tail call fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEPKhl(ptr noundef %data, i64 noundef %size)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEPKhl(ptr nocapture noundef readonly %data, i64 noundef %size) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEPKhl(ptr noundef readonly captures(none) %data, i64 noundef %size) unnamed_addr #3 {
 entry:
   %cmp123 = icmp sgt i64 %size, 7
   br i1 %cmp123, label %while.body, label %while.end
@@ -478,14 +478,14 @@ return:                                           ; preds = %if.end32, %sw.bb109
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5arrow4util12ValidateUTF8ESt17basic_string_viewIcSt11char_traitsIcEE(i64 %str.coerce0, ptr nocapture readonly %str.coerce1) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN5arrow4util12ValidateUTF8ESt17basic_string_viewIcSt11char_traitsIcEE(i64 %str.coerce0, ptr readonly captures(none) %str.coerce1) local_unnamed_addr #3 {
 entry:
   %call2.i = tail call fastcc noundef zeroext i1 @_ZN5arrow4utilL18ValidateUTF8InlineEPKhl(ptr noundef readonly %str.coerce1, i64 noundef %str.coerce0)
   ret i1 %call2.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow4util11SkipUTF8BOMEPKhl(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %data, i64 noundef %size) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -2616,10 +2616,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18

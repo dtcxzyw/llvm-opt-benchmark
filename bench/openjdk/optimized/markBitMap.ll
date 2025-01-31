@@ -66,7 +66,7 @@ define hidden noundef range(i64 -2147483648, 2147483641) i64 @_ZN10MarkBitMap13m
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10MarkBitMap10initializeE9MemRegionS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((8, 24), (32, 48)) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10MarkBitMap10initializeE9MemRegionS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((8, 24), (32, 48)) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16

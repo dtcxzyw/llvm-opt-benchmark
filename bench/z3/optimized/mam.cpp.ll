@@ -510,7 +510,7 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @_ZN6regionC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #0
 
@@ -537,7 +537,7 @@ _ZN6vectorIPN12_GLOBAL__N_19path_treeELb0EjED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6vectorI10ptr_vectorIN12_GLOBAL__N_14pathEELb1EjED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6vectorI10ptr_vectorIN12_GLOBAL__N_14pathEELb1EjED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -825,7 +825,7 @@ _ZN6vectorIP9func_declLb0EjED2Ev.exit:            ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113code_tree_mapD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113code_tree_mapD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_trees = getelementptr inbounds nuw i8, ptr %this, i64 16
   %m_trees.val1 = load ptr, ptr %m_trees, align 8
@@ -1055,7 +1055,7 @@ _ZN10ptr_vectorIN3smt5enodeEED2Ev.exit28:         ; preds = %_ZN10ptr_vectorIN3s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18compilerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18compilerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_seq = getelementptr inbounds nuw i8, ptr %this, i64 168
   %m_seq.val = load ptr, ptr %m_seq, align 8
@@ -2306,7 +2306,7 @@ if.then.i:                                        ; preds = %invoke.cont9.i
   %36 = load ptr, ptr %m_context.i, align 8
   %m_qmanager.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 7496
   %37 = load ptr, ptr %m_qmanager.i.i.i, align 8
-  %call2.i.i17.i = invoke noundef i32 @_ZNK3smt18quantifier_manager14get_generationEP10quantifier(ptr noundef nonnull align 8 dereferenceable(13) %37, ptr noundef %qa)
+  %call2.i.i17.i = invoke noundef i32 @_ZNK3smt18quantifier_manager14get_generationEP10quantifier(ptr noundef nonnull align 8 dereferenceable(13) %37, ptr noundef nonnull %qa)
           to label %call2.i.i.noexc.i unwind label %lpad.loopexit.split-lp.loopexit.i
 
 call2.i.i.noexc.i:                                ; preds = %if.then.i
@@ -3720,7 +3720,7 @@ for.end21:                                        ; preds = %for.inc19, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_18mam_impl8has_workEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(98976) %this) unnamed_addr #6 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_18mam_impl8has_workEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98976) %this) unnamed_addr #6 align 2 {
 entry:
   %m_to_match = getelementptr inbounds nuw i8, ptr %this, i64 520
   %m_to_match.val = load ptr, ptr %m_to_match, align 8
@@ -4757,7 +4757,7 @@ _ZN12_GLOBAL__N_18mam_impl11reset_pp_pcEv.exit:   ; preds = %for.inc16.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_18mam_impl7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(98976) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_18mam_impl7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98976) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.13)
   %m_lbl_hasher = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -5113,7 +5113,7 @@ _ZN12_GLOBAL__N_111interpreter26get_min_max_top_generationERjS1_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_18mam_impl9is_sharedEPN3smt5enodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(98976) %this, ptr noundef readonly %n) unnamed_addr #6 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_18mam_impl9is_sharedEPN3smt5enodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98976) %this, ptr noundef readonly %n) unnamed_addr #6 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 98948
   %0 = load i32, ptr %m_size.i, align 4
@@ -5565,7 +5565,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -5618,7 +5618,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 declare void @_ZN6region5resetEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18mam_impl14update_filtersEP3appPNS_4pathEP10quantifierS2_j(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr nocapture noundef readonly %pat, ptr noundef %p, ptr noundef %qa, ptr noundef %mp, i32 noundef %pat_idx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18mam_impl14update_filtersEP3appPNS_4pathEP10quantifierS2_j(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef readonly captures(none) %pat, ptr noundef %p, ptr noundef %qa, ptr noundef %mp, i32 noundef %pat_idx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i250 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i251 = alloca %"class.std::allocator.333", align 1
@@ -6900,10 +6900,10 @@ for.end:                                          ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18mam_impl12update_plblsEP9func_decl(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr nocapture noundef readonly %lbl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18mam_impl12update_plblsEP9func_decl(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef readonly captures(none) %lbl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %lbl, align 4
   %sub.i = xor i32 %0, -2147483648
@@ -7287,7 +7287,7 @@ if.end8:                                          ; preds = %if.then7, %if.end
 declare noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %t, ptr nocapture noundef readonly %p, ptr noundef %qa, ptr noundef %mp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %t, ptr noundef readonly captures(none) %p, ptr noundef %qa, ptr noundef %mp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %tailrecurse
 
@@ -7538,13 +7538,13 @@ _ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit:     ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN13set_ptr_trailIN12_GLOBAL__N_19path_treeEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN13set_ptr_trailIN12_GLOBAL__N_19path_treeEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr nocapture noundef readonly %p, ptr noundef %qa, ptr noundef %mp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_18mam_impl12mk_path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef readonly captures(none) %p, ptr noundef %qa, ptr noundef %mp) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 while.body.lr.ph:
   %m_pattern_idx = getelementptr inbounds nuw i8, ptr %p, i64 24
   %0 = load i32, ptr %m_pattern_idx, align 8
@@ -7686,7 +7686,7 @@ _ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit:     ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN13set_ptr_trailIN12_GLOBAL__N_19code_treeEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN13set_ptr_trailIN12_GLOBAL__N_19code_treeEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -7733,7 +7733,7 @@ _ZN6vectorIP5trailLb0EjE9push_backEOS1_.exit:     ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN13new_obj_trailIN12_GLOBAL__N_19code_treeEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN13new_obj_trailIN12_GLOBAL__N_19code_treeEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -10977,7 +10977,7 @@ if.end:                                           ; preds = %entry, %_ZN6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18compiler14set_check_markEjNS0_10check_markE(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %reg, i32 noundef range(i32 0, 3) %cm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18compiler14set_check_markEjNS0_10check_markE(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, i32 noundef %reg, i32 noundef range(i32 0, 3) %cm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i.i.i = alloca %"class.std::allocator.333", align 1
@@ -11127,7 +11127,7 @@ _ZN6vectorIN12_GLOBAL__N_18compiler10check_markELb0EjE4setxEjRKS2_S5_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 256) i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %reg) unnamed_addr #3 align 2 {
+define internal fastcc noundef range(i32 0, 256) i32 @_ZNK12_GLOBAL__N_18compiler16get_pat_lbl_hashEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %reg) unnamed_addr #3 align 2 {
 entry:
   %m_registers = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_registers, align 8
@@ -11189,7 +11189,7 @@ return:                                           ; preds = %if.then, %if.then6,
 declare noundef i32 @_ZNK10approx_set4sizeEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18compiler9lineariseEPNS_11instructionEj(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly %head, i32 noundef %first_idx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18compiler9lineariseEPNS_11instructionEj(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef writeonly captures(none) %head, i32 noundef %first_idx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i359.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i360.i = alloca %"class.std::allocator.333", align 1
@@ -12644,7 +12644,7 @@ for.end30:                                        ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6vectorIPN12_GLOBAL__N_111instructionELb0EjE13expand_vectorEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6vectorIPN12_GLOBAL__N_111instructionELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::allocator.333", align 1
@@ -12725,7 +12725,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN11value_trailIPN12_GLOBAL__N_111instructionEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN11value_trailIPN12_GLOBAL__N_111instructionEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -12738,7 +12738,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN11value_trailIPN12_GLOBAL__N_111instructionEE4undoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #15 align 2 {
+define internal void @_ZN11value_trailIPN12_GLOBAL__N_111instructionEE4undoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #15 align 2 {
 entry:
   %m_old_value = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_old_value, align 8
@@ -14055,7 +14055,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef readonly %n, ptr nocapture noundef nonnull align 4 dereferenceable(4) %sz, ptr nocapture noundef nonnull align 4 dereferenceable(4) %num_unbound_vars) unnamed_addr #17 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18compiler14get_stats_coreEP3appRjS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, ptr noundef readonly %n, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %sz, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %num_unbound_vars) unnamed_addr #17 align 2 {
 entry:
   %0 = load i32, ptr %sz, align 4
   %inc = add i32 %0, 1
@@ -14200,7 +14200,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_18compiler13gen_mp_filterEP3app(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_18compiler13gen_mp_filterEP3app(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, ptr noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iregs = alloca %class.sbuffer, align 8
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %n, i64 4
@@ -14626,7 +14626,7 @@ _ZN6bufferIPN3smt5enodeELb0ELj16EED2Ev.exit:      ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_18compiler23get_num_bound_vars_coreEP3appRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %n, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %has_unbound_vars) unnamed_addr #17 align 2 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_18compiler23get_num_bound_vars_coreEP3appRb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, ptr noundef readonly captures(none) %n, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %has_unbound_vars) unnamed_addr #17 align 2 {
 entry:
   %m_num_args.i.i = getelementptr inbounds nuw i8, ptr %n, i64 24
   %0 = load i32, ptr %m_num_args.i.i, align 8
@@ -14705,7 +14705,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN13set_ptr_trailIN12_GLOBAL__N_19code_treeEE4undoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #15 align 2 {
+define internal void @_ZN13set_ptr_trailIN12_GLOBAL__N_19code_treeEE4undoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #15 align 2 {
 entry:
   %m_ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_ptr, align 8
@@ -14786,7 +14786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN13new_obj_trailIN12_GLOBAL__N_19code_treeEE4undoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN13new_obj_trailIN12_GLOBAL__N_19code_treeEE4undoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_obj = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_obj, align 8
@@ -14845,7 +14845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN13set_ptr_trailIN12_GLOBAL__N_19path_treeEE4undoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #15 align 2 {
+define internal void @_ZN13set_ptr_trailIN12_GLOBAL__N_19path_treeEE4undoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #15 align 2 {
 entry:
   %m_ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_ptr, align 8
@@ -14964,7 +14964,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_18mam_impl22add_shared_enode_trailD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN12_GLOBAL__N_18mam_impl22add_shared_enode_trailD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
@@ -15601,13 +15601,13 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_113code_tree_map13mk_tree_trailD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define internal void @_ZN12_GLOBAL__N_113code_tree_map13mk_tree_trailD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #14 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6vectorIPN12_GLOBAL__N_19code_treeELb0EjE13expand_vectorEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6vectorIPN12_GLOBAL__N_19code_treeELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::allocator.333", align 1
@@ -15695,7 +15695,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_113code_tree_map13mk_tree_trail4undoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_113code_tree_map13mk_tree_trail4undoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_trees = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_trees, align 8
@@ -15745,7 +15745,7 @@ _Z7deallocIN12_GLOBAL__N_19code_treeEEvPT_.exit:  ; preds = %entry, %_ZN12_GLOBA
 declare void @_ZN6region10push_scopeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111interpreter4initEPNS_9code_treeE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111interpreter4initEPNS_9code_treeE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef readonly captures(none) %t) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i.i = alloca %"class.std::allocator.333", align 1
@@ -16003,7 +16003,7 @@ if.end:                                           ; preds = %for.body.preheader.
 declare noundef zeroext i1 @_ZN3smt7context24resource_limits_exceededEv(ptr noundef nonnull align 8 dereferenceable(11616)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111interpreter12execute_coreEPNS_9code_treeEPN3smt5enodeE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %t, ptr noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_111interpreter12execute_coreEPNS_9code_treeEPN3smt5enodeE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef readonly captures(none) %t, ptr noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp209 = alloca %"class.std::tuple", align 8
   %ref.tmp216 = alloca %"class.std::tuple", align 8
@@ -23189,7 +23189,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18mam_impl10process_pcEPN3smt5enodeES3_(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %r1, ptr nocapture noundef readonly %r2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18mam_impl10process_pcEPN3smt5enodeES3_(ptr noundef nonnull align 8 dereferenceable(98976) %this, ptr noundef %r1, ptr noundef readonly captures(none) %r2) unnamed_addr #3 align 2 {
 entry:
   %m_plbls.i = getelementptr inbounds nuw i8, ptr %r1, i64 104
   %m_lbls.i = getelementptr inbounds nuw i8, ptr %r2, i64 96
@@ -25432,13 +25432,13 @@ declare i32 @llvm.umin.i32(i32, i32) #19
 declare i32 @llvm.umax.i32(i32, i32) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #21
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #22

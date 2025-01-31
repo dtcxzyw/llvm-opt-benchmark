@@ -275,7 +275,7 @@ declare i32 @pmix_output_open(ptr noundef) local_unnamed_addr #1
 declare void @pmix_output_set_verbosity(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
@@ -283,10 +283,10 @@ declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_un
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -43, 1) i32 @prte_hwloc_base_open() local_unnamed_addr #0 {
@@ -441,15 +441,15 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
 
 63:                                               ; preds = %._crit_edge, %4
   %.058 = phi i16 [ %62, %._crit_edge ], [ 0, %4 ]
-  %64 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %5, ptr noundef nonnull @.str.15)
+  %64 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %5, ptr noundef nonnull @.str.15)
   br i1 %64, label %84, label %65
 
 65:                                               ; preds = %63
-  %66 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %5, ptr noundef nonnull @.str.58)
+  %66 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %5, ptr noundef nonnull @.str.58)
   br i1 %66, label %84, label %67
 
 67:                                               ; preds = %65
-  %68 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %5, ptr noundef nonnull @.str.26)
+  %68 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %5, ptr noundef nonnull @.str.26)
   br i1 %68, label %69, label %72
 
 69:                                               ; preds = %67
@@ -459,23 +459,23 @@ define range(i32 -43, 1) i32 @prte_hwloc_base_set_binding_policy(ptr noundef %0,
   br label %84
 
 72:                                               ; preds = %67
-  %73 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %5, ptr noundef nonnull @.str.59)
+  %73 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %5, ptr noundef nonnull @.str.59)
   br i1 %73, label %84, label %74
 
 74:                                               ; preds = %72
-  %75 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %5, ptr noundef nonnull @.str.60)
+  %75 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %5, ptr noundef nonnull @.str.60)
   br i1 %75, label %84, label %76
 
 76:                                               ; preds = %74
-  %77 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %5, ptr noundef nonnull @.str.61)
+  %77 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %5, ptr noundef nonnull @.str.61)
   br i1 %77, label %84, label %78
 
 78:                                               ; preds = %76
-  %79 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %5, ptr noundef nonnull @.str.62)
+  %79 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %5, ptr noundef nonnull @.str.62)
   br i1 %79, label %84, label %80
 
 80:                                               ; preds = %78
-  %81 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %5, ptr noundef nonnull @.str.27)
+  %81 = tail call fastcc zeroext i1 @pmix_check_cli_option(ptr noundef nonnull %5, ptr noundef nonnull @.str.27)
   br i1 %81, label %84, label %82
 
 82:                                               ; preds = %80
@@ -549,12 +549,12 @@ define void @prte_hwloc_base_close() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @prte_hwloc_base_set_default_binding(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %4 = tail call zeroext i1 @prte_get_attribute(ptr noundef nonnull %3, i16 noundef zeroext 277, ptr noundef null, i16 noundef zeroext 13) #9
   br i1 %4, label %5, label %50
@@ -1863,7 +1863,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
 
 6:                                                ; preds = %4, %2
   %7 = tail call ptr @PMIx_Argv_split(ptr noundef %0, i32 noundef 45) #9
-  %8 = tail call ptr @PMIx_Argv_split(ptr noundef %1, i32 noundef 45) #9
+  %8 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %1, i32 noundef 45) #9
   %9 = tail call i32 @PMIx_Argv_count(ptr noundef %7) #9
   %10 = tail call i32 @PMIx_Argv_count(ptr noundef %8) #9
   %11 = icmp sgt i32 %9, %10
@@ -1924,7 +1924,7 @@ define internal fastcc zeroext i1 @pmix_check_cli_option(ptr noundef %0, ptr nou
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #10
   %33 = tail call i64 @llvm.umin.i64(i64 %31, i64 %32)
-  %34 = tail call i32 @strncasecmp(ptr noundef %0, ptr noundef %1, i64 noundef %33) #10
+  %34 = tail call i32 @strncasecmp(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %33) #10
   %35 = icmp eq i32 %34, 0
   br label %36
 
@@ -1948,7 +1948,7 @@ declare i32 @pthread_setspecific(i32 noundef, ptr noundef) local_unnamed_addr #7
 declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

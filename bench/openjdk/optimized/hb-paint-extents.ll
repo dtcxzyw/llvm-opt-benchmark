@@ -100,7 +100,7 @@ declare ptr @hb_paint_funcs_create() local_unnamed_addr #1
 declare void @hb_paint_funcs_set_push_transform_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL31hb_paint_extents_push_transformP16hb_paint_funcs_tPvffffffS1_(ptr nocapture readnone %0, ptr noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr nocapture readnone %8) #0 {
+define internal void @_ZL31hb_paint_extents_push_transformP16hb_paint_funcs_tPvffffffS1_(ptr readnone captures(none) %0, ptr noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr readnone captures(none) %8) #0 {
   %10 = alloca %struct.hb_transform_t, align 4
   store float %2, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -120,7 +120,7 @@ define internal void @_ZL31hb_paint_extents_push_transformP16hb_paint_funcs_tPvf
 declare void @hb_paint_funcs_set_pop_transform_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL30hb_paint_extents_pop_transformP16hb_paint_funcs_tPvS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #2 {
+define internal void @_ZL30hb_paint_extents_pop_transformP16hb_paint_funcs_tPvS1_(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !noalias !6
   %.not.i.i = icmp eq i32 %5, 0
@@ -138,7 +138,7 @@ _ZN26hb_paint_extents_context_t13pop_transformEv.exit: ; preds = %3, %6
 declare void @hb_paint_funcs_set_push_clip_glyph_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL32hb_paint_extents_push_clip_glyphP16hb_paint_funcs_tPvjP9hb_font_tS1_(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #3 {
+define internal void @_ZL32hb_paint_extents_push_clip_glyphP16hb_paint_funcs_tPvjP9hb_font_tS1_(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #3 {
   %6 = alloca %struct.hb_extents_t, align 8
   store float 0.000000e+00, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -158,7 +158,7 @@ define internal void @_ZL32hb_paint_extents_push_clip_glyphP16hb_paint_funcs_tPv
 declare void @hb_paint_funcs_set_push_clip_rectangle_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL36hb_paint_extents_push_clip_rectangleP16hb_paint_funcs_tPvffffS1_(ptr nocapture readnone %0, ptr noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr nocapture readnone %6) #3 {
+define internal void @_ZL36hb_paint_extents_push_clip_rectangleP16hb_paint_funcs_tPvffffS1_(ptr readnone captures(none) %0, ptr noundef nonnull %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr readnone captures(none) %6) #3 {
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %2, i64 0
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %3, i64 1
   %.sroa.3.8.vec.insert = insertelement <2 x float> poison, float %4, i64 0
@@ -170,7 +170,7 @@ define internal void @_ZL36hb_paint_extents_push_clip_rectangleP16hb_paint_funcs
 declare void @hb_paint_funcs_set_pop_clip_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL25hb_paint_extents_pop_clipP16hb_paint_funcs_tPvS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #2 {
+define internal void @_ZL25hb_paint_extents_pop_clipP16hb_paint_funcs_tPvS1_(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4, !noalias !9
   %.not.i.i = icmp eq i32 %5, 0
@@ -188,7 +188,7 @@ _ZN26hb_paint_extents_context_t8pop_clipEv.exit:  ; preds = %3, %6
 declare void @hb_paint_funcs_set_push_group_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL27hb_paint_extents_push_groupP16hb_paint_funcs_tPvS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #4 {
+define internal void @_ZL27hb_paint_extents_push_groupP16hb_paint_funcs_tPvS1_(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %6 = load i32, ptr %5, align 4
@@ -272,7 +272,7 @@ _ZN26hb_paint_extents_context_t10push_groupEv.exit: ; preds = %_ZN11hb_vector_tI
 declare void @hb_paint_funcs_set_pop_group_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL26hb_paint_extents_pop_groupP16hb_paint_funcs_tPv25hb_paint_composite_mode_tS1_(ptr nocapture readnone %0, ptr noundef nonnull %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal void @_ZL26hb_paint_extents_pop_groupP16hb_paint_funcs_tPv25hb_paint_composite_mode_tS1_(ptr readnone captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void @_ZN26hb_paint_extents_context_t9pop_groupE25hb_paint_composite_mode_t(ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2)
   ret void
 }
@@ -280,7 +280,7 @@ define internal void @_ZL26hb_paint_extents_pop_groupP16hb_paint_funcs_tPv25hb_p
 declare void @hb_paint_funcs_set_color_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL28hb_paint_extents_paint_colorP16hb_paint_funcs_tPvijS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 %2, i32 %3, ptr nocapture readnone %4) #5 {
+define internal void @_ZL28hb_paint_extents_paint_colorP16hb_paint_funcs_tPvijS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #5 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %.not.i.not.i.i = icmp eq i32 %7, 0
@@ -378,7 +378,7 @@ _ZN26hb_paint_extents_context_t5paintEv.exit:     ; preds = %_ZN11hb_vector_tI11
 declare void @hb_paint_funcs_set_image_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL28hb_paint_extents_paint_imageP16hb_paint_funcs_tPvP9hb_blob_tjjjfP18hb_glyph_extents_tS1_(ptr nocapture readnone %0, ptr noundef nonnull %1, ptr nocapture readnone %2, i32 %3, i32 %4, i32 %5, float %6, ptr nocapture noundef readonly %7, ptr nocapture readnone %8) #3 {
+define internal noundef i32 @_ZL28hb_paint_extents_paint_imageP16hb_paint_funcs_tPvP9hb_blob_tjjjfP18hb_glyph_extents_tS1_(ptr readnone captures(none) %0, ptr noundef nonnull %1, ptr readnone captures(none) %2, i32 %3, i32 %4, i32 %5, float %6, ptr noundef readonly captures(none) %7, ptr readnone captures(none) %8) #3 {
   %10 = load i32, ptr %7, align 4
   %11 = sitofp i32 %10 to float
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -504,7 +504,7 @@ _ZN26hb_paint_extents_context_t8pop_clipEv.exit:  ; preds = %_ZN26hb_paint_exten
 declare void @hb_paint_funcs_set_linear_gradient_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL38hb_paint_extents_paint_linear_gradientP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr nocapture readnone %9) #5 {
+define internal void @_ZL38hb_paint_extents_paint_linear_gradientP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %11, align 4
   %.not.i.not.i.i = icmp eq i32 %12, 0
@@ -602,7 +602,7 @@ _ZN26hb_paint_extents_context_t5paintEv.exit:     ; preds = %_ZN11hb_vector_tI11
 declare void @hb_paint_funcs_set_radial_gradient_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL38hb_paint_extents_paint_radial_gradientP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr nocapture readnone %9) #5 {
+define internal void @_ZL38hb_paint_extents_paint_radial_gradientP16hb_paint_funcs_tPvP15hb_color_line_tffffffS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr readnone captures(none) %9) #5 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %12 = load i32, ptr %11, align 4
   %.not.i.not.i.i = icmp eq i32 %12, 0
@@ -700,7 +700,7 @@ _ZN26hb_paint_extents_context_t5paintEv.exit:     ; preds = %_ZN11hb_vector_tI11
 declare void @hb_paint_funcs_set_sweep_gradient_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL37hb_paint_extents_paint_sweep_gradientP16hb_paint_funcs_tPvP15hb_color_line_tffffS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, ptr nocapture readnone %7) #5 {
+define internal void @_ZL37hb_paint_extents_paint_sweep_gradientP16hb_paint_funcs_tPvP15hb_color_line_tffffS1_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, float %3, float %4, float %5, float %6, ptr readnone captures(none) %7) #5 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %10 = load i32, ptr %9, align 4
   %.not.i.not.i.i = icmp eq i32 %10, 0
@@ -936,13 +936,13 @@ _ZN11hb_vector_tI14hb_transform_tLb0EE4pushIJRS0_EEEPS0_DpOT_.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare void @hb_font_draw_glyph(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1192,7 +1192,7 @@ declare ptr @hb_draw_funcs_create() local_unnamed_addr #1
 declare void @hb_draw_funcs_set_move_to_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL23hb_draw_extents_move_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @_ZL23hb_draw_extents_move_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, float noundef %3, float noundef %4, ptr readnone captures(none) %5) #2 {
   %7 = load float, ptr %1, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
@@ -1234,7 +1234,7 @@ _ZN12hb_extents_t9add_pointEff.exit:              ; preds = %11, %14
 declare void @hb_draw_funcs_set_line_to_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL23hb_draw_extents_line_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, ptr nocapture readnone %5) #2 {
+define internal void @_ZL23hb_draw_extents_line_toP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, float noundef %3, float noundef %4, ptr readnone captures(none) %5) #2 {
   %7 = load float, ptr %1, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load float, ptr %8, align 4
@@ -1276,7 +1276,7 @@ _ZN12hb_extents_t9add_pointEff.exit:              ; preds = %11, %14
 declare void @hb_draw_funcs_set_quadratic_to_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL28hb_draw_extents_quadratic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture readnone %7) #2 {
+define internal void @_ZL28hb_draw_extents_quadratic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr readnone captures(none) %7) #2 {
   %9 = load float, ptr %1, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load float, ptr %10, align 4
@@ -1336,7 +1336,7 @@ _ZN12hb_extents_t9add_pointEff.exit11:            ; preds = %22, %_ZN12hb_extent
 declare void @hb_draw_funcs_set_cubic_to_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL24hb_draw_extents_cubic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr nocapture readnone %9) #2 {
+define internal void @_ZL24hb_draw_extents_cubic_toP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr readnone captures(none) %9) #2 {
   %11 = load float, ptr %1, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load float, ptr %12, align 4
@@ -1615,10 +1615,10 @@ _ZN11hb_bounds_t9intersectERKS_.exit:             ; preds = %50, %49, %47, %46, 
 declare void @hb_paint_funcs_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

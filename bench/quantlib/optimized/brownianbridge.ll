@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib14BrownianBridgeC1ERKNS_8TimeGridE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib14BrownianBridgeC2ERKNS_8TimeGridE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14BrownianBridgeC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this, i64 noundef %steps) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14BrownianBridgeC2Em(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((0, 8)) %this, i64 noundef %steps) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 %steps, ptr %this, align 8, !tbaa !3
   %t_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -430,7 +430,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i178, %
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14BrownianBridge10initializeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14BrownianBridge10initializeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %t_, align 8, !tbaa !17
@@ -614,7 +614,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14BrownianBridgeC2ERKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %times) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14BrownianBridgeC2ERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %times) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %times, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !21
@@ -1035,7 +1035,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit183:                 ; preds = %ehcleanup34, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14BrownianBridgeC2ERKNS_8TimeGridE(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %timeGrid) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14BrownianBridgeC2ERKNS_8TimeGridE(ptr noundef nonnull align 8 captures(none) dereferenceable(200) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %timeGrid) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %timeGrid, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8, !tbaa !21
@@ -1478,10 +1478,10 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #3
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -78,7 +78,7 @@ define { ptr, ptr } @gen_location(i64 %0, ptr noundef %1, ptr %2, ptr %3) local_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @locfile_retain(ptr noundef) local_unnamed_addr #3
 
@@ -88,7 +88,7 @@ define { ptr, ptr } @gen_noop() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i32 0, 2) i32 @block_is_noop(ptr readnone %0, ptr readnone %1) local_unnamed_addr #0 {
@@ -181,7 +181,7 @@ define { ptr, ptr } @gen_const(i64 %0, ptr %1) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_const_global(i64 %0, ptr %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_const_global(i64 %0, ptr %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -215,7 +215,7 @@ define { ptr, ptr } @gen_const_global(i64 %0, ptr %1, ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define { ptr, ptr } @gen_op_pushk_under(i64 %0, ptr %1) local_unnamed_addr #1 {
@@ -270,7 +270,7 @@ define range(i32 0, 2) i32 @block_is_const(ptr readonly %0, ptr readnone %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @block_const_kind(ptr nocapture readonly %0, ptr nocapture readnone %1) local_unnamed_addr #1 {
+define i32 @block_const_kind(ptr readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -282,7 +282,7 @@ define i32 @block_const_kind(ptr nocapture readonly %0, ptr nocapture readnone %
 declare i32 @jv_get_kind(i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define { i64, ptr } @block_const(ptr nocapture readonly %0, ptr nocapture readnone %1) local_unnamed_addr #1 {
+define { i64, ptr } @block_const(ptr readonly captures(none) %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -294,7 +294,7 @@ define { i64, ptr } @block_const(ptr nocapture readonly %0, ptr nocapture readno
 declare { i64, ptr } @jv_copy(i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_op_target(i32 noundef %0, ptr nocapture readnone %1, ptr %2) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_op_target(i32 noundef %0, ptr readnone captures(none) %1, ptr %2) local_unnamed_addr #1 {
   %4 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -348,14 +348,14 @@ define { ptr, ptr } @gen_op_targetlater(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @inst_set_target(ptr nocapture writeonly initializes((32, 40)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr %3) local_unnamed_addr #7 {
+define void @inst_set_target(ptr writeonly captures(none) initializes((32, 40)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %3, ptr %5, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_op_unbound(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_op_unbound(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -385,7 +385,7 @@ define { ptr, ptr } @gen_op_unbound(i32 noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_op_var_fresh(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_op_var_fresh(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -416,7 +416,7 @@ define { ptr, ptr } @gen_op_var_fresh(i32 noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_op_bound(i32 noundef %0, ptr %1, ptr nocapture readnone %2) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_op_bound(i32 noundef %0, ptr %1, ptr readnone captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
@@ -676,7 +676,7 @@ block_join.exit32:                                ; preds = %63, %53, %block_fre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @block_append(ptr nocapture noundef %0, ptr %1, ptr %2) local_unnamed_addr #8 {
+define void @block_append(ptr noundef captures(none) %0, ptr %1, ptr %2) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %4
 
@@ -705,7 +705,7 @@ define void @block_append(ptr nocapture noundef %0, ptr %1, ptr %2) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @block_has_only_binders_and_imports(ptr readonly %0, ptr nocapture readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @block_has_only_binders_and_imports(ptr readonly %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = or i32 %2, 1024
   %.not13 = icmp eq ptr %0, null
   br i1 %.not13, label %._crit_edge, label %.lr.ph
@@ -740,7 +740,7 @@ define range(i32 0, 2) i32 @block_has_only_binders_and_imports(ptr readonly %0, 
 declare ptr @opcode_describe(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @block_has_only_binders(ptr readonly %0, ptr nocapture readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @block_has_only_binders(ptr readonly %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = and i32 %2, -3073
   %5 = or disjoint i32 %4, 1024
   %.not11 = icmp eq ptr %0, null
@@ -773,7 +773,7 @@ define range(i32 0, 2) i32 @block_has_only_binders(ptr readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @block_bind_library(ptr nocapture readnone %0, ptr %1, ptr %2, ptr %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 {
+define { ptr, ptr } @block_bind_library(ptr readnone captures(none) %0, ptr %1, ptr %2, ptr %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = or i32 %4, 1024
   %9 = icmp eq ptr %5, null
@@ -853,18 +853,18 @@ define { ptr, ptr } @block_bind_library(ptr nocapture readnone %0, ptr %1, ptr %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @jv_mem_alloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @block_bind_referenced(ptr nocapture readnone %0, ptr %1, ptr %2, ptr %3, i32 noundef %4) local_unnamed_addr #1 {
+define { ptr, ptr } @block_bind_referenced(ptr readnone captures(none) %0, ptr %1, ptr %2, ptr %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = or i32 %4, 1024
   %8 = icmp eq ptr %1, null
@@ -926,7 +926,7 @@ block_take_last.exit:                             ; preds = %block_free.exit, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define void @block_free(ptr %0, ptr nocapture readnone %1) local_unnamed_addr #1 {
+define void @block_free(ptr %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -942,7 +942,7 @@ define void @block_free(ptr %0, ptr nocapture readnone %1) local_unnamed_addr #1
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @block_bind_self(ptr nocapture readnone %0, ptr %1, i32 noundef %2) local_unnamed_addr #1 {
+define { ptr, ptr } @block_bind_self(ptr readnone captures(none) %0, ptr %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = or i32 %2, 1024
   %6 = icmp eq ptr %1, null
@@ -1171,7 +1171,7 @@ block_free.exit11:                                ; preds = %.lr.ph16, %block_fr
 }
 
 ; Function Attrs: nounwind uwtable
-define { i64, ptr } @block_take_imports(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define { i64, ptr } @block_take_imports(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call { i64, ptr } @jv_array() #17
   %3 = load ptr, ptr %0, align 8
   %.not14 = icmp eq ptr %3, null
@@ -1252,7 +1252,7 @@ declare { i64, ptr } @jv_array() local_unnamed_addr #3
 declare { i64, ptr } @jv_array_append(i64, ptr, i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define { i64, ptr } @block_list_funcs(ptr readonly %0, ptr nocapture readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define { i64, ptr } @block_list_funcs(ptr readonly %0, ptr readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call { i64, ptr } @jv_object() #17
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -1360,7 +1360,7 @@ declare { i64, ptr } @jv_null() local_unnamed_addr #3
 declare { i64, ptr } @jv_keys_unsorted(i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_module(ptr %0, ptr nocapture readnone %1) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_module(ptr %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -1429,7 +1429,7 @@ block_free.exit:                                  ; preds = %.lr.ph.i
 declare { i64, ptr } @jv_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define { i64, ptr } @block_module_meta(ptr readonly %0, ptr nocapture readnone %1) local_unnamed_addr #1 {
+define { i64, ptr } @block_module_meta(ptr readonly %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -1541,7 +1541,7 @@ declare { i64, ptr } @jv_true() local_unnamed_addr #3
 declare { i64, ptr } @jv_false() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_import_meta(ptr %0, ptr %1, ptr %2, ptr nocapture readnone %3) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_import_meta(ptr %0, ptr %1, ptr %2, ptr readnone captures(none) %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i64, ptr %6, align 8
@@ -1576,7 +1576,7 @@ block_free.exit:                                  ; preds = %.lr.ph.i
 declare { i64, ptr } @jv_object_merge(i64, ptr, i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_function(ptr nocapture noundef readonly %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_function(ptr noundef readonly captures(none) %0, ptr %1, ptr %2, ptr %3, ptr %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
@@ -1667,7 +1667,7 @@ define { ptr, ptr } @gen_function(ptr nocapture noundef readonly %0, ptr %1, ptr
   store ptr %48, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %39, i64 96
   store i32 1, ptr %50, align 8
-  %51 = tail call { ptr, ptr } @gen_destructure(ptr %25, ptr %25, ptr %39, ptr %39, ptr %.sroa.022.036, ptr %.sroa.5.037)
+  %51 = tail call { ptr, ptr } @gen_destructure(ptr nonnull %25, ptr nonnull %25, ptr nonnull %39, ptr nonnull %39, ptr %.sroa.022.036, ptr %.sroa.5.037)
   %52 = extractvalue { ptr, ptr } %51, 0
   %53 = extractvalue { ptr, ptr } %51, 1
   br label %54
@@ -1703,13 +1703,13 @@ define { ptr, ptr } @gen_function(ptr nocapture noundef readonly %0, ptr %1, ptr
   %.fca.0.insert.i31 = insertvalue { ptr, ptr } poison, ptr %8, 0
   %.fca.1.insert.i32 = insertvalue { ptr, ptr } %.fca.0.insert.i31, ptr %8, 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %62 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr %8, ptr %8, i32 noundef 1152, i32 noundef 0)
+  %62 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %6, ptr nonnull %8, ptr nonnull %8, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   ret { ptr, ptr } %.fca.1.insert.i32
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_var_binding(ptr %0, ptr %1, ptr nocapture noundef readonly %2, ptr %3, ptr %4) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_var_binding(ptr %0, ptr %1, ptr noundef readonly captures(none) %2, ptr %3, ptr %4) local_unnamed_addr #1 {
   %6 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -1733,12 +1733,12 @@ define { ptr, ptr } @gen_var_binding(ptr %0, ptr %1, ptr nocapture noundef reado
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 96
   store i32 1, ptr %17, align 8
-  %18 = tail call { ptr, ptr } @gen_destructure(ptr %0, ptr %1, ptr %6, ptr %6, ptr %3, ptr %4)
+  %18 = tail call { ptr, ptr } @gen_destructure(ptr %0, ptr %1, ptr nonnull %6, ptr nonnull %6, ptr %3, ptr %4)
   ret { ptr, ptr } %18
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_call(ptr nocapture noundef readonly %0, ptr %1, ptr %2) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_call(ptr noundef readonly captures(none) %0, ptr %1, ptr %2) local_unnamed_addr #1 {
   %4 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -1799,7 +1799,7 @@ block_count_actuals.exit:                         ; preds = %21, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_param_regular(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_param_regular(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1829,7 +1829,7 @@ define { ptr, ptr } @gen_param_regular(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_param(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_param(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1892,7 +1892,7 @@ define { ptr, ptr } @gen_lambda(ptr %0, ptr %1) local_unnamed_addr #1 {
   %.fca.1.insert.i32.i = insertvalue { ptr, ptr } %.fca.0.insert.i31.i, ptr %4, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %17 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr %4, ptr %4, i32 noundef 1152, i32 noundef 0)
+  %17 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr nonnull %4, ptr nonnull %4, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   ret { ptr, ptr } %.fca.1.insert.i32.i
 }
@@ -1976,7 +1976,7 @@ block_join.exit30:                                ; preds = %block_join.exit23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_const_object(ptr %0, ptr nocapture readnone %1) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_const_object(ptr %0, ptr readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call { i64, ptr } @jv_object() #17
   %4 = tail call { i64, ptr } @jv_null() #17
   %5 = tail call { i64, ptr } @jv_null() #17
@@ -2617,7 +2617,7 @@ block_join.exit93:                                ; preds = %.thread105, %146
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_reduce(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, ptr nocapture noundef readonly byval(%struct.block) align 8 %6) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_reduce(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, ptr noundef readonly byval(%struct.block) align 8 captures(none) %6) local_unnamed_addr #1 {
   %8 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -3201,94 +3201,89 @@ block_free.exit:                                  ; preds = %.lr.ph.i116
   br i1 %10, label %block_join.exit125, label %113
 
 113:                                              ; preds = %block_free.exit
-  %.not7.i.i120 = icmp eq ptr %.sroa.3.0.i111, null
-  br i1 %.not7.i.i120, label %block_join.exit125, label %114
-
-114:                                              ; preds = %113
   store ptr %.sroa.0.0.lcssa, ptr %.sroa.3.0.i111, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 8
-  store ptr %.sroa.3.0.i111, ptr %115, align 8
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.lcssa, i64 8
+  store ptr %.sroa.3.0.i111, ptr %114, align 8
   br label %block_join.exit125
 
-block_join.exit125:                               ; preds = %block_free.exit, %113, %114
-  %.sroa.3.0.i121 = phi ptr [ %.sroa.3.0.i111, %block_free.exit ], [ %.sroa.9.0.lcssa, %113 ], [ %.sroa.9.0.lcssa, %114 ]
-  %.sroa.0.1.i122 = phi ptr [ %.sroa.0.1.i105, %block_free.exit ], [ %.sroa.0.0.lcssa, %113 ], [ %.sroa.0.1.i105, %114 ]
+block_join.exit125:                               ; preds = %block_free.exit, %113
+  %.sroa.3.0.i121 = phi ptr [ %.sroa.3.0.i111, %block_free.exit ], [ %.sroa.9.0.lcssa, %113 ]
   %.not.i.i126 = icmp eq ptr %2, null
-  br i1 %.not.i.i126, label %block_join.exit132, label %116
+  br i1 %.not.i.i126, label %block_join.exit132, label %115
 
-116:                                              ; preds = %block_join.exit125
+115:                                              ; preds = %block_join.exit125
   %.not7.i.i127 = icmp eq ptr %.sroa.3.0.i121, null
-  br i1 %.not7.i.i127, label %block_join.exit132, label %117
+  br i1 %.not7.i.i127, label %block_join.exit132, label %116
 
-117:                                              ; preds = %116
+116:                                              ; preds = %115
   store ptr %2, ptr %.sroa.3.0.i121, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr %.sroa.3.0.i121, ptr %118, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr %.sroa.3.0.i121, ptr %117, align 8
   br label %block_join.exit132
 
-block_join.exit132:                               ; preds = %block_join.exit125, %116, %117
-  %.sroa.3.0.i128 = phi ptr [ %.sroa.3.0.i121, %block_join.exit125 ], [ %3, %116 ], [ %3, %117 ]
-  %.sroa.0.1.i129 = phi ptr [ %.sroa.0.1.i122, %block_join.exit125 ], [ %2, %116 ], [ %.sroa.0.1.i122, %117 ]
+block_join.exit132:                               ; preds = %block_join.exit125, %115, %116
+  %.sroa.3.0.i128 = phi ptr [ %.sroa.3.0.i121, %block_join.exit125 ], [ %3, %115 ], [ %3, %116 ]
+  %.sroa.0.1.i129 = phi ptr [ %.sroa.0.1.i105, %block_join.exit125 ], [ %2, %115 ], [ %.sroa.0.1.i105, %116 ]
   %.not18.i133 = icmp eq ptr %.sroa.049.1.lcssa, null
   br i1 %.not18.i133, label %._crit_edge.i138, label %.lr.ph.i134
 
-.lr.ph.i134:                                      ; preds = %block_join.exit132, %126
-  %.019.i135 = phi ptr [ %127, %126 ], [ %.sroa.049.1.lcssa, %block_join.exit132 ]
-  %119 = getelementptr inbounds nuw i8, ptr %.019.i135, i64 16
-  %120 = load i32, ptr %119, align 8
-  switch i32 %120, label %126 [
-    i32 8, label %121
-    i32 41, label %121
+.lr.ph.i134:                                      ; preds = %block_join.exit132, %125
+  %.019.i135 = phi ptr [ %126, %125 ], [ %.sroa.049.1.lcssa, %block_join.exit132 ]
+  %118 = getelementptr inbounds nuw i8, ptr %.019.i135, i64 16
+  %119 = load i32, ptr %118, align 8
+  switch i32 %119, label %125 [
+    i32 8, label %120
+    i32 41, label %120
   ]
 
-121:                                              ; preds = %.lr.ph.i134, %.lr.ph.i134
-  %122 = getelementptr inbounds nuw i8, ptr %.019.i135, i64 80
-  %123 = load ptr, ptr %122, align 8
-  %.not15.i136 = icmp eq ptr %123, null
-  br i1 %.not15.i136, label %124, label %126
+120:                                              ; preds = %.lr.ph.i134, %.lr.ph.i134
+  %121 = getelementptr inbounds nuw i8, ptr %.019.i135, i64 80
+  %122 = load ptr, ptr %121, align 8
+  %.not15.i136 = icmp eq ptr %122, null
+  br i1 %.not15.i136, label %123, label %125
 
-124:                                              ; preds = %121
+123:                                              ; preds = %120
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %125 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr nonnull %.019.i135, ptr %.sroa.0.1.i129, i32 noundef 4, i32 noundef 0)
+  %124 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr nonnull %.019.i135, ptr %.sroa.0.1.i129, i32 noundef 4, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  br label %126
+  br label %125
 
-126:                                              ; preds = %124, %121, %.lr.ph.i134
-  %127 = load ptr, ptr %.019.i135, align 8
-  %.not.i137 = icmp eq ptr %127, null
+125:                                              ; preds = %123, %120, %.lr.ph.i134
+  %126 = load ptr, ptr %.019.i135, align 8
+  %.not.i137 = icmp eq ptr %126, null
   br i1 %.not.i137, label %._crit_edge.i138, label %.lr.ph.i134, !llvm.loop !21
 
-._crit_edge.i138:                                 ; preds = %126, %block_join.exit132
+._crit_edge.i138:                                 ; preds = %125, %block_join.exit132
   %.not.i.i.i139 = icmp eq ptr %.sroa.0.1.i129, null
-  br i1 %.not.i.i.i139, label %bind_matcher.exit, label %128
+  br i1 %.not.i.i.i139, label %bind_matcher.exit, label %127
 
-128:                                              ; preds = %._crit_edge.i138
+127:                                              ; preds = %._crit_edge.i138
   %.not7.i.i.i140 = icmp eq ptr %.sroa.451.1.lcssa, null
-  br i1 %.not7.i.i.i140, label %bind_matcher.exit, label %129
+  br i1 %.not7.i.i.i140, label %bind_matcher.exit, label %128
 
-129:                                              ; preds = %128
+128:                                              ; preds = %127
   store ptr %.sroa.0.1.i129, ptr %.sroa.451.1.lcssa, align 8
   br label %bind_matcher.exit.sink.split
 
-bind_matcher.exit.sink.split:                     ; preds = %31, %129
-  %.sroa.0.1.i129.sink = phi ptr [ %.sroa.0.1.i129, %129 ], [ %2, %31 ]
-  %.sroa.451.1.lcssa.sink = phi ptr [ %.sroa.451.1.lcssa, %129 ], [ %.sroa.9.0.lcssa195200, %31 ]
-  %.sroa.0.1.i.i.pn.ph = phi ptr [ %.sroa.049.1.lcssa, %129 ], [ %.sroa.0.0.lcssa194201, %31 ]
-  %.sroa.3.0.i.i.pn.ph = phi ptr [ %.sroa.3.0.i128, %129 ], [ %3, %31 ]
-  %130 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i129.sink, i64 8
-  store ptr %.sroa.451.1.lcssa.sink, ptr %130, align 8
+bind_matcher.exit.sink.split:                     ; preds = %31, %128
+  %.sroa.0.1.i129.sink = phi ptr [ %.sroa.0.1.i129, %128 ], [ %2, %31 ]
+  %.sroa.451.1.lcssa.sink = phi ptr [ %.sroa.451.1.lcssa, %128 ], [ %.sroa.9.0.lcssa195200, %31 ]
+  %.sroa.0.1.i.i.pn.ph = phi ptr [ %.sroa.049.1.lcssa, %128 ], [ %.sroa.0.0.lcssa194201, %31 ]
+  %.sroa.3.0.i.i.pn.ph = phi ptr [ %.sroa.3.0.i128, %128 ], [ %3, %31 ]
+  %129 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i129.sink, i64 8
+  store ptr %.sroa.451.1.lcssa.sink, ptr %129, align 8
   br label %bind_matcher.exit
 
-bind_matcher.exit:                                ; preds = %bind_matcher.exit.sink.split, %128, %._crit_edge.i138, %30, %._crit_edge.i
-  %.sroa.0.1.i.i.pn = phi ptr [ %.sroa.0.0.lcssa194201, %._crit_edge.i ], [ %2, %30 ], [ %.sroa.049.1.lcssa, %._crit_edge.i138 ], [ %.sroa.0.1.i129, %128 ], [ %.sroa.0.1.i.i.pn.ph, %bind_matcher.exit.sink.split ]
-  %.sroa.3.0.i.i.pn = phi ptr [ %.sroa.9.0.lcssa195200, %._crit_edge.i ], [ %3, %30 ], [ %.sroa.451.1.lcssa, %._crit_edge.i138 ], [ %.sroa.3.0.i128, %128 ], [ %.sroa.3.0.i.i.pn.ph, %bind_matcher.exit.sink.split ]
+bind_matcher.exit:                                ; preds = %bind_matcher.exit.sink.split, %127, %._crit_edge.i138, %30, %._crit_edge.i
+  %.sroa.0.1.i.i.pn = phi ptr [ %.sroa.0.0.lcssa194201, %._crit_edge.i ], [ %2, %30 ], [ %.sroa.049.1.lcssa, %._crit_edge.i138 ], [ %.sroa.0.1.i129, %127 ], [ %.sroa.0.1.i.i.pn.ph, %bind_matcher.exit.sink.split ]
+  %.sroa.3.0.i.i.pn = phi ptr [ %.sroa.9.0.lcssa195200, %._crit_edge.i ], [ %3, %30 ], [ %.sroa.451.1.lcssa, %._crit_edge.i138 ], [ %.sroa.3.0.i128, %127 ], [ %.sroa.3.0.i.i.pn.ph, %bind_matcher.exit.sink.split ]
   %.fca.0.insert.i16.i.pn = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i.i.pn, 0
   %.pn = insertvalue { ptr, ptr } %.fca.0.insert.i16.i.pn, ptr %.sroa.3.0.i.i.pn, 1
   ret { ptr, ptr } %.pn
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_foreach(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, ptr nocapture noundef readonly byval(%struct.block) align 8 %6, ptr nocapture noundef readonly byval(%struct.block) align 8 %7) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_foreach(ptr %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, ptr noundef readonly byval(%struct.block) align 8 captures(none) %6, ptr noundef readonly byval(%struct.block) align 8 captures(none) %7) local_unnamed_addr #1 {
   %9 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -3987,7 +3982,7 @@ block_join.exit210:                               ; preds = %178, %166
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @block_has_main(ptr readonly %0, ptr nocapture readnone %1) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @block_has_main(ptr readonly %0, ptr readnone captures(none) %1) local_unnamed_addr #13 {
   %.not4 = icmp eq ptr %0, null
   br i1 %.not4, label %._crit_edge, label %.lr.ph
 
@@ -4009,7 +4004,7 @@ define range(i32 0, 2) i32 @block_has_main(ptr readonly %0, ptr nocapture readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @block_is_funcdef(ptr readonly %0, ptr nocapture readnone %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @block_is_funcdef(ptr readonly %0, ptr readnone captures(none) %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -4952,7 +4947,7 @@ define { ptr, ptr } @gen_array_matcher(ptr %0, ptr %1, ptr %2, ptr %3) local_unn
   store i64 %34, ptr %44, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %36, i64 48
   store ptr %35, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %45 = tail call { ptr, ptr } @gen_subexp(ptr %36, ptr %36)
+  %45 = tail call { ptr, ptr } @gen_subexp(ptr nonnull %36, ptr nonnull %36)
   %46 = extractvalue { ptr, ptr } %45, 0
   %.not.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i, label %50, label %47
@@ -5444,7 +5439,7 @@ block_join.exit62:                                ; preds = %block_join.exit55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define { ptr, ptr } @gen_label(ptr nocapture noundef readonly %0, ptr %1, ptr %2) local_unnamed_addr #1 {
+define { ptr, ptr } @gen_label(ptr noundef readonly captures(none) %0, ptr %1, ptr %2) local_unnamed_addr #1 {
 block_join.exit:
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -5476,7 +5471,7 @@ block_join.exit:
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %19 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr %6, ptr %6, i32 noundef 1152, i32 noundef 0)
+  %19 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %5, ptr nonnull %6, ptr nonnull %6, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   %20 = tail call ptr @jv_mem_alloc(i64 noundef 160) #17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -5530,7 +5525,7 @@ block_join.exit:
   %44 = getelementptr inbounds nuw i8, ptr %32, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %45 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr %32, ptr %32, i32 noundef 1152, i32 noundef 0)
+  %45 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %4, ptr nonnull %32, ptr nonnull %32, i32 noundef 1152, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   store ptr %32, ptr %6, align 8
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -5667,7 +5662,7 @@ gen_call.exit:                                    ; preds = %64
   %105 = getelementptr inbounds nuw i8, ptr %93, i64 128
   store i32 0, ptr %98, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, i8 0, i64 16, i1 false)
-  %106 = tail call { ptr, ptr } @gen_cond(ptr %47, ptr %47, ptr %84, ptr %84, ptr %93, ptr %93)
+  %106 = tail call { ptr, ptr } @gen_cond(ptr nonnull %47, ptr nonnull %47, ptr nonnull %84, ptr nonnull %84, ptr nonnull %93, ptr nonnull %93)
   %107 = extractvalue { ptr, ptr } %106, 0
   %108 = extractvalue { ptr, ptr } %106, 1
   %109 = tail call { ptr, ptr } @gen_try(ptr %1, ptr %2, ptr %107, ptr %108)
@@ -5734,42 +5729,21 @@ block_join.exit.i:                                ; preds = %gen_call.exit, %111
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %block_join.exit.i
   %.0102.i.i.i = phi ptr [ %138, %.lr.ph.i.i.i ], [ %125, %block_join.exit.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
-  %137 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr nonnull %.0102.i.i.i, ptr %75, i32 noundef 3076, i32 noundef 0)
+  %137 = call fastcc i32 @block_bind_subblock_inner(ptr noundef %3, ptr nonnull %.0102.i.i.i, ptr nonnull %75, i32 noundef 3076, i32 noundef 0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   %138 = load ptr, ptr %.0102.i.i.i, align 8
   %.not.i.i15.i = icmp eq ptr %138, null
-  br i1 %.not.i.i15.i, label %block_bind_each.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !26
+  br i1 %.not.i.i15.i, label %gen_wildvar_binding.exit, label %.lr.ph.i.i.i, !llvm.loop !26
 
-block_bind_each.exit.i.i:                         ; preds = %.lr.ph.i.i.i
-  %.not.i.i.i.i = icmp eq ptr %75, null
-  br i1 %.not.i.i.i.i, label %block_bind.exit.i, label %block_bind.exit.thread.i
-
-block_bind.exit.thread.i:                         ; preds = %block_bind_each.exit.i.i
+gen_wildvar_binding.exit:                         ; preds = %.lr.ph.i.i.i
   store ptr %75, ptr %125, align 8
   %139 = getelementptr inbounds nuw i8, ptr %75, i64 8
   store ptr %125, ptr %139, align 8
-  br label %140
-
-block_bind.exit.i:                                ; preds = %block_bind_each.exit.i.i
-  %.not.i.i18.i = icmp eq ptr %125, null
-  br i1 %.not.i.i18.i, label %gen_wildvar_binding.exit, label %140
-
-140:                                              ; preds = %block_bind.exit.i, %block_bind.exit.thread.i
-  %.sroa.3.0.i.i29.i = phi ptr [ %.sroa.3.0.i48, %block_bind.exit.thread.i ], [ %125, %block_bind.exit.i ]
-  %.not7.i.i19.i = icmp eq ptr %66, null
-  br i1 %.not7.i.i19.i, label %gen_wildvar_binding.exit, label %141
-
-141:                                              ; preds = %140
   store ptr %125, ptr %66, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  store ptr %66, ptr %142, align 8
-  br label %gen_wildvar_binding.exit
-
-gen_wildvar_binding.exit:                         ; preds = %block_bind.exit.i, %140, %141
-  %.sroa.3.0.i20.i = phi ptr [ %66, %block_bind.exit.i ], [ %.sroa.3.0.i.i29.i, %140 ], [ %.sroa.3.0.i.i29.i, %141 ]
-  %.sroa.0.1.i21.i = phi ptr [ %114, %block_bind.exit.i ], [ %125, %140 ], [ %114, %141 ]
-  %.fca.0.insert.i22.i = insertvalue { ptr, ptr } poison, ptr %.sroa.0.1.i21.i, 0
-  %.fca.1.insert.i23.i = insertvalue { ptr, ptr } %.fca.0.insert.i22.i, ptr %.sroa.3.0.i20.i, 1
+  %140 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  store ptr %66, ptr %140, align 8
+  %.fca.0.insert.i22.i = insertvalue { ptr, ptr } poison, ptr %114, 0
+  %.fca.1.insert.i23.i = insertvalue { ptr, ptr } %.fca.0.insert.i22.i, ptr %.sroa.3.0.i48, 1
   ret { ptr, ptr } %.fca.1.insert.i23.i
 }
 
@@ -5842,7 +5816,7 @@ block_join.exit:                                  ; preds = %.lr.ph, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @block_compile(ptr %0, ptr %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef %3, i64 %4, ptr %5) local_unnamed_addr #1 {
+define i32 @block_compile(ptr %0, ptr %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef %3, i64 %4, ptr %5) local_unnamed_addr #1 {
   %7 = alloca %struct.jv, align 8
   %8 = tail call ptr @jv_mem_alloc(i64 noundef 88) #17
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
@@ -5938,7 +5912,7 @@ declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare { i64, ptr } @jv_invalid() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compile(ptr noundef initializes((56, 60)) %0, ptr %1, ptr %2, ptr noundef %3, i64 %4, ptr %5, ptr nocapture noundef nonnull %6) unnamed_addr #1 {
+define internal fastcc i32 @compile(ptr noundef initializes((56, 60)) %0, ptr %1, ptr %2, ptr noundef %3, i64 %4, ptr %5, ptr noundef nonnull captures(none) %6) unnamed_addr #1 {
   %8 = alloca %struct.block, align 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -6591,7 +6565,7 @@ block_free.exit:                                  ; preds = %.lr.ph.i284, %.loop
 declare void @bytecode_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @block_bind_subblock_inner(ptr nocapture noundef nonnull writeonly %0, ptr %1, ptr %2, i32 noundef range(i32 1024, 5) %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @block_bind_subblock_inner(ptr noundef nonnull writeonly captures(none) %0, ptr %1, ptr %2, i32 noundef range(i32 1024, 5) %3, i32 noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
   store ptr %1, ptr %6, align 8
   %.not1 = icmp eq ptr %2, null
@@ -6740,10 +6714,10 @@ define internal fastcc i32 @block_bind_subblock_inner(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare void @jv_mem_free(ptr noundef) local_unnamed_addr #3
 
@@ -6752,7 +6726,7 @@ declare void @locfile_free(ptr noundef) local_unnamed_addr #3
 declare i32 @jv_array_length(i64, ptr) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @block_get_unbound_vars(ptr readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #1 {
+define internal fastcc void @block_get_unbound_vars(ptr readonly %0, ptr noundef nonnull captures(none) %1) unnamed_addr #1 {
   %.not1 = icmp eq ptr %0, null
   br i1 %.not1, label %._crit_edge, label %.lr.ph
 
@@ -6823,7 +6797,7 @@ declare ptr @jv_string_value(i64, ptr) local_unnamed_addr #3
 declare i32 @jv_object_iter_next(i64, ptr, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @expand_call_arglist(ptr nocapture noundef nonnull %0, i64 %1, ptr %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc i32 @expand_call_arglist(ptr noundef nonnull captures(none) %0, i64 %1, ptr %2, ptr noundef nonnull captures(none) %3) unnamed_addr #1 {
   %5 = alloca %struct.block, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, null
@@ -7455,10 +7429,10 @@ declare { i64, ptr } @jv_object_delete(i64, ptr, i64, ptr) local_unnamed_addr #3
 declare { i64, ptr } @jv_string_sized(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

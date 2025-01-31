@@ -639,7 +639,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare { i64, ptr } @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17_S_to_string_viewESt17basic_string_viewIcS2_E(i64, ptr) local_unnamed_addr #4
@@ -2211,7 +2211,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7DS_InitPP8DirStack(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #1 {
+define void @_Z7DS_InitPP8DirStack(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @_ZL9necessary, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -2264,7 +2264,7 @@ define void @_Z7DS_InitPP8DirStack(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL7set_necPP9Directivez(ptr nocapture noundef nonnull %0, ...) unnamed_addr #1 {
+define internal void @_ZL7set_necPP9Directivez(ptr noundef nonnull captures(none) %0, ...) unnamed_addr #1 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2317,7 +2317,7 @@ declare void @llvm.va_end.p0(ptr) #13
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7DS_DonePP8DirStack(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @_Z7DS_DonePP8DirStack(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %.not5 = icmp eq ptr %2, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
@@ -2339,7 +2339,7 @@ define void @_Z7DS_DonePP8DirStack(ptr nocapture noundef %0) local_unnamed_addr 
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7DS_PushPP8DirStack9Directive(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @_Z7DS_PushPP8DirStack9Directive(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.66, ptr noundef nonnull @.str.42, i32 noundef 386, i64 noundef 1, i64 noundef 16)
   store i32 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -2431,10 +2431,10 @@ _Z9DS_SearchP8DirStack9Directive.exit:            ; preds = %.lr.ph.i, %.loopexi
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

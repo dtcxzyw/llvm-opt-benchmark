@@ -42,7 +42,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522RuleBasedBreakIterator17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522RuleBasedBreakIterator17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7522RuleBasedBreakIterator16getStaticClassIDEvE7classID
 }
@@ -968,7 +968,7 @@ declare signext i8 @utext_equals_75(ptr noundef, ptr noundef) local_unnamed_addr
 declare noundef zeroext i1 @_ZNK6icu_7515RBBIDataWrappereqERKS0_(ptr noundef nonnull align 8 dereferenceable(137), ptr noundef nonnull align 8 dereferenceable(137)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7522RuleBasedBreakIterator8hashCodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7522RuleBasedBreakIterator8hashCodeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) unnamed_addr #1 align 2 {
 entry:
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 624
   %0 = load ptr, ptr %fData, align 8
@@ -1055,7 +1055,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6icu_7522RuleBasedBreakIterator7getTextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6icu_7522RuleBasedBreakIterator7getTextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) unnamed_addr #8 align 2 {
 entry:
   %fCharIter = getelementptr inbounds nuw i8, ptr %this, i64 688
   %0 = load ptr, ptr %fCharIter, align 8
@@ -1239,7 +1239,7 @@ declare i64 @utext_getNativeIndex_75(ptr noundef) local_unnamed_addr #3
 declare void @utext_setNativeIndex_75(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator5firstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator5firstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) unnamed_addr #1 align 2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -1328,7 +1328,7 @@ if.end21:                                         ; preds = %for.body11, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator4nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator4nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) unnamed_addr #1 align 2 {
 entry:
   %fBreakCache = getelementptr inbounds nuw i8, ptr %this, i64 648
   %0 = load ptr, ptr %fBreakCache, align 8
@@ -1379,7 +1379,7 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache4nextEv.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator8previousEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator8previousEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) unnamed_addr #1 align 2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -1541,7 +1541,7 @@ return:                                           ; preds = %land.lhs.true16, %i
 declare i32 @utext_char32At_75(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7522RuleBasedBreakIterator7currentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK6icu_7522RuleBasedBreakIterator7currentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) unnamed_addr #8 align 2 {
 entry:
   %fPosition = getelementptr inbounds nuw i8, ptr %this, i64 636
   %0 = load i32, ptr %fPosition, align 4
@@ -3772,7 +3772,7 @@ return:                                           ; preds = %cond.end115.i307, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7522RuleBasedBreakIterator13getRuleStatusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK6icu_7522RuleBasedBreakIterator13getRuleStatusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) unnamed_addr #9 align 2 {
 entry:
   %fRuleStatusIndex = getelementptr inbounds nuw i8, ptr %this, i64 640
   %0 = load i32, ptr %fRuleStatusIndex, align 8
@@ -3791,7 +3791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator16getRuleStatusVecEPiiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this, ptr nocapture noundef writeonly %fillInVec, i32 noundef %capacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #10 align 2 {
+define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator16getRuleStatusVecEPiiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this, ptr noundef writeonly captures(none) %fillInVec, i32 noundef %capacity, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #10 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3847,7 +3847,7 @@ return:                                           ; preds = %for.body, %if.end3,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator14getBinaryRulesERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %length) unnamed_addr #11 align 2 {
+define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator14getBinaryRulesERj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %length) unnamed_addr #11 align 2 {
 entry:
   store i32 0, ptr %length, align 4
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 624
@@ -3868,7 +3868,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator17createBufferCloneEPvRiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr nocapture readnone %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %bufferSize, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator17createBufferCloneEPvRiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(745) %this, ptr readnone captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %bufferSize, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %1, 1
@@ -4051,7 +4051,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator22getLanguageBreakEngineEiPKc(ptr nocapture noundef nonnull align 8 dereferenceable(745) %this, i32 noundef %c, ptr noundef %locale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator22getLanguageBreakEngineEiPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(745) %this, i32 noundef %c, ptr noundef %locale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status.i = alloca i32, align 4
   %status = alloca i32, align 4
@@ -4312,7 +4312,7 @@ _ZN6icu_7512LocalPointerINS_19ExternalBreakEngineEED2Ev.exit12: ; preds = %clean
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator9dumpCacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7522RuleBasedBreakIterator9dumpCacheEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fBreakCache = getelementptr inbounds nuw i8, ptr %this, i64 648
   %0 = load ptr, ptr %fBreakCache, align 8
@@ -4323,7 +4323,7 @@ entry:
 declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache9dumpCacheEv(ptr noundef nonnull align 8 dereferenceable(832)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522RuleBasedBreakIterator10dumpTablesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7522RuleBasedBreakIterator10dumpTablesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 624
   %0 = load ptr, ptr %fData, align 8
@@ -4334,7 +4334,7 @@ entry:
 declare void @_ZN6icu_7515RBBIDataWrapper9printDataEv(ptr noundef nonnull align 8 dereferenceable(137)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522RuleBasedBreakIterator8getRulesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7522RuleBasedBreakIterator8getRulesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(745) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 624
   %0 = load ptr, ptr %fData, align 8
@@ -4384,7 +4384,7 @@ return:                                           ; preds = %_ZN6icu_7513umtx_in
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7515RBBIDataWrapper19getRuleSourceStringEv(ptr noundef nonnull align 8 dereferenceable(137)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZN6icu_7522RuleBasedBreakIterator10BreakCache6nextOLEv(ptr noundef nonnull align 8 dereferenceable(832)) local_unnamed_addr #3
 
@@ -4429,13 +4429,13 @@ declare i32 @utext_previous32_75(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

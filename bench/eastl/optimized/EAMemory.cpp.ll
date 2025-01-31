@@ -1666,7 +1666,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC6MemcmpEPKvS2_m(ptr nocapture noundef readonly %pString1, ptr nocapture noundef readonly %pString2, i64 noundef %nCharCount) local_unnamed_addr #4 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC6MemcmpEPKvS2_m(ptr noundef readonly captures(none) %pString1, ptr noundef readonly captures(none) %pString2, i64 noundef %nCharCount) local_unnamed_addr #4 {
 entry:
   %cmp.not7 = icmp eq i64 %nCharCount, 0
   br i1 %cmp.not7, label %return, label %for.body
@@ -1698,7 +1698,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC6MemmemEPKvmS2_m(ptr noundef readonly %pMemory, i64 noundef %memorySize, ptr nocapture noundef readonly %pFind, i64 noundef %findSize) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN2EA4StdC6MemmemEPKvmS2_m(ptr noundef readonly %pMemory, i64 noundef %memorySize, ptr noundef readonly captures(none) %pFind, i64 noundef %findSize) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %pMemory, i64 %memorySize
   %idx.neg = sub i64 0, %findSize
@@ -1970,14 +1970,14 @@ _ZN2EA4StdCL10MemfillAnyEPvPKvmm.exit:            ; preds = %for.cond21.while.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA4StdC8Memfill8EPvhm(ptr nocapture noundef writeonly %pDestination, i8 noundef zeroext %c, i64 noundef %byteCount) local_unnamed_addr #5 {
+define dso_local void @_ZN2EA4StdC8Memfill8EPvhm(ptr noundef writeonly captures(none) %pDestination, i8 noundef zeroext %c, i64 noundef %byteCount) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr align 1 %pDestination, i8 %c, i64 %byteCount, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC18TimingSafeMemEqualEPKvS2_m(ptr nocapture noundef readonly %pMem1, ptr nocapture noundef readonly %pMem2, i64 noundef %byteCount) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC18TimingSafeMemEqualEPKvS2_m(ptr noundef readonly captures(none) %pMem1, ptr noundef readonly captures(none) %pMem2, i64 noundef %byteCount) local_unnamed_addr #4 {
 entry:
   %cmp.not7 = icmp eq i64 %byteCount, 0
   br i1 %cmp.not7, label %for.end, label %for.body
@@ -2007,7 +2007,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC16TimingSafeMemcmpEPKvS2_m(ptr nocapture noundef readonly %pMem1, ptr nocapture noundef readonly %pMem2, i64 noundef %byteCount) local_unnamed_addr #4 {
+define dso_local noundef i32 @_ZN2EA4StdC16TimingSafeMemcmpEPKvS2_m(ptr noundef readonly captures(none) %pMem1, ptr noundef readonly captures(none) %pMem2, i64 noundef %byteCount) local_unnamed_addr #4 {
 entry:
   %tobool.not7 = icmp eq i64 %byteCount, 0
   br i1 %tobool.not7, label %while.end, label %while.body
@@ -2037,7 +2037,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC20TimingSafeMemIsClearEPKvm(ptr nocapture noundef readonly %pMem, i64 noundef %byteCount) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC20TimingSafeMemIsClearEPKvm(ptr noundef readonly captures(none) %pMem, i64 noundef %byteCount) local_unnamed_addr #4 {
 entry:
   %tobool.not2 = icmp eq i64 %byteCount, 0
   br i1 %tobool.not2, label %while.end, label %while.body
@@ -2064,7 +2064,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7

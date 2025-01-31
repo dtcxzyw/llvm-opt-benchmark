@@ -73,7 +73,7 @@ declare i32 @H5O_msg_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.H5G_link_table_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr i8, ptr %1, i64 24
@@ -148,7 +148,7 @@ define range(i32 -1, 1) i32 @H5G__compact_get_name_by_idx(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr noundef %0, i64 %.24.val, i32 noundef %1, i32 noundef %2, ptr noundef nonnull initializes((0, 16)) %3) unnamed_addr #0 {
@@ -211,10 +211,10 @@ define internal fastcc range(i32 -1, 1) i32 @H5G__compact_build_table(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 declare i32 @H5G__link_release_table(ptr noundef) local_unnamed_addr #1
 
@@ -245,7 +245,7 @@ define range(i32 -1, 1) i32 @H5G__compact_remove(ptr noundef %0, ptr noundef %1,
 declare i32 @H5O_msg_remove_op(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5G__compact_remove_common_cb(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @H5G__compact_remove_common_cb(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -274,7 +274,7 @@ define internal range(i32 -1, 2) i32 @H5G__compact_remove_common_cb(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__compact_remove_by_idx(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__compact_remove_by_idx(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5G_link_table_t, align 8
   %8 = alloca %struct.H5G_iter_rm_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
@@ -346,7 +346,7 @@ define range(i32 -1, 1) i32 @H5G__compact_remove_by_idx(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5G__compact_iterate(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define i32 @H5G__compact_iterate(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.H5G_link_table_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %10 = getelementptr i8, ptr %1, i64 24
@@ -425,7 +425,7 @@ define range(i32 -1, 1) i32 @H5G__compact_lookup(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5G__compact_lookup_cb(ptr noundef %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 2) i32 @H5G__compact_lookup_cb(ptr noundef %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %2, align 8
@@ -464,7 +464,7 @@ define internal range(i32 -1, 2) i32 @H5G__compact_lookup_cb(ptr noundef %0, i32
 declare i32 @H5O_msg_iterate(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__compact_lookup_by_idx(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__compact_lookup_by_idx(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5G_link_table_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = getelementptr i8, ptr %1, i64 24
@@ -533,7 +533,7 @@ declare ptr @H5O_msg_copy(i32 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__compact_build_table_cb(ptr noundef %0, i32 %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5G__compact_build_table_cb(ptr noundef %0, i32 %1, ptr noundef captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -564,7 +564,7 @@ define internal range(i32 -1, 1) i32 @H5G__compact_build_table_cb(ptr noundef %0
 declare i32 @H5G__link_sort_table(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @H5G__link_name_replace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

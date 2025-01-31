@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7513CollationData15getIndirectCE32Ej(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %ce32) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK6icu_7513CollationData15getIndirectCE32Ej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, i32 noundef %ce32) local_unnamed_addr #0 align 2 {
 entry:
   %and.i = and i32 %ce32, 15
   switch i32 %and.i, label %if.end11.fold.split [
@@ -37,7 +37,7 @@ if.end11:                                         ; preds = %entry, %if.end11.fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7513CollationData12getFinalCE32Ej(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %ce32) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK6icu_7513CollationData12getFinalCE32Ej(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, i32 noundef %ce32) local_unnamed_addr #0 align 2 {
 entry:
   %and.i = and i32 %ce32, 192
   %cmp.i.not = icmp eq i32 %and.i, 192
@@ -75,7 +75,7 @@ if.end:                                           ; preds = %if.end11.fold.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK6icu_7513CollationData11getSingleCEEiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %c, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef i64 @_ZNK6icu_7513CollationData11getSingleCEEiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, i32 noundef %c, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -402,7 +402,7 @@ return:                                           ; preds = %entry, %while.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, -65535) i32 @_ZNK6icu_7513CollationData23getFirstPrimaryForGroupEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %script) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, -65535) i32 @_ZNK6icu_7513CollationData23getFirstPrimaryForGroupEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, i32 noundef %script) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp slt i32 %script, 0
   br i1 %cmp.i, label %cond.end, label %if.else.i
@@ -456,7 +456,7 @@ cond.end:                                         ; preds = %if.else4.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 65536) i32 @_ZNK6icu_7513CollationData14getScriptIndexEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %script) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 65536) i32 @_ZNK6icu_7513CollationData14getScriptIndexEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, i32 noundef %script) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp slt i32 %script, 0
   br i1 %cmp, label %return, label %if.else
@@ -497,7 +497,7 @@ return:                                           ; preds = %if.else4, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, -65536) i32 @_ZNK6icu_7513CollationData22getLastPrimaryForGroupEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %script) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, -65536) i32 @_ZNK6icu_7513CollationData22getLastPrimaryForGroupEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, i32 noundef %script) local_unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp slt i32 %script, 0
   br i1 %cmp.i, label %return, label %if.else.i
@@ -553,7 +553,7 @@ return:                                           ; preds = %if.else4.i, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7513CollationData18getGroupForPrimaryEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7513CollationData18getGroupForPrimaryEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, i32 noundef %p) local_unnamed_addr #0 align 2 {
 entry:
   %shr = lshr i32 %p, 16
   %scriptStarts = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -645,7 +645,7 @@ return:                                           ; preds = %for.inc33, %return.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7513CollationData20getEquivalentScriptsEiPiiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, i32 noundef %script, ptr nocapture noundef writeonly %dest, i32 noundef %capacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK6icu_7513CollationData20getEquivalentScriptsEiPiiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, i32 noundef %script, ptr noundef writeonly captures(none) %dest, i32 noundef %capacity, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -762,14 +762,14 @@ return:                                           ; preds = %if.else4.i, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7513CollationData17makeReorderRangesEPKiiRNS_9UVector32ER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, ptr nocapture noundef readonly %reorder, i32 noundef %length, ptr noundef nonnull align 8 dereferenceable(32) %ranges, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7513CollationData17makeReorderRangesEPKiiRNS_9UVector32ER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, ptr noundef readonly captures(none) %reorder, i32 noundef %length, ptr noundef nonnull align 8 dereferenceable(32) %ranges, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK6icu_7513CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(140) %this, ptr noundef %reorder, i32 noundef %length, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(32) %ranges, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7513CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, ptr nocapture noundef readonly %reorder, i32 noundef %length, i8 noundef signext %latinMustMove, ptr noundef nonnull align 8 dereferenceable(32) %ranges, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7513CollationData17makeReorderRangesEPKiiaRNS_9UVector32ER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, ptr noundef readonly captures(none) %reorder, i32 noundef %length, i8 noundef signext %latinMustMove, ptr noundef nonnull align 8 dereferenceable(32) %ranges, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %table = alloca [256 x i8], align 16
   %scriptsIndex = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -1292,10 +1292,10 @@ for.end206:                                       ; preds = %if.end, %land.lhs.t
 declare void @_ZN6icu_759UVector3217removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7513CollationData17addLowScriptRangeEPhii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, ptr nocapture noundef writeonly %table, i32 noundef %index, i32 noundef %lowStart) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK6icu_7513CollationData17addLowScriptRangeEPhii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, ptr noundef writeonly captures(none) %table, i32 noundef %index, i32 noundef %lowStart) local_unnamed_addr #5 align 2 {
 entry:
   %scriptStarts = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %scriptStarts, align 8
@@ -1328,7 +1328,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7513CollationData18addHighScriptRangeEPhii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %this, ptr nocapture noundef writeonly %table, i32 noundef %index, i32 noundef %highLimit) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK6icu_7513CollationData18addHighScriptRangeEPhii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(140) %this, ptr noundef writeonly captures(none) %table, i32 noundef %index, i32 noundef %highLimit) local_unnamed_addr #5 align 2 {
 entry:
   %scriptStarts = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %scriptStarts, align 8

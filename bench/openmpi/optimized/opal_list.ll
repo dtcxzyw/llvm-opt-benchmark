@@ -23,7 +23,7 @@ define internal void @opal_list_item_construct(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @opal_list_item_destruct(ptr nocapture readnone %0) #1 {
+define internal void @opal_list_item_destruct(ptr readnone captures(none) %0) #1 {
   ret void
 }
 
@@ -162,7 +162,7 @@ opal_list_transfer.exit:                          ; preds = %12, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @opal_list_sort(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @opal_list_sort(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load volatile i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -252,10 +252,10 @@ define range(i32 -2, 1) i32 @opal_list_sort(ptr noundef %0, ptr nocapture nounde
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

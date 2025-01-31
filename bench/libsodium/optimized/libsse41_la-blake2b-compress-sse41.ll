@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_sodium_blake2b_compress_sse41(ptr nocapture noundef %S, ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define hidden noundef i32 @_sodium_blake2b_compress_sse41(ptr noundef captures(none) %S, ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %0 = load <2 x i64>, ptr %block, align 1
   %add.ptr3 = getelementptr i8, ptr %block, i64 16

@@ -210,7 +210,7 @@ define noundef i32 @switch_init(i1 noundef zeroext %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -238,7 +238,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_load_plugins(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @_load_plugins(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_cnt, align 4
@@ -406,7 +406,7 @@ define i32 @switch_g_clear() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @switch_g_alloc_jobinfo(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @switch_g_alloc_jobinfo(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %15, label %5
@@ -462,7 +462,7 @@ define i32 @switch_g_build_jobinfo(ptr noundef readonly %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @switch_g_duplicate_jobinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define i32 @switch_g_duplicate_jobinfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @switch_context_cnt, align 4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %15, label %4
@@ -570,7 +570,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @switch_g_unpack_jobinfo(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @switch_g_unpack_jobinfo(ptr noundef writeonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = load i32, ptr @switch_context_cnt, align 4
@@ -900,10 +900,10 @@ declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

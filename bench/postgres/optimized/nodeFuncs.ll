@@ -1596,7 +1596,7 @@ define dso_local i32 @exprInputCollation(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @exprSetCollation(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @exprSetCollation(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
@@ -1777,7 +1777,7 @@ tailrecurse.backedge:                             ; preds = %40, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @exprSetInputCollation(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local void @exprSetInputCollation(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 4
   switch i32 %3, label %20 [
     i32 9, label %4
@@ -2591,7 +2591,7 @@ set_opfuncid.exit:                                ; preds = %33, %29, %25, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_opfuncid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @set_opfuncid(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -2611,7 +2611,7 @@ define dso_local void @set_opfuncid(ptr nocapture noundef %0) local_unnamed_addr
 declare i32 @get_opcode(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_sa_opfuncid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @set_sa_opfuncid(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -2629,7 +2629,7 @@ define dso_local void @set_sa_opfuncid(ptr nocapture noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_functions_in_node(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_functions_in_node(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
@@ -3569,7 +3569,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 declare void @check_stack_depth() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @query_tree_walker_impl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @query_tree_walker_impl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 %1(ptr noundef %6, ptr noundef %2) #12
@@ -3731,7 +3731,7 @@ define dso_local noundef zeroext i1 @query_tree_walker_impl(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @range_table_walker_impl(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @range_table_walker_impl(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %.lr.ph
@@ -3763,7 +3763,7 @@ define dso_local noundef zeroext i1 @range_table_walker_impl(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @range_table_entry_walker_impl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @range_table_entry_walker_impl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = and i32 %3, 16
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -4819,14 +4819,14 @@ define dso_local ptr @expression_tree_mutator_impl(ptr noundef %0, ptr noundef r
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @list_copy(ptr noundef) local_unnamed_addr #2
 
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @query_tree_mutator_impl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @query_tree_mutator_impl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = and i32 %3, 64
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
@@ -4937,7 +4937,7 @@ define dso_local noundef ptr @query_tree_mutator_impl(ptr noundef %0, ptr nocapt
   %74 = tail call ptr %1(ptr noundef %73, ptr noundef %2) #12
   %75 = getelementptr inbounds nuw i8, ptr %63, i64 64
   store ptr %74, ptr %75, align 8
-  %76 = tail call ptr @lappend(ptr noundef %.097107111, ptr noundef %63) #12
+  %76 = tail call ptr @lappend(ptr noundef %.097107111, ptr noundef nonnull %63) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %77 = load i32, ptr %56, align 4
   %78 = sext i32 %77 to i64
@@ -4975,7 +4975,7 @@ define dso_local noundef ptr @query_tree_mutator_impl(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @range_table_mutator_impl(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @range_table_mutator_impl(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -5092,7 +5092,7 @@ define dso_local ptr @range_table_mutator_impl(ptr noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %5
 
@@ -5115,7 +5115,7 @@ define dso_local zeroext i1 @query_or_expression_tree_walker_impl(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @query_or_expression_tree_mutator_impl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @query_or_expression_tree_mutator_impl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %5
 
@@ -6209,7 +6209,7 @@ define dso_local zeroext i1 @raw_expression_tree_walker_impl(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @planstate_tree_walker_impl(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @check_stack_depth() #12

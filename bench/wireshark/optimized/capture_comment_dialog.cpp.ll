@@ -499,7 +499,7 @@ _ZN7QStringD2Ev.exit19:                           ; preds = %22, %_ZN17QArrayDat
   resume { ptr, i32 } %23
 
 28:                                               ; preds = %_ZN7QStringD2Ev.exit
-  call void @g_ptr_array_add(ptr noundef %5, ptr noundef %12)
+  call void @g_ptr_array_add(ptr noundef %5, ptr noundef nonnull %12)
   br label %29
 
 29:                                               ; preds = %.lr.ph, %28
@@ -525,7 +525,7 @@ declare void @g_free(ptr noundef) #1
 declare noundef ptr @_Z14qstring_strdup7QString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -995,7 +995,7 @@ declare noundef ptr @_ZN16QDialogButtonBox9addButtonERK7QStringNS_10ButtonRoleE(
 declare void @_ZN15QAbstractButton7clickedEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20CaptureCommentDialog10addCommentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20CaptureCommentDialog10addCommentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1765,7 +1765,7 @@ declare i32 @wtap_block_get_nth_string_option_value(ptr noundef, i32 noundef, i3
 declare void @_ZN14QPlainTextEdit12setPlainTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN20CaptureCommentDialog26on_buttonBox_helpRequestedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(152) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN20CaptureCommentDialog26on_buttonBox_helpRequestedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(152) %0) local_unnamed_addr #8 align 2 {
   ret void
 }
 
@@ -1877,12 +1877,12 @@ define void @_ZN20CaptureCommentDialog21on_buttonBox_rejectedEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN23CaptureCommentTabWidget18qt_static_metacallEP7QObjectN11QMetaObject4CallEiPPv(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3) #8 align 2 {
+define hidden void @_ZN23CaptureCommentTabWidget18qt_static_metacallEP7QObjectN11QMetaObject4CallEiPPv(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3) #8 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK23CaptureCommentTabWidget10metaObjectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK23CaptureCommentTabWidget10metaObjectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -1921,7 +1921,7 @@ define noundef ptr @_ZN23CaptureCommentTabWidget11qt_metacastEPKc(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noundef ptr @_ZN10QTabWidget11qt_metacastEPKc(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
 
@@ -2342,13 +2342,13 @@ _ZN9QtPrivate15FunctionPointerIM20CaptureCommentDialogFvvEE4callINS_4ListIJEEEvE
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

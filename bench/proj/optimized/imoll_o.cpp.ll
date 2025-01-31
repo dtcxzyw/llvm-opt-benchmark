@@ -256,7 +256,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 1, 7) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21pj_imoll_o_setup_zoneP8PJconstsPN13pj_imoll_o_ns15pj_imoll_o_dataEiPFS0_S0_Eddd(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 1, 7) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
   %6 = tail call noundef ptr @pj_moll(ptr noundef null)
   %7 = add nsw i32 %2, -1
   %8 = zext nneg i32 %7 to i64
@@ -331,7 +331,7 @@ define internal noundef ptr @_ZL21pj_imoll_o_destructorP8PJconstsi(ptr noundef %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 2, 7) %1, i32 noundef range(i32 1, 4) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
+define internal fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj_imoll_o_ns15pj_imoll_o_dataEiiddd(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 2, 7) %1, i32 noundef range(i32 1, 4) %2, double noundef %3, double noundef %4) unnamed_addr #0 {
   %6 = add nsw i32 %1, -1
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr inbounds nuw [6 x ptr], ptr %0, i64 0, i64 %7
@@ -368,7 +368,7 @@ define internal fastcc noundef double @_ZL30pj_imoll_o_compute_zone_offsetPN13pj
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL17imoll_o_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL17imoll_o_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = fcmp ogt double %1, 0x3FF6A09E66861B05
@@ -501,7 +501,7 @@ default.unreachable95:                            ; preds = %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL17imoll_o_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL17imoll_o_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = fcmp ult double %1, 0.000000e+00

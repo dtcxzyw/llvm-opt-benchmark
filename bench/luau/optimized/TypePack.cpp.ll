@@ -1280,7 +1280,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12FreeTypePackC2ENS_9TypeLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, i64 %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau12FreeTypePackC2ENS_9TypeLevelE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 24)) %0, i64 %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef i32 @_ZN4Luau9Unifiable10freshIndexEv()
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1293,10 +1293,10 @@ define dso_local void @_ZN4Luau12FreeTypePackC2ENS_9TypeLevelE(ptr nocapture nou
 declare noundef i32 @_ZN4Luau9Unifiable10freshIndexEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12FreeTypePackC2EPNS_5ScopeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau12FreeTypePackC2EPNS_5ScopeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef i32 @_ZN4Luau9Unifiable10freshIndexEv()
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1309,7 +1309,7 @@ define dso_local void @_ZN4Luau12FreeTypePackC2EPNS_5ScopeE(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12FreeTypePackC2EPNS_5ScopeENS_9TypeLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1, i64 %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau12FreeTypePackC2EPNS_5ScopeENS_9TypeLevelE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1, i64 %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef i32 @_ZN4Luau9Unifiable10freshIndexEv()
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1594,7 +1594,7 @@ define dso_local void @_ZN4Luau15GenericTypePackC2EPNS_5ScopeERKNSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau15BlockedTypePackC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4Luau15BlockedTypePackC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #6 align 2 {
   %2 = load i64, ptr @_ZN4Luau15BlockedTypePack9nextIndexE, align 8
   %3 = add i64 %2, 1
   store i64 %3, ptr @_ZN4Luau15BlockedTypePack9nextIndexE, align 8
@@ -2149,7 +2149,7 @@ _ZN4Luau11TypePackVar8reassignERKS0_.exit:        ; preds = %_ZN4Luau7VariantIJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN4Luau6TxnLog5emptyEv()
   tail call void @_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %3)
   ret void
@@ -2158,7 +2158,7 @@ define dso_local void @_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarE(ptr noca
 declare noundef ptr @_ZN4Luau6TxnLog5emptyEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef ptr @_ZNK4Luau6TxnLog6followEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %1)
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2312,7 +2312,7 @@ _ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau16TypePackIteratorppEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypePackIterator") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau16TypePackIteratorppEi(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypePackIterator") align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2383,7 +2383,7 @@ _ZN4Luau16TypePackIteratorppEv.exit:              ; preds = %30, %.lr.ph.i, %3, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2399,7 +2399,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau16TypePackIteratorneERKS0_(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau16TypePackIteratoreqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau16TypePackIteratoreqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2415,7 +2415,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau16TypePackIteratoreqERKS0_(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau16TypePackIteratordeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #8 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau16TypePackIteratordeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2426,7 +2426,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4Luau16TypeP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp ne ptr %2, null
   %spec.select = zext i1 %.not to i8
@@ -2436,26 +2436,26 @@ define dso_local { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau5beginEPKNS_11TypePackVarE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypePackIterator") align 8 initializes((0, 32)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @_ZN4Luau5beginEPKNS_11TypePackVarE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypePackIterator") align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call noundef ptr @_ZN4Luau6TxnLog5emptyEv()
   tail call void @_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau5beginEPKNS_11TypePackVarEPKNS_6TxnLogE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"struct.Luau::TypePackIterator") align 8 initializes((0, 32)) %0, ptr noundef %1, ptr noundef nonnull %2) local_unnamed_addr #1 {
+define dso_local void @_ZN4Luau5beginEPKNS_11TypePackVarEPKNS_6TxnLogE(ptr dead_on_unwind noalias nonnull writable writeonly sret(%"struct.Luau::TypePackIterator") align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1, ptr noundef nonnull %2) local_unnamed_addr #1 {
   tail call void @_ZN4Luau16TypePackIteratorC2EPKNS_11TypePackVarEPKNS_6TxnLogE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::TypePackIterator") align 8 initializes((0, 32)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #9 {
+define dso_local void @_ZN4Luau3endEPKNS_11TypePackVarE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypePackIterator") align 8 captures(none) initializes((0, 32)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #9 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare noundef zeroext i1 @_ZN4Luau8areEqualERSt3setISt4pairIPKvS3_ESt4lessIS4_ESaIS4_EERKNS_4TypeESC_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(400), ptr noundef nonnull align 8 dereferenceable(400)) local_unnamed_addr #2
 
@@ -2677,7 +2677,7 @@ _ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E.exit: ; preds = %.lr.ph.i, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = tail call noundef ptr %2(ptr noundef %1, ptr noundef %0)
@@ -3099,7 +3099,7 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.thread: ; preds = %7, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4Luau4sizeERKNS_8TypePackEPNS_6TxnLogE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local noundef i64 @_ZN4Luau4sizeERKNS_8TypePackEPNS_6TxnLogE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -3378,7 +3378,7 @@ _ZN4Luau3getINS_8TypePackEEEPKT_PKNS_11TypePackVarE.exit.thread: ; preds = %11, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7flattenEPKNS_11TypePackVarE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::pair") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 .noexc:
   %2 = alloca %"struct.Luau::TypePackIterator", align 8
   %3 = tail call noundef ptr @_ZN4Luau6TxnLog5emptyEv()
@@ -3660,7 +3660,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit15:   ; preds = %87, %91
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7flattenEPKNS_11TypePackVarERKNS_6TxnLogE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(128) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7flattenEPKNS_11TypePackVarERKNS_6TxnLogE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::pair") align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(128) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 .noexc:
   %3 = tail call noundef ptr @_ZNK4Luau6TxnLog6followEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %1)
   %4 = tail call noundef ptr @_ZNK4Luau6TxnLog6followEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef %3)
@@ -4260,7 +4260,7 @@ _ZN4Luau3getINS_9NeverTypeEEEPKT_PKNS_4TypeE.exit: ; preds = %19, %.lr.ph, %30, 
 declare noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN4Luau15emplaceTypePackINS_9Unifiable5BoundIPKNS_11TypePackVarEEEJRS5_EEEPT_PS3_DpOT0_(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 {
+define dso_local noundef nonnull ptr @_ZN4Luau15emplaceTypePackINS_9Unifiable5BoundIPKNS_11TypePackVarEEEJRS5_EEEPT_PS3_DpOT0_(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds [8 x ptr], ptr @_ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorENS_12FreeTypePackENS_15GenericTypePackENS_8TypePackENS_16VariadicTypePackENS_15BlockedTypePackENS_26TypeFamilyInstanceTypePackEEE9tableDtorE, i64 0, i64 %4
@@ -4415,7 +4415,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #16
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -4804,7 +4804,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
@@ -4849,10 +4849,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 declare i32 @llvm.abs.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

@@ -39,7 +39,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %15 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
+  %15 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %8)
   %16 = icmp ne i32 %15, 0
   %17 = load ptr, ptr %10, align 8
   %18 = icmp ne ptr %17, null
@@ -59,7 +59,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %22 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %8)
+  %22 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %8)
   %23 = icmp ne i32 %22, 0
   %24 = load ptr, ptr %10, align 8
   %25 = icmp ne ptr %24, null
@@ -88,7 +88,7 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
   store ptr null, ptr %10, align 8
   store i32 0, ptr %11, align 8
   store ptr null, ptr %6, align 8
-  %32 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef %.037, ptr noundef %1, ptr noundef %8)
+  %32 = call fastcc i32 @grpmatch(ptr noundef %6, i32 noundef 0, ptr noundef nonnull %.037, ptr noundef %1, ptr noundef nonnull %8)
   %33 = icmp ne i32 %32, 0
   %34 = load ptr, ptr %10, align 8
   %35 = icmp ne ptr %34, null
@@ -180,10 +180,10 @@ define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @grpmatch(ptr nocapture noundef nonnull %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @grpmatch(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %gobble.exit
@@ -319,7 +319,7 @@ gobble.exit.thread:                               ; preds = %.lr.ph, %44, %16, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
 define range(i32 0, 2) i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -335,7 +335,7 @@ define range(i32 0, 2) i32 @strmatch(ptr noundef %0, ptr noundef %1) local_unnam
   store ptr null, ptr %7, align 8
   store i32 0, ptr %8, align 8
   store ptr null, ptr %3, align 8
-  %10 = call fastcc i32 @grpmatch(ptr noundef %3, i32 noundef 0, ptr noundef %0, ptr noundef %1, ptr noundef %5)
+  %10 = call fastcc i32 @grpmatch(ptr noundef %3, i32 noundef 0, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %5)
   %11 = icmp ne i32 %10, 0
   %12 = load ptr, ptr %7, align 8
   %13 = icmp ne ptr %12, null
@@ -367,7 +367,7 @@ strgrpmatch.exit:                                 ; preds = %18, %2
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @onematch(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @onematch(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %8
 
@@ -1315,13 +1315,13 @@ gobble.exit.thread:                               ; preds = %.loopexit, %361, %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture readonly %0, i64 %1, ptr nocapture noundef readonly %2) unnamed_addr #3 {
-  %4 = tail call i64 @strlen(ptr nonnull dereferenceable(1) %2)
-  %5 = tail call i64 @llvm.umin.i64(i64 %1, i64 %4)
-  %6 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %2, i64 noundef %5) #7
-  %.not.i.i = icmp eq i32 %6, 0
-  %7 = icmp eq i64 %1, %4
-  %spec.select.i = and i1 %7, %.not.i.i
+define internal fastcc zeroext i1 @strview_str_eq(ptr readonly captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 {
+  %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %2)
+  %4 = tail call i64 @llvm.umin.i64(i64 %1, i64 %strlen.i)
+  %5 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull readonly %2, i64 noundef %4) #7
+  %.not.i.i = icmp eq i32 %5, 0
+  %6 = icmp eq i64 %1, %strlen.i
+  %spec.select.i = and i1 %6, %.not.i.i
   ret i1 %spec.select.i
 }
 
@@ -1329,7 +1329,7 @@ define internal fastcc zeroext i1 @strview_str_eq(ptr nocapture readonly %0, i64
 declare i32 @tolower(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5
@@ -1338,10 +1338,10 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

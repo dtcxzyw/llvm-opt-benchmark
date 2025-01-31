@@ -12893,19 +12893,12 @@ _ZN10TestObjectD2Ev.exit.i.i.i.i8988:             ; preds = %if.then.i.i.i.i.i89
   %inc3.i.i.i.i.i8991 = add nsw i64 %inc3.i68.i.i.i.i8983, 1
   %first.addr.011.i.i.i.i8980.add = add nuw nsw i64 %first.addr.011.i.i.i.i8980.idx, 24
   %cmp.not.i.i.i.i8993 = icmp eq i64 %first.addr.011.i.i.i.i8980.add, 120
-  br i1 %cmp.not.i.i.i.i8993, label %invoke.cont17.i.i8995, label %for.body.i.i.i.i8979, !llvm.loop !25
+  br i1 %cmp.not.i.i.i.i8993, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12820, label %for.body.i.i.i.i8979, !llvm.loop !25
 
-invoke.cont17.i.i8995:                            ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i8988
+_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12820: ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i8988
   store i64 %dec.i.i.i.i.i8990, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i8991, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %tobool.not.i.i8997 = icmp eq ptr %call.i.i.i.i.i.i.i.i.i12806, null
-  br i1 %tobool.not.i.i8997, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12820, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i8998
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i8998: ; preds = %invoke.cont17.i.i8995
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i.i.i12806) #12
-  br label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12820
-
-_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12820: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i8998, %invoke.cont17.i.i8995
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %ctorFromFill, i8 0, i64 56, i1 false)
   %call.i.i.i.i.i.i.i.i12831 = invoke noundef ptr @_ZnamPKcijS0_i(i64 noundef 296, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 0)
           to label %for.body.i.preheader.i unwind label %lpad3512
@@ -13077,19 +13070,12 @@ _ZN10TestObjectD2Ev.exit.i.i.i.i9061:             ; preds = %if.then.i.i.i.i.i90
   %inc3.i.i.i.i.i9064 = add nsw i64 %inc3.i68.i.i.i.i9056, 1
   %first.addr.011.i.i.i.i9053.add = add nuw nsw i64 %first.addr.011.i.i.i.i9053.idx, 24
   %cmp.not.i.i.i.i9066 = icmp eq i64 %first.addr.011.i.i.i.i9053.add, 240
-  br i1 %cmp.not.i.i.i.i9066, label %invoke.cont17.i.i9068, label %for.body.i.i.i.i9052, !llvm.loop !25
+  br i1 %cmp.not.i.i.i.i9066, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12852, label %for.body.i.i.i.i9052, !llvm.loop !25
 
-invoke.cont17.i.i9068:                            ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i9061
+_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12852: ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i9061
   store i64 %dec.i.i.i.i.i9063, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i9064, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %tobool.not.i.i9070 = icmp eq ptr %call.i.i.i.i.i.i.i.i12831, null
-  br i1 %tobool.not.i.i9070, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12852, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9071
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i9071: ; preds = %invoke.cont17.i.i9068
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i.i12831) #12
-  br label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12852
-
-_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12852: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9071, %invoke.cont17.i.i9068
   %2174 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i9075 = add nsw i64 %2174, 1
   store i64 %inc.i9075, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -13292,19 +13278,12 @@ _ZN10TestObjectD2Ev.exit.i.i.i.i9156:             ; preds = %if.then.i.i.i.i.i91
   %inc3.i.i.i.i.i9159 = add nsw i64 %inc3.i68.i.i.i.i9151, 1
   %first.addr.011.i.i.i.i9148.add = add nuw nsw i64 %first.addr.011.i.i.i.i9148.idx, 24
   %cmp.not.i.i.i.i9161 = icmp eq i64 %first.addr.011.i.i.i.i9148.add, 240
-  br i1 %cmp.not.i.i.i.i9161, label %invoke.cont17.i.i9163, label %for.body.i.i.i.i9147, !llvm.loop !25
+  br i1 %cmp.not.i.i.i.i9161, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12892, label %for.body.i.i.i.i9147, !llvm.loop !25
 
-invoke.cont17.i.i9163:                            ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i9156
+_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12892: ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i9156
   store i64 %dec.i.i.i.i.i9158, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i9159, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %tobool.not.i.i9165 = icmp eq ptr %call.i.i.i.i.i.i.i.i12863, null
-  br i1 %tobool.not.i.i9165, label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12892, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9166
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i9166: ; preds = %invoke.cont17.i.i9163
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i.i12863) #12
-  br label %_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12892
-
-_ZN5eastl16TupleVecInternal13TupleRecurserIJb10TestObjectfEE10DoAllocateINS_9allocatorELm0ENS_16integer_sequenceImJLm0ELm1ELm2EEEEJbS2_fEEENS_4pairIPvmEERNS0_12TupleVecImplIT_T1_JDpT2_EEEPS9_mm.exit.i.i12892: ; preds = %invoke.cont17.i.i9163, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9166
   %2202 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %inc.i9170 = add nsw i64 %2202, 1
   %2203 = load i64, ptr @_ZN10TestObject12sTOCtorCountE, align 8
@@ -13501,19 +13480,12 @@ _ZN10TestObjectD2Ev.exit.i.i.i.i9263:             ; preds = %if.then.i.i.i.i.i92
   %inc3.i.i.i.i.i9266 = add nsw i64 %inc3.i68.i.i.i.i9258, 1
   %first.addr.011.i.i.i.i9255.add = add nuw nsw i64 %first.addr.011.i.i.i.i9255.idx, 24
   %cmp.not.i.i.i.i9268 = icmp eq i64 %first.addr.011.i.i.i.i9255.add, 240
-  br i1 %cmp.not.i.i.i.i9268, label %invoke.cont17.i.i9270, label %for.body.i.i.i.i9254, !llvm.loop !25
+  br i1 %cmp.not.i.i.i.i9268, label %if.then.i.i9295, label %for.body.i.i.i.i9254, !llvm.loop !25
 
-invoke.cont17.i.i9270:                            ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i9263
+if.then.i.i9295:                                  ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i9263
   store i64 %dec.i.i.i.i.i9265, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i9266, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %tobool.not.i.i9272 = icmp eq ptr %call.i.i.i.i.i.i.i.i12904, null
-  br i1 %tobool.not.i.i9272, label %if.then.i.i9295, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9273
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i9273: ; preds = %invoke.cont17.i.i9270
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i.i12904) #12
-  br label %if.then.i.i9295
-
-if.then.i.i9295:                                  ; preds = %invoke.cont17.i.i9270, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i9273
   %2228 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i.i.i.i9279 = add nsw i64 %2228, -1
   store i64 %dec.i.i.i.i9279, ptr @_ZN10TestObject8sTOCountE, align 8
@@ -15800,19 +15772,12 @@ _ZN10TestObjectD2Ev.exit.i.i.i.i10298:            ; preds = %if.then.i.i.i.i.i10
   %inc3.i.i.i.i.i10301 = add nsw i64 %inc3.i68.i.i.i.i10293, 1
   %first.addr.011.i.i.i.i10290.add = add nuw nsw i64 %first.addr.011.i.i.i.i10290.idx, 24
   %cmp.not.i.i.i.i10303 = icmp eq i64 %first.addr.011.i.i.i.i10290.add, 120
-  br i1 %cmp.not.i.i.i.i10303, label %invoke.cont17.i.i10305, label %for.body.i.i.i.i10289, !llvm.loop !25
+  br i1 %cmp.not.i.i.i.i10303, label %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit10309, label %for.body.i.i.i.i10289, !llvm.loop !25
 
-invoke.cont17.i.i10305:                           ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i10298
+_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit10309: ; preds = %_ZN10TestObjectD2Ev.exit.i.i.i.i10298
   store i64 %dec.i.i.i.i.i10300, ptr @_ZN10TestObject8sTOCountE, align 8
   store i64 %inc3.i.i.i.i.i10301, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %tobool.not.i.i10307 = icmp eq ptr %call.i.i.i.i.i.i.i.i12971, null
-  br i1 %tobool.not.i.i10307, label %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit10309, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i10308
-
-_ZN5eastl9allocator10deallocateEPvm.exit.i.i10308: ; preds = %invoke.cont17.i.i10305
   call void @_ZdaPv(ptr noundef nonnull %call.i.i.i.i.i.i.i.i12971) #12
-  br label %_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit10309
-
-_ZN5eastl12tuple_vectorIJi12MoveOnlyType10TestObjectEED2Ev.exit10309: ; preds = %invoke.cont17.i.i10305, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i10308
   %2668 = load i64, ptr %mNumElements.i10076, align 8
   %2669 = load ptr, ptr %add.ptr13.i10083, align 8
   %add.ptr16.i.i10312 = getelementptr inbounds %struct.TestObject, ptr %2669, i64 %2668
@@ -19544,7 +19509,7 @@ declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mNumElements = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %mNumElements, align 8
@@ -20625,7 +20590,7 @@ if.end85:                                         ; preds = %for.body.i.i30.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2EEEEJi12MoveOnlyType10TestObjectEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -23156,7 +23121,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN5eastl16TupleVec
 declare noundef ptr @_ZnamPKcijS0_i(i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN15MallocAllocator10deallocateEPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -23540,7 +23505,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit:         ; preds = %_ZN5eastl16TupleVec
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl16TupleVecInternal12TupleVecLeafILm1E10TestObjectE15DoInsertAndFillEmmmRKS2_(ptr noundef nonnull align 8 dereferenceable(8) %this, i64 noundef %pos, i64 noundef %n, i64 noundef %numElements, ptr noundef nonnull align 8 dereferenceable(20) %arg) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -25900,16 +25865,16 @@ _ZN5eastl8Internal9TupleLeafILm1ER10TestObjectLb0EE4swapERS4_.exit: ; preds = %_
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

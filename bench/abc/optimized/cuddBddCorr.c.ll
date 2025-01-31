@@ -23,7 +23,7 @@ define double @Cudd_bddCorrelation(ptr noundef %0, ptr noundef %1, ptr noundef %
 declare ptr @st__init_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @CorrelCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @CorrelCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, %4
@@ -44,7 +44,7 @@ define internal range(i32 0, 2) i32 @CorrelCompare(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, -2147483648) i32 @CorrelHash(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
+define internal range(i32 0, -2147483648) i32 @CorrelHash(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = trunc i64 %4 to i32
@@ -240,7 +240,7 @@ define internal fastcc double @bddCorrelationAux(ptr noundef %0, ptr noundef %1,
 declare i32 @st__foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noundef i32 @CorrelCleanUp(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #3 {
+define internal noundef i32 @CorrelCleanUp(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -469,7 +469,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @st__lookup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

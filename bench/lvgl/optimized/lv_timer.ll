@@ -606,14 +606,14 @@ define i32 @lv_timer_handler_run_in_period(i32 noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_timer_get_user_data(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define ptr @lv_timer_get_user_data(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !43
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_timer_get_paused(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define zeroext i1 @lv_timer_get_paused(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1

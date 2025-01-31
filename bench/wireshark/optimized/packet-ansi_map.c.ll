@@ -4076,7 +4076,7 @@ define hidden void @proto_reg_handoff_ansi_map() #0 {
 declare void @range_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_delete_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_delete_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %3
 
@@ -4096,7 +4096,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @range_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @range_add_callback(i32 noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @range_add_callback(i32 noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %5, label %3
 
@@ -4206,7 +4206,7 @@ define internal void @ansi_map_stat_init(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ansi_map_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @ansi_map_stat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %6 = load i8, ptr %3, align 2
   %7 = zext i8 %6 to i32
   %8 = tail call ptr @try_val_to_str(i32 noundef %7, ptr noundef nonnull @ansi_map_opr_code_strings) #5
@@ -9791,7 +9791,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare zeroext i1 @wmem_multimap_insert32(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @wmem_multimap_lookup32_le(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -10551,10 +10551,10 @@ define internal i32 @dissect_ansi_map_QualificationRequest2Res_U(i1 noundef zero
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

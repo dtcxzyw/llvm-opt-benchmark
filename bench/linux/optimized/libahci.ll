@@ -421,7 +421,7 @@ define internal noundef i32 @ahci_qc_prep(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ahci_qc_issue(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef i32 @ahci_qc_issue(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 14776
   %4 = load ptr, ptr %3, align 8
@@ -767,7 +767,7 @@ define internal void @ahci_qc_ncq_fill_rtf(ptr noundef %0, i64 noundef %1) #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ahci_dev_config(ptr nocapture noundef %0) #0 align 16 {
+define internal void @ahci_dev_config(ptr noundef captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = load ptr, ptr %2, align 64
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 14776
@@ -798,7 +798,7 @@ define internal void @ahci_dev_config(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ahci_freeze(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ahci_freeze(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -817,7 +817,7 @@ define internal void @ahci_freeze(ptr nocapture noundef readonly %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ahci_thaw(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ahci_thaw(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -847,7 +847,7 @@ define internal void @ahci_thaw(ptr nocapture noundef readonly %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ahci_softreset(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 16 {
+define internal noundef i32 @ahci_softreset(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8
@@ -878,7 +878,7 @@ define internal noundef i32 @ahci_softreset(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ahci_hardreset(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 16 {
+define internal i32 @ahci_hardreset(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #12
   store i8 0, ptr %4, align 1, !annotation !16
@@ -966,7 +966,7 @@ define dso_local void @ahci_error_handler(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ahci_post_internal_cmd(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ahci_post_internal_cmd(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 65536
@@ -1032,7 +1032,7 @@ define internal void @ahci_post_internal_cmd(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @ahci_scr_read(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ahci_scr_read(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 14776
   %6 = load ptr, ptr %5, align 8
@@ -1076,7 +1076,7 @@ define internal noundef range(i32 -22, 1) i32 @ahci_scr_read(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @ahci_scr_write(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ahci_scr_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 14776
   %6 = load ptr, ptr %5, align 8
@@ -2243,7 +2243,7 @@ define internal void @ahci_port_stop(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @ahci_led_show(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ahci_led_show(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 15888
   %4 = load ptr, ptr %3, align 16
   %5 = tail call ptr @ata_link_next(ptr noundef null, ptr noundef %0, i32 noundef 0) #12
@@ -2330,7 +2330,7 @@ define internal i64 @ahci_led_store(ptr noundef %0, ptr noundef %1, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_activity_show(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_activity_show(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 64
   %4 = load ptr, ptr %3, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 15888
@@ -2347,7 +2347,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_activity_sh
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @ahci_activity_store(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef i64 @ahci_activity_store(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 64
   %4 = load ptr, ptr %3, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 15888
@@ -2407,7 +2407,7 @@ define internal noundef i64 @ahci_activity_store(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @ahci_transmit_led_message(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal noundef i64 @ahci_transmit_led_message(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -2484,7 +2484,7 @@ define internal noundef i64 @ahci_transmit_led_message(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ahci_pmp_retry_softreset(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 16 {
+define internal noundef i32 @ahci_pmp_retry_softreset(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 64
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 14776
   %6 = load ptr, ptr %5, align 8
@@ -2570,7 +2570,7 @@ define internal noundef i32 @ahci_pmp_retry_softreset(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -2962,7 +2962,7 @@ define dso_local void @ahci_save_initial_config(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -2971,10 +2971,10 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ahci_start_engine(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @ahci_start_engine(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3153,7 +3153,7 @@ declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_ad
 declare dso_local i32 @ata_wait_register(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ahci_start_fis_rx(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @ahci_start_fis_rx(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14776
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -3215,7 +3215,7 @@ define dso_local void @ahci_start_fis_rx(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3378,7 +3378,7 @@ define dso_local noundef range(i32 -5, 1) i32 @ahci_reset_controller(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ahci_reset_em(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ahci_reset_em(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3400,7 +3400,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ahci_reset_em(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ahci_init_controller(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @ahci_init_controller(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3575,13 +3575,13 @@ define dso_local i32 @ahci_dev_classify(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ata_port_classify(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @ahci_fill_cmd_slot(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define dso_local void @ahci_fill_cmd_slot(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = mul i32 %1, 2816
@@ -3667,7 +3667,7 @@ define dso_local i32 @ahci_kick_engine(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #0 align 16 {
+define dso_local noundef i32 @ahci_do_softreset(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #0 align 16 {
   %6 = alloca %struct.ata_taskfile, align 8
   %7 = alloca %struct.ata_taskfile, align 8
   %8 = load ptr, ptr %0, align 64
@@ -4257,7 +4257,7 @@ declare dso_local void @ata_msleep(ptr noundef, i32 noundef) local_unnamed_addr 
 declare dso_local i32 @ata_wait_after_reset(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -19, 2) i32 @ahci_check_ready(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 -19, 2) i32 @ahci_check_ready(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 14776
   %4 = load ptr, ptr %3, align 8
@@ -4282,7 +4282,7 @@ define dso_local range(i32 -19, 2) i32 @ahci_check_ready(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ahci_do_hardreset(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @ahci_do_hardreset(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.ata_taskfile, align 8
   %6 = alloca %struct.ata_taskfile, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 924
@@ -4405,7 +4405,7 @@ declare dso_local void @ata_tf_to_fis(ptr noundef, i8 noundef zeroext, i32 nound
 declare dso_local i32 @sata_link_hardreset(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @ahci_handle_port_intr(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @ahci_handle_port_intr(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -4480,7 +4480,7 @@ declare dso_local i32 @ata_ratelimit() local_unnamed_addr #5
 declare dso_local void @sata_pmp_error_handler(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ahci_print_info(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @ahci_print_info(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -4598,7 +4598,7 @@ define dso_local void @ahci_print_info(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ahci_set_em_messages(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local void @ahci_set_em_messages(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 28
@@ -4761,7 +4761,7 @@ define dso_local i32 @ahci_host_activate(ptr noundef %0, ptr noundef %1) #0 alig
 declare dso_local i32 @ata_host_activate(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_caps(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_caps(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 14776
@@ -4776,10 +4776,10 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_c
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_cap2(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_cap2(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 14776
@@ -4794,7 +4794,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_version(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_version(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 14776
@@ -4809,7 +4809,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_host_v
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_port_cmd(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_port_cmd(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 14776
@@ -4840,7 +4840,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_port_c
 declare dso_local i32 @__pm_runtime_idle(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @ahci_read_em_buffer(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ahci_read_em_buffer(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 14776
@@ -4955,7 +4955,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ahci_read_em_buffer(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #0 align 16 {
+define internal noundef range(i64 -22, 4294967296) i64 @ahci_store_em_buffer(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 744
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 14776
@@ -5070,7 +5070,7 @@ declare dso_local i32 @__printk_ratelimit(ptr noundef) local_unnamed_addr #5
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #5 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_em_supported(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @ahci_show_em_supported(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 744
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 14776
@@ -5119,7 +5119,7 @@ declare dso_local ptr @ata_link_next(ptr noundef, ptr noundef, i32 noundef) loca
 declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -19, 2) i32 @ahci_bad_pmp_check_ready(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -19, 2) i32 @ahci_bad_pmp_check_ready(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 14776
   %4 = load ptr, ptr %3, align 8
@@ -5158,7 +5158,7 @@ declare dso_local i32 @ata_std_qc_defer(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @sata_pmp_qc_defer_cmd_switch(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #5
@@ -5865,7 +5865,7 @@ declare dso_local zeroext i1 @acpi_storage_d3(ptr noundef) local_unnamed_addr #5
 declare dso_local void @devm_kfree(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #5

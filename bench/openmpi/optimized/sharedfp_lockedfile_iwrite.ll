@@ -297,10 +297,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare i32 @mca_common_ompio_file_iwrite_at_all(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_sharedfp_lockedfile_write_ordered_end(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @mca_sharedfp_lockedfile_write_ordered_end(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ompi_request_functions, i64 32), align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = tail call i32 %4(ptr noundef nonnull %5, ptr noundef %2) #4

@@ -371,7 +371,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 declare void @_ZN26btTriangleIndexVertexArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(100)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14btTriangleMesh8addIndexEi(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN14btTriangleMesh8addIndexEi(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %m_use32bitIndices = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i8, ptr %m_use32bitIndices, align 8
@@ -558,7 +558,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14btTriangleMesh18addTriangleIndicesEiii(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %index1, i32 noundef %index2, i32 noundef %index3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN14btTriangleMesh18addTriangleIndicesEiii(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this, i32 noundef %index1, i32 noundef %index2, i32 noundef %index3) local_unnamed_addr #0 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_data.i, align 8
@@ -572,7 +572,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483648, 2147483647) i32 @_ZN14btTriangleMesh15findOrAddVertexERK9btVector3b(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %vertex, i1 noundef zeroext %removeDuplicateVertices) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 -2147483648, 2147483647) i32 @_ZN14btTriangleMesh15findOrAddVertexERK9btVector3b(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vertex, i1 noundef zeroext %removeDuplicateVertices) local_unnamed_addr #3 align 2 {
 entry:
   %m_use4componentVertices = getelementptr inbounds nuw i8, ptr %this, i64 233
   %0 = load i8, ptr %m_use4componentVertices, align 1
@@ -1028,7 +1028,7 @@ return:                                           ; preds = %return.loopexit, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14btTriangleMesh11addTriangleERK9btVector3S2_S2_b(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %vertex0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %vertex1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %vertex2, i1 noundef zeroext %removeDuplicateVertices) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN14btTriangleMesh11addTriangleERK9btVector3S2_S2_b(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vertex0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vertex1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %vertex2, i1 noundef zeroext %removeDuplicateVertices) local_unnamed_addr #0 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_data.i, align 8
@@ -1045,7 +1045,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 -715827882, 715827883) i32 @_ZNK14btTriangleMesh15getNumTrianglesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 -715827882, 715827883) i32 @_ZNK14btTriangleMesh15getNumTrianglesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_use32bitIndices = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i8, ptr %m_use32bitIndices, align 8
@@ -1060,7 +1060,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14btTriangleMesh19preallocateVerticesEi(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %numverts) unnamed_addr #0 align 2 {
+define dso_local void @_ZN14btTriangleMesh19preallocateVerticesEi(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this, i32 noundef %numverts) unnamed_addr #0 align 2 {
 entry:
   %m_use4componentVertices = getelementptr inbounds nuw i8, ptr %this, i64 233
   %0 = load i8, ptr %m_use4componentVertices, align 1
@@ -1195,7 +1195,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14btTriangleMesh18preallocateIndicesEi(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %numindices) unnamed_addr #0 align 2 {
+define dso_local void @_ZN14btTriangleMesh18preallocateIndicesEi(ptr noundef nonnull align 8 captures(none) dereferenceable(240) %this, i32 noundef %numindices) unnamed_addr #0 align 2 {
 entry:
   %m_use32bitIndices = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load i8, ptr %m_use32bitIndices, align 8
@@ -1534,7 +1534,7 @@ declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #5
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #5
 

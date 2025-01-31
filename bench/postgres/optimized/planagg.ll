@@ -225,7 +225,7 @@ list_length.exit72.thread:                        ; preds = %28, %26, %list_leng
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly %.600.val, ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly %.600.val, ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.600.val, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %.600.val, i64 16
   %.not = icmp eq ptr %.600.val, null
@@ -343,7 +343,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @build_minmax_path(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = zext i1 %4 to i8
   %7 = tail call ptr @palloc(i64 noundef 688) #7
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(688) %7, ptr noundef nonnull align 8 dereferenceable(688) %0, i64 688, i1 false)
@@ -517,7 +517,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
@@ -540,7 +540,7 @@ declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 n
 declare ptr @query_planner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @minmax_qp_callback(ptr noundef initializes((320, 328), (336, 352)) %0, ptr nocapture readnone %1) #0 {
+define internal void @minmax_qp_callback(ptr noundef initializes((320, 328), (336, 352)) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 336
@@ -576,7 +576,7 @@ declare ptr @make_pathkeys_for_sortclauses(ptr noundef, ptr noundef, ptr noundef
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

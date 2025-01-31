@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.50 = private unnamed_addr constant [46 x i8] c"\016[drm] Forcing lvds to dual link mode on %s\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_lvds_port_enabled(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_lvds_port_enabled(ptr noundef %0, i32 %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %6 = load ptr, ptr %5, align 8
@@ -86,10 +86,10 @@ define dso_local zeroext i1 @intel_lvds_port_enabled(ptr noundef %0, i32 %1, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local ptr @intel_get_lvds_encoder(ptr noundef readonly %0) local_unnamed_addr #2 align 16 {
@@ -575,7 +575,7 @@ declare dso_local ptr @intel_gmbus_get_adapter(ptr noundef, i32 noundef) local_u
 declare dso_local i32 @drm_encoder_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_enable_lvds(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal void @intel_enable_lvds(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 388
   %7 = load i32, ptr %6, align 4
@@ -623,7 +623,7 @@ define internal void @intel_enable_lvds(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @intel_pre_enable_lvds(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1648
@@ -801,7 +801,7 @@ define internal void @intel_pre_enable_lvds(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_lvds_compute_config(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @intel_lvds_compute_config(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = load ptr, ptr %5, align 8
@@ -901,26 +901,26 @@ define internal i32 @intel_lvds_compute_config(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pch_disable_lvds(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal void @pch_disable_lvds(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   tail call void @intel_backlight_disable(ptr noundef %3) #7
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pch_post_disable_lvds(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @pch_post_disable_lvds(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   tail call fastcc void @intel_disable_lvds(ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @gmch_disable_lvds(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal void @gmch_disable_lvds(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   tail call void @intel_backlight_disable(ptr noundef %3) #7
   tail call fastcc void @intel_disable_lvds(ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_lvds_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal zeroext i1 @intel_lvds_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 372
   %5 = load i32, ptr %4, align 4
@@ -955,7 +955,7 @@ define internal zeroext i1 @intel_lvds_get_hw_state(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_lvds_get_config(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((636, 640)) %1) #0 align 16 {
+define internal void @intel_lvds_get_config(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((636, 640)) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 872
   %5 = load i32, ptr %4, align 8
@@ -1018,7 +1018,7 @@ define internal void @intel_lvds_get_config(ptr nocapture noundef readonly %0, p
 declare dso_local void @intel_backlight_update(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_lvds_shutdown(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @intel_lvds_shutdown(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 3280
   %4 = load i32, ptr %3, align 8
@@ -1091,7 +1091,7 @@ declare dso_local i32 @intel_panel_init(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @intel_backlight_setup(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @compute_is_dual_link_lvds(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @compute_is_dual_link_lvds(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
@@ -1156,7 +1156,7 @@ declare dso_local void @drm_encoder_cleanup(ptr noundef) local_unnamed_addr #3
 declare dso_local void @intel_connector_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_no_lvds_dmi_callback(ptr nocapture noundef readonly %0) #4 align 16 {
+define internal noundef i32 @intel_no_lvds_dmi_callback(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.36, ptr noundef %3) #9
@@ -1230,7 +1230,7 @@ declare dso_local i32 @intel_panel_fitting(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @intel_backlight_disable(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_disable_lvds(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_disable_lvds(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 3280
   %4 = load i32, ptr %3, align 8
@@ -1358,7 +1358,7 @@ declare dso_local i32 @intel_panel_mode_valid(ptr noundef, ptr noundef) local_un
 declare dso_local void @intel_attach_scaling_mode_property(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @intel_dual_link_lvds_callback(ptr nocapture noundef readonly %0) #4 align 16 {
+define internal noundef i32 @intel_dual_link_lvds_callback(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.50, ptr noundef %3) #9

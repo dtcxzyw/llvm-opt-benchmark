@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZN4absl13hash_internal10CityHash32EPKcm(ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN4absl13hash_internal10CityHash32EPKcm(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 25
   br i1 %cmp, label %if.then, label %if.end
@@ -311,7 +311,7 @@ return:                                           ; preds = %cond.false5, %cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr nocapture noundef readonly %s, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr noundef readonly captures(none) %s, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %len, 33
   br i1 %cmp, label %if.then, label %if.else4
@@ -667,7 +667,7 @@ return:                                           ; preds = %if.then27.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN4absl13hash_internal18CityHash64WithSeedEPKcmm(ptr nocapture noundef readonly %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4absl13hash_internal18CityHash64WithSeedEPKcmm(ptr noundef readonly captures(none) %s, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr noundef readonly %s, i64 noundef %len)
   %sub.i = add i64 %call.i, 7286425919675154353
@@ -684,7 +684,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZN4absl13hash_internal19CityHash64WithSeedsEPKcmmm(ptr nocapture noundef readonly %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1) local_unnamed_addr #0 {
+define dso_local noundef i64 @_ZN4absl13hash_internal19CityHash64WithSeedsEPKcmmm(ptr noundef readonly captures(none) %s, i64 noundef %len, i64 noundef %seed0, i64 noundef %seed1) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZN4absl13hash_internal10CityHash64EPKcm(ptr noundef %s, i64 noundef %len)
   %sub = sub i64 %call, %seed0

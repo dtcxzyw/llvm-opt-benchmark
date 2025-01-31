@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [63 x i8] c"alloc->n_free_blocks < MAX_FREE_BLOCKS && \22out of free blocks\22\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_tallocr_alloc(ptr nocapture noundef %alloc, ptr noundef %tensor) local_unnamed_addr #0 {
+define void @ggml_tallocr_alloc(ptr noundef captures(none) %alloc, ptr noundef %tensor) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %tensor, i64 264
   %tensor.val = load ptr, ptr %0, align 8
@@ -185,10 +185,10 @@ if.end81:                                         ; preds = %if.then79, %if.end7
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare void @ggml_print_backtrace() local_unnamed_addr #2
 
@@ -198,12 +198,12 @@ declare void @abort() local_unnamed_addr #3
 declare i64 @ggml_backend_buffer_get_alloc_size(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @ggml_backend_buffer_init_tensor(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_tallocr_reset(ptr nocapture noundef initializes((32, 36), (40, 56)) %alloc) local_unnamed_addr #0 {
+define void @ggml_tallocr_reset(ptr noundef captures(none) initializes((32, 36), (40, 56)) %alloc) local_unnamed_addr #0 {
 entry:
   %n_free_blocks = getelementptr inbounds nuw i8, ptr %alloc, i64 32
   store i32 1, ptr %n_free_blocks, align 8
@@ -286,7 +286,7 @@ declare ptr @ggml_backend_cpu_buffer_from_ptr(ptr noundef, i64 noundef) local_un
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @ggml_backend_buffer_get_base(ptr noundef) local_unnamed_addr #2
 
@@ -432,7 +432,7 @@ ggml_tallocr_new_from_buffer.exit:
 declare i64 @ggml_backend_buffer_get_alignment(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ggml_tallocr_get_buffer(ptr nocapture noundef readonly %alloc) local_unnamed_addr #7 {
+define ptr @ggml_tallocr_get_buffer(ptr noundef readonly captures(none) %alloc) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %alloc, align 8
   ret ptr %0
@@ -466,10 +466,10 @@ return:                                           ; preds = %entry, %if.end2
 declare void @ggml_backend_buffer_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ggml_tallocr_is_measure(ptr nocapture noundef readonly %alloc) local_unnamed_addr #7 {
+define zeroext i1 @ggml_tallocr_is_measure(ptr noundef readonly captures(none) %alloc) local_unnamed_addr #7 {
 entry:
   %measure = getelementptr inbounds nuw i8, ptr %alloc, i64 4144
   %0 = load i8, ptr %measure, align 8
@@ -478,7 +478,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ggml_tallocr_max_size(ptr nocapture noundef readonly %alloc) local_unnamed_addr #7 {
+define i64 @ggml_tallocr_max_size(ptr noundef readonly captures(none) %alloc) local_unnamed_addr #7 {
 entry:
   %max_size = getelementptr inbounds nuw i8, ptr %alloc, i64 4136
   %0 = load i64, ptr %max_size, align 8
@@ -547,7 +547,7 @@ return:                                           ; preds = %entry, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_gallocr_set_parse_seq(ptr nocapture noundef %galloc, ptr nocapture noundef readonly %list, i32 noundef %n) local_unnamed_addr #0 {
+define void @ggml_gallocr_set_parse_seq(ptr noundef captures(none) %galloc, ptr noundef readonly captures(none) %list, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %parse_seq = getelementptr inbounds nuw i8, ptr %galloc, i64 48
   %0 = load ptr, ptr %parse_seq, align 8
@@ -581,7 +581,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_gallocr_alloc_graph(ptr nocapture noundef initializes((0, 8)) %galloc, ptr noundef %talloc, ptr nocapture noundef readonly %graph) local_unnamed_addr #0 {
+define i64 @ggml_gallocr_alloc_graph(ptr noundef captures(none) initializes((0, 8)) %galloc, ptr noundef %talloc, ptr noundef readonly captures(none) %graph) local_unnamed_addr #0 {
 entry:
   %visited_hash_table = getelementptr inbounds nuw i8, ptr %graph, i64 40
   %0 = load i64, ptr %visited_hash_table, align 8
@@ -639,7 +639,7 @@ if.end18:                                         ; preds = %entry.if.end18_crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ggml_tallocr_alloc_graph_impl(ptr nocapture noundef readonly %galloc, ptr nocapture noundef readonly %gf) unnamed_addr #0 {
+define internal fastcc void @ggml_tallocr_alloc_graph_impl(ptr noundef readonly captures(none) %galloc, ptr noundef readonly captures(none) %gf) unnamed_addr #0 {
 entry:
   %parse_seq1 = getelementptr inbounds nuw i8, ptr %galloc, i64 48
   %0 = load ptr, ptr %parse_seq1, align 8
@@ -919,7 +919,7 @@ for.end171:                                       ; preds = %for.inc169, %for.en
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_gallocr_alloc_graph_n(ptr nocapture noundef %galloc, ptr nocapture noundef readonly %graph, i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %hash_node_talloc) local_unnamed_addr #0 {
+define void @ggml_gallocr_alloc_graph_n(ptr noundef captures(none) %galloc, ptr noundef readonly captures(none) %graph, i64 %hash_set.coerce0, ptr %hash_set.coerce1, ptr noundef %hash_node_talloc) local_unnamed_addr #0 {
 entry:
   %n_nodes = getelementptr inbounds nuw i8, ptr %graph, i64 4
   %0 = load i32, ptr %n_nodes, align 4
@@ -1173,7 +1173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ggml_allocr_get_buffer(ptr nocapture noundef readonly %alloc) local_unnamed_addr #11 {
+define ptr @ggml_allocr_get_buffer(ptr noundef readonly captures(none) %alloc) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %alloc, align 8
   %1 = load ptr, ptr %0, align 8
@@ -1181,7 +1181,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_allocr_set_parse_seq(ptr nocapture noundef readonly %alloc, ptr nocapture noundef readonly %list, i32 noundef %n) local_unnamed_addr #0 {
+define void @ggml_allocr_set_parse_seq(ptr noundef readonly captures(none) %alloc, ptr noundef readonly captures(none) %list, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %galloc = getelementptr inbounds nuw i8, ptr %alloc, i64 8
   %0 = load ptr, ptr %galloc, align 8
@@ -1217,7 +1217,7 @@ ggml_gallocr_set_parse_seq.exit:                  ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_allocr_free(ptr nocapture noundef %alloc) local_unnamed_addr #0 {
+define void @ggml_allocr_free(ptr noundef captures(none) %alloc) local_unnamed_addr #0 {
 entry:
   %galloc = getelementptr inbounds nuw i8, ptr %alloc, i64 8
   %0 = load ptr, ptr %galloc, align 8
@@ -1294,7 +1294,7 @@ ggml_tallocr_free.exit:                           ; preds = %ggml_gallocr_free.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @ggml_allocr_is_measure(ptr nocapture noundef readonly %alloc) local_unnamed_addr #11 {
+define zeroext i1 @ggml_allocr_is_measure(ptr noundef readonly captures(none) %alloc) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %alloc, align 8
   %measure.i = getelementptr inbounds nuw i8, ptr %0, i64 4144
@@ -1304,7 +1304,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_allocr_reset(ptr nocapture noundef readonly %alloc) local_unnamed_addr #0 {
+define void @ggml_allocr_reset(ptr noundef readonly captures(none) %alloc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %alloc, align 8
   %n_free_blocks.i = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1339,7 +1339,7 @@ ggml_tallocr_reset.exit:                          ; preds = %entry, %if.else.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_allocr_alloc(ptr nocapture noundef readonly %alloc, ptr noundef %tensor) local_unnamed_addr #0 {
+define void @ggml_allocr_alloc(ptr noundef readonly captures(none) %alloc, ptr noundef %tensor) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %alloc, align 8
   tail call void @ggml_tallocr_alloc(ptr noundef %0, ptr noundef %tensor)
@@ -1347,7 +1347,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @ggml_allocr_max_size(ptr nocapture noundef readonly %alloc) local_unnamed_addr #11 {
+define i64 @ggml_allocr_max_size(ptr noundef readonly captures(none) %alloc) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %alloc, align 8
   %max_size.i = getelementptr inbounds nuw i8, ptr %0, i64 4136
@@ -1356,7 +1356,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ggml_allocr_alloc_graph(ptr nocapture noundef readonly %alloc, ptr nocapture noundef readonly %graph) local_unnamed_addr #0 {
+define i64 @ggml_allocr_alloc_graph(ptr noundef readonly captures(none) %alloc, ptr noundef readonly captures(none) %graph) local_unnamed_addr #0 {
 entry:
   %galloc = getelementptr inbounds nuw i8, ptr %alloc, i64 8
   %0 = load ptr, ptr %galloc, align 8
@@ -1578,7 +1578,7 @@ entry:
 declare ptr @ggml_backend_get_default_buffer_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_view(ptr nocapture noundef readonly %galloc, ptr noundef %view, i1 noundef zeroext %update_backend) unnamed_addr #0 {
+define internal fastcc void @init_view(ptr noundef readonly captures(none) %galloc, ptr noundef %view, i1 noundef zeroext %update_backend) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %galloc, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1654,7 +1654,7 @@ if.end17:                                         ; preds = %if.then15, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @allocate_node(ptr nocapture noundef readonly %galloc, ptr noundef %node) unnamed_addr #0 {
+define internal fastcc void @allocate_node(ptr noundef readonly captures(none) %galloc, ptr noundef %node) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %galloc, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1849,7 +1849,7 @@ if.end54:                                         ; preds = %if.then2, %if.end52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_node(ptr nocapture noundef readonly %galloc, ptr noundef %node) unnamed_addr #0 {
+define internal fastcc void @free_node(ptr noundef readonly captures(none) %galloc, ptr noundef %node) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %galloc, align 8
   %cmp.not.i = icmp eq ptr %0, null

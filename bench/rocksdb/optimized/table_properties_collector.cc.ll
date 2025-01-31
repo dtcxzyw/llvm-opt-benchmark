@@ -50,7 +50,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = linkonce_odr local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb31UserKeyTablePropertiesCollector11InternalAddERKNS_5SliceES3_m(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i64 noundef %file_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb31UserKeyTablePropertiesCollector11InternalAddERKNS_5SliceES3_m(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %value, i64 noundef %file_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ikey = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %s = alloca %"class.rocksdb::Status", align 8
@@ -290,7 +290,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef i32 @_ZN7rocksdb12GetEntryTypeENS_9ValueTypeE(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb31UserKeyTablePropertiesCollector8BlockAddEmmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %block_uncomp_bytes, i64 noundef %block_compressed_bytes_fast, i64 noundef %block_compressed_bytes_slow) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb31UserKeyTablePropertiesCollector8BlockAddEmmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %block_uncomp_bytes, i64 noundef %block_compressed_bytes_fast, i64 noundef %block_compressed_bytes_slow) unnamed_addr #0 align 2 {
 entry:
   %collector_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %collector_, align 8
@@ -302,7 +302,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb31UserKeyTablePropertiesCollector6FinishEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %properties) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb31UserKeyTablePropertiesCollector6FinishEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %properties) unnamed_addr #0 align 2 {
 entry:
   %collector_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %collector_, align 8
@@ -314,7 +314,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb31UserKeyTablePropertiesCollector21GetReadablePropertiesB5cxx11Ev(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
+define void @_ZNK7rocksdb31UserKeyTablePropertiesCollector21GetReadablePropertiesB5cxx11Ev(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %collector_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %collector_, align 8
@@ -334,7 +334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i64 @_ZN7rocksdb12_GLOBAL__N_117GetUint64PropertyERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_Pb(ptr noundef nonnull align 8 dereferenceable(48) %props, ptr noundef nonnull align 8 dereferenceable(32) %property_name, ptr nocapture noundef writeonly %property_present) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i64 @_ZN7rocksdb12_GLOBAL__N_117GetUint64PropertyERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_Pb(ptr noundef nonnull align 8 dereferenceable(48) %props, ptr noundef nonnull align 8 dereferenceable(32) %property_name, ptr noundef writeonly captures(none) %property_present) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %val = alloca i64, align 8
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %props, i64 16
@@ -409,7 +409,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7rocksdb16GetMergeOperandsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEEPb(ptr noundef nonnull align 8 dereferenceable(48) %props, ptr nocapture noundef writeonly %property_present) local_unnamed_addr #0 {
+define noundef i64 @_ZN7rocksdb16GetMergeOperandsERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4lessIS6_ESaISt4pairIKS6_S6_EEEPb(ptr noundef nonnull align 8 dereferenceable(48) %props, ptr noundef writeonly captures(none) %property_present) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i64 @_ZN7rocksdb12_GLOBAL__N_117GetUint64PropertyERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEERSB_Pb(ptr noundef nonnull align 8 dereferenceable(48) %props, ptr noundef nonnull align 8 dereferenceable(32) @_ZN7rocksdb20TablePropertiesNames14kMergeOperandsB5cxx11E, ptr noundef %property_present)
   ret i64 %call
@@ -663,7 +663,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #5 comdat {

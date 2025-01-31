@@ -501,7 +501,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_destroy_gres_slurmd_conf = alias void (ptr), ptr @destroy_gres_slurmd_conf
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @gres_find_id(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define range(i32 0, 2) i32 @gres_find_id(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 4
@@ -511,7 +511,7 @@ define range(i32 0, 2) i32 @gres_find_id(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @gres_find_job_by_key_exact_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define range(i32 0, 2) i32 @gres_find_job_by_key_exact_type(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -537,7 +537,7 @@ define range(i32 0, 2) i32 @gres_find_job_by_key_exact_type(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @gres_find_sock_by_job_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define range(i32 0, 2) i32 @gres_find_sock_by_job_state(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1706,7 +1706,7 @@ define i32 @gres_build_id(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @gres_find_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @gres_find_flags(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, %3
@@ -1716,7 +1716,7 @@ define range(i32 0, 2) i32 @gres_find_flags(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @gres_find_job_by_key(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define range(i32 0, 2) i32 @gres_find_job_by_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1746,7 +1746,7 @@ define range(i32 0, 2) i32 @gres_find_job_by_key(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @gres_find_job_by_key_with_cnt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @gres_find_job_by_key_with_cnt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1797,7 +1797,7 @@ gres_find_job_by_key.exit:                        ; preds = %14, %2, %17, %24, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @gres_find_step_by_key(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define range(i32 0, 2) i32 @gres_find_step_by_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1858,7 +1858,7 @@ declare ptr @xstrstr(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @cgroup_conf_init() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @gres_create_state(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define ptr @gres_create_state(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 437, ptr noundef nonnull @__func__.gres_create_state) #25
   store ptr %6, ptr %5, align 8
@@ -2232,7 +2232,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
@@ -2320,7 +2320,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %.prehead
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare zeroext i1 @running_in_slurmctld() local_unnamed_addr #4
 
@@ -2893,7 +2893,7 @@ define i32 @gres_links_validate(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 8192) i32 @gres_flags_parse(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
@@ -2959,7 +2959,7 @@ define range(i32 0, 8192) i32 @gres_flags_parse(ptr noundef %0, ptr noundef writ
 declare ptr @xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @gres_node_config_load(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @gres_node_config_load(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
   %6 = alloca ptr, align 8
@@ -3341,7 +3341,7 @@ _init_gres_device.exit.thread78:                  ; preds = %._crit_edge.thread.
 declare ptr @list_create(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_free_name_list(ptr nocapture noundef %0) #10 {
+define internal void @_free_name_list(ptr noundef captures(none) %0) #10 {
   tail call void @free(ptr noundef %0) #25
   ret void
 }
@@ -3355,7 +3355,7 @@ declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #4
 declare ptr @hostlist_shift(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -3368,7 +3368,7 @@ declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #4
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @gres_device_id2str(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @gres_device_id2str(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4371,7 +4371,7 @@ _pack_gres_conf.exit:                             ; preds = %438, %440, %445
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_parse_gres_config(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+define internal range(i32 0, 2) i32 @_parse_gres_config(ptr noundef writeonly captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -5104,7 +5104,7 @@ _set_shared_flag.exit:                            ; preds = %gres_is_shared_name
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_parse_gres_config_node(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
+define internal range(i32 0, 2) i32 @_parse_gres_config_node(ptr noundef writeonly captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #2 {
   %7 = load ptr, ptr @gres_node_name, align 8
   %8 = icmp ne ptr %7, null
   %9 = icmp ne ptr %3, null
@@ -5153,7 +5153,7 @@ declare zeroext i1 @running_in_slurmd() local_unnamed_addr #4
 declare ptr @get_extra_conf_path(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare ptr @s_p_hashtbl_create(ptr noundef) local_unnamed_addr #4
 
@@ -5168,7 +5168,7 @@ declare i32 @s_p_get_array(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare i32 @list_delete_all(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_find_fileless_gres(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @_find_fileless_gres(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
@@ -5197,7 +5197,7 @@ define internal range(i32 0, 2) i32 @_find_fileless_gres(ptr nocapture noundef r
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_log_gres_slurmd_conf(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal noundef i32 @_log_gres_slurmd_conf(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %4 = and i64 %3, 64
   %.not = icmp eq i64 %4, 0
@@ -5334,7 +5334,7 @@ define internal noundef i32 @_log_gres_slurmd_conf(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @_post_plugin_gres_conf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #13 {
+define internal range(i32 0, 2) i32 @_post_plugin_gres_conf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -6367,7 +6367,7 @@ declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @gres_init_node_config(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @gres_init_node_config(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #25
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -6611,7 +6611,7 @@ define zeroext i1 @gres_id_sharing(i32 noundef %0) local_unnamed_addr #16 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @gres_node_config_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8) local_unnamed_addr #2 {
+define range(i32 0, 23) i32 @gres_node_config_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr noundef %8) local_unnamed_addr #2 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca %struct.tot_from_slurmd_conf_t, align 8
@@ -8717,7 +8717,7 @@ define internal fastcc void @_sync_node_shared_to_sharing(ptr noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_build_node_gres_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @_build_node_gres_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca [256 x i8], align 16
   %7 = alloca ptr, align 8
@@ -9192,106 +9192,106 @@ _get_suffix.exit116:                              ; preds = %188, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_node_feature(ptr nocapture noundef readnone %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #2 {
+define void @gres_node_feature(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #2 {
+.preheader.i:
+  %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
-  %7 = alloca ptr, align 8
-  %8 = alloca i32, align 4
+  %7 = alloca i32, align 4
+  store ptr null, ptr %5, align 8
   store ptr null, ptr %6, align 8
-  store ptr null, ptr %7, align 8
-  %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
-  %.not.i = icmp eq ptr %1, null
-  br i1 %.not.i, label %gres_build_id.exit, label %.preheader.i
-
-.preheader.i:                                     ; preds = %5
-  %10 = load i8, ptr %1, align 1
-  %.not1617.i = icmp eq i8 %10, 0
+  %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
+  %9 = load i8, ptr %1, align 1
+  %.not1617.i = icmp eq i8 %9, 0
   br i1 %.not1617.i, label %gres_build_id.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %11 = phi i8 [ %18, %.lr.ph.i ], [ %10, %.preheader.i ]
-  %.020.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %.01119.i = phi i32 [ %16, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %12 = sext i8 %11 to i32
-  %13 = shl i32 %12, %.01119.i
-  %14 = add i32 %13, %.020.i
-  %15 = add nsw i32 %.01119.i, 8
-  %16 = srem i32 %15, 32
+  %10 = phi i8 [ %17, %.lr.ph.i ], [ %9, %.preheader.i ]
+  %.020.i = phi i32 [ %13, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %.01119.i = phi i32 [ %15, %.lr.ph.i ], [ 0, %.preheader.i ]
+  %11 = sext i8 %10 to i32
+  %12 = shl i32 %11, %.01119.i
+  %13 = add i32 %12, %.020.i
+  %14 = add nsw i32 %.01119.i, 8
+  %15 = srem i32 %14, 32
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next.i
-  %18 = load i8, ptr %17, align 1
-  %.not16.i = icmp eq i8 %18, 0
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next.i
+  %17 = load i8, ptr %16, align 1
+  %.not16.i = icmp eq i8 %17, 0
   br i1 %.not16.i, label %gres_build_id.exit, label %.lr.ph.i, !llvm.loop !12
 
-gres_build_id.exit:                               ; preds = %.lr.ph.i, %5, %.preheader.i
-  %.013.i = phi i32 [ 0, %5 ], [ 0, %.preheader.i ], [ %14, %.lr.ph.i ]
-  store i32 %.013.i, ptr %8, align 4
-  %19 = load ptr, ptr %3, align 8
-  %.not = icmp eq ptr %19, null
-  br i1 %.not, label %.loopexit, label %20
+gres_build_id.exit:                               ; preds = %.lr.ph.i, %.preheader.i
+  %.013.i = phi i32 [ 0, %.preheader.i ], [ %13, %.lr.ph.i ]
+  store i32 %.013.i, ptr %7, align 4
+  %18 = load ptr, ptr %3, align 8
+  %.not = icmp eq ptr %18, null
+  br i1 %.not, label %.loopexit, label %19
 
-20:                                               ; preds = %gres_build_id.exit
-  %21 = call ptr @strtok_r(ptr noundef nonnull %19, ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #25
-  %.not5866 = icmp eq ptr %21, null
+19:                                               ; preds = %gres_build_id.exit
+  %20 = call ptr @strtok_r(ptr noundef nonnull %18, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #25
+  %.not5866 = icmp eq ptr %20, null
   br i1 %.not5866, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %20
-  %sext = shl i64 %9, 32
-  %22 = ashr exact i64 %sext, 32
-  br label %23
+.lr.ph:                                           ; preds = %19
+  %sext = shl i64 %8, 32
+  %21 = ashr exact i64 %sext, 32
+  br label %22
 
-23:                                               ; preds = %.lr.ph, %29
-  %.068 = phi ptr [ %21, %.lr.ph ], [ %30, %29 ]
-  %.167 = phi ptr [ @.str.5, %.lr.ph ], [ %.2, %29 ]
-  %24 = call i32 @strncmp(ptr noundef nonnull %.068, ptr noundef %1, i64 noundef %22) #28
-  %.not62 = icmp eq i32 %24, 0
-  br i1 %.not62, label %25, label %28
+22:                                               ; preds = %.lr.ph, %28
+  %.068 = phi ptr [ %20, %.lr.ph ], [ %29, %28 ]
+  %.167 = phi ptr [ @.str.5, %.lr.ph ], [ %.2, %28 ]
+  %23 = call i32 @strncmp(ptr noundef nonnull %.068, ptr noundef nonnull %1, i64 noundef %21) #28
+  %.not62 = icmp eq i32 %23, 0
+  br i1 %.not62, label %24, label %27
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %.068, i64 %22
-  %27 = load i8, ptr %26, align 1
-  switch i8 %27, label %28 [
-    i8 58, label %29
-    i8 0, label %29
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %.068, i64 %21
+  %26 = load i8, ptr %25, align 1
+  switch i8 %26, label %27 [
+    i8 58, label %28
+    i8 0, label %28
   ]
 
-28:                                               ; preds = %25, %23
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.8, ptr noundef %.167, ptr noundef nonnull %.068) #25
-  br label %29
+27:                                               ; preds = %24, %22
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.8, ptr noundef %.167, ptr noundef nonnull %.068) #25
+  br label %28
 
-29:                                               ; preds = %25, %25, %28
-  %.2 = phi ptr [ @.str.7, %28 ], [ %.167, %25 ], [ %.167, %25 ]
-  %30 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %7) #25
-  %.not58 = icmp eq ptr %30, null
-  br i1 %.not58, label %.loopexit, label %23, !llvm.loop !86
+28:                                               ; preds = %24, %24, %27
+  %.2 = phi ptr [ @.str.7, %27 ], [ %.167, %24 ], [ %.167, %24 ]
+  %29 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.7, ptr noundef nonnull %6) #25
+  %.not58 = icmp eq ptr %29, null
+  br i1 %.not58, label %.loopexit, label %22, !llvm.loop !86
 
-.loopexit:                                        ; preds = %29, %20, %gres_build_id.exit
-  %.048 = phi ptr [ @.str.5, %gres_build_id.exit ], [ @.str.5, %20 ], [ %.2, %29 ]
-  %31 = icmp ne i64 %2, 0
-  %32 = and i64 %2, 1023
-  %33 = icmp eq i64 %32, 0
-  %34 = and i1 %31, %33
-  br i1 %34, label %.lr.ph.i63, label %_gres_scale_value.exit
+.loopexit:                                        ; preds = %28, %19, %gres_build_id.exit
+  %.048 = phi ptr [ @.str.5, %gres_build_id.exit ], [ @.str.5, %19 ], [ %.2, %28 ]
+  %30 = icmp ne i64 %2, 0
+  %31 = and i64 %2, 1023
+  %32 = icmp eq i64 %31, 0
+  %33 = and i1 %30, %32
+  br i1 %33, label %.lr.ph.i63, label %_gres_scale_value.exit
 
 .lr.ph.i63:                                       ; preds = %.loopexit, %.lr.ph.i63
-  %.022.i = phi i32 [ %36, %.lr.ph.i63 ], [ 0, %.loopexit ]
-  %.01821.i = phi i64 [ %35, %.lr.ph.i63 ], [ %2, %.loopexit ]
-  %35 = lshr exact i64 %.01821.i, 10
-  %36 = add nuw nsw i32 %.022.i, 1
-  %37 = icmp samesign ult i32 %.022.i, 3
-  %38 = icmp ne i64 %.01821.i, 0
-  %39 = and i64 %.01821.i, 1047552
-  %40 = icmp eq i64 %39, 0
-  %41 = and i1 %38, %40
-  %or.cond20.i = select i1 %37, i1 %41, i1 false
+  %.022.i = phi i32 [ %35, %.lr.ph.i63 ], [ 0, %.loopexit ]
+  %.01821.i = phi i64 [ %34, %.lr.ph.i63 ], [ %2, %.loopexit ]
+  %34 = lshr exact i64 %.01821.i, 10
+  %35 = add nuw nsw i32 %.022.i, 1
+  %36 = icmp samesign ult i32 %.022.i, 3
+  %37 = icmp ne i64 %.01821.i, 0
+  %38 = and i64 %.01821.i, 1047552
+  %39 = icmp eq i64 %38, 0
+  %40 = and i1 %37, %39
+  %or.cond20.i = select i1 %36, i1 %40, i1 false
   br i1 %or.cond20.i, label %.lr.ph.i63, label %._crit_edge.i, !llvm.loop !87
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i63
-  switch i32 %.022.i, label %44 [
-    i32 2, label %43
+  switch i32 %.022.i, label %43 [
+    i32 2, label %42
     i32 0, label %_gres_scale_value.exit
-    i32 1, label %42
+    i32 1, label %41
   ]
+
+41:                                               ; preds = %._crit_edge.i
+  br label %_gres_scale_value.exit
 
 42:                                               ; preds = %._crit_edge.i
   br label %_gres_scale_value.exit
@@ -9299,119 +9299,116 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %5, %.pre
 43:                                               ; preds = %._crit_edge.i
   br label %_gres_scale_value.exit
 
-44:                                               ; preds = %._crit_edge.i
-  br label %_gres_scale_value.exit
-
-_gres_scale_value.exit:                           ; preds = %.loopexit, %._crit_edge.i, %42, %43, %44
-  %.064 = phi i64 [ %35, %44 ], [ %35, %42 ], [ %35, %._crit_edge.i ], [ %35, %43 ], [ %2, %.loopexit ]
-  %.str.217.sink.i = phi ptr [ @.str.220, %44 ], [ @.str.218, %42 ], [ @.str.217, %._crit_edge.i ], [ @.str.219, %43 ], [ @.str.5, %.loopexit ]
-  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %6, ptr noundef nonnull @.str.60, ptr noundef %.048, ptr noundef %1, i64 noundef %.064, ptr noundef nonnull %.str.217.sink.i) #25
+_gres_scale_value.exit:                           ; preds = %.loopexit, %._crit_edge.i, %41, %42, %43
+  %.064 = phi i64 [ %34, %43 ], [ %34, %41 ], [ %34, %._crit_edge.i ], [ %34, %42 ], [ %2, %.loopexit ]
+  %.str.217.sink.i = phi ptr [ @.str.220, %43 ], [ @.str.218, %41 ], [ @.str.217, %._crit_edge.i ], [ @.str.219, %42 ], [ @.str.5, %.loopexit ]
+  call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %5, ptr noundef nonnull @.str.60, ptr noundef %.048, ptr noundef nonnull %1, i64 noundef %.064, ptr noundef nonnull %.str.217.sink.i) #25
   call void @slurm_xfree(ptr noundef nonnull %3) #25
-  %45 = load ptr, ptr %6, align 8
-  store ptr %45, ptr %3, align 8
-  %46 = call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #25
-  %.not59 = icmp eq i32 %46, 0
-  br i1 %.not59, label %49, label %47
+  %44 = load ptr, ptr %5, align 8
+  store ptr %44, ptr %3, align 8
+  %45 = call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #25
+  %.not59 = icmp eq i32 %45, 0
+  br i1 %.not59, label %48, label %46
 
-47:                                               ; preds = %_gres_scale_value.exit
-  %48 = tail call ptr @__errno_location() #26
-  store i32 %46, ptr %48, align 4
+46:                                               ; preds = %_gres_scale_value.exit
+  %47 = tail call ptr @__errno_location() #26
+  store i32 %45, ptr %47, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.1, i32 noundef 4179, ptr noundef nonnull @__func__.gres_node_feature) #27
   unreachable
 
-49:                                               ; preds = %_gres_scale_value.exit
-  %50 = load i32, ptr @gres_context_cnt, align 4
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %52, label %89
+48:                                               ; preds = %_gres_scale_value.exit
+  %49 = load i32, ptr @gres_context_cnt, align 4
+  %50 = icmp sgt i32 %49, 0
+  br i1 %50, label %51, label %88
 
-52:                                               ; preds = %49
-  %53 = load ptr, ptr %4, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %57
+51:                                               ; preds = %48
+  %52 = load ptr, ptr %4, align 8
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %54, label %56
 
-55:                                               ; preds = %52
-  %56 = call ptr @list_create(ptr noundef nonnull @_gres_node_list_delete) #25
-  store ptr %56, ptr %4, align 8
-  br label %57
+54:                                               ; preds = %51
+  %55 = call ptr @list_create(ptr noundef nonnull @_gres_node_list_delete) #25
+  store ptr %55, ptr %4, align 8
+  br label %56
 
-57:                                               ; preds = %55, %52
-  %58 = phi ptr [ %56, %55 ], [ %53, %52 ]
-  %59 = call ptr @list_find_first(ptr noundef %58, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %8) #25
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %61, label %73
+56:                                               ; preds = %54, %51
+  %57 = phi ptr [ %55, %54 ], [ %52, %51 ]
+  %58 = call ptr @list_find_first(ptr noundef %57, ptr noundef nonnull @gres_find_id, ptr noundef nonnull %7) #25
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %60, label %72
 
-61:                                               ; preds = %57
-  %62 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 4186, ptr noundef nonnull @__func__.gres_node_feature) #25
-  %63 = load i32, ptr %8, align 4
-  %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
-  store i32 %63, ptr %64, align 4
-  %65 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3213, ptr noundef nonnull @__func__._build_gres_node_state) #25
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
+60:                                               ; preds = %56
+  %61 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 4186, ptr noundef nonnull @__func__.gres_node_feature) #25
+  %62 = load i32, ptr %7, align 4
+  %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  store i32 %62, ptr %63, align 4
+  %64 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 168, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3213, ptr noundef nonnull @__func__._build_gres_node_state) #25
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store i64 -2, ptr %65, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 -2, ptr %66, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i64 -2, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store ptr %65, ptr %68, align 8
-  %69 = call ptr @xstrdup(ptr noundef %1) #25
-  %70 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store ptr %69, ptr %70, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  store i32 1, ptr %71, align 8
-  %72 = load ptr, ptr %4, align 8
-  call void @list_append(ptr noundef %72, ptr noundef %62) #25
-  br label %73
+  %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store ptr %64, ptr %67, align 8
+  %68 = call ptr @xstrdup(ptr noundef nonnull %1) #25
+  %69 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store ptr %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %61, i64 24
+  store i32 1, ptr %70, align 8
+  %71 = load ptr, ptr %4, align 8
+  call void @list_append(ptr noundef %71, ptr noundef %61) #25
+  br label %72
 
-73:                                               ; preds = %61, %57
-  %.049 = phi ptr [ %62, %61 ], [ %59, %57 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.049, i64 8
-  %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
-  %77 = load i64, ptr %76, align 8
-  %.not60 = icmp ult i64 %2, %77
-  br i1 %.not60, label %81, label %78
+72:                                               ; preds = %60, %56
+  %.049 = phi ptr [ %61, %60 ], [ %58, %56 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.049, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 48
+  %76 = load i64, ptr %75, align 8
+  %.not60 = icmp ult i64 %2, %76
+  br i1 %.not60, label %80, label %77
 
-78:                                               ; preds = %73
-  %79 = sub nuw i64 %2, %77
-  %80 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  store i64 %79, ptr %80, align 8
-  br label %85
+77:                                               ; preds = %72
+  %78 = sub nuw i64 %2, %76
+  %79 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  store i64 %78, ptr %79, align 8
+  br label %84
 
-81:                                               ; preds = %73
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %83 = load i64, ptr %82, align 8
-  %84 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.gres_node_feature, ptr noundef %1, i64 noundef %83, i64 noundef %2) #25
-  store i64 0, ptr %82, align 8
-  br label %85
+80:                                               ; preds = %72
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %82 = load i64, ptr %81, align 8
+  %83 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.61, ptr noundef nonnull @__func__.gres_node_feature, ptr noundef nonnull %1, i64 noundef %82, i64 noundef %2) #25
+  store i64 0, ptr %81, align 8
+  br label %84
 
-85:                                               ; preds = %81, %78
-  %86 = getelementptr inbounds nuw i8, ptr %75, i64 16
+84:                                               ; preds = %80, %77
+  %85 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  store i64 %2, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %74, i64 8
   store i64 %2, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i64 %2, ptr %87, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %75, i64 25
-  store i8 1, ptr %88, align 1
-  br label %89
+  %87 = getelementptr inbounds nuw i8, ptr %74, i64 25
+  store i8 1, ptr %87, align 1
+  br label %88
 
-89:                                               ; preds = %49, %85
-  %90 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
-  %.not61 = icmp eq i32 %90, 0
-  br i1 %.not61, label %93, label %91
+88:                                               ; preds = %48, %84
+  %89 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @gres_context_lock) #25
+  %.not61 = icmp eq i32 %89, 0
+  br i1 %.not61, label %92, label %90
 
-91:                                               ; preds = %89
-  %92 = tail call ptr @__errno_location() #26
-  store i32 %90, ptr %92, align 4
+90:                                               ; preds = %88
+  %91 = tail call ptr @__errno_location() #26
+  store i32 %89, ptr %91, align 4
   call void (ptr, ...) @fatal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.1, i32 noundef 4210, ptr noundef nonnull @__func__.gres_node_feature) #27
   unreachable
 
-93:                                               ; preds = %89
+92:                                               ; preds = %88
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2073) i32 @gres_node_reconfig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define range(i32 0, 2073) i32 @gres_node_reconfig(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca ptr, align 8
   %9 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #25
   %.not = icmp eq i32 %9, 0
@@ -9743,7 +9740,7 @@ _node_reconfig.exit.thread:                       ; preds = %_node_reconfig.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_node_remove(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @gres_node_remove(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -9813,7 +9810,7 @@ define void @gres_node_remove(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gres_node_state_pack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #2 {
+define noundef i32 @gres_node_state_pack(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %0, null
@@ -9903,7 +9900,7 @@ define noundef i32 @gres_node_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %47) #28
   %49 = trunc i64 %48 to i32
   %50 = add i32 %49, 1
-  call void @packmem(ptr noundef %47, i32 noundef %50, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %47, i32 noundef %50, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %4) #25
   br label %52
 
@@ -9931,7 +9928,7 @@ define noundef i32 @gres_node_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %64 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #28
   %65 = trunc i64 %64 to i32
   %66 = add i32 %65, 1
-  call void @packmem(ptr noundef %63, i32 noundef %66, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %63, i32 noundef %66, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %5) #25
   br label %68
 
@@ -10010,7 +10007,7 @@ declare void @pack32_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare void @packstr_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @gres_node_state_unpack(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @gres_node_state_unpack(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -10920,7 +10917,7 @@ define void @gres_node_state_dealloc_all(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_node_state_dealloc(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal noundef i32 @_node_state_dealloc(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11388,7 +11385,7 @@ define zeroext i1 @gres_node_state_list_has_alloc_gres(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_find_node_state_with_alloc_gres(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define internal range(i32 0, 2) i32 @_find_node_state_with_alloc_gres(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -11399,7 +11396,7 @@ define internal range(i32 0, 2) i32 @_find_node_state_with_alloc_gres(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @gres_get_node_drain(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define ptr @gres_get_node_drain(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call ptr @xstrdup(ptr noundef nonnull @.str.64) #25
   ret ptr %2
 }
@@ -11764,7 +11761,7 @@ define void @gres_job_clear_alloc(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef %9, ptr nocapture noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr nocapture noundef %13, ptr noundef readonly %14, ptr nocapture noundef %15) local_unnamed_addr #2 {
+define i32 @gres_job_state_validate(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef captures(none) %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef captures(none) %13, ptr noundef readonly %14, ptr noundef captures(none) %15) local_unnamed_addr #2 {
   %17 = alloca ptr, align 8
   %18 = alloca i32, align 4
   %19 = alloca i64, align 8
@@ -12961,7 +12958,7 @@ _set_over_list.exit.thread:                       ; preds = %543, %541, %551, %_
 declare void @slurm_option_update_tres_per_task_cpu(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_next_job_gres(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
+define internal fastcc ptr @_get_next_job_gres(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.gres_search_key, align 4
   %8 = alloca ptr, align 8
@@ -13153,10 +13150,10 @@ gres_build_id.exit43:                             ; preds = %.lr.ph.i36, %48, %.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2120) i32 @_merge_generic_data(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2120) i32 @_merge_generic_data(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = tail call ptr @list_iterator_create(ptr noundef %0) #25
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph61, label %_generic_state.exit.thread
@@ -14373,7 +14370,7 @@ define ptr @gres_job_state_dup(ptr noundef readonly %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 declare ptr @bit_copy(ptr noundef) local_unnamed_addr #4
 
@@ -14512,7 +14509,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #28
   %76 = trunc i64 %75 to i32
   %77 = add i32 %76, 1
-  call void @packmem(ptr noundef %74, i32 noundef %77, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %74, i32 noundef %77, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %6) #25
   br label %79
 
@@ -14573,7 +14570,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %101 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %100) #28
   %102 = trunc i64 %101 to i32
   %103 = add i32 %102, 1
-  call void @packmem(ptr noundef %100, i32 noundef %103, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %100, i32 noundef %103, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %7) #25
   br label %105
 
@@ -14852,7 +14849,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %231 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %230) #28
   %232 = trunc i64 %231 to i32
   %233 = add i32 %232, 1
-  call void @packmem(ptr noundef %230, i32 noundef %233, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %230, i32 noundef %233, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %8) #25
   br label %235
 
@@ -14907,7 +14904,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
   %256 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %255) #28
   %257 = trunc i64 %256 to i32
   %258 = add i32 %257, 1
-  call void @packmem(ptr noundef %255, i32 noundef %258, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %255, i32 noundef %258, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %9) #25
   br label %260
 
@@ -14995,7 +14992,7 @@ define noundef i32 @gres_job_state_pack(ptr noundef %0, ptr noundef %1, i32 noun
 declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @gres_job_state_unpack(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @gres_job_state_unpack(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -15184,7 +15181,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   %.013.i.us = phi i32 [ 0, %88 ], [ 0, %.preheader.i.us ], [ %94, %.lr.ph.i.us ]
   store i32 %.013.i.us, ptr %58, align 8
   %99 = getelementptr inbounds nuw i8, ptr %58, i64 120
-  %100 = call i32 @unpack32(ptr noundef nonnull %99, ptr noundef %1) #25
+  %100 = call i32 @unpack32(ptr noundef nonnull %99, ptr noundef nonnull %1) #25
   %.not350.us = icmp eq i32 %100, 0
   br i1 %.not350.us, label %101, label %.sink.split
 
@@ -15194,7 +15191,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %103, label %.sink.split, label %104
 
 104:                                              ; preds = %101
-  %105 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %105 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not351.us = icmp eq i32 %105, 0
   br i1 %.not351.us, label %106, label %.sink.split
 
@@ -15205,12 +15202,12 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 
 108:                                              ; preds = %106
   %109 = getelementptr inbounds nuw i8, ptr %58, i64 136
-  %110 = call i32 @unpack64_array(ptr noundef nonnull %109, ptr noundef nonnull %7, ptr noundef %1) #25
+  %110 = call i32 @unpack64_array(ptr noundef nonnull %109, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not353.us = icmp eq i32 %110, 0
   br i1 %.not353.us, label %111, label %.sink.split
 
 111:                                              ; preds = %108, %106
-  %112 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %112 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not354.us = icmp eq i32 %112, 0
   br i1 %.not354.us, label %113, label %.sink.split
 
@@ -15245,7 +15242,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 123:                                              ; preds = %.lr.ph512.us, %148
   %indvars.iv641 = phi i64 [ 0, %.lr.ph512.us ], [ %indvars.iv.next642, %148 ]
   store ptr null, ptr %10, align 8
-  %124 = call i32 @unpack32(ptr noundef nonnull %11, ptr noundef %1) #25
+  %124 = call i32 @unpack32(ptr noundef nonnull %11, ptr noundef nonnull %1) #25
   %.not386.us = icmp eq i32 %124, 0
   br i1 %.not386.us, label %125, label %.sink.split
 
@@ -15255,7 +15252,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %.not387.us, label %145, label %127
 
 127:                                              ; preds = %125
-  %128 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %1) #25
+  %128 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %1) #25
   %.not388.us = icmp eq i32 %128, 0
   br i1 %.not388.us, label %129, label %.loopexit419
 
@@ -15307,7 +15304,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %.not588, label %._crit_edge.us, label %.lr.ph514.us
 
 ._crit_edge.us:                                   ; preds = %260, %.thread672, %121, %.loopexit426.us
-  %153 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %153 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not358.us = icmp eq i32 %153, 0
   br i1 %.not358.us, label %154, label %.sink.split
 
@@ -15342,7 +15339,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
 165:                                              ; preds = %.lr.ph519.us, %190
   %indvars.iv647 = phi i64 [ 0, %.lr.ph519.us ], [ %indvars.iv.next648, %190 ]
   store ptr null, ptr %13, align 8
-  %166 = call i32 @unpack32(ptr noundef nonnull %14, ptr noundef %1) #25
+  %166 = call i32 @unpack32(ptr noundef nonnull %14, ptr noundef nonnull %1) #25
   %.not374.us = icmp eq i32 %166, 0
   br i1 %.not374.us, label %167, label %.sink.split
 
@@ -15352,7 +15349,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %.not375.us, label %187, label %169
 
 169:                                              ; preds = %167
-  %170 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef %1) #25
+  %170 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %1) #25
   %.not376.us = icmp eq i32 %170, 0
   br i1 %.not376.us, label %171, label %.loopexit419
 
@@ -15399,7 +15396,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   br i1 %193, label %165, label %.loopexit422.us, !llvm.loop !148
 
 .loopexit422.us:                                  ; preds = %190, %.thread675, %163, %154
-  %194 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %194 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not362.us = icmp eq i32 %194, 0
   br i1 %.not362.us, label %195, label %.sink.split
 
@@ -15442,7 +15439,7 @@ gres_build_id.exit.us:                            ; preds = %.lr.ph.i.us, %.preh
   %indvars.iv650 = phi i64 [ 0, %.lr.ph522.us ], [ %indvars.iv.next651, %205 ]
   %210 = load ptr, ptr %271, align 8
   %211 = getelementptr inbounds nuw i64, ptr %210, i64 %indvars.iv650
-  %212 = call i32 @unpack64(ptr noundef %211, ptr noundef %1) #25
+  %212 = call i32 @unpack64(ptr noundef %211, ptr noundef nonnull %1) #25
   %.not373.us = icmp eq i32 %212, 0
   br i1 %.not373.us, label %205, label %.sink.split
 
@@ -15482,7 +15479,7 @@ _find_context_by_id.exit.us:                      ; preds = %215
 
 224:                                              ; preds = %.lr.ph525.us, %240
   %indvars.iv653 = phi i64 [ 0, %.lr.ph525.us ], [ %indvars.iv.next654, %240 ]
-  %225 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %225 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not367.us = icmp eq i32 %225, 0
   br i1 %.not367.us, label %226, label %.sink.split
 
@@ -15515,7 +15512,7 @@ _find_context_by_id.exit.us:                      ; preds = %215
 236:                                              ; preds = %235, %232, %228
   %237 = phi ptr [ null, %235 ], [ %234, %232 ], [ %229, %228 ]
   %238 = getelementptr inbounds nuw ptr, ptr %237, i64 %indvars.iv653
-  %239 = call i32 @unpack64_array(ptr noundef %238, ptr noundef nonnull %7, ptr noundef %1) #25
+  %239 = call i32 @unpack64_array(ptr noundef %238, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not372.us = icmp eq i32 %239, 0
   br i1 %.not372.us, label %240, label %.sink.split
 
@@ -15528,7 +15525,7 @@ _find_context_by_id.exit.us:                      ; preds = %215
 
 244:                                              ; preds = %.lr.ph514.us, %260
   %indvars.iv644 = phi i64 [ 0, %.lr.ph514.us ], [ %indvars.iv.next645, %260 ]
-  %245 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %245 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not380.us = icmp eq i32 %245, 0
   br i1 %.not380.us, label %246, label %.sink.split
 
@@ -15561,7 +15558,7 @@ _find_context_by_id.exit.us:                      ; preds = %215
 256:                                              ; preds = %255, %252, %248
   %257 = phi ptr [ null, %255 ], [ %254, %252 ], [ %249, %248 ]
   %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %indvars.iv644
-  %259 = call i32 @unpack64_array(ptr noundef %258, ptr noundef nonnull %7, ptr noundef %1) #25
+  %259 = call i32 @unpack64_array(ptr noundef %258, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not385.us = icmp eq i32 %259, 0
   br i1 %.not385.us, label %260, label %.sink.split
 
@@ -15722,7 +15719,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %.013.i404.us = phi i32 [ 0, %317 ], [ 0, %.preheader.i396.us ], [ %323, %.lr.ph.i398.us ]
   store i32 %.013.i404.us, ptr %287, align 8
   %328 = getelementptr inbounds nuw i8, ptr %287, i64 120
-  %329 = call i32 @unpack32(ptr noundef nonnull %328, ptr noundef %1) #25
+  %329 = call i32 @unpack32(ptr noundef nonnull %328, ptr noundef nonnull %1) #25
   %.not310.us = icmp eq i32 %329, 0
   br i1 %.not310.us, label %330, label %.sink.split
 
@@ -15732,7 +15729,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   br i1 %332, label %.sink.split, label %333
 
 333:                                              ; preds = %330
-  %334 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %334 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not311.us = icmp eq i32 %334, 0
   br i1 %.not311.us, label %335, label %.sink.split
 
@@ -15743,12 +15740,12 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
 
 337:                                              ; preds = %335
   %338 = getelementptr inbounds nuw i8, ptr %287, i64 136
-  %339 = call i32 @unpack64_array(ptr noundef nonnull %338, ptr noundef nonnull %7, ptr noundef %1) #25
+  %339 = call i32 @unpack64_array(ptr noundef nonnull %338, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not313.us = icmp eq i32 %339, 0
   br i1 %.not313.us, label %340, label %.sink.split
 
 340:                                              ; preds = %337, %335
-  %341 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %341 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not314.us = icmp eq i32 %341, 0
   br i1 %.not314.us, label %342, label %.sink.split
 
@@ -15783,7 +15780,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
 353:                                              ; preds = %.lr.ph.us, %378
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %378 ]
   store ptr null, ptr %16, align 8
-  %354 = call i32 @unpack32(ptr noundef nonnull %17, ptr noundef %1) #25
+  %354 = call i32 @unpack32(ptr noundef nonnull %17, ptr noundef nonnull %1) #25
   %.not333.us = icmp eq i32 %354, 0
   br i1 %.not333.us, label %355, label %.loopexit419
 
@@ -15793,7 +15790,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   br i1 %.not334.us, label %375, label %357
 
 357:                                              ; preds = %355
-  %358 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef %1) #25
+  %358 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %1) #25
   %.not335.us = icmp eq i32 %358, 0
   br i1 %.not335.us, label %359, label %.loopexit419
 
@@ -15840,7 +15837,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   br i1 %381, label %353, label %.loopexit433.us, !llvm.loop !153
 
 .loopexit433.us:                                  ; preds = %378, %.thread680, %351, %342
-  %382 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %382 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not318.us = icmp eq i32 %382, 0
   br i1 %.not318.us, label %383, label %.sink.split
 
@@ -15875,7 +15872,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
 394:                                              ; preds = %.lr.ph506.us, %419
   %indvars.iv635 = phi i64 [ 0, %.lr.ph506.us ], [ %indvars.iv.next636, %419 ]
   store ptr null, ptr %19, align 8
-  %395 = call i32 @unpack32(ptr noundef nonnull %20, ptr noundef %1) #25
+  %395 = call i32 @unpack32(ptr noundef nonnull %20, ptr noundef nonnull %1) #25
   %.not327.us = icmp eq i32 %395, 0
   br i1 %.not327.us, label %396, label %.sink.split
 
@@ -15885,7 +15882,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   br i1 %.not328.us, label %416, label %398
 
 398:                                              ; preds = %396
-  %399 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %19, ptr noundef nonnull %21, ptr noundef %1) #25
+  %399 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %19, ptr noundef nonnull %21, ptr noundef nonnull %1) #25
   %.not329.us = icmp eq i32 %399, 0
   br i1 %.not329.us, label %400, label %.loopexit419
 
@@ -15932,7 +15929,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   br i1 %422, label %394, label %.loopexit431.us, !llvm.loop !154
 
 .loopexit431.us:                                  ; preds = %419, %.thread682, %392, %383
-  %423 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %423 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not322.us = icmp eq i32 %423, 0
   br i1 %.not322.us, label %424, label %.sink.split
 
@@ -15975,7 +15972,7 @@ gres_build_id.exit405.us:                         ; preds = %.lr.ph.i398.us, %.p
   %indvars.iv638 = phi i64 [ 0, %.lr.ph508.us ], [ %indvars.iv.next639, %435 ]
   %440 = load ptr, ptr %459, align 8
   %441 = getelementptr inbounds nuw i64, ptr %440, i64 %indvars.iv638
-  %442 = call i32 @unpack64(ptr noundef %441, ptr noundef %1) #25
+  %442 = call i32 @unpack64(ptr noundef %441, ptr noundef nonnull %1) #25
   %.not326.us = icmp eq i32 %442, 0
   br i1 %.not326.us, label %435, label %.sink.split
 
@@ -16257,7 +16254,7 @@ define noundef i32 @gres_prep_pack(ptr noundef %0, ptr noundef %1, i16 noundef z
   %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #28
   %43 = trunc i64 %42 to i32
   %44 = add i32 %43, 1
-  call void @packmem(ptr noundef %41, i32 noundef %44, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %41, i32 noundef %44, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %4) #25
   br label %46
 
@@ -16312,7 +16309,7 @@ define noundef i32 @gres_prep_pack(ptr noundef %0, ptr noundef %1, i16 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @gres_prep_unpack(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @gres_prep_unpack(ptr noundef captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -16465,7 +16462,7 @@ define range(i32 -1, 1) i32 @gres_prep_unpack(ptr nocapture noundef %0, ptr noun
 75:                                               ; preds = %.lr.ph.us, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %100 ]
   store ptr null, ptr %10, align 8
-  %76 = call i32 @unpack32(ptr noundef nonnull %11, ptr noundef %1) #25
+  %76 = call i32 @unpack32(ptr noundef nonnull %11, ptr noundef nonnull %1) #25
   %.not87.us = icmp eq i32 %76, 0
   br i1 %.not87.us, label %77, label %.sink.split
 
@@ -16475,7 +16472,7 @@ define range(i32 -1, 1) i32 @gres_prep_unpack(ptr nocapture noundef %0, ptr noun
   br i1 %.not88.us, label %97, label %79
 
 79:                                               ; preds = %77
-  %80 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef %1) #25
+  %80 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %1) #25
   %.not89.us = icmp eq i32 %80, 0
   br i1 %.not89.us, label %81, label %.sink.split
 
@@ -16986,7 +16983,7 @@ _find_context_by_id.exit:                         ; preds = %17
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_validate_node_cores(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @gres_validate_node_cores(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i16, ptr %4, align 8
   %6 = icmp eq i16 %5, 0
@@ -19104,7 +19101,7 @@ _job_state_log.exit:                              ; preds = %331, %185, %192
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @gres_g_get_devices(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #2 {
+define ptr @gres_g_get_devices(ptr noundef %0, i1 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -19393,7 +19390,7 @@ _parse_accel_bind_type.exit:                      ; preds = %49, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_find_device(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @_find_device(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -19405,7 +19402,7 @@ define internal range(i32 0, 2) i32 @_find_device(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_accumulate_gres_device(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal noundef i32 @_accumulate_gres_device(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -19476,7 +19473,7 @@ _accumulate_job_gres_alloc.exit:                  ; preds = %17, %29, %22, %19, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3, ptr noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef %8) unnamed_addr #2 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -19559,7 +19556,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   br i1 %.not.i.not, label %49, label %115
 
 49:                                               ; preds = %47
-  %50 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.320, i64 noundef 8) #25
+  %50 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.320, i64 noundef 8) #25
   %.not95 = icmp eq i32 %50, 0
   br i1 %.not95, label %51, label %54
 
@@ -19569,7 +19566,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   br label %282
 
 54:                                               ; preds = %49
-  %55 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.321, i64 noundef 9) #25
+  %55 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.321, i64 noundef 9) #25
   %.not96 = icmp eq i32 %55, 0
   br i1 %.not96, label %56, label %59
 
@@ -19579,7 +19576,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   br label %282
 
 59:                                               ; preds = %54
-  %60 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.322, i64 noundef 4) #25
+  %60 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.322, i64 noundef 4) #25
   %.not97 = icmp eq i32 %60, 0
   br i1 %.not97, label %61, label %64
 
@@ -19589,7 +19586,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   br label %282
 
 64:                                               ; preds = %59
-  %65 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.323, i64 noundef 5) #25
+  %65 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.323, i64 noundef 5) #25
   %.not98 = icmp eq i32 %65, 0
   br i1 %.not98, label %66, label %69
 
@@ -19599,7 +19596,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   br label %282
 
 69:                                               ; preds = %64
-  %70 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.324, i64 noundef 7) #25
+  %70 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.324, i64 noundef 7) #25
   %.not99 = icmp eq i32 %70, 0
   br i1 %.not99, label %71, label %82
 
@@ -19618,13 +19615,13 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
 
 77:                                               ; preds = %72, %71
   %78 = getelementptr inbounds nuw i8, ptr %.086, i64 7
-  %79 = call i64 @strtoul(ptr nocapture noundef nonnull %78, ptr noundef null, i32 noundef 10) #25
+  %79 = call i64 @strtoul(ptr noundef nonnull captures(none) %78, ptr noundef null, i32 noundef 10) #25
   %80 = trunc i64 %79 to i32
   %81 = call fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef %80, i32 noundef %1, ptr noundef nonnull %6, ptr noundef %4)
   br label %282
 
 82:                                               ; preds = %69
-  %83 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.325, i64 noundef 7) #25
+  %83 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.325, i64 noundef 7) #25
   %.not100 = icmp eq i32 %83, 0
   br i1 %.not100, label %84, label %96
 
@@ -19648,7 +19645,7 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   br label %282
 
 96:                                               ; preds = %82
-  %97 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.326, i64 noundef 9) #25
+  %97 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.326, i64 noundef 9) #25
   %.not101 = icmp eq i32 %97, 0
   br i1 %.not101, label %98, label %111
 
@@ -19663,19 +19660,19 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   %102 = call i64 @bit_size(ptr noundef nonnull %4) #25
   %103 = call ptr @bit_alloc(i64 noundef %102) #25
   %104 = getelementptr inbounds nuw i8, ptr %.086, i64 9
-  %105 = call i64 @strtoul(ptr nocapture noundef nonnull %104, ptr noundef null, i32 noundef 10) #25
+  %105 = call i64 @strtoul(ptr noundef nonnull captures(none) %104, ptr noundef null, i32 noundef 10) #25
   %106 = add i64 %105, -1
   call void @bit_nset(ptr noundef %103, i64 noundef 0, i64 noundef %106) #25
   br label %282
 
 107:                                              ; preds = %99, %98
   %108 = getelementptr inbounds nuw i8, ptr %.086, i64 9
-  %109 = call i64 @strtoul(ptr nocapture noundef nonnull %108, ptr noundef null, i32 noundef 10) #25
+  %109 = call i64 @strtoul(ptr noundef nonnull captures(none) %108, ptr noundef null, i32 noundef 10) #25
   %110 = call fastcc ptr @_get_gres_per_task(ptr noundef %4, i64 noundef %109, ptr noundef nonnull %6, i32 noundef %16, i32 noundef %1)
   br label %282
 
 111:                                              ; preds = %96
-  %112 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.327, i64 noundef 4) #25
+  %112 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.327, i64 noundef 4) #25
   %.not102 = icmp eq i32 %112, 0
   br i1 %.not102, label %113, label %299
 
@@ -19684,13 +19681,13 @@ define internal fastcc range(i32 -1, 1) i32 @_get_usable_gres(i32 noundef %0, i3
   br label %282
 
 115:                                              ; preds = %47
-  %116 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.326, i64 noundef 9) #25
+  %116 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.326, i64 noundef 9) #25
   %.not103 = icmp eq i32 %116, 0
   br i1 %.not103, label %117, label %278
 
 117:                                              ; preds = %115
   %118 = getelementptr inbounds nuw i8, ptr %.086, i64 9
-  %119 = call i64 @strtoul(ptr nocapture noundef nonnull %118, ptr noundef null, i32 noundef 10) #25
+  %119 = call i64 @strtoul(ptr noundef nonnull captures(none) %118, ptr noundef null, i32 noundef 10) #25
   %120 = load i32, ptr @gpu_plugin_id, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
@@ -20074,7 +20071,7 @@ gres_use_local_device_index.exit:                 ; preds = %268, %269, %271, %2
   br label %282
 
 278:                                              ; preds = %115
-  %279 = call i32 @xstrncasecmp(ptr noundef %.086, ptr noundef nonnull @.str.327, i64 noundef 4) #25
+  %279 = call i32 @xstrncasecmp(ptr noundef nonnull %.086, ptr noundef nonnull @.str.327, i64 noundef 4) #25
   %.not104 = icmp eq i32 %279, 0
   br i1 %.not104, label %280, label %299
 
@@ -20259,7 +20256,7 @@ define internal fastcc void @_step_state_delete(ptr noundef %0) unnamed_addr #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8, i32 noundef %9, i32 noundef %10, ptr nocapture noundef %11, ptr nocapture noundef %12, ptr noundef writeonly %13) local_unnamed_addr #2 {
+define i32 @gres_step_state_validate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i32 noundef %7, ptr noundef writeonly captures(none) initializes((0, 8)) %8, i32 noundef %9, i32 noundef %10, ptr noundef captures(none) %11, ptr noundef captures(none) %12, ptr noundef writeonly %13) local_unnamed_addr #2 {
   %15 = alloca i64, align 8
   %16 = alloca i32, align 4
   %17 = alloca ptr, align 8
@@ -20809,7 +20806,7 @@ thread-pre-split:                                 ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_next_step_gres(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #2 {
+define internal fastcc ptr @_get_next_step_gres(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.gres_search_key, align 4
   %8 = alloca ptr, align 8
@@ -21405,7 +21402,7 @@ _step_state_dup.exit:                             ; preds = %193, %190, %187, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, i16 noundef zeroext %3) local_unnamed_addr #2 {
+define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, i16 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -21506,7 +21503,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %60) #28
   %62 = trunc i64 %61 to i32
   %63 = add i32 %62, 1
-  call void @packmem(ptr noundef %60, i32 noundef %63, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %60, i32 noundef %63, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %5) #25
   br label %65
 
@@ -21564,7 +21561,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %88 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #28
   %89 = trunc i64 %88 to i32
   %90 = add i32 %89, 1
-  call void @packmem(ptr noundef %87, i32 noundef %90, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %87, i32 noundef %90, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %6) #25
   br label %92
 
@@ -21702,7 +21699,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %156 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %155) #28
   %157 = trunc i64 %156 to i32
   %158 = add i32 %157, 1
-  call void @packmem(ptr noundef %155, i32 noundef %158, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %155, i32 noundef %158, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %7) #25
   br label %160
 
@@ -21760,7 +21757,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %183 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %182) #28
   %184 = trunc i64 %183 to i32
   %185 = add i32 %184, 1
-  call void @packmem(ptr noundef %182, i32 noundef %185, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %182, i32 noundef %185, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %8) #25
   br label %187
 
@@ -21897,7 +21894,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %250 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %249) #28
   %251 = trunc i64 %250 to i32
   %252 = add i32 %251, 1
-  call void @packmem(ptr noundef %249, i32 noundef %252, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %249, i32 noundef %252, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %9) #25
   br label %254
 
@@ -21955,7 +21952,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
   %277 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %276) #28
   %278 = trunc i64 %277 to i32
   %279 = add i32 %278, 1
-  call void @packmem(ptr noundef %276, i32 noundef %279, ptr noundef %1) #25
+  call void @packmem(ptr noundef nonnull %276, i32 noundef %279, ptr noundef %1) #25
   call void @slurm_xfree(ptr noundef nonnull %10) #25
   br label %281
 
@@ -22010,7 +22007,7 @@ define noundef i32 @gres_step_state_pack(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @gres_step_state_unpack(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @gres_step_state_unpack(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -22200,7 +22197,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   %.013.i = phi i32 [ 0, %95 ], [ 0, %.preheader.i ], [ %101, %.lr.ph.i ]
   store i32 %.013.i, ptr %68, align 8
   %106 = getelementptr inbounds nuw i8, ptr %68, i64 96
-  %107 = call i32 @unpack32(ptr noundef nonnull %106, ptr noundef %1) #25
+  %107 = call i32 @unpack32(ptr noundef nonnull %106, ptr noundef nonnull %1) #25
   %.not329 = icmp eq i32 %107, 0
   br i1 %.not329, label %108, label %.sink.split
 
@@ -22211,7 +22208,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 
 111:                                              ; preds = %108
   store ptr null, ptr %11, align 8
-  %112 = call i32 @unpack32(ptr noundef nonnull %12, ptr noundef %1) #25
+  %112 = call i32 @unpack32(ptr noundef nonnull %12, ptr noundef nonnull %1) #25
   %.not330 = icmp eq i32 %112, 0
   br i1 %.not330, label %113, label %.sink.split
 
@@ -22221,7 +22218,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   br i1 %.not331, label %133, label %115
 
 115:                                              ; preds = %113
-  %116 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef %1) #25
+  %116 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %1) #25
   %.not332 = icmp eq i32 %116, 0
   br i1 %.not332, label %117, label %.sink.split
 
@@ -22269,7 +22266,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   br label %135
 
 135:                                              ; preds = %133, %132
-  %136 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %136 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not335 = icmp eq i32 %136, 0
   br i1 %.not335, label %137, label %.sink.split
 
@@ -22280,12 +22277,12 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 
 139:                                              ; preds = %137
   %140 = getelementptr inbounds nuw i8, ptr %68, i64 88
-  %141 = call i32 @unpack64_array(ptr noundef nonnull %140, ptr noundef nonnull %7, ptr noundef %1) #25
+  %141 = call i32 @unpack64_array(ptr noundef nonnull %140, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not337 = icmp eq i32 %141, 0
   br i1 %.not337, label %142, label %.sink.split
 
 142:                                              ; preds = %137, %139
-  %143 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %143 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not338 = icmp eq i32 %143, 0
   br i1 %.not338, label %144, label %.sink.split
 
@@ -22307,7 +22304,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 .lr.ph442:                                        ; preds = %146, %183
   %indvars.iv503 = phi i64 [ %indvars.iv.next504, %183 ], [ 0, %146 ]
   store ptr null, ptr %14, align 8
-  %151 = call i32 @unpack32(ptr noundef nonnull %15, ptr noundef %1) #25
+  %151 = call i32 @unpack32(ptr noundef nonnull %15, ptr noundef nonnull %1) #25
   %.not347 = icmp eq i32 %151, 0
   br i1 %.not347, label %152, label %.sink.split
 
@@ -22317,7 +22314,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
   br i1 %.not348, label %180, label %154
 
 154:                                              ; preds = %152
-  %155 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef %1) #25
+  %155 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %16, ptr noundef nonnull %1) #25
   %.not349 = icmp eq i32 %155, 0
   br i1 %.not349, label %156, label %.sink.split
 
@@ -22392,7 +22389,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 
 189:                                              ; preds = %.lr.ph444, %205
   %indvars.iv506 = phi i64 [ 0, %.lr.ph444 ], [ %indvars.iv.next507, %205 ]
-  %190 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef %1) #25
+  %190 = call i32 @unpack8(ptr noundef nonnull %9, ptr noundef nonnull %1) #25
   %.not341 = icmp eq i32 %190, 0
   br i1 %.not341, label %191, label %.sink.split
 
@@ -22425,7 +22422,7 @@ gres_build_id.exit:                               ; preds = %.lr.ph.i, %95, %.pr
 201:                                              ; preds = %193, %197, %198
   %202 = phi ptr [ %194, %193 ], [ null, %197 ], [ %200, %198 ]
   %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv506
-  %204 = call i32 @unpack64_array(ptr noundef %203, ptr noundef nonnull %7, ptr noundef %1) #25
+  %204 = call i32 @unpack64_array(ptr noundef %203, ptr noundef nonnull %7, ptr noundef nonnull %1) #25
   %.not346 = icmp eq i32 %204, 0
   br i1 %.not346, label %205, label %.sink.split
 
@@ -23644,7 +23641,7 @@ _accumulate_step_gres_alloc.exit:                 ; preds = %46, %49, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_accumulate_step_gres_alloc(ptr nocapture readonly %.8.val, ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
+define internal fastcc void @_accumulate_step_gres_alloc(ptr readonly captures(none) %.8.val, ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 96
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 1
@@ -23768,7 +23765,7 @@ define internal fastcc void @_accumulate_step_gres_alloc(ptr nocapture readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_g_task_set_env(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @gres_g_task_set_env(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -24391,7 +24388,7 @@ _step_state_log.exit:                             ; preds = %153, %85, %.prehead
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @gres_node_count(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 23) i32 @gres_node_count(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp slt i32 %1, 1
   br i1 %6, label %31, label %7
 
@@ -24538,7 +24535,7 @@ define void @gres_send_stepd(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_recv_stepd(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @gres_recv_stepd(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -24665,7 +24662,7 @@ destroy_gres_device.exit:                         ; preds = %.thread37, %47, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_g_send_stepd(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @gres_g_send_stepd(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @gres_context_lock) #25
   %.not = icmp eq i32 %4, 0
@@ -24992,12 +24989,12 @@ define void @gres_g_send_stepd(i32 noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #18
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #18
 
 declare ptr @slurm_cred_get(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @gres_g_recv_stepd(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define i32 @gres_g_recv_stepd(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -25681,7 +25678,7 @@ _unpack_context_buf.exit:                         ; preds = %.outer148._crit_edg
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 declare ptr @init_buf(i32 noundef) local_unnamed_addr #4
 
@@ -25725,7 +25722,7 @@ define i32 @gres_get_autodetect_flags() local_unnamed_addr #19 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gres_clear_tres_cnt(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
+define void @gres_clear_tres_cnt(ptr noundef writeonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) @__const.gres_clear_tres_cnt.locks, i64 28, i1 false)
   br i1 %1, label %5, label %4
@@ -25778,10 +25775,10 @@ declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #4
 declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #20
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define void @add_gres_to_list(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @add_gres_to_list(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @list_iterator_create(ptr noundef %0) #25
   %5 = tail call ptr @list_next(ptr noundef %4) #25
@@ -25999,7 +25996,7 @@ define ptr @gres_prepend_tres_type(ptr noundef %0) local_unnamed_addr #2 {
 declare void @_xstrsubstitute(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @gres_use_busy_dev(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
+define noundef zeroext i1 @gres_use_busy_dev(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   br i1 %1, label %11, label %5
@@ -26032,7 +26029,7 @@ declare void @plugin_unload(ptr noundef) local_unnamed_addr #4
 declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @gnu_dev_major(i64 noundef) local_unnamed_addr #6
@@ -26041,7 +26038,7 @@ declare i32 @gnu_dev_major(i64 noundef) local_unnamed_addr #6
 declare i32 @gnu_dev_minor(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 declare i32 @s_p_parse_line(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -26137,7 +26134,7 @@ _my_stat.exit:                                    ; preds = %.lr.ph, %13, %15, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare i64 @suffix_mult(ptr noundef) local_unnamed_addr #4
 
@@ -26185,7 +26182,7 @@ declare i32 @hostlist_find(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @list_for_each_nobreak(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_foreach_slurm_conf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @_foreach_slurm_conf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -26235,7 +26232,7 @@ define internal range(i32 0, 2) i32 @_foreach_slurm_conf(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_gres_conf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #2 {
+define internal noundef i32 @_foreach_gres_conf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
@@ -26412,7 +26409,7 @@ declare i32 @list_flush(ptr noundef) local_unnamed_addr #4
 declare i32 @list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_merge_gres2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #2 {
+define internal fastcc void @_merge_gres2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #2 {
   %7 = alloca %struct.gres_slurmd_conf, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %7, i8 0, i64 88, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -26646,7 +26643,7 @@ declare i32 @gpu_plugin_init() local_unnamed_addr #4
 declare i32 @slurm_pack_list(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_pack_gres_slurmd_conf(ptr nocapture noundef readonly %0, i16 zeroext %1, ptr noundef %2) #2 {
+define internal void @_pack_gres_slurmd_conf(ptr noundef readonly captures(none) %0, i16 zeroext %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 8
   tail call void @pack32(i32 noundef %5, ptr noundef %2) #25
@@ -26685,7 +26682,7 @@ define internal void @_pack_gres_slurmd_conf(ptr nocapture noundef readonly %0, 
   %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #28
   %25 = trunc i64 %24 to i32
   %26 = add i32 %25, 1
-  tail call void @packmem(ptr noundef %20, i32 noundef %26, ptr noundef %2) #25
+  tail call void @packmem(ptr noundef nonnull %20, i32 noundef %26, ptr noundef %2) #25
   call void @slurm_xfree(ptr noundef nonnull %4) #25
   br label %28
 
@@ -27000,7 +26997,7 @@ define internal fastcc void @_gres_node_state_delete_topo(ptr noundef %0) unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_foreach_get_tot_from_slurmd_conf(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #13 {
+define internal noundef i32 @_foreach_get_tot_from_slurmd_conf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -27052,14 +27049,14 @@ declare ptr @bit_fmt(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #
 declare void @bit_clear_all(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare void @bit_and(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 declare i32 @bit_set_count(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_get_next_gres(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @_get_next_gres(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -27486,7 +27483,7 @@ define internal fastcc ptr @_get_usable_gres_map_or_mask(ptr noundef nonnull %0,
   br i1 %or.cond, label %33, label %49
 
 33:                                               ; preds = %.thread
-  %34 = call i64 @strtol(ptr nocapture noundef nonnull %.03761, ptr noundef null, i32 noundef 0) #25
+  %34 = call i64 @strtol(ptr noundef nonnull captures(none) %.03761, ptr noundef null, i32 noundef 0) #25
   %35 = trunc i64 %34 to i32
   %36 = call ptr @bit_alloc(i64 noundef %17) #25
   store ptr %36, ptr %6, align 8
@@ -27639,7 +27636,7 @@ _translate_step_to_global_device_index.exit:      ; preds = %78, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef nonnull %4) unnamed_addr #2 {
+define internal fastcc ptr @_get_single_usable_gres(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull %4) unnamed_addr #2 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -28007,7 +28004,7 @@ _assign_gres_to_task.exit:                        ; preds = %131, %134, %137, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @_get_closest_usable_gres(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #2 {
@@ -28164,7 +28161,7 @@ declare void @bit_consolidate(ptr noundef) local_unnamed_addr #4
 declare void @bit_nset(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_gres_per_task(ptr noundef nonnull %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
+define internal fastcc ptr @_get_gres_per_task(ptr noundef nonnull %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #2 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -28245,7 +28242,7 @@ define internal fastcc ptr @_get_gres_per_task(ptr noundef nonnull %0, i64 nound
 declare i64 @bit_ffs(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 declare i64 @bit_get_bit_num(ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -28258,7 +28255,7 @@ declare i32 @bit_super_set(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @bit_overlap_any(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_filter_gres_per_task(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #2 {
+define internal fastcc void @_filter_gres_per_task(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4) unnamed_addr #2 {
   %6 = load i64, ptr %3, align 8
   %.not10 = icmp eq i64 %6, 0
   br i1 %.not10, label %.critedge, label %.lr.ph
@@ -28312,7 +28309,7 @@ define internal fastcc void @_filter_gres_per_task(ptr noundef %0, ptr noundef %
 declare i32 @slurm_unpack_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 zeroext %1, ptr noundef %2) #2 {
+define internal range(i32 -1, 1) i32 @_unpack_gres_slurmd_conf(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i16 zeroext %1, ptr noundef %2) #2 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -28459,10 +28456,10 @@ declare i64 @llvm.umax.i64(i64, i64) #23
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23

@@ -513,7 +513,7 @@ define ptr @try_val64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr no
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @str_to_val(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define i32 @str_to_val(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %str_to_val_idx.exit.thread, label %.preheader.i
 
@@ -554,7 +554,7 @@ str_to_val_idx.exit.thread:                       ; preds = %9, %.preheader.i, %
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @str_to_val_idx(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define i32 @str_to_val_idx(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -585,7 +585,7 @@ define i32 @str_to_val_idx(ptr nocapture noundef readonly %0, ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @value_string_ext_new(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -757,7 +757,7 @@ define ptr @try_val_to_str_ext(i32 noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @try_val_to_str_idx_ext(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define ptr @try_val_to_str_idx_ext(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %4
 
@@ -896,7 +896,7 @@ try_val_to_str_ext.exit:                          ; preds = %5, %6, %9
 declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_try_val_to_str_linear(i32 noundef %0, ptr nocapture noundef readonly %1) #6 {
+define internal noundef ptr @_try_val_to_str_linear(i32 noundef %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -926,7 +926,7 @@ define internal noundef ptr @_try_val_to_str_linear(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocapture noundef readonly %1) #6 {
+define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -968,7 +968,7 @@ define internal noundef ptr @_try_val_to_str_bsearch(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @_try_val_to_str_index(i32 noundef %0, ptr nocapture noundef readonly %1) #7 {
+define internal ptr @_try_val_to_str_index(i32 noundef %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sub i32 %0, %4
@@ -1154,7 +1154,7 @@ define ptr @try_val64_to_str_ext(i64 noundef %0, ptr noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @try_val64_to_str_idx_ext(i64 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define ptr @try_val64_to_str_idx_ext(i64 noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %4
 
@@ -1291,7 +1291,7 @@ try_val64_to_str_ext.exit:                        ; preds = %5, %6, %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_try_val64_to_str_linear(i64 noundef %0, ptr nocapture noundef readonly %1) #6 {
+define internal noundef ptr @_try_val64_to_str_linear(i64 noundef %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1321,7 +1321,7 @@ define internal noundef ptr @_try_val64_to_str_linear(i64 noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocapture noundef readonly %1) #6 {
+define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -1363,7 +1363,7 @@ define internal noundef ptr @_try_val64_to_str_bsearch(i64 noundef %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @_try_val64_to_str_index(i64 noundef %0, ptr nocapture noundef readonly %1) #7 {
+define internal ptr @_try_val64_to_str_index(i64 noundef %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %0, %4
@@ -1436,7 +1436,7 @@ try_str_to_str.exit:                              ; preds = %.lr.ph.i.i, %.lr.ph
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @try_str_to_str(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
+define ptr @try_str_to_str(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %try_str_to_str_idx.exit, label %.preheader.i
 
@@ -1474,7 +1474,7 @@ try_str_to_str_idx.exit:                          ; preds = %.lr.ph.i, %.lr.ph, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @try_str_to_str_idx(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define ptr @try_str_to_str_idx(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1669,7 +1669,7 @@ try_rval_to_str.exit:                             ; preds = %13, %16, %5, %.preh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
+define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1721,7 +1721,7 @@ define ptr @try_rval_to_str_idx(i32 noundef %0, ptr noundef readonly %1, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
+define ptr @try_rval64_to_str_idx(i64 noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1808,7 +1808,7 @@ try_rval64_to_str_idx.exit:                       ; preds = %11, %8, %2, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @bytesval_to_str(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 
@@ -1861,7 +1861,7 @@ try_bytesval_to_str.exit:                         ; preds = %14, %.loopexit
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @try_bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define ptr @try_bytesval_to_str(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1901,7 +1901,7 @@ define ptr @try_bytesval_to_str(ptr nocapture noundef readonly %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @bytesprefix_to_str(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %6
 
@@ -1954,7 +1954,7 @@ try_bytesprefix_to_str.exit:                      ; preds = %13, %.loopexit
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @try_bytesprefix_to_str(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
+define ptr @try_bytesprefix_to_str(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -2016,7 +2016,7 @@ define hidden range(i32 0, 2) i32 @value_string_ext_validate(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @value_string_ext_match_type_str(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden nonnull ptr @value_string_ext_match_type_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, @_try_val_to_str_ext_init
   br i1 %3, label %10, label %4
@@ -2062,7 +2062,7 @@ define hidden range(i32 0, 2) i32 @val64_string_ext_validate(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @val64_string_ext_match_type_str(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden nonnull ptr @val64_string_ext_match_type_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, @_try_val64_to_str_ext_init
   br i1 %3, label %10, label %4
@@ -2086,7 +2086,7 @@ define hidden nonnull ptr @val64_string_ext_match_type_str(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

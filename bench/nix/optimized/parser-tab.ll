@@ -938,7 +938,7 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_Z7yyerrorPN3nix14ParserLocationEPvPNS_11ParserStateEPKc(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.anon.69, align 1
   %6 = alloca %"struct.nix::ErrorInfo", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1560,7 +1560,7 @@ _ZN3nix8PosTable3addERKNS0_6OriginEjj.exit:       ; preds = %15, %_ZNSt16allocat
 declare void @_ZNK3nix3PoscvSt10shared_ptrIS0_EEv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix10ParseErrorCI2NS_9BaseErrorEEONS_9ErrorInfoE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(328) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2707,13 +2707,13 @@ _ZL14yyinitGLRStackP10yyGLRStackl.exit.thread:    ; preds = %._crit_edge.i149, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind returns_twice
 declare i32 @_setjmp(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19yyreportSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef nonnull %0, ptr nocapture noundef readnone %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @_ZL19yyreportSyntaxErrorP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef nonnull %0, ptr noundef readnone captures(none) %1, ptr noundef %2) unnamed_addr #5 {
   %4 = alloca [5 x i32], align 16
   %5 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %5, 0
@@ -3695,7 +3695,7 @@ _ZL18yymarkStackDeletedP10yyGLRStackl.exit73:     ; preds = %123, %127
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL15yycompressStackP10yyGLRStack(ptr nocapture noundef nonnull %0) unnamed_addr #11 {
+define internal fastcc void @_ZL15yycompressStackP10yyGLRStack(ptr noundef nonnull captures(none) %0) unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load i64, ptr %3, align 8
@@ -3775,7 +3775,7 @@ define internal fastcc void @_ZL15yycompressStackP10yyGLRStack(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS_3Pos5StdinENS3_6StringENS_10SourcePathEEERKS6_RNS_11SymbolTableERNS_8PosTableENS_3refINS_13InputAccessorEEERKNS_4Expr10AstSymbolsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr nocapture noundef readonly %6, ptr noundef nonnull align 4 dereferenceable(32) %7) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN3nix16parseExprFromBufEPcmSt7variantIJSt9monostateNS_3Pos5StdinENS3_6StringENS_10SourcePathEEERKS6_RNS_11SymbolTableERNS_8PosTableENS_3refINS_13InputAccessorEEERKNS_4Expr10AstSymbolsE(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull align 4 dereferenceable(32) %7) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %9 = alloca %class.anon.69, align 1
   %10 = alloca %class.anon.308, align 8
   %11 = alloca %class.anon.308, align 8
@@ -4345,7 +4345,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
@@ -8280,7 +8280,7 @@ _ZSt8_DestroyIPN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEEEvT_S9_.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -12944,7 +12944,7 @@ define linkonce_odr noundef ptr @_ZN5boost6detail18sp_counted_impl_pdIPNS_2io18b
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef signext i8 @_ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc(ptr noundef nonnull align 8 dereferenceable(264), i8 noundef signext) local_unnamed_addr #2
 
@@ -14301,7 +14301,7 @@ _ZNSt16allocator_traitsISaISt10_List_nodeIN3nix5TraceEEEE7destroyIS2_EEvRS4_PT_.
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #22
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZL16yyexpandGLRStackP10yyGLRStack(ptr noundef nonnull %0) unnamed_addr #7 {
@@ -14488,10 +14488,10 @@ define internal fastcc void @_ZL17yyMemoryExhaustedP10yyGLRStack(ptr noundef non
 declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #25
+declare ptr @stpcpy(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %0, i32 noundef range(i32 -128, 128) %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr noundef %5, ptr noundef %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12yyuserActioniiP14yyGLRStackItemP10yyGLRStacklP7YYSTYPEPN3nix14ParserLocationEPvPNS5_11ParserStateE(i32 noundef %0, i32 noundef range(i32 -128, 128) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   %9 = alloca %"struct.nix::ErrorInfo", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18591,7 +18591,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EED2Ev.exit:       ; preds = %979, %977, %887, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 -126, 130) i32 @_ZL6yyfillP14yyGLRStackItemPiib(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1, i32 noundef returned range(i32 -126, 130) %2, i1 noundef zeroext %3) unnamed_addr #11 {
+define internal fastcc noundef range(i32 -126, 130) i32 @_ZL6yyfillP14yyGLRStackItemPiib(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef returned range(i32 -126, 130) %2, i1 noundef zeroext %3) unnamed_addr #11 {
   br i1 %3, label %30, label %5
 
 5:                                                ; preds = %4
@@ -19371,7 +19371,7 @@ _ZNSt6vectorIPN3nix4ExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN3nix11ParserState16stripIndentationENS_6PosIdxEOSt6vectorISt4pairIS1_St7variantIJPNS_4ExprENS_11StringTokenEEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(160) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -20031,11 +20031,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 22:                                               ; preds = %18
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr nonnull align 1 %1, i64 %3, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 23:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i64 noundef 0, ptr noundef %1, i64 noundef %3)
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %5, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %3)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %17, %20, %22, %23
@@ -25564,7 +25564,7 @@ define linkonce_odr void @_ZN3nix7HintFmtC2IJNS_9SymbolStrENS_3PosEEEERKNSt7__cx
 declare noundef i32 @_Z5yylexP7YYSTYPEPN3nix14ParserLocationEPvPNS1_11ParserStateE(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #29
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL15yyresolveStatesP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 {
@@ -25806,7 +25806,7 @@ _ZL15yyresolveActionP16yySemanticOptionP10yyGLRStackP7YYSTYPEPN3nix14ParserLocat
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr nocapture noundef %0, i32 noundef range(i32 0, 128) %1) unnamed_addr #30 {
+define internal fastcc void @_ZL18yyresolveLocationsP10yyGLRStateiP10yyGLRStackPvPN3nix11ParserStateE(ptr noundef captures(none) %0, i32 noundef range(i32 0, 128) %1) unnamed_addr #30 {
   %3 = alloca [8 x %union.yyGLRStackItem], align 16
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %57, label %4
@@ -26043,10 +26043,10 @@ declare i64 @llvm.smin.i64(i64, i64) #33
 declare i32 @llvm.smin.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #34
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #34
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #35
@@ -26058,7 +26058,7 @@ declare i32 @llvm.smax.i32(i32, i32) #33
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #36
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #37
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #37
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind }

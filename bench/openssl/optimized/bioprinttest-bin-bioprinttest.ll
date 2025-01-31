@@ -514,7 +514,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @test_vprintf_stdout(ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #4 {
+define dso_local i32 @test_vprintf_stdout(ptr noundef readonly captures(none) %fmt, ptr noundef %ap) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @stdout, align 8
   %1 = load i32, ptr @tap_level, align 4
@@ -526,13 +526,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree nounwind uwtable
-define dso_local i32 @test_vprintf_stderr(ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #6 {
+define dso_local i32 @test_vprintf_stderr(ptr noundef readonly captures(none) %fmt, ptr noundef %ap) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = load i32, ptr @tap_level, align 4
@@ -552,7 +552,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local noundef i32 @test_flush_stderr() local_unnamed_addr #4 {
@@ -563,7 +563,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i32 @test_vprintf_tapout(ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #4 {
+define dso_local i32 @test_vprintf_tapout(ptr noundef readonly captures(none) %fmt, ptr noundef %ap) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @stdout, align 8
   %1 = load i32, ptr @tap_level, align 4
@@ -575,7 +575,7 @@ entry:
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define dso_local i32 @test_vprintf_taperr(ptr nocapture noundef readonly %fmt, ptr noundef %ap) local_unnamed_addr #6 {
+define dso_local i32 @test_vprintf_taperr(ptr noundef readonly captures(none) %fmt, ptr noundef %ap) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %1 = load i32, ptr @tap_level, align 4
@@ -607,7 +607,7 @@ declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -717,7 +717,7 @@ declare i32 @test_str_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare void @test_info(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

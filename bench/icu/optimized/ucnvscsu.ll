@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"SCSU\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL9_SCSUOpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef writeonly %cnv, ptr nocapture noundef readonly %pArgs, ptr nocapture noundef writeonly %pErrorCode) #0 {
+define internal void @_ZL9_SCSUOpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr noundef writeonly captures(none) %cnv, ptr noundef readonly captures(none) %pArgs, ptr noundef writeonly captures(none) %pErrorCode) #0 {
 entry:
   %locale1 = getelementptr inbounds nuw i8, ptr %pArgs, i64 32
   %0 = load ptr, ptr %locale1, align 8
@@ -102,7 +102,7 @@ return:                                           ; preds = %entry, %if.end24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL10_SCSUCloseP10UConverter(ptr nocapture noundef %cnv) #0 {
+define internal void @_ZL10_SCSUCloseP10UConverter(ptr noundef captures(none) %cnv) #0 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -128,7 +128,7 @@ if.end4:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL10_SCSUResetP10UConverter21UConverterResetChoice(ptr nocapture noundef %cnv, i32 noundef %choice) #1 {
+define internal void @_ZL10_SCSUResetP10UConverter21UConverterResetChoice(ptr noundef captures(none) %cnv, i32 noundef %choice) #1 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -170,7 +170,7 @@ if.end13:                                         ; preds = %do.body3, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #2 {
+define internal void @_ZL14_SCSUToUnicodeP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef captures(none) %pErrorCode) #2 {
 entry:
   %converter = getelementptr inbounds nuw i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
@@ -713,7 +713,7 @@ if.end326:                                        ; preds = %endloop, %if.else32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef %pErrorCode) #2 {
+define internal void @_ZL25_SCSUToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef captures(none) %pErrorCode) #2 {
 entry:
   %converter = getelementptr inbounds nuw i8, ptr %pArgs, i64 8
   %0 = load ptr, ptr %converter, align 8
@@ -1376,7 +1376,7 @@ if.end382:                                        ; preds = %endloop, %if.else37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL16_SCSUFromUnicodeP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #2 {
+define internal void @_ZL16_SCSUFromUnicodeP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef writeonly captures(none) %pErrorCode) #2 {
 entry:
   %offset = alloca i32, align 4
   %converter = getelementptr inbounds nuw i8, ptr %pArgs, i64 8
@@ -2530,7 +2530,7 @@ sw.bb409:                                         ; preds = %sw.bb405, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %pArgs, ptr nocapture noundef writeonly %pErrorCode) #2 {
+define internal void @_ZL27_SCSUFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %pArgs, ptr noundef writeonly captures(none) %pErrorCode) #2 {
 entry:
   %offset = alloca i32, align 4
   %converter = getelementptr inbounds nuw i8, ptr %pArgs, i64 8
@@ -3855,7 +3855,7 @@ if.then476:                                       ; preds = %sw.bb472.thread648,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef nonnull ptr @_ZL12_SCSUGetNamePK10UConverter(ptr nocapture noundef readonly %cnv) #3 {
+define internal noundef nonnull ptr @_ZL12_SCSUGetNamePK10UConverter(ptr noundef readonly captures(none) %cnv) #3 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -3867,7 +3867,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL14_SCSUSafeClonePK10UConverterPvPiP10UErrorCode(ptr nocapture noundef readonly %cnv, ptr noundef %stackBuffer, ptr nocapture noundef %pBufferSize, ptr nocapture noundef readonly %status) #1 {
+define internal noundef ptr @_ZL14_SCSUSafeClonePK10UConverterPvPiP10UErrorCode(ptr noundef readonly captures(none) %cnv, ptr noundef %stackBuffer, ptr noundef captures(none) %pBufferSize, ptr noundef readonly captures(none) %status) #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -3906,10 +3906,10 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #5
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr nocapture noundef %scsu, i8 noundef signext %window) unnamed_addr #7 {
+define internal fastcc void @_ZL16useDynamicWindowP8SCSUDataa(ptr noundef captures(none) %scsu, i8 noundef signext %window) unnamed_addr #7 {
 entry:
   %nextWindowUseIndex = getelementptr inbounds nuw i8, ptr %scsu, i64 75
   %0 = load i8, ptr %nextWindowUseIndex, align 1
@@ -3960,7 +3960,7 @@ while.end:                                        ; preds = %while.body, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc noundef range(i32 -1, 1024) i32 @_ZL16getDynamicOffsetjPj(i32 noundef range(i32 -2147483648, 2090869760) %c, ptr nocapture noundef nonnull writeonly %pOffset) unnamed_addr #8 {
+define internal fastcc noundef range(i32 -1, 1024) i32 @_ZL16getDynamicOffsetjPj(i32 noundef range(i32 -2147483648, 2090869760) %c, ptr noundef nonnull writeonly captures(none) %pOffset) unnamed_addr #8 {
 entry:
   br label %for.body
 

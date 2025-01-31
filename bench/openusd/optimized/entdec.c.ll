@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @od_ec_dec_init(ptr nocapture noundef nonnull writeonly initializes((0, 12), (16, 40)) %0, ptr noundef nonnull %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @od_ec_dec_init(ptr noundef nonnull writeonly captures(none) initializes((0, 12), (16, 40)) %0, ptr noundef nonnull %1, i32 noundef %2) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 -14, ptr %4, align 8
@@ -63,7 +63,7 @@ od_ec_dec_refill.exit:                            ; preds = %._crit_edge.i, %._c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @od_ec_decode_bool_q15(ptr nocapture noundef nonnull %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @od_ec_decode_bool_q15(ptr noundef nonnull captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -232,7 +232,7 @@ od_ec_dec_normalize.exit:                         ; preds = %od_ec_dec_refill.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @od_ec_decode_cdf_q15(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -2147483647, -2147483648) i32 @od_ec_decode_cdf_q15(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -342,7 +342,7 @@ od_ec_dec_normalize.exit:                         ; preds = %23, %od_ec_dec_refi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @od_ec_dec_tell(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #2 {
+define hidden i32 @od_ec_dec_tell(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -362,7 +362,7 @@ define hidden i32 @od_ec_dec_tell(ptr nocapture noundef nonnull readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @od_ec_dec_tell_frac(ptr nocapture noundef nonnull readonly %0) local_unnamed_addr #3 {
+define hidden i32 @od_ec_dec_tell_frac(ptr noundef nonnull readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

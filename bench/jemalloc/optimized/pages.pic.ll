@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.11 = private unnamed_addr constant [44 x i8] c"/sys/kernel/mm/transparent_hugepage/enabled\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @pages_map(ptr noundef %addr, i64 noundef %size, i64 noundef %alignment, ptr nocapture noundef %commit) local_unnamed_addr #0 {
+define hidden ptr @pages_map(ptr noundef %addr, i64 noundef %size, i64 noundef %alignment, ptr noundef captures(none) %commit) local_unnamed_addr #0 {
 entry:
   %buf.i8.i.i = alloca [64 x i8], align 16
   %buf.i.i.i = alloca [64 x i8], align 16
@@ -168,7 +168,7 @@ return:                                           ; preds = %os_pages_unmap.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, ptr nocapture noundef %commit) unnamed_addr #0 {
+define internal fastcc ptr @os_pages_map(ptr noundef %addr, i64 noundef %size, ptr noundef captures(none) %commit) unnamed_addr #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load i8, ptr @os_overcommits, align 1
@@ -521,7 +521,7 @@ if.then1.i:                                       ; preds = %if.then.i
 
 if.end2.i:                                        ; preds = %if.then.i, %if.then4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %call.i3, i8 65, i64 4096, i1 false)
-  %call3.i = tail call i32 @madvise(ptr noundef %call.i3, i64 noundef 4096, i32 noundef 4) #8
+  %call3.i = tail call i32 @madvise(ptr noundef nonnull %call.i3, i64 noundef 4096, i32 noundef 4) #8
   %cmp4.i = icmp eq i32 %call3.i, 0
   br i1 %cmp4.i, label %if.then5.i, label %if.end8.i
 
@@ -742,7 +742,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
@@ -751,13 +751,13 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

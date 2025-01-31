@@ -94,7 +94,7 @@ entry:
 declare noundef zeroext i1 @_ZN6google8protobuf8internal15ParseAnyTypeUrlESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS4_SaIcEEE(i64, ptr, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf3AnyC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 36)) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -236,13 +236,13 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6google8protobuf3Any12GetClassDataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define noundef nonnull ptr @_ZNK6google8protobuf3Any12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret ptr @_ZZNK6google8protobuf3Any12GetClassDataEvE6_data_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf3Any9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %to_msg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %from_msg) #3 align 2 {
+define void @_ZN6google8protobuf3Any9MergeImplERNS0_11MessageLiteERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %to_msg, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %from_msg) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %from_msg, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -373,7 +373,7 @@ declare noundef ptr @_ZN6google8protobuf8internal8TcParser7FastBS1EPNS0_11Messag
 declare noundef ptr @_ZN6google8protobuf8internal8TcParser7FastUS1EPNS0_11MessageLiteEPKcPNS1_12ParseContextENS1_11TcFieldDataEPKNS1_16TcParseTableBaseEm(ptr noundef, ptr noundef, ptr noundef, i64, ptr noundef, i64 noundef) #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6google8protobuf3Any18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK6google8protobuf3Any18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -593,13 +593,13 @@ return:                                           ; preds = %entry, %_ZN6google8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf3Any13IsInitializedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK6google8protobuf3Any13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6google8protobuf3Any12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noalias nocapture noundef %other) local_unnamed_addr #11 align 2 {
+define void @_ZN6google8protobuf3Any12InternalSwapEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %this, ptr noalias noundef captures(none) %other) local_unnamed_addr #11 align 2 {
 entry:
   %_internal_metadata_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %_internal_metadata_.i, align 8
@@ -623,7 +623,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK6google8protobuf3Any11GetMetadataEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define { ptr, ptr } @_ZNK6google8protobuf3Any11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPN4absl12lts_202308029once_flagERKNS0_8MetadataE(ptr noundef nonnull @_Z55descriptor_table_google_2fprotobuf_2fany_2eproto_getterv, ptr noundef nonnull @_ZL53descriptor_table_google_2fprotobuf_2fany_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) @_ZL51file_level_metadata_google_2fprotobuf_2fany_2eproto)
   ret { ptr, ptr } %call

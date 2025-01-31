@@ -1648,14 +1648,14 @@ define hidden i32 @dissect_rdp_bandwidth_req(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #0 {
   tail call void @increment_dissection_depth(ptr noundef %2) #12
   %7 = load ptr, ptr %4, align 8
   %.not85 = icmp eq ptr %7, null
@@ -1835,7 +1835,7 @@ define internal fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %1, p
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rdp_transport_set_udp_conversation(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden void @rdp_transport_set_udp_conversation(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.rdp_transports_key_t, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %2, ptr %8, align 4
@@ -1907,7 +1907,7 @@ define hidden ptr @rdp_find_tcp_conversation_from_udp(ptr noundef %0) local_unna
 declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @map_find_tcp_conversation_fn(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 {
+define internal void @map_find_tcp_conversation_fn(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #3 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -2001,7 +2001,7 @@ declare ptr @find_dissector(ptr noundef) local_unnamed_addr #2
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rdp_cr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_rdp_cr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -2073,7 +2073,7 @@ define internal noundef i32 @dissect_rdp_cr(ptr noundef %0, ptr noundef %1, ptr 
   %49 = load ptr, ptr %38, align 8
   %50 = load ptr, ptr %10, align 8
   %51 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %50) #14
-  %52 = call ptr @format_text(ptr noundef %49, ptr noundef %50, i64 noundef %51) #12
+  %52 = call ptr @format_text(ptr noundef %49, ptr noundef nonnull %50, i64 noundef %51) #12
   call void @col_append_str(ptr noundef %48, i32 noundef 25, ptr noundef %52) #12
   br label %53
 
@@ -2175,7 +2175,7 @@ dissect_rdpNegReq.exit:                           ; preds = %70, %72, %dissect_r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9) i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 9) i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2312,7 +2312,7 @@ dissect_rdpNegFailure.exit:                       ; preds = %65, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_rdp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_rdp_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
@@ -2927,7 +2927,7 @@ dissect_rdp_fastpath.exit:                        ; preds = %262, %291, %139, %1
 declare void @register_t124_ns_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rdp_ClientData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rdp_ClientData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca [5 x %struct.rdp_field_info_t], align 16
   %7 = alloca i32, align 4
@@ -3342,7 +3342,7 @@ dissect_rdp_monitor.exit:                         ; preds = %.lr.ph.i, %182
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rdp_ServerData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rdp_ServerData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3706,7 +3706,7 @@ declare noalias ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_un
 declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @rdp_udp_conversation_hash(ptr nocapture noundef readonly %0) #5 {
+define internal i32 @rdp_udp_conversation_hash(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i16, ptr %2, align 8
   %4 = zext i16 %3 to i32
@@ -3762,7 +3762,7 @@ add_address_to_hash.exit:                         ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @rdp_udp_conversation_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @rdp_udp_conversation_equal_matched(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -3846,7 +3846,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3867,7 +3867,7 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -3898,7 +3898,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare void @register_t124_sd_dissector(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rdp_SendData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [10 x %struct.rdp_field_info_t], align 16
@@ -4877,14 +4877,14 @@ find_channel_type.exit.i:                         ; preds = %491
 
 find_channel_type.exit.thread.i:                  ; preds = %490, %497, %find_channel_type.exit.i, %.preheader.i.i.i, %411
   %.0.i45.i = phi i32 [ %496, %find_channel_type.exit.i ], [ %496, %497 ], [ 0, %411 ], [ 0, %.preheader.i.i.i ], [ 0, %490 ]
-  %498 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %408, ptr noundef %1, ptr noundef %317, ptr noundef nonnull %9, i32 noundef 0)
+  %498 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %408, ptr noundef nonnull %1, ptr noundef %317, ptr noundef nonnull %9, i32 noundef 0)
   %499 = load i32, ptr %6, align 4
   %500 = and i32 %499, 2097152
   %.not.i = icmp eq i32 %500, 0
   br i1 %.not.i, label %506, label %501
 
 501:                                              ; preds = %find_channel_type.exit.thread.i
-  %502 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %498, ptr noundef %1, ptr noundef %317, ptr noundef nonnull @__const.dissect_rdp_nyi.nyi_fields, i32 noundef 0)
+  %502 = call fastcc i32 @dissect_rdp_fields(ptr noundef %0, i32 noundef %498, ptr noundef nonnull %1, ptr noundef %317, ptr noundef nonnull @__const.dissect_rdp_nyi.nyi_fields, i32 noundef 0)
   %.not48.i = icmp eq ptr %317, null
   br i1 %.not48.i, label %dissect_rdp_channelPDU.exit, label %503
 
@@ -4906,33 +4906,33 @@ find_channel_type.exit.thread.i:                  ; preds = %490, %497, %find_ch
   %508 = load i32, ptr %5, align 4
   %509 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %498, i32 noundef %508) #12
   %510 = load ptr, ptr @drdynvc_handle, align 8
-  %511 = call i32 @call_dissector(ptr noundef %510, ptr noundef %509, ptr noundef %1, ptr noundef %317) #12
+  %511 = call i32 @call_dissector(ptr noundef %510, ptr noundef %509, ptr noundef nonnull %1, ptr noundef %317) #12
   br label %dissect_rdp_channelPDU.exit
 
 512:                                              ; preds = %506
   %513 = load i32, ptr %5, align 4
   %514 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %498, i32 noundef %513) #12
   %515 = load ptr, ptr @rail_handle, align 8
-  %516 = call i32 @call_dissector(ptr noundef %515, ptr noundef %514, ptr noundef %1, ptr noundef %317) #12
+  %516 = call i32 @call_dissector(ptr noundef %515, ptr noundef %514, ptr noundef nonnull %1, ptr noundef %317) #12
   br label %dissect_rdp_channelPDU.exit
 
 517:                                              ; preds = %506
   %518 = load i32, ptr %5, align 4
   %519 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %498, i32 noundef %518) #12
   %520 = load ptr, ptr @cliprdr_handle, align 8
-  %521 = call i32 @call_dissector(ptr noundef %520, ptr noundef %519, ptr noundef %1, ptr noundef %317) #12
+  %521 = call i32 @call_dissector(ptr noundef %520, ptr noundef %519, ptr noundef nonnull %1, ptr noundef %317) #12
   br label %dissect_rdp_channelPDU.exit
 
 522:                                              ; preds = %506
   %523 = load i32, ptr %5, align 4
   %524 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %498, i32 noundef %523) #12
   %525 = load ptr, ptr @snd_handle, align 8
-  %526 = call i32 @call_dissector(ptr noundef %525, ptr noundef %524, ptr noundef %1, ptr noundef %317) #12
+  %526 = call i32 @call_dissector(ptr noundef %525, ptr noundef %524, ptr noundef nonnull %1, ptr noundef %317) #12
   br label %dissect_rdp_channelPDU.exit
 
 527:                                              ; preds = %506
   %528 = call i32 @t124_get_last_channelId() #12
-  %529 = call nonnull ptr @find_or_create_conversation(ptr noundef %1) #12
+  %529 = call nonnull ptr @find_or_create_conversation(ptr noundef nonnull %1) #12
   %530 = load i32, ptr @proto_rdp, align 4
   %531 = call ptr @conversation_get_proto_data(ptr noundef nonnull %529, i32 noundef %530) #12
   %.not.i.i = icmp eq ptr %531, null
@@ -4999,7 +4999,7 @@ dissect_rdp_nyi.exit:                             ; preds = %dissect_rdp_channel
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_rdp_MessageChannelData(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [6 x %struct.rdp_field_info_t], align 16
   %6 = alloca [3 x %struct.rdp_field_info_t], align 16
   %7 = alloca %struct.rdp_transports_key_t, align 8
@@ -5881,16 +5881,16 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

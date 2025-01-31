@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [12 x i8] c"MMap parser\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @tm_compute_nb_leaves_from_level(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden i32 @tm_compute_nb_leaves_from_level(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1
@@ -67,7 +67,7 @@ declare hidden void @tm_terminate_thread_pool() local_unnamed_addr #2
 declare hidden void @tm_mem_check() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @tm_print_1D_tab(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @tm_print_1D_tab(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -100,7 +100,7 @@ define hidden void @tm_print_1D_tab(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define hidden noalias noundef ptr @tm_new_affinity_mat(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #5 {
@@ -180,7 +180,7 @@ define hidden noalias noundef ptr @tm_build_affinity_mat(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tm_free_affinity_mat(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @tm_free_affinity_mat(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -211,7 +211,7 @@ define hidden void @tm_free_affinity_mat(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define hidden noalias noundef ptr @tm_load_aff_mat(ptr noundef %0) local_unnamed_addr #1 {
@@ -476,7 +476,7 @@ init_mat_mmap.exit:                               ; preds = %parse_line.exit.i, 
 declare hidden i32 @tm_get_verbose_level() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tm_map_topology(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6) local_unnamed_addr #1 {
+define hidden void @tm_map_topology(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = tail call i32 @tm_get_verbose_level() #17
   %.fr111 = freeze i32 %9
@@ -765,7 +765,7 @@ set_val.exit:                                     ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @nb_leaves(ptr nocapture noundef readonly %0) unnamed_addr #9 {
+define internal fastcc i32 @nb_leaves(ptr noundef readonly captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -798,7 +798,7 @@ define internal fastcc i32 @nb_leaves(ptr nocapture noundef readonly %0) unnamed
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @depth_first(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #10 {
+define internal fastcc void @depth_first(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -840,7 +840,7 @@ define internal fastcc void @depth_first(ptr nocapture noundef readonly %0, ptr 
 declare hidden i32 @tm_nb_processing_units(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @tm_compute_mapping(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @tm_compute_mapping(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -890,7 +890,7 @@ define hidden noalias noundef ptr @tm_compute_mapping(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden i32 @tm_fill_tab(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #11 {
+define hidden i32 @tm_fill_tab(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #11 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge.thread, label %.preheader
 
@@ -958,22 +958,22 @@ define hidden i32 @tm_fill_tab(ptr nocapture noundef writeonly %0, ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #13
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
@@ -984,19 +984,19 @@ declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #14
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

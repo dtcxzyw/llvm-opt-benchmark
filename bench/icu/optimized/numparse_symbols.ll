@@ -156,7 +156,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_758numparse4impl18NumberParseMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_758numparse4impl13SymbolMatcher6getSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK6icu_758numparse4impl13SymbolMatcher6getSetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #3 align 2 {
 entry:
   %fUniSet = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %fUniSet, align 8
@@ -164,7 +164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl13SymbolMatcher5matchERNS_13StringSegmentERNS1_12ParsedNumberER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl13SymbolMatcher5matchERNS_13StringSegmentERNS1_12ParsedNumberER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
@@ -265,7 +265,7 @@ declare noundef zeroext i1 @_ZNK6icu_7513StringSegment10startsWithERKNS_10Unicod
 declare noundef zeroext i1 @_ZNK6icu_7513StringSegment10startsWithERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(17), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl13SymbolMatcher8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl13SymbolMatcher8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull @.str)
   ret void
@@ -324,26 +324,26 @@ invoke.cont:                                      ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl17IgnorablesMatcher10isFlexibleEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl17IgnorablesMatcher10isFlexibleEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl17IgnorablesMatcher8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl17IgnorablesMatcher8toStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %agg.result, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl17IgnorablesMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl17IgnorablesMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK6icu_758numparse4impl17IgnorablesMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #4 align 2 {
+define void @_ZNK6icu_758numparse4impl17IgnorablesMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
@@ -391,7 +391,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl15InfinityMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %result) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl15InfinityMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %result) unnamed_addr #3 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -401,7 +401,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl15InfinityMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl15InfinityMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -459,7 +459,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl16MinusSignMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl16MinusSignMatcher10isDisabledERKNS1_12ParsedNumberE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %fAllowTrailing = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i8, ptr %fAllowTrailing, align 8
@@ -478,7 +478,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr noundef nonnull align 8 dereferenceable(216)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl16MinusSignMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl16MinusSignMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -531,14 +531,14 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl10NanMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl10NanMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6icu_758numparse4impl12ParsedNumber10seenNumberEv(ptr noundef nonnull align 8 dereferenceable(216) %result)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl10NanMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl10NanMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -590,19 +590,19 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl14PaddingMatcher10isFlexibleEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl14PaddingMatcher10isFlexibleEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl14PaddingMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl14PaddingMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZNK6icu_758numparse4impl14PaddingMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #4 align 2 {
+define void @_ZNK6icu_758numparse4impl14PaddingMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
@@ -650,7 +650,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl14PercentMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %result) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl14PercentMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %result) unnamed_addr #3 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl14PercentMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl14PercentMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -713,7 +713,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl15PermilleMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %result) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl15PermilleMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %result) unnamed_addr #3 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -723,7 +723,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl15PermilleMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl15PermilleMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %result, i64 76
   %0 = load i32, ptr %flags, align 4
@@ -779,7 +779,7 @@ _ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_758numparse4impl15PlusSignMatcher10isDisabledERKNS1_12ParsedNumberE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK6icu_758numparse4impl15PlusSignMatcher10isDisabledERKNS1_12ParsedNumberE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   %fAllowTrailing = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i8, ptr %fAllowTrailing, align 8
@@ -796,7 +796,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_758numparse4impl15PlusSignMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
+define void @_ZNK6icu_758numparse4impl15PlusSignMatcher6acceptERNS_13StringSegmentERNS1_12ParsedNumberE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment, ptr noundef nonnull align 8 dereferenceable(216) %result) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_758numparse4impl12ParsedNumber16setCharsConsumedERKNS_13StringSegmentE(ptr noundef nonnull align 8 dereferenceable(216) %result, ptr noundef nonnull align 8 dereferenceable(17) %segment)
   ret void

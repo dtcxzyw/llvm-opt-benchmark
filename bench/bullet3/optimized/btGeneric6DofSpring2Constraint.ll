@@ -71,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyS1_RK11btTransformS4_11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameInA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameInB, i32 noundef %rotOrder) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyS1_RK11btTransformS4_11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %frameInA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %frameInB, i32 noundef %rotOrder) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV30btGeneric6DofSpring2Constraint, i64 16), ptr %this, align 8
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyRK11btTransform11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 8 dereferenceable(744) %rbB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameInB, i32 noundef %rotOrder) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyRK11btTransform11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef nonnull align 8 dereferenceable(744) %rbB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %frameInB, i32 noundef %rotOrder) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint12getFixedBodyEv()
   tail call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 12, ptr noundef nonnull align 8 dereferenceable(744) %call, ptr noundef nonnull align 8 dereferenceable(744) %rbB)
@@ -438,7 +438,7 @@ invoke.cont22:                                    ; preds = %arrayctor.loop15
 declare noundef nonnull align 8 dereferenceable(744) ptr @_ZN17btTypedConstraint12getFixedBodyEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN30btGeneric6DofSpring2Constraint15btGetMatrixElemERK11btMatrix3x3i(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %mat, i32 noundef %index) local_unnamed_addr #5 align 2 {
+define dso_local noundef float @_ZN30btGeneric6DofSpring2Constraint15btGetMatrixElemERK11btMatrix3x3i(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %mat, i32 noundef %index) local_unnamed_addr #5 align 2 {
 entry:
   %rem = srem i32 %index, 3
   %div = sdiv i32 %index, 3
@@ -451,7 +451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerXYZERK11btMatrix3x3R9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %mat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerXYZERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %mat, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %mat, i64 32
   %0 = load float, ptr %arrayidx.i.i, align 4
@@ -517,7 +517,7 @@ return:                                           ; preds = %if.else27, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerXZYERK11btMatrix3x3R9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %mat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerXZYERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %mat, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %mat, i64 16
   %0 = load float, ptr %arrayidx.i.i, align 4
@@ -584,7 +584,7 @@ return:                                           ; preds = %if.else27, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerYXZERK11btMatrix3x3R9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %mat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerYXZERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %mat, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %mat, i64 32
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %mat, i64 36
@@ -649,7 +649,7 @@ return:                                           ; preds = %if.else27, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerYZXERK11btMatrix3x3R9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %mat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerYZXERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %mat, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %mat, i64 4
   %0 = load float, ptr %arrayidx.i, align 4
@@ -715,7 +715,7 @@ return:                                           ; preds = %if.else27, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerZXYERK11btMatrix3x3R9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %mat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerZXYERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %mat, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %mat, i64 16
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %mat, i64 24
@@ -779,7 +779,7 @@ return:                                           ; preds = %if.else27, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerZYXERK11btMatrix3x3R9btVector3(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %mat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerZYXERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %mat, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %xyz) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %mat, i64 8
   %0 = load float, ptr %arrayidx.i, align 4
@@ -1589,10 +1589,10 @@ sw.epilog195:                                     ; preds = %sw.epilog.sw.epilog
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1484) initializes((1260, 1388), (1452, 1468)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1484) initializes((1260, 1388), (1452, 1468)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transB) local_unnamed_addr #9 align 2 {
 entry:
   %m_frameInA = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load float, ptr %m_frameInA, align 8, !noalias !17
@@ -1857,7 +1857,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint19calculateLinearInfoEv(ptr nocapture noundef nonnull align 8 dereferenceable(1484) initializes((1452, 1468)) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint19calculateLinearInfoEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1484) initializes((1452, 1468)) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_origin.i = getelementptr inbounds nuw i8, ptr %this, i64 1372
   %m_calculatedTransformA = getelementptr inbounds nuw i8, ptr %this, i64 1260
@@ -1998,7 +1998,7 @@ for.end:                                          ; preds = %_ZN26btTranslationa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi(ptr nocapture noundef nonnull align 8 dereferenceable(1484) %this, i32 noundef %axis_index) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint21testAngularLimitMotorEi(ptr noundef nonnull align 8 captures(none) dereferenceable(1484) %this, i32 noundef %axis_index) local_unnamed_addr #1 align 2 {
 entry:
   %m_calculatedAxisAngleDiff = getelementptr inbounds nuw i8, ptr %this, i64 1388
   %idxprom = sext i32 %axis_index to i64
@@ -2159,7 +2159,7 @@ return:                                           ; preds = %if.else8, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btRotationalLimitMotor214testLimitValueEf(ptr nocapture noundef nonnull align 4 dereferenceable(88) initializes((72, 76), (84, 88)) %this, float noundef %test_value) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN23btRotationalLimitMotor214testLimitValueEf(ptr noundef nonnull align 4 captures(none) dereferenceable(88) initializes((72, 76), (84, 88)) %this, float noundef %test_value) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
   %m_hiLimit = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -2198,7 +2198,7 @@ if.end16:                                         ; preds = %if.then5, %if.else9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull align 8 dereferenceable(1484) initializes((1260, 1388), (1452, 1468)) %this, ptr nocapture noundef initializes((0, 8)) %info) unnamed_addr #1 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr noundef nonnull align 8 dereferenceable(1484) initializes((1260, 1388), (1452, 1468)) %this, ptr noundef captures(none) initializes((0, 8)) %info) unnamed_addr #1 align 2 {
 entry:
   %m_rbA = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_rbA, align 8
@@ -2351,7 +2351,7 @@ for.end70:                                        ; preds = %for.inc68
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint8getInfo2EPN17btTypedConstraint17btConstraintInfo2E(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr nocapture noundef readonly %info) unnamed_addr #1 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint8getInfo2EPN17btTypedConstraint17btConstraintInfo2E(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef readonly captures(none) %info) unnamed_addr #1 align 2 {
 entry:
   %m_rbA = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_rbA, align 8
@@ -2369,7 +2369,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr nocapture noundef readonly %info, i32 noundef %row_offset, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVelB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelB) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef readonly captures(none) %info, i32 noundef %row_offset, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %angVelA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %angVelB) local_unnamed_addr #4 align 2 {
 entry:
   %cIdx = alloca [3 x i32], align 4
   %axis = alloca %class.btVector3, align 8
@@ -2501,7 +2501,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr nocapture noundef readonly %info, i32 noundef %row, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVelB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelB) local_unnamed_addr #4 align 2 {
+define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef readonly captures(none) %info, i32 noundef %row, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %angVelA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %angVelB) local_unnamed_addr #4 align 2 {
 entry:
   %limot = alloca %class.btRotationalLimitMotor2, align 4
   %axis = alloca %class.btVector3, align 8
@@ -2800,7 +2800,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr nocapture noundef readonly %limot, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %linVelB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %angVelB, ptr nocapture noundef readonly %info, i32 noundef %row, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ax1, i32 noundef %rotational, i32 noundef %rotAllowed) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %this, ptr noundef readonly captures(none) %limot, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %linVelA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %linVelB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %angVelA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %angVelB, ptr noundef readonly captures(none) %info, i32 noundef %row, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %ax1, i32 noundef %rotational, i32 noundef %rotAllowed) local_unnamed_addr #4 align 2 {
 entry:
   %rowskip = getelementptr inbounds nuw i8, ptr %info, i64 40
   %0 = load i32, ptr %rowskip, align 8
@@ -3603,7 +3603,7 @@ if.end518:                                        ; preds = %if.end511, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint9setFramesERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1484) initializes((72, 200)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %frameB) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint9setFramesERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1484) initializes((72, 200)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %frameA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %frameB) local_unnamed_addr #1 align 2 {
 entry:
   %m_frameInA = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %m_frameInA, ptr noundef nonnull align 4 dereferenceable(64) %frameA, i64 16, i1 false)
@@ -3642,7 +3642,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN26btTranslationalLimitMotor214testLimitValueEif(ptr nocapture noundef nonnull align 4 dereferenceable(288) %this, i32 noundef %limitIndex, float noundef %test_value) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN26btTranslationalLimitMotor214testLimitValueEif(ptr noundef nonnull align 4 captures(none) dereferenceable(288) %this, i32 noundef %limitIndex, float noundef %test_value) local_unnamed_addr #11 align 2 {
 entry:
   %idxprom = sext i32 %limitIndex to i64
   %arrayidx = getelementptr inbounds float, ptr %this, i64 %idxprom
@@ -3683,7 +3683,7 @@ if.end32:                                         ; preds = %if.end32.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint15calculateJacobiEP23btRotationalLimitMotor2RK11btTransformS4_PN17btTypedConstraint17btConstraintInfo2EiR9btVector3ii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1484) %this, ptr nocapture readnone %limot, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %transB, ptr nocapture noundef readonly %info, i32 noundef %srow, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ax1, i32 noundef %rotational, i32 noundef %rotAllowed) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint15calculateJacobiEP23btRotationalLimitMotor2RK11btTransformS4_PN17btTypedConstraint17btConstraintInfo2EiR9btVector3ii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1484) %this, ptr readnone captures(none) %limot, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transA, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %transB, ptr noundef readonly captures(none) %info, i32 noundef %srow, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %ax1, i32 noundef %rotational, i32 noundef %rotAllowed) local_unnamed_addr #12 align 2 {
 entry:
   %tmpA = alloca %class.btVector3, align 8
   %tmpB = alloca %class.btVector3, align 8
@@ -3853,7 +3853,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #13
 declare noundef float @_ZN17btTypedConstraint14getMotorFactorEfffff(ptr noundef nonnull align 8 dereferenceable(72), float noundef, float noundef, float noundef, float noundef, float noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint8setParamEifi(ptr nocapture noundef nonnull align 8 dereferenceable(1484) %this, i32 noundef %num, float noundef %value, i32 noundef %axis) unnamed_addr #11 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint8setParamEifi(ptr noundef nonnull align 8 captures(none) dereferenceable(1484) %this, i32 noundef %num, float noundef %value, i32 noundef %axis) unnamed_addr #11 align 2 {
 entry:
   %or.cond = icmp ult i32 %axis, 3
   br i1 %or.cond, label %if.then, label %if.else
@@ -3954,7 +3954,7 @@ if.end75:                                         ; preds = %if.end75.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZNK30btGeneric6DofSpring2Constraint8getParamEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1484) %this, i32 noundef %num, i32 noundef %axis) unnamed_addr #5 align 2 {
+define dso_local noundef float @_ZNK30btGeneric6DofSpring2Constraint8getParamEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %num, i32 noundef %axis) unnamed_addr #5 align 2 {
 entry:
   %or.cond = icmp ult i32 %axis, 3
   br i1 %or.cond, label %if.then, label %if.else
@@ -4046,7 +4046,7 @@ if.end47:                                         ; preds = %if.then21, %sw.bb38
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint7setAxisERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(1484) initializes((72, 200), (1260, 1388), (1452, 1468)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %axis1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %axis2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint7setAxisERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(1484) initializes((72, 200), (1260, 1388), (1452, 1468)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %axis1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %axis2) local_unnamed_addr #9 align 2 {
 entry:
   %nrm.sroa.0.0.copyload.i = load <2 x float>, ptr %axis1, align 4
   %nrm.sroa.6.0.this.sroa_idx.i = getelementptr inbounds nuw i8, ptr %axis1, i64 8
@@ -4306,7 +4306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint9setBounceEif(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, float noundef %bounce) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint9setBounceEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, float noundef %bounce) local_unnamed_addr #14 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 3
   br i1 %cmp, label %if.then, label %if.else
@@ -4332,7 +4332,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint11enableMotorEib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, i1 noundef zeroext %onOff) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint11enableMotorEib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, i1 noundef zeroext %onOff) local_unnamed_addr #14 align 2 {
 entry:
   %frombool = zext i1 %onOff to i8
   %cmp = icmp slt i32 %index, 3
@@ -4359,7 +4359,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint8setServoEib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, i1 noundef zeroext %onOff) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint8setServoEib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, i1 noundef zeroext %onOff) local_unnamed_addr #14 align 2 {
 entry:
   %frombool = zext i1 %onOff to i8
   %cmp = icmp slt i32 %index, 3
@@ -4386,7 +4386,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint17setTargetVelocityEif(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, float noundef %velocity) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint17setTargetVelocityEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, float noundef %velocity) local_unnamed_addr #14 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 3
   br i1 %cmp, label %if.then, label %if.else
@@ -4412,7 +4412,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint14setServoTargetEif(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, float noundef %targetOrg) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint14setServoTargetEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, float noundef %targetOrg) local_unnamed_addr #14 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 3
   br i1 %cmp, label %if.then, label %if.else
@@ -4458,7 +4458,7 @@ if.end20:                                         ; preds = %if.end15, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint16setMaxMotorForceEif(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, float noundef %force) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint16setMaxMotorForceEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, float noundef %force) local_unnamed_addr #14 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 3
   br i1 %cmp, label %if.then, label %if.else
@@ -4484,7 +4484,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint12enableSpringEib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, i1 noundef zeroext %onOff) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint12enableSpringEib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, i1 noundef zeroext %onOff) local_unnamed_addr #14 align 2 {
 entry:
   %frombool = zext i1 %onOff to i8
   %cmp = icmp slt i32 %index, 3
@@ -4511,7 +4511,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint12setStiffnessEifb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, float noundef %stiffness, i1 noundef zeroext %limitIfNeeded) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint12setStiffnessEifb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, float noundef %stiffness, i1 noundef zeroext %limitIfNeeded) local_unnamed_addr #14 align 2 {
 entry:
   %frombool = zext i1 %limitIfNeeded to i8
   %cmp = icmp slt i32 %index, 3
@@ -4543,7 +4543,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint10setDampingEifb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, float noundef %damping, i1 noundef zeroext %limitIfNeeded) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint10setDampingEifb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, float noundef %damping, i1 noundef zeroext %limitIfNeeded) local_unnamed_addr #14 align 2 {
 entry:
   %frombool = zext i1 %limitIfNeeded to i8
   %cmp = icmp slt i32 %index, 3
@@ -4646,7 +4646,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint19setEquilibriumPointEif(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1484) %this, i32 noundef %index, float noundef %val) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint19setEquilibriumPointEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %this, i32 noundef %index, float noundef %val) local_unnamed_addr #14 align 2 {
 entry:
   %cmp = icmp slt i32 %index, 3
   br i1 %cmp, label %if.then, label %if.else
@@ -5280,7 +5280,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #20

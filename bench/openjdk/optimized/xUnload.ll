@@ -99,7 +99,7 @@ $_ZTV28XPhantomIsAliveObjectClosure = comdat any
 declare void @_ZN13XStatSubPhaseC1EPKc(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN7XUnloadC2EP8XWorkers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN7XUnloadC2EP8XWorkers(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = load i8, ptr @ClassUnloading, align 1
   %4 = trunc i8 %3 to i1
@@ -115,7 +115,7 @@ define hidden void @_ZN7XUnloadC2EP8XWorkers(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7XUnload7prepareEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN7XUnload7prepareEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = load i8, ptr @ClassUnloading, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %5
@@ -134,7 +134,7 @@ declare void @_ZN9CodeCache25increment_unloading_cycleEv() local_unnamed_addr #0
 declare void @_ZN17DependencyContext14cleaning_startEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7XUnload6unlinkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN7XUnload6unlinkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.XStatTimer, align 8
   %4 = load i8, ptr @ClassUnloading, align 1
@@ -227,7 +227,7 @@ declare void @_ZN8XNMethod6unlinkEP8XWorkersb(ptr noundef, i1 noundef zeroext) l
 declare void @_ZN17DependencyContext12cleaning_endEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7XUnload5purgeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN7XUnload5purgeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %class.TimeInstant, align 8
   %3 = alloca %class.XStatTimer, align 8
   %4 = load i8, ptr @ClassUnloading, align 1
@@ -297,7 +297,7 @@ declare void @_ZN20ClassLoaderDataGraph5purgeEb(i1 noundef zeroext) local_unname
 declare void @_ZN9CodeCache22purge_exception_cachesEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7XUnload6finishEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN7XUnload6finishEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   tail call void @_ZN11MetaspaceGC16compute_new_sizeEv() #8
   ret void
 }
@@ -663,10 +663,10 @@ define internal void @_GLOBAL__sub_I_xUnload.cpp() #3 section ".text.startup" {
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -191,7 +191,7 @@ define linkonce_odr hidden void @_ZN12FormatBufferILm8192EE6appendEPKcz(ptr noun
   %6 = getelementptr inbounds i8, ptr %4, i64 %5
   call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = sub i64 8192, %5
-  %8 = call i32 @jio_vsnprintf(ptr noundef %6, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %3) #10
+  %8 = call i32 @jio_vsnprintf(ptr noundef nonnull %6, i64 noundef %7, ptr noundef %1, ptr noundef nonnull %3) #10
   call void @llvm.va_end.p0(ptr nonnull %3)
   ret void
 }
@@ -1348,7 +1348,7 @@ _ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread4: ; preds = %
 declare noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN17ShenandoahAsserts17assert_heaplockedEPKci(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17ShenandoahAsserts17assert_heaplockedEPKci(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.68, i32 noundef 77) #12
@@ -1356,7 +1356,7 @@ define hidden void @_ZN17ShenandoahAsserts17assert_heaplockedEPKci(ptr nocapture
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN17ShenandoahAsserts21assert_not_heaplockedEPKci(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17ShenandoahAsserts21assert_not_heaplockedEPKci(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.68, i32 noundef 77) #12
@@ -1364,7 +1364,7 @@ define hidden void @_ZN17ShenandoahAsserts21assert_not_heaplockedEPKci(ptr nocap
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN17ShenandoahAsserts30assert_heaplocked_or_safepointEPKci(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN17ShenandoahAsserts30assert_heaplocked_or_safepointEPKci(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.68, i32 noundef 77) #12
@@ -1472,7 +1472,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #6
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #8

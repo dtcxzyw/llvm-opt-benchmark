@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @newhope_psis_inv_montgomery = external global [0 x i16], align 2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @newhope_poly_frombytes(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %a) local_unnamed_addr #0 {
+define hidden void @newhope_poly_frombytes(ptr noundef writeonly captures(none) %r, ptr noundef readonly captures(none) %a) local_unnamed_addr #0 {
 entry:
   br label %for.body
 
@@ -84,7 +84,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_tobytes(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %p) local_unnamed_addr #1 {
+define hidden void @newhope_poly_tobytes(ptr noundef writeonly captures(none) %r, ptr noundef readonly captures(none) %p) local_unnamed_addr #1 {
 entry:
   br label %for.body
 
@@ -163,7 +163,7 @@ for.end:                                          ; preds = %for.body
 declare zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_uniform(ptr nocapture noundef writeonly %a, ptr noundef %seed) local_unnamed_addr #1 {
+define hidden void @newhope_poly_uniform(ptr noundef writeonly captures(none) %a, ptr noundef %seed) local_unnamed_addr #1 {
 entry:
   %ivec = alloca [16 x i8], align 16
   %key = alloca %struct.aes_key_st, align 4
@@ -222,17 +222,17 @@ while.end:                                        ; preds = %if.end25
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @AES_set_encrypt_key(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @AES_ctr128_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_getnoise(ptr nocapture noundef writeonly %r) local_unnamed_addr #1 {
+define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %r) local_unnamed_addr #1 {
 entry:
   %tp = alloca [1024 x i32], align 16
   %call = call i32 @RAND_bytes(ptr noundef nonnull %tp, i64 noundef 4096) #5
@@ -280,7 +280,7 @@ for.end16:                                        ; preds = %for.end
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_pointwise(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define hidden void @newhope_poly_pointwise(ptr noundef writeonly captures(none) %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #1 {
 entry:
   br label %for.body
 
@@ -310,7 +310,7 @@ for.end:                                          ; preds = %for.body
 declare zeroext i16 @newhope_montgomery_reduce(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_poly_add(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #1 {
+define hidden void @newhope_poly_add(ptr noundef writeonly captures(none) %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #1 {
 entry:
   br label %for.body
 

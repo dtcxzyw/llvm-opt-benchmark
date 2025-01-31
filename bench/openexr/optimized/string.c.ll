@@ -67,7 +67,7 @@ return:                                           ; preds = %entry, %if.end13, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @exr_attr_string_init_static_with_length(ptr noundef %ctxt, ptr noundef writeonly %s, ptr noundef %v, i32 noundef %len) local_unnamed_addr #0 {
@@ -176,7 +176,7 @@ return:                                           ; preds = %if.end11.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @exr_attr_string_create_with_length(ptr noundef %ctxt, ptr noundef %s, ptr noundef readonly %d, i32 noundef %len) local_unnamed_addr #0 {
@@ -268,7 +268,7 @@ return:                                           ; preds = %exr_attr_string_ini
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @exr_attr_string_create(ptr noundef %ctxt, ptr noundef %s, ptr noundef readonly %d) local_unnamed_addr #0 {

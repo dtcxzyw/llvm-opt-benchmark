@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID_minstrel_vht_only2956, ptr @__UNIQUE_ID_minstrel_vht_onlytype2955, ptr @__param_minstrel_vht_only], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 1048576) i32 @minstrel_ht_get_tp_avg(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 1048576) i32 @minstrel_ht_get_tp_avg(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %3, 409
@@ -125,10 +125,10 @@ define dso_local range(i32 0, 1048576) i32 @minstrel_ht_get_tp_avg(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local i32 @rc80211_minstrel_init() local_unnamed_addr #2 section ".init.text" align 16 {
@@ -207,7 +207,7 @@ define dso_local void @rc80211_minstrel_exit() local_unnamed_addr #4 align 16 {
 declare dso_local void @ieee80211_rate_control_unregister(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -380,32 +380,32 @@ define internal void @minstrel_ht_free(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noalias noundef ptr @minstrel_ht_alloc_sta(ptr nocapture readonly %0, ptr nocapture readnone %1, i32 noundef %2) #4 align 16 {
+define internal noalias noundef ptr @minstrel_ht_alloc_sta(ptr readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #4 align 16 {
   %4 = or i32 %2, 256
   %5 = tail call noalias align 4096 dereferenceable_or_null(10824) ptr @kmalloc_large(i64 noundef 10824, i32 noundef %4) #16
   ret ptr %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @minstrel_ht_rate_init(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef initializes((0, 10824)) %4) #4 align 16 {
+define internal void @minstrel_ht_rate_init(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef initializes((0, 10824)) %4) #4 align 16 {
   tail call fastcc void @minstrel_ht_update_caps(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @minstrel_ht_rate_update(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef initializes((0, 10824)) %4, i32 %5) #4 align 16 {
+define internal void @minstrel_ht_rate_update(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef initializes((0, 10824)) %4, i32 %5) #4 align 16 {
   tail call fastcc void @minstrel_ht_update_caps(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @minstrel_ht_free_sta(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2) #4 align 16 {
+define internal void @minstrel_ht_free_sta(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #4 align 16 {
   tail call void @kfree(ptr noundef %2) #14
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @minstrel_ht_tx_status(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3) #4 align 16 {
+define internal void @minstrel_ht_tx_status(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1229,7 +1229,7 @@ define internal void @minstrel_ht_tx_status(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @minstrel_ht_get_rate(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) #4 align 16 {
+define internal void @minstrel_ht_get_rate(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2, ptr noundef readonly captures(none) %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1412,7 +1412,7 @@ define internal void @minstrel_ht_get_rate(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -2097152, 2097152) i32 @minstrel_ht_get_expected_throughput(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal range(i32 -2097152, 2097152) i32 @minstrel_ht_get_expected_throughput(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i16, ptr %2, align 4
   %4 = lshr i16 %3, 4
@@ -1515,7 +1515,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @minstrel_ht_update_caps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef initializes((0, 10824)) %3) unnamed_addr #4 align 16 {
+define internal fastcc void @minstrel_ht_update_caps(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef initializes((0, 10824)) %3) unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 236
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 241
   %7 = load i16, ptr %5, align 4
@@ -2031,7 +2031,7 @@ default.unreachable19:                            ; preds = %178
 declare dso_local i32 @ieee80211_frame_duration(i32 noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc void @minstrel_ht_update_stats(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #8 align 16 {
+define internal fastcc void @minstrel_ht_update_stats(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #8 align 16 {
   %3 = alloca [4 x i16], align 8
   %4 = alloca [4 x i16], align 8
   %5 = alloca [4 x i16], align 8
@@ -4262,7 +4262,7 @@ minstrel_ht_sort_best_tp_rates.exit94:            ; preds = %808, %810
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @minstrel_ht_update_rates(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @minstrel_ht_update_rates(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #4 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 125
   %5 = load i8, ptr %4, align 1
@@ -4402,13 +4402,13 @@ define internal fastcc void @minstrel_ht_update_rates(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @minstrel_ht_set_rate(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #10 align 16 {
+define internal fastcc void @minstrel_ht_set_rate(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4) unnamed_addr #10 align 16 {
   %6 = lshr i32 %4, 4
   %7 = zext nneg i32 %6 to i64
   %8 = getelementptr [42 x %struct.mcs_group], ptr @minstrel_mcs_groups, i64 0, i64 %7

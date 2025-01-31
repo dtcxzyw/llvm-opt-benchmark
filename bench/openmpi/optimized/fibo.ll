@@ -26,7 +26,7 @@ define hidden range(i32 0, 2) i32 @tm_fiboTreeInit(ptr noundef initializes((40, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @tm_fiboTreeExit(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden void @tm_fiboTreeExit(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -41,7 +41,7 @@ define hidden void @tm_fiboTreeExit(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @tm_fiboTreeFree(ptr noundef %0) local_unnamed_addr #3 {
@@ -215,7 +215,7 @@ fiboTreeConsolidate.exit:                         ; preds = %51, %66, %.loopexit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @tm_fiboTreeDel(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define hidden void @tm_fiboTreeDel(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24

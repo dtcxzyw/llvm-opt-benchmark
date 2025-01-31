@@ -539,7 +539,7 @@ define hidden void @_ZN20ShenandoahBarrierSetC2EP14ShenandoahHeap(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @_ZN10BarrierSetC2EP19BarrierSetAssemblerP12BarrierSetC1P12BarrierSetC2P17BarrierSetNMethodP20BarrierSetStackChunkRK15FakeRttiSupportIS_NS_4NameEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #2
 
@@ -556,7 +556,7 @@ define hidden noundef ptr @_ZN20ShenandoahBarrierSet9assemblerEv() local_unnamed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK20ShenandoahBarrierSet8print_onEP12outputStream(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK20ShenandoahBarrierSet8print_onEP12outputStream(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.4) #12
   ret void
 }
@@ -597,7 +597,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %6, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahBarrierSet16on_thread_createEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((40, 43)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahBarrierSet16on_thread_createEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef initializes((40, 43)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 41
@@ -614,7 +614,7 @@ define hidden void @_ZN20ShenandoahBarrierSet16on_thread_createEP6Thread(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahBarrierSet17on_thread_destroyEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahBarrierSet17on_thread_destroyEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -631,7 +631,7 @@ _ZN25ShenandoahThreadLocalData7destroyEP6Thread.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ShenandoahBarrierSet16on_thread_attachEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1064) %0, ptr noundef initializes((64, 65)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ShenandoahBarrierSet16on_thread_attachEP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1064) %0, ptr noundef initializes((64, 65)) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
@@ -11526,10 +11526,10 @@ define linkonce_odr hidden void @_ZN24ShenandoahOopClosureBase10do_nmethodEP7nme
 declare void @_ZN7nmethod25run_nmethod_entry_barrierEv(ptr noundef nonnull align 8 dereferenceable(214)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

@@ -42,7 +42,7 @@ for.end:                                          ; preds = %for.cond, %entry
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
@@ -51,7 +51,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree uwtable
-define void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %_i) local_unnamed_addr #4 {
+define void @_ZN4cvc58internal10safe_printIlEEviRKT_(i32 noundef %fd, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %_i) local_unnamed_addr #4 {
 entry:
   %buf = alloca [20 x i8], align 16
   %0 = load i64, ptr %_i, align 8
@@ -120,7 +120,7 @@ if.end10:                                         ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define void @_ZN4cvc58internal10safe_printIiEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %i) local_unnamed_addr #4 {
+define void @_ZN4cvc58internal10safe_printIiEEviRKT_(i32 noundef %fd, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %i) local_unnamed_addr #4 {
 entry:
   %ref.tmp = alloca i64, align 8
   %0 = load i32, ptr %i, align 4
@@ -131,7 +131,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %_i) local_unnamed_addr #4 {
+define void @_ZN4cvc58internal10safe_printImEEviRKT_(i32 noundef %fd, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %_i) local_unnamed_addr #4 {
 entry:
   %buf = alloca [20 x i8], align 16
   %0 = load i64, ptr %_i, align 8
@@ -179,7 +179,7 @@ if.end7:                                          ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %i) local_unnamed_addr #4 {
+define void @_ZN4cvc58internal10safe_printIjEEviRKT_(i32 noundef %fd, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %i) local_unnamed_addr #4 {
 entry:
   %buf.i = alloca [20 x i8], align 16
   %0 = load i32, ptr %i, align 4
@@ -233,7 +233,7 @@ _ZN4cvc58internal10safe_printImEEviRKT_.exit:     ; preds = %if.then.i, %while.e
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define void @_ZN4cvc58internal10safe_printIdEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %_d) local_unnamed_addr #4 {
+define void @_ZN4cvc58internal10safe_printIdEEviRKT_(i32 noundef %fd, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %_d) local_unnamed_addr #4 {
 entry:
   %buf = alloca [20 x i8], align 16
   %v = alloca i64, align 8
@@ -294,7 +294,7 @@ if.end14:                                         ; preds = %while.end
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define void @_ZN4cvc58internal10safe_printIfEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %f) local_unnamed_addr #4 {
+define void @_ZN4cvc58internal10safe_printIfEEviRKT_(i32 noundef %fd, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %f) local_unnamed_addr #4 {
 entry:
   %ref.tmp = alloca double, align 8
   %0 = load float, ptr %f, align 4
@@ -305,7 +305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define void @_ZN4cvc58internal10safe_printIbEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %b) local_unnamed_addr #4 {
+define void @_ZN4cvc58internal10safe_printIbEEviRKT_(i32 noundef %fd, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %b) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %b, align 1
   %tobool = trunc i8 %0 to i1
@@ -334,7 +334,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define void @_ZN4cvc58internal10safe_printIPvEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %addr) local_unnamed_addr #4 {
+define void @_ZN4cvc58internal10safe_printIPvEEviRKT_(i32 noundef %fd, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %addr) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %addr, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -403,7 +403,7 @@ if.end18:                                         ; preds = %if.then, %while.end
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %fd, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %t) local_unnamed_addr #4 {
+define void @_ZN4cvc58internal10safe_printI8timespecEEviRKT_(i32 noundef %fd, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %t) local_unnamed_addr #4 {
 entry:
   %buf.i6 = alloca [20 x i8], align 16
   %buf.i = alloca [20 x i8], align 16
@@ -540,13 +540,13 @@ if.end:                                           ; preds = %while.end
 declare i64 @llvm.smin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

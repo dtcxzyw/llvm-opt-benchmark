@@ -68,7 +68,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::VideoCapture", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -445,7 +445,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @_ZN2cv12VideoCaptureC1Eii(ptr noundef nonnull align 8 dereferenceable(41), i32 noundef, i32 noundef) unnamed_addr #0
 
@@ -454,7 +454,7 @@ declare void @_ZN2cv11namedWindowERKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 declare noundef i32 @_ZN2cv14createTrackbarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PiiPFviPvES9_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24on_low_H_thresh_trackbariPv(i32 %0, ptr nocapture readnone %1) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL24on_low_H_thresh_trackbariPv(i32 %0, ptr readnone captures(none) %1) #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i32, ptr @high_H, align 4
@@ -494,7 +494,7 @@ define internal void @_ZL24on_low_H_thresh_trackbariPv(i32 %0, ptr nocapture rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25on_high_H_thresh_trackbariPv(i32 %0, ptr nocapture readnone %1) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL25on_high_H_thresh_trackbariPv(i32 %0, ptr readnone captures(none) %1) #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i32, ptr @low_H, align 4
@@ -534,7 +534,7 @@ define internal void @_ZL25on_high_H_thresh_trackbariPv(i32 %0, ptr nocapture re
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24on_low_S_thresh_trackbariPv(i32 %0, ptr nocapture readnone %1) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL24on_low_S_thresh_trackbariPv(i32 %0, ptr readnone captures(none) %1) #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i32, ptr @high_S, align 4
@@ -574,7 +574,7 @@ define internal void @_ZL24on_low_S_thresh_trackbariPv(i32 %0, ptr nocapture rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25on_high_S_thresh_trackbariPv(i32 %0, ptr nocapture readnone %1) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL25on_high_S_thresh_trackbariPv(i32 %0, ptr readnone captures(none) %1) #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i32, ptr @low_S, align 4
@@ -614,7 +614,7 @@ define internal void @_ZL25on_high_S_thresh_trackbariPv(i32 %0, ptr nocapture re
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24on_low_V_thresh_trackbariPv(i32 %0, ptr nocapture readnone %1) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL24on_low_V_thresh_trackbariPv(i32 %0, ptr readnone captures(none) %1) #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i32, ptr @high_V, align 4
@@ -654,7 +654,7 @@ define internal void @_ZL24on_low_V_thresh_trackbariPv(i32 %0, ptr nocapture rea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25on_high_V_thresh_trackbariPv(i32 %0, ptr nocapture readnone %1) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL25on_high_V_thresh_trackbariPv(i32 %0, ptr readnone captures(none) %1) #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = load i32, ptr @low_V, align 4
@@ -766,10 +766,10 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

@@ -35,7 +35,7 @@ return:                                           ; preds = %entry, %if.then, %i
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @event_compare_times(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal range(i32 -1, 2) i32 @event_compare_times(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #2 {
 entry:
   %when = getelementptr inbounds nuw i8, ptr %a, i64 8
   %when1 = getelementptr inbounds nuw i8, ptr %b, i64 8
@@ -46,7 +46,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @event_compare_priority(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal range(i32 -1, 2) i32 @event_compare_priority(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #2 {
 entry:
   %priority = getelementptr inbounds nuw i8, ptr %a, i64 4
   %0 = load i32, ptr %priority, align 4
@@ -271,7 +271,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_event_queue_remove(ptr nocapture noundef readnone %queue, ptr noundef %event) local_unnamed_addr #0 {
+define noundef i32 @ossl_event_queue_remove(ptr noundef readnone captures(none) %queue, ptr noundef %event) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %event, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true
@@ -345,7 +345,7 @@ return:                                           ; preds = %if.end.i, %if.end6,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_event_queue_postpone_until(ptr nocapture noundef readonly %queue, ptr noundef %event, i64 %when.coerce) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_event_queue_postpone_until(ptr noundef readonly captures(none) %queue, ptr noundef %event, i64 %when.coerce) local_unnamed_addr #0 {
 entry:
   %cmp.not.i = icmp eq ptr %event, null
   br i1 %cmp.not.i, label %ossl_event_queue_remove.exit, label %land.lhs.true.i
@@ -388,7 +388,7 @@ event_queue_add.exit:                             ; preds = %ossl_event_queue_re
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_event_queue_get1_next_event(ptr nocapture noundef readonly %queue, ptr nocapture noundef writeonly %event) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_event_queue_get1_next_event(ptr noundef readonly captures(none) %queue, ptr noundef writeonly captures(none) %event) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @ossl_time_now() #4
   %now_events = getelementptr inbounds nuw i8, ptr %queue, i64 8

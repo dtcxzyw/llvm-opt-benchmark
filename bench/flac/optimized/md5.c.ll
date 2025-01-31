@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__MD5Init(ptr nocapture noundef writeonly initializes((64, 104)) %ctx) local_unnamed_addr #0 {
+define hidden void @FLAC__MD5Init(ptr noundef writeonly captures(none) initializes((64, 104)) %ctx) local_unnamed_addr #0 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   store i32 1732584193, ptr %buf, align 8
@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__MD5Final(ptr nocapture noundef writeonly initializes((0, 16)) %digest, ptr nocapture noundef %ctx) local_unnamed_addr #1 {
+define hidden void @FLAC__MD5Final(ptr noundef writeonly captures(none) initializes((0, 16)) %digest, ptr noundef captures(none) %ctx) local_unnamed_addr #1 {
 entry:
   %bytes = getelementptr inbounds nuw i8, ptr %ctx, i64 80
   %0 = load i32, ptr %bytes, align 8
@@ -73,10 +73,10 @@ if.end29:                                         ; preds = %if.then26, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @FLAC__MD5Transform(ptr nocapture noundef %buf, ptr nocapture noundef readonly %in) unnamed_addr #3 {
+define internal fastcc void @FLAC__MD5Transform(ptr noundef captures(none) %buf, ptr noundef readonly captures(none) %in) unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %buf, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %buf, i64 4
@@ -623,13 +623,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__MD5Accumulate(ptr nocapture noundef %ctx, ptr noundef readonly %signal, i32 noundef %channels, i32 noundef %samples, i32 noundef %bytes_per_sample) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @FLAC__MD5Accumulate(ptr noundef captures(none) %ctx, ptr noundef readonly %signal, i32 noundef %channels, i32 noundef %samples, i32 noundef %bytes_per_sample) local_unnamed_addr #6 {
 entry:
   %conv = zext i32 %channels to i64
   %conv1 = zext i32 %samples to i64
@@ -1570,7 +1570,7 @@ return:                                           ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8

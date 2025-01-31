@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [11 x i8] c"Curve25519\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -39,7 +39,7 @@ copy_and_reverse.exit:                            ; preds = %7
 declare i32 @gcry_mpi_scan(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @x25519_mpi(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @x25519_mpi(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = alloca [32 x i8], align 16
   %6 = alloca i64, align 8
@@ -132,7 +132,7 @@ copy_and_reverse.exit15:                          ; preds = %39, %36, %33, %24, 
 declare void @gcry_mpi_release(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_base(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_base(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @gcry_mpi_set_ui(ptr noundef null, i64 noundef 9) #3
   %4 = tail call fastcc i32 @x25519_mpi(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   tail call void @gcry_mpi_release(ptr noundef %3) #3
@@ -142,7 +142,7 @@ define range(i32 -1, 1) i32 @crypto_scalarmult_curve25519_base(ptr nocapture nou
 declare ptr @gcry_mpi_set_ui(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @gcry_mpi_ec_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

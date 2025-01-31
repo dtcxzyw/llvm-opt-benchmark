@@ -141,7 +141,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
 define i32 @T_CString_int64ToString_75(ptr noundef %buffer, i64 noundef %v, i32 noundef %radix) local_unnamed_addr #2 {
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 -254, 255) i32 @uprv_stricmp_75(ptr noundef readonly %str1, ptr noundef readonly %str2) local_unnamed_addr #6 {
@@ -334,7 +334,7 @@ return:                                           ; preds = %if.else13, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @uprv_strdup_75(ptr nocapture noundef readonly %src) local_unnamed_addr #7 {
+define noalias ptr @uprv_strdup_75(ptr noundef readonly captures(none) %src) local_unnamed_addr #7 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %src) #12
   %add = add i64 %call, 1
@@ -343,7 +343,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %do.body
 
 do.body:                                          ; preds = %entry
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr align 1 %src, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr nonnull align 1 %src, i64 %add, i1 false)
   br label %if.end
 
 if.end:                                           ; preds = %do.body, %entry
@@ -351,16 +351,16 @@ if.end:                                           ; preds = %do.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define noalias ptr @uprv_strndup_75(ptr nocapture noundef readonly %src, i32 noundef %n) local_unnamed_addr #7 {
+define noalias ptr @uprv_strndup_75(ptr noundef readonly captures(none) %src, i32 noundef %n) local_unnamed_addr #7 {
 entry:
   %cmp = icmp slt i32 %n, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -373,7 +373,7 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.end4, label %do.body.i
 
 do.body.i:                                        ; preds = %if.then
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i, ptr readonly align 1 %src, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1.i, ptr nonnull readonly align 1 %src, i64 %add.i, i1 false)
   br label %if.end4
 
 if.else:                                          ; preds = %entry

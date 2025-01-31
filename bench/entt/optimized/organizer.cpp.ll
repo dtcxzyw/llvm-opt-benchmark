@@ -1470,37 +1470,37 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_Z21ro_int_rw_char_doubleN4entt10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEvEERd(ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1) local_unnamed_addr #3 {
+define hidden void @_Z21ro_int_rw_char_doubleN4entt10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEENS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEvEERd(ptr noundef readnone captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_Z14ro_char_rw_intN4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEKNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEvEE(ptr nocapture noundef readnone %0) local_unnamed_addr #3 {
+define hidden void @_Z14ro_char_rw_intN4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEKNS2_INS3_IcS4_SaIcEvEES9_EEEEENS_9exclude_tIJEEEvEE(ptr noundef readnone captures(none) %0) local_unnamed_addr #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_Z17ro_char_rw_doubleN4entt10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIcNS_6entityESaIcEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERd(ptr nocapture readnone %.coerce, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden void @_Z17ro_char_rw_doubleN4entt10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIcNS_6entityESaIcEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERd(ptr readnone captures(none) %.coerce, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_Z13ro_int_doubleN4entt10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERKd(ptr nocapture readnone %.coerce, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0) local_unnamed_addr #3 {
+define hidden void @_Z13ro_int_doubleN4entt10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERKd(ptr readnone captures(none) %.coerce, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_Z10sync_pointRN4entt14basic_registryINS_6entityESaIS1_EEENS_10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiS1_SaIiEvEES3_EEEEENS_9exclude_tIJEEEvEE(ptr nocapture noundef nonnull readnone align 1 %0, ptr nocapture readnone %.coerce) local_unnamed_addr #3 {
+define hidden void @_Z10sync_pointRN4entt14basic_registryINS_6entityESaIS1_EEENS_10basic_viewINS_5get_tIJKNS_16basic_sigh_mixinINS_13basic_storageIiS1_SaIiEvEES3_EEEEENS_9exclude_tIJEEEvEE(ptr noundef nonnull readnone align 1 captures(none) %0, ptr readnone captures(none) %.coerce) local_unnamed_addr #3 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_Z17to_args_integrityN4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERmRS9_(ptr readonly %view.coerce, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %value, ptr nocapture noundef nonnull readnone align 1 %0) local_unnamed_addr #4 {
+define hidden void @_Z17to_args_integrityN4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERmRS9_(ptr readonly %view.coerce, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %value, ptr noundef nonnull readnone align 1 captures(none) %0) local_unnamed_addr #4 {
 entry:
   %tobool.not.i = icmp eq ptr %view.coerce, null
   br i1 %tobool.not.i, label %_ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvE4sizeEv.exit, label %cond.true.i
@@ -1525,7 +1525,7 @@ _ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6e
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1660,13 +1660,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #5
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34Organizer_EmplaceFreeFunction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34Organizer_EmplaceFreeFunction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.75", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator.15", align 1
@@ -7707,7 +7707,7 @@ _ZNSt6vectorIN4entt15basic_organizerINS0_14basic_registryINS0_6entityESaIS3_EEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN36Organizer_EmplaceMemberFunction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN36Organizer_EmplaceMemberFunction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.75", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator.15", align 1
@@ -12775,7 +12775,7 @@ _ZNSt6vectorIN4entt15basic_organizerINS0_14basic_registryINS0_6entityESaIS3_EEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN45Organizer_EmplaceFreeFunctionWithPayload_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN45Organizer_EmplaceFreeFunctionWithPayload_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.75", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator.15", align 1
@@ -18512,7 +18512,7 @@ _ZNSt6vectorIN4entt15basic_organizerINS0_14basic_registryINS0_6entityESaIS3_EEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN36Organizer_EmplaceDirectFunction_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN36Organizer_EmplaceDirectFunction_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.75", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator.15", align 1
@@ -24781,7 +24781,7 @@ init.end:                                         ; preds = %init, %init.check, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24Organizer_SyncPoint_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24Organizer_SyncPoint_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.75", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator.15", align 1
@@ -28824,7 +28824,7 @@ _ZNSt6vectorIN4entt15basic_organizerINS0_14basic_registryINS0_6entityESaIS3_EEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23Organizer_Override_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23Organizer_Override_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator.15", align 1
   %organizer = alloca %"class.entt::basic_organizer", align 8
@@ -31501,7 +31501,7 @@ _ZNSt6vectorIN4entt15basic_organizerINS0_14basic_registryINS0_6entityESaIS3_EEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22Organizer_Prepare_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22Organizer_Prepare_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.75", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator.15", align 1
@@ -34454,7 +34454,7 @@ init.end:                                         ; preds = %init, %init.check, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN27Organizer_Dependencies_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN27Organizer_Dependencies_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator.15", align 1
   %organizer = alloca %"class.entt::basic_organizer", align 8
@@ -38375,10 +38375,10 @@ _ZNSt6vectorIN4entt15basic_organizerINS0_14basic_registryINS0_6entityESaIS3_EEEE
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30Organizer_ToArgsIntegrity_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30Organizer_ToArgsIntegrity_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.75", align 1
   %ref.tmp.i.i = alloca %"class.std::allocator.15", align 1
@@ -39168,7 +39168,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryImplI34Organizer_EmplaceFreeFunction_TestED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #9 comdat align 2 {
@@ -39545,7 +39545,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4entt9dense_mapIjSt6vectorISt4pairImbESaIS3_EENS_8identityESt8equal_toIjESaIS2_IKjS5_EEE6rehashEm(ptr noundef nonnull align 8 dereferenceable(52) %this, i64 noundef %cnt) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -41631,7 +41631,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN36Organizer_EmplaceDirectFunction_Test8TestBodyEvEN3$_08__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(320) %reg) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN36Organizer_EmplaceDirectFunction_Test8TestBodyEvEN3$_08__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(320) %reg) #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE6assureIiEERDaj(ptr noundef nonnull align 8 dereferenceable(320) %reg, i32 noundef -1779859874)
   %vtable.i.i.i = load ptr, ptr %call2.i.i, align 8, !tbaa !12
@@ -44045,7 +44045,7 @@ _ZN4entt10type_indexINS_14basic_registryINS_6entityESaIS2_EEEvE5valueEv.exit: ; 
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableINS_14basic_registryINS_6entityESaIS4_EEEEEPKvNS_8internal13any_operationERKS1_S8_(i8 noundef zeroext %op, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef %other) #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -44758,7 +44758,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i7, %_ZN4en
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN36Organizer_EmplaceDirectFunction_Test8TestBodyEvEN3$_18__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(320) %reg) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN36Organizer_EmplaceDirectFunction_Test8TestBodyEvEN3$_18__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(320) %reg) #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE6assureIcEERDaj(ptr noundef nonnull align 8 dereferenceable(320) %reg, i32 noundef -1471413475)
   %vtable.i.i.i = load ptr, ptr %call2.i.i, align 8, !tbaa !12
@@ -46809,7 +46809,7 @@ if.end44:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN36Organizer_EmplaceDirectFunction_Test8TestBodyEvEN3$_28__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(320) %reg) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN36Organizer_EmplaceDirectFunction_Test8TestBodyEvEN3$_28__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(320) %reg) #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(176) ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE6assureIdEERDaj(ptr noundef nonnull align 8 dereferenceable(320) %reg, i32 noundef -1595207928)
   %vtable.i.i.i = load ptr, ptr %call2.i.i, align 8, !tbaa !12
@@ -48804,7 +48804,7 @@ if.end44:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZZN36Organizer_EmplaceDirectFunction_Test8TestBodyEvEN3$_38__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(320) %reg) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZN36Organizer_EmplaceDirectFunction_Test8TestBodyEvEN3$_38__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(320) %reg) #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %packed.i.i.i = getelementptr inbounds nuw i8, ptr %reg, i64 80
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %reg, i64 88
@@ -48985,7 +48985,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @"_ZZN27Organizer_Dependencies_Test8TestBodyEvEN3$_08__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr nocapture readnone %0, ptr nocapture nonnull readnone align 8 %1) #18 align 2 {
+define internal void @"_ZZN27Organizer_Dependencies_Test8TestBodyEvEN3$_08__invokeEPKvRN4entt14basic_registryINS3_6entityESaIS5_EEE"(ptr readnone captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) #18 align 2 {
 entry:
   ret void
 }
@@ -49022,7 +49022,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext) local_unnamed_addr #0
 
@@ -53554,7 +53554,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %if.end
-  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 noundef %call.i.i)
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i

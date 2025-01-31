@@ -30,7 +30,7 @@ $_ZNK8Metadata8on_stackEv = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN8Metadata12set_on_stackEb(ptr nocapture nonnull readnone align 8 %0, i1 zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN8Metadata12set_on_stackEb(ptr nonnull readnone align 8 captures(none) %0, i1 zeroext %1) unnamed_addr #0 align 2 {
   ret void
 }
 

@@ -354,7 +354,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theory
 declare noundef zeroext i1 @_ZN4cvc58internal6theory12ModelManager28collectModelBooleanVariablesEv(ptr noundef nonnull align 8 dereferenceable(122)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory23ModelManagerDistributed16finishBuildModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(122) %this) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory23ModelManagerDistributed16finishBuildModelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(122) %this) unnamed_addr #3 align 2 {
 entry:
   %d_modelBuilder = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %d_modelBuilder, align 8

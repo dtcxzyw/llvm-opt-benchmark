@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lzma_lzma_preset.depths = internal unnamed_addr constant [4 x i8] c"\04\08\180", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local zeroext range(i8 0, 2) i8 @lzma_lzma_preset(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 2) i8 @lzma_lzma_preset(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 31
   %4 = icmp samesign ult i32 %3, 10
   %5 = and i32 %1, 2147483616

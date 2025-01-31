@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [4 x i8] c"%d \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_TableResize(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Aig_TableResize(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 Abc_Clock.exit:
   %1 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %1)
@@ -147,10 +147,10 @@ Aig_TableFind.exit:                               ; preds = %56
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Aig_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define ptr @Aig_TableLookup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -243,7 +243,7 @@ define ptr @Aig_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @Aig_TableLookupTwo(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define ptr @Aig_TableLookupTwo(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %1, %2
   br i1 %4, label %Aig_TableLookup.exit, label %5
 
@@ -403,7 +403,7 @@ Aig_TableLookup.exit:                             ; preds = %95, %91, %65, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_TableInsert(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Aig_TableInsert(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 255
@@ -481,7 +481,7 @@ Aig_TableFind.exit:                               ; preds = %50
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Aig_TableDelete(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Aig_TableDelete(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 160
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 168
@@ -538,7 +538,7 @@ Aig_TableFind.exit:                               ; preds = %36
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Aig_TableCountEntries(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @Aig_TableCountEntries(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -575,7 +575,7 @@ define i32 @Aig_TableCountEntries(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Aig_TableProfile(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define void @Aig_TableProfile(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 148
@@ -628,10 +628,10 @@ define void @Aig_TableProfile(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Aig_TableClear(ptr nocapture noundef initializes((168, 172)) %0) local_unnamed_addr #7 {
+define void @Aig_TableClear(ptr noundef captures(none) initializes((168, 172)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -652,10 +652,10 @@ define void @Aig_TableClear(ptr nocapture noundef initializes((168, 172)) %0) lo
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10

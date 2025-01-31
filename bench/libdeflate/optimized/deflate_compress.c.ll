@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @default_litlen_costs = internal unnamed_addr constant [3 x %struct.anon.5] [%struct.anon.5 { [257 x i8] c"\06\06\16 &+0369;=@ACEFHIJKLMOPPQRSTUUVWXXYYZ[[\\\\]]^__```aabbcccddeeefffgghhhiiiijjjkkkllllmmmmnnnoooopppppqqqqrrrrrssssstttttuuuuuvvvvvvwwwwwxxxxxxyyyyyyyzzzzzz{{{{{{{|||||||}}}}}}}}~~~~~~~\7F\7F\7F\7F\7F\7F\7F\7F\80\80\80\80\80\80\80\80\80\81\81\81\81\81\81\81\81\81\82\82\82\82\82\82\82\82\82\83\83\83\83\83\83\83\83\83\83\84\84\84\84\84\84\84\84\84\84\85\85\85\85\85\85\85\85\85\85\86\86\86\86\86\86\86\86", i8 109 }, %struct.anon.5 { [257 x i8] c"\10\10 )059<@BEGIKLNPQRSUVWXYZ[\\\\]^_``abbccdeeffgghhiijjkklllmmnnnoopppqqqrrrsssstttuuuvvvvwwwwxxxxyyyyzzzzz{{{{|||||}}}}}~~~~~\7F\7F\7F\7F\7F\80\80\80\80\80\80\81\81\81\81\81\81\82\82\82\82\82\82\83\83\83\83\83\83\83\84\84\84\84\84\84\85\85\85\85\85\85\85\86\86\86\86\86\86\86\86\87\87\87\87\87\87\87\87\88\88\88\88\88\88\88\88\89\89\89\89\89\89\89\89\8A\8A\8A\8A\8A\8A\8A\8A\8A\8B\8B\8B\8B\8B\8B\8B\8B\8B\8C\8C\8C\8C\8C\8C\8C\8C\8C\8D\8D\8D\8D\8D\8D\8D\8D\8D\8D\8E\8E\8E\8E\8E\8E\8E\8E\8E\8E\8E\8F\8F\8F\8F\8F\8F\8F\8F\8F\8F\90", i8 93 }, %struct.anon.5 { [257 x i8] c"  09@EILPRUWY[\\^`abcefghijkllmnoppqrrsstuuvvwwxxyyzz{{|||}}~~~\7F\7F\80\80\80\81\81\81\82\82\82\83\83\83\83\84\84\84\85\85\85\86\86\86\86\87\87\87\87\88\88\88\88\89\89\89\89\8A\8A\8A\8A\8A\8B\8B\8B\8B\8C\8C\8C\8C\8C\8D\8D\8D\8D\8D\8E\8E\8E\8E\8E\8F\8F\8F\8F\8F\90\90\90\90\90\90\91\91\91\91\91\91\92\92\92\92\92\92\93\93\93\93\93\93\93\94\94\94\94\94\94\95\95\95\95\95\95\95\96\96\96\96\96\96\96\96\97\97\97\97\97\97\97\97\98\98\98\98\98\98\98\98\99\99\99\99\99\99\99\99\9A\9A\9A\9A\9A\9A\9A\9A\9A\9B\9B\9B\9B\9B\9B\9B\9B\9B\9C\9C\9C\9C\9C\9C\9C\9C\9C\9D\9D\9D\9D\9D\9D\9D\9D\9D\9D\9E\9E\9E\9E\9E\9E\9E\9E\9E\9E\9E\9F\9F\9F\9F\9F\9F\9F\9F\9F\9F\A0", i8 84 }], align 16
 
 ; Function Attrs: nounwind uwtable
-define ptr @libdeflate_alloc_compressor_ex(i32 noundef %compression_level, ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
+define ptr @libdeflate_alloc_compressor_ex(i32 noundef %compression_level, ptr noundef readonly captures(none) %options) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %options, align 8
   %cmp.not = icmp ne i64 %0, 24
@@ -357,7 +357,7 @@ return:                                           ; preds = %if.end16, %entry, %
 declare ptr @libdeflate_aligned_malloc(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @deflate_compress_fastest(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr nocapture noundef %os) #2 {
+define internal void @deflate_compress_fastest(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr noundef captures(none) %os) #2 {
 entry:
   %nice_match_length = getelementptr inbounds nuw i8, ptr %c, i64 36
   %0 = load i32, ptr %nice_match_length, align 4
@@ -1041,7 +1041,7 @@ do.end57:                                         ; preds = %do.end39, %land.rhs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @deflate_compress_greedy(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr nocapture noundef %os) #2 {
+define internal void @deflate_compress_greedy(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr noundef captures(none) %os) #2 {
 entry:
   %used.i = alloca [256 x i8], align 16
   %nice_match_length = getelementptr inbounds nuw i8, ptr %c, i64 36
@@ -1918,7 +1918,7 @@ do.end46:                                         ; preds = %do.end, %land.rhs43
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @deflate_compress_lazy(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr nocapture noundef %os) #2 {
+define internal void @deflate_compress_lazy(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr noundef captures(none) %os) #2 {
 entry:
   %used.i = alloca [256 x i8], align 16
   %nice_match_length.i = getelementptr inbounds nuw i8, ptr %c, i64 36
@@ -3515,7 +3515,7 @@ deflate_compress_lazy_generic.exit:               ; preds = %do.end.i, %land.rhs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @deflate_compress_lazy2(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr nocapture noundef %os) #2 {
+define internal void @deflate_compress_lazy2(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr noundef captures(none) %os) #2 {
 entry:
   %used.i = alloca [256 x i8], align 16
   %nice_match_length.i = getelementptr inbounds nuw i8, ptr %c, i64 36
@@ -5594,7 +5594,7 @@ deflate_compress_lazy_generic.exit:               ; preds = %do.end.i, %land.rhs
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define internal void @deflate_compress_near_optimal(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr nocapture noundef %os) #2 {
+define internal void @deflate_compress_near_optimal(ptr noalias noundef %c, ptr noundef %in, i64 noundef %in_nbytes, ptr noundef captures(none) %os) #2 {
 entry:
   %used.i = alloca [256 x i8], align 16
   %prev_block_used_only_literals = alloca i8, align 1
@@ -6917,7 +6917,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @libdeflate_aligned_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @libdeflate_get_compression_level(ptr nocapture noundef readonly %c) local_unnamed_addr #3 {
+define hidden i32 @libdeflate_get_compression_level(ptr noundef readonly captures(none) %c) local_unnamed_addr #3 {
 entry:
   %compression_level = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load i32, ptr %compression_level, align 16
@@ -6925,7 +6925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define i64 @libdeflate_deflate_compress_bound(ptr nocapture noundef readnone %c, i64 noundef %in_nbytes) local_unnamed_addr #4 {
+define i64 @libdeflate_deflate_compress_bound(ptr noundef readnone captures(none) %c, i64 noundef %in_nbytes) local_unnamed_addr #4 {
 entry:
   %sub = add i64 %in_nbytes, 4999
   %cmp.not = icmp ult i64 %sub, 5000
@@ -6943,22 +6943,22 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #6
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16>, <8 x i16>) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_flush_block(ptr noundef initializes((6060, 6064)) %c, ptr nocapture noundef %os, ptr noundef %block_begin, i32 noundef %block_length, ptr noundef readonly %sequences, i1 noundef zeroext %is_final_block) unnamed_addr #9 {
+define internal fastcc void @deflate_flush_block(ptr noundef initializes((6060, 6064)) %c, ptr noundef captures(none) %os, ptr noundef %block_begin, i32 noundef %block_length, ptr noundef readonly %sequences, i1 noundef zeroext %is_final_block) unnamed_addr #9 {
 entry:
   %idx.ext = zext i32 %block_length to i64
   %0 = load i64, ptr %os, align 8
@@ -7949,7 +7949,7 @@ return:                                           ; preds = %out, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @deflate_make_huffman_code(i32 noundef range(i32 19, 289) %num_syms, i32 noundef range(i32 7, 16) %max_codeword_len, ptr nocapture noundef readonly %freqs, ptr nocapture noundef %lens, ptr nocapture noundef %codewords) unnamed_addr #10 {
+define internal fastcc void @deflate_make_huffman_code(i32 noundef range(i32 19, 289) %num_syms, i32 noundef range(i32 7, 16) %max_codeword_len, ptr noundef readonly captures(none) %freqs, ptr noundef captures(none) %lens, ptr noundef captures(none) %codewords) unnamed_addr #10 {
 entry:
   %next_codewords.i = alloca [16 x i32], align 16
   %counters.i = alloca [288 x i32], align 16
@@ -8714,13 +8714,13 @@ if.end110:                                        ; preds = %if.then97, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_optimize_and_flush_block(ptr noundef initializes((40, 1320)) %c, ptr nocapture noundef %os, ptr noundef %block_begin, i32 noundef %block_length, ptr nocapture noundef readonly %cache_ptr, i1 noundef zeroext %is_first_block, i1 noundef zeroext %is_final_block, ptr nocapture noundef nonnull writeonly %used_only_literals) unnamed_addr #9 {
+define internal fastcc void @deflate_optimize_and_flush_block(ptr noundef initializes((40, 1320)) %c, ptr noundef captures(none) %os, ptr noundef %block_begin, i32 noundef %block_length, ptr noundef readonly captures(none) %cache_ptr, i1 noundef zeroext %is_first_block, i1 noundef zeroext %is_final_block, ptr noundef nonnull writeonly captures(none) %used_only_literals) unnamed_addr #9 {
 entry:
   %seq_ = alloca %struct.deflate_sequence, align 4
   %max_optim_passes = getelementptr inbounds nuw i8, ptr %c, i64 9011684
@@ -9856,7 +9856,7 @@ if.end67:                                         ; preds = %for.body44.i334, %i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @deflate_find_min_cost_path(ptr noundef %c, i32 noundef %block_length, ptr nocapture noundef readonly %cache_ptr) unnamed_addr #10 {
+define internal fastcc void @deflate_find_min_cost_path(ptr noundef %c, i32 noundef %block_length, ptr noundef readonly captures(none) %cache_ptr) unnamed_addr #10 {
 entry:
   %idxprom = zext i32 %block_length to i64
   %arrayidx.idx = shl nuw nsw i64 %idxprom, 3
@@ -10038,10 +10038,10 @@ declare i32 @llvm.umax.i32(i32, i32) #12
 declare i32 @llvm.smax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

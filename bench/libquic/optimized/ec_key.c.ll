@@ -99,7 +99,7 @@ declare void @CRYPTO_free_ex_data(ptr noundef, ptr noundef, ptr noundef) local_u
 declare void @METHOD_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @EC_KEY_new_by_curve_name(i32 noundef %nid) local_unnamed_addr #0 {
@@ -350,7 +350,7 @@ entry:
 declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @EC_KEY_is_opaque(ptr nocapture noundef readonly %key) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @EC_KEY_is_opaque(ptr noundef readonly captures(none) %key) local_unnamed_addr #3 {
 entry:
   %ecdsa_meth = getelementptr inbounds nuw i8, ptr %key, i64 40
   %0 = load ptr, ptr %ecdsa_meth, align 8
@@ -369,14 +369,14 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @EC_KEY_get0_group(ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
+define hidden ptr @EC_KEY_get0_group(ptr noundef readonly captures(none) %key) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %key, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_KEY_set_group(ptr nocapture noundef %key, ptr noundef %group) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_set_group(ptr noundef captures(none) %key, ptr noundef %group) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   tail call void @EC_GROUP_free(ptr noundef %0) #8
@@ -410,7 +410,7 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @EC_KEY_get0_private_key(ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
+define hidden ptr @EC_KEY_get0_private_key(ptr noundef readonly captures(none) %key) local_unnamed_addr #4 {
 entry:
   %priv_key = getelementptr inbounds nuw i8, ptr %key, i64 16
   %0 = load ptr, ptr %priv_key, align 8
@@ -418,7 +418,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_KEY_set_private_key(ptr nocapture noundef %key, ptr noundef %priv_key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_set_private_key(ptr noundef captures(none) %key, ptr noundef %priv_key) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %key, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -452,7 +452,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @BN_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @EC_KEY_get0_public_key(ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
+define hidden ptr @EC_KEY_get0_public_key(ptr noundef readonly captures(none) %key) local_unnamed_addr #4 {
 entry:
   %pub_key = getelementptr inbounds nuw i8, ptr %key, i64 8
   %0 = load ptr, ptr %pub_key, align 8
@@ -460,7 +460,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EC_KEY_set_public_key(ptr nocapture noundef %key, ptr noundef %pub_key) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EC_KEY_set_public_key(ptr noundef captures(none) %key, ptr noundef %pub_key) local_unnamed_addr #0 {
 entry:
   %pub_key1 = getelementptr inbounds nuw i8, ptr %key, i64 8
   %0 = load ptr, ptr %pub_key1, align 8
@@ -474,7 +474,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EC_KEY_get_enc_flags(ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
+define hidden i32 @EC_KEY_get_enc_flags(ptr noundef readonly captures(none) %key) local_unnamed_addr #4 {
 entry:
   %enc_flag = getelementptr inbounds nuw i8, ptr %key, i64 24
   %0 = load i32, ptr %enc_flag, align 8
@@ -482,7 +482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EC_KEY_set_enc_flags(ptr nocapture noundef writeonly initializes((24, 28)) %key, i32 noundef %flags) local_unnamed_addr #5 {
+define hidden void @EC_KEY_set_enc_flags(ptr noundef writeonly captures(none) initializes((24, 28)) %key, i32 noundef %flags) local_unnamed_addr #5 {
 entry:
   %enc_flag = getelementptr inbounds nuw i8, ptr %key, i64 24
   store i32 %flags, ptr %enc_flag, align 8
@@ -490,7 +490,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @EC_KEY_get_conv_form(ptr nocapture noundef readonly %key) local_unnamed_addr #4 {
+define hidden i32 @EC_KEY_get_conv_form(ptr noundef readonly captures(none) %key) local_unnamed_addr #4 {
 entry:
   %conv_form = getelementptr inbounds nuw i8, ptr %key, i64 28
   %0 = load i32, ptr %conv_form, align 4
@@ -498,7 +498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EC_KEY_set_conv_form(ptr nocapture noundef writeonly initializes((28, 32)) %key, i32 noundef %cform) local_unnamed_addr #5 {
+define hidden void @EC_KEY_set_conv_form(ptr noundef writeonly captures(none) initializes((28, 32)) %key, i32 noundef %cform) local_unnamed_addr #5 {
 entry:
   %conv_form = getelementptr inbounds nuw i8, ptr %key, i64 28
   store i32 %cform, ptr %conv_form, align 4
@@ -841,7 +841,7 @@ declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 declare void @BN_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EC_KEY_get_ex_new_index(i64 noundef %argl, ptr noundef %argp, ptr nocapture noundef readnone %unused, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
+define hidden i32 @EC_KEY_get_ex_new_index(i64 noundef %argl, ptr noundef %argp, ptr noundef readnone captures(none) %unused, ptr noundef %dup_func, ptr noundef %free_func) local_unnamed_addr #0 {
 entry:
   %index = alloca i32, align 4
   %call = call i32 @CRYPTO_get_ex_new_index(ptr noundef nonnull @g_ex_data_class, ptr noundef nonnull %index, i64 noundef %argl, ptr noundef %argp, ptr noundef %dup_func, ptr noundef %free_func) #8
@@ -874,7 +874,7 @@ entry:
 declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @EC_KEY_set_asn1_flag(ptr nocapture noundef readnone %key, i32 noundef %flag) local_unnamed_addr #6 {
+define hidden void @EC_KEY_set_asn1_flag(ptr noundef readnone captures(none) %key, i32 noundef %flag) local_unnamed_addr #6 {
 entry:
   ret void
 }

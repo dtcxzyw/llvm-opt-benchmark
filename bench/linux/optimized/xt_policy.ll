@@ -55,7 +55,7 @@ define internal i32 @policy_mt_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal zeroext i1 @policy_mt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal zeroext i1 @policy_mt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 304
@@ -276,7 +276,7 @@ define internal zeroext i1 @policy_mt(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @policy_mt_check(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal noundef range(i32 -22, 1) i32 @policy_mt_check(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 304
@@ -326,7 +326,7 @@ define internal noundef range(i32 -22, 1) i32 @policy_mt_check(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc zeroext i1 @match_xfrm_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext range(i16 0, 256) %2) unnamed_addr #4 align 16 {
+define internal fastcc zeroext i1 @match_xfrm_state(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext range(i16 0, 256) %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %5 = load i8, ptr %4, align 2
   %6 = and i8 %5, 1

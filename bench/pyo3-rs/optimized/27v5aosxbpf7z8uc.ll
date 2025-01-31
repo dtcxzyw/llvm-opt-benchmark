@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.fdc69fa71bf30e019c92f8fe53a04d60.3 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"cfg" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb6c785b183174eb1E"(ptr nocapture readnone align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb6c785b183174eb1E"(ptr readnone align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8
   %3 = load i64, ptr %.val, align 8
   %4 = add i64 %3, -39
@@ -36,7 +36,7 @@ define range(i64 0, 288230376151711744) i64 @"_ZN4core3ptr9const_ptr33_$LT$impl$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend6pyimpl12impl_methods28_$u7b$$u7b$closure$u7d$$u7d$17ha5bad7fb4c4babbfE"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #2 {
+define hidden void @"_ZN19pyo3_macros_backend6pyimpl12impl_methods28_$u7b$$u7b$closure$u7d$$u7d$17ha5bad7fb4c4babbfE"(ptr writeonly sret([56 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca [56 x i8], align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %4, -9223372036854775808
@@ -59,7 +59,7 @@ define hidden void @"_ZN19pyo3_macros_backend6pyimpl12impl_methods28_$u7b$$u7b$c
 declare void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he61eb0da9dbe3134E"(ptr sret([56 x i8]) align 8, ptr align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @_ZN3syn4path4Path8is_ident17he72fa2c64f3637d3E(ptr align 8, ptr align 1, i64) unnamed_addr #0

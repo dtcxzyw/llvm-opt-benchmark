@@ -154,7 +154,7 @@ Bac_AbcUpdateMan.exit8:                           ; preds = %.split4, %13
 declare ptr @Abc_FrameGetGlobalFrame(...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @Bac_PtrTransformToCba(ptr noundef) local_unnamed_addr #1
 
@@ -208,7 +208,7 @@ define void @Bac_Init(ptr noundef %0) local_unnamed_addr #0 {
 declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Bac_CommandRead(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Bac_CommandRead(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #12
   br label %.outer
 
@@ -440,7 +440,7 @@ Bac_AbcUpdateMan.exit:                            ; preds = %79, %81
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Bac_CommandWrite(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Bac_CommandWrite(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 528
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #12
@@ -592,7 +592,7 @@ sub_0:                                            ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Bac_CommandPs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Bac_CommandPs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 528
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #12
@@ -1095,7 +1095,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandPut(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Bac_CommandGet(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Bac_CommandGet(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 528
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #12
@@ -1195,7 +1195,7 @@ Bac_AbcUpdateMan.exit:                            ; preds = %29, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Bac_CommandClp(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Bac_CommandClp(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 528
   %.val = load ptr, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #12
@@ -1250,7 +1250,7 @@ Bac_AbcUpdateMan.exit:                            ; preds = %12, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Bac_CommandCec(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Bac_CommandCec(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCec_t_, align 4
   %5 = getelementptr i8, ptr %0, i64 528
   %.val = load ptr, ptr %5, align 8
@@ -1425,7 +1425,7 @@ sub_0:                                            ; preds = %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Bac_CommandTest(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Bac_CommandTest(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #12
   br label %4
 
@@ -1456,7 +1456,7 @@ define internal range(i32 0, 2) i32 @Bac_CommandTest(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_End(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Bac_End(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 528
   %.val = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %.val, null
@@ -1471,7 +1471,7 @@ Bac_AbcFreeMan.exit:                              ; preds = %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Bac_ManFree(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Bac_ManFree(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 36
   %.val34 = load i32, ptr %2, align 4
   %.not35 = icmp slt i32 %.val34, 1
@@ -1761,14 +1761,14 @@ Vec_IntErase.exit33:                              ; preds = %Vec_IntErase.exit31
 declare void @Abc_NamDeref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #1
 
 declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1, ...) unnamed_addr #0 {
@@ -1823,7 +1823,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   %23 = load ptr, ptr @stdout, align 8
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #13
   %25 = trunc i64 %24 to i32
-  %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef %22) #12
+  %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %22) #12
   call void @free(ptr noundef %22) #12
   br label %29
 
@@ -1842,7 +1842,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
 declare ptr @Extra_FileGetSimilarName(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @Io_ReadNetlist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1855,7 +1855,7 @@ declare void @Bac_PtrFree(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @Extra_FileNameExtension(ptr noundef) local_unnamed_addr #1
 
@@ -1864,7 +1864,7 @@ declare ptr @Psr_ManReadBlif(ptr noundef) local_unnamed_addr #1
 declare ptr @Psr_ManBuildCba(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Psr_ManVecFree(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Psr_ManVecFree(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val8 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val8, 0
@@ -2112,13 +2112,13 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
@@ -2134,7 +2134,7 @@ declare void @Bac_ManWriteVerilog(ptr noundef, ptr noundef, i32 noundef) local_u
 declare void @Bac_ManWriteBac(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @Abc_NamObjNumMax(ptr noundef) local_unnamed_addr #1
 
@@ -2144,7 +2144,7 @@ declare i32 @Abc_NamMemUsed(ptr noundef) local_unnamed_addr #1
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr nocapture noundef %0) unnamed_addr #9 {
+define internal fastcc range(i32 0, -2147483648) i32 @Bac_ManBoxNum_rec(ptr noundef captures(none) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, -1
@@ -2258,7 +2258,7 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11

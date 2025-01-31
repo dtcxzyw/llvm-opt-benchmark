@@ -186,7 +186,7 @@ declare ptr @agroot(ptr noundef) local_unnamed_addr #1
 declare ptr @agparent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @agnextseq(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define i64 @agnextseq(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -369,10 +369,10 @@ declare i32 @agpopdisc(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @agstrclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @agnnodes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @agnnodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @dtsize(ptr noundef %3) #13
@@ -464,7 +464,7 @@ define i32 @agdegree(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @agnsubg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @agnsubg(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @dtsize(ptr noundef %3) #13
@@ -472,7 +472,7 @@ define i32 @agnsubg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @agisdirected(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @agisdirected(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -481,7 +481,7 @@ define range(i32 0, 2) i32 @agisdirected(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @agisundirected(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @agisundirected(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -491,7 +491,7 @@ define range(i32 0, 2) i32 @agisundirected(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @agisstrict(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @agisstrict(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = lshr i8 %3, 1
@@ -501,7 +501,7 @@ define range(i32 0, 2) i32 @agisstrict(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @agissimple(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @agissimple(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 2
@@ -559,7 +559,7 @@ define i32 @agcountuniqedges(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32
   %.not21 = icmp ne ptr %25, %1
   %26 = zext i1 %.not21 to i32
   %spec.select = add nsw i32 %.230, %26
-  %27 = tail call ptr @agnxtin(ptr noundef %0, ptr noundef nonnull %.01829) #13
+  %27 = tail call ptr @agnxtin(ptr noundef nonnull %0, ptr noundef nonnull %.01829) #13
   %.not20 = icmp eq ptr %27, null
   br i1 %.not20, label %.loopexit, label %.lr.ph
 
@@ -575,7 +575,7 @@ declare ptr @agfstin(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @agraphseqcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #4 {
+define internal range(i32 -1, 2) i32 @agraphseqcmpf(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #4 {
   %5 = load i32, ptr %1, align 8
   %6 = lshr i32 %5, 4
   %7 = load i32, ptr %2, align 8
@@ -585,7 +585,7 @@ define internal range(i32 -1, 2) i32 @agraphseqcmpf(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @agraphidcmpf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #4 {
+define internal range(i32 -1, 2) i32 @agraphidcmpf(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -595,7 +595,7 @@ define internal range(i32 -1, 2) i32 @agraphidcmpf(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #6 {

@@ -609,7 +609,7 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals25enable_jvmci_product_modeE1
   %5 = getelementptr inbounds nuw [20 x ptr], ptr @__const._ZN12JVMCIGlobals25enable_jvmci_product_modeE13JVMFlagOriginb.JVMCIFlags, i64 0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #6
-  %8 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %6, i64 noundef %7, i1 noundef zeroext true, i1 noundef zeroext true) #5
+  %8 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef nonnull %6, i64 noundef %7, i1 noundef zeroext true, i1 noundef zeroext true) #5
   %9 = icmp eq ptr %8, null
   br i1 %9, label %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit.thread, label %10
 
@@ -746,7 +746,7 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_bc_ofs = external hidden local_unnamed_addr constant [0 x i16], align 2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @lj_dispatch_init(ptr nocapture noundef %GG) local_unnamed_addr #0 {
+define hidden void @lj_dispatch_init(ptr noundef captures(none) %GG) local_unnamed_addr #0 {
 entry:
   %dispatch = getelementptr inbounds nuw i8, ptr %GG, i64 4064
   br label %for.body
@@ -89,7 +89,7 @@ for.end41:                                        ; preds = %for.body34
 declare hidden void @lj_vm_IITERN() #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @lj_dispatch_init_hotcount(ptr nocapture noundef %g) local_unnamed_addr #0 {
+define hidden void @lj_dispatch_init_hotcount(ptr noundef captures(none) %g) local_unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %g, i64 2388
   %0 = load i32, ptr %arrayidx, align 4
@@ -112,7 +112,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @lj_dispatch_update(ptr nocapture noundef %g) local_unnamed_addr #0 {
+define hidden void @lj_dispatch_update(ptr noundef captures(none) %g) local_unnamed_addr #0 {
 entry:
   %dispatchmode = getelementptr inbounds nuw i8, ptr %g, i64 146
   %0 = load i8, ptr %dispatchmode, align 2
@@ -349,7 +349,7 @@ if.end195:                                        ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare hidden void @lj_vm_rethook() #1
 
@@ -633,7 +633,7 @@ declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr 
 declare hidden i32 @lj_trace_flushall(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setptmode_all(ptr noundef %g, ptr nocapture noundef readonly %pt, i32 noundef %mode) unnamed_addr #3 {
+define internal fastcc void @setptmode_all(ptr noundef %g, ptr noundef readonly captures(none) %pt, i32 noundef %mode) unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %pt, i64 61
   %0 = load i8, ptr %flags, align 1
@@ -747,7 +747,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @lua_sethook(ptr nocapture noundef readonly %L, ptr noundef %func, i32 noundef %mask, i32 noundef %count) local_unnamed_addr #6 {
+define dso_local noundef i32 @lua_sethook(ptr noundef readonly captures(none) %L, ptr noundef %func, i32 noundef %mask, i32 noundef %count) local_unnamed_addr #6 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -778,7 +778,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @lua_gethook(ptr nocapture noundef readonly %L) local_unnamed_addr #7 {
+define dso_local ptr @lua_gethook(ptr noundef readonly captures(none) %L) local_unnamed_addr #7 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -789,7 +789,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 16) i32 @lua_gethookmask(ptr nocapture noundef readonly %L) local_unnamed_addr #7 {
+define dso_local range(i32 0, 16) i32 @lua_gethookmask(ptr noundef readonly captures(none) %L) local_unnamed_addr #7 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -802,7 +802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @lua_gethookcount(ptr nocapture noundef readonly %L) local_unnamed_addr #7 {
+define dso_local i32 @lua_gethookcount(ptr noundef readonly captures(none) %L) local_unnamed_addr #7 {
 entry:
   %glref = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load i64, ptr %glref, align 8
@@ -1670,10 +1670,10 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

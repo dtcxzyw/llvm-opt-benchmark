@@ -1159,7 +1159,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_Py_NoneStruct = external global %struct._object, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_CalculateSuggestions(ptr nocapture noundef readonly %dir, ptr noundef %name) local_unnamed_addr #0 {
+define hidden ptr @_Py_CalculateSuggestions(ptr noundef readonly captures(none) %dir, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %name_size = alloca i64, align 8
   %item_size = alloca i64, align 8
@@ -1275,7 +1275,7 @@ declare i32 @_PyUnicode_Equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly %a, i64 noundef %a_size, ptr noundef nonnull readonly %b, i64 noundef %b_size, i64 noundef %max_cost, ptr nocapture noundef nonnull %buffer) unnamed_addr #2 {
+define internal fastcc i64 @levenshtein_distance(ptr noundef nonnull readonly %a, i64 noundef %a_size, ptr noundef nonnull readonly %b, i64 noundef %b_size, i64 noundef %max_cost, ptr noundef nonnull captures(none) %buffer) unnamed_addr #2 {
 entry:
   %cmp = icmp eq ptr %a, %b
   br i1 %cmp, label %return, label %while.cond.preheader
@@ -1463,7 +1463,7 @@ return:                                           ; preds = %for.cond54.us, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_Offer_Suggestions(ptr nocapture noundef readonly %exception) local_unnamed_addr #0 {
+define hidden ptr @_Py_Offer_Suggestions(ptr noundef readonly captures(none) %exception) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @PyExc_AttributeError, align 8
   %1 = getelementptr i8, ptr %exception, i64 8
@@ -2032,7 +2032,7 @@ declare i32 @PyObject_HasAttrWithError(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @PyImport_GetModule(ptr noundef) local_unnamed_addr #1
 

@@ -108,7 +108,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN9grpc_core15ScopedTimeCache3NowEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN9grpc_core15ScopedTimeCache3NowEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cached_time_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_engaged.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -359,7 +359,7 @@ _ZN9grpc_core12_GLOBAL__N_125TimespanToMillisRoundDownE12gpr_timespec.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZNK9grpc_core9Timestamp11as_timespecE14gpr_clock_type(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %clock_type) local_unnamed_addr #4 align 2 {
+define { i64, i64 } @_ZNK9grpc_core9Timestamp11as_timespecE14gpr_clock_type(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %clock_type) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %call = tail call fastcc { i64, i64 } @_ZN9grpc_core12_GLOBAL__N_122MillisecondsAsTimespecEl14gpr_clock_type(i64 noundef %0, i32 noundef %clock_type)
@@ -417,7 +417,7 @@ return:                                           ; preds = %_ZN9grpc_core12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core9Timestamp8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core9Timestamp8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp6 = alloca %"class.std::allocator", align 1
@@ -693,7 +693,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad.body
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZNK9grpc_core8Duration11as_timespecEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZNK9grpc_core8Duration11as_timespecEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   switch i64 %0, label %if.end6.i [
@@ -753,7 +753,7 @@ _ZN9grpc_core12_GLOBAL__N_123TimespanToMillisRoundUpE12gpr_timespec.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core8Duration8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core8Duration8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp6 = alloca %"class.std::allocator", align 1
@@ -855,7 +855,7 @@ eh.resume:                                        ; preds = %lpad12, %lpad7.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core8Duration12ToJsonStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core8Duration12ToJsonStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %0 = load i64, ptr %this, align 8
@@ -897,7 +897,7 @@ _ZNK9grpc_core8Duration11as_timespecEv.exit:      ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -9223372036854000000, 9223372036854000001) i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 {
+define range(i64 -9223372036854000000, 9223372036854000001) i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %max.val.i = tail call i64 @llvm.smin.i64(i64 %0, i64 9223372036854)
@@ -1240,7 +1240,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal i64 @_ZN9grpc_core12_GLOBAL__N_116GprNowTimeSource3NowEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal i64 @_ZN9grpc_core12_GLOBAL__N_116GprNowTimeSource3NowEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call { i64, i64 } @gpr_now(i32 noundef 0)
   %0 = extractvalue { i64, i64 } %call, 0
@@ -1341,10 +1341,10 @@ define weak_odr hidden noundef ptr @_ZTWN9grpc_core9Timestamp25thread_local_time
 declare i64 @llvm.abs.i64(i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17

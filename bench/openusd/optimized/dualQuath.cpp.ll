@@ -43,13 +43,13 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__11GfDualQuathE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuathC1ERKNS_11GfDualQuatfE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuathC2ERKNS_11GfDualQuatfE
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd21EPNS_6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd21EPNS_6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction21EPNS_6TfTypeEPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction21EPNS_6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction21EPNS_6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__11GfDualQuathE, ptr noundef null, ptr noundef null, i64 noundef 0, i64 noundef 16, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
 }
@@ -292,7 +292,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfC2Ef.exit: ; preds = %69, %77
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath13GetNormalizedENS_8pxr_half4halfE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(16) %0, i16 %1) local_unnamed_addr #0 align 2 {
+define { i64, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath13GetNormalizedENS_8pxr_half4halfE(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(16) %0, i16 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 2 dereferenceable(16) %0, i64 16, i1 false)
   %4 = call i32 @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuath9NormalizeENS_8pxr_half4halfE(ptr noundef nonnull align 2 dereferenceable(16) %3, i16 %1)
@@ -305,7 +305,7 @@ define { i64, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath13GetNor
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define i32 @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuath9NormalizeENS_8pxr_half4halfE(ptr noundef nonnull align 2 dereferenceable(16) %0, i16 %1) local_unnamed_addr #0 align 2 {
@@ -574,7 +574,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfQuathmIERKS0_.exit: ; preds = %150, %158
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath12GetConjugateEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define { i64, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath12GetConjugateEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %.sroa.0.0.copyload.i.i = load i16, ptr %2, align 2
   %3 = load i16, ptr %0, align 2
@@ -887,7 +887,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__miERKNS_7GfQuathES2_.exit: ; preds = %129, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuath14SetTranslationERKNS_7GfVec3hE(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuath14SetTranslationERKNS_7GfVec3hE(ptr noundef nonnull align 2 dereferenceable(16) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(6) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", align 2
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %4)
@@ -907,7 +907,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__11GfDualQuath14SetTranslationE
 }
 
 ; Function Attrs: mustprogress uwtable
-define i48 @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath14GetTranslationEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define i48 @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath14GetTranslationEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %.sroa.0.0.copyload.i = load i16, ptr %3, align 2
@@ -1253,7 +1253,7 @@ define i48 @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuath9TransformERKNS_7
 declare i48 @_ZNK32pxrInternal_v0_24__pxrReserved__7GfQuath9TransformERKNS_7GfVec3hE(ptr noundef nonnull align 2 dereferenceable(8), ptr noundef nonnull align 2 dereferenceable(6)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_11GfDualQuathE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(16) %1) local_unnamed_addr #0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_11GfDualQuathE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 40)
@@ -1283,7 +1283,7 @@ define internal void @__cxx_global_var_init.5() #5 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitDtorEPKc(ptr noundef nonnull @.str)
           to label %2 unwind label %3
 
@@ -1844,10 +1844,10 @@ define internal void @_GLOBAL__sub_I_dualQuath.cpp() #11 section ".text.startup"
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

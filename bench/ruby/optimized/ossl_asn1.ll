@@ -228,7 +228,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @asn1time_to_time(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i64 @asn1time_to_time(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   %3 = alloca [6 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
@@ -369,10 +369,10 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %40
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
 declare void @ossl_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -382,7 +382,7 @@ declare void @rb_warning(ptr noundef, ...) local_unnamed_addr #4
 declare i64 @rb_funcallv(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_time_split(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define void @ossl_time_split(i64 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i64 @rb_Integer(i64 noundef %0) #9
   %5 = and i64 %4, 1
   %.not = icmp eq i64 %5, 0
@@ -475,7 +475,7 @@ declare i64 @rb_Integer(i64 noundef) local_unnamed_addr #4
 declare i64 @rb_funcall(i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i64 @asn1str_to_str(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i64 @asn1str_to_str(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -2742,7 +2742,7 @@ declare ptr @ASN1_BIT_STRING_new() local_unnamed_addr #4
 declare i32 @ASN1_BIT_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @ASN1_NULL_new() local_unnamed_addr #4
 
@@ -2772,7 +2772,7 @@ declare i64 @ossl_to_der_if_possible(i64 noundef) local_unnamed_addr #4
 declare i64 @rb_str_new_frozen(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @ossl_asn1_decode0(ptr nocapture noundef nonnull %0, i64 noundef %1, ptr nocapture noundef nonnull %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @ossl_asn1_decode0(ptr noundef nonnull captures(none) %0, i64 noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -3849,10 +3849,10 @@ declare i64 @rb_str_resize(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare void @rb_str_set_len(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

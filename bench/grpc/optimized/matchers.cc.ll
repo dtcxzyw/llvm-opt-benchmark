@@ -429,7 +429,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core13StringMatcherC2ESt10unique_ptrIN3re23RE2ESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 4)) %this, ptr nocapture noundef %regex_matcher) unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core13StringMatcherC2ESt10unique_ptrIN3re23RE2ESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 4)) %this, ptr noundef captures(none) %regex_matcher) unnamed_addr #4 align 2 {
 entry:
   store i32 3, ptr %this, align 8
   %string_matcher_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1954,7 +1954,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK9grpc_core13HeaderMatcher5MatchERKSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %value) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK9grpc_core13HeaderMatcher5MatchERKSt8optionalISt17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(114) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %value) local_unnamed_addr #3 align 2 {
 entry:
   %val.i.i = alloca i64, align 8
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2332,13 +2332,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

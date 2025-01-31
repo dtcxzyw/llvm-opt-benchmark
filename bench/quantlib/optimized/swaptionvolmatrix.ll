@@ -681,7 +681,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib16FlatSmileSectionEEE = comdat 
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -766,7 +766,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -1332,7 +1332,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EESA_RKS5_IS5_INS_6HandleINS_5QuoteEEESaISD_EESaISF_EERKNS_10DayCounterEbNS_14VolatilityTypeERKS5_IS5_IdSaIdEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EESA_RKS5_IS5_INS_6HandleINS_5QuoteEEESaISD_EESaISF_EERKNS_10DayCounterEbNS_14VolatilityTypeERKS5_IS5_IdSaIdEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::FlatExtrapolator2D", align 8
   %ref.tmp32 = alloca %"class.boost::shared_ptr.53", align 8
@@ -2393,7 +2393,7 @@ ehcleanup156:                                     ; preds = %lpad, %if.then.i.i.
 declare void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_jRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib24SwaptionVolatilityMatrix11checkInputsEmmmm(ptr nocapture noundef nonnull align 8 dereferenceable(500) %this, i64 noundef %volRows, i64 noundef %volsColumns, i64 noundef %shiftRows, i64 noundef %shiftsColumns) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib24SwaptionVolatilityMatrix11checkInputsEmmmm(ptr noundef nonnull align 8 captures(none) dereferenceable(500) %this, i64 noundef %volRows, i64 noundef %volsColumns, i64 noundef %shiftRows, i64 noundef %shiftsColumns) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4419,7 +4419,7 @@ _ZNSt6vectorIN8QuantLib6PeriodESaIS1_EED2Ev.exit48: ; preds = %_ZNSt6vectorIN8Qu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EESA_RKS5_IS5_INS_6HandleINS_5QuoteEEESaISD_EESaISF_EERKNS_10DayCounterEbNS_14VolatilityTypeERKS5_IS5_IdSaIdEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EESA_RKS5_IS5_INS_6HandleINS_5QuoteEEESaISD_EESaISF_EERKNS_10DayCounterEbNS_14VolatilityTypeERKS5_IS5_IdSaIdEESaISP_EE(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::FlatExtrapolator2D", align 8
   %ref.tmp30 = alloca %"class.boost::shared_ptr.53", align 8
@@ -5501,7 +5501,7 @@ ehcleanup155:                                     ; preds = %ehcleanup154, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EESD_RKS8_IS8_INS_6HandleINS_5QuoteEEESaISG_EESaISI_EERKNS_10DayCounterEbNS_14VolatilityTypeERKS8_IS8_IdSaIdEESaISS_EE(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EESD_RKS8_IS8_INS_6HandleINS_5QuoteEEESaISG_EESaISI_EERKNS_10DayCounterEbNS_14VolatilityTypeERKS8_IS8_IdSaIdEESaISS_EE(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::FlatExtrapolator2D", align 8
   %ref.tmp32 = alloca %"class.boost::shared_ptr.53", align 8
@@ -6562,7 +6562,7 @@ ehcleanup156:                                     ; preds = %lpad, %if.then.i.i.
 declare void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_6PeriodESaIS2_EES6_RKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EESD_RKS8_IS8_INS_6HandleINS_5QuoteEEESaISG_EESaISI_EERKNS_10DayCounterEbNS_14VolatilityTypeERKS8_IS8_IdSaIdEESaISS_EE(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EESD_RKS8_IS8_INS_6HandleINS_5QuoteEEESaISG_EESaISI_EERKNS_10DayCounterEbNS_14VolatilityTypeERKS8_IS8_IdSaIdEESaISS_EE(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::FlatExtrapolator2D", align 8
   %ref.tmp30 = alloca %"class.boost::shared_ptr.53", align 8
@@ -7644,7 +7644,7 @@ ehcleanup155:                                     ; preds = %ehcleanup154, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EESA_RKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESD_(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EESA_RKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESD_(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp58 = alloca %"class.QuantLib::Handle", align 8
   %ref.tmp59 = alloca %"class.boost::shared_ptr.56", align 8
@@ -9197,7 +9197,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EESA_RKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESD_(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EESA_RKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESD_(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp56 = alloca %"class.QuantLib::Handle", align 8
   %ref.tmp57 = alloca %"class.boost::shared_ptr.56", align 8
@@ -10654,7 +10654,7 @@ ehcleanup216:                                     ; preds = %ehcleanup215, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EESD_RKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESG_(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EESD_RKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESG_(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp58 = alloca %"class.QuantLib::Handle", align 8
   %ref.tmp59 = alloca %"class.boost::shared_ptr.56", align 8
@@ -12088,7 +12088,7 @@ ehcleanup217:                                     ; preds = %ehcleanup216, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EESD_RKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESG_(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EESD_RKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESG_(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(8) %refDate, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionT, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp56 = alloca %"class.QuantLib::Handle", align 8
   %ref.tmp57 = alloca %"class.boost::shared_ptr.56", align 8
@@ -13545,7 +13545,7 @@ ehcleanup216:                                     ; preds = %ehcleanup215, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorIS1_SaIS1_EERKS8_INS_6PeriodESaISD_EERKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESK_(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %today, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionDates, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorIS1_SaIS1_EERKS8_INS_6PeriodESaISD_EERKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESK_(ptr noundef nonnull align 8 dereferenceable(500) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %today, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionDates, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp58 = alloca %"class.QuantLib::Handle", align 8
   %ref.tmp59 = alloca %"class.boost::shared_ptr.56", align 8
@@ -14981,7 +14981,7 @@ ehcleanup217:                                     ; preds = %ehcleanup216, %lpad
 declare void @_ZN8QuantLib26SwaptionVolatilityDiscreteC2ERKSt6vectorINS_4DateESaIS2_EERKS1_INS_6PeriodESaIS7_EERKS2_RKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorIS1_SaIS1_EERKS8_INS_6PeriodESaISD_EERKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESK_(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(8) %today, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionDates, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24SwaptionVolatilityMatrixC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorIS1_SaIS1_EERKS8_INS_6PeriodESaISD_EERKNS_6MatrixERKNS_10DayCounterEbNS_14VolatilityTypeESK_(ptr noundef nonnull align 8 dereferenceable(500) initializes((504, 512), (520, 524), (528, 536)) %this, ptr noundef nonnull align 8 dereferenceable(8) %today, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(24) %optionDates, ptr noundef nonnull align 8 dereferenceable(24) %swapT, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc, i1 noundef zeroext %flatExtrapolation, i32 noundef %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %shifts) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp56 = alloca %"class.QuantLib::Handle", align 8
   %ref.tmp57 = alloca %"class.boost::shared_ptr.56", align 8
@@ -18288,7 +18288,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #18
@@ -20049,7 +20049,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit:         ; preds = %invoke.cont.i, %if.
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -20457,7 +20457,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt6vectorIdSaIdEEEEvT_S6_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPN8QuantLib21BilinearInterpolationENS0_13sp_ms_deleterIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
@@ -20565,7 +20565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21BilinearInterpolationD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -21564,7 +21564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {

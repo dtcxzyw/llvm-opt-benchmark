@@ -1034,10 +1034,10 @@ return:                                           ; preds = %if.end683, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @CheckRunTimeSettings() local_unnamed_addr #2
 
@@ -4587,7 +4587,7 @@ if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %arrayidx23, align 8
   %call26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %conv27 = trunc i64 %call26 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 3, ptr noundef %1, i32 noundef %conv27) #19
+  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 3, ptr noundef nonnull %1, i32 noundef %conv27) #19
   %cmp29.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not, label %if.end42, label %if.then31
 
@@ -4706,7 +4706,7 @@ if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %arrayidx23, align 8
   %call26 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %conv27 = trunc i64 %call26 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 4, ptr noundef %1, i32 noundef %conv27) #19
+  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 4, ptr noundef nonnull %1, i32 noundef %conv27) #19
   %cmp29.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not, label %if.end42, label %if.then31
 
@@ -4831,7 +4831,7 @@ if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %arrayidx30, align 8
   %call33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %conv34 = trunc i64 %call33 to i32
-  %call35 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 5, ptr noundef %1, i32 noundef %conv34) #19
+  %call35 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 5, ptr noundef nonnull %1, i32 noundef %conv34) #19
   %cmp36.not = icmp eq i32 %call35, 0
   br i1 %cmp36.not, label %if.end49, label %if.then38
 
@@ -4955,7 +4955,7 @@ if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %arrayidx27, align 8
   %call30 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %conv31 = trunc i64 %call30 to i32
-  %call32 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 6, ptr noundef %1, i32 noundef %conv31) #19
+  %call32 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 6, ptr noundef nonnull %1, i32 noundef %conv31) #19
   %cmp33.not = icmp eq i32 %call32, 0
   br i1 %cmp33.not, label %if.end45, label %if.then35
 
@@ -5105,7 +5105,7 @@ if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %arrayidx30, align 8
   %call33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %conv34 = trunc i64 %call33 to i32
-  %call35 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 7, ptr noundef %1, i32 noundef %conv34) #19
+  %call35 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 7, ptr noundef nonnull %1, i32 noundef %conv34) #19
   %cmp36.not = icmp eq i32 %call35, 0
   br i1 %cmp36.not, label %if.end49, label %if.then38
 
@@ -5230,7 +5230,7 @@ if.end:                                           ; preds = %for.body
   %1 = load ptr, ptr %arrayidx30, align 8
   %call33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #20
   %conv34 = trunc i64 %call33 to i32
-  %call35 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 8, ptr noundef %1, i32 noundef %conv34) #19
+  %call35 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 8, ptr noundef nonnull %1, i32 noundef %conv34) #19
   %cmp36.not = icmp eq i32 %call35, 0
   br i1 %cmp36.not, label %if.end49, label %if.then38
 
@@ -5333,7 +5333,7 @@ if.end.us:                                        ; preds = %for.body3.us
   %2 = load ptr, ptr %arrayidx11, align 8
   %call14.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
   %conv15.us = trunc i64 %call14.us to i32
-  %call16.us = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef %1, ptr noundef %2, i32 noundef %conv15.us) #19
+  %call16.us = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %conv15.us) #19
   %cmp17.not.us = icmp eq i32 %call16.us, 0
   br i1 %cmp17.not.us, label %if.end30.us, label %if.then19
 
@@ -5341,7 +5341,7 @@ if.end30.us:                                      ; preds = %if.end.us
   %3 = load ptr, ptr %arrayidx32, align 8
   %call35.us = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #20
   %conv36.us = trunc i64 %call35.us to i32
-  %call37.us = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %3, i32 noundef %conv36.us) #19
+  %call37.us = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %3, i32 noundef %conv36.us) #19
   %cmp38.not.us = icmp eq i32 %call37.us, 0
   br i1 %cmp38.not.us, label %if.end51.us, label %if.then40
 
@@ -5391,7 +5391,7 @@ if.end:                                           ; preds = %for.body3
   %8 = load ptr, ptr %arrayidx11, align 8
   %call14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #20
   %conv15 = trunc i64 %call14 to i32
-  %call16 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef %7, ptr noundef %8, i32 noundef %conv15) #19
+  %call16 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef %7, ptr noundef nonnull %8, i32 noundef %conv15) #19
   %cmp17.not = icmp eq i32 %call16, 0
   br i1 %cmp17.not, label %if.end30, label %if.then19
 
@@ -5407,7 +5407,7 @@ if.end30:                                         ; preds = %if.end
   %10 = load ptr, ptr %arrayidx32, align 8
   %call35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #20
   %conv36 = trunc i64 %call35 to i32
-  %call37 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef %10, i32 noundef %conv36) #19
+  %call37 = call i32 @wc_HmacUpdate(ptr noundef nonnull %hmac, ptr noundef nonnull %10, i32 noundef %conv36) #19
   %cmp38.not = icmp eq i32 %call37, 0
   br i1 %cmp38.not, label %if.end51, label %if.then40
 
@@ -5917,8 +5917,8 @@ for.body:                                         ; preds = %entry, %for.inc
   %1 = load ptr, ptr %arrayidx27, align 8
   %2 = load i64, ptr %1, align 1
   store i64 %2, ptr %add.ptr, align 4
-  %call = call i32 @wc_Chacha_SetKey(ptr noundef nonnull %enc, ptr noundef %0, i32 noundef %.) #19
-  %call32 = call i32 @wc_Chacha_SetKey(ptr noundef nonnull %dec, ptr noundef %0, i32 noundef %.) #19
+  %call = call i32 @wc_Chacha_SetKey(ptr noundef nonnull %enc, ptr noundef nonnull %0, i32 noundef %.) #19
+  %call32 = call i32 @wc_Chacha_SetKey(ptr noundef nonnull %dec, ptr noundef nonnull %0, i32 noundef %.) #19
   %or33 = or i32 %call32, %call
   %cmp34.not = icmp eq i32 %or33, 0
   br i1 %cmp34.not, label %if.end37, label %return
@@ -10305,7 +10305,7 @@ if.end29:                                         ; preds = %if.then15, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @wolfCrypt_Init() local_unnamed_addr #2
 
@@ -10314,15 +10314,15 @@ declare i32 @wolfCrypt_Cleanup() local_unnamed_addr #2
 declare ptr @wc_GetErrorString(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @wc_ErrorString(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @Base64_Decode(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -10351,7 +10351,7 @@ declare i32 @wc_Md5Copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @wc_Md5Final(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare i32 @wc_InitSha_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -10790,7 +10790,7 @@ return:                                           ; preds = %if.end65, %if.then5
 declare void @wc_AesFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741583105, 1) i32 @aesgcm_default_test_helper(ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef %plain, i32 noundef range(i32 0, 33) %plainSz, ptr noundef readonly %cipher, i32 noundef range(i32 0, 33) %cipherSz, ptr noundef %aad, i32 noundef range(i32 0, 17) %aadSz, ptr nocapture noundef nonnull readonly %tag, i32 noundef range(i32 12, 17) %tagSz) unnamed_addr #0 {
+define internal fastcc range(i32 -741583105, 1) i32 @aesgcm_default_test_helper(ptr noundef nonnull %key, ptr noundef nonnull %iv, ptr noundef %plain, i32 noundef range(i32 0, 33) %plainSz, ptr noundef readonly %cipher, i32 noundef range(i32 0, 33) %cipherSz, ptr noundef %aad, i32 noundef range(i32 0, 17) %aadSz, ptr noundef nonnull readonly captures(none) %tag, i32 noundef range(i32 12, 17) %tagSz) unnamed_addr #0 {
 entry:
   %enc = alloca [1 x %struct.Aes], align 16
   %dec = alloca [1 x %struct.Aes], align 16
@@ -10994,13 +10994,13 @@ declare ptr @wolfSSL_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @wc_InitRsaKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -12958,7 +12958,7 @@ return:                                           ; preds = %for.inc99, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -741590935, 1) i32 @dh_ffdhe_test(ptr noundef nonnull %rng, ptr nocapture noundef readonly %params) unnamed_addr #0 {
+define internal fastcc range(i32 -741590935, 1) i32 @dh_ffdhe_test(ptr noundef nonnull %rng, ptr noundef readonly captures(none) %params) unnamed_addr #0 {
 entry:
   %privSz = alloca i32, align 4
   %pubSz = alloca i32, align 4
@@ -14525,7 +14525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @my_Free_cb(ptr nocapture noundef %ptr) #8 {
+define internal void @my_Free_cb(ptr noundef captures(none) %ptr) #8 {
 entry:
   %0 = load i32, ptr @free_cnt, align 4
   %inc = add nsw i32 %0, 1
@@ -14535,7 +14535,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noalias noundef ptr @my_Realloc_cb(ptr nocapture noundef %ptr, i64 noundef %size) #8 {
+define internal noalias noundef ptr @my_Realloc_cb(ptr noundef captures(none) %ptr, i64 noundef %size) #8 {
 entry:
   %0 = load i32, ptr @realloc_cnt, align 4
   %inc = add nsw i32 %0, 1
@@ -14775,7 +14775,7 @@ declare i32 @wc_EccPrivateKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare i32 @wc_EccPublicKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1610739912, 1) i32 @_SaveDerAndPem(ptr nocapture noundef nonnull %der, i32 noundef range(i32 0, -2147483648) %derSz, ptr nocapture noundef readonly %fileDer, i32 noundef range(i32 27136, 27177) %calling_line) unnamed_addr #11 {
+define internal fastcc range(i32 -1610739912, 1) i32 @_SaveDerAndPem(ptr noundef nonnull captures(none) %der, i32 noundef range(i32 0, -2147483648) %derSz, ptr noundef readonly captures(none) %fileDer, i32 noundef range(i32 27136, 27177) %calling_line) unnamed_addr #11 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %fileDer, ptr noundef nonnull @.str.277)
   %tobool.not = icmp eq ptr %call, null
@@ -14805,7 +14805,7 @@ declare i32 @wc_EccPublicKeyToDer(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare i32 @wc_EccPrivateKeyToPKCS8(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @wc_ecc_new_point() local_unnamed_addr #2
 
@@ -15075,28 +15075,28 @@ declare void @wc_ecc_key_free(ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15

@@ -54,7 +54,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @.str.3 = private unnamed_addr constant [21 x i8] c"MemkindKmemAllocator\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20MemkindKmemAllocator14PrepareOptionsERKNS_13ConfigOptionsE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 1 %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20MemkindKmemAllocator14PrepareOptionsERKNS_13ConfigOptionsE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 1 captures(none) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %message = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.rocksdb::Slice", align 8

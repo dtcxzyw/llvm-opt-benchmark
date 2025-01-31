@@ -92,7 +92,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -109,13 +109,13 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28FdmDiscountDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_18YieldTermStructureEEEddmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull align 1 %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rTS, double noundef %maturityTime, double noundef %valueOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28FdmDiscountDirichletBoundaryC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_18YieldTermStructureEEEddmNS_17BoundaryConditionINS_11FdmLinearOpEE4SideE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull align 1 %mesher, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rTS, double noundef %maturityTime, double noundef %valueOnBoundary, i64 noundef %direction, i32 noundef %side) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %direction.addr = alloca i64, align 8
   %side.addr = alloca i32, align 4
@@ -539,7 +539,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28FdmDiscountDirichletBoundary7setTimeEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, double noundef %t) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib28FdmDiscountDirichletBoundary7setTimeEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, double noundef %t) unnamed_addr #6 align 2 {
 entry:
   %bc_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %bc_, align 8, !tbaa !32
@@ -561,7 +561,7 @@ _ZNK5boost10shared_ptrIN8QuantLib27FdmTimeDepDirichletBoundaryEEptEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28FdmDiscountDirichletBoundary19applyBeforeApplyingERNS_11FdmLinearOpE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %op) unnamed_addr #6 align 2 {
+define void @_ZNK8QuantLib28FdmDiscountDirichletBoundary19applyBeforeApplyingERNS_11FdmLinearOpE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %op) unnamed_addr #6 align 2 {
 entry:
   %bc_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %bc_, align 8, !tbaa !32
@@ -583,7 +583,7 @@ _ZNK5boost10shared_ptrIN8QuantLib27FdmTimeDepDirichletBoundaryEEptEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28FdmDiscountDirichletBoundary18applyBeforeSolvingERNS_11FdmLinearOpERNS_5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %op, ptr noundef nonnull align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 {
+define void @_ZNK8QuantLib28FdmDiscountDirichletBoundary18applyBeforeSolvingERNS_11FdmLinearOpERNS_5ArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %op, ptr noundef nonnull align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 {
 entry:
   %bc_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %bc_, align 8, !tbaa !32
@@ -605,7 +605,7 @@ _ZNK5boost10shared_ptrIN8QuantLib27FdmTimeDepDirichletBoundaryEEptEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28FdmDiscountDirichletBoundary18applyAfterApplyingERNS_5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 {
+define void @_ZNK8QuantLib28FdmDiscountDirichletBoundary18applyAfterApplyingERNS_5ArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 {
 entry:
   %bc_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %bc_, align 8, !tbaa !32
@@ -627,7 +627,7 @@ _ZNK5boost10shared_ptrIN8QuantLib27FdmTimeDepDirichletBoundaryEEptEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28FdmDiscountDirichletBoundary17applyAfterSolvingERNS_5ArrayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 {
+define void @_ZNK8QuantLib28FdmDiscountDirichletBoundary17applyAfterSolvingERNS_5ArrayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %r) unnamed_addr #6 align 2 {
 entry:
   %bc_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %bc_, align 8, !tbaa !32
@@ -745,7 +745,7 @@ _ZN8QuantLib28FdmDiscountDirichletBoundaryD2Ev.exit: ; preds = %entry, %if.then.
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -795,10 +795,10 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEE9_M_invokeERKSt9_Any_dataOd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #6 align 2 {
+define internal noundef double @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEE9_M_invokeERKSt9_Any_dataOd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args) #6 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8, !tbaa !16
   %__args.val = load double, ptr %__args, align 8, !tbaa !35
@@ -836,7 +836,7 @@ _ZSt10__invoke_rIdRN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEJdEENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFddEN8QuantLib12_GLOBAL__N_128DiscountedCashflowAtBoundaryEE10_M_managerERSt9_Any_dataRKS5_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -1057,7 +1057,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_fdmdiscountdirichletboundary.cpp() #14 section ".text.startup" {

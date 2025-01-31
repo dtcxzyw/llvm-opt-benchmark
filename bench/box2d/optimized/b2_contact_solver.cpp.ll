@@ -27,7 +27,7 @@ $_ZN24b2PositionSolverManifold10InitializeEP27b2ContactPositionConstraintRK11b2T
 @_ZN15b2ContactSolverD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15b2ContactSolverD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15b2ContactSolverC2EP18b2ContactSolverDef(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 76)) %this, ptr nocapture noundef readonly %def) unnamed_addr #0 align 2 {
+define hidden void @_ZN15b2ContactSolverC2EP18b2ContactSolverDef(ptr noundef nonnull align 8 captures(none) dereferenceable(76) initializes((0, 76)) %this, ptr noundef readonly captures(none) %def) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %def, i64 24, i1 false)
   %allocator = getelementptr inbounds nuw i8, ptr %def, i64 56
@@ -251,12 +251,12 @@ for.end74:                                        ; preds = %for.inc72, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare noundef ptr @_ZN16b2StackAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(102932), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15b2ContactSolverD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15b2ContactSolverD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_allocator = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_allocator, align 8
@@ -300,7 +300,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15b2ContactSolver29InitializeVelocityConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN15b2ContactSolver29InitializeVelocityConstraintsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %this) local_unnamed_addr #6 align 2 {
 entry:
   %xfA = alloca %struct.b2Transform, align 8
   %xfB = alloca %struct.b2Transform, align 8
@@ -618,7 +618,7 @@ declare void @_ZN15b2WorldManifold10InitializeEPK10b2ManifoldRK11b2TransformfS5_
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15b2ContactSolver9WarmStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN15b2ContactSolver9WarmStartEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
@@ -751,7 +751,7 @@ for.end50:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15b2ContactSolver24SolveVelocityConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN15b2ContactSolver24SolveVelocityConstraintsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
@@ -1228,7 +1228,7 @@ for.end341:                                       ; preds = %if.end322, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15b2ContactSolver13StoreImpulsesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN15b2ContactSolver13StoreImpulsesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %m_count, align 8
@@ -1291,7 +1291,7 @@ for.end20:                                        ; preds = %for.inc18, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN15b2ContactSolver24SolvePositionConstraintsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN15b2ContactSolver24SolvePositionConstraintsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %this) local_unnamed_addr #6 align 2 {
 entry:
   %xfA = alloca %struct.b2Transform, align 8
   %xfB = alloca %struct.b2Transform, align 8
@@ -1739,7 +1739,7 @@ sw.epilog:                                        ; preds = %sw.bb34, %sw.bb15, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN15b2ContactSolver27SolveTOIPositionConstraintsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, i32 noundef %toiIndexA, i32 noundef %toiIndexB) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN15b2ContactSolver27SolveTOIPositionConstraintsEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(76) %this, i32 noundef %toiIndexA, i32 noundef %toiIndexB) local_unnamed_addr #6 align 2 {
 entry:
   %xfA = alloca %struct.b2Transform, align 8
   %xfB = alloca %struct.b2Transform, align 8
@@ -1976,7 +1976,7 @@ declare float @sinf(float noundef) local_unnamed_addr #10
 declare float @cosf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #12

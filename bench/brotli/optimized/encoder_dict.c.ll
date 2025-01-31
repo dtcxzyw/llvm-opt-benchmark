@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliCleanupSharedEncoderDictionary(ptr noundef %m, ptr nocapture noundef readonly %dict) local_unnamed_addr #0 {
+define hidden void @BrotliCleanupSharedEncoderDictionary(ptr noundef %m, ptr noundef readonly captures(none) %dict) local_unnamed_addr #0 {
 entry:
   %num_prepared_instances_ = getelementptr inbounds nuw i8, ptr %dict, i64 408
   %0 = load i64, ptr %num_prepared_instances_, align 8
@@ -211,7 +211,7 @@ declare ptr @BrotliGetDictionary() local_unnamed_addr #1
 declare ptr @BrotliGetTransforms() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

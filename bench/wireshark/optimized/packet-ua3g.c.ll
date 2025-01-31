@@ -1746,7 +1746,7 @@ define hidden void @proto_register_ua3g() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @version_number_computer(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @version_number_computer(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = udiv i32 %1, 10000
   %4 = urem i32 %1, 10000
   %.lhs.trunc = trunc nuw nsw i32 %4 to i16
@@ -1759,7 +1759,7 @@ define internal void @version_number_computer(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @version_3bytes_computer(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @version_3bytes_computer(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = lshr i32 %1, 16
   %4 = lshr i32 %1, 8
   %5 = and i32 %4, 255
@@ -2421,7 +2421,7 @@ define hidden void @proto_reg_handoff_ua3g() local_unnamed_addr #3 {
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -3558,7 +3558,7 @@ switch.lookup:                                    ; preds = %481
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_led_command(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_led_command(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %5 = zext i8 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -3584,7 +3584,7 @@ define internal fastcc void @decode_led_command(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_lcd_line_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_lcd_line_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = and i8 %5, 3
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #9
@@ -3641,7 +3641,7 @@ define internal fastcc void @decode_lcd_line_cmd(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_main_voice_mode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_main_voice_mode(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3761,7 +3761,7 @@ define internal fastcc void @decode_dwl_dtmf_clck_format(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_set_clck(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_set_clck(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3850,7 +3850,7 @@ define internal fastcc void @decode_voice_channel(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_external_ringing(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_external_ringing(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -3863,7 +3863,7 @@ define internal fastcc void @decode_external_ringing(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_lcd_cursor(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_lcd_cursor(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 4) #9
   %5 = and i8 %4, 2
   %.not = icmp eq i8 %5, 0
@@ -3939,7 +3939,7 @@ define internal fastcc void @decode_set_lcd_contrast(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %74, label %5
 
@@ -4077,7 +4077,7 @@ define internal fastcc void @decode_beep(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_sidetone(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_sidetone(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %4, 0
   %5 = select i1 %.not, ptr @.str.958, ptr @.str.1103
@@ -4136,7 +4136,7 @@ define internal fastcc void @decode_ringing_cadence(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_mute(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_mute(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4149,7 +4149,7 @@ define internal fastcc void @decode_mute(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_feedback(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_feedback(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %5, 0
   %6 = select i1 %.not, ptr @.str.958, ptr @.str.1103
@@ -4239,7 +4239,7 @@ define internal fastcc void @decode_icon_cmd(ptr noundef %0, ptr noundef %1) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_audio_config(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -4405,7 +4405,7 @@ define internal fastcc void @decode_audio_padded_path(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_on_off_level(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @decode_on_off_level(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 65535) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %6, 0
   %7 = select i1 %.not, ptr @.str.958, ptr @.str.1103
@@ -4428,7 +4428,7 @@ define internal fastcc void @decode_on_off_level(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_ring(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @decode_ring(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %.not = icmp eq i8 %4, 0
   %5 = select i1 %.not, ptr @.str.958, ptr @.str.1103
@@ -4641,7 +4641,7 @@ define internal fastcc void @decode_subdevice_msg(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
+define internal fastcc void @decode_cs_ip_device_routing(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 65535) %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef 3) #9
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -5102,7 +5102,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @rtp_add_address(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -5139,7 +5139,7 @@ declare void @wmem_strbuf_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -5147,10 +5147,10 @@ declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef,
 declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -193,10 +193,10 @@ define dso_local i32 @trace_print_bputs_msg_only(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @trace_seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -254,7 +254,7 @@ define dso_local i32 @trace_print_printk_msg_only(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @trace_print_flags_seq(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local ptr @trace_print_flags_seq(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8176
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8168
@@ -377,7 +377,7 @@ declare dso_local void @trace_seq_printf(ptr noundef, ptr noundef, ...) local_un
 declare dso_local void @trace_seq_putc(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @trace_print_symbols_seq(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local ptr @trace_print_symbols_seq(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8176
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8168
@@ -584,7 +584,7 @@ define dso_local ptr @trace_print_hex_dump_seq(ptr noundef %0, ptr noundef %1, i
 declare dso_local i32 @trace_seq_hex_dump(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @trace_raw_output_prep(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @trace_raw_output_prep(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %4 = load ptr, ptr %3, align 8
   %5 = load i16, ptr %4, align 4
@@ -661,7 +661,7 @@ define dso_local void @trace_event_printf(ptr noundef %0, ptr noundef %1, ...) #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @trace_check_vprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -797,7 +797,7 @@ define dso_local range(i32 0, 2) i32 @seq_print_ip_sym(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @trace_print_lat_fmt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @trace_print_lat_fmt(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i8, ptr %3, align 2
   %5 = zext i8 %4 to i32
@@ -1397,7 +1397,7 @@ declare dso_local void @down_write(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @trace_nop_print(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define dso_local i32 @trace_nop_print(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %6 = load ptr, ptr %5, align 8
@@ -1412,7 +1412,7 @@ define dso_local i32 @trace_nop_print(ptr noundef %0, i32 %1, ptr nocapture read
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__unregister_trace_event(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @__unregister_trace_event(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1442,7 +1442,7 @@ define dso_local noundef i32 @__unregister_trace_event(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @unregister_trace_event(ptr nocapture noundef %0) #0 align 16 {
+define dso_local noundef i32 @unregister_trace_event(ptr noundef captures(none) %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @trace_event_sem) #10
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1907,10 +1907,10 @@ declare dso_local ptr @trace_iter_expand_format(ptr noundef) local_unnamed_addr 
 declare dso_local i64 @strncpy_from_kernel_nofault(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_fn_trace(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_fn_trace(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -1949,7 +1949,7 @@ define internal i32 @trace_fn_trace(ptr noundef %0, i32 noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_fn_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_fn_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -1974,7 +1974,7 @@ define internal i32 @trace_fn_raw(ptr noundef %0, i32 %1, ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_fn_hex(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_fn_hex(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -1998,7 +1998,7 @@ define internal i32 @trace_fn_hex(ptr noundef %0, i32 %1, ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_fn_bin(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_fn_bin(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2028,7 +2028,7 @@ declare dso_local void @trace_seq_putmem_hex(ptr noundef, ptr noundef, i32 nound
 declare dso_local void @trace_seq_putmem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_ctx_print(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_ctx_print(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !24
@@ -2068,7 +2068,7 @@ define internal i32 @trace_ctx_print(ptr noundef %0, i32 %1, ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_ctx_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_ctx_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 21
@@ -2102,7 +2102,7 @@ define internal i32 @trace_ctx_raw(ptr noundef %0, i32 %1, ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_ctx_hex(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_ctx_hex(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -2142,7 +2142,7 @@ define internal i32 @trace_ctx_hex(ptr noundef %0, i32 %1, ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_ctxwake_bin(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_ctxwake_bin(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8344
@@ -2165,7 +2165,7 @@ define internal i32 @trace_ctxwake_bin(ptr noundef %0, i32 %1, ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_wake_print(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_wake_print(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !24
@@ -2205,7 +2205,7 @@ define internal i32 @trace_wake_print(ptr noundef %0, i32 %1, ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_wake_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_wake_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 23
@@ -2233,7 +2233,7 @@ define internal i32 @trace_wake_raw(ptr noundef %0, i32 %1, ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_wake_hex(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_wake_hex(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -2268,7 +2268,7 @@ define internal i32 @trace_wake_hex(ptr noundef %0, i32 %1, ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_stack_print(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_stack_print(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %6 = load ptr, ptr %5, align 8
@@ -2337,7 +2337,7 @@ define internal i32 @trace_stack_print(ptr noundef %0, i32 noundef %1, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8344
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16544
@@ -2586,7 +2586,7 @@ declare dso_local ptr @backing_file_user_path(ptr noundef) local_unnamed_addr #2
 declare dso_local void @__mmap_lock_do_trace_released(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_bputs_print(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_bputs_print(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2614,7 +2614,7 @@ define internal i32 @trace_bputs_print(ptr noundef %0, i32 noundef %1, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_bputs_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_bputs_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2640,7 +2640,7 @@ define internal i32 @trace_bputs_raw(ptr noundef %0, i32 %1, ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_bprint_print(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_bprint_print(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2669,7 +2669,7 @@ define internal i32 @trace_bprint_print(ptr noundef %0, i32 noundef %1, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_bprint_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_bprint_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2696,7 +2696,7 @@ define internal i32 @trace_bprint_raw(ptr noundef %0, i32 %1, ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_print_print(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_print_print(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16564
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16544
@@ -2725,7 +2725,7 @@ define internal i32 @trace_print_print(ptr noundef %0, i32 noundef %1, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_print_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_print_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16564
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16544
@@ -2752,7 +2752,7 @@ define internal i32 @trace_print_raw(ptr noundef %0, i32 %1, ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_hwlat_print(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_hwlat_print(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8344
@@ -2800,7 +2800,7 @@ define internal i32 @trace_hwlat_print(ptr noundef %0, i32 %1, ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_hwlat_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_hwlat_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2831,7 +2831,7 @@ define internal i32 @trace_hwlat_raw(ptr noundef %0, i32 %1, ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_osnoise_print(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_osnoise_print(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2880,7 +2880,7 @@ define internal i32 @trace_osnoise_print(ptr noundef %0, i32 %1, ptr nocapture r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_osnoise_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_osnoise_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2917,7 +2917,7 @@ define internal i32 @trace_osnoise_raw(ptr noundef %0, i32 %1, ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_timerlat_print(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_timerlat_print(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2947,7 +2947,7 @@ define internal i32 @trace_timerlat_print(ptr noundef %0, i32 %1, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_timerlat_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_timerlat_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -2974,7 +2974,7 @@ define internal i32 @trace_timerlat_raw(ptr noundef %0, i32 %1, ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_raw_data(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_raw_data(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -3023,7 +3023,7 @@ define internal i32 @trace_raw_data(ptr noundef %0, i32 %1, ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_func_repeats_print(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_func_repeats_print(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4
@@ -3095,7 +3095,7 @@ define internal i32 @trace_func_repeats_print(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @trace_func_repeats_raw(ptr noundef %0, i32 %1, ptr nocapture readnone %2) #0 align 16 {
+define internal i32 @trace_func_repeats_raw(ptr noundef %0, i32 %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16544
   %5 = load ptr, ptr %4, align 8
   %6 = load i16, ptr %5, align 4

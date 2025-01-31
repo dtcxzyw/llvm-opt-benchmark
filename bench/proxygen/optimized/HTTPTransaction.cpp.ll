@@ -1054,7 +1054,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransactionC2ENS_18TransportDirectionEmjRNS0_9TransportERNS_22HTTP2PriorityQueueBaseEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEERKNS6_8OptionalISC_EEPNS_16HTTPSessionStatsEbjjNS_5http214PriorityUpdateENSF_ImEENSF_INS_9HTTPCodec12ExAttributesEEEb(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 noundef zeroext %direction, i64 noundef %id, i32 noundef %seqNo, ptr noundef nonnull align 8 dereferenceable(8) %transport, ptr noundef nonnull align 8 dereferenceable(16) %egressQueue, ptr noundef %timer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %defaultIdleTimeout, ptr noundef %stats, i1 noundef zeroext %useFlowControl, i32 noundef %receiveInitialWindowSize, i32 noundef %sendInitialWindowSize, ptr nocapture noundef readonly byval(%"struct.proxygen::http2::PriorityUpdate") align 8 %priority, ptr nocapture noundef readonly %assocId, ptr nocapture noundef readonly %exAttributes, i1 noundef zeroext %setIngressTimeoutAfterEom) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransactionC2ENS_18TransportDirectionEmjRNS0_9TransportERNS_22HTTP2PriorityQueueBaseEPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEERKNS6_8OptionalISC_EEPNS_16HTTPSessionStatsEbjjNS_5http214PriorityUpdateENSF_ImEENSF_INS_9HTTPCodec12ExAttributesEEEb(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 noundef zeroext %direction, i64 noundef %id, i32 noundef %seqNo, ptr noundef nonnull align 8 dereferenceable(8) %transport, ptr noundef nonnull align 8 dereferenceable(16) %egressQueue, ptr noundef %timer, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %defaultIdleTimeout, ptr noundef %stats, i1 noundef zeroext %useFlowControl, i32 noundef %receiveInitialWindowSize, i32 noundef %sendInitialWindowSize, ptr noundef readonly byval(%"struct.proxygen::http2::PriorityUpdate") align 8 captures(none) %priority, ptr noundef readonly captures(none) %assocId, ptr noundef readonly captures(none) %exAttributes, i1 noundef zeroext %setIngressTimeoutAfterEom) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::IOBufQueue::Options", align 1
   %frombool1 = zext i1 %setIngressTimeoutAfterEom to i8
@@ -1506,7 +1506,7 @@ declare void @_ZN5folly10IOBufQueueC1ERKNS0_7OptionsE(ptr noundef nonnull align 
 declare void @_ZN8proxygen6WindowC1Ej(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen15HTTPTransaction17updateReadTimeoutEv(ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -2076,7 +2076,7 @@ eh.resume:                                        ; preds = %lpad89, %lpad55, %l
 declare noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_15HTTPTransactionE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %txn) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoRKNS_15HTTPTransactionE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(912) %txn) local_unnamed_addr #3 {
 entry:
   %transport_.i = getelementptr inbounds nuw i8, ptr %txn, i64 272
   %0 = load ptr, ptr %transport_.i, align 8
@@ -3627,7 +3627,7 @@ declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 derefer
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen15HTTPTransaction28updateIngressCompressionInfoERKNS_15CompressionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) initializes((316, 344)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
+define void @_ZN8proxygen15HTTPTransaction28updateIngressCompressionInfoERKNS_15CompressionInfoE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(912) initializes((316, 344)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
 entry:
   %ingress = getelementptr inbounds nuw i8, ptr %tableInfo, i64 28
   %ingress2 = getelementptr inbounds nuw i8, ptr %this, i64 316
@@ -3661,7 +3661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen15HTTPTransaction16mustQueueIngressEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(912) %this) local_unnamed_addr #12 align 2 {
 entry:
   %ingressPaused_ = getelementptr inbounds nuw i8, ptr %this, i64 728
   %bf.load = load i32, ptr %ingressPaused_, align 8
@@ -3688,7 +3688,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv(ptr nocapture noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction26checkCreateDeferredIngressEv(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %deferredIngress_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %deferredIngress_, align 8
@@ -3725,7 +3725,7 @@ if.end:                                           ; preds = %_ZSt11make_uniqueIS
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8proxygenlsERSoNS_9HTTPEvent4TypeE(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction29processIngressHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef %msg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction29processIngressHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef captures(none) %msg) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %g = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.60", align 8
@@ -5269,7 +5269,7 @@ _ZNSt5dequeIN8proxygen9HTTPEventESaIS1_EE12emplace_backIJRmNS1_4TypeESt10unique_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction18processIngressBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEm(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef %chain, i64 noundef %len) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction18processIngressBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEm(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef captures(none) %chain, i64 noundef %len) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %g = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.4", align 8
@@ -6287,7 +6287,7 @@ if.end28:                                         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction22processIngressTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef %trailers) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction22processIngressTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef captures(none) %trailers) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %g = alloca %"class.folly::DelayedDestructionBase::DestructorGuard", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.12", align 8
@@ -7350,7 +7350,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction18markEgressCompleteEv(ptr nocapture noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction18markEgressCompleteEv(ptr noundef nonnull align 8 captures(none) dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.google::LogMessageFatal", align 8
   %ref.tmp.i.i.i = alloca %"class.folly::ConversionError", align 8
@@ -10796,7 +10796,7 @@ terminate.lpad:                                   ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen15HTTPTransaction27updateEgressCompressionInfoERKNS_15CompressionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) initializes((288, 316)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
+define void @_ZN8proxygen15HTTPTransaction27updateEgressCompressionInfoERKNS_15CompressionInfoE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(912) initializes((288, 316)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(56) %tableInfo) local_unnamed_addr #11 align 2 {
 entry:
   %tableInfo_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load i32, ptr %tableInfo, align 4
@@ -10829,7 +10829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8proxygen15HTTPTransaction26delegatedTransactionChecksERKNS_11HTTPMessageE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %headers) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen15HTTPTransaction26delegatedTransactionChecksERKNS_11HTTPMessageE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %headers) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.proxygen::HTTPException", align 8
   %ref.tmp13 = alloca %"class.google::LogMessage", align 8
@@ -11215,7 +11215,7 @@ terminate.lpad:                                   ; preds = %lor.rhs.i, %invoke.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen15HTTPTransaction23sendHeadersWithDelegateERKNS_11HTTPMessageESt10unique_ptrINS_16DSRRequestSenderESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(616) %headers, ptr nocapture noundef %sender) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen15HTTPTransaction23sendHeadersWithDelegateERKNS_11HTTPMessageESt10unique_ptrINS_16DSRRequestSenderESt14default_deleteIS5_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(616) %headers, ptr noundef captures(none) %sender) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %size = alloca %"struct.proxygen::HTTPHeaderSize", align 4
@@ -12516,7 +12516,7 @@ return:                                           ; preds = %cond.true, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen15HTTPTransaction11sendBodyNowESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEmb(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef %body, i64 noundef %bodyLen, i1 noundef zeroext %sendEom) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8proxygen15HTTPTransaction11sendBodyNowESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEmb(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef captures(none) %body, i64 noundef %bodyLen, i1 noundef zeroext %sendEom) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %ref.tmp = alloca %"class.std::allocator.70", align 1
@@ -14514,7 +14514,7 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i16 @_ZNK8proxygen15HTTPTransaction20getDatagramSizeLimitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 {
+define noundef zeroext i16 @_ZNK8proxygen15HTTPTransaction20getDatagramSizeLimitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(912) %this) local_unnamed_addr #5 align 2 {
 entry:
   %transport_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
@@ -14526,7 +14526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen15HTTPTransaction12sendDatagramESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef %datagram) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen15HTTPTransaction12sendDatagramESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef captures(none) %datagram) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.4", align 8
   %call = tail call noundef zeroext i1 @_ZN8proxygen15HTTPTransaction29validateEgressStateTransitionENS_27HTTPTransactionEgressSMData5EventE(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 noundef zeroext 1)
@@ -14595,7 +14595,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction25newWebTransportBidiStreamEv(ptr noalias nocapture writeonly sret(%"class.folly::Expected.164") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction25newWebTransportBidiStreamEv(ptr noalias writeonly sret(%"class.folly::Expected.164") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %id = alloca %"class.folly::Expected.169", align 8
   %ref.tmp6 = alloca %"class.std::tuple.174", align 8
@@ -14710,7 +14710,7 @@ return:                                           ; preds = %entry, %_ZNR5folly8
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i32 } @_ZN8proxygen15HTTPTransaction26sendWebTransportStreamDataEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEb(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %id, ptr nocapture noundef %data, i1 noundef zeroext %eof) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i32 } @_ZN8proxygen15HTTPTransaction26sendWebTransportStreamDataEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEb(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %id, ptr noundef captures(none) %data, i1 noundef zeroext %eof) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %id.addr = alloca i64, align 8
   %agg.tmp = alloca %"class.std::unique_ptr.4", align 8
@@ -14798,7 +14798,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK8proxygen15HTTPTransaction18getConnectionTokenB5cxx11Ev(ptr noalias sret(%"class.folly::Optional.189") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #5 align 2 {
+define void @_ZNK8proxygen15HTTPTransaction18getConnectionTokenB5cxx11Ev(ptr noalias sret(%"class.folly::Optional.189") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(912) %this) local_unnamed_addr #5 align 2 {
 entry:
   %transport_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
@@ -15736,7 +15736,7 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup255
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 %this.0.val, ptr nocapture readonly %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZN8proxygen15HTTPTransaction13resumeIngressEvE3$_1Lb1EED2Ev"(i8 %this.0.val, ptr readonly captures(none) %this.8.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool = trunc i8 %this.0.val to i1
   br i1 %tobool, label %if.end, label %if.then
@@ -16690,7 +16690,7 @@ eh.resume:                                        ; preds = %lpad, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction18setEgressRateLimitEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) initializes((736, 744)) %this, i64 noundef %bitsPerSecond) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction18setEgressRateLimitEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(912) initializes((736, 744)) %this, i64 noundef %bitsPerSecond) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8 = alloca %"class.google::LogMessage", align 8
   %div = udiv i64 %bitsPerSecond, 8000
@@ -17544,7 +17544,7 @@ lpad:                                             ; preds = %invoke.cont11, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8proxygen15HTTPTransaction8describeERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 {
+define void @_ZNK8proxygen15HTTPTransaction8describeERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 {
 entry:
   %transport_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load ptr, ptr %transport_, align 8
@@ -17628,7 +17628,7 @@ return:                                           ; preds = %cond.true, %cond.en
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8proxygen15HTTPTransaction12getRecvToAckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #15 align 2 {
+define noundef i32 @_ZNK8proxygen15HTTPTransaction12getRecvToAckEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(912) %this) local_unnamed_addr #15 align 2 {
 entry:
   %recvToAck_ = getelementptr inbounds nuw i8, ptr %this, i64 244
   %0 = load i32, ptr %recvToAck_, align 4
@@ -17734,7 +17734,7 @@ return:                                           ; preds = %if.end14, %_ZN8prox
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction21updateAndSendPriorityERKNS_5http214PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %newPriority) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen15HTTPTransaction21updateAndSendPriorityERKNS_5http214PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %newPriority) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN8proxygen15HTTPTransaction16onPriorityUpdateERKNS_5http214PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(16) %newPriority)
   %transport_ = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -17748,7 +17748,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction16onPriorityUpdateERKNS_5http214PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %priority) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction16onPriorityUpdateERKNS_5http214PriorityUpdateE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %priority) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %queueHandle_ = getelementptr inbounds nuw i8, ptr %this, i64 408
@@ -17811,7 +17811,7 @@ if.end14:                                         ; preds = %if.then13, %if.end,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction21updateAndSendPriorityENS_12HTTPPriorityE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef readonly %pri) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen15HTTPTransaction21updateAndSendPriorityENS_12HTTPPriorityE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef readonly captures(none) %pri) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"struct.proxygen::HTTPPriority", align 8
   %urgency = getelementptr inbounds nuw i8, ptr %pri, i64 8
@@ -17835,7 +17835,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction34checkIfEgressRateLimitedByUpstreamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction34checkIfEgressRateLimitedByUpstreamEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(912) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %transportCallback_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %transportCallback_, align 8
@@ -17897,7 +17897,7 @@ if.end:                                           ; preds = %if.then, %_ZNK8prox
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen15HTTPTransaction10onDatagramESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef %datagram) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction10onDatagramESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef captures(none) %datagram) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessage", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.4", align 8
@@ -18235,7 +18235,7 @@ return:                                           ; preds = %_ZN8proxygen15HTTPT
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle15writeStreamDataESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEb(ptr noalias nocapture writeonly sret(%"class.folly::Expected.196") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef %data, i1 noundef zeroext %fin) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction20TxnStreamWriteHandle15writeStreamDataESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EEb(ptr noalias writeonly sret(%"class.folly::Expected.196") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef captures(none) %data, i1 noundef zeroext %fin) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.folly::Try", align 8
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
@@ -19045,7 +19045,7 @@ _ZN5folly17exception_wrapperD2Ev.exit3:           ; preds = %lpad, %if.then.i.i2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction27onWebTransportStreamIngressEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEb(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %id, ptr nocapture noundef %data, i1 noundef zeroext %eof) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction27onWebTransportStreamIngressEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEb(ptr noundef nonnull align 8 dereferenceable(912) %this, i64 noundef %id, ptr noundef captures(none) %data, i1 noundef zeroext %eof) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.google::LogMessageFatal", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.4", align 8
@@ -19324,7 +19324,7 @@ cleanup.done:                                     ; preds = %_ZNSt3mapImN8proxyg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandle14readStreamDataEv(ptr noalias nocapture writeonly sret(%"class.folly::SemiFuture.210") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen15HTTPTransaction19TxnStreamReadHandle14readStreamDataEv(ptr noalias writeonly sret(%"class.folly::SemiFuture.210") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i48 = alloca %"class.folly::futures::detail::KeepAliveOrDeferred", align 8
   %agg.tmp.i36 = alloca %"class.folly::Try.247", align 8
@@ -20760,7 +20760,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen15HTTPTransaction15TxnWebTransportD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
@@ -22028,7 +22028,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #21
@@ -23608,7 +23608,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -26903,10 +26903,10 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 declare i32 @llvm.abs.i32(i32, i1 immarg) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
@@ -26915,7 +26915,7 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 declare i64 @llvm.smax.i64(i64, i64) #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25

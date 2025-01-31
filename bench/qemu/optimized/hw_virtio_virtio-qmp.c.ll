@@ -805,7 +805,7 @@ declare i32 @object_child_foreach_recursive(ptr noundef, ptr noundef, ptr nounde
 declare ptr @object_get_root() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @query_dev_child(ptr noundef %child, ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @query_dev_child(ptr noundef %child, ptr noundef captures(none) %opaque) #0 {
 entry:
   %call = tail call ptr @object_dynamic_cast(ptr noundef %child, ptr noundef nonnull @.str.2) #6
   %cmp.not = icmp eq ptr %call, null

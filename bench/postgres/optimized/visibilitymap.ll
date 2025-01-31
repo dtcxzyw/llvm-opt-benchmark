@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BufferBlocks = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @visibilitymap_clear(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @visibilitymap_clear(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = urem i32 %1, 32672
   %6 = udiv i32 %1, 32672
   %7 = lshr i32 %5, 2
@@ -102,7 +102,7 @@ declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 declare void @MarkBufferDirty(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @visibilitymap_pin(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local void @visibilitymap_pin(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = udiv i32 %1, 32672
   %5 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %5, 0
@@ -467,7 +467,7 @@ declare i64 @log_heap_visible(ptr noundef, i32 noundef, i32 noundef, i32 noundef
 declare zeroext i1 @DataChecksumsEnabled() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext range(i8 0, 4) i8 @visibilitymap_get_status(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext range(i8 0, 4) i8 @visibilitymap_get_status(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = udiv i32 %1, 32672
   %5 = urem i32 %1, 32672
   %6 = lshr i32 %5, 2
@@ -537,7 +537,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @visibilitymap_count(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local void @visibilitymap_count(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false)
   %.not3341 = icmp eq i32 %4, 0
   br i1 %.not3341, label %._crit_edge, label %.lr.ph
@@ -866,7 +866,7 @@ RelationGetSmgr.exit55:                           ; preds = %101, %104
 declare zeroext i1 @smgrexists(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i64 @log_newpage_buffer(i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -890,10 +890,10 @@ declare void @CacheInvalidateSmgr(i64, i64) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #6

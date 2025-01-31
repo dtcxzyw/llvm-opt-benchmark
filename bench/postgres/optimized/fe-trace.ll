@@ -117,7 +117,7 @@ define void @PQuntrace(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @PQsetTraceFlags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
@@ -140,7 +140,7 @@ define void @PQsetTraceFlags(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pqTraceOutputMessage(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
+define void @pqTraceOutputMessage(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -1192,7 +1192,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutputH(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutputH(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #3 {
   %4 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.42) #11
   %5 = load i32, ptr %2, align 4
   %6 = sext i32 %5 to i64
@@ -1246,7 +1246,7 @@ define internal fastcc void @pqTraceOutputH(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutputNR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutputNR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.2, ptr noundef %1) #11
   %7 = tail call ptr @__ctype_b_loc() #13
   %8 = load i32, ptr %3, align 4
@@ -1362,7 +1362,7 @@ pqTraceOutputString.exit:                         ; preds = %.lr.ph, %pqTraceOut
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutputS(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutputS(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #3 {
   %4 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.47) #11
   %5 = load i32, ptr %2, align 4
   %6 = sext i32 %5 to i64
@@ -1383,10 +1383,10 @@ define internal fastcc void @pqTraceOutputS(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @pqTraceOutputNoTypeByteMessage(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @pqTraceOutputNoTypeByteMessage(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.timeval, align 8
   %4 = alloca i64, align 8
   %5 = alloca [128 x i8], align 16
@@ -1458,7 +1458,7 @@ define void @pqTraceOutputNoTypeByteMessage(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -1469,10 +1469,10 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #6
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef range(i32 0, -1) %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef range(i32 0, -1) %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #3 {
   %5 = load i32, ptr %3, align 4
   %6 = sext i32 %5 to i64
   %7 = getelementptr i8, ptr %2, i64 %6
@@ -1550,16 +1550,16 @@ declare i16 @llvm.bswap.i16(i16) #5
 declare ptr @__ctype_b_loc() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

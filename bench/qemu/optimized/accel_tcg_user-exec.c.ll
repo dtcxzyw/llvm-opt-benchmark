@@ -55,7 +55,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.store_atom_16 = private unnamed_addr constant [14 x i8] c"store_atom_16\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 3) i32 @adjust_signal_pc(ptr nocapture noundef %pc, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @adjust_signal_pc(ptr noundef captures(none) %pc, i1 noundef zeroext %is_write) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   %1 = load i64, ptr %0, align 8
@@ -222,7 +222,7 @@ declare void @cpu_loop_exit_noexc(ptr noundef) local_unnamed_addr #4
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @walk_memory_regions(ptr noundef %priv, ptr nocapture noundef readonly %fn) local_unnamed_addr #2 {
+define dso_local i32 @walk_memory_regions(ptr noundef %priv, ptr noundef readonly captures(none) %fn) local_unnamed_addr #2 {
 entry:
   tail call void @mmap_lock() #16
   %call = tail call ptr @interval_tree_iter_first(ptr noundef nonnull @pageflags_root, i64 noundef 0, i64 noundef -1) #16
@@ -263,7 +263,7 @@ declare ptr @interval_tree_iter_next(ptr noundef, i64 noundef, i64 noundef) loca
 declare void @mmap_unlock() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @page_dump(ptr nocapture noundef %f) local_unnamed_addr #2 {
+define dso_local void @page_dump(ptr noundef captures(none) %f) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %f, ptr noundef nonnull @.str.1, i32 noundef 16, ptr noundef nonnull @.str.2, i32 noundef 16, ptr noundef nonnull @.str.3, i32 noundef 16, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5)
   tail call void @mmap_lock() #16
@@ -301,7 +301,7 @@ walk_memory_regions.exit:                         ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @page_get_flags(i64 noundef %address) local_unnamed_addr #2 {
@@ -1209,7 +1209,7 @@ declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i1 @tb_invalidate_phys_page_unwind(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2049) i32 @probe_access_flags(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr nocapture noundef writeonly %phost, i64 noundef %ra) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2049) i32 @probe_access_flags(ptr noundef %env, i64 noundef %addr, i32 noundef %size, i32 noundef %access_type, i32 noundef %mmu_idx, i1 noundef zeroext %nonfault, ptr noundef writeonly captures(none) %phost, i64 noundef %ra) local_unnamed_addr #2 {
 entry:
   %or = or i64 %addr, -4096
   %sub = sub nsw i64 0, %or
@@ -1384,7 +1384,7 @@ if.end3:                                          ; preds = %if.then1, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn uwtable
-define dso_local range(i32 0, 256) i32 @cpu_ldub_code(ptr nocapture noundef readnone %env, i64 noundef %ptr) local_unnamed_addr #9 {
+define dso_local range(i32 0, 256) i32 @cpu_ldub_code(ptr noundef readnone captures(none) %env, i64 noundef %ptr) local_unnamed_addr #9 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 1, ptr %0, align 8
@@ -1400,7 +1400,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn uwtable
-define dso_local range(i32 0, 65536) i32 @cpu_lduw_code(ptr nocapture noundef readnone %env, i64 noundef %ptr) local_unnamed_addr #9 {
+define dso_local range(i32 0, 65536) i32 @cpu_lduw_code(ptr noundef readnone captures(none) %env, i64 noundef %ptr) local_unnamed_addr #9 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 1, ptr %0, align 8
@@ -1416,7 +1416,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn uwtable
-define dso_local i32 @cpu_ldl_code(ptr nocapture noundef readnone %env, i64 noundef %ptr) local_unnamed_addr #9 {
+define dso_local i32 @cpu_ldl_code(ptr noundef readnone captures(none) %env, i64 noundef %ptr) local_unnamed_addr #9 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 1, ptr %0, align 8
@@ -1431,7 +1431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn uwtable
-define dso_local i64 @cpu_ldq_code(ptr nocapture noundef readnone %env, i64 noundef %ptr) local_unnamed_addr #9 {
+define dso_local i64 @cpu_ldq_code(ptr noundef readnone captures(none) %env, i64 noundef %ptr) local_unnamed_addr #9 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @helper_retaddr)
   store i64 1, ptr %0, align 8
@@ -6519,7 +6519,7 @@ atomic_mmu_lookup.exit:                           ; preds = %if.end.i
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local noundef { i64, i64 } @helper_nonatomic_cmpxchgo(ptr nocapture noundef readnone %env, i64 noundef %addr, i64 noundef %cmpv.coerce0, i64 noundef %cmpv.coerce1, i64 noundef %newv.coerce0, i64 noundef %newv.coerce1, i32 noundef %oi) local_unnamed_addr #12 {
+define dso_local noundef { i64, i64 } @helper_nonatomic_cmpxchgo(ptr noundef readnone captures(none) %env, i64 noundef %addr, i64 noundef %cmpv.coerce0, i64 noundef %cmpv.coerce1, i64 noundef %newv.coerce0, i64 noundef %newv.coerce1, i32 noundef %oi) local_unnamed_addr #12 {
 entry:
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.18, i32 noundef 67, ptr noundef nonnull @__func__.helper_nonatomic_cmpxchgo, ptr noundef null) #17
   unreachable

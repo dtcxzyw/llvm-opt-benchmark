@@ -24,7 +24,7 @@ define noundef i32 @mca_fbtl_posix_component_init_query(i1 noundef zeroext %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @mca_fbtl_posix_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define noundef nonnull ptr @mca_fbtl_posix_component_file_query(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr @mca_fbtl_posix_priority, align 4
   store i32 %3, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 148
@@ -37,12 +37,12 @@ define noundef nonnull ptr @mca_fbtl_posix_component_file_query(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_fbtl_posix_component_file_unquery(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @mca_fbtl_posix_component_file_unquery(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_fbtl_posix_module_init(ptr nocapture readnone %0) #2 {
+define noundef i32 @mca_fbtl_posix_module_init(ptr readnone captures(none) %0) #2 {
   %2 = tail call i64 @sysconf(i32 noundef 24) #9
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %5, label %3
@@ -60,12 +60,12 @@ define noundef i32 @mca_fbtl_posix_module_init(ptr nocapture readnone %0) #2 {
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @mca_fbtl_posix_module_finalize(ptr nocapture readnone %0) #0 {
+define noundef i32 @mca_fbtl_posix_module_finalize(ptr readnone captures(none) %0) #0 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @mca_fbtl_posix_progress(ptr nocapture noundef %0) #2 {
+define noundef zeroext i1 @mca_fbtl_posix_progress(ptr noundef captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -415,7 +415,7 @@ declare i32 @aio_write(ptr noundef) local_unnamed_addr #3
 declare i32 @aio_read(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @mca_fbtl_posix_request_free(ptr nocapture noundef %0) #5 {
+define void @mca_fbtl_posix_request_free(ptr noundef captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -451,10 +451,10 @@ define void @mca_fbtl_posix_request_free(ptr nocapture noundef %0) #5 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @mca_fbtl_posix_check_atomicity(ptr nocapture noundef readonly %0) #2 {
+define zeroext i1 @mca_fbtl_posix_check_atomicity(ptr noundef readonly captures(none) %0) #2 {
   %2 = alloca %struct.flock, align 8
   store i16 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -478,7 +478,7 @@ declare i64 @mca_fbtl_posix_pwritev(ptr noundef) #4
 declare i64 @mca_fbtl_posix_ipwritev(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

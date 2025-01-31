@@ -164,10 +164,10 @@ define dso_local i32 @cpuidle_play_dead() local_unnamed_addr #3 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @cpuidle_get_cpu_driver(ptr noundef) local_unnamed_addr #5
@@ -211,7 +211,7 @@ declare i64 @llvm.read_register.i64(metadata) #6
 declare void @llvm.write_register.i64(metadata, i64) #7
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @cpuidle_find_deepest_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #8 align 16 {
+define dso_local i32 @cpuidle_find_deepest_state(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #8 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 1
@@ -257,7 +257,7 @@ define dso_local i32 @cpuidle_find_deepest_state(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define internal fastcc i32 @find_deepest_state(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #8 align 16 {
+define internal fastcc i32 @find_deepest_state(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #8 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 1
@@ -837,7 +837,7 @@ define dso_local void @cpuidle_reflect(ptr noundef %0, i32 noundef %1) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree noprofile norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i64 1, 0) i64 @cpuidle_poll_time(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #11 section ".cpuidle.text" align 16 {
+define dso_local range(i64 1, 0) i64 @cpuidle_poll_time(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #11 section ".cpuidle.text" align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -1286,7 +1286,7 @@ cpuidle_enable_device.exit:                       ; preds = %cpuidle_enable_devi
 
 94:                                               ; preds = %93, %.loopexit
   %95 = phi i32 [ %56, %.loopexit ], [ %.ph, %93 ]
-  %96 = tail call ptr @cpuidle_get_cpu_driver(ptr noundef %0) #19
+  %96 = tail call ptr @cpuidle_get_cpu_driver(ptr noundef nonnull %0) #19
   %97 = load ptr, ptr %53, align 8
   %98 = load ptr, ptr %50, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
@@ -1461,7 +1461,7 @@ define dso_local void @cpuidle_unregister(ptr noundef %0) #3 align 16 {
 declare dso_local void @cpuidle_unregister_driver(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cpuidle_register(ptr noundef %0, ptr nocapture readnone %1) #3 align 16 {
+define dso_local i32 @cpuidle_register(ptr noundef %0, ptr readnone captures(none) %1) #3 align 16 {
   %3 = tail call i32 @cpuidle_register_driver(ptr noundef %0) #19
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %5, label %7
@@ -1600,7 +1600,7 @@ declare dso_local void @ct_idle_exit() local_unnamed_addr #5
 declare dso_local i32 @__SCT__tp_func_cpu_idle_miss(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @try_module_get(ptr noundef) local_unnamed_addr #5

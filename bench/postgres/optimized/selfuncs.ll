@@ -69,14 +69,14 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.gincost_pattern = private unnamed_addr constant [16 x i8] c"gincost_pattern\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @eqsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @eqsel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc double @eqsel_internal(ptr noundef %0, i1 noundef zeroext false)
   %3 = bitcast double %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @eqsel_internal(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc double @eqsel_internal(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct.VariableStatData, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
@@ -150,7 +150,7 @@ define internal fastcc double @eqsel_internal(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @var_eq_const(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local double @var_eq_const(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca %struct.AttStatsSlot, align 8
   %10 = alloca %union.anon.1, align 8
@@ -421,7 +421,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %49, %47, %44, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @statistic_proc_security_check(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @statistic_proc_security_check(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 45
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -457,7 +457,7 @@ declare zeroext i1 @get_attstatsslot(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @get_variable_numdistinct(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define dso_local double @get_variable_numdistinct(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -587,7 +587,7 @@ define dso_local double @get_variable_numdistinct(ptr nocapture noundef readonly
 declare void @free_attstatsslot(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @var_eq_non_const(ptr nocapture noundef readonly %0, i32 %1, i32 %2, ptr nocapture readnone %3, i1 zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local double @var_eq_non_const(ptr noundef readonly captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, i1 zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca %struct.AttStatsSlot, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -691,14 +691,14 @@ define dso_local double @var_eq_non_const(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @neqsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @neqsel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc double @eqsel_internal(ptr noundef %0, i1 noundef zeroext true)
   %3 = bitcast double %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @mcv_selectivity(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local double @mcv_selectivity(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.AttStatsSlot, align 8
   %8 = alloca %union.anon.2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -854,7 +854,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %22, %20, %17, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @histogram_selectivity(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
+define dso_local double @histogram_selectivity(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.AttStatsSlot, align 8
   %10 = alloca %union.anon.3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1150,7 +1150,7 @@ define dso_local double @generic_restriction_selectivity(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @get_restriction_variable(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @get_restriction_variable(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.VariableStatData, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
@@ -1232,7 +1232,7 @@ list_length.exit.thread:                          ; preds = %6, %39, %36, %list_
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @ineq_histogram_selectivity(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define dso_local double @ineq_histogram_selectivity(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, i64 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.AttStatsSlot, align 8
   %11 = alloca double, align 8
   %12 = alloca double, align 8
@@ -1582,7 +1582,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %30, %28, %25, %198,
 declare zeroext i1 @comparison_ops_are_compatible(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @get_actual_variable_range(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc zeroext i1 @get_actual_variable_range(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i16, align 2
   %8 = alloca i8, align 1
   %9 = alloca [1 x %struct.ScanKeyData], align 16
@@ -1751,7 +1751,7 @@ define internal fastcc zeroext i1 @get_actual_variable_range(ptr nocapture nound
 declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
+define internal fastcc zeroext i1 @convert_to_scalar(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   store i8 0, ptr %10, align 1
   switch i32 %1, label %211 [
@@ -2207,13 +2207,13 @@ convert_timevalue_to_scalar.exit59:               ; preds = %convert_timevalue_t
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @scalarltsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @scalarltsel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @scalarineqsel_wrapper(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @scalarineqsel_wrapper(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc i64 @scalarineqsel_wrapper(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct.VariableStatData, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -2325,19 +2325,19 @@ define internal fastcc i64 @scalarineqsel_wrapper(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @scalarlesel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @scalarlesel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @scalarineqsel_wrapper(ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext true)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @scalargtsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @scalargtsel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @scalarineqsel_wrapper(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext false)
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @scalargesel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @scalargesel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i64 @scalarineqsel_wrapper(ptr noundef %0, i1 noundef zeroext true, i1 noundef zeroext true)
   ret i64 %2
 }
@@ -3959,7 +3959,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare double @clause_selectivity(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @nulltestsel(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 {
+define dso_local double @nulltestsel(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.VariableStatData, align 8
   call void @examine_variable(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -4051,7 +4051,7 @@ define dso_local double @nulltestsel(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @scalararraysel(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local double @scalararraysel(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.FmgrInfo, align 8
   %8 = alloca i16, align 2
   %9 = alloca i8, align 1
@@ -4665,7 +4665,7 @@ declare i32 @ArrayGetNItems(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare double @clamp_row_est(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @rowcomparesel(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local double @rowcomparesel(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %7, i64 16
@@ -4717,7 +4717,7 @@ declare double @join_selectivity(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare double @restriction_selectivity(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @eqjoinsel(ptr nocapture noundef readonly %0) #0 {
+define dso_local i64 @eqjoinsel(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca %union.anon.7, align 8
   %4 = alloca %struct.FmgrInfo, align 8
@@ -5411,7 +5411,7 @@ find_join_input_rel.exit:                         ; preds = %304
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_join_variables(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local void @get_join_variables(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
@@ -5473,10 +5473,10 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, ptr readonly %.8.val, double noundef %2, double noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef nonnull readonly %7, ptr noundef readonly %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr nocapture noundef nonnull readonly %11) unnamed_addr #0 {
+define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, ptr readonly %.8.val, double noundef %2, double noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef nonnull readonly captures(none) %6, ptr noundef nonnull readonly captures(none) %7, ptr noundef readonly %8, i1 noundef zeroext %9, i1 noundef zeroext %10, ptr noundef nonnull readonly captures(none) %11) unnamed_addr #0 {
   %13 = alloca %union.anon.8, align 8
   %14 = alloca %struct.FmgrInfo, align 8
   %.not = icmp eq ptr %.8.val, null
@@ -5747,7 +5747,7 @@ define internal fastcc double @eqjoinsel_semi(i32 noundef %0, i32 noundef %1, pt
 declare i32 @get_commutator(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @neqjoinsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @neqjoinsel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.VariableStatData, align 8
   %3 = alloca %struct.VariableStatData, align 8
   %4 = alloca i8, align 1
@@ -5841,27 +5841,27 @@ define dso_local i64 @neqjoinsel(ptr nocapture noundef readonly %0) local_unname
 declare i64 @DirectFunctionCall5Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @scalarltjoinsel(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define dso_local noundef i64 @scalarltjoinsel(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret i64 4599676419421066581
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @scalarlejoinsel(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define dso_local noundef i64 @scalarlejoinsel(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret i64 4599676419421066581
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @scalargtjoinsel(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define dso_local noundef i64 @scalargtjoinsel(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret i64 4599676419421066581
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @scalargejoinsel(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define dso_local noundef i64 @scalargejoinsel(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret i64 4599676419421066581
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mergejoinscansel(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef initializes((0, 8)) %5, ptr nocapture noundef initializes((0, 8)) %6, ptr nocapture noundef initializes((0, 8)) %7, ptr nocapture noundef initializes((0, 8)) %8) local_unnamed_addr #0 {
+define dso_local void @mergejoinscansel(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef captures(none) initializes((0, 8)) %5, ptr noundef captures(none) initializes((0, 8)) %6, ptr noundef captures(none) initializes((0, 8)) %7, ptr noundef captures(none) initializes((0, 8)) %8) local_unnamed_addr #0 {
   %10 = alloca %struct.VariableStatData, align 8
   %11 = alloca %struct.VariableStatData, align 8
   %12 = alloca i32, align 4
@@ -6267,7 +6267,7 @@ declare void @get_op_opfamily_properties(i32 noundef, i32 noundef, i1 noundef ze
 declare i32 @get_opfamily_member(i32 noundef, i32 noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @get_variable_range(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @get_variable_range(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i8, align 1
@@ -6450,7 +6450,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %25, %23, %20, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @scalarineqsel(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5, i64 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc double @scalarineqsel(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5, i64 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.FmgrInfo, align 8
   %10 = alloca double, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -6573,7 +6573,7 @@ define internal fastcc double @scalarineqsel(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @matchingsel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @matchingsel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -6594,7 +6594,7 @@ define dso_local i64 @matchingsel(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @matchingjoinsel(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define dso_local noundef i64 @matchingjoinsel(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
   ret i64 4576918229304087675
 }
 
@@ -7384,7 +7384,7 @@ declare zeroext i1 @list_member_int(ptr noundef, i32 noundef) local_unnamed_addr
 declare double @expression_returns_set_rows(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc ptr @add_unique_group_var(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = call double @get_variable_numdistinct(ptr noundef nonnull %3, ptr noundef nonnull %5)
   %.not38 = icmp eq ptr %1, null
@@ -7479,7 +7479,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare double @pow(double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @estimate_hash_bucket_stats(ptr noundef %0, ptr noundef %1, double noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define dso_local void @estimate_hash_bucket_stats(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.VariableStatData, align 8
   %7 = alloca i8, align 1
   %8 = alloca %struct.AttStatsSlot, align 8
@@ -7616,7 +7616,7 @@ define dso_local void @estimate_hash_bucket_stats(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @estimate_hashagg_tablesize(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, double noundef %3) local_unnamed_addr #0 {
+define dso_local double @estimate_hashagg_tablesize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, double noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 608
   %6 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %6, null
@@ -7645,7 +7645,7 @@ list_length.exit:                                 ; preds = %4, %7
 declare i64 @hash_agg_entry_size(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -7840,7 +7840,7 @@ define dso_local double @index_other_operands_eval_cost(ptr noundef %0, ptr noun
 declare void @cost_qual_eval_node(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @genericcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local void @genericcostestimate(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = load ptr, ptr %6, align 8
@@ -8111,7 +8111,7 @@ list_length.exit99:                               ; preds = %list_length.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @add_predicate_to_index_quals(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @add_predicate_to_index_quals(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -8175,7 +8175,7 @@ declare zeroext i1 @predicate_implied_by(ptr noundef, ptr noundef, i1 noundef ze
 declare ptr @list_concat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @btcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define dso_local void @btcostestimate(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.VariableStatData, align 8
   %10 = alloca %struct.AttStatsSlot, align 8
   %11 = alloca %struct.GenericCosts, align 8
@@ -8812,7 +8812,7 @@ declare i32 @get_op_opfamily_strategy(i32 noundef, i32 noundef) local_unnamed_ad
 declare double @log(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #0 {
+define dso_local void @hashcostestimate(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) initializes((0, 8)) %6, ptr noundef writeonly captures(none) initializes((0, 8)) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.GenericCosts, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   call void @genericcostestimate(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef nonnull %9)
@@ -8834,7 +8834,7 @@ define dso_local void @hashcostestimate(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #0 {
+define dso_local void @gistcostestimate(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) initializes((0, 8)) %6, ptr noundef writeonly captures(none) initializes((0, 8)) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.GenericCosts, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
@@ -8916,7 +8916,7 @@ define dso_local void @gistcostestimate(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @spgcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #0 {
+define dso_local void @spgcostestimate(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly captures(none) initializes((0, 8)) %6, ptr noundef writeonly captures(none) initializes((0, 8)) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.GenericCosts, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
@@ -8998,7 +8998,7 @@ define dso_local void @spgcostestimate(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gincostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define dso_local void @gincostestimate(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca %struct.VariableStatData, align 8
   %10 = alloca %struct.AttStatsSlot, align 8
   %11 = alloca i16, align 2
@@ -9877,7 +9877,7 @@ declare void @index_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare double @llvm.floor.f64(double) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @brincostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define dso_local void @brincostestimate(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca %struct.BrinStatsData, align 4
@@ -10246,7 +10246,7 @@ declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @convert_numeric_to_scalar(i64 noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
+define internal fastcc double @convert_numeric_to_scalar(i64 noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #0 {
   switch i32 %1, label %27 [
     i32 16, label %4
     i32 21, label %7
@@ -10318,7 +10318,7 @@ define internal fastcc double @convert_numeric_to_scalar(i64 noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @convert_string_datum(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc ptr @convert_string_datum(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   switch i32 %1, label %15 [
     i32 18, label %5
     i32 1042, label %9
@@ -10368,7 +10368,7 @@ define internal fastcc ptr @convert_string_datum(i64 noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @convert_bytea_to_scalar(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc void @convert_bytea_to_scalar(i64 noundef %0, ptr noundef nonnull writeonly captures(none) %1, i64 noundef %2, ptr noundef nonnull writeonly captures(none) %3, i64 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = inttoptr i64 %0 to ptr
   %8 = tail call ptr @pg_detoast_datum_packed(ptr noundef %7) #13
   %9 = inttoptr i64 %2 to ptr
@@ -10641,10 +10641,10 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @lc_collate_is_c(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strxfrm(ptr nocapture noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare i64 @strxfrm(ptr noundef captures(none), ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 
@@ -10657,7 +10657,7 @@ declare ptr @getRTEPermissionInfo(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @pg_attribute_aclcheck(i32 noundef, i16 noundef signext, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @get_tle_by_resno(ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
@@ -10666,7 +10666,7 @@ declare zeroext i1 @targetIsInSortList(ptr noundef, i32 noundef, ptr noundef) lo
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_stats_slot_range(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, i16 noundef signext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
+define internal fastcc void @get_stats_slot_range(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3, i16 noundef signext %4, i1 noundef zeroext %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7, ptr noundef nonnull captures(none) %8) unnamed_addr #0 {
   %10 = load i64, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   %12 = load i8, ptr %8, align 1
@@ -10769,7 +10769,7 @@ declare ptr @table_slot_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ScanKeyEntryInitialize(ptr noundef, i32 noundef, i16 noundef signext, i16 noundef zeroext, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @get_actual_variable_endpoint(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 2) %2, ptr noundef nonnull %3, i16 noundef signext %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @get_actual_variable_endpoint(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 2) %2, ptr noundef nonnull %3, i16 noundef signext %4, i1 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca %struct.SnapshotData, align 8
   %11 = alloca i32, align 4
   %12 = alloca [32 x i64], align 16
@@ -10925,7 +10925,7 @@ declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
 declare void @index_endscan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @gincost_pattern(ptr nocapture noundef readonly %0, i32 noundef range(i32 -32768, 32768) %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @gincost_pattern(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -32768, 32768) %1, i32 noundef %2, i64 noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.FmgrInfo, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -11127,10 +11127,10 @@ declare i32 @llvm.umin.i32(i32, i32) #11
 declare i32 @llvm.umax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

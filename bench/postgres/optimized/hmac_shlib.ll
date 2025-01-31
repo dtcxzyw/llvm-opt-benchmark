@@ -51,7 +51,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #2
 
@@ -59,7 +59,7 @@ declare ptr @pg_cryptohash_create(i32 noundef) local_unnamed_addr #2
 declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @pg_hmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {

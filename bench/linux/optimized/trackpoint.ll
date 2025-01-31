@@ -261,7 +261,7 @@ define dso_local i32 @trackpoint_detect(ptr noundef %0, i1 noundef zeroext %1) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trackpoint_reconnect(ptr noundef %0) #0 align 16 {
@@ -320,7 +320,7 @@ define internal i32 @trackpoint_reconnect(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trackpoint_disconnect(ptr nocapture noundef %0) #0 align 16 {
+define internal void @trackpoint_disconnect(ptr noundef captures(none) %0) #0 align 16 {
   %2 = alloca [2 x ptr], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -1542,7 +1542,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ps2_command(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -1560,7 +1560,7 @@ declare dso_local i64 @psmouse_attr_show_helper(ptr noundef, ptr noundef, ptr no
 declare dso_local i64 @psmouse_attr_set_helper(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @trackpoint_show_int_attr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #5 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @trackpoint_show_int_attr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) #5 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = getelementptr i8, ptr %4, i64 %5
@@ -1578,7 +1578,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @trackpoint_show_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @trackpoint_set_int_attr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @trackpoint_set_int_attr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca i8, align 1
   %7 = load ptr, ptr %0, align 8
@@ -1620,13 +1620,13 @@ define internal i64 @trackpoint_set_int_attr(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @kstrtou8(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @trackpoint_set_bit_attr(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca [3 x i8], align 1
   %6 = alloca i8, align 1
   %7 = load ptr, ptr %0, align 8

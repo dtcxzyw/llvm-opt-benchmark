@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Extra_FileGetSimilarName(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %1, null
-  br i1 %7, label %39, label %8
+  br i1 %7, label %37, label %8
 
 8:                                                ; preds = %6
   %9 = tail call ptr @Extra_UtilStrsav(ptr noundef %0) #21
@@ -39,7 +39,7 @@ define noundef ptr @Extra_FileGetSimilarName(ptr noundef %0, ptr noundef %1, ptr
   br label %Extra_FileNameGeneric.exit
 
 Extra_FileNameGeneric.exit:                       ; preds = %8, %11
-  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %9, ptr noundef nonnull %1) #21
+  %12 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %9, ptr noundef nonnull %1) #21
   %13 = tail call noalias ptr @fopen(ptr noundef nonnull @Extra_FileNameAppend.Buffer, ptr noundef nonnull @.str)
   %14 = icmp eq ptr %13, null
   %15 = icmp ne ptr %2, null
@@ -47,7 +47,7 @@ Extra_FileNameGeneric.exit:                       ; preds = %8, %11
   br i1 %or.cond, label %16, label %34
 
 16:                                               ; preds = %Extra_FileNameGeneric.exit
-  %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %9, ptr noundef nonnull %2) #21
+  %17 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %9, ptr noundef nonnull %2) #21
   %18 = tail call noalias ptr @fopen(ptr noundef nonnull @Extra_FileNameAppend.Buffer, ptr noundef nonnull @.str)
   %19 = icmp eq ptr %18, null
   %20 = icmp ne ptr %3, null
@@ -55,7 +55,7 @@ Extra_FileNameGeneric.exit:                       ; preds = %8, %11
   br i1 %or.cond3, label %21, label %34
 
 21:                                               ; preds = %16
-  %22 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %9, ptr noundef nonnull %3) #21
+  %22 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %9, ptr noundef nonnull %3) #21
   %23 = tail call noalias ptr @fopen(ptr noundef nonnull @Extra_FileNameAppend.Buffer, ptr noundef nonnull @.str)
   %24 = icmp eq ptr %23, null
   %25 = icmp ne ptr %4, null
@@ -63,7 +63,7 @@ Extra_FileNameGeneric.exit:                       ; preds = %8, %11
   br i1 %or.cond5, label %26, label %34
 
 26:                                               ; preds = %21
-  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %9, ptr noundef nonnull %4) #21
+  %27 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %9, ptr noundef nonnull %4) #21
   %28 = tail call noalias ptr @fopen(ptr noundef nonnull @Extra_FileNameAppend.Buffer, ptr noundef nonnull @.str)
   %29 = icmp eq ptr %28, null
   %30 = icmp ne ptr %5, null
@@ -71,29 +71,22 @@ Extra_FileNameGeneric.exit:                       ; preds = %8, %11
   br i1 %or.cond7, label %31, label %34
 
 31:                                               ; preds = %26
-  %32 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %9, ptr noundef nonnull %5) #21
+  %32 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Extra_FileNameAppend.Buffer, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %9, ptr noundef nonnull %5) #21
   %33 = tail call noalias ptr @fopen(ptr noundef nonnull @Extra_FileNameAppend.Buffer, ptr noundef nonnull @.str)
   br label %34
 
 34:                                               ; preds = %16, %26, %31, %21, %Extra_FileNameGeneric.exit
   %.038 = phi ptr [ %33, %31 ], [ %28, %26 ], [ %23, %21 ], [ %18, %16 ], [ %13, %Extra_FileNameGeneric.exit ]
-  %.not = icmp eq ptr %9, null
-  br i1 %.not, label %36, label %35
+  tail call void @free(ptr noundef %9) #21
+  %.not46 = icmp eq ptr %.038, null
+  br i1 %.not46, label %37, label %35
 
 35:                                               ; preds = %34
-  tail call void @free(ptr noundef nonnull %9) #21
-  br label %36
+  %36 = tail call i32 @fclose(ptr noundef nonnull %.038)
+  br label %37
 
-36:                                               ; preds = %34, %35
-  %.not46 = icmp eq ptr %.038, null
-  br i1 %.not46, label %39, label %37
-
-37:                                               ; preds = %36
-  %38 = tail call i32 @fclose(ptr noundef nonnull %.038)
-  br label %39
-
-39:                                               ; preds = %36, %6, %37
-  %.039 = phi ptr [ @Extra_FileNameAppend.Buffer, %37 ], [ null, %6 ], [ null, %36 ]
+37:                                               ; preds = %34, %6, %35
+  %.039 = phi ptr [ @Extra_FileNameAppend.Buffer, %35 ], [ null, %6 ], [ null, %34 ]
   ret ptr %.039
 }
 
@@ -119,13 +112,13 @@ define noundef nonnull ptr @Extra_FileNameAppend(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
 define ptr @Extra_FileNameExtension(ptr noundef readonly %0) local_unnamed_addr #4 {
@@ -150,10 +143,10 @@ define ptr @Extra_FileNameExtension(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #6
 
@@ -161,7 +154,7 @@ declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #6
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @Extra_FileNameGenericAppend(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define noundef nonnull ptr @Extra_FileNameGenericAppend(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) @Extra_FileNameGenericAppend.Buffer, ptr noundef nonnull dereferenceable(1) %0) #21
   %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) @Extra_FileNameGenericAppend.Buffer, i32 noundef 46) #22
   %.not = icmp eq ptr %4, null
@@ -177,10 +170,10 @@ define noundef nonnull ptr @Extra_FileNameGenericAppend(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @Extra_FileNameCorrectPath(ptr noundef %0) local_unnamed_addr #9 {
@@ -265,8 +258,7 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %2
 
 13:                                               ; preds = %11, %11
   store i8 0, ptr %.pn, align 1
-  %.not.i17 = icmp eq ptr %7, null
-  br i1 %.not.i17, label %Extra_FileNameCorrectPath.exit, label %.preheader.i
+  br label %.preheader.i
 
 .preheader.i:                                     ; preds = %13, %16
   %.0.i = phi ptr [ %17, %16 ], [ %7, %13 ]
@@ -289,15 +281,15 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %2
   tail call void @free(ptr noundef %7) #21
   br label %Extra_FileNameCorrectPath.exit
 
-Extra_FileNameCorrectPath.exit:                   ; preds = %.preheader.i, %13, %18
-  %.014 = phi ptr [ null, %18 ], [ null, %13 ], [ %7, %.preheader.i ]
+Extra_FileNameCorrectPath.exit:                   ; preds = %.preheader.i, %18
+  %.014 = phi ptr [ null, %18 ], [ %7, %.preheader.i ]
   ret ptr %.014
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @Extra_FileInTheSameDir(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 {
+define noundef nonnull ptr @Extra_FileInTheSameDir(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @Extra_FileInTheSameDir.pBuffer, ptr align 1 %0, i64 %3, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @Extra_FileInTheSameDir.pBuffer, ptr nonnull align 1 %0, i64 %3, i1 false)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %5 = getelementptr inbounds i8, ptr @Extra_FileInTheSameDir.pBuffer, i64 %4
   br label %6
@@ -317,7 +309,7 @@ define noundef nonnull ptr @Extra_FileInTheSameDir(ptr nocapture noundef readonl
 
 9:                                                ; preds = %7, %7, %6
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.pn, ptr align 1 %1, i64 %10, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.pn, ptr nonnull align 1 %1, i64 %10, i1 false)
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #22
   %12 = getelementptr inbounds i8, ptr %.pn, i64 %11
   store i8 0, ptr %12, align 1
@@ -325,7 +317,7 @@ define noundef nonnull ptr @Extra_FileInTheSameDir(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @Extra_FileDesignName(ptr noundef %0) local_unnamed_addr #12 {
@@ -428,16 +420,16 @@ define range(i32 0, 2) i32 @Extra_FileCheck(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @Extra_FileSize(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef i32 @Extra_FileSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.2)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %5
@@ -459,7 +451,7 @@ define noundef i32 @Extra_FileSize(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Extra_FileRead(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Extra_FileRead(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call i32 @fseek(ptr noundef %0, i64 noundef 0, i32 noundef 2)
   %3 = tail call i64 @ftell(ptr noundef %0)
   tail call void @rewind(ptr noundef %0)
@@ -479,13 +471,13 @@ define noalias noundef ptr @Extra_FileRead(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: nofree nounwind
-declare void @rewind(ptr nocapture noundef) local_unnamed_addr #2
+declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Extra_FileRead2(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define noalias noundef ptr @Extra_FileRead2(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @fseek(ptr noundef %0, i64 noundef 0, i32 noundef 2)
   %4 = tail call i64 @ftell(ptr noundef %0)
   %5 = trunc i64 %4 to i32
@@ -514,7 +506,7 @@ define noalias noundef ptr @Extra_FileRead2(ptr nocapture noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Extra_FileReadContents(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Extra_FileReadContents(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.2)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %3
@@ -544,7 +536,7 @@ define noalias noundef ptr @Extra_FileReadContents(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Extra_FileReadContents2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define noalias noundef ptr @Extra_FileReadContents2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.2)
   %4 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.2)
   %5 = icmp ne ptr %3, null
@@ -577,7 +569,7 @@ define noalias noundef ptr @Extra_FileReadContents2(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #14 {
+define range(i32 0, 2) i32 @Extra_FileIsType(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #14 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %6 = trunc i64 %5 to i32
   %.not = icmp eq ptr %1, null
@@ -660,7 +652,7 @@ define range(i32 0, 2) i32 @Extra_FileIsType(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef nonnull ptr @Extra_TimeStamp() local_unnamed_addr #0 {
@@ -686,7 +678,7 @@ declare ptr @asctime(ptr noundef) local_unnamed_addr #15
 declare ptr @localtime(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Extra_ReadBinary(ptr nocapture noundef readonly %0) local_unnamed_addr #16 {
+define i32 @Extra_ReadBinary(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   br label %2
 
 2:                                                ; preds = %10, %1
@@ -717,7 +709,7 @@ define i32 @Extra_ReadBinary(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Extra_PrintBinary(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Extra_PrintBinary(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -741,10 +733,10 @@ define void @Extra_PrintBinary(ptr nocapture noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Extra_PrintBinary2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Extra_PrintBinary2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -768,7 +760,7 @@ define void @Extra_PrintBinary2(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @Extra_ReadHex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Extra_ReadHex(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -833,7 +825,7 @@ define range(i32 0, 2) i32 @Extra_ReadHex(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @Extra_ReadHexadecimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define noundef i32 @Extra_ReadHexadecimal(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp slt i32 %2, 6
   %5 = add nsw i32 %2, -5
   %6 = shl nuw i32 1, %5
@@ -914,7 +906,7 @@ Extra_ReadHex.exit:                               ; preds = %27, %32, %._crit_ed
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Extra_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Extra_PrintHexadecimal(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = shl nuw i32 1, %2
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -955,7 +947,7 @@ define void @Extra_PrintHexadecimal(ptr nocapture noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Extra_PrintHexadecimalString(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @Extra_PrintHexadecimalString(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   switch i32 %2, label %.critedge31 [
     i32 0, label %4
     i32 1, label %9
@@ -1030,7 +1022,7 @@ define void @Extra_PrintHexadecimalString(ptr nocapture noundef writeonly %0, pt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Extra_PrintHex(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Extra_PrintHex(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %0)
   %5 = shl nuw i32 1, %2
   %6 = sdiv i32 %5, 4
@@ -1072,7 +1064,7 @@ define void @Extra_PrintHex(ptr nocapture noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Extra_PrintHex2(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Extra_PrintHex2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = shl nuw i32 1, %2
   %5 = sdiv i32 %4, 4
   %6 = and i32 %4, -2147483645
@@ -1113,7 +1105,7 @@ define void @Extra_PrintHex2(ptr nocapture noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Extra_PrintHexReverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Extra_PrintHexReverse(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 2, i64 1, ptr %0)
   %5 = shl nuw i32 1, %2
   %6 = sdiv i32 %5, 4
@@ -1155,7 +1147,7 @@ define void @Extra_PrintHexReverse(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Extra_PrintSymbols(ptr nocapture noundef readnone %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @Extra_PrintSymbols(ptr noundef readnone captures(none) %0, i8 noundef signext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -1193,7 +1185,7 @@ define ptr @Extra_StringAppend(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %6 = add i64 %4, 2
   %7 = add i64 %6, %5
   %8 = tail call noalias ptr @malloc(i64 noundef %7) #23
-  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %0, ptr noundef %1) #21
+  %9 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %0, ptr noundef nonnull %1) #21
   tail call void @free(ptr noundef nonnull %0) #21
   br label %12
 
@@ -1207,7 +1199,7 @@ define ptr @Extra_StringAppend(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Extra_StringClean(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define void @Extra_StringClean(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = load i8, ptr %0, align 1
   %.not19 = icmp eq i8 %3, 0
   br i1 %.not19, label %._crit_edge, label %.preheader.lr.ph
@@ -1260,7 +1252,7 @@ define void @Extra_StringClean(ptr nocapture noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Extra_StringCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
+define i32 @Extra_StringCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %4) #22
@@ -1268,7 +1260,7 @@ define i32 @Extra_StringCompare(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @Extra_FileSort(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1399,7 +1391,7 @@ define void @Extra_FileSort(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Extra_FileLineNumAdd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -1450,25 +1442,25 @@ define void @Extra_FileLineNumAdd(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #19
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

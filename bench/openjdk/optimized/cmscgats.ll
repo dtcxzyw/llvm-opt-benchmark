@@ -232,7 +232,7 @@ define hidden void @cmsIT8Free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cmsIT8SetTable(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @cmsIT8SetTable(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp ult i32 %1, %3
   br i1 %.not, label %12, label %4
@@ -266,7 +266,7 @@ define hidden noundef i32 @cmsIT8SetTable(ptr nocapture noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @SynError(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @SynError(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
@@ -575,7 +575,7 @@ AllocChunk.exit.thread:                           ; preds = %26, %AllocChunk.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cmsIT8SetSheetType(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden noundef i32 @cmsIT8SetSheetType(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -626,10 +626,10 @@ GetTable.exit:                                    ; preds = %5, %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetComment(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetComment(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %3
 
@@ -670,7 +670,7 @@ GetTable.exit:                                    ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @AddToList(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @AddToList(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load ptr, ptr %1, align 8
   %cond2941.i = icmp eq ptr %7, null
   br i1 %cond2941.i, label %.loopexit, label %.lr.ph.split.i.preheader
@@ -889,7 +889,7 @@ AllocChunk.exit.thread:                           ; preds = %59
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyStr(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyStr(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %20, label %4
 
@@ -930,7 +930,7 @@ GetTable.exit:                                    ; preds = %10, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyDbl(ptr nocapture noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyDbl(ptr noundef captures(none) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 271608
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1023, ptr noundef nonnull %5, double noundef %2) #17
@@ -961,10 +961,10 @@ GetTable.exit:                                    ; preds = %10, %12
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyHex(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyHex(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 1023, ptr noundef nonnull @.str.4, i32 noundef %2) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -994,7 +994,7 @@ GetTable.exit:                                    ; preds = %9, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyUncooked(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyUncooked(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -1022,7 +1022,7 @@ GetTable.exit:                                    ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyMulti(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetPropertyMulti(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8
@@ -1050,7 +1050,7 @@ GetTable.exit:                                    ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsIT8GetProperty(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @cmsIT8GetProperty(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -1113,7 +1113,7 @@ IsAvailableOnList.exit.thread:                    ; preds = %22, %.lr.ph.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @cmsIT8GetPropertyDbl(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden double @cmsIT8GetPropertyDbl(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -1365,7 +1365,7 @@ thread-pre-split:                                 ; preds = %48, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsIT8GetPropertyMulti(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @cmsIT8GetPropertyMulti(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -1451,7 +1451,7 @@ IsAvailableOnList.exit.thread:                    ; preds = %23, %32, %.lr.ph.sp
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetDataFormat(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetDataFormat(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -1517,7 +1517,7 @@ SetDataFormat.exit:                               ; preds = %15, %21, %24, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SaveToFile(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SaveToFile(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.SAVESTREAM, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
@@ -1600,13 +1600,13 @@ GetTable.exit:                                    ; preds = %12, %13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WriteHeader(ptr nocapture noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @WriteHeader(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -2073,7 +2073,7 @@ WriteStr.exit61:                                  ; preds = %190, %189, %184, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WriteDataFormat(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @WriteDataFormat(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 8
@@ -2398,7 +2398,7 @@ WriteStr.exit37:                                  ; preds = %145, %144, %137, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WriteData(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @WriteData(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %1, align 8
@@ -2897,10 +2897,10 @@ WriteStr.exit71:                                  ; preds = %221, %220, %213, %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @cmsIT8SaveToMem(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden noundef i32 @cmsIT8SaveToMem(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SAVESTREAM, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -2965,7 +2965,7 @@ cmsIT8SetTable.exit:                              ; preds = %cmsIT8SetTable.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsIT8LoadFromMem(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @cmsIT8LoadFromMem(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i32 %2, 10
   br i1 %4, label %IsMyBlock.exit.thread, label %.lr.ph.preheader.i
 
@@ -4122,7 +4122,7 @@ DataFormatSection.exit.thread:                    ; preds = %141, %131, %138, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @CookPointers(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @CookPointers(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = alloca [256 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -4738,7 +4738,7 @@ cmsIT8Free.exit42:                                ; preds = %.loopexit.i40, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsIT8EnumDataFormat(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define hidden i32 @cmsIT8EnumDataFormat(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -4774,7 +4774,7 @@ GetTable.exit:                                    ; preds = %6, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsIT8EnumProperties(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden i32 @cmsIT8EnumProperties(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -4894,7 +4894,7 @@ AllocChunk.exit.thread:                           ; preds = %.lr.ph, %AllocChunk
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsIT8EnumPropertyMulti(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define hidden i32 @cmsIT8EnumPropertyMulti(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -5057,7 +5057,7 @@ IsAvailableOnList.exit.thread:                    ; preds = %23, %70, %.lr.ph.sp
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsIT8FindDataFormat(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @cmsIT8FindDataFormat(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -5137,7 +5137,7 @@ LocateSample.exit:                                ; preds = %GetDataFormat.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsIT8GetDataRowCol(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @cmsIT8GetDataRowCol(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -5192,7 +5192,7 @@ GetData.exit:                                     ; preds = %GetTable.exit.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @cmsIT8GetDataRowColDbl(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden double @cmsIT8GetDataRowColDbl(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -5252,13 +5252,13 @@ cmsIT8GetDataRowCol.exit.thread:                  ; preds = %21, %GetTable.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetDataRowCol(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetDataRowCol(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @SetData(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SetData(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @SetData(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8
@@ -5334,7 +5334,7 @@ GetTable.exit:                                    ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetDataRowColDbl(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetDataRowColDbl(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 271608
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 255, ptr noundef nonnull %6, double noundef %3) #17
@@ -5343,7 +5343,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetDataRowColDbl(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsIT8GetData(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @cmsIT8GetData(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -5465,7 +5465,7 @@ GetData.exit:                                     ; preds = %GetDataFormat.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @LocatePatch(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @LocatePatch(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -5557,14 +5557,14 @@ GetData.exit.thread:                              ; preds = %31, %GetTable.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @cmsIT8GetDataDbl(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden double @cmsIT8GetDataDbl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @cmsIT8GetData(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = tail call fastcc double @ParseFloatNumber(ptr noundef %4)
   ret double %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetData(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetData(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = load i32, ptr %0, align 8
@@ -5839,7 +5839,7 @@ LocateSample.exit.thread:                         ; preds = %GetDataFormat.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AllocateDataFormat(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @AllocateDataFormat(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -6004,7 +6004,7 @@ AllocChunk.exit:                                  ; preds = %65
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AllocateDataSet(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @AllocateDataSet(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -6225,7 +6225,7 @@ AllocChunk.exit:                                  ; preds = %89
 declare i32 @cmsstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetDataDbl(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetDataDbl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, double noundef %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 271608
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 255, ptr noundef nonnull %6, double noundef %3) #17
@@ -6234,7 +6234,7 @@ define hidden range(i32 0, 2) i32 @cmsIT8SetDataDbl(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsIT8GetPatchName(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @cmsIT8GetPatchName(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
@@ -6322,19 +6322,19 @@ GetData.exit.thread:                              ; preds = %31, %GetTable.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147483647) i32 @cmsIT8GetPatchByName(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147483647) i32 @cmsIT8GetPatchByName(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @LocatePatch(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @cmsIT8TableCount(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden i32 @cmsIT8TableCount(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @cmsIT8SetTableByLabel(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden i32 @cmsIT8SetTableByLabel(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca [256 x i8], align 16
   %7 = alloca i32, align 4
@@ -6409,10 +6409,10 @@ cmsIT8SetTable.exit:                              ; preds = %32, %31, %20, %14, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsIT8SetIndexColumn(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsIT8SetIndexColumn(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 8
@@ -6518,7 +6518,7 @@ define hidden void @cmsIT8DefineDblFormat(ptr noundef %0, ptr noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsCreateDeviceLinkFromCubeFileTHR(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden ptr @cmsCreateDeviceLinkFromCubeFileTHR(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [3 x double], align 16
   %4 = alloca [3 x double], align 16
   %5 = alloca [2 x double], align 16
@@ -7153,7 +7153,7 @@ declare void @cmsMLUfree(ptr noundef) local_unnamed_addr #1
 declare void @cmsPipelineFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsCreateDeviceLinkFromCubeFile(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @cmsCreateDeviceLinkFromCubeFile(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @cmsCreateDeviceLinkFromCubeFileTHR(ptr noundef null, ptr noundef %0)
   ret ptr %2
 }
@@ -7162,7 +7162,7 @@ define hidden ptr @cmsCreateDeviceLinkFromCubeFile(ptr nocapture noundef readonl
 declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #8
@@ -7170,7 +7170,7 @@ declare void @llvm.va_end.p0(ptr) #8
 declare void @cmsSignalError(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @AllocString(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @AllocString(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 271344
@@ -7238,7 +7238,7 @@ AllocChunk.exit:                                  ; preds = %30
   %35 = zext i32 %33 to i64
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 %35
   %37 = and i64 %3, 4294967295
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 1 %1, i64 %37, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %1, i64 %37, i1 false)
   br label %AllocChunk.exit.thread
 
 AllocChunk.exit.thread:                           ; preds = %30, %AllocChunk.exit
@@ -7247,10 +7247,10 @@ AllocChunk.exit.thread:                           ; preds = %30, %AllocChunk.exi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #11
@@ -7265,7 +7265,7 @@ declare i32 @toupper(i32 noundef) local_unnamed_addr #13
 declare double @pow(double noundef, double noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define internal void @Writef(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @Writef(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -7324,13 +7324,13 @@ WriteStr.exit:                                    ; preds = %13, %16, %17, %24, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
@@ -9017,7 +9017,7 @@ BuildAbsolutePath.exit:                           ; preds = %831, %819
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StringAppend(ptr nocapture noundef %0, i8 noundef signext %1) unnamed_addr #0 {
+define internal fastcc void @StringAppend(ptr noundef captures(none) %0, i8 noundef signext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = add nsw i32 %4, 1
@@ -9719,7 +9719,7 @@ NextCh.exit64:                                    ; preds = %.NextCh.exit64_crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InStringSymbol(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @InStringSymbol(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 271364
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 271432
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 271592
@@ -10015,7 +10015,7 @@ NextCh.exit32:                                    ; preds = %149, %145, %144, %1
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @GetVal(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 255, 1024) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @GetVal(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, i32 noundef range(i32 255, 1024) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 271360
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %35 [
@@ -10086,16 +10086,16 @@ define internal fastcc range(i32 0, 2) i32 @GetVal(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @cmsBuildTabulatedToneCurveFloat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -10115,10 +10115,10 @@ declare i32 @llvm.umax.i32(i32, i32) #15
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

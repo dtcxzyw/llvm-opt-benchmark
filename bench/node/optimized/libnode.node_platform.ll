@@ -876,7 +876,7 @@ do.end:                                           ; preds = %_ZNSt10unique_ptrIN
   %platform_workers_ready = getelementptr inbounds nuw i8, ptr %data, i64 16
   %13 = load ptr, ptr %platform_workers_ready, align 8
   call void @uv_cond_signal(ptr noundef nonnull align 8 dereferenceable(48) %13) #25
-  call void @uv_mutex_unlock(ptr noundef %10) #25
+  call void @uv_mutex_unlock(ptr noundef nonnull %10) #25
   call void @_ZN4node9TaskQueueIN2v84TaskEE11BlockingPopEv(ptr nonnull sret(%"class.std::unique_ptr.22") align 8 %task, ptr noundef nonnull align 8 dereferenceable(224) %0)
   %14 = load ptr, ptr %task, align 8
   %cmp.i21.not35 = icmp eq ptr %14, null
@@ -931,7 +931,7 @@ _ZNSt10unique_ptrIN4node12_GLOBAL__N_118PlatformWorkerDataESt14default_deleteIS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node23WorkerThreadsTaskRunner8PostTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef %task) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node23WorkerThreadsTaskRunner8PostTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef captures(none) %task) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.22", align 8
   %0 = load i64, ptr %task, align 8
@@ -983,7 +983,7 @@ _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node23WorkerThreadsTaskRunner15PostDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, ptr nocapture noundef %task, double noundef %delay_in_seconds) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node23WorkerThreadsTaskRunner15PostDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this, ptr noundef captures(none) %task, double noundef %delay_in_seconds) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.22", align 8
   %delayed_task_scheduler_ = getelementptr inbounds nuw i8, ptr %this, i64 224
@@ -1211,7 +1211,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK4node23WorkerThreadsTaskRunner21NumberOfWorkerThreadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK4node23WorkerThreadsTaskRunner21NumberOfWorkerThreadsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %this) local_unnamed_addr #6 align 2 {
 entry:
   %threads_ = getelementptr inbounds nuw i8, ptr %this, i64 232
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 240
@@ -1337,12 +1337,12 @@ _ZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC2Ev.exit7: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @uv_async_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData10FlushTasksEP10uv_async_s(ptr nocapture noundef readonly %handle) #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData10FlushTasksEP10uv_async_s(ptr noundef readonly captures(none) %handle) #3 align 2 {
 entry:
   %0 = load ptr, ptr %handle, align 8
   %call = tail call noundef zeroext i1 @_ZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
@@ -1352,7 +1352,7 @@ entry:
 declare void @uv_unref(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData23GetForegroundTaskRunnerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.48") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData23GetForegroundTaskRunnerEv(ptr noalias writeonly sret(%"class.std::shared_ptr.48") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this) unnamed_addr #8 align 2 {
 entry:
   %_M_refcount2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount2.i.i.i, align 8, !noalias !33
@@ -1638,7 +1638,7 @@ while.end21:                                      ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData12PostIdleTaskESt10unique_ptrIN2v88IdleTaskESt14default_deleteIS3_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %task) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData12PostIdleTaskESt10unique_ptrIN2v88IdleTaskESt14default_deleteIS3_EE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %task) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node22PerIsolatePlatformData12PostIdleTaskESt10unique_ptrIN2v88IdleTaskESt14default_deleteIS3_EEE4args) #25
   tail call void @abort() #26
@@ -1646,7 +1646,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local void @_ZThn8_N4node22PerIsolatePlatformData12PostIdleTaskESt10unique_ptrIN2v88IdleTaskESt14default_deleteIS3_EE(ptr nocapture readnone %this, ptr nocapture readnone %task) unnamed_addr #10 align 2 {
+define dso_local void @_ZThn8_N4node22PerIsolatePlatformData12PostIdleTaskESt10unique_ptrIN2v88IdleTaskESt14default_deleteIS3_EE(ptr readnone captures(none) %this, ptr readnone captures(none) %task) unnamed_addr #10 align 2 {
 entry:
   tail call void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 dereferenceable(24) @_ZZN4node22PerIsolatePlatformData12PostIdleTaskESt10unique_ptrIN2v88IdleTaskESt14default_deleteIS3_EEE4args) #25
   tail call void @abort() #26
@@ -1654,7 +1654,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData8PostTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr nocapture noundef %task) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData8PostTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef captures(none) %task) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.22", align 8
   %flush_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -1721,7 +1721,7 @@ return:                                           ; preds = %entry, %_ZNSt10uniq
 declare i32 @uv_async_send(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N4node22PerIsolatePlatformData8PostTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef %this, ptr nocapture noundef %task) unnamed_addr #11 align 2 {
+define dso_local void @_ZThn8_N4node22PerIsolatePlatformData8PostTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef %this, ptr noundef captures(none) %task) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN4node22PerIsolatePlatformData8PostTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef %task)
@@ -1729,7 +1729,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData15PostDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr nocapture noundef %task, double noundef %delay_in_seconds) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData15PostDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef captures(none) %task, double noundef %delay_in_seconds) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.59", align 8
   %flush_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -1990,7 +1990,7 @@ return:                                           ; preds = %entry, %_ZNSt10uniq
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N4node22PerIsolatePlatformData15PostDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef %this, ptr nocapture noundef %task, double noundef %delay_in_seconds) unnamed_addr #11 align 2 {
+define dso_local void @_ZThn8_N4node22PerIsolatePlatformData15PostDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef %this, ptr noundef captures(none) %task, double noundef %delay_in_seconds) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN4node22PerIsolatePlatformData15PostDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef %task, double noundef %delay_in_seconds)
@@ -1998,7 +1998,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData19PostNonNestableTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr nocapture noundef %task) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData19PostNonNestableTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef captures(none) %task) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.22", align 8
   %0 = load i64, ptr %task, align 8
@@ -2024,7 +2024,7 @@ _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N4node22PerIsolatePlatformData19PostNonNestableTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef %this, ptr nocapture noundef %task) unnamed_addr #11 align 2 {
+define dso_local void @_ZThn8_N4node22PerIsolatePlatformData19PostNonNestableTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef %this, ptr noundef captures(none) %task) unnamed_addr #11 align 2 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.22", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
@@ -2053,7 +2053,7 @@ _ZN4node22PerIsolatePlatformData19PostNonNestableTaskESt10unique_ptrIN2v84TaskES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData26PostNonNestableDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr nocapture noundef %task, double noundef %delay_in_seconds) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData26PostNonNestableDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef captures(none) %task, double noundef %delay_in_seconds) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.22", align 8
   %0 = load i64, ptr %task, align 8
@@ -2079,7 +2079,7 @@ _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N4node22PerIsolatePlatformData26PostNonNestableDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef %this, ptr nocapture noundef %task, double noundef %delay_in_seconds) unnamed_addr #11 align 2 {
+define dso_local void @_ZThn8_N4node22PerIsolatePlatformData26PostNonNestableDelayedTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef %this, ptr noundef captures(none) %task, double noundef %delay_in_seconds) unnamed_addr #11 align 2 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.22", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
@@ -2401,7 +2401,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData19AddShutdownCallbackEPFvPvES1_(ptr nocapture noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %callback, ptr noundef %data) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData19AddShutdownCallbackEPFvPvES1_(ptr noundef nonnull align 8 captures(none) dereferenceable(576) %this, ptr noundef %callback, ptr noundef %data) local_unnamed_addr #3 align 2 {
 entry:
   %shutdown_callbacks_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2770,7 +2770,7 @@ return:                                           ; preds = %entry, %_ZNSt10shar
 declare void @uv_close(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv(ptr nocapture noundef nonnull align 8 dereferenceable(576) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData19DecreaseHandleCountEv(ptr noundef nonnull align 8 captures(none) dereferenceable(576) %this) local_unnamed_addr #3 align 2 {
 entry:
   %uv_handle_count_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %uv_handle_count_, align 8
@@ -3546,7 +3546,7 @@ _ZNSt13unordered_mapIPN2v87IsolateESt4pairIPN4node23IsolatePlatformDelegateESt10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node12NodePlatform26AddIsolateFinishedCallbackEPN2v87IsolateEPFvPvES4_(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %isolate, ptr noundef %cb, ptr noundef %data) unnamed_addr #3 align 2 {
@@ -3701,7 +3701,7 @@ cleanup:                                          ; preds = %_ZNSt6vectorIN4node
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN4node12NodePlatform21NumberOfWorkerThreadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) unnamed_addr #14 align 2 {
+define dso_local noundef i32 @_ZN4node12NodePlatform21NumberOfWorkerThreadsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this) unnamed_addr #14 align 2 {
 entry:
   %worker_thread_task_runner_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %worker_thread_task_runner_, align 8
@@ -3718,7 +3718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData17RunForegroundTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(576) %this, ptr nocapture noundef readonly %task) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData17RunForegroundTaskESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(576) %this, ptr noundef readonly captures(none) %task) local_unnamed_addr #3 align 2 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %scope6 = alloca %"class.v8::HandleScope", align 8
@@ -3820,7 +3820,7 @@ declare void @_ZN4node21InternalCallbackScopeD1Ev(ptr noundef nonnull align 8 de
 declare void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformData24DeleteFromScheduledTasksEPNS_11DelayedTaskE(ptr nocapture noundef nonnull align 8 dereferenceable(576) %this, ptr noundef readnone %task) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformData24DeleteFromScheduledTasksEPNS_11DelayedTaskE(ptr noundef nonnull align 8 captures(none) dereferenceable(576) %this, ptr noundef readnone %task) local_unnamed_addr #3 align 2 {
 entry:
   %scheduled_delayed_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 552
   %0 = load ptr, ptr %scheduled_delayed_tasks_, align 8
@@ -4146,7 +4146,7 @@ _ZNSt10shared_ptrIN4node22PerIsolatePlatformDataEED2Ev.exit: ; preds = %cleanup,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12NodePlatform14ForNodeIsolateEPN2v87IsolateE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %isolate) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12NodePlatform14ForNodeIsolateEPN2v87IsolateE(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %isolate) local_unnamed_addr #3 align 2 {
 entry:
   %isolate.addr = alloca ptr, align 8
   store ptr %isolate, ptr %isolate.addr, align 8
@@ -4295,7 +4295,7 @@ declare i32 @uv_timer_init(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare i32 @uv_timer_start(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12NodePlatform18CallOnWorkerThreadESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this, ptr nocapture noundef %task) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12NodePlatform18CallOnWorkerThreadESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this, ptr noundef captures(none) %task) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.22", align 8
   %worker_thread_task_runner_ = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -4351,7 +4351,7 @@ _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12NodePlatform25CallDelayedOnWorkerThreadESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this, ptr nocapture noundef %task, double noundef %delay_in_seconds) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12NodePlatform25CallDelayedOnWorkerThreadESt10unique_ptrIN2v84TaskESt14default_deleteIS3_EEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this, ptr noundef captures(none) %task, double noundef %delay_in_seconds) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.22", align 8
   %worker_thread_task_runner_ = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -4588,7 +4588,7 @@ _ZNSt10shared_ptrIN4node22PerIsolatePlatformDataEED2Ev.exit: ; preds = %cleanup,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12NodePlatform9CreateJobEN2v812TaskPriorityESt10unique_ptrINS1_7JobTaskESt14default_deleteIS4_EE(ptr noalias sret(%"class.std::unique_ptr.106") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(137) %this, i8 noundef zeroext %priority, ptr nocapture noundef %job_task) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12NodePlatform9CreateJobEN2v812TaskPriorityESt10unique_ptrINS1_7JobTaskESt14default_deleteIS4_EE(ptr noalias sret(%"class.std::unique_ptr.106") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(137) %this, i8 noundef zeroext %priority, ptr noundef captures(none) %job_task) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.114", align 8
   %0 = load i64, ptr %job_task, align 8
@@ -4639,7 +4639,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4node12NodePlatform27MonotonicallyIncreasingTimeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local noundef double @_ZN4node12NodePlatform27MonotonicallyIncreasingTimeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call i64 @uv_hrtime() #25
   %conv = uitofp i64 %call to double
@@ -4650,7 +4650,7 @@ entry:
 declare i64 @uv_hrtime() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4node12NodePlatform22CurrentClockTimeMillisEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local noundef double @_ZN4node12NodePlatform22CurrentClockTimeMillisEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef double @_ZN2v88Platform21SystemClockTimeMillisEv() #25
   ret double %call
@@ -4659,7 +4659,7 @@ entry:
 declare noundef double @_ZN2v88Platform21SystemClockTimeMillisEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4node12NodePlatform20GetTracingControllerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN4node12NodePlatform20GetTracingControllerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this) unnamed_addr #3 align 2 {
 entry:
   %tracing_controller_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %tracing_controller_, align 8
@@ -4676,13 +4676,13 @@ do.end5:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN4node12NodePlatform20GetStackTracePrinterEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #15 align 2 {
+define dso_local noundef nonnull ptr @_ZN4node12NodePlatform20GetStackTracePrinterEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #15 align 2 {
 entry:
   ret ptr @"_ZZN4node12NodePlatform20GetStackTracePrinterEvEN3$_08__invokeEv"
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN4node12NodePlatform16GetPageAllocatorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN4node12NodePlatform16GetPageAllocatorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(137) %this) unnamed_addr #6 align 2 {
 entry:
   %page_allocator_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load ptr, ptr %page_allocator_, align 8
@@ -6082,7 +6082,7 @@ _ZNSt6vectorIP10uv_timer_sSaIS1_EED2Ev.exit:      ; preds = %for.end24.thread, %
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZZN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler8StopTask3RunEvENUlP11uv_handle_sE_8__invokeES4_(ptr noundef %handle) #3 comdat align 2 {
@@ -6809,7 +6809,7 @@ entry:
 declare void @_ZN4node19DumpNativeBacktraceEP8_IO_FILE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #17
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK2v820ZoneBackingAllocator11GetMallocFnEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {
@@ -6827,7 +6827,7 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) #18
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #19
+declare void @free(ptr allocptr noundef captures(none)) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #20
@@ -8134,7 +8134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEvENK3$_0clEPNS_11DelayedTaskEENUlP11uv_handle_sE_8__invokeES5_"(ptr nocapture noundef readonly %handle) #3 align 2 {
+define internal void @"_ZZZN4node22PerIsolatePlatformData28FlushForegroundTasksInternalEvENK3$_0clEPNS_11DelayedTaskEENUlP11uv_handle_sE_8__invokeES5_"(ptr noundef readonly captures(none) %handle) #3 align 2 {
 entry:
   %handle.val = load ptr, ptr %handle, align 8
   %platform_data.i = getelementptr inbounds nuw i8, ptr %handle.val, i64 168
@@ -8391,7 +8391,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
@@ -8406,10 +8406,10 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #21

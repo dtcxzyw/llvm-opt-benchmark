@@ -594,7 +594,7 @@ terminate.lpad:                                   ; preds = %lpad19
 declare void @_Z30log_Z3_parser_context_add_sortP11_Z3_contextP18_Z3_parser_contextP8_Z3_sort(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11insert_sortR11ast_managerR10scoped_ptrI11cmd_contextERK6symbolP4sort(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef %srt) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11insert_sortR11ast_managerR10scoped_ptrI11cmd_contextERK6symbolP4sort(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %ctx, ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef %srt) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %dt.i = alloca %"class.datatype::util", align 8
   %0 = load ptr, ptr %ctx, align 8
@@ -1575,7 +1575,7 @@ terminate.lpad:                                   ; preds = %lpad20
 declare void @_Z27log_Z3_parse_smtlib2_stringP11_Z3_contextPKcjPKP10_Z3_symbolPKP8_Z3_sortjS6_PKP13_Z3_func_decl(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL20parse_smtlib2_streambP11_Z3_contextRSijPKP10_Z3_symbolPKP8_Z3_sortjS5_PKP13_Z3_func_decl(ptr noundef %c, ptr noundef nonnull align 8 dereferenceable(16) %is, i32 noundef %num_sorts, ptr nocapture noundef readonly %_sort_names, ptr nocapture noundef readonly %_sorts, i32 noundef %num_decls, ptr nocapture noundef readonly %decl_names, ptr nocapture noundef readonly %decls) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL20parse_smtlib2_streambP11_Z3_contextRSijPKP10_Z3_symbolPKP8_Z3_sortjS5_PKP13_Z3_func_decl(ptr noundef %c, ptr noundef nonnull align 8 dereferenceable(16) %is, i32 noundef %num_sorts, ptr noundef readonly captures(none) %_sort_names, ptr noundef readonly captures(none) %_sorts, i32 noundef %num_decls, ptr noundef readonly captures(none) %decl_names, ptr noundef readonly captures(none) %decls) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ctx = alloca %class.scoped_ptr.12, align 8
   %ref.tmp = alloca %class.symbol, align 8
@@ -2937,7 +2937,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2991,10 +2991,10 @@ entry:
 declare i32 @llvm.eh.typeid.for.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

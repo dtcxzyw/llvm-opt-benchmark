@@ -120,14 +120,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.109 = private unnamed_addr constant [26 x i8] c"an unknown error occurred\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen19http_parser_executeEPNS_11http_parserEPKNS_20http_parser_settingsEPKcm(ptr noundef %parser, ptr nocapture noundef readonly %settings, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i64 @_ZN8proxygen19http_parser_executeEPNS_11http_parserEPKNS_20http_parser_settingsEPKcm(ptr noundef %parser, ptr noundef readonly captures(none) %settings, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef i64 @_ZN8proxygen27http_parser_execute_optionsEPNS_11http_parserEPKNS_20http_parser_settingsEhPKcm(ptr noundef %parser, ptr noundef %settings, i8 noundef zeroext 0, ptr noundef %data, i64 noundef %len)
   ret i64 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen27http_parser_execute_optionsEPNS_11http_parserEPKNS_20http_parser_settingsEhPKcm(ptr noundef %parser, ptr nocapture noundef readonly %settings, i8 noundef zeroext %options, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
+define noundef i64 @_ZN8proxygen27http_parser_execute_optionsEPNS_11http_parserEPKNS_20http_parser_settingsEhPKcm(ptr noundef %parser, ptr noundef readonly captures(none) %settings, i8 noundef zeroext %options, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %state1 = getelementptr inbounds nuw i8, ptr %parser, i64 1
   %0 = load i8, ptr %state1, align 1
@@ -3823,7 +3823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen16http_parser_initEPNS_11http_parserENS_16http_parser_typeE(ptr nocapture noundef writeonly initializes((0, 2), (4, 8), (16, 20), (22, 24)) %parser, i32 noundef %t) local_unnamed_addr #2 {
+define void @_ZN8proxygen16http_parser_initEPNS_11http_parserENS_16http_parser_typeE(ptr noundef writeonly captures(none) initializes((0, 2), (4, 8), (16, 20), (22, 24)) %parser, i32 noundef %t) local_unnamed_addr #2 {
 entry:
   %conv = trunc i32 %t to i8
   %bf.value = and i8 %conv, 3
@@ -3866,14 +3866,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZN8proxygen21http_parser_parse_urlEPKcmiPNS_15http_parser_urlE(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef initializes((0, 4)) %u) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_ZN8proxygen21http_parser_parse_urlEPKcmiPNS_15http_parser_urlE(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr noundef captures(none) initializes((0, 4)) %u) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr noundef %u, i8 noundef zeroext 0)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef initializes((0, 4)) %u, i8 noundef zeroext %options) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr noundef captures(none) initializes((0, 4)) %u, i8 noundef zeroext %options) local_unnamed_addr #3 {
 entry:
   store i16 0, ptr %u, align 2
   %port = getelementptr inbounds nuw i8, ptr %u, i64 2
@@ -4428,7 +4428,7 @@ return:                                           ; preds = %if.end214.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen17http_parser_pauseEPNS_11http_parserEi(ptr nocapture noundef %parser, i32 noundef %paused) local_unnamed_addr #4 {
+define void @_ZN8proxygen17http_parser_pauseEPNS_11http_parserEi(ptr noundef captures(none) %parser, i32 noundef %paused) local_unnamed_addr #4 {
 entry:
   %http_errno = getelementptr inbounds nuw i8, ptr %parser, i64 23
   %bf.load = load i8, ptr %http_errno, align 1

@@ -258,7 +258,7 @@ module asm ".previous\09\09\09\09\09"
 declare dso_local i32 @__SCT__tp_func_netlink_extack(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_netlink_extack(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_netlink_extack(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_netlink_extack, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -279,15 +279,15 @@ define dso_local noundef i32 @__traceiter_netlink_extack(ptr nocapture readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_netlink_extack(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_netlink_extack(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal void @trace_event_raw_event_netlink_extack(ptr noundef %0, ptr noundef readonly %1) #1 align 16 {
@@ -609,7 +609,7 @@ define dso_local void @netlink_table_grab() local_unnamed_addr #1 align 16 {
 declare dso_local void @_raw_write_lock_irq(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @default_wake_function(ptr noundef, i32 noundef, i32 noundef, ptr noundef) #0
@@ -637,7 +637,7 @@ define dso_local void @netlink_table_ungrab() local_unnamed_addr #1 align 16 {
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @__netlink_ns_capable(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local zeroext i1 @__netlink_ns_capable(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 8
@@ -670,7 +670,7 @@ declare dso_local zeroext i1 @file_ns_capable(ptr noundef, ptr noundef, i32 noun
 declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @netlink_ns_capable(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local zeroext i1 @netlink_ns_capable(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 8
@@ -697,7 +697,7 @@ define dso_local zeroext i1 @netlink_ns_capable(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @netlink_capable(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local zeroext i1 @netlink_capable(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 8
@@ -724,7 +724,7 @@ define dso_local zeroext i1 @netlink_capable(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @netlink_net_capable(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local zeroext i1 @netlink_net_capable(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -757,7 +757,7 @@ define dso_local zeroext i1 @netlink_net_capable(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @netlink_getsockbyfilp(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local ptr @netlink_getsockbyfilp(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %3, align 8
@@ -892,7 +892,7 @@ define internal void @netlink_skb_destructor(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -512, 2) i32 @netlink_attachskb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -512, 2) i32 @netlink_attachskb(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   %5 = alloca %struct.wait_queue_entry, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load volatile i32, ptr %6, align 4
@@ -1582,7 +1582,7 @@ define dso_local range(i32 0, 2) i32 @netlink_has_listeners(ptr noundef %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local zeroext i1 @netlink_strict_get_check(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local zeroext i1 @netlink_strict_get_check(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 744
@@ -2429,7 +2429,7 @@ define dso_local ptr @__netlink_kernel_create(ptr noundef %0, i32 noundef %1, pt
 declare dso_local i32 @sock_create_lite(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern noreturn nounwind null_pointer_is_valid
-define internal void @netlink_data_ready(ptr nocapture readnone %0) #8 align 16 {
+define internal void @netlink_data_ready(ptr readnone captures(none) %0) #8 align 16 {
   tail call void asm sideeffect "936: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 936b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 936) #23, !srcloc !52
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2005, i32 0, i64 12) #23, !srcloc !53
   unreachable
@@ -2881,7 +2881,7 @@ define dso_local void @netlink_kernel_release(ptr noundef readonly %0) #1 align 
 declare dso_local void @sock_release(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @__netlink_change_ngroups(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__netlink_change_ngroups(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr @nl_table, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %5 = load i16, ptr %4, align 4
@@ -2936,13 +2936,13 @@ define dso_local noundef range(i32 -12, 1) i32 @__netlink_change_ngroups(ptr noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @netlink_change_ngroups(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @netlink_change_ngroups(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   tail call void @netlink_table_grab()
   %3 = load ptr, ptr @nl_table, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
@@ -3000,7 +3000,7 @@ define dso_local noundef range(i32 -12, 1) i32 @netlink_change_ngroups(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__netlink_clear_multicast_users(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @__netlink_clear_multicast_users(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = load ptr, ptr @nl_table, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 516
   %5 = load i16, ptr %4, align 4
@@ -3211,7 +3211,7 @@ define dso_local noundef ptr @__nlmsg_put(ptr noundef %0, i32 noundef %1, i32 no
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 0) i32 @__netlink_dump_start(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
+define dso_local range(i32 1, 0) i32 @__netlink_dump_start(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 212
   %6 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %5, i32 1, ptr nonnull elementtype(i32) %5) #23, !srcloc !26
   %7 = icmp eq i32 %6, 0
@@ -3751,7 +3751,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @netlink_dump(ptr noundef 
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @netlink_ack(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local void @netlink_ack(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) #1 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -4171,7 +4171,7 @@ define dso_local void @netlink_ack(ptr nocapture noundef readonly %0, ptr nounde
 declare dso_local void @sk_error_report(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @netlink_rcv_skb(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define dso_local noundef i32 @netlink_rcv_skb(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = alloca %struct.netlink_ext_ack, align 8
   call void @llvm.lifetime.start.p0(i64 136, ptr nonnull %3) #23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -4388,7 +4388,7 @@ define internal i32 @netlink_proto_init() #10 section ".init.text" align 16 {
 declare dso_local ptr @trace_event_buffer_reserve(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare dso_local ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_addr #0
@@ -4397,7 +4397,7 @@ declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_add
 declare dso_local zeroext i1 @__trace_trigger_soft_disabled(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @trace_raw_output_netlink_extack(ptr noundef %0, i32 %1, ptr noundef %2) #1 align 16 {
@@ -4743,7 +4743,7 @@ define internal void @netlink_sock_destruct(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @netlink_release(ptr nocapture noundef %0) #1 align 16 {
+define internal noundef i32 @netlink_release(ptr noundef captures(none) %0) #1 align 16 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca %struct.netlink_notify, align 8
@@ -5392,7 +5392,7 @@ define internal noundef i32 @netlink_release(ptr nocapture noundef %0) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlink_bind(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 align 16 {
+define internal i32 @netlink_bind(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -5774,7 +5774,7 @@ netlink_realloc_groups.exit:                      ; preds = %.critedge, %40, %44
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -97, -98) i32 @netlink_connect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 %3) #1 align 16 {
+define internal range(i32 -97, -98) i32 @netlink_connect(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ult i32 %2, 2
@@ -5871,7 +5871,7 @@ declare dso_local i32 @sock_no_socketpair(ptr noundef, ptr noundef) #0
 declare dso_local i32 @sock_no_accept(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @netlink_getname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, i32 noundef %2) #1 align 16 {
+define internal noundef i32 @netlink_getname(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   store i16 16, ptr %1, align 4
@@ -5935,7 +5935,7 @@ define internal noundef i32 @netlink_getname(ptr nocapture noundef readonly %0, 
 declare dso_local i32 @datagram_poll(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @netlink_ioctl(ptr nocapture readnone %0, i32 %1, i64 %2) #2 align 16 {
+define internal noundef i32 @netlink_ioctl(ptr readnone captures(none) %0, i32 %1, i64 %2) #2 align 16 {
   ret i32 -515
 }
 
@@ -5946,7 +5946,7 @@ declare dso_local i32 @sock_no_listen(ptr noundef, i32 noundef) #0
 declare dso_local i32 @sock_no_shutdown(ptr noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @netlink_setsockopt(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr %3, i8 %4, i32 noundef %5) #1 align 16 {
+define internal i32 @netlink_setsockopt(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr %3, i8 %4, i32 noundef %5) #1 align 16 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -6179,7 +6179,7 @@ netlink_realloc_groups.exit:                      ; preds = %39, %50, %54, %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -92, 1) i32 @netlink_getsockopt(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
+define internal range(i32 -92, 1) i32 @netlink_getsockopt(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #1 align 16 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
@@ -6968,7 +6968,7 @@ declare dso_local ptr @__rht_bucket_nested(ptr noundef, i32 noundef) local_unnam
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal i32 @netlink_hash(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2) #7 align 16 {
+define internal i32 @netlink_hash(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2) #7 align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -7011,7 +7011,7 @@ define internal i32 @netlink_hash(ptr nocapture noundef readonly %0, i32 %1, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @netlink_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #19 align 16 {
+define internal range(i32 0, 2) i32 @netlink_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #19 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 752
@@ -7051,7 +7051,7 @@ define internal void @netlink_sock_destruct_work(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @netlink_allowed(ptr nocapture readonly %.24.val) unnamed_addr #7 align 16 {
+define internal fastcc range(i32 0, 2) i32 @netlink_allowed(ptr readonly captures(none) %.24.val) unnamed_addr #7 align 16 {
   %1 = load ptr, ptr @nl_table, align 8
   %2 = getelementptr inbounds nuw i8, ptr %.24.val, i64 516
   %3 = load i16, ptr %2, align 4
@@ -7077,7 +7077,7 @@ define internal fastcc range(i32 0, 2) i32 @netlink_allowed(ptr nocapture readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @netlink_undo_bind(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 16 {
+define internal fastcc void @netlink_undo_bind(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1016
@@ -7620,7 +7620,7 @@ define internal noundef range(i32 -94, 1) i32 @netlink_create(ptr noundef %0, pt
 declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -12, 1) i32 @netlink_net_init(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 -12, 1) i32 @netlink_net_init(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   %4 = tail call ptr @proc_create_net_data(ptr noundef nonnull @.str.52, i16 noundef zeroext 0, ptr noundef %3, ptr noundef nonnull @netlink_seq_ops, i32 noundef 80, ptr noundef null) #23
@@ -7630,7 +7630,7 @@ define internal range(i32 -12, 1) i32 @netlink_net_init(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @netlink_net_exit(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal void @netlink_net_exit(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.52, ptr noundef %3) #23
@@ -7641,7 +7641,7 @@ define internal void @netlink_net_exit(ptr nocapture noundef readonly %0) #1 ali
 declare dso_local ptr @proc_create_net_data(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @netlink_seq_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal ptr @netlink_seq_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -7717,7 +7717,7 @@ __netlink_seq_next.exit.thread:                   ; preds = %__netlink_seq_next.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @netlink_seq_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 align 16 {
+define internal void @netlink_seq_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72
@@ -7736,7 +7736,7 @@ define internal void @netlink_seq_stop(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @netlink_seq_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #1 align 16 {
+define internal ptr @netlink_seq_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #1 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8

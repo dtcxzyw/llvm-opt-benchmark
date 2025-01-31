@@ -37,7 +37,7 @@ $_ZN4llvm16MCAsmInfoGNUCOFFD0Ev = comdat any
 @_ZN4llvm16MCAsmInfoGNUCOFFC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm16MCAsmInfoGNUCOFFC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm13MCAsmInfoCOFF6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13MCAsmInfoCOFF6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
@@ -79,7 +79,7 @@ define dso_local void @_ZN4llvm13MCAsmInfoCOFFC2Ev(ptr noundef nonnull align 8 d
 declare void @_ZN4llvm9MCAsmInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(484)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm18MCAsmInfoMicrosoft6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18MCAsmInfoMicrosoft6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
@@ -119,7 +119,7 @@ define dso_local void @_ZN4llvm18MCAsmInfoMicrosoftC2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm16MCAsmInfoGNUCOFF6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MCAsmInfoGNUCOFF6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 

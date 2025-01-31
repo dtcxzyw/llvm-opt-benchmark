@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [21 x i8] c"Thread signal failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_NativeThread_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_NativeThread_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sigaction, align 8
   %4 = alloca %struct.sigaction, align 8
   store ptr @nullHandler, ptr %3, align 8
@@ -50,7 +50,7 @@ declare i32 @__libc_current_sigrtmax() local_unnamed_addr #2
 declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
-define i64 @Java_sun_nio_ch_NativeThread_current0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 {
+define i64 @Java_sun_nio_ch_NativeThread_current0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @pthread_self() #7
   ret i64 %3
 }
@@ -59,7 +59,7 @@ define i64 @Java_sun_nio_ch_NativeThread_current0(ptr nocapture noundef readnone
 declare i64 @pthread_self() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_NativeThread_signal0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_nio_ch_NativeThread_signal0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__libc_current_sigrtmax() #6
   %5 = add nsw i32 %4, -2
   %6 = tail call i32 @pthread_kill(i64 noundef %2, i32 noundef %5) #6

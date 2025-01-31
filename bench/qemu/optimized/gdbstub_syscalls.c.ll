@@ -269,14 +269,14 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 
 declare void @gdb_syscall_handling(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_file_io(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #0 {
+define dso_local void @gdb_handle_file_io(ptr noundef readonly captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len, align 8

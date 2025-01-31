@@ -217,7 +217,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_Connector.cpp, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox9connector8DataSink5Stats5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox9connector8DataSink5Stats5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp = icmp eq i64 %0, 0
@@ -305,7 +305,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9connector24registerConnectorFactoryESt10shared_ptrINS1_16ConnectorFactoryEE(ptr nocapture noundef readonly %factory) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8facebook5velox9connector24registerConnectorFactoryESt10shared_ptrINS1_16ConnectorFactoryEE(ptr noundef readonly captures(none) %factory) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"struct.std::pair.5", align 8
   %0 = load ptr, ptr %factory, align 8
@@ -544,7 +544,7 @@ _ZNSt10shared_ptrIN8facebook5velox9connector16ConnectorFactoryEED2Ev.exit: ; pre
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9connector19getConnectorFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %connectorName) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9connector19getConnectorFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %connectorName) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox9connector12_GLOBAL__N_118connectorFactoriesB5cxx11EvE9factoriesB5cxx11 acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -626,7 +626,7 @@ _ZNSt10shared_ptrIN8facebook5velox9connector16ConnectorFactoryEEC2ERKS4_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9connector17registerConnectorESt10shared_ptrINS1_9ConnectorEE(ptr nocapture noundef readonly %connector) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8facebook5velox9connector17registerConnectorESt10shared_ptrINS1_9ConnectorEE(ptr noundef readonly captures(none) %connector) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"struct.std::pair.29", align 8
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11 acquire, align 8
@@ -885,7 +885,7 @@ _ZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9connector12getConnectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.7") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %connectorId) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9connector12getConnectorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias writeonly sret(%"class.std::shared_ptr.7") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %connectorId) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN8facebook5velox9connector12_GLOBAL__N_110connectorsB5cxx11EvE10connectorsB5cxx11 acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -1112,7 +1112,7 @@ lpad.i:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9connector9Connector10getTrackerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.52") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %scanId, i32 noundef %loadQuantum) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9connector9Connector10getTrackerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noalias writeonly sret(%"class.std::shared_ptr.52") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %scanId, i32 noundef %loadQuantum) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::basic_string_view", align 8
   %newTracker.i.i = alloca %"class.std::shared_ptr.52", align 8
@@ -1675,7 +1675,7 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly7dynamicaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox9connector12ColumnHandle9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox9connector12ColumnHandle9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN8facebook5velox9connector12ColumnHandle13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"struct.folly::dynamic") align 8 %agg.result, i64 12, ptr nonnull @.str.4)
   ret void
@@ -1943,7 +1943,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
@@ -2378,7 +2378,7 @@ return:                                           ; preds = %if.end4.i, %if.end4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2953,7 +2953,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8__detail9_Map_baseISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS4_St8weak_ptrIN8facebook5velox5cache11ScanTrackerEEESaISD_ENS_10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixEOS4_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5002,13 +5002,13 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

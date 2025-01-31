@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prefs = external local_unnamed_addr global %struct._e_prefs, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @get_stats_for_preview(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.wtap_rec, align 8
   %7 = alloca %struct.Buffer, align 8

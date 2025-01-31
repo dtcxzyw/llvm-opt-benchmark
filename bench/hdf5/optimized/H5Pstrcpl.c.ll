@@ -234,7 +234,7 @@ declare i32 @H5P_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @H5P__register_real(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__strcrt_char_encoding_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @H5P__strcrt_char_encoding_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -255,7 +255,7 @@ define internal noundef i32 @H5P__strcrt_char_encoding_enc(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__strcrt_char_encoding_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #3 {
+define internal noundef i32 @H5P__strcrt_char_encoding_dec(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8

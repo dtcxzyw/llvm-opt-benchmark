@@ -63,7 +63,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @msix_set_message(ptr nocapture noundef readonly %dev, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1) local_unnamed_addr #1 {
+define dso_local void @msix_set_message(ptr noundef readonly captures(none) %dev, i32 noundef %vector, i64 %msg.coerce0, i32 %msg.coerce1) local_unnamed_addr #1 {
 entry:
   %msix_table = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %0 = load ptr, ptr %msix_table, align 8
@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @msix_set_pending(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #1 {
+define dso_local void @msix_set_pending(ptr noundef readonly captures(none) %dev, i32 noundef %vector) local_unnamed_addr #1 {
 entry:
   %rem1.i = and i32 %vector, 7
   %shl.i = shl nuw nsw i32 1, %rem1.i
@@ -98,7 +98,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @msix_clr_pending(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #1 {
+define dso_local void @msix_clr_pending(ptr noundef readonly captures(none) %dev, i32 noundef %vector) local_unnamed_addr #1 {
 entry:
   %rem1.i = and i32 %vector, 7
   %shl.i = shl nuw nsw i32 1, %rem1.i
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @msix_is_masked(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #0 {
+define dso_local zeroext i1 @msix_is_masked(ptr noundef readonly captures(none) %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
   %msix_function_masked = getelementptr inbounds nuw i8, ptr %dev, i64 2152
   %0 = load i8, ptr %msix_function_masked, align 8
@@ -526,7 +526,7 @@ for.end:                                          ; preds = %msix_vector_masked.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 3) i32 @msix_present(ptr nocapture noundef readonly %dev) local_unnamed_addr #3 {
+define dso_local range(i32 0, 3) i32 @msix_present(ptr noundef readonly captures(none) %dev) local_unnamed_addr #3 {
 entry:
   %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present, align 4
@@ -535,7 +535,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @msix_enabled(ptr nocapture noundef readonly %dev) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @msix_enabled(ptr noundef readonly captures(none) %dev) local_unnamed_addr #4 {
 entry:
   %cap_present = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present, align 4
@@ -779,7 +779,7 @@ declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @memory_region_add_subregion(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal { i64, i32 } @msix_prepare_message(ptr nocapture noundef readonly %dev, i32 noundef %vector) #4 {
+define internal { i64, i32 } @msix_prepare_message(ptr noundef readonly captures(none) %dev, i32 noundef %vector) #4 {
 entry:
   %msix_table = getelementptr inbounds nuw i8, ptr %dev, i64 1272
   %0 = load ptr, ptr %msix_table, align 8
@@ -935,7 +935,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @msix_save(ptr nocapture noundef readonly %dev, ptr noundef %f) local_unnamed_addr #0 {
+define dso_local void @msix_save(ptr noundef readonly captures(none) %dev, ptr noundef %f) local_unnamed_addr #0 {
 entry:
   %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present.i, align 4
@@ -1272,10 +1272,10 @@ return:                                           ; preds = %msix_is_masked.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @msix_vector_use(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #0 {
+define dso_local void @msix_vector_use(ptr noundef readonly captures(none) %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
   %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
@@ -1298,7 +1298,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @msix_vector_unuse(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #0 {
+define dso_local void @msix_vector_unuse(ptr noundef readonly captures(none) %dev, i32 noundef %vector) local_unnamed_addr #0 {
 entry:
   %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
@@ -1344,7 +1344,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @msix_unuse_all_vectors(ptr nocapture noundef readonly %dev) local_unnamed_addr #8 {
+define dso_local void @msix_unuse_all_vectors(ptr noundef readonly captures(none) %dev) local_unnamed_addr #8 {
 entry:
   %cap_present.i = getelementptr inbounds nuw i8, ptr %dev, i64 1260
   %0 = load i32, ptr %cap_present.i, align 4
@@ -1390,7 +1390,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @msix_nr_vectors_allocated(ptr nocapture noundef readonly %dev) local_unnamed_addr #3 {
+define dso_local i32 @msix_nr_vectors_allocated(ptr noundef readonly captures(none) %dev) local_unnamed_addr #3 {
 entry:
   %msix_entries_nr = getelementptr inbounds nuw i8, ptr %dev, i64 1268
   %0 = load i32, ptr %msix_entries_nr, align 4
@@ -1674,14 +1674,14 @@ declare i32 @xen_is_pirq_msi(i32 noundef) local_unnamed_addr #5
 declare void @xen_evtchn_snoop_msi(ptr noundef, i1 noundef zeroext, i32 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #5
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @msix_table_mmio_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @msix_table_mmio_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %conv = zext i32 %size to i64
   %add = add i64 %addr, %conv
@@ -1800,7 +1800,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @msix_pba_mmio_write(ptr nocapture readnone %opaque, i64 %addr, i64 %val, i32 %size) #10 {
+define internal void @msix_pba_mmio_write(ptr readnone captures(none) %opaque, i64 %addr, i64 %val, i32 %size) #10 {
 entry:
   ret void
 }
@@ -1809,14 +1809,14 @@ entry:
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_msix_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_msix_state(ptr noundef %f, ptr noundef %pv, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   tail call void @msix_load(ptr noundef %pv, ptr noundef %f)
   ret i32 0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @put_msix_state(ptr noundef %f, ptr nocapture noundef readonly %pv, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @put_msix_state(ptr noundef %f, ptr noundef readonly captures(none) %pv, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %cap_present.i.i = getelementptr inbounds nuw i8, ptr %pv, i64 1260
   %0 = load i32, ptr %cap_present.i.i, align 4
@@ -1848,10 +1848,10 @@ msix_save.exit:                                   ; preds = %entry, %if.end.i
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12

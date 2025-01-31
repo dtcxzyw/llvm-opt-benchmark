@@ -2377,7 +2377,7 @@ define hidden void @dissect_cdma2000_a1_elements(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -2679,7 +2679,7 @@ define internal void @ansi_a_dtap_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ansi_a_dtap_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @ansi_a_dtap_stat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 1
   %7 = icmp eq i8 %6, 1
   br i1 %7, label %8, label %my_try_val_to_str_idx.exit.thread
@@ -2816,7 +2816,7 @@ define internal void @ansi_a_bsmap_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ansi_a_bsmap_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @ansi_a_bsmap_stat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #1 {
   %6 = load i8, ptr %3, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %my_try_val_to_str_idx.exit.thread
@@ -2879,21 +2879,21 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bsmap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_bsmap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   tail call fastcc void @dissect_bsmap_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   tail call fastcc void @dissect_dtap_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sip_dtap_bsmap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_sip_dtap_bsmap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = call i32 @tvb_find_line_end(ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull %5, i32 noundef 1) #5
   %7 = icmp sgt i32 %6, 1
@@ -2906,7 +2906,7 @@ define internal i32 @dissect_sip_dtap_bsmap(ptr noundef %0, ptr noundef %1, ptr 
   %12 = call noalias ptr @wmem_alloc(ptr noundef %11, i64 noundef 1) #5
   %13 = load ptr, ptr %10, align 8
   %14 = call ptr @tvb_get_string_enc(ptr noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #5
-  %15 = call i64 @strtoul(ptr nocapture noundef %14, ptr noundef null, i32 noundef 16) #5
+  %15 = call i64 @strtoul(ptr noundef captures(none) %14, ptr noundef null, i32 noundef 16) #5
   %16 = trunc i64 %15 to i8
   store i8 %16, ptr %12, align 1
   %17 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 0, i32 noundef %6, i8 noundef zeroext 34) #5
@@ -3054,7 +3054,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_acc_net_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_acc_net_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_16_8000, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_sid, align 4
@@ -3093,7 +3093,7 @@ define internal noundef zeroext i8 @elem_acc_net_id(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_adds_user_part(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_adds_user_part(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_c0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_adds_user_part_burst_type, align 4
@@ -3163,7 +3163,7 @@ define internal noundef zeroext i8 @elem_adds_user_part(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_amps_hho_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_amps_hho_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_fc, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_amps_hho_params_enc_mode, align 4
@@ -3186,7 +3186,7 @@ define internal noundef zeroext i8 @elem_amps_hho_params(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_anchor_pdsn_addr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_anchor_pdsn_addr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_anchor_ip_addr, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #5
   %9 = trunc i32 %4 to i8
@@ -3194,7 +3194,7 @@ define internal noundef zeroext i8 @elem_anchor_pdsn_addr(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_anchor_pp_addr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_anchor_pp_addr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_anchor_pp_ip_addr, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #5
   %9 = trunc i32 %4 to i8
@@ -3202,7 +3202,7 @@ define internal noundef zeroext i8 @elem_anchor_pp_addr(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_auth_chlg_param(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_auth_chlg_param(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -3223,14 +3223,14 @@ define internal noundef zeroext i8 @elem_auth_chlg_param(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_auth_conf_param(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_auth_conf_param(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_auth_conf_param_randc, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   ret i8 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_auth_event(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_auth_event(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = icmp eq i32 %4, 1
   br i1 %7, label %8, label %15
 
@@ -3263,7 +3263,7 @@ switch.lookup:                                    ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_auth_param_count(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_auth_param_count(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_c0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_auth_param_count_count, align 4
@@ -3278,7 +3278,7 @@ define internal noundef zeroext i8 @elem_auth_param_count(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_auth_resp_param(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_auth_resp_param(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -3299,7 +3299,7 @@ define internal noundef zeroext i8 @elem_auth_resp_param(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_band_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_band_class(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_e0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_band_class, align 4
@@ -3329,7 +3329,7 @@ define internal noundef zeroext i8 @elem_band_class(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_cld_party_ascii_num(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_cld_party_ascii_num(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_extension_8_80, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_cld_party_ascii_num_ton, align 4
@@ -3354,7 +3354,7 @@ define internal noundef zeroext i8 @elem_cld_party_ascii_num(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_cld_party_bcd_num(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_cld_party_bcd_num(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_extension_8_80, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_clg_party_bcd_num_ton, align 4
@@ -3384,7 +3384,7 @@ define internal noundef zeroext i8 @elem_cld_party_bcd_num(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_clg_party_ascii_num(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_clg_party_ascii_num(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_extension_8_80, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_clg_party_ascii_num_ton, align 4
@@ -3428,7 +3428,7 @@ define internal noundef zeroext i8 @elem_clg_party_ascii_num(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_cause(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_cause(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
   %.not = icmp sgt i8 %7, -1
   br i1 %.not, label %13, label %8
@@ -3470,7 +3470,7 @@ define internal noundef zeroext i8 @elem_cause(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_cause_l3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_cause_l3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_extension_8_80, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_cause_l3_coding_standard, align 4
@@ -3513,7 +3513,7 @@ define internal noundef zeroext i8 @elem_cause_l3(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_cdma_sowd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal zeroext i8 @elem_cdma_sowd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_cell_id_disc, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -3562,7 +3562,7 @@ define internal zeroext i8 @elem_cdma_sowd(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_cell_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_cell_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_cell_id_disc, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -3576,7 +3576,7 @@ define internal noundef zeroext i8 @elem_cell_id(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_cell_id_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_cell_id_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @hf_ansi_a_cell_id_disc, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
@@ -3623,7 +3623,7 @@ define internal noundef zeroext i8 @elem_cell_id_list(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_chan_num(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_chan_num(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #5
   %8 = zext i16 %7 to i32
   %9 = load i32, ptr @global_a_variant, align 4
@@ -3656,7 +3656,7 @@ define internal noundef zeroext i8 @elem_chan_num(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_chan_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_chan_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_speech_or_data_indicator, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -3717,7 +3717,7 @@ define internal zeroext i8 @elem_chan_type(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_cct_group(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_cct_group(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_fc, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_cct_group_all_circuits, align 4
@@ -3763,7 +3763,7 @@ define internal noundef zeroext i8 @elem_cct_group(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_cic(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_cic(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_cic, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %9 = load i32, ptr @ett_cic, align 4
@@ -3781,7 +3781,7 @@ define internal noundef zeroext i8 @elem_cic(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_cic_ext(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_cic_ext(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_cic_ext_cic, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %9 = load i32, ptr @ett_cic, align 4
@@ -3809,7 +3809,7 @@ define internal noundef zeroext i8 @elem_cic_ext(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) #1 {
+define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_cm2_mob_p_rev, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_reserved_bits_8_10, align 4
@@ -4027,7 +4027,7 @@ define internal zeroext i8 @elem_cm_info_type_2(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_downlink_re(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_downlink_re(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call fastcc zeroext i8 @elem_downlink_re_aux(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %8)
@@ -4050,7 +4050,7 @@ define internal zeroext i8 @elem_downlink_re(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_downlink_re_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_downlink_re_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = alloca ptr, align 8
   %.not44 = icmp eq i32 %4, 0
   br i1 %.not44, label %._crit_edge.thread, label %.lr.ph
@@ -4101,7 +4101,7 @@ define internal noundef zeroext i8 @elem_downlink_re_list(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_enc_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_enc_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = alloca ptr, align 8
   %8 = icmp ugt i32 %4, 1
   br i1 %8, label %.lr.ph, label %._crit_edge.thread
@@ -4201,7 +4201,7 @@ define internal zeroext i8 @elem_enc_info(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_ext_ho_dir_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal zeroext i8 @elem_ext_ho_dir_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_ext_ho_dir_params_srch_win_a, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_ext_ho_dir_params_srch_win_n, align 4
@@ -4316,7 +4316,7 @@ define internal zeroext i8 @elem_ext_ho_dir_params(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_geo_loc(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_geo_loc(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_geo_loc, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #5
   %9 = trunc i32 %4 to i8
@@ -4324,7 +4324,7 @@ define internal noundef zeroext i8 @elem_geo_loc(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_ssci(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_ssci(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_fc, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_ssci_mopd, align 4
@@ -4349,7 +4349,7 @@ define internal noundef zeroext i8 @elem_ssci(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_ho_pow_lev(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_ho_pow_lev(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @hf_ansi_a_ho_pow_lev_num_cells, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
@@ -4453,7 +4453,7 @@ elem_cell_id_aux.exit:                            ; preds = %.lr.ph, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_hho_params(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_hho_params(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_e0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_hho_params_band_class, align 4
@@ -4517,7 +4517,7 @@ define internal noundef zeroext i8 @elem_hho_params(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_info_rec_req(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_info_rec_req(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %.not36 = icmp eq i32 %4, 0
   br i1 %.not36, label %._crit_edge.thread, label %.lr.ph
 
@@ -4555,7 +4555,7 @@ define internal noundef zeroext i8 @elem_info_rec_req(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_is2000_chan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal zeroext i8 @elem_is2000_chan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_is2000_chan_id_otd, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_is2000_chan_id_chan_count, align 4
@@ -4710,7 +4710,7 @@ switch.lookup:                                    ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_is2000_mob_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_is2000_mob_cap(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @global_a_variant, align 4
   switch i32 %7, label %15 [
     i32 9, label %.sink.split
@@ -4981,7 +4981,7 @@ content_fill_aux.exit298:                         ; preds = %139, %145, %121
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_is2000_nn_scr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_is2000_nn_scr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f8, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_is2000_nn_scr_num_fill_bits, align 4
@@ -5016,7 +5016,7 @@ content_fill_aux.exit:                            ; preds = %21, %15, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_is2000_scr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal zeroext i8 @elem_is2000_scr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f8, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_is2000_scr_num_fill_bits, align 4
@@ -5245,7 +5245,7 @@ define internal zeroext i8 @elem_is2000_scr(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_is2000_cause(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_is2000_cause(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_is2000_cause, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #5
   %9 = trunc i32 %4 to i8
@@ -5253,7 +5253,7 @@ define internal noundef zeroext i8 @elem_is2000_cause(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_is95_chan_id_hho, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_is95_chan_id_num_chans_add, align 4
@@ -5350,7 +5350,7 @@ define internal zeroext i8 @elem_is95_chan_id(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_is95_ms_meas_chan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_is95_ms_meas_chan_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_is95_ms_meas_chan_id_band_class, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_is95_ms_meas_chan_id_channel_number, align 4
@@ -5379,7 +5379,7 @@ define internal noundef zeroext i8 @elem_is95_ms_meas_chan_id(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_l3_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_l3_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_layer3_info, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #5
   %9 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %3, i32 noundef %4) #5
@@ -5391,7 +5391,7 @@ define internal noundef zeroext i8 @elem_l3_info(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_lai(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_lai(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5) #1 {
   %7 = alloca [4 x i8], align 1
   %8 = alloca [4 x i8], align 1
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -5451,7 +5451,7 @@ define internal noundef zeroext i8 @elem_lai(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_mwi(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_mwi(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_mwi_num_messages, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -5463,7 +5463,7 @@ define internal noundef zeroext i8 @elem_mwi(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_mid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_mid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
   %8 = zext i8 %7 to i32
   %9 = and i32 %8, 7
@@ -5626,7 +5626,7 @@ define internal zeroext i8 @elem_mid(ptr noundef %0, ptr noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_fwd_ms_info_recs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_fwd_ms_info_recs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = icmp ugt i32 %4, 1
@@ -5897,7 +5897,7 @@ default.unreachable:                              ; preds = %110
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_paca_order(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_paca_order(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f8, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_paca_order_action_reqd, align 4
@@ -5927,7 +5927,7 @@ define internal noundef zeroext i8 @elem_paca_order(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_paca_reoi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_paca_reoi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_fe, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_paca_reoi_pri, align 4
@@ -5957,7 +5957,7 @@ define internal noundef zeroext i8 @elem_paca_reoi(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_paca_ts(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_paca_ts(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_paca_timestamp_queuing_time, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #5
   %9 = trunc i32 %4 to i8
@@ -5965,7 +5965,7 @@ define internal noundef zeroext i8 @elem_paca_ts(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_pdsn_ip_addr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_pdsn_ip_addr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_pdsn_ip_addr, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #5
   %9 = trunc i32 %4 to i8
@@ -5973,7 +5973,7 @@ define internal noundef zeroext i8 @elem_pdsn_ip_addr(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_prio(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_prio(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_c0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -6007,7 +6007,7 @@ define internal noundef zeroext i8 @elem_prio(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_p_rev(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_p_rev(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_mob_p_rev, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -6033,7 +6033,7 @@ define internal noundef zeroext i8 @elem_p_rev(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_ptype(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_ptype(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #5
   %8 = zext i16 %7 to i32
   %switch.selectcmp = icmp eq i16 %7, -30591
@@ -6063,7 +6063,7 @@ define internal noundef zeroext i8 @elem_ptype(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_psmm_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_psmm_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_psmm_count, align 4
@@ -6086,7 +6086,7 @@ define internal noundef zeroext i8 @elem_psmm_count(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_qos_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_qos_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_qos_params_packet_priority, align 4
@@ -6115,7 +6115,7 @@ define internal noundef zeroext i8 @elem_qos_params(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_re_res(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_re_res(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_80, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_re_res_prio_incl, align 4
@@ -6132,7 +6132,7 @@ define internal noundef zeroext i8 @elem_re_res(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_reg_type(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_reg_type(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
   %8 = zext i8 %7 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @ansi_a_reg_type_type_vals, ptr noundef nonnull @.str.275) #5
@@ -6145,7 +6145,7 @@ define internal noundef zeroext i8 @elem_reg_type(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_rej_cause(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_rej_cause(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
   %8 = zext i8 %7 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @ansi_a_rej_cause_vals, ptr noundef nonnull @.str.275) #5
@@ -6165,7 +6165,7 @@ define internal noundef zeroext i8 @elem_rej_cause(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_return_cause(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_return_cause(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_return_cause, align 4
@@ -6174,7 +6174,7 @@ define internal noundef zeroext i8 @elem_return_cause(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_rf_chan_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_rf_chan_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_rf_chan_id_color_code, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = add i32 %3, 1
@@ -6204,7 +6204,7 @@ define internal noundef zeroext i8 @elem_rf_chan_id(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_so(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_so(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_so_proprietary_ind, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_so_revision, align 4
@@ -6251,7 +6251,7 @@ define internal noundef zeroext i8 @elem_so(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_soci(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_soci(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f8, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_soci, align 4
@@ -6279,7 +6279,7 @@ define internal noundef zeroext i8 @elem_soci(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_so_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_so_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @hf_ansi_a_so_list_num, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
@@ -6359,7 +6359,7 @@ define internal zeroext i8 @elem_so_list(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_sr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_sr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f8, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_sr_id, align 4
@@ -6387,7 +6387,7 @@ define internal noundef zeroext i8 @elem_sr_id(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_sid(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_sid(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_16_8000, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_sid, align 4
@@ -6402,7 +6402,7 @@ define internal noundef zeroext i8 @elem_sid(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_signal(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_signal(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
   %8 = zext i8 %7 to i32
   %9 = tail call ptr @val_to_str_const(i32 noundef %8, ptr noundef nonnull @ansi_a_signal_signal_vals, ptr noundef nonnull @.str.270) #5
@@ -6420,7 +6420,7 @@ define internal noundef zeroext i8 @elem_signal(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_sci(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_sci(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_f0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_sci_sign, align 4
@@ -6440,7 +6440,7 @@ define internal noundef zeroext i8 @elem_sci(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_sw_ver(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_sw_ver(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_sw_ver_major, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -6489,7 +6489,7 @@ define internal zeroext i8 @elem_sw_ver(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_s_pdsn_ip_addr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_s_pdsn_ip_addr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_s_pdsn_ip_addr, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #5
   %9 = trunc i32 %4 to i8
@@ -6497,7 +6497,7 @@ define internal noundef zeroext i8 @elem_s_pdsn_ip_addr(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_tag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_tag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_tag_value, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #5
   %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %3) #5
@@ -6508,7 +6508,7 @@ define internal noundef zeroext i8 @elem_tag(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_xmode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_xmode(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_fe, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -6538,7 +6538,7 @@ define internal noundef zeroext i8 @elem_xmode(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_uz_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_uz_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_uz_id, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %3) #5
@@ -6564,7 +6564,7 @@ define internal noundef zeroext i8 @elem_uz_id(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -6832,7 +6832,7 @@ define internal zeroext i8 @elem_rev_ms_info_recs(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_bdtmf_trans_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_bdtmf_trans_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_reserved_bits_8_c0, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_bdtmf_trans_info_dtmf_off_len, align 4
@@ -6857,7 +6857,7 @@ define internal noundef zeroext i8 @elem_bdtmf_trans_info(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i8 @elem_dtmf_chars(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal zeroext i8 @elem_dtmf_chars(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_bdtmf_chars_num_chars, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #5
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
@@ -7258,7 +7258,7 @@ define internal noundef zeroext i8 @elem_a2p_bearer_format(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_ms_des_freq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) #1 {
+define internal noundef zeroext i8 @elem_ms_des_freq(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #1 {
   %7 = load i32, ptr @hf_ansi_a_ms_des_freq_band_class, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #5
   %9 = load i32, ptr @hf_ansi_a_ms_des_freq_cdma_channel, align 4
@@ -7287,7 +7287,7 @@ define internal noundef zeroext i8 @elem_ms_des_freq(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @elem_plcm_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #1 {
+define internal noundef zeroext i8 @elem_plcm_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #1 {
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #5
   %8 = zext i8 %7 to i32
   %9 = lshr i32 %8, 4
@@ -14020,7 +14020,7 @@ declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 declare ptr @tvb_new_composite() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare i32 @tvb_find_guint8(ptr noundef, i32 noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #0
 

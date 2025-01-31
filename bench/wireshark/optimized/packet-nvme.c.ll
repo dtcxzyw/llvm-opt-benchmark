@@ -2733,7 +2733,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %7, %10
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_add_cmd_to_pending_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((0, 8), (80, 96)) %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden void @nvme_add_cmd_to_pending_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef initializes((0, 8), (80, 96)) %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = zext i16 %4 to i32
@@ -2761,14 +2761,14 @@ define hidden void @nvme_add_cmd_to_pending_list(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @nstime_set_zero(ptr noundef) local_unnamed_addr #1
 
 declare void @wmem_tree_insert32_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @nvme_lookup_cmd_in_pending_list(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
+define hidden ptr @nvme_lookup_cmd_in_pending_list(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %4 = alloca i32, align 4
   %5 = zext i16 %1 to i32
@@ -2788,7 +2788,7 @@ define hidden ptr @nvme_lookup_cmd_in_pending_list(ptr nocapture noundef readonl
 declare ptr @wmem_tree_lookup32_array(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_add_data_request(ptr nocapture noundef readonly %0, ptr noundef initializes((12, 76)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @nvme_add_data_request(ptr noundef readonly captures(none) %0, ptr noundef initializes((12, 76)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 64, i1 false)
@@ -2816,10 +2816,10 @@ define hidden void @nvme_add_data_request(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @nvme_lookup_data_request(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @nvme_lookup_data_request(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 2, ptr %3, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2845,7 +2845,7 @@ define hidden ptr @nvme_lookup_data_request(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_add_data_tr_pkt(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @nvme_add_data_tr_pkt(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [3 x %struct._wmem_tree_key_t], align 16
@@ -2877,7 +2877,7 @@ nvme_build_done_frame_key.exit:                   ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @nvme_lookup_data_tr_pkt(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @nvme_lookup_data_tr_pkt(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca [3 x %struct._wmem_tree_key_t], align 16
@@ -2909,7 +2909,7 @@ nvme_build_done_frame_key.exit:                   ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_add_data_tr_off(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @nvme_add_data_tr_off(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [2 x %struct._wmem_tree_key_t], align 16
   store i32 %2, ptr %4, align 4
@@ -2929,7 +2929,7 @@ define hidden void @nvme_add_data_tr_off(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nvme_lookup_data_tr_off(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @nvme_lookup_data_tr_off(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [2 x %struct._wmem_tree_key_t], align 16
   store i32 %1, ptr %3, align 4
@@ -2949,7 +2949,7 @@ define hidden i32 @nvme_lookup_data_tr_off(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_add_cmd_cqe_to_done_list(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden void @nvme_add_cmd_cqe_to_done_list(ptr noundef readonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -2980,7 +2980,7 @@ define hidden void @nvme_add_cmd_cqe_to_done_list(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @nvme_lookup_cmd_in_done_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define hidden ptr @nvme_lookup_cmd_in_done_list(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3041,7 +3041,7 @@ declare double @nstime_to_msec(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_double_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nvme_update_cmd_end_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 8), (96, 112)) %1) local_unnamed_addr #4 {
+define hidden void @nvme_update_cmd_end_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((4, 8), (96, 112)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
@@ -3083,7 +3083,7 @@ proto_item_set_generated.exit:                    ; preds = %12, %9, %7, %5
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_publish_to_cmd_link(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @nvme_publish_to_cmd_link(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %3, align 8
   %6 = tail call ptr @proto_tree_add_uint(ptr noundef %0, i32 noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %5) #10
   %.not.i.i = icmp eq ptr %6, null
@@ -3107,7 +3107,7 @@ nvme_publish_link.exit:                           ; preds = %4, %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_publish_to_cqe_link(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @nvme_publish_to_cqe_link(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = load i32, ptr %5, align 4
   %or.cond.not.i = icmp eq i32 %6, 0
@@ -3136,7 +3136,7 @@ nvme_publish_link.exit:                           ; preds = %4, %7, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_publish_to_data_req_link(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @nvme_publish_to_data_req_link(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i32, ptr %5, align 8
   %or.cond.not.i = icmp eq i32 %6, 0
@@ -3165,7 +3165,7 @@ nvme_publish_link.exit:                           ; preds = %4, %7, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_publish_to_data_resp_link(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden void @nvme_publish_to_data_resp_link(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %or.cond.not.i = icmp eq i32 %6, 0
@@ -3312,7 +3312,7 @@ declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_update_transfer_request(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define hidden void @nvme_update_transfer_request(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -3395,7 +3395,7 @@ get_logpage_name.exit:                            ; preds = %30, %35, %37, %39
 declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvme_data_response(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_nvme_data_response(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca [2 x %struct._wmem_tree_key_t], align 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -4988,7 +4988,7 @@ get_logpage_name.exit:                            ; preds = %818, %823, %825, %8
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_nvme_get_logpage_resp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @dissect_nvme_get_logpage_resp(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -7671,7 +7671,7 @@ dissect_nvme_get_logpage_err_inf_resp.exit:       ; preds = %.lr.ph.i191, %disse
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvmeof_fabric_cmd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((122, 123), (160, 161)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_nvmeof_fabric_cmd(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((122, 123), (160, 161)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = add i32 %5, 4
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %9) #10
@@ -7948,7 +7948,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvmeof_cmd_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_nvmeof_cmd_data(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca [2 x %struct._wmem_tree_key_t], align 16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -8088,7 +8088,7 @@ define hidden ptr @get_nvmeof_cmd_string(i8 noundef zeroext %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvmeof_fabric_cqe(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden void @dissect_nvmeof_fabric_cqe(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 122
   %8 = load i8, ptr %7, align 2
@@ -8290,7 +8290,7 @@ get_cqe_sc_string.exit:                           ; preds = %4, %30, %33, %35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvme_cmd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((160, 161)) %4) local_unnamed_addr #0 {
+define hidden void @dissect_nvme_cmd(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((160, 161)) %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -9394,7 +9394,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvme_cqe(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden void @dissect_nvme_cqe(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %8 = load i16, ptr %7, align 8
@@ -9753,7 +9753,7 @@ define hidden void @proto_register_nvme() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_nvme_qid(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_nvme_qid(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr @.str.1935, ptr @.str.1934
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1933, i32 noundef %1, ptr noundef nonnull %3) #10
@@ -9761,14 +9761,14 @@ define internal void @add_nvme_qid(ptr nocapture noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_zero_base(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_zero_base(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = add i32 %1, 1
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1936, i32 noundef %3) #10
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_pow2_page_size(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_pow2_page_size(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = add i32 %1, 12
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw i64 1, %4
@@ -9777,7 +9777,7 @@ define internal void @add_ctrl_pow2_page_size(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_pow2_bytes(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_pow2_bytes(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = zext nneg i32 %1 to i64
   %4 = shl nuw i64 1, %3
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1945, i32 noundef %1, i64 noundef %4) #10
@@ -9785,14 +9785,14 @@ define internal void @add_ctrl_pow2_bytes(ptr nocapture noundef writeonly %0, i3
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_500ms_units(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_500ms_units(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = mul i32 %1, 500
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1953, i32 noundef %1, i32 noundef %3) #10
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_pow2_dstrd_size(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_pow2_dstrd_size(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = add i32 %1, 2
   %4 = zext nneg i32 %3 to i64
   %5 = shl nuw i64 1, %4
@@ -9801,7 +9801,7 @@ define internal void @add_ctrl_pow2_dstrd_size(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ccap_css(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ccap_css(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = and i32 %1, 1
   %.not = icmp eq i32 %3, 0
   %4 = and i32 %1, 128
@@ -9813,7 +9813,7 @@ define internal void @add_ccap_css(ptr nocapture noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_logpage_lid(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 {
+define internal void @add_logpage_lid(ptr noundef writeonly captures(none) %0, i32 noundef %1) #0 {
   %3 = add i32 %1, -113
   %or.cond.i = icmp ult i32 %3, 15
   br i1 %or.cond.i, label %get_logpage_name.exit, label %4
@@ -9838,14 +9838,14 @@ get_logpage_name.exit:                            ; preds = %2, %4, %6, %8
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_nvme_queues(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_nvme_queues(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = add i32 %1, 1
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1997, i32 noundef %1, i32 noundef %3) #10
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_rab(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_rab(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = zext nneg i32 %1 to i64
   %4 = shl nuw i64 1, %3
   %.not = icmp eq i32 %1, 0
@@ -9855,7 +9855,7 @@ define internal void @add_ctrl_rab(ptr nocapture noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_mdts(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_mdts(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %7, label %3
 
@@ -9874,7 +9874,7 @@ define internal void @add_ctrl_mdts(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_rtd3(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_rtd3(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -9893,14 +9893,14 @@ define internal void @add_ctrl_rtd3(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_ms(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_ms(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = mul i32 %1, 100
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2024, i32 noundef %1, i32 noundef %3) #10
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_commands(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_commands(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = add i32 %1, 1
   %.not = icmp eq i32 %1, 0
   %4 = select i1 %.not, ptr @.str.2015, ptr @.str.2014
@@ -9909,7 +9909,7 @@ define internal void @add_ctrl_commands(ptr nocapture noundef writeonly %0, i32 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_events(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_events(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = add i32 %1, 1
   %.not = icmp eq i32 %1, 0
   %4 = select i1 %.not, ptr @.str.2015, ptr @.str.2014
@@ -9918,7 +9918,7 @@ define internal void @add_ctrl_events(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_entries(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_entries(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = add i32 %1, 1
   %.not = icmp eq i32 %1, 0
   %4 = select i1 %.not, ptr @.str.2029, ptr @.str.2028
@@ -9927,7 +9927,7 @@ define internal void @add_ctrl_entries(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_states(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_states(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = add i32 %1, 1
   %.not = icmp eq i32 %1, 0
   %4 = select i1 %.not, ptr @.str.2015, ptr @.str.2014
@@ -9936,7 +9936,7 @@ define internal void @add_ctrl_states(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_hmpre(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_hmpre(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 12
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.1945, i32 noundef %1, i64 noundef %4) #10
@@ -9944,7 +9944,7 @@ define internal void @add_ctrl_hmpre(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_tmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_tmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -9961,7 +9961,7 @@ define internal void @add_ctrl_tmt(ptr nocapture noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_lblocks(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_lblocks(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = add i32 %1, 1
   %.not = icmp eq i32 %1, 0
   %4 = select i1 %.not, ptr @.str.2015, ptr @.str.9
@@ -9970,7 +9970,7 @@ define internal void @add_ctrl_lblocks(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_ctrl_x16_bytes(ptr nocapture noundef writeonly %0, i32 noundef %1) #6 {
+define internal void @add_ctrl_x16_bytes(ptr noundef writeonly captures(none) %0, i32 noundef %1) #6 {
   %3 = shl i32 %1, 4
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2044, i32 noundef %1, i32 noundef %3) #10
   ret void
@@ -9985,7 +9985,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 9) %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 2, 18) %5) unnamed_addr #0 {
+define internal fastcc void @add_group_mask_entry(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 1, 9) %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 2, 18) %5) unnamed_addr #0 {
   %7 = load i32, ptr %4, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %3, i32 noundef -2147483648) #10
   %9 = load i32, ptr @ett_data, align 4
@@ -10796,7 +10796,7 @@ add_group_mask_entry.exit:                        ; preds = %16, %58, %.critedge
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #8
@@ -10814,10 +10814,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #8
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

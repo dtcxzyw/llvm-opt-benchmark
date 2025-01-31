@@ -222,7 +222,7 @@ lor.lhs.false.i:                                  ; preds = %if.end40.i
   br i1 %tobool45.not.i, label %if.then8.critedge, label %if.end47.i
 
 if.end47.i:                                       ; preds = %lor.lhs.false.i
-  call void @OPENSSL_sk_pop_free(ptr noundef %bags.3.i, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
+  call void @OPENSSL_sk_pop_free(ptr noundef nonnull %bags.3.i, ptr noundef nonnull @PKCS12_SAFEBAG_free) #3
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.end47.i, %if.else.i
@@ -342,7 +342,7 @@ declare ptr @PKCS12_unpack_p7data(ptr noundef) local_unnamed_addr #1
 declare ptr @PKCS12_unpack_p7encdata(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %alg, ptr nocapture noundef nonnull writeonly %pnid, ptr nocapture noundef nonnull writeonly %piter, ptr nocapture noundef nonnull writeonly %psaltlen, ptr nocapture noundef nonnull writeonly %cipherid) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @alg_get(ptr noundef %alg, ptr noundef nonnull writeonly captures(none) %pnid, ptr noundef nonnull writeonly captures(none) %piter, ptr noundef nonnull writeonly captures(none) %psaltlen, ptr noundef nonnull writeonly captures(none) %cipherid) unnamed_addr #0 {
 entry:
   %aparamtype = alloca i32, align 4
   %aoid = alloca ptr, align 8
@@ -523,10 +523,10 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 declare void @X509_SIG_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

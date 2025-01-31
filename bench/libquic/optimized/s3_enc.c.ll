@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @ssl3_handshake_mac.kPad2 = internal constant [48 x i8] c"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\", align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl3_cleanup_key_block(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden void @ssl3_cleanup_key_block(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -48,10 +48,10 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ssl3_init_handshake_buffer(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl3_init_handshake_buffer(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %s3.i = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3.i, align 8
@@ -80,7 +80,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl3_free_handshake_buffer(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden void @ssl3_free_handshake_buffer(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -94,7 +94,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl3_free_handshake_hash(ptr nocapture noundef readonly %ssl) local_unnamed_addr #0 {
+define hidden void @ssl3_free_handshake_hash(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -171,7 +171,7 @@ declare i32 @EVP_MD_CTX_cleanup(ptr noundef) local_unnamed_addr #1
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ssl3_update_handshake_hash(ptr nocapture noundef readonly %ssl, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ssl3_update_handshake_hash(ptr noundef readonly captures(none) %ssl, ptr noundef %in, i64 noundef %in_len) local_unnamed_addr #0 {
 entry:
   %s3 = getelementptr inbounds nuw i8, ptr %ssl, i64 80
   %0 = load ptr, ptr %s3, align 8
@@ -242,14 +242,14 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @EVP_MD_CTX_md(ptr noundef) local_unnamed_addr #1
 
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ssl3_prf(ptr nocapture readnone %ssl, ptr noundef %out, i64 noundef %out_len, ptr noundef %secret, i64 noundef %secret_len, ptr nocapture readnone %label, i64 %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len) #0 {
+define internal range(i32 0, 2) i32 @ssl3_prf(ptr readnone captures(none) %ssl, ptr noundef %out, i64 noundef %out_len, ptr noundef %secret, i64 noundef %secret_len, ptr readnone captures(none) %label, i64 %label_len, ptr noundef %seed1, i64 noundef %seed1_len, ptr noundef %seed2, i64 noundef %seed2_len) #0 {
 entry:
   %md5 = alloca %struct.env_md_ctx_st, align 8
   %sha1 = alloca %struct.env_md_ctx_st, align 8
@@ -351,7 +351,7 @@ return:                                           ; preds = %for.end39, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl3_final_finish_mac(ptr nocapture noundef readonly %ssl, i32 noundef %from_server, ptr noundef %out) #0 {
+define internal i32 @ssl3_final_finish_mac(ptr noundef readonly captures(none) %ssl, i32 noundef %from_server, ptr noundef %out) #0 {
 entry:
   %tobool.not = icmp eq i32 %from_server, 0
   %cond = select i1 %tobool.not, ptr @.str.2, ptr @.str.1
@@ -374,7 +374,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ssl3_cert_verify_mac(ptr nocapture noundef readonly %ssl, i32 noundef %md_nid, ptr noundef %p) #0 {
+define internal i32 @ssl3_cert_verify_mac(ptr noundef readonly captures(none) %ssl, i32 noundef %md_nid, ptr noundef %p) #0 {
 entry:
   %call = tail call fastcc i32 @ssl3_handshake_mac(ptr noundef %ssl, i32 noundef %md_nid, ptr noundef null, i64 noundef 0, ptr noundef %p)
   ret i32 %call
@@ -389,7 +389,7 @@ declare ptr @EVP_sha1() local_unnamed_addr #1
 declare i32 @EVP_DigestFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl3_handshake_mac(ptr nocapture noundef readonly %ssl, i32 noundef %md_nid, ptr noundef %sender, i64 noundef range(i64 0, 5) %sender_len, ptr noundef %p) unnamed_addr #0 {
+define internal fastcc i32 @ssl3_handshake_mac(ptr noundef readonly captures(none) %ssl, i32 noundef %md_nid, ptr noundef %sender, i64 noundef range(i64 0, 5) %sender_len, ptr noundef %p) unnamed_addr #0 {
 entry:
   %ret = alloca i32, align 4
   %i = alloca i32, align 4
@@ -490,7 +490,7 @@ declare i32 @EVP_MD_CTX_copy_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @EVP_MD_CTX_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

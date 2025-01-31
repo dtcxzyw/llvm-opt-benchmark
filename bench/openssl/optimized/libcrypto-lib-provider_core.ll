@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [6 x i8] c"3.3.0\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_provider_info_clear(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define void @ossl_provider_info_clear(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %info, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 280) #11
@@ -209,7 +209,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ossl_provider_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal i32 @ossl_provider_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %name = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -262,7 +262,7 @@ declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_info_add_to_store(ptr noundef %libctx, ptr nocapture noundef readonly %entry1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_info_add_to_store(ptr noundef %libctx, ptr noundef readonly captures(none) %entry1) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 1) #11
   %cmp.i = icmp eq ptr %call.i, null
@@ -373,7 +373,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @ossl_provider_find(ptr noundef %libctx, ptr noundef %name, i32 noundef %noconfig) local_unnamed_addr #0 {
@@ -466,7 +466,7 @@ return:                                           ; preds = %7, %ossl_provider_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @ossl_lib_ctx_is_default(ptr noundef) local_unnamed_addr #1
 
@@ -766,12 +766,12 @@ return:                                           ; preds = %if.end46, %get_prov
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_info_add_parameter(ptr nocapture noundef %provinfo, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_info_add_parameter(ptr noundef captures(none) %provinfo, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %parameters = getelementptr inbounds nuw i8, ptr %provinfo, i64 24
   %call = tail call fastcc i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef %name, ptr noundef %value)
@@ -909,7 +909,7 @@ for.body.i:                                       ; preds = %if.end20, %for.body
   %7 = load ptr, ptr %create_cb.i, align 8
   %cbdata.i = getelementptr inbounds nuw i8, ptr %call.i7.i, i64 32
   %8 = load ptr, ptr %cbdata.i, align 8
-  %call4.i = call i32 %7(ptr noundef %prov, ptr noundef %8) #11
+  %call4.i = call i32 %7(ptr noundef nonnull %prov, ptr noundef %8) #11
   %and.i = and i32 %call4.i, %ret.010.i
   %inc.i = add nuw nsw i32 %i.09.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call.i.i
@@ -921,7 +921,7 @@ create_provider_children.exit:                    ; preds = %for.body.i
 
 if.then24:                                        ; preds = %create_provider_children.exit
   %9 = load ptr, ptr %providers, align 8
-  %call.i28 = call ptr @OPENSSL_sk_delete_ptr(ptr noundef %9, ptr noundef %prov) #11
+  %call.i28 = call ptr @OPENSSL_sk_delete_ptr(ptr noundef %9, ptr noundef nonnull %prov) #11
   br label %err
 
 if.end27:                                         ; preds = %if.end20, %create_provider_children.exit
@@ -1036,7 +1036,7 @@ return:                                           ; preds = %cond.true, %if.end,
 declare i32 @ossl_decoder_cache_flush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_provider_teardown(ptr nocapture noundef readonly %prov) local_unnamed_addr #0 {
+define void @ossl_provider_teardown(ptr noundef readonly captures(none) %prov) local_unnamed_addr #0 {
 entry:
   %teardown = getelementptr inbounds nuw i8, ptr %prov, i64 112
   %0 = load ptr, ptr %teardown, align 8
@@ -1069,7 +1069,7 @@ declare i32 @DSO_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_provider_free_parent(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_set_module_path(ptr nocapture noundef %prov, ptr noundef %module_path) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_set_module_path(ptr noundef captures(none) %prov, ptr noundef %module_path) local_unnamed_addr #0 {
 entry:
   %path = getelementptr inbounds nuw i8, ptr %prov, i64 48
   %0 = load ptr, ptr %path, align 8
@@ -1093,7 +1093,7 @@ return:                                           ; preds = %if.end, %entry
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_add_parameter(ptr nocapture noundef %prov, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_add_parameter(ptr noundef captures(none) %prov, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %parameters = getelementptr inbounds nuw i8, ptr %prov, i64 72
   %call = tail call fastcc i32 @infopair_add(ptr noundef nonnull %parameters, ptr noundef %name, ptr noundef %value)
@@ -1101,7 +1101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @infopair_add(ptr nocapture noundef %infopairsk, ptr noundef %name, ptr noundef %value) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @infopair_add(ptr noundef captures(none) %infopairsk, ptr noundef %name, ptr noundef %value) unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 776) #11
   %cond = icmp eq ptr %call, null
@@ -2005,7 +2005,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_doall_activated(ptr noundef %ctx, ptr nocapture noundef readonly %cb, ptr noundef %cbdata) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_doall_activated(ptr noundef %ctx, ptr noundef readonly captures(none) %cb, ptr noundef %cbdata) local_unnamed_addr #0 {
 entry:
   %ref = alloca i32, align 4
   store i32 0, ptr %ref, align 4
@@ -2368,7 +2368,7 @@ return:                                           ; preds = %get_provider_store.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_name(ptr nocapture noundef readonly %prov) local_unnamed_addr #6 {
+define ptr @ossl_provider_name(ptr noundef readonly captures(none) %prov) local_unnamed_addr #6 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %prov, i64 40
   %0 = load ptr, ptr %name, align 8
@@ -2376,7 +2376,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_dso(ptr nocapture noundef readonly %prov) local_unnamed_addr #6 {
+define ptr @ossl_provider_dso(ptr noundef readonly captures(none) %prov) local_unnamed_addr #6 {
 entry:
   %module = getelementptr inbounds nuw i8, ptr %prov, i64 56
   %0 = load ptr, ptr %module, align 8
@@ -2384,7 +2384,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_provider_module_name(ptr nocapture noundef readonly %prov) local_unnamed_addr #0 {
+define ptr @ossl_provider_module_name(ptr noundef readonly captures(none) %prov) local_unnamed_addr #0 {
 entry:
   %module = getelementptr inbounds nuw i8, ptr %prov, i64 56
   %0 = load ptr, ptr %module, align 8
@@ -2395,7 +2395,7 @@ entry:
 declare ptr @DSO_get_filename(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_provider_module_path(ptr nocapture noundef readonly %prov) local_unnamed_addr #0 {
+define ptr @ossl_provider_module_path(ptr noundef readonly captures(none) %prov) local_unnamed_addr #0 {
 entry:
   %module = getelementptr inbounds nuw i8, ptr %prov, i64 56
   %0 = load ptr, ptr %module, align 8
@@ -2452,7 +2452,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_provider_gettable_params(ptr nocapture noundef readonly %prov) local_unnamed_addr #0 {
+define ptr @ossl_provider_gettable_params(ptr noundef readonly captures(none) %prov) local_unnamed_addr #0 {
 entry:
   %gettable_params = getelementptr inbounds nuw i8, ptr %prov, i64 120
   %0 = load ptr, ptr %gettable_params, align 8
@@ -2471,7 +2471,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_provider_get_params(ptr nocapture noundef readonly %prov, ptr noundef %params) local_unnamed_addr #0 {
+define i32 @ossl_provider_get_params(ptr noundef readonly captures(none) %prov, ptr noundef %params) local_unnamed_addr #0 {
 entry:
   %get_params = getelementptr inbounds nuw i8, ptr %prov, i64 128
   %0 = load ptr, ptr %get_params, align 8
@@ -2514,7 +2514,7 @@ return:                                           ; preds = %if.end, %if.then3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_provider_get_capabilities(ptr nocapture noundef readonly %prov, ptr noundef %capability, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #0 {
+define i32 @ossl_provider_get_capabilities(ptr noundef readonly captures(none) %prov, ptr noundef %capability, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %get_capabilities = getelementptr inbounds nuw i8, ptr %prov, i64 136
   %0 = load ptr, ptr %get_capabilities, align 8
@@ -2533,7 +2533,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_provider_query_operation(ptr nocapture noundef readonly %prov, i32 noundef %operation_id, ptr noundef %no_cache) local_unnamed_addr #0 {
+define ptr @ossl_provider_query_operation(ptr noundef readonly captures(none) %prov, i32 noundef %operation_id, ptr noundef %no_cache) local_unnamed_addr #0 {
 entry:
   %query_operation = getelementptr inbounds nuw i8, ptr %prov, i64 152
   %0 = load ptr, ptr %query_operation, align 8
@@ -2552,7 +2552,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_provider_unquery_operation(ptr nocapture noundef readonly %prov, i32 noundef %operation_id, ptr noundef %algs) local_unnamed_addr #0 {
+define void @ossl_provider_unquery_operation(ptr noundef readonly captures(none) %prov, i32 noundef %operation_id, ptr noundef %algs) local_unnamed_addr #0 {
 entry:
   %unquery_operation = getelementptr inbounds nuw i8, ptr %prov, i64 160
   %0 = load ptr, ptr %unquery_operation, align 8
@@ -2570,7 +2570,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_set_operation_bit(ptr nocapture noundef %provider, i64 noundef %bitnum) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_set_operation_bit(ptr noundef captures(none) %provider, i64 noundef %bitnum) local_unnamed_addr #0 {
 entry:
   %div17 = lshr i64 %bitnum, 3
   %0 = trunc i64 %bitnum to i8
@@ -2626,7 +2626,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_provider_test_operation_bit(ptr nocapture noundef readonly %provider, i64 noundef %bitnum, ptr noundef writeonly %result) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_provider_test_operation_bit(ptr noundef readonly captures(none) %provider, i64 noundef %bitnum, ptr noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %div8 = lshr i64 %bitnum, 3
   %0 = trunc i64 %bitnum to i8
@@ -2676,7 +2676,7 @@ return:                                           ; preds = %if.end, %if.end17, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_provider_get_parent(ptr nocapture noundef readonly %prov) local_unnamed_addr #6 {
+define ptr @ossl_provider_get_parent(ptr noundef readonly captures(none) %prov) local_unnamed_addr #6 {
 entry:
   %handle = getelementptr inbounds nuw i8, ptr %prov, i64 192
   %0 = load ptr, ptr %handle, align 8
@@ -2684,7 +2684,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_provider_is_child(ptr nocapture noundef readonly %prov) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_provider_is_child(ptr noundef readonly captures(none) %prov) local_unnamed_addr #6 {
 entry:
   %ischild = getelementptr inbounds nuw i8, ptr %prov, i64 200
   %bf.load = load i8, ptr %ischild, align 8
@@ -2694,7 +2694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_provider_set_child(ptr nocapture noundef initializes((192, 200)) %prov, ptr noundef %handle) local_unnamed_addr #7 {
+define noundef i32 @ossl_provider_set_child(ptr noundef captures(none) initializes((192, 200)) %prov, ptr noundef %handle) local_unnamed_addr #7 {
 entry:
   %handle1 = getelementptr inbounds nuw i8, ptr %prov, i64 192
   store ptr %handle, ptr %handle1, align 8
@@ -2770,7 +2770,7 @@ declare i32 @OPENSSL_sk_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @infopair_copy(ptr nocapture noundef readonly %src) #0 {
+define internal ptr @infopair_copy(ptr noundef readonly captures(none) %src) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 16, ptr noundef nonnull @.str, i32 noundef 257) #11
   %cmp = icmp eq ptr %call, null
@@ -2838,13 +2838,13 @@ declare ptr @DSO_bind_func(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ERR_load_strings(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @core_gettable_params(ptr nocapture readnone %handle) #8 {
+define internal noundef nonnull ptr @core_gettable_params(ptr readnone captures(none) %handle) #8 {
 entry:
   ret ptr @param_types
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @core_get_params(ptr nocapture noundef readonly %handle, ptr noundef %params) #0 {
+define internal noundef i32 @core_get_params(ptr noundef readonly captures(none) %handle, ptr noundef %params) #0 {
 entry:
   %call = tail call ptr @OSSL_PARAM_locate(ptr noundef %params, ptr noundef nonnull @.str.6) #11
   %cmp.not = icmp eq ptr %call, null
@@ -2915,7 +2915,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @core_get_libctx(ptr nocapture noundef readonly %handle) #6 {
+define internal ptr @core_get_libctx(ptr noundef readonly captures(none) %handle) #6 {
 entry:
   %libctx = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx, align 8
@@ -2930,21 +2930,21 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @core_new_error(ptr nocapture readnone %handle) #0 {
+define internal void @core_new_error(ptr readnone captures(none) %handle) #0 {
 entry:
   tail call void @ERR_new() #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @core_set_error_debug(ptr nocapture readnone %handle, ptr noundef %file, i32 noundef %line, ptr noundef %func) #0 {
+define internal void @core_set_error_debug(ptr readnone captures(none) %handle, ptr noundef %file, i32 noundef %line, ptr noundef %func) #0 {
 entry:
   tail call void @ERR_set_debug(ptr noundef %file, i32 noundef %line, ptr noundef %func) #11
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @core_vset_error(ptr nocapture noundef readonly %handle, i32 noundef %reason, ptr noundef %fmt, ptr noundef %args) #0 {
+define internal void @core_vset_error(ptr noundef readonly captures(none) %handle, i32 noundef %reason, ptr noundef %fmt, ptr noundef %args) #0 {
 entry:
   %cmp.not.i = icmp sgt i32 %reason, -1
   %0 = lshr i32 %reason, 23
@@ -2969,21 +2969,21 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @core_set_error_mark(ptr nocapture readnone %handle) #0 {
+define internal i32 @core_set_error_mark(ptr readnone captures(none) %handle) #0 {
 entry:
   %call = tail call i32 @ERR_set_mark() #11
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @core_clear_last_error_mark(ptr nocapture readnone %handle) #0 {
+define internal i32 @core_clear_last_error_mark(ptr readnone captures(none) %handle) #0 {
 entry:
   %call = tail call i32 @ERR_clear_last_mark() #11
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @core_pop_error_to_mark(ptr nocapture readnone %handle) #0 {
+define internal i32 @core_pop_error_to_mark(ptr readnone captures(none) %handle) #0 {
 entry:
   %call = tail call i32 @ERR_pop_to_mark() #11
   ret i32 %call
@@ -3019,7 +3019,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rand_get_entropy(ptr nocapture noundef readonly %handle, ptr noundef %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len) #0 {
+define internal i64 @rand_get_entropy(ptr noundef readonly captures(none) %handle, ptr noundef %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len) #0 {
 entry:
   %libctx.i = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx.i, align 8
@@ -3028,7 +3028,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rand_get_user_entropy(ptr nocapture noundef readonly %handle, ptr noundef %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len) #0 {
+define internal i64 @rand_get_user_entropy(ptr noundef readonly captures(none) %handle, ptr noundef %pout, i32 noundef %entropy, i64 noundef %min_len, i64 noundef %max_len) #0 {
 entry:
   %libctx.i = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx.i, align 8
@@ -3037,7 +3037,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rand_cleanup_entropy(ptr nocapture noundef readonly %handle, ptr noundef %buf, i64 noundef %len) #0 {
+define internal void @rand_cleanup_entropy(ptr noundef readonly captures(none) %handle, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
   %libctx.i = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx.i, align 8
@@ -3046,7 +3046,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rand_cleanup_user_entropy(ptr nocapture noundef readonly %handle, ptr noundef %buf, i64 noundef %len) #0 {
+define internal void @rand_cleanup_user_entropy(ptr noundef readonly captures(none) %handle, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
   %libctx.i = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx.i, align 8
@@ -3055,7 +3055,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rand_get_nonce(ptr nocapture noundef readonly %handle, ptr noundef %pout, i64 noundef %min_len, i64 noundef %max_len, ptr noundef %salt, i64 noundef %salt_len) #0 {
+define internal i64 @rand_get_nonce(ptr noundef readonly captures(none) %handle, ptr noundef %pout, i64 noundef %min_len, i64 noundef %max_len, ptr noundef %salt, i64 noundef %salt_len) #0 {
 entry:
   %libctx.i = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx.i, align 8
@@ -3064,7 +3064,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rand_get_user_nonce(ptr nocapture noundef readonly %handle, ptr noundef %pout, i64 noundef %min_len, i64 noundef %max_len, ptr noundef %salt, i64 noundef %salt_len) #0 {
+define internal i64 @rand_get_user_nonce(ptr noundef readonly captures(none) %handle, ptr noundef %pout, i64 noundef %min_len, i64 noundef %max_len, ptr noundef %salt, i64 noundef %salt_len) #0 {
 entry:
   %libctx.i = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx.i, align 8
@@ -3073,7 +3073,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rand_cleanup_nonce(ptr nocapture noundef readonly %handle, ptr noundef %buf, i64 noundef %len) #0 {
+define internal void @rand_cleanup_nonce(ptr noundef readonly captures(none) %handle, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
   %libctx.i = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx.i, align 8
@@ -3082,7 +3082,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rand_cleanup_user_nonce(ptr nocapture noundef readonly %handle, ptr noundef %buf, i64 noundef %len) #0 {
+define internal void @rand_cleanup_user_nonce(ptr noundef readonly captures(none) %handle, ptr noundef %buf, i64 noundef %len) #0 {
 entry:
   %libctx.i = getelementptr inbounds nuw i8, ptr %handle, i64 80
   %0 = load ptr, ptr %libctx.i, align 8
@@ -3382,7 +3382,7 @@ provider_free_intern.exit:                        ; preds = %if.then.i, %lor.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @core_obj_add_sigid(ptr nocapture readnone %prov, ptr noundef %sign_name, ptr noundef %digest_name, ptr noundef %pkey_name) #0 {
+define internal i32 @core_obj_add_sigid(ptr readnone captures(none) %prov, ptr noundef %sign_name, ptr noundef %digest_name, ptr noundef %pkey_name) #0 {
 entry:
   %call = tail call i32 @OBJ_txt2nid(ptr noundef %sign_name) #11
   %call1 = tail call i32 @OBJ_txt2nid(ptr noundef %pkey_name) #11
@@ -3423,7 +3423,7 @@ return:                                           ; preds = %if.end14, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @core_obj_create(ptr nocapture readnone %prov, ptr noundef %oid, ptr noundef %sn, ptr noundef %ln) #0 {
+define internal range(i32 0, 2) i32 @core_obj_create(ptr readnone captures(none) %prov, ptr noundef %oid, ptr noundef %sn, ptr noundef %ln) #0 {
 entry:
   %call = tail call i32 @OBJ_txt2nid(ptr noundef %oid) #11
   %cmp.not = icmp eq i32 %call, 0
@@ -3516,10 +3516,10 @@ declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.umax.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

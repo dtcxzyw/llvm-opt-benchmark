@@ -119,7 +119,7 @@ $_ZTIN3irr5scene10ISceneNodeE = comdat any
 @_ZN3irr5video16IdentityMaterialE = external global %"class.irr::video::SMaterial", align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene15CEmptySceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (40, 41), (48, 148)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene15CEmptySceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (40, 41), (48, 148)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -202,10 +202,10 @@ _ZN3irr5scene10ISceneNodeC2EPS1_PNS0_13ISceneManagerEiRKNS_4core8vector3dIfEES9_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5scene15CEmptySceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (40, 41), (48, 148), (248, 268)) %this, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id) unnamed_addr #0 align 2 {
@@ -355,7 +355,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3irr5scene15CEmptySceneNode6renderEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene15CEmptySceneNode6renderEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   ret void
 }
@@ -527,7 +527,7 @@ if.end9:                                          ; preds = %delete.notnull.i, %
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene10ISceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(222) %this) unnamed_addr #0 comdat align 2 {
@@ -2184,7 +2184,7 @@ _ZN3irr5scene15CEmptySceneNodeD0Ev.exit:          ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10

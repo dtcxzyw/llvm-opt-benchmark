@@ -683,7 +683,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer12anti_unifier5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6spacer12anti_unifier5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_subs = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_subs, align 8
@@ -845,7 +845,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5resetEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer12anti_unifierclEP4exprS2_R7obj_refIS1_11ast_managerER12substitutionS8_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %e1, ptr noundef %e2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %res, ptr noundef nonnull align 8 dereferenceable(124) %s1, ptr noundef nonnull align 8 dereferenceable(124) %s2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer12anti_unifierclEP4exprS2_R7obj_refIS1_11ast_managerER12substitutionS8_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %e1, ptr noundef %e2, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %res, ptr noundef nonnull align 8 dereferenceable(124) %s1, ptr noundef nonnull align 8 dereferenceable(124) %s2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i189 = alloca %"class.obj_pair_map<expr, expr, expr *>::key_data", align 8
   %ref.tmp.i = alloca %"class.obj_pair_map<expr, expr, expr *>::key_data", align 8
@@ -2329,10 +2329,10 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define hidden noundef zeroext i1 @_ZN6spacer20naive_convex_closure15compute_closureERNS_12anti_unifierER11ast_managerR7obj_refI4exprS3_E(ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %au, ptr nocapture noundef nonnull readnone align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %result) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer20naive_convex_closure15compute_closureERNS_12anti_unifierER11ast_managerR7obj_refI4exprS3_E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(64) %au, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(976) %m, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %result) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 206, ptr noundef nonnull @.str.2)
   tail call void @exit(i32 noundef 107) #21
@@ -2340,7 +2340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6spacer20naive_convex_closure9get_rangeER6vectorIjLb1EjERjS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %v, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %lower_bound, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %upper_bound) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6spacer20naive_convex_closure9get_rangeER6vectorIjLb1EjERjS4_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %v, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %lower_bound, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %upper_bound) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %v, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -14043,7 +14043,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -14105,7 +14105,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -15167,7 +15167,7 @@ return:                                           ; preds = %_ZSt13__adjust_heap
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN6spacer16var_abs_rewriter9get_substEP4exprRS2_RP3app(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(8) %t, ptr noundef nonnull align 8 dereferenceable(8) %t_pr) local_unnamed_addr #3 comdat align 2 {
@@ -33395,10 +33395,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #18

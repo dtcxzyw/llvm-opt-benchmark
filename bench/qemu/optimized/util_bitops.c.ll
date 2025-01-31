@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i64 @find_next_bit(ptr nocapture noundef readonly %addr, i64 noundef %size, i64 noundef %offset) local_unnamed_addr #0 {
+define dso_local i64 @find_next_bit(ptr noundef readonly captures(none) %addr, i64 noundef %size, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %div36 = lshr i64 %offset, 6
   %add.ptr = getelementptr i64, ptr %addr, i64 %div36
@@ -135,7 +135,7 @@ return:                                           ; preds = %while.end34, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i64 @find_next_zero_bit(ptr nocapture noundef readonly %addr, i64 noundef %size, i64 noundef %offset) local_unnamed_addr #0 {
+define dso_local i64 @find_next_zero_bit(ptr noundef readonly captures(none) %addr, i64 noundef %size, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   %div26 = lshr i64 %offset, 6
   %add.ptr = getelementptr i64, ptr %addr, i64 %div26
@@ -227,7 +227,7 @@ return:                                           ; preds = %while.end, %entry, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i64 @find_last_bit(ptr nocapture noundef readonly %addr, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local i64 @find_last_bit(ptr noundef readonly captures(none) %addr, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %div10 = lshr i64 %size, 6
   %and = and i64 %size, 63

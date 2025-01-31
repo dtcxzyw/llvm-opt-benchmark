@@ -826,7 +826,7 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @type_quoted_error_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cast_to_int_to_max_bit_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define dso_local void @cast_to_int_to_max_bit_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 255
@@ -1105,7 +1105,7 @@ type_flatten.exit:                                ; preds = %4
 declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_error_failed_cast(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @sema_error_failed_cast(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call ptr @type_quoted_error_string(ptr noundef %1) #10
   %6 = tail call ptr @type_quoted_error_string(ptr noundef %2) #10
@@ -1388,7 +1388,7 @@ declare ptr @type_get_vector(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @type_get_subarray(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 1, 31) i32 @cast_to_bool_kind(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 1, 31) i32 @cast_to_bool_kind(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %15, %1
@@ -1625,18 +1625,18 @@ define dso_local ptr @cast_numeric_arithmetic_promotion(ptr noundef readonly %0)
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef zeroext i1 @rule_not_applicable(ptr nocapture readnone %0, i1 zeroext %1, i1 zeroext %2) #3 {
+define internal noundef zeroext i1 @rule_not_applicable(ptr readnone captures(none) %0, i1 zeroext %1, i1 zeroext %2) #3 {
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.rule_not_applicable, ptr noundef nonnull @.str.4, i32 noundef 1148) #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @rule_all_ok(ptr nocapture readnone %0, i1 zeroext %1, i1 zeroext %2) #4 {
+define internal noundef zeroext i1 @rule_all_ok(ptr readnone captures(none) %0, i1 zeroext %1, i1 zeroext %2) #4 {
   ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_explicit_ok(ptr nocapture noundef readonly %0, i1 noundef returned zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_explicit_ok(ptr noundef readonly captures(none) %0, i1 noundef returned zeroext %1, i1 noundef zeroext %2) #0 {
   %brmerge = or i1 %1, %2
   br i1 %brmerge, label %14, label %4
 
@@ -1869,7 +1869,7 @@ cast_is_allowed.exit.thread:                      ; preds = %cast_is_allowed.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_widen_narrow(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal zeroext i1 @rule_widen_narrow(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   br i1 %1, label %82, label %4
 
 4:                                                ; preds = %3
@@ -2015,7 +2015,7 @@ type_flatten.exit:                                ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_int_to_float(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal zeroext i1 @rule_int_to_float(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   br i1 %1, label %14, label %4
 
 4:                                                ; preds = %3
@@ -2040,7 +2040,7 @@ define internal zeroext i1 @rule_int_to_float(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_int_to_ptr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal zeroext i1 @rule_int_to_ptr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -2185,7 +2185,7 @@ report_cast_error.exit35:                         ; preds = %66, %69, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_int_to_bits(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_int_to_bits(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2236,7 +2236,7 @@ define internal noundef zeroext i1 @rule_int_to_bits(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_int_to_enum(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal zeroext i1 @rule_int_to_enum(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = alloca %struct.Int, align 8
   %5 = alloca %struct.Int, align 8
   br i1 %1, label %29, label %6
@@ -2355,7 +2355,7 @@ report_cast_error.exit:                           ; preds = %18, %21, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_ptr_to_int(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal zeroext i1 @rule_ptr_to_int(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @type_size(ptr noundef %5) #10
@@ -2402,7 +2402,7 @@ define internal zeroext i1 @rule_ptr_to_int(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_ptr_to_ptr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_ptr_to_ptr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   br i1 %1, label %35, label %4
 
 4:                                                ; preds = %3
@@ -2479,7 +2479,7 @@ report_cast_error.exit:                           ; preds = %23, %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_ptr_to_interface(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_ptr_to_interface(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   br i1 %1, label %.loopexit, label %4
 
 4:                                                ; preds = %3
@@ -2781,7 +2781,7 @@ cast_is_allowed.exit:                             ; preds = %90, %80, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_sa_to_ptr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_sa_to_ptr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -2865,7 +2865,7 @@ rule_sa_to_ptr.exit:                              ; preds = %22, %.critedge, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_sa_to_sa(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal zeroext i1 @rule_sa_to_sa(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -4162,7 +4162,7 @@ cast_is_allowed.exit:                             ; preds = %.loopexit, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_bits_to_int(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_bits_to_int(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %.not34 = xor i1 %2, true
   %brmerge = or i1 %1, %.not34
   br i1 %brmerge, label %4, label %68
@@ -4291,7 +4291,7 @@ report_cast_error.exit40:                         ; preds = %57, %60, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_bits_to_arr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_bits_to_arr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %.not21 = xor i1 %2, true
   %brmerge = or i1 %1, %.not21
   br i1 %brmerge, label %4, label %55
@@ -4851,7 +4851,7 @@ cast_is_allowed.exit:                             ; preds = %120, %110, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_arr_to_bits(ptr nocapture noundef readonly %0, i1 noundef returned zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_arr_to_bits(ptr noundef readonly captures(none) %0, i1 noundef returned zeroext %1, i1 noundef zeroext %2) #0 {
   %brmerge = or i1 %1, %2
   br i1 %brmerge, label %18, label %4
 
@@ -4879,7 +4879,7 @@ define internal noundef zeroext i1 @rule_arr_to_bits(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_arr_to_arr(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal zeroext i1 @rule_arr_to_arr(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @type_size(ptr noundef %5) #10
@@ -4910,7 +4910,7 @@ define internal zeroext i1 @rule_arr_to_arr(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @rule_struct_to_struct(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
+define internal zeroext i1 @rule_struct_to_struct(ptr noundef readonly captures(none) %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4970,7 +4970,7 @@ define internal zeroext i1 @rule_to_struct_to_distinct(ptr noundef %0, i1 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_interface_to_interface(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_interface_to_interface(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   br i1 %1, label %.loopexit, label %4
 
 4:                                                ; preds = %3
@@ -5047,7 +5047,7 @@ define internal noundef zeroext i1 @rule_interface_to_interface(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_arrptr_to_sa(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_arrptr_to_sa(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -5179,7 +5179,7 @@ common.ret51:                                     ; preds = %49, %52, %47, %type
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_ulist_to_subarray(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_ulist_to_subarray(ptr noundef readonly captures(none) %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -5218,7 +5218,7 @@ define internal noundef zeroext i1 @rule_ulist_to_subarray(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr noundef readonly captures(none) %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -5278,7 +5278,7 @@ define internal noundef zeroext i1 @rule_ulist_to_vecarr(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_ulist_to_struct(ptr noundef readonly captures(none) %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -5370,7 +5370,7 @@ define internal noundef zeroext i1 @rule_ulist_to_struct(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr nocapture noundef readonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
+define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr noundef readonly captures(none) %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -5418,13 +5418,13 @@ define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cast_retype(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #5 {
+define internal void @cast_retype(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #5 {
   store ptr %2, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_all_to_void(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #0 {
+define internal void @cast_all_to_void(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load ptr, ptr @type_void, align 8
   %5 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
@@ -5450,7 +5450,7 @@ define internal void @cast_all_to_void(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_bool_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_bool_to_int(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -5542,7 +5542,7 @@ type_flatten.exit:                                ; preds = %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_bool_to_float(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_bool_to_float(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -5686,7 +5686,7 @@ define internal void @cast_expand_to_vec(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_int_to_bool(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -5745,7 +5745,7 @@ define internal void @cast_int_to_bool(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_int_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_int_to_int(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Int, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
@@ -5875,7 +5875,7 @@ type_flatten_to_int.exit:                         ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_int_to_float(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_int_to_float(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -6043,7 +6043,7 @@ define internal void @cast_int_to_ptr(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_int_arr_to_bitstruct(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_int_arr_to_bitstruct(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -6166,7 +6166,7 @@ type_flatten.exit19:                              ; preds = %type_flatten.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_int_to_enum(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_int_to_enum(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   br label %4
 
 4:                                                ; preds = %17, %3
@@ -6256,7 +6256,7 @@ type_flatten.exit:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_float_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_float_to_bool(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -6314,7 +6314,7 @@ define internal void @cast_float_to_bool(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_float_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_float_to_int(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Int, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i16, ptr %5, align 8
@@ -6403,7 +6403,7 @@ type_flatten.exit:                                ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_float_to_float(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_float_to_float(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -6496,7 +6496,7 @@ type_flatten.exit:                                ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_ptr_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_ptr_to_bool(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -6570,7 +6570,7 @@ define internal void @cast_ptr_to_bool(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_ptr_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_ptr_to_int(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -6693,7 +6693,7 @@ type_flatten.exit:                                ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_ptr_to_ptr(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -6763,7 +6763,7 @@ define internal void @cast_ptr_to_ptr(ptr nocapture readnone %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_ptr_to_any(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_ptr_to_any(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6830,7 +6830,7 @@ type_flatten.exit:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_sa_to_bool(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -6945,7 +6945,7 @@ define internal void @cast_sa_to_bool(ptr nocapture readnone %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_sa_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_sa_to_ptr(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -6987,7 +6987,7 @@ define internal void @cast_sa_to_ptr(ptr nocapture readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_sa_to_sa(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_sa_to_sa(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   br label %4
 
 4:                                                ; preds = %17, %3
@@ -7253,7 +7253,7 @@ define internal void @cast_sa_to_infer(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_vec_to_vec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_vec_to_vec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -7686,7 +7686,7 @@ type_flatten.exit74:                              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_vec_to_arr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_vec_to_arr(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -7776,7 +7776,7 @@ type_flatten.exit:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_bitstruct_to_int_arr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_bitstruct_to_int_arr(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -7828,7 +7828,7 @@ define internal void @cast_bitstruct_to_int_arr(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_arr_to_vec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_arr_to_vec(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call ptr @type_get_indexed_type(ptr noundef %2) #10
   br label %5
 
@@ -7993,13 +7993,13 @@ type_flatten.exit29:                              ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cast_arr_to_arr(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #5 {
+define internal void @cast_arr_to_arr(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #5 {
   store ptr %2, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_struct_to_inline(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_struct_to_inline(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8024,7 +8024,7 @@ define internal void @cast_struct_to_inline(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_any_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_any_to_bool(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8049,7 +8049,7 @@ define internal void @cast_any_to_bool(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_any_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_any_to_ptr(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8074,7 +8074,7 @@ define internal void @cast_any_to_ptr(ptr nocapture readnone %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_anyfault_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_anyfault_to_bool(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -8133,7 +8133,7 @@ define internal void @cast_anyfault_to_bool(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_fault_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_fault_to_int(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8158,7 +8158,7 @@ define internal void @cast_fault_to_int(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_fault_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_fault_to_ptr(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8183,13 +8183,13 @@ define internal void @cast_fault_to_ptr(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cast_fault_to_anyfault(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #5 {
+define internal void @cast_fault_to_anyfault(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #5 {
   store ptr %2, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_enum_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_enum_to_int(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   br label %4
 
 4:                                                ; preds = %.backedge, %3
@@ -8369,7 +8369,7 @@ type_flatten.exit:                                ; preds = %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_typeid_to_bool(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_typeid_to_bool(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -8428,7 +8428,7 @@ define internal void @cast_typeid_to_bool(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_typeid_to_int(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_typeid_to_int(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8453,7 +8453,7 @@ define internal void @cast_typeid_to_int(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_typeid_to_ptr(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_typeid_to_ptr(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8478,7 +8478,7 @@ define internal void @cast_typeid_to_ptr(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_anyfault_to_fault(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_anyfault_to_fault(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 255
@@ -8543,7 +8543,7 @@ define internal void @cast_anyfault_to_fault(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_vaptr_to_sa(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @cast_vaptr_to_sa(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8617,7 +8617,7 @@ type_flatten.exit:                                ; preds = %6
 declare ptr @type_get_optional(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @insert_runtime_cast(ptr nocapture noundef %0, i32 noundef range(i32 0, 41) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @insert_runtime_cast(ptr noundef captures(none) %0, i32 noundef range(i32 0, 41) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call noundef ptr @vmem_alloc(ptr noundef nonnull @expr_arena, i64 noundef 56) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 dereferenceable(56) %0, i64 56, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8645,12 +8645,12 @@ define internal fastcc void @insert_runtime_cast(ptr nocapture noundef %0, i32 n
 declare zeroext i1 @sema_resolve_type_decl(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @report_cast_error(ptr nocapture readonly %.8.val, ptr %.24.val, i1 noundef zeroext %0) unnamed_addr #0 {
+define internal fastcc void @report_cast_error(ptr readonly captures(none) %.8.val, ptr %.24.val, i1 noundef zeroext %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.8.val, i64 8
   %3 = load ptr, ptr %.8.val, align 8
   %.not29 = icmp eq ptr %3, null
@@ -8727,7 +8727,7 @@ declare zeroext i1 @expr_const_will_overflow(ptr noundef, i32 noundef) local_unn
 declare ptr @expr_const_to_error_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_error_const_int_out_of_range(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @sema_error_const_int_out_of_range(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 256
@@ -9158,7 +9158,7 @@ declare zeroext i1 @sema_analyse_decl(ptr noundef, ptr noundef) local_unnamed_ad
 declare zeroext i1 @int_is_zero(ptr noundef byval(%struct.Int) align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @int_conv(ptr dead_on_unwind writable sret(%struct.Int) align 8, ptr noundef byval(%struct.Int) align 8, i32 noundef) local_unnamed_addr #2
 
@@ -9167,7 +9167,7 @@ declare double @int_to_real(ptr noundef byval(%struct.Int) align 8) local_unname
 declare void @int_from_real(ptr dead_on_unwind writable sret(%struct.Int) align 8, double noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @vector_const_initializer_convert_to_type(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   switch i32 %4, label %.loopexit [
     i32 4, label %.preheader
@@ -9431,7 +9431,7 @@ type_flatten.exit81:                              ; preds = %63
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @expr_recursively_rewrite_untyped_list(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #8 {
+define internal fastcc void @expr_recursively_rewrite_untyped_list(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 255

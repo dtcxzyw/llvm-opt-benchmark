@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_datatype_basicDatatypes = external local_unnamed_addr global [28 x ptr], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define i64 @opal_datatype_get_element_count(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 2
@@ -164,7 +164,7 @@ define i64 @opal_datatype_get_element_count(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #1 {
+define noundef i32 @opal_datatype_set_element_count(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i64, ptr %4, align 8
   %6 = udiv i64 %1, %5
@@ -325,7 +325,7 @@ define noundef i32 @opal_datatype_set_element_count(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @opal_datatype_compute_ptypes(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define noundef i32 @opal_datatype_compute_ptypes(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -463,7 +463,7 @@ define noundef i32 @opal_datatype_compute_ptypes(ptr nocapture noundef %0) local
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @opal_datatype_compute_remote_size(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define i64 @opal_datatype_compute_remote_size(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr i8, ptr %0, i64 16

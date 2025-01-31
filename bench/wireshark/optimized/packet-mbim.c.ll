@@ -3923,7 +3923,7 @@ define void @mbim_register_uuid_ext(ptr noundef %0) local_unnamed_addr #0 {
   %8 = tail call noalias ptr @wmem_alloc(ptr noundef %7, i64 noundef 16) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %9 = load ptr, ptr @mbim_uuid_ext_hash, align 8
-  %10 = tail call ptr @wmem_map_insert(ptr noundef %9, ptr noundef %8, ptr noundef %0) #10
+  %10 = tail call ptr @wmem_map_insert(ptr noundef %9, ptr noundef nonnull %8, ptr noundef nonnull %0) #10
   ret void
 }
 
@@ -3938,7 +3938,7 @@ define internal i32 @mbim_uuid_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @mbim_uuid_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @mbim_uuid_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -3977,7 +3977,7 @@ define internal range(i32 0, 2) i32 @mbim_uuid_equal(ptr nocapture noundef reado
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4011,7 +4011,7 @@ define hidden void @proto_register_mbim() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_rssi_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_rssi_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4052,7 +4052,7 @@ define internal void @mbim_rssi_fmt(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_rsrp_signal_state_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_rsrp_signal_state_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4087,7 +4087,7 @@ define internal void @mbim_rsrp_signal_state_fmt(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_snr_signal_state_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_snr_signal_state_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4128,7 +4128,7 @@ define internal void @mbim_snr_signal_state_fmt(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_degrees_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_degrees_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = uitofp i32 %1 to float
   %4 = fpext float %3 to double
   %5 = fdiv double %4, 1.000000e+01
@@ -4137,7 +4137,7 @@ define internal void @mbim_degrees_fmt(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_rscp_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_rscp_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4177,7 +4177,7 @@ define internal void @mbim_rscp_fmt(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_ecno_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_ecno_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4220,7 +4220,7 @@ define internal void @mbim_ecno_fmt(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_rsrq_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_rsrq_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4263,7 +4263,7 @@ define internal void @mbim_rsrq_fmt(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_rsrp_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_rsrp_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4303,7 +4303,7 @@ define internal void @mbim_rsrp_fmt(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_rssnr_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_rssnr_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %4, label %5
 
@@ -4343,7 +4343,7 @@ define internal void @mbim_rssnr_fmt(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_projection_table_coeff_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_projection_table_coeff_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = sitofp i32 %1 to float
   %4 = fdiv float %3, 1.000000e+03
   %5 = fpext float %4 to double
@@ -4352,7 +4352,7 @@ define internal void @mbim_projection_table_coeff_fmt(ptr nocapture noundef writ
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mbim_version_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 {
+define internal void @mbim_version_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 {
   %3 = lshr i32 %1, 8
   %4 = and i32 %1, 255
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2453, i32 noundef %3, i32 noundef %4) #10
@@ -9297,7 +9297,7 @@ proto_item_set_generated.exit1935:                ; preds = %1488, %1485, %1482,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 13) i32 @dissect_mbim_descriptor(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 13) i32 @dissect_mbim_descriptor(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 2) #10
@@ -9370,7 +9370,7 @@ proto_item_set_hidden.exit:                       ; preds = %14, %17, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mbim_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mbim_bulk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -10155,7 +10155,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare ptr @find_dissector(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mbim_bulk_ndp_ctrl(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mbim_bulk_ndp_ctrl(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10263,7 +10263,7 @@ declare i32 @wmem_strong_hash(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @proto_tree_get_parent_tree(ptr noundef) local_unnamed_addr #1
 
@@ -10320,7 +10320,7 @@ declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull %4, ptr noundef writeonly %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef writeonly %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct._e_guid_t, align 4
   %9 = alloca [4 x i32], align 16
   %.not = icmp eq i32 %6, 0
@@ -10419,7 +10419,7 @@ define internal fastcc noundef zeroext i8 @mbim_dissect_service_id_uuid(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i8 noundef zeroext %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc i32 @mbim_dissect_cid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i8 noundef zeroext %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %7) #10
   %9 = icmp ult i8 %4, 25
@@ -10768,7 +10768,7 @@ define internal fastcc void @mbim_dissect_set_signal_state(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_set_connect_v3_and_higher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_set_connect_v3_and_higher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_mbim_set_connect_session_id, align 4
@@ -11111,7 +11111,7 @@ define internal fastcc void @mbim_dissect_context(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_device_service_subscribe_list(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -11283,7 +11283,7 @@ mbim_dissect_event_entry.exit:                    ; preds = %.lr.ph.split.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_packet_filters(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -11479,7 +11479,7 @@ define internal fastcc void @mbim_dissect_sms_read_req(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_set_sms_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_set_sms_send(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -12051,7 +12051,7 @@ define internal fastcc void @mbim_dissect_sim_auth_req(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_set_dss_connect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_set_dss_connect(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store i32 %3, ptr %5, align 4
@@ -12366,7 +12366,7 @@ mbim_dissect_atds_operator.exit:                  ; preds = %84, %89, %95
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_atds_projection_tables(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_atds_projection_tables(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
   %7 = load i32, ptr @hf_mbim_atds_projection_tables_elem_count, align 4
@@ -12500,7 +12500,7 @@ define internal fastcc void @mbim_dissect_atds_projection_tables(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_set_ms_provisioned_context_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_set_ms_provisioned_context_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_mbim_set_ms_provisioned_context_v2_operation, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #10
@@ -12511,7 +12511,7 @@ define internal fastcc void @mbim_dissect_set_ms_provisioned_context_v2(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_network_blacklist_info(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
   %7 = load i32, ptr @hf_mbim_ms_network_blacklist_info_blacklist_state, align 4
@@ -12682,7 +12682,7 @@ define internal fastcc void @mbim_dissect_set_lte_attach_config(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_device_slot_mapping_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_device_slot_mapping_info(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
   %7 = load i32, ptr @hf_mbim_ms_device_slot_mapping_info_map_count, align 4
@@ -12763,7 +12763,7 @@ define internal fastcc void @mbim_dissect_ms_device_slot_mapping_info(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_base_station_info_req(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_base_station_info_req(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mbim_base_station_max_gsm_count, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %7 = add i32 %2, 4
@@ -12801,7 +12801,7 @@ define internal fastcc void @mbim_dissect_base_station_info_req(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_version(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((24, 28)) %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_version(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((24, 28)) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_mbim_version, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %6, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef -2147483648) #10
@@ -12880,7 +12880,7 @@ define internal fastcc void @mbim_dissect_tlv_ie_list(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_sar_config(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.mbim_pair_list, align 4
   %8 = load i32, ptr @hf_mbim_ms_sar_config_sar_mode, align 4
@@ -13001,7 +13001,7 @@ define internal fastcc void @mbim_dissect_ms_transmission_status(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_open_channel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_open_channel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_mbim_ms_open_channel_app_id_size, align 4
@@ -13052,7 +13052,7 @@ define internal fastcc void @mbim_dissect_ms_open_channel(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_close_channel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_close_channel(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mbim_ms_uicc_channel, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %7 = add i32 %2, 4
@@ -13081,7 +13081,7 @@ define internal fastcc void @mbim_dissect_ms_close_channel(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_apdu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_apdu(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_mbim_ms_uicc_channel, align 4
@@ -13135,7 +13135,7 @@ define internal fastcc void @mbim_dissect_ms_apdu(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_set_terminal_capability(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_set_terminal_capability(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %.24.val) unnamed_addr #0 {
   %5 = icmp ugt i32 %.24.val, 3
   br i1 %5, label %10, label %6
 
@@ -13159,7 +13159,7 @@ define internal fastcc void @mbim_dissect_ms_set_terminal_capability(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_set_reset(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_set_reset(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr @hf_mbim_ms_reset_pass_through_action, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %5, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef -2147483648) #10
   %7 = add i32 %2, 4
@@ -13437,7 +13437,7 @@ define internal fastcc void @mbim_dissect_ms_file_path(ptr noundef %0, ptr nound
 declare ptr @try_val_to_str_idx(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_device_caps_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef initializes((20, 24)) %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_device_caps_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((20, 24)) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -13591,7 +13591,7 @@ define internal fastcc void @mbim_dissect_device_caps_info(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_subscriber_ready_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_subscriber_ready_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -13839,7 +13839,7 @@ define internal fastcc void @mbim_dissect_pin_list_info(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_registration_state_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_registration_state_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -13979,7 +13979,7 @@ define internal fastcc void @mbim_dissect_registration_state_info(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_packet_service_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_packet_service_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %3) #10
   %9 = icmp eq i32 %8, 0
@@ -14108,7 +14108,7 @@ mbim_dissect_tlv_ie_list.exit:                    ; preds = %.lr.ph.i, %mbim_dis
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_signal_state_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_signal_state_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -14208,7 +14208,7 @@ define internal fastcc void @mbim_dissect_signal_state_info(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_connect_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_connect_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_mbim_connect_info_session_id, align 4
@@ -14590,7 +14590,7 @@ mbim_dissect_ipv6_element.exit:                   ; preds = %.lr.ph109, %91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_device_services_info(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -14844,7 +14844,7 @@ define internal fastcc void @mbim_dissect_sms_configuration_info(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_sms_read_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -15312,7 +15312,7 @@ define internal fastcc void @mbim_dissect_phonebook_configuration_info(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_phonebook_read_info(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -15729,7 +15729,7 @@ define internal fastcc void @mbim_dissect_thermal_state_info(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_adpclk_freq_info(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.mbim_pair_list, align 4
   %7 = load i32, ptr @hf_mbim_adpclk_freq_info_elem_count, align 4
@@ -15970,7 +15970,7 @@ define internal fastcc void @mbim_dissect_multiflow_tft_info(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_provisioned_context_info_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %struct.mbim_pair_list, align 4
@@ -16158,7 +16158,7 @@ define internal fastcc void @mbim_dissect_sys_caps_info(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_device_caps_v3_and_higher_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((20, 24)) %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_device_caps_v3_and_higher_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((20, 24)) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_mbim_device_caps_info_device_type, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef -2147483648) #10
@@ -16230,7 +16230,7 @@ define internal fastcc void @mbim_dissect_device_caps_v3_and_higher_info(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_device_caps_v2_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef initializes((20, 24)) %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_device_caps_v2_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(none) initializes((20, 24)) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -16387,7 +16387,7 @@ define internal fastcc void @mbim_dissect_device_caps_v2_info(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_base_station_info(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -17532,7 +17532,7 @@ define internal fastcc void @mbim_dissect_ms_apdu_info(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_terminal_capability_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_terminal_capability_info(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.mbim_pair_list, align 4
   %8 = load i32, ptr @hf_mbim_ms_terminal_capability_count, align 4
@@ -17611,7 +17611,7 @@ define internal fastcc void @mbim_dissect_ms_terminal_capability_info(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_app_list(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -17914,7 +17914,7 @@ declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct._e_guid_t, align 4
   %6 = load i32, ptr %3, align 4
   call void @tvb_get_ntohguid(ptr noundef %0, i32 noundef %6, ptr noundef nonnull %5) #10
@@ -17952,7 +17952,7 @@ define internal fastcc void @mbim_dissect_context_type_uuid(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_tlv_ie(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -18374,7 +18374,7 @@ mbim_dissect_rej_nssai.exit:                      ; preds = %mbim_dissect_rej_sn
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_mbim_ms_snssai_length, align 4
   %6 = load i32, ptr %2, align 4
@@ -18433,7 +18433,7 @@ define internal fastcc void @mbim_dissect_snssai(ptr noundef %0, ptr noundef %1,
 declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mbim_dissect_ms_single_tai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mbim_dissect_ms_single_tai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -18565,7 +18565,7 @@ mbim_dissect_ms_tai_list_multi_plmn.exit:         ; preds = %mbim_dissect_ms_plm
 declare zeroext i16 @tvb_get_guint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_tcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = load i32, ptr %3, align 4
@@ -18801,7 +18801,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i16 @de_cld_party_bcd_num(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_decode_sms_cdma_text(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @mbim_decode_sms_cdma_text(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
   switch i32 %5, label %31 [
     i32 2, label %9
     i32 3, label %12
@@ -18865,7 +18865,7 @@ declare zeroext i8 @dissect_cbs_data_coding_scheme(ptr noundef, ptr noundef, ptr
 declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_ms_context_v2_base(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -19135,7 +19135,7 @@ define internal fastcc void @mbim_dissect_lte_attach_context(ptr noundef %0, ptr
 declare zeroext i16 @de_sm_tflow_temp(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and_mrl_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @mbim_dissect_base_station_td_scdma_serving_cell_and_mrl_info(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr %2, align 4
@@ -19209,7 +19209,7 @@ declare void @col_append_sep_fstr(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare ptr @dissector_get_uint_handle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -19223,13 +19223,13 @@ declare ptr @proto_tree_add_protocol_format(ptr noundef, i32 noundef, ptr nounde
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

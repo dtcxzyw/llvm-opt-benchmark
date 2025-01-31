@@ -2022,7 +2022,7 @@ _ZNSt8functionIFP4exprP10quantifierjEED2Ev.exit8: ; preds = %lpad, %if.then.i.i5
 declare noundef zeroext i1 @_ZN3euf13th_euf_solver10add_clauseEN3sat7literalES2_PKNS_13th_proof_hintE(ptr noundef nonnull align 8 dereferenceable(108), i32, i32, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZN1q6solver6expandEP10quantifier(ptr noundef nonnull align 8 dereferenceable(3144) %this, ptr noundef %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -3439,7 +3439,7 @@ declare void @_ZNK1q4mbqi18collect_statisticsER10statistics(ptr noundef nonnull 
 declare void @_ZNK1q6ematch18collect_statisticsER10statistics(ptr noundef nonnull align 8 dereferenceable(2672), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN1q6solver5cloneERN3euf6solverE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN1q6solver5cloneERN3euf6solverE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %class.symbol, align 8
   %m.i = getelementptr inbounds nuw i8, ptr %ctx, i64 136
@@ -4885,7 +4885,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN1q6solver5splitEP4exprR7obj_refIS1_11ast_managerES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3144) %this, ptr nocapture noundef readonly %arg, ptr nocapture noundef nonnull align 8 dereferenceable(16) %e1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %e2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN1q6solver5splitEP4exprR7obj_refIS1_11ast_managerES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3144) %this, ptr noundef readonly captures(none) %arg, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %e1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %e2) local_unnamed_addr #3 align 2 {
 entry:
   %m = getelementptr inbounds nuw i8, ptr %this, i64 72
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 4
@@ -5469,7 +5469,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i.i
 declare noundef ptr @_ZN11ast_manager17update_quantifierEP10quantifierP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN1q6solver10is_literalEP4expr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3144) %this, ptr nocapture noundef readonly %arg) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN1q6solver10is_literalEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3144) %this, ptr noundef readonly captures(none) %arg) local_unnamed_addr #3 align 2 {
 entry:
   %m = getelementptr inbounds nuw i8, ptr %this, i64 72
   %m_kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 4
@@ -5643,7 +5643,7 @@ declare noundef nonnull align 8 dereferenceable(800) ptr @_ZNK3euf13th_euf_solve
 declare void @_ZN3euf6solver16on_instantiationEjPKN3sat7literalEjPKPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(9136), i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN1q12q_proof_hint2mkERN3euf6solverEjRK7svectorIN3sat7literalEjEjPKPNS1_5enodeE(ptr noundef nonnull align 8 dereferenceable(9136) %s, i32 noundef %generation, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lits, i32 noundef %n, ptr nocapture noundef readonly %bindings) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN1q12q_proof_hint2mkERN3euf6solverEjRK7svectorIN3sat7literalEjEjPKPNS1_5enodeE(ptr noundef nonnull align 8 dereferenceable(9136) %s, i32 noundef %generation, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %lits, i32 noundef %n, ptr noundef readonly captures(none) %bindings) local_unnamed_addr #3 align 2 {
 entry:
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2208
   %0 = load ptr, ptr %lits, align 8
@@ -5736,7 +5736,7 @@ for.end18:                                        ; preds = %_ZNK6vectorIN3sat7l
 declare noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN1q12q_proof_hint2mkERN3euf6solverEjN3sat7literalES5_jPKP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %s, i32 noundef %generation, i32 %l1.coerce, i32 %l2.coerce, i32 noundef %n, ptr nocapture noundef readonly %bindings) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN1q12q_proof_hint2mkERN3euf6solverEjN3sat7literalES5_jPKP4expr(ptr noundef nonnull align 8 dereferenceable(9136) %s, i32 noundef %generation, i32 %l1.coerce, i32 %l2.coerce, i32 noundef %n, ptr noundef readonly captures(none) %bindings) local_unnamed_addr #3 align 2 {
 entry:
   %m_region.i.i = getelementptr inbounds nuw i8, ptr %s, i64 2208
   %conv.i = zext i32 %n to i64
@@ -5775,7 +5775,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK1q12q_proof_hint8get_hintERN3euf6solverE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9136) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK1q12q_proof_hint8get_hintERN3euf6solverE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9136) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca %class.ref_vector, align 8
   %binding = alloca %class.obj_ref, align 8
@@ -7087,7 +7087,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #10 comdat {
@@ -9035,7 +9035,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -9702,7 +9702,7 @@ entry:
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver9skolemizeES3_E3$_0E9_M_invokeERKSt9_Any_dataOS3_Oj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args1) #3 align 2 {
+define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver9skolemizeES3_E3$_0E9_M_invokeERKSt9_Any_dataOS3_Oj"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args1) #3 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__args.val = load ptr, ptr %__args, align 8
@@ -9724,7 +9724,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver9skolemizeES3_E3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver9skolemizeES3_E3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -9754,7 +9754,7 @@ declare noundef ptr @_ZN11ast_manager18mk_fresh_func_declERK6symbolS2_jPKP4sortS
 declare noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver10specializeES3_E3$_0E9_M_invokeERKSt9_Any_dataOS3_Oj"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args1) #3 align 2 {
+define internal noundef ptr @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver10specializeES3_E3$_0E9_M_invokeERKSt9_Any_dataOS3_Oj"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %__args1) #3 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %__args.val = load ptr, ptr %__args, align 8
@@ -9768,7 +9768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver10specializeES3_E3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFP4exprP10quantifierjEZN1q6solver10specializeES3_E3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -10868,10 +10868,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

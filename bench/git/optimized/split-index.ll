@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [50 x i8] c"position for delete %d exceeds base index size %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @init_split_index(ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local ptr @init_split_index(ptr noundef captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %split_index = getelementptr inbounds nuw i8, ptr %istate, i64 40
   %0 = load ptr, ptr %split_index, align 8
@@ -77,7 +77,7 @@ return:                                           ; preds = %entry, %if.end3
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @read_link_extension(ptr nocapture noundef %istate, ptr noundef %data_, i64 noundef %sz) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @read_link_extension(ptr noundef captures(none) %istate, ptr noundef %data_, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds nuw i8, ptr %0, i64 256
@@ -181,7 +181,7 @@ declare ptr @ewah_new() local_unnamed_addr #2
 declare i64 @ewah_read_mmap(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @write_link_extension(ptr noundef %sb, ptr nocapture noundef readonly %istate) local_unnamed_addr #0 {
+define dso_local noundef i32 @write_link_extension(ptr noundef %sb, ptr noundef readonly captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %split_index = getelementptr inbounds nuw i8, ptr %istate, i64 40
   %0 = load ptr, ptr %split_index, align 8
@@ -218,7 +218,7 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i32 @ewah_serialize_strbuf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @move_cache_to_base_index(ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local void @move_cache_to_base_index(ptr noundef captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %split_index = getelementptr inbounds nuw i8, ptr %istate, i64 40
   %0 = load ptr, ptr %split_index, align 8
@@ -383,7 +383,7 @@ declare void @mem_pool_combine(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @index_state_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -523,7 +523,7 @@ for.end:                                          ; preds = %if.end38, %if.end30
 declare void @ewah_each_bit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @replace_entry(i64 noundef %pos, ptr nocapture noundef readonly %data) #0 {
+define internal void @replace_entry(i64 noundef %pos, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %split_index = getelementptr inbounds nuw i8, ptr %data, i64 40
   %0 = load ptr, ptr %split_index, align 8
@@ -612,7 +612,7 @@ if.end18:                                         ; preds = %if.end12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mark_entry_for_delete(i64 noundef %pos, ptr nocapture noundef readonly %data) #0 {
+define internal void @mark_entry_for_delete(i64 noundef %pos, ptr noundef readonly captures(none) %data) #0 {
 entry:
   %cache_nr = getelementptr inbounds nuw i8, ptr %data, i64 12
   %0 = load i32, ptr %cache_nr, align 4
@@ -649,7 +649,7 @@ declare i32 @add_index_entry(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare void @ewah_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @prepare_to_write_split_index(ptr noundef %istate) local_unnamed_addr #0 {
@@ -1086,14 +1086,14 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare i32 @is_racy_timestamp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @discard_cache_entry(ptr noundef) local_unnamed_addr #2
 
 declare void @ewah_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @finish_writing_split_index(ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local void @finish_writing_split_index(ptr noundef captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %split_index.i = getelementptr inbounds nuw i8, ptr %istate, i64 40
   %0 = load ptr, ptr %split_index.i, align 8
@@ -1141,7 +1141,7 @@ init_split_index.exit:                            ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @discard_split_index(ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local void @discard_split_index(ptr noundef captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %split_index = getelementptr inbounds nuw i8, ptr %istate, i64 40
   %0 = load ptr, ptr %split_index, align 8
@@ -1180,7 +1180,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @discard_index(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @save_or_free_index_entry(ptr nocapture noundef readonly %istate, ptr noundef %ce) local_unnamed_addr #0 {
+define dso_local void @save_or_free_index_entry(ptr noundef readonly captures(none) %istate, ptr noundef %ce) local_unnamed_addr #0 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %ce, i64 68
   %0 = load i32, ptr %index, align 4
@@ -1230,7 +1230,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @replace_index_entry_in_base(ptr nocapture noundef readonly %istate, ptr noundef readonly %old_entry, ptr noundef %new_entry) local_unnamed_addr #0 {
+define dso_local void @replace_index_entry_in_base(ptr noundef readonly captures(none) %istate, ptr noundef readonly %old_entry, ptr noundef %new_entry) local_unnamed_addr #0 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %old_entry, i64 68
   %0 = load i32, ptr %index, align 4
@@ -1292,7 +1292,7 @@ if.end30:                                         ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_split_index(ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local void @add_split_index(ptr noundef captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %split_index = getelementptr inbounds nuw i8, ptr %istate, i64 40
   %0 = load ptr, ptr %split_index, align 8
@@ -1326,7 +1326,7 @@ if.end:                                           ; preds = %init_split_index.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @remove_split_index(ptr nocapture noundef %istate) local_unnamed_addr #0 {
+define dso_local void @remove_split_index(ptr noundef captures(none) %istate) local_unnamed_addr #0 {
 entry:
   %split_index = getelementptr inbounds nuw i8, ptr %istate, i64 40
   %0 = load ptr, ptr %split_index, align 8
@@ -1397,13 +1397,13 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #6
 declare ptr @null_oid() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

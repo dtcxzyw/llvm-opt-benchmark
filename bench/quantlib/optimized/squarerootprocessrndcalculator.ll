@@ -718,7 +718,7 @@ $_ZZN5boost4math6detail15float_prior_impIdNS0_8policies6policyINS3_14default_pol
 @_ZN8QuantLib30SquareRootProcessRNDCalculatorC1Edddd = unnamed_addr alias void (ptr, double, double, double, double), ptr @_ZN8QuantLib30SquareRootProcessRNDCalculatorC2Edddd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib30SquareRootProcessRNDCalculatorC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, double noundef %v0, double noundef %kappa, double noundef %theta, double noundef %sigma) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib30SquareRootProcessRNDCalculatorC2Edddd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %this, double noundef %v0, double noundef %kappa, double noundef %theta, double noundef %sigma) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib30SquareRootProcessRNDCalculatorE, i64 16), ptr %this, align 8, !tbaa !3
   %v0_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -739,7 +739,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator3pdfEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %v, double noundef %t) unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator3pdfEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %v, double noundef %t) unnamed_addr #1 align 2 {
 entry:
   %ncp.addr.i.i = alloca double, align 8
   %dist = alloca %"class.boost::math::non_central_chi_squared_distribution", align 8
@@ -802,16 +802,16 @@ _ZN5boost4math36non_central_chi_squared_distributionIdNS0_8policies6policyINS2_1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @exp(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator3cdfEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %v, double noundef %t) unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator3cdfEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %v, double noundef %t) unnamed_addr #1 align 2 {
 entry:
   %x.addr.i.i = alloca double, align 8
   %ncp.addr.i.i3 = alloca double, align 8
@@ -924,7 +924,7 @@ _ZN5boost4math3cdfIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator6invcdfEdd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %q, double noundef %t) unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator6invcdfEdd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %q, double noundef %t) unnamed_addr #1 align 2 {
 entry:
   %ncp.addr.i.i = alloca double, align 8
   %q.addr = alloca double, align 8
@@ -984,7 +984,7 @@ _ZN5boost4math36non_central_chi_squared_distributionIdNS0_8policies6policyINS2_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator14stationary_pdfEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %v) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator14stationary_pdfEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %v) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp1.i.i = alloca %"struct.boost::math::lanczos::lanczos17m64", align 1
@@ -1029,7 +1029,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator14stationary_cdfEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %v) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator14stationary_cdfEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %v) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"struct.boost::math::policies::policy", align 1
   %df_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1058,7 +1058,7 @@ _ZN5boost4math7gamma_pIddEENS0_5tools12promote_argsIT_T0_ffffE4typeES4_S5_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator17stationary_invcdfEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %q) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib30SquareRootProcessRNDCalculator17stationary_invcdfEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %q) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.boost::math::policies::policy", align 1
   %df_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1104,7 +1104,7 @@ init.end:                                         ; preds = %init.check, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #2
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: uwtable
 define internal void @__cxx_global_var_init.1() #8 section ".text.startup" comdat($_ZN5boost4math6detail18lgamma_initializerIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEE11initializerE) {
@@ -1575,7 +1575,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #38
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #38
   %call.i.i8 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #35
-  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %what, i64 noundef 0, i64 noundef %call.i.i8) #35
+  %call2.i9 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef 0, i64 noundef %call.i.i8) #35
   %cmp.not10 = icmp eq i64 %call2.i9, -1
   br i1 %cmp.not10, label %while.end, label %while.body.lr.ph
 
@@ -1597,10 +1597,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; pred
   %call.i.i6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %with) #35
   %sub.i.i.i = sub nuw i64 %0, %call2.i11
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %call, i64 %sub.i.i.i)
-  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call2.i11, i64 noundef %spec.select.i.i.i, ptr noundef %with, i64 noundef %call.i.i6)
+  %call3.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %result, i64 noundef %call2.i11, i64 noundef %spec.select.i.i.i, ptr noundef nonnull %with, i64 noundef %call.i.i6)
   %add = add i64 %call2.i11, %call1
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %what) #35
-  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef %what, i64 noundef %add, i64 noundef %call.i.i) #35
+  %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull %what, i64 noundef %add, i64 noundef %call.i.i) #35
   %cmp.not = icmp eq i64 %call2.i, -1
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !33
 
@@ -1765,7 +1765,7 @@ declare void @_ZNSt12domain_errorC1ERKNSt7__cxx1112basic_stringIcSt11char_traits
 declare void @_ZNSt12domain_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #15
 
@@ -1782,7 +1782,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #16
@@ -19041,7 +19041,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #30
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #30
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr noundef double @_ZN5boost4math14float_distanceIddNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_S4_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeERKS8_RKS9_RKT1_(ptr noundef nonnull align 8 dereferenceable(8) %a, ptr noundef nonnull align 8 dereferenceable(8) %b, ptr noundef nonnull align 1 dereferenceable(1) %pol) local_unnamed_addr #13 comdat {
@@ -19701,7 +19701,7 @@ declare double @llvm.log.f64(double) #32
 declare i64 @llvm.umin.i64(i64, i64) #32
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #33
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #34

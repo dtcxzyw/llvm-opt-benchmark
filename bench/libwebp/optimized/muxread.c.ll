@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kChunks = external local_unnamed_addr constant [11 x %struct.ChunkInfo], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @MuxImageFinalize(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden i32 @MuxImageFinalize(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -375,7 +375,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %67
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @ChunkInit(ptr noundef) local_unnamed_addr #1
 
@@ -390,7 +390,7 @@ declare i32 @ChunkSetHead(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @MuxImagePush(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @MuxImageParse(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.WebPData, align 8
   %5 = alloca %struct.WebPChunk, align 8
   %6 = alloca ptr, align 8
@@ -586,7 +586,7 @@ define range(i32 -2, 2) i32 @WebPMuxGetCanvasSize(ptr noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr nocapture noundef nonnull readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -2, 2) i32 @MuxGetCanvasInfo(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr @kChunks, align 16
@@ -769,7 +769,7 @@ IsWPI.exit:                                       ; preds = %7, %7, %7, %15, %3,
 declare i32 @ChunkGetIndexFromFourCC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 10, 9) %1, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @MuxGet(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 10, 9) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 16)) %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   switch i32 %1, label %30 [
     i32 0, label %4
@@ -835,7 +835,7 @@ declare ptr @ChunkSearchList(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare i32 @ChunkGetTagFromFourCC(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define i32 @WebPMuxGetFrame(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
@@ -1081,7 +1081,7 @@ declare ptr @WebPNewInternal(i32 noundef) local_unnamed_addr #1
 declare i32 @ChunkAssignData(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -3, 2) i32 @SynthesizeBitstream(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1190,10 +1190,10 @@ declare ptr @MuxEmitRiffHeader(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @ChunkListEmit(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #5

@@ -88,7 +88,7 @@ define dso_local void @intel_bts_enable_local() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__bts_event_start(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @__bts_event_start(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bts_ctx) #6, !srcloc !10
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call ptr @perf_get_aux(ptr noundef %3) #7
@@ -592,7 +592,7 @@ declare dso_local void @perf_aux_output_flag(ptr noundef, i64 noundef) local_unn
 declare dso_local i32 @perf_aux_output_skip(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @bts_event_init(ptr noundef %0) #0 align 16 {
@@ -691,7 +691,7 @@ define internal noundef range(i32 -22, 1) i32 @bts_event_add(ptr noundef initial
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bts_event_del(ptr nocapture noundef %0, i32 %1) #0 align 16 {
+define internal void @bts_event_del(ptr noundef captures(none) %0, i32 %1) #0 align 16 {
   tail call void @bts_event_stop(ptr noundef %0, i32 noundef 4)
   ret void
 }
@@ -747,7 +747,7 @@ define internal void @bts_event_start(ptr noundef %0, i32 %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bts_event_stop(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define internal void @bts_event_stop(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_hw_events) #6, !srcloc !29
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bts_ctx) #6, !srcloc !30
@@ -900,12 +900,12 @@ bts_update.exit:                                  ; preds = %22, %54, %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @bts_event_read(ptr nocapture readnone %0) #4 align 16 {
+define internal void @bts_event_read(ptr readnone captures(none) %0) #4 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noalias ptr @bts_buffer_setup_aux(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) #0 align 16 {
+define internal noalias ptr @bts_buffer_setup_aux(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %7 = load i32, ptr %6, align 4
@@ -1101,7 +1101,7 @@ declare dso_local i32 @x86_reserve_hardware() local_unnamed_addr #1
 declare dso_local void @x86_del_exclusive(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @bts_event_destroy(ptr nocapture readnone %0) #0 align 16 {
+define internal void @bts_event_destroy(ptr readnone captures(none) %0) #0 align 16 {
   tail call void @x86_release_hardware() #7
   tail call void @x86_del_exclusive(i32 noundef 1) #7
   ret void

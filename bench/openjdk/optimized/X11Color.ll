@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [3 x i8] c"[I\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @awt_color_matchTC(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define hidden i32 @awt_color_matchTC(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
   %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
   %7 = tail call i32 @llvm.smin.i32(i32 %1, i32 255)
@@ -79,7 +79,7 @@ define hidden i32 @awt_color_matchTC(i32 noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 256) i32 @awt_color_matchGS(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define hidden range(i32 0, 256) i32 @awt_color_matchGS(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = tail call i32 @llvm.smin.i32(i32 %0, i32 255)
   %6 = tail call i32 @llvm.smax.i32(i32 %5, i32 0)
   %7 = tail call i32 @llvm.smin.i32(i32 %1, i32 255)
@@ -109,7 +109,7 @@ define hidden range(i32 0, 256) i32 @awt_color_matchGS(i32 noundef %0, i32 nound
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #2 {
+define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8
@@ -233,7 +233,7 @@ define hidden i32 @awt_color_match(i32 noundef %0, i32 noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @awt_fill_imgcv(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define hidden void @awt_fill_imgcv(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   br label %5
 
 5:                                                ; preds = %4, %11
@@ -258,7 +258,7 @@ define hidden void @awt_fill_imgcv(ptr nocapture noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @cleanup_graphics_config_data(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden void @cleanup_graphics_config_data(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -344,10 +344,10 @@ define hidden void @cleanup_graphics_config_data(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = alloca [4096 x i64], align 16
   %3 = alloca [1 x i64], align 8
   %4 = alloca [4096 x %struct.XColor], align 16
@@ -1325,7 +1325,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
 declare void @make_uns_ordered_dither_array(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
@@ -1333,7 +1333,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @XListPixmapFormats(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i32 @XFree(ptr noundef) local_unnamed_addr #7
 
@@ -1344,7 +1344,7 @@ declare i32 @XAllocColorCells(ptr noundef, i64 noundef, i32 noundef, ptr noundef
 declare i32 @XFreeColors(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @alloc_col(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 -2147483648, 256) %2, i32 noundef range(i32 -2147483648, 256) %3, i32 noundef range(i32 -2147483648, 256) %4, i32 noundef %5, ptr nocapture noundef readonly %6) unnamed_addr #6 {
+define internal fastcc i32 @alloc_col(ptr noundef %0, i64 noundef %1, i32 noundef range(i32 -2147483648, 256) %2, i32 noundef range(i32 -2147483648, 256) %3, i32 noundef range(i32 -2147483648, 256) %4, i32 noundef %5, ptr noundef readonly captures(none) %6) unnamed_addr #6 {
   %8 = alloca %struct.XColor, align 8
   %9 = tail call i32 @llvm.smax.i32(i32 %2, i32 0)
   %10 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
@@ -1479,13 +1479,13 @@ thread-pre-split:                                 ; preds = %26, %29
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #11
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @img_makePalette(i32 noundef, i32 noundef, i32 noundef, float noundef, float noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
@@ -1521,7 +1521,7 @@ define hidden ptr @getColorSpace(ptr noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden ptr @awtJNI_GetColorModel(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = alloca [1 x i32], align 4
   %4 = alloca [4096 x i32], align 16
   %5 = alloca [512 x i8], align 16
@@ -2147,7 +2147,7 @@ declare void @initInverseGrayLut(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @JNU_NewObjectByName(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @awt_allocate_systemrgbcolors(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 {
+define hidden void @awt_allocate_systemrgbcolors(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -2177,7 +2177,7 @@ define hidden void @awt_allocate_systemrgbcolors(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @awtCreateX11Colormap(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @awtCreateX11Colormap(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
@@ -2288,7 +2288,7 @@ declare i64 @XCreateColormap(ptr noundef, i64 noundef, ptr noundef, i32 noundef)
 declare i32 @XFreeColormap(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden void @awtJNI_CreateColorData(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = alloca [26 x i32], align 16
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %28, label %5

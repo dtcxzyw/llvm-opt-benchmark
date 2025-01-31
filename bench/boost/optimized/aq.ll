@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex7aq_growEPNS2_16tag_aq_queuetypeE(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex7aq_growEPNS2_16tag_aq_queuetypeE(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !3
   %4 = shl i64 %3, 1
@@ -43,13 +43,13 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex7aq_gr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex10aq_enqueueEPNS2_16tag_aq_queuetypeEm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex10aq_enqueueEPNS2_16tag_aq_queuetypeEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -117,7 +117,7 @@ _ZN5boost4wave8cpplexer7re2clex7aq_growEPNS2_16tag_aq_queuetypeE.exit.thread: ; 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex16aq_enqueue_frontEPNS2_16tag_aq_queuetypeEm(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex16aq_enqueue_frontEPNS2_16tag_aq_queuetypeEm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -182,7 +182,7 @@ _ZN5boost4wave8cpplexer7re2clex7aq_growEPNS2_16tag_aq_queuetypeE.exit.thread: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex8aq_serveEPNS2_16tag_aq_queuetypeEPm(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex8aq_serveEPNS2_16tag_aq_queuetypeEPm(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i64 %4, 0
@@ -217,7 +217,7 @@ _ZN5boost4wave8cpplexer7re2clex6aq_popEPNS2_16tag_aq_queuetypeE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex6aq_popEPNS2_16tag_aq_queuetypeE(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define noundef range(i32 0, 2) i32 @_ZN5boost4wave8cpplexer7re2clex6aq_popEPNS2_16tag_aq_queuetypeE(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8, !tbaa !12
   %4 = icmp eq i64 %3, 0
@@ -276,10 +276,10 @@ define noalias noundef ptr @_ZN5boost4wave8cpplexer7re2clex9aq_createEv() local_
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN5boost4wave8cpplexer7re2clex12aq_terminateEPNS2_16tag_aq_queuetypeE(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @_ZN5boost4wave8cpplexer7re2clex12aq_terminateEPNS2_16tag_aq_queuetypeE(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !9
   tail call void @free(ptr noundef %3) #10

@@ -75,10 +75,10 @@ define dso_local i32 @scsi_set_medium_removal(ptr noundef %0, i8 noundef zeroext
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 10000, 60001) %2) unnamed_addr #0 align 16 {
@@ -164,10 +164,10 @@ define internal fastcc i32 @ioctl_internal_command(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @scsi_cmd_allowed(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local noundef zeroext i1 @scsi_cmd_allowed(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = tail call zeroext i1 @capable(i32 noundef 17) #11
   br i1 %3, label %8, label %4
 
@@ -517,7 +517,7 @@ define dso_local range(i32 -14, 1) i32 @get_sg_io_hdr(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @scsi_ioctl(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
@@ -1452,7 +1452,7 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 declare dso_local i64 @clock_t_to_jiffies(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sg_io(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sg_io(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %4, 83
   br i1 %5, label %6, label %91
@@ -1609,7 +1609,7 @@ declare dso_local zeroext i8 @blk_execute_rq(ptr noundef, i1 noundef zeroext) lo
 declare dso_local i32 @jiffies_to_msecs(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @scsi_complete_sghdr_rq(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((64, 76), (80, 84)) %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @scsi_complete_sghdr_rq(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((64, 76), (80, 84)) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 536
   %5 = load i32, ptr %4, align 8
   %6 = trunc i32 %5 to i8
@@ -1706,7 +1706,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

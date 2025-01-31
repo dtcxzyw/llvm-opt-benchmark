@@ -149,7 +149,7 @@ declare noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef) 
 declare noundef i64 @_ZN22ThreadLocalAllocBuffer8min_sizeEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4PLABC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((32, 96)) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN4PLABC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((32, 96)) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -158,7 +158,7 @@ define hidden void @_ZN4PLABC2Em(ptr nocapture noundef nonnull writeonly align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4PLAB22flush_and_retire_statsEP9PLABStats(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4PLAB22flush_and_retire_statsEP9PLABStats(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -206,7 +206,7 @@ _ZN4PLAB15retire_internalEv.exit:                 ; preds = %2, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4PLAB15retire_internalEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4PLAB15retire_internalEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -239,7 +239,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4PLAB15retire_in
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4PLAB6retireEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4PLAB6retireEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -276,7 +276,7 @@ _ZN4PLAB15retire_internalEv.exit:                 ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4PLAB14add_undo_wasteEPP12HeapWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4PLAB14add_undo_wasteEPP12HeapWordImplm(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %5 = getelementptr inbounds ptr, ptr %1, i64 %2
   %6 = load ptr, ptr %4, align 8
@@ -291,14 +291,14 @@ define hidden void @_ZN4PLAB14add_undo_wasteEPP12HeapWordImplm(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4PLAB20undo_last_allocationEPP12HeapWordImplm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((48, 56)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4PLAB20undo_last_allocationEPP12HeapWordImplm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((48, 56)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4PLAB15undo_allocationEPP12HeapWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4PLAB15undo_allocationEPP12HeapWordImplm(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp ule ptr %5, %1
@@ -424,13 +424,13 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

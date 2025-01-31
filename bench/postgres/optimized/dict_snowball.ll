@@ -69,7 +69,7 @@ define noundef nonnull ptr @pg_finfo_dsnowball_lexize() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @dsnowball_init(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @dsnowball_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @palloc0(i64 noundef 48) #7
@@ -245,7 +245,7 @@ locate_stem_module.exit:                          ; preds = %46, %56
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
@@ -263,7 +263,7 @@ declare ptr @defGetString(ptr noundef) local_unnamed_addr #2
 declare ptr @lowerstr(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @dsnowball_lexize(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -323,7 +323,7 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
   %36 = load ptr, ptr %4, align 8
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0) #8
   %38 = trunc i64 %37 to i32
-  %39 = tail call i32 @SN_set_current(ptr noundef %36, i32 noundef %38, ptr noundef %.0) #7
+  %39 = tail call i32 @SN_set_current(ptr noundef %36, i32 noundef %38, ptr noundef nonnull %.0) #7
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %4, align 8
@@ -343,7 +343,7 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
 49:                                               ; preds = %46
   %50 = add i32 %48, 1
   %51 = sext i32 %50 to i64
-  %52 = tail call ptr @repalloc(ptr noundef %.0, i64 noundef %51) #7
+  %52 = tail call ptr @repalloc(ptr noundef nonnull %.0, i64 noundef %51) #7
   %53 = load ptr, ptr %4, align 8
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 12
@@ -367,12 +367,12 @@ define i64 @dsnowball_lexize(ptr nocapture noundef readonly %0) local_unnamed_ad
 66:                                               ; preds = %63
   %67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.1) #8
   %68 = trunc i64 %67 to i32
-  %69 = tail call ptr @pg_any_to_server(ptr noundef %.1, i32 noundef %68, i32 noundef 6) #7
+  %69 = tail call ptr @pg_any_to_server(ptr noundef nonnull %.1, i32 noundef %68, i32 noundef 6) #7
   %.not51 = icmp eq ptr %69, %.1
   br i1 %.not51, label %71, label %70
 
 70:                                               ; preds = %66
-  tail call void @pfree(ptr noundef %.1) #7
+  tail call void @pfree(ptr noundef nonnull %.1) #7
   br label %71
 
 71:                                               ; preds = %66, %70, %63
@@ -395,14 +395,14 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 declare ptr @pg_server_to_any(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @SN_set_current(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @pg_any_to_server(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 

@@ -59,7 +59,7 @@ return:                                           ; preds = %if.then.i12, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z17increment_counterP28alts_record_protocol_crypterPPc(ptr nocapture noundef readonly %rp_crypter, ptr noundef %error_details) local_unnamed_addr #0 {
+define noundef i32 @_Z17increment_counterP28alts_record_protocol_crypterPPc(ptr noundef readonly captures(none) %rp_crypter, ptr noundef %error_details) local_unnamed_addr #0 {
 entry:
   %is_overflow = alloca i8, align 1
   store i8 0, ptr %is_overflow, align 1
@@ -92,7 +92,7 @@ return:                                           ; preds = %if.then.i, %if.then
 declare noundef i32 @_Z22alts_counter_incrementP12alts_counterPbPPc(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_Z47alts_record_protocol_crypter_num_overhead_bytesPK12alts_crypter(ptr noundef readonly %c) local_unnamed_addr #0 {

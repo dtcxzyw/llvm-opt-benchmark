@@ -223,7 +223,7 @@ entry:
 declare void @zfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @streamLength(ptr nocapture noundef readonly %subject) local_unnamed_addr #3 {
+define dso_local i64 @streamLength(ptr noundef readonly captures(none) %subject) local_unnamed_addr #3 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %subject, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -233,7 +233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @streamIncrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @streamIncrID(ptr noundef captures(none) %id) local_unnamed_addr #4 {
 entry:
   %seq = getelementptr inbounds nuw i8, ptr %id, i64 8
   %0 = load i64, ptr %seq, align 8
@@ -266,7 +266,7 @@ if.end10:                                         ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @streamDecrID(ptr nocapture noundef %id) local_unnamed_addr #4 {
+define dso_local range(i32 -1, 1) i32 @streamDecrID(ptr noundef captures(none) %id) local_unnamed_addr #4 {
 entry:
   %seq = getelementptr inbounds nuw i8, ptr %id, i64 8
   %0 = load i64, ptr %seq, align 8
@@ -299,7 +299,7 @@ if.end10:                                         ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamNextID(ptr nocapture noundef readonly %last_id, ptr nocapture noundef initializes((0, 16)) %new_id) local_unnamed_addr #0 {
+define dso_local void @streamNextID(ptr noundef readonly captures(none) %last_id, ptr noundef captures(none) initializes((0, 16)) %new_id) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @commandTimeSnapshot() #16
   %0 = load i64, ptr %last_id, align 8
@@ -345,10 +345,10 @@ if.end:                                           ; preds = %if.else7.i, %if.els
 declare i64 @commandTimeSnapshot() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @streamDup(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local ptr @streamDup(ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %rax_key = alloca [2 x i64], align 16
@@ -488,7 +488,7 @@ cond.end39:                                       ; preds = %if.end.i
   %entries_read9.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 16
   store i64 %13, ptr %entries_read9.i, align 8
   %16 = load ptr, ptr %cgroups.i, align 8
-  %call11.i = call i32 @raxInsert(ptr noundef %16, ptr noundef %11, i64 noundef %12, ptr noundef %call6.i, ptr noundef null) #16
+  %call11.i = call i32 @raxInsert(ptr noundef %16, ptr noundef %11, i64 noundef %12, ptr noundef nonnull %call6.i, ptr noundef null) #16
   %pel = getelementptr inbounds nuw i8, ptr %10, i64 24
   %17 = load ptr, ptr %pel, align 8
   call void @raxStart(ptr noundef nonnull %ri_cg_pel, ptr noundef %17) #16
@@ -663,7 +663,7 @@ declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr n
 declare void @raxStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @streamCreateCG(ptr nocapture noundef %s, ptr noundef %name, i64 noundef %namelen, ptr nocapture noundef readonly %id, i64 noundef %entries_read) local_unnamed_addr #0 {
+define dso_local noundef ptr @streamCreateCG(ptr noundef captures(none) %s, ptr noundef %name, i64 noundef %namelen, ptr noundef readonly captures(none) %id, i64 noundef %entries_read) local_unnamed_addr #0 {
 entry:
   %cgroups = getelementptr inbounds nuw i8, ptr %s, i64 72
   %0 = load ptr, ptr %cgroups, align 8
@@ -693,7 +693,7 @@ if.end5:                                          ; preds = %if.end
   %entries_read9 = getelementptr inbounds nuw i8, ptr %call6, i64 16
   store i64 %entries_read, ptr %entries_read9, align 8
   %2 = load ptr, ptr %cgroups, align 8
-  %call11 = tail call i32 @raxInsert(ptr noundef %2, ptr noundef %name, i64 noundef %namelen, ptr noundef %call6, ptr noundef null) #16
+  %call11 = tail call i32 @raxInsert(ptr noundef %2, ptr noundef %name, i64 noundef %namelen, ptr noundef nonnull %call6, ptr noundef null) #16
   br label %return
 
 return:                                           ; preds = %if.end, %if.end5
@@ -719,7 +719,7 @@ declare ptr @sdsdup(ptr noundef) local_unnamed_addr #2
 declare i32 @raxFind(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @lpGetEdgeStreamID(ptr noundef %lp, i32 noundef %first, ptr nocapture noundef readonly %master_id, ptr nocapture noundef writeonly %edge_id) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @lpGetEdgeStreamID(ptr noundef %lp, i32 noundef %first, ptr noundef readonly captures(none) %master_id, ptr noundef writeonly captures(none) %edge_id) local_unnamed_addr #0 {
 entry:
   %v.i50 = alloca i64, align 8
   %ll.i51 = alloca i64, align 8
@@ -962,7 +962,7 @@ declare ptr @lpGet(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamEncodeID(ptr nocapture noundef writeonly initializes((0, 16)) %buf, ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local void @streamEncodeID(ptr noundef writeonly captures(none) initializes((0, 16)) %buf, ptr noundef readonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %id, align 8
   %call = tail call i64 @intrev64(i64 noundef %0) #16
@@ -978,7 +978,7 @@ entry:
 declare i64 @intrev64(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamDecodeID(ptr nocapture noundef readonly %buf, ptr nocapture noundef writeonly initializes((0, 16)) %id) local_unnamed_addr #0 {
+define dso_local void @streamDecodeID(ptr noundef readonly captures(none) %buf, ptr noundef writeonly captures(none) initializes((0, 16)) %id) local_unnamed_addr #0 {
 entry:
   %e.sroa.0.0.copyload = load i64, ptr %buf, align 1
   %e.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %buf, i64 8
@@ -992,7 +992,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 -1, 2) i32 @streamCompareID(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #7 {
+define dso_local range(i32 -1, 2) i32 @streamCompareID(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #7 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -1022,7 +1022,7 @@ return:                                           ; preds = %if.else10, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamGetEdgeID(ptr noundef %s, i32 noundef %first, i32 noundef %skip_tombstones, ptr nocapture noundef %edge_id) local_unnamed_addr #0 {
+define dso_local void @streamGetEdgeID(ptr noundef %s, i32 noundef %first, i32 noundef %skip_tombstones, ptr noundef captures(none) %edge_id) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %numfields = alloca i64, align 8
@@ -1181,7 +1181,7 @@ if.end57:                                         ; preds = %if.else53, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @streamIteratorGetID(ptr noundef %si, ptr nocapture noundef %id, ptr nocapture noundef %numfields) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @streamIteratorGetID(ptr noundef %si, ptr noundef captures(none) %id, ptr noundef captures(none) %numfields) local_unnamed_addr #0 {
 entry:
   %v.i171 = alloca i64, align 8
   %ll.i172 = alloca i64, align 8
@@ -1696,7 +1696,7 @@ return:                                           ; preds = %land.lhs.true6, %la
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @streamIteratorStop(ptr noundef %si) local_unnamed_addr #0 {
@@ -1707,7 +1707,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamAppendItem(ptr nocapture noundef %s, ptr nocapture noundef readonly %argv, i64 noundef %numfields, ptr noundef writeonly %added_id, ptr noundef readonly %use_id, i32 noundef %seq_given) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamAppendItem(ptr noundef captures(none) %s, ptr noundef readonly captures(none) %argv, i64 noundef %numfields, ptr noundef writeonly %added_id, ptr noundef readonly %use_id, i32 noundef %seq_given) local_unnamed_addr #0 {
 entry:
   %v.i146 = alloca i64, align 8
   %ll.i147 = alloca i64, align 8
@@ -2431,10 +2431,10 @@ declare ptr @lpAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @lpReplaceInteger(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @streamTrim(ptr noundef %s, ptr nocapture noundef readonly %args) local_unnamed_addr #0 {
+define dso_local i64 @streamTrim(ptr noundef %s, ptr noundef readonly captures(none) %args) local_unnamed_addr #0 {
 entry:
   %si.i = alloca %struct.streamIterator, align 8
   %numfields.i = alloca i64, align 8
@@ -2979,7 +2979,7 @@ entry:
 declare i32 @raxPrev(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamIteratorGetField(ptr noundef %si, ptr nocapture noundef writeonly initializes((0, 8)) %fieldptr, ptr nocapture noundef writeonly initializes((0, 8)) %valueptr, ptr noundef %fieldlen, ptr noundef %valuelen) local_unnamed_addr #0 {
+define dso_local void @streamIteratorGetField(ptr noundef %si, ptr noundef writeonly captures(none) initializes((0, 8)) %fieldptr, ptr noundef writeonly captures(none) initializes((0, 8)) %valueptr, ptr noundef %fieldlen, ptr noundef %valuelen) local_unnamed_addr #0 {
 entry:
   %entry_flags = getelementptr inbounds nuw i8, ptr %si, i64 48
   %0 = load i32, ptr %entry_flags, align 8
@@ -3028,7 +3028,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamIteratorRemoveEntry(ptr noundef %si, ptr nocapture noundef readonly %current) local_unnamed_addr #0 {
+define dso_local void @streamIteratorRemoveEntry(ptr noundef %si, ptr noundef readonly captures(none) %current) local_unnamed_addr #0 {
 entry:
   %v.i40 = alloca i64, align 8
   %ll.i41 = alloca i64, align 8
@@ -3255,7 +3255,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamLastValidID(ptr noundef %s, ptr nocapture noundef %maxid) local_unnamed_addr #0 {
+define dso_local void @streamLastValidID(ptr noundef %s, ptr noundef captures(none) %maxid) local_unnamed_addr #0 {
 entry:
   %si = alloca %struct.streamIterator, align 8
   %numfields = alloca i64, align 8
@@ -3295,7 +3295,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @createStreamIDString(ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local ptr @createStreamIDString(ptr noundef readonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @SDS_NOINIT, align 8
   %call = tail call ptr @sdsnewlen(ptr noundef %0, i64 noundef 44) #16
@@ -3347,7 +3347,7 @@ declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @sdscatfmt(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyStreamID(ptr noundef %c, ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local void @addReplyStreamID(ptr noundef %c, ptr noundef readonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @SDS_NOINIT, align 8
   %call.i = tail call ptr @sdsnewlen(ptr noundef %0, i64 noundef 44) #16
@@ -3398,7 +3398,7 @@ createStreamIDString.exit:                        ; preds = %entry, %sw.bb.i.i, 
 declare void @addReplyBulkSds(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setDeferredReplyStreamID(ptr noundef %c, ptr noundef %dr, ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local void @setDeferredReplyStreamID(ptr noundef %c, ptr noundef %dr, ptr noundef readonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @SDS_NOINIT, align 8
   %call.i = tail call ptr @sdsnewlen(ptr noundef %0, i64 noundef 44) #16
@@ -3449,7 +3449,7 @@ createStreamIDString.exit:                        ; preds = %entry, %sw.bb.i.i, 
 declare void @setDeferredReplyBulkSds(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @createObjectFromStreamID(ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local ptr @createObjectFromStreamID(ptr noundef readonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @SDS_NOINIT, align 8
   %call.i = tail call ptr @sdsnewlen(ptr noundef %0, i64 noundef 44) #16
@@ -3500,7 +3500,7 @@ createStreamIDString.exit:                        ; preds = %entry, %sw.bb.i.i, 
 declare ptr @createObject(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @streamIDEqZero(ptr nocapture noundef readonly %id) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @streamIDEqZero(ptr noundef readonly captures(none) %id) local_unnamed_addr #7 {
 entry:
   %0 = load i64, ptr %id, align 8
   %tobool.not = icmp eq i64 %0, 0
@@ -3519,7 +3519,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @streamRangeHasTombstones(ptr nocapture noundef readonly %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @streamRangeHasTombstones(ptr noundef readonly captures(none) %s, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #7 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load i64, ptr %length, align 8
@@ -3619,7 +3619,7 @@ return:                                           ; preds = %if.else6.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamReplyWithCGLag(ptr noundef %c, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %cg) local_unnamed_addr #0 {
+define dso_local void @streamReplyWithCGLag(ptr noundef %c, ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %cg) local_unnamed_addr #0 {
 entry:
   %entries_added = getelementptr inbounds nuw i8, ptr %s, i64 64
   %0 = load i64, ptr %entries_added, align 8
@@ -3712,7 +3712,7 @@ if.end18:                                         ; preds = %if.else17, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @streamEstimateDistanceFromFirstEverEntry(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %id) local_unnamed_addr #7 {
+define dso_local i64 @streamEstimateDistanceFromFirstEverEntry(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %id) local_unnamed_addr #7 {
 entry:
   %entries_added = getelementptr inbounds nuw i8, ptr %s, i64 64
   %0 = load i64, ptr %entries_added, align 8
@@ -3854,7 +3854,7 @@ declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @addReplyNull(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamPropagateXCLAIM(ptr nocapture noundef readonly %c, ptr noundef %key, ptr nocapture noundef readonly %group, ptr noundef %groupname, ptr noundef %id, ptr nocapture noundef readonly %nack) local_unnamed_addr #0 {
+define dso_local void @streamPropagateXCLAIM(ptr noundef readonly captures(none) %c, ptr noundef %key, ptr noundef readonly captures(none) %group, ptr noundef %groupname, ptr noundef %id, ptr noundef readonly captures(none) %nack) local_unnamed_addr #0 {
 entry:
   %argv = alloca [14 x ptr], align 16
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 544), align 8
@@ -4011,7 +4011,7 @@ declare void @alsoPropagate(i32 noundef, ptr noundef, i32 noundef, i32 noundef) 
 declare void @decrRefCount(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamPropagateGroupID(ptr nocapture noundef readonly %c, ptr noundef %key, ptr nocapture noundef readonly %group, ptr noundef %groupname) local_unnamed_addr #0 {
+define dso_local void @streamPropagateGroupID(ptr noundef readonly captures(none) %c, ptr noundef %key, ptr noundef readonly captures(none) %group, ptr noundef %groupname) local_unnamed_addr #0 {
 entry:
   %argv = alloca [7 x ptr], align 16
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 536), align 8
@@ -4089,7 +4089,7 @@ createObjectFromStreamID.exit:                    ; preds = %entry, %sw.bb.i.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamPropagateConsumerCreation(ptr nocapture noundef readonly %c, ptr noundef %key, ptr noundef %groupname, ptr noundef %consumername) local_unnamed_addr #0 {
+define dso_local void @streamPropagateConsumerCreation(ptr noundef readonly captures(none) %c, ptr noundef %key, ptr noundef %groupname, ptr noundef %consumername) local_unnamed_addr #0 {
 entry:
   %argv = alloca [5 x ptr], align 16
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 536), align 8
@@ -4517,7 +4517,7 @@ return:                                           ; preds = %if.end90, %if.then9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @streamReplyWithRangeFromConsumerPEL(ptr noundef %c, ptr noundef %s, ptr nocapture noundef readonly %start, ptr noundef readonly %end, i64 noundef %count, ptr nocapture noundef readonly %consumer) local_unnamed_addr #0 {
+define dso_local i64 @streamReplyWithRangeFromConsumerPEL(ptr noundef %c, ptr noundef %s, ptr noundef readonly captures(none) %start, ptr noundef readonly %end, i64 noundef %count, ptr noundef readonly captures(none) %consumer) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %startkey = alloca [16 x i8], align 16
@@ -4713,7 +4713,7 @@ declare i32 @checkType(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare void @dbAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, i32 noundef %strict, ptr noundef writeonly %seq_given) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, i64 noundef %missing_seq, i32 noundef %strict, ptr noundef writeonly %seq_given) local_unnamed_addr #0 {
 entry:
   %buf = alloca [128 x i8], align 16
   %ms45 = alloca i64, align 8
@@ -4915,33 +4915,33 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 declare i32 @string2ull(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @addReplyError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamParseID(ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamParseID(ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef null, ptr noundef %o, ptr noundef %id, i64 noundef 0, i32 noundef 0, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamParseIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamParseIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, i64 noundef %missing_seq) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 0, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamParseStrictIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, i64 noundef %missing_seq, ptr noundef %seq_given) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamParseStrictIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, i64 noundef %missing_seq, ptr noundef %seq_given) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @streamGenericParseIDOrReply(ptr noundef %c, ptr noundef %o, ptr noundef %id, i64 noundef %missing_seq, i32 noundef 1, ptr noundef %seq_given)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @streamParseIntervalIDOrReply(ptr noundef %c, ptr nocapture noundef readonly %o, ptr nocapture noundef writeonly %id, ptr noundef writeonly %exclude, i64 noundef %missing_seq) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @streamParseIntervalIDOrReply(ptr noundef %c, ptr noundef readonly captures(none) %o, ptr noundef writeonly captures(none) %id, ptr noundef writeonly %exclude, i64 noundef %missing_seq) local_unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %o, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -5970,7 +5970,7 @@ if.end69:                                         ; preds = %if.then39, %if.end5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @getLongLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -6905,7 +6905,7 @@ declare void @addReplyErrorFormat(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @lookupKeyRead(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @streamLookupCG(ptr nocapture noundef readonly %s, ptr noundef %groupname) local_unnamed_addr #0 {
+define dso_local ptr @streamLookupCG(ptr noundef readonly captures(none) %s, ptr noundef %groupname) local_unnamed_addr #0 {
 entry:
   %cg = alloca ptr, align 8
   %cgroups = getelementptr inbounds nuw i8, ptr %s, i64 72
@@ -7147,7 +7147,7 @@ entry:
 declare void @raxFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @streamDelConsumer(ptr nocapture noundef readonly %cg, ptr noundef %consumer) local_unnamed_addr #0 {
+define dso_local void @streamDelConsumer(ptr noundef readonly captures(none) %cg, ptr noundef %consumer) local_unnamed_addr #0 {
 entry:
   %ri = alloca %struct.raxIterator, align 8
   %pel = getelementptr inbounds nuw i8, ptr %consumer, i64 24
@@ -7664,7 +7664,7 @@ if.then138:                                       ; preds = %if.end.i108
   %entries_read9.i = getelementptr inbounds nuw i8, ptr %call6.i, i64 16
   store i64 %61, ptr %entries_read9.i, align 8
   %64 = load ptr, ptr %cgroups.i106, align 8
-  %call11.i = call i32 @raxInsert(ptr noundef %64, ptr noundef nonnull %grpname.0164, i64 noundef %retval.0.i105, ptr noundef %call6.i, ptr noundef null) #16
+  %call11.i = call i32 @raxInsert(ptr noundef %64, ptr noundef nonnull %grpname.0164, i64 noundef %retval.0.i105, ptr noundef nonnull %call6.i, ptr noundef null) #16
   %65 = load ptr, ptr @shared, align 8
   call void @addReply(ptr noundef nonnull %c, ptr noundef %65) #16
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
@@ -8055,7 +8055,7 @@ if.else.i:                                        ; preds = %if.else33
   br i1 %or.cond94, label %if.then36, label %if.end42
 
 if.then36:                                        ; preds = %if.else.i
-  call void @addReplyError(ptr noundef %c, ptr noundef nonnull @.str.75) #16
+  call void @addReplyError(ptr noundef nonnull %c, ptr noundef nonnull @.str.75) #16
   br label %return
 
 if.else40:                                        ; preds = %if.else20
@@ -8770,18 +8770,18 @@ while.body:                                       ; preds = %while.cond
 
 if.end129:                                        ; preds = %while.body
   %pel124.le = getelementptr inbounds nuw i8, ptr %49, i64 24
-  call void @addReplyArrayLen(ptr noundef %c, i64 noundef 2) #16
+  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef 2) #16
   %51 = load ptr, ptr %key116, align 8
   %52 = load i64, ptr %key_len, align 8
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %51, i64 noundef %52) #16
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef %51, i64 noundef %52) #16
   %53 = load ptr, ptr %pel124.le, align 8
   %call132 = call i64 @raxSize(ptr noundef %53) #16
-  call void @addReplyBulkLongLong(ptr noundef %c, i64 noundef %call132) #16
+  call void @addReplyBulkLongLong(ptr noundef nonnull %c, i64 noundef %call132) #16
   %inc = add i64 %arraylen.0.ph, 1
   br label %while.cond.outer, !llvm.loop !41
 
 while.end:                                        ; preds = %while.cond
-  call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call121, i64 noundef %arraylen.0.ph) #16
+  call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call121, i64 noundef %arraylen.0.ph) #16
   call void @raxStop(ptr noundef nonnull %ri) #16
   br label %if.end190
 
@@ -8869,7 +8869,7 @@ if.end176:                                        ; preds = %if.then171, %while.
   %65 = load i64, ptr %count, align 8
   %dec = add nsw i64 %65, -1
   store i64 %dec, ptr %count, align 8
-  call void @addReplyArrayLen(ptr noundef %c, i64 noundef 4) #16
+  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef 4) #16
   %66 = load ptr, ptr %key162, align 8
   %e.sroa.0.0.copyload.i97 = load i64, ptr %66, align 1
   %e.sroa.2.0..sroa_idx.i98 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -8915,7 +8915,7 @@ sw.bb13.i.i.i:                                    ; preds = %if.end176
 
 addReplyStreamID.exit:                            ; preds = %if.end176, %sw.bb.i.i.i, %sw.bb2.i.i.i, %sw.bb5.i.i.i, %sw.bb9.i.i.i, %sw.bb13.i.i.i
   %call1.i.i = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.15, i64 noundef %call.i100, i64 noundef %call2.i101) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i) #16
   %consumer179 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %70 = load ptr, ptr %consumer179, align 8
   %name = getelementptr inbounds nuw i8, ptr %70, i64 16
@@ -8962,19 +8962,19 @@ sw.bb13.i:                                        ; preds = %addReplyStreamID.ex
 
 sdslen.exit:                                      ; preds = %addReplyStreamID.exit, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i103 = phi i64 [ %76, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %addReplyStreamID.exit ]
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %71, i64 noundef %retval.0.i103) #16
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %71, i64 noundef %retval.0.i103) #16
   %77 = load i64, ptr %62, align 8
   %sub184 = sub nsw i64 %call150, %77
   %spec.store.select = call i64 @llvm.smax.i64(i64 %sub184, i64 0)
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %spec.store.select) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %spec.store.select) #16
   %delivery_count = getelementptr inbounds nuw i8, ptr %62, i64 8
   %78 = load i64, ptr %delivery_count, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %78) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %78) #16
   br label %while.cond157.outer, !llvm.loop !42
 
 while.end189:                                     ; preds = %land.lhs.true159, %while.cond157, %land.rhs
   call void @raxStop(ptr noundef nonnull %ri149) #16
-  call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call155, i64 noundef %arraylen156.0.ph) #16
+  call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call155, i64 noundef %arraylen156.0.ph) #16
   br label %if.end190
 
 if.end190:                                        ; preds = %if.then112, %while.end, %if.end85, %if.end58, %if.end43, %if.end31, %if.then18, %while.end189, %if.then142, %if.then101, %if.then73, %if.then57, %if.then29, %if.then
@@ -9467,7 +9467,7 @@ if.then188:                                       ; preds = %if.then185
   %74 = load ptr, ptr %arrayidx192, align 8
   %arrayidx195 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv212
   %75 = load ptr, ptr %arrayidx195, align 8
-  call void @streamPropagateXCLAIM(ptr noundef %c, ptr noundef %73, ptr noundef nonnull %13, ptr noundef %74, ptr noundef %75, ptr noundef nonnull %66)
+  call void @streamPropagateXCLAIM(ptr noundef nonnull %c, ptr noundef %73, ptr noundef nonnull %13, ptr noundef %74, ptr noundef %75, ptr noundef nonnull %66)
   %76 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc196 = add nsw i64 %76, 1
   store i64 %inc196, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
@@ -9610,12 +9610,12 @@ addReplyStreamID.exit:                            ; preds = %if.then264, %sw.bb.
   %93 = load i64, ptr %id175, align 8
   %94 = load i64, ptr %seq.i161, align 8
   %call1.i.i = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.15, i64 noundef %93, i64 noundef %94) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i) #16
   br label %if.end273
 
 if.else265:                                       ; preds = %if.end262
   %95 = load ptr, ptr %ptr, align 8
-  %call267 = call i64 @streamReplyWithRange(ptr noundef %c, ptr noundef %95, ptr noundef nonnull %id175, ptr noundef nonnull %id175, i64 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef null)
+  %call267 = call i64 @streamReplyWithRange(ptr noundef nonnull %c, ptr noundef %95, ptr noundef nonnull %id175, ptr noundef nonnull %id175, i64 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef null)
   %cmp268 = icmp eq i64 %call267, 1
   br i1 %cmp268, label %if.end273, label %cond.false
 
@@ -9635,7 +9635,7 @@ if.end273:                                        ; preds = %if.else265, %addRep
   %98 = load ptr, ptr %arrayidx279, align 8
   %arrayidx282 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv212
   %99 = load ptr, ptr %arrayidx282, align 8
-  call void @streamPropagateXCLAIM(ptr noundef %c, ptr noundef %97, ptr noundef nonnull %13, ptr noundef %98, ptr noundef %99, ptr noundef nonnull %nack.0182)
+  call void @streamPropagateXCLAIM(ptr noundef nonnull %c, ptr noundef %97, ptr noundef nonnull %13, ptr noundef %98, ptr noundef %99, ptr noundef nonnull %nack.0182)
   %100 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc283 = add nsw i64 %100, 1
   store i64 %inc283, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
@@ -9660,15 +9660,15 @@ if.then289:                                       ; preds = %for.end287
   %102 = load ptr, ptr %arrayidx291, align 8
   %arrayidx293 = getelementptr inbounds nuw i8, ptr %101, i64 16
   %103 = load ptr, ptr %arrayidx293, align 8
-  call void @streamPropagateGroupID(ptr noundef %c, ptr noundef %102, ptr noundef nonnull %13, ptr noundef %103)
+  call void @streamPropagateGroupID(ptr noundef nonnull %c, ptr noundef %102, ptr noundef nonnull %13, ptr noundef %103)
   %104 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc294 = add nsw i64 %104, 1
   store i64 %inc294, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   br label %if.end295
 
 if.end295:                                        ; preds = %if.then289, %for.end287
-  call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call169, i64 noundef %arraylen.0.lcssa) #16
-  call void @preventCommandPropagation(ptr noundef %c) #16
+  call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call169, i64 noundef %arraylen.0.lcssa) #16
+  call void @preventCommandPropagation(ptr noundef nonnull %c) #16
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then114, %if.then99, %if.then84, %if.then68, %if.end295, %if.else124
@@ -10037,7 +10037,7 @@ createObjectFromStreamID.exit:                    ; preds = %if.then99, %sw.bb.i
   %58 = load ptr, ptr %arrayidx102, align 8
   %arrayidx104 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load ptr, ptr %arrayidx104, align 8
-  call void @streamPropagateXCLAIM(ptr noundef %c, ptr noundef %58, ptr noundef nonnull %call51, ptr noundef %59, ptr noundef %call1.i97, ptr noundef %45)
+  call void @streamPropagateXCLAIM(ptr noundef nonnull %c, ptr noundef %58, ptr noundef nonnull %call51, ptr noundef %59, ptr noundef %call1.i97, ptr noundef %45)
   call void @decrRefCount(ptr noundef %call1.i97) #16
   %60 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc105 = add nsw i64 %60, 1
@@ -10166,12 +10166,12 @@ addReplyStreamID.exit:                            ; preds = %if.then157, %sw.bb.
   %86 = load i64, ptr %id95, align 8
   %87 = load i64, ptr %seq.i94, align 8
   %call1.i.i103 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i98, ptr noundef nonnull @.str.15, i64 noundef %86, i64 noundef %87) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i103) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i103) #16
   br label %if.end164
 
 if.else158:                                       ; preds = %if.end155
   %88 = load ptr, ptr %ptr47, align 8
-  %call160 = call i64 @streamReplyWithRange(ptr noundef %c, ptr noundef %88, ptr noundef nonnull %id95, ptr noundef nonnull %id95, i64 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef null)
+  %call160 = call i64 @streamReplyWithRange(ptr noundef nonnull %c, ptr noundef %88, ptr noundef nonnull %id95, ptr noundef nonnull %id95, i64 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef 2, ptr noundef null)
   %cmp161 = icmp eq i64 %call160, 1
   br i1 %cmp161, label %if.end164, label %cond.false
 
@@ -10234,7 +10234,7 @@ createObjectFromStreamID.exit125:                 ; preds = %if.end164, %sw.bb.i
   %96 = load ptr, ptr %arrayidx171, align 8
   %arrayidx173 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load ptr, ptr %arrayidx173, align 8
-  call void @streamPropagateXCLAIM(ptr noundef %c, ptr noundef %96, ptr noundef nonnull %call51, ptr noundef %97, ptr noundef %call1.i117, ptr noundef nonnull %45)
+  call void @streamPropagateXCLAIM(ptr noundef nonnull %c, ptr noundef %96, ptr noundef nonnull %call51, ptr noundef %97, ptr noundef %call1.i117, ptr noundef nonnull %45)
   call void @decrRefCount(ptr noundef %call1.i117) #16
   %98 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 4104), align 8
   %inc174 = add nsw i64 %98, 1
@@ -10263,11 +10263,11 @@ if.end182:                                        ; preds = %while.end175, %if.e
   %100 = getelementptr inbounds nuw i8, ptr %endid, i64 8
   store i64 %.sink, ptr %100, align 8
   call void @raxStop(ptr noundef nonnull %ri) #16
-  call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call84, i64 noundef %arraylen.0.ph) #16
-  call void @setDeferredReplyStreamID(ptr noundef %c, ptr noundef %call83, ptr noundef nonnull %endid)
+  call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call84, i64 noundef %arraylen.0.ph) #16
+  call void @setDeferredReplyStreamID(ptr noundef nonnull %c, ptr noundef %call83, ptr noundef nonnull %endid)
   %sext = shl i64 %indvars.iv, 32
   %conv183 = ashr exact i64 %sext, 32
-  call void @addReplyArrayLen(ptr noundef %c, i64 noundef %conv183) #16
+  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %conv183) #16
   %cmp184177 = icmp sgt i64 %indvars.iv, 0
   br i1 %cmp184177, label %for.body.preheader, label %for.end
 
@@ -10320,14 +10320,14 @@ addReplyStreamID.exit145:                         ; preds = %for.body, %sw.bb.i.
   %seq.i.i136 = getelementptr inbounds nuw i8, ptr %arrayidx187, i64 8
   %105 = load i64, ptr %seq.i.i136, align 8
   %call1.i.i137 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i132, ptr noundef nonnull @.str.15, i64 noundef %104, i64 noundef %105) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i137) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i137) #16
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !48
 
 for.end:                                          ; preds = %addReplyStreamID.exit145, %if.end182
   call void @zfree(ptr noundef nonnull %call63) #16
-  call void @preventCommandPropagation(ptr noundef %c) #16
+  call void @preventCommandPropagation(ptr noundef nonnull %c) #16
   br label %return
 
 return:                                           ; preds = %if.then26, %if.then42, %if.end6, %entry, %for.end, %if.then65, %if.then55, %if.else37, %if.then15
@@ -10962,12 +10962,12 @@ while.body.lr.ph:                                 ; preds = %if.else51
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.end125
   %35 = load ptr, ptr %data, align 8
-  call void @addReplyMapLen(ptr noundef %c, i64 noundef 7) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.110) #16
+  call void @addReplyMapLen(ptr noundef nonnull %c, i64 noundef 7) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.110) #16
   %36 = load ptr, ptr %key, align 8
   %37 = load i64, ptr %key_len, align 8
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %36, i64 noundef %37) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.111) #16
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef %36, i64 noundef %37) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.111) #16
   %38 = load ptr, ptr @SDS_NOINIT, align 8
   %call.i.i146 = call ptr @sdsnewlen(ptr noundef %38, i64 noundef 44) #16
   %arrayidx.i.i.i147 = getelementptr inbounds i8, ptr %call.i.i146, i64 -1
@@ -11010,31 +11010,31 @@ addReplyStreamID.exit159:                         ; preds = %while.body, %sw.bb.
   %seq.i.i150 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %42 = load i64, ptr %seq.i.i150, align 8
   %call1.i.i151 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i146, ptr noundef nonnull @.str.15, i64 noundef %41, i64 noundef %42) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i151) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.112) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i151) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.112) #16
   %entries_read = getelementptr inbounds nuw i8, ptr %35, i64 16
   %43 = load i64, ptr %entries_read, align 8
   %cmp59.not = icmp eq i64 %43, -1
   br i1 %cmp59.not, label %if.else63, label %if.then61
 
 if.then61:                                        ; preds = %addReplyStreamID.exit159
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %43) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %43) #16
   br label %if.end64
 
 if.else63:                                        ; preds = %addReplyStreamID.exit159
-  call void @addReplyNull(ptr noundef %c) #16
+  call void @addReplyNull(ptr noundef nonnull %c) #16
   br label %if.end64
 
 if.end64:                                         ; preds = %if.else63, %if.then61
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.113) #16
-  call void @streamReplyWithCGLag(ptr noundef %c, ptr noundef nonnull %s, ptr noundef nonnull %35)
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.114) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.113) #16
+  call void @streamReplyWithCGLag(ptr noundef nonnull %c, ptr noundef nonnull %s, ptr noundef nonnull %35)
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.114) #16
   %pel = getelementptr inbounds nuw i8, ptr %35, i64 24
   %44 = load ptr, ptr %pel, align 8
   %call65 = call i64 @raxSize(ptr noundef %44) #16
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %call65) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.115) #16
-  %call66 = call ptr @addReplyDeferredLen(ptr noundef %c) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %call65) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.115) #16
+  %call66 = call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #16
   %45 = load ptr, ptr %pel, align 8
   call void @raxStart(ptr noundef nonnull %ri_cg_pel, ptr noundef %45) #16
   %call68 = call i32 @raxSeek(ptr noundef nonnull %ri_cg_pel, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
@@ -11052,7 +11052,7 @@ land.rhs:                                         ; preds = %if.end64, %sdslen.e
 
 while.body75:                                     ; preds = %land.rhs
   %48 = load ptr, ptr %data76, align 8
-  call void @addReplyArrayLen(ptr noundef %c, i64 noundef 4) #16
+  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef 4) #16
   %49 = load ptr, ptr %key77, align 8
   %e.sroa.0.0.copyload.i = load i64, ptr %49, align 1
   %e.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -11098,7 +11098,7 @@ sw.bb13.i.i.i162:                                 ; preds = %while.body75
 
 addReplyStreamID.exit173:                         ; preds = %while.body75, %sw.bb.i.i.i172, %sw.bb2.i.i.i170, %sw.bb5.i.i.i168, %sw.bb9.i.i.i166, %sw.bb13.i.i.i162
   %call1.i.i165 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i160, ptr noundef nonnull @.str.15, i64 noundef %call.i, i64 noundef %call2.i) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i165) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i165) #16
   %consumer = getelementptr inbounds nuw i8, ptr %48, i64 16
   %53 = load ptr, ptr %consumer, align 8
   %tobool78.not = icmp eq ptr %53, null
@@ -11154,12 +11154,12 @@ sw.bb13.i:                                        ; preds = %cond.end84
 
 sdslen.exit:                                      ; preds = %cond.end84, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i = phi i64 [ %59, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %cond.end84 ]
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %54, i64 noundef %retval.0.i) #16
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %54, i64 noundef %retval.0.i) #16
   %60 = load i64, ptr %48, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %60) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %60) #16
   %delivery_count = getelementptr inbounds nuw i8, ptr %48, i64 8
   %61 = load i64, ptr %delivery_count, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %61) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %61) #16
   %inc = add nuw nsw i64 %arraylen_cg_pel.0216, 1
   %call70 = call i32 @raxNext(ptr noundef nonnull %ri_cg_pel) #16
   %tobool71.not = icmp eq i32 %call70, 0
@@ -11167,13 +11167,13 @@ sdslen.exit:                                      ; preds = %cond.end84, %sw.bb.
 
 while.end:                                        ; preds = %land.rhs, %sdslen.exit, %if.end64
   %arraylen_cg_pel.0.lcssa = phi i64 [ 0, %if.end64 ], [ %inc, %sdslen.exit ], [ %arraylen_cg_pel.0216, %land.rhs ]
-  call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call66, i64 noundef %arraylen_cg_pel.0.lcssa) #16
+  call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call66, i64 noundef %arraylen_cg_pel.0.lcssa) #16
   call void @raxStop(ptr noundef nonnull %ri_cg_pel) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.117) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.117) #16
   %consumers = getelementptr inbounds nuw i8, ptr %35, i64 32
   %62 = load ptr, ptr %consumers, align 8
   %call89 = call i64 @raxSize(ptr noundef %62) #16
-  call void @addReplyArrayLen(ptr noundef %c, i64 noundef %call89) #16
+  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef %call89) #16
   %63 = load ptr, ptr %consumers, align 8
   call void @raxStart(ptr noundef nonnull %ri_consumers, ptr noundef %63) #16
   %call91 = call i32 @raxSeek(ptr noundef nonnull %ri_consumers, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
@@ -11183,8 +11183,8 @@ while.end:                                        ; preds = %land.rhs, %sdslen.e
 
 while.body95:                                     ; preds = %while.end, %while.end124
   %64 = load ptr, ptr %data97, align 8
-  call void @addReplyMapLen(ptr noundef %c, i64 noundef 5) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.110) #16
+  call void @addReplyMapLen(ptr noundef nonnull %c, i64 noundef 5) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.110) #16
   %name98 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %65 = load ptr, ptr %name98, align 8
   %arrayidx.i174 = getelementptr inbounds i8, ptr %65, i64 -1
@@ -11229,21 +11229,21 @@ sw.bb13.i177:                                     ; preds = %while.body95
 
 sdslen.exit192:                                   ; preds = %while.body95, %sw.bb.i189, %sw.bb3.i186, %sw.bb5.i183, %sw.bb9.i180, %sw.bb13.i177
   %retval.0.i179 = phi i64 [ %70, %sw.bb13.i177 ], [ %conv12.i182, %sw.bb9.i180 ], [ %conv8.i185, %sw.bb5.i183 ], [ %conv4.i188, %sw.bb3.i186 ], [ %conv2.i191, %sw.bb.i189 ], [ 0, %while.body95 ]
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %65, i64 noundef %retval.0.i179) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.118) #16
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %65, i64 noundef %retval.0.i179) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.118) #16
   %71 = load i64, ptr %64, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %71) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.119) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %71) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.119) #16
   %active_time = getelementptr inbounds nuw i8, ptr %64, i64 8
   %72 = load i64, ptr %active_time, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %72) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.114) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %72) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.114) #16
   %pel101 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %73 = load ptr, ptr %pel101, align 8
   %call102 = call i64 @raxSize(ptr noundef %73) #16
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %call102) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.115) #16
-  %call103 = call ptr @addReplyDeferredLen(ptr noundef %c) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %call102) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.115) #16
+  %call103 = call ptr @addReplyDeferredLen(ptr noundef nonnull %c) #16
   %74 = load ptr, ptr %pel101, align 8
   call void @raxStart(ptr noundef nonnull %ri_cpel, ptr noundef %74) #16
   %call105 = call i32 @raxSeek(ptr noundef nonnull %ri_cpel, ptr noundef nonnull @.str.3, ptr noundef null, i64 noundef 0) #16
@@ -11261,7 +11261,7 @@ land.rhs109:                                      ; preds = %sdslen.exit192, %ad
 
 while.body116:                                    ; preds = %land.rhs109
   %77 = load ptr, ptr %data118, align 8
-  call void @addReplyArrayLen(ptr noundef %c, i64 noundef 3) #16
+  call void @addReplyArrayLen(ptr noundef nonnull %c, i64 noundef 3) #16
   %78 = load ptr, ptr %key120, align 8
   %e.sroa.0.0.copyload.i193 = load i64, ptr %78, align 1
   %e.sroa.2.0..sroa_idx.i194 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -11307,12 +11307,12 @@ sw.bb13.i.i.i201:                                 ; preds = %while.body116
 
 addReplyStreamID.exit212:                         ; preds = %while.body116, %sw.bb.i.i.i211, %sw.bb2.i.i.i209, %sw.bb5.i.i.i207, %sw.bb9.i.i.i205, %sw.bb13.i.i.i201
   %call1.i.i204 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i199, ptr noundef nonnull @.str.15, i64 noundef %call.i196, i64 noundef %call2.i197) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i204) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i204) #16
   %82 = load i64, ptr %77, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %82) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %82) #16
   %delivery_count122 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %83 = load i64, ptr %delivery_count122, align 8
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %83) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %83) #16
   %inc123 = add nuw nsw i64 %arraylen_cpel.0220, 1
   %call107 = call i32 @raxNext(ptr noundef nonnull %ri_cpel) #16
   %tobool108.not = icmp eq i32 %call107, 0
@@ -11320,7 +11320,7 @@ addReplyStreamID.exit212:                         ; preds = %while.body116, %sw.
 
 while.end124:                                     ; preds = %land.rhs109, %addReplyStreamID.exit212, %sdslen.exit192
   %arraylen_cpel.0.lcssa = phi i64 [ 0, %sdslen.exit192 ], [ %inc123, %addReplyStreamID.exit212 ], [ %arraylen_cpel.0220, %land.rhs109 ]
-  call void @setDeferredArrayLen(ptr noundef %c, ptr noundef %call103, i64 noundef %arraylen_cpel.0.lcssa) #16
+  call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef %call103, i64 noundef %arraylen_cpel.0.lcssa) #16
   call void @raxStop(ptr noundef nonnull %ri_cpel) #16
   %call93 = call i32 @raxNext(ptr noundef nonnull %ri_consumers) #16
   %tobool94.not = icmp eq i32 %call93, 0
@@ -11500,8 +11500,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %23 = load i64, ptr %21, align 8
   %sub36 = sub nsw i64 %call30, %23
   %spec.store.select = call i64 @llvm.smax.i64(i64 %sub36, i64 0)
-  call void @addReplyMapLen(ptr noundef %c, i64 noundef 4) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.110) #16
+  call void @addReplyMapLen(ptr noundef nonnull %c, i64 noundef 4) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.110) #16
   %name = getelementptr inbounds nuw i8, ptr %21, i64 16
   %24 = load ptr, ptr %name, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %24, i64 -1
@@ -11546,16 +11546,16 @@ sw.bb13.i:                                        ; preds = %while.body
 
 sdslen.exit:                                      ; preds = %while.body, %sw.bb.i, %sw.bb3.i, %sw.bb5.i, %sw.bb9.i, %sw.bb13.i
   %retval.0.i66 = phi i64 [ %29, %sw.bb13.i ], [ %conv12.i, %sw.bb9.i ], [ %conv8.i, %sw.bb5.i ], [ %conv4.i, %sw.bb3.i ], [ %conv2.i, %sw.bb.i ], [ 0, %while.body ]
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %24, i64 noundef %retval.0.i66) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.115) #16
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %24, i64 noundef %retval.0.i66) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.115) #16
   %pel = getelementptr inbounds nuw i8, ptr %21, i64 24
   %30 = load ptr, ptr %pel, align 8
   %call42 = call i64 @raxSize(ptr noundef %30) #16
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %call42) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.127) #16
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %spec.store.select) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.128) #16
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %cond) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %call42) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.127) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %spec.store.select) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.128) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %cond) #16
   %call31 = call i32 @raxNext(ptr noundef nonnull %ri) #16
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %while.end, label %while.body, !llvm.loop !55
@@ -11603,22 +11603,22 @@ while.body60.lr.ph:                               ; preds = %if.end51
 
 while.body60:                                     ; preds = %while.body60.lr.ph, %if.end72
   %34 = load ptr, ptr %data62, align 8
-  call void @addReplyMapLen(ptr noundef %c, i64 noundef 6) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.110) #16
+  call void @addReplyMapLen(ptr noundef nonnull %c, i64 noundef 6) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.110) #16
   %35 = load ptr, ptr %key63, align 8
   %36 = load i64, ptr %key_len, align 8
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef %35, i64 noundef %36) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.117) #16
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef %35, i64 noundef %36) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.117) #16
   %consumers64 = getelementptr inbounds nuw i8, ptr %34, i64 32
   %37 = load ptr, ptr %consumers64, align 8
   %call65 = call i64 @raxSize(ptr noundef %37) #16
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %call65) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.115) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %call65) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.115) #16
   %pel66 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %38 = load ptr, ptr %pel66, align 8
   %call67 = call i64 @raxSize(ptr noundef %38) #16
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %call67) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.111) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %call67) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.111) #16
   %39 = load ptr, ptr @SDS_NOINIT, align 8
   %call.i.i = call ptr @sdsnewlen(ptr noundef %39, i64 noundef 44) #16
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 -1
@@ -11661,24 +11661,24 @@ addReplyStreamID.exit:                            ; preds = %while.body60, %sw.b
   %seq.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %43 = load i64, ptr %seq.i.i, align 8
   %call1.i.i = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef nonnull %call.i.i, ptr noundef nonnull @.str.15, i64 noundef %42, i64 noundef %43) #16
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call1.i.i) #16
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.112) #16
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call1.i.i) #16
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.112) #16
   %entries_read = getelementptr inbounds nuw i8, ptr %34, i64 16
   %44 = load i64, ptr %entries_read, align 8
   %cmp68.not = icmp eq i64 %44, -1
   br i1 %cmp68.not, label %if.else71, label %if.then69
 
 if.then69:                                        ; preds = %addReplyStreamID.exit
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %44) #16
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %44) #16
   br label %if.end72
 
 if.else71:                                        ; preds = %addReplyStreamID.exit
-  call void @addReplyNull(ptr noundef %c) #16
+  call void @addReplyNull(ptr noundef nonnull %c) #16
   br label %if.end72
 
 if.end72:                                         ; preds = %if.else71, %if.then69
-  call void @addReplyBulkCString(ptr noundef %c, ptr noundef nonnull @.str.113) #16
-  call void @streamReplyWithCGLag(ptr noundef %c, ptr noundef %5, ptr noundef nonnull %34)
+  call void @addReplyBulkCString(ptr noundef nonnull %c, ptr noundef nonnull @.str.113) #16
+  call void @streamReplyWithCGLag(ptr noundef nonnull %c, ptr noundef %5, ptr noundef nonnull %34)
   %call58 = call i32 @raxNext(ptr noundef nonnull %ri54) #16
   %tobool59.not = icmp eq i32 %call58, 0
   br i1 %tobool59.not, label %while.end73, label %while.body60, !llvm.loop !56
@@ -11999,16 +11999,16 @@ declare i32 @string2ll(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr
 declare i32 @mustObeyClient(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #13

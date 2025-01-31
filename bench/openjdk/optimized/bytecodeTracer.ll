@@ -162,7 +162,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE12load_at_initES2_l.1 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE3ELm2383942EE18oop_access_barrierEP7oopDescl], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN14BytecodeTracer17trace_interpreterERK12methodHandlePhmmP12outputStream(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14BytecodeTracer17trace_interpreterERK12methodHandlePhmmP12outputStream(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 align 2 {
   ret void
 }
 
@@ -526,7 +526,7 @@ declare noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15BytecodePrinter14print_constantEiP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15BytecodePrinter14print_constantEiP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -685,7 +685,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12ConstantPool17resolved_klass_atEi(
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15BytecodePrinter21print_field_or_methodEiP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15BytecodePrinter21print_field_or_methodEiP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -737,7 +737,7 @@ define hidden void @_ZN15BytecodePrinter21print_field_or_methodEiP12outputStream
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15BytecodePrinter13print_dynamicEiP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15BytecodePrinter13print_dynamicEiP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -808,7 +808,7 @@ define hidden void @_ZN15BytecodePrinter13print_dynamicEiP12outputStream(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15BytecodePrinter9print_bsmEiP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15BytecodePrinter9print_bsmEiP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -953,7 +953,7 @@ declare noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(pt
 declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15BytecodePrinter19print_invokedynamicEiiP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15BytecodePrinter19print_invokedynamicEiiP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   tail call void @_ZN15BytecodePrinter13print_dynamicEiP12outputStream(ptr noundef nonnull align 8 dereferenceable(29) %0, i32 noundef %2, ptr noundef %3)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8
@@ -1747,7 +1747,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12ConstantPool30resolved_reference_f
 declare void @_ZNK7oopDesc8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15BytecodePrinter15bytecode_epilogEiP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8

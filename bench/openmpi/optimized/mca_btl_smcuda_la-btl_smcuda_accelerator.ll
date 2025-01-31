@@ -328,7 +328,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @mca_btl_smcuda_accelerator_fini() local_unnamed_addr #0 {
@@ -505,7 +505,7 @@ opal_obj_run_destructors.exit26:                  ; preds = %.lr.ph.i23, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @mca_btl_smcuda_progress_one_ipc_event(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @mca_btl_smcuda_progress_one_ipc_event(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load volatile i32, ptr @accelerator_event_ipc_num_used, align 4
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %64, label %4
@@ -625,7 +625,7 @@ define range(i32 -1, 2) i32 @mca_btl_smcuda_progress_one_ipc_event(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_btl_smcuda_memcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readnone %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_btl_smcuda_memcpy(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load i8, ptr @opal_uses_threads, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %8, label %10
@@ -771,7 +771,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

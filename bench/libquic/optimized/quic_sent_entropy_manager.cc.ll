@@ -43,7 +43,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22QuicSentEntropyManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22QuicSentEntropyManagerD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net22QuicSentEntropyManagerE, i64 16), ptr %this, align 8
   %packets_entropy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -125,7 +125,7 @@ _ZN3net22QuicSentEntropyManagerD2Ev.exit:         ; preds = %entry, %_ZNSt11_Deq
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i64 noundef %packet_number) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i8 @_ZNK3net22QuicSentEntropyManager16GetPacketEntropyEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, i64 noundef %packet_number) local_unnamed_addr #3 align 2 {
 entry:
   %map_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %map_offset_, align 8
@@ -175,7 +175,7 @@ _ZNKSt5dequeIhSaIhEEixEm.exit:                    ; preds = %if.then.i.i.i.i, %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net22QuicSentEntropyManager27GetLargestPacketWithEntropyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef i64 @_ZNK3net22QuicSentEntropyManager27GetLargestPacketWithEntropyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #4 align 2 {
 entry:
   %map_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %map_offset_, align 8
@@ -213,7 +213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i64 @_ZNK3net22QuicSentEntropyManager28GetSmallestPacketWithEntropyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef i64 @_ZNK3net22QuicSentEntropyManager28GetSmallestPacketWithEntropyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #4 align 2 {
 entry:
   %map_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %map_offset_, align 8
@@ -221,7 +221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i64 noundef %packet_number, ptr nocapture noundef %cumulative) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntropyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, i64 noundef %packet_number, ptr noundef captures(none) %cumulative) local_unnamed_addr #5 align 2 {
 entry:
   %cumulative.promoted = load i64, ptr %cumulative, align 8
   %cmp6 = icmp ult i64 %cumulative.promoted, %packet_number
@@ -319,7 +319,7 @@ _ZNSt5dequeIhSaIhEE9push_backERKh.exit:           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i8 @_ZN3net22QuicSentEntropyManager20GetCumulativeEntropyEm(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %packet_number) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i8 @_ZN3net22QuicSentEntropyManager20GetCumulativeEntropyEm(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, i64 noundef %packet_number) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %last_cumulative_entropy_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %cumulative.promoted.i = load i64, ptr %last_cumulative_entropy_, align 8
@@ -396,7 +396,7 @@ _ZNK3net22QuicSentEntropyManager23UpdateCumulativeEntropyEmPNS0_17CumulativeEntr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS_17PacketNumberQueueEh(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %largest_observed, ptr noundef nonnull align 8 dereferenceable(48) %missing_packets, i8 noundef zeroext %entropy_hash) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN3net22QuicSentEntropyManager14IsValidEntropyEmRKNS_17PacketNumberQueueEh(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, i64 noundef %largest_observed, ptr noundef nonnull align 8 dereferenceable(48) %missing_packets, i8 noundef zeroext %entropy_hash) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %map_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %map_offset_.i, align 8
@@ -604,7 +604,7 @@ declare ptr @_ZNK3net17PacketNumberQueue5beginEv(ptr noundef nonnull align 8 der
 declare ptr @_ZNK3net17PacketNumberQueue3endEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22QuicSentEntropyManager18ClearEntropyBeforeEm(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %packet_number) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22QuicSentEntropyManager18ClearEntropyBeforeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %this, i64 noundef %packet_number) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %last_cumulative_entropy_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i64, ptr %last_cumulative_entropy_, align 8
@@ -1134,13 +1134,13 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

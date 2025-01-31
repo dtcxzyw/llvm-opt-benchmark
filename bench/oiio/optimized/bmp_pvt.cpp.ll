@@ -120,7 +120,7 @@ return:                                           ; preds = %lor.lhs.false7, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_07bmp_pvt13BmpFileHeader5isBmpEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK18OpenImageIO_v2_6_07bmp_pvt13BmpFileHeader5isBmpEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   switch i16 %0, label %sw.default [
@@ -140,7 +140,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_07bmp_pvt13BmpFileHeader11swap_endianEv(ptr nocapture noundef nonnull align 4 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_07bmp_pvt13BmpFileHeader11swap_endianEv(ptr noundef nonnull align 4 captures(none) dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i16, ptr %this, align 4
   %1 = tail call i16 @llvm.bswap.i16(i16 %0)
@@ -659,7 +659,7 @@ return:                                           ; preds = %lor.lhs.false19, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_07bmp_pvt20DibInformationHeader11swap_endianEv(ptr nocapture noundef nonnull align 4 dereferenceable(124) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_07bmp_pvt20DibInformationHeader11swap_endianEv(ptr noundef nonnull align 4 captures(none) dereferenceable(124) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = tail call i32 @llvm.bswap.i32(i32 %0)

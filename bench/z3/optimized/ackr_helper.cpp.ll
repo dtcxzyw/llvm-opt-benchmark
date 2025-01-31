@@ -22,7 +22,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef double @_ZN11ackr_helper21calculate_lemma_boundERK7obj_mapI9func_declPNS_7app_occEERKS0_I3appS3_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %occs1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %occs2) local_unnamed_addr #3 align 2 {
+define hidden noundef double @_ZN11ackr_helper21calculate_lemma_boundERK7obj_mapI9func_declPNS_7app_occEERKS0_I3appS3_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %occs1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %occs2) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %occs1, align 8
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %occs1, i64 8

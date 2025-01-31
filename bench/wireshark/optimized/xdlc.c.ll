@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_xdlc_control = private unnamed_addr constant [4 x ptr] [ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.32], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 65536) i32 @get_xdlc_control(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @get_xdlc_control(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %1 to i64
   %5 = getelementptr i8, ptr %0, i64 %4
   %6 = load i8, ptr %5, align 1
@@ -110,7 +110,7 @@ define hidden range(i32 0, 65536) i32 @get_xdlc_control(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 65536) i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #1 {
+define range(i32 0, 65536) i32 @dissect_xdlc_control(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #1 {
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noalias ptr @wmem_alloc(ptr noundef %15, i64 noundef 80) #4
@@ -243,11 +243,11 @@ switch.lookup:                                    ; preds = %22, %20
 82:                                               ; preds = %67
   tail call void @col_append_str(ptr noundef %81, i32 noundef 25, ptr noundef nonnull @.str.37) #4
   %83 = load ptr, ptr %80, align 8
-  tail call void @col_append_str(ptr noundef %83, i32 noundef 25, ptr noundef %16) #4
+  tail call void @col_append_str(ptr noundef %83, i32 noundef 25, ptr noundef nonnull %16) #4
   br label %85
 
 84:                                               ; preds = %67
-  tail call void @col_add_str(ptr noundef %81, i32 noundef 25, ptr noundef %16) #4
+  tail call void @col_add_str(ptr noundef %81, i32 noundef 25, ptr noundef nonnull %16) #4
   br label %85
 
 85:                                               ; preds = %84, %82
@@ -255,7 +255,7 @@ switch.lookup:                                    ; preds = %22, %20
   br i1 %.not201, label %149, label %86
 
 86:                                               ; preds = %85
-  %87 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %76, ptr noundef nonnull @.str.28, ptr noundef %16, i32 noundef %76) #4
+  %87 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef nonnull %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef %76, ptr noundef nonnull @.str.28, ptr noundef nonnull %16, i32 noundef %76) #4
   %88 = tail call ptr @proto_item_add_subtree(ptr noundef %87, i32 noundef %5) #4
   br i1 %.not199, label %93, label %89
 
@@ -376,7 +376,7 @@ declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr 
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 

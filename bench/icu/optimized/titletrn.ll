@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7523TitlecaseTransliterator17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7523TitlecaseTransliterator17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7523TitlecaseTransliterator16getStaticClassIDEvE7classID
 }
@@ -155,7 +155,7 @@ lpad:                                             ; preds = %new.notnull
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7523TitlecaseTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr nocapture noundef nonnull align 4 dereferenceable(16) %offsets, i8 noundef signext %isIncremental) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7523TitlecaseTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %offsets, i8 noundef signext %isIncremental) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %csc = alloca %struct.UCaseContext, align 8
   %tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -389,7 +389,7 @@ ehcleanup:                                        ; preds = %lpad48, %lpad
 declare i32 @ucase_getTypeOrIgnorable_75(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @ucase_toFullTitle_75(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 

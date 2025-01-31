@@ -52,13 +52,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4gapi3wip6onevpl20VPPPreprocDispatcher13is_applicableERKNS_10MediaFrameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::util::optional") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #3 align 2 {
+define void @_ZN2cv4gapi3wip6onevpl20VPPPreprocDispatcher13is_applicableERKNS_10MediaFrameE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::util::optional") align 8 captures(none) initializes((0, 8)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #3 align 2 {
   store i64 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4gapi3wip6onevpl20VPPPreprocDispatcher18initialize_preprocERKNS1_9pp_paramsERKNS_10GFrameDescE(ptr dead_on_unwind noalias nocapture readnone sret(%"struct.cv::gapi::wip::pp_session") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 4 %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3wip6onevpl20VPPPreprocDispatcher18initialize_preprocERKNS1_9pp_paramsERKNS_10GFrameDescE(ptr dead_on_unwind noalias readnone sret(%"struct.cv::gapi::wip::pp_session") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 4 captures(none) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #9
@@ -106,7 +106,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4gapi3wip6onevpl20VPPPreprocDispatcher8run_syncERKNS1_10pp_sessionERKNS_10MediaFrameERKNS_4util8optionalINS_5Rect_IiEEEE(ptr dead_on_unwind noalias nocapture readnone sret(%"class.cv::MediaFrame") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3wip6onevpl20VPPPreprocDispatcher8run_syncERKNS1_10pp_sessionERKNS_10MediaFrameERKNS_4util8optionalINS_5Rect_IiEEEE(ptr dead_on_unwind noalias readnone sret(%"class.cv::MediaFrame") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr nonnull readnone align 8 captures(none) %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #9

@@ -351,14 +351,14 @@ define hidden noundef i32 @_ZN10JfrPostBox7collectEv(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK10JfrPostBox13check_waitersEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(21) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK10JfrPostBox13check_waitersEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(21) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = and i32 %1, 783
   %4 = icmp ne i32 %3, 0
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JfrPostBox14notify_waitersEv(ptr nocapture noundef nonnull align 8 dereferenceable(21) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10JfrPostBox14notify_waitersEv(ptr noundef nonnull align 8 captures(none) dereferenceable(21) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i8, ptr %2, align 4
   %4 = trunc i8 %3 to i1
@@ -381,7 +381,7 @@ define hidden void @_ZN10JfrPostBox14notify_waitersEv(ptr nocapture noundef nonn
 declare void @_ZN7Monitor6notifyEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JfrPostBox22notify_collection_stopEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(21) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN10JfrPostBox22notify_collection_stopEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(21) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @JfrMsg_lock, align 8
   tail call void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #10
   ret void
@@ -497,7 +497,7 @@ declare void @_ZN18SafepointMechanism18update_poll_valuesEP10JavaThread(ptr noun
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

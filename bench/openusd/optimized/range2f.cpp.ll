@@ -36,19 +36,19 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__9GfRange2fE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2fC1ERKNS_9GfRange2dE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2fC2ERKNS_9GfRange2dE
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd23EPNS_6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd23EPNS_6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction23EPNS_6TfTypeEPv, ptr noundef nonnull @.str.1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction23EPNS_6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction23EPNS_6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType11_DefineImplERKSt9type_infoPPS2_PPFPvS6_bEmmbb(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__9GfRange2fE, ptr noundef null, ptr noundef null, i64 noundef 0, i64 noundef 16, i1 noundef zeroext false, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_9GfRange2fE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoRKNS_9GfRange2fE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext 91)
@@ -71,7 +71,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2fC2ERKNS_9GfRange2dE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2fC2ERKNS_9GfRange2dE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #3 align 2 {
   %3 = load double, ptr %1, align 8
   %4 = fptrunc double %3 to float
   store float %4, ptr %0, align 4
@@ -94,7 +94,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2fC2ERKNS_9GfRange2dE(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f18GetDistanceSquaredERKNS_7GfVec2fE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f18GetDistanceSquaredERKNS_7GfVec2fE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = load float, ptr %0, align 4
   %5 = fcmp olt float %3, %4
@@ -153,7 +153,7 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f18GetDist
 }
 
 ; Function Attrs: mustprogress uwtable
-define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = icmp ugt i64 %1, 3
   br i1 %4, label %5, label %11
@@ -195,7 +195,7 @@ define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33), i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f11GetQuadrantEm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f11GetQuadrantEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = icmp ugt i64 %1, 3
   br i1 %4, label %5, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2f9GetCornerEm.exit
@@ -261,7 +261,7 @@ define internal void @__cxx_global_var_init.7() #5 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitDtorEPKc(ptr noundef nonnull @.str)
           to label %2 unwind label %3
 

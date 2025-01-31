@@ -2447,7 +2447,7 @@ if.end9:                                          ; preds = %do_nonatomic_op_i32
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_atomic_op_i32(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, ptr nocapture noundef readonly %table) unnamed_addr #0 {
+define internal fastcc void @do_atomic_op_i32(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, ptr noundef readonly captures(none) %table) unnamed_addr #0 {
 entry:
   %and.i.i = and i32 %memop, 224
   %trunc.i.i = trunc nuw i32 %and.i.i to i8
@@ -2686,7 +2686,7 @@ if.end9:                                          ; preds = %do_nonatomic_op_i64
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @do_atomic_op_i64(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, ptr nocapture noundef readonly %table) unnamed_addr #0 {
+define internal fastcc void @do_atomic_op_i64(ptr noundef %ret, ptr noundef %addr, ptr noundef %val, i64 noundef %idx, i32 noundef %memop, ptr noundef readonly captures(none) %table) unnamed_addr #0 {
 entry:
   %and.i.i = and i32 %memop, 224
   %trunc.i.i = trunc nuw i32 %and.i.i to i8

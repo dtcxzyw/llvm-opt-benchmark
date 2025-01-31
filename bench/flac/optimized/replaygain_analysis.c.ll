@@ -75,7 +75,7 @@ return:                                           ; preds = %for.end.i, %for.bod
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local range(i32 0, 2) i32 @InitGainAnalysis(i64 noundef %samplefreq) local_unnamed_addr #2 {
@@ -265,10 +265,10 @@ return:                                           ; preds = %ReallocateWindowBuf
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local range(i32 0, 2) i32 @AnalyzeSamples(ptr nocapture noundef readonly %left_samples, ptr nocapture noundef readonly %right_samples, i64 noundef %num_samples, i32 noundef %num_channels) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @AnalyzeSamples(ptr noundef readonly captures(none) %left_samples, ptr noundef readonly captures(none) %right_samples, i64 noundef %num_samples, i32 noundef %num_channels) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr @replaygainfilter, align 8
   %downsample1 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -694,10 +694,10 @@ declare double @log10(double noundef) local_unnamed_addr #5
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define dso_local float @GetTitleGain() local_unnamed_addr #8 {
@@ -853,7 +853,7 @@ analyzeResult.exit:                               ; preds = %for.end.i, %for.end
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #6

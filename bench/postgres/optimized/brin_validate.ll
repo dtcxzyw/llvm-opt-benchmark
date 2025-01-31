@@ -480,7 +480,7 @@ define dso_local zeroext i1 @brinvalidate(i32 noundef %0) local_unnamed_addr #0 
 .split162.us:                                     ; preds = %246, %235
   %.us-phi = phi i1 [ false, %235 ], [ %.12, %246 ]
   tail call void @ReleaseCatCacheList(ptr noundef %33) #4
-  tail call void @ReleaseCatCacheList(ptr noundef %32) #4
+  tail call void @ReleaseCatCacheList(ptr noundef nonnull %32) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %20) #4
   tail call void @ReleaseSysCache(ptr noundef nonnull %3) #4
   ret i1 %.us-phi

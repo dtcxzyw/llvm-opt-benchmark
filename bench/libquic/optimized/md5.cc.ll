@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZZN4base17MD5DigestToBase16B5cxx11ERKNS_9MD5DigestEE7zEncode = internal unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base7MD5InitEPA88_c(ptr nocapture noundef writeonly initializes((0, 24)) %context) local_unnamed_addr #0 {
+define dso_local void @_ZN4base7MD5InitEPA88_c(ptr noundef writeonly captures(none) initializes((0, 24)) %context) local_unnamed_addr #0 {
 entry:
   store i32 1732584193, ptr %context, align 4
   %arrayidx2 = getelementptr inbounds nuw i8, ptr %context, i64 4
@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base9MD5UpdateEPA88_cRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr nocapture noundef %context, ptr noundef nonnull align 8 dereferenceable(16) %data) local_unnamed_addr #1 {
+define dso_local void @_ZN4base9MD5UpdateEPA88_cRKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef captures(none) %context, ptr noundef nonnull align 8 dereferenceable(16) %data) local_unnamed_addr #1 {
 entry:
   %call = tail call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
   %call1 = tail call noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %data)
@@ -110,10 +110,10 @@ declare noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr nocapture noundef %buf, ptr nocapture noundef readonly %in) unnamed_addr #4 {
+define internal fastcc void @_ZN12_GLOBAL__N_112MD5TransformEPjPKj(ptr noundef captures(none) %buf, ptr noundef readonly captures(none) %in) unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %buf, align 4
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %buf, i64 4
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c(ptr nocapture noundef writeonly initializes((0, 16)) %digest, ptr nocapture noundef %context) local_unnamed_addr #4 {
+define dso_local void @_ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c(ptr noundef writeonly captures(none) initializes((0, 16)) %digest, ptr noundef captures(none) %context) local_unnamed_addr #4 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %context, i64 16
   %0 = load i32, ptr %bits, align 4
@@ -704,10 +704,10 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base20MD5IntermediateFinalEPNS_9MD5DigestEPA88_Kc(ptr nocapture noundef writeonly initializes((0, 16)) %digest, ptr nocapture noundef readonly %context) local_unnamed_addr #4 {
+define dso_local void @_ZN4base20MD5IntermediateFinalEPNS_9MD5DigestEPA88_Kc(ptr noundef writeonly captures(none) initializes((0, 16)) %digest, ptr noundef readonly captures(none) %context) local_unnamed_addr #4 {
 entry:
   %context_copy = alloca [88 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %context_copy, ptr noundef nonnull align 1 dereferenceable(88) %context, i64 88, i1 false)
@@ -752,7 +752,7 @@ _ZN4base8MD5FinalEPNS_9MD5DigestEPA88_c.exit:     ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base17MD5DigestToBase16B5cxx11ERKNS_9MD5DigestE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %digest) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base17MD5DigestToBase16B5cxx11ERKNS_9MD5DigestE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(16) %digest) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i64 noundef 32)
@@ -820,7 +820,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base6MD5SumEPKvmPNS_9MD5DigestE(ptr noundef %data, i64 noundef %length, ptr nocapture noundef writeonly initializes((0, 16)) %digest) local_unnamed_addr #1 {
+define dso_local void @_ZN4base6MD5SumEPKvmPNS_9MD5DigestE(ptr noundef %data, i64 noundef %length, ptr noundef writeonly captures(none) initializes((0, 16)) %digest) local_unnamed_addr #1 {
 entry:
   %ctx = alloca [88 x i8], align 16
   %ref.tmp = alloca %"class.base::BasicStringPiece", align 8
@@ -996,10 +996,10 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

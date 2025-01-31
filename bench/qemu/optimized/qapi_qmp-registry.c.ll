@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qmp_register_command = private unnamed_addr constant [109 x i8] c"void qmp_register_command(QmpCommandList *, const char *, QmpCommandFunc *, QmpCommandOptions, unsigned int)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_register_command(ptr nocapture noundef %cmds, ptr noundef %name, ptr noundef %fn, i32 noundef %options, i32 noundef %special_features) local_unnamed_addr #0 {
+define dso_local void @qmp_register_command(ptr noundef captures(none) %cmds, ptr noundef %name, ptr noundef %fn, i32 noundef %options, i32 noundef %special_features) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(56) ptr @g_malloc0(i64 noundef 56) #7
   %0 = and i32 %options, 10
@@ -47,7 +47,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @qmp_find_command(ptr nocapture noundef readonly %cmds, ptr nocapture noundef readonly %name) local_unnamed_addr #3 {
+define dso_local noundef ptr @qmp_find_command(ptr noundef readonly captures(none) %cmds, ptr noundef readonly captures(none) %name) local_unnamed_addr #3 {
 entry:
   %cmd.04 = load ptr, ptr %cmds, align 8
   %tobool.not5 = icmp eq ptr %cmd.04, null
@@ -72,10 +72,10 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @qmp_disable_command(ptr nocapture noundef readonly %cmds, ptr nocapture noundef readonly %name, ptr noundef %disable_reason) local_unnamed_addr #5 {
+define dso_local void @qmp_disable_command(ptr noundef readonly captures(none) %cmds, ptr noundef readonly captures(none) %name, ptr noundef %disable_reason) local_unnamed_addr #5 {
 entry:
   %cmd.06.i = load ptr, ptr %cmds, align 8
   %tobool.not7.i = icmp eq ptr %cmd.06.i, null
@@ -106,7 +106,7 @@ qmp_toggle_command.exit:                          ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @qmp_enable_command(ptr nocapture noundef readonly %cmds, ptr nocapture noundef readonly %name) local_unnamed_addr #5 {
+define dso_local void @qmp_enable_command(ptr noundef readonly captures(none) %cmds, ptr noundef readonly captures(none) %name) local_unnamed_addr #5 {
 entry:
   %cmd.06.i = load ptr, ptr %cmds, align 8
   %tobool.not7.i = icmp eq ptr %cmd.06.i, null
@@ -137,7 +137,7 @@ qmp_toggle_command.exit:                          ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qmp_command_is_enabled(ptr nocapture noundef readonly %cmd) local_unnamed_addr #6 {
+define dso_local zeroext i1 @qmp_command_is_enabled(ptr noundef readonly captures(none) %cmd) local_unnamed_addr #6 {
 entry:
   %enabled = getelementptr inbounds nuw i8, ptr %cmd, i64 40
   %0 = load i8, ptr %enabled, align 8
@@ -146,14 +146,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qmp_command_name(ptr nocapture noundef readonly %cmd) local_unnamed_addr #6 {
+define dso_local ptr @qmp_command_name(ptr noundef readonly captures(none) %cmd) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %cmd, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qmp_has_success_response(ptr nocapture noundef readonly %cmd) local_unnamed_addr #6 {
+define dso_local zeroext i1 @qmp_has_success_response(ptr noundef readonly captures(none) %cmd) local_unnamed_addr #6 {
 entry:
   %options = getelementptr inbounds nuw i8, ptr %cmd, i64 16
   %0 = load i32, ptr %options, align 8
@@ -163,7 +163,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_for_each_command(ptr nocapture noundef readonly %cmds, ptr nocapture noundef readonly %fn, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @qmp_for_each_command(ptr noundef readonly captures(none) %cmds, ptr noundef readonly captures(none) %fn, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %cmd.03 = load ptr, ptr %cmds, align 8
   %tobool.not4 = icmp eq ptr %cmd.03, null

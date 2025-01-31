@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.node::crypto::ClientHelloParser::ClientHello" = type { i8, ptr, i8, i8, ptr }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto17ClientHelloParser5ParseEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %data, i64 noundef %avail) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node6crypto17ClientHelloParser5ParseEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, ptr noundef %data, i64 noundef %avail) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   switch i32 %0, label %sw.epilog [
@@ -78,7 +78,7 @@ sw.epilog:                                        ; preds = %if.then4.i10.i, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node6crypto17ClientHelloParser17ParseRecordHeaderEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %data, i64 noundef %avail) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node6crypto17ClientHelloParser17ParseRecordHeaderEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, ptr noundef readonly captures(none) %data, i64 noundef %avail) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp ult i64 %avail, 5
   br i1 %cmp, label %return, label %if.end
@@ -145,7 +145,7 @@ return:                                           ; preds = %if.then4.i10, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto17ClientHelloParser11ParseHeaderEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %data, i64 noundef %avail) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node6crypto17ClientHelloParser11ParseHeaderEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, ptr noundef %data, i64 noundef %avail) local_unnamed_addr #0 align 2 {
 entry:
   %hello = alloca %"class.node::crypto::ClientHelloParser::ClientHello", align 8
   %frame_len_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -342,7 +342,7 @@ return:                                           ; preds = %if.then26, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4node6crypto17ClientHelloParser19ParseTLSClientHelloEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %data, i64 noundef %avail) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node6crypto17ClientHelloParser19ParseTLSClientHelloEPKhm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, ptr noundef %data, i64 noundef %avail) local_unnamed_addr #1 align 2 {
 entry:
   %body_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %body_offset_, align 8
@@ -511,7 +511,7 @@ return:                                           ; preds = %if.end40, %while.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, i16 noundef zeroext %type, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) %this, i16 noundef zeroext %type, ptr noundef %data, i64 noundef %len) local_unnamed_addr #1 align 2 {
 entry:
   switch i16 %type, label %sw.epilog [
     i16 0, label %sw.bb

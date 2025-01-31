@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mbedtls_psa_random_state = external local_unnamed_addr constant ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_ecp_load_representation(i16 noundef zeroext %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   %6 = zext i16 %0 to i32
   %7 = and i32 %6, 28672
@@ -130,10 +130,10 @@ declare i32 @mbedtls_ecp_read_key(i32 noundef, ptr noundef, ptr noundef, i64 nou
 declare void @mbedtls_ecp_keypair_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_ecp_import_key(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_ecp_import_key(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   store ptr null, ptr %8, align 8
   %9 = load i16, ptr %0, align 8
@@ -240,12 +240,12 @@ declare i32 @mbedtls_ctr_drbg_random(ptr noundef, ptr noundef, i64 noundef) #2
 declare i32 @mbedtls_ecp_point_write_binary(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @mbedtls_ecp_write_key(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_ecp_export_public_key(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_ecp_export_public_key(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = load i16, ptr %0, align 8
@@ -274,7 +274,7 @@ define hidden i32 @mbedtls_psa_ecp_export_public_key(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_ecp_generate_key(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_ecp_generate_key(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.mbedtls_ecp_keypair, align 8
   %6 = load i16, ptr %0, align 8
   %7 = and i16 %6, -12544
@@ -330,7 +330,7 @@ declare ptr @mbedtls_ecp_curve_info_from_grp_id(i32 noundef) local_unnamed_addr 
 declare i32 @mbedtls_ecp_gen_key(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_ecdsa_sign_hash(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_ecdsa_sign_hash(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca %struct.mbedtls_mpi, align 8
   %12 = alloca %struct.mbedtls_mpi, align 8
@@ -447,7 +447,7 @@ declare i32 @mbedtls_mpi_write_binary(ptr noundef, ptr noundef, i64 noundef) loc
 declare void @mbedtls_mpi_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_psa_ecdsa_verify_hash(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_psa_ecdsa_verify_hash(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca ptr, align 8
   %10 = alloca %struct.mbedtls_mpi, align 8
   %11 = alloca %struct.mbedtls_mpi, align 8

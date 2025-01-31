@@ -110,7 +110,7 @@ define dso_local i32 @ioremap_change_attr(i64 noundef %0, i64 noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @_set_memory_uc(i64 noundef, i32 noundef) local_unnamed_addr #2
@@ -125,7 +125,7 @@ declare dso_local i32 @_set_memory_wt(i64 noundef, i32 noundef) local_unnamed_ad
 declare dso_local i32 @_set_memory_wb(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @ioremap(i64 noundef %0, i64 noundef %1) #0 align 16 {
@@ -572,7 +572,7 @@ define internal fastcc ptr @early_ioremap_pmd(i64 noundef range(i64 -14680064, -
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @__early_set_fixmap(i32 noundef %0, i64 noundef %1, i64 %2) local_unnamed_addr #6 section ".init.text" align 16 {
@@ -652,7 +652,7 @@ declare dso_local void @free_vm_area(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @walk_mem_res(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal range(i32 0, 2) i32 @__ioremap_collect_map_flags(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = and i32 %3, 1
   %5 = icmp eq i32 %4, 0

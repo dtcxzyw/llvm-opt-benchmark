@@ -74,7 +74,7 @@ define hidden noundef ptr @_Z33pj_projection_specific_setup_cartP8PJconsts(ptr n
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal void @_ZL9cartesian6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @_ZL9cartesian6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable writeonly sret(%struct.PJ_XYZ) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.PJ_LPZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = tail call double @cos(double noundef %5) #7
@@ -118,7 +118,7 @@ _ZL26normal_radius_of_curvatureddd.exit:          ; preds = %3, %13
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr nocapture noundef readonly %2) #3 {
+define internal void @_ZL8geodetic6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias writable writeonly sret(%struct.PJ_LPZ) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.PJ_XYZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = load double, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %6 = load double, ptr %5, align 8
@@ -238,7 +238,7 @@ _ZL26normal_radius_of_curvatureddd.exit:          ; preds = %69, %74
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal { double, double } @_ZL12cart_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #3 {
+define internal { double, double } @_ZL12cart_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = tail call double @cos(double noundef %1) #7, !noalias !4
   %5 = tail call double @sin(double noundef %1) #7, !noalias !4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 168
@@ -270,7 +270,7 @@ _ZL9cartesian6PJ_LPZP8PJconsts.exit:              ; preds = %3, %11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal { double, double } @_ZL12cart_reverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #3 {
+define internal { double, double } @_ZL12cart_reverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = alloca %struct.PJ_LPZ, align 8
   %5 = alloca %struct.PJ_XYZ, align 8
   store double %0, ptr %5, align 8

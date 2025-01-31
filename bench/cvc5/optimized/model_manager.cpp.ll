@@ -244,7 +244,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory2eq14EqualityEngineESt14default_deleteIS
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory12ModelManagerD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory12ModelManagerD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #18
   unreachable
@@ -331,7 +331,7 @@ declare noundef ptr @_ZNK4cvc58internal6theory17QuantifiersEngine15getModelBuild
 declare void @_ZN4cvc58internal6theory24TheoryEngineModelBuilderC1ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(576)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory12ModelManager10resetModelEv(ptr nocapture noundef nonnull align 8 dereferenceable(122) initializes((120, 122)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory12ModelManager10resetModelEv(ptr noundef nonnull align 8 captures(none) dereferenceable(122) initializes((120, 122)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_modelBuilt = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i8 0, ptr %d_modelBuilt, align 8
@@ -396,7 +396,7 @@ return:                                           ; preds = %if.end82, %if.then
 declare noundef ptr @_ZNK4cvc58internal3Env18getResourceManagerEv(ptr noundef nonnull align 8 dereferenceable(576)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory12ModelManager12isModelBuiltEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(122) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory12ModelManager12isModelBuiltEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(122) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_modelBuilt = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i8, ptr %d_modelBuilt, align 8
@@ -511,7 +511,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theory
 declare void @_ZN4cvc58internal6theory24TheoryEngineModelBuilder16postProcessModelEbPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(120), i1 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN4cvc58internal6theory12ModelManager8getModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(122) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZN4cvc58internal6theory12ModelManager8getModelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(122) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_model, align 8
@@ -519,7 +519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory12ModelManager28collectModelBooleanVariablesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(122) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory12ModelManager28collectModelBooleanVariablesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(122) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %boolVars = alloca %"class.std::vector.318", align 8
   %value = alloca i8, align 1
@@ -738,7 +738,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #13 comdat {

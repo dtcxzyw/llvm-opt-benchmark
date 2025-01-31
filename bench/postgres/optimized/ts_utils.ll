@@ -29,22 +29,22 @@ define dso_local noundef ptr @get_tsearch_config_filename(ptr noundef %0, ptr no
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #6
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 @errcode(i32 noundef 50856066) #7
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef %0) #7
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.1, ptr noundef nonnull %0) #7
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 52, ptr noundef nonnull @__func__.get_tsearch_config_filename) #7
   unreachable
 
 10:                                               ; preds = %2
   call void @get_share_path(ptr noundef nonnull @my_exec_path, ptr noundef nonnull %3) #7
   %11 = call ptr @palloc(i64 noundef 1024) #7
-  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %11, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1) #7
+  %12 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %11, i64 noundef 1024, ptr noundef nonnull @.str.3, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef %1) #7
   ret ptr %11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -62,7 +62,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @readstoplist(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @readstoplist(ptr noundef %0, ptr noundef captures(none) initializes((0, 4)) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tsearch_readline_state, align 8
   store i32 0, ptr %1, align 8
   %.not = icmp eq ptr %0, null
@@ -238,7 +238,7 @@ declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 declare i32 @pg_qsort_strcmp(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @searchstoplist(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @searchstoplist(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

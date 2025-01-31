@@ -99,7 +99,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_iov_iter_ext
 @llvm.compiler.used = appending global [31 x ptr] [ptr @__UNIQUE_ID___addressable__copy_from_iter420, ptr @__UNIQUE_ID___addressable__copy_from_iter_flushcache426, ptr @__UNIQUE_ID___addressable__copy_from_iter_nocache423, ptr @__UNIQUE_ID___addressable__copy_mc_to_iter417, ptr @__UNIQUE_ID___addressable__copy_to_iter414, ptr @__UNIQUE_ID___addressable_copy_page_from_iter444, ptr @__UNIQUE_ID___addressable_copy_page_from_iter_atomic451, ptr @__UNIQUE_ID___addressable_copy_page_to_iter434, ptr @__UNIQUE_ID___addressable_copy_page_to_iter_nofault440, ptr @__UNIQUE_ID___addressable_dup_iter498, ptr @__UNIQUE_ID___addressable_fault_in_iov_iter_readable401, ptr @__UNIQUE_ID___addressable_fault_in_iov_iter_writeable408, ptr @__UNIQUE_ID___addressable_import_iovec499, ptr @__UNIQUE_ID___addressable_import_ubuf500, ptr @__UNIQUE_ID___addressable_iov_iter_advance452, ptr @__UNIQUE_ID___addressable_iov_iter_alignment473, ptr @__UNIQUE_ID___addressable_iov_iter_bvec467, ptr @__UNIQUE_ID___addressable_iov_iter_discard471, ptr @__UNIQUE_ID___addressable_iov_iter_extract_pages522, ptr @__UNIQUE_ID___addressable_iov_iter_gap_alignment476, ptr @__UNIQUE_ID___addressable_iov_iter_get_pages2487, ptr @__UNIQUE_ID___addressable_iov_iter_get_pages_alloc2488, ptr @__UNIQUE_ID___addressable_iov_iter_init411, ptr @__UNIQUE_ID___addressable_iov_iter_is_aligned472, ptr @__UNIQUE_ID___addressable_iov_iter_kvec464, ptr @__UNIQUE_ID___addressable_iov_iter_npages497, ptr @__UNIQUE_ID___addressable_iov_iter_revert456, ptr @__UNIQUE_ID___addressable_iov_iter_single_seg_count461, ptr @__UNIQUE_ID___addressable_iov_iter_xarray469, ptr @__UNIQUE_ID___addressable_iov_iter_zero445, ptr @__kunmap_atomic.__UNIQUE_ID___addressable___SCK__preempt_schedule323], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @fault_in_iov_iter_readable(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local i64 @fault_in_iov_iter_readable(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = load i8, ptr %0, align 8
   switch i8 %3, label %47 [
     i8 0, label %4
@@ -172,16 +172,16 @@ define dso_local i64 @fault_in_iov_iter_readable(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @fault_in_readable(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @fault_in_iov_iter_writeable(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local i64 @fault_in_iov_iter_writeable(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = load i8, ptr %0, align 8
   switch i8 %3, label %47 [
     i8 0, label %4
@@ -257,7 +257,7 @@ define dso_local i64 @fault_in_iov_iter_writeable(ptr nocapture noundef readonly
 declare dso_local i64 @fault_in_safe_writeable(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_init(ptr nocapture noundef writeonly initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local void @iov_iter_init(ptr noundef writeonly captures(none) initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = icmp ult i32 %1, 2
   br i1 %6, label %8, label %7, !prof !11
 
@@ -289,10 +289,10 @@ define dso_local void @iov_iter_init(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local i64 @_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.xa_state, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1, !range !15, !noundef !16
@@ -730,7 +730,7 @@ define dso_local i64 @_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.xa_state, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1, !range !15, !noundef !16
@@ -1168,7 +1168,7 @@ define dso_local i64 @_copy_mc_to_iter(ptr noundef %0, i64 noundef %1, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @_copy_from_iter(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local i64 @_copy_from_iter(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.xa_state, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1, !range !15, !noundef !16
@@ -1616,7 +1616,7 @@ define dso_local i64 @_copy_from_iter(ptr noundef %0, i64 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @_copy_from_iter_nocache(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local i64 @_copy_from_iter_nocache(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.xa_state, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1, !range !15, !noundef !16
@@ -2025,7 +2025,7 @@ define dso_local i64 @_copy_from_iter_nocache(ptr noundef %0, i64 noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @_copy_from_iter_flushcache(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local i64 @_copy_from_iter_flushcache(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca %struct.xa_state, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 3
   %6 = load i8, ptr %5, align 1, !range !15, !noundef !16
@@ -2430,7 +2430,7 @@ define dso_local i64 @_copy_from_iter_flushcache(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @copy_page_to_iter(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local i64 @copy_page_to_iter(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = add i64 %2, %1
   %6 = icmp uge i64 %5, %2
   %7 = icmp ult i64 %5, 4097
@@ -2568,7 +2568,7 @@ define dso_local i64 @copy_page_to_iter(ptr noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @copy_page_to_iter_nofault(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local i64 @copy_page_to_iter_nofault(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca %struct.xa_state, align 8
   %6 = zext i32 %1 to i64
   %7 = add i64 %2, %6
@@ -3085,7 +3085,7 @@ define dso_local i64 @copy_page_to_iter_nofault(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @copy_page_from_iter(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local i64 @copy_page_from_iter(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = add i64 %2, %1
   %6 = icmp uge i64 %5, %2
   %7 = icmp ult i64 %5, 4097
@@ -3211,7 +3211,7 @@ define dso_local i64 @copy_page_from_iter(ptr noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @iov_iter_zero(i64 noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local i64 @iov_iter_zero(i64 noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca %struct.xa_state, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
@@ -3633,7 +3633,7 @@ define dso_local i64 @iov_iter_zero(i64 noundef %0, ptr nocapture noundef %1) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @copy_page_from_iter_atomic(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local i64 @copy_page_from_iter_atomic(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca %struct.xa_state, align 8
   %6 = add i64 %2, %1
   %7 = icmp uge i64 %6, %2
@@ -4319,7 +4319,7 @@ define internal fastcc void @iov_iter_iovec_advance(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @iov_iter_bvec_advance(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @iov_iter_bvec_advance(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -4372,7 +4372,7 @@ define internal fastcc void @iov_iter_bvec_advance(ptr nocapture noundef %0, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_revert(ptr nocapture noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local void @iov_iter_revert(ptr noundef captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %54, label %4
 
@@ -4476,7 +4476,7 @@ define dso_local void @iov_iter_revert(ptr nocapture noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i64 @iov_iter_single_seg_count(ptr nocapture noundef readonly %0) #5 align 16 {
+define dso_local i64 @iov_iter_single_seg_count(ptr noundef readonly captures(none) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = icmp ugt i64 %3, 1
@@ -4528,7 +4528,7 @@ define dso_local i64 @iov_iter_single_seg_count(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_kvec(ptr nocapture noundef writeonly initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local void @iov_iter_kvec(ptr noundef writeonly captures(none) initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = icmp ult i32 %1, 2
   br i1 %6, label %8, label %7, !prof !11
 
@@ -4560,7 +4560,7 @@ define dso_local void @iov_iter_kvec(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_bvec(ptr nocapture noundef writeonly initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local void @iov_iter_bvec(ptr noundef writeonly captures(none) initializes((0, 4), (8, 40)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = icmp ult i32 %1, 2
   br i1 %6, label %8, label %7, !prof !11
 
@@ -4592,7 +4592,7 @@ define dso_local void @iov_iter_bvec(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_xarray(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local void @iov_iter_xarray(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = icmp ult i32 %1, 2
   br i1 %6, label %8, label %7, !prof !11
 
@@ -4622,7 +4622,7 @@ define dso_local void @iov_iter_xarray(ptr nocapture noundef writeonly %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_discard(ptr nocapture noundef writeonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local void @iov_iter_discard(ptr noundef writeonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %6, label %5, !prof !11
 
@@ -4649,10 +4649,10 @@ define dso_local void @iov_iter_discard(ptr nocapture noundef writeonly %0, i32 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @iov_iter_is_aligned(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
+define dso_local zeroext i1 @iov_iter_is_aligned(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #7 align 16 {
   %4 = load i8, ptr %0, align 8
   switch i8 %4, label %40 [
     i8 0, label %5
@@ -4718,7 +4718,7 @@ define dso_local zeroext i1 @iov_iter_is_aligned(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc noundef zeroext i1 @iov_iter_aligned_iovec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 align 16 {
+define internal fastcc noundef zeroext i1 @iov_iter_aligned_iovec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
@@ -4808,7 +4808,7 @@ define internal fastcc noundef zeroext i1 @iov_iter_aligned_iovec(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc noundef zeroext i1 @iov_iter_aligned_bvec(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 align 16 {
+define internal fastcc noundef zeroext i1 @iov_iter_aligned_bvec(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
@@ -4862,7 +4862,7 @@ define internal fastcc noundef zeroext i1 @iov_iter_aligned_bvec(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i64 @iov_iter_alignment(ptr nocapture noundef readonly %0) #7 align 16 {
+define dso_local i64 @iov_iter_alignment(ptr noundef readonly captures(none) %0) #7 align 16 {
   %2 = load i8, ptr %0, align 8
   switch i8 %2, label %28 [
     i8 0, label %3
@@ -4913,7 +4913,7 @@ define dso_local i64 @iov_iter_alignment(ptr nocapture noundef readonly %0) #7 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc i64 @iov_iter_alignment_iovec(ptr nocapture noundef readonly %0) unnamed_addr #7 align 16 {
+define internal fastcc i64 @iov_iter_alignment_iovec(ptr noundef readonly captures(none) %0) unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -5007,7 +5007,7 @@ define internal fastcc i64 @iov_iter_alignment_iovec(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc range(i64 0, 4294967296) i64 @iov_iter_alignment_bvec(ptr nocapture noundef readonly %0) unnamed_addr #7 align 16 {
+define internal fastcc range(i64 0, 4294967296) i64 @iov_iter_alignment_bvec(ptr noundef readonly captures(none) %0) unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -5059,7 +5059,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @iov_iter_alignment_bvec(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @iov_iter_gap_alignment(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @iov_iter_gap_alignment(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = load i8, ptr %0, align 8
@@ -5127,7 +5127,7 @@ define dso_local i64 @iov_iter_gap_alignment(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147479553) i64 @iov_iter_get_pages2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef %4) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147479553) i64 @iov_iter_get_pages2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) #0 align 16 {
   %6 = alloca ptr, align 8
   store ptr %1, ptr %6, align 8
   %7 = icmp eq i32 %3, 0
@@ -5152,7 +5152,7 @@ define dso_local range(i64 -2147483648, 2147479553) i64 @iov_iter_get_pages2(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pages_alloc(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef range(i32 1, 0) %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pages_alloc(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef range(i32 1, 0) %3, ptr noundef captures(none) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
@@ -5401,7 +5401,7 @@ define internal fastcc range(i64 -2147483648, 2147479553) i64 @__iov_iter_get_pa
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147479553) i64 @iov_iter_get_pages_alloc2(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147479553) i64 @iov_iter_get_pages_alloc2(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   store ptr null, ptr %1, align 8
   %5 = tail call fastcc i64 @__iov_iter_get_pages_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef -1, ptr noundef %3)
   %6 = icmp slt i64 %5, 1
@@ -5421,7 +5421,7 @@ define dso_local range(i64 -2147483648, 2147479553) i64 @iov_iter_get_pages_allo
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @iov_iter_npages(ptr nocapture noundef readonly %0, i32 noundef %1) #7 align 16 {
+define dso_local i32 @iov_iter_npages(ptr noundef readonly captures(none) %0, i32 noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -5480,7 +5480,7 @@ define dso_local i32 @iov_iter_npages(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc i32 @iov_npages(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #7 align 16 {
+define internal fastcc i32 @iov_npages(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5538,7 +5538,7 @@ define internal fastcc i32 @iov_npages(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc i32 @bvec_npages(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #7 align 16 {
+define internal fastcc i32 @bvec_npages(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -5587,7 +5587,7 @@ define internal fastcc i32 @bvec_npages(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dup_iter(ptr nocapture noundef initializes((0, 40)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local ptr @dup_iter(ptr noundef captures(none) initializes((0, 40)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %0, ptr noundef align 8 dereferenceable(40) %1, i64 40, i1 false)
   %4 = load i8, ptr %0, align 8
   %.off = add i8 %4, -1
@@ -5710,7 +5710,7 @@ define dso_local ptr @iovec_from_user(ptr noundef %0, i64 noundef %1, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @copy_compat_iovec_from_user(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef range(i64 1, 1025) %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @copy_compat_iovec_from_user(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef range(i64 1, 1025) %2) unnamed_addr #0 align 16 {
   %4 = shl nuw nsw i64 %2, 3
   %5 = ptrtoint ptr %1 to i64
   %6 = add i64 %4, %5
@@ -5767,7 +5767,7 @@ define internal fastcc range(i32 -22, 1) i32 @copy_compat_iovec_from_user(ptr no
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 16 {
   %8 = icmp eq i32 %2, 1
   br i1 %8, label %9, label %69
 
@@ -6085,7 +6085,7 @@ iovec_from_user.exit.thread:                      ; preds = %iovec_from_user.exi
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) #0 align 16 {
+define dso_local i64 @import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5) #0 align 16 {
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !64
   %8 = inttoptr i64 %7 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -6097,7 +6097,7 @@ define dso_local i64 @import_iovec(i32 noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @import_ubuf(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @import_ubuf(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = tail call i64 @llvm.umin.i64(i64 %2, i64 2147479552)
   %6 = ptrtoint ptr %1 to i64
   %7 = add i64 %5, %6
@@ -6142,7 +6142,7 @@ define dso_local noundef range(i32 -14, 1) i32 @import_ubuf(i32 noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @iov_iter_restore(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @iov_iter_restore(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = load i8, ptr %0, align 8
   %4 = icmp ugt i8 %3, 2
   br i1 %4, label %5, label %14, !prof !123
@@ -6216,7 +6216,7 @@ define dso_local void @iov_iter_restore(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @iov_iter_extract_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @iov_iter_extract_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
@@ -6411,7 +6411,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @iov_iter_extract_pages(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_kvec_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_kvec_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
@@ -6574,7 +6574,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_kvec_pag
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_bvec_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_bvec_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
@@ -6714,7 +6714,7 @@ define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_bvec_pag
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_pages(ptr noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 2147479553) i64 @iov_iter_extract_xarray_pages(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef range(i64 0, 2147479553) %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.xa_state, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
@@ -7052,7 +7052,7 @@ declare dso_local i64 @copy_mc_to_user(ptr noundef, ptr noundef, i32 noundef) lo
 declare dso_local i64 @copy_mc_to_kernel(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @__copy_from_iter_mc(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i64 @__copy_from_iter_mc(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, %1
@@ -7154,7 +7154,7 @@ declare dso_local void @__memcpy_flushcache(ptr noundef, ptr noundef, i64 nounde
 declare dso_local i64 @copy_to_user_nofault(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 524289) i32 @want_pages_array(ptr nocapture noundef %0, i64 noundef range(i64 0, 2147479553) %1, i64 noundef range(i64 0, 4096) %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 524289) i32 @want_pages_array(ptr noundef captures(none) %0, i64 noundef range(i64 0, 2147479553) %1, i64 noundef range(i64 0, 4096) %2, i32 noundef range(i32 1, 0) %3) unnamed_addr #0 align 16 {
   %5 = add nuw nsw i64 %1, 4095
   %6 = add nuw nsw i64 %5, %2
   %7 = lshr i64 %6, 12
@@ -7242,7 +7242,7 @@ define internal fastcc void @get_page(ptr noundef %0) unnamed_addr #9 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef range(i64 1, 2147479553) %2, i32 noundef range(i32 1, 0) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i64 -12, 2147479553) i64 @iter_xarray_get_pages(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef range(i64 1, 2147479553) %2, i32 noundef range(i32 1, 0) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.xa_state, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8

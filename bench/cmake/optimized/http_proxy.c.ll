@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [6 x i8] c"close\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 672
@@ -112,7 +112,7 @@ define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noun
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_proxy_create_CONNECT(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local i32 @Curl_http_proxy_create_CONNECT(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
 ._crit_edge:
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -295,7 +295,7 @@ declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @Curl_http_req_make(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @Curl_http_output_auth(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
@@ -310,7 +310,7 @@ declare i32 @Curl_dynhds_add_custom(ptr noundef, i1 noundef zeroext, ptr noundef
 declare void @Curl_http_req_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_cf_http_proxy_get_host(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
+define dso_local void @Curl_cf_http_proxy_get_host(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %7 = load i8, ptr %6, align 4
   %8 = and i8 %7, 1
@@ -645,7 +645,7 @@ declare i32 @Curl_cf_def_conn_keep_alive(ptr noundef, ptr noundef) #3
 declare i32 @Curl_cf_def_query(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cf_http_proxy_insert_after(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define dso_local i32 @Curl_cf_http_proxy_insert_after(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @Curl_ccalloc, align 8
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 8) #5

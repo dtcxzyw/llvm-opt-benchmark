@@ -235,7 +235,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @block_crypto_reopen_prepare(ptr nocapture readnone %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #2 {
+define internal noundef i32 @block_crypto_reopen_prepare(ptr readnone captures(none) %state, ptr readnone captures(none) %queue, ptr readnone captures(none) %errp) #2 {
 entry:
   ret i32 0
 }
@@ -345,7 +345,7 @@ block_crypto_open_generic.exit:                   ; preds = %do.end.i, %glib_aut
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_crypto_close(ptr nocapture noundef readonly %bs) #0 {
+define internal void @block_crypto_close(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -355,7 +355,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -5, 1) i32 @block_crypto_co_create_luks(ptr nocapture noundef readonly %create_options, ptr noundef %errp) #0 {
+define internal range(i32 -5, 1) i32 @block_crypto_co_create_luks(ptr noundef readonly captures(none) %create_options, ptr noundef %errp) #0 {
 entry:
   %data.i = alloca %struct.BlockCryptoCreateData, align 8
   %create_opts = alloca %struct.QCryptoBlockCreateOptions, align 8
@@ -429,7 +429,7 @@ return:                                           ; preds = %if.end, %block_cryp
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @block_crypto_co_create_opts_luks(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @block_crypto_co_create_opts_luks(ptr readnone captures(none) %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %data.i = alloca %struct.BlockCryptoCreateData, align 8
   %ret.i = alloca ptr, align 8
@@ -549,7 +549,7 @@ return:                                           ; preds = %if.then5.i, %land.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_amend_options_luks(ptr noundef %bs, ptr noundef %opts, ptr nocapture readnone %status_cb, ptr nocapture readnone %cb_opaque, i1 noundef zeroext %force, ptr noundef %errp) #0 {
+define internal i32 @block_crypto_amend_options_luks(ptr noundef %bs, ptr noundef %opts, ptr readnone captures(none) %status_cb, ptr readnone captures(none) %cb_opaque, i1 noundef zeroext %force, ptr noundef %errp) #0 {
 entry:
   %errp.i = alloca ptr, align 8
   %ret.i = alloca ptr, align 8
@@ -683,7 +683,7 @@ cleanup:                                          ; preds = %qobject_unref_impl.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_crypto_refresh_limits(ptr nocapture noundef initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #0 {
+define internal void @block_crypto_refresh_limits(ptr noundef captures(none) initializes((16464, 16468)) %bs, ptr readnone captures(none) %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -728,7 +728,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 101) i32 @block_crypto_probe_luks(ptr noundef %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #0 {
+define internal range(i32 0, 101) i32 @block_crypto_probe_luks(ptr noundef %buf, i32 noundef %buf_size, ptr readnone captures(none) %filename) #0 {
 entry:
   %conv.i = sext i32 %buf_size to i64
   %call.i = tail call zeroext i1 @qcrypto_block_has_format(i32 noundef 1, ptr noundef %buf, i64 noundef %conv.i) #9
@@ -737,7 +737,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_co_amend_luks(ptr noundef %bs, ptr nocapture noundef readonly %opts, i1 noundef zeroext %force, ptr noundef %errp) #0 {
+define internal i32 @block_crypto_co_amend_luks(ptr noundef %bs, ptr noundef readonly captures(none) %opts, i1 noundef zeroext %force, ptr noundef %errp) #0 {
 entry:
   %amend_opts = alloca %struct.QCryptoBlockAmendOptions, align 8
   %.compoundliteral.sroa.2 = alloca [68 x i8], align 4
@@ -771,7 +771,7 @@ block_crypto_amend_options_generic_luks.exit:     ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
+define internal i32 @block_crypto_co_preadv(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 %flags) #0 {
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -861,7 +861,7 @@ cleanup:                                          ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_co_pwritev(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
+define internal i32 @block_crypto_co_pwritev(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -952,7 +952,7 @@ cleanup:                                          ; preds = %if.end29, %if.end36
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_co_truncate(ptr nocapture noundef readonly %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
+define internal i32 @block_crypto_co_truncate(ptr noundef readonly captures(none) %bs, i64 noundef %offset, i1 noundef zeroext %exact, i32 noundef %prealloc, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -979,7 +979,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @block_crypto_co_getlength(ptr nocapture noundef readonly %bs) #0 {
+define internal i64 @block_crypto_co_getlength(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1106,7 +1106,7 @@ glib_autoptr_cleanup_QCryptoBlockCreateOptions.exit: ; preds = %cleanup.thread19
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @block_crypto_co_get_info_luks(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #0 {
+define internal i32 @block_crypto_co_get_info_luks(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) %bdi) #0 {
 entry:
   %subbdi = alloca %struct.BlockDriverInfo, align 8
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
@@ -1126,7 +1126,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @block_crypto_get_specific_info_luks(ptr nocapture noundef readonly %bs, ptr noundef %errp) #0 {
+define internal noalias noundef ptr @block_crypto_get_specific_info_luks(ptr noundef readonly captures(none) %bs, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1185,7 +1185,7 @@ declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @qcrypto_block_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @block_crypto_read_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @block_crypto_read_func(ptr readnone captures(none) %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #9
   br i1 %call, label %do.end, label %if.else
@@ -1230,7 +1230,7 @@ declare void @qcrypto_block_free(ptr noundef) local_unnamed_addr #1
 declare ptr @bdrv_co_open_blockdev_ref(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -5, 1) i32 @block_crypto_co_create_generic(ptr noundef %bs, i64 noundef %size, ptr noundef %opts, i32 noundef %prealloc, ptr noundef %errp) #0 {
@@ -1268,7 +1268,7 @@ declare ptr @blk_co_new_with_bs(ptr noundef, i64 noundef, i64 noundef, ptr nound
 declare ptr @qcrypto_block_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @block_crypto_create_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @block_crypto_create_init_func(ptr readnone captures(none) %block, i64 noundef %headerlen, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %local_error = alloca ptr, align 8
   store ptr null, ptr %local_error, align 8
@@ -1310,7 +1310,7 @@ return:                                           ; preds = %if.then8, %if.else,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @block_crypto_create_write_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @block_crypto_create_write_func(ptr readnone captures(none) %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call i32 @blk_pwrite(ptr noundef %0, i64 noundef %offset, i64 noundef %buflen, ptr noundef %buf, i32 noundef 0) #9
@@ -1366,7 +1366,7 @@ declare void @qapi_free_QCryptoBlockAmendOptions(ptr noundef) local_unnamed_addr
 declare i32 @qcrypto_block_amend_options(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @block_crypto_write_func(ptr nocapture readnone %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr nocapture noundef readonly %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @block_crypto_write_func(ptr readnone captures(none) %block, i64 noundef %offset, ptr noundef %buf, i64 noundef %buflen, ptr noundef readonly captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %call = tail call zeroext i1 @qemu_in_main_thread() #9
   br i1 %call, label %do.end, label %if.else
@@ -1447,7 +1447,7 @@ declare ptr @qcrypto_block_get_info(ptr noundef, ptr noundef) local_unnamed_addr
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @qapi_free_QCryptoBlockInfo(ptr noundef) local_unnamed_addr #1
 
@@ -1458,10 +1458,10 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

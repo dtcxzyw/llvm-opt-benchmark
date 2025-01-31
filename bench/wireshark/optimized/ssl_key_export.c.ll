@@ -99,7 +99,7 @@ declare i32 @g_hash_table_iter_next(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @g_hash_table_contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ssl_export_sessions(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define hidden ptr @ssl_export_sessions(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct._GHashTableIter, align 8
   %3 = alloca ptr, align 8
   %4 = tail call ptr @tls_get_master_key_map(i32 noundef 0) #3
@@ -228,7 +228,7 @@ declare ptr @g_string_sized_new(i64 noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tls_export_client_randoms_func(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @tls_export_client_randoms_func(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @g_string_append(ptr noundef %2, ptr noundef %3) #3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
@@ -320,7 +320,7 @@ g_string_append_c_inline.exit18:                  ; preds = %42, %48
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tls_export_dsb(ptr nocapture noundef initializes((36, 40)) %0) local_unnamed_addr #0 {
+define hidden void @tls_export_dsb(ptr noundef captures(none) initializes((36, 40)) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = call ptr @ssl_export_sessions(ptr noundef nonnull %2)
   %4 = tail call ptr @wtap_block_create(i32 noundef 4) #3

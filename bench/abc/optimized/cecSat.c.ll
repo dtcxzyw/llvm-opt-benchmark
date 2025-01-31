@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec2_SetDefaultParams(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
+define void @Cec2_SetDefaultParams(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #0 {
   store i32 12, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 4, ptr %2, align 4
@@ -53,10 +53,10 @@ define void @Cec2_SetDefaultParams(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Cec2_AddClausesMux(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @Cec2_AddClausesMux(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca [4 x i32], align 16
@@ -153,7 +153,7 @@ declare ptr @Gia_ObjRecognizeMux(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @satoko_add_clause(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Cec2_AddClausesSuper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @Cec2_AddClausesSuper(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %2, i64 4
   %.val64 = load i32, ptr %5, align 4
   %6 = add nsw i32 %.val64, 1
@@ -277,7 +277,7 @@ define void @Cec2_AddClausesSuper(ptr nocapture noundef readonly %0, ptr noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @Cec2_CollectSuper_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
@@ -434,7 +434,7 @@ tailrecurse.outer._crit_edge:                     ; preds = %.lr.ph.split.us, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_PtrPushUnique(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -538,7 +538,7 @@ define void @Cec2_CollectSuper(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cec2_ObjAddToFrontier(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define void @Cec2_ObjAddToFrontier(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val13 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 416
@@ -729,7 +729,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare i32 @satoko_add_variable(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ObjGetCnfVar(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define i32 @Gia_ObjGetCnfVar(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %0, i64 32
   %.val93 = load ptr, ptr %6, align 8
   %7 = sext i32 %1 to i64
@@ -1015,7 +1015,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %153 = ptrtoint ptr %152 to i64
   %154 = and i64 %153, -2
   %155 = inttoptr i64 %154 to ptr
-  tail call void @Cec2_ObjAddToFrontier(ptr noundef %0, ptr noundef %155, ptr noundef %2, ptr noundef %4)
+  tail call void @Cec2_ObjAddToFrontier(ptr noundef nonnull %0, ptr noundef %155, ptr noundef %2, ptr noundef %4)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val85 = load i32, ptr %106, align 4
   %156 = sext i32 %.val85 to i64
@@ -1023,11 +1023,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %157, label %.lr.ph, label %.critedge2, !llvm.loop !9
 
 .critedge2:                                       ; preds = %.lr.ph, %113
-  tail call void @Cec2_AddClausesMux(ptr noundef %0, ptr noundef nonnull %110, ptr noundef %4)
+  tail call void @Cec2_AddClausesMux(ptr noundef nonnull %0, ptr noundef nonnull %110, ptr noundef %4)
   br label %167
 
 158:                                              ; preds = %108
-  tail call void @Cec2_CollectSuper_rec(ptr noundef %0, ptr noundef nonnull %110, ptr noundef %3, i32 noundef 1, i32 noundef 1)
+  tail call void @Cec2_CollectSuper_rec(ptr noundef nonnull %0, ptr noundef nonnull %110, ptr noundef %3, i32 noundef 1, i32 noundef 1)
   %.val84104 = load i32, ptr %106, align 4
   %159 = icmp sgt i32 %.val84104, 0
   br i1 %159, label %.lr.ph106, label %.critedge4
@@ -1040,7 +1040,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %162 = ptrtoint ptr %161 to i64
   %163 = and i64 %162, -2
   %164 = inttoptr i64 %163 to ptr
-  tail call void @Cec2_ObjAddToFrontier(ptr noundef %0, ptr noundef %164, ptr noundef %2, ptr noundef %4)
+  tail call void @Cec2_ObjAddToFrontier(ptr noundef nonnull %0, ptr noundef %164, ptr noundef %2, ptr noundef %4)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %.val84 = load i32, ptr %106, align 4
   %165 = sext i32 %.val84 to i64
@@ -1048,7 +1048,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %166, label %.lr.ph106, label %.critedge4, !llvm.loop !10
 
 .critedge4:                                       ; preds = %.lr.ph106, %158
-  tail call void @Cec2_AddClausesSuper(ptr noundef %0, ptr noundef nonnull %110, ptr noundef nonnull %3, ptr noundef %4)
+  tail call void @Cec2_AddClausesSuper(ptr noundef nonnull %0, ptr noundef nonnull %110, ptr noundef nonnull %3, ptr noundef %4)
   br label %167
 
 167:                                              ; preds = %.critedge2, %.critedge4
@@ -1076,7 +1076,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec2_ObjGetCnfVar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define i32 @Cec2_ObjGetCnfVar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1090,7 +1090,7 @@ define i32 @Cec2_ObjGetCnfVar(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cec2_ManSimulateCis(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Cec2_ManSimulateCis(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -1154,7 +1154,7 @@ Cec2_ObjSimCi.exit:                               ; preds = %.lr.ph.i, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cec2_ManDeriveCex(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @Cec2_ManDeriveCex(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %0, i64 64
   %.val25 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val25, i64 4
@@ -1234,7 +1234,7 @@ define noundef ptr @Cec2_ManDeriveCex(ptr nocapture noundef readonly %0, i32 nou
 declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cec2_ManSimulateCos(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Cec2_ManSimulateCos(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -1519,7 +1519,7 @@ Cec2_ManDeriveCex.exit:                           ; preds = %104, %126, %Abc_TtF
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cec2_ManSaveCis(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Cec2_ManSaveCis(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1656,7 +1656,7 @@ Vec_WrdPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_WrdPush.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec2_ManSimulate(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define i32 @Cec2_ManSimulate(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
@@ -1997,7 +1997,7 @@ Abc_Clock.exit71:                                 ; preds = %._crit_edge, %164
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cec2_ManSimClassRefineOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Cec2_ManSimClassRefineOne(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %0, i64 200
   %.val44 = load ptr, ptr %3, align 8
   %.pn88 = sext i32 %1 to i64
@@ -2206,7 +2206,7 @@ Cec2_ObjSimEqual.exit.thread74:                   ; preds = %.loopexit79.us, %.l
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Cec2_ManSimAlloc(ptr nocapture noundef initializes((816, 820)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @Cec2_ManSimAlloc(ptr noundef captures(none) initializes((816, 820)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2321,7 +2321,7 @@ Vec_WrdAlloc.exit:                                ; preds = %Vec_WrdStart.exit, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, -1) i32 @Cec2_ManSimHashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
+define range(i32 0, -1) i32 @Cec2_ManSimHashKey(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = shl i32 %1, 1
   %5 = load i32, ptr %0, align 4
   %6 = and i32 %5, 1
@@ -2381,7 +2381,7 @@ define range(i32 0, -1) i32 @Cec2_ManSimHashKey(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cec2_ManCreateClasses(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Cec2_ManCreateClasses(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 816
@@ -3331,7 +3331,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #21
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #21
   call void @free(ptr noundef %9) #21
   br label %16
 
@@ -3348,7 +3348,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @Gia_ManCleanMark01(ptr noundef) local_unnamed_addr #3
 
@@ -3465,10 +3465,10 @@ define void @Cec2_ManVerify(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @Cec2_ManCollect_rec(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Cec2_ManCollect_rec(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 176
@@ -3851,7 +3851,7 @@ Vec_IntPushTwo.exit:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec2_ManSolveTwo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @Cec2_ManSolveTwo(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %spec.select = tail call i32 @llvm.smax.i32(i32 %2, i32 %1)
   %spec.select76 = tail call i32 @llvm.smin.i32(i32 %2, i32 %1)
   %.not = icmp eq i32 %spec.select76, 0
@@ -4040,7 +4040,7 @@ declare void @satoko_assump_pop(ptr noundef) local_unnamed_addr #3
 declare void @satoko_unmark_cone(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @Cec2_ManSweepNode(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @Cec2_ManSweepNode(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -4341,7 +4341,7 @@ declare void @satoko_rollback(ptr noundef) local_unnamed_addr #3
 declare ptr @satoko_stats(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Cec2_ManPrintStats(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #2 {
+define void @Cec2_ManPrintStats(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -5521,7 +5521,7 @@ declare void @Gia_ObjSetPhase(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cec2_ManSimulateTest(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define ptr @Cec2_ManSimulateTest(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.Cec2_Par_t_, align 4
   store ptr null, ptr %3, align 8
@@ -5552,13 +5552,13 @@ define ptr @Cec2_ManSimulateTest(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Gia_ManAppendObj(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc ptr @Gia_ManAppendObj(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -5733,15 +5733,15 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
 
 declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #15
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #16
@@ -5750,16 +5750,16 @@ declare void @llvm.va_start.p0(ptr) #16
 declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #17
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

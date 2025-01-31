@@ -103,7 +103,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @binascii_traverse(ptr noundef %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @binascii_traverse(ptr noundef %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %module) #5
   %0 = load ptr, ptr %call.i, align 8
@@ -1173,7 +1173,7 @@ if.end4:                                          ; preds = %if.then3, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @binascii_b2a_hex(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @binascii_b2a_hex(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %data = alloca %struct.Py_buffer, align 8
@@ -1257,7 +1257,7 @@ if.end38:                                         ; preds = %if.then37, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @binascii_hexlify(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @binascii_hexlify(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %data = alloca %struct.Py_buffer, align 8
@@ -1372,7 +1372,7 @@ if.end4:                                          ; preds = %if.then3, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @binascii_crc_hqx(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @binascii_crc_hqx(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %data = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %data, i8 0, i64 80, i1 false)
@@ -1486,7 +1486,7 @@ if.end18:                                         ; preds = %if.then17, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @binascii_crc32(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @binascii_crc32(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %data = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %data, i8 0, i64 80, i1 false)
@@ -1594,7 +1594,7 @@ if.end30:                                         ; preds = %if.then29, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @binascii_a2b_qp(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @binascii_a2b_qp(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %data = alloca %struct.Py_buffer, align 8
@@ -1827,7 +1827,7 @@ if.end27:                                         ; preds = %if.then26, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @binascii_b2a_qp(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @binascii_b2a_qp(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %data = alloca %struct.Py_buffer, align 8
@@ -2415,7 +2415,7 @@ if.end52:                                         ; preds = %if.then51, %exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 131073) i32 @ascii_buffer_converter(ptr noundef %arg, ptr noundef nonnull %buf) unnamed_addr #0 {
@@ -2518,7 +2518,7 @@ declare ptr @_PyBytesWriter_Finish(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @_PyBytesWriter_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @binascii_a2b_hex_impl(ptr noundef %module, ptr nocapture readonly %hexstr.0.val, i64 %hexstr.16.val) unnamed_addr #0 {
+define internal fastcc ptr @binascii_a2b_hex_impl(ptr noundef %module, ptr readonly captures(none) %hexstr.0.val, i64 %hexstr.16.val) unnamed_addr #0 {
 entry:
   %0 = and i64 %hexstr.16.val, 1
   %tobool.not = icmp eq i64 %0, 0
@@ -2662,10 +2662,10 @@ declare ptr @PyErr_NewException(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

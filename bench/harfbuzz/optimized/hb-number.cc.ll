@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZZL6_pow10jE13_powers_of_10 = internal unnamed_addr constant [9 x double] [double 1.000000e+256, double 1.000000e+128, double 1.000000e+64, double 1.000000e+32, double 1.000000e+16, double 1.000000e+08, double 1.000000e+04, double 1.000000e+02, double 1.000000e+01], align 16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr nocapture noundef %pp, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 4)) %pv, i1 noundef zeroext %whole_buffer) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z12hb_parse_intPPKcS0_Pib(ptr noundef captures(none) %pp, ptr noundef %end, ptr noundef writeonly captures(none) initializes((0, 4)) %pv, i1 noundef zeroext %whole_buffer) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [32 x i8], align 16
   %pend.i = alloca ptr, align 8
@@ -67,7 +67,7 @@ if.end.i:                                         ; preds = %lor.lhs.false10.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr nocapture noundef %pp, ptr noundef %end, ptr nocapture noundef writeonly initializes((0, 4)) %pv, i1 noundef zeroext %whole_buffer, i32 noundef %base) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z13hb_parse_uintPPKcS0_Pjbi(ptr noundef captures(none) %pp, ptr noundef %end, ptr noundef writeonly captures(none) initializes((0, 4)) %pv, i1 noundef zeroext %whole_buffer, i32 noundef %base) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [32 x i8], align 16
   %pend.i = alloca ptr, align 8
@@ -122,7 +122,7 @@ if.end.i:                                         ; preds = %lor.lhs.false10.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr nocapture noundef %pp, ptr noundef %end, ptr nocapture noundef writeonly %pv, i1 noundef zeroext %whole_buffer) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_Z15hb_parse_doublePPKcS0_Pdb(ptr noundef captures(none) %pp, ptr noundef %end, ptr noundef writeonly captures(none) %pv, i1 noundef zeroext %whole_buffer) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %pp, align 8
   %p103.i = ptrtoint ptr %0 to i64
@@ -414,25 +414,25 @@ return:                                           ; preds = %_ZL9strtod_rlPKcPS0
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

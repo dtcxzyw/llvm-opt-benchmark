@@ -58,7 +58,7 @@ define hidden noundef ptr @_Z35pj_projection_specific_setup_augustP8PJconsts(ptr
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal { double, double } @_ZL16august_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL16august_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = fmul double %1, 5.000000e-01
   %5 = tail call double @tan(double noundef %4) #6
   %6 = fneg double %5

@@ -30,7 +30,7 @@ $_ZN8EqHandle17positionToQualityEd = comdat any
 @_ZN8EqHandleD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8EqHandleD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8EqHandleC2EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEPPS_PdP14QDoubleSpinBoxii(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ptr nocapture noundef readonly %2, double %3, double %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8EqHandleC2EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEPPS_PdP14QDoubleSpinBoxii(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, double %3, double %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %class.QColor, align 4
   %13 = load i32, ptr %2, align 4
   store i32 %13, ptr %12, align 4
@@ -93,7 +93,7 @@ define void @_ZN8EqHandleC2EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEP
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, double, double, i32 noundef, i32 noundef) unnamed_addr #2
 
@@ -134,7 +134,7 @@ define void @_ZThn16_N8EqHandleD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8EqHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %1, ptr nocapture readnone %2, ptr nocapture readnone %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8EqHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QRect, align 4
   %6 = alloca %class.QLine, align 4
   %7 = alloca %class.QBrush, align 8
@@ -201,7 +201,7 @@ declare void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unn
 declare void @_ZN8QPainter11drawPolygonEPK7QPointFiN2Qt8FillRuleE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N8EqHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) unnamed_addr #7 align 2 {
+define void @_ZThn16_N8EqHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN8EqHandle5paintEP8QPainterPK24QStyleOptionGraphicsItemP7QWidget(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef %1, ptr poison, ptr poison)
   ret void
@@ -212,7 +212,7 @@ declare void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 deref
 declare void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %1) unnamed_addr #8 align 2 {
+define void @_ZNK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QRectF) align 8 captures(none) initializes((0, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = sdiv i32 %4, -2
@@ -232,7 +232,7 @@ define void @_ZNK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZThn16_NK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
+define void @_ZThn16_NK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QRectF) align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8, !noalias !5
@@ -925,13 +925,13 @@ define void @_ZN8EqHandle25setXBySpinBoxValueChangedEd(ptr noundef nonnull align
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13

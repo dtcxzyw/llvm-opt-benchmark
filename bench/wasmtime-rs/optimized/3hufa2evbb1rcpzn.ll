@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h54795d6ca99b447fE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 8)) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
+define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h54795d6ca99b447fE(ptr writeonly sret({ i64, [2 x i64] }) align 8 captures(none) initializes((0, 8)) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 %3)
   %6 = extractvalue { i64, i1 } %5, 1
   br i1 %6, label %12, label %7
@@ -60,7 +60,7 @@ define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h54795
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h52d61b1517c9d81eE(ptr align 8 %0, ptr align 1 %1, ptr nocapture readonly align 8 %2, i64 %3, ptr %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN9hashbrown3raw13RawTableInner15rehash_in_place17h52d61b1517c9d81eE(ptr align 8 %0, ptr align 1 %1, ptr readonly align 8 captures(none) %2, i64 %3, ptr %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca <2 x i64>, align 16
   %7 = alloca <2 x i64>, align 16
   %8 = alloca <2 x i64>, align 16
@@ -380,7 +380,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17heed05eb3125796f1E.ex
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot17h6efe03214cc258d3E(ptr nocapture readonly align 8 %0, i64 %1) unnamed_addr #1 {
+define hidden { i64, i8 } @_ZN9hashbrown3raw13RawTableInner19prepare_insert_slot17h6efe03214cc258d3E(ptr readonly align 8 captures(none) %0, i64 %1) unnamed_addr #1 {
   %3 = alloca <2 x i64>, align 16
   %4 = alloca <2 x i64>, align 16
   %5 = alloca <2 x i64>, align 16
@@ -477,7 +477,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hf7f28c6268cde44bE.exit: ; p
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17hebf65bfb9853868fE(ptr nocapture readonly align 8 %0, i64 %1, ptr align 1 %2, ptr nocapture readonly align 8 %3) unnamed_addr #1 {
+define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17hebf65bfb9853868fE(ptr readonly align 8 captures(none) %0, i64 %1, ptr align 1 %2, ptr readonly align 8 captures(none) %3) unnamed_addr #1 {
   %5 = alloca <2 x i64>, align 16
   %6 = alloca <2 x i64>, align 16
   %7 = alloca <2 x i64>, align 16
@@ -628,7 +628,7 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #2
 declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @_ZN4core9core_arch3x864sse214_mm_load_si12817h01f64efa97b82412E(ptr sret(<2 x i64>) align 16, ptr) unnamed_addr #4
@@ -664,7 +664,7 @@ declare hidden void @_ZN4core9core_arch3x864sse215_mm_loadu_si12817h870587d61ad6
 declare void @"_ZN4core4iter8adapters7step_by15StepBy$LT$I$GT$3new17hd176c4b3ae1703a9E"(ptr sret({ { i64, i64 }, i64, i8, [7 x i8] }) align 8, i64, i64, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @_ZN9hashbrown3raw4sse25Group44convert_special_to_empty_and_full_to_deleted17hae41fa4c54b5bfcbE(ptr sret(<2 x i64>) align 16, ptr align 16) unnamed_addr #1
@@ -688,10 +688,10 @@ declare i64 @llvm.umax.i64(i64, i64) #8
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @jGetSmall(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jGetSmall(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @malloc(i64 noundef %1) #7
   ret ptr %3
 }
@@ -13,28 +13,28 @@ define hidden noalias noundef ptr @jGetSmall(ptr nocapture noundef readnone %0, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @jFreeSmall(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @jFreeSmall(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   tail call void @free(ptr noundef %1) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define hidden noalias noundef ptr @jGetLarge(ptr nocapture noundef readnone %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @jGetLarge(ptr noundef readnone captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @malloc(i64 noundef %1) #7
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @jFreeLarge(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @jFreeLarge(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   tail call void @free(ptr noundef %1) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @jMemAvail(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define hidden i64 @jMemAvail(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -46,7 +46,7 @@ define hidden i64 @jMemAvail(ptr nocapture noundef readonly %0, i64 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jOpenBackStore(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden void @jOpenBackStore(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i32 49, ptr %5, align 8
@@ -57,12 +57,12 @@ define hidden void @jOpenBackStore(ptr noundef %0, ptr nocapture noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @jMemInit(ptr nocapture noundef readnone %0) local_unnamed_addr #6 {
+define hidden noundef i64 @jMemInit(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @jMemTerm(ptr nocapture noundef readnone %0) local_unnamed_addr #6 {
+define hidden void @jMemTerm(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 {
   ret void
 }
 

@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @aegis256_soft_implementation = hidden local_unnamed_addr global %struct.aegis256_implementation { ptr @encrypt_detached, ptr @decrypt_detached }, align 8
 
 ; Function Attrs: nounwind ssp uwtable
-define internal range(i32 -1, 1) i32 @encrypt_detached(ptr nocapture noundef writeonly %c, ptr nocapture noundef writeonly %mac, i64 noundef %maclen, ptr nocapture noundef readonly %m, i64 noundef %mlen, ptr nocapture noundef readonly %ad, i64 noundef %adlen, ptr nocapture noundef readonly %npub, ptr nocapture noundef readonly %k) #0 {
+define internal range(i32 -1, 1) i32 @encrypt_detached(ptr noundef writeonly captures(none) %c, ptr noundef writeonly captures(none) %mac, i64 noundef %maclen, ptr noundef readonly captures(none) %m, i64 noundef %mlen, ptr noundef readonly captures(none) %ad, i64 noundef %adlen, ptr noundef readonly captures(none) %npub, ptr noundef readonly captures(none) %k) #0 {
 entry:
   %state = alloca [6 x %struct.SoftAesBlock], align 16
   %src = alloca [16 x i8], align 16
@@ -389,7 +389,7 @@ if.end32:                                         ; preds = %if.then21, %for.end
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal i32 @decrypt_detached(ptr noundef writeonly %m, ptr nocapture noundef readonly %c, i64 noundef %clen, ptr noundef %mac, i64 noundef %maclen, ptr nocapture noundef readonly %ad, i64 noundef %adlen, ptr nocapture noundef readonly %npub, ptr nocapture noundef readonly %k) #0 {
+define internal i32 @decrypt_detached(ptr noundef writeonly %m, ptr noundef readonly captures(none) %c, i64 noundef %clen, ptr noundef %mac, i64 noundef %maclen, ptr noundef readonly captures(none) %ad, i64 noundef %adlen, ptr noundef readonly captures(none) %npub, ptr noundef readonly captures(none) %k) #0 {
 entry:
   %pad.i76 = alloca [16 x i8], align 16
   %pad.i = alloca [16 x i8], align 16
@@ -1012,7 +1012,7 @@ if.end67:                                         ; preds = %if.then66, %if.end6
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @aegis256_init(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %nonce, ptr nocapture noundef nonnull initializes((0, 96)) %state) unnamed_addr #0 {
+define internal fastcc void @aegis256_init(ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %nonce, ptr noundef nonnull captures(none) initializes((0, 96)) %state) unnamed_addr #0 {
 entry:
   %in.val.i = load i64, ptr %key, align 1
   %add.ptr3.i = getelementptr i8, ptr %key, i64 8
@@ -1076,13 +1076,13 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc range(i32 -1, 1) i32 @aegis256_mac(ptr nocapture noundef writeonly %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr nocapture noundef nonnull %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @aegis256_mac(ptr noundef writeonly captures(none) %mac, i64 noundef %maclen, i64 noundef %adlen, i64 noundef %mlen, ptr noundef nonnull captures(none) %state) unnamed_addr #0 {
 entry:
   %shl = shl i64 %mlen, 3
   %shl2 = shl i64 %adlen, 3
@@ -1223,7 +1223,7 @@ return:                                           ; preds = %if.then, %if.then22
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @aegis256_update(ptr nocapture noundef nonnull %state, i64 %d.coerce0, i64 %d.coerce1) unnamed_addr #0 {
+define internal fastcc void @aegis256_update(ptr noundef nonnull captures(none) %state, i64 %d.coerce0, i64 %d.coerce1) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %state, i64 80
   %tmp.sroa.0.0.copyload = load i64, ptr %arrayidx, align 4
@@ -1300,10 +1300,10 @@ declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @crypto_verify_32(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -73,7 +73,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK12z3_exception10error_codeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK12z3_exception10error_codeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 0
 }
@@ -90,7 +90,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8z3_errorC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %error_code) unnamed_addr #5 align 2 {
+define hidden void @_ZN8z3_errorC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this, i32 noundef %error_code) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8z3_error, i64 16), ptr %this, align 8
   %m_error_code = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK8z3_error3msgEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) unnamed_addr #6 align 2 {
+define hidden noundef nonnull ptr @_ZNK8z3_error3msgEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this) unnamed_addr #6 align 2 {
 entry:
   %m_error_code = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_error_code, align 8
@@ -119,7 +119,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK8z3_error10error_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK8z3_error10error_codeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this) unnamed_addr #6 align 2 {
 entry:
   %m_error_code = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_error_code, align 8

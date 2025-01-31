@@ -374,7 +374,7 @@ $_ZTV2If = comdat any
 @switch.table._ZN13Canonicalizer10do_ConvertEP7Convert = private unnamed_addr constant [3 x i32] [i32 -128, i32 -65536, i32 -32768], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13Canonicalizer13set_canonicalEP11Instruction(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13Canonicalizer13set_canonicalEP11Instruction(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, %1
@@ -389,7 +389,7 @@ define hidden void @_ZN13Canonicalizer13set_canonicalEP11Instruction(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer19move_const_to_rightEP3Op2(ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer19move_const_to_rightEP3Op2(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1112,27 +1112,27 @@ declare noundef i64 @_ZN13SharedRuntime4ldivEll(i64 noundef, i64 noundef) local_
 declare noundef i64 @_ZN13SharedRuntime4lremEll(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer6do_PhiEP3Phi(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer6do_PhiEP3Phi(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer11do_ConstantEP8Constant(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer11do_ConstantEP8Constant(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer8do_LocalEP5Local(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer8do_LocalEP5Local(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer12do_LoadFieldEP9LoadField(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer12do_LoadFieldEP9LoadField(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer13do_StoreFieldEP10StoreField(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer13do_StoreFieldEP10StoreField(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1409,7 +1409,7 @@ _ZNK11AccessField10field_typeEv.exit:             ; preds = %_ZN11AccessFieldC2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer14do_ArrayLengthEP11ArrayLength(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer14do_ArrayLengthEP11ArrayLength(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1556,7 +1556,7 @@ _ZN7ciField18is_static_constantEv.exit.thread:    ; preds = %_ZN7ciField18is_sta
 declare { i8, i64 } @_ZN7ciField14constant_valueEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer14do_LoadIndexedEP11LoadIndexed(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer14do_LoadIndexedEP11LoadIndexed(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = alloca %class.ciConstant, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8
@@ -1755,7 +1755,7 @@ declare noundef zeroext i1 @_ZNK10ciConstant15is_null_or_zeroEv(ptr noundef nonn
 declare noundef ptr @_Z12as_ValueType10ciConstant(i8, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer15do_StoreIndexedEP12StoreIndexed(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer15do_StoreIndexedEP12StoreIndexed(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1963,7 +1963,7 @@ _ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %.preheader, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer11do_NegateOpEP8NegateOp(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer11do_NegateOpEP8NegateOp(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2292,7 +2292,7 @@ define hidden void @_ZN13Canonicalizer15do_ArithmeticOpEP12ArithmeticOp(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer10do_ShiftOpEP7ShiftOp(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer10do_ShiftOpEP7ShiftOp(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2518,7 +2518,7 @@ define hidden void @_ZN13Canonicalizer10do_LogicOpEP7LogicOp(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer12do_CompareOpEP9CompareOp(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer12do_CompareOpEP9CompareOp(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -2716,7 +2716,7 @@ define hidden void @_ZN13Canonicalizer12do_CompareOpEP9CompareOp(ptr noundef non
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN13Canonicalizer7do_IfOpEP4IfOp(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN13Canonicalizer7do_IfOpEP4IfOp(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #5 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 476) #10
@@ -2724,7 +2724,7 @@ define hidden void @_ZN13Canonicalizer7do_IfOpEP4IfOp(ptr nocapture nonnull read
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer12do_IntrinsicEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer12do_IntrinsicEP9Intrinsic(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %165 [
@@ -3031,7 +3031,7 @@ define linkonce_odr hidden void @_ZN10InstanceOfC2EP7ciKlassP11InstructionP10Val
 declare noundef i32 @_ZN7ciKlass14modifier_flagsEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer10do_ConvertEP7Convert(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer10do_ConvertEP7Convert(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3481,7 +3481,7 @@ declare noundef i32 @_ZN13SharedRuntime3d2iEd(double noundef) local_unnamed_addr
 declare noundef i64 @_ZN13SharedRuntime3d2lEd(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer12do_NullCheckEP9NullCheck(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer12do_NullCheckEP9NullCheck(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -3568,37 +3568,37 @@ _ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %50, %47, %19, 
 declare noundef zeroext i1 @_ZNK10ObjectType9is_loadedEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer11do_TypeCastEP8TypeCast(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer11do_TypeCastEP8TypeCast(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer9do_InvokeEP6Invoke(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer9do_InvokeEP6Invoke(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer14do_NewInstanceEP11NewInstance(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer14do_NewInstanceEP11NewInstance(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer15do_NewTypeArrayEP12NewTypeArray(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer15do_NewTypeArrayEP12NewTypeArray(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer17do_NewObjectArrayEP14NewObjectArray(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer17do_NewObjectArrayEP14NewObjectArray(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer16do_NewMultiArrayEP13NewMultiArray(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer16do_NewMultiArrayEP13NewMultiArray(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer12do_CheckCastEP9CheckCast(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer12do_CheckCastEP9CheckCast(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3716,7 +3716,7 @@ _ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %67, %64, %43, 
 declare noundef zeroext i1 @_ZN6ciType13is_subtype_ofEPS_(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer13do_InstanceOfEP10InstanceOf(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer13do_InstanceOfEP10InstanceOf(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3811,22 +3811,22 @@ _ZNK10ciMetadata9is_loadedEv.exit16.thread:       ; preds = %17, %_ZNK10ciMetada
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer15do_MonitorEnterEP12MonitorEnter(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer15do_MonitorEnterEP12MonitorEnter(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer14do_MonitorExitEP11MonitorExit(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer14do_MonitorExitEP11MonitorExit(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer13do_BlockBeginEP10BlockBegin(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer13do_BlockBeginEP10BlockBegin(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer7do_GotoEP4Goto(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer7do_GotoEP4Goto(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -4880,7 +4880,7 @@ _ZN26GrowableArrayWithAllocatorIP10BlockBegin13GrowableArrayIS1_EE6appendERKS1_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer14do_TableSwitchEP11TableSwitch(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer14do_TableSwitchEP11TableSwitch(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -5007,7 +5007,7 @@ _ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %78, %75, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Canonicalizer15do_LookupSwitchEP12LookupSwitch(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13Canonicalizer15do_LookupSwitchEP12LookupSwitch(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -5144,77 +5144,77 @@ _ZN13Canonicalizer13set_canonicalEP11Instruction.exit: ; preds = %83, %80, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer9do_ReturnEP6Return(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer9do_ReturnEP6Return(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer8do_ThrowEP5Throw(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer8do_ThrowEP5Throw(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer7do_BaseEP4Base(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer7do_BaseEP4Base(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer11do_OsrEntryEP8OsrEntry(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer11do_OsrEntryEP8OsrEntry(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer18do_ExceptionObjectEP15ExceptionObject(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer18do_ExceptionObjectEP15ExceptionObject(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer10do_RoundFPEP7RoundFP(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer10do_RoundFPEP7RoundFP(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer12do_UnsafeGetEP9UnsafeGet(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer12do_UnsafeGetEP9UnsafeGet(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer12do_UnsafePutEP9UnsafePut(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer12do_UnsafePutEP9UnsafePut(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer18do_UnsafeGetAndSetEP15UnsafeGetAndSet(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer18do_UnsafeGetAndSetEP15UnsafeGetAndSet(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer14do_ProfileCallEP11ProfileCall(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer14do_ProfileCallEP11ProfileCall(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer20do_ProfileReturnTypeEP17ProfileReturnType(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer20do_ProfileReturnTypeEP17ProfileReturnType(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer16do_ProfileInvokeEP13ProfileInvoke(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer16do_ProfileInvokeEP13ProfileInvoke(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer14do_RuntimeCallEP11RuntimeCall(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer14do_RuntimeCallEP11RuntimeCall(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer22do_RangeCheckPredicateEP19RangeCheckPredicate(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer22do_RangeCheckPredicateEP19RangeCheckPredicate(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN13Canonicalizer9do_MemBarEP6MemBar(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13Canonicalizer9do_MemBarEP6MemBar(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #3 align 2 {
   ret void
 }
 
@@ -6152,7 +6152,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #7
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

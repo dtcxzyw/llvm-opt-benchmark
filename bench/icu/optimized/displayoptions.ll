@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514DisplayOptionsC2ERKNS0_7BuilderE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %builder) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514DisplayOptionsC2ERKNS0_7BuilderE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %builder) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %builder, align 4
   store i32 %0, ptr %this, align 4
@@ -88,14 +88,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514DisplayOptions7BuilderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %this) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7514DisplayOptions7BuilderC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(28) initializes((0, 28)) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %this, i8 0, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514DisplayOptions7BuilderC2ERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %displayOptions) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514DisplayOptions7BuilderC2ERKS0_(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %displayOptions) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %displayOptions, align 4
   store i32 %0, ptr %this, align 4
@@ -144,7 +144,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 15) i32 @udispopt_fromGrammaticalCaseIdentifier_75(ptr nocapture noundef readonly %identifier) local_unnamed_addr #4 {
+define range(i32 0, 15) i32 @udispopt_fromGrammaticalCaseIdentifier_75(ptr noundef readonly captures(none) %identifier) local_unnamed_addr #4 {
 entry:
   br label %for.body
 
@@ -171,7 +171,7 @@ return:                                           ; preds = %for.inc, %return.sp
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define ptr @udispopt_getPluralCategoryIdentifier_75(i32 noundef %pluralCategory) local_unnamed_addr #3 {
@@ -191,7 +191,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 7) i32 @udispopt_fromPluralCategoryIdentifier_75(ptr nocapture noundef readonly %identifier) local_unnamed_addr #4 {
+define range(i32 0, 7) i32 @udispopt_fromPluralCategoryIdentifier_75(ptr noundef readonly captures(none) %identifier) local_unnamed_addr #4 {
 entry:
   br label %for.body
 
@@ -235,7 +235,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 9) i32 @udispopt_fromNounClassIdentifier_75(ptr nocapture noundef readonly %identifier) local_unnamed_addr #4 {
+define range(i32 0, 9) i32 @udispopt_fromNounClassIdentifier_75(ptr noundef readonly captures(none) %identifier) local_unnamed_addr #4 {
 entry:
   br label %for.body
 
@@ -262,7 +262,7 @@ return:                                           ; preds = %for.inc, %return.sp
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.transformMergeStmt = private unnamed_addr constant [6 x i64] [i64 4, i64 1, i64 8, i64 poison, i64 poison, i64 2], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @transformMergeStmt(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [2 x i8], align 1
   %4 = alloca ptr, align 8
   %5 = tail call noundef ptr @palloc0(i64 noundef 256) #5
@@ -448,7 +448,7 @@ setNamespaceVisibilityForRTE.exit21.sink.split.i: ; preds = %213, %188
 setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.i23.i, %.lr.ph.i.i, %169, %setNamespaceVisibilityForRTE.exit.i, %.lr.ph.i14.i, %194, %setNamespaceVisibilityForRTE.exit30.i, %.lr.ph.i32.i, %setNamespaceVisibilityForRTE.exit21.sink.split.i
   %221 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %222 = load ptr, ptr %221, align 8
-  %223 = call ptr @transformWhereClause(ptr noundef %0, ptr noundef %222, i32 noundef 18, ptr noundef nonnull @.str.7) #5
+  %223 = call ptr @transformWhereClause(ptr noundef nonnull %0, ptr noundef %222, i32 noundef 18, ptr noundef nonnull @.str.7) #5
   %224 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %223, ptr %224, align 8
   %225 = load i32, ptr %150, align 8
@@ -463,7 +463,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.
   store i8 1, ptr %141, align 8
   %227 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %228 = load ptr, ptr %227, align 8
-  %229 = call ptr @checkInsertTargets(ptr noundef %0, ptr noundef %228, ptr noundef nonnull %4) #5
+  %229 = call ptr @checkInsertTargets(ptr noundef nonnull %0, ptr noundef %228, ptr noundef nonnull %4) #5
   %230 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %231 = load i32, ptr %230, align 4
   %232 = getelementptr inbounds nuw i8, ptr %147, i64 12
@@ -570,7 +570,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.
   store i8 0, ptr %141, align 8
   %296 = getelementptr inbounds nuw i8, ptr %146, i64 24
   %297 = load ptr, ptr %296, align 8
-  %298 = call ptr @transformUpdateTargetList(ptr noundef %0, ptr noundef %297) #5
+  %298 = call ptr @transformUpdateTargetList(ptr noundef nonnull %0, ptr noundef %297) #5
   br label %.critedge.sink.split
 
 299:                                              ; preds = %setNamespaceForMergeWhen.exit
@@ -607,7 +607,7 @@ setNamespaceForMergeWhen.exit:                    ; preds = %212, %187, %.lr.ph.
   %312 = getelementptr inbounds nuw i8, ptr %5, i64 47
   %313 = and i8 %311, 1
   store i8 %313, ptr %312, align 1
-  call void @assign_query_collations(ptr noundef %0, ptr noundef nonnull %5) #5
+  call void @assign_query_collations(ptr noundef nonnull %0, ptr noundef nonnull %5) #5
   ret ptr %5
 }
 
@@ -635,7 +635,7 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #2
 declare ptr @GetNSItemByRangeTablePosn(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 

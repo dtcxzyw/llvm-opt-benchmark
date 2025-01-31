@@ -411,10 +411,10 @@ _ZN5boost7archive23basic_binary_oprimitiveINS0_16binary_woarchiveEwSt11char_trai
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN5boost7archive23basic_binary_oprimitiveINS0_16binary_woarchiveEwSt11char_traitsIwEE4saveERKNSt7__cxx1112basic_stringIwS4_SaIwEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -530,7 +530,7 @@ _ZN5boost7archive23basic_binary_oprimitiveINS0_16binary_woarchiveEwSt11char_trai
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 96
   %22 = load ptr, ptr %21, align 8
-  %23 = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef %1, i64 noundef %18)
+  %23 = call noundef i64 %22(ptr noundef nonnull align 8 dereferenceable(64) %19, ptr noundef nonnull %1, i64 noundef %18)
   %.not.i = icmp eq i64 %18, %23
   br i1 %.not.i, label %_ZN5boost7archive23basic_binary_oprimitiveINS0_16binary_woarchiveEwSt11char_traitsIwEE11save_binaryEPKvm.exit, label %24
 
@@ -556,7 +556,7 @@ _ZN5boost7archive23basic_binary_oprimitiveINS0_16binary_woarchiveEwSt11char_trai
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN5boost7archive23basic_binary_oprimitiveINS0_16binary_woarchiveEwSt11char_traitsIwEE4saveEPKw(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -627,7 +627,7 @@ _ZN5boost7archive23basic_binary_oprimitiveINS0_16binary_woarchiveEwSt11char_trai
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr hidden void @_ZN5boost7archive23basic_binary_oprimitiveINS0_16binary_woarchiveEwSt11char_traitsIwEE4initEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1659,7 +1659,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #13
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #15

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @TransposetoAxes(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @TransposetoAxes(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %2, -1
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i32, ptr %0, i64 %5
@@ -128,7 +128,7 @@ define void @TransposetoAxes(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @AxestoTranspose(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @AxestoTranspose(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add nsw i32 %1, -1
   %.not67 = icmp eq i32 %4, 0
   br i1 %.not67, label %.preheader, label %.lr.ph56

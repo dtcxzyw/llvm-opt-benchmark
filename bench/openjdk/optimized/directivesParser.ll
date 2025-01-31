@@ -153,7 +153,7 @@ $_ZN25ControlIntrinsicValidatorC2EPKcb = comdat any
 @_ZN16DirectivesParserD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16DirectivesParserD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16DirectivesParser8push_tmpEP18CompilerDirectives(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16DirectivesParser8push_tmpEP18CompilerDirectives(ptr noundef nonnull align 8 captures(none) dereferenceable(132) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -166,7 +166,7 @@ define hidden void @_ZN16DirectivesParser8push_tmpEP18CompilerDirectives(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16DirectivesParser7pop_tmpEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN16DirectivesParser7pop_tmpEv(ptr noundef nonnull align 8 captures(none) dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -189,7 +189,7 @@ define hidden noundef ptr @_ZN16DirectivesParser7pop_tmpEv(ptr nocapture noundef
 declare noundef ptr @_ZN18CompilerDirectives4nextEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16DirectivesParser9clean_tmpEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16DirectivesParser9clean_tmpEv(ptr noundef nonnull align 8 captures(none) dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %cond = icmp eq ptr %3, null
@@ -296,7 +296,7 @@ _ZN16DirectivesParser9clean_tmpEv.exit:           ; preds = %_ZN16DirectivesPars
 declare noundef zeroext i1 @_ZN4JSON5validEv(ptr noundef nonnull align 8 dereferenceable(54)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN16DirectivesParser18install_directivesEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN16DirectivesParser18install_directivesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(132) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -489,7 +489,7 @@ declare noundef i32 @_ZN2os4openEPKcii(ptr noundef, i32 noundef, i32 noundef) lo
 declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
@@ -516,7 +516,7 @@ declare void @_ZN4JSONC2EPKcbP12outputStream(ptr noundef nonnull align 8 derefer
 declare void @_ZN4JSON5parseEv(ptr noundef nonnull align 8 dereferenceable(54)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16DirectivesParserD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(132) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN16DirectivesParserD2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(132) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %0, align 8
   ret void
 }
@@ -842,7 +842,7 @@ define linkonce_odr hidden void @_ZN12DirectiveSet16set_MaxNodeLimitEPv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef ptr @_ZN16DirectivesParser10lookup_keyEPKcm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN16DirectivesParser10lookup_keyEPKcm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   br label %5
 
 3:                                                ; preds = %5
@@ -864,10 +864,10 @@ define hidden noundef ptr @_ZN16DirectivesParser10lookup_keyEPKcm(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKcm(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKcm(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   br label %6
 
 4:                                                ; preds = %6
@@ -957,7 +957,7 @@ _ZN16DirectivesParser8push_keyEPKNS_3keyE.exit:   ; preds = %.thread.i, %40, %26
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 declare void @_ZN4JSON5errorENS_10JSON_ERROREPKcz(ptr noundef nonnull align 8 dereferenceable(54), i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -1028,7 +1028,7 @@ define hidden noundef zeroext i1 @_ZN16DirectivesParser8push_keyEPKNS_3keyE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN16DirectivesParser11current_keyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(132) %0) local_unnamed_addr #11 align 2 {
+define hidden noundef ptr @_ZN16DirectivesParser11current_keyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(132) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -1073,7 +1073,7 @@ define hidden noundef ptr @_ZN16DirectivesParser7pop_keyEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9JSON_TYPEEPNS0_8JSON_VALEPKNS_3keyEP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN16DirectivesParser15set_option_flagEN4JSON9JSON_TYPEEPNS0_8JSON_VALEPKNS_3keyEP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i64, align 8
@@ -1408,7 +1408,7 @@ _ZN25ControlIntrinsicValidatorD2Ev.exit.thread:   ; preds = %_ZN25ControlIntrins
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 comdat align 2 {
@@ -1457,7 +1457,7 @@ define linkonce_odr hidden void @_ZN25ControlIntrinsicValidatorC2EPKcb(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16DirectivesParser10set_optionEN4JSON9JSON_TYPEEPNS0_8JSON_VALE(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN16DirectivesParser10set_optionEN4JSON9JSON_TYPEEPNS0_8JSON_VALE(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -1772,7 +1772,7 @@ declare noundef zeroext i1 @_ZN18CompilerDirectives9add_matchEPcRPKc(ptr noundef
 declare noundef zeroext i1 @_ZN12DirectiveSet20parse_and_add_inlineEPcRPKc(ptr noundef nonnull align 8 dereferenceable(280), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16DirectivesParser8callbackEN4JSON9JSON_TYPEEPNS0_8JSON_VALEj(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 %3) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN16DirectivesParser8callbackEN4JSON9JSON_TYPEEPNS0_8JSON_VALEj(ptr noundef nonnull align 8 dereferenceable(132) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %51 [
@@ -2076,7 +2076,7 @@ declare void @_ZN20ControlIntrinsicIterC1EPKcb(ptr noundef nonnull align 8 deref
 declare noundef i32 @_ZN12vmIntrinsics7find_idEPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare noundef nonnull align 8 dereferenceable(33) ptr @_ZN20ControlIntrinsicIterppEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #2
 
@@ -2087,7 +2087,7 @@ declare void @_ZN20ControlIntrinsicIterD1Ev(ptr noundef nonnull align 8 derefere
 declare i64 @llvm.umin.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

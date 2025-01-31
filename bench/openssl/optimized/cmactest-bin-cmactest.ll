@@ -730,15 +730,15 @@ declare ptr @EVP_aes_128_xts() local_unnamed_addr #1
 declare void @CMAC_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @CMAC_Final(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @pt(ptr nocapture noundef nonnull readonly %md, i32 noundef %len) unnamed_addr #4 {
+define internal fastcc void @pt(ptr noundef nonnull readonly captures(none) %md, i32 noundef %len) unnamed_addr #4 {
 entry:
   %cmp4.not = icmp eq i32 %len, 0
   br i1 %cmp4.not, label %for.end, label %for.body.preheader
@@ -775,7 +775,7 @@ declare ptr @EVP_des_ede3_cbc() local_unnamed_addr #1
 declare ptr @EVP_sm4_cbc() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @CMAC_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 

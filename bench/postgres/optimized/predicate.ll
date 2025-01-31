@@ -107,7 +107,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.36 = private unnamed_addr constant [21 x i8] c"Local predicate lock\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @check_serial_buffers(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @check_serial_buffers(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @check_slru_buffers(ptr noundef nonnull @.str, ptr noundef %0) #12
   ret i1 %4
 }
@@ -537,7 +537,7 @@ declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) loc
 declare i32 @get_hash_value(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @predicatelock_hash(ptr nocapture noundef readonly %0, i64 %1) #0 {
+define internal i32 @predicatelock_hash(ptr noundef readonly captures(none) %0, i64 %1) #0 {
   %3 = load ptr, ptr @PredicateLockTargetHash, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 @get_hash_value(ptr noundef %3, ptr noundef %4) #12
@@ -555,7 +555,7 @@ declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare ptr @ShmemAlloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -689,10 +689,10 @@ declare void @hash_seq_init(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @hash_seq_search(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @GetSafeSnapshotBlockingPids(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @MainLWLockArray, align 8
   %5 = getelementptr i8, ptr %4, i64 3584
   %6 = tail call zeroext i1 @LWLockAcquire(ptr noundef %5, i32 noundef 1) #12
@@ -1572,7 +1572,7 @@ define dso_local void @RegisterPredicateLockingXid(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @PageIsPredicateLocked(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @PageIsPredicateLocked(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1603,7 +1603,7 @@ define dso_local zeroext i1 @PageIsPredicateLocked(ptr nocapture noundef readonl
 declare ptr @hash_search_with_hash_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PredicateLockRelation(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @PredicateLockRelation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %4 = load ptr, ptr @MySerializableXact, align 8
   %5 = icmp eq ptr %4, null
@@ -2012,7 +2012,7 @@ DeleteChildTargetLocks.exit:                      ; preds = %._crit_edge.i, %160
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PredicateLockPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @PredicateLockPage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %5 = load ptr, ptr @MySerializableXact, align 8
   %6 = icmp eq ptr %5, null
@@ -2068,7 +2068,7 @@ SerializationNeededForRead.exit.thread:           ; preds = %14, %7, %3, %13, %S
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PredicateLockTID(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @PredicateLockTID(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %6 = load ptr, ptr @MySerializableXact, align 8
   %7 = icmp eq ptr %6, null
@@ -2169,7 +2169,7 @@ SerializationNeededForRead.exit.thread:           ; preds = %15, %8, %4, %14, %P
 declare zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @TransferPredicateLocksToHeapRelation(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @TransferPredicateLocksToHeapRelation(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca %struct.HASH_SEQ_STATUS, align 8
@@ -2477,7 +2477,7 @@ DropAllPredicateLocksFromTable.exit:              ; preds = %1, %11, %PredicateL
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PredicateLockPageSplit(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @PredicateLockPageSplit(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @PredXact, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
@@ -2865,7 +2865,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %169, %165, %50, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PredicateLockPageCombine(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @PredicateLockPageCombine(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @PredXact, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load i32, ptr %5, align 8
@@ -4332,7 +4332,7 @@ ReleasePredXact.exit:                             ; preds = %187, %198
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @CheckForSerializableConflictOutNeeded(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @CheckForSerializableConflictOutNeeded(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @MySerializableXact, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %SerializationNeededForRead.exit.thread, label %5
@@ -4392,7 +4392,7 @@ SerializationNeededForRead.exit.thread:           ; preds = %12, %5, %2, %11, %2
 declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CheckForSerializableConflictOut(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @CheckForSerializableConflictOut(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SERIALIZABLEXIDTAG, align 4
   %5 = load ptr, ptr @MySerializableXact, align 8
   %6 = icmp eq ptr %5, null
@@ -5157,7 +5157,7 @@ SetRWConflict.exit:                               ; preds = %dlist_push_tail.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CheckForSerializableConflictIn(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @CheckForSerializableConflictIn(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   %5 = load ptr, ptr @MySerializableXact, align 8
   %6 = icmp eq ptr %5, null
@@ -5590,7 +5590,7 @@ RemoveTargetIfNoLongerUsed.exit:                  ; preds = %144, %162
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CheckTableForSerializableConflictIn(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @CheckTableForSerializableConflictIn(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.HASH_SEQ_STATUS, align 8
   %3 = load ptr, ptr @PredXact, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -6449,7 +6449,7 @@ declare i32 @SimpleLruZeroPage(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @SimpleLruReadPage(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DecrementParentLocks(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @DecrementParentLocks(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %struct.PREDICATELOCKTARGETTAG, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6532,10 +6532,10 @@ declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) loc
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

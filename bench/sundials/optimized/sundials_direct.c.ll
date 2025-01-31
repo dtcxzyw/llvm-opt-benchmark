@@ -82,7 +82,7 @@ define noalias noundef ptr @SUNDlsMat_NewDenseMat(i64 noundef %0, i64 noundef %1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @newDenseMat(i64 noundef %0, i64 noundef %1) local_unnamed_addr #1 {
@@ -336,7 +336,7 @@ define noalias noundef ptr @SUNDlsMat_newBandMat(i64 noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @DestroyMat(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @DestroyMat(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
@@ -349,7 +349,7 @@ define void @DestroyMat(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @SUNDlsMat_DestroyMat(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @SUNDlsMat_DestroyMat(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
@@ -362,7 +362,7 @@ define void @SUNDlsMat_DestroyMat(ptr nocapture noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @destroyMat(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @destroyMat(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #14
   tail call void @free(ptr noundef %0) #14
@@ -370,7 +370,7 @@ define void @destroyMat(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @SUNDlsMat_destroyMat(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @SUNDlsMat_destroyMat(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #14
   tail call void @free(ptr noundef %0) #14
@@ -562,31 +562,31 @@ define noalias noundef ptr @SUNDlsMat_newRealArray(i64 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @DestroyArray(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @DestroyArray(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   tail call void @free(ptr noundef %0) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @SUNDlsMat_DestroyArray(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @SUNDlsMat_DestroyArray(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   tail call void @free(ptr noundef %0) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @destroyArray(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @destroyArray(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   tail call void @free(ptr noundef %0) #14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @SUNDlsMat_destroyArray(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define void @SUNDlsMat_destroyArray(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   tail call void @free(ptr noundef %0) #14
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @AddIdentity(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define void @AddIdentity(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %SUNDlsMat_AddIdentity.exit [
     i32 1, label %.preheader.i
@@ -648,7 +648,7 @@ SUNDlsMat_AddIdentity.exit:                       ; preds = %22, %12, %1, %.preh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @SUNDlsMat_AddIdentity(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define void @SUNDlsMat_AddIdentity(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %.loopexit [
     i32 1, label %.preheader
@@ -710,7 +710,7 @@ define void @SUNDlsMat_AddIdentity(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @SetToZero(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define void @SetToZero(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %SUNDlsMat_SetToZero.exit [
     i32 1, label %.preheader.i
@@ -803,7 +803,7 @@ SUNDlsMat_SetToZero.exit:                         ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @SUNDlsMat_SetToZero(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define void @SUNDlsMat_SetToZero(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8
   switch i32 %2, label %.loopexit [
     i32 1, label %.preheader
@@ -896,13 +896,13 @@ define void @SUNDlsMat_SetToZero(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @PrintMat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
+define void @PrintMat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
   tail call void @SUNDlsMat_PrintMat(ptr noundef %0, ptr noundef %1)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @SUNDlsMat_PrintMat(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
+define void @SUNDlsMat_PrintMat(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %56 [
     i32 1, label %4
@@ -1017,13 +1017,13 @@ define void @SUNDlsMat_PrintMat(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #12

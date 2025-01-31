@@ -56,7 +56,7 @@ define hidden void @register_tap_listener_mac_lte_stat() local_unnamed_addr #0 {
 declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mac_lte_stat_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @mac_lte_stat_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(15) @.str.1, i64 noundef 14) #15
   %4 = icmp eq i32 %3, 0
   %5 = getelementptr i8, ptr %0, i64 14
@@ -79,7 +79,7 @@ define internal void @mac_lte_stat_init(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
@@ -87,7 +87,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @mac_lte_stat_reset(ptr nocapture noundef initializes((0, 131114)) %0) #4 {
+define internal void @mac_lte_stat_reset(ptr noundef captures(none) initializes((0, 131114)) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 131120
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -103,7 +103,7 @@ define internal void @mac_lte_stat_reset(ptr nocapture noundef initializes((0, 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @mac_lte_stat_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %update_ueid_rnti_counts.exit.thread155, label %6
 
@@ -613,7 +613,7 @@ update_ueid_rnti_counts.exit.thread155:           ; preds = %282, %230, %127, %2
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @mac_lte_stat_draw(ptr nocapture noundef readonly %0) #5 {
+define internal void @mac_lte_stat_draw(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 131120
   %3 = load ptr, ptr %2, align 8
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -840,28 +840,28 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #13

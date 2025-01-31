@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9UDPSocketC2Eb(ptr nocapture noundef nonnull align 4 dereferenceable(10) initializes((0, 10)) %this, i1 noundef zeroext %ipv6) unnamed_addr #4 align 2 {
+define dso_local void @_ZN9UDPSocketC2Eb(ptr noundef nonnull align 4 captures(none) dereferenceable(10) initializes((0, 10)) %this, i1 noundef zeroext %ipv6) unnamed_addr #4 align 2 {
 entry:
   store i32 -1, ptr %this, align 4, !tbaa !4
   %m_timeout_ms = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -164,7 +164,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN9UDPSocket4initEbb(ptr nocapture noundef nonnull align 4 dereferenceable(10) %this, i1 noundef zeroext %ipv6, i1 noundef zeroext %noExceptions) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9UDPSocket4initEbb(ptr noundef nonnull align 4 captures(none) dereferenceable(10) %this, i1 noundef zeroext %ipv6, i1 noundef zeroext %noExceptions) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator", align 1
@@ -590,7 +590,7 @@ unreachable:                                      ; preds = %invoke.cont51, %inv
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -715,7 +715,7 @@ _ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -737,7 +737,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs, i64 noundef %call.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !46
   %2 = load ptr, ptr %call2.i, align 8, !tbaa !38
@@ -780,7 +780,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9UDPSocket12setTimeoutMsEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(10) initializes((4, 8)) %this, i32 noundef %timeout_ms) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN9UDPSocket12setTimeoutMsEi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(10) initializes((4, 8)) %this, i32 noundef %timeout_ms) local_unnamed_addr #11 align 2 {
 entry:
   %m_timeout_ms = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %timeout_ms, ptr %m_timeout_ms, align 4, !tbaa !10
@@ -791,7 +791,7 @@ entry:
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN9UDPSocketD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(10) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9UDPSocketD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(10) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr @socket_enable_debug_output, align 1, !tbaa !42, !range !43, !noundef !44
   %tobool.not = icmp eq i8 %0, 0
@@ -951,7 +951,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @close(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN9UDPSocket4BindE7Address(ptr nocapture noundef nonnull readonly align 4 dereferenceable(10) %this, ptr noundef byval(%class.Address) align 8 %addr) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9UDPSocket4BindE7Address(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(10) %this, ptr noundef byval(%class.Address) align 8 %addr) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   %errmsg = alloca ptr, align 8
@@ -1411,10 +1411,10 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nounwind
 declare i32 @bind(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1474,7 +1474,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN9UDPSocket4SendERK7AddressPKvi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(10) %this, ptr noundef nonnull align 4 dereferenceable(22) %destination, ptr noundef %data, i32 noundef %size) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9UDPSocket4SendERK7AddressPKvi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(10) %this, ptr noundef nonnull align 4 dereferenceable(22) %destination, ptr noundef %data, i32 noundef %size) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp39 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp40 = alloca %"class.std::allocator", align 1
@@ -2042,7 +2042,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 declare i64 @sendto(i32 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef range(i32 -1, -2147483648) i32 @_ZN9UDPSocket7ReceiveER7AddressPvi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(10) %this, ptr noundef nonnull align 4 dereferenceable(22) %sender, ptr noundef %data, i32 noundef %size) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 -1, -2147483648) i32 @_ZN9UDPSocket7ReceiveER7AddressPvi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(10) %this, ptr noundef nonnull align 4 dereferenceable(22) %sender, ptr noundef %data, i32 noundef %size) local_unnamed_addr #5 align 2 {
 entry:
   %address = alloca %struct.sockaddr_in6, align 4
   %address_len = alloca i32, align 4
@@ -2446,7 +2446,7 @@ return:                                           ; preds = %cleanup62.critedge7
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN9UDPSocket8WaitDataEi(ptr nocapture noundef nonnull readonly align 4 dereferenceable(10) %this, i32 noundef %timeout_ms) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9UDPSocket8WaitDataEi(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(10) %this, i32 noundef %timeout_ms) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pfd = alloca %struct.pollfd, align 4
   %ref.tmp = alloca i32, align 4
@@ -2677,7 +2677,7 @@ _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 

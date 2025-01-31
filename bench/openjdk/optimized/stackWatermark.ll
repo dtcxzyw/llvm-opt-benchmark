@@ -78,7 +78,7 @@ $_ZN26GrowableArrayWithAllocatorIP14StackWatermark18GrowableArrayCHeapIS1_L8MEMF
 @_ZN14StackWatermarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14StackWatermarkD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN28StackWatermarkFramesIterator13set_watermarkEm(ptr nocapture noundef nonnull align 8 dereferenceable(5081) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28StackWatermarkFramesIterator13set_watermarkEm(ptr noundef nonnull align 8 captures(none) dereferenceable(5081) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 5080
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -114,7 +114,7 @@ define hidden void @_ZN28StackWatermarkFramesIterator13set_watermarkEm(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK28StackWatermarkFramesIterator8has_nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5081) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK28StackWatermarkFramesIterator8has_nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5081) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5080
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -309,7 +309,7 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN28StackWaterma
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull align 8 dereferenceable(4983) ptr @_ZN28StackWatermarkFramesIterator12register_mapEv(ptr noundef nonnull readnone align 8 dereferenceable(5081) %0) local_unnamed_addr #3 align 2 {
@@ -837,7 +837,7 @@ _ZN18GrowableArrayCHeapIP14StackWatermarkL8MEMFLAGS2EED2Ev.exit: ; preds = %6, %
 declare void @_ZN5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(104)) unnamed_addr #6
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN14StackWatermarkD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN14StackWatermarkD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.trap() #18
   unreachable
 }
@@ -846,7 +846,7 @@ define hidden void @_ZN14StackWatermarkD0Ev(ptr nocapture nonnull readnone align
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14StackWatermark13is_frame_safeERK5frame(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN14StackWatermark13is_frame_safeERK5frame(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load volatile i32, ptr %3, align 8
   %5 = lshr i32 %4, 1
@@ -1200,7 +1200,7 @@ define hidden void @_ZN14StackWatermark21push_linked_watermarkEPS_(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14StackWatermark20pop_linked_watermarkEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14StackWatermark20pop_linked_watermarkEv(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1
@@ -1249,7 +1249,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %10, %1, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN14StackWatermark18last_processed_rawEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0) local_unnamed_addr #10 align 2 {
+define hidden noundef i64 @_ZN14StackWatermark18last_processed_rawEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1281,7 +1281,7 @@ define hidden noundef zeroext i1 @_ZNK14StackWatermark28processing_completed_acq
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14StackWatermark25process_linked_watermarksEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14StackWatermark25process_linked_watermarksEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
   %.not9 = icmp eq i32 %3, 0
@@ -2195,13 +2195,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #12
 declare i32 @llvm.ctpop.i32(i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

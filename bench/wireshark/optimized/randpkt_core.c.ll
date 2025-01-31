@@ -117,10 +117,10 @@ define hidden ptr @randpkt_find_example(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @randpkt_loop(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define hidden void @randpkt_loop(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = tail call noalias dereferenceable_or_null(280) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 280) #12
@@ -314,7 +314,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @g_rand_int_range(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
@@ -333,7 +333,7 @@ declare i32 @wtap_dump_flush(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @g_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @randpkt_example_close(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @randpkt_example_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -372,7 +372,7 @@ declare void @cfile_close_failure_message(ptr noundef, i32 noundef, ptr noundef)
 declare void @g_rand_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @randpkt_example_init(ptr nocapture noundef initializes((56, 72)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 0, 3) i32 @randpkt_example_init(ptr noundef captures(none) initializes((56, 72)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %struct.wtap_dump_params, align 8
@@ -454,7 +454,7 @@ sub_0:                                            ; preds = %10, %4
 declare ptr @g_rand_new() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare ptr @wtap_dump_open_stdout(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
@@ -513,7 +513,7 @@ declare i32 @g_random_int_range(i32 noundef, i32 noundef) local_unnamed_addr #7
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @randpkt_example_list(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #3 {
+define hidden void @randpkt_example_list(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef captures(none) initializes((0, 8)) %1) local_unnamed_addr #3 {
   %3 = tail call noalias dereferenceable_or_null(192) ptr @g_malloc0_n(i64 noundef 24, i64 noundef 8) #12
   store ptr %3, ptr %0, align 8
   %4 = tail call noalias dereferenceable_or_null(192) ptr @g_malloc0_n(i64 noundef 24, i64 noundef 8) #12

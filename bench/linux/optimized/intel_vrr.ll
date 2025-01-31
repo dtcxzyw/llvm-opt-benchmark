@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @constinit = private unnamed_addr constant [5 x i32] [i32 270528, i32 270532, i32 270536, i32 270552, i32 270540], align 4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @intel_vrr_is_capable(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_vrr_is_capable(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
@@ -75,7 +75,7 @@ define dso_local zeroext i1 @intel_vrr_is_capable(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @intel_vrr_is_in_range(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_vrr_is_in_range(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %5 = load i32, ptr %4, align 4
@@ -146,7 +146,7 @@ define dso_local zeroext i1 @intel_vrr_is_in_range(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @intel_vrr_check_modeset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_vrr_check_modeset(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 728
@@ -201,7 +201,7 @@ define dso_local void @intel_vrr_check_modeset(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 -65534, 65537) i32 @intel_vrr_vmin_vblank_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -65534, 65537) i32 @intel_vrr_vmin_vblank_start(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4938
   %3 = load i16, ptr %2, align 2
   %4 = load ptr, ptr %0, align 8
@@ -237,7 +237,7 @@ define dso_local range(i32 -65534, 65537) i32 @intel_vrr_vmin_vblank_start(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 -65535, 65536) i32 @intel_vrr_vmax_vblank_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -65535, 65536) i32 @intel_vrr_vmax_vblank_start(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4940
   %3 = load i16, ptr %2, align 4
   %4 = load ptr, ptr %0, align 8
@@ -272,7 +272,7 @@ define dso_local range(i32 -65535, 65536) i32 @intel_vrr_vmax_vblank_start(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_vrr_compute_config(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_vrr_compute_config(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -455,7 +455,7 @@ define dso_local void @intel_vrr_compute_config(ptr noundef %0, ptr nocapture no
 declare dso_local i32 @drm_mode_vrefresh(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_vrr_set_transcoder_timings(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_vrr_set_transcoder_timings(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -589,7 +589,7 @@ define dso_local void @intel_vrr_set_transcoder_timings(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_vrr_send_push(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_vrr_send_push(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4932
   %3 = load i8, ptr %2, align 4, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
@@ -623,7 +623,7 @@ define dso_local void @intel_vrr_send_push(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_vrr_is_push_sent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local zeroext i1 @intel_vrr_is_push_sent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4932
   %3 = load i8, ptr %2, align 4, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
@@ -660,7 +660,7 @@ define dso_local zeroext i1 @intel_vrr_is_push_sent(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_vrr_enable(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_vrr_enable(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4932
   %3 = load i8, ptr %2, align 4, !range !5, !noundef !6
   %4 = icmp eq i8 %3, 0
@@ -731,7 +731,7 @@ define dso_local void @intel_vrr_enable(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_vrr_disable(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_vrr_disable(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4932
@@ -810,7 +810,7 @@ define dso_local void @intel_vrr_disable(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_vrr_get_config(ptr nocapture noundef initializes((4932, 4933)) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_vrr_get_config(ptr noundef captures(none) initializes((4932, 4933)) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 864

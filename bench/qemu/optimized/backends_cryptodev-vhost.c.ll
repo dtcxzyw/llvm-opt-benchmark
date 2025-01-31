@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.VIRTIO_BUS_GET_CLASS = private unnamed_addr constant [21 x i8] c"VIRTIO_BUS_GET_CLASS\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @cryptodev_vhost_get_max_queues(ptr nocapture noundef readonly %crypto) local_unnamed_addr #0 {
+define dso_local i64 @cryptodev_vhost_get_max_queues(ptr noundef readonly captures(none) %crypto) local_unnamed_addr #0 {
 entry:
   %max_queues = getelementptr inbounds nuw i8, ptr %crypto, i64 488
   %0 = load i64, ptr %max_queues, align 8
@@ -46,7 +46,7 @@ declare void @vhost_dev_cleanup(ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @cryptodev_vhost_init(ptr nocapture noundef readonly %options) local_unnamed_addr #1 {
+define dso_local noundef ptr @cryptodev_vhost_init(ptr noundef readonly captures(none) %options) local_unnamed_addr #1 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8

@@ -129,10 +129,10 @@ declare dso_local void @hpet_disable() local_unnamed_addr #1
 declare dso_local void @crash_save_cpu(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @arch_crash_hotplug_cpu_support() local_unnamed_addr #0 align 16 {
@@ -304,7 +304,7 @@ declare dso_local void @vfree(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @walk_system_ram_res(i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @prepare_elf64_ram_headers_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 align 16 {
+define internal noundef i32 @prepare_elf64_ram_headers_callback(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #5 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -327,7 +327,7 @@ define internal noundef i32 @prepare_elf64_ram_headers_callback(ptr nocapture no
 declare dso_local i32 @crash_prepare_elf64_headers(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @get_nr_ram_ranges_callback(ptr nocapture readnone %0, ptr nocapture noundef %1) #5 align 16 {
+define internal noundef i32 @get_nr_ram_ranges_callback(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #5 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = add i32 %3, 1
   store i32 %4, ptr %1, align 4

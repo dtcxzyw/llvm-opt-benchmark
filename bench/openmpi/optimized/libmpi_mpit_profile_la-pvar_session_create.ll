@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_T_pvar_session_create = weak alias i32 (ptr), ptr @PMPI_T_pvar_session_create
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 56) i32 @PMPI_T_pvar_session_create(ptr nocapture noundef writeonly %0) #0 {
+define range(i32 0, 56) i32 @PMPI_T_pvar_session_create(ptr noundef writeonly captures(none) %0) #0 {
   %2 = load volatile i32, ptr @ompi_mpit_init_count, align 4
   %.not4 = icmp eq i32 %2, 0
   br i1 %.not4, label %17, label %3

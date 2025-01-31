@@ -1004,7 +1004,7 @@ define range(i32 -2, 1) i32 @KINSetSysFunc(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetWorkSpace(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetWorkSpace(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1027,7 +1027,7 @@ define range(i32 -1, 1) i32 @KINGetWorkSpace(ptr noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetNumNonlinSolvIters(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetNumNonlinSolvIters(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1047,7 +1047,7 @@ define range(i32 -1, 1) i32 @KINGetNumNonlinSolvIters(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetNumFuncEvals(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetNumFuncEvals(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1067,7 +1067,7 @@ define range(i32 -1, 1) i32 @KINGetNumFuncEvals(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetNumBetaCondFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetNumBetaCondFails(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1087,7 +1087,7 @@ define range(i32 -1, 1) i32 @KINGetNumBetaCondFails(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetNumBacktrackOps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetNumBacktrackOps(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1107,7 +1107,7 @@ define range(i32 -1, 1) i32 @KINGetNumBacktrackOps(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetFuncNorm(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetFuncNorm(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1127,7 +1127,7 @@ define range(i32 -1, 1) i32 @KINGetFuncNorm(ptr noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetStepLength(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetStepLength(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1147,7 +1147,7 @@ define range(i32 -1, 1) i32 @KINGetStepLength(ptr noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @KINGetUserData(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @KINGetUserData(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1167,7 +1167,7 @@ define range(i32 -1, 1) i32 @KINGetUserData(ptr noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @KINPrintAllStats(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @KINPrintAllStats(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1341,7 +1341,7 @@ define range(i32 -2, 1) i32 @KINPrintAllStats(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
 define noalias noundef ptr @KINGetReturnFlagName(i64 noundef %0) local_unnamed_addr #4 {
@@ -1441,13 +1441,13 @@ define noalias noundef ptr @KINGetReturnFlagName(i64 noundef %0) local_unnamed_a
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #8

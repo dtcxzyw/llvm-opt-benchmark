@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.flock = type { i16, i16, i64, i64, i32 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_util_prefs_FileSystemPreferences_chmod(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_java_util_prefs_FileSystemPreferences_chmod(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef %2, ptr noundef null) #7
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %12, label %6
@@ -34,7 +34,7 @@ define i32 @Java_java_util_prefs_FileSystemPreferences_chmod(ptr noundef %0, ptr
 declare ptr @JNU_GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
@@ -42,7 +42,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare void @JNU_ReleaseStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_util_prefs_FileSystemPreferences_lockFile0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define ptr @Java_java_util_prefs_FileSystemPreferences_lockFile0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [2 x i32], align 8
   %7 = alloca %struct.flock, align 8
   %8 = tail call ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef %2, ptr noundef null) #7
@@ -125,10 +125,10 @@ define ptr @Java_java_util_prefs_FileSystemPreferences_lockFile0(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @umask(i32 noundef) local_unnamed_addr #6
@@ -138,7 +138,7 @@ declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_util_prefs_FileSystemPreferences_unlockFile0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Java_java_util_prefs_FileSystemPreferences_unlockFile0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.flock, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i16 0, ptr %5, align 2

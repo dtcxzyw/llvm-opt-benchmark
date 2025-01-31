@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_point_t = type { i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_area_set(ptr nocapture noundef writeonly initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @lv_area_set(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %6, align 4, !tbaa !8
@@ -19,7 +19,7 @@ define void @lv_area_set(ptr nocapture noundef writeonly initializes((0, 16)) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_set_width(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @lv_area_set_width(ptr noundef captures(none) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %4 = add i32 %1, -1
   %5 = add i32 %4, %3
@@ -29,7 +29,7 @@ define void @lv_area_set_width(ptr nocapture noundef initializes((8, 12)) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_set_height(ptr nocapture noundef initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @lv_area_set_height(ptr noundef captures(none) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !8
   %5 = add i32 %1, -1
@@ -40,7 +40,7 @@ define void @lv_area_set_height(ptr nocapture noundef initializes((12, 16)) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_set_pos(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @lv_area_set_pos(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = load i32, ptr %0, align 4, !tbaa !3
@@ -60,10 +60,10 @@ define void @lv_area_set_pos(ptr nocapture noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -2147483647, -2147483648) i32 @lv_area_get_width(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @lv_area_get_width(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4, !tbaa !9
   %4 = load i32, ptr %0, align 4, !tbaa !3
@@ -73,7 +73,7 @@ define range(i32 -2147483647, -2147483648) i32 @lv_area_get_width(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -2147483647, -2147483648) i32 @lv_area_get_height(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @lv_area_get_height(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -84,10 +84,10 @@ define range(i32 -2147483647, -2147483648) i32 @lv_area_get_height(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_area_get_size(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_area_get_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4, !tbaa !9
   %4 = load i32, ptr %0, align 4, !tbaa !3
@@ -104,7 +104,7 @@ define i32 @lv_area_get_size(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_increase(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @lv_area_increase(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %0, align 4, !tbaa !3
   %5 = sub nsw i32 %4, %1
   store i32 %5, ptr %0, align 4, !tbaa !3
@@ -124,7 +124,7 @@ define void @lv_area_increase(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_move(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @lv_area_move(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %0, align 4, !tbaa !3
   %5 = add nsw i32 %4, %1
   store i32 %5, ptr %0, align 4, !tbaa !3
@@ -144,7 +144,7 @@ define void @lv_area_move(ptr nocapture noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @lv_area_intersect(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define zeroext i1 @lv_area_intersect(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 4, !tbaa !3
   %5 = load i32, ptr %2, align 4, !tbaa !3
   %. = tail call i32 @llvm.smax.i32(i32 %4, i32 %5)
@@ -177,7 +177,7 @@ define zeroext i1 @lv_area_intersect(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define signext range(i8 -1, 5) i8 @lv_area_diff(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define signext range(i8 -1, 5) i8 @lv_area_diff(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !9
@@ -325,7 +325,7 @@ lv_area_is_on.exit:                               ; preds = %21, %16, %11, %7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @lv_area_is_on(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define noundef zeroext i1 @lv_area_is_on(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !9
@@ -364,7 +364,7 @@ define noundef zeroext i1 @lv_area_is_on(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_area_is_in(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define zeroext i1 @lv_area_is_in(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.lv_point_t, align 4
   %5 = load i32, ptr %0, align 4, !tbaa !3
   %6 = load i32, ptr %1, align 4, !tbaa !3
@@ -436,7 +436,7 @@ define zeroext i1 @lv_area_is_in(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_join(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define void @lv_area_join(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 4, !tbaa !3
   %5 = load i32, ptr %2, align 4, !tbaa !3
   %. = tail call i32 @llvm.smin.i32(i32 %4, i32 %5)
@@ -466,7 +466,7 @@ define void @lv_area_join(ptr nocapture noundef writeonly initializes((0, 16)) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_area_is_point_on(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define zeroext i1 @lv_area_is_point_on(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %1, align 4, !tbaa !12
   %5 = load i32, ptr %0, align 4, !tbaa !3
   %.not = icmp slt i32 %4, %5
@@ -592,7 +592,7 @@ lv_area_is_point_on.exit90:                       ; preds = %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_point_set(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_point_set(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 4, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4, !tbaa !14
@@ -600,7 +600,7 @@ define void @lv_point_set(ptr nocapture noundef writeonly initializes((0, 8)) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_area_is_out(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define zeroext i1 @lv_area_is_out(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca %struct.lv_point_t, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !9
@@ -673,7 +673,7 @@ define zeroext i1 @lv_area_is_out(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_area_is_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define zeroext i1 @lv_area_is_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %4 = load i32, ptr %1, align 4, !tbaa !3
   %5 = icmp eq i32 %3, %4
@@ -709,7 +709,7 @@ define zeroext i1 @lv_area_is_equal(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_area_align(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @lv_area_align(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   switch i32 %2, label %310 [
     i32 9, label %6
     i32 21, label %293
@@ -1148,13 +1148,13 @@ define void @lv_area_align(ptr nocapture noundef readonly %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_point_transform(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5) local_unnamed_addr #4 {
+define void @lv_point_transform(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5) local_unnamed_addr #4 {
   tail call void @lv_point_array_transform(ptr noundef %0, i64 noundef 1, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %5)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_point_array_transform(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i1 noundef zeroext %6) local_unnamed_addr #4 {
+define void @lv_point_array_transform(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i1 noundef zeroext %6) local_unnamed_addr #4 {
   %8 = icmp eq i32 %2, 0
   %9 = icmp eq i32 %3, 256
   %or.cond = and i1 %8, %9
@@ -1349,7 +1349,7 @@ define void @lv_point_array_transform(ptr nocapture noundef %0, i64 noundef %1, 
 declare i32 @lv_trigo_sin(i16 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @lv_point_from_precise(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i64 @lv_point_from_precise(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load float, ptr %0, align 4, !tbaa !19
   %3 = fptosi float %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1363,7 +1363,7 @@ define i64 @lv_point_from_precise(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <2 x float> @lv_point_to_precise(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define <2 x float> @lv_point_to_precise(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i32, ptr %0, align 4, !tbaa !12
   %3 = sitofp i32 %2 to float
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %3, i64 0
@@ -1375,7 +1375,7 @@ define <2 x float> @lv_point_to_precise(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_point_precise_set(ptr nocapture noundef writeonly initializes((0, 8)) %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
+define void @lv_point_precise_set(ptr noundef writeonly captures(none) initializes((0, 8)) %0, float noundef %1, float noundef %2) local_unnamed_addr #0 {
   store float %1, ptr %0, align 4, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %2, ptr %4, align 4, !tbaa !22
@@ -1383,7 +1383,7 @@ define void @lv_point_precise_set(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_point_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @lv_point_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %0, align 4
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %0, align 4
@@ -1392,7 +1392,7 @@ define void @lv_point_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_point_precise_swap(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @lv_point_precise_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %0, align 4
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %0, align 4

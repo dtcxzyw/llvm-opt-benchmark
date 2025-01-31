@@ -203,7 +203,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_input_handler_bind(ptr nocapture noundef writeonly %s, ptr noundef %device_id, i32 noundef %head, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qemu_input_handler_bind(ptr noundef writeonly captures(none) %s, ptr noundef %device_id, i32 noundef %head, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -1223,7 +1223,7 @@ if.end7:                                          ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_input_queue_process(ptr nocapture noundef %opaque) #0 {
+define internal void @qemu_input_queue_process(ptr noundef captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %cmp = icmp eq ptr %0, null
@@ -1418,7 +1418,7 @@ qemu_input_event_send.exit:                       ; preds = %land.lhs.true19.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_input_update_buttons(ptr noundef %src, ptr nocapture noundef readonly %button_map, i32 noundef %button_old, i32 noundef %button_new) local_unnamed_addr #0 {
+define dso_local void @qemu_input_update_buttons(ptr noundef %src, ptr noundef readonly captures(none) %button_map, i32 noundef %button_old, i32 noundef %button_new) local_unnamed_addr #0 {
 entry:
   %bevt.i = alloca %struct.InputBtnEvent, align 4
   %evt.i = alloca %struct.InputEvent, align 8
@@ -1738,7 +1738,7 @@ entry:
 declare void @notifier_remove(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_mice(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local ptr @qmp_query_mice(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %s.013 = load ptr, ptr @handlers, align 8
   %tobool.not14 = icmp eq ptr %s.013, null
@@ -1889,7 +1889,7 @@ return:                                           ; preds = %qemu_input_handler_
 declare i32 @qemu_console_get_index(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #2
 
@@ -1905,13 +1905,13 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

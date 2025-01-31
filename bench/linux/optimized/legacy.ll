@@ -95,7 +95,7 @@ define dso_local void @pcibios_scan_specific_bus(i32 noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @pci_find_bus(i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -104,7 +104,7 @@ declare dso_local ptr @pci_find_bus(i32 noundef, i32 noundef) local_unnamed_addr
 declare dso_local i32 @raw_pci_read(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal noundef range(i32 -19, 1) i32 @pci_subsys_init() #0 section ".init.text" align 16 {

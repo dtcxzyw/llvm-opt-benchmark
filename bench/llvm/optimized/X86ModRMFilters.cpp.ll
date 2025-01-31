@@ -49,32 +49,32 @@ $_ZNK4llvm15X86Disassembler10DumbFilter7acceptsEh = comdat any
 @_ZTVN4llvm15X86Disassembler10DumbFilterE = unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZN4llvm15X86Disassembler10DumbFilter6anchorEv, ptr @_ZN4llvm15X86Disassembler10DumbFilterD2Ev, ptr @_ZN4llvm15X86Disassembler10DumbFilterD0Ev, ptr @_ZNK4llvm15X86Disassembler10DumbFilter6isDumbEv, ptr @_ZNK4llvm15X86Disassembler10DumbFilter7acceptsEh] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm15X86Disassembler11ModRMFilter6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15X86Disassembler11ModRMFilter6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm15X86Disassembler10DumbFilter6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15X86Disassembler10DumbFilter6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm15X86Disassembler9ModFilter6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15X86Disassembler9ModFilter6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm15X86Disassembler14ExtendedFilter6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15X86Disassembler14ExtendedFilter6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm15X86Disassembler16ExtendedRMFilter6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15X86Disassembler16ExtendedRMFilter6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm15X86Disassembler11ExactFilter6anchorEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15X86Disassembler11ExactFilter6anchorEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 

@@ -52,19 +52,19 @@ define hidden ptr @_pcre2_memctl_malloc_8(i64 noundef %0, ptr noundef readonly %
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @default_malloc(i64 noundef %0, ptr nocapture readnone %1) #2 {
+define internal noalias noundef ptr @default_malloc(i64 noundef %0, ptr readnone captures(none) %1) #2 {
   %3 = tail call noalias ptr @malloc(i64 noundef %0) #10
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @default_free(ptr nocapture noundef %0, ptr nocapture readnone %1) #3 {
+define internal void @default_free(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #3 {
   tail call void @free(ptr noundef %0) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @php_pcre2_general_context_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -188,7 +188,7 @@ _pcre2_memctl_malloc_8.exit.thread:               ; preds = %.thread.i, %3, %_pc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_pcre2_general_context_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @php_pcre2_general_context_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -205,7 +205,7 @@ define ptr @php_pcre2_general_context_copy(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_pcre2_compile_context_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @php_pcre2_compile_context_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -222,7 +222,7 @@ define ptr @php_pcre2_compile_context_copy(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_pcre2_match_context_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @php_pcre2_match_context_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -239,7 +239,7 @@ define ptr @php_pcre2_match_context_copy(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_pcre2_convert_context_copy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @php_pcre2_convert_context_copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -324,14 +324,14 @@ define void @php_pcre2_convert_context_free(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_character_tables(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_character_tables(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -29, 1) i32 @php_pcre2_set_bsr(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -29, 1) i32 @php_pcre2_set_bsr(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.off = add i32 %1, -1
   %switch = icmp ult i32 %.off, 2
   br i1 %switch, label %3, label %6
@@ -348,14 +348,14 @@ define range(i32 -29, 1) i32 @php_pcre2_set_bsr(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_max_pattern_length(ptr nocapture noundef writeonly initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_max_pattern_length(ptr noundef writeonly captures(none) initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -29, 1) i32 @php_pcre2_set_newline(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -29, 1) i32 @php_pcre2_set_newline(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %.off = add i32 %1, -1
   %switch = icmp ult i32 %.off, 6
   br i1 %switch, label %3, label %6
@@ -372,28 +372,28 @@ define range(i32 -29, 1) i32 @php_pcre2_set_newline(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @pcre2_set_max_varlookbehind_8(ptr nocapture noundef writeonly initializes((68, 72)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef i32 @pcre2_set_max_varlookbehind_8(ptr noundef writeonly captures(none) initializes((68, 72)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_parens_nest_limit(ptr nocapture noundef writeonly initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_parens_nest_limit(ptr noundef writeonly captures(none) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_compile_extra_options(ptr nocapture noundef writeonly initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_compile_extra_options(ptr noundef writeonly captures(none) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_compile_recursion_guard(ptr nocapture noundef writeonly initializes((24, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_compile_recursion_guard(ptr noundef writeonly captures(none) initializes((24, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -402,7 +402,7 @@ define noundef i32 @php_pcre2_set_compile_recursion_guard(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_callout(ptr nocapture noundef writeonly initializes((40, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_callout(ptr noundef writeonly captures(none) initializes((40, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -411,7 +411,7 @@ define noundef i32 @php_pcre2_set_callout(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @pcre2_set_substitute_callout_8(ptr nocapture noundef writeonly initializes((56, 72)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define noundef i32 @pcre2_set_substitute_callout_8(ptr noundef writeonly captures(none) initializes((56, 72)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -420,47 +420,47 @@ define noundef i32 @pcre2_set_substitute_callout_8(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_heap_limit(ptr nocapture noundef writeonly initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_heap_limit(ptr noundef writeonly captures(none) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_match_limit(ptr nocapture noundef writeonly initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_match_limit(ptr noundef writeonly captures(none) initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_depth_limit(ptr nocapture noundef writeonly initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_depth_limit(ptr noundef writeonly captures(none) initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_offset_limit(ptr nocapture noundef writeonly initializes((72, 80)) %0, i64 noundef %1) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_offset_limit(ptr noundef writeonly captures(none) initializes((72, 80)) %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i64 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_pcre2_set_recursion_limit(ptr nocapture noundef writeonly initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef i32 @php_pcre2_set_recursion_limit(ptr noundef writeonly captures(none) initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @php_pcre2_set_recursion_memory_management(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #6 {
+define noundef i32 @php_pcre2_set_recursion_memory_management(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #6 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -29, 1) i32 @php_pcre2_set_glob_separator(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define range(i32 -29, 1) i32 @php_pcre2_set_glob_separator(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   switch i32 %1, label %5 [
     i32 92, label %3
     i32 47, label %3
@@ -478,7 +478,7 @@ define range(i32 -29, 1) i32 @php_pcre2_set_glob_separator(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -29, 1) i32 @php_pcre2_set_glob_escape(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 -29, 1) i32 @php_pcre2_set_glob_escape(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp ugt i32 %1, 255
   br i1 %3, label %14, label %4
 
@@ -510,7 +510,7 @@ define range(i32 -29, 1) i32 @php_pcre2_set_glob_escape(ptr nocapture noundef wr
 declare ptr @__ctype_b_loc() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

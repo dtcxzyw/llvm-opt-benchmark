@@ -581,7 +581,7 @@ declare ptr @agidnode(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr 
 declare ptr @agsubedge(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @agobjkind(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 4) i32 @agobjkind(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   ret i32 %3

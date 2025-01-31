@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @tm_intCIV_isInitialized(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @tm_intCIV_isInitialized(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -39,7 +39,7 @@ define hidden range(i32 0, 2) i32 @tm_intCIV_isInitialized(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden void @tm_intCIV_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden void @tm_intCIV_init(ptr noundef writeonly captures(none) initializes((0, 12), (16, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %4, align 4

@@ -430,13 +430,13 @@ spin_acquire_lock.exit:                           ; preds = %3, %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #3
@@ -3482,7 +3482,7 @@ define hidden ptr @dlcalloc(i64 noundef %0, i64 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @dlrealloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -4462,7 +4462,7 @@ spin_acquire_lock.exit:                           ; preds = %10, %2, %6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mspace_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -5697,7 +5697,7 @@ spin_acquire_lock.exit:                           ; preds = %34, %25, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 23) i32 @dlposix_memalign(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 23) i32 @dlposix_memalign(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %1, 16
   br i1 %4, label %5, label %7
 
@@ -5813,7 +5813,7 @@ define hidden ptr @dlindependent_calloc(i64 noundef %0, i64 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ialloc(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 4) %3, ptr noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @ialloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 4) %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = load i64, ptr @mparams, align 8, !tbaa !3
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %7, label %8
@@ -6055,7 +6055,7 @@ spin_acquire_lock.exit:                           ; preds = %66, %59, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dlindependent_comalloc(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden ptr @dlindependent_comalloc(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @ialloc(ptr noundef nonnull @_gm_, i64 noundef %0, ptr noundef %1, i32 noundef 0, ptr noundef %2)
   ret ptr %4
 }
@@ -6650,7 +6650,7 @@ spin_acquire_lock.exit:                           ; preds = %10, %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @destroy_mspace(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden i64 @destroy_mspace(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 888
   br label %3
 
@@ -6944,7 +6944,7 @@ define hidden ptr @mspace_independent_calloc(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mspace_independent_comalloc(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden ptr @mspace_independent_comalloc(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @ialloc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef 0, ptr noundef %3)
   ret ptr %5
 }
@@ -7010,21 +7010,21 @@ spin_acquire_lock.exit:                           ; preds = %10, %2, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @mspace_footprint(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define hidden i64 @mspace_footprint(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 856
   %3 = load i64, ptr %2, align 8, !tbaa !49
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @mspace_max_footprint(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define hidden i64 @mspace_max_footprint(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %3 = load i64, ptr %2, align 8, !tbaa !50
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @mspace_footprint_limit(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define hidden i64 @mspace_footprint_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load i64, ptr %2, align 8, !tbaa !48
   %4 = icmp eq i64 %3, 0
@@ -7033,7 +7033,7 @@ define hidden i64 @mspace_footprint_limit(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden i64 @mspace_set_footprint_limit(ptr nocapture noundef writeonly initializes((872, 880)) %0, i64 noundef %1) local_unnamed_addr #12 {
+define hidden i64 @mspace_set_footprint_limit(ptr noundef writeonly captures(none) initializes((872, 880)) %0, i64 noundef %1) local_unnamed_addr #12 {
   %3 = icmp eq i64 %1, -1
   br i1 %3, label %10, label %4
 
@@ -7432,7 +7432,7 @@ define hidden ptr @mspace_malloc_lockless(ptr noundef %0, i64 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @boost_cont_multialloc_arrays(i64 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @boost_cont_multialloc_arrays(i64 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i64, ptr @mparams, align 8, !tbaa !3
   %.not = icmp eq i64 %6, 0
   br i1 %.not, label %7, label %8
@@ -7680,7 +7680,7 @@ internal_multialloc_arrays.exit:                  ; preds = %spin_acquire_lock.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @boost_cont_size(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define hidden i64 @boost_cont_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load i64, ptr %2, align 8, !tbaa !23
   %4 = and i64 %3, -8
@@ -7711,7 +7711,7 @@ define hidden ptr @boost_cont_malloc(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden { ptr, i32 } @boost_cont_allocation_command(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden { ptr, i32 } @boost_cont_allocation_command(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = load i64, ptr @mparams, align 8, !tbaa !3
   %.not = icmp eq i64 %7, 0
   br i1 %.not, label %8, label %9
@@ -8813,7 +8813,7 @@ mspace_memalign.exit:                             ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @boost_cont_multialloc_nodes(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @boost_cont_multialloc_nodes(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load i64, ptr @mparams, align 8, !tbaa !3
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %6, label %7
@@ -9178,7 +9178,7 @@ spin_acquire_lock.exit:                           ; preds = %9, %3, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, -7) i64 @boost_cont_chunksize(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define hidden range(i64 0, -7) i64 @boost_cont_chunksize(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   %3 = load i64, ptr %2, align 8, !tbaa !23
   %4 = and i64 %3, -8
@@ -9194,7 +9194,7 @@ define hidden range(i32 0, 2) i32 @boost_cont_all_deallocated() local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @boost_cont_malloc_stats(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boost_cont_malloc_stats_impl) align 8 initializes((0, 24)) %0) local_unnamed_addr #0 {
+define hidden void @boost_cont_malloc_stats(ptr dead_on_unwind noalias writable writeonly sret(%struct.boost_cont_malloc_stats_impl) align 8 captures(none) initializes((0, 24)) %0) local_unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !97
   %2 = load i64, ptr @mparams, align 8, !tbaa !3, !noalias !97
@@ -9396,7 +9396,7 @@ dlmalloc_trim.exit:                               ; preds = %spin_acquire_lock.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @boost_cont_grow(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @boost_cont_grow(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
   %6 = and i32 %5, 2
   %.not = icmp eq i32 %6, 0
@@ -10060,7 +10060,7 @@ mmap_resize.exit319:                              ; preds = %49, %55, %21, %93, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @boost_cont_shrink(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @boost_cont_shrink(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
   %7 = and i32 %6, 2
   %.not = icmp eq i32 %7, 0
@@ -10285,14 +10285,14 @@ internal_shrink.exit:                             ; preds = %26, %28, %42, %48, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @boost_cont_alloc(i64 noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden ptr @boost_cont_alloc(i64 noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call { ptr, i32 } @boost_cont_allocation_command(i32 noundef 1, i64 noundef 1, i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef null)
   %5 = extractvalue { ptr, i32 } %4, 0
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @boost_cont_multidealloc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @boost_cont_multidealloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_gm_, i64 880), align 8, !tbaa !9
   %3 = and i32 %2, 2
   %.not.i = icmp eq i32 %3, 0
@@ -10375,7 +10375,7 @@ define hidden noundef i32 @boost_cont_malloc_check() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @internal_grow_both_sides(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef initializes((0, 8)) %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc ptr @internal_grow_both_sides(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4, i64 noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %1, i64 -16
   %9 = getelementptr inbounds i8, ptr %1, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !23
@@ -11560,7 +11560,7 @@ spin_acquire_lock.exit:                           ; preds = %4, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @boost_cont_sync_unlock(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
+define hidden void @boost_cont_sync_unlock(ptr noundef writeonly captures(none) %0) local_unnamed_addr #13 {
   store atomic i32 0, ptr %0 release, align 4
   ret void
 }

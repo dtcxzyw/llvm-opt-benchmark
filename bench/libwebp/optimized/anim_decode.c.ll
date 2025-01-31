@@ -163,7 +163,7 @@ WebPAnimDecoderDelete.exit:                       ; preds = %ApplyDecoderOptions
 declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @WebPDemuxGetI(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -589,7 +589,7 @@ declare i32 @WebPDecode(ptr noundef, i64 noundef, ptr noundef) local_unnamed_add
 declare void @WebPDemuxReleaseIterator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define ptr @WebPAnimDecoderGetDemuxer(ptr noundef readonly %0) local_unnamed_addr #5 {
@@ -612,7 +612,7 @@ declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 declare i32 @WebPGetFeaturesInternal(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @BlendPixelRowNonPremult(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #7 {
+define internal void @BlendPixelRowNonPremult(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #7 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -690,7 +690,7 @@ BlendPixelNonPremult.exit:                        ; preds = %7, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @BlendPixelRowPremult(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #7 {
+define internal void @BlendPixelRowPremult(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #7 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 

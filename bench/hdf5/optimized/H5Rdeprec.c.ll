@@ -243,7 +243,7 @@ define i32 @H5Rget_obj_type1(i64 noundef %0, i32 noundef %1, ptr noundef %2) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @H5_init_library() local_unnamed_addr #2
 
@@ -829,7 +829,7 @@ define range(i32 -1, -2147483648) i32 @H5Rcreate(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @H5CX_set_loc(i64 noundef) local_unnamed_addr #2
 
@@ -846,7 +846,7 @@ declare ptr @H5I_object_verify(i64 noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @H5VL_object_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5R__encode_token_region_compat(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = call i32 @H5R__encode_heap(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull %7, ptr noundef null, i64 noundef 0) #6
@@ -1636,7 +1636,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @H5S_select_serialize(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

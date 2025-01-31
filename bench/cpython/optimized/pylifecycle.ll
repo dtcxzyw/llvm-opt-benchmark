@@ -485,7 +485,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @_PyRuntimeState_Init(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #0
 
@@ -563,16 +563,16 @@ return:                                           ; preds = %sub_1, %sub_0, %if.
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_Py_IsLocaleCoercionTarget(ptr nocapture noundef readonly %ctype_loc) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @_Py_IsLocaleCoercionTarget(ptr noundef readonly captures(none) %ctype_loc) local_unnamed_addr #8 {
 entry:
   br label %for.body
 
@@ -814,12 +814,12 @@ declare void @_PyErr_SetFromPyStatus(ptr noundef byval(%struct.PyStatus) align 8
 declare void @_PyConfig_Read(ptr sret(%struct.PyStatus) align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @PyConfig_Clear(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_Py_PreInitializeFromPyArgv(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %src_config, ptr noundef %args) local_unnamed_addr #1 {
+define hidden void @_Py_PreInitializeFromPyArgv(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %src_config, ptr noundef %args) local_unnamed_addr #1 {
 entry:
   %tmp = alloca %struct.PyStatus, align 8
   %config = alloca %struct.PyPreConfig, align 4
@@ -928,7 +928,7 @@ declare void @_PyPreConfig_Read(ptr sret(%struct.PyStatus) align 8, ptr noundef,
 declare void @_PyPreConfig_Write(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_PreInitializeFromBytesArgs(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %src_config, i64 noundef %argc, ptr noundef %argv) local_unnamed_addr #1 {
+define dso_local void @Py_PreInitializeFromBytesArgs(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %src_config, i64 noundef %argc, ptr noundef %argv) local_unnamed_addr #1 {
 entry:
   %args = alloca %struct._PyArgv, align 8
   store i64 %argc, ptr %args, align 8
@@ -943,7 +943,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_PreInitializeFromArgs(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %src_config, i64 noundef %argc, ptr noundef %argv) local_unnamed_addr #1 {
+define dso_local void @Py_PreInitializeFromArgs(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %src_config, i64 noundef %argc, ptr noundef %argv) local_unnamed_addr #1 {
 entry:
   %args = alloca %struct._PyArgv, align 8
   store i64 %argc, ptr %args, align 8
@@ -958,14 +958,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_PreInitialize(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %src_config) local_unnamed_addr #1 {
+define dso_local void @Py_PreInitialize(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %src_config) local_unnamed_addr #1 {
 entry:
   tail call void @_Py_PreInitializeFromPyArgv(ptr sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %src_config, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_Py_PreInitializeFromConfig(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %config, ptr noundef %args) local_unnamed_addr #1 {
+define hidden void @_Py_PreInitializeFromConfig(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %config, ptr noundef %args) local_unnamed_addr #1 {
 entry:
   %status = alloca %struct.PyStatus, align 8
   %preconfig = alloca %struct.PyPreConfig, align 4
@@ -1039,7 +1039,7 @@ return:                                           ; preds = %if.else9, %if.then7
 declare void @_PyPreConfig_InitFromConfig(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_InitializeFromConfig(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %config) local_unnamed_addr #1 {
+define dso_local void @Py_InitializeFromConfig(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %config) local_unnamed_addr #1 {
 entry:
   %tmp.i.i = alloca %struct.PyStatus, align 8
   %tmp12.i.i = alloca %struct.PyStatus, align 8
@@ -1461,7 +1461,7 @@ return:                                           ; preds = %if.end16, %if.then1
 declare ptr @_PyInterpreterState_GetConfig(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pyinit_main(ptr noalias nocapture writeonly align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) unnamed_addr #1 {
+define internal fastcc void @pyinit_main(ptr noalias writeonly align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) unnamed_addr #1 {
 entry:
   %status.i.i = alloca %struct.PyStatus, align 8
   %status8.i.i = alloca %struct.PyStatus, align 8
@@ -1621,7 +1621,7 @@ if.end7:                                          ; preds = %if.end, %if.end2
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define dso_local void @Py_ExitStatusException(ptr nocapture noundef readonly byval(%struct.PyStatus) align 8 %status) local_unnamed_addr #10 {
+define dso_local void @Py_ExitStatusException(ptr noundef readonly byval(%struct.PyStatus) align 8 captures(none) %status) local_unnamed_addr #10 {
 entry:
   %0 = load i32, ptr %status, align 8
   switch i32 %0, label %if.else4 [
@@ -1660,7 +1660,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_Py_InitializeMain(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result) local_unnamed_addr #1 {
+define dso_local void @_Py_InitializeMain(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result) local_unnamed_addr #1 {
 entry:
   %status = alloca %struct.PyStatus, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !36)
@@ -1824,7 +1824,7 @@ return:                                           ; preds = %entry, %call_ll_exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @wait_for_thread_shutdown(ptr nocapture noundef readonly %tstate) unnamed_addr #1 {
+define internal fastcc void @wait_for_thread_shutdown(ptr noundef readonly captures(none) %tstate) unnamed_addr #1 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %call = tail call ptr @PyImport_GetModule(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 60464)) #21
@@ -2846,7 +2846,7 @@ finalize_clear_sys_builtins_dict.exit:            ; preds = %if.then.i70, %if.en
   call void @_PyModule_ClearDict(ptr noundef %96) #21
   call void @_PyImport_ClearModulesByIndex(ptr noundef nonnull %0) #21
   call void @_PyImport_ClearModules(ptr noundef nonnull %0) #21
-  %call9 = call i64 @_PyGC_CollectNoFail(ptr noundef %tstate) #21
+  %call9 = call i64 @_PyGC_CollectNoFail(ptr noundef nonnull %tstate) #21
   br label %return
 
 return:                                           ; preds = %entry, %finalize_clear_sys_builtins_dict.exit
@@ -2927,14 +2927,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Py_NewInterpreterFromConfig(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef writeonly %tstate_p, ptr nocapture noundef readonly %config) local_unnamed_addr #1 {
+define dso_local void @Py_NewInterpreterFromConfig(ptr noalias writeonly sret(%struct.PyStatus) align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef writeonly captures(none) %tstate_p, ptr noundef readonly captures(none) %config) local_unnamed_addr #1 {
 entry:
   tail call fastcc void @new_interpreter(ptr noalias align 8 %agg.result, ptr noundef %tstate_p, ptr noundef %config)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @new_interpreter(ptr noalias nocapture writeonly align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef writeonly %tstate_p, ptr nocapture noundef readonly %config) unnamed_addr #1 {
+define internal fastcc void @new_interpreter(ptr noalias writeonly align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef writeonly captures(none) %tstate_p, ptr noundef readonly captures(none) %config) unnamed_addr #1 {
 entry:
   %tmp = alloca %struct.PyStatus, align 8
   %tmp22 = alloca %struct.PyStatus, align 8
@@ -3321,7 +3321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @_Py_IsInterpreterFinalizing(ptr nocapture noundef readonly %interp) local_unnamed_addr #11 {
+define dso_local range(i32 0, 2) i32 @_Py_IsInterpreterFinalizing(ptr noundef readonly captures(none) %interp) local_unnamed_addr #11 {
 entry:
   %0 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 320) monotonic, align 8
   %cmp = icmp eq i64 %0, 0
@@ -3814,10 +3814,10 @@ if.end47:                                         ; preds = %if.else42, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @_Py_FatalErrorFormat(ptr noundef %func, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #10 {
+define hidden void @_Py_FatalErrorFormat(ptr noundef %func, ptr noundef readonly captures(none) %format, ...) local_unnamed_addr #10 {
 entry:
   %vargs = alloca [1 x %struct.__va_list_tag], align 16
   %.b = load i1, ptr @_Py_FatalErrorFormat.reentrant, align 4
@@ -3869,13 +3869,13 @@ if.else:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: noreturn nounwind uwtable
 define hidden void @_Py_FatalRefcountErrorFunc(ptr noundef %func, ptr noundef %msg) local_unnamed_addr #10 {
@@ -3939,7 +3939,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @Py_FdIsInteractive(ptr nocapture noundef %fp, ptr noundef readonly %filename) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @Py_FdIsInteractive(ptr noundef captures(none) %fp, ptr noundef readonly %filename) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @fileno(ptr noundef %fp) #21
   %call1 = tail call i32 @isatty(i32 noundef %call) #21
@@ -3979,7 +3979,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #6
 declare ptr @_Py_GetConfig() local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_Py_FdIsInteractive(ptr nocapture noundef %fp, ptr noundef %filename) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_Py_FdIsInteractive(ptr noundef captures(none) %fp, ptr noundef %filename) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @fileno(ptr noundef %fp) #21
   %call1 = tail call i32 @isatty(i32 noundef %call) #21
@@ -4051,7 +4051,7 @@ declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #6
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #15
@@ -4063,7 +4063,7 @@ declare void @_PyPathConfig_UpdateGlobal(ptr sret(%struct.PyStatus) align 8, ptr
 declare i32 @_PySys_UpdateConfig(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pyinit_config(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull writeonly %tstate_p, ptr noundef nonnull %config) unnamed_addr #1 {
+define internal fastcc void @pyinit_config(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull writeonly captures(none) %tstate_p, ptr noundef nonnull %config) unnamed_addr #1 {
 entry:
   %interp.i = alloca ptr, align 8
   %tmp.i4 = alloca %struct.PyStatus, align 8
@@ -4345,7 +4345,7 @@ return:                                           ; preds = %if.end9, %if.then8,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pycore_interp_init(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) unnamed_addr #1 {
+define internal fastcc void @pycore_interp_init(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) unnamed_addr #1 {
 entry:
   %tmp.i35 = alloca %struct.PyStatus, align 8
   %tmp1.i = alloca %struct.PyStatus, align 8
@@ -4878,7 +4878,7 @@ declare void @_PyAtExit_Init(ptr sret(%struct.PyStatus) align 8, ptr noundef) lo
 declare void @_PySys_Create(ptr sret(%struct.PyStatus) align 8, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pycore_init_builtins(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 4), (8, 28)) %agg.result, ptr %tstate.16.val) unnamed_addr #1 {
+define internal fastcc void @pycore_init_builtins(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr %tstate.16.val) unnamed_addr #1 {
 entry:
   %call = tail call ptr @_PyBuiltin_Init(ptr noundef %tstate.16.val) #21
   %cmp = icmp eq ptr %call, null
@@ -5062,7 +5062,7 @@ declare i32 @_PyImport_InitDefaultImportFunc(ptr noundef) local_unnamed_addr #0
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_interp_main(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) unnamed_addr #1 {
+define internal fastcc void @init_interp_main(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) unnamed_addr #1 {
 entry:
   %status8.i = alloca %struct.PyStatus, align 8
   %tmp = alloca %struct.PyStatus, align 8
@@ -5570,7 +5570,7 @@ declare i32 @_PyPerfTrampoline_SetCallbacks(ptr noundef) local_unnamed_addr #0
 declare i32 @_PyPerfTrampoline_Init(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_sys_streams(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) unnamed_addr #1 {
+define internal fastcc void @init_sys_streams(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %tstate) unnamed_addr #1 {
 entry:
   %sb = alloca %struct.stat, align 8
   %interp = getelementptr inbounds nuw i8, ptr %tstate, i64 16
@@ -5811,7 +5811,7 @@ return:                                           ; preds = %Py_XDECREF.exit55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_set_builtins_open(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 32)) %agg.result) unnamed_addr #1 {
+define internal fastcc void @init_set_builtins_open(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 32)) %agg.result) unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.160) #21
@@ -5898,7 +5898,7 @@ Py_XDECREF.exit:                                  ; preds = %done, %if.then.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_main_module(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) unnamed_addr #1 {
+define internal fastcc void @add_main_module(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) unnamed_addr #1 {
 entry:
   %loader = alloca ptr, align 8
   %call = tail call ptr @PyImport_AddModule(ptr noundef nonnull @.str.196) #21
@@ -6122,7 +6122,7 @@ declare ptr @PyImport_ImportModule(ptr noundef) local_unnamed_addr #0
 declare void @_PyErr_Print(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_import_site(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 4), (8, 28)) %agg.result) unnamed_addr #1 {
+define internal fastcc void @init_import_site(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 4), (8, 28)) %agg.result) unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.209) #21
   %cmp = icmp eq ptr %call, null
@@ -6756,16 +6756,16 @@ declare void @llvm.va_start.p0(ptr) #17
 declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

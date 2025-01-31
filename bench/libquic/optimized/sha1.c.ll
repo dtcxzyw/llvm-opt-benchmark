@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @SHA1.buf = internal global [20 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SHA1_Init(ptr nocapture noundef writeonly initializes((0, 96)) %sha) local_unnamed_addr #0 {
+define hidden noundef i32 @SHA1_Init(ptr noundef writeonly captures(none) initializes((0, 96)) %sha) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %sha, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(96) %0, i8 0, i64 76, i1 false)
@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef nonnull ptr @SHA1(ptr noundef %data, i64 noundef %len, ptr noundef writeonly %out) local_unnamed_addr #2 {
@@ -170,7 +170,7 @@ return:                                           ; preds = %if.end44, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @SHA1_Final(ptr nocapture noundef writeonly initializes((0, 20)) %md, ptr noundef %c) local_unnamed_addr #2 {
+define hidden noundef i32 @SHA1_Final(ptr noundef writeonly captures(none) initializes((0, 20)) %md, ptr noundef %c) local_unnamed_addr #2 {
 entry:
   %num = getelementptr inbounds nuw i8, ptr %c, i64 92
   %0 = load i32, ptr %num, align 4
@@ -319,7 +319,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @sha1_block_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 

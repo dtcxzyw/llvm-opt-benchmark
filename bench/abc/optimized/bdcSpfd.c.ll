@@ -99,7 +99,7 @@ define i32 @Bdc_SpfdAdjCost(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Bdc_SpfdPrint_rec(ptr nocapture noundef readonly %0, i32 %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @Bdc_SpfdPrint_rec(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef %2) local_unnamed_addr #1 {
   %putchar = tail call i32 @putchar(i32 40)
   %4 = load i64, ptr %0, align 8
   %5 = and i64 %4, 1048576
@@ -186,7 +186,7 @@ define void @Bdc_SpfdPrint_rec(ptr nocapture noundef readonly %0, i32 %1, ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @Bdc_SpfdPrint(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 {
@@ -1506,10 +1506,10 @@ define internal fastcc i32 @Bdc_CountSpfd(i64 noundef %0, i64 noundef range(i64 
 declare ptr @Abc_MergeSortCost(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define void @Bdc_SpfdDecomposeTest_() local_unnamed_addr #6 {
@@ -1517,7 +1517,7 @@ define void @Bdc_SpfdDecomposeTest_() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Bdc_SpfdMark0(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
+define i32 @Bdc_SpfdMark0(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %1, align 8
   %4 = and i64 %3, 536870911
   %5 = icmp ne i64 %4, 536870911
@@ -1557,7 +1557,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Bdc_SpfdMark1(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
+define i32 @Bdc_SpfdMark1(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %1, align 8
   %4 = and i64 %3, 536870911
   %5 = icmp ne i64 %4, 536870911
@@ -1595,7 +1595,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @Bdc_SpfdUnmark0(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
+define void @Bdc_SpfdUnmark0(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %1, align 8
   %4 = and i64 %3, 536870911
   %5 = icmp eq i64 %4, 536870911
@@ -1623,7 +1623,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @Bdc_SpfdUnmark1(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #9 {
+define void @Bdc_SpfdUnmark1(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #9 {
   %3 = load i64, ptr %1, align 8
   %4 = and i64 %3, 536870911
   %5 = icmp eq i64 %4, 536870911
@@ -1651,7 +1651,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Bdc_SpfdCheckOverlap(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #9 {
+define i32 @Bdc_SpfdCheckOverlap(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #9 {
   %4 = tail call i32 @Bdc_SpfdMark0(ptr noundef %0, ptr noundef %1)
   %5 = tail call i32 @Bdc_SpfdMark1(ptr noundef %0, ptr noundef %2)
   tail call void @Bdc_SpfdUnmark0(ptr noundef %0, ptr noundef %1)
@@ -1739,7 +1739,7 @@ Bdc_SpfdHashValue.exit:                           ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bdc_SpfdDecomposeTest__(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
+define noalias noundef ptr @Bdc_SpfdDecomposeTest__(ptr noundef writeonly captures(none) %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca i64, align 8
@@ -2585,19 +2585,19 @@ Vec_IntFree.exit:                                 ; preds = %399, %401
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Bdc_SpfdReadFiles5(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Bdc_SpfdReadFiles5(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 3863759, ptr %2, align 8
@@ -2623,10 +2623,10 @@ define noalias noundef ptr @Bdc_SpfdReadFiles5(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Bdc_SpfdReadFiles6(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Bdc_SpfdReadFiles6(ptr noundef writeonly captures(none) initializes((0, 8)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 12776759, ptr %2, align 8
@@ -2652,7 +2652,7 @@ define noalias noundef ptr @Bdc_SpfdReadFiles6(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483641, -2147483648) i32 @Bdc_SpfdComputeCost(i64 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #12 {
+define range(i32 -2147483641, -2147483648) i32 @Bdc_SpfdComputeCost(i64 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #12 {
   %4 = and i64 %0, 6148914691236517205
   %5 = lshr i64 %0, 1
   %6 = and i64 %5, 6148914691236517205
@@ -2697,7 +2697,7 @@ define range(i32 -2147483641, -2147483648) i32 @Bdc_SpfdComputeCost(i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Bdc_SpfdFindBest(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #3 {
+define i64 @Bdc_SpfdFindBest(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #3 {
   %6 = alloca i64, align 8
   %7 = getelementptr i8, ptr %0, i64 4
   %.val65 = load i32, ptr %7, align 4
@@ -2961,7 +2961,7 @@ Bdc_SpfdComputeCost.exit75:                       ; preds = %127, %152
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Bdc_SpfdDecomposeTestOne(i64 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define i32 @Bdc_SpfdDecomposeTestOne(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   store i64 %0, ptr %4, align 8
@@ -3930,7 +3930,7 @@ Abc_Clock.exit72:                                 ; preds = %.critedge4, %129
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #15
@@ -3954,7 +3954,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #25
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #21
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #21
   call void @free(ptr noundef %9) #21
   br label %16
 
@@ -3977,10 +3977,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #17
@@ -3992,13 +3992,13 @@ declare void @llvm.va_end.p0(ptr) #17
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #18
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20

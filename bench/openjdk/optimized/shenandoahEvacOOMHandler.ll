@@ -105,7 +105,7 @@ define hidden noundef zeroext i1 @_ZN24ShenandoahEvacOOMCounter13try_incrementEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 4), (72, 80)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN24ShenandoahEvacOOMHandlerC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 4), (72, 80)) %0) unnamed_addr #1 align 2 {
   %2 = tail call noundef i32 @_ZN2os22active_processor_countEv() #8
   %3 = tail call noundef i32 @llvm.smin.i32(i32 %2, i32 128)
   %4 = tail call noundef i32 @llvm.smax.i32(i32 %3, i32 1)
@@ -173,7 +173,7 @@ define hidden noundef i64 @_ZN24ShenandoahEvacOOMHandler12hash_pointerEPKv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = lshr i64 %3, 33
   %5 = xor i64 %4, %3
@@ -194,7 +194,7 @@ define hidden noundef ptr @_ZN24ShenandoahEvacOOMHandler18counter_for_threadEP6T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter(ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load volatile i32, ptr %1, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %.not1 = icmp eq i32 %3, -2147483648
@@ -214,7 +214,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24Shena
 declare void @_ZN2os17naked_short_sleepEl(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -255,7 +255,7 @@ _ZN24ShenandoahEvacOOMHandler20wait_for_one_counterEP24ShenandoahEvacOOMCounter.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahEvacOOMHandler15register_threadEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24ShenandoahEvacOOMHandler15register_threadEP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = lshr i64 %3, 33
   %5 = xor i64 %4, %3
@@ -327,7 +327,7 @@ _ZN24ShenandoahEvacOOMCounter13try_incrementEv.exit.thread: ; preds = %21, %_ZN2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 42
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
@@ -362,7 +362,7 @@ define hidden void @_ZN24ShenandoahEvacOOMHandler17unregister_threadEP6Thread(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahEvacOOMHandler38handle_out_of_memory_during_evacuationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24ShenandoahEvacOOMHandler38handle_out_of_memory_during_evacuationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -450,7 +450,7 @@ _ZN24ShenandoahEvacOOMHandler24wait_for_no_evac_threadsEv.exit: ; preds = %_ZN24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahEvacOOMHandler5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24ShenandoahEvacOOMHandler5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge

@@ -15,14 +15,14 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._foreach_add_job_state_het_job = private unnamed_addr constant [31 x i8] c"_foreach_add_job_state_het_job\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @job_state_set(ptr nocapture noundef writeonly initializes((448, 452)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @job_state_set(ptr noundef writeonly captures(none) initializes((448, 452)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @job_state_set_flag(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @job_state_set_flag(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, %1
@@ -31,7 +31,7 @@ define dso_local void @job_state_set_flag(ptr nocapture noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @job_state_unset_flag(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local void @job_state_unset_flag(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load i32, ptr %3, align 8
   %5 = xor i32 %1, -1
@@ -41,7 +41,7 @@ define dso_local void @job_state_unset_flag(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dump_job_state(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
+define dso_local i32 @dump_job_state(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca %struct.job_state_args_t, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) @__const.dump_job_state.args, i64 32, i1 false)
   %6 = trunc i32 %0 to i16
@@ -73,10 +73,10 @@ define dso_local i32 @dump_job_state(i32 noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dump_job_state_locked(ptr noundef nonnull %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc void @_dump_job_state_locked(ptr noundef nonnull %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 {
   %4 = alloca %struct.foreach_het_job_state_args_t, align 8
   %.not = icmp eq i16 %1, 0
   br i1 %.not, label %12, label %.preheader
@@ -369,7 +369,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 declare i32 @list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_foreach_job_state_filter(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) #2 {
+define internal range(i32 -1, 1) i32 @_foreach_job_state_filter(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((4, 8)) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1
@@ -452,7 +452,7 @@ declare ptr @find_job_record(i32 noundef) local_unnamed_addr #4
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_foreach_add_job_state_het_job(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 -1, 1) i32 @_foreach_add_job_state_het_job(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -541,10 +541,10 @@ _add_job_state_job.exit:                          ; preds = %_job_state_array_bi
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

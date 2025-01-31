@@ -619,7 +619,7 @@ register_class_PhpToken.exit:                     ; preds = %81, %93, %100, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_tokenizer(ptr nocapture readnone %0) #0 {
+define hidden void @zm_info_tokenizer(ptr readnone captures(none) %0) #0 {
   tail call void @php_info_print_table_start() #10
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7) #10
   tail call void @php_info_print_table_end() #10
@@ -627,7 +627,7 @@ define hidden void @zm_info_tokenizer(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PhpToken_tokenize(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_PhpToken_tokenize(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
@@ -745,7 +745,7 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare i32 @zend_update_class_constants(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @tokenize_common(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @tokenize_common(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zend_lex_state, align 8
   %7 = alloca %struct._zval_struct, align 8
@@ -1034,7 +1034,7 @@ tokenize.exit:                                    ; preds = %.loopexit.i, %113, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PhpToken___construct(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_PhpToken___construct(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -1179,7 +1179,7 @@ define hidden void @zim_PhpToken___construct(ptr noundef %0, ptr nocapture readn
 declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PhpToken_is(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PhpToken_is(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1468,7 +1468,7 @@ declare void @zend_argument_type_error(i32 noundef, ptr noundef, ...) local_unna
 declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PhpToken_isIgnorable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PhpToken_isIgnorable(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1528,7 +1528,7 @@ define hidden void @zim_PhpToken_isIgnorable(ptr nocapture noundef readonly %0, 
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PhpToken_getTokenName(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PhpToken_getTokenName(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1615,10 +1615,10 @@ define hidden void @zim_PhpToken_getTokenName(ptr nocapture noundef readonly %0,
 declare ptr @get_token_type_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_PhpToken___toString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_PhpToken___toString(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1692,7 +1692,7 @@ declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #1
 declare void @php_info_print_table_end() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @on_event(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5) #0 {
+define hidden void @on_event(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) #0 {
   switch i32 %0, label %70 [
     i32 0, label %7
     i32 1, label %18
@@ -1822,7 +1822,7 @@ extract_token_id_to_replace.exit.thread:          ; preds = %35, %48, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_token(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @add_token(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %55, label %9
@@ -1978,7 +1978,7 @@ define internal fastcc void @add_token(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_token_get_all(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define hidden void @zif_token_get_all(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
@@ -2058,7 +2058,7 @@ define hidden void @zif_token_get_all(ptr noundef %0, ptr nocapture noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_token_name(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_token_name(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2134,7 +2134,7 @@ declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 nound
 declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #5
@@ -2148,7 +2148,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #5
 declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @zend_register_internal_class_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2157,7 +2157,7 @@ declare void @zend_class_implements(ptr noundef, i32 noundef, ...) local_unnamed
 declare ptr @zend_declare_typed_property(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef byval(%struct.zend_type) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
@@ -2282,13 +2282,13 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @acpi_gbl_integer_bit_width = external dso_local local_unnamed_addr global i8, align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
@@ -83,13 +83,13 @@ define dso_local noundef range(i32 0, 35) i32 @acpi_ut_convert_octal_string(ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
@@ -165,7 +165,7 @@ define dso_local noundef range(i32 0, 34) i32 @acpi_ut_convert_decimal_string(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 0
@@ -244,7 +244,7 @@ define dso_local noundef range(i32 0, 33) i32 @acpi_ut_convert_hex_string(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local zeroext range(i8 49, 48) i8 @acpi_ut_remove_leading_zeros(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local zeroext range(i8 49, 48) i8 @acpi_ut_remove_leading_zeros(ptr noundef captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 48
@@ -264,7 +264,7 @@ define dso_local zeroext range(i8 49, 48) i8 @acpi_ut_remove_leading_zeros(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local zeroext i8 @acpi_ut_remove_whitespace(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local zeroext i8 @acpi_ut_remove_whitespace(ptr noundef captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i64
@@ -292,7 +292,7 @@ define dso_local zeroext i8 @acpi_ut_remove_whitespace(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local zeroext range(i8 0, 2) i8 @acpi_ut_detect_hex_prefix(ptr nocapture noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local zeroext range(i8 0, 2) i8 @acpi_ut_detect_hex_prefix(ptr noundef captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 48
@@ -323,7 +323,7 @@ define dso_local zeroext range(i8 0, 2) i8 @acpi_ut_detect_hex_prefix(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @acpi_ut_remove_hex_prefix(ptr nocapture noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local void @acpi_ut_remove_hex_prefix(ptr noundef captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 48
@@ -351,7 +351,7 @@ define dso_local void @acpi_ut_remove_hex_prefix(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ut_detect_octal_prefix(ptr nocapture noundef %0) local_unnamed_addr #3 align 16 {
+define dso_local noundef zeroext range(i8 0, 2) i8 @acpi_ut_detect_octal_prefix(ptr noundef captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 48

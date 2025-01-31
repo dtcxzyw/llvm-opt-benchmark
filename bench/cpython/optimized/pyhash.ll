@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, -1) i64 @_Py_HashBytes(ptr noundef %src, i64 noundef %len) local_unnamed_addr #4 {
@@ -144,14 +144,14 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i64 @_Py_KeyedHash(i64 noundef %key, ptr nocapture noundef readonly %src, i64 noundef %src_sz) local_unnamed_addr #5 {
+define hidden i64 @_Py_KeyedHash(i64 noundef %key, ptr noundef readonly captures(none) %src, i64 noundef %src_sz) local_unnamed_addr #5 {
 entry:
   %call = tail call fastcc i64 @siphash13(i64 noundef %key, i64 noundef 0, ptr noundef %src, i64 noundef %src_sz)
   ret i64 %call
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @siphash13(i64 noundef %k0, i64 noundef %k1, ptr nocapture noundef readonly %src, i64 noundef %src_sz) unnamed_addr #5 {
+define internal fastcc i64 @siphash13(i64 noundef %k0, i64 noundef %k1, ptr noundef readonly captures(none) %src, i64 noundef %src_sz) unnamed_addr #5 {
 entry:
   %xor = xor i64 %k0, 8317987319222330741
   %xor1 = xor i64 %k1, 7237128888997146477
@@ -346,7 +346,7 @@ sw.epilog:                                        ; preds = %sw.bb43, %sw.bb36, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i64 @pysiphash(ptr nocapture noundef readonly %src, i64 noundef %src_sz) #6 {
+define internal i64 @pysiphash(ptr noundef readonly captures(none) %src, i64 noundef %src_sz) #6 {
 entry:
   %0 = load i64, ptr @_Py_HashSecret, align 8
   %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_Py_HashSecret, i64 8), align 8

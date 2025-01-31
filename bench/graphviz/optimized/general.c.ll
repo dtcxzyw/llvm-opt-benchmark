@@ -108,7 +108,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @vector_subtract_to(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef returned %2) local_unnamed_addr #3 {
+define noundef ptr @vector_subtract_to(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef returned %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -133,7 +133,7 @@ define noundef ptr @vector_subtract_to(i32 noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define double @vector_product(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #4 {
+define double @vector_product(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -162,7 +162,7 @@ define double @vector_product(i32 noundef %0, ptr nocapture noundef readonly %1,
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @vector_saxpy(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef returned %2, double noundef %3) local_unnamed_addr #3 {
+define noundef ptr @vector_saxpy(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef returned %2, double noundef %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -187,7 +187,7 @@ define noundef ptr @vector_saxpy(i32 noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @vector_saxpy2(i32 noundef %0, ptr noundef returned %1, ptr nocapture noundef readonly %2, double noundef %3) local_unnamed_addr #3 {
+define noundef ptr @vector_saxpy2(i32 noundef %0, ptr noundef returned %1, ptr noundef readonly captures(none) %2, double noundef %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -212,7 +212,7 @@ define noundef ptr @vector_saxpy2(i32 noundef %0, ptr noundef returned %1, ptr n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @vector_float_take(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #2 {
+define void @vector_float_take(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4) local_unnamed_addr #2 {
   %6 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %10
@@ -250,7 +250,7 @@ define void @vector_float_take(i32 noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @vector_ordering(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
@@ -319,10 +319,10 @@ define void @vector_ordering(i32 noundef %0, ptr nocapture noundef readonly %1, 
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @comp_ascend(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @comp_ascend(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fcmp ogt double %3, %4
@@ -333,7 +333,7 @@ define internal range(i32 -1, 2) i32 @comp_ascend(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
 define void @vector_sort_int(i32 noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -343,7 +343,7 @@ define void @vector_sort_int(i32 noundef %0, ptr noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @comp_ascend_int(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 -1, 2) i32 @comp_ascend_int(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %3, i32 %4)
@@ -351,7 +351,7 @@ define internal range(i32 -1, 2) i32 @comp_ascend_int(ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define double @distance_cropped(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
+define double @distance_cropped(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.i, label %distance.exit
 
@@ -386,7 +386,7 @@ distance.exit:                                    ; preds = %10, %4
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define double @distance(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
+define double @distance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -426,7 +426,7 @@ declare double @llvm.maxnum.f64(double, double) #5
 declare double @sqrt(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define double @point_distance(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define double @point_distance(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -499,10 +499,10 @@ define ptr @strip_dir(ptr noundef %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #14 {

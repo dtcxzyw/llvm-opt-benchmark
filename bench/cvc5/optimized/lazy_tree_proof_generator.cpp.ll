@@ -582,7 +582,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit25: ; preds = 
 declare void @_ZN4cvc58internal14ProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal22LazyTreeProofGenerator9openChildEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal22LazyTreeProofGenerator9openChildEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -681,10 +681,10 @@ cond.end24:                                       ; preds = %if.then.i52, %_ZNSt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN4cvc58internal22LazyTreeProofGenerator10getCurrentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN4cvc58internal22LazyTreeProofGenerator10getCurrentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #6 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -694,7 +694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4cvc58internal22LazyTreeProofGenerator10closeChildEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal22LazyTreeProofGenerator10closeChildEv(ptr noundef nonnull align 8 captures(none) dereferenceable(192) %this) local_unnamed_addr #7 align 2 {
 cond.end18:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -704,7 +704,7 @@ cond.end18:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal22LazyTreeProofGenerator10setCurrentEmNS_9ProofRuleERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EES7_S5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %this, i64 noundef %objectId, i32 noundef %rule, ptr noundef nonnull align 8 dereferenceable(24) %premise, ptr noundef %args, ptr nocapture noundef readonly %proven) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal22LazyTreeProofGenerator10setCurrentEmNS_9ProofRuleERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EES7_S5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %this, i64 noundef %objectId, i32 noundef %rule, ptr noundef nonnull align 8 dereferenceable(24) %premise, ptr noundef %args, ptr noundef readonly captures(none) %proven) local_unnamed_addr #3 align 2 {
 entry:
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -1081,7 +1081,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofEv(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scope = alloca %"class.std::vector.272", align 8
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
@@ -2422,14 +2422,14 @@ _ZNSt12_Vector_baseISt10shared_ptrIN4cvc58internal9ProofNodeEESaIS4_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal22LazyTreeProofGenerator11getProofForENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture readnone %f) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal22LazyTreeProofGenerator11getProofForENS0_12NodeTemplateILb1EEE(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr readnone captures(none) %f) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofEv(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this)
   ret void
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn16_N4cvc58internal22LazyTreeProofGenerator11getProofForENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef %this, ptr nocapture readnone %f) unnamed_addr #8 align 2 {
+define hidden void @_ZThn16_N4cvc58internal22LazyTreeProofGenerator11getProofForENS0_12NodeTemplateILb1EEE(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef %this, ptr readnone captures(none) %f) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofEv(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %0)
@@ -2437,7 +2437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal22LazyTreeProofGenerator11hasProofForENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef readonly %f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal22LazyTreeProofGenerator11hasProofForENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef readonly captures(none) %f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp2 = alloca %"class.std::shared_ptr", align 8
@@ -2595,7 +2595,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: uwtable
-define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal22LazyTreeProofGenerator11hasProofForENS0_12NodeTemplateILb1EEE(ptr noundef %this, ptr nocapture noundef readonly %f) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZThn16_N4cvc58internal22LazyTreeProofGenerator11hasProofForENS0_12NodeTemplateILb1EEE(ptr noundef %this, ptr noundef readonly captures(none) %f) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   %call = tail call noundef zeroext i1 @_ZN4cvc58internal22LazyTreeProofGenerator11hasProofForENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %f)
@@ -3062,7 +3062,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 declare void @_ZN4cvc58internal16ProofNodeManager6mkNodeENS_9ProofRuleERKSt6vectorISt10shared_ptrINS0_9ProofNodeEESaIS6_EERKS3_INS0_12NodeTemplateILb1EEESaISC_EESC_(ptr sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal22LazyTreeProofGenerator5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_6detail13TreeProofNodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %pn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal22LazyTreeProofGenerator5printERSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_6detail13TreeProofNodeE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %prefix, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %pn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull align 8 dereferenceable(32) %prefix)
@@ -3183,7 +3183,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_22LazyTreeProofGeneratorE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %ltpg) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internallsERSoRKNS0_22LazyTreeProofGeneratorE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %ltpg) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator.10", align 1
@@ -3683,7 +3683,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #13
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal6detail13TreeProofNodeESaIS3_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3908,7 +3908,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare void @__cxa_rethrow() local_unnamed_addr
 

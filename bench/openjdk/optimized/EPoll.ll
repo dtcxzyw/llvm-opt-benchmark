@@ -10,22 +10,22 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [18 x i8] c"epoll_wait failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Java_sun_nio_ch_EPoll_eventSize(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_nio_ch_EPoll_eventSize(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret i32 12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Java_sun_nio_ch_EPoll_eventsOffset(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_nio_ch_EPoll_eventsOffset(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Java_sun_nio_ch_EPoll_dataOffset(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_nio_ch_EPoll_dataOffset(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret i32 4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_EPoll_create(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define i32 @Java_sun_nio_ch_EPoll_create(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @epoll_create1(i32 noundef 524288) #5
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %6
@@ -44,7 +44,7 @@ declare i32 @epoll_create1(i32 noundef) local_unnamed_addr #2
 declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_EPoll_ctl(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define i32 @Java_sun_nio_ch_EPoll_ctl(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.epoll_event, align 4
   store i32 %5, ptr %7, align 4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -70,7 +70,7 @@ declare i32 @epoll_ctl(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_EPoll_wait(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_EPoll_wait(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = inttoptr i64 %3 to ptr
   %8 = tail call i32 @epoll_wait(i32 noundef %2, ptr noundef %7, i32 noundef %4, i32 noundef %5) #5
   %9 = icmp slt i32 %8, 0

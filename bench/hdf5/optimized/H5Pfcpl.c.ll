@@ -2105,7 +2105,7 @@ declare i32 @H5P__encode_unsigned(ptr noundef, ptr noundef, ptr noundef) #1
 declare i32 @H5P__decode_unsigned(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__fcrt_btree_rank_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @H5P__fcrt_btree_rank_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -2159,7 +2159,7 @@ define internal noundef i32 @H5P__fcrt_btree_rank_enc(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__fcrt_btree_rank_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__fcrt_btree_rank_dec(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -2223,7 +2223,7 @@ declare i32 @H5P__encode_uint8_t(ptr noundef, ptr noundef, ptr noundef) #1
 declare i32 @H5P__decode_uint8_t(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__fcrt_shmsg_index_types_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @H5P__fcrt_shmsg_index_types_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -2279,7 +2279,7 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_types_enc(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -2340,7 +2340,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__fcrt_shmsg_index_minsize_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @H5P__fcrt_shmsg_index_minsize_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -2396,7 +2396,7 @@ define internal noundef i32 @H5P__fcrt_shmsg_index_minsize_enc(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -2457,7 +2457,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__fcrt_fspace_strategy_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #3 {
+define internal noundef i32 @H5P__fcrt_fspace_strategy_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #3 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -2478,7 +2478,7 @@ define internal noundef i32 @H5P__fcrt_fspace_strategy_enc(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__fcrt_fspace_strategy_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #4 {
+define internal noundef i32 @H5P__fcrt_fspace_strategy_dec(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8

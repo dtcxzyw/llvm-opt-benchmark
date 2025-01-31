@@ -405,7 +405,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp24MakeSinguarEnumGeneratorEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp24MakeSinguarEnumGeneratorEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #27, !noalias !4
   invoke void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(104) %call.i, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc)
@@ -428,7 +428,7 @@ _ZNSt10unique_ptrIN6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnumESt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp25MakeRepeatedEnumGeneratorEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp25MakeRepeatedEnumGeneratorEPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #27, !noalias !7
   invoke void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(105) %call.i, ptr noundef %desc, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc)
@@ -499,7 +499,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(85), ptr noundef, ptr noundef nonnull align 8 dereferenceable(206), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnumD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnumD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -592,7 +592,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum8MakeVarsEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum8MakeVarsEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) unnamed_addr #3 align 2 {
 entry:
   %field_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %field_, align 8
@@ -603,7 +603,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum22GeneratePrivateMembersEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum22GeneratePrivateMembersEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 24, ptr nonnull @.str.15)
   ret void
@@ -616,7 +616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum28GenerateAccessorDeclarationsEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum28GenerateAccessorDeclarationsEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.absl::lts_20230802::Cleanup", align 8
   %ref.tmp = alloca %"class.std::vector", align 8
@@ -864,7 +864,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 167, ptr nonnull @.str.32)
   %is_oneof_.i = getelementptr inbounds nuw i8, ptr %this, i64 76
@@ -891,7 +891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum20GenerateClearingCodeEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum20GenerateClearingCodeEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 34, ptr nonnull @.str.35)
   ret void
@@ -908,21 +908,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum19GenerateMergingCodeEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum19GenerateMergingCodeEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 44, ptr nonnull @.str.36)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum27GenerateCopyConstructorCodeEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum27GenerateCopyConstructorCodeEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 44, ptr nonnull @.str.36)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum20GenerateSwappingCodeEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum20GenerateSwappingCodeEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   %is_oneof_.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i8, ptr %is_oneof_.i, align 4
@@ -938,7 +938,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum23GenerateConstructorCodeEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum23GenerateConstructorCodeEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   %is_oneof_.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i8, ptr %is_oneof_.i, align 4
@@ -1070,7 +1070,7 @@ declare void @_ZNK6google8protobuf8compiler3cpp18FieldGeneratorBase29GenerateMem
 declare void @_ZNK6google8protobuf8compiler3cpp18FieldGeneratorBase26GenerateOneofCopyConstructEPNS0_2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(85), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum28GenerateAggregateInitializerEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum28GenerateAggregateInitializerEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   %should_split_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %should_split_.i, align 8
@@ -1090,28 +1090,28 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum37GenerateConstexprAggregateInitializerEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum37GenerateConstexprAggregateInitializerEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 46, ptr nonnull @.str.43)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum32GenerateCopyAggregateInitializerEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum32GenerateCopyAggregateInitializerEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 33, ptr nonnull @.str.44)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum39GenerateSerializeWithCachedSizesToArrayEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum39GenerateSerializeWithCachedSizesToArrayEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 161, ptr nonnull @.str.45)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum16GenerateByteSizeEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112SingularEnum16GenerateByteSizeEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 119, ptr nonnull @.str.46)
   ret void
@@ -1915,7 +1915,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2090,7 +2090,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf2io7Printer9ValueImplILb1EEC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef nonnull align 8 dereferenceable(32) %value) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2237,7 +2237,7 @@ _ZNSt8optionalIN6google8protobuf2io7Printer16AnnotationRecordEEC2EOS5_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
@@ -2591,7 +2591,7 @@ _ZNSt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIF
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 declare void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256), ptr, i64, i64, ptr) local_unnamed_addr #0
 
@@ -4098,7 +4098,7 @@ if.end16:                                         ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #17
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
@@ -6339,7 +6339,7 @@ declare void @AbslInternalSpinLockWake_lts_20230802(ptr noundef, i1 noundef zero
 declare noundef zeroext i1 @_ZNK6google8protobuf15FieldDescriptor9is_packedEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnumD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(105) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnumD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(105) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -6426,7 +6426,7 @@ _ZN6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnumD2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum8MakeVarsEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum8MakeVarsEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this) unnamed_addr #3 align 2 {
 entry:
   %field_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %field_, align 8
@@ -6437,7 +6437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum22GeneratePrivateMembersEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum22GeneratePrivateMembersEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   %should_split_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %should_split_.i, align 8
@@ -6467,7 +6467,7 @@ if.end10:                                         ; preds = %if.then6, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum28GenerateAccessorDeclarationsEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum28GenerateAccessorDeclarationsEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.absl::lts_20230802::Cleanup", align 8
   %ref.tmp = alloca %"class.std::vector", align 8
@@ -6836,7 +6836,7 @@ eh.resume:                                        ; preds = %ehcleanup48, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum33GenerateInlineAccessorDefinitionsEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 208, ptr nonnull @.str.56)
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 227, ptr nonnull @.str.57)
@@ -6861,7 +6861,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum20GenerateClearingCodeEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum20GenerateClearingCodeEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   %should_split_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %should_split_.i, align 8
@@ -6881,7 +6881,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum19GenerateMergingCodeEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum19GenerateMergingCodeEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.addr = alloca ptr, align 8
   %ref.tmp = alloca [1 x %"class.google::protobuf::io::Printer::Sub"], align 8
@@ -7009,7 +7009,7 @@ if.end:                                           ; preds = %invoke.cont10, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum27GenerateCopyConstructorCodeEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum27GenerateCopyConstructorCodeEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   %should_split_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %should_split_.i, align 8
@@ -7025,7 +7025,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum20GenerateSwappingCodeEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum20GenerateSwappingCodeEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp3 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %should_split_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -7044,13 +7044,13 @@ cleanup.done:                                     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum23GenerateConstructorCodeEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %p) unnamed_addr #19 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum23GenerateConstructorCodeEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %p) unnamed_addr #19 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum22GenerateDestructorCodeEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum22GenerateDestructorCodeEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   %should_split_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i8, ptr %should_split_.i, align 8
@@ -7066,7 +7066,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum34GenerateMemberConstexprConstructorEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum34GenerateMemberConstexprConstructorEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 9, ptr nonnull @.str.73)
   %has_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -7083,7 +7083,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum25GenerateMemberConstructorEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum25GenerateMemberConstructorEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 26, ptr nonnull @.str.75)
   %has_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -7100,7 +7100,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum29GenerateMemberCopyConstructorEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum29GenerateMemberCopyConstructorEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 40, ptr nonnull @.str.76)
   %has_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -7117,7 +7117,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum26GenerateOneofCopyConstructEPNS0_2io7PrinterE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %p) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum26GenerateOneofCopyConstructEPNS0_2io7PrinterE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %p) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   call void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp2, ptr noundef nonnull @.str.69, i32 noundef 348) #31
@@ -7136,7 +7136,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum28GenerateAggregateInitializerEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum28GenerateAggregateInitializerEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 38, ptr nonnull @.str.78)
   %has_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -7153,7 +7153,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum37GenerateConstexprAggregateInitializerEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum37GenerateConstexprAggregateInitializerEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 38, ptr nonnull @.str.80)
   %has_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -7170,7 +7170,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum32GenerateCopyAggregateInitializerEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
+define internal void @_ZNK6google8protobuf8compiler3cpp12_GLOBAL__N_112RepeatedEnum32GenerateCopyAggregateInitializerEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(105) %this, ptr noundef nonnull %p) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf2io7Printer4EmitEN4absl12lts_202308024SpanIKNS2_3SubEEESt17basic_string_viewIcSt11char_traitsIcEENS2_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(256) %p, ptr null, i64 0, i64 56, ptr nonnull @.str.81)
   %has_cached_size_ = getelementptr inbounds nuw i8, ptr %this, i64 104
@@ -7468,7 +7468,7 @@ ehcleanup19:                                      ; preds = %lpad, %lpad.i, %ehc
 declare noundef i32 @_ZN6google8protobuf8compiler3cpp14GetOptimizeForEPKNS0_14FileDescriptorERKNS2_7OptionsEPb(ptr noundef, ptr noundef nonnull align 8 dereferenceable(206), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum19GenerateMergingCodeEPS4_EUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__functor) #3 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum19GenerateMergingCodeEPS4_EUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__functor) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %__functor, i64 8
   %1 = load i8, ptr %0, align 8
@@ -7489,7 +7489,7 @@ _ZSt10__invoke_rIbRZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCall
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum19GenerateMergingCodeEPS4_EUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIRZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum19GenerateMergingCodeEPS4_EUlvE_vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -7525,7 +7525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum39GenerateSerializeWithCachedSizesToArrayEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum39GenerateSerializeWithCachedSizesToArrayEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #3 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %__functor.val, i64 16
@@ -7562,7 +7562,7 @@ if.else.i.i.i.i:                                  ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum39GenerateSerializeWithCachedSizesToArrayEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum39GenerateSerializeWithCachedSizesToArrayEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -7601,7 +7601,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum16GenerateByteSizeEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum16GenerateByteSizeEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E9_M_invokeERKSt9_Any_data"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor) #3 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %0 = getelementptr inbounds nuw i8, ptr %__functor.val, i64 16
@@ -7647,7 +7647,7 @@ if.then6.i.i.i.i:                                 ; preds = %if.end.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum16GenerateByteSizeEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbvEZN6google8protobuf2io7Printer9ValueImplILb1EE18ToStringOrCallbackIZNKS2_8compiler3cpp12_GLOBAL__N_112RepeatedEnum16GenerateByteSizeEPS4_E3$_0vEESt7variantIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIS0_EEEOT_NS6_5Rank2EEUlvE_E10_M_managerERSt9_Any_dataRKST_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #3 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -7694,10 +7694,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
@@ -7709,7 +7709,7 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #25
 declare i64 @llvm.umin.i64(i64, i64) #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #25

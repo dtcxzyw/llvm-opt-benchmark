@@ -1202,7 +1202,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483627, -2147483648) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_max_bufsize(ptr nocapture noundef readonly %vctx) #2 {
+define internal range(i32 -2147483627, -2147483648) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_max_bufsize(ptr noundef readonly captures(none) %vctx) #2 {
 entry:
   %multiblock_max_send_fragment = getelementptr inbounds nuw i8, ptr %vctx, i64 480
   %0 = load i64, ptr %multiblock_max_send_fragment, align 8
@@ -1222,7 +1222,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_aad(ptr noundef initializes((472, 476)) %vctx, ptr nocapture noundef %param) #2 {
+define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_aad(ptr noundef initializes((472, 476)) %vctx, ptr noundef captures(none) %param) #2 {
 entry:
   %inp = getelementptr inbounds nuw i8, ptr %param, i64 8
   %0 = load ptr, ptr %inp, align 8
@@ -1361,7 +1361,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %ctx, ptr nocapture noundef readonly %param) #2 {
+define internal i32 @aesni_cbc_hmac_sha1_tls1_multiblock_encrypt(ptr noundef %ctx, ptr noundef readonly captures(none) %param) #2 {
 entry:
   %hash_d.i = alloca [8 x %struct.HASH_DESC], align 16
   %edges.i = alloca [8 x %struct.HASH_DESC], align 16
@@ -1877,7 +1877,7 @@ declare i32 @aesni_set_decrypt_key(ptr noundef, i32 noundef, ptr noundef) local_
 declare i32 @SHA1_Init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @aesni_cbc_sha1_enc(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1888,7 +1888,7 @@ declare void @aesni_cbc_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare void @sha1_block_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @SHA1_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -1907,10 +1907,10 @@ declare void @aesni_multi_cbc_encrypt(ptr noundef, ptr noundef, i32 noundef) loc
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

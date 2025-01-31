@@ -79,7 +79,7 @@ define void @_Z14DeleteCompilerP9TCompiler(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN16TGenericCompiler7compileEP11TIntermNodei8EProfile(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((28, 29)) %0, ptr nocapture readnone %1, i32 %2, i32 %3) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN16TGenericCompiler7compileEP11TIntermNodei8EProfile(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((28, 29)) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 1, ptr %5, align 4
   ret i1 true

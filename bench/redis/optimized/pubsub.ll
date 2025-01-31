@@ -48,7 +48,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [52 x i8] c"SSUBSCRIBE isn't allowed for a DENY BLOCKING client\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @getClientPubSubChannels(ptr nocapture noundef readonly %c) #0 {
+define dso_local ptr @getClientPubSubChannels(ptr noundef readonly captures(none) %c) #0 {
 entry:
   %pubsub_channels = getelementptr inbounds nuw i8, ptr %c, i64 544
   %0 = load ptr, ptr %pubsub_channels, align 8
@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @clientSubscriptionsCount(ptr nocapture noundef readonly %c) #1 {
+define dso_local i32 @clientSubscriptionsCount(ptr noundef readonly captures(none) %c) #1 {
 entry:
   %pubsub_channels = getelementptr inbounds nuw i8, ptr %c, i64 544
   %0 = load ptr, ptr %pubsub_channels, align 8
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @getClientPubSubShardChannels(ptr nocapture noundef readonly %c) #0 {
+define dso_local ptr @getClientPubSubShardChannels(ptr noundef readonly captures(none) %c) #0 {
 entry:
   %pubsubshard_channels = getelementptr inbounds nuw i8, ptr %c, i64 560
   %0 = load ptr, ptr %pubsubshard_channels, align 8
@@ -86,7 +86,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @clientShardSubscriptionsCount(ptr nocapture noundef readonly %c) #1 {
+define dso_local i32 @clientShardSubscriptionsCount(ptr noundef readonly captures(none) %c) #1 {
 entry:
   %pubsubshard_channels = getelementptr inbounds nuw i8, ptr %c, i64 560
   %0 = load ptr, ptr %pubsubshard_channels, align 8
@@ -193,7 +193,7 @@ if.end5:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyPubsubSubscribed(ptr noundef %c, ptr noundef %channel, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
+define dso_local void @addReplyPubsubSubscribed(ptr noundef %c, ptr noundef %channel, ptr noundef readonly byval(%struct.pubsubtype) align 8 captures(none) %type) local_unnamed_addr #2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -241,7 +241,7 @@ if.end5:                                          ; preds = %if.then2, %if.end
 declare void @addReplyLongLong(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyPubsubUnsubscribed(ptr noundef %c, ptr noundef %channel, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
+define dso_local void @addReplyPubsubUnsubscribed(ptr noundef %c, ptr noundef %channel, ptr noundef readonly byval(%struct.pubsubtype) align 8 captures(none) %type) local_unnamed_addr #2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -458,7 +458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @clientTotalPubSubSubscriptionCount(ptr nocapture noundef readonly %c) local_unnamed_addr #1 {
+define dso_local i32 @clientTotalPubSubSubscriptionCount(ptr noundef readonly captures(none) %c) local_unnamed_addr #1 {
 entry:
   %pubsub_channels.i = getelementptr inbounds nuw i8, ptr %c, i64 544
   %0 = load ptr, ptr %pubsub_channels.i, align 8
@@ -489,7 +489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @markClientAsPubSub(ptr nocapture noundef %c) local_unnamed_addr #4 {
+define dso_local void @markClientAsPubSub(ptr noundef captures(none) %c) local_unnamed_addr #4 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -510,7 +510,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @unmarkClientAsPubSub(ptr nocapture noundef %c) local_unnamed_addr #4 {
+define dso_local void @unmarkClientAsPubSub(ptr noundef captures(none) %c) local_unnamed_addr #4 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8
@@ -531,7 +531,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @pubsubSubscribeChannel(ptr noundef %c, ptr noundef %channel, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @pubsubSubscribeChannel(ptr noundef %c, ptr noundef %channel, ptr noundef readonly byval(%struct.pubsubtype) align 8 captures(none) %type) local_unnamed_addr #2 {
 entry:
   %clientPubSubChannels = getelementptr inbounds nuw i8, ptr %type, i64 8
   %0 = load ptr, ptr %clientPubSubChannels, align 8
@@ -623,7 +623,7 @@ declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #3
 declare ptr @listAddNodeTail(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @pubsubUnsubscribeChannel(ptr noundef %c, ptr noundef %channel, i32 noundef %notify, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @pubsubUnsubscribeChannel(ptr noundef %c, ptr noundef %channel, i32 noundef %notify, ptr noundef readonly byval(%struct.pubsubtype) align 8 captures(none) %type) local_unnamed_addr #2 {
 entry:
   tail call void @incrRefCount(ptr noundef %channel) #9
   %clientPubSubChannels = getelementptr inbounds nuw i8, ptr %type, i64 8
@@ -1016,7 +1016,7 @@ if.end25:                                         ; preds = %if.then24, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pubsubUnsubscribeAllChannelsInternal(ptr noundef %c, i32 noundef %notify, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
+define dso_local i32 @pubsubUnsubscribeAllChannelsInternal(ptr noundef %c, i32 noundef %notify, ptr noundef readonly byval(%struct.pubsubtype) align 8 captures(none) %type) local_unnamed_addr #2 {
 entry:
   %clientPubSubChannels = getelementptr inbounds nuw i8, ptr %type, i64 8
   %0 = load ptr, ptr %clientPubSubChannels, align 8
@@ -1126,7 +1126,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pubsubUnsubscribeShardChannels(ptr nocapture noundef readonly %channels, i32 noundef %count) local_unnamed_addr #2 {
+define dso_local void @pubsubUnsubscribeShardChannels(ptr noundef readonly captures(none) %channels, i32 noundef %count) local_unnamed_addr #2 {
 entry:
   %cmp3.not = icmp eq i32 %count, 0
   br i1 %cmp3.not, label %for.end, label %for.body.preheader
@@ -1198,7 +1198,7 @@ if.end12:                                         ; preds = %if.then11, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pubsubPublishMessageInternal(ptr noundef %channel, ptr noundef %message, ptr nocapture noundef readonly byval(%struct.pubsubtype) align 8 %type) local_unnamed_addr #2 {
+define dso_local i32 @pubsubPublishMessageInternal(ptr noundef %channel, ptr noundef %message, ptr noundef readonly byval(%struct.pubsubtype) align 8 captures(none) %type) local_unnamed_addr #2 {
 entry:
   %li = alloca %struct.listIter, align 8
   %li3 = alloca %struct.listIter, align 8
@@ -1527,7 +1527,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @subscribeCommand(ptr noundef %c) local_unnamed_addr #2 {
@@ -2068,7 +2068,7 @@ if.end125:                                        ; preds = %cond.end115, %cond.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @addReplyHelp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2412,7 +2412,7 @@ if.end7:                                          ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pubsubMemOverhead(ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
+define dso_local i64 @pubsubMemOverhead(ptr noundef readonly captures(none) %c) local_unnamed_addr #2 {
 entry:
   %pubsub_patterns = getelementptr inbounds nuw i8, ptr %c, i64 552
   %0 = load ptr, ptr %pubsub_patterns, align 8
@@ -2431,10 +2431,10 @@ entry:
 declare i64 @dictMemUsage(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

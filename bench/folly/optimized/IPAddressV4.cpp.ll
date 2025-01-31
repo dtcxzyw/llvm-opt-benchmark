@@ -316,7 +316,7 @@ $_ZZN5folly6detail5Bytes19longestCommonPrefixILm4EEESt4pairISt5arrayIhXT_EEhERKS
 @_ZN5folly11IPAddressV4C1E7in_addr = unnamed_addr alias void (ptr, i32), ptr @_ZN5folly11IPAddressV4C2E7in_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly10hash_valueERKNS_11IPAddressV4E(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %addr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN5folly10hash_valueERKNS_11IPAddressV4E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %addr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %addr, align 4, !tbaa !7
   %conv.i.i.i.i = sext i8 %0 to i64
@@ -350,10 +350,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1331,7 +1331,7 @@ lor.end:                                          ; preds = %_ZN5folly13usingTCM
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #1
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #9
@@ -1446,7 +1446,7 @@ declare extern_weak i32 @mallctlbymib(ptr noundef, i64 noundef, ptr noundef, ptr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %this) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1529,7 +1529,7 @@ return:                                           ; preds = %cleanup, %entry
 declare extern_weak zeroext i1 @MallocExtension_Internal_GetNumericProperty(ptr noundef, i64 noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: cold mustprogress noreturn optsize uwtable
 define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDpT0_() local_unnamed_addr #17 comdat personality ptr @__gxx_personality_v0 {
@@ -1842,10 +1842,10 @@ if.end10:                                         ; preds = %if.then4, %if.else,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN5folly13fbstring_coreIcE10RefCounted10reallocateEPcmmPm(ptr noundef %data, i64 noundef %currentSize, i64 noundef %currentCapacity, ptr noundef %newCapacity) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1976,7 +1976,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5folly13fbstring_coreIcE10initMediumEPKcm(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %data, i64 noundef %size) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2408,7 +2408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZN3fmt2v99formatterINS0_17basic_string_viewIcEEcvE5parseINS0_26basic_format_parse_contextIcNS0_6detail13error_handlerEEEEEDTcldtfp_5beginEERT_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(20) %ctx) local_unnamed_addr #4 comdat align 2 {
@@ -3969,7 +3969,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i.i.i, label %_ZN3fmt2v9eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i, 0
   %cmp9.i.i.i = icmp eq i64 %call.i19.i, %name.coerce1
   %or.cond.i = select i1 %cmp6.i.i.i, i1 %cmp9.i.i.i, i1 false
@@ -6142,14 +6142,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11IPAddressV4C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #25 align 2 {
+define void @_ZN5folly11IPAddressV4C2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #25 align 2 {
 entry:
   store i32 0, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly11IPAddressV4C2ERKSt5arrayIhLm4EE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %src) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV4C2ERKSt5arrayIhLm4EE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %src) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %src, align 1, !tbaa !7
   store i32 %agg.tmp.sroa.0.0.copyload, ptr %this, align 4, !tbaa !7
@@ -6157,7 +6157,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11IPAddressV4C2ENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr %addr.coerce0, ptr %addr.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV4C2ENS_5RangeIPKcEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, ptr %addr.coerce0, ptr %addr.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %addr = alloca %"class.folly::Range", align 8
@@ -6315,7 +6315,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEENSt9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11IPAddressV4C2E7in_addr(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 %src.coerce) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV4C2E7in_addr(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, i32 %src.coerce) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %src.coerce, ptr %this, align 4, !tbaa !63
   ret void
@@ -6791,7 +6791,7 @@ _ZN5folly6detail19to_ascii_with_tableILm10ENS_17to_ascii_alphabetILb0EEEEEvPcmm.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 1, 3) i64 @_ZN5folly11IPAddressV416trySetFromBinaryENS_5RangeIPKhEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr %bytes.coerce0, ptr %bytes.coerce1) local_unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1, 3) i64 @_ZN5folly11IPAddressV416trySetFromBinaryENS_5RangeIPKhEE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %this, ptr %bytes.coerce0, ptr %bytes.coerce1) local_unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %bytes.coerce1 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %bytes.coerce0 to i64
@@ -6810,7 +6810,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZN5folly11IPAddressV419fromInverseArpaNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %arpaname) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define i32 @_ZN5folly11IPAddressV419fromInverseArpaNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %arpaname) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i = alloca %"class.std::reverse_iterator", align 8
   %agg.tmp4.i = alloca %"class.std::reverse_iterator", align 8
@@ -7750,7 +7750,7 @@ while.end:                                        ; preds = %_ZN5folly8toAppendI
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5folly11IPAddressV410createIPv6Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.folly::IPAddressV6") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #10 align 2 {
+define void @_ZNK5folly11IPAddressV410createIPv6Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.folly::IPAddressV6") align 4 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #10 align 2 {
 entry:
   %ba = alloca %"struct.std::array.28", align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ba) #31
@@ -7771,7 +7771,7 @@ entry:
 declare void @_ZN5folly11IPAddressV6C1ERKSt5arrayIhLm16EE(ptr noundef nonnull align 4 dereferenceable(18), ptr noundef nonnull align 1 dereferenceable(16)) unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5folly11IPAddressV414getIPv6For6To4Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.folly::IPAddressV6") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #10 align 2 {
+define void @_ZNK5folly11IPAddressV414getIPv6For6To4Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.folly::IPAddressV6") align 4 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #10 align 2 {
 entry:
   %ba = alloca %"struct.std::array.28", align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ba) #31
@@ -7927,7 +7927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly11IPAddressV48inSubnetENS_5RangeIPKcEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr %cidrNetwork.coerce0, ptr %cidrNetwork.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5folly11IPAddressV48inSubnetENS_5RangeIPKcEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr %cidrNetwork.coerce0, ptr %cidrNetwork.coerce1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store.24", align 16
   %subnetInfo = alloca %"struct.std::pair", align 4
@@ -8147,7 +8147,7 @@ _ZNK5folly9IPAddress4pickIZNKS0_6toJsonB5cxx11EvEUlRT_E_EEDaS2_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly11IPAddressV416inSubnetWithMaskERKS0_St5arrayIhLm4EE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %subnet, i32 %cidrMask.coerce) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5folly11IPAddressV416inSubnetWithMaskERKS0_St5arrayIhLm4EE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %subnet, i32 %cidrMask.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %1 = load i32, ptr %subnet, align 4
@@ -8243,7 +8243,7 @@ declare void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereference
 declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly11IPAddressV410isLoopbackEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5folly11IPAddressV410isLoopbackEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZNK5folly11IPAddressV410isLoopbackEvE13loopback_addr acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -8281,7 +8281,7 @@ lpad:                                             ; preds = %init
 declare void @__cxa_guard_abort(ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5folly11IPAddressV411isLinkLocalEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5folly11IPAddressV411isLinkLocalEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZNK5folly11IPAddressV411isLinkLocalEvE14linklocal_addr acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -8316,7 +8316,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly11IPAddressV413isNonroutableEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5folly11IPAddressV413isNonroutableEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %this, align 4, !tbaa !63
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %retval.sroa.0.0.copyload.i.i.i)
@@ -8336,7 +8336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly11IPAddressV49isPrivateEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5folly11IPAddressV49isPrivateEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %this, align 4, !tbaa !63
   %or7.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %retval.sroa.0.0.copyload.i.i.i)
@@ -8352,7 +8352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly11IPAddressV411isMulticastEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK5folly11IPAddressV411isMulticastEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #0 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %this, align 4, !tbaa !63
   %0 = and i32 %retval.sroa.0.0.copyload.i.i.i, 240
@@ -8361,7 +8361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @_ZNK5folly11IPAddressV44maskEm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, i64 noundef %numBits) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define i32 @_ZNK5folly11IPAddressV44maskEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, i64 noundef %numBits) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store.35", align 16
   %retval = alloca %"class.folly::IPAddressV4", align 4
@@ -8716,7 +8716,7 @@ _ZN5folly6detail22fastIpv4AppendToStringERK7in_addrRNSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly11IPAddressV417toInverseArpaNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
+define void @_ZNK5folly11IPAddressV417toInverseArpaNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store.37", align 16
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 3
@@ -8745,7 +8745,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK5folly11IPAddressV412getNthMSByteEm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, i64 noundef %byteIndex) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZNK5folly11IPAddressV412getNthMSByteEm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, i64 noundef %byteIndex) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store.40", align 16
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9063,7 +9063,7 @@ declare void @llvm.assume(i1 noundef) #28
 declare i64 @llvm.usub.sat.i64(i64, i64) #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30

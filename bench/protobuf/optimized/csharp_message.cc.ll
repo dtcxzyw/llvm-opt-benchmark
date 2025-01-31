@@ -328,7 +328,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler6csharp19CompareFieldNumbersEPKNS0_15FieldDescriptorES5_(ptr nocapture noundef readonly %d1, ptr nocapture noundef readonly %d2) #3 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler6csharp19CompareFieldNumbersEPKNS0_15FieldDescriptorES5_(ptr noundef readonly captures(none) %d1, ptr noundef readonly captures(none) %d2) #3 {
 entry:
   %number_.i = getelementptr inbounds nuw i8, ptr %d1, i64 4
   %0 = load i32, ptr %number_.i, align 4
@@ -825,7 +825,7 @@ _ZN6google8protobuf8compiler6csharp16MessageGeneratorD2Ev.exit: ; preds = %entry
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGenerator10class_nameB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGenerator10class_nameB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this) local_unnamed_addr #4 align 2 {
 entry:
   %descriptor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %descriptor_, align 8
@@ -838,7 +838,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGenerator15full_class_nameB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGenerator15full_class_nameB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this) local_unnamed_addr #4 align 2 {
 entry:
   %descriptor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %descriptor_, align 8
@@ -856,7 +856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGenerator17AddDeprecatedFlagEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef %printer) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGenerator17AddDeprecatedFlagEPNS0_2io7PrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef %printer) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %map.i = alloca %"class.absl::lts_20230802::flat_hash_map.55", align 8
   %descriptor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -5377,7 +5377,7 @@ ehcleanup117:                                     ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGenerator20GenerateFreezingCodeEPNS0_2io7PrinterE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(57) %this, ptr nocapture noundef readnone %printer) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6google8protobuf8compiler6csharp16MessageGenerator20GenerateFreezingCodeEPNS0_2io7PrinterE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(57) %this, ptr noundef readnone captures(none) %printer) local_unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -8998,7 +8998,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler6csharp16MessageGenerator23HasNestedGeneratedTypesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN6google8protobuf8compiler6csharp16MessageGenerator23HasNestedGeneratedTypesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this) local_unnamed_addr #9 align 2 {
 entry:
   %descriptor_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %descriptor_, align 8
@@ -10530,7 +10530,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6google8protobuf8compiler6csharp16MessageGenerator16GetPresenceIndexEPKNS0_15FieldDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %this, ptr noundef %descriptor) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZN6google8protobuf8compiler6csharp16MessageGenerator16GetPresenceIndexEPKNS0_15FieldDescriptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(57) %this, ptr noundef %descriptor) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN6google8protobuf8compiler6csharp19RequiresPresenceBitEPKNS0_15FieldDescriptorE(ptr noundef %descriptor)
   br i1 %call, label %for.cond.preheader, label %return
@@ -10590,7 +10590,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
@@ -10608,7 +10608,7 @@ declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEi
 declare void @_ZN6google8protobuf8compiler6csharp22UnderscoresToCamelCaseB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEEbb(ptr sret(%"class.std::__cxx11::basic_string") align 8, i64, ptr, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEjPc(i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -10628,7 +10628,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf15FieldDescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIPFbS6_S6_EEEEvT_SH_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr %__comp.coerce) local_unnamed_addr #4 comdat {
@@ -11303,7 +11303,7 @@ lpad:                                             ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyISt17basic_string_viewIcSt11char_traitsIcEES7_EENS1_10StringHashENS1_8StringEqESaISt4pairIKS7_S7_EEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %new_capacity) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -11696,7 +11696,7 @@ if.end16:                                         ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #18
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #19
@@ -13536,13 +13536,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 declare i64 @llvm.fshl.i64(i64, i64, i64) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

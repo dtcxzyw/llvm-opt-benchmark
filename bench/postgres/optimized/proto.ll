@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.46 = private unnamed_addr constant [11 x i8] c"pg_catalog\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %3 = load ptr, ptr %0, align 8, !alias.scope !5
@@ -120,7 +120,7 @@ define dso_local void @logicalrep_write_begin(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_read_begin(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local void @logicalrep_read_begin(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
   store i64 %3, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
@@ -155,7 +155,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @pq_getmsgint(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %4 = load ptr, ptr %0, align 8, !alias.scope !17
@@ -213,7 +213,7 @@ define dso_local void @logicalrep_write_commit(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_read_commit(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @logicalrep_read_commit(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
   %4 = and i32 %3, 255
   %.not = icmp eq i32 %4, 0
@@ -241,7 +241,7 @@ define dso_local void @logicalrep_read_commit(ptr noundef %0, ptr nocapture noun
 declare i32 @pq_getmsgbyte(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_begin_prepare(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
   %3 = load ptr, ptr %0, align 8, !alias.scope !32
@@ -355,13 +355,13 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare ptr @pq_getmsgstring(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_prepare(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_prepare(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32 noundef 80, ptr noundef %1, i64 noundef %2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32 noundef range(i32 80, 113) %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32 noundef range(i32 80, 113) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = trunc nuw nsw i32 %1 to i8
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
@@ -506,7 +506,7 @@ define internal fastcc void @logicalrep_read_prepare_common(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_commit_prepared(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %4 = load ptr, ptr %0, align 8, !alias.scope !65
@@ -633,7 +633,7 @@ define dso_local void @logicalrep_read_commit_prepared(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_rollback_prepared(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %5 = load ptr, ptr %0, align 8, !alias.scope !83
@@ -773,7 +773,7 @@ define dso_local void @logicalrep_read_rollback_prepared(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_stream_prepare(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_stream_prepare(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @logicalrep_write_prepare_common(ptr noundef %0, i32 noundef 112, ptr noundef %1, i64 noundef %2)
   ret void
 }
@@ -811,7 +811,7 @@ define dso_local void @logicalrep_write_origin(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @logicalrep_read_origin(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local ptr @logicalrep_read_origin(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @pq_getmsgint64(ptr noundef %0) #8
   store i64 %3, ptr %1, align 8
   %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
@@ -822,7 +822,7 @@ define dso_local ptr @logicalrep_read_origin(ptr noundef %0, ptr nocapture nound
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %7 = load ptr, ptr %0, align 8, !alias.scope !110
@@ -878,7 +878,7 @@ define dso_local void @logicalrep_write_insert(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr nocapture readonly %.64.val, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @logicalrep_write_tuple(ptr noundef %0, ptr readonly captures(none) %.64.val, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %.64.val, align 8
   %6 = icmp sgt i32 %5, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -1144,12 +1144,12 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
   %150 = tail call ptr @OidOutputFunctionCall(i32 noundef %147, i64 noundef %149) #8
   %151 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %150) #10
   %152 = trunc i64 %151 to i32
-  tail call void @pq_sendcountedtext(ptr noundef nonnull %0, ptr noundef %150, i32 noundef %152, i1 noundef zeroext false) #8
+  tail call void @pq_sendcountedtext(ptr noundef nonnull %0, ptr noundef nonnull %150, i32 noundef %152, i1 noundef zeroext false) #8
   br label %153
 
 153:                                              ; preds = %140, %120
   %.sink = phi ptr [ %150, %140 ], [ %129, %120 ]
-  tail call void @pfree(ptr noundef %.sink) #8
+  tail call void @pfree(ptr noundef nonnull %.sink) #8
   tail call void @ReleaseSysCache(ptr noundef nonnull %104) #8
   br label %154
 
@@ -1165,7 +1165,7 @@ column_in_column_list.exit66.thread:              ; preds = %66, %column_in_colu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @logicalrep_read_insert(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @logicalrep_read_insert(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
   %sext = shl i32 %4, 24
@@ -1186,7 +1186,7 @@ define dso_local i32 @logicalrep_read_insert(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr nocapture noundef initializes((0, 20)) %1) unnamed_addr #0 {
+define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr noundef captures(none) initializes((0, 20)) %1) unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #8
   %4 = sext i32 %3 to i64
   %5 = mul nsw i64 %4, 24
@@ -1257,7 +1257,7 @@ define internal fastcc void @logicalrep_read_tuple(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !144)
   %8 = load ptr, ptr %0, align 8, !alias.scope !144
@@ -1337,7 +1337,7 @@ define dso_local void @logicalrep_write_update(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @logicalrep_read_update(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @logicalrep_read_update(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   %6 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
   %sext = shl i32 %6, 24
@@ -1390,7 +1390,7 @@ define dso_local i32 @logicalrep_read_update(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !157)
   %7 = load ptr, ptr %0, align 8, !alias.scope !157
@@ -1451,7 +1451,7 @@ define dso_local void @logicalrep_write_delete(ptr noundef %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @logicalrep_read_delete(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @logicalrep_read_delete(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
   %5 = and i32 %4, 251
@@ -1473,7 +1473,7 @@ define dso_local i32 @logicalrep_read_delete(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)
   %7 = load ptr, ptr %0, align 8, !alias.scope !166
@@ -1553,7 +1553,7 @@ define dso_local void @logicalrep_write_truncate(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @logicalrep_read_truncate(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define dso_local ptr @logicalrep_read_truncate(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 1) #8
   %6 = trunc i32 %5 to i8
@@ -2114,7 +2114,7 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #1
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_read_typ(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 24)) %1) local_unnamed_addr #0 {
+define dso_local void @logicalrep_read_typ(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4), (8, 24)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   store i32 %3, ptr %1, align 8
   %4 = tail call ptr @pq_getmsgstring(ptr noundef %0) #8
@@ -2167,7 +2167,7 @@ define dso_local void @logicalrep_write_stream_start(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @logicalrep_read_stream_start(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define dso_local i32 @logicalrep_read_stream_start(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
   %5 = icmp eq i32 %4, 1
@@ -2192,7 +2192,7 @@ define dso_local void @logicalrep_write_stream_stop(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   tail call void @enlargeStringInfo(ptr noundef %0, i32 noundef 1) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !249)
   %4 = load ptr, ptr %0, align 8, !alias.scope !249
@@ -2262,7 +2262,7 @@ define dso_local void @logicalrep_write_stream_commit(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @logicalrep_read_stream_commit(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local i32 @logicalrep_read_stream_commit(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   %4 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #8
   %5 = and i32 %4, 255
@@ -2350,7 +2350,7 @@ define dso_local void @logicalrep_write_stream_abort(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @logicalrep_read_stream_abort(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @logicalrep_read_stream_abort(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 24)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
   store i32 %4, ptr %1, align 8
   %5 = tail call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #8
@@ -2483,7 +2483,7 @@ declare ptr @OidOutputFunctionCall(i32 noundef, i64 noundef) local_unnamed_addr 
 declare void @pq_sendcountedtext(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #1
 

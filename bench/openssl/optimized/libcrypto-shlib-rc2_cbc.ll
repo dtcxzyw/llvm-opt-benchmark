@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @RC2_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr nocapture noundef readonly %ks, ptr nocapture noundef %iv, i32 noundef %encrypt) local_unnamed_addr #0 {
+define void @RC2_cbc_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %length, ptr noundef readonly captures(none) %ks, ptr noundef captures(none) %iv, i32 noundef %encrypt) local_unnamed_addr #0 {
 entry:
   %tin = alloca [2 x i64], align 16
   %tobool.not = icmp eq i32 %encrypt, 0
@@ -474,7 +474,7 @@ if.end407:                                        ; preds = %if.end376, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @RC2_encrypt(ptr nocapture noundef %d, ptr nocapture noundef readonly %key) local_unnamed_addr #1 {
+define void @RC2_encrypt(ptr noundef captures(none) %d, ptr noundef readonly captures(none) %key) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %d, align 8
   %conv = trunc i64 %0 to i32
@@ -601,7 +601,7 @@ for.end:                                          ; preds = %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @RC2_decrypt(ptr nocapture noundef %d, ptr nocapture noundef readonly %key) local_unnamed_addr #1 {
+define void @RC2_decrypt(ptr noundef captures(none) %d, ptr noundef readonly captures(none) %key) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %d, align 8
   %conv = trunc i64 %0 to i32

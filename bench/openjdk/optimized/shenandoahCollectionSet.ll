@@ -45,10 +45,10 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN23ShenandoahCollectionSetC1EP14ShenandoahHeap13ReservedSpacePc = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN23ShenandoahCollectionSetC2EP14ShenandoahHeap13ReservedSpacePc
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ShenandoahCollectionSetC2EP14ShenandoahHeap13ReservedSpacePc(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 120)) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN23ShenandoahCollectionSetC2EP14ShenandoahHeap13ReservedSpacePc(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 120)) %0, ptr noundef %1, ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 544
   %7 = load i64, ptr %6, align 8
@@ -127,7 +127,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit: ; preds = %4, %23
 declare void @_ZN2os21commit_memory_or_exitEPcmbPKc(ptr noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ShenandoahCollectionSet10add_regionEP20ShenandoahHeapRegion(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23ShenandoahCollectionSet10add_regionEP20ShenandoahHeapRegion(ptr noundef nonnull align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -287,7 +287,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %24, %1, %19, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK23ShenandoahCollectionSet8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK23ShenandoahCollectionSet8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(256) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i64 noundef %4) #9
@@ -430,15 +430,15 @@ declare void @_ZN20VirtualMemoryTracker24set_reserved_region_typeEPh8MEMFLAGS(pt
 declare void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

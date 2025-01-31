@@ -23,13 +23,13 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7520CheckedArrayByteSinkD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7520CheckedArrayByteSinkD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_758ByteSinkD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_758ByteSinkD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_758ByteSinkD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6icu_758ByteSinkD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
@@ -39,7 +39,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_ZN6icu_758ByteSink15GetAppendBufferEiiPciPi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly initializes((0, 4)) %result_capacity) unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6icu_758ByteSink15GetAppendBufferEiiPciPi(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr noundef writeonly captures(none) initializes((0, 4)) %result_capacity) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp slt i32 %min_capacity, 1
   %cmp2 = icmp slt i32 %scratch_capacity, %min_capacity
@@ -51,13 +51,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_758ByteSink5FlushEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_758ByteSink5FlushEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7520CheckedArrayByteSinkC2EPci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) initializes((0, 29)) %this, ptr noundef %outbuf, i32 noundef %capacity) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7520CheckedArrayByteSinkC2EPci(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(29) initializes((0, 29)) %this, ptr noundef %outbuf, i32 noundef %capacity) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7520CheckedArrayByteSinkE, i64 16), ptr %this, align 8
   %outbuf_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -71,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7520CheckedArrayByteSinkD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7520CheckedArrayByteSinkD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7520CheckedArrayByteSink6AppendEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(29) %this, ptr noundef readonly %bytes, i32 noundef %n) unnamed_addr #6 align 2 {
+define void @_ZN6icu_7520CheckedArrayByteSink6AppendEPKci(ptr noundef nonnull align 8 captures(none) dereferenceable(29) %this, ptr noundef readonly %bytes, i32 noundef %n) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp slt i32 %n, 1
   br i1 %cmp, label %return, label %if.end
@@ -158,10 +158,10 @@ return:                                           ; preds = %entry, %if.end20, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7520CheckedArrayByteSink15GetAppendBufferEiiPciPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr nocapture noundef writeonly initializes((0, 4)) %result_capacity) unnamed_addr #8 align 2 {
+define noundef ptr @_ZN6icu_7520CheckedArrayByteSink15GetAppendBufferEiiPciPi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %this, i32 noundef %min_capacity, i32 %0, ptr noundef readnone %scratch, i32 noundef %scratch_capacity, ptr noundef writeonly captures(none) initializes((0, 4)) %result_capacity) unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp slt i32 %min_capacity, 1
   %cmp2 = icmp slt i32 %scratch_capacity, %min_capacity
@@ -205,7 +205,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

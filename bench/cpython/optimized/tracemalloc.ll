@@ -1056,14 +1056,14 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @hashtable_hash_traceback(ptr nocapture noundef readonly %key) #2 {
+define internal i64 @hashtable_hash_traceback(ptr noundef readonly captures(none) %key) #2 {
 entry:
   %0 = load i64, ptr %key, align 8
   ret i64 %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @hashtable_compare_traceback(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #3 {
+define internal range(i32 0, 2) i32 @hashtable_compare_traceback(ptr noundef readonly captures(none) %key1, ptr noundef readonly captures(none) %key2) #3 {
 entry:
   %nframe = getelementptr inbounds nuw i8, ptr %key1, i64 8
   %0 = load i16, ptr %nframe, align 8
@@ -1201,21 +1201,21 @@ return:                                           ; preds = %if.end7, %if.end, %
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tracemalloc_raw_malloc(ptr nocapture noundef readonly %ctx, i64 noundef %size) #0 {
+define internal ptr @tracemalloc_raw_malloc(ptr noundef readonly captures(none) %ctx, i64 noundef %size) #0 {
 entry:
   %call = tail call fastcc ptr @tracemalloc_raw_alloc(i32 noundef 0, ptr noundef %ctx, i64 noundef 1, i64 noundef %size)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tracemalloc_raw_calloc(ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
+define internal ptr @tracemalloc_raw_calloc(ptr noundef readonly captures(none) %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
 entry:
   %call = tail call fastcc ptr @tracemalloc_raw_alloc(i32 noundef 1, ptr noundef %ctx, i64 noundef %nelem, i64 noundef %elsize)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tracemalloc_raw_realloc(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
+define internal ptr @tracemalloc_raw_realloc(ptr noundef readonly captures(none) %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
 entry:
   %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null
@@ -1272,7 +1272,7 @@ return:                                           ; preds = %if.then, %tracemall
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @tracemalloc_free(ptr nocapture noundef readonly %ctx, ptr noundef %ptr) #0 {
+define internal void @tracemalloc_free(ptr noundef readonly captures(none) %ctx, ptr noundef %ptr) #0 {
 entry:
   %cmp = icmp eq ptr %ptr, null
   br i1 %cmp, label %return, label %if.end
@@ -1315,21 +1315,21 @@ return:                                           ; preds = %entry, %tracemalloc
 declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tracemalloc_malloc_gil(ptr nocapture noundef readonly %ctx, i64 noundef %size) #0 {
+define internal ptr @tracemalloc_malloc_gil(ptr noundef readonly captures(none) %ctx, i64 noundef %size) #0 {
 entry:
   %call = tail call fastcc ptr @tracemalloc_alloc_gil(i32 noundef 0, ptr noundef %ctx, i64 noundef 1, i64 noundef %size)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tracemalloc_calloc_gil(ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
+define internal ptr @tracemalloc_calloc_gil(ptr noundef readonly captures(none) %ctx, i64 noundef %nelem, i64 noundef %elsize) #0 {
 entry:
   %call = tail call fastcc ptr @tracemalloc_alloc_gil(i32 noundef 1, ptr noundef %ctx, i64 noundef %nelem, i64 noundef %elsize)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tracemalloc_realloc_gil(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
+define internal ptr @tracemalloc_realloc_gil(ptr noundef readonly captures(none) %ctx, ptr noundef %ptr, i64 noundef %new_size) #0 {
 entry:
   %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null
@@ -2472,7 +2472,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 declare i32 @_Py_hashtable_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @tracemalloc_get_traces_fill(ptr nocapture readnone %traces, ptr nocapture readnone %key, ptr nocapture noundef readonly %value, ptr nocapture noundef readonly %user_data) #0 {
+define internal range(i32 0, 2) i32 @tracemalloc_get_traces_fill(ptr readnone captures(none) %traces, ptr readnone captures(none) %key, ptr noundef readonly captures(none) %value, ptr noundef readonly captures(none) %user_data) #0 {
 entry:
   %domain = getelementptr inbounds nuw i8, ptr %user_data, i64 32
   %0 = load i32, ptr %domain, align 8
@@ -2611,7 +2611,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tracemalloc_get_traces_domain(ptr nocapture readnone %domains, ptr noundef %key, ptr noundef %value, ptr noundef initializes((32, 36)) %user_data) #0 {
+define internal i32 @tracemalloc_get_traces_domain(ptr readnone captures(none) %domains, ptr noundef %key, ptr noundef %value, ptr noundef initializes((32, 36)) %user_data) #0 {
 entry:
   %0 = ptrtoint ptr %key to i64
   %conv = trunc i64 %0 to i32
@@ -2709,7 +2709,7 @@ entry:
 declare i64 @_Py_hashtable_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tracemalloc_get_tracemalloc_memory_cb(ptr nocapture readnone %domains, ptr nocapture readnone %key, ptr noundef %value, ptr nocapture noundef %user_data) #0 {
+define internal noundef i32 @tracemalloc_get_tracemalloc_memory_cb(ptr readnone captures(none) %domains, ptr readnone captures(none) %key, ptr noundef %value, ptr noundef captures(none) %user_data) #0 {
 entry:
   %call = tail call i64 @_Py_hashtable_size(ptr noundef %value) #13
   %0 = load i64, ptr %user_data, align 8
@@ -2770,10 +2770,10 @@ return:                                           ; preds = %entry, %if.end
 declare noalias noundef ptr @malloc(i64 noundef) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #6
+declare void @free(ptr allocptr noundef captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @_Py_hashtable_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2790,7 +2790,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tracemalloc_raw_alloc(i32 noundef range(i32 0, 2) %use_calloc, ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
+define internal fastcc ptr @tracemalloc_raw_alloc(i32 noundef range(i32 0, 2) %use_calloc, ptr noundef readonly captures(none) %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null
@@ -2871,7 +2871,7 @@ return:                                           ; preds = %tracemalloc_alloc.e
 declare ptr @PyThread_tss_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tracemalloc_realloc(ptr nocapture noundef readonly %ctx, ptr noundef %ptr, i64 noundef %new_size) unnamed_addr #0 {
+define internal fastcc ptr @tracemalloc_realloc(ptr noundef readonly captures(none) %ctx, ptr noundef %ptr, i64 noundef %new_size) unnamed_addr #0 {
 entry:
   %realloc = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %realloc, align 8
@@ -2949,7 +2949,7 @@ return:                                           ; preds = %if.else, %if.end11,
 declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @tracemalloc_alloc_gil(i32 noundef range(i32 0, 2) %use_calloc, ptr nocapture noundef readonly %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
+define internal fastcc ptr @tracemalloc_alloc_gil(i32 noundef range(i32 0, 2) %use_calloc, ptr noundef readonly captures(none) %ctx, i64 noundef %nelem, i64 noundef %elsize) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @PyThread_tss_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3528)) #13
   %cmp.not.i.not = icmp eq ptr %call.i, null
@@ -3050,7 +3050,7 @@ declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 declare i32 @PyThread_tss_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @tracemalloc_copy_trace(ptr nocapture readnone %traces, ptr noundef %key, ptr nocapture noundef readonly %value, ptr noundef %user_data) #0 {
+define internal range(i32 -1, 1) i32 @tracemalloc_copy_trace(ptr readnone captures(none) %traces, ptr noundef %key, ptr noundef readonly captures(none) %value, ptr noundef %user_data) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3368), align 8
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 3360), align 8
@@ -3076,7 +3076,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @tracemalloc_copy_domain(ptr nocapture readnone %domains, ptr noundef %key, ptr noundef %value, ptr noundef %user_data) #0 {
+define internal range(i32 -1, 1) i32 @tracemalloc_copy_domain(ptr readnone captures(none) %domains, ptr noundef %key, ptr noundef %value, ptr noundef %user_data) #0 {
 entry:
   %hashtable_alloc.i.i.i = alloca %struct._Py_hashtable_allocator_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %hashtable_alloc.i.i.i)
@@ -3118,13 +3118,13 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

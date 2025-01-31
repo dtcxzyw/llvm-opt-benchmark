@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @monitor_init_qmp_commands, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @qmp_query_name(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @qmp_query_name(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8) ptr @g_malloc0(i64 noundef 8) #5
   %0 = load ptr, ptr @qemu_name, align 8
@@ -60,7 +60,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_quit(ptr nocapture noundef readnone %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_quit(ptr noundef readnone captures(none) %errp) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr @shutdown_action, align 4
   tail call void @qemu_system_shutdown_request(i32 noundef 2) #6
@@ -241,7 +241,7 @@ if.then12:                                        ; preds = %for.body
   br i1 %call19, label %if.end31, label %if.end31.sink.split
 
 for.end:                                          ; preds = %for.cond
-  %call28 = tail call zeroext i1 @qmp_add_client_char(i32 noundef %call4, i1 noundef zeroext %has_skipauth, i1 noundef zeroext %skipauth, i1 noundef zeroext %has_tls, i1 noundef zeroext %tls, ptr noundef %protocol, ptr noundef %errp) #6
+  %call28 = tail call zeroext i1 @qmp_add_client_char(i32 noundef %call4, i1 noundef zeroext %has_skipauth, i1 noundef zeroext %skipauth, i1 noundef zeroext %has_tls, i1 noundef zeroext %tls, ptr noundef nonnull %protocol, ptr noundef %errp) #6
   br i1 %call28, label %if.end31, label %if.end31.sink.split
 
 if.end31.sink.split:                              ; preds = %for.end, %if.then12, %if.then6
@@ -267,7 +267,7 @@ declare zeroext i1 @fd_is_socket(i32 noundef) local_unnamed_addr #2
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare zeroext i1 @qmp_add_client_char(i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -309,7 +309,7 @@ out:                                              ; preds = %qemu_lockable_auto_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @monitor_data_init(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 

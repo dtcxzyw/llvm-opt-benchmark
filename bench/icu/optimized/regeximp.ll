@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7524CaseFoldingUCharIteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7524CaseFoldingUCharIteratorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524CaseFoldingUTextIteratorC2ER5UText(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(144) %text) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7524CaseFoldingUTextIteratorC2ER5UText(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(144) %text) unnamed_addr #0 align 2 {
 entry:
   store ptr %text, ptr %this, align 8
   %fFoldChars = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -20,7 +20,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7524CaseFoldingUTextIteratorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7524CaseFoldingUTextIteratorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -146,7 +146,7 @@ declare i32 @utext_next32_75(ptr noundef) local_unnamed_addr #3
 declare i32 @ucase_toFullFolding_75(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7524CaseFoldingUTextIterator11inExpansionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7524CaseFoldingUTextIterator11inExpansionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #4 align 2 {
 entry:
   %fFoldChars = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %fFoldChars, align 8
@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524CaseFoldingUCharIteratorC2EPKDsll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %this, ptr noundef %chars, i64 noundef %start, i64 noundef %limit) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7524CaseFoldingUCharIteratorC2EPKDsll(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %this, ptr noundef %chars, i64 noundef %start, i64 noundef %limit) unnamed_addr #0 align 2 {
 entry:
   store ptr %chars, ptr %this, align 8
   %fIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -171,7 +171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7524CaseFoldingUCharIteratorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7524CaseFoldingUCharIteratorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -300,7 +300,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7524CaseFoldingUCharIterator11inExpansionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7524CaseFoldingUCharIterator11inExpansionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
 entry:
   %fFoldChars = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fFoldChars, align 8
@@ -310,7 +310,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6icu_7524CaseFoldingUCharIterator8getIndexEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
+define noundef i64 @_ZN6icu_7524CaseFoldingUCharIterator8getIndexEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #4 align 2 {
 entry:
   %fIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %fIndex, align 8

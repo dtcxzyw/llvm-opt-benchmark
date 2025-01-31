@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_hash_init(ptr nocapture noundef writeonly initializes((0, 36), (40, 48)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @Curl_hash_init(ptr noundef writeonly captures(none) initializes((0, 36), (40, 48)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -138,7 +138,7 @@ mk_hash_element.exit.thread:                      ; preds = %.loopexit, %6, %44
 declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @hash_element_dtor(ptr nocapture noundef readonly %0, ptr noundef initializes((32, 40)) %1) #1 {
+define internal void @hash_element_dtor(ptr noundef readonly captures(none) %0, ptr noundef initializes((32, 40)) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -216,7 +216,7 @@ define dso_local range(i32 0, 2) i32 @Curl_hash_delete(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_hash_pick(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local ptr @Curl_hash_pick(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.loopexit, label %5
@@ -485,7 +485,7 @@ define dso_local range(i64 0, -1) i64 @Curl_hash_str(ptr noundef readonly %0, i6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 2) i64 @Curl_str_key_compare(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #4 {
+define dso_local range(i64 0, 2) i64 @Curl_str_key_compare(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq i64 %1, %3
   br i1 %5, label %6, label %7
 
@@ -503,7 +503,7 @@ define dso_local range(i64 0, 2) i64 @Curl_str_key_compare(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_hash_start_iterate(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %1) local_unnamed_addr #0 {
+define dso_local void @Curl_hash_start_iterate(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 12), (16, 24)) %1) local_unnamed_addr #0 {
   store ptr %0, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %3, align 8
@@ -513,7 +513,7 @@ define dso_local void @Curl_hash_start_iterate(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @Curl_hash_next_element(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define dso_local ptr @Curl_hash_next_element(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -576,10 +576,10 @@ define dso_local ptr @Curl_hash_next_element(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

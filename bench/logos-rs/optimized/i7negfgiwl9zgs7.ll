@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.790b35ba9bed7d8f3abd894f6d3554cb.0 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"unexpected token" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse6Parser9parse_str17h6503c86c2a5328acE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn5parse6Parser9parse_str17h6503c86c2a5328acE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -39,7 +39,7 @@ define void @_ZN3syn5parse6Parser9parse_str17h6503c86c2a5328acE(ptr nocapture wr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3syn5parse6Parser9parse_str17h7dd04df7b640d8ddE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3syn5parse6Parser9parse_str17h7dd04df7b640d8ddE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -72,7 +72,7 @@ define void @_ZN3syn5parse6Parser9parse_str17h7dd04df7b640d8ddE(ptr nocapture wr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h197d79d25963824aE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h197d79d25963824aE"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -186,7 +186,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h197d79d2596
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h413dfa12512a0c57E"(ptr nocapture writeonly sret([224 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h413dfa12512a0c57E"(ptr writeonly sret([224 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [224 x i8], align 8
@@ -307,7 +307,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h413dfa12512
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h60237452811f2b87E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h60237452811f2b87E"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -434,7 +434,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h60237452811
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hb88a5c63da09eb97E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hb88a5c63da09eb97E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -552,7 +552,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hb88a5c63da0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hba939dac2d9468bbE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hba939dac2d9468bbE"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -666,7 +666,7 @@ define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hba939dac2d9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hc807568605084d3cE"(ptr nocapture writeonly sret([216 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217hc807568605084d3cE"(ptr writeonly sret([216 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [216 x i8], align 8
@@ -793,7 +793,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare void @"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h0ceca65fe6728aa3E"(ptr sret([32 x i8]) align 8, ptr align 1, i64) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN86_$LT$syn..error..Error$u20$as$u20$core..convert..From$LT$proc_macro2..LexError$GT$$GT$4from17h758d3a36763574e9E"(ptr sret([24 x i8]) align 8, i8) unnamed_addr #0

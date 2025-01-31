@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @known_settable_ecxkem_ctx_params = internal constant [3 x %struct.ossl_param_st] [%struct.ossl_param_st { ptr @.str.14, i32 4, ptr null, i64 0, i64 -1 }, %struct.ossl_param_st { ptr @.str.13, i32 5, ptr null, i64 0, i64 -1 }, %struct.ossl_param_st zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ecx_dhkem_derive_private(ptr nocapture noundef readonly %ecx, ptr noundef %privout, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecx_dhkem_derive_private(ptr noundef readonly captures(none) %ecx, ptr noundef %privout, ptr noundef %ikm, i64 noundef %ikmlen) local_unnamed_addr #0 {
 entry:
   %prk = alloca [64 x i8], align 16
   %suiteid = alloca [2 x i8], align 1
@@ -171,7 +171,7 @@ ecxkem_init.exit:                                 ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @ecxkem_encapsulate(ptr nocapture noundef readonly %vctx, ptr noundef writeonly %out, ptr noundef %outlen, ptr noundef %secret, ptr noundef %secretlen) #0 {
+define internal range(i32 -2, 2) i32 @ecxkem_encapsulate(ptr noundef readonly captures(none) %vctx, ptr noundef writeonly %out, ptr noundef %outlen, ptr noundef %secret, ptr noundef %secretlen) #0 {
 entry:
   %tmpbuf.i.i = alloca [66 x i8], align 16
   %mode = getelementptr inbounds nuw i8, ptr %vctx, i64 32
@@ -446,7 +446,7 @@ ecxkem_init.exit:                                 ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @ecxkem_decapsulate(ptr nocapture noundef readonly %vctx, ptr noundef %out, ptr nocapture noundef %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
+define internal range(i32 -2, 2) i32 @ecxkem_decapsulate(ptr noundef readonly captures(none) %vctx, ptr noundef %out, ptr noundef captures(none) %outlen, ptr noundef %in, i64 noundef %inlen) #0 {
 entry:
   %params.i.i = alloca [2 x %struct.ossl_param_st], align 16
   %tmp.i.i = alloca %struct.ossl_param_st, align 8
@@ -676,7 +676,7 @@ return:                                           ; preds = %if.end15, %if.end26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ecxkem_settable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @ecxkem_settable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @known_settable_ecxkem_ctx_params
 }
@@ -796,7 +796,7 @@ declare void @ossl_ecx_key_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ossl_ecx_key_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr nocapture noundef readonly %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr nocapture noundef readonly %sender_pub, ptr nocapture noundef nonnull readonly %recipient_pub) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @derive_secret(ptr noundef readonly captures(none) %ctx, ptr noundef %secret, ptr noundef %privkey1, ptr noundef %peerkey1, ptr noundef %privkey2, ptr noundef %peerkey2, ptr noundef readonly captures(none) %sender_pub, ptr noundef nonnull readonly captures(none) %recipient_pub) unnamed_addr #0 {
 entry:
   %suiteid.i = alloca [2 x i8], align 1
   %prk.i = alloca [64 x i8], align 16
@@ -944,7 +944,7 @@ err:                                              ; preds = %12, %dhkem_extract_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @ossl_ecx_key_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -973,10 +973,10 @@ declare i32 @OSSL_PARAM_get_octet_string(ptr noundef, ptr noundef, i64 noundef, 
 declare i32 @ossl_eckem_modename2id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

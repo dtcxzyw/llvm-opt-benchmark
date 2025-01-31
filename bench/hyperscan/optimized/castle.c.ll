@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @mmbit_root_offset_from_level = external local_unnamed_addr constant [7 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecCastle_Q(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 2) i8 @nfaExecCastle_Q(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %n, i64 64
   %report_current.i = getelementptr inbounds nuw i8, ptr %q, i64 80
@@ -5239,7 +5239,7 @@ nfaExecCastle_Q_i.exit:                           ; preds = %for.body.i2150, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 3) i8 @nfaExecCastle_Q2(ptr noundef %n, ptr nocapture noundef %q, i64 noundef %end) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecCastle_Q2(ptr noundef %n, ptr noundef captures(none) %q, i64 noundef %end) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %n, i64 64
   %report_current.i = getelementptr inbounds nuw i8, ptr %q, i64 80
@@ -9655,7 +9655,7 @@ nfaExecCastle_Q_i.exit:                           ; preds = %for.body.i543, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 3) i8 @nfaExecCastle_QR(ptr noundef %n, ptr nocapture noundef %q, i32 noundef %report) local_unnamed_addr #0 {
+define hidden signext range(i8 0, 3) i8 @nfaExecCastle_QR(ptr noundef %n, ptr noundef captures(none) %q, i32 noundef %report) local_unnamed_addr #0 {
 entry:
   %si_state.i = alloca [7 x %struct.mmbit_sparse_state], align 16
   %cur = getelementptr inbounds nuw i8, ptr %q, i64 8
@@ -13974,7 +13974,7 @@ return:                                           ; preds = %if.end19.i2068, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecCastle_reportCurrent(ptr noundef %n, ptr nocapture noundef readonly %q) local_unnamed_addr #1 {
+define hidden noundef signext i8 @nfaExecCastle_reportCurrent(ptr noundef %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %offset.i.i = getelementptr inbounds nuw i8, ptr %q, i64 32
@@ -15323,7 +15323,7 @@ castleReportCurrent.exit:                         ; preds = %if.then.i339, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecCastle_inAccept(ptr noundef %n, i32 noundef %report, ptr nocapture noundef readonly %q) local_unnamed_addr #1 {
+define hidden signext range(i8 0, 2) i8 @nfaExecCastle_inAccept(ptr noundef %n, i32 noundef %report, ptr noundef readonly captures(none) %q) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %offset.i = getelementptr inbounds nuw i8, ptr %q, i64 32
@@ -16679,7 +16679,7 @@ castleInAccept.exit:                              ; preds = %if.end.i83, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecCastle_inAnyAccept(ptr noundef %n, ptr nocapture noundef readonly %q) local_unnamed_addr #1 {
+define hidden signext range(i8 0, 2) i8 @nfaExecCastle_inAnyAccept(ptr noundef %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %offset.i = getelementptr inbounds nuw i8, ptr %q, i64 32
@@ -18019,7 +18019,7 @@ return:                                           ; preds = %if.end.i149, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @nfaExecCastle_queueInitState(ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %q) local_unnamed_addr #2 {
+define hidden noundef signext i8 @nfaExecCastle_queueInitState(ptr noundef readonly captures(none) %n, ptr noundef readonly captures(none) %q) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %exclusive = getelementptr inbounds nuw i8, ptr %n, i64 73
@@ -18090,7 +18090,7 @@ if.end8:                                          ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecCastle_initCompressedState(ptr nocapture noundef readonly %n, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #3 {
+define hidden noundef signext i8 @nfaExecCastle_initCompressedState(ptr noundef readonly captures(none) %n, i64 noundef %offset, ptr noundef writeonly captures(none) %state, i8 noundef zeroext %key) local_unnamed_addr #3 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %exclusive = getelementptr inbounds nuw i8, ptr %n, i64 73
@@ -18157,7 +18157,7 @@ if.end7:                                          ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef signext i8 @nfaExecCastle_queueCompressState(ptr noundef %n, ptr nocapture noundef readonly %q, i64 noundef %loc) local_unnamed_addr #1 {
+define hidden noundef signext i8 @nfaExecCastle_queueCompressState(ptr noundef %n, ptr noundef readonly captures(none) %q, i64 noundef %loc) local_unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %n, i64 64
   %offset1 = getelementptr inbounds nuw i8, ptr %q, i64 32
@@ -20583,7 +20583,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #4
 declare i64 @llvm.ctpop.i64(i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @repeatPack(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 

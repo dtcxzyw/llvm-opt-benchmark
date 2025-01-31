@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6hermes10StringKind5EntryC1ENS0_4KindEj = hidden unnamed_addr alias void (ptr, i32, i32), ptr @_ZN6hermes10StringKind5EntryC2ENS0_4KindEj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes10StringKind5EntryC2ENS0_4KindEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %kind, i32 noundef %count) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes10StringKind5EntryC2ENS0_4KindEj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, i32 noundef %kind, i32 noundef %count) unnamed_addr #0 align 2 {
 entry:
   %or = or i32 %count, %kind
   store i32 %or, ptr %this, align 4
@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes10StringKind11Accumulator9push_backENS0_4KindE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %k) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes10StringKind11Accumulator9push_backENS0_4KindE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i32 noundef %k) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8

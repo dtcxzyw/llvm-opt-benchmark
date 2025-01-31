@@ -37,13 +37,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [25 x i8] c"out of memory on line %d\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ecpg_init_sqlca(ptr nocapture noundef writeonly initializes((0, 256)) %0) local_unnamed_addr #0 {
+define void @ecpg_init_sqlca(ptr noundef writeonly captures(none) initializes((0, 256)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(256) @sqlca_init, i64 256, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define noundef zeroext i1 @ecpg_init(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
@@ -292,12 +292,12 @@ ECPGget_sqlca.exit:                               ; preds = %1, %7, %10
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef %17, ptr noundef nonnull @.str.12, ptr noundef %0) #16
+  %24 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef %17, ptr noundef nonnull @.str.12, ptr noundef nonnull %0) #16
   br label %28
 
 25:                                               ; preds = %20
   %26 = tail call i32 @getpid() #16
-  %27 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef %17, ptr noundef nonnull @.str.13, i32 noundef %26, ptr noundef %0) #16
+  %27 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %18, i64 noundef %17, ptr noundef nonnull @.str.13, i32 noundef %26, ptr noundef nonnull %0) #16
   br label %28
 
 28:                                               ; preds = %25, %23
@@ -332,7 +332,7 @@ ECPGget_sqlca.exit:                               ; preds = %1, %7, %10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @PQexec(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -367,7 +367,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -379,13 +379,13 @@ declare i32 @pg_vfprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ECPGset_noind_null(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
+define void @ECPGset_noind_null(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #9 {
   switch i32 %0, label %19 [
     i32 1, label %3
     i32 2, label %3
@@ -472,10 +472,10 @@ define void @ECPGset_noind_null(i32 noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define noundef zeroext i1 @ECPGis_noind_null(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   switch i32 %0, label %49 [
     i32 1, label %3
     i32 2, label %3
@@ -742,7 +742,7 @@ define ptr @ECPGget_var(i32 noundef %0) local_unnamed_addr #13 {
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @ecpg_sqlca_key_destructor(ptr nocapture noundef %0) #14 {
+define internal void @ecpg_sqlca_key_destructor(ptr noundef captures(none) %0) #14 {
   tail call void @free(ptr noundef %0) #16
   ret void
 }

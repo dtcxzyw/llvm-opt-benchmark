@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @entryExecPlaceToPage.data = internal global %struct.ginxlogInsertEntry zeroinitializer, align 2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GinFormTuple(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i64 noundef %2, i8 noundef signext %3, ptr noundef readonly %4, i64 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
+define dso_local ptr @GinFormTuple(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i64 noundef %2, i8 noundef signext %3, ptr noundef readonly %4, i64 noundef %5, i32 noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca [2 x i64], align 16
   %10 = alloca [2 x i8], align 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -189,13 +189,13 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ginReadTuple(ptr nocapture noundef readnone %0, i16 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @ginReadTuple(ptr noundef readnone captures(none) %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.val18 = load i16, ptr %2, align 2
   %6 = getelementptr i8, ptr %2, i64 2
@@ -255,7 +255,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginEntryFillRoot(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5) #0 {
+define dso_local void @ginEntryFillRoot(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = getelementptr i8, ptr %3, i64 12
   %.val.i = load i16, ptr %7, align 4
   %8 = icmp ult i16 %.val.i, 25
@@ -448,7 +448,7 @@ GinFormInteriorTuple.exit23:                      ; preds = %90, %104
 declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ginPrepareEntryScan(ptr nocapture noundef writeonly initializes((0, 128)) %0, i16 noundef zeroext %1, i64 noundef %2, i8 noundef signext %3, ptr noundef %4) local_unnamed_addr #5 {
+define dso_local void @ginPrepareEntryScan(ptr noundef writeonly captures(none) initializes((0, 128)) %0, i16 noundef zeroext %1, i64 noundef %2, i8 noundef signext %3, ptr noundef %4) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -490,7 +490,7 @@ define dso_local void @ginPrepareEntryScan(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @entryLocateEntry(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal i32 @entryLocateEntry(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -648,7 +648,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @entryGetLeftMostPage(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @entryGetLeftMostPage(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val4 = load i32, ptr %3, align 4
   %4 = and i32 %.val4, 32767
@@ -665,7 +665,7 @@ define internal i32 @entryGetLeftMostPage(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @entryIsMoveRight(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal zeroext i1 @entryIsMoveRight(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 4
@@ -714,7 +714,7 @@ define internal zeroext i1 @entryIsMoveRight(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @entryLocateLeafEntry(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal noundef zeroext i1 @entryLocateLeafEntry(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -808,7 +808,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal zeroext i16 @entryFindChildPtr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i16 noundef zeroext %3) #7 {
+define internal zeroext i16 @entryFindChildPtr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i16 noundef zeroext %3) #7 {
   %5 = getelementptr i8, ptr %1, i64 12
   %.val43 = load i16, ptr %5, align 4
   %6 = icmp ult i16 %.val43, 25
@@ -901,7 +901,7 @@ define internal zeroext i16 @entryFindChildPtr(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 3) i32 @entryBeginPlaceToPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture readnone %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) #0 {
+define internal range(i32 1, 3) i32 @entryBeginPlaceToPage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) #0 {
   %9 = alloca [2 x %union.PGAlignedBlock], align 16
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load i16, ptr %10, align 8
@@ -1203,7 +1203,7 @@ entrySplitPage.exit:                              ; preds = %180
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @entryExecPlaceToPage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @entryExecPlaceToPage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = icmp slt i32 %1, 0
   br i1 %7, label %8, label %14
 
@@ -1344,7 +1344,7 @@ entryPreparePage.exit:                            ; preds = %25, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @entryPrepareDownlink(ptr nocapture readnone %0, i32 noundef %1) #0 {
+define internal ptr @entryPrepareDownlink(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %10
 
@@ -1478,10 +1478,10 @@ declare void @llvm.assume(i1 noundef) #8
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

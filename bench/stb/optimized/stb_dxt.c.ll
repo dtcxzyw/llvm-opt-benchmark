@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stb__From16Bit(ptr nocapture noundef writeonly initializes((0, 4)) %out, i16 noundef zeroext %v) local_unnamed_addr #1 {
+define void @stb__From16Bit(ptr noundef writeonly captures(none) initializes((0, 4)) %out, i16 noundef zeroext %v) local_unnamed_addr #1 {
 entry:
   %shr = lshr i16 %v, 11
   %and2 = lshr i16 %v, 5
@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stb__Lerp13RGB(ptr nocapture noundef writeonly initializes((0, 3)) %out, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2) local_unnamed_addr #2 {
+define void @stb__Lerp13RGB(ptr noundef writeonly captures(none) initializes((0, 3)) %out, ptr noundef readonly captures(none) %p1, ptr noundef readonly captures(none) %p2) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %p1, align 1
   %conv = zext i8 %0 to i16
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stb__EvalColors(ptr nocapture noundef writeonly initializes((0, 11), (12, 15)) %color, i16 noundef zeroext %c0, i16 noundef zeroext %c1) local_unnamed_addr #1 {
+define void @stb__EvalColors(ptr noundef writeonly captures(none) initializes((0, 11), (12, 15)) %color, i16 noundef zeroext %c0, i16 noundef zeroext %c1) local_unnamed_addr #1 {
 entry:
   %shr.i = lshr i16 %c0, 11
   %and2.i = lshr i16 %c0, 5
@@ -205,7 +205,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @stb__MatchColorsBlock(ptr nocapture noundef readonly %block, ptr nocapture noundef readonly %color) local_unnamed_addr #3 {
+define i32 @stb__MatchColorsBlock(ptr noundef readonly captures(none) %block, ptr noundef readonly captures(none) %color) local_unnamed_addr #3 {
 entry:
   %dots = alloca [16 x i32], align 16
   %stops = alloca [4 x i32], align 16
@@ -317,7 +317,7 @@ for.end87:                                        ; preds = %for.body74
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb__OptimizeColorsBlock(ptr nocapture noundef readonly %block, ptr nocapture noundef writeonly %pmax16, ptr nocapture noundef writeonly %pmin16) local_unnamed_addr #4 {
+define void @stb__OptimizeColorsBlock(ptr noundef readonly captures(none) %block, ptr noundef writeonly captures(none) %pmax16, ptr noundef writeonly captures(none) %pmin16) local_unnamed_addr #4 {
 entry:
   %covf = alloca [6 x float], align 16
   %cov = alloca [6 x i32], align 16
@@ -663,7 +663,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @stb__RefineBlock(ptr nocapture noundef readonly %block, ptr nocapture noundef %pmax16, ptr nocapture noundef %pmin16, i32 noundef %mask) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stb__RefineBlock(ptr noundef readonly captures(none) %block, ptr noundef captures(none) %pmax16, ptr noundef captures(none) %pmin16, i32 noundef %mask) local_unnamed_addr #4 {
 entry:
   %0 = load i16, ptr %pmin16, align 2
   %1 = load i16, ptr %pmax16, align 2
@@ -915,10 +915,10 @@ if.end:                                           ; preds = %for.end89, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb__CompressColorBlock(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %block, i32 noundef %mode) local_unnamed_addr #4 {
+define void @stb__CompressColorBlock(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %block, i32 noundef %mode) local_unnamed_addr #4 {
 entry:
   %max16 = alloca i16, align 2
   %min16 = alloca i16, align 2
@@ -1209,7 +1209,7 @@ if.end75:                                         ; preds = %for.body53, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb__CompressAlphaBlock(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i32 noundef %stride) local_unnamed_addr #4 {
+define void @stb__CompressAlphaBlock(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src, i32 noundef %stride) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %src, align 1
   %conv = zext i8 %0 to i32
@@ -1304,7 +1304,7 @@ for.end71:                                        ; preds = %for.inc69
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stb_compress_dxt_block(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i32 noundef %alpha, i32 noundef %mode) local_unnamed_addr #7 {
+define void @stb_compress_dxt_block(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src, i32 noundef %alpha, i32 noundef %mode) local_unnamed_addr #7 {
 entry:
   %data = alloca [16 x [4 x i8]], align 16
   %tobool.not = icmp eq i32 %alpha, 0
@@ -1423,7 +1423,7 @@ if.end:                                           ; preds = %if.end.loopexit, %e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb_compress_bc4_block(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #4 {
+define void @stb_compress_bc4_block(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %src, align 1
   %conv.i = zext i8 %0 to i32
@@ -1515,7 +1515,7 @@ stb__CompressAlphaBlock.exit:                     ; preds = %for.inc69.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stb_compress_bc5_block(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #4 {
+define void @stb_compress_bc5_block(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %src, align 1
   %conv.i = zext i8 %0 to i32

@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @logcat_text_long_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @logcat_text_open(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @logcat_text_open(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i64 @file_seek(ptr noundef %4, i64 noundef 0, i32 noundef 0, ptr noundef %1) #11
   %6 = icmp eq i64 %5, -1
@@ -99,13 +99,13 @@ define hidden range(i32 -1, 2) i32 @logcat_text_open(ptr nocapture noundef %0, p
   br i1 %15, label %.critedge2.backedge, label %16
 
 16:                                               ; preds = %13
-  %17 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str, ptr noundef %8, i32 noundef 2064, i32 noundef 1024) #11
+  %17 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str, ptr noundef nonnull %8, i32 noundef 2064, i32 noundef 1024) #11
   %.not41 = icmp eq i32 %17, 0
   br i1 %.not41, label %.critedge, label %.critedge2.backedge
 
 .critedge2.backedge:                              ; preds = %16, %13
   %18 = load ptr, ptr %0, align 8
-  %19 = tail call ptr @file_gets(ptr noundef %8, i32 noundef 262144, ptr noundef %18) #11
+  %19 = tail call ptr @file_gets(ptr noundef nonnull %8, i32 noundef 262144, ptr noundef %18) #11
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !4
 
@@ -188,14 +188,14 @@ declare ptr @file_gets(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @file_eof(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @g_regex_match_simple(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @logcat_text_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @logcat_text_read(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #11
   store i64 %8, ptr %5, align 8
@@ -207,7 +207,7 @@ define internal range(i32 0, 2) i32 @logcat_text_read(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @logcat_text_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal range(i32 0, 2) i32 @logcat_text_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #11
@@ -276,7 +276,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @logcat_text_read_packet(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @logcat_text_read_packet(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.tm, align 8
   %7 = alloca i32, align 4
@@ -315,7 +315,7 @@ define internal fastcc range(i32 0, 2) i32 @logcat_text_read_packet(ptr noundef 
   br i1 %22, label %23, label %42
 
 23:                                               ; preds = %20
-  %24 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str, ptr noundef %10, i32 noundef 2064, i32 noundef 1024) #11
+  %24 = tail call i32 @g_regex_match_simple(ptr noundef nonnull @.str, ptr noundef nonnull %10, i32 noundef 2064, i32 noundef 1024) #11
   %.not60 = icmp eq i32 %24, 0
   br i1 %.not60, label %25, label %42
 
@@ -343,9 +343,9 @@ define internal fastcc range(i32 0, 2) i32 @logcat_text_read_packet(ptr noundef 
   br i1 %.not62, label %34, label %.critedge2
 
 34:                                               ; preds = %.lr.ph81
-  %35 = tail call i64 @g_strlcat(ptr noundef %10, ptr noundef %26, i64 noundef 262144) #11
+  %35 = tail call i64 @g_strlcat(ptr noundef nonnull %10, ptr noundef nonnull %26, i64 noundef 262144) #11
   %36 = tail call i64 @file_tell(ptr noundef %0) #11
-  %37 = tail call ptr @file_gets(ptr noundef %26, i32 noundef 262144, ptr noundef %0) #11
+  %37 = tail call ptr @file_gets(ptr noundef nonnull %26, i32 noundef 262144, ptr noundef %0) #11
   %cond68 = icmp eq ptr %37, null
   br i1 %cond68, label %.loopexit, label %.lr.ph, !llvm.loop !7
 
@@ -356,13 +356,13 @@ define internal fastcc range(i32 0, 2) i32 @logcat_text_read_packet(ptr noundef 
   br i1 %39, label %.loopexit, label %40
 
 .loopexit:                                        ; preds = %34, %25, %.critedge2
-  tail call void @g_free(ptr noundef %10) #11
+  tail call void @g_free(ptr noundef nonnull %10) #11
   tail call void @g_free(ptr noundef %26) #11
   br label %113
 
 40:                                               ; preds = %.critedge2
   %41 = call i64 @file_seek(ptr noundef %0, i64 noundef %.05776.lcssa, i32 noundef 0, ptr noundef nonnull %9) #11
-  call void @g_free(ptr noundef %26) #11
+  call void @g_free(ptr noundef nonnull %26) #11
   br label %42
 
 42:                                               ; preds = %40, %23, %20
@@ -495,8 +495,8 @@ get_time.exit72:                                  ; preds = %85, %92
   %110 = load i32, ptr %47, align 8
   %111 = add i32 %110, 1
   %112 = zext i32 %111 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %10, i64 %112, i1 false)
-  call void @g_free(ptr noundef %10) #11
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 1 %10, i64 %112, i1 false)
+  call void @g_free(ptr noundef nonnull %10) #11
   br label %113
 
 113:                                              ; preds = %109, %.loopexit, %.loopexit73
@@ -511,13 +511,13 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal range(i32 -9, 1) i32 @logcat_text_brief_dump_can_write_encap(i32 noundef %0) #7 {
@@ -540,7 +540,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_brief_dump_can_write_encap(i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_brief_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_brief_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 164, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -554,7 +554,7 @@ define internal noundef i32 @logcat_text_brief_dump_open(ptr nocapture noundef w
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @logcat_text_dump_text(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #0 {
+define internal range(i32 0, 2) i32 @logcat_text_dump_text(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -715,19 +715,19 @@ logcat_log.exit.thread:                           ; preds = %75
   br label %.loopexit
 
 76:                                               ; preds = %75
-  %77 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef %.083, ptr noundef %56, i32 noundef %34, ptr noundef %.086) #11
+  %77 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.19, i32 noundef %.083, ptr noundef nonnull %56, i32 noundef %34, ptr noundef nonnull %.086) #11
   br label %logcat_log.exit
 
 78:                                               ; preds = %75
-  %79 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef %.083, i32 noundef %34, ptr noundef %.086, ptr noundef nonnull @.str.21) #11
+  %79 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.20, i32 noundef %.083, i32 noundef %34, ptr noundef nonnull %.086, ptr noundef nonnull @.str.21) #11
   br label %logcat_log.exit
 
 80:                                               ; preds = %75
-  %81 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
+  %81 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.22, i32 noundef %.083, ptr noundef nonnull %56, ptr noundef nonnull %.086) #11
   br label %logcat_log.exit
 
 82:                                               ; preds = %75
-  %83 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef %.083, i32 noundef %34, i32 noundef %36, ptr noundef %.086) #11
+  %83 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.23, i32 noundef %.083, i32 noundef %34, i32 noundef %36, ptr noundef nonnull %.086) #11
   br label %logcat_log.exit
 
 84:                                               ; preds = %75
@@ -737,11 +737,11 @@ logcat_log.exit.thread:                           ; preds = %75
 
 86:                                               ; preds = %84
   %87 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 15, ptr noundef nonnull @.str.24, ptr noundef nonnull %85) #11
-  %88 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull %6, i32 noundef range(i32 -2147, 2148) %41, i32 noundef %.083, ptr noundef %56, i32 noundef %34, ptr noundef %.086) #11
+  %88 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull %6, i32 noundef range(i32 -2147, 2148) %41, i32 noundef %.083, ptr noundef nonnull %56, i32 noundef %34, ptr noundef nonnull %.086) #11
   br label %logcat_log.exit
 
 89:                                               ; preds = %84
-  %90 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %.083, ptr noundef %56, i32 noundef %34, ptr noundef %.086) #11
+  %90 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.26, i32 noundef %.083, ptr noundef nonnull %56, i32 noundef %34, ptr noundef nonnull %.086) #11
   br label %logcat_log.exit
 
 91:                                               ; preds = %75
@@ -751,11 +751,11 @@ logcat_log.exit.thread:                           ; preds = %75
 
 93:                                               ; preds = %91
   %94 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 15, ptr noundef nonnull @.str.24, ptr noundef nonnull %92) #11
-  %95 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef nonnull %6, i32 noundef range(i32 -2147, 2148) %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
+  %95 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.27, ptr noundef nonnull %6, i32 noundef range(i32 -2147, 2148) %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef nonnull %56, ptr noundef nonnull %.086) #11
   br label %logcat_log.exit
 
 96:                                               ; preds = %91
-  %97 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
+  %97 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.28, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef nonnull %56, ptr noundef nonnull %.086) #11
   br label %logcat_log.exit
 
 98:                                               ; preds = %.thread, %75
@@ -766,11 +766,11 @@ logcat_log.exit.thread:                           ; preds = %75
 
 100:                                              ; preds = %98
   %101 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 15, ptr noundef nonnull @.str.24, ptr noundef nonnull %99) #11
-  %102 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, i32 noundef range(i32 -2147, 2148) %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
+  %102 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.29, ptr noundef nonnull %6, i32 noundef range(i32 -2147, 2148) %41, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef nonnull %56, ptr noundef %.086) #11
   br label %logcat_log.exit
 
 103:                                              ; preds = %98
-  %104 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef %56, ptr noundef %.086) #11
+  %104 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.30, i32 noundef %34, i32 noundef %36, i32 noundef %.083, ptr noundef nonnull %56, ptr noundef %.086) #11
   br label %logcat_log.exit
 
 logcat_log.exit:                                  ; preds = %76, %78, %80, %82, %86, %89, %93, %96, %100, %103
@@ -867,7 +867,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_process_dump_can_write_encap(i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_process_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_process_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 165, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -898,7 +898,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_tag_dump_can_write_encap(i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_tag_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_tag_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 166, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -929,7 +929,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_thread_dump_can_write_encap(i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_thread_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_thread_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 167, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -960,7 +960,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_time_dump_can_write_encap(i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_time_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_time_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 168, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -991,7 +991,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_threadtime_dump_can_write_enca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_threadtime_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_threadtime_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 169, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1022,7 +1022,7 @@ define internal range(i32 -9, 1) i32 @logcat_text_long_dump_can_write_encap(i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @logcat_text_long_dump_open(ptr nocapture noundef writeonly initializes((40, 48), (64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @logcat_text_long_dump_open(ptr noundef writeonly captures(none) initializes((40, 48), (64, 72)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #14
   store i32 170, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1033,10 +1033,10 @@ define internal noundef i32 @logcat_text_long_dump_open(ptr nocapture noundef wr
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -100,7 +100,7 @@ declare void @ResetCatalogCaches() local_unnamed_addr #1
 declare void @RelationCacheInvalidate(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @LocalExecuteInvalidationMessage(ptr nocapture noundef readonly %0) #0 {
+define dso_local void @LocalExecuteInvalidationMessage(ptr noundef readonly captures(none) %0) #0 {
   %2 = load i8, ptr %0, align 4
   %3 = icmp sgt i8 %2, -1
   br i1 %3, label %4, label %33
@@ -341,7 +341,7 @@ declare void @CatalogCacheFlushCatalog(i32 noundef) local_unnamed_addr #1
 declare void @RelationCacheInvalidateEntry(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @smgrreleaserellocator(i64, i64) local_unnamed_addr #1
 
@@ -596,7 +596,7 @@ ProcessInvalidationMessages.exit:                 ; preds = %.lr.ph4.i, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @xactGetCommittedInvalidationMessages(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define dso_local i32 @xactGetCommittedInvalidationMessages(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @transInvalInfo, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -1621,7 +1621,7 @@ RegisterCatalogInvalidation.exit:                 ; preds = %1, %.sink.split.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CacheInvalidateRelcache(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @CacheInvalidateRelcache(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   tail call fastcc void @PrepareInvalidationState()
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
@@ -1644,7 +1644,7 @@ define dso_local void @CacheInvalidateRelcacheAll() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CacheInvalidateRelcacheByTuple(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @CacheInvalidateRelcacheByTuple(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 22

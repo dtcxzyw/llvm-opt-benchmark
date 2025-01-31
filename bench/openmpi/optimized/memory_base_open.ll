@@ -123,7 +123,7 @@ define internal i32 @opal_memory_base_open(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @empty_query(ptr nocapture noundef writeonly initializes((0, 4)) %0) #1 {
+define internal noundef i32 @empty_query(ptr noundef writeonly captures(none) initializes((0, 4)) %0) #1 {
   store i32 0, ptr %0, align 4
   ret i32 0
 }

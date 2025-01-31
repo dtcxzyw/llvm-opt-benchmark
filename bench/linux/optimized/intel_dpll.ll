@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.15 = private unnamed_addr constant [4 x i8] c"off\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @i9xx_calc_dpll_params(i32 noundef %0, ptr nocapture noundef initializes((20, 36)) %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @i9xx_calc_dpll_params(i32 noundef %0, ptr noundef captures(none) initializes((20, 36)) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = mul i32 %4, 5
@@ -114,13 +114,13 @@ define dso_local i32 @i9xx_calc_dpll_params(i32 noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @chv_calc_dpll_params(i32 noundef %0, ptr nocapture noundef initializes((20, 36)) %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @chv_calc_dpll_params(i32 noundef %0, ptr noundef captures(none) initializes((20, 36)) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -178,7 +178,7 @@ define dso_local i32 @chv_calc_dpll_params(i32 noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i9xx_crtc_clock_get(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @i9xx_crtc_clock_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 928
@@ -457,7 +457,7 @@ define dso_local void @i9xx_crtc_clock_get(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
@@ -466,7 +466,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 declare dso_local zeroext i1 @intel_lvds_port_enabled(ptr noundef, i32, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vlv_crtc_clock_get(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @vlv_crtc_clock_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %5 = load i32, ptr %4, align 8
@@ -539,7 +539,7 @@ declare dso_local i32 @vlv_pipe_to_phy(i32 noundef) local_unnamed_addr #4
 declare dso_local i32 @vlv_dpio_read(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @chv_crtc_clock_get(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @chv_crtc_clock_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1648
   %5 = load i32, ptr %4, align 8
@@ -628,7 +628,7 @@ define dso_local void @chv_crtc_clock_get(ptr nocapture noundef readonly %0, ptr
 declare dso_local i32 @vlv_pipe_to_channel(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @bxt_find_best_dpll(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 36)) %1) local_unnamed_addr #2 align 16 {
+define dso_local zeroext i1 @bxt_find_best_dpll(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((0, 36)) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1448
   %4 = load i32, ptr %3, align 8
   %.val = load ptr, ptr %0, align 8
@@ -638,7 +638,7 @@ define dso_local zeroext i1 @bxt_find_best_dpll(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @chv_find_best_dpll(ptr nocapture noundef readonly %0, ptr nocapture readonly %.0.val.0.val, i32 noundef %1, ptr nocapture noundef initializes((0, 36)) %2) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @chv_find_best_dpll(ptr noundef readonly captures(none) %0, ptr readonly captures(none) %.0.val.0.val, i32 noundef %1, ptr noundef captures(none) initializes((0, 36)) %2) unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -939,7 +939,7 @@ intel_pll_is_valid.exit.thread:                   ; preds = %.thread.i, %146, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @i9xx_dpll_compute_fp(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local i32 @i9xx_dpll_compute_fp(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = load i32, ptr %0, align 4
   %3 = shl i32 %2, 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -953,7 +953,7 @@ define dso_local i32 @i9xx_dpll_compute_fp(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @vlv_compute_dpll(ptr nocapture noundef initializes((928, 936)) %0) local_unnamed_addr #6 align 16 {
+define dso_local void @vlv_compute_dpll(ptr noundef captures(none) initializes((928, 936)) %0) local_unnamed_addr #6 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 805314560, ptr %3, align 8
@@ -984,7 +984,7 @@ define dso_local void @vlv_compute_dpll(ptr nocapture noundef initializes((928, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @chv_compute_dpll(ptr nocapture noundef initializes((928, 936)) %0) local_unnamed_addr #6 align 16 {
+define dso_local void @chv_compute_dpll(ptr noundef captures(none) initializes((928, 936)) %0) local_unnamed_addr #6 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store i32 805314560, ptr %3, align 8
@@ -1222,7 +1222,7 @@ define dso_local i32 @intel_dpll_crtc_get_shared_dpll(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_dpll_init_clock_hook(ptr nocapture noundef initializes((1568, 1576)) %0) local_unnamed_addr #6 align 16 {
+define dso_local void @intel_dpll_init_clock_hook(ptr noundef captures(none) initializes((1568, 1576)) %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %4 = load i16, ptr %3, align 8
@@ -1335,7 +1335,7 @@ define dso_local void @intel_dpll_init_clock_hook(ptr nocapture noundef initiali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i9xx_enable_pll(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @i9xx_enable_pll(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 928
@@ -1491,7 +1491,7 @@ declare dso_local void @assert_pps_unlocked(ptr noundef, i32 noundef) local_unna
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vlv_enable_pll(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @vlv_enable_pll(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1648
@@ -1709,7 +1709,7 @@ define dso_local void @vlv_enable_pll(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @chv_enable_pll(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @chv_enable_pll(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1648
@@ -1945,7 +1945,7 @@ define dso_local void @chv_enable_pll(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @vlv_force_pll_on(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @vlv_force_pll_on(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 16 {
   %4 = tail call ptr @intel_crtc_for_pipe(ptr noundef %0, i32 noundef %1) #11
   %5 = tail call ptr @intel_crtc_state_alloc(ptr noundef %4) #11
   %6 = icmp eq ptr %5, null
@@ -2003,7 +2003,7 @@ declare dso_local ptr @intel_crtc_for_pipe(ptr noundef, i32 noundef) local_unnam
 declare dso_local ptr @intel_crtc_state_alloc(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_crtc_destroy_state(ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -2077,7 +2077,7 @@ define dso_local void @chv_disable_pll(ptr noundef %0, i32 noundef %1) local_unn
 declare dso_local void @vlv_dpio_write(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i9xx_disable_pll(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @i9xx_disable_pll(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7184
@@ -2251,7 +2251,7 @@ declare dso_local void @vlv_iosf_sb_get(ptr noundef, i64 noundef) local_unnamed_
 declare dso_local void @vlv_iosf_sb_put(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mtl_crtc_compute_clock(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @mtl_crtc_compute_clock(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2291,7 +2291,7 @@ declare dso_local i32 @intel_cx0pll_calc_port_clock(ptr noundef, ptr noundef) lo
 declare dso_local i32 @intel_crtc_dotclock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @dg2_crtc_compute_clock(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @dg2_crtc_compute_clock(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -2701,7 +2701,7 @@ declare dso_local zeroext i1 @intel_panel_use_ssc(ptr noundef) local_unnamed_add
 declare dso_local zeroext i1 @intel_is_dual_link_lvds(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @g4x_find_best_dpll(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 36)) %4) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @g4x_find_best_dpll(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 36)) %4) unnamed_addr #2 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = ashr i32 %2, 8
@@ -3035,7 +3035,7 @@ intel_pll_is_valid.exit.thread:                   ; preds = %142, %171, %165, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @chv_crtc_compute_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @chv_crtc_compute_clock(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -3159,7 +3159,7 @@ define internal noundef range(i32 -22, 1) i32 @chv_crtc_compute_clock(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -3493,7 +3493,7 @@ intel_pll_is_valid.exit.thread:                   ; preds = %67, %.thread.i, %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @g4x_crtc_compute_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @g4x_crtc_compute_clock(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3638,7 +3638,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_crtc_compute_clock(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @i9xx_compute_dpll(ptr nocapture noundef initializes((928, 932), (936, 944)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 16 {
+define internal fastcc void @i9xx_compute_dpll(ptr noundef captures(none) initializes((928, 932), (936, 944)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 7184
@@ -3841,7 +3841,7 @@ define internal fastcc void @i9xx_compute_dpll(ptr nocapture noundef initializes
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4190,7 +4190,7 @@ intel_pll_is_valid.exit.thread:                   ; preds = %121, %150, %144, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @i9xx_crtc_compute_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @i9xx_crtc_compute_clock(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4317,7 +4317,7 @@ define internal noundef range(i32 -22, 1) i32 @i9xx_crtc_compute_clock(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @i9xx_find_best_dpll(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 36)) %4) unnamed_addr #2 align 16 {
+define internal fastcc zeroext i1 @i9xx_find_best_dpll(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 36)) %4) unnamed_addr #2 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(36) %4, i8 0, i64 36, i1 false)
@@ -4625,7 +4625,7 @@ intel_pll_is_valid.exit.thread:                   ; preds = %152, %146, %149, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @i8xx_crtc_compute_clock(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @i8xx_crtc_compute_clock(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 2) i32 @is_directory(ptr nocapture noundef readonly %path) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @is_directory(ptr noundef readonly captures(none) %path) local_unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %call = call i32 @stat64(ptr noundef %path, ptr noundef nonnull %st) #12
@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @strbuf_realpath(ptr noundef %resolved, ptr noundef %path, i32 noundef %die_on_error) local_unnamed_addr #2 {
@@ -585,7 +585,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -638,7 +638,7 @@ land.lhs.true:                                    ; preds = %if.then2
   br i1 %tobool7.not, label %if.else, label %land.lhs.true8
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %call9 = call i32 @stat64(ptr noundef %call3, ptr noundef nonnull %cwd_stat) #12
+  %call9 = call i32 @stat64(ptr noundef nonnull %call3, ptr noundef nonnull %cwd_stat) #12
   %tobool10.not = icmp eq i32 %call9, 0
   br i1 %tobool10.not, label %land.lhs.true11, label %if.else
 
@@ -669,7 +669,7 @@ if.else:                                          ; preds = %land.lhs.true11, %l
 if.end25:                                         ; preds = %land.lhs.true14, %if.else
   %call3.sink21 = phi ptr [ %call3, %if.else ], [ %call4, %land.lhs.true14 ]
   %call.i16 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3.sink21) #14
-  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef %call3.sink21, i64 noundef %call.i16) #12
+  tail call void @strbuf_add(ptr noundef nonnull %sb, ptr noundef nonnull %call3.sink21, i64 noundef %call.i16) #12
   %6 = load i64, ptr %len, align 8
   %cmp27 = icmp ugt i64 %6, %1
   br i1 %cmp27, label %land.lhs.true28, label %if.end33
@@ -755,13 +755,13 @@ if.else5:                                         ; preds = %if.else
 
 if.end6:                                          ; preds = %entry, %if.else, %if.else5, %cond.end
   %call.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #14
-  call void @strbuf_add(ptr noundef nonnull %path, ptr noundef %arg, i64 noundef %call.i) #12
+  call void @strbuf_add(ptr noundef nonnull %path, ptr noundef nonnull %arg, i64 noundef %call.i) #12
   %call7 = call ptr @strbuf_detach(ptr noundef nonnull %path, ptr noundef null) #12
   ret ptr %call7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -813,7 +813,7 @@ return:                                           ; preds = %prefix_filename.exi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
 
@@ -823,10 +823,10 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #6
 declare ptr @xgetcwd() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @strbuf_add_real_path(ptr noundef %sb, ptr noundef %path) local_unnamed_addr #2 {
@@ -860,7 +860,7 @@ declare i32 @strbuf_getcwd(ptr noundef) local_unnamed_addr #4
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #9
@@ -878,10 +878,10 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare i64 @llvm.usub.sat.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

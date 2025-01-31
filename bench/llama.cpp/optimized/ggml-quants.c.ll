@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @get_scale_shuffle.k_shuffle = internal unnamed_addr constant [128 x i8] c"\00\00\00\00\00\00\00\00\01\01\01\01\01\01\01\01\02\02\02\02\02\02\02\02\03\03\03\03\03\03\03\03\04\04\04\04\04\04\04\04\05\05\05\05\05\05\05\05\06\06\06\06\06\06\06\06\07\07\07\07\07\07\07\07\08\08\08\08\08\08\08\08\09\09\09\09\09\09\09\09\0A\0A\0A\0A\0A\0A\0A\0A\0B\0B\0B\0B\0B\0B\0B\0B\0C\0C\0C\0C\0C\0C\0C\0C\0D\0D\0D\0D\0D\0D\0D\0D\0E\0E\0E\0E\0E\0E\0E\0E\0F\0F\0F\0F\0F\0F\0F\0F", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q4_0_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
+define void @quantize_row_q4_0_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp30 = icmp sgt i32 %k, 31
   br i1 %cmp30, label %for.cond1.preheader.preheader, label %for.end71
@@ -104,7 +104,7 @@ declare float @llvm.fabs.f32(float) #1
 declare <8 x i16> @llvm.x86.vcvtps2ph.128(<4 x float>, i32 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q4_0(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #3 {
+define void @quantize_row_q4_0(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
@@ -183,7 +183,7 @@ quantize_row_q4_0_reference.exit:                 ; preds = %for.inc69.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q4_1_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
+define void @quantize_row_q4_1_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp38 = icmp sgt i32 %k, 31
   br i1 %cmp38, label %for.cond1.preheader.preheader, label %for.end85
@@ -268,7 +268,7 @@ for.end85:                                        ; preds = %for.inc83, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q4_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #3 {
+define void @quantize_row_q4_1(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
@@ -355,7 +355,7 @@ quantize_row_q4_1_reference.exit:                 ; preds = %for.inc83.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q5_0_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
+define void @quantize_row_q5_0_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp35 = icmp sgt i32 %k, 31
   br i1 %cmp35, label %for.cond1.preheader.preheader, label %for.end81
@@ -449,10 +449,10 @@ for.end81:                                        ; preds = %for.end75, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q5_0(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #3 {
+define void @quantize_row_q5_0(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !27)
@@ -547,7 +547,7 @@ quantize_row_q5_0_reference.exit:                 ; preds = %for.end75.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q5_1_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
+define void @quantize_row_q5_1_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp41 = icmp sgt i32 %k, 31
   br i1 %cmp41, label %for.cond1.preheader.preheader, label %for.end73
@@ -647,14 +647,14 @@ for.end73:                                        ; preds = %for.end67, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q5_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #5 {
+define void @quantize_row_q5_1(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #5 {
 entry:
   tail call void @quantize_row_q5_1_reference(ptr noundef %x, ptr noundef %y, i32 noundef %k)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q8_0_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #0 {
+define void @quantize_row_q8_0_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #0 {
 entry:
   %cmp21 = icmp sgt i32 %k, 31
   br i1 %cmp21, label %for.cond1.preheader.preheader, label %for.end35
@@ -722,7 +722,7 @@ for.end35:                                        ; preds = %for.inc33, %entry
 declare float @llvm.round.f32(float) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q8_0(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %vy, i32 noundef %k) local_unnamed_addr #6 {
+define void @quantize_row_q8_0(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %vy, i32 noundef %k) local_unnamed_addr #6 {
 entry:
   %cmp58 = icmp sgt i32 %k, 31
   br i1 %cmp58, label %for.body.preheader, label %for.end
@@ -800,7 +800,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare <8 x float> @llvm.x86.avx.round.ps.256(<8 x float>, i32 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q8_1_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #5 {
+define void @quantize_row_q8_1_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #5 {
 entry:
   %cmp40 = icmp sgt i32 %k, 31
   br i1 %cmp40, label %for.cond1.preheader.preheader, label %for.end64
@@ -880,7 +880,7 @@ for.end64:                                        ; preds = %for.end57, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q8_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %vy, i32 noundef %k) local_unnamed_addr #6 {
+define void @quantize_row_q8_1(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %vy, i32 noundef %k) local_unnamed_addr #6 {
 entry:
   %cmp65 = icmp sgt i32 %k, 31
   br i1 %cmp65, label %for.body.preheader, label %for.end
@@ -967,7 +967,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q4_0(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q4_0(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp17 = icmp sgt i32 %k, 31
   br i1 %cmp17, label %for.body.preheader, label %for.end30
@@ -1021,7 +1021,7 @@ for.end30:                                        ; preds = %for.inc28, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q4_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q4_1(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp22 = icmp sgt i32 %k, 31
   br i1 %cmp22, label %for.body.preheader, label %for.end32
@@ -1081,7 +1081,7 @@ for.end32:                                        ; preds = %for.inc30, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q5_0(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q5_0(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp22 = icmp sgt i32 %k, 31
   br i1 %cmp22, label %for.body.preheader, label %for.end44
@@ -1147,7 +1147,7 @@ for.end44:                                        ; preds = %for.inc42, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q5_1(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q5_1(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp27 = icmp sgt i32 %k, 31
   br i1 %cmp27, label %for.body.preheader, label %for.end46
@@ -1216,7 +1216,7 @@ for.end46:                                        ; preds = %for.inc44, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q8_0(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q8_0(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp10 = icmp sgt i32 %k, 31
   br i1 %cmp10, label %for.body.preheader, label %for.end15
@@ -1260,7 +1260,7 @@ for.end15:                                        ; preds = %for.inc13, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q2_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #8 {
+define void @quantize_row_q2_K_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %y, i32 noundef %k) local_unnamed_addr #8 {
 entry:
   %L = alloca [256 x i8], align 16
   %Laux = alloca [16 x i8], align 16
@@ -1671,7 +1671,7 @@ for.end239:                                       ; preds = %for.end235, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q2_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q2_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp44 = icmp sgt i32 %k, 255
   br i1 %cmp44, label %for.body.preheader, label %for.end77
@@ -1792,14 +1792,14 @@ for.end77:                                        ; preds = %for.inc75, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q2_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #9 {
+define void @quantize_row_q2_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %vy, i32 noundef %k) local_unnamed_addr #9 {
 entry:
   tail call void @quantize_row_q2_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i64 -704643072, 704642989) i64 @ggml_quantize_q2_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #9 {
+define range(i64 -704643072, 704642989) i64 @ggml_quantize_q2_K(ptr noalias noundef readonly captures(none) %src, ptr noalias noundef captures(none) %dst, i32 noundef %n, i32 noundef %k, ptr noalias noundef readnone captures(none) %hist) local_unnamed_addr #9 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -1829,7 +1829,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q3_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #8 {
+define void @quantize_row_q3_K_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %y, i32 noundef %k) local_unnamed_addr #8 {
 entry:
   %L = alloca [256 x i8], align 16
   %scales = alloca [16 x float], align 16
@@ -2244,10 +2244,10 @@ for.end284:                                       ; preds = %for.end280, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q3_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q3_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %aux = alloca [4 x i32], align 16
   %cmp50 = icmp sgt i32 %k, 255
@@ -2398,14 +2398,14 @@ for.end116:                                       ; preds = %for.inc114, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q3_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #9 {
+define void @quantize_row_q3_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %vy, i32 noundef %k) local_unnamed_addr #9 {
 entry:
   tail call void @quantize_row_q3_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i64 -922746880, 922746771) i64 @ggml_quantize_q3_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #9 {
+define range(i64 -922746880, 922746771) i64 @ggml_quantize_q3_K(ptr noalias noundef readonly captures(none) %src, ptr noalias noundef captures(none) %dst, i32 noundef %n, i32 noundef %k, ptr noalias noundef readnone captures(none) %hist) local_unnamed_addr #9 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -2435,7 +2435,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @quantize_row_q4_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #11 {
+define void @quantize_row_q4_K_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %y, i32 noundef %k) local_unnamed_addr #11 {
 entry:
   %L = alloca [256 x i8], align 16
   %Laux = alloca [32 x i8], align 16
@@ -2884,7 +2884,7 @@ for.end258:                                       ; preds = %for.end254, %entry
 declare float @sqrtf(float noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q4_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q4_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp50 = icmp sgt i32 %k, 255
   br i1 %cmp50, label %for.body.preheader, label %for.end58
@@ -3031,14 +3031,14 @@ for.end58:                                        ; preds = %for.inc56, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @quantize_row_q4_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #13 {
+define void @quantize_row_q4_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %vy, i32 noundef %k) local_unnamed_addr #13 {
 entry:
   tail call void @quantize_row_q4_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -1207959552, 1207959409) i64 @ggml_quantize_q4_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #13 {
+define range(i64 -1207959552, 1207959409) i64 @ggml_quantize_q4_K(ptr noalias noundef readonly captures(none) %src, ptr noalias noundef captures(none) %dst, i32 noundef %n, i32 noundef %k, ptr noalias noundef readnone captures(none) %hist) local_unnamed_addr #13 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -3068,7 +3068,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @quantize_row_q5_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #11 {
+define void @quantize_row_q5_K_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %y, i32 noundef %k) local_unnamed_addr #11 {
 entry:
   %L = alloca [256 x i8], align 16
   %mins = alloca [8 x float], align 16
@@ -3546,7 +3546,7 @@ for.end289:                                       ; preds = %for.end285, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q5_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q5_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp61 = icmp sgt i32 %k, 255
   br i1 %cmp61, label %for.body.preheader, label %for.end81
@@ -3712,14 +3712,14 @@ for.end81:                                        ; preds = %for.inc79, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @quantize_row_q5_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #13 {
+define void @quantize_row_q5_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %vy, i32 noundef %k) local_unnamed_addr #13 {
 entry:
   tail call void @quantize_row_q5_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 -1476395008, 1476394833) i64 @ggml_quantize_q5_K(ptr noalias nocapture noundef readonly %src, ptr noalias nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr noalias nocapture noundef readnone %hist) local_unnamed_addr #13 {
+define range(i64 -1476395008, 1476394833) i64 @ggml_quantize_q5_K(ptr noalias noundef readonly captures(none) %src, ptr noalias noundef captures(none) %dst, i32 noundef %n, i32 noundef %k, ptr noalias noundef readnone captures(none) %hist) local_unnamed_addr #13 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -3749,7 +3749,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q6_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #8 {
+define void @quantize_row_q6_K_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %y, i32 noundef %k) local_unnamed_addr #8 {
 entry:
   %L = alloca [256 x i8], align 16
   %scales = alloca [16 x float], align 16
@@ -4079,7 +4079,7 @@ for.end207:                                       ; preds = %for.inc205, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @dequantize_row_q6_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #7 {
+define void @dequantize_row_q6_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #7 {
 entry:
   %cmp54 = icmp sgt i32 %k, 255
   br i1 %cmp54, label %for.body.preheader, label %for.end131
@@ -4202,14 +4202,14 @@ for.end131:                                       ; preds = %for.inc129, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q6_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %vy, i32 noundef %k) local_unnamed_addr #9 {
+define void @quantize_row_q6_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %vy, i32 noundef %k) local_unnamed_addr #9 {
 entry:
   tail call void @quantize_row_q6_K_reference(ptr noundef %x, ptr noundef %vy, i32 noundef %k)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i64 -1761607680, 1761607471) i64 @ggml_quantize_q6_K(ptr nocapture noundef readonly %src, ptr nocapture noundef %dst, i32 noundef %n, i32 noundef %k, ptr nocapture noundef readnone %hist) local_unnamed_addr #9 {
+define range(i64 -1761607680, 1761607471) i64 @ggml_quantize_q6_K(ptr noundef readonly captures(none) %src, ptr noundef captures(none) %dst, i32 noundef %n, i32 noundef %k, ptr noundef readnone captures(none) %hist) local_unnamed_addr #9 {
 entry:
   %cmp6 = icmp sgt i32 %n, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -4239,7 +4239,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @quantize_row_q8_K_reference(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #5 {
+define void @quantize_row_q8_K_reference(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %y, i32 noundef %k) local_unnamed_addr #5 {
 entry:
   %cmp40 = icmp sgt i32 %k, 255
   br i1 %cmp40, label %for.cond1.preheader.preheader, label %for.end64
@@ -4338,7 +4338,7 @@ for.end64:                                        ; preds = %for.inc62, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @dequantize_row_q8_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef writeonly %y, i32 noundef %k) local_unnamed_addr #5 {
+define void @dequantize_row_q8_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef writeonly captures(none) %y, i32 noundef %k) local_unnamed_addr #5 {
 entry:
   %cmp9 = icmp sgt i32 %k, 255
   br i1 %cmp9, label %for.cond1.preheader.preheader, label %for.end11
@@ -4379,7 +4379,7 @@ for.end11:                                        ; preds = %for.inc9, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @quantize_row_q8_K(ptr noalias nocapture noundef readonly %x, ptr noalias nocapture noundef %y, i32 noundef %k) local_unnamed_addr #14 {
+define void @quantize_row_q8_K(ptr noalias noundef readonly captures(none) %x, ptr noalias noundef captures(none) %y, i32 noundef %k) local_unnamed_addr #14 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
@@ -4480,7 +4480,7 @@ quantize_row_q8_K_reference.exit:                 ; preds = %for.inc62.i, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q4_0_q8_0(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q4_0_q8_0(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp51 = icmp sgt i32 %n, 31
   br i1 %cmp51, label %for.body.preheader, label %for.end
@@ -4543,7 +4543,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q4_1_q8_1(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q4_1_q8_1(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp31 = icmp sgt i32 %n, 31
   br i1 %cmp31, label %for.body.preheader, label %for.end
@@ -4611,7 +4611,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q5_0_q8_0(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q5_0_q8_0(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp54 = icmp sgt i32 %n, 31
   br i1 %cmp54, label %for.body.preheader, label %for.end
@@ -4684,7 +4684,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q5_1_q8_1(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q5_1_q8_1(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp66 = icmp sgt i32 %n, 31
   br i1 %cmp66, label %for.body.preheader, label %for.end
@@ -4762,7 +4762,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q8_0_q8_0(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q8_0_q8_0(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp18 = icmp sgt i32 %n, 31
   br i1 %cmp18, label %for.body.preheader, label %for.end
@@ -4817,7 +4817,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q2_K_q8_K(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp114 = icmp sgt i32 %n, 255
   br i1 %cmp114, label %for.body.lr.ph, label %for.end98
@@ -4946,7 +4946,7 @@ for.end98:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q3_K_q8_K(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp164 = icmp sgt i32 %n, 255
   br i1 %cmp164, label %for.body.lr.ph, label %for.end142
@@ -5116,7 +5116,7 @@ for.end142:                                       ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q4_K_q8_K(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp96 = icmp sgt i32 %n, 255
   br i1 %cmp96, label %for.body.preheader, label %for.end94
@@ -5256,7 +5256,7 @@ for.end94:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q5_K_q8_K(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp126 = icmp sgt i32 %n, 255
   br i1 %cmp126, label %for.body.preheader, label %for.end112
@@ -5415,7 +5415,7 @@ for.end112:                                       ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %n, ptr noalias nocapture noundef writeonly %s, ptr noalias nocapture noundef readonly %vx, ptr noalias nocapture noundef readonly %vy) local_unnamed_addr #15 {
+define void @ggml_vec_dot_q6_K_q8_K(i32 noundef %n, ptr noalias noundef writeonly captures(none) %s, ptr noalias noundef readonly captures(none) %vx, ptr noalias noundef readonly captures(none) %vy) local_unnamed_addr #15 {
 entry:
   %cmp171 = icmp sgt i32 %n, 255
   br i1 %cmp171, label %for.body.preheader, label %for.end102

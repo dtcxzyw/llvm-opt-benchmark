@@ -930,7 +930,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN8G1RemSetD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN8G1RemSetD2Ev
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN8G1RemSetC2EP15G1CollectedHeapP11G1CardTable(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
@@ -993,7 +993,7 @@ define hidden void @_ZN8G1RemSetD2Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN15G1RemSetSummaryD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet10initializeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet10initializeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = zext i32 %1 to i64
   store i64 %4, ptr %3, align 8
@@ -1027,7 +1027,7 @@ define hidden void @_ZN8G1RemSet10initializeEj(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet15scan_heap_rootsEP20G1ParScanThreadStatejN14G1GCPhaseTimes11GCParPhasesES3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet15scan_heap_rootsEP20G1ParScanThreadStatejN14G1GCPhaseTimes11GCParPhasesES3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %class.EventGCPhaseParallel, align 8
   %8 = alloca %class.G1ScanHRForRegionClosure, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 17
@@ -1201,7 +1201,7 @@ declare void @_ZN14G1GCPhaseTimes23record_or_add_time_secsENS_11GCParPhasesEjd(p
 declare void @_ZN14G1GCPhaseTimes30record_or_add_thread_work_itemENS_11GCParPhasesEjmj(ptr noundef nonnull align 8 dereferenceable(872), i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet27scan_collection_set_regionsEP20G1ParScanThreadStatejN14G1GCPhaseTimes11GCParPhasesES3_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet27scan_collection_set_regionsEP20G1ParScanThreadStatejN14G1GCPhaseTimes11GCParPhasesES3_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #1 align 2 {
   %7 = alloca %class.G1ScanCollectionSetRegionClosure, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1274,7 +1274,7 @@ define hidden void @_ZN8G1RemSet27scan_collection_set_regionsEP20G1ParScanThread
 declare void @_ZN14G1GCPhaseTimes13add_time_secsENS_11GCParPhasesEjd(ptr noundef nonnull align 8 dereferenceable(872), i32 noundef, i32 noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet23prepare_region_for_scanEP12G1HeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet23prepare_region_for_scanEP12G1HeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   tail call void @_ZN12G1HeapRegion23prepare_remset_for_scanEv(ptr noundef nonnull align 8 dereferenceable(136) %1) #18
@@ -1314,7 +1314,7 @@ define hidden void @_ZN8G1RemSet23prepare_region_for_scanEP12G1HeapRegion(ptr no
 declare void @_ZN12G1HeapRegion23prepare_remset_for_scanEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet27prepare_for_scan_heap_rootsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet27prepare_for_scan_heap_rootsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_ZN17G1RemSetScanState7prepareEv(ptr noundef nonnull align 8 dereferenceable(72) %2)
   ret void
@@ -1380,7 +1380,7 @@ define linkonce_odr hidden void @_ZN17G1RemSetScanState7prepareEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet28print_merge_heap_roots_statsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet28print_merge_heap_roots_statsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.LogStream, align 8
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_130ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
@@ -1477,7 +1477,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet16merge_heap_rootsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet16merge_heap_rootsEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.G1MergeHeapRootsTask, align 8
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %5 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #18
@@ -1735,7 +1735,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 declare void @_ZN13WorkerThreads8run_taskEP10WorkerTaskj(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8G1RemSet19complete_evac_phaseEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN8G1RemSet19complete_evac_phaseEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   br i1 %1, label %4, label %_ZN17G1RemSetScanState19complete_evac_phaseEb.exit
 
@@ -1802,7 +1802,7 @@ _ZN17G1RemSetScanState19complete_evac_phaseEb.exit: ; preds = %31, %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8G1RemSet24exclude_region_from_scanEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN8G1RemSet24exclude_region_from_scanEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -1813,7 +1813,7 @@ define hidden void @_ZN8G1RemSet24exclude_region_from_scanEj(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8G1RemSet41create_cleanup_after_scan_heap_roots_taskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN8G1RemSet41create_cleanup_after_scan_heap_roots_taskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 48, i8 noundef zeroext 5, i32 noundef 0) #18
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -1834,7 +1834,7 @@ define hidden noundef ptr @_ZN8G1RemSet41create_cleanup_after_scan_heap_roots_ta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet19print_coarsen_statsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet19print_coarsen_statsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.LogStream, align 8
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_130ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
@@ -1861,7 +1861,7 @@ define hidden void @_ZN8G1RemSet19print_coarsen_statsEv(ptr nocapture noundef no
 declare void @_ZN9G1CardSet19print_coarsen_statsEP12outputStream(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN8G1RemSet24clean_card_before_refineEPPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN8G1RemSet24clean_card_before_refineEPPh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1935,7 +1935,7 @@ _ZNK15G1CollectedHeap30heap_region_containing_or_nullEPKv.exit.thread: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet24refine_card_concurrentlyEPhj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet24refine_card_concurrentlyEPhj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.G1ConcurrentRefineOopClosure, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -2031,7 +2031,7 @@ _ZN12G1HeapRegion37oops_on_memregion_seq_iterate_carefulILb0E28G1ConcurrentRefin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet24enqueue_for_reprocessingEPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0, ptr noundef initializes((0, 1)) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet24enqueue_for_reprocessingEPh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef initializes((0, 1)) %1) local_unnamed_addr #1 align 2 {
   store i8 0, ptr %1, align 1
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1664
@@ -2147,7 +2147,7 @@ declare void @_ZN15G1RemSetSummary8print_onEP12outputStreamb(ptr noundef nonnull
 declare void @_ZN15G1RemSetSummary3setEPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1RemSet18print_summary_infoEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1RemSet18print_summary_infoEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.LogImpl.7, align 1
   %3 = alloca %class.G1RemSetSummary, align 8
   %4 = alloca %class.LogStream, align 8
@@ -5835,7 +5835,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 {
@@ -6504,7 +6504,7 @@ define linkonce_odr hidden void @_ZN28G1ScanAndCountNMethodClosure10do_nmethodEP
 declare void @_ZN15G1CollectedHeap37collection_set_iterate_increment_fromEP19G1HeapRegionClosureP19G1HeapRegionClaimerj(ptr noundef nonnull align 8 dereferenceable(1488), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare noundef i32 @_ZNK20G1CommittedRegionMap10num_activeEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #2
 
@@ -10537,7 +10537,7 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosure9narrowOopEEvPT_PT0_.exit: ; preds = %
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop14G1CMOopClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -12609,7 +12609,7 @@ _ZN13Devirtualizer6do_oopI14G1CMOopClosureP7oopDescEEvPT_PT0_.exit: ; preds = %8
 
 ._crit_edge35:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc14G1CMOopClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -14544,7 +14544,7 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI14G1CMOopClosureE5Ta
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #18
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %8 = ptrtoint ptr %1 to i64
   %9 = sext i32 %7 to i64
@@ -14593,7 +14593,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass15oop_oop_iterateI9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #18
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop14G1CMOopClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %8 = ptrtoint ptr %1 to i64
   %9 = sext i32 %7 to i64
@@ -33933,10 +33933,10 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI28G1ConcurrentRefine
 declare i32 @llvm.umin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

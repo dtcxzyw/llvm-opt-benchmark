@@ -306,7 +306,7 @@ define dso_local void @sema_error_at_after(i64 %0, ptr noundef %1, ...) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sema_error_prev_at(i64 %0, ptr nocapture noundef readonly %1, ...) local_unnamed_addr #0 {
+define dso_local void @sema_error_prev_at(i64 %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [4096 x i8], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -324,10 +324,10 @@ define dso_local void @sema_error_prev_at(i64 %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sema_error(ptr nocapture noundef readonly %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define dso_local void @sema_error(ptr noundef readonly captures(none) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 84), align 4
   %5 = add i32 %4, 1
@@ -510,7 +510,7 @@ declare double @log10(double noundef) local_unnamed_addr #5
 declare double @llvm.round.f64(double) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7

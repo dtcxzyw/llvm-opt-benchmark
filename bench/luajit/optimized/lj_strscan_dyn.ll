@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_char_bits = external hidden local_unnamed_addr constant [257 x i8], align 16
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @lj_strscan_scan(ptr noundef %p, i32 noundef %len, ptr nocapture noundef %o, i32 noundef %opt) local_unnamed_addr #0 {
+define hidden i32 @lj_strscan_scan(ptr noundef %p, i32 noundef %len, ptr noundef captures(none) %o, i32 noundef %opt) local_unnamed_addr #0 {
 entry:
   %idx.ext = zext i32 %len to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %p, i64 %idx.ext
@@ -603,7 +603,7 @@ return:                                           ; preds = %if.then167, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @strscan_oct(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef range(i32 3, 1) %fmt, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #1 {
+define internal fastcc i32 @strscan_oct(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) %o, i32 noundef range(i32 3, 1) %fmt, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #1 {
 entry:
   %cmp = icmp ugt i32 %dig, 22
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -681,7 +681,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @strscan_hex(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #0 {
+define internal fastcc noundef i32 @strscan_hex(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %dig, 16
   %tobool.not44 = icmp eq i32 %dig, 0
@@ -894,7 +894,7 @@ return:                                           ; preds = %sw.bb76, %sw.bb61, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @strscan_bin(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #0 {
+define internal fastcc noundef i32 @strscan_bin(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex2, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #0 {
 entry:
   %tobool = icmp ne i32 %ex2, 0
   %cmp = icmp ugt i32 %dig, 64
@@ -1003,7 +1003,7 @@ return:                                           ; preds = %for.body, %sw.bb25,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @strscan_dec(ptr nocapture noundef readonly %p, ptr nocapture noundef writeonly %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex10, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #0 {
+define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(none) %p, ptr noundef writeonly captures(none) %o, i32 noundef %fmt, i32 noundef %opt, i32 noundef %ex10, i32 noundef range(i32 0, 2) %neg, i32 noundef %dig) unnamed_addr #0 {
 entry:
   %xi = alloca [512 x i8], align 16
   %tobool.not = icmp eq i32 %dig, 0
@@ -1694,7 +1694,7 @@ return:                                           ; preds = %if.else186, %if.the
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @lj_strscan_num(ptr noundef %str, ptr nocapture noundef %o) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_strscan_num(ptr noundef %str, ptr noundef captures(none) %o) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %str, i64 24
   %len = getelementptr inbounds nuw i8, ptr %str, i64 20
@@ -1721,7 +1721,7 @@ declare i32 @llvm.usub.sat.i32(i32, i32) #4
 declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

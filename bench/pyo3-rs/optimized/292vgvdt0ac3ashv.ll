@@ -29,7 +29,7 @@ define void @_ZN4core5clone5Clone10clone_from17h428cc46cba4d2937E(ptr align 8 %0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h191ae52bae94d0c0E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h191ae52bae94d0c0E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -44,7 +44,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h2690f926f23adf19E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h2690f926f23adf19E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -59,7 +59,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h2dbf438b26005f97E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h2dbf438b26005f97E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -74,7 +74,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h39e18e627ce417ccE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h39e18e627ce417ccE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -89,7 +89,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h4e2c26f4a1105192E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h4e2c26f4a1105192E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -104,7 +104,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h5b3c3f7b1bde2de9E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h5b3c3f7b1bde2de9E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   tail call void @"_ZN3syn4expr8printing76_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..expr..ExprPath$GT$9to_tokens17h0e010405560b095eE"(ptr align 8 %4, ptr align 8 %1)
@@ -112,7 +112,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h611314d18ad71693E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h611314d18ad71693E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -127,7 +127,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h7cb28c873c9829caE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h7cb28c873c9829caE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -142,7 +142,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h97cf128f5c0bffe7E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h97cf128f5c0bffe7E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -157,7 +157,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hb5f75e505d591a4eE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hb5f75e505d591a4eE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -172,14 +172,14 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcdcfedc8926b240cE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcdcfedc8926b240cE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   tail call void @"_ZN3syn4expr8printing76_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..expr..ExprPath$GT$9to_tokens17h0e010405560b095eE"(ptr align 8 %3, ptr align 8 %1)
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd47aaa97bc3c71b9E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hd47aaa97bc3c71b9E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [4 x i8], align 4
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -194,7 +194,7 @@ define void @"_ZN52_$LT$$RF$T$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_token
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h24588b9854ec0ce7E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h24588b9854ec0ce7E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -239,7 +239,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h24588b9854ec0ce7E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h406fe50c00315825E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h406fe50c00315825E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -284,7 +284,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h406fe50c00315825E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h64b3d662119da8eeE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h64b3d662119da8eeE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -328,7 +328,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h64b3d662119da8eeE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h720c18a1e519186aE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h720c18a1e519186aE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -373,7 +373,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h720c18a1e519186aE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h7368f501a2b22e50E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h7368f501a2b22e50E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -418,7 +418,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h7368f501a2b22e50E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h73c21bcd030d0deeE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h73c21bcd030d0deeE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   %4 = load ptr, ptr %1, align 8
@@ -447,7 +447,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h73c21bcd030d0deeE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h7d22d4328bf6e342E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h7d22d4328bf6e342E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -492,7 +492,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h7d22d4328bf6e342E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hb09a58acd1ef5ff5E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hb09a58acd1ef5ff5E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -537,7 +537,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hb09a58acd1ef5ff5E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hca7938df8397a3f7E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hca7938df8397a3f7E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -582,7 +582,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hca7938df8397a3f7E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hd87b563e90667b3dE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hd87b563e90667b3dE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -627,7 +627,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hd87b563e90667b3dE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hf40b76ddfd157fcdE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hf40b76ddfd157fcdE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -672,7 +672,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hf40b76ddfd157fcdE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hfb8baa5c69990ad7E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hfb8baa5c69990ad7E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
   %4 = load ptr, ptr %1, align 8
@@ -700,7 +700,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hfb8baa5c69990ad7E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hfc77d8534acb1a72E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hfc77d8534acb1a72E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [4 x i8], align 4
   %4 = alloca [32 x i8], align 8
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %4)
@@ -745,7 +745,7 @@ define void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hfc77d8534acb1a72E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h14332976b4f6c549E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h14332976b4f6c549E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
@@ -774,7 +774,7 @@ _ZN5quote9to_tokens8ToTokens15to_token_stream17hfb8baa5c69990ad7E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h23783c0c5c3996e5E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h23783c0c5c3996e5E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hfc77d8534acb1a72E(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -782,7 +782,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h23783c0c5c3996e5E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h3b6f4f2dbe098ebbE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h3b6f4f2dbe098ebbE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr nonnull sret([32 x i8]) align 8 %3)
@@ -812,7 +812,7 @@ _ZN5quote9to_tokens8ToTokens15to_token_stream17h73c21bcd030d0deeE.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h5683145a1b477ab7E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h5683145a1b477ab7E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hf40b76ddfd157fcdE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -820,7 +820,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h5683145a1b477ab7E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h5ee20ccee0335b79E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h5ee20ccee0335b79E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h720c18a1e519186aE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -828,7 +828,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h5ee20ccee0335b79E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h64e9945a6cec9758E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h64e9945a6cec9758E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hb09a58acd1ef5ff5E(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -836,7 +836,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h64e9945a6cec9758E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h6c346fb95488b914E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h6c346fb95488b914E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h406fe50c00315825E(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -844,7 +844,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h6c346fb95488b914E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h81c43e8a42ce83e6E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h81c43e8a42ce83e6E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   invoke void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h64b3d662119da8eeE(ptr sret([32 x i8]) align 8 %0, ptr align 8 %1)
           to label %5 unwind label %3
 
@@ -869,7 +869,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h81c43e8a42ce83e6E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h8e8f725f8b919298E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h8e8f725f8b919298E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hd87b563e90667b3dE(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -877,7 +877,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h8e8f725f8b919298E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h90720bf36d5ee2caE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h90720bf36d5ee2caE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h24588b9854ec0ce7E(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -885,7 +885,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17h90720bf36d5ee2caE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17had38c449f61b18a0E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17had38c449f61b18a0E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17hca7938df8397a3f7E(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -893,7 +893,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17had38c449f61b18a0E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17haf6257769ed07134E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17haf6257769ed07134E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h7368f501a2b22e50E(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -901,7 +901,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17haf6257769ed07134E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17hd7db3b15235d5eacE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17hd7db3b15235d5eacE(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [8 x i8], align 8
   store ptr %1, ptr %3, align 8
   call void @_ZN5quote9to_tokens8ToTokens15to_token_stream17h7d22d4328bf6e342E(ptr sret([32 x i8]) align 8 %0, ptr nonnull align 8 %3)
@@ -909,7 +909,7 @@ define void @_ZN5quote9to_tokens8ToTokens17into_token_stream17hd7db3b15235d5eacE
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN91_$LT$pyo3_macros_backend..attributes..LitStrValue$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h683277adfa7454b5E"(ptr nocapture writeonly sret([48 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN91_$LT$pyo3_macros_backend..attributes..LitStrValue$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h683277adfa7454b5E"(ptr writeonly sret([48 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -984,7 +984,7 @@ define void @"_ZN91_$LT$pyo3_macros_backend..attributes..LitStrValue$LT$T$GT$$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN91_$LT$pyo3_macros_backend..attributes..LitStrValue$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17ha8fe46ff609df86cE"(ptr nocapture writeonly sret([104 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN91_$LT$pyo3_macros_backend..attributes..LitStrValue$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17ha8fe46ff609df86cE"(ptr writeonly sret([104 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [104 x i8], align 8
   %4 = alloca [104 x i8], align 8
   %5 = alloca [104 x i8], align 8
@@ -1071,7 +1071,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..LitStrValue$LT$T$GT$$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h501d374a959217afE"(ptr nocapture writeonly sret([112 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h501d374a959217afE"(ptr writeonly sret([112 x i8]) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [104 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1141,7 +1141,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h5b0164c75a0b9b09E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 17), (24, 28)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h5b0164c75a0b9b09E"(ptr writeonly sret([32 x i8]) align 8 captures(none) initializes((0, 17), (24, 28)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1218,7 +1218,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h657fa1ccf64c4ef6E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h657fa1ccf64c4ef6E"(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1278,7 +1278,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h7c59e83e2a3ac07aE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h7c59e83e2a3ac07aE"(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1338,7 +1338,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h92b8a093e02d1908E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h92b8a093e02d1908E"(ptr writeonly sret([56 x i8]) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1408,7 +1408,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h9ee9287da2c0e6e0E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 20)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h9ee9287da2c0e6e0E"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 20)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1476,7 +1476,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hcedea4a8d80f0c64E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hcedea4a8d80f0c64E"(ptr writeonly sret([56 x i8]) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1546,7 +1546,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hd92ee6920daf9ff9E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hd92ee6920daf9ff9E"(ptr writeonly sret([56 x i8]) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1616,7 +1616,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hd9a07254e465a40cE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 20)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hd9a07254e465a40cE"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 20)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1684,7 +1684,7 @@ define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hfe5afec39d5a8788E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN100_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17hfe5afec39d5a8788E"(ptr writeonly sret([56 x i8]) align 8 captures(none) initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1874,7 +1874,7 @@ define void @"_ZN109_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h20d3b702e089cf28E(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h20d3b702e089cf28E(ptr writeonly sret([32 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -1914,7 +1914,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h20d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h51bf0cb2567bbbcaE(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h51bf0cb2567bbbcaE(ptr writeonly sret([32 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -1954,7 +1954,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h51b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h97142dac29499f14E(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h97142dac29499f14E(ptr writeonly sret([32 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -1994,7 +1994,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17h971
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17hd8aab3c5beb9c7f5E(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17hd8aab3c5beb9c7f5E(ptr writeonly sret([32 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
@@ -2034,7 +2034,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes16get_pyo3_options17hd8a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes15take_attributes17h356d7add85ac76faE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend10attributes15take_attributes17h356d7add85ac76faE(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -2076,7 +2076,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes15take_attributes17h356d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes15take_attributes17h6d44ad55d70573e9E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 4 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend10attributes15take_attributes17h6d44ad55d70573e9E(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 4 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = alloca [48 x i8], align 8
@@ -2120,7 +2120,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes15take_attributes17h6d44
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes15take_attributes17ha6d7ea53f7428a1aE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend10attributes15take_attributes17ha6d7ea53f7428a1aE(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -2162,7 +2162,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes15take_attributes17ha6d7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h070fba616c91804aE"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h070fba616c91804aE"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [256 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [256 x i8], align 8
@@ -2214,7 +2214,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h2ae7e9102d10ac2cE"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h2ae7e9102d10ac2cE"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -2358,7 +2358,7 @@ _ZN19pyo3_macros_backend10attributes16get_pyo3_options17h256c36fef0ebd2d5E.exit.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h33629444f915ea03E"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h33629444f915ea03E"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [256 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [256 x i8], align 8
@@ -2410,7 +2410,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h4b288d2d95c3d5acE"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h4b288d2d95c3d5acE"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -2554,7 +2554,7 @@ _ZN19pyo3_macros_backend10attributes16get_pyo3_options17hdac55c338cdf650aE.exit.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h517e2e19f9d948a1E"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h517e2e19f9d948a1E"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -2698,7 +2698,7 @@ _ZN19pyo3_macros_backend10attributes16get_pyo3_options17h4e93d0276db7cccdE.exit.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h810863321992a4d7E"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h810863321992a4d7E"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [256 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [256 x i8], align 8
@@ -2750,7 +2750,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h90efddbbd48dec2cE"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17h90efddbbd48dec2cE"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -2894,7 +2894,7 @@ _ZN19pyo3_macros_backend10attributes16get_pyo3_options17h8974d7eddb7590d7E.exit.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17hc82bb800862251e0E"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17hc82bb800862251e0E"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -3038,7 +3038,7 @@ _ZN19pyo3_macros_backend10attributes16get_pyo3_options17hd8964accb9b6298cE.exit.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17hd23fef79fb5eb934E"(ptr nocapture writeonly sret([256 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$17hd23fef79fb5eb934E"(ptr writeonly sret([256 x i8]) align 8 captures(none) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [32 x i8], align 8
   %6 = alloca [32 x i8], align 8
@@ -3182,7 +3182,7 @@ _ZN19pyo3_macros_backend10attributes16get_pyo3_options17h8426253718c8fe3aE.exit.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h16250b4490c551ecE"(ptr nocapture writeonly sret([256 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h16250b4490c551ecE"(ptr writeonly sret([256 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
   br i1 %2, label %5, label %4
 
 4:                                                ; preds = %3
@@ -3199,7 +3199,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3e1ef8a4503d3372E"(ptr nocapture writeonly sret([256 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h3e1ef8a4503d3372E"(ptr writeonly sret([256 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
   br i1 %2, label %5, label %4
 
 4:                                                ; preds = %3
@@ -3216,7 +3216,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ea7d9c986ed47bfE"(ptr nocapture writeonly sret([256 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h6ea7d9c986ed47bfE"(ptr writeonly sret([256 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
   br i1 %2, label %5, label %4
 
 4:                                                ; preds = %3
@@ -3233,7 +3233,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h749de48ce95c35abE"(ptr nocapture writeonly sret([256 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h749de48ce95c35abE"(ptr writeonly sret([256 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
   br i1 %2, label %5, label %4
 
 4:                                                ; preds = %3
@@ -3250,7 +3250,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7ea2fb0bc91b39ddE"(ptr nocapture writeonly sret([256 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7ea2fb0bc91b39ddE"(ptr writeonly sret([256 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
   br i1 %2, label %5, label %4
 
 4:                                                ; preds = %3
@@ -3267,7 +3267,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hab2715da9a998d7aE"(ptr nocapture writeonly sret([256 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hab2715da9a998d7aE"(ptr writeonly sret([256 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
   br i1 %2, label %5, label %4
 
 4:                                                ; preds = %3
@@ -3284,7 +3284,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdb5fdb0405a7bbb6E"(ptr nocapture writeonly sret([256 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdb5fdb0405a7bbb6E"(ptr writeonly sret([256 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
   br i1 %2, label %5, label %4
 
 4:                                                ; preds = %3
@@ -3301,7 +3301,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he351ff7c7619a5eaE"(ptr nocapture writeonly sret([256 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he351ff7c7619a5eaE"(ptr writeonly sret([256 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
   br i1 %2, label %5, label %4
 
 4:                                                ; preds = %3
@@ -3318,7 +3318,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfaf975bbef6b0a02E"(ptr nocapture writeonly sret([256 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
+define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hfaf975bbef6b0a02E"(ptr writeonly sret([256 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 8 %1, i1 zeroext %2) unnamed_addr #0 {
   br i1 %2, label %5, label %4
 
 4:                                                ; preds = %3
@@ -3335,7 +3335,7 @@ define hidden void @"_ZN19pyo3_macros_backend10attributes15take_attributes28_$u7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h3a9ab6fb9d91ff53E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h3a9ab6fb9d91ff53E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -3441,7 +3441,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h3a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h5db306b654a5c310E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h5db306b654a5c310E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -3547,7 +3547,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h5d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h8a2ad90663263008E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h8a2ad90663263008E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -3653,7 +3653,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h8a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h8a39a5c0d2b19380E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h8a39a5c0d2b19380E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -3759,7 +3759,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17h8a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17ha7f1fbe7a460f5e7E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17ha7f1fbe7a460f5e7E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -3865,7 +3865,7 @@ define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17ha7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17hcbb2c7894c9b12a8E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN19pyo3_macros_backend10attributes17take_pyo3_options17hcbb2c7894c9b12a8E(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [40 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -3981,7 +3981,7 @@ define { ptr, i32 } @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribu
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6d47c06c047171f1E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 9), (16, 20)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6d47c06c047171f1E"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 9), (16, 20)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = tail call i32 @"_ZN19pyo3_macros_backend10attributes2kw1_96_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..rename_all$GT$5clone17h8eae4e3799f57ee3E"(ptr nonnull align 4 %3)
   %5 = tail call { ptr, i8 } @"_ZN90_$LT$pyo3_macros_backend..attributes..RenamingRuleLitStr$u20$as$u20$core..clone..Clone$GT$5clone17h82ca523dd9d623ffE"(ptr align 8 %1)
@@ -3996,7 +3996,7 @@ define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9bc02be12577487cE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 28)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9bc02be12577487cE"(ptr writeonly sret([32 x i8]) align 8 captures(none) initializes((0, 28)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = tail call i32 @"_ZN19pyo3_macros_backend10attributes2kw1_90_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..name$GT$5clone17h5fabe060cd0ea65fE"(ptr nonnull align 4 %4)
@@ -4008,7 +4008,7 @@ define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he61eb0da9dbe3134E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 52)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17he61eb0da9dbe3134E"(ptr writeonly sret([56 x i8]) align 8 captures(none) initializes((0, 52)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = tail call i32 @"_ZN56_$LT$syn..token..Crate$u20$as$u20$core..clone..Clone$GT$5clone17he23713db6803a6d7E"(ptr nonnull align 4 %4)
@@ -4030,7 +4030,7 @@ define { ptr, i32 } @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribu
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfaff12c3c560ab82E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 52)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$C$V$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfaff12c3c560ab82E"(ptr writeonly sret([56 x i8]) align 8 captures(none) initializes((0, 52)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = tail call i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clone..Clone$u20$for$u20$pyo3_macros_backend..attributes..kw..extends$GT$5clone17h4904127a50bfc69dE"(ptr nonnull align 4 %4)
@@ -4042,19 +4042,19 @@ define void @"_ZN101_$LT$pyo3_macros_backend..attributes..KeywordAttribute$LT$K$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19pyo3_macros_backend10attributes11LitStrValue17h0e84dac3a24d8acdE(ptr nocapture writeonly sret([104 x i8]) align 8 initializes((0, 104)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define void @_ZN19pyo3_macros_backend10attributes11LitStrValue17h0e84dac3a24d8acdE(ptr writeonly sret([104 x i8]) align 8 captures(none) initializes((0, 104)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19pyo3_macros_backend10attributes11LitStrValue17h35d55b412905d2b3E(ptr nocapture writeonly sret([48 x i8]) align 8 initializes((0, 48)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define void @_ZN19pyo3_macros_backend10attributes11LitStrValue17h35d55b412905d2b3E(ptr writeonly sret([48 x i8]) align 8 captures(none) initializes((0, 48)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN92_$LT$pyo3_macros_backend..attributes..LitStrValue$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h62041347bdfa95c4E"(ptr nocapture writeonly sret([48 x i8]) align 8 initializes((0, 48)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN92_$LT$pyo3_macros_backend..attributes..LitStrValue$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h62041347bdfa95c4E"(ptr writeonly sret([48 x i8]) align 8 captures(none) initializes((0, 48)) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [48 x i8], align 8
   call void @"_ZN3syn3gen5clone64_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..path..Path$GT$5clone17hc328d90ed1e3e23cE"(ptr nonnull sret([48 x i8]) align 8 %3, ptr align 8 %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
@@ -4071,7 +4071,7 @@ declare void @"_ZN4core3ptr140drop_in_place$LT$pyo3_macros_backend..attributes..
 declare void @_ZN11proc_macro211TokenStream3new17h9f9a9a6013abb6a8E(ptr sret([32 x i8]) align 8) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17hdb5f1dbc2ce821daE"(ptr align 8) unnamed_addr #1
@@ -4461,16 +4461,16 @@ declare i32 @"_ZN19pyo3_macros_backend10attributes2kw1_93_$LT$impl$u20$core..clo
 declare void @"_ZN3syn3gen5clone64_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..path..Path$GT$5clone17hc328d90ed1e3e23cE"(ptr sret([48 x i8]) align 8, ptr align 8) unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

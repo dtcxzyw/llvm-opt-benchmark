@@ -22,7 +22,7 @@ define hidden noundef i32 @cmsGetEncodedCMMversion() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define hidden i32 @cmsstrcasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden i32 @cmsstrcasecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %11, %2
@@ -56,7 +56,7 @@ define hidden i32 @cmsstrcasecmp(ptr nocapture noundef readonly %0, ptr nocaptur
 declare i32 @toupper(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i64 @cmsfilelength(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden noundef i64 @cmsfilelength(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = tail call i64 @ftell(ptr noundef %0)
   %3 = icmp eq i64 %2, -1
   br i1 %3, label %9, label %4
@@ -77,13 +77,13 @@ define hidden noundef i64 @cmsfilelength(ptr nocapture noundef %0) local_unnamed
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_cmsMallocDefaultFn(ptr nocapture readnone %0, i32 noundef %1) #5 {
+define internal noalias noundef ptr @_cmsMallocDefaultFn(ptr readnone captures(none) %0, i32 noundef %1) #5 {
   %3 = add i32 %1, -536870913
   %or.cond = icmp ult i32 %3, -536870912
   br i1 %or.cond, label %7, label %4
@@ -116,7 +116,7 @@ define internal ptr @_cmsMallocZeroDefaultFn(ptr noundef %0, i32 noundef %1) #6 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_cmsFreeDefaultFn(ptr nocapture readnone %0, ptr noundef %1) #7 {
+define internal void @_cmsFreeDefaultFn(ptr readnone captures(none) %0, ptr noundef %1) #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -129,7 +129,7 @@ define internal void @_cmsFreeDefaultFn(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @_cmsReallocDefaultFn(ptr nocapture readnone %0, ptr nocapture noundef %1, i32 noundef %2) #7 {
+define internal noalias noundef ptr @_cmsReallocDefaultFn(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #7 {
   %4 = icmp ugt i32 %2, 536870912
   br i1 %4, label %8, label %5
 
@@ -232,7 +232,7 @@ _cmsSubAllocDup.exit:                             ; preds = %11, %7, %3, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsSubAllocDup(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden ptr @_cmsSubAllocDup(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %5
 
@@ -252,7 +252,7 @@ define hidden ptr @_cmsSubAllocDup(ptr nocapture noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_cmsInstallAllocFunctions(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 48)) %1) local_unnamed_addr #8 {
+define hidden void @_cmsInstallAllocFunctions(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 48)) %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -312,7 +312,7 @@ define hidden void @_cmsInstallAllocFunctions(ptr noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsRegisterMemHandlerPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 {
@@ -565,7 +565,7 @@ _cmsFree.exit16:                                  ; preds = %_cmsFree.exit14, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_cmsSubAlloc(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden ptr @_cmsSubAlloc(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -634,12 +634,12 @@ _cmsCreateSubAllocChunk.exit.thread:              ; preds = %13, %_cmsFree.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @DefaultLogErrorHandlerFunction(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal void @DefaultLogErrorHandlerFunction(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocLogErrorChunk(ptr nocapture noundef initializes((24, 32)) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @_cmsAllocLogErrorChunk(ptr noundef captures(none) initializes((24, 32)) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %3
 
@@ -702,7 +702,7 @@ cmsSetLogErrorHandlerTHR.exit:                    ; preds = %1, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsSignalError(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ...) local_unnamed_addr #6 {
+define hidden void @cmsSignalError(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #6 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [1024 x i8], align 16
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -725,13 +725,13 @@ define hidden void @cmsSignalError(ptr noundef %0, i32 noundef %1, ptr nocapture
 declare void @llvm.va_start.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsTagSignature2String(ptr nocapture noundef writeonly initializes((0, 5)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden void @_cmsTagSignature2String(ptr noundef writeonly captures(none) initializes((0, 5)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = tail call i32 @_cmsAdjustEndianess32(i32 noundef %1) #20
   store i32 %3, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -742,7 +742,7 @@ define hidden void @_cmsTagSignature2String(ptr nocapture noundef writeonly init
 declare i32 @_cmsAdjustEndianess32(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @defMtxCreate(ptr noundef %0) #6 {
@@ -771,7 +771,7 @@ _cmsFree.exit:                                    ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @defMtxLock(ptr nocapture readnone %0, ptr noundef %1) #6 {
+define internal range(i32 0, 2) i32 @defMtxLock(ptr readnone captures(none) %0, ptr noundef %1) #6 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef %1) #20
   %4 = icmp eq i32 %3, 0
   %5 = zext i1 %4 to i32
@@ -779,13 +779,13 @@ define internal range(i32 0, 2) i32 @defMtxLock(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @defMtxUnlock(ptr nocapture readnone %0, ptr noundef %1) #6 {
+define internal void @defMtxUnlock(ptr readnone captures(none) %0, ptr noundef %1) #6 {
   %3 = tail call i32 @pthread_mutex_unlock(ptr noundef %1) #20
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocMutexPluginChunk(ptr nocapture noundef initializes((128, 136)) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @_cmsAllocMutexPluginChunk(ptr noundef captures(none) initializes((128, 136)) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %3
 
@@ -932,7 +932,7 @@ define hidden void @_cmsUnlockMutex(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocParallelizationPluginChunk(ptr nocapture noundef initializes((136, 144)) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @_cmsAllocParallelizationPluginChunk(ptr noundef captures(none) initializes((136, 144)) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %3
 
@@ -972,7 +972,7 @@ _cmsSubAllocDup.exit:                             ; preds = %16, %12, %11, %7, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @_cmsRegisterParallelizationPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 {
@@ -1012,10 +1012,10 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterParallelizationPlugin(ptr noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #16

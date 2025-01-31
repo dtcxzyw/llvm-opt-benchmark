@@ -592,7 +592,7 @@ declare i32 @BN_lshift(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @BN_value_one() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef nonnull %ctx, ptr noundef nonnull %q, ptr noundef nonnull %evpmd, i32 noundef %qsize, ptr noundef nonnull %seed, i64 noundef range(i64 1, 0) %seedlen, i32 noundef range(i32 0, 2) %generate_seed, ptr nocapture noundef nonnull %retm, ptr nocapture noundef %res, ptr noundef %cb) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @generate_q_fips186_4(ptr noundef nonnull %ctx, ptr noundef nonnull %q, ptr noundef nonnull %evpmd, i32 noundef %qsize, ptr noundef nonnull %seed, i64 noundef range(i64 1, 0) %seedlen, i32 noundef range(i32 0, 2) %generate_seed, ptr noundef nonnull captures(none) %retm, ptr noundef captures(none) %res, ptr noundef %cb) unnamed_addr #0 {
 entry:
   %md = alloca [64 x i8], align 16
   %0 = load i32, ptr %retm, align 4
@@ -765,10 +765,10 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BN_GENCB_call(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef nonnull %ctx, ptr noundef nonnull %evpmd, i32 noundef %max_counter, i32 noundef %n, ptr noundef nonnull %buf, i64 noundef %buf_len, ptr noundef %q, ptr noundef %p, i32 noundef %L, ptr noundef %cb, ptr nocapture noundef nonnull writeonly %counter, ptr nocapture noundef %res) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @generate_p(ptr noundef nonnull %ctx, ptr noundef nonnull %evpmd, i32 noundef %max_counter, i32 noundef %n, ptr noundef nonnull %buf, i64 noundef %buf_len, ptr noundef %q, ptr noundef %p, i32 noundef %L, ptr noundef %cb, ptr noundef nonnull writeonly captures(none) %counter, ptr noundef captures(none) %res) unnamed_addr #0 {
 entry:
   %md = alloca [64 x i8], align 16
   tail call void @BN_CTX_start(ptr noundef nonnull %ctx) #5
@@ -1025,7 +1025,7 @@ return:                                           ; preds = %if.end, %entry, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @generate_unverifiable_g(ptr noundef nonnull %ctx, ptr noundef nonnull %mont, ptr noundef %g, ptr noundef %hbn, ptr noundef %p, ptr noundef %e, ptr noundef %pm1, ptr nocapture noundef nonnull writeonly %hret) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @generate_unverifiable_g(ptr noundef nonnull %ctx, ptr noundef nonnull %mont, ptr noundef %g, ptr noundef %hbn, ptr noundef %p, ptr noundef %e, ptr noundef %pm1, ptr noundef nonnull writeonly captures(none) %hret) unnamed_addr #0 {
 entry:
   %call = tail call i32 @BN_set_word(ptr noundef %hbn, i64 noundef 2) #5
   %tobool.not = icmp eq i32 %call, 0
@@ -1634,7 +1634,7 @@ declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) l
 declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1663,10 +1663,10 @@ declare i32 @BN_set_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -31,16 +31,16 @@ target triple = "x86_64-pc-linux-gnu"
 @__PRETTY_FUNCTION__.get_score = private unnamed_addr constant [140 x i8] c"void get_score(enum badness, unsigned int, const struct filter *, const struct char_spec *, const struct char_spec *, int32_t *, int32_t *)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @filter_init(ptr nocapture noundef writeonly initializes((0, 131072)) %0) local_unnamed_addr #0 {
+define void @filter_init(ptr noundef writeonly captures(none) initializes((0, 131072)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(131072) %0, i8 -1, i64 131072, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 257) i32 @filter_add_static(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3) local_unnamed_addr #2 {
+define range(i32 -1, 257) i32 @filter_add_static(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #2 {
   %spec.store.select7 = tail call i64 @llvm.umin.i64(i64 %2, i64 255)
   %5 = icmp ult i64 %2, 2
   br i1 %5, label %._crit_edge142.thread, label %6
@@ -245,7 +245,7 @@ filter_set_end.exit:                              ; preds = %99, %108
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @filter_add_acpatt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define i32 @filter_add_acpatt(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca [255 x %struct.char_spec], align 16
   %4 = alloca [255 x i32], align 16
   %5 = alloca [255 x i8], align 16
@@ -2251,7 +2251,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #4
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @filter_search_ext(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define range(i32 -1, 1) i32 @filter_search_ext(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 65536
   %6 = icmp ult i64 %2, 2
   br i1 %6, label %.loopexit, label %.lr.ph.preheader
@@ -2291,7 +2291,7 @@ define range(i32 -1, 1) i32 @filter_search_ext(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -1, -10) i64 @filter_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #6 {
+define range(i64 -1, -10) i64 @filter_search(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 65536
   %5 = icmp ult i64 %2, 2
   br i1 %5, label %.loopexit, label %.lr.ph.preheader

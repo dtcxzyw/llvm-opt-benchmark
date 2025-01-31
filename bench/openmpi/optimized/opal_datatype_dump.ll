@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @opal_datatype_contain_basic_datatypes(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 64
@@ -108,10 +108,10 @@ define i32 @opal_datatype_contain_basic_datatypes(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp ult i64 %2, 22
   br i1 %4, label %44, label %5
 
@@ -219,7 +219,7 @@ define range(i32 0, 22) i32 @opal_datatype_dump_data_flags(i16 noundef zeroext %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @opal_datatype_dump_data_desc(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define i32 @opal_datatype_dump_data_desc(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -687,10 +687,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

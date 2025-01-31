@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [26 x i8] c"Mismatched alpha channels\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocAdaptationStateChunk(ptr nocapture noundef initializes((40, 48)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocAdaptationStateChunk(ptr noundef captures(none) initializes((40, 48)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -79,38 +79,38 @@ cmsSetAdaptationStateTHR.exit:                    ; preds = %1, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsSetAlarmCodesTHR(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cmsSetAlarmCodesTHR(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 2) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %3, ptr noundef nonnull align 2 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsGetAlarmCodesTHR(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #0 {
+define hidden void @cmsGetAlarmCodesTHR(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 2) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %1, ptr noundef nonnull align 2 dereferenceable(32) %3, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsSetAlarmCodes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @cmsSetAlarmCodes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @_cmsContextGetClientChunk(ptr noundef null, i32 noundef 2) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %2, ptr noundef nonnull readonly align 2 dereferenceable(32) %0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cmsGetAlarmCodes(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
+define hidden void @cmsGetAlarmCodes(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @_cmsContextGetClientChunk(ptr noundef null, i32 noundef 2) #11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %0, ptr noundef nonnull align 2 dereferenceable(32) %2, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocAlarmCodesChunk(ptr nocapture noundef initializes((32, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocAlarmCodesChunk(ptr noundef captures(none) initializes((32, 40)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -269,7 +269,7 @@ define hidden void @cmsDoTransformLineStride(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocTransformPluginChunk(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocTransformPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsTransformPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -384,7 +384,7 @@ define hidden range(i32 0, 2) i32 @_cmsRegisterTransformPlugin(ptr noundef %0, p
 declare ptr @_cmsPluginMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_cmsSetTransformUserData(ptr nocapture noundef writeonly initializes((240, 256)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @_cmsSetTransformUserData(ptr noundef writeonly captures(none) initializes((240, 256)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -393,14 +393,14 @@ define hidden void @_cmsSetTransformUserData(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @_cmsGetTransformUserData(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @_cmsGetTransformUserData(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsGetTransformFormatters16(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define hidden void @_cmsGetTransformFormatters16(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -425,7 +425,7 @@ define hidden void @_cmsGetTransformFormatters16(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsGetTransformFormattersFloat(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define hidden void @_cmsGetTransformFormattersFloat(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -450,28 +450,28 @@ define hidden void @_cmsGetTransformFormattersFloat(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_cmsGetTransformFlags(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @_cmsGetTransformFlags(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @_cmsGetTransformWorker(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden ptr @_cmsGetTransformWorker(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_cmsGetTransformMaxWorkers(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @_cmsGetTransformMaxWorkers(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_cmsGetTransformWorkerFlags(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i32 @_cmsGetTransformWorkerFlags(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 276
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -1189,7 +1189,7 @@ declare i32 @cmsPipelineInputChannels(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsPipelineOutputChannels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @SetWhitePoint(ptr nocapture noundef nonnull writeonly initializes((0, 24)) %0, ptr noundef readonly %1) unnamed_addr #6 {
+define internal fastcc void @SetWhitePoint(ptr noundef nonnull writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly %1) unnamed_addr #6 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %7
 
@@ -1251,10 +1251,10 @@ declare i32 @cmsGetDeviceClass(ptr noundef) local_unnamed_addr #1
 declare ptr @_cmsCompileProfileSequence(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @TransformOnePixelWithGamutCheck(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @TransformOnePixelWithGamutCheck(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -1628,7 +1628,7 @@ define hidden i32 @cmsGetTransformOutputFormat(ptr noundef readonly %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsChangeBuffersFormat(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsChangeBuffersFormat(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 33554432
@@ -1849,12 +1849,12 @@ define internal void @FloatXFORM(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @UnrollNothing(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef readnone returned %2, i32 %3) #8 {
+define internal noundef ptr @UnrollNothing(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned %2, i32 %3) #8 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @PackNothing(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef readnone returned %2, i32 %3) #8 {
+define internal noundef ptr @PackNothing(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone returned %2, i32 %3) #8 {
   ret ptr %2
 }
 
@@ -2181,7 +2181,7 @@ TransformOnePixelWithGamutCheck.exit.us:          ; preds = %.lr.ph.i.us, %49, %
 56:                                               ; preds = %55, %TransformOnePixelWithGamutCheck.exit.us
   %57 = load ptr, ptr %18, align 8
   %58 = load i32, ptr %19, align 4
-  %59 = call ptr %57(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %.03235.us, i32 noundef %58) #11
+  %59 = call ptr %57(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef %.03235.us, i32 noundef %58) #11
   %60 = add nuw i32 %.03036.us, 1
   %exitcond.not = icmp eq i32 %60, %3
   br i1 %exitcond.not, label %._crit_edge.us, label %25, !llvm.loop !25
@@ -2291,13 +2291,13 @@ declare i32 @cmsGetPCS(ptr noundef) local_unnamed_addr #1
 declare i32 @_cmsLCMScolorSpace(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

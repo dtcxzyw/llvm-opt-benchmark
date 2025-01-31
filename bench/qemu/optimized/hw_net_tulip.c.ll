@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tulip_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @tulip_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.5, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #8
@@ -203,7 +203,7 @@ declare void @device_add_bootindex_property(ptr noundef, ptr noundef, ptr nounde
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pci_tulip_realize(ptr noundef %pci_dev, ptr nocapture readnone %errp) #0 {
+define internal void @pci_tulip_realize(ptr noundef %pci_dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %pci_dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -397,10 +397,10 @@ declare ptr @qemu_get_queue(ptr noundef) local_unnamed_addr #1
 declare ptr @eeprom93xx_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 0, 4294967296) i64 @tulip_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal range(i64 0, 4294967296) i64 @tulip_read(ptr noundef captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   switch i64 %addr, label %sw.default [
@@ -918,7 +918,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i16 @eeprom93xx_read(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_mii(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc void @tulip_mii(ptr noundef captures(none) %s) unnamed_addr #0 {
 entry:
   %_now.i.i.i33 = alloca %struct.timeval, align 8
   %_now.i.i4.i = alloca %struct.timeval, align 8
@@ -1170,12 +1170,12 @@ if.end96:                                         ; preds = %if.end.i, %trace_tu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_reset(ptr nocapture noundef writeonly initializes((11392, 11404), (11412, 11432), (11436, 11456)) %s) unnamed_addr #0 {
+define internal fastcc void @tulip_reset(ptr noundef writeonly captures(none) initializes((11392, 11404), (11412, 11432), (11436, 11456)) %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -1242,7 +1242,7 @@ trace_tulip_reset.exit:                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_update_int(ptr nocapture noundef %s) unnamed_addr #0 {
+define internal fastcc void @tulip_update_int(ptr noundef captures(none) %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %arrayidx = getelementptr i8, ptr %s, i64 11412
@@ -1848,7 +1848,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_desc_write(ptr noundef %s, i64 noundef %p, ptr nocapture noundef nonnull readonly %desc) unnamed_addr #0 {
+define internal fastcc void @tulip_desc_write(ptr noundef %s, i64 noundef %p, ptr noundef nonnull readonly captures(none) %desc) unnamed_addr #0 {
 entry:
   %val.addr.i.i48 = alloca i32, align 4
   %val.addr.i.i45 = alloca i32, align 4
@@ -2109,7 +2109,7 @@ if.then21:                                        ; preds = %if.end17
   store i16 %conv22, ptr %rx_frame_size23, align 4
   store i32 %or28, ptr %rx_status, align 8
   store i32 512, ptr %desc, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %rx_frame, ptr align 1 %buf, i64 %size, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %rx_frame, ptr nonnull align 1 %buf, i64 %size, i1 false)
   %25 = load i16, ptr %rx_frame_size23, align 4
   store i16 %25, ptr %rx_frame_len, align 2
   br label %if.end36
@@ -2239,7 +2239,7 @@ return:                                           ; preds = %tulip_next_rx_descr
 declare i64 @qemu_send_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @tulip_dump_rx_descriptor(i64 %s.11472.val, ptr nocapture noundef nonnull readonly %desc) unnamed_addr #0 {
+define internal fastcc void @tulip_dump_rx_descriptor(i64 %s.11472.val, ptr noundef nonnull readonly captures(none) %desc) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %conv = trunc i64 %s.11472.val to i32
@@ -2313,13 +2313,13 @@ declare void @eeprom93xx_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #5

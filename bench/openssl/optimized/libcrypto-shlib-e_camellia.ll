@@ -157,7 +157,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @camellia_init_key(ptr noundef %ctx, ptr noundef %key, ptr nocapture readnone %iv, i32 noundef %enc) #1 {
+define internal range(i32 0, 2) i32 @camellia_init_key(ptr noundef %ctx, ptr noundef %key, ptr readnone captures(none) %iv, i32 noundef %enc) #1 {
 entry:
   %call = tail call ptr @EVP_CIPHER_CTX_get_cipher_data(ptr noundef %ctx) #3
   %call1 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %ctx) #3

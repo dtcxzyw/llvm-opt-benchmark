@@ -168,7 +168,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZN6hermes2vm21ChromeTraceSerializerC1ERKNS0_16SamplingProfilerEONS0_17ChromeTraceFormatE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6hermes2vm21ChromeTraceSerializerC2ERKNS0_16SamplingProfilerEONS0_17ChromeTraceFormatE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm20ChromeStackFrameNode17findOrAddNewChildERNS0_22ChromeFrameIdGeneratorERKNS0_16SamplingProfiler10StackFrameE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %frameIdGen, ptr noundef nonnull align 8 dereferenceable(24) %target) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm20ChromeStackFrameNode17findOrAddNewChildERNS0_22ChromeFrameIdGeneratorERKNS0_16SamplingProfiler10StackFrameE(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(68) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %frameIdGen, ptr noundef nonnull align 8 dereferenceable(24) %target) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -292,7 +292,7 @@ return:                                           ; preds = %if.else.i.i.i.i.i16
 declare noundef zeroext i1 @_ZN6hermes2vmeqERKNS0_16SamplingProfiler10StackFrameES4_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm17ChromeTraceFormat6createEjRKN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_12DenseMapInfoImEENS2_6detail12DenseMapPairImS9_EEEERKSt6vectorINS0_16SamplingProfiler10StackTraceESaISK_EE(ptr noalias sret(%"class.hermes::vm::ChromeTraceFormat") align 8 initializes((0, 4), (8, 28)) %agg.result, i32 noundef %pid, ptr noundef nonnull align 8 dereferenceable(20) %threadNames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sampledStacks) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm17ChromeTraceFormat6createEjRKN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_12DenseMapInfoImEENS2_6detail12DenseMapPairImS9_EEEERKSt6vectorINS0_16SamplingProfiler10StackTraceESaISK_EE(ptr noalias sret(%"class.hermes::vm::ChromeTraceFormat") align 8 initializes((0, 4), (8, 28)) %agg.result, i32 noundef %pid, ptr noundef nonnull align 8 dereferenceable(20) %threadNames, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sampledStacks) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %leafNode = alloca %"class.std::shared_ptr", align 8
@@ -1262,7 +1262,7 @@ _ZN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12Dens
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm21ChromeTraceSerializerC2ERKNS0_16SamplingProfilerEONS0_17ChromeTraceFormatE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 12), (16, 36), (40, 88)) %this, ptr noundef nonnull align 8 dereferenceable(256) %sp, ptr nocapture noundef nonnull align 8 dereferenceable(72) %chromeTrace) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm21ChromeTraceSerializerC2ERKNS0_16SamplingProfilerEONS0_17ChromeTraceFormatE(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((0, 12), (16, 36), (40, 88)) %this, ptr noundef nonnull align 8 dereferenceable(256) %sp, ptr noundef nonnull align 8 captures(none) dereferenceable(72) %chromeTrace) unnamed_addr #0 align 2 {
 entry:
   store ptr %sp, ptr %this, align 8
   %trace_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1359,10 +1359,10 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer20serializeProcessNameERNS_11JSONEmitterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer20serializeProcessNameERNS_11JSONEmitterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %trace_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1415,7 +1415,7 @@ declare void @_ZN6hermes11JSONEmitter7emitKeyEN4llvh9StringRefE(ptr noundef nonn
 declare void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer16serializeThreadsERNS_11JSONEmitterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer16serializeThreadsERNS_11JSONEmitterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
 entry:
   %threadName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1663,7 +1663,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.els
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer22serializeSampledEventsERNS_11JSONEmitterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer22serializeSampledEventsERNS_11JSONEmitterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1943,7 +1943,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.els
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer20serializeStackFramesERNS_11JSONEmitterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer20serializeStackFramesERNS_11JSONEmitterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(72) %json) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
   %root_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1970,7 +1970,7 @@ _ZNSt8functionIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer9serializeERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes2vm21ChromeTraceSerializer9serializeERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::function", align 8
   %json = alloca %"class.hermes::JSONEmitter", align 8
@@ -2147,7 +2147,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %if.then.i, %if.els
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm26serializeAsProfilerProfileERKNS0_16SamplingProfilerERN4llvh11raw_ostreamEONS0_17ChromeTraceFormatE(ptr noundef nonnull align 8 dereferenceable(256) %sp, ptr noundef nonnull align 8 dereferenceable(36) %os, ptr nocapture noundef nonnull align 8 dereferenceable(72) %chromeTrace) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes2vm26serializeAsProfilerProfileERKNS0_16SamplingProfilerERN4llvh11raw_ostreamEONS0_17ChromeTraceFormatE(ptr noundef nonnull align 8 dereferenceable(256) %sp, ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 captures(none) dereferenceable(72) %chromeTrace) local_unnamed_addr #0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4.i.i = alloca %"class.std::allocator.36", align 1
@@ -2927,7 +2927,7 @@ delete.end:                                       ; preds = %_ZN6hermes2vm20Chro
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
@@ -2989,14 +2989,14 @@ for.end:                                          ; preds = %for.body, %_ZNKSt8f
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_ZN6hermes11JSONEmitter9emitValueEj(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef) local_unnamed_addr #1
 
 declare void @_ZN6hermes11JSONEmitter9emitValueEm(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes2vm12_GLOBAL__N_115emitProfileNodeERNS_11JSONEmitterERKNS0_20ChromeStackFrameNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSE_jj(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %node, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %scriptId, ptr noundef nonnull align 8 dereferenceable(32) %url, i32 noundef %lineNumber, i32 noundef %columnNumber) unnamed_addr #0 {
+define internal fastcc void @_ZN6hermes2vm12_GLOBAL__N_115emitProfileNodeERNS_11JSONEmitterERKNS0_20ChromeStackFrameNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjSE_jj(ptr noundef nonnull align 8 dereferenceable(72) %json, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %node, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %scriptId, ptr noundef nonnull align 8 dereferenceable(32) %url, i32 noundef %lineNumber, i32 noundef %columnNumber) unnamed_addr #0 {
 entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN6hermes11JSONEmitter8openDictEv(ptr noundef nonnull align 8 dereferenceable(72) %json) #15
@@ -3361,10 +3361,10 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_d
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EZNKS1_12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0E9_M_invokeERKSt9_Any_dataS4_OS5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(68) %__args, ptr nocapture nonnull readnone align 8 %__args1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EZNKS1_12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0E9_M_invokeERKSt9_Any_dataS4_OS5_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(68) %__args, ptr nonnull readnone align 8 captures(none) %__args1) #0 align 2 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp.i.i.i.i.i = alloca %"class.std::allocator.36", align 1
@@ -3649,7 +3649,7 @@ _ZNK6hermes2vm12_GLOBAL__N_125ProfilerProfileSerializer11processNodeERKNS0_20Chr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EZNKS1_12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #10 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EZNKS1_12_GLOBAL__N_125ProfilerProfileSerializer9emitNodesEvE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #10 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -4234,7 +4234,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EZNKS1_21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0E9_M_invokeERKSt9_Any_dataS4_OS5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(68) %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EZNKS1_21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0E9_M_invokeERKSt9_Any_dataS4_OS5_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(68) %__args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__args1) #0 align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator.36", align 1
   %ref.tmp1.i.i.i.i = alloca %"class.std::allocator.36", align 1
@@ -4765,7 +4765,7 @@ sw.epilog.i.i.i:                                  ; preds = %sw.bb64.i.i.i, %_ZS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EZNKS1_21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #10 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN6hermes2vm20ChromeStackFrameNodeEPS3_EZNKS1_21ChromeTraceSerializer20serializeStackFramesERNS0_11JSONEmitterEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #10 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 1, label %sw.bb
@@ -4805,10 +4805,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 declare i64 @llvm.abs.i64(i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

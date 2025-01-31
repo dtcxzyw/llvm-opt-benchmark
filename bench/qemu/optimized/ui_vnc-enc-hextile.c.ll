@@ -60,7 +60,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @vnc_hextile_set_pixel_conversion(ptr nocapture noundef writeonly initializes((49808, 49816)) %vs, i32 noundef %generic) local_unnamed_addr #3 {
+define dso_local void @vnc_hextile_set_pixel_conversion(ptr noundef writeonly captures(none) initializes((49808, 49816)) %vs, i32 noundef %generic) local_unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq i32 %generic, 0
   %spec.select = select i1 %tobool.not, ptr @send_hextile_tile_32, ptr @send_hextile_tile_generic_32
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @send_hextile_tile_32(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef %last_bg_, ptr noundef %last_fg_, ptr nocapture noundef %has_bg, ptr nocapture noundef %has_fg) #0 {
+define internal void @send_hextile_tile_32(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef %last_bg_, ptr noundef %last_fg_, ptr noundef captures(none) %has_bg, ptr noundef captures(none) %has_fg) #0 {
 entry:
   %data = alloca [1536 x i8], align 16
   %vd1 = getelementptr inbounds nuw i8, ptr %vs, i64 49192
@@ -563,7 +563,7 @@ if.end248:                                        ; preds = %for.body239, %if.en
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @send_hextile_tile_generic_32(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef %last_bg_, ptr noundef %last_fg_, ptr nocapture noundef %has_bg, ptr nocapture noundef %has_fg) #0 {
+define internal void @send_hextile_tile_generic_32(ptr noundef %vs, i32 noundef %x, i32 noundef %y, i32 noundef %w, i32 noundef %h, ptr noundef %last_bg_, ptr noundef %last_fg_, ptr noundef captures(none) %has_bg, ptr noundef captures(none) %has_fg) #0 {
 entry:
   %data = alloca [1536 x i8], align 16
   %vd1 = getelementptr inbounds nuw i8, ptr %vs, i64 49192

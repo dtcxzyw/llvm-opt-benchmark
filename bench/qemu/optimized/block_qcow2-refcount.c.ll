@@ -185,7 +185,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [42 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.127, ptr @.str.128, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.129, ptr @.str.128, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_sync, ptr @.str.130, ptr @.str.128, i32 64, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_debug_event, ptr @.str.127, ptr @.str.128, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_debug_event, ptr @.str.129, ptr @.str.128, i32 246, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pdiscard, ptr @.str.127, ptr @.str.128, i32 375, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pdiscard, ptr @.str.129, ptr @.str.128, i32 375, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_inc_refcounts_imrt, ptr @.str.130, ptr @.str.131, i32 1526, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_bytes, ptr @.str.130, ptr @.str.131, i32 1070, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_refcount_init, ptr @.str.130, ptr @.str.131, i32 101, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_assert_locked, ptr @.str.130, ptr @.str.132, i32 74, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_bitmaps_refcounts, ptr @.str.130, ptr @.str.133, i32 1027, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pread, ptr @.str.130, ptr @.str.134, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @check_refblocks, ptr @.str.130, ptr @.str.131, i32 2086, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @rebuild_refcounts_write_refblocks, ptr @.str.130, ptr @.str.131, i32 2469, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @check_oflag_copied, ptr @.str.130, ptr @.str.131, i32 1953, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_detect_metadata_preallocation, ptr @.str.130, ptr @.str.131, i32 3718, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_refcounts, ptr @.str.130, ptr @.str.131, i32 2783, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @compare_refcounts, ptr @.str.130, ptr @.str.131, i32 2304, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_get_allocated_file_size, ptr @.str.130, ptr @.str.128, i32 88, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @check_refcounts_l1, ptr @.str.130, ptr @.str.131, i32 1863, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_debug_event, ptr @.str.130, ptr @.str.128, i32 243, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @calculate_refcounts, ptr @.str.130, ptr @.str.131, i32 2201, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_discard_refcount_block, ptr @.str.130, ptr @.str.131, i32 3571, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_truncate, ptr @.str.130, ptr @.str.128, i32 78, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_alloc_clusters_at, ptr @.str.130, ptr @.str.131, i32 1031, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.130, ptr @.str.134, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @get_refblock_offset, ptr @.str.130, ptr @.str.131, i32 3551, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @check_refcounts_l2, ptr @.str.130, ptr @.str.131, i32 1663, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_getlength, ptr @.str.130, ptr @.str.128, i32 84, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.127, ptr @.str.128, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.129, ptr @.str.128, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.127, ptr @.str.128, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.129, ptr @.str.128, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_shrink_reftable, ptr @.str.130, ptr @.str.131, i32 3627, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_get_last_cluster, ptr @.str.130, ptr @.str.131, i32 3695, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite, ptr @.str.130, ptr @.str.134, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.127, ptr @.str.128, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.129, ptr @.str.128, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.130, ptr @.str.134, i32 47, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @fix_l2_entry_by_zero, ptr @.str.130, ptr @.str.131, i32 1603, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @rebuild_refcount_structure, ptr @.str.130, ptr @.str.131, i32 2608, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_refcount_init(ptr nocapture noundef readonly %bs) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_refcount_init(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -339,7 +339,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcow2_refcount_close(ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
+define dso_local void @qcow2_refcount_close(ptr noundef readonly captures(none) %bs) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -352,7 +352,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_get_refcount(ptr noundef %bs, i64 noundef %cluster_index, ptr nocapture noundef writeonly %refcount) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_get_refcount(ptr noundef %bs, i64 noundef %cluster_index, ptr noundef writeonly captures(none) %refcount) local_unnamed_addr #0 {
 entry:
   %refcount_block = alloca ptr, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -861,12 +861,12 @@ declare i64 @qcow2_refcount_metadata_size(i64 noundef, i64 noundef, i32 noundef,
 declare noalias ptr @g_try_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @qcow2_cache_get_empty(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @qcow2_cache_entry_mark_dirty(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -906,7 +906,7 @@ if.end6:                                          ; preds = %if.then3, %do.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcow2_process_discards(ptr nocapture noundef readonly %bs, i32 noundef %ret) local_unnamed_addr #0 {
+define dso_local void @qcow2_process_discards(ptr noundef readonly captures(none) %bs, i32 noundef %ret) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1233,7 +1233,7 @@ for.body.us.i:                                    ; preds = %for.body.us.i.backe
   %25 = load i64, ptr %free_cluster_index.i, align 8
   %inc.us.i = add i64 %25, 1
   store i64 %inc.us.i, ptr %free_cluster_index.i, align 8
-  %call1.us.i = call i32 @qcow2_get_refcount(ptr noundef %bs, i64 noundef %25, ptr noundef nonnull %refcount.i)
+  %call1.us.i = call i32 @qcow2_get_refcount(ptr noundef nonnull %bs, i64 noundef %25, ptr noundef nonnull %refcount.i)
   %cmp2.us.i = icmp slt i32 %call1.us.i, 0
   br i1 %cmp2.us.i, label %if.then3.i, label %if.else.us.i
 
@@ -1300,7 +1300,7 @@ if.end31.i:                                       ; preds = %if.end26.i
   br i1 %cmp32.i, label %if.then34.i, label %if.end35.i
 
 if.then34.i:                                      ; preds = %if.end31.i
-  call void (ptr, i1, i64, i64, ptr, ...) @qcow2_signal_corruption(ptr noundef %bs, i1 noundef zeroext true, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.54) #17
+  call void (ptr, i1, i64, i64, ptr, ...) @qcow2_signal_corruption(ptr noundef nonnull %bs, i1 noundef zeroext true, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.54) #17
   br label %alloc_refcount_block.exit.thread122
 
 if.end35.i:                                       ; preds = %if.end31.i
@@ -1318,7 +1318,7 @@ if.end35.i:                                       ; preds = %if.end31.i
 if.then39.i:                                      ; preds = %if.end35.i
   %refcount_block_cache.i = getelementptr inbounds nuw i8, ptr %8, i64 88
   %30 = load ptr, ptr %refcount_block_cache.i, align 8
-  %call40.i = call i32 @qcow2_cache_get_empty(ptr noundef %bs, ptr noundef %30, i64 noundef %shl.i99, ptr noundef nonnull %refcount_block) #17
+  %call40.i = call i32 @qcow2_cache_get_empty(ptr noundef nonnull %bs, ptr noundef %30, i64 noundef %shl.i99, ptr noundef nonnull %refcount_block) #17
   %cmp42.i = icmp slt i32 %call40.i, 0
   br i1 %cmp42.i, label %fail.i, label %if.end45.i
 
@@ -1345,20 +1345,20 @@ if.end45.i:                                       ; preds = %if.then39.i
 if.else55.i:                                      ; preds = %if.end35.i
   %38 = load i32, ptr %cluster_size.i, align 4
   %conv57.i = sext i32 %38 to i64
-  %call58.i = call fastcc i32 @update_refcount(ptr noundef %bs, i64 noundef %shl.i99, i64 noundef %conv57.i, i64 noundef 1, i1 noundef zeroext false, i32 noundef 0)
+  %call58.i = call fastcc i32 @update_refcount(ptr noundef nonnull %bs, i64 noundef %shl.i99, i64 noundef %conv57.i, i64 noundef 1, i1 noundef zeroext false, i32 noundef 0)
   %cmp60.i = icmp slt i32 %call58.i, 0
   br i1 %cmp60.i, label %fail.i, label %if.end63.i
 
 if.end63.i:                                       ; preds = %if.else55.i
   %refcount_block_cache64.i = getelementptr inbounds nuw i8, ptr %8, i64 88
   %39 = load ptr, ptr %refcount_block_cache64.i, align 8
-  %call65.i = call i32 @qcow2_cache_flush(ptr noundef %bs, ptr noundef %39) #17
+  %call65.i = call i32 @qcow2_cache_flush(ptr noundef nonnull %bs, ptr noundef %39) #17
   %cmp67.i = icmp slt i32 %call65.i, 0
   br i1 %cmp67.i, label %fail.i, label %if.end70.i
 
 if.end70.i:                                       ; preds = %if.end63.i
   %40 = load ptr, ptr %refcount_block_cache64.i, align 8
-  %call72.i = call i32 @qcow2_cache_get_empty(ptr noundef %bs, ptr noundef %40, i64 noundef %shl.i99, ptr noundef nonnull %refcount_block) #17
+  %call72.i = call i32 @qcow2_cache_get_empty(ptr noundef nonnull %bs, ptr noundef %40, i64 noundef %shl.i99, ptr noundef nonnull %refcount_block) #17
   %cmp74.i = icmp slt i32 %call72.i, 0
   br i1 %cmp74.i, label %fail.i, label %if.end77.i
 
@@ -2200,7 +2200,7 @@ return:                                           ; preds = %land.lhs.true.i, %a
 declare i32 @qcow2_cache_set_dependency(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #8
@@ -2862,7 +2862,7 @@ declare i32 @bdrv_pread(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 
 declare i32 @llvm.abs.i32(i32, i1 immarg) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_inc_refcounts_imrt(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, ptr nocapture noundef %refcount_table, ptr nocapture noundef %refcount_table_size, i64 noundef %offset, i64 noundef %size) #0 {
+define dso_local i32 @qcow2_inc_refcounts_imrt(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %res, ptr noundef captures(none) %refcount_table, ptr noundef captures(none) %refcount_table_size, i64 noundef %offset, i64 noundef %size) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2975,7 +2975,7 @@ return:                                           ; preds = %for.inc, %if.end10,
 declare i64 @bdrv_co_getlength(ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -12, 1) i32 @realloc_refcount_array(ptr nocapture noundef readonly %s, ptr nocapture noundef %array, ptr nocapture noundef %size, i64 noundef %new_size) unnamed_addr #0 {
+define internal fastcc range(i32 -12, 1) i32 @realloc_refcount_array(ptr noundef readonly captures(none) %s, ptr noundef captures(none) %array, ptr noundef captures(none) %size, i64 noundef %new_size) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %size, align 8
   %cmp.i = icmp ult i64 %0, 36028797018963968
@@ -3288,7 +3288,7 @@ return:                                           ; preds = %fail, %if.then5, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @calculate_refcounts(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr nocapture noundef writeonly %rebuild, ptr noundef %refcount_table, ptr noundef %nb_clusters) #0 {
+define internal range(i32 -2147483648, 1) i32 @calculate_refcounts(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr noundef writeonly captures(none) %rebuild, ptr noundef %refcount_table, ptr noundef %nb_clusters) #0 {
 entry:
   %old_size = alloca i64, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -3398,7 +3398,7 @@ if.then38:                                        ; preds = %if.end33
   br label %for.inc.sink.split
 
 if.end45:                                         ; preds = %if.end33
-  %call48 = tail call i32 @check_refcounts_l1(ptr noundef %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %14, i32 noundef %18, i32 noundef 0, i32 noundef %fix, i1 noundef zeroext false)
+  %call48 = tail call i32 @check_refcounts_l1(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %14, i32 noundef %18, i32 noundef 0, i32 noundef %fix, i1 noundef zeroext false)
   %cmp49 = icmp slt i32 %call48, 0
   br i1 %cmp49, label %return, label %for.inc
 
@@ -3421,7 +3421,7 @@ for.end:                                          ; preds = %for.inc, %if.end20
   %snapshots_size = getelementptr inbounds nuw i8, ptr %0, i64 256
   %25 = load i32, ptr %snapshots_size, align 8
   %conv54 = sext i32 %25 to i64
-  %call55 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %24, i64 noundef %conv54)
+  %call55 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %24, i64 noundef %conv54)
   %cmp56 = icmp slt i32 %call55, 0
   br i1 %cmp56, label %return, label %if.end59
 
@@ -3432,7 +3432,7 @@ if.end59:                                         ; preds = %for.end
   %27 = load i32, ptr %refcount_table_size, align 8
   %conv60 = zext i32 %27 to i64
   %mul = shl nuw nsw i64 %conv60, 3
-  %call61 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %26, i64 noundef %mul)
+  %call61 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %26, i64 noundef %mul)
   %cmp62 = icmp slt i32 %call61, 0
   br i1 %cmp62, label %return, label %if.end65
 
@@ -3445,17 +3445,17 @@ if.end65:                                         ; preds = %if.end59
 if.then67:                                        ; preds = %if.end65
   %crypto_header = getelementptr inbounds nuw i8, ptr %0, i64 208
   %29 = load i64, ptr %crypto_header, align 8
-  %call71 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %29, i64 noundef %28)
+  %call71 = tail call i32 @qcow2_inc_refcounts_imrt(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters, i64 noundef %29, i64 noundef %28)
   %cmp72 = icmp slt i32 %call71, 0
   br i1 %cmp72, label %return, label %if.end76
 
 if.end76:                                         ; preds = %if.then67, %if.end65
-  %call77 = tail call i32 @qcow2_check_bitmaps_refcounts(ptr noundef %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters) #17
+  %call77 = tail call i32 @qcow2_check_bitmaps_refcounts(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters) #17
   %cmp78 = icmp slt i32 %call77, 0
   br i1 %cmp78, label %return, label %if.end81
 
 if.end81:                                         ; preds = %if.end76
-  %call82 = tail call i32 @check_refblocks(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr noundef %rebuild, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters)
+  %call82 = tail call i32 @check_refblocks(ptr noundef nonnull %bs, ptr noundef %res, i32 noundef %fix, ptr noundef %rebuild, ptr noundef nonnull %refcount_table, ptr noundef %nb_clusters)
   br label %return
 
 return:                                           ; preds = %if.end45, %if.end76, %if.then67, %if.end59, %for.end, %if.end7, %if.end2, %if.end81, %if.then1
@@ -3464,7 +3464,7 @@ return:                                           ; preds = %if.end45, %if.end76
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_refcounts(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr nocapture noundef writeonly %rebuild, ptr nocapture noundef writeonly initializes((0, 8)) %highest_cluster, ptr noundef %refcount_table, i64 noundef %nb_clusters) #0 {
+define internal void @compare_refcounts(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr noundef writeonly captures(none) %rebuild, ptr noundef writeonly captures(none) initializes((0, 8)) %highest_cluster, ptr noundef %refcount_table, i64 noundef %nb_clusters) #0 {
 entry:
   %refcount1 = alloca i64, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -3587,7 +3587,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rebuild_refcount_structure(ptr noundef %bs, ptr nocapture noundef %res, ptr nocapture noundef %refcount_table, ptr nocapture noundef %nb_clusters, ptr noundef %errp) #0 {
+define internal i32 @rebuild_refcount_structure(ptr noundef %bs, ptr noundef captures(none) %res, ptr noundef captures(none) %refcount_table, ptr noundef captures(none) %nb_clusters, ptr noundef %errp) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %on_disk_reftable_entries = alloca i32, align 4
@@ -3907,7 +3907,7 @@ return:                                           ; preds = %fail, %update_max_r
 declare void @error_report_err(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @check_oflag_copied(ptr noundef %bs, ptr nocapture noundef %res, i32 noundef %fix) #0 {
+define internal range(i32 -2147483648, 1) i32 @check_oflag_copied(ptr noundef %bs, ptr noundef captures(none) %res, i32 noundef %fix) #0 {
 entry:
   %qiov.i99 = alloca %struct.QEMUIOVector, align 8
   %refcount_block.i = alloca ptr, align 8
@@ -4729,7 +4729,7 @@ return:                                           ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_change_refcount_order(ptr noundef %bs, i32 noundef %refcount_order, ptr nocapture noundef readonly %status_cb, ptr noundef %cb_opaque, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @qcow2_change_refcount_order(ptr noundef %bs, i32 noundef %refcount_order, ptr noundef readonly captures(none) %status_cb, ptr noundef %cb_opaque, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %new_reftable = alloca ptr, align 8
   %new_reftable_size = alloca i64, align 8
@@ -5120,7 +5120,7 @@ if.end129:                                        ; preds = %if.then3.i114, %do.
 declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @walk_over_reftable(ptr noundef %bs, ptr noundef nonnull %new_reftable, ptr nocapture noundef nonnull %new_reftable_index, ptr noundef nonnull %new_reftable_size, ptr noundef %new_refblock, i32 noundef %new_refblock_size, i32 noundef %new_refcount_bits, ptr nocapture noundef readonly %operation, ptr noundef nonnull %allocated, ptr noundef readonly %new_set_refcount, ptr nocapture noundef readonly %status_cb, ptr noundef %cb_opaque, i32 noundef %index, i32 noundef %total, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @walk_over_reftable(ptr noundef %bs, ptr noundef nonnull %new_reftable, ptr noundef nonnull captures(none) %new_reftable_index, ptr noundef nonnull %new_reftable_size, ptr noundef %new_refblock, i32 noundef %new_refblock_size, i32 noundef %new_refcount_bits, ptr noundef readonly captures(none) %operation, ptr noundef nonnull %allocated, ptr noundef readonly %new_set_refcount, ptr noundef readonly captures(none) %status_cb, ptr noundef %cb_opaque, i32 noundef %index, i32 noundef %total, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %refblock = alloca ptr, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -5418,7 +5418,7 @@ return:                                           ; preds = %if.then64, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @alloc_refblock(ptr noundef %bs, ptr nocapture noundef %reftable, i64 noundef %reftable_index, ptr nocapture noundef %reftable_size, ptr nocapture readnone %refblock, i1 noundef zeroext %refblock_empty, ptr nocapture noundef writeonly %allocated, ptr noundef %errp) #0 {
+define internal i32 @alloc_refblock(ptr noundef %bs, ptr noundef captures(none) %reftable, i64 noundef %reftable_index, ptr noundef captures(none) %reftable_size, ptr readnone captures(none) %refblock, i1 noundef zeroext %refblock_empty, ptr noundef writeonly captures(none) %allocated, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -5501,7 +5501,7 @@ return:                                           ; preds = %land.lhs.true16, %i
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @flush_refblock(ptr noundef %bs, ptr nocapture noundef readonly %reftable, i64 noundef %reftable_index, ptr nocapture noundef readonly %reftable_size, ptr noundef %refblock, i1 noundef zeroext %refblock_empty, ptr nocapture readnone %allocated, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @flush_refblock(ptr noundef %bs, ptr noundef readonly captures(none) %reftable, i64 noundef %reftable_index, ptr noundef readonly captures(none) %reftable_size, ptr noundef %refblock, i1 noundef zeroext %refblock_empty, ptr readnone captures(none) %allocated, ptr noundef %errp) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -6044,7 +6044,7 @@ return:                                           ; preds = %for.body, %for.end,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_co_mutex_assert_locked(ptr nocapture noundef readonly %mutex) #0 {
+define internal void @qemu_co_mutex_assert_locked(ptr noundef readonly captures(none) %mutex) #0 {
 entry:
   %0 = load atomic i32, ptr %mutex monotonic, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -6068,7 +6068,7 @@ if.end:                                           ; preds = %land.lhs.true
 declare i64 @bdrv_co_get_allocated_file_size(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @get_refcount_ro0(ptr nocapture noundef readonly %refcount_array, i64 noundef %index) #10 {
+define internal range(i64 0, 2) i64 @get_refcount_ro0(ptr noundef readonly captures(none) %refcount_array, i64 noundef %index) #10 {
 entry:
   %div2 = lshr i64 %index, 3
   %arrayidx = getelementptr i8, ptr %refcount_array, i64 %div2
@@ -6083,7 +6083,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4) i64 @get_refcount_ro1(ptr nocapture noundef readonly %refcount_array, i64 noundef %index) #10 {
+define internal range(i64 0, 4) i64 @get_refcount_ro1(ptr noundef readonly captures(none) %refcount_array, i64 noundef %index) #10 {
 entry:
   %div2 = lshr i64 %index, 2
   %arrayidx = getelementptr i8, ptr %refcount_array, i64 %div2
@@ -6099,7 +6099,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 16) i64 @get_refcount_ro2(ptr nocapture noundef readonly %refcount_array, i64 noundef %index) #10 {
+define internal range(i64 0, 16) i64 @get_refcount_ro2(ptr noundef readonly captures(none) %refcount_array, i64 noundef %index) #10 {
 entry:
   %div2 = lshr i64 %index, 1
   %arrayidx = getelementptr i8, ptr %refcount_array, i64 %div2
@@ -6115,7 +6115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 256) i64 @get_refcount_ro3(ptr nocapture noundef readonly %refcount_array, i64 noundef %index) #10 {
+define internal range(i64 0, 256) i64 @get_refcount_ro3(ptr noundef readonly captures(none) %refcount_array, i64 noundef %index) #10 {
 entry:
   %arrayidx = getelementptr i8, ptr %refcount_array, i64 %index
   %0 = load i8, ptr %arrayidx, align 1
@@ -6124,7 +6124,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 65536) i64 @get_refcount_ro4(ptr nocapture noundef readonly %refcount_array, i64 noundef %index) #10 {
+define internal range(i64 0, 65536) i64 @get_refcount_ro4(ptr noundef readonly captures(none) %refcount_array, i64 noundef %index) #10 {
 entry:
   %arrayidx = getelementptr i16, ptr %refcount_array, i64 %index
   %0 = load i16, ptr %arrayidx, align 2
@@ -6134,7 +6134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 4294967296) i64 @get_refcount_ro5(ptr nocapture noundef readonly %refcount_array, i64 noundef %index) #10 {
+define internal range(i64 0, 4294967296) i64 @get_refcount_ro5(ptr noundef readonly captures(none) %refcount_array, i64 noundef %index) #10 {
 entry:
   %arrayidx = getelementptr i32, ptr %refcount_array, i64 %index
   %0 = load i32, ptr %arrayidx, align 4
@@ -6144,7 +6144,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal noundef i64 @get_refcount_ro6(ptr nocapture noundef readonly %refcount_array, i64 noundef %index) #10 {
+define internal noundef i64 @get_refcount_ro6(ptr noundef readonly captures(none) %refcount_array, i64 noundef %index) #10 {
 entry:
   %arrayidx = getelementptr i64, ptr %refcount_array, i64 %index
   %0 = load i64, ptr %arrayidx, align 8
@@ -6159,7 +6159,7 @@ declare i16 @llvm.bswap.i16(i16) #9
 declare i32 @llvm.bswap.i32(i32) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_refcount_ro0(ptr nocapture noundef %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
+define internal void @set_refcount_ro0(ptr noundef captures(none) %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
 entry:
   %tobool.not = icmp ult i64 %value, 2
   br i1 %tobool.not, label %if.end, label %if.else
@@ -6185,7 +6185,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_refcount_ro1(ptr nocapture noundef %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
+define internal void @set_refcount_ro1(ptr noundef captures(none) %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
 entry:
   %tobool.not = icmp ult i64 %value, 4
   br i1 %tobool.not, label %if.end, label %if.else
@@ -6212,7 +6212,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_refcount_ro2(ptr nocapture noundef %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
+define internal void @set_refcount_ro2(ptr noundef captures(none) %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
 entry:
   %tobool.not = icmp ult i64 %value, 16
   br i1 %tobool.not, label %if.end, label %if.else
@@ -6239,7 +6239,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_refcount_ro3(ptr nocapture noundef writeonly %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
+define internal void @set_refcount_ro3(ptr noundef writeonly captures(none) %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
 entry:
   %tobool.not = icmp ult i64 %value, 256
   br i1 %tobool.not, label %if.end, label %if.else
@@ -6256,7 +6256,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_refcount_ro4(ptr nocapture noundef writeonly %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
+define internal void @set_refcount_ro4(ptr noundef writeonly captures(none) %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
 entry:
   %tobool.not = icmp ult i64 %value, 65536
   br i1 %tobool.not, label %if.end, label %if.else
@@ -6274,7 +6274,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_refcount_ro5(ptr nocapture noundef writeonly %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
+define internal void @set_refcount_ro5(ptr noundef writeonly captures(none) %refcount_array, i64 noundef %index, i64 noundef %value) #0 {
 entry:
   %tobool.not = icmp ult i64 %value, 4294967296
   br i1 %tobool.not, label %if.end, label %if.else
@@ -6292,7 +6292,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @set_refcount_ro6(ptr nocapture noundef writeonly %refcount_array, i64 noundef %index, i64 noundef %value) #11 {
+define internal void @set_refcount_ro6(ptr noundef writeonly captures(none) %refcount_array, i64 noundef %index, i64 noundef %value) #11 {
 entry:
   %0 = tail call noundef i64 @llvm.bswap.i64(i64 %value)
   %arrayidx = getelementptr i64, ptr %refcount_array, i64 %index
@@ -6308,7 +6308,7 @@ declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 declare i64 @llvm.bswap.i64(i64) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #3
 
@@ -6470,7 +6470,7 @@ for.end107:                                       ; preds = %for.inc106, %found
 declare ptr @g_try_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @check_refcounts_l1(ptr noundef %bs, ptr nocapture noundef %res, ptr nocapture noundef %refcount_table, ptr nocapture noundef %refcount_table_size, i64 noundef %l1_table_offset, i32 noundef %l1_size, i32 noundef %flags, i32 noundef %fix, i1 noundef zeroext %active) #0 {
+define internal range(i32 -2147483648, 1) i32 @check_refcounts_l1(ptr noundef %bs, ptr noundef captures(none) %res, ptr noundef captures(none) %refcount_table, ptr noundef captures(none) %refcount_table_size, i64 noundef %l1_table_offset, i32 noundef %l1_size, i32 noundef %flags, i32 noundef %fix, i1 noundef zeroext %active) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -6563,7 +6563,7 @@ if.end37:                                         ; preds = %if.then32, %if.end2
   %and40 = and i64 %10, 72057594037927424
   %11 = load i32, ptr %cluster_size, align 4
   %conv41 = sext i32 %11 to i64
-  %call42 = call i32 @qcow2_inc_refcounts_imrt(ptr noundef %bs, ptr noundef %res, ptr noundef %refcount_table, ptr noundef %refcount_table_size, i64 noundef %and40, i64 noundef %conv41)
+  %call42 = call i32 @qcow2_inc_refcounts_imrt(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef %refcount_table, ptr noundef %refcount_table_size, i64 noundef %and40, i64 noundef %conv41)
   %cmp43 = icmp slt i32 %call42, 0
   br i1 %cmp43, label %cleanup, label %if.end46
 
@@ -6584,7 +6584,7 @@ if.then49:                                        ; preds = %if.end46
   br label %if.end53
 
 if.end53:                                         ; preds = %if.then49, %if.end46
-  %call55 = call i32 @check_refcounts_l2(ptr noundef %bs, ptr noundef %res, ptr noundef %refcount_table, ptr noundef %refcount_table_size, i64 noundef %and40, i32 noundef %flags, i32 noundef %fix, i1 noundef zeroext %active)
+  %call55 = call i32 @check_refcounts_l2(ptr noundef nonnull %bs, ptr noundef %res, ptr noundef %refcount_table, ptr noundef %refcount_table_size, i64 noundef %and40, i32 noundef %flags, i32 noundef %fix, i1 noundef zeroext %active)
   %cmp56 = icmp slt i32 %call55, 0
   br i1 %cmp56, label %cleanup, label %for.inc60
 
@@ -6612,7 +6612,7 @@ cleanup:                                          ; preds = %if.end37, %if.end53
 declare i32 @qcow2_check_bitmaps_refcounts(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @check_refblocks(ptr nocapture noundef readonly %bs, ptr nocapture noundef %res, i32 noundef %fix, ptr nocapture noundef writeonly %rebuild, ptr nocapture noundef %refcount_table, ptr nocapture noundef %nb_clusters) #0 {
+define internal range(i32 -2147483648, 1) i32 @check_refblocks(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %res, i32 noundef %fix, ptr noundef writeonly captures(none) %rebuild, ptr noundef captures(none) %refcount_table, ptr noundef captures(none) %nb_clusters) #0 {
 entry:
   %local_err = alloca ptr, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -6813,7 +6813,7 @@ return:                                           ; preds = %if.end58, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @check_refcounts_l2(ptr noundef %bs, ptr nocapture noundef %res, ptr nocapture noundef %refcount_table, ptr nocapture noundef %refcount_table_size, i64 noundef %l2_offset, i32 noundef %flags, i32 noundef %fix, i1 noundef zeroext %active) #0 {
+define internal range(i32 -2147483648, 1) i32 @check_refcounts_l2(ptr noundef %bs, ptr noundef captures(none) %res, ptr noundef captures(none) %refcount_table, ptr noundef captures(none) %refcount_table_size, i64 noundef %l2_offset, i32 noundef %flags, i32 noundef %fix, i1 noundef zeroext %active) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %metadata_overlap = alloca i8, align 1
@@ -7174,7 +7174,7 @@ cleanup:                                          ; preds = %if.end39, %if.then8
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @fix_l2_entry_by_zero(ptr noundef %bs, ptr nocapture noundef %res, i64 noundef %l2_offset, ptr noundef %l2_table, i32 noundef %l2_index, i1 noundef zeroext %active, ptr noundef writeonly %metadata_overlap) #0 {
+define internal range(i32 -2147483648, 1) i32 @fix_l2_entry_by_zero(ptr noundef %bs, ptr noundef captures(none) %res, i64 noundef %l2_offset, ptr noundef %l2_table, i32 noundef %l2_index, i1 noundef zeroext %active, ptr noundef writeonly %metadata_overlap) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -7305,7 +7305,7 @@ declare i32 @bdrv_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 
 declare i32 @qcow2_cache_empty(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @rebuild_refcounts_write_refblocks(ptr noundef %bs, ptr nocapture noundef %refcount_table, ptr nocapture noundef %nb_clusters, i64 noundef %first_cluster, i64 noundef %end_cluster, ptr nocapture noundef %on_disk_reftable_ptr, ptr nocapture noundef %on_disk_reftable_entries_ptr, ptr noundef %errp) #0 {
+define internal i32 @rebuild_refcounts_write_refblocks(ptr noundef %bs, ptr noundef captures(none) %refcount_table, ptr noundef captures(none) %nb_clusters, i64 noundef %first_cluster, i64 noundef %end_cluster, ptr noundef captures(none) %on_disk_reftable_ptr, ptr noundef captures(none) %on_disk_reftable_entries_ptr, ptr noundef %errp) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -7635,7 +7635,7 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #3
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #12
@@ -7650,10 +7650,10 @@ declare i32 @llvm.umax.i32(i32, i32) #12
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Error_class = weak alias i32 (i32, ptr), ptr @PMPI_Error_class
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Error_class(i32 noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define i32 @PMPI_Error_class(i32 noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = tail call i32 @ompi_mpi_instance_retain() #4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %34, label %4

@@ -32,13 +32,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_48ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN17FreeListAllocatorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17FreeListAllocatorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17FreeListAllocator8NodeListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17FreeListAllocator8NodeListC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17FreeListAllocator8NodeListC2EPNS_8FreeNodeES2_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN17FreeListAllocator8NodeListC2EPNS_8FreeNodeES2_m(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -80,7 +80,7 @@ define hidden noundef i64 @_ZN17FreeListAllocator11PendingList3addEPNS_8FreeNode
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN17FreeListAllocator11PendingList8take_allEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.FreeListAllocator::NodeList") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17FreeListAllocator11PendingList8take_allEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.FreeListAllocator::NodeList") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load volatile ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -105,7 +105,7 @@ define hidden noundef i64 @_ZNK17FreeListAllocator11PendingList5countEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN17FreeListAllocatorC2EPKcP14FreeListConfig(ptr noundef nonnull align 8 dereferenceable(568) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #4 align 2 {
+define hidden void @_ZN17FreeListAllocatorC2EPKcP14FreeListConfig(ptr noundef nonnull align 8 dereferenceable(568) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #4 align 2 {
   store ptr %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store volatile i64 0, ptr %4, align 8
@@ -138,10 +138,10 @@ define hidden void @_ZN17FreeListAllocatorC2EPKcP14FreeListConfig(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(568) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17FreeListAllocator11delete_listEPNS_8FreeNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(568) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %.not5 = icmp eq ptr %1, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -555,7 +555,7 @@ declare void @llvm.va_end.p0(ptr) #9
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #11

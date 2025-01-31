@@ -104,7 +104,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @SCT_set_version(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ct_base64_decode(ptr noundef %in, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
+define internal fastcc i32 @ct_base64_decode(ptr noundef %in, ptr noundef nonnull writeonly captures(none) %out) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #4
   %cmp = icmp eq i64 %call, 0
@@ -124,7 +124,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %if.end
   %conv7 = trunc i64 %call to i32
-  %call8 = tail call i32 @EVP_DecodeBlock(ptr noundef nonnull %call2, ptr noundef %in, i32 noundef %conv7) #3
+  %call8 = tail call i32 @EVP_DecodeBlock(ptr noundef nonnull %call2, ptr noundef nonnull %in, i32 noundef %conv7) #3
   %cmp9 = icmp slt i32 %call8, 0
   br i1 %cmp9, label %if.then11, label %while.cond
 
@@ -247,7 +247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

@@ -1010,7 +1010,7 @@ return:                                           ; preds = %tuple_alloc.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PyTuple_Size(ptr nocapture noundef readonly %op) local_unnamed_addr #0 {
+define dso_local i64 @PyTuple_Size(ptr noundef readonly captures(none) %op) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val2 = load ptr, ptr %0, align 8
@@ -1037,7 +1037,7 @@ return:                                           ; preds = %if.else, %if.then
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyTuple_GetItem(ptr nocapture noundef readonly %op, i64 noundef %i) local_unnamed_addr #0 {
+define dso_local ptr @PyTuple_GetItem(ptr noundef readonly captures(none) %op, i64 noundef %i) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val5 = load ptr, ptr %0, align 8
@@ -1080,7 +1080,7 @@ return:                                           ; preds = %if.end5, %if.then4,
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyTuple_SetItem(ptr nocapture noundef %op, i64 noundef %i, ptr noundef %newitem) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyTuple_SetItem(ptr noundef captures(none) %op, i64 noundef %i, ptr noundef %newitem) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val9 = load ptr, ptr %0, align 8
@@ -1184,7 +1184,7 @@ return:                                           ; preds = %if.then1.i.i25, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyTuple_MaybeUntrack(ptr nocapture noundef %op) local_unnamed_addr #0 {
+define hidden void @_PyTuple_MaybeUntrack(ptr noundef captures(none) %op) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %op, i64 8
   %op.val9 = load ptr, ptr %0, align 8
@@ -1403,7 +1403,7 @@ return:                                           ; preds = %entry, %for.end, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyTuple_FromArray(ptr nocapture noundef readonly %src, i64 noundef %n) local_unnamed_addr #0 {
+define hidden ptr @_PyTuple_FromArray(ptr noundef readonly captures(none) %src, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -1514,7 +1514,7 @@ return:                                           ; preds = %tuple_alloc.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyTuple_FromArraySteal(ptr nocapture noundef readonly %src, i64 noundef %n) local_unnamed_addr #0 {
+define hidden ptr @_PyTuple_FromArraySteal(ptr noundef readonly captures(none) %src, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -1947,7 +1947,7 @@ if.end59:                                         ; preds = %if.else53, %if.then
 
 error:                                            ; preds = %if.end33, %if.then27, %if.else53, %if.then47, %if.end.i64, %if.then1.i67, %if.then42, %if.end9
   call void @_PyUnicodeWriter_Dealloc(ptr noundef nonnull %writer) #8
-  call void @Py_ReprLeave(ptr noundef %v) #8
+  call void @Py_ReprLeave(ptr noundef nonnull %v) #8
   br label %return
 
 return:                                           ; preds = %cond.true, %if.then5, %error, %if.end59, %if.then
@@ -1956,7 +1956,7 @@ return:                                           ; preds = %cond.true, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @tuplehash(ptr nocapture noundef readonly %v) #0 {
+define internal i64 @tuplehash(ptr noundef readonly captures(none) %v) #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 16
   %v.val = load i64, ptr %0, align 8
@@ -1998,7 +1998,7 @@ return:                                           ; preds = %for.body, %for.end
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tupletraverse(ptr nocapture noundef readonly %o, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @tupletraverse(ptr noundef readonly captures(none) %o, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %o, i64 16
   %o.val = load i64, ptr %0, align 8
@@ -2033,7 +2033,7 @@ return:                                           ; preds = %if.then, %do.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tuplerichcompare(ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %w, i32 noundef %op) #0 {
+define internal ptr @tuplerichcompare(ptr noundef readonly captures(none) %v, ptr noundef readonly captures(none) %w, i32 noundef %op) #0 {
 entry:
   %0 = getelementptr i8, ptr %v, i64 8
   %v.val38 = load ptr, ptr %0, align 8
@@ -2214,7 +2214,7 @@ return:                                           ; preds = %if.end, %_Py_NewRef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tuple_new(ptr noundef %type, ptr nocapture noundef readonly %args, ptr noundef %kwargs) #0 {
+define internal ptr @tuple_new(ptr noundef %type, ptr noundef readonly captures(none) %args, ptr noundef %kwargs) #0 {
 entry:
   %cmp = icmp eq ptr %type, @PyTuple_Type
   br i1 %cmp, label %land.lhs.true, label %lor.lhs.false
@@ -2275,7 +2275,7 @@ exit:                                             ; preds = %lor.lhs.false10, %l
 declare void @PyObject_GC_Del(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tuple_vectorcall(ptr noundef %type, ptr nocapture noundef readonly %args, i64 noundef %nargsf, ptr noundef %kwnames) #0 {
+define internal ptr @tuple_vectorcall(ptr noundef %type, ptr noundef readonly captures(none) %args, i64 noundef %nargsf, ptr noundef %kwnames) #0 {
 entry:
   %cmp = icmp eq ptr %kwnames, null
   br i1 %cmp, label %if.end, label %lor.lhs.false
@@ -2310,7 +2310,7 @@ return:                                           ; preds = %if.end8, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_PyTuple_Resize(ptr nocapture noundef %pv, i64 noundef %newsize) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyTuple_Resize(ptr noundef captures(none) %pv, i64 noundef %newsize) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %pv, align 8
   %cmp = icmp eq ptr %0, null
@@ -2526,10 +2526,10 @@ declare ptr @_PyObject_GC_Resize(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @_Py_NewReferenceNoTotal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyTuple_Fini(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyTuple_Fini(ptr noundef captures(none) %interp) local_unnamed_addr #0 {
 entry:
   %tuple.i = getelementptr inbounds nuw i8, ptr %interp, i64 303016
   %numfree.i = getelementptr inbounds nuw i8, ptr %interp, i64 303176
@@ -2563,7 +2563,7 @@ maybe_freelist_clear.exit:                        ; preds = %for.inc.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyTuple_ClearFreeList(ptr nocapture noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyTuple_ClearFreeList(ptr noundef captures(none) %interp) local_unnamed_addr #0 {
 entry:
   %tuple.i = getelementptr inbounds nuw i8, ptr %interp, i64 303016
   %numfree.i = getelementptr inbounds nuw i8, ptr %interp, i64 303176
@@ -2643,7 +2643,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tupleiter_traverse(ptr nocapture noundef readonly %it, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @tupleiter_traverse(ptr noundef readonly captures(none) %it, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %it_seq = getelementptr inbounds nuw i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
@@ -2666,7 +2666,7 @@ return:                                           ; preds = %if.then, %do.end
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @tupleiter_next(ptr nocapture noundef %it) #0 {
+define internal noundef ptr @tupleiter_next(ptr noundef captures(none) %it) #0 {
 entry:
   %it_seq = getelementptr inbounds nuw i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
@@ -2795,7 +2795,7 @@ declare ptr @_PyUnicodeWriter_Finish(ptr noundef) local_unnamed_addr #1
 declare void @_PyUnicodeWriter_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @tuplelength(ptr nocapture noundef readonly %a) #3 {
+define internal i64 @tuplelength(ptr noundef readonly captures(none) %a) #3 {
 entry:
   %0 = getelementptr i8, ptr %a, i64 16
   %a.val = load i64, ptr %0, align 8
@@ -3200,7 +3200,7 @@ return:                                           ; preds = %tuple_alloc.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @tupleitem(ptr nocapture noundef readonly %a, i64 noundef %i) #0 {
+define internal noundef ptr @tupleitem(ptr noundef readonly captures(none) %a, i64 noundef %i) #0 {
 entry:
   %cmp = icmp slt i64 %i, 0
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -3235,7 +3235,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tuplecontains(ptr nocapture noundef readonly %a, ptr noundef %el) #0 {
+define internal i32 @tuplecontains(ptr noundef readonly captures(none) %a, ptr noundef %el) #0 {
 entry:
   %0 = getelementptr i8, ptr %a, i64 16
   %ob_item = getelementptr inbounds nuw i8, ptr %a, i64 24
@@ -3263,7 +3263,7 @@ for.end:                                          ; preds = %for.body, %land.rhs
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3505,7 +3505,7 @@ declare i64 @PyObject_Hash(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tuple___getnewargs__(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @tuple___getnewargs__(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load i64, ptr %0, align 8
@@ -3541,7 +3541,7 @@ tuple___getnewargs___impl.exit:                   ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tuple_index(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @tuple_index(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %start = alloca i64, align 8
   %stop = alloca i64, align 8
@@ -3635,7 +3635,7 @@ exit:                                             ; preds = %if.else20.i, %for.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tuple_count(ptr nocapture noundef readonly %self, ptr noundef %value) #0 {
+define internal ptr @tuple_count(ptr noundef readonly captures(none) %self, ptr noundef %value) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val7 = load i64, ptr %0, align 8
@@ -3823,7 +3823,7 @@ declare ptr @PySequence_Tuple(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyArg_NoKwnames(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tupleiter_len(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @tupleiter_len(ptr noundef readonly captures(none) %it, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %it_seq = getelementptr inbounds nuw i8, ptr %it, i64 24
   %0 = load ptr, ptr %it_seq, align 8
@@ -3845,7 +3845,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tupleiter_reduce(ptr nocapture noundef readonly %it, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @tupleiter_reduce(ptr noundef readonly captures(none) %it, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 49176)) #8
   %it_seq = getelementptr inbounds nuw i8, ptr %it, i64 24
@@ -3869,7 +3869,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @tupleiter_setstate(ptr nocapture noundef %it, ptr noundef %state) #0 {
+define internal noundef ptr @tupleiter_setstate(ptr noundef captures(none) %it, ptr noundef %state) #0 {
 entry:
   %call = tail call i64 @PyLong_AsSsize_t(ptr noundef %state) #8
   %cmp = icmp eq i64 %call, -1

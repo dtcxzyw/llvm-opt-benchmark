@@ -593,7 +593,7 @@ _ZN4llvm3MVT12getIntegerVTEj.exit:                ; preds = %93, %91, %40, %39, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i16, ptr } @_ZN4llvm23getApproximateEVTForLLTENS_3LLTERKNS_10DataLayoutERNS_11LLVMContextE(i64 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(512) %1, ptr noundef nonnull align 1 %2) local_unnamed_addr #0 {
+define dso_local { i16, ptr } @_ZN4llvm23getApproximateEVTForLLTENS_3LLTERKNS_10DataLayoutERNS_11LLVMContextE(i64 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(512) %1, ptr noundef nonnull align 1 %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = and i64 %0, -7
   %spec.select.i.i = icmp ne i64 %5, 0

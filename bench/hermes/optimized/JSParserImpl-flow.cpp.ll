@@ -592,7 +592,7 @@ return:                                           ; preds = %if.end60, %if.then4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl24parseEnumDeclarationFlowEN4llvh5SMLocEb(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %start.coerce, i1 noundef zeroext %declare) local_unnamed_addr #0 align 2 {
@@ -3809,7 +3809,7 @@ if.end193:                                        ; preds = %if.end190
   store ptr %ref.tmp209, ptr %ref.tmp209, align 8
   %Next2.i.i.i.i.i329 = getelementptr inbounds nuw i8, ptr %ref.tmp209, i64 8
   store ptr %ref.tmp209, ptr %Next2.i.i.i.i.i329, align 8
-  call void @_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b(ptr noundef nonnull align 8 dereferenceable(81) %call200, ptr noundef %call204, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp209, ptr noundef null, i1 noundef zeroext false)
+  call void @_ZN6hermes6ESTree28DeclareExportDeclarationNodeC2EPNS0_4NodeEON4llvh12simple_ilistIS2_JEEES3_b(ptr noundef nonnull align 8 dereferenceable(81) %call200, ptr noundef nonnull %call204, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp209, ptr noundef null, i1 noundef zeroext false)
   %sourceRange_.i.i330 = getelementptr inbounds nuw i8, ptr %call200, i64 24
   store ptr %start.coerce, ptr %sourceRange_.i.i330, align 8
   %End.i.i331 = getelementptr inbounds nuw i8, ptr %call200, i64 32
@@ -6489,7 +6489,7 @@ return:                                           ; preds = %if.end73, %if.else6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl37reparseTypeAnnotationAsIdentifierFlowEPNS_6ESTree4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nocapture noundef readonly %typeAnnotation) local_unnamed_addr #0 align 2 {
+define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl37reparseTypeAnnotationAsIdentifierFlowEPNS_6ESTree4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, ptr noundef readonly captures(none) %typeAnnotation) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.llvh::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
@@ -6648,7 +6648,7 @@ return:                                           ; preds = %_ZN6hermes6ESTree4N
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl22parseInterfaceTailFlowEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %start.coerce, ptr noundef nonnull align 8 dereferenceable(16) %extends) local_unnamed_addr #0 align 2 {
@@ -6757,7 +6757,7 @@ return:                                           ; preds = %if.end, %do.body, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl21parseInterfaceExtendsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr nocapture readnone %start.coerce, ptr noundef nonnull align 8 dereferenceable(16) %extends) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl21parseInterfaceExtendsEN4llvh5SMLocERNS3_12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr readnone captures(none) %start.coerce, ptr noundef nonnull align 8 dereferenceable(16) %extends) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl20parseGenericTypeFlowEv(ptr noundef nonnull align 8 dereferenceable(2752) %this)
   %0 = extractvalue { i64, i8 } %call, 1
@@ -7256,7 +7256,7 @@ return:                                           ; preds = %if.then27, %_ZN6her
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl37parseFunctionTypeAnnotationParamsFlowERN4llvh12simple_ilistINS_6ESTree4NodeEJEEERPS6_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %thisConstraint) local_unnamed_addr #0 align 2 {
+define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl37parseFunctionTypeAnnotationParamsFlowERN4llvh12simple_ilistINS_6ESTree4NodeEJEEERPS6_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef nonnull align 8 dereferenceable(16) %params, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %thisConstraint) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp32 = alloca %"class.llvh::Twine", align 8
   %tok_.i = getelementptr inbounds nuw i8, ptr %this, i64 1144
@@ -12401,7 +12401,7 @@ return:                                           ; preds = %_ZN6hermes6parser6d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl29parseObjectTypePropertiesFlowENS2_18AllowProtoPropertyENS2_19AllowStaticPropertyENS2_19AllowSpreadPropertyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEESB_SB_SB_Rb(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef %allowProtoProperty, i32 noundef %allowStaticProperty, i32 noundef %allowSpreadProperty, ptr noundef nonnull align 8 dereferenceable(16) %properties, ptr noundef nonnull align 8 dereferenceable(16) %indexers, ptr noundef nonnull align 8 dereferenceable(16) %callProperties, ptr noundef nonnull align 8 dereferenceable(16) %internalSlots, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %inexact) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl29parseObjectTypePropertiesFlowENS2_18AllowProtoPropertyENS2_19AllowStaticPropertyENS2_19AllowSpreadPropertyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEESB_SB_SB_Rb(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef %allowProtoProperty, i32 noundef %allowStaticProperty, i32 noundef %allowSpreadProperty, ptr noundef nonnull align 8 dereferenceable(16) %properties, ptr noundef nonnull align 8 dereferenceable(16) %indexers, ptr noundef nonnull align 8 dereferenceable(16) %callProperties, ptr noundef nonnull align 8 dereferenceable(16) %internalSlots, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %inexact) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %ref.tmp46 = alloca [4 x i32], align 4
@@ -13384,7 +13384,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit266: ; preds = %if.then.i.i.i264, %
   store ptr %retval.sroa.2.0.copyload.i, ptr %End.i5.i273, align 8
   %debugLoc_.i.i274 = getelementptr inbounds nuw i8, ptr %retval.0.i.i.i263, i64 40
   store ptr %retval.sroa.0.0.copyload.i, ptr %debugLoc_.i.i274, align 8
-  %call241 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypePropertyFlowEN4llvh5SMLocEPNS_6ESTree4NodeEbbS7_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, ptr noundef %variance.0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %retval.0.i.i.i263)
+  %call241 = call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypePropertyFlowEN4llvh5SMLocEPNS_6ESTree4NodeEbbS7_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i, ptr noundef %variance.0, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull %retval.0.i.i.i263)
   %98 = extractvalue { i64, i8 } %call241, 1
   %tobool.i276 = trunc i8 %98 to i1
   br i1 %tobool.i276, label %if.end245, label %return
@@ -13777,7 +13777,7 @@ return:                                           ; preds = %if.end12, %if.end7,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl31parseTypeMappedTypePropertyFlowEN4llvh5SMLocEPNS_6ESTree4NodeES7_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %start.coerce, ptr nocapture noundef readonly %left, ptr noundef %variance) local_unnamed_addr #0 align 2 {
+define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl31parseTypeMappedTypePropertyFlowEN4llvh5SMLocEPNS_6ESTree4NodeES7_(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %start.coerce, ptr noundef readonly captures(none) %left, ptr noundef %variance) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.llvh::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i)
@@ -14649,7 +14649,7 @@ return:                                           ; preds = %entry, %_ZN6hermes6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl29reparseTypeAnnotationAsIdFlowEPNS_6ESTree4NodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2752) %this, ptr nocapture noundef readonly %typeAnnotation) local_unnamed_addr #0 align 2 {
+define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl29reparseTypeAnnotationAsIdFlowEPNS_6ESTree4NodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2752) %this, ptr noundef readonly captures(none) %typeAnnotation) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.llvh::Twine", align 8
   %kind_.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %typeAnnotation, i64 16
@@ -16286,7 +16286,7 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 declare { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl21parseTypeAnnotationTSEN4llvh8OptionalINS3_5SMLocEEE(ptr noundef nonnull align 8 dereferenceable(2752), i64, i8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 declare noundef ptr @_ZN6hermes6parser7JSLexer25convertSurrogatesInStringEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(1128), ptr, i64) local_unnamed_addr #2
 
@@ -16845,16 +16845,16 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

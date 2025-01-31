@@ -650,7 +650,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_08Filter1D14get_filterdescEiPNS_10FilterDescE(i32 noundef %filternum, ptr nocapture noundef writeonly initializes((0, 24)) %filterdesc) local_unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08Filter1D14get_filterdescEiPNS_10FilterDescE(i32 noundef %filternum, ptr noundef writeonly captures(none) initializes((0, 24)) %filterdesc) local_unnamed_addr #5 align 2 {
 entry:
   %idxprom.i = sext i32 %filternum to i64
   %arrayidx.i = getelementptr inbounds [15 x %"class.OpenImageIO_v2_6_0::FilterDesc"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113filter1d_listE, i64 0, i64 %idxprom.i
@@ -659,10 +659,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZN18OpenImageIO_v2_6_08Filter1D6createENS_17basic_string_viewIcSt11char_traitsIcEEEf(ptr nocapture noundef readonly %filtername, float noundef %width) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZN18OpenImageIO_v2_6_08Filter1D6createENS_17basic_string_viewIcSt11char_traitsIcEEEf(ptr noundef readonly captures(none) %filtername, float noundef %width) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %filtername, align 8
   %m_len.i.i = getelementptr inbounds nuw i8, ptr %filtername, i64 8
@@ -788,7 +788,7 @@ if.then49:                                        ; preds = %_ZNSt11char_traitsI
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i161: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i46
-  %bcmp.i162 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.8, i64 %1)
+  %bcmp.i162 = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull @.str.8, i64 %1)
   %cmp6.not.i.i163 = icmp eq i32 %bcmp.i162, 0
   br i1 %cmp6.not.i.i163, label %if.then65, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i215
 
@@ -813,7 +813,7 @@ if.then65:                                        ; preds = %_ZNSt11char_traitsI
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i215: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i161
-  %bcmp.i216 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.11, i64 %1)
+  %bcmp.i216 = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull @.str.11, i64 %1)
   %cmp6.not.i.i217 = icmp eq i32 %bcmp.i216, 0
   br i1 %cmp6.not.i.i217, label %if.then73, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i235
 
@@ -957,7 +957,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_08Filter2D14get_filterdescEiPNS_10FilterDescE(i32 noundef %filternum, ptr nocapture noundef writeonly initializes((0, 24)) %filterdesc) local_unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08Filter2D14get_filterdescEiPNS_10FilterDescE(i32 noundef %filternum, ptr noundef writeonly captures(none) initializes((0, 24)) %filterdesc) local_unnamed_addr #5 align 2 {
 entry:
   %idxprom.i = sext i32 %filternum to i64
   %arrayidx.i = getelementptr inbounds [17 x %"class.OpenImageIO_v2_6_0::FilterDesc"], ptr @_ZN18OpenImageIO_v2_6_0L13filter2d_listE, i64 0, i64 %idxprom.i
@@ -966,7 +966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZN18OpenImageIO_v2_6_08Filter2D6createENS_17basic_string_viewIcSt11char_traitsIcEEEff(ptr nocapture noundef readonly %filtername, float noundef %width, float noundef %height) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZN18OpenImageIO_v2_6_08Filter2D6createENS_17basic_string_viewIcSt11char_traitsIcEEEff(ptr noundef readonly captures(none) %filtername, float noundef %width, float noundef %height) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %filtername, align 8
   %m_len.i.i = getelementptr inbounds nuw i8, ptr %filtername, i64 8
@@ -1124,7 +1124,7 @@ if.then49:                                        ; preds = %_ZNSt11char_traitsI
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i192: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i64
-  %bcmp.i193 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.8, i64 %1)
+  %bcmp.i193 = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull @.str.8, i64 %1)
   %cmp6.not.i.i194 = icmp eq i32 %bcmp.i193, 0
   br i1 %cmp6.not.i.i194, label %if.then65, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i289
 
@@ -1179,7 +1179,7 @@ if.then77:                                        ; preds = %_ZNSt11char_traitsI
   br label %return
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i289: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i192
-  %bcmp.i290 = tail call i32 @bcmp(ptr %0, ptr nonnull @.str.11, i64 %1)
+  %bcmp.i290 = tail call i32 @bcmp(ptr nonnull %0, ptr nonnull @.str.11, i64 %1)
   %cmp6.not.i.i291 = icmp eq i32 %bcmp.i290, 0
   br i1 %cmp6.not.i.i291, label %if.then85, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i312
 
@@ -3915,7 +3915,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

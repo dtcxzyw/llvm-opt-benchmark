@@ -417,7 +417,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %52
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -13, 1) i32 @opal_mem_hooks_unregister_release(ptr noundef readnone %0) local_unnamed_addr #0 {

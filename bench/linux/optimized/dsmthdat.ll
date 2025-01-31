@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [33 x i8] c"Uninitialized Arg[%u] at node %p\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: write)
-define dso_local void @acpi_ds_method_data_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_ds_method_data_init(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %5
 
@@ -64,10 +64,10 @@ define dso_local void @acpi_ds_method_data_init(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @acpi_ds_method_data_delete_all(ptr noundef %0) local_unnamed_addr #2 align 16 {
@@ -118,7 +118,7 @@ define dso_local void @acpi_ds_method_data_delete_all(ptr noundef %0) local_unna
 declare dso_local void @acpi_ns_detach_object(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @acpi_ds_method_data_init_args(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef i32 @acpi_ds_method_data_init_args(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #2 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq i32 %1, 0
   %6 = or i1 %4, %5
@@ -150,7 +150,7 @@ define dso_local noundef i32 @acpi_ds_method_data_init_args(ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12313) i32 @acpi_ds_method_data_get_node(i8 noundef zeroext %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 12313) i32 @acpi_ds_method_data_get_node(i8 noundef zeroext %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 align 16 {
   switch i8 %0, label %19 [
     i8 0, label %5
     i8 1, label %12

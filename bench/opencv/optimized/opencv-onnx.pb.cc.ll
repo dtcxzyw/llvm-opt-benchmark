@@ -364,14 +364,14 @@ define hidden noundef zeroext i1 @_ZN11opencv_onnx15Version_IsValidEi(i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN11opencv_onnx14AttributeProto9_Internal1tEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN11opencv_onnx14AttributeProto9_Internal1tEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN11opencv_onnx14AttributeProto9_Internal1gEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN11opencv_onnx14AttributeProto9_Internal1gEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -965,7 +965,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit62._crit_edge: ; 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN6google8protobuf13RepeatedFieldIfEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
@@ -1233,12 +1233,12 @@ define hidden void @_ZN11opencv_onnx14AttributeProtoD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx14AttributeProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx14AttributeProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx14AttributeProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx14AttributeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(192) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -1686,7 +1686,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZN11opencv_onnx14AttributeProto14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -3518,7 +3518,7 @@ define hidden void @_ZN11opencv_onnx14AttributeProto9MergeImplEPN6google8protobu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx14AttributeProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx14AttributeProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx14AttributeProto12_class_data_E
 }
 
@@ -4985,7 +4985,7 @@ define hidden void @_ZN11opencv_onnx14AttributeProto8CopyFromERKS0_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx14AttributeProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx14AttributeProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -5105,7 +5105,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIlE12InternalSwapEPS2_(ptr nound
 declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12InternalSwapEPS8_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx14AttributeProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx14AttributeProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) @_ZL41file_level_metadata_opencv_2donnx_2eproto)
   ret { ptr, ptr } %2
 }
@@ -5113,14 +5113,14 @@ define hidden { ptr, ptr } @_ZNK11opencv_onnx14AttributeProto11GetMetadataEv(ptr
 declare { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN11opencv_onnx14ValueInfoProto9_Internal4typeEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN11opencv_onnx14ValueInfoProto9_Internal4typeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -5141,7 +5141,7 @@ define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %0, align 8
@@ -5432,19 +5432,19 @@ define hidden void @_ZN11opencv_onnx14ValueInfoProtoD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx14ValueInfoProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx14ValueInfoProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx14ValueInfoProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx14ValueInfoProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx14ValueInfoProto5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx14ValueInfoProto5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
@@ -5517,7 +5517,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx9TypeProto5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx9TypeProto5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -5869,7 +5869,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx14ValueInfoProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK11opencv_onnx14ValueInfoProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -6178,18 +6178,18 @@ _ZNK11opencv_onnx9TypeProto12ByteSizeLongEv.exit: ; preds = %22, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx14ValueInfoProto9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN11opencv_onnx14ValueInfoProto9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN11opencv_onnx14ValueInfoProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx14ValueInfoProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx14ValueInfoProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx14ValueInfoProto12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx14ValueInfoProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx14ValueInfoProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 7
@@ -6392,7 +6392,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx9TypeProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx9TypeProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -6641,12 +6641,12 @@ _ZN11opencv_onnx14ValueInfoProto5ClearEv.exit:    ; preds = %29, %33, %40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx14ValueInfoProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx14ValueInfoProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx14ValueInfoProto12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN11opencv_onnx14ValueInfoProto12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -6682,7 +6682,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx14ValueInfoProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx14ValueInfoProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 16))
   ret { ptr, ptr } %2
 }
@@ -7197,12 +7197,12 @@ define hidden void @_ZN11opencv_onnx9NodeProtoD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx9NodeProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx9NodeProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx9NodeProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx9NodeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -8266,7 +8266,7 @@ define hidden void @_ZN11opencv_onnx9NodeProto9MergeImplEPN6google8protobuf7Mess
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx9NodeProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx9NodeProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx9NodeProto12_class_data_E
 }
 
@@ -8494,7 +8494,7 @@ define hidden void @_ZN11opencv_onnx9NodeProto8CopyFromERKS0_(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx9NodeProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx9NodeProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -8571,20 +8571,20 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx9NodeProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx9NodeProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 32))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN11opencv_onnx10ModelProto9_Internal5graphEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN11opencv_onnx10ModelProto9_Internal5graphEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx10ModelProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx10ModelProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) initializes((0, 128)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -9162,19 +9162,19 @@ define hidden void @_ZN11opencv_onnx10ModelProtoD0Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx10ModelProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx10ModelProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx10ModelProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx10ModelProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(128) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx10ModelProto5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx10ModelProto5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -10054,7 +10054,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx10ModelProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK11opencv_onnx10ModelProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 32
@@ -10909,7 +10909,7 @@ define hidden void @_ZN11opencv_onnx10ModelProto9MergeImplEPN6google8protobuf7Me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx10ModelProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx10ModelProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx10ModelProto12_class_data_E
 }
 
@@ -11259,12 +11259,12 @@ define hidden void @_ZN11opencv_onnx10ModelProto8CopyFromERKS0_(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx10ModelProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx10ModelProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx10ModelProto12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx10ModelProto12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(128) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -11365,13 +11365,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx10ModelProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx10ModelProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 48))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -11390,7 +11390,7 @@ define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2EPN6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %0, align 8
@@ -11630,19 +11630,19 @@ define hidden void @_ZN11opencv_onnx22StringStringEntryProtoD0Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx22StringStringEntryProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx22StringStringEntryProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx22StringStringEntryProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx22StringStringEntryProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx22StringStringEntryProto5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx22StringStringEntryProto5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -11912,7 +11912,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx22StringStringEntryProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK11opencv_onnx22StringStringEntryProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -12099,18 +12099,18 @@ define hidden noundef i64 @_ZNK11opencv_onnx22StringStringEntryProto12ByteSizeLo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx22StringStringEntryProto9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN11opencv_onnx22StringStringEntryProto9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN11opencv_onnx22StringStringEntryProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx22StringStringEntryProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx22StringStringEntryProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx22StringStringEntryProto12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx22StringStringEntryProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx22StringStringEntryProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -12314,12 +12314,12 @@ _ZN11opencv_onnx22StringStringEntryProto5ClearEv.exit: ; preds = %24, %28, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx22StringStringEntryProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx22StringStringEntryProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx22StringStringEntryProto12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN11opencv_onnx22StringStringEntryProto12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -12349,13 +12349,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx22StringStringEntryProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx22StringStringEntryProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 64))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx10GraphProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 160)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx10GraphProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((0, 160)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -12941,12 +12941,12 @@ define hidden void @_ZN11opencv_onnx10GraphProtoD0Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx10GraphProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx10GraphProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx10GraphProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx10GraphProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -13474,7 +13474,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx10GraphProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK11opencv_onnx10GraphProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %.not182 = icmp eq i32 %5, 0
@@ -14102,7 +14102,7 @@ define hidden void @_ZN11opencv_onnx10GraphProto9MergeImplEPN6google8protobuf7Me
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx10GraphProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx10GraphProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx10GraphProto12_class_data_E
 }
 
@@ -14121,12 +14121,12 @@ define hidden void @_ZN11opencv_onnx10GraphProto8CopyFromERKS0_(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx10GraphProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx10GraphProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx10GraphProto12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx10GraphProto12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -14276,13 +14276,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx10GraphProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx10GraphProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 80))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -14295,7 +14295,7 @@ define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %0, align 8
@@ -14341,7 +14341,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINS0_15UnknownFieldSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_SegmentD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx19TensorProto_SegmentD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -14434,19 +14434,19 @@ define hidden void @_ZN11opencv_onnx19TensorProto_SegmentD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_Segment9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx19TensorProto_Segment9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx19TensorProto_Segment13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx19TensorProto_Segment13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_Segment5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx19TensorProto_Segment5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 3
@@ -14485,7 +14485,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN11opencv_onnx19TensorProto_Segment14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN11opencv_onnx19TensorProto_Segment14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14739,7 +14739,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %119
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx19TensorProto_Segment18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK11opencv_onnx19TensorProto_Segment18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -14930,18 +14930,18 @@ define hidden noundef i64 @_ZNK11opencv_onnx19TensorProto_Segment12ByteSizeLongE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_Segment9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN11opencv_onnx19TensorProto_Segment9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN11opencv_onnx19TensorProto_Segment9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx19TensorProto_Segment12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx19TensorProto_Segment12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx19TensorProto_Segment12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_Segment9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx19TensorProto_Segment9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -15087,12 +15087,12 @@ _ZN11opencv_onnx19TensorProto_Segment5ClearEv.exit: ; preds = %10, %14, %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx19TensorProto_Segment13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx19TensorProto_Segment13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_Segment12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN11opencv_onnx19TensorProto_Segment12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -15114,13 +15114,13 @@ define hidden void @_ZN11opencv_onnx19TensorProto_Segment12InternalSwapEPS0_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx19TensorProto_Segment11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx19TensorProto_Segment11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 96))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN11opencv_onnx11TensorProto9_Internal7segmentEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN11opencv_onnx11TensorProto9_Internal7segmentEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -15805,12 +15805,12 @@ define hidden void @_ZN11opencv_onnx11TensorProtoD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx11TensorProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx11TensorProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx11TensorProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx11TensorProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(208) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -17714,7 +17714,7 @@ define hidden void @_ZN11opencv_onnx11TensorProto9MergeImplEPN6google8protobuf7M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx11TensorProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx11TensorProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx11TensorProto12_class_data_E
 }
 
@@ -17739,7 +17739,7 @@ define hidden void @_ZN11opencv_onnx11TensorProto8CopyFromERKS0_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx11TensorProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx11TensorProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
@@ -17819,13 +17819,13 @@ declare void @_ZN6google8protobuf13RepeatedFieldIdE12InternalSwapEPS2_(ptr nound
 declare void @_ZN6google8protobuf13RepeatedFieldImE12InternalSwapEPS2_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx11TensorProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx11TensorProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 112))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32), (40, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 32), (40, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -17844,7 +17844,7 @@ define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2EPN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %0, align 8
@@ -18116,12 +18116,12 @@ define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx26TensorShapeProto_Dimension9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx26TensorShapeProto_Dimension9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx26TensorShapeProto_Dimension13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx26TensorShapeProto_Dimension13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -18518,7 +18518,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx26TensorShapeProto_Dimension18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK11opencv_onnx26TensorShapeProto_Dimension18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit [
@@ -18788,18 +18788,18 @@ define hidden noundef i64 @_ZNK11opencv_onnx26TensorShapeProto_Dimension12ByteSi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx26TensorShapeProto_Dimension9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN11opencv_onnx26TensorShapeProto_Dimension9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN11opencv_onnx26TensorShapeProto_Dimension9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx26TensorShapeProto_Dimension12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx26TensorShapeProto_Dimension12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx26TensorShapeProto_Dimension12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx26TensorShapeProto_Dimension9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx26TensorShapeProto_Dimension9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -19054,12 +19054,12 @@ _ZN11opencv_onnx26TensorShapeProto_Dimension5ClearEv.exit: ; preds = %_ZN11openc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx26TensorShapeProto_Dimension13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx26TensorShapeProto_Dimension13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx26TensorShapeProto_Dimension12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN11opencv_onnx26TensorShapeProto_Dimension12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -19095,13 +19095,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx26TensorShapeProto_Dimension11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx26TensorShapeProto_Dimension11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 128))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx16TensorShapeProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TensorShapeProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -19348,12 +19348,12 @@ define hidden void @_ZN11opencv_onnx16TensorShapeProtoD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx16TensorShapeProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx16TensorShapeProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx16TensorShapeProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx16TensorShapeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store atomic i32 %1, ptr %3 monotonic, align 8
   ret void
@@ -19612,7 +19612,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %114
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx16TensorShapeProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK11opencv_onnx16TensorShapeProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %.not36 = icmp eq i32 %5, 0
@@ -19789,7 +19789,7 @@ _ZN11opencv_onnx16TensorShapeProto9MergeFromERKS0_.exit: ; preds = %2, %_ZN6goog
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx16TensorShapeProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx16TensorShapeProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx16TensorShapeProto12_class_data_E
 }
 
@@ -19947,12 +19947,12 @@ _ZN11opencv_onnx16TensorShapeProto9MergeFromERKS0_.exit: ; preds = %_ZN6google8p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx16TensorShapeProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx16TensorShapeProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx16TensorShapeProto12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TensorShapeProto12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -19987,20 +19987,20 @@ define hidden void @_ZN11opencv_onnx16TensorShapeProto12InternalSwapEPS0_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx16TensorShapeProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx16TensorShapeProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 144))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN11opencv_onnx16TypeProto_Tensor9_Internal5shapeEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN11opencv_onnx16TypeProto_Tensor9_Internal5shapeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -20013,7 +20013,7 @@ define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2EPN6google8protobuf5Aren
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %0, align 8
@@ -20219,19 +20219,19 @@ define hidden void @_ZN11opencv_onnx16TypeProto_TensorD0Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_Tensor9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx16TypeProto_Tensor9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx16TypeProto_Tensor13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx16TypeProto_Tensor13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_Tensor5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 36)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TypeProto_Tensor5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((32, 36)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -20292,7 +20292,7 @@ _ZN6google8protobuf8internal16InternalMetadata7DoClearINS0_15UnknownFieldSetEEEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN11opencv_onnx16TypeProto_Tensor14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN11opencv_onnx16TypeProto_Tensor14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 92
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -20604,7 +20604,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx16TypeProto_Tensor18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK11opencv_onnx16TypeProto_Tensor18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 2
@@ -20881,18 +20881,18 @@ _ZN6google8protobuf8internal14WireFormatLite11MessageSizeIN11opencv_onnx16Tensor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_Tensor9MergeImplEPN6google8protobuf7MessageERKS3_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN11opencv_onnx16TypeProto_Tensor9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN11opencv_onnx16TypeProto_Tensor9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx16TypeProto_Tensor12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx16TypeProto_Tensor12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx16TypeProto_Tensor12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_Tensor9MergeFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TypeProto_Tensor9MergeFromERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -21171,12 +21171,12 @@ _ZN11opencv_onnx16TypeProto_Tensor5ClearEv.exit:  ; preds = %_ZN11opencv_onnx16T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx16TypeProto_Tensor13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx16TypeProto_Tensor13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_Tensor12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN11opencv_onnx16TypeProto_Tensor12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %3, align 8
@@ -21205,20 +21205,20 @@ define hidden void @_ZN11opencv_onnx16TypeProto_Tensor12InternalSwapEPS0_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx16TypeProto_Tensor11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx16TypeProto_Tensor11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 160))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN11opencv_onnx9TypeProto9_Internal11tensor_typeEPKS0_(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN11opencv_onnx9TypeProto9_Internal11tensor_typeEPKS0_(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx9TypeProto25set_allocated_tensor_typeEPNS_16TypeProto_TensorE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11opencv_onnx9TypeProto25set_allocated_tensor_typeEPNS_16TypeProto_TensorE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 1
@@ -21307,7 +21307,7 @@ _ZN6google8protobuf5Arena14InternalHelperIN11opencv_onnx16TypeProto_TensorEE14Ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11opencv_onnx9TypeProto11clear_valueEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11opencv_onnx9TypeProto11clear_valueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %cond = icmp eq i32 %3, 1
@@ -21348,7 +21348,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %4, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32), (40, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 32), (40, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -21367,7 +21367,7 @@ define hidden void @_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx9TypeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx9TypeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %0, align 8
@@ -21667,12 +21667,12 @@ define hidden void @_ZN11opencv_onnx9TypeProtoD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx9TypeProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx9TypeProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx9TypeProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx9TypeProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
@@ -21920,7 +21920,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx9TypeProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK11opencv_onnx9TypeProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1
@@ -22092,13 +22092,13 @@ define hidden noundef i64 @_ZNK11opencv_onnx9TypeProto12ByteSizeLongEv(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx9TypeProto9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN11opencv_onnx9TypeProto9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN11opencv_onnx9TypeProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx9TypeProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx9TypeProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx9TypeProto12_class_data_E
 }
 
@@ -22117,12 +22117,12 @@ define hidden void @_ZN11opencv_onnx9TypeProto8CopyFromERKS0_(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx9TypeProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx9TypeProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx9TypeProto12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN11opencv_onnx9TypeProto12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -22158,13 +22158,13 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx9TypeProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx9TypeProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 176))
   ret { ptr, ptr } %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -22183,7 +22183,7 @@ define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2EPN6google8protobuf5Ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %0, align 8
@@ -22392,19 +22392,19 @@ define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoD0Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProto9ArenaDtorEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProto9ArenaDtorEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK11opencv_onnx18OperatorSetIdProto13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define hidden void @_ZNK11opencv_onnx18OperatorSetIdProto13SetCachedSizeEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProto5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 40)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProto5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((32, 40)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -22687,7 +22687,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11opencv_onnx18OperatorSetIdProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK11opencv_onnx18OperatorSetIdProto18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1
@@ -22876,18 +22876,18 @@ define hidden noundef i64 @_ZNK11opencv_onnx18OperatorSetIdProto12ByteSizeLongEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProto9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProto9MergeImplEPN6google8protobuf7MessageERKS3_(ptr noundef nonnull %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) #3 align 2 {
   tail call void @_ZN11opencv_onnx18OperatorSetIdProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK11opencv_onnx18OperatorSetIdProto12GetClassDataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK11opencv_onnx18OperatorSetIdProto12GetClassDataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret ptr @_ZN11opencv_onnx18OperatorSetIdProto12_class_data_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProto9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 3
@@ -23060,12 +23060,12 @@ _ZN11opencv_onnx18OperatorSetIdProto5ClearEv.exit: ; preds = %14, %19, %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK11opencv_onnx18OperatorSetIdProto13IsInitializedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11opencv_onnx18OperatorSetIdProto13IsInitializedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProto12InternalSwapEPS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProto12InternalSwapEPS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #15 align 2 {
 _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
@@ -23095,7 +23095,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden { ptr, ptr } @_ZNK11opencv_onnx18OperatorSetIdProto11GetMetadataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden { ptr, ptr } @_ZNK11opencv_onnx18OperatorSetIdProto11GetMetadataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   %2 = tail call { ptr, ptr } @_ZN6google8protobuf8internal17AssignDescriptorsEPFPKNS1_15DescriptorTableEvEPSt9once_flagRKNS0_8MetadataE(ptr noundef nonnull @_Z45descriptor_table_opencv_2donnx_2eproto_getterv, ptr noundef nonnull @_ZL43descriptor_table_opencv_2donnx_2eproto_once, ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds nuw (i8, ptr @_ZL41file_level_metadata_opencv_2donnx_2eproto, i64 192))
   ret { ptr, ptr } %2
 }
@@ -25668,10 +25668,10 @@ define internal void @_GLOBAL__sub_I_opencv_onnx.pb.cc() #18 section ".text.star
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

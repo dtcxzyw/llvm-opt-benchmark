@@ -131,7 +131,7 @@ entry:
 declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK6Assimp22FindInvalidDataProcess8IsActiveEj(ptr nocapture nonnull readnone align 8 %this, i32 noundef %pFlags) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp22FindInvalidDataProcess8IsActiveEj(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %pFlags) unnamed_addr #2 align 2 {
 entry:
   %and = and i32 %pFlags, 131072
   %cmp = icmp ne i32 %and, 0
@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp22FindInvalidDataProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) initializes((24, 29)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define void @_ZN6Assimp22FindInvalidDataProcess15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(29) initializes((24, 29)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str, float noundef 0.000000e+00)
   %cmp = fcmp une float %call, 0.000000e+00
@@ -157,7 +157,7 @@ entry:
 declare noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, float noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z20UpdateMeshReferencesP6aiNodeRKSt6vectorIjSaIjEE(ptr nocapture noundef %node, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %meshMapping) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z20UpdateMeshReferencesP6aiNodeRKSt6vectorIjSaIjEE(ptr noundef captures(none) %node, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %meshMapping) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %mNumMeshes = getelementptr inbounds nuw i8, ptr %node, i64 1120
   %0 = load i32, ptr %mNumMeshes, align 8
@@ -310,7 +310,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp22FindInvalidDataProcess7ExecuteEP7aiScene(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef %pScene) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp22FindInvalidDataProcess7ExecuteEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %this, ptr noundef captures(none) %pScene) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %meshMapping = alloca %"class.std::vector", align 8
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -592,7 +592,7 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #4
 declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_ZN6Assimp22FindInvalidDataProcess11ProcessMeshEP6aiMesh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef %pMesh) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN6Assimp22FindInvalidDataProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %this, ptr noundef captures(none) %pMesh) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name.addr.i130 = alloca ptr, align 8
   %err.i131 = alloca ptr, align 8
@@ -1475,7 +1475,7 @@ terminate.lpad:                                   ; preds = %if.then55
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp22FindInvalidDataProcess16ProcessAnimationEP11aiAnimation(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef readonly %anim) local_unnamed_addr #3 align 2 {
+define void @_ZN6Assimp22FindInvalidDataProcess16ProcessAnimationEP11aiAnimation(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %this, ptr noundef readonly captures(none) %anim) local_unnamed_addr #3 align 2 {
 entry:
   %mNumChannels = getelementptr inbounds nuw i8, ptr %anim, i64 1048
   %0 = load i32, ptr %mNumChannels, align 8
@@ -1521,7 +1521,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %s, float noundef %epsilon) local_unnamed_addr #9 {
+define hidden noundef zeroext i1 @_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %n, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %s, float noundef %epsilon) local_unnamed_addr #9 {
 entry:
   %mValue = getelementptr inbounds nuw i8, ptr %n, i64 8
   %0 = load float, ptr %mValue, align 8
@@ -1558,7 +1558,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %s, float noundef %epsilon) local_unnamed_addr #9 {
+define hidden noundef zeroext i1 @_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %n, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %s, float noundef %epsilon) local_unnamed_addr #9 {
 entry:
   %mValue = getelementptr inbounds nuw i8, ptr %n, i64 8
   %x = getelementptr inbounds nuw i8, ptr %n, i64 12
@@ -1605,7 +1605,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp22FindInvalidDataProcess23ProcessAnimationChannelEP10aiNodeAnim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef %anim) local_unnamed_addr #3 align 2 {
+define void @_ZN6Assimp22FindInvalidDataProcess23ProcessAnimationChannelEP10aiNodeAnim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(29) %this, ptr noundef captures(none) %anim) local_unnamed_addr #3 align 2 {
 entry:
   %v = alloca %struct.aiVectorKey, align 8
   %v26 = alloca %struct.aiQuatKey, align 8
@@ -1647,7 +1647,7 @@ if.end.i:                                         ; preds = %entry
 for.cond.i:                                       ; preds = %if.end.i, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i ], [ 0, %if.end.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count23.i
-  br i1 %exitcond.not.i, label %delete.end, label %for.body.i
+  br i1 %exitcond.not.i, label %if.then10, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i
   %arrayidx.i = getelementptr inbounds nuw %struct.aiVectorKey, ptr %3, i64 %indvars.iv.i
@@ -1685,7 +1685,7 @@ _Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i: ; preds = %land.lhs.true.i.i
 for.cond9.i:                                      ; preds = %if.end.i, %_ZNK11aiVectorKeyneERKS_.exit.i
   %indvars.iv20.i = phi i64 [ %indvars.iv.next21.i, %_ZNK11aiVectorKeyneERKS_.exit.i ], [ 0, %if.end.i ]
   %exitcond24.not.i = icmp eq i64 %indvars.iv20.i, %wide.trip.count23.i
-  br i1 %exitcond24.not.i, label %delete.end, label %for.body12.i
+  br i1 %exitcond24.not.i, label %if.then10, label %for.body12.i
 
 for.body12.i:                                     ; preds = %for.cond9.i
   %arrayidx14.i = getelementptr inbounds nuw %struct.aiVectorKey, ptr %3, i64 %indvars.iv20.i
@@ -1714,7 +1714,7 @@ _ZNK11aiVectorKeyneERKS_.exit.i:                  ; preds = %lor.lhs.false.i.i.i
   %cmp6.i.i.i = fcmp une float %18, %19
   br i1 %cmp6.i.i.i, label %if.end18, label %for.cond9.i, !llvm.loop !22
 
-delete.end:                                       ; preds = %for.cond.i, %for.cond9.i
+if.then10:                                        ; preds = %for.cond.i, %for.cond9.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   tail call void @_ZdaPv(ptr noundef %3) #19
   store i32 1, ptr %mNumPositionKeys, align 4
@@ -1723,8 +1723,8 @@ delete.end:                                       ; preds = %for.cond.i, %for.co
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %call14, ptr noundef nonnull align 8 dereferenceable(20) %v, i64 20, i1 false)
   br label %if.end18
 
-if.end18:                                         ; preds = %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i, %land.lhs.true.i.i, %for.body.i, %_ZNK11aiVectorKeyneERKS_.exit.i, %lor.lhs.false.i.i.i, %for.body12.i, %entry, %land.lhs.true, %land.lhs.true3, %delete.end
-  %i.0 = phi i32 [ 1, %delete.end ], [ 0, %land.lhs.true3 ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %for.body12.i ], [ 0, %lor.lhs.false.i.i.i ], [ 0, %_ZNK11aiVectorKeyneERKS_.exit.i ], [ 0, %for.body.i ], [ 0, %land.lhs.true.i.i ], [ 0, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i ]
+if.end18:                                         ; preds = %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i, %land.lhs.true.i.i, %for.body.i, %_ZNK11aiVectorKeyneERKS_.exit.i, %lor.lhs.false.i.i.i, %for.body12.i, %entry, %land.lhs.true, %land.lhs.true3, %if.then10
+  %i.0 = phi i32 [ 1, %if.then10 ], [ 0, %land.lhs.true3 ], [ 0, %land.lhs.true ], [ 0, %entry ], [ 0, %for.body12.i ], [ 0, %lor.lhs.false.i.i.i ], [ 0, %_ZNK11aiVectorKeyneERKS_.exit.i ], [ 0, %for.body.i ], [ 0, %land.lhs.true.i.i ], [ 0, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i ]
   %mNumRotationKeys19 = getelementptr inbounds nuw i8, ptr %anim, i64 1040
   %20 = load i32, ptr %mNumRotationKeys19, align 8
   %cmp20 = icmp ugt i32 %20, 1
@@ -1743,7 +1743,7 @@ if.end.i33:                                       ; preds = %if.end18
 for.cond.i37:                                     ; preds = %if.end.i33, %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i42, %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i ], [ 0, %if.end.i33 ]
   %exitcond.not.i39 = icmp eq i64 %indvars.iv.i38, %wide.trip.count23.i36
-  br i1 %exitcond.not.i39, label %delete.end32, label %for.body.i40
+  br i1 %exitcond.not.i39, label %if.then25, label %for.body.i40
 
 for.body.i40:                                     ; preds = %for.cond.i37
   %arrayidx.i41 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %21, i64 %indvars.iv.i38
@@ -1791,7 +1791,7 @@ _Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i:   ; preds = %land.lhs.true7.i.i
 for.cond9.i53:                                    ; preds = %if.end.i33, %_ZNK9aiQuatKeyneERKS_.exit.i
   %indvars.iv20.i54 = phi i64 [ %indvars.iv.next21.i58, %_ZNK9aiQuatKeyneERKS_.exit.i ], [ 0, %if.end.i33 ]
   %exitcond24.not.i55 = icmp eq i64 %indvars.iv20.i54, %wide.trip.count23.i36
-  br i1 %exitcond24.not.i55, label %delete.end32, label %for.body12.i56
+  br i1 %exitcond24.not.i55, label %if.then25, label %for.body12.i56
 
 for.body12.i56:                                   ; preds = %for.cond9.i53
   %arrayidx14.i57 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %21, i64 %indvars.iv20.i54
@@ -1828,7 +1828,7 @@ _ZNK9aiQuatKeyneERKS_.exit.i:                     ; preds = %land.lhs.true5.i.i.
   %cmp9.i.i.i.i = fcmp une float %41, %42
   br i1 %cmp9.i.i.i.i, label %if.end44, label %for.cond9.i53, !llvm.loop !24
 
-delete.end32:                                     ; preds = %for.cond.i37, %for.cond9.i53
+if.then25:                                        ; preds = %for.cond.i37, %for.cond9.i53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v26, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   tail call void @_ZdaPv(ptr noundef %21) #19
   store i32 1, ptr %mNumRotationKeys19, align 8
@@ -1837,8 +1837,8 @@ delete.end32:                                     ; preds = %for.cond.i37, %for.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call34, ptr noundef nonnull align 8 dereferenceable(24) %v26, i64 24, i1 false)
   br label %if.end44
 
-if.end44:                                         ; preds = %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i, %land.lhs.true7.i.i, %land.lhs.true.i.i49, %for.body.i40, %_ZNK9aiQuatKeyneERKS_.exit.i, %land.lhs.true5.i.i.i.i, %land.lhs.true.i.i.i.i, %for.body12.i56, %delete.end32, %if.end18
-  %i.1 = phi i32 [ 1, %delete.end32 ], [ %i.0, %if.end18 ], [ %i.0, %for.body12.i56 ], [ %i.0, %land.lhs.true.i.i.i.i ], [ %i.0, %land.lhs.true5.i.i.i.i ], [ %i.0, %_ZNK9aiQuatKeyneERKS_.exit.i ], [ %i.0, %for.body.i40 ], [ %i.0, %land.lhs.true.i.i49 ], [ %i.0, %land.lhs.true7.i.i ], [ %i.0, %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i ]
+if.end44:                                         ; preds = %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i, %land.lhs.true7.i.i, %land.lhs.true.i.i49, %for.body.i40, %_ZNK9aiQuatKeyneERKS_.exit.i, %land.lhs.true5.i.i.i.i, %land.lhs.true.i.i.i.i, %for.body12.i56, %if.then25, %if.end18
+  %i.1 = phi i32 [ 1, %if.then25 ], [ %i.0, %if.end18 ], [ %i.0, %for.body12.i56 ], [ %i.0, %land.lhs.true.i.i.i.i ], [ %i.0, %land.lhs.true5.i.i.i.i ], [ %i.0, %_ZNK9aiQuatKeyneERKS_.exit.i ], [ %i.0, %for.body.i40 ], [ %i.0, %land.lhs.true.i.i49 ], [ %i.0, %land.lhs.true7.i.i ], [ %i.0, %_Z14EpsilonCompareI9aiQuatKeyEbRKT_S3_f.exit.i ]
   %mNumScalingKeys45 = getelementptr inbounds nuw i8, ptr %anim, i64 1056
   %43 = load i32, ptr %mNumScalingKeys45, align 8
   %cmp46 = icmp ugt i32 %43, 1
@@ -1857,7 +1857,7 @@ if.end.i66:                                       ; preds = %if.end44
 for.cond.i70:                                     ; preds = %if.end.i66, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i87
   %indvars.iv.i71 = phi i64 [ %indvars.iv.next.i75, %_Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i87 ], [ 0, %if.end.i66 ]
   %exitcond.not.i72 = icmp eq i64 %indvars.iv.i71, %wide.trip.count23.i69
-  br i1 %exitcond.not.i72, label %delete.end58, label %for.body.i73
+  br i1 %exitcond.not.i72, label %if.then51, label %for.body.i73
 
 for.body.i73:                                     ; preds = %for.cond.i70
   %arrayidx.i74 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %44, i64 %indvars.iv.i71
@@ -1895,7 +1895,7 @@ _Z14EpsilonCompareI11aiVectorKeyEbRKT_S3_f.exit.i87: ; preds = %land.lhs.true.i.
 for.cond9.i92:                                    ; preds = %if.end.i66, %_ZNK11aiVectorKeyneERKS_.exit.i106
   %indvars.iv20.i93 = phi i64 [ %indvars.iv.next21.i97, %_ZNK11aiVectorKeyneERKS_.exit.i106 ], [ 0, %if.end.i66 ]
   %exitcond24.not.i94 = icmp eq i64 %indvars.iv20.i93, %wide.trip.count23.i69
-  br i1 %exitcond24.not.i94, label %delete.end58, label %for.body12.i95
+  br i1 %exitcond24.not.i94, label %if.then51, label %for.body12.i95
 
 for.body12.i95:                                   ; preds = %for.cond9.i92
   %arrayidx14.i96 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %44, i64 %indvars.iv20.i93
@@ -1924,7 +1924,7 @@ _ZNK11aiVectorKeyneERKS_.exit.i106:               ; preds = %lor.lhs.false.i.i.i
   %cmp6.i.i.i109 = fcmp une float %59, %60
   br i1 %cmp6.i.i.i109, label %if.end70, label %for.cond9.i92, !llvm.loop !22
 
-delete.end58:                                     ; preds = %for.cond.i70, %for.cond9.i92
+if.then51:                                        ; preds = %for.cond.i70, %for.cond9.i92
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v52, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
   tail call void @_ZdaPv(ptr noundef %44) #19
   store i32 1, ptr %mNumScalingKeys45, align 8
@@ -1937,7 +1937,7 @@ if.end70:                                         ; preds = %_Z14EpsilonCompareI
   %cmp71 = icmp eq i32 %i.1, 1
   br i1 %cmp71, label %if.then72, label %if.end74
 
-if.then72:                                        ; preds = %delete.end58, %if.end70
+if.then72:                                        ; preds = %if.then51, %if.end70
   %call73 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call73, ptr noundef nonnull @.str.8)
   br label %if.end74
@@ -1949,7 +1949,7 @@ if.end74:                                         ; preds = %if.then72, %if.end7
 declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
@@ -2445,7 +2445,7 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #14
@@ -2958,10 +2958,10 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

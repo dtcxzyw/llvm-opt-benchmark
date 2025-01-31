@@ -234,7 +234,7 @@ declare ptr @MOZ_Z_zcalloc(ptr noundef, i32 noundef, i32 noundef) #1
 declare void @MOZ_Z_zcfree(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -3, 1) i32 @MOZ_Z_deflateEnd(ptr noundef %strm) local_unnamed_addr #0 {
@@ -3038,7 +3038,7 @@ return:                                           ; preds = %if.end54, %if.then5
 declare void @MOZ_Z__crc_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @flush_pending(ptr nocapture noundef %strm) unnamed_addr #0 {
+define internal fastcc void @flush_pending(ptr noundef captures(none) %strm) unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %strm, i64 56
   %0 = load ptr, ptr %state, align 8
@@ -4029,7 +4029,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @MOZ_Z__read_buf(ptr noundef %strm, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
@@ -5919,7 +5919,7 @@ return:                                           ; preds = %if.end243, %flush_p
 declare void @MOZ_Z__tr_flush_block(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @longest_match(ptr nocapture noundef %s, i32 noundef range(i32 1, 65536) %cur_match, i32 noundef %clas) unnamed_addr #8 {
+define internal fastcc i32 @longest_match(ptr noundef captures(none) %s, i32 noundef range(i32 1, 65536) %cur_match, i32 noundef %clas) unnamed_addr #8 {
 entry:
   %max_chain_length = getelementptr inbounds nuw i8, ptr %s, i64 1300
   %0 = load i32, ptr %max_chain_length, align 4

@@ -583,7 +583,7 @@ Radius_ensure_buffer_stack.exit:                  ; preds = %29, %32, %41
 
 219:                                              ; preds = %135
   %220 = load ptr, ptr %73, align 8
-  %221 = call i64 @strtoul(ptr nocapture noundef %220, ptr noundef null, i32 noundef 10) #29
+  %221 = call i64 @strtoul(ptr noundef captures(none) %220, ptr noundef null, i32 noundef 10) #29
   %222 = trunc i64 %221 to i32
   %223 = load ptr, ptr %0, align 8
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 144
@@ -593,7 +593,7 @@ Radius_ensure_buffer_stack.exit:                  ; preds = %29, %32, %41
 
 225:                                              ; preds = %135
   %226 = load ptr, ptr %73, align 8
-  %227 = call i64 @strtoul(ptr nocapture noundef %226, ptr noundef null, i32 noundef 16) #29
+  %227 = call i64 @strtoul(ptr noundef captures(none) %226, ptr noundef null, i32 noundef 16) #29
   %228 = trunc i64 %227 to i32
   %229 = load ptr, ptr %0, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 144
@@ -607,7 +607,7 @@ Radius_ensure_buffer_stack.exit:                  ; preds = %29, %32, %41
 
 232:                                              ; preds = %135
   %233 = load ptr, ptr %73, align 8
-  %234 = call i64 @strtoul(ptr nocapture noundef %233, ptr noundef null, i32 noundef 10) #29
+  %234 = call i64 @strtoul(ptr noundef captures(none) %233, ptr noundef null, i32 noundef 10) #29
   %235 = trunc i64 %234 to i32
   %236 = load ptr, ptr %0, align 8
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 148
@@ -618,7 +618,7 @@ Radius_ensure_buffer_stack.exit:                  ; preds = %29, %32, %41
 238:                                              ; preds = %135
   %239 = load ptr, ptr %73, align 8
   %240 = getelementptr i8, ptr %239, i64 1
-  %241 = call i64 @strtoul(ptr nocapture noundef %240, ptr noundef null, i32 noundef 10) #29
+  %241 = call i64 @strtoul(ptr noundef captures(none) %240, ptr noundef null, i32 noundef 10) #29
   %242 = trunc i64 %241 to i32
   %243 = load ptr, ptr %0, align 8
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 152
@@ -745,7 +745,7 @@ add_vendor.exit:                                  ; preds = %267, %286, %292
 
 321:                                              ; preds = %135
   %322 = load ptr, ptr %73, align 8
-  %323 = call i64 @strtoul(ptr nocapture noundef %322, ptr noundef null, i32 noundef 16) #29
+  %323 = call i64 @strtoul(ptr noundef captures(none) %322, ptr noundef null, i32 noundef 16) #29
   %324 = trunc i64 %323 to i32
   %325 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, i32 noundef %324) #29
   %326 = load ptr, ptr %0, align 8
@@ -882,7 +882,7 @@ add_vendor.exit:                                  ; preds = %267, %286, %292
 382:                                              ; preds = %135
   %383 = load ptr, ptr %73, align 8
   %384 = getelementptr i8, ptr %383, i64 8
-  %385 = call i64 @strtoul(ptr nocapture noundef %384, ptr noundef null, i32 noundef 10) #29
+  %385 = call i64 @strtoul(ptr noundef captures(none) %384, ptr noundef null, i32 noundef 10) #29
   %386 = trunc i64 %385 to i32
   %387 = load ptr, ptr %0, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 168
@@ -1014,7 +1014,7 @@ add_vendor.exit:                                  ; preds = %267, %286, %292
   %476 = getelementptr inbounds nuw i8, ptr %473, i64 160
   %477 = load ptr, ptr %476, align 8
   %478 = load ptr, ptr %73, align 8
-  %479 = call i64 @strtoul(ptr nocapture noundef %478, ptr noundef null, i32 noundef 10) #29
+  %479 = call i64 @strtoul(ptr noundef captures(none) %478, ptr noundef null, i32 noundef 10) #29
   %480 = trunc i64 %479 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %481 = getelementptr inbounds nuw i8, ptr %473, i64 96
@@ -1055,7 +1055,7 @@ add_value.exit:                                   ; preds = %472, %484
   %501 = getelementptr inbounds nuw i8, ptr %498, i64 160
   %502 = load ptr, ptr %501, align 8
   %503 = load ptr, ptr %73, align 8
-  %504 = call i64 @strtoul(ptr nocapture noundef %503, ptr noundef null, i32 noundef 16) #29
+  %504 = call i64 @strtoul(ptr noundef captures(none) %503, ptr noundef null, i32 noundef 16) #29
   %505 = trunc i64 %504 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %506 = getelementptr inbounds nuw i8, ptr %498, i64 96
@@ -2076,7 +2076,7 @@ default.unreachable663:                           ; preds = %yy_get_next_buffer.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden nonnull ptr @Radius__create_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define hidden nonnull ptr @Radius__create_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @malloc(i64 noundef 64) #26
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %6
@@ -2186,10 +2186,10 @@ declare void @g_free(ptr noundef) #2
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -2222,7 +2222,7 @@ declare void @radius_combo_ip(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare void @radius_tlv(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @add_attribute(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @add_attribute(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %76, label %9
 
@@ -2281,7 +2281,7 @@ define internal fastcc range(i32 0, 2) i32 @add_attribute(ptr nocapture noundef 
   br label %46
 
 46:                                               ; preds = %44, %41
-  %47 = tail call i64 @strtoul(ptr nocapture noundef readonly %2, ptr noundef null, i32 noundef 10) #29
+  %47 = tail call i64 @strtoul(ptr noundef readonly captures(none) %2, ptr noundef null, i32 noundef 10) #29
   %48 = load ptr, ptr %42, align 8
   %.sroa.0.0.insert.ext.i = and i64 %47, 255
   %49 = inttoptr i64 %.sroa.0.0.insert.ext.i to ptr
@@ -2337,14 +2337,14 @@ define internal fastcc range(i32 0, 2) i32 @add_attribute(ptr nocapture noundef 
   br i1 %.not101, label %.thread, label %80
 
 .thread:                                          ; preds = %76
-  %79 = tail call i64 @strtoul(ptr nocapture noundef %77, ptr noundef null, i32 noundef 10) #29
+  %79 = tail call i64 @strtoul(ptr noundef captures(none) %77, ptr noundef null, i32 noundef 10) #29
   br label %85
 
 80:                                               ; preds = %76
   store i8 0, ptr %78, align 1
-  %81 = tail call i64 @strtoul(ptr nocapture noundef %77, ptr noundef null, i32 noundef 10) #29
+  %81 = tail call i64 @strtoul(ptr noundef captures(none) %77, ptr noundef null, i32 noundef 10) #29
   %82 = getelementptr i8, ptr %78, i64 1
-  %83 = tail call i64 @strtoul(ptr nocapture noundef %82, ptr noundef null, i32 noundef 10) #29
+  %83 = tail call i64 @strtoul(ptr noundef captures(none) %82, ptr noundef null, i32 noundef 10) #29
   %84 = trunc i64 %83 to i8
   br label %85
 
@@ -2479,7 +2479,7 @@ add_tlv.exit:                                     ; preds = %51, %46, %29, %15, 
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
@@ -2488,7 +2488,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare ptr @g_strerror(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Radius__switch_to_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @Radius__switch_to_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2614,10 +2614,10 @@ define hidden void @Radius__switch_to_buffer(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @Radius__delete_buffer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define hidden void @Radius__delete_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -2668,7 +2668,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Radius_restart(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @Radius_restart(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2863,10 +2863,10 @@ Radius__init_buffer.exit:                         ; preds = %80, %.thread.i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @Radius__flush_buffer(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #11 {
+define hidden void @Radius__flush_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -2925,7 +2925,7 @@ define hidden void @Radius__flush_buffer(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Radius_push_buffer_state(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @Radius_push_buffer_state(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %73, label %4
 
@@ -3060,7 +3060,7 @@ Radius_ensure_buffer_stack.exit:                  ; preds = %10, %13, %24
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @Radius_pop_buffer_state(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define hidden void @Radius_pop_buffer_state(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3142,7 +3142,7 @@ Radius__delete_buffer.exit:                       ; preds = %.thread.i, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Radius__scan_buffer(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @Radius__scan_buffer(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %1, 2
   br i1 %4, label %27, label %5
 
@@ -3199,15 +3199,15 @@ define hidden noundef ptr @Radius__scan_buffer(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @Radius__scan_string(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden nonnull ptr @Radius__scan_string(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @Radius__scan_bytes(ptr noundef %0, i32 noundef %4, ptr noundef %1)
+  %5 = tail call ptr @Radius__scan_bytes(ptr noundef nonnull %0, i32 noundef %4, ptr noundef %1)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @Radius__scan_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden nonnull ptr @Radius__scan_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 2
   %5 = sext i32 %4 to i64
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #26
@@ -3299,16 +3299,16 @@ define hidden nonnull ptr @Radius__scan_bytes(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Radius_get_extra(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @Radius_get_extra(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = load ptr, ptr %0, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @Radius_get_lineno(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden i32 @Radius_get_lineno(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3333,7 +3333,7 @@ define hidden i32 @Radius_get_lineno(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @Radius_get_column(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden i32 @Radius_get_column(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3358,41 +3358,41 @@ define hidden i32 @Radius_get_column(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Radius_get_in(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @Radius_get_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Radius_get_out(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @Radius_get_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @Radius_get_leng(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden i32 @Radius_get_leng(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @Radius_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden ptr @Radius_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Radius_set_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #14 {
+define hidden void @Radius_set_extra(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #14 {
   store ptr %0, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @Radius_set_lineno(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @Radius_set_lineno(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3417,7 +3417,7 @@ define hidden void @Radius_set_lineno(i32 noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @Radius_set_column(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @Radius_set_column(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -3442,28 +3442,28 @@ define hidden void @Radius_set_column(i32 noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Radius_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #14 {
+define hidden void @Radius_set_in(ptr noundef %0, ptr noundef writeonly captures(none) initializes((8, 16)) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Radius_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #14 {
+define hidden void @Radius_set_out(ptr noundef %0, ptr noundef writeonly captures(none) initializes((16, 24)) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @Radius_get_debug(ptr nocapture noundef readonly %0) local_unnamed_addr #12 {
+define hidden i32 @Radius_get_debug(ptr noundef readonly captures(none) %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Radius_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #14 {
+define hidden void @Radius_set_debug(i32 noundef %0, ptr noundef writeonly captures(none) initializes((124, 128)) %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -3492,7 +3492,7 @@ define hidden range(i32 0, 2) i32 @Radius_lex_init(ptr noundef writeonly %0) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @Radius_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #15 {
@@ -3525,7 +3525,7 @@ define hidden range(i32 0, 2) i32 @Radius_lex_init_extra(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Radius_lex_destroy(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden noundef i32 @Radius_lex_destroy(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -3654,7 +3654,7 @@ Radius_pop_buffer_state.exit:                     ; preds = %26, %44, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @radius_load_dictionary(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @radius_load_dictionary(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Radius_scanner_state_t, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 0, ptr %6, align 8
@@ -3814,7 +3814,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #17
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @setup_attrs(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2) #0 {
+define internal void @setup_attrs(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %union.anon, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -3851,7 +3851,7 @@ define internal void @setup_attrs(ptr nocapture readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @setup_vendors(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal void @setup_vendors(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @g_hash_table_foreach(ptr noundef %5, ptr noundef nonnull @setup_attrs, ptr noundef %2) #29
@@ -3861,22 +3861,22 @@ define internal void @setup_vendors(ptr nocapture readnone %0, ptr nocapture nou
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #18
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #5
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #20
@@ -3914,7 +3914,7 @@ declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @setup_tlvs(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @setup_tlvs(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %union.anon.0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 96
@@ -3944,13 +3944,13 @@ define internal void @setup_tlvs(ptr nocapture readnone %0, ptr nocapture nounde
 declare i32 @llvm.umin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #24
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #24
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #25

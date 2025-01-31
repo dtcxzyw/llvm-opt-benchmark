@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [88 x i8] c"[drm] *ERROR* GT%u: invalid GSC reply length %u [expected %zu], s=0x%x, f=0x%x, r=0x%x\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_gsc_uc_fw_proxy_init_done(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_gsc_uc_fw_proxy_init_done(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -24
   %4 = load ptr, ptr %3, align 8
   br i1 %1, label %9, label %5
@@ -50,12 +50,12 @@ define dso_local zeroext i1 @intel_gsc_uc_fw_proxy_init_done(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @intel_gsc_uc_fw_proxy_get_status(ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef i32 @intel_gsc_uc_fw_proxy_get_status(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 align 16 {
   ret i32 -19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_gsc_uc_fw_init_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_gsc_uc_fw_init_done(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -350,16 +350,16 @@ define dso_local noundef range(i32 -61, 1) i32 @intel_gsc_fw_get_binary_info(ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @intel_uc_fw_version_from_gsc_manifest(ptr noundef, ptr noundef) local_unnamed_addr #5

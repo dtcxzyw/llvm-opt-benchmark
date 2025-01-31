@@ -1343,7 +1343,7 @@ ehcleanup74:                                      ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_113PrintIncludesEPN14grpc_generator7PrinterERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERKNS_10ParametersE(ptr noundef %printer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %headers, ptr noundef nonnull align 8 dereferenceable(112) %params) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN18grpc_cpp_generator12_GLOBAL__N_113PrintIncludesEPN14grpc_generator7PrinterERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERKNS_10ParametersE(ptr noundef %printer, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %headers, ptr noundef nonnull align 8 dereferenceable(112) %params) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vars = alloca %"class.std::map", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6399,7 +6399,7 @@ ehcleanup650:                                     ; preds = %lpad637, %lpad.i963
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18grpc_cpp_generator17GetHeaderEpilogueB5cxx11EPN14grpc_generator4FileERKNS_10ParametersE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %file, ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18grpc_cpp_generator17GetHeaderEpilogueB5cxx11EPN14grpc_generator4FileERKNS_10ParametersE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %file, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %printer = alloca %"class.std::unique_ptr", align 8
   %vars = alloca %"class.std::map", align 8
@@ -13327,7 +13327,7 @@ for.end344:                                       ; preds = %_ZNSt10unique_ptrIK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18grpc_cpp_generator17GetSourceEpilogueB5cxx11EPN14grpc_generator4FileERKNS_10ParametersE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %file, ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18grpc_cpp_generator17GetSourceEpilogueB5cxx11EPN14grpc_generator4FileERKNS_10ParametersE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %file, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %parts = alloca %"class.std::vector", align 8
@@ -17354,7 +17354,7 @@ eh.resume:                                        ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18grpc_cpp_generator15GetMockEpilogueB5cxx11EPN14grpc_generator4FileERKNS_10ParametersE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %file, ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18grpc_cpp_generator15GetMockEpilogueB5cxx11EPN14grpc_generator4FileERKNS_10ParametersE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %file, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %parts = alloca %"class.std::vector", align 8
@@ -21200,7 +21200,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
@@ -21725,13 +21725,13 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -212,7 +212,7 @@ if.end:                                           ; preds = %evws_connection_fre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @close_event_cb(ptr nocapture readnone %bev, i16 signext %what, ptr noundef %ctx) #0 {
+define internal void @close_event_cb(ptr readnone captures(none) %bev, i16 signext %what, ptr noundef %ctx) #0 {
 entry:
   %cbclose.i = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %cbclose.i, align 8
@@ -551,7 +551,7 @@ declare ptr @evhttp_request_get_output_headers(ptr noundef) local_unnamed_addr #
 declare i32 @evhttp_add_header(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -564,7 +564,7 @@ declare ptr @evhttp_start_ws_(ptr noundef) local_unnamed_addr #1
 declare i32 @bufferevent_enable_locking_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ws_evhttp_read_cb(ptr nocapture readnone %bufev, ptr noundef %arg) #0 {
+define internal void @ws_evhttp_read_cb(ptr readnone captures(none) %bufev, ptr noundef %arg) #0 {
 entry:
   %fr.i.i35 = alloca [4 x i8], align 4
   %fr.i.i = alloca [4 x i8], align 4
@@ -841,15 +841,15 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @evhttp_send_reply(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @evws_send_text(ptr nocapture noundef readonly %evws, ptr noundef %packet_str) local_unnamed_addr #0 {
+define void @evws_send_text(ptr noundef readonly captures(none) %evws, ptr noundef %packet_str) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %packet_str) #11
-  tail call fastcc void @evws_send(ptr noundef %evws, i32 noundef 1, ptr noundef %packet_str, i64 noundef %call)
+  tail call fastcc void @evws_send(ptr noundef %evws, i32 noundef 1, ptr noundef nonnull %packet_str, i64 noundef %call)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @evws_send(ptr nocapture noundef readonly %evws, i32 noundef range(i32 1, 3) %frame_type, ptr noundef %packet_str, i64 noundef %str_len) unnamed_addr #0 {
+define internal fastcc void @evws_send(ptr noundef readonly captures(none) %evws, i32 noundef range(i32 1, 3) %frame_type, ptr noundef %packet_str, i64 noundef %str_len) unnamed_addr #0 {
 entry:
   %header.i = alloca [16 x i8], align 16
   %bufev = getelementptr inbounds nuw i8, ptr %evws, i64 16
@@ -913,17 +913,17 @@ make_ws_frame.exit:                               ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @evws_send_binary(ptr nocapture noundef readonly %evws, ptr noundef %packet_data, i64 noundef %packet_len) local_unnamed_addr #0 {
+define void @evws_send_binary(ptr noundef readonly captures(none) %evws, ptr noundef %packet_data, i64 noundef %packet_len) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @evws_send(ptr noundef %evws, i32 noundef 2, ptr noundef %packet_data, i64 noundef %packet_len)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @evws_connection_set_closecb(ptr nocapture noundef writeonly initializes((40, 56)) %evws, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #5 {
+define void @evws_connection_set_closecb(ptr noundef writeonly captures(none) initializes((40, 56)) %evws, ptr noundef %cb, ptr noundef %cbarg) local_unnamed_addr #5 {
 entry:
   %cbclose = getelementptr inbounds nuw i8, ptr %evws, i64 40
   store ptr %cb, ptr %cbclose, align 8
@@ -933,7 +933,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @evws_connection_get_bufferevent(ptr nocapture noundef readonly %evws) local_unnamed_addr #6 {
+define ptr @evws_connection_get_bufferevent(ptr noundef readonly captures(none) %evws) local_unnamed_addr #6 {
 entry:
   %bufev = getelementptr inbounds nuw i8, ptr %evws, i64 16
   %0 = load ptr, ptr %bufev, align 8
@@ -943,7 +943,7 @@ entry:
 declare i64 @evbuffer_get_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare void @builtin_SHA1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -969,10 +969,10 @@ declare void @bufferevent_lock(ptr noundef) local_unnamed_addr #1
 declare void @bufferevent_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

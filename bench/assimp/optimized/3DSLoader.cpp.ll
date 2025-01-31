@@ -354,7 +354,7 @@ declare void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp19Discreet3DSImporter7CanReadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEb(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pIOHandler, i1 zeroext %0) unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp19Discreet3DSImporter7CanReadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pIOHandler, i1 zeroext %0) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN6Assimp12BaseImporter15CheckMagicTokenEPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvmjj(ptr noundef %pIOHandler, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef nonnull @_ZZNK6Assimp19Discreet3DSImporter7CanReadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEbE5token, i64 noundef 2, i32 noundef 0, i32 noundef 2)
   ret i1 %call
@@ -363,13 +363,13 @@ entry:
 declare noundef zeroext i1 @_ZN6Assimp12BaseImporter15CheckMagicTokenEPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKvmjj(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK6Assimp19Discreet3DSImporter7GetInfoEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden noundef nonnull ptr @_ZNK6Assimp19Discreet3DSImporter7GetInfoEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr @_ZN6AssimpL4descE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter15SetupPropertiesEPKNS_8ImporterE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter15SetupPropertiesEPKNS_8ImporterE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
@@ -1825,7 +1825,7 @@ declare void @_ZN6Assimp19Discreet3DSImporter12ConvertSceneEP7aiScene(ptr nounde
 declare void @_ZN6Assimp19Discreet3DSImporter17GenerateNodeGraphEP7aiScene(ptr noundef nonnull align 8 dereferenceable(162), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter16ApplyMasterScaleEP7aiScene(ptr nocapture noundef nonnull align 8 dereferenceable(162) %this, ptr nocapture noundef readonly %pScene) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter16ApplyMasterScaleEP7aiScene(ptr noundef nonnull align 8 captures(none) dereferenceable(162) %this, ptr noundef readonly captures(none) %pScene) local_unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %class.aiMatrix4x4t, align 4
   %mMasterScale = getelementptr inbounds nuw i8, ptr %this, i64 124
@@ -2282,7 +2282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter9ReadChunkEPNS_4D3DS11Discreet3DS5ChunkE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this, ptr nocapture noundef writeonly %pcOut) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter9ReadChunkEPNS_4D3DS11Discreet3DS5ChunkE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this, ptr noundef writeonly captures(none) %pcOut) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stream = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %stream, align 8
@@ -2419,7 +2419,7 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #3
 declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter9SkipChunkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter9SkipChunkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %psChunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 1
   call void @_ZN6Assimp19Discreet3DSImporter9ReadChunkEPNS_4D3DS11Discreet3DS5ChunkE(ptr noundef nonnull align 8 dereferenceable(162) %this, ptr noundef nonnull %psChunk)
@@ -3128,7 +3128,7 @@ return:                                           ; preds = %while.body.backedge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter18ParseKeyframeChunkEv(ptr nocapture noundef nonnull align 8 dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter18ParseKeyframeChunkEv(ptr noundef nonnull align 8 captures(none) dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %stream = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -3339,7 +3339,7 @@ lpad4:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter10ParseChunkEPKcj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this, ptr noundef %name, i32 noundef %num) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter10ParseChunkEPKcj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this, ptr noundef %name, i32 noundef %num) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4306,7 +4306,7 @@ return:                                           ; preds = %while.body.backedge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter18ParseMaterialChunkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter18ParseMaterialChunkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4820,7 +4820,7 @@ return:                                           ; preds = %while.body.backedge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter15ParseColorChunkEP9aiColor3Db(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this, ptr nocapture noundef writeonly %out, i1 noundef zeroext %acceptPercent) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter15ParseColorChunkEP9aiColor3Db(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this, ptr noundef writeonly captures(none) %out, i1 noundef zeroext %acceptPercent) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %Size = getelementptr inbounds nuw i8, ptr %chunk, i64 2
@@ -5195,7 +5195,7 @@ sw.epilog:                                        ; preds = %if.end55, %_ZN6Assi
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter14ParseMeshChunkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter14ParseMeshChunkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %ref.tmp = alloca i32, align 4
@@ -6486,7 +6486,7 @@ return:                                           ; preds = %while.body.backedge
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter15ParseLightChunkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter15ParseLightChunkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %stream = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -6999,10 +6999,10 @@ return:                                           ; preds = %while.body.backedge
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter16ParseCameraChunkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter16ParseCameraChunkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %stream = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -7231,7 +7231,7 @@ return:                                           ; preds = %while.body.backedge
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter19ParseHierarchyChunkEt(ptr nocapture noundef nonnull align 8 dereferenceable(162) %this, i16 noundef zeroext %parent) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter19ParseHierarchyChunkEt(ptr noundef nonnull align 8 captures(none) dereferenceable(162) %this, i16 noundef zeroext %parent) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %name = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9603,7 +9603,7 @@ return:                                           ; preds = %while.body.backedge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter17InverseNodeSearchEPNS_4D3DS4NodeES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this, ptr noundef %pcNode, ptr noundef %pcCurrent) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter17InverseNodeSearchEPNS_4D3DS4NodeES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this, ptr noundef %pcNode, ptr noundef %pcCurrent) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not73 = icmp eq ptr %pcCurrent, null
   br i1 %tobool.not73, label %if.then, label %if.end.lr.ph
@@ -9876,7 +9876,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter11SkipTCBInfoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter11SkipTCBInfoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stream = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %stream, align 8
@@ -10079,7 +10079,7 @@ declare void @_ZN6Assimp6Logger4warnEPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter14ParseFaceChunkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter14ParseFaceChunkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %sz = alloca ptr, align 8
@@ -10554,7 +10554,7 @@ lpad4:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef float @_ZN6Assimp19Discreet3DSImporter20ParsePercentageChunkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef float @_ZN6Assimp19Discreet3DSImporter20ParsePercentageChunkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   call void @_ZN6Assimp19Discreet3DSImporter9ReadChunkEPNS_4D3DS11Discreet3DS5ChunkE(ptr noundef nonnull align 8 dereferenceable(162) %this, ptr noundef nonnull %chunk)
@@ -10640,7 +10640,7 @@ return:                                           ; preds = %entry, %_ZN6Assimp1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter17ParseTextureChunkEPNS_4D3DS7TextureE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(162) %this, ptr noundef %pcOut) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter17ParseTextureChunkEPNS_4D3DS7TextureE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(162) %this, ptr noundef %pcOut) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca %"struct.Assimp::D3DS::Discreet3DS::Chunk", align 2
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11415,7 +11415,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @tolower(i32 noundef) local_unnamed_addr #15
@@ -11492,7 +11492,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -12279,7 +12279,7 @@ if.end94:                                         ; preds = %for.body.i.i.i59, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 declare void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #3
 
@@ -17446,10 +17446,10 @@ declare void @llvm.assume(i1 noundef) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
@@ -17461,7 +17461,7 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare float @llvm.sqrt.f32(float) #20
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #20

@@ -242,7 +242,7 @@ define dso_local i32 @inet6_bind_sk(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @__inet6_bind(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
@@ -592,10 +592,10 @@ inet_addr_valid_or_nonlocal.exit:                 ; preds = %73, %81, %86
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @inet6_bind(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local i32 @inet6_bind(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -653,7 +653,7 @@ declare dso_local i32 @inet_release(ptr noundef) local_unnamed_addr #2
 declare dso_local void @fl6_free_socklist(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -107, 29) i32 @inet6_getname(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 2), (4, 8), (24, 28)) %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -107, 29) i32 @inet6_getname(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 2), (4, 8), (24, 28)) %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 18
@@ -754,10 +754,10 @@ define dso_local noundef range(i32 -107, 29) i32 @inet6_getname(ptr nocapture no
 declare dso_local void @release_sock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @inet6_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local i32 @inet6_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca %struct.in6_rtmsg, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -818,7 +818,7 @@ define dso_local i32 @inet6_ioctl(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @ipv6_route_ioctl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -836,7 +836,7 @@ declare dso_local i32 @addrconf_set_dstaddr(ptr noundef, ptr noundef) local_unna
 declare dso_local i32 @sk_ioctl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @inet6_compat_ioctl(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local i32 @inet6_compat_ioctl(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = alloca %struct.in6_rtmsg, align 8
   %5 = and i64 %2, 4294967295
   %6 = inttoptr i64 %5 to ptr
@@ -976,7 +976,7 @@ define dso_local i32 @inet6_compat_ioctl(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @inet6_sendmsg(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local i32 @inet6_sendmsg(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @inet_send_prepare(ptr noundef %5) #14
@@ -1022,7 +1022,7 @@ declare dso_local i32 @tcp_sendmsg(ptr noundef, ptr noundef, i64 noundef) #2
 declare dso_local i32 @udpv6_sendmsg(ptr noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @inet6_recvmsg(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local i32 @inet6_recvmsg(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
@@ -1267,7 +1267,7 @@ define dso_local noundef range(i32 -22, 1) i32 @inet6_register_protosw(ptr nound
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @inet6_unregister_protosw(ptr nocapture noundef %0) #1 align 16 {
+define dso_local void @inet6_unregister_protosw(ptr noundef captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 2
@@ -1463,7 +1463,7 @@ declare dso_local ptr @fl6_update_dst(ptr noundef, ptr noundef, ptr noundef) loc
 declare dso_local ptr @ip6_dst_lookup_flow(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef zeroext i1 @ipv6_opt_accepted(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #7 align 16 {
+define dso_local noundef zeroext i1 @ipv6_opt_accepted(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #7 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %5 = load volatile i8, ptr %4, align 2
   %6 = zext nneg i8 %5 to i32

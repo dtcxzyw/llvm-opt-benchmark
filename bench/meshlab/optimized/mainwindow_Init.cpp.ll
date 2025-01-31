@@ -575,7 +575,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -2640,7 +2640,7 @@ declare void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow30loadDefaultSettingsFromPluginsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1376) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow30loadDefaultSettingsFromPluginsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1376) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
@@ -4534,7 +4534,7 @@ _ZN11QStringListD2Ev.exit:                        ; preds = %._crit_edge58, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17MainWindowSetting25updateGlobalParameterListERK17RichParameterList(ptr nocapture noundef nonnull align 8 dereferenceable(58) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17MainWindowSetting25updateGlobalParameterListERK17RichParameterList(ptr noundef nonnull align 8 captures(none) dereferenceable(58) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -12068,7 +12068,7 @@ declare void @_ZN4QDir8homePathEv(ptr dead_on_unwind writable sret(%class.QStrin
 declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN9QtPrivate19QVariantValueHelperI11QStringListE8metaTypeERK8QVariant(ptr dead_on_unwind noalias writable sret(%class.QStringList) align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15190,7 +15190,7 @@ declare noundef ptr @_ZN8QMenuBar12addSeparatorEv(ptr noundef nonnull align 8 de
 declare void @_ZN5QMenuC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow16initSearchEngineEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1376) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow16initSearchEngineEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1376) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.FilterPluginContainer::FilterPluginRangeIterator", align 8
   %3 = alloca %class.ConstPluginIterator.102, align 8
   %4 = alloca %class.ConstPluginIterator.102, align 8
@@ -16294,7 +16294,7 @@ _ZN7QStringD2Ev.exit9:                            ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow9clearMenuEP5QMenu(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1376) %0, ptr noundef nonnull %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow9clearMenuEP5QMenu(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1376) %0, ptr noundef nonnull %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.86, align 8
   call void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.86) align 8 %3, ptr noundef nonnull align 8 dereferenceable(48) %1)
   %4 = load ptr, ptr %3, align 8, !noalias !144
@@ -17054,7 +17054,7 @@ _ZN7QStringD2Ev.exit34:                           ; preds = %80, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow9addToMenuE5QListIP7QActionEP5QMenuPKc(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow9addToMenuE5QListIP7QActionEP5QMenuPKc(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.QtPrivate::QForeachContainer", align 8
   %6 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !152)
@@ -19318,7 +19318,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow18saveRecentFileListERK7QString(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1376) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow18saveRecentFileListERK7QString(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1376) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QSettings, align 8
   %4 = alloca %class.QStringList, align 8
   %5 = alloca %class.QVariant, align 8
@@ -20924,7 +20924,7 @@ declare void @_ZN14CongratsDialogC1EP7QWidget(ptr noundef nonnull align 8 derefe
 declare void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow21saveRecentProjectListERK7QString(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1376) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow21saveRecentProjectListERK7QString(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1376) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QSettings, align 8
   %4 = alloca %class.QStringList, align 8
   %5 = alloca %class.QVariant, align 8
@@ -24482,7 +24482,7 @@ declare noundef ptr @_ZNK11QMessageBox13clickedButtonEv(ptr noundef nonnull alig
 declare noundef zeroext i1 @_ZN16QDesktopServices7openUrlERK4QUrl(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow22wrapSetActiveSubWindowEP7QWidget(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1376) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN10MainWindow22wrapSetActiveSubWindowEP7QWidget(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1376) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = alloca %class.QMessageLogger, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
@@ -24519,7 +24519,7 @@ declare void @_ZN8QMdiArea18setActiveSubWindowEP13QMdiSubWindow(ptr noundef nonn
 declare void @_ZNK14QMessageLogger5debugEPKcz(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10MainWindow24longestActionWidthInMenuEP5QMenui(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1376) %0, ptr noundef nonnull %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN10MainWindow24longestActionWidthInMenuEP5QMenui(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1376) %0, ptr noundef nonnull %1, i32 noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QList.86, align 8
   %5 = alloca %"class.QtPrivate::QForeachContainer", align 8
   call void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.86) align 8 %4, ptr noundef nonnull align 8 dereferenceable(48) %1)
@@ -24738,7 +24738,7 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN9QtPrivate17QFor
 declare { i64, i64 } @_ZNK5QMenu14actionGeometryEP7QAction(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10MainWindow24longestActionWidthInMenuEP5QMenu(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1376) %0, ptr noundef nonnull %1) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZN10MainWindow24longestActionWidthInMenuEP5QMenu(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1376) %0, ptr noundef nonnull %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef i32 @_ZN10MainWindow24longestActionWidthInMenuEP5QMenui(ptr noundef nonnull align 8 dereferenceable(1376) %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
@@ -24796,7 +24796,7 @@ declare noundef zeroext i1 @_ZNK17RichParameterList7getBoolERK7QString(ptr nound
 declare void @_ZNK17RichParameterList9getStringERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10MainWindow27defaultPerViewRenderingDataER15MLRenderingData(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1376) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10MainWindow27defaultPerViewRenderingDataER15MLRenderingData(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1376) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %4 = alloca %struct.MLPerViewGLOptions, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -26438,16 +26438,16 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 declare i32 @llvm.eh.typeid.for.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20

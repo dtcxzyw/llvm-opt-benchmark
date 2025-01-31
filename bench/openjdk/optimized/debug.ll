@@ -155,7 +155,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN16DebuggingContextD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16DebuggingContextD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_ZN16DebuggingContextC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16DebuggingContextC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i32, ptr @_ZN16DebuggingContext8_enabledE, align 4
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr @_ZN16DebuggingContext8_enabledE, align 4
@@ -163,7 +163,7 @@ define hidden void @_ZN16DebuggingContextC2Ev(ptr nocapture nonnull readnone ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16DebuggingContextD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN16DebuggingContextD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load i32, ptr @_ZN16DebuggingContext8_enabledE, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %4, label %6
@@ -206,7 +206,7 @@ define hidden void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z7warningPKcz(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #1 {
+define hidden void @_Z7warningPKcz(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #1 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   %3 = load i8, ptr @PrintWarnings, align 1
   %4 = trunc i8 %3 to i1
@@ -238,13 +238,13 @@ declare noundef ptr @_ZN19Abstract_VM_Version7vm_nameEv() local_unnamed_addr #3
 declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
 define hidden void @_Z15report_vm_errorPKciS0_(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
@@ -372,7 +372,7 @@ define hidden void @_Z20report_unimplementedPKci(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_Z15report_untestedPKciS0_(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #7 {
+define hidden void @_Z15report_untestedPKciS0_(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #7 {
   ret void
 }
 
@@ -522,7 +522,7 @@ _ZN7CommandD2Ev.exit:                             ; preds = %37, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @dump_vtable(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define hidden void @dump_vtable(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
@@ -3225,10 +3225,10 @@ declare void @llvm.va_copy.p0(ptr, ptr) #4
 declare i32 @jio_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #10
@@ -3244,7 +3244,7 @@ declare void @_ZN10JavaThread14print_stack_onEP12outputStream(ptr noundef nonnul
 declare void @_ZN7Threads8print_onEP12outputStreambbbb(ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare i64 @SafeFetchN_impl(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -3260,13 +3260,13 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare void @_ZN9UNSIGNED56ReaderIPhmNS_11ArrayGetSetIS1_mEEE8print_onEP12outputStreamiPKcS8_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

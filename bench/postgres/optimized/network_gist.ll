@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.inet_gist_consistent = private unnamed_addr constant [21 x i8] c"inet_gist_consistent\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -403,7 +403,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @inet_gist_union(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @inet_gist_union(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -525,7 +525,7 @@ build_inet_union_key.exit:                        ; preds = %55, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @inet_gist_compress(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @inet_gist_compress(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -608,10 +608,10 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @inet_gist_fetch(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @inet_gist_fetch(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -671,7 +671,7 @@ define dso_local noundef i64 @inet_gist_fetch(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @inet_gist_penalty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @inet_gist_penalty(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -727,7 +727,7 @@ define dso_local i64 @inet_gist_penalty(ptr nocapture noundef readonly %0) local
 declare i32 @bitncommon(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @inet_gist_picksplit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @inet_gist_picksplit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1209,7 +1209,7 @@ build_inet_union_key.exit133:                     ; preds = %240, %243
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @inet_gist_same(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i64 @inet_gist_same(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1264,7 +1264,7 @@ declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #7

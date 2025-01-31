@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BufferBlocks = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @bthandler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @bthandler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 216) #8
   store i32 422, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -118,13 +118,13 @@ define dso_local void @btbuildempty(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @btinsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr nocapture readnone %7) #0 {
+define dso_local zeroext i1 @btinsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr readnone captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @index_form_tuple(ptr noundef %10, ptr noundef %1, ptr noundef %2) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %11, ptr noundef nonnull align 2 dereferenceable(6) %3, i64 6, i1 false)
-  %12 = tail call zeroext i1 @_bt_doinsert(ptr noundef %0, ptr noundef %11, i32 noundef %5, i1 noundef zeroext %6, ptr noundef %4) #8
-  tail call void @pfree(ptr noundef %11) #8
+  %12 = tail call zeroext i1 @_bt_doinsert(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %5, i1 noundef zeroext %6, ptr noundef %4) #8
+  tail call void @pfree(ptr noundef nonnull %11) #8
   ret i1 %12
 }
 
@@ -223,7 +223,7 @@ define dso_local noundef ptr @btvacuumcleanup(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @btcanreturn(ptr nocapture readnone %0, i32 %1) #2 {
+define dso_local noundef zeroext i1 @btcanreturn(ptr readnone captures(none) %0, i32 %1) #2 {
   ret i1 true
 }
 
@@ -298,7 +298,7 @@ define dso_local ptr @btbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @btrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2, ptr nocapture readnone %3, i32 %4) #0 {
+define dso_local void @btrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2, ptr readnone captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
@@ -831,7 +831,7 @@ define dso_local void @btinitparallelscan(ptr noundef initializes((0, 13)) %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @btparallelrescan(ptr nocapture noundef readonly %0) #0 {
+define dso_local void @btparallelrescan(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -872,7 +872,7 @@ declare void @smgr_bulk_finish(ptr noundef) local_unnamed_addr #1
 declare ptr @index_form_tuple(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare zeroext i1 @_bt_doinsert(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -897,7 +897,7 @@ declare void @_bt_killitems(ptr noundef) local_unnamed_addr #1
 declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare void @_bt_preprocess_array_keys(ptr noundef) local_unnamed_addr #1
 
@@ -914,7 +914,7 @@ declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #1
 declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @_bt_parallel_seize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @_bt_parallel_seize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -981,7 +981,7 @@ declare void @ConditionVariableSleep(ptr noundef, i32 noundef) local_unnamed_add
 declare zeroext i1 @ConditionVariableCancelSleep() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_parallel_release(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_bt_parallel_release(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1010,7 +1010,7 @@ define dso_local void @_bt_parallel_release(ptr nocapture noundef readonly %0, i
 declare void @ConditionVariableSignal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_parallel_done(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @_bt_parallel_done(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1065,7 +1065,7 @@ define dso_local void @_bt_parallel_done(ptr nocapture noundef readonly %0) loca
 declare void @ConditionVariableBroadcast(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_bt_parallel_advance_array_keys(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @_bt_parallel_advance_array_keys(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1782,13 +1782,13 @@ declare void @_bt_pagedel(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare zeroext i1 @GlobalVisCheckRemovableFullXid(ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

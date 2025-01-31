@@ -270,7 +270,7 @@ define internal noundef i32 @zm_startup_posix(i32 %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zm_info_posix(ptr nocapture readnone %0) #0 {
+define internal void @zm_info_posix(ptr readnone captures(none) %0) #0 {
   tail call void @php_info_print_table_start() #11
   tail call void (i32, ...) @php_info_print_table_row(i32 noundef 2, ptr noundef nonnull @.str.135, ptr noundef nonnull @.str.136) #11
   tail call void @php_info_print_table_end() #11
@@ -278,13 +278,13 @@ define internal void @zm_info_posix(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_posix(ptr nocapture noundef writeonly initializes((0, 4)) %0) #1 {
+define internal void @zm_globals_ctor_posix(ptr noundef writeonly captures(none) initializes((0, 4)) %0) #1 {
   store i32 0, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_kill(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_kill(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -380,7 +380,7 @@ declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getpid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getpid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -408,7 +408,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 declare i32 @getpid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getppid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getppid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -434,7 +434,7 @@ define hidden void @zif_posix_getppid(ptr nocapture noundef readonly %0, ptr noc
 declare i32 @getppid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getuid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getuid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -460,7 +460,7 @@ define hidden void @zif_posix_getuid(ptr nocapture noundef readonly %0, ptr noca
 declare i32 @getuid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getgid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getgid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -486,7 +486,7 @@ define hidden void @zif_posix_getgid(ptr nocapture noundef readonly %0, ptr noca
 declare i32 @getgid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_geteuid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_geteuid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -512,7 +512,7 @@ define hidden void @zif_posix_geteuid(ptr nocapture noundef readonly %0, ptr noc
 declare i32 @geteuid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getegid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getegid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -538,7 +538,7 @@ define hidden void @zif_posix_getegid(ptr nocapture noundef readonly %0, ptr noc
 declare i32 @getegid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_setuid(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_setuid(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -605,7 +605,7 @@ define hidden void @zif_posix_setuid(ptr noundef %0, ptr nocapture noundef write
 declare i32 @setuid(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_setgid(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_setgid(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -672,7 +672,7 @@ define hidden void @zif_posix_setgid(ptr noundef %0, ptr nocapture noundef write
 declare i32 @setgid(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_seteuid(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_seteuid(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -739,7 +739,7 @@ define hidden void @zif_posix_seteuid(ptr noundef %0, ptr nocapture noundef writ
 declare i32 @seteuid(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_setegid(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_setegid(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -806,7 +806,7 @@ define hidden void @zif_posix_setegid(ptr noundef %0, ptr nocapture noundef writ
 declare i32 @setegid(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getgroups(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_posix_getgroups(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -889,7 +889,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #2
 declare i32 @add_next_index_long(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getlogin(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getlogin(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -940,10 +940,10 @@ define hidden void @zif_posix_getlogin(ptr nocapture noundef readonly %0, ptr no
 declare ptr @getlogin() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getpgrp(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getpgrp(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -969,7 +969,7 @@ define hidden void @zif_posix_getpgrp(ptr nocapture noundef readonly %0, ptr noc
 declare i32 @getpgrp() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_setsid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_setsid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -995,7 +995,7 @@ define hidden void @zif_posix_setsid(ptr nocapture noundef readonly %0, ptr noca
 declare i32 @setsid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_setpgid(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_setpgid(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1081,7 +1081,7 @@ define hidden void @zif_posix_setpgid(ptr noundef %0, ptr nocapture noundef writ
 declare i32 @setpgid(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getpgid(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getpgid(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1151,7 +1151,7 @@ define hidden void @zif_posix_getpgid(ptr noundef %0, ptr nocapture noundef writ
 declare i32 @getpgid(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getsid(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getsid(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1221,7 +1221,7 @@ define hidden void @zif_posix_getsid(ptr noundef %0, ptr nocapture noundef write
 declare i32 @getsid(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_uname(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_posix_uname(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.utsname, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1268,10 +1268,10 @@ define hidden void @zif_posix_uname(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_times(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_posix_times(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.tms, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1319,10 +1319,10 @@ define hidden void @zif_posix_times(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @times(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_ctermid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_ctermid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca [9 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1372,10 +1372,10 @@ define hidden void @zif_posix_ctermid(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @ctermid(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @ctermid(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_ttyname(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_ttyname(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1541,7 +1541,7 @@ declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #2
 declare ptr @ttyname(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_isatty(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_isatty(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1626,7 +1626,7 @@ thread-pre-split:                                 ; preds = %11, %16
 declare i32 @isatty(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_getcwd(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_getcwd(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca [4096 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1679,7 +1679,7 @@ define hidden void @zif_posix_getcwd(ptr nocapture noundef readonly %0, ptr noca
 declare ptr @getcwd(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_mkfifo(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_mkfifo(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1797,7 +1797,7 @@ declare i32 @php_check_open_basedir_ex(ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @mkfifo(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_mknod(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_mknod(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -2050,14 +2050,14 @@ define hidden range(i32 0, 2) i32 @php_posix_group_to_array(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare i32 @add_next_index_string(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_access(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_access(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
@@ -2185,10 +2185,10 @@ thread-pre-split:                                 ; preds = %15
 declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #8
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_eaccess(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_eaccess(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
@@ -2586,7 +2586,7 @@ define hidden void @zif_posix_getpwnam(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @getpwnam(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef ptr @getpwnam(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_posix_getpwuid(ptr noundef %0, ptr noundef %1) #0 {
@@ -2842,7 +2842,7 @@ declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @add_next_index_stringl(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_setrlimit(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_setrlimit(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct.rlimit, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -2949,7 +2949,7 @@ define hidden void @zif_posix_setrlimit(ptr noundef %0, ptr nocapture noundef wr
 declare i32 @setrlimit(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_get_last_error(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_get_last_error(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2972,7 +2972,7 @@ define hidden void @zif_posix_get_last_error(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_strerror(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_strerror(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -3027,7 +3027,7 @@ define hidden void @zif_posix_strerror(ptr noundef %0, ptr nocapture noundef wri
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store i64 %18, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr align 1 %17, i64 %18, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %25, ptr nonnull align 1 %17, i64 %18, i1 false)
   %26 = getelementptr inbounds [1 x i8], ptr %25, i64 0, i64 %18
   store i8 0, ptr %26, align 1
   store ptr %21, ptr %1, align 8
@@ -3043,7 +3043,7 @@ define hidden void @zif_posix_strerror(ptr noundef %0, ptr nocapture noundef wri
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_initgroups(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_initgroups(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3130,7 +3130,7 @@ define hidden void @zif_posix_initgroups(ptr noundef %0, ptr nocapture noundef w
 declare i32 @initgroups(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_sysconf(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_sysconf(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -3186,7 +3186,7 @@ define hidden void @zif_posix_sysconf(ptr noundef %0, ptr nocapture noundef writ
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_pathconf(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_pathconf(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -3319,7 +3319,7 @@ declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #2
 declare i64 @pathconf(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_posix_fpathconf(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_posix_fpathconf(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
@@ -3461,10 +3461,10 @@ declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_u
 declare void @add_assoc_stringl_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

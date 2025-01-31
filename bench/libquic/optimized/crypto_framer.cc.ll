@@ -402,10 +402,10 @@ return:                                           ; preds = %if.end5, %if.end, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(17) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i64 16), ptr %this, align 8
   %out_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1057,7 +1057,7 @@ declare noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef n
 declare noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr noundef nonnull align 8 dereferenceable(24), i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj(ptr noundef nonnull %writer, i64 noundef %pad_length, ptr nocapture noundef %end_offset) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN3net12CryptoFramer11WritePadTagEPNS_14QuicDataWriterEmPj(ptr noundef nonnull %writer, i64 noundef %pad_length, ptr noundef captures(none) %end_offset) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %writer, i32 noundef 4473168)
   br i1 %call, label %if.end, label %return
@@ -1149,7 +1149,7 @@ _ZN3net12_GLOBAL__N_114OneShotVisitorD2Ev.exit:   ; preds = %entry, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitor7OnErrorEPNS_12CryptoFramerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((16, 17)) %this, ptr nocapture readnone %framer) unnamed_addr #7 align 2 {
+define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitor7OnErrorEPNS_12CryptoFramerE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((16, 17)) %this, ptr readnone captures(none) %framer) unnamed_addr #7 align 2 {
 entry:
   %error_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 1, ptr %error_, align 8
@@ -1157,7 +1157,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitor18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr nocapture noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3net12_GLOBAL__N_114OneShotVisitor18OnHandshakeMessageERKNS_22CryptoHandshakeMessageE(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(72) %message) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
   invoke void @_ZN3net22CryptoHandshakeMessageC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %call, ptr noundef nonnull align 8 dereferenceable(72) %message)
@@ -1186,7 +1186,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {

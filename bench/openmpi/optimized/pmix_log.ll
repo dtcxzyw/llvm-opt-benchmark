@@ -664,7 +664,7 @@ pmix_obj_run_destructors.exit387:                 ; preds = %.lr.ph.i384, %155
 .lr.ph.i390:                                      ; preds = %217, %.lr.ph.i390
   %223 = phi ptr [ %225, %.lr.ph.i390 ], [ %222, %217 ]
   %.07.i391 = phi ptr [ %224, %.lr.ph.i390 ], [ %221, %217 ]
-  call void %223(ptr noundef %69) #10
+  call void %223(ptr noundef nonnull %69) #10
   %224 = getelementptr inbounds nuw i8, ptr %.07.i391, i64 8
   %225 = load ptr, ptr %224, align 8
   %.not.i392 = icmp eq ptr %225, null
@@ -833,7 +833,7 @@ pmix_obj_run_destructors.exit399:                 ; preds = %.lr.ph.i396, %242
 .lr.ph.i402:                                      ; preds = %301, %.lr.ph.i402
   %307 = phi ptr [ %309, %.lr.ph.i402 ], [ %306, %301 ]
   %.07.i403 = phi ptr [ %308, %.lr.ph.i402 ], [ %305, %301 ]
-  call void %307(ptr noundef %69) #10
+  call void %307(ptr noundef nonnull %69) #10
   %308 = getelementptr inbounds nuw i8, ptr %.07.i403, i64 8
   %309 = load ptr, ptr %308, align 8
   %.not.i404 = icmp eq ptr %309, null
@@ -1009,7 +1009,7 @@ pmix_obj_run_destructors.exit411:                 ; preds = %.lr.ph.i408, %326
 .lr.ph.i414:                                      ; preds = %389, %.lr.ph.i414
   %395 = phi ptr [ %397, %.lr.ph.i414 ], [ %394, %389 ]
   %.07.i415 = phi ptr [ %396, %.lr.ph.i414 ], [ %393, %389 ]
-  call void %395(ptr noundef %69) #10
+  call void %395(ptr noundef nonnull %69) #10
   %396 = getelementptr inbounds nuw i8, ptr %.07.i415, i64 8
   %397 = load ptr, ptr %396, align 8
   %.not.i416 = icmp eq ptr %397, null
@@ -1178,7 +1178,7 @@ pmix_obj_run_destructors.exit423:                 ; preds = %.lr.ph.i420, %414
 .lr.ph.i426:                                      ; preds = %473, %.lr.ph.i426
   %479 = phi ptr [ %481, %.lr.ph.i426 ], [ %478, %473 ]
   %.07.i427 = phi ptr [ %480, %.lr.ph.i426 ], [ %477, %473 ]
-  call void %479(ptr noundef %69) #10
+  call void %479(ptr noundef nonnull %69) #10
   %480 = getelementptr inbounds nuw i8, ptr %.07.i427, i64 8
   %481 = load ptr, ptr %480, align 8
   %.not.i428 = icmp eq ptr %481, null
@@ -1354,7 +1354,7 @@ pmix_obj_run_destructors.exit435:                 ; preds = %.lr.ph.i432, %498
 .lr.ph.i438:                                      ; preds = %561, %.lr.ph.i438
   %567 = phi ptr [ %569, %.lr.ph.i438 ], [ %566, %561 ]
   %.07.i439 = phi ptr [ %568, %.lr.ph.i438 ], [ %565, %561 ]
-  call void %567(ptr noundef %69) #10
+  call void %567(ptr noundef nonnull %69) #10
   %568 = getelementptr inbounds nuw i8, ptr %.07.i439, i64 8
   %569 = load ptr, ptr %568, align 8
   %.not.i440 = icmp eq ptr %569, null
@@ -1627,7 +1627,7 @@ define internal void @opcbfunc(i32 noundef %0, ptr noundef initializes((500, 504
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_log_local_op(i32 %0, i16 signext %1, ptr nocapture noundef readonly %2) #0 {
+define void @pmix_log_local_op(i32 %0, i16 signext %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 560
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 568
@@ -1761,7 +1761,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %25, %2
 .lr.ph.i:                                         ; preds = %68, %.lr.ph.i
   %74 = phi ptr [ %76, %.lr.ph.i ], [ %73, %68 ]
   %.07.i = phi ptr [ %75, %.lr.ph.i ], [ %72, %68 ]
-  tail call void %74(ptr noundef %21) #10
+  tail call void %74(ptr noundef nonnull %21) #10
   %75 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %76 = load ptr, ptr %75, align 8
   %.not.i62 = icmp eq ptr %76, null
@@ -1901,7 +1901,7 @@ define internal void @localcbfunc(i32 noundef %0, ptr noundef %1) #0 {
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.i
   %29 = phi ptr [ %31, %.lr.ph.i ], [ %28, %23 ]
   %.07.i = phi ptr [ %30, %.lr.ph.i ], [ %27, %23 ]
-  tail call void %29(ptr noundef %1) #10
+  tail call void %29(ptr noundef nonnull %1) #10
   %30 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not.i = icmp eq ptr %31, null
@@ -1929,12 +1929,12 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %23
 declare void @PMIx_Info_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare zeroext i1 @PMIx_Check_procid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @PMIx_Info_true(ptr noundef) local_unnamed_addr #1
 
@@ -1948,7 +1948,7 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @pmix_ptl_base_peer_is_earlier(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @log_cbfunc(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @log_cbfunc(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 1, ptr %5, align 4
@@ -2043,7 +2043,7 @@ define internal void @log_cbfunc(ptr nocapture noundef readonly %0, ptr nocaptur
 .lr.ph.i:                                         ; preds = %52, %.lr.ph.i
   %58 = phi ptr [ %60, %.lr.ph.i ], [ %57, %52 ]
   %.07.i = phi ptr [ %59, %.lr.ph.i ], [ %56, %52 ]
-  call void %58(ptr noundef %3) #10
+  call void %58(ptr noundef nonnull %3) #10
   %59 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %60 = load ptr, ptr %59, align 8
   %.not.i = icmp eq ptr %60, null
@@ -2093,13 +2093,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

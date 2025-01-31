@@ -155,7 +155,7 @@ define hidden range(i64 -2147483648, 2147483648) i64 @timelib_days_in_month(i64 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #1 {
+define hidden void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) initializes((0, 8)) %4) local_unnamed_addr #1 {
   %6 = and i64 %0, 3
   %7 = icmp eq i64 %6, 0
   br i1 %7, label %8, label %13
@@ -349,7 +349,7 @@ timelib_day_of_week.exit65:                       ; preds = %58, %60
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @timelib_isodate_from_date(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
+define hidden void @timelib_isodate_from_date(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #1 {
   tail call void @timelib_isoweek_from_date(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %4, ptr noundef %3)
   %7 = srem i64 %0, 400
   %8 = srem i64 %0, 100
@@ -449,7 +449,7 @@ timelib_day_of_week.exit:                         ; preds = %8, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @timelib_date_from_isodate(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #2 {
+define hidden void @timelib_date_from_isodate(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #2 {
   %7 = srem i64 %0, 400
   %8 = srem i64 %0, 100
   %9 = and i64 %0, 3

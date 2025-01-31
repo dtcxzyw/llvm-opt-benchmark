@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [41 x i8] c"DECOMPRESSING INPUT OF LEN %lu OUTPUT %u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
+define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #0 {
   %5 = alloca %struct.z_stream_s, align 8
   store ptr null, ptr %2, align 8
   store i64 0, ptr %3, align 8
@@ -119,7 +119,7 @@ define internal noundef zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @zlib_decompress(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2, i64 noundef %3) #0 {
+define internal noundef zeroext i1 @zlib_decompress(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2, i64 noundef %3) #0 {
   store i64 0, ptr %1, align 8
   %.0.copyload = load i32, ptr %2, align 1
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_pcompress_base_framework, i64 76), align 4
@@ -152,15 +152,15 @@ define internal noundef zeroext i1 @zlib_decompress(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @compress_string(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define internal noundef zeroext i1 @compress_string(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %5 = and i64 %4, 4294967295
-  %6 = tail call zeroext i1 @zlib_compress(ptr noundef %0, i64 noundef %5, ptr noundef %1, ptr noundef %2)
+  %6 = tail call zeroext i1 @zlib_compress(ptr noundef nonnull %0, i64 noundef %5, ptr noundef %1, ptr noundef %2)
   ret i1 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @decompress_string(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal noundef zeroext i1 @decompress_string(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2) #0 {
   %.0.copyload = load i32, ptr %1, align 1
   %4 = icmp eq i32 %.0.copyload, -1
   br i1 %4, label %5, label %6
@@ -193,7 +193,7 @@ define internal noundef zeroext i1 @decompress_string(ptr nocapture noundef init
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @deflateInit_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -207,18 +207,18 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @doit(ptr nocapture noundef writeonly initializes((0, 8)) %0, i64 noundef range(i64 0, 4294967296) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @doit(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i64 noundef range(i64 0, 4294967296) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.z_stream_s, align 8
   store ptr null, ptr %0, align 8
   %calloc = tail call ptr @calloc(i64 1, i64 %1)

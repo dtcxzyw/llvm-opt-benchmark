@@ -82,7 +82,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_write_newc_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_newc_options(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(11) @.str.4) #12
@@ -262,7 +262,7 @@ define internal range(i32 -30, 1) i32 @archive_write_newc_close(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @archive_write_newc_free(ptr nocapture noundef %0) #3 {
+define internal noundef i32 @archive_write_newc_free(ptr noundef captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #10
@@ -271,7 +271,7 @@ define internal noundef i32 @archive_write_newc_free(ptr nocapture noundef %0) #
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @archive_string_conversion_to_charset(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -556,7 +556,7 @@ declare ptr @archive_entry_pathname(ptr noundef) local_unnamed_addr #1
 declare ptr @archive_string_conversion_charset_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i64 @archive_entry_devmajor(ptr noundef) local_unnamed_addr #1
 
@@ -585,14 +585,14 @@ declare i32 @_archive_entry_symlink_l(ptr noundef, ptr noundef, ptr noundef, ptr
 declare ptr @archive_entry_symlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @__archive_write_output(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @archive_entry_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: write) uwtable
-define internal fastcc range(i64 0, 4294967296) i64 @format_hex_recursive(i64 noundef range(i64 0, 4294967296) %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 9) %2) unnamed_addr #7 {
+define internal fastcc range(i64 0, 4294967296) i64 @format_hex_recursive(i64 noundef range(i64 0, 4294967296) %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef range(i32 0, 9) %2) unnamed_addr #7 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %common.ret9, label %5
 
@@ -619,7 +619,7 @@ declare void @archive_entry_set_nlink(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @archive_entry_set_pathname(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @__archive_write_nulls(ptr noundef, i64 noundef) local_unnamed_addr #1
 

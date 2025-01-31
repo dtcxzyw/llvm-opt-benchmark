@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.44 = private unnamed_addr constant [5 x i8] c"none\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regprocin(ptr nocapture noundef %0) #0 {
+define dso_local range(i64 0, 4294967296) i64 @regprocin(ptr noundef captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -262,7 +262,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_regproc(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @to_regproc(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -293,12 +293,12 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #2
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare zeroext i1 @DirectInputFunctionCallSafe(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regprocout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regprocout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -411,7 +411,7 @@ define dso_local i64 @regprocsend(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @oidsend(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regprocedurein(ptr nocapture noundef %0) #0 {
+define dso_local range(i64 0, 4294967296) i64 @regprocedurein(ptr noundef captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -522,7 +522,7 @@ parseDashOrOid.exit.thread:                       ; preds = %parseDashOrOid.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parseNameAndArgTypes(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = tail call ptr @pstrdup(ptr noundef %0) #9
@@ -774,7 +774,7 @@ split:                                            ; preds = %.thread96
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_regprocedure(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @to_regprocedure(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -929,7 +929,7 @@ declare ptr @format_type_be_qualified(i32 noundef) local_unnamed_addr #2
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @format_procedure_parts(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @format_procedure_parts(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i32 %0 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 45, i64 noundef %5) #9
   %.not = icmp eq ptr %6, null
@@ -997,7 +997,7 @@ declare ptr @get_namespace_name_or_temp(i32 noundef) local_unnamed_addr #2
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regprocedureout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regprocedureout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1031,7 +1031,7 @@ define dso_local i64 @regproceduresend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regoperin(ptr nocapture noundef %0) #0 {
+define dso_local range(i64 0, 4294967296) i64 @regoperin(ptr noundef captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1124,7 +1124,7 @@ define dso_local range(i64 0, 4294967296) i64 @regoperin(ptr nocapture noundef %
 declare ptr @OpernameGetCandidates(ptr noundef, i8 noundef signext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_regoper(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @to_regoper(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1151,7 +1151,7 @@ define dso_local i64 @to_regoper(ptr nocapture noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regoperout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regoperout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1216,7 +1216,7 @@ define dso_local i64 @regoperout(ptr nocapture noundef readonly %0) local_unname
   %43 = add i64 %41, 2
   %44 = add i64 %43, %42
   %45 = tail call ptr @palloc(i64 noundef %44) #9
-  %46 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %45, ptr noundef nonnull @.str.13, ptr noundef %40, ptr noundef nonnull %18) #9
+  %46 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %45, ptr noundef nonnull @.str.13, ptr noundef nonnull %40, ptr noundef nonnull %18) #9
   br label %47
 
 47:                                               ; preds = %34, %36, %21
@@ -1238,7 +1238,7 @@ define dso_local i64 @regoperout(ptr nocapture noundef readonly %0) local_unname
 declare ptr @quote_identifier(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -1255,7 +1255,7 @@ define dso_local i64 @regopersend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr nocapture noundef %0) #0 {
+define dso_local range(i64 0, 4294967296) i64 @regoperatorin(ptr noundef captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
@@ -1368,7 +1368,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #2
 declare i32 @OpernameGetOprid(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_regoperator(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @to_regoperator(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1520,7 +1520,7 @@ define dso_local ptr @format_operator_qualified(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @format_operator_parts(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @format_operator_parts(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i32 %0 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 38, i64 noundef %5) #9
   %.not = icmp eq ptr %6, null
@@ -1584,7 +1584,7 @@ define dso_local void @format_operator_parts(i32 noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regoperatorout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regoperatorout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1618,7 +1618,7 @@ define dso_local i64 @regoperatorsend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regclassin(ptr nocapture noundef %0) #0 {
+define dso_local range(i64 0, 4294967296) i64 @regclassin(ptr noundef captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1714,7 +1714,7 @@ declare ptr @makeRangeVarFromNameList(ptr noundef) local_unnamed_addr #2
 declare ptr @NameListToString(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_regclass(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @to_regclass(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1741,7 +1741,7 @@ define dso_local i64 @to_regclass(ptr nocapture noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regclassout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regclassout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1820,7 +1820,7 @@ define dso_local i64 @regclasssend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regcollationin(ptr nocapture noundef %0) #0 {
+define dso_local range(i64 0, 4294967296) i64 @regcollationin(ptr noundef captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1914,7 +1914,7 @@ declare i32 @get_collation_oid(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 declare ptr @GetDatabaseEncodingName() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_regcollation(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @to_regcollation(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1941,7 +1941,7 @@ define dso_local i64 @to_regcollation(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regcollationout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regcollationout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2020,7 +2020,7 @@ define dso_local i64 @regcollationsend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regtypein(ptr nocapture noundef readonly %0) #0 {
+define dso_local range(i64 0, 4294967296) i64 @regtypein(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -2090,7 +2090,7 @@ parseDashOrOid.exit.thread:                       ; preds = %.tail.i, %parseDash
 declare zeroext i1 @parseTypeString(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_regtype(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @to_regtype(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2117,7 +2117,7 @@ define dso_local i64 @to_regtype(ptr nocapture noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regtypeout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regtypeout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2183,7 +2183,7 @@ define dso_local i64 @regtypesend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regconfigin(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @regconfigin(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2274,7 +2274,7 @@ parseDashOrOid.exit.thread:                       ; preds = %parseDashOrOid.exit
 declare i32 @get_ts_config_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regconfigout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regconfigout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2340,7 +2340,7 @@ define dso_local i64 @regconfigsend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regdictionaryin(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @regdictionaryin(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2431,7 +2431,7 @@ parseDashOrOid.exit.thread:                       ; preds = %parseDashOrOid.exit
 declare i32 @get_ts_dict_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regdictionaryout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regdictionaryout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2497,7 +2497,7 @@ define dso_local i64 @regdictionarysend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regrolein(ptr nocapture noundef %0) #0 {
+define dso_local range(i64 0, 4294967296) i64 @regrolein(ptr noundef captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2612,7 +2612,7 @@ parseDashOrOid.exit.thread:                       ; preds = %parseDashOrOid.exit
 declare i32 @get_role_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_regrole(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @to_regrole(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2639,7 +2639,7 @@ define dso_local i64 @to_regrole(ptr nocapture noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regroleout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regroleout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2686,7 +2686,7 @@ define dso_local i64 @regrolesend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @regnamespacein(ptr nocapture noundef %0) #0 {
+define dso_local range(i64 0, 4294967296) i64 @regnamespacein(ptr noundef captures(none) %0) #0 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -2801,7 +2801,7 @@ parseDashOrOid.exit.thread:                       ; preds = %parseDashOrOid.exit
 declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @to_regnamespace(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @to_regnamespace(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca %struct.ErrorSaveContext, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2828,7 +2828,7 @@ define dso_local i64 @to_regnamespace(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @regnamespaceout(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @regnamespaceout(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -2873,7 +2873,7 @@ define dso_local i64 @regnamespacesend(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @text_regclass(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @text_regclass(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -2894,7 +2894,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 declare void @list_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i64 @oidin(ptr noundef) #2
 
@@ -2906,13 +2906,13 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

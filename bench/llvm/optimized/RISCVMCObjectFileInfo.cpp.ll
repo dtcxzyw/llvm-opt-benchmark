@@ -12,7 +12,7 @@ $_ZN4llvm21RISCVMCObjectFileInfoD0Ev = comdat any
 @_ZTVN4llvm21RISCVMCObjectFileInfoE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZN4llvm21RISCVMCObjectFileInfoD2Ev, ptr @_ZN4llvm21RISCVMCObjectFileInfoD0Ev, ptr @_ZNK4llvm21RISCVMCObjectFileInfo23getTextSectionAlignmentEv] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 2, 5) i32 @_ZN4llvm21RISCVMCObjectFileInfo23getTextSectionAlignmentERKNS_15MCSubtargetInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 2, 5) i32 @_ZN4llvm21RISCVMCObjectFileInfo23getTextSectionAlignmentERKNS_15MCSubtargetInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 17592186044416
@@ -27,7 +27,7 @@ define dso_local noundef range(i32 2, 5) i32 @_ZN4llvm21RISCVMCObjectFileInfo23g
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 2, 5) i32 @_ZNK4llvm21RISCVMCObjectFileInfo23getTextSectionAlignmentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %0) unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 2, 5) i32 @_ZNK4llvm21RISCVMCObjectFileInfo23getTextSectionAlignmentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(912) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176

@@ -101,7 +101,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17expr_substitution4initEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17expr_substitution4initEv(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_proofs_enabled.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %bf.load.i = load i8, ptr %m_proofs_enabled.i, align 8
@@ -627,7 +627,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN17expr_substitution7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN17expr_substitution7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_pp, align 8
   %ref.tmp9 = alloca %struct.mk_pp, align 8
@@ -1410,7 +1410,7 @@ if.end23:                                         ; preds = %for.body.i.i.i60, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef readonly %c, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %def, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %def_pr) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %c, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def_pr) local_unnamed_addr #7 align 2 {
 entry:
   %m_subst = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 12
@@ -1563,7 +1563,7 @@ return:                                           ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3appRPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef readonly %c, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %def, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %def_pr, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %def_dep) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3appRPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %c, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def_pr, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def_dep) local_unnamed_addr #7 align 2 {
 entry:
   %m_subst = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 12
@@ -1794,7 +1794,7 @@ return:                                           ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17expr_substitution8containsEP4expr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef readonly %s) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN17expr_substitution8containsEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %s) local_unnamed_addr #8 align 2 {
 entry:
   %m_subst = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -2664,7 +2664,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2710,10 +2710,10 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataEE10default_eqIS6_EE24insert_if_not_there_coreEOS6_RPS4_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(16) %e, ptr noundef nonnull align 8 dereferenceable(8) %et) local_unnamed_addr #3 comdat align 2 {
@@ -4599,10 +4599,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

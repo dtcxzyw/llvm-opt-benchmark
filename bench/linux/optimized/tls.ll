@@ -185,10 +185,10 @@ define dso_local range(i32 -22, 1) i32 @do_set_thread_area(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(read)
 declare i64 @llvm.read_register.i64(metadata) #3
@@ -197,10 +197,10 @@ declare i64 @llvm.read_register.i64(metadata) #3
 declare void @llvm.write_register.i64(metadata, i64) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @set_tls_desc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 268435456) %3) unnamed_addr #0 align 16 {
+define internal fastcc void @set_tls_desc(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 268435456) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2816
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !20
@@ -405,7 +405,7 @@ define internal fastcc void @load_gs_index(i32 noundef range(i32 3, 65532) %0) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__x64_sys_set_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__x64_sys_set_thread_area(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -417,7 +417,7 @@ define dso_local range(i64 -22, 1) i64 @__x64_sys_set_thread_area(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__ia32_sys_set_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__ia32_sys_set_thread_area(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -430,7 +430,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_sys_set_thread_area(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @do_get_thread_area(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @do_get_thread_area(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.user_desc, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
   %5 = icmp eq i32 %1, -1
@@ -522,7 +522,7 @@ define dso_local range(i32 -22, 1) i32 @do_get_thread_area(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__x64_sys_get_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__x64_sys_get_thread_area(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -534,7 +534,7 @@ define dso_local range(i64 -22, 1) i64 @__x64_sys_get_thread_area(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -22, 1) i64 @__ia32_sys_get_thread_area(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -22, 1) i64 @__ia32_sys_get_thread_area(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -547,7 +547,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_sys_get_thread_area(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @regset_tls_active(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 align 16 {
+define dso_local i32 @regset_tls_active(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   br label %4
 
@@ -576,7 +576,7 @@ define dso_local i32 @regset_tls_active(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef i32 @regset_tls_get(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture writeonly %2, i64 %3) local_unnamed_addr #7 align 16 {
+define dso_local noundef i32 @regset_tls_get(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr writeonly captures(none) %2, i64 %3) local_unnamed_addr #7 align 16 {
   %5 = alloca %struct.user_desc, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %6 = icmp eq i64 %3, 0
@@ -654,7 +654,7 @@ define dso_local noundef i32 @regset_tls_get(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @regset_tls_set(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @regset_tls_set(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca [3 x %struct.user_desc], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
   %8 = icmp ult i32 %2, 48
@@ -745,7 +745,7 @@ define dso_local noundef range(i32 -22, 1) i32 @regset_tls_set(ptr noundef %0, p
 declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10

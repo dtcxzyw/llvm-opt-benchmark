@@ -315,7 +315,7 @@ if.else191:                                       ; preds = %if.end184
 
 if.else198:                                       ; preds = %if.end121, %if.end152, %if.then174
   %15 = phi ptr [ %7, %if.end121 ], [ %9, %if.end152 ], [ %10, %if.then174 ]
-  %call199 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %15, ptr noundef nonnull %enc_cipher) #4
+  %call199 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef nonnull %15, ptr noundef nonnull %enc_cipher) #4
   %tobool200.not = icmp eq i32 %call199, 0
   br i1 %tobool200.not, label %if.then244, label %if.end202
 
@@ -470,7 +470,7 @@ declare i32 @ERR_peek_last_error() local_unnamed_addr #1
 declare void @ERR_clear_error() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @d2i_X509(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -485,7 +485,7 @@ declare ptr @d2i_RSAPrivateKey(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare ptr @X509_PKEY_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @d2i_DSAPrivateKey(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -498,7 +498,7 @@ declare i32 @PEM_do_header(ptr noundef, ptr noundef, ptr noundef, ptr noundef, p
 declare ptr @d2i_PrivateKey(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @X509_INFO_free(ptr noundef) local_unnamed_addr #1
 

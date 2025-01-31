@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @can_bus_remove_client(ptr nocapture noundef %client) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @can_bus_remove_client(ptr noundef captures(none) %client) local_unnamed_addr #1 {
 entry:
   %bus1 = getelementptr inbounds nuw i8, ptr %client, i64 8
   %0 = load ptr, ptr %bus1, align 8
@@ -148,7 +148,7 @@ return:                                           ; preds = %if.end, %for.end.lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @can_bus_filter_match(ptr nocapture noundef readonly %filter, i32 noundef %can_id) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @can_bus_filter_match(ptr noundef readonly captures(none) %filter, i32 noundef %can_id) local_unnamed_addr #3 {
 entry:
   %can_mask = getelementptr inbounds nuw i8, ptr %filter, i64 4
   %0 = load i32, ptr %can_mask, align 4
@@ -179,7 +179,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef i32 @can_bus_client_set_filters(ptr nocapture noundef readnone %client, ptr nocapture noundef readnone %filters, i64 noundef %filters_cnt) local_unnamed_addr #0 {
+define dso_local noundef i32 @can_bus_client_set_filters(ptr noundef readnone captures(none) %client, ptr noundef readnone captures(none) %filters, i64 noundef %filters_cnt) local_unnamed_addr #0 {
 entry:
   ret i32 0
 }
@@ -213,7 +213,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @can_bus_class_init(ptr noundef %klass, ptr nocapture readnone %class_data) #2 {
+define internal void @can_bus_class_init(ptr noundef %klass, ptr readnone captures(none) %class_data) #2 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #7
   %can_be_deleted = getelementptr inbounds nuw i8, ptr %call.i, i64 120
@@ -222,7 +222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @can_bus_can_be_deleted(ptr nocapture readnone %uc) #0 {
+define internal noundef zeroext i1 @can_bus_can_be_deleted(ptr readnone captures(none) %uc) #0 {
 entry:
   ret i1 false
 }
@@ -230,7 +230,7 @@ entry:
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

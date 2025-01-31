@@ -40,7 +40,7 @@ define dso_local void @idt_setup_early_traps() local_unnamed_addr #1 section ".i
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @idt_setup_from_table(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 20) %1) unnamed_addr #1 section ".init.text" align 16 {
+define internal fastcc void @idt_setup_from_table(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 20) %1) unnamed_addr #1 section ".init.text" align 16 {
   br label %3
 
 3:                                                ; preds = %2, %3

@@ -381,7 +381,7 @@ declare void @snd_pcm_format_mask_free(ptr noundef) local_unnamed_addr #1
 declare i32 @snd_pcm_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @setStartThresholdNoCommit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @setStartThresholdNoCommit(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
   %. = select i1 %.not, i64 2000000000, i64 1
   %3 = load ptr, ptr %0, align 8
@@ -396,7 +396,7 @@ define hidden range(i32 0, 2) i32 @setStartThresholdNoCommit(ptr nocapture nound
 declare i32 @snd_pcm_sw_params_set_start_threshold(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @setStartThreshold(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @setStartThreshold(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq i32 %1, 0
   %..i = select i1 %.not.i, i64 2000000000, i64 1
   %3 = load ptr, ptr %0, align 8
@@ -422,7 +422,7 @@ define hidden range(i32 0, 2) i32 @setStartThreshold(ptr nocapture noundef reado
 declare i32 @snd_pcm_sw_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @setHWParams(ptr nocapture noundef readonly %0, float noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @setHWParams(ptr noundef readonly captures(none) %0, float noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -537,7 +537,7 @@ declare i32 @snd_pcm_hw_params_set_periods_near(ptr noundef, ptr noundef, ptr no
 declare i32 @snd_pcm_hw_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @setSWParams(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @setSWParams(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -716,7 +716,7 @@ DAUDIO_Close.exit:                                ; preds = %69, %72
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @snd_pcm_nonblock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -787,7 +787,7 @@ define hidden void @DAUDIO_Close(ptr noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DAUDIO_Start(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DAUDIO_Start(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @snd_pcm_nonblock(ptr noundef %3, i32 noundef 0) #8
   %5 = load ptr, ptr %0, align 8
@@ -866,7 +866,7 @@ declare i32 @snd_pcm_resume(ptr noundef) local_unnamed_addr #1
 declare i32 @snd_pcm_start(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DAUDIO_Stop(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DAUDIO_Stop(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @snd_pcm_nonblock(ptr noundef %3, i32 noundef 0) #8
   %5 = load ptr, ptr %0, align 8
@@ -905,10 +905,10 @@ declare void @snd_pcm_sw_params_free(ptr noundef) local_unnamed_addr #1
 declare void @snd_pcm_status_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @xrun_recovery(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @xrun_recovery(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   switch i32 %1, label %15 [
     i32 -32, label %3
     i32 -86, label %6
@@ -949,7 +949,7 @@ define hidden range(i32 -1, 2) i32 @xrun_recovery(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DAUDIO_Write(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @DAUDIO_Write(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %xrun_recovery.exit.thread, label %5
 
@@ -1033,7 +1033,7 @@ xrun_recovery.exit.thread:                        ; preds = %27, %18, %xrun_reco
 declare i64 @snd_pcm_writei(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DAUDIO_Read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @DAUDIO_Read(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %xrun_recovery.exit.thread, label %5
 
@@ -1120,14 +1120,14 @@ xrun_recovery.exit.thread:                        ; preds = %33, %24, %xrun_reco
 declare i64 @snd_pcm_readi(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @DAUDIO_GetBufferSize(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden i32 @DAUDIO_GetBufferSize(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DAUDIO_StillDraining(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DAUDIO_StillDraining(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @snd_pcm_state(ptr noundef %3) #8
   %5 = icmp eq i32 %4, 3
@@ -1136,7 +1136,7 @@ define hidden range(i32 0, 2) i32 @DAUDIO_StillDraining(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DAUDIO_Flush(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DAUDIO_Flush(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %4 = load i16, ptr %3, align 2
   %.not = icmp eq i16 %4, 0
@@ -1167,7 +1167,7 @@ define hidden range(i32 0, 2) i32 @DAUDIO_Flush(ptr nocapture noundef %0, i32 no
 declare i32 @snd_pcm_drop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @DAUDIO_GetAvailable(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden i32 @DAUDIO_GetAvailable(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @snd_pcm_state(ptr noundef %3) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 50
@@ -1203,7 +1203,7 @@ define hidden i32 @DAUDIO_GetAvailable(ptr nocapture noundef readonly %0, i32 no
 declare i64 @snd_pcm_avail_update(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @estimatePositionFromAvail(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden i64 @estimatePositionFromAvail(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %12, label %5
 
@@ -1227,7 +1227,7 @@ define hidden i64 @estimatePositionFromAvail(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @DAUDIO_GetBytePosition(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i64 @DAUDIO_GetBytePosition(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 @snd_pcm_state(ptr noundef %4) #8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 50
@@ -1279,17 +1279,17 @@ declare i32 @snd_pcm_status(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i64 @snd_pcm_status_get_avail(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @DAUDIO_SetBytePosition(ptr nocapture noundef readnone %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @DAUDIO_SetBytePosition(ptr noundef readnone captures(none) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @DAUDIO_RequiresServicing(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden noundef i32 @DAUDIO_RequiresServicing(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @DAUDIO_Service(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden void @DAUDIO_Service(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   ret void
 }
 

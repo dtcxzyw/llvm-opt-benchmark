@@ -1013,7 +1013,7 @@ declare i32 @PMPI_Comm_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PMPI_Comm_rank(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Calc_bounds(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define void @ADIOI_Calc_bounds(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -1406,7 +1406,7 @@ declare i32 @ADIOI_Build_agg_reqs(ptr noundef, i32 noundef, i32 noundef, ptr nou
 declare i32 @ADIOI_Build_client_pre_req(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Exch_data_amounts(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc void @Exch_data_amounts(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.ompi_status_public_t, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 136

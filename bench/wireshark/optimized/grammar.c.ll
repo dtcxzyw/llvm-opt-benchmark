@@ -37,7 +37,7 @@ define hidden void @DfilterInit(ptr noundef initializes((8, 12)) %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DfilterAlloc(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden ptr @DfilterAlloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr %0(i64 noundef 1632) #5
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -83,7 +83,7 @@ define hidden void @DfilterFinalize(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DfilterFree(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define hidden void @DfilterFree(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %15, label %4
 
@@ -1279,7 +1279,7 @@ yy_parse_failed.exit:                             ; preds = %.lr.ph.i41, %624
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @yy_destructor(i8 noundef zeroext %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @yy_destructor(i8 noundef zeroext %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   switch i8 %0, label %13 [
     i8 1, label %3
     i8 2, label %3
@@ -1455,10 +1455,10 @@ declare void @st_funcparams_free(ptr noundef) local_unnamed_addr #3
 declare void @set_nodelist_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

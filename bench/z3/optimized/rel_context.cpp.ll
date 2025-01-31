@@ -1958,7 +1958,7 @@ declare noundef zeroext i1 @_ZN6memory20above_high_watermarkEv() local_unnamed_a
 declare void @_ZN7datalog7context24record_transformed_rulesEv(ptr noundef nonnull align 8 dereferenceable(3556)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN7datalog11rel_context5queryEjPKP9func_decl(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %num_rels, ptr nocapture noundef readonly %rels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN7datalog11rel_context5queryEjPKP9func_decl(ptr noundef nonnull align 8 dereferenceable(432) %this, i32 noundef %num_rels, ptr noundef readonly captures(none) %rels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i.i = alloca ptr, align 8
   %ref.tmp2.i = alloca %class.symbol, align 8
@@ -2632,7 +2632,7 @@ ehcleanup79:                                      ; preds = %lpad.loopexit68, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog11rel_context22setup_default_relationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog11rel_context22setup_default_relationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp2 = alloca %class.symbol, align 8
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -3894,7 +3894,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog11rel_context15transform_rulesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog11rel_context15transform_rulesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %transf = alloca %"class.datalog::rule_transformer", align 8
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -4461,7 +4461,7 @@ declare void @_ZN7datalog7context15transform_rulesERNS_16rule_transformerE(ptr n
 declare void @_ZN7datalog16rule_transformerD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog11rel_context12try_get_sizeEP9func_declRj(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef %p, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %rel_size) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog11rel_context12try_get_sizeEP9func_declRj(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef %p, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %rel_size) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 216
@@ -5293,7 +5293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog11rel_context14output_profileEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog11rel_context14output_profileEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %this) unnamed_addr #3 align 2 {
 entry:
   %m_context = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_context, align 8
@@ -5304,7 +5304,7 @@ entry:
 declare noundef zeroext i1 @_ZNK7datalog7context14output_profileEv(ptr noundef nonnull align 8 dereferenceable(3556)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog11rel_context28set_predicate_representationEP9func_decljPK6symbol(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef %pred, i32 noundef %relation_name_cnt, ptr nocapture noundef readonly %relation_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog11rel_context28set_predicate_representationEP9func_decljPK6symbol(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef %pred, i32 noundef %relation_name_cnt, ptr noundef readonly captures(none) %relation_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rel_kinds = alloca %"struct.datalog::rel_spec", align 8
   %rel_sig = alloca %"class.datalog::relation_signature", align 8
@@ -5779,7 +5779,7 @@ invoke.cont4:                                     ; preds = %if.end
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7datalog11rel_context20result_contains_factERKNS_13relation_factE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN7datalog11rel_context20result_contains_factERKNS_13relation_factE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(16) %f) unnamed_addr #3 align 2 {
 entry:
   %m_last_result_relation = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %m_last_result_relation, align 8
@@ -8396,7 +8396,7 @@ _ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6vectorIP4sortLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -10187,7 +10187,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -10962,10 +10962,10 @@ declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #18
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18

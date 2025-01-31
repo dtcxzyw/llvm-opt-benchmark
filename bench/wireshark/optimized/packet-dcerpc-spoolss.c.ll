@@ -1870,7 +1870,7 @@ define internal i32 @dissect_DEVMODE(ptr noundef %0, i32 noundef %1, ptr noundef
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #6
   %28 = trunc i64 %27 to i32
   %29 = shl i32 %28, 1
-  %30 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef %.026.i, i32 noundef %29, ptr noundef %26) #5
+  %30 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %18, ptr noundef %0, i32 noundef %.026.i, i32 noundef %29, ptr noundef nonnull %26) #5
   br label %dissect_spoolss_uint16uni.exit
 
 dissect_spoolss_uint16uni.exit:                   ; preds = %13, %23
@@ -1976,7 +1976,7 @@ dissect_DEVMODE_fields.exit:                      ; preds = %dissect_spoolss_uin
   %107 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %106) #6
   %108 = trunc i64 %107 to i32
   %109 = shl i32 %108, 1
-  %110 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %98, ptr noundef %0, i32 noundef %.026.i238, i32 noundef %109, ptr noundef %106) #5
+  %110 = call ptr @proto_tree_add_string(ptr noundef %15, i32 noundef %98, ptr noundef %0, i32 noundef %.026.i238, i32 noundef %109, ptr noundef nonnull %106) #5
   br label %dissect_spoolss_uint16uni.exit240
 
 dissect_spoolss_uint16uni.exit240:                ; preds = %87, %103
@@ -2756,7 +2756,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2835,7 +2835,7 @@ define internal i32 @dissect_NOTIFY_OPTION_DATA(ptr noundef %0, i32 noundef %1, 
   %.02122 = phi i32 [ %22, %dissect_notify_field.exit ], [ %15, %11 ]
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
   %21 = load i32, ptr @hf_notify_field, align 4
-  %22 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.02122, ptr noundef %2, ptr noundef null, ptr noundef %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %7) #5
+  %22 = call i32 @dissect_ndr_uint16(ptr noundef %0, i32 noundef %.02122, ptr noundef %2, ptr noundef null, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %21, ptr noundef nonnull %7) #5
   switch i16 %19, label %dissect_notify_field.exit [
     i16 0, label %.sink.split.i
     i16 1, label %23
@@ -2916,7 +2916,7 @@ define internal i32 @dissect_notify_info_data_buffer(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cb_notify_str_postprocess(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
+define internal void @cb_notify_str_postprocess(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) #0 {
   %9 = ptrtoint ptr %7 to i64
   %10 = trunc i64 %9 to i32
   %11 = srem i32 %5, 4
@@ -2993,7 +2993,7 @@ define internal i32 @dissect_SYSTEM_TIME_ptr(ptr noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @notify_job_time_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4, i32 %5, i32 %6, ptr nocapture readnone %7) #0 {
+define internal void @notify_job_time_cb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, i32 %5, i32 %6, ptr readnone captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 80
@@ -4777,7 +4777,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %17, %20
   %.04042 = phi i32 [ 0, %.lr.ph ], [ %37, %34 ]
   %35 = load ptr, ptr %7, align 8
   %36 = load ptr, ptr %33, align 8
-  %37 = call fastcc i32 @dissect_FORM_REL(ptr noundef %35, i32 noundef %.04042, ptr noundef %2, ptr noundef %36, ptr noundef %4, ptr noundef %5, i32 noundef %.04042)
+  %37 = call fastcc i32 @dissect_FORM_REL(ptr noundef %35, i32 noundef %.04042, ptr noundef %2, ptr noundef %36, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %.04042)
   %38 = add nuw i32 %.043, 1
   %39 = load i32, ptr %8, align 4
   %40 = icmp ult i32 %38, %39
@@ -4785,7 +4785,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %17, %20
 
 ._crit_edge:                                      ; preds = %34, %proto_item_set_hidden.exit
   %41 = load i32, ptr @hf_rc, align 4
-  %42 = call i32 @dissect_doserror(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #5
+  %42 = call i32 @dissect_doserror(ptr noundef %0, i32 noundef %31, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %41, ptr noundef null) #5
   ret i32 %42
 }
 
@@ -5450,7 +5450,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %12, %15
   %36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #6
   %37 = trunc i64 %36 to i32
   %38 = shl i32 %37, 1
-  %39 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef %.026.i, i32 noundef %38, ptr noundef %35) #5
+  %39 = call ptr @proto_tree_add_string(ptr noundef %20, i32 noundef %25, ptr noundef %0, i32 noundef %.026.i, i32 noundef %38, ptr noundef nonnull %35) #5
   br label %dissect_spoolss_uint16uni.exit
 
 dissect_spoolss_uint16uni.exit:                   ; preds = %32, %34
@@ -5908,7 +5908,7 @@ proto_item_set_hidden.exit:                       ; preds = %6, %19, %22
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %55) #6
   %57 = trunc i64 %56 to i32
   %58 = shl i32 %57, 1
-  %59 = call ptr @proto_tree_add_string(ptr noundef null, i32 noundef %46, ptr noundef %0, i32 noundef %.026.i.i, i32 noundef %58, ptr noundef %55) #5
+  %59 = call ptr @proto_tree_add_string(ptr noundef null, i32 noundef %46, ptr noundef %0, i32 noundef %.026.i.i, i32 noundef %58, ptr noundef nonnull %55) #5
   br label %dissect_spoolss_uint16uni.exit.i
 
 dissect_spoolss_uint16uni.exit.i:                 ; preds = %54, %52
@@ -5930,7 +5930,7 @@ dissect_spoolss_uint16uni.exit.i:                 ; preds = %54, %52
   %74 = trunc i64 %73 to i32
   %75 = shl i32 %74, 1
   %76 = add i32 %75, 2
-  %77 = call ptr @proto_tree_add_string(ptr noundef %61, i32 noundef %70, ptr noundef %0, i32 noundef %72, i32 noundef %76, ptr noundef %.091.i) #5
+  %77 = call ptr @proto_tree_add_string(ptr noundef %61, i32 noundef %70, ptr noundef %0, i32 noundef %72, i32 noundef %76, ptr noundef nonnull %.091.i) #5
   %78 = load i32, ptr @hf_printerdata_type, align 4
   %79 = call i32 @dissect_ndr_uint32(ptr noundef %0, i32 noundef %43, ptr noundef nonnull %2, ptr noundef %61, ptr noundef %4, ptr noundef %5, i32 noundef %78, ptr noundef nonnull %11) #5
   %80 = load i32, ptr @hf_enumprinterdataex_val_offset, align 4
@@ -6001,7 +6001,7 @@ dissect_spoolss_uint16uni.exit.i:                 ; preds = %54, %52
   %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #6
   %125 = trunc i64 %124 to i32
   %126 = shl i32 %125, 1
-  %127 = call ptr @proto_tree_add_string(ptr noundef %61, i32 noundef %114, ptr noundef %0, i32 noundef %.026.i85.i, i32 noundef %126, ptr noundef %123) #5
+  %127 = call ptr @proto_tree_add_string(ptr noundef %61, i32 noundef %114, ptr noundef %0, i32 noundef %.026.i85.i, i32 noundef %126, ptr noundef nonnull %123) #5
   br label %dissect_spoolss_uint16uni.exit87.i
 
 dissect_spoolss_uint16uni.exit87.i:               ; preds = %122, %120
@@ -6027,7 +6027,7 @@ dissect_spoolss_uint16uni.exit87.i:               ; preds = %122, %120
 139:                                              ; preds = %91
   %140 = load i32, ptr %9, align 4
   %141 = add i32 %140, %.04648
-  %142 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %61, ptr noundef nonnull %2, ptr noundef nonnull @ei_enumprinterdataex_value, ptr noundef %0, i32 noundef %141, i32 noundef %84, ptr noundef nonnull @.str.1259, ptr noundef %.091.i, i32 noundef %92) #5
+  %142 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %61, ptr noundef nonnull %2, ptr noundef nonnull @ei_enumprinterdataex_value, ptr noundef %0, i32 noundef %141, i32 noundef %84, ptr noundef nonnull @.str.1259, ptr noundef nonnull %.091.i, i32 noundef %92) #5
   br label %dissect_spoolss_printer_enum_values.exit
 
 dissect_spoolss_printer_enum_values.exit:         ; preds = %86, %93, %dissect_spoolss_uint16uni.exit87.i, %129, %134, %139
@@ -6184,7 +6184,7 @@ define internal i32 @SpoolssGetCorePrinterDrivers_r(ptr noundef %0, i32 noundef 
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #6
   %48 = trunc i64 %47 to i32
   %49 = shl i32 %48, 1
-  %50 = call ptr @proto_tree_add_string(ptr noundef %32, i32 noundef %39, ptr noundef %0, i32 noundef %.026.i.i, i32 noundef %49, ptr noundef %46) #5
+  %50 = call ptr @proto_tree_add_string(ptr noundef %32, i32 noundef %39, ptr noundef %0, i32 noundef %.026.i.i, i32 noundef %49, ptr noundef nonnull %46) #5
   br label %dissect_spoolss_uint16uni.exit.i
 
 dissect_spoolss_uint16uni.exit.i:                 ; preds = %44, %30
@@ -6254,7 +6254,7 @@ define internal i32 @SpoolssGetPrinterDriverPackagePath_r(ptr noundef %0, i32 no
 declare ptr @proto_tree_add_bitmask_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_spoolss_buffer_data(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
@@ -6505,7 +6505,7 @@ define internal fastcc i32 @dissect_spoolss_relstr(ptr noundef %0, i32 noundef %
   %27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #6
   %28 = trunc i64 %27 to i32
   %29 = shl i32 %28, 1
-  %30 = call ptr @proto_tree_add_string(ptr noundef null, i32 noundef %16, ptr noundef %0, i32 noundef %.026.i, i32 noundef %29, ptr noundef %26) #5
+  %30 = call ptr @proto_tree_add_string(ptr noundef null, i32 noundef %16, ptr noundef %0, i32 noundef %.026.i, i32 noundef %29, ptr noundef nonnull %26) #5
   %31 = add i32 %.026.i, 2
   %32 = add i32 %31, %29
   br label %dissect_spoolss_uint16uni.exit
@@ -6548,7 +6548,7 @@ dissect_spoolss_uint16uni.exit:                   ; preds = %25, %23, %33
   %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #6
   %56 = trunc i64 %55 to i32
   %57 = shl i32 %56, 1
-  %58 = call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %46, ptr noundef %0, i32 noundef %.026.i37, i32 noundef %57, ptr noundef %54) #5
+  %58 = call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %46, ptr noundef %0, i32 noundef %.026.i37, i32 noundef %57, ptr noundef nonnull %54) #5
   br label %dissect_spoolss_uint16uni.exit39
 
 dissect_spoolss_uint16uni.exit39:                 ; preds = %51, %45, %dissect_spoolss_uint16uni.exit
@@ -6824,7 +6824,7 @@ define internal fastcc i32 @dissect_spoolss_relstrarray(ptr noundef %0, i32 noun
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #6
   %30 = trunc i64 %29 to i32
   %31 = shl i32 %30, 1
-  %32 = call ptr @proto_tree_add_string(ptr noundef %12, i32 noundef %18, ptr noundef %0, i32 noundef %.026.i, i32 noundef %31, ptr noundef %28) #5
+  %32 = call ptr @proto_tree_add_string(ptr noundef %12, i32 noundef %18, ptr noundef %0, i32 noundef %.026.i, i32 noundef %31, ptr noundef nonnull %28) #5
   br label %dissect_spoolss_uint16uni.exit
 
 33:                                               ; preds = %8
@@ -7136,7 +7136,7 @@ define internal fastcc i32 @dissect_spoolss_keybuffer(ptr noundef %0, i32 nounde
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #6
   %36 = trunc i64 %35 to i32
   %37 = shl i32 %36, 1
-  %38 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %.026.i, i32 noundef %37, ptr noundef %34) #5
+  %38 = call ptr @proto_tree_add_string(ptr noundef %3, i32 noundef %26, ptr noundef %0, i32 noundef %.026.i, i32 noundef %37, ptr noundef nonnull %34) #5
   %39 = add nuw i32 %.026.i, 2
   %40 = add i32 %39, %37
   br label %dissect_spoolss_uint16uni.exit
@@ -7160,10 +7160,10 @@ declare i32 @dissect_ndr_uuid_t(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare i32 @dissect_ndr_uint64(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

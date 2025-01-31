@@ -27,7 +27,7 @@ $_ZTVSt18bad_variant_access = comdat any
 @.str.4 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK5folly17SocketOptionValue5asIntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK5folly17SocketOptionValue5asIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
@@ -48,10 +48,10 @@ _ZSt3getIiJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKSt7varia
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -101,7 +101,7 @@ _ZSt3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiS5_EERKT_RKSt7var
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly17SocketOptionValue6hasIntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5folly17SocketOptionValue6hasIntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_index.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i, align 8, !tbaa !7
@@ -112,10 +112,10 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly17SocketOptionValue9hasStringEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5folly17SocketOptionValue9hasStringEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_index.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i8, ptr %_M_index.i.i, align 8, !tbaa !7
@@ -124,7 +124,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly17SocketOptionValue8toStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly17SocketOptionValue8toStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i20 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -255,12 +255,12 @@ return:                                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %rhs) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %rhs) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
@@ -312,7 +312,7 @@ return:                                           ; preds = %if.end.i.i, %land.r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, i32 noundef %rhs) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %lhs, i32 noundef %rhs) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
@@ -324,7 +324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5follyeqERKNS_17SocketOptionValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %rhs) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i, align 8, !tbaa !7
@@ -356,7 +356,7 @@ return:                                           ; preds = %if.end.i.i, %land.r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %rhs) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %rhs) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_index.i.i.i.i = getelementptr inbounds nuw i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8, !tbaa !7
@@ -409,7 +409,7 @@ _ZN5follyeqERKNS_17SocketOptionValueES2_.exit:    ; preds = %if.end.i.i.i, %land
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, i32 noundef %rhs) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %lhs, i32 noundef %rhs) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_index.i.i.i.i = getelementptr inbounds nuw i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8, !tbaa !7
@@ -421,7 +421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %rhs) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5follyneERKNS_17SocketOptionValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %rhs) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_index.i.i.i.i = getelementptr inbounds nuw i8, ptr %lhs, i64 32
   %0 = load i8, ptr %_M_index.i.i.i.i, align 8, !tbaa !7
@@ -453,7 +453,7 @@ _ZN5follyeqERKNS_17SocketOptionValueERKNSt7__cxx1112basic_stringIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly8toAppendERKNS_17SocketOptionValueEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %val, ptr noundef %result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly8toAppendERKNS_17SocketOptionValueEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %val, ptr noundef %result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #15
@@ -527,7 +527,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5follylsERSoRKNS_17SocketOptionValueE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5follylsERSoRKNS_17SocketOptionValueE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %val) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #15
@@ -587,7 +587,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

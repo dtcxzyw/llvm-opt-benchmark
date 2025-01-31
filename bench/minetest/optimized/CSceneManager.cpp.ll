@@ -172,7 +172,7 @@ $_ZTIN3irr5scene10ISceneNodeE = comdat any
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManagerC2EPNS_5video12IVideoDriverEPNS_3gui14ICursorControlEPNS0_10IMeshCacheE(ptr noundef nonnull align 8 dereferenceable(572) initializes((0, 16), (48, 49), (56, 156)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver, ptr noundef %cursorControl, ptr noundef %cache) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManagerC2EPNS_5video12IVideoDriverEPNS_3gui14ICursorControlEPNS0_10IMeshCacheE(ptr noundef nonnull align 8 dereferenceable(572) initializes((0, 16), (48, 49), (56, 156)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %driver, ptr noundef %cursorControl, ptr noundef %cache) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -568,16 +568,16 @@ _ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backEOS4_.exit137: ; preds = %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @_ZN3irr2io11CAttributesC1EPNS_5video12IVideoDriverE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #4
 
@@ -969,7 +969,7 @@ _ZN3irr4core5arrayIPNS_5scene11IMeshLoaderEE9push_backEOS4_.exit132: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(572) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(572) initializes((0, 16)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -1407,7 +1407,7 @@ _ZN3irr5scene10ISceneNodeD2Ev.exit:               ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManager17clearDeletionListEv(ptr nocapture noundef nonnull align 8 dereferenceable(572) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManager17clearDeletionListEv(ptr noundef nonnull align 8 captures(none) dereferenceable(572) %this) local_unnamed_addr #0 align 2 {
 entry:
   %DeletionList = getelementptr inbounds nuw i8, ptr %this, i64 480
   %0 = load ptr, ptr %DeletionList, align 8, !tbaa !85
@@ -1545,7 +1545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene13CSceneManager7getMeshEPNS_2io9IReadFileE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this, ptr noundef %file) unnamed_addr #0 align 2 {
+define noundef ptr @_ZN3irr5scene13CSceneManager7getMeshEPNS_2io9IReadFileE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this, ptr noundef %file) unnamed_addr #0 align 2 {
 entry:
   %name = alloca %"class.irr::core::string", align 8
   %tobool.not = icmp eq ptr %file, null
@@ -1609,7 +1609,7 @@ return:                                           ; preds = %_ZN3irr4core6string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene13CSceneManager15getUncachedMeshEPNS_2io9IReadFileERKNS_4core6stringIcEES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %cachename) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN3irr5scene13CSceneManager15getUncachedMeshEPNS_2io9IReadFileERKNS_4core6stringIcEES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %cachename) local_unnamed_addr #0 align 2 {
 entry:
   %MeshLoaderList = getelementptr inbounds nuw i8, ptr %this, i64 448
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 456
@@ -1699,7 +1699,7 @@ if.end21:                                         ; preds = %if.else, %if.then20
 declare void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr5scene13CSceneManager14getVideoDriverEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this) unnamed_addr #7 align 2 {
+define noundef ptr @_ZN3irr5scene13CSceneManager14getVideoDriverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this) unnamed_addr #7 align 2 {
 entry:
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %Driver, align 8, !tbaa !40
@@ -1859,7 +1859,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @_ZN3irr5scene19CBillboardSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEERKNS6_11dimension2dIfEENS_5video6SColorESG_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(8), i32, i32) unnamed_addr #4
 
@@ -1935,7 +1935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK3irr5scene13CSceneManager15getActiveCameraEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this) unnamed_addr #7 align 2 {
+define noundef ptr @_ZNK3irr5scene13CSceneManager15getActiveCameraEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this) unnamed_addr #7 align 2 {
 entry:
   %ActiveCamera = getelementptr inbounds nuw i8, ptr %this, i64 512
   %0 = load ptr, ptr %ActiveCamera, align 8, !tbaa !97
@@ -1943,7 +1943,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManager15setActiveCameraEPNS0_16ICameraSceneNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(572) %this, ptr noundef %camera) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManager15setActiveCameraEPNS0_16ICameraSceneNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(572) %this, ptr noundef %camera) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %camera, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1990,25 +1990,25 @@ if.end9:                                          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN3irr5scene13CSceneManager6renderEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define void @_ZN3irr5scene13CSceneManager6renderEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZThn8_N3irr5scene13CSceneManager6renderEv(ptr nocapture readnone %this) unnamed_addr #9 align 2 {
+define void @_ZThn8_N3irr5scene13CSceneManager6renderEv(ptr readnone captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene13CSceneManager14getBoundingBoxEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #9 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene13CSceneManager14getBoundingBoxEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @_ZZNK3irr5scene13CSceneManager14getBoundingBoxEvE5dummy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZThn8_NK3irr5scene13CSceneManager14getBoundingBoxEv(ptr nocapture readnone %this) unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZThn8_NK3irr5scene13CSceneManager14getBoundingBoxEv(ptr readnone captures(none) %this) unnamed_addr #9 align 2 {
 entry:
   ret ptr @_ZZNK3irr5scene13CSceneManager14getBoundingBoxEvE5dummy
 }
@@ -4067,7 +4067,7 @@ sw.epilog:                                        ; preds = %for.body, %sw.epilo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManager35clearAllRegisteredNodesForRenderingEv(ptr nocapture noundef nonnull align 8 dereferenceable(572) initializes((264, 281), (296, 313), (328, 345), (360, 377), (392, 409), (424, 441)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManager35clearAllRegisteredNodesForRenderingEv(ptr noundef nonnull align 8 captures(none) dereferenceable(572) initializes((264, 281), (296, 313), (328, 345), (360, 377), (392, 409), (424, 441)) %this) unnamed_addr #0 align 2 {
 entry:
   %CameraList = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %CameraList, align 8, !tbaa !92
@@ -4870,7 +4870,7 @@ return:                                           ; preds = %_ZN3irr5scene13CSce
 declare noundef i32 @_ZN3irr2os5Timer7getTimeEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManager21addExternalMeshLoaderEPNS0_11IMeshLoaderE(ptr nocapture noundef nonnull align 8 dereferenceable(572) %this, ptr noundef %externalLoader) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManager21addExternalMeshLoaderEPNS0_11IMeshLoaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(572) %this, ptr noundef %externalLoader) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %externalLoader, null
   br i1 %tobool.not, label %return, label %if.end
@@ -4957,7 +4957,7 @@ return:                                           ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr5scene13CSceneManager18getMeshLoaderCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK3irr5scene13CSceneManager18getMeshLoaderCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this) unnamed_addr #7 align 2 {
 entry:
   %MeshLoaderList = getelementptr inbounds nuw i8, ptr %this, i64 448
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 456
@@ -4972,7 +4972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3irr5scene13CSceneManager13getMeshLoaderEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this, i32 noundef %index) unnamed_addr #11 align 2 {
+define noundef ptr @_ZNK3irr5scene13CSceneManager13getMeshLoaderEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this, i32 noundef %index) unnamed_addr #11 align 2 {
 entry:
   %MeshLoaderList = getelementptr inbounds nuw i8, ptr %this, i64 448
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 456
@@ -4998,7 +4998,7 @@ return:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr5scene13CSceneManager24getSceneCollisionManagerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this) unnamed_addr #7 align 2 {
+define noundef ptr @_ZN3irr5scene13CSceneManager24getSceneCollisionManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this) unnamed_addr #7 align 2 {
 entry:
   %CollisionManager = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %CollisionManager, align 8, !tbaa !84
@@ -5006,7 +5006,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene13CSceneManager18getMeshManipulatorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this) unnamed_addr #0 align 2 {
+define noundef ptr @_ZN3irr5scene13CSceneManager18getMeshManipulatorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this) unnamed_addr #0 align 2 {
 entry:
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 232
   %0 = load ptr, ptr %Driver, align 8, !tbaa !40
@@ -5018,7 +5018,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene13CSceneManager18addToDeletionQueueEPNS0_10ISceneNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(572) %this, ptr noundef %node) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene13CSceneManager18addToDeletionQueueEPNS0_10ISceneNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(572) %this, ptr noundef %node) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %node, null
   br i1 %tobool.not, label %return, label %if.end
@@ -5737,7 +5737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr5scene13CSceneManager13getParametersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this) unnamed_addr #7 align 2 {
+define noundef ptr @_ZN3irr5scene13CSceneManager13getParametersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this) unnamed_addr #7 align 2 {
 entry:
   %Parameters = getelementptr inbounds nuw i8, ptr %this, i64 552
   %0 = load ptr, ptr %Parameters, align 8, !tbaa !83
@@ -5745,7 +5745,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr5scene13CSceneManager22getSceneNodeRenderPassEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK3irr5scene13CSceneManager22getSceneNodeRenderPassEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this) unnamed_addr #7 align 2 {
 entry:
   %CurrentRenderPass = getelementptr inbounds nuw i8, ptr %this, i64 568
   %0 = load i32, ptr %CurrentRenderPass, align 8, !tbaa !73
@@ -5753,7 +5753,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN3irr5scene13CSceneManager12getMeshCacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(572) %this) unnamed_addr #7 align 2 {
+define noundef ptr @_ZN3irr5scene13CSceneManager12getMeshCacheEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(572) %this) unnamed_addr #7 align 2 {
 entry:
   %MeshCache = getelementptr inbounds nuw i8, ptr %this, i64 560
   %0 = load ptr, ptr %MeshCache, align 8, !tbaa !72
@@ -5830,7 +5830,7 @@ if.end:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene13CSceneManager15setAmbientLightERKNS_5video7SColorfE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(572) initializes((536, 552)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ambientColor) unnamed_addr #12 align 2 {
+define void @_ZN3irr5scene13CSceneManager15setAmbientLightERKNS_5video7SColorfE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(572) initializes((536, 552)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %ambientColor) unnamed_addr #12 align 2 {
 entry:
   %AmbientLight = getelementptr inbounds nuw i8, ptr %this, i64 536
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %AmbientLight, ptr noundef nonnull align 4 dereferenceable(16) %ambientColor, i64 16, i1 false), !tbaa.struct !123
@@ -5845,7 +5845,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN3irr5scene13CSceneManager17createSkinnedMeshEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN3irr5scene13CSceneManager17createSkinnedMeshEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #23
   tail call void @_ZN3irr5scene12CSkinnedMeshC1Ev(ptr noundef nonnull align 8 dereferenceable(186) %call) #22
@@ -9971,7 +9971,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare float @llvm.fabs.f32(float) #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPN3irr5scene13CSceneManager16DefaultNodeEntryESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_less_iterEEvT_SD_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) local_unnamed_addr #0 comdat {

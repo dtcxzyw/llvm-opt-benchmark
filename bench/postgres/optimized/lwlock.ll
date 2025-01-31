@@ -159,7 +159,7 @@ declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @CreateLWLocks() local_unnamed_addr #0 {
@@ -515,7 +515,7 @@ define dso_local void @InitLWLockAccess() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetNamedLWLockTranche(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @GetNamedLWLockTranche(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @NamedLWLockTrancheRequests, align 4
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph, label %._crit_edge
@@ -556,7 +556,7 @@ define dso_local ptr @GetNamedLWLockTranche(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #4
@@ -1456,7 +1456,7 @@ LWLockAttemptLock.exit30:                         ; preds = %.split.us.i26
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @LWLockWaitForVar(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @LWLockWaitForVar(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @MyProc, align 8
   %6 = load volatile i32, ptr @InterruptHoldoffCount, align 4
   %7 = add i32 %6, 1
@@ -2088,7 +2088,7 @@ proclist_delete_offset.exit42.i:                  ; preds = %128
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @LWLockReleaseClearVar(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
@@ -2220,7 +2220,7 @@ define dso_local noundef zeroext i1 @LWLockHeldByMeInMode(ptr noundef readnone %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
@@ -2239,10 +2239,10 @@ declare i32 @llvm.ctpop.i32(i32) #13
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

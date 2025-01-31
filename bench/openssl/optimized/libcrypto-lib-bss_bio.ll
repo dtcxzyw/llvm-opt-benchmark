@@ -24,7 +24,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BIO_new_bio_pair(ptr nocapture noundef writeonly initializes((0, 8)) %bio1_p, i64 noundef %writebuf1, ptr nocapture noundef writeonly initializes((0, 8)) %bio2_p, i64 noundef %writebuf2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BIO_new_bio_pair(ptr noundef writeonly captures(none) initializes((0, 8)) %bio1_p, i64 noundef %writebuf1, ptr noundef writeonly captures(none) initializes((0, 8)) %bio2_p, i64 noundef %writebuf2) local_unnamed_addr #1 {
 entry:
   %call1 = tail call ptr @BIO_new(ptr noundef nonnull @methods_biop) #7
   %cmp = icmp eq ptr %call1, null
@@ -416,7 +416,7 @@ define internal i32 @bio_puts(ptr noundef %bio, ptr noundef %str) #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #8
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @bio_write(ptr noundef %bio, ptr noundef %str, i32 noundef %conv)
+  %call1 = tail call i32 @bio_write(ptr noundef %bio, ptr noundef nonnull %str, i32 noundef %conv)
   ret i32 %call1
 }
 
@@ -762,7 +762,7 @@ sw.epilog:                                        ; preds = %if.end6.i57, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @bio_new(ptr nocapture noundef writeonly %bio) #1 {
+define internal range(i32 0, 2) i32 @bio_new(ptr noundef writeonly captures(none) %bio) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str, i32 noundef 78) #7
   %cmp = icmp eq ptr %call, null
@@ -825,10 +825,10 @@ declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1023,7 +1023,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

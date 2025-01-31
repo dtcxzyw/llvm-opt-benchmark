@@ -28,7 +28,7 @@ $_ZTV16GCPolicyCounters = comdat any
 @_ZN16GCPolicyCountersC1EPKcii = hidden unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN16GCPolicyCountersC2EPKcii
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16GCPolicyCountersC2EPKcii(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN16GCPolicyCountersC2EPKcii(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.ExceptionMark, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV16GCPolicyCounters, i64 16), ptr %0, align 8
   %6 = load i8, ptr @UsePerfData, align 1

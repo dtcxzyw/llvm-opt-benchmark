@@ -407,10 +407,10 @@ define hidden ptr @phpdbg_compile_stackframe(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq i32 %1, 0
@@ -567,11 +567,11 @@ define internal fastcc void @phpdbg_append_individual_arg(ptr noundef nonnull %0
   %.1113 = phi i64 [ %.0112, %77 ], [ %74, %71 ]
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = getelementptr inbounds i8, ptr %81, i64 %79
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr align 1 %68, i64 %69, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull align 1 %68, i64 %69, i1 false)
   %83 = load ptr, ptr %0, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
   store i64 %.1113, ptr %84, align 8
-  tail call void @_efree(ptr noundef %68) #9
+  tail call void @_efree(ptr noundef nonnull %68) #9
   ret void
 }
 
@@ -590,7 +590,7 @@ define hidden void @phpdbg_print_cur_frame_info() local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %2, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 1 %1, i64 %2, i1 false)
   %10 = getelementptr inbounds [1 x i8], ptr %9, i64 0, i64 %2
   store i8 0, ptr %10, align 1
   %11 = tail call i32 @zend_get_executed_lineno() #9
@@ -604,7 +604,7 @@ define hidden void @phpdbg_print_cur_frame_info() local_unnamed_addr #0 {
 declare ptr @zend_get_executed_filename() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @phpdbg_list_file(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -833,7 +833,7 @@ phpdbg_print_cur_frame_info.exit:                 ; preds = %53, %72, %73, %65, 
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store i64 %78, ptr %84, align 8
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %85, ptr align 1 %77, i64 %78, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %85, ptr nonnull align 1 %77, i64 %78, i1 false)
   %86 = getelementptr inbounds [1 x i8], ptr %85, i64 0, i64 %78
   store i8 0, ptr %86, align 1
   %87 = call i32 @zend_get_executed_lineno() #9
@@ -900,7 +900,7 @@ define hidden void @phpdbg_dump_backtrace(i64 noundef %0) local_unnamed_addr #0 
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i64 %21, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr align 1 %20, i64 %21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %20, i64 %21, i1 false)
   %29 = getelementptr inbounds [1 x i8], ptr %28, i64 0, i64 %21
   store i8 0, ptr %29, align 1
   store ptr %24, ptr %4, align 8
@@ -1036,7 +1036,7 @@ define hidden void @phpdbg_dump_backtrace(i64 noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @php_output_activate() local_unnamed_addr #2
 
@@ -1051,7 +1051,7 @@ declare ptr @zend_hash_get_current_data_ex(ptr noundef, ptr noundef) local_unnam
 declare i32 @phpdbg_out_internal(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phpdbg_dump_prototype(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @phpdbg_dump_prototype(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %.sroa.0 = alloca i64, align 8
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = load ptr, ptr %0, align 8
@@ -1457,7 +1457,7 @@ phpdbg_print_cur_frame_info.exit:                 ; preds = %42, %50, %49, %26
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i64 %52, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr align 1 %51, i64 %52, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 1 %51, i64 %52, i1 false)
   %60 = getelementptr inbounds [1 x i8], ptr %59, i64 0, i64 %52
   store i8 0, ptr %60, align 1
   %61 = tail call i32 @zend_get_executed_lineno() #9
@@ -1481,7 +1481,7 @@ declare ptr @phpdbg_short_zval_print(ptr noundef, i32 noundef) local_unnamed_add
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #8

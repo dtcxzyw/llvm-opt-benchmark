@@ -3915,7 +3915,7 @@ define dso_local ptr @llvm_emit_exprid_to_rvalue(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_assume_raw(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_assume_raw(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @intrinsic_id, i64 4), align 4
@@ -3932,7 +3932,7 @@ define dso_local void @llvm_emit_assume_raw(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_call_intrinsic(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_call_intrinsic(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = zext i32 %3 to i64
@@ -4281,7 +4281,7 @@ declare ptr @llvm_basic_block_new(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @llvm_store(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @llvm_emit_call_expr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
@@ -5953,7 +5953,7 @@ define dso_local void @llvm_value_aggregate_two(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_const_padding_type(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_const_padding_type(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
@@ -5971,7 +5971,7 @@ define dso_local ptr @llvm_const_padding_type(ptr nocapture noundef readonly %0,
 declare ptr @LLVMArrayType(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_const_padding(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_const_padding(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
@@ -5988,7 +5988,7 @@ llvm_const_padding_type.exit:                     ; preds = %2, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_coerce_expand_hi_offset(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @llvm_coerce_expand_hi_offset(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6088,7 +6088,7 @@ llvm_emit_const_ptradd_inbounds_raw.exit33:       ; preds = %57, %59
 declare ptr @llvm_get_type(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_const_ptradd_inbounds_raw(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_const_ptradd_inbounds_raw(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
@@ -6226,7 +6226,7 @@ declare ptr @LLVMBuildIntCast2(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 declare ptr @LLVMBuildIntToPtr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_coerce(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_coerce(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %6) #10
@@ -6487,7 +6487,7 @@ declare i32 @type_abi_alignment(ptr noundef) local_unnamed_addr #1
 declare void @llvm_value_set_address_abi_aligned(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_vector_to_array_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_vector_to_array_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1) #10
   %5 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %2) #10
   %6 = tail call ptr @LLVMGetUndef(ptr noundef %5) #10
@@ -6591,7 +6591,7 @@ define dso_local void @llvm_emit_vector_to_array_cast(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_array_to_vector_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_array_to_vector_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1) #10
   %5 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %2) #10
   %6 = tail call ptr @LLVMGetUndef(ptr noundef %5) #10
@@ -6695,7 +6695,7 @@ define dso_local void @llvm_emit_array_to_vector_cast(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_subarray_to_vec_array_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_subarray_to_vec_array_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.BEValue, align 8
   %6 = tail call fastcc ptr @type_lowering(ptr noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -6729,7 +6729,7 @@ define dso_local void @llvm_emit_subarray_to_vec_array_cast(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -6863,7 +6863,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_subarray_pointer(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_subarray_pointer(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
@@ -6942,7 +6942,7 @@ declare i32 @LLVMGetArrayLength(ptr noundef) local_unnamed_addr #1
 declare void @llvm_value_set_address(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_expand_to_vec_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_expand_to_vec_cast(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1) #10
   %5 = tail call ptr @llvm_get_type(ptr noundef %0, ptr noundef %2) #10
   %6 = tail call i32 @LLVMGetVectorSize(ptr noundef %5) #10
@@ -7165,7 +7165,7 @@ declare void @llvm_emit_debug_location(ptr noundef, i64) local_unnamed_addr #1
 declare ptr @LLVMGetFirstInstruction(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_cast(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_cast(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.BEValue, align 8
   %8 = alloca %struct.BEValue, align 8
   %9 = alloca %struct.BEValue, align 8
@@ -8064,7 +8064,7 @@ type_flatten.exit454:                             ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @type_flatten(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @type_flatten(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %16, %1
@@ -8104,7 +8104,7 @@ define internal fastcc noundef ptr @type_flatten(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_typeid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_typeid(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @llvm_get_typeid(ptr noundef %0, ptr noundef %5) #10
@@ -8817,7 +8817,7 @@ default.unreachable:                              ; preds = %233
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_struct_gep_raw(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_struct_gep_raw(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
@@ -8918,7 +8918,7 @@ declare void @LLVMSetInitializer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @LLVMSetGlobalConstant(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_const_bitstruct_array(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_const_bitstruct_array(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [16 x ptr], align 16
   %4 = alloca %struct.BEValue, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9233,7 +9233,7 @@ llvm_mask_low_bits.exit:                          ; preds = %146, %144, %138, %1
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_const_expr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_const_expr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca [2 x i64], align 16
   %5 = alloca [2 x ptr], align 16
   %.val = load ptr, ptr %2, align 8
@@ -9799,7 +9799,7 @@ define internal fastcc ptr @llvm_mask_low_bits(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_const_bitstruct(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_const_bitstruct(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.BEValue, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -10004,7 +10004,7 @@ declare ptr @llvm_load_value_store(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @LLVMConstBswap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_len_for_expr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_len_for_expr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -10513,11 +10513,11 @@ llvm_emit_array_gep_raw.exit:                     ; preds = %llvm_emit_array_gep
   %155 = call ptr @LLVMConstInt(ptr noundef %145, i64 noundef %indvars.iv, i32 noundef %154) #10
   %156 = load ptr, ptr @type_usz, align 8
   call void @llvm_value_set(ptr noundef nonnull %7, ptr noundef %155, ptr noundef %156) #10
-  %157 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %141, ptr noundef %90, ptr noundef nonnull %7, i32 noundef %142, ptr noundef nonnull %26)
+  %157 = call ptr @llvm_emit_array_gep_raw_index(ptr noundef nonnull %0, ptr noundef %141, ptr noundef %90, ptr noundef nonnull %7, i32 noundef %142, ptr noundef nonnull %26)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %158 = load i32, ptr %26, align 4
   call void @llvm_value_set_address(ptr noundef nonnull %27, ptr noundef %157, ptr noundef %88, i32 noundef %158) #10
-  call void @llvm_emit_comp(ptr noundef %0, ptr noundef nonnull %28, ptr noundef nonnull %25, ptr noundef nonnull %27, i32 noundef 19)
+  call void @llvm_emit_comp(ptr noundef nonnull %0, ptr noundef nonnull %28, ptr noundef nonnull %25, ptr noundef nonnull %27, i32 noundef 19)
   %159 = load ptr, ptr %118, align 8
   %160 = getelementptr inbounds nuw [17 x ptr], ptr %22, i64 0, i64 %indvars.iv
   store ptr %159, ptr %160, align 8
@@ -11355,7 +11355,7 @@ define dso_local void @llvm_emit_try_assign_try_catch(ptr noundef %0, i1 noundef
 declare void @LLVMAddIncoming(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gencontext_emit_ternary_expr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @gencontext_emit_ternary_expr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca %struct.BEValue, align 8
   %6 = alloca [2 x ptr], align 16
@@ -11603,7 +11603,7 @@ type_flatten.exit172:                             ; preds = %105
   br label %131
 
 129:                                              ; preds = %type_flatten.exit172
-  %130 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef nonnull %107) #10
+  %130 = call ptr @llvm_get_type(ptr noundef nonnull %0, ptr noundef nonnull %107) #10
   br label %131
 
 131:                                              ; preds = %129, %126
@@ -11956,7 +11956,7 @@ declare i32 @cast_to_bool_kind(ptr noundef) local_unnamed_addr #1
 declare ptr @LLVMBuildSelect(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @llvm_get_current_block_if_in_use(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @llvm_get_current_block_if_in_use(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @LLVMGetFirstInstruction(ptr noundef %3) #10
@@ -12013,7 +12013,7 @@ define dso_local void @llvm_emit_struct_member_ref(ptr noundef %0, ptr noundef %
 declare i64 @LLVMOffsetOfElement(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_array_gep_raw_index(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = tail call ptr @llvm_load_value(ptr noundef %0, ptr noundef %3) #10
   %8 = tail call ptr @LLVMGetElementType(ptr noundef %2) #10
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -12140,7 +12140,7 @@ llvm_emit_ptradd_inbounds_raw.exit15:             ; preds = %22, %30, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_array_gep_raw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_array_gep_raw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 {
   %7 = alloca %struct.BEValue, align 8
   %8 = load ptr, ptr @type_usz, align 8
   %9 = tail call fastcc ptr @type_lowering(ptr noundef %8)
@@ -12169,7 +12169,7 @@ define dso_local ptr @llvm_emit_array_gep_raw(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_ptradd_raw(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_ptradd_raw(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
   %6 = tail call i32 @LLVMIsConstant(ptr noundef %2) #10
@@ -12211,7 +12211,7 @@ declare i32 @LLVMIsNull(ptr noundef) local_unnamed_addr #1
 declare ptr @LLVMBuildGEP2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_emit_ptradd_inbounds_raw(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @llvm_emit_ptradd_inbounds_raw(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
   %6 = tail call i32 @LLVMIsConstant(ptr noundef %2) #10
@@ -12498,7 +12498,7 @@ define dso_local void @llvm_value_struct_gep(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -13013,7 +13013,7 @@ declare ptr @LLVMGetNextUse(ptr noundef) local_unnamed_addr #1
 declare ptr @LLVMGetValueName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare void @LLVMInstructionEraseFromParent(ptr noundef) local_unnamed_addr #1
 
@@ -13186,7 +13186,7 @@ llvm_expand_array_to_args.exit:                   ; preds = %llvm_emit_array_gep
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_add_abi_call_attributes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @llvm_add_abi_call_attributes(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %.not26 = icmp eq i32 %2, 0
   br i1 %.not26, label %._crit_edge, label %.lr.ph.preheader
 
@@ -13280,7 +13280,7 @@ declare void @llvm_attribute_add_call(ptr noundef, ptr noundef, i32 noundef, i32
 declare void @llvm_attribute_add_call_type(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_raw_call(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone %8, i1 noundef zeroext %9, ptr nocapture noundef readonly %10) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_raw_call(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readnone %8, i1 noundef zeroext %9, ptr noundef readonly captures(none) %10) local_unnamed_addr #0 {
   %12 = alloca ptr, align 8
   %13 = alloca i32, align 4
   %14 = alloca %struct.BEValue, align 8
@@ -13640,7 +13640,7 @@ declare ptr @LLVMGetIntrinsicDeclaration(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @LLVMIntrinsicGetType(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_catch_unwrap(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_catch_unwrap(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca %struct.BEValue, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -13734,7 +13734,7 @@ declare void @llvm_emit_local_decl(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @llvm_value_set_decl_address(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_try_unwrap_chain(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_try_unwrap_chain(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca [2 x ptr], align 16
   %6 = alloca [2 x ptr], align 16
@@ -13819,7 +13819,7 @@ define dso_local void @llvm_emit_try_unwrap_chain(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_any_from_value(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_any_from_value(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.BEValue, align 8
   tail call void @llvm_value_addr(ptr noundef %0, ptr noundef %1) #10
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -13971,7 +13971,7 @@ declare void @LLVMSetAlignment(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @LLVMPreferredAlignmentOfGlobal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_emit_bswap(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_emit_bswap(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
@@ -14344,7 +14344,7 @@ llvm_emit_const_initialize_bitstruct_ref.exit:    ; preds = %llvm_value_struct_g
 declare ptr @llvm_store_zero(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_initialize_reference_list(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_initialize_reference_list(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca i32, align 4
   %6 = alloca %struct.BEValue, align 8
@@ -14852,7 +14852,7 @@ llvm_emit_initialize_reference.exit:              ; preds = %257, %256, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_initialize_reference_designated(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_initialize_reference_designated(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca %struct.BEValue, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -15192,7 +15192,7 @@ llvm_emit_initialize_reference_designated_bitstruct.exit: ; preds = %llvm_emit_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_update_bitstruct_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_update_bitstruct_array(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.BEValue, align 8
   %9 = alloca %struct.BEValue, align 8
   %10 = alloca i32, align 4
@@ -16402,7 +16402,7 @@ define internal fastcc noundef ptr @llvm_emit_dynamic_search(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @llvm_emit_panic(ptr noundef, ptr noundef, i64, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -16514,7 +16514,7 @@ declare void @llvm_emit_panic_if_true(ptr noundef, ptr noundef, ptr noundef, i64
 declare ptr @LLVMBuildMemMove(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_slice_values(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca %struct.BEValue, align 8
   %8 = alloca %struct.BEValue, align 8
   %9 = alloca %struct.BEValue, align 8
@@ -16932,7 +16932,7 @@ llvm_emit_trap_negative.exit:                     ; preds = %176, %164, %150, %1
 declare i64 @LLVMConstIntGetZExtValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -16995,7 +16995,7 @@ define internal fastcc void @llvm_emit_subscript_addr_with_base(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_emit_add_int(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i64 %4) unnamed_addr #0 {
+define internal fastcc ptr @llvm_emit_add_int(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i64 %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca [2 x ptr], align 16
   %8 = load i16, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 328), align 8
@@ -17237,7 +17237,7 @@ declare void @llvm_emit_and_set_decl_alloca(ptr noundef, ptr noundef) local_unna
 declare void @llvm_debug_push_lexical_scope(ptr noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_return_block(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_return_block(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.BlockExit, align 8
   %7 = tail call fastcc ptr @type_lowering(ptr noundef %2)
   %.not = icmp eq i32 %3, 0
@@ -17467,7 +17467,7 @@ declare ptr @LLVMBuildFNeg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @LLVMBuildNeg(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_dynamic_method_addr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_dynamic_method_addr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr noundef %5)
@@ -17650,7 +17650,7 @@ declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #1
 declare void @span_to_scratch(i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, ptr noundef initializes((0, 32)) %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 2) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, ptr noundef initializes((0, 32)) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 2) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.BEValue, align 8
   %7 = alloca %struct.BEValue, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -17661,7 +17661,7 @@ define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, p
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false)
   call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull %6) #10
-  call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1) #10
+  call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %1) #10
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -17674,8 +17674,8 @@ define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, p
   %22 = load ptr, ptr @expr_arena, align 8
   %23 = zext i32 %21 to i64
   %24 = getelementptr inbounds nuw %struct.Expr_, ptr %22, i64 %23
-  call void @llvm_emit_expr(ptr noundef %0, ptr noundef %1, ptr noundef %24)
-  call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1) #10
+  call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %24)
+  call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %1) #10
   %25 = load ptr, ptr %17, align 8
   %26 = load i8, ptr %19, align 4
   %27 = trunc i8 %26 to i1
@@ -17733,7 +17733,7 @@ define internal fastcc void @llvm_emit_pre_post_inc_dec_vector(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_pre_post_inc_dec_bitstruct(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 2) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_pre_post_inc_dec_bitstruct(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 2) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %struct.BEValue, align 8
   %7 = alloca %struct.BEValue, align 8
   %8 = alloca %struct.BEValue, align 8
@@ -18029,7 +18029,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %84
 declare ptr @LLVMBuildNUWSub(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_emit_inc_dec_value(ptr noundef %0, i64 %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 -1, 2) %3) unnamed_addr #0 {
+define internal fastcc ptr @llvm_emit_inc_dec_value(ptr noundef %0, i64 %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 -1, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %6, align 8
@@ -18222,7 +18222,7 @@ declare ptr @LLVMConstReal(ptr noundef, double noundef) local_unnamed_addr #1
 declare ptr @LLVMBuildFAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_bitstruct_member(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -18309,7 +18309,7 @@ llvm_value_struct_gep.exit:                       ; preds = %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.0.val, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @llvm_extract_bitvalue(ptr noundef %0, ptr noundef %1, ptr readonly captures(none) %.0.val, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca %struct.BEValue, align 8
   %6 = alloca i32, align 4
@@ -18784,7 +18784,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %192
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_bitassign_array(ptr noundef %0, ptr noundef %1, ptr noundef byval(%struct.BEValue) align 8 %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_bitassign_array(ptr noundef %0, ptr noundef %1, ptr noundef byval(%struct.BEValue) align 8 %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   call void @llvm_value_addr(ptr noundef %0, ptr noundef nonnull %2) #10
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -18818,7 +18818,7 @@ bitstruct_requires_bitswap.exit:                  ; preds = %17, %19
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @find_member_index(ptr nocapture noundef readonly %0, ptr noundef readnone %1) unnamed_addr #7 {
+define internal fastcc i32 @find_member_index(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -18878,7 +18878,7 @@ declare ptr @LLVMBuildAShr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare void @llvm_emit_local_var_alloca(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_binary(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_binary(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.BEValue, align 8
   %7 = alloca [2 x ptr], align 16
   %8 = alloca [2 x ptr], align 16
@@ -20272,7 +20272,7 @@ declare ptr @LLVMBuildURem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare ptr @LLVMBuildSRem(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_trap_invalid_shift(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_trap_invalid_shift(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.BEValue, align 8
   %7 = alloca ptr, align 8
@@ -20509,7 +20509,7 @@ declare ptr @LLVMBuildLShr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare ptr @LLVMBuildFreeze(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @expr_is_vector_index(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @expr_is_vector_index(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255
@@ -20534,7 +20534,7 @@ define internal fastcc zeroext i1 @expr_is_vector_index(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_vector_assign_expr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_vector_assign_expr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.BEValue, align 8
   %5 = alloca %struct.BEValue, align 8
   %6 = alloca %struct.BEValue, align 8
@@ -20600,7 +20600,7 @@ declare zeroext i1 @llvm_emit_check_block_branch(ptr noundef) local_unnamed_addr
 declare void @llvm_emit_return_abi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_vector_subscript(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_vector_subscript(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr @expr_arena, align 8
@@ -20712,7 +20712,7 @@ define internal fastcc void @llvm_emit_array_bounds_check(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_member_addr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_member_addr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -20802,10 +20802,10 @@ llvm_value_struct_gep.exit:                       ; preds = %32
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

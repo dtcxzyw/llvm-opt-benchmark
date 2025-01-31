@@ -48,7 +48,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @luaO_rawarith(ptr noundef %L, i32 noundef %op, ptr noundef %p1, ptr noundef %p2, ptr nocapture noundef writeonly %res) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @luaO_rawarith(ptr noundef %L, i32 noundef %op, ptr noundef %p1, ptr noundef %p2, ptr noundef writeonly captures(none) %res) local_unnamed_addr #1 {
 entry:
   %i1 = alloca i64, align 8
   %i2 = alloca i64, align 8
@@ -394,7 +394,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 -9223372036854775807, -9223372036854775808) i64 @luaO_str2num(ptr noundef %s, ptr nocapture noundef writeonly %o) local_unnamed_addr #1 {
+define hidden range(i64 -9223372036854775807, -9223372036854775808) i64 @luaO_str2num(ptr noundef %s, ptr noundef writeonly captures(none) %o) local_unnamed_addr #1 {
 entry:
   %endptr.i15.i = alloca ptr, align 8
   %endptr.i.i = alloca ptr, align 8
@@ -590,8 +590,7 @@ while.end.i.i:                                    ; preds = %while.cond.i.i
 
 l_str2d.exit.thread21:                            ; preds = %while.end.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
-  call void @llvm.lifetime.end.p0(i64 201, ptr nonnull %buff.i)
-  br label %if.end8
+  br label %if.then3
 
 if.then5.i:                                       ; preds = %while.end.i.i, %if.end.i8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %endptr.i.i)
@@ -650,14 +649,18 @@ l_str2d.exit:                                     ; preds = %while.end.i25.i
   %sub.ptr.rhs.cast24.i = ptrtoint ptr %buff.i to i64
   %sub.ptr.sub25.i = sub i64 %sub.ptr.lhs.cast23.i, %sub.ptr.rhs.cast24.i
   %add.ptr.i14 = getelementptr inbounds i8, ptr %s, i64 %sub.ptr.sub25.i
-  call void @llvm.lifetime.end.p0(i64 201, ptr nonnull %buff.i)
-  %cmp2.not = icmp eq ptr %s, null
-  br i1 %cmp2.not, label %return, label %if.end8
+  br label %if.then3
 
-if.end8:                                          ; preds = %l_str2d.exit, %l_str2d.exit.thread21, %if.then
-  %storemerge = phi double [ %23, %if.then ], [ %call.i.i, %l_str2d.exit.thread21 ], [ %call.i16.i, %l_str2d.exit ]
-  %.sink = phi i8 [ 3, %if.then ], [ 19, %l_str2d.exit.thread21 ], [ 19, %l_str2d.exit ]
-  %e.0 = phi ptr [ %s.addr.2.i, %if.then ], [ %incdec.ptr4.i.i, %l_str2d.exit.thread21 ], [ %add.ptr.i14, %l_str2d.exit ]
+if.then3:                                         ; preds = %l_str2d.exit, %l_str2d.exit.thread21
+  %retval.0.i1326 = phi ptr [ %incdec.ptr4.i.i, %l_str2d.exit.thread21 ], [ %add.ptr.i14, %l_str2d.exit ]
+  %n.025 = phi double [ %call.i.i, %l_str2d.exit.thread21 ], [ %call.i16.i, %l_str2d.exit ]
+  call void @llvm.lifetime.end.p0(i64 201, ptr nonnull %buff.i)
+  br label %if.end8
+
+if.end8:                                          ; preds = %if.then3, %if.then
+  %storemerge = phi double [ %n.025, %if.then3 ], [ %23, %if.then ]
+  %.sink = phi i8 [ 19, %if.then3 ], [ 3, %if.then ]
+  %e.0 = phi ptr [ %retval.0.i1326, %if.then3 ], [ %s.addr.2.i, %if.then ]
   store double %storemerge, ptr %o, align 8
   %tt_6 = getelementptr inbounds nuw i8, ptr %o, i64 8
   store i8 %.sink, ptr %tt_6, align 8
@@ -667,13 +670,13 @@ if.end8:                                          ; preds = %l_str2d.exit, %l_st
   %add = add i64 %reass.sub, 1
   br label %return
 
-return:                                           ; preds = %l_str2d.exit.thread, %l_str2d.exit, %if.end8
-  %retval.0 = phi i64 [ %add, %if.end8 ], [ 0, %l_str2d.exit ], [ 0, %l_str2d.exit.thread ]
+return:                                           ; preds = %l_str2d.exit.thread, %if.end8
+  %retval.0 = phi i64 [ %add, %if.end8 ], [ 0, %l_str2d.exit.thread ]
   ret i64 %retval.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 1, 0) i32 @luaO_utf8esc(ptr nocapture noundef writeonly %buff, i64 noundef %x) local_unnamed_addr #4 {
+define hidden range(i32 1, 0) i32 @luaO_utf8esc(ptr noundef writeonly captures(none) %buff, i64 noundef %x) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i64 %x, 128
   br i1 %cmp, label %if.end, label %do.body
@@ -717,7 +720,7 @@ if.end:                                           ; preds = %entry, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaO_tostring(ptr noundef %L, ptr nocapture noundef %obj) local_unnamed_addr #1 {
+define hidden void @luaO_tostring(ptr noundef %L, ptr noundef captures(none) %obj) local_unnamed_addr #1 {
 entry:
   %buff = alloca [44 x i8], align 16
   %tt_.i = getelementptr inbounds nuw i8, ptr %obj, i64 8
@@ -766,7 +769,7 @@ tostringbuff.exit:                                ; preds = %if.then.i, %if.else
 declare hidden ptr @luaS_newlstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @luaO_pushvfstring(ptr noundef %L, ptr noundef %fmt, ptr nocapture noundef %argp) local_unnamed_addr #1 {
+define hidden nonnull ptr @luaO_pushvfstring(ptr noundef %L, ptr noundef %fmt, ptr noundef captures(none) %argp) local_unnamed_addr #1 {
 entry:
   %buff = alloca %struct.BuffFS, align 8
   %num = alloca %struct.TValue, align 8
@@ -799,7 +802,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %sub.ptr.lhs.cast = ptrtoint ptr %call54 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %fmt.addr.053 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef %fmt.addr.053, i64 noundef %sub.ptr.sub)
+  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef nonnull %fmt.addr.053, i64 noundef %sub.ptr.sub)
   %add.ptr = getelementptr inbounds nuw i8, ptr %call54, i64 1
   %1 = load i8, ptr %add.ptr, align 1
   switch i8 %1, label %sw.default [
@@ -1184,7 +1187,7 @@ sw.epilog:                                        ; preds = %addstr2buff.exit46,
 while.end:                                        ; preds = %sw.epilog, %entry
   %fmt.addr.0.lcssa = phi ptr [ %fmt, %entry ], [ %add.ptr97, %sw.epilog ]
   %call98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fmt.addr.0.lcssa) #19
-  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef %fmt.addr.0.lcssa, i64 noundef %call98)
+  call fastcc void @addstr2buff(ptr noundef %buff, ptr noundef nonnull %fmt.addr.0.lcssa, i64 noundef %call98)
   %space.i47 = getelementptr inbounds nuw i8, ptr %buff, i64 16
   %62 = load i32, ptr %blen, align 4
   %conv.i = sext i32 %62 to i64
@@ -1345,10 +1348,10 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addnum2buff(ptr noundef nonnull %buff, ptr nocapture noundef nonnull readonly %num) unnamed_addr #1 {
+define internal fastcc void @addnum2buff(ptr noundef nonnull %buff, ptr noundef nonnull readonly captures(none) %num) unnamed_addr #1 {
 entry:
   %blen.i = getelementptr inbounds nuw i8, ptr %buff, i64 12
   %0 = load i32, ptr %blen.i, align 4
@@ -1433,7 +1436,7 @@ tostringbuff.exit:                                ; preds = %if.then.i3, %if.els
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
 declare hidden void @luaG_runerror(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
@@ -1449,7 +1452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @luaO_chunkid(ptr nocapture noundef writeonly %out, ptr noundef %source, i64 noundef %srclen) local_unnamed_addr #8 {
+define hidden void @luaO_chunkid(ptr noundef writeonly captures(none) %out, ptr noundef %source, i64 noundef %srclen) local_unnamed_addr #8 {
 entry:
   %0 = load i8, ptr %source, align 1
   switch i8 %0, label %if.else27 [
@@ -1526,7 +1529,7 @@ if.end51:                                         ; preds = %if.end49, %if.else1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare hidden i64 @luaV_mod(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1543,19 +1546,19 @@ declare double @llvm.floor.f64(double) #11
 declare hidden double @luaV_modf(ptr noundef, double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare ptr @localeconv() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #14
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare hidden void @luaV_concat(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1566,10 +1569,10 @@ declare void @llvm.va_start.p0(ptr) #15
 declare void @llvm.va_end.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

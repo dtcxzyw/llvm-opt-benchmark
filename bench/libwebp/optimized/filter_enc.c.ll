@@ -27,7 +27,7 @@ define hidden range(i32 0, 256) i32 @VP8FilterStrengthFromDelta(i32 noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8InitFilter(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden void @VP8InitFilter(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -62,7 +62,7 @@ define hidden void @VP8InitFilter(ptr nocapture noundef readonly %0) local_unnam
 declare void @VP8SSIMDspInit() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8StoreFilterStats(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define hidden void @VP8StoreFilterStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -292,7 +292,7 @@ GetMBSSIM.exit51:                                 ; preds = %108
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden void @VP8AdjustFilterStrength(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -390,7 +390,7 @@ define hidden void @VP8AdjustFilterStrength(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

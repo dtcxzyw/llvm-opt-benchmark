@@ -39,7 +39,7 @@ define range(i32 0, 256) i32 @Kit_WordCountOnes_64bit(i64 noundef %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @Kit_TruthCountOnes_64bit(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define i32 @Kit_TruthCountOnes_64bit(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp slt i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
@@ -85,7 +85,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define void @Kit_TruthCountOnesInCofs_64bit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 7
   %5 = add nsw i32 %1, -6
   %6 = shl nuw i32 1, %5
@@ -502,10 +502,10 @@ define void @Kit_TruthCountOnesInCofs_64bit(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Kit_TruthChangePhase_64bit(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @Kit_TruthChangePhase_64bit(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [512 x i64], align 16
   %5 = icmp slt i32 %1, 7
   %6 = add nsw i32 %1, -6
@@ -573,10 +573,10 @@ define void @Kit_TruthChangePhase_64bit(ptr nocapture noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Kit_TruthNot_64bit(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Kit_TruthNot_64bit(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 7
   %4 = add nsw i32 %1, -6
   %5 = shl nuw i32 1, %4
@@ -603,7 +603,7 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Kit_TruthCopy_64bit(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 {
+define void @Kit_TruthCopy_64bit(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp slt i32 %2, 7
   %5 = add nsw i32 %2, -6
   %6 = shl nuw i32 1, %5
@@ -615,7 +615,7 @@ define void @Kit_TruthCopy_64bit(ptr nocapture noundef writeonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Kit_TruthSwapAdjacentVars_64bit(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [256 x i64], align 16
   %5 = icmp slt i32 %1, 7
   %6 = add nsw i32 %1, -6
@@ -723,7 +723,7 @@ define void @Kit_TruthSwapAdjacentVars_64bit(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Kit_TruthSemiCanonicize_Yasha(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define i32 @Kit_TruthSemiCanonicize_Yasha(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca [256 x i64], align 16
   %5 = alloca [512 x i64], align 16
   %6 = alloca [16 x i32], align 16
@@ -1034,7 +1034,7 @@ Kit_TruthChangePhase_64bit.exit:                  ; preds = %148, %131, %.prehea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @Kit_TruthSemiCanonicize_Yasha1(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
+define i32 @Kit_TruthSemiCanonicize_Yasha1(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #2 {
   %5 = alloca [256 x i64], align 16
   %6 = alloca [512 x i64], align 16
   %7 = icmp slt i32 %1, 7
@@ -1364,7 +1364,7 @@ Kit_TruthChangePhase_64bit.exit:                  ; preds = %160, %143, %.prehea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Kit_TruthSemiCanonicize_Yasha_simple(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
+define void @Kit_TruthSemiCanonicize_Yasha_simple(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca [256 x i64], align 16
   %5 = alloca [512 x i64], align 16
   %6 = icmp slt i32 %1, 7
@@ -1650,10 +1650,10 @@ Kit_TruthChangePhase_64bit.exit:                  ; preds = %132, %115, %.prehea
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

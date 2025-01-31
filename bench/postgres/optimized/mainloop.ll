@@ -306,7 +306,7 @@ sub_1:                                            ; preds = %sub_0
   %123 = getelementptr i8, ptr %.0231, i64 3
   %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #13
   %125 = add i64 %124, 1
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0231, ptr align 1 %123, i64 %125, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0231, ptr nonnull align 1 %123, i64 %125, i1 false)
   %.pr.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 336), align 8
   br label %thread-pre-split
 
@@ -805,7 +805,7 @@ select.unfold:                                    ; preds = %.tail260, %157, %14
   %336 = trunc i64 %335 to i32
   %337 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %338 = call zeroext i1 @standard_strings() #10
-  call void @psql_scan_setup(ptr noundef %20, ptr noundef %334, i32 noundef %336, i32 noundef %337, i1 noundef zeroext %338) #10
+  call void @psql_scan_setup(ptr noundef %20, ptr noundef nonnull %334, i32 noundef %336, i32 noundef %337, i1 noundef zeroext %338) #10
   store volatile i32 0, ptr %6, align 4
   store volatile i8 1, ptr %7, align 1
   br label %341
@@ -1009,17 +1009,17 @@ declare void @psql_scan_reset(ptr noundef) local_unnamed_addr #0
 declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @conditional_stack_empty(ptr noundef) local_unnamed_addr #0
 
 declare zeroext i1 @conditional_stack_pop(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @get_prompt(i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1028,24 +1028,24 @@ declare ptr @gets_interactive(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare ptr @gets_fromFile(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare zeroext i1 @psql_scan_in_quote(ptr noundef) local_unnamed_addr #0
 

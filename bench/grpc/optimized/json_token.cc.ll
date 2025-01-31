@@ -212,7 +212,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define void @_Z35grpc_auth_json_key_create_from_jsonRKN9grpc_core12experimental4JsonE(ptr noalias sret(%struct.grpc_auth_json_key) align 8 initializes((0, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %json) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
@@ -539,7 +539,7 @@ ehcleanup:                                        ; preds = %lpad28, %lpad.i, %l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -631,7 +631,7 @@ declare ptr @BIO_s_mem() local_unnamed_addr #0
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @PEM_read_bio_RSAPrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -705,7 +705,7 @@ entry:
   %_M_index.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %json, i64 48
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %json_string) #21
-  invoke void @_ZN9grpc_core9JsonParseESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %json_or, i64 %call.i.i, ptr %json_string)
+  invoke void @_ZN9grpc_core9JsonParseESt17basic_string_viewIcSt11char_traitsIcEE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %json_or, i64 %call.i.i, ptr nonnull %json_string)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -1026,7 +1026,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.else:                                          ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 238, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %algorithm)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 238, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef nonnull %algorithm)
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
@@ -1037,7 +1037,7 @@ return:                                           ; preds = %if.else, %if.then
 declare ptr @EVP_sha256() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z28compute_and_encode_signaturePK18grpc_auth_json_keyPKcS3_(ptr nocapture noundef readonly %json_key, ptr noundef %signature_algorithm, ptr noundef %to_sign) local_unnamed_addr #6 {
+define noundef ptr @_Z28compute_and_encode_signaturePK18grpc_auth_json_keyPKcS3_(ptr noundef readonly captures(none) %json_key, ptr noundef %signature_algorithm, ptr noundef %to_sign) local_unnamed_addr #6 {
 entry:
   %sig_len = alloca i64, align 8
   %call.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %signature_algorithm, ptr noundef nonnull dereferenceable(6) @.str.14) #20
@@ -1045,7 +1045,7 @@ entry:
   br i1 %cmp.i, label %_Z29openssl_digest_from_algorithmPKc.exit, label %_Z29openssl_digest_from_algorithmPKc.exit.thread
 
 _Z29openssl_digest_from_algorithmPKc.exit.thread: ; preds = %entry
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 238, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef %signature_algorithm)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str.1, i32 noundef 238, i32 noundef 2, ptr noundef nonnull @.str.15, ptr noundef nonnull %signature_algorithm)
   %call116 = tail call ptr @EVP_PKEY_new()
   br label %return
 
@@ -1079,7 +1079,7 @@ if.then9:                                         ; preds = %if.end5
 
 if.end10:                                         ; preds = %if.end5
   %call11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %to_sign) #20
-  %call12 = tail call i32 @EVP_DigestSignUpdate(ptr noundef nonnull %call2, ptr noundef %to_sign, i64 noundef %call11)
+  %call12 = tail call i32 @EVP_DigestSignUpdate(ptr noundef nonnull %call2, ptr noundef nonnull %to_sign, i64 noundef %call11)
   %cmp13.not = icmp eq i32 %call12, 1
   br i1 %cmp13.not, label %if.end15, label %if.then14
 
@@ -2250,7 +2250,7 @@ return:                                           ; preds = %if.end, %if.then7, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZL27dot_concat_and_free_stringsPcS_(ptr noundef %str1, ptr noundef %str2) unnamed_addr #6 {
@@ -2261,11 +2261,11 @@ entry:
   %add2 = add i64 %add, %call1
   %add3 = add i64 %add2, 1
   %call4 = tail call ptr @gpr_malloc(i64 noundef %add3)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4, ptr align 1 %str1, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call4, ptr nonnull align 1 %str1, i64 %call, i1 false)
   %add.ptr = getelementptr inbounds i8, ptr %call4, i64 %call
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   store i8 46, ptr %add.ptr, align 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr, ptr align 1 %str2, i64 %call1, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr, ptr nonnull align 1 %str2, i64 %call1, i1 false)
   %add.ptr5 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %call1
   %cmp.not = icmp ult ptr %add.ptr5, %call4
   br i1 %cmp.not, label %if.then, label %do.body6
@@ -2287,8 +2287,8 @@ if.then9:                                         ; preds = %do.body6
 
 do.end11:                                         ; preds = %do.body6
   store i8 0, ptr %add.ptr5, align 1
-  tail call void @gpr_free(ptr noundef %str1)
-  tail call void @gpr_free(ptr noundef %str2)
+  tail call void @gpr_free(ptr noundef nonnull %str1)
+  tail call void @gpr_free(ptr noundef nonnull %str2)
   ret ptr %call4
 }
 
@@ -4775,10 +4775,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

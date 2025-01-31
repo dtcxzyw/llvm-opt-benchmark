@@ -928,7 +928,7 @@ declare i32 @arkSVtolerances(ptr noundef, double noundef, ptr noundef) local_unn
 declare i32 @arkSStolerances(ptr noundef, double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @arkSetRootDirection(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @arkSetRootDirection(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1977,7 +1977,7 @@ define range(i32 -21, 1) i32 @arkSetUseCompensatedSums(ptr noundef writeonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetNumStepAttempts(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetNumStepAttempts(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1997,7 +1997,7 @@ define range(i32 -21, 1) i32 @arkGetNumStepAttempts(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetNumSteps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetNumSteps(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2017,7 +2017,7 @@ define range(i32 -21, 1) i32 @arkGetNumSteps(ptr noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetActualInitStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetActualInitStep(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2037,7 +2037,7 @@ define range(i32 -21, 1) i32 @arkGetActualInitStep(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetLastStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetLastStep(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2057,7 +2057,7 @@ define range(i32 -21, 1) i32 @arkGetLastStep(ptr noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetCurrentStep(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetCurrentStep(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2077,7 +2077,7 @@ define range(i32 -21, 1) i32 @arkGetCurrentStep(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetCurrentState(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetCurrentState(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2097,7 +2097,7 @@ define range(i32 -21, 1) i32 @arkGetCurrentState(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetCurrentTime(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetCurrentTime(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2117,7 +2117,7 @@ define range(i32 -21, 1) i32 @arkGetCurrentTime(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetTolScaleFactor(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetTolScaleFactor(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2177,7 +2177,7 @@ define range(i32 -21, 1) i32 @arkGetResWeights(ptr noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetWorkSpace(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetWorkSpace(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -2200,7 +2200,7 @@ define range(i32 -21, 1) i32 @arkGetWorkSpace(ptr noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetNumGEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetNumGEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2230,7 +2230,7 @@ define range(i32 -21, 1) i32 @arkGetNumGEvals(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetRootInfo(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetRootInfo(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2277,7 +2277,7 @@ define range(i32 -21, 1) i32 @arkGetRootInfo(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetStepStats(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetStepStats(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %9
 
@@ -2309,7 +2309,7 @@ define range(i32 -21, 1) i32 @arkGetStepStats(ptr noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetNumConstrFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetNumConstrFails(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2329,7 +2329,7 @@ define range(i32 -21, 1) i32 @arkGetNumConstrFails(ptr noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetNumExpSteps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetNumExpSteps(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2351,7 +2351,7 @@ define range(i32 -21, 1) i32 @arkGetNumExpSteps(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetNumAccSteps(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetNumAccSteps(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2373,7 +2373,7 @@ define range(i32 -21, 1) i32 @arkGetNumAccSteps(ptr noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetNumErrTestFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetNumErrTestFails(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2393,7 +2393,7 @@ define range(i32 -21, 1) i32 @arkGetNumErrTestFails(ptr noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetNumStepSolveFails(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetNumStepSolveFails(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2413,7 +2413,7 @@ define range(i32 -21, 1) i32 @arkGetNumStepSolveFails(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetUserData(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetUserData(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2563,7 +2563,7 @@ define i32 @arkPrintAllStats(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @arkRelaxPrintAllStats(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3024,7 +3024,7 @@ define range(i32 -21, 1) i32 @arkSetForcePass(ptr noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkGetLastKFlag(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkGetLastKFlag(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3044,16 +3044,16 @@ define range(i32 -21, 1) i32 @arkGetLastKFlag(ptr noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -809,7 +809,7 @@ define dso_local noundef ptr @CreateOneShotCachedPlan(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CompleteCachedPlan(ptr noundef initializes((88, 96), (120, 128)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local void @CompleteCachedPlan(ptr noundef initializes((88, 96), (120, 128)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -988,7 +988,7 @@ declare ptr @GetSearchPathMatcher(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @SaveCachedPlan(ptr noundef %0) local_unnamed_addr #0 {
@@ -1071,7 +1071,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DropCachedPlan(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
+define dso_local void @DropCachedPlan(ptr noundef captures(none) initializes((0, 4)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1
@@ -2212,7 +2212,7 @@ define dso_local void @ReleaseCachedPlan(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -2370,7 +2370,7 @@ define dso_local noundef zeroext i1 @CachedPlanAllowsSimpleValidityCheck(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @CachedPlanIsSimplyValid(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @CachedPlanIsSimplyValid(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 147
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -2418,7 +2418,7 @@ define dso_local noundef zeroext i1 @CachedPlanIsSimplyValid(ptr nocapture nound
 declare zeroext i1 @SearchPathMatchesCurrentEnvironment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CachedPlanSetParentContext(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @CachedPlanSetParentContext(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
@@ -2464,7 +2464,7 @@ define dso_local void @CachedPlanSetParentContext(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @CopyCachedPlan(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @CopyCachedPlan(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -2646,7 +2646,7 @@ declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #1
 declare ptr @CopySearchPathMatcher(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @CachedPlanIsValid(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local zeroext i1 @CachedPlanIsValid(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 147
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -2761,7 +2761,7 @@ dlist_push_tail.exit:                             ; preds = %.dlist_push_tail.ex
 declare ptr @expression_planner_with_deps(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @FreeCachedExpression(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @FreeCachedExpression(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -3292,7 +3292,7 @@ ReleaseCachedPlan.exit:                           ; preds = %1, %7, %11
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

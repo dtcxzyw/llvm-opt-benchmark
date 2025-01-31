@@ -1104,7 +1104,7 @@ _ZNSt8_Rb_treeIN8proxygen17StructuredHeaders11EncodeErrorESt4pairIKS2_NSt7__cxx1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN8proxygen24StructuredHeadersEncoder10encodeListERKSt6vectorINS_17StructuredHeaders20StructuredHeaderItemESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) local_unnamed_addr #0 align 2 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN8proxygen24StructuredHeadersEncoder10encodeListERKSt6vectorINS_17StructuredHeaders20StructuredHeaderItemESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %input) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %input, align 8
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %input, i64 8
@@ -1144,7 +1144,7 @@ return:                                           ; preds = %if.end10, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN8proxygen24StructuredHeadersEncoder17handleEncodeErrorENS_17StructuredHeaders11EncodeErrorE(ptr nocapture nonnull readnone align 8 %this, i8 noundef returned zeroext %err) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN8proxygen24StructuredHeadersEncoder17handleEncodeErrorENS_17StructuredHeaders11EncodeErrorE(ptr nonnull readnone align 8 captures(none) %this, i8 noundef returned zeroext %err) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %indirect-arg-temp = alloca { i64, i64 }, align 8
@@ -1443,12 +1443,12 @@ return:                                           ; preds = %sw.default, %_ZN8pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN8proxygen24StructuredHeadersEncoder16encodeDictionaryERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17StructuredHeaders20StructuredHeaderItemESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %input) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN8proxygen24StructuredHeadersEncoder16encodeDictionaryERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_17StructuredHeaders20StructuredHeaderItemESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S9_EEE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %input) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.boost::bad_get", align 8
   %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %input, i64 24
@@ -1569,7 +1569,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef zeroext i1 @_ZN8proxygen17StructuredHeaders22itemTypeMatchesContentERKNS0_20StructuredHeaderItemE(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen24StructuredHeadersEncoder11skipBooleanERKNS_17StructuredHeaders20StructuredHeaderItemE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %input) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen24StructuredHeadersEncoder11skipBooleanERKNS_17StructuredHeaders20StructuredHeaderItemE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(432) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %input) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.boost::bad_get", align 8
   %0 = load i32, ptr %input, align 8
@@ -1611,7 +1611,7 @@ land.end:                                         ; preds = %_ZN5boost3getIbbJld
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 6) i8 @_ZN8proxygen24StructuredHeadersEncoder23encodeParameterisedListERKSt6vectorINS_17StructuredHeaders23ParameterisedIdentifierESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %input) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 6) i8 @_ZN8proxygen24StructuredHeadersEncoder23encodeParameterisedListERKSt6vectorINS_17StructuredHeaders23ParameterisedIdentifierESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %input) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.boost::bad_get", align 8
   %0 = load ptr, ptr %input, align 8
@@ -2059,7 +2059,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 declare noundef zeroext i1 @_ZN8proxygen17StructuredHeaders13isValidStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZN8proxygen24StructuredHeadersEncoder17handleEncodeErrorENS_17StructuredHeaders11EncodeErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, i8 noundef returned zeroext %err, ptr noundef nonnull align 8 dereferenceable(32) %culprit) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i8 @_ZN8proxygen24StructuredHeadersEncoder17handleEncodeErrorENS_17StructuredHeaders11EncodeErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, i8 noundef returned zeroext %err, ptr noundef nonnull align 8 dereferenceable(32) %culprit) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %indirect-arg-temp = alloca { i64, i64 }, align 8
@@ -2260,7 +2260,7 @@ lpad:                                             ; preds = %.noexc, %invoke.con
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -3837,7 +3837,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noun
 declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost9iostreams6detail18indirect_streambufINS0_18back_insert_deviceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_S8_NS0_6outputEE9sync_implEv(ptr noundef nonnull align 8 dereferenceable(124) %this) local_unnamed_addr #0 comdat align 2 {
@@ -3884,7 +3884,7 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr n
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32), ptr, ptr, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost9iostreams6detail11bad_putbackB5cxx11Ev(ptr noalias sret(%"class.std::ios_base::failure") align 8 %agg.result) local_unnamed_addr #0 comdat {
@@ -4761,10 +4761,10 @@ __cxx_global_var_init.7.exit:                     ; preds = %arraydestroy.body21
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #21

@@ -235,7 +235,7 @@ entry:
 declare void @qbus_init(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sdhci_raise_insertion_irq(ptr nocapture noundef %opaque) #0 {
+define internal void @sdhci_raise_insertion_irq(ptr noundef captures(none) %opaque) #0 {
 entry:
   %norintsts = getelementptr inbounds nuw i8, ptr %opaque, i64 3188
   %0 = load i16, ptr %norintsts, align 4
@@ -538,7 +538,7 @@ if.end42:                                         ; preds = %if.then37, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sdhci_uninitfn(ptr nocapture noundef %s) local_unnamed_addr #0 {
+define dso_local void @sdhci_uninitfn(ptr noundef captures(none) %s) local_unnamed_addr #0 {
 entry:
   %insert_timer = getelementptr inbounds nuw i8, ptr %s, i64 3120
   %0 = load ptr, ptr %insert_timer, align 16
@@ -1700,7 +1700,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #2
 declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sdhci_common_unrealize(ptr nocapture noundef %s) local_unnamed_addr #0 {
+define dso_local void @sdhci_common_unrealize(ptr noundef captures(none) %s) local_unnamed_addr #0 {
 entry:
   %fifo_buffer = getelementptr inbounds nuw i8, ptr %s, i64 3248
   %0 = load ptr, ptr %fifo_buffer, align 16
@@ -1710,7 +1710,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sdhci_common_class_init(ptr noundef %klass, ptr nocapture noundef readnone %data) local_unnamed_addr #0 {
+define dso_local void @sdhci_common_class_init(ptr noundef %klass, ptr noundef readnone captures(none) %data) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
   %categories = getelementptr inbounds nuw i8, ptr %call.i, i64 96
@@ -3559,7 +3559,7 @@ declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 no
 declare i32 @sdbus_do_command(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -3569,7 +3569,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare i32 @llvm.bswap.i32(i32) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
@@ -5585,7 +5585,7 @@ if.end106:                                        ; preds = %if.then105, %land.l
 declare void @sdbus_set_voltage(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sdhci_set_inserted(ptr nocapture noundef %dev, i1 noundef zeroext %level) #0 {
+define internal void @sdhci_set_inserted(ptr noundef captures(none) %dev, i1 noundef zeroext %level) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cond = select i1 %level, ptr @.str.84, ptr @.str.85
@@ -5728,7 +5728,7 @@ if.end33:                                         ; preds = %sdhci_update_irq.ex
 declare zeroext i1 @sdbus_get_inserted(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @sdhci_set_readonly(ptr nocapture noundef %dev, i1 noundef zeroext %level) #8 {
+define internal void @sdhci_set_readonly(ptr noundef captures(none) %dev, i1 noundef zeroext %level) #8 {
 entry:
   %prnsts = getelementptr inbounds nuw i8, ptr %dev, i64 3176
   %0 = load i32, ptr %prnsts, align 8
@@ -5744,7 +5744,7 @@ declare zeroext i1 @sdbus_get_readonly(ptr noundef) local_unnamed_addr #1
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @sdhci_pending_insert_vmstate_needed(ptr nocapture noundef readonly %opaque) #9 {
+define internal zeroext i1 @sdhci_pending_insert_vmstate_needed(ptr noundef readonly captures(none) %opaque) #9 {
 entry:
   %pending_insert_state = getelementptr inbounds nuw i8, ptr %opaque, i64 3263
   %0 = load i8, ptr %pending_insert_state, align 1
@@ -5820,7 +5820,7 @@ sdhci_uninitfn.exit:                              ; preds = %timer_free.exit.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sdhci_sysbus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @sdhci_sysbus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.36, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
   tail call void @device_class_set_props(ptr noundef %call.i, ptr noundef nonnull @sdhci_sysbus_properties) #12
@@ -5926,7 +5926,7 @@ declare void @sysbus_init_mmio(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @address_space_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sdhci_bus_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @sdhci_bus_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.165, i32 noundef 136, ptr noundef nonnull @__func__.SD_BUS_CLASS) #12
   %set_inserted = getelementptr inbounds nuw i8, ptr %call.i, i64 160
@@ -6144,10 +6144,10 @@ sw.epilog:                                        ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #11

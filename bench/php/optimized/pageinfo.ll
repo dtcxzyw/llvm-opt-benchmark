@@ -169,7 +169,7 @@ php_statpage.exit:                                ; preds = %0, %7, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_getmyuid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_getmyuid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -243,7 +243,7 @@ php_getuid.exit:                                  ; preds = %6, %23
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_getmygid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_getmygid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -313,7 +313,7 @@ php_getgid.exit.thread:                           ; preds = %24, %13, %php_getgi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_getmypid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_getmypid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -348,7 +348,7 @@ define hidden void @zif_getmypid(ptr nocapture noundef readonly %0, ptr nocaptur
 declare i32 @getpid() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_getmyinode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_getmyinode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -467,7 +467,7 @@ php_statpage.exit:                                ; preds = %0, %7, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_getlastmod(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_getlastmod(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0

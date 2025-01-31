@@ -1052,7 +1052,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gvcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp ult i32 %5, 8
   br i1 %6, label %215, label %7
@@ -1592,7 +1592,7 @@ define internal fastcc void @dissect_forceip_cmd(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_packetresend_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_packetresend_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
   %6 = icmp eq i32 %4, 0
   br i1 %6, label %7, label %14
 
@@ -1656,7 +1656,7 @@ define internal fastcc void @dissect_packetresend_cmd(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store ptr null, ptr %7, align 8
@@ -1873,7 +1873,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = lshr i32 %3, 3
@@ -2051,7 +2051,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readmem_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_readmem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 14) #5
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2121,7 +2121,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8) #5
   store i32 %8, ptr %7, align 4
@@ -2315,7 +2315,7 @@ dissect_register_data.exit:                       ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, i32 noundef range(i32 -1, 17) %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef 10) #5
   %7 = zext i16 %6 to i32
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2398,7 +2398,7 @@ define internal fastcc void @dissect_event_cmd(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 -1, 17) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_eventdata_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 -1, 17) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef 8) #5
   %6 = icmp sgt i32 %5, 12
   br i1 %6, label %.lr.ph, label %.loopexit
@@ -2508,7 +2508,7 @@ declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_discovery_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_discovery_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 408
@@ -2600,7 +2600,7 @@ define internal fastcc void @dissect_discovery_ack(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(none) %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = lshr i32 %3, 2
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %8
@@ -2858,7 +2858,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writereg_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
+define internal fastcc void @dissect_writereg_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %5
 
@@ -2913,7 +2913,7 @@ define internal fastcc void @dissect_writereg_ack(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @dissect_readmem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %dissect_register_data.exit, label %6
 
@@ -3059,7 +3059,7 @@ dissect_register_data.exit:                       ; preds = %is_extended_bootstr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef readonly %4, ptr noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5) unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %7
 
@@ -3960,7 +3960,7 @@ declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noun
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

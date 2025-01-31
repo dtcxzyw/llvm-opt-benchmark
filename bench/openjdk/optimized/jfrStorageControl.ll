@@ -27,7 +27,7 @@ define hidden void @_ZN17JfrStorageControlC2Emm(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK17JfrStorageControl7to_diskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK17JfrStorageControl7to_diskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -35,7 +35,7 @@ define hidden noundef zeroext i1 @_ZNK17JfrStorageControl7to_diskEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17JfrStorageControl11set_to_diskEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((48, 49)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17JfrStorageControl11set_to_diskEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((48, 49)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %3, ptr %4, align 8
@@ -43,7 +43,7 @@ define hidden void @_ZN17JfrStorageControl11set_to_diskEb(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK17JfrStorageControl10full_countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK17JfrStorageControl10full_countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
@@ -88,7 +88,7 @@ define hidden void @_ZN17JfrStorageControl10reset_fullEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK17JfrStorageControl31should_post_buffer_full_messageEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK17JfrStorageControl31should_post_buffer_full_messageEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -102,7 +102,7 @@ define hidden noundef zeroext i1 @_ZNK17JfrStorageControl31should_post_buffer_fu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK17JfrStorageControl14should_discardEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK17JfrStorageControl14should_discardEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

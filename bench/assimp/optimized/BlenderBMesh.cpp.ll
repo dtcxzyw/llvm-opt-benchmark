@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverterC2EPKNS_7Blender4MeshE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverterC2EPKNS_7Blender4MeshE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %mesh) unnamed_addr #1 align 2 {
 entry:
   store ptr %mesh, ptr %this, align 8
   %triMesh = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -347,7 +347,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %triMesh.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %triMesh.i, align 8
@@ -367,7 +367,7 @@ _ZN6Assimp21BlenderBMeshConverter14DestroyTriMeshEv.exit: ; preds = %entry, %del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverter14DestroyTriMeshEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverter14DestroyTriMeshEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
 entry:
   %triMesh = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %triMesh, align 8
@@ -401,7 +401,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp21BlenderBMeshConverter13ContainsBMeshEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp21BlenderBMeshConverter13ContainsBMeshEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %totpoly = getelementptr inbounds nuw i8, ptr %0, i64 1080
@@ -548,7 +548,7 @@ for.end:                                          ; preds = %for.body, %_ZN6Assi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverter15AssertValidMeshEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverter15AssertValidMeshEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %0 = load ptr, ptr %this, align 8
@@ -591,7 +591,7 @@ if.end:                                           ; preds = %_ZNK6Assimp21Blende
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverter16AssertValidSizesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverter16AssertValidSizesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i6 = alloca ptr, align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -668,7 +668,7 @@ if.end9:                                          ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverter14PrepareTriMeshEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverter14PrepareTriMeshEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %triMesh = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %triMesh, align 8
@@ -724,7 +724,7 @@ lpad:                                             ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverter18ConvertPolyToFacesERKNS_7Blender5MPolyE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(27) %poly) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverter18ConvertPolyToFacesERKNS_7Blender5MPolyE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(27) %poly) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mtface.i = alloca %"struct.Assimp::Blender::MTFace", align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -2366,7 +2366,7 @@ ehcleanup70:                                      ; preds = %ehcleanup69, %lpad6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverter7AddFaceEiiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %v1, i32 noundef %v2, i32 noundef %v3, i32 noundef %v4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverter7AddFaceEiiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %v1, i32 noundef %v2, i32 noundef %v3, i32 noundef %v4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %face = alloca %"struct.Assimp::Blender::MFace", align 8
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %face, i64 8
@@ -2426,7 +2426,7 @@ invoke.cont:                                      ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21BlenderBMeshConverter8AddTFaceEPKfS2_S2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %uv1, ptr nocapture noundef readonly %uv2, ptr nocapture noundef readonly %uv3, ptr noundef readonly %uv4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp21BlenderBMeshConverter8AddTFaceEPKfS2_S2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %uv1, ptr noundef readonly captures(none) %uv2, ptr noundef readonly captures(none) %uv3, ptr noundef readonly %uv4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mtface = alloca %"struct.Assimp::Blender::MTFace", align 8
   %dna_type.i.i = getelementptr inbounds nuw i8, ptr %mtface, i64 8
@@ -2499,7 +2499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp7Blender6MTFaceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 comdat align 2 {
@@ -5243,13 +5243,13 @@ _ZNSt12_Vector_baseIN6Assimp7Blender6MTFaceESaIS2_EE13_M_deallocateEPS2_m.exit: 
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

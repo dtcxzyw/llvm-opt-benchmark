@@ -301,7 +301,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched21, ptr @trace_oom_score_adj_update.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace473, ptr @trace_oom_score_adj_update.__UNIQUE_ID___addressable___SCK__tp_func_oom_score_adj_update472], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @proc_setattr(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @proc_setattr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %2, align 8
@@ -324,7 +324,7 @@ define dso_local i32 @proc_setattr(ptr nocapture readnone %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @setattr_prepare(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -333,10 +333,10 @@ declare dso_local i32 @setattr_prepare(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local void @setattr_copy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @proc_mem_open(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @proc_mem_open(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @get_pid_task(ptr noundef %4, i32 noundef 0) #18
@@ -387,7 +387,7 @@ declare dso_local ptr @mm_access(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare dso_local void @mmput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i64 @mem_lseek(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local i64 @mem_lseek(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #3 align 16 {
   switch i32 %2, label %10 [
     i32 0, label %4
     i32 1, label %6
@@ -411,7 +411,7 @@ define dso_local i64 @mem_lseek(ptr nocapture noundef %0, i64 noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_pid_get_link(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
+define internal ptr @proc_pid_get_link(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = alloca %struct.path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18
   %5 = icmp eq ptr %0, null
@@ -566,7 +566,7 @@ define internal i32 @proc_pid_readlink(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @task_dump_owner(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 align 16 {
+define dso_local void @task_dump_owner(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 2097152
@@ -617,10 +617,10 @@ define dso_local void @task_dump_owner(ptr noundef %0, i16 noundef zeroext %1, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @proc_pid_evict_inode(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -760,7 +760,7 @@ declare dso_local void @security_task_to_inode(ptr noundef, ptr noundef) local_u
 declare dso_local void @iput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @pid_getattr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @pid_getattr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -923,7 +923,7 @@ define dso_local void @pid_update_inode(ptr noundef %0, ptr noundef initializes(
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 0, 2) i32 @pid_delete_dentry(ptr nocapture noundef readonly %0) #6 align 16 {
+define dso_local range(i32 0, 2) i32 @pid_delete_dentry(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -72
@@ -1013,7 +1013,7 @@ pid_update_inode.exit:                            ; preds = %11, %16, %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @proc_fill_cache(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @proc_fill_cache(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
   %8 = alloca %struct.qstr, align 8
   %9 = alloca %struct.wait_queue_head, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1107,7 +1107,7 @@ declare dso_local ptr @d_alloc_parallel(ptr noundef, ptr noundef, ptr noundef) l
 declare dso_local void @dput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @tgid_pidfd_to_pid(ptr nocapture noundef readonly %0) local_unnamed_addr #6 align 16 {
+define dso_local ptr @tgid_pidfd_to_pid(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @proc_tgid_base_operations
@@ -1221,7 +1221,7 @@ declare dso_local i32 @name_to_int(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @find_task_by_pid_ns(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_pid_instantiate(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal ptr @proc_pid_instantiate(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @proc_pid_make_inode(ptr noundef %5, ptr noundef %1, i16 noundef zeroext 16749)
@@ -1325,7 +1325,7 @@ pid_update_inode.exit:                            ; preds = %19, %31, %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @proc_pid_readdir(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @proc_pid_readdir(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [11 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8
@@ -1531,7 +1531,7 @@ define internal fastcc { i32, ptr } @next_tgid(ptr noundef %0, i32 %1, ptr %2) u
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
 define dso_local void @set_proc_pid_nlink() local_unnamed_addr #8 section ".init.text" align 16 {
@@ -1595,13 +1595,13 @@ declare dso_local i64 @generic_file_llseek(ptr noundef, i64 noundef, i32 noundef
 declare dso_local i64 @generic_read_dir(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @proc_tgid_base_readdir(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @proc_tgid_base_readdir(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @proc_pident_readdir(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @tgid_base_stuff, i32 noundef 45), !range !20
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -2, 1) i32 @proc_pident_readdir(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 6, 46) %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -2, 1) i32 @proc_pident_readdir(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 6, 46) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 -72
@@ -1709,7 +1709,7 @@ define internal fastcc noundef range(i32 -2, 1) i32 @proc_pident_readdir(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_pident_instantiate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal ptr @proc_pident_instantiate(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1827,7 +1827,7 @@ declare dso_local void @d_set_d_op(ptr noundef, ptr noundef) local_unnamed_addr 
 declare dso_local ptr @d_splice_alias(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_tgid_base_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
+define internal ptr @proc_tgid_base_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @tgid_base_stuff, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tgid_base_stuff, i64 1800))
@@ -1835,7 +1835,7 @@ define internal ptr @proc_tgid_base_lookup(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_pid_permission(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @proc_pid_permission(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 872
@@ -1984,7 +1984,7 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
 declare dso_local i32 @proc_pid_status(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_pid_personality(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal i32 @proc_pid_personality(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1880
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1056
@@ -2015,7 +2015,7 @@ define internal i32 @proc_pid_personality(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_pid_limits(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal noundef i32 @proc_pid_limits(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca [16 x %struct.rlimit], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #18
@@ -2096,7 +2096,7 @@ define internal noundef i32 @proc_pid_limits(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_pid_syscall(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal i32 @proc_pid_syscall(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.syscall_info, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2177,7 +2177,7 @@ declare dso_local i32 @proc_tid_stat(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare dso_local i32 @proc_pid_statm(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @proc_cwd_link(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @proc_cwd_link(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -72
@@ -2230,7 +2230,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_cwd_link(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @proc_root_link(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @proc_root_link(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -72
@@ -2283,7 +2283,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_root_link(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @proc_exe_link(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @proc_exe_link(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -72
@@ -2329,7 +2329,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_exe_link(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_pid_wchan(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal noundef i32 @proc_pid_wchan(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [512 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %5, i8 0, i64 512, i1 false), !annotation !10
@@ -2360,7 +2360,7 @@ define internal noundef i32 @proc_pid_wchan(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_pid_stack(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal i32 @proc_pid_stack(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = tail call zeroext i1 @file_ns_capable(ptr noundef %6, ptr noundef nonnull @init_user_ns, i32 noundef 21) #18
@@ -2421,7 +2421,7 @@ define internal i32 @proc_pid_stack(ptr noundef %0, ptr nocapture readnone %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_pid_schedstat(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal noundef i32 @proc_pid_schedstat(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 216
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1080
@@ -2439,7 +2439,7 @@ declare dso_local i32 @proc_cpuset_show(ptr noundef, ptr noundef, ptr noundef, p
 declare dso_local i32 @proc_cgroup_show(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_oom_score(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal noundef i32 @proc_oom_score(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = load volatile i64, ptr @_totalram_pages, align 8
   %6 = load i64, ptr @total_swap_pages, align 8
   %7 = add i64 %6, %5
@@ -2462,7 +2462,7 @@ define internal noundef i32 @proc_oom_score(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_tid_io_accounting(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal i32 @proc_tid_io_accounting(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1880
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1056
@@ -2508,7 +2508,7 @@ define internal i32 @proc_tid_io_accounting(ptr noundef %0, ptr nocapture readno
 declare dso_local i32 @proc_pid_arch_status(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @environ_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @environ_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = load i64, ptr %3, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -2615,7 +2615,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @environ_read(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @environ_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal i32 @environ_open(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @get_pid_task(ptr noundef %4, i32 noundef 0) #18
@@ -2673,7 +2673,7 @@ proc_mem_open.exit.thread:                        ; preds = %2, %proc_mem_open.e
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @mem_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @mem_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2710,7 +2710,7 @@ declare void @llvm.assume(i1 noundef) #10
 declare dso_local void @__mmdrop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @auxv_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal i64 @auxv_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -2741,7 +2741,7 @@ define internal i64 @auxv_read(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @auxv_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal i32 @auxv_open(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @get_pid_task(ptr noundef %4, i32 noundef 0) #18
@@ -2820,7 +2820,7 @@ declare dso_local i32 @single_release(ptr noundef, ptr noundef) #2
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_single_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @proc_single_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -2883,7 +2883,7 @@ declare dso_local ptr @__lock_task_sighand(ptr noundef, ptr noundef) local_unnam
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_tid_comm_permission(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @proc_tid_comm_permission(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %1, i64 -72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @get_pid_task(ptr noundef %5, i32 noundef 0) #18
@@ -2932,7 +2932,7 @@ define internal i32 @proc_tid_comm_permission(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @comm_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal noundef i64 @comm_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -3007,7 +3007,7 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 declare dso_local void @__set_task_comm(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -3, 1) i32 @comm_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -3, 1) i32 @comm_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -72
@@ -3049,7 +3049,7 @@ declare dso_local void @proc_task_name(ptr noundef, ptr noundef, i1 noundef zero
 declare dso_local i32 @task_current_syscall(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @proc_pid_cmdline_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @proc_pid_cmdline_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i8, align 1
   %6 = load i64, ptr %3, align 8
   %7 = icmp slt i64 %6, 0
@@ -3282,10 +3282,10 @@ define internal i64 @proc_pid_cmdline_read(ptr nocapture noundef readonly %0, pt
 declare dso_local ptr @get_task_mm(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mem_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @mem_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %5, align 8
   %6 = tail call fastcc i64 @mem_rw(ptr %.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 0)
@@ -3293,7 +3293,7 @@ define internal i64 @mem_read(ptr nocapture noundef readonly %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @mem_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal i64 @mem_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %5, align 8
   %6 = tail call fastcc i64 @mem_rw(ptr %.val, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef 1)
@@ -3301,7 +3301,7 @@ define internal i64 @mem_write(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mem_open(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal i32 @mem_open(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @get_pid_task(ptr noundef %4, i32 noundef 0) #18
@@ -3363,7 +3363,7 @@ proc_mem_open.exit.thread:                        ; preds = %2, %proc_mem_open.e
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @mem_rw(ptr %.200.val, ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
+define internal fastcc i64 @mem_rw(ptr %.200.val, ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 16 {
   %5 = load i64, ptr %2, align 8
   %6 = icmp eq ptr %.200.val, null
   br i1 %6, label %67, label %7
@@ -3498,7 +3498,7 @@ declare dso_local ptr @get_task_exe_file(ptr noundef) local_unnamed_addr #2
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_attr_dir_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
+define internal ptr @proc_attr_dir_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @attr_dir_stuff, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @attr_dir_stuff, i64 240))
@@ -3506,7 +3506,7 @@ define internal ptr @proc_attr_dir_lookup(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @proc_pid_attr_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal i64 @proc_pid_attr_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -3567,7 +3567,7 @@ define internal i64 @proc_pid_attr_read(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @proc_pid_attr_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @proc_pid_attr_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !31
@@ -3661,7 +3661,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proc_pid_attr_write(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_pid_attr_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((200, 208)) %1) #0 align 16 {
+define internal noundef i32 @proc_pid_attr_open(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((200, 208)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store ptr null, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 -72
@@ -3728,7 +3728,7 @@ declare dso_local i32 @security_setprocattr(i32 noundef, ptr noundef, ptr nounde
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @proc_attr_dir_readdir(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @proc_attr_dir_readdir(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @proc_pident_readdir(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @attr_dir_stuff, i32 noundef 6), !range !20
   ret i32 %3
 }
@@ -3749,7 +3749,7 @@ declare dso_local i32 @stack_trace_save_tsk(ptr noundef, ptr noundef, i32 nounde
 declare dso_local i64 @oom_badness(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @oom_adj_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal i64 @oom_adj_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [13 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -3809,7 +3809,7 @@ define internal i64 @oom_adj_read(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @oom_adj_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @oom_adj_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca [13 x i8], align 1
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5) #18
@@ -4214,7 +4214,7 @@ declare void @llvm.write_register.i64(metadata, i64) #14
 declare dso_local i64 @default_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @oom_score_adj_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal i64 @oom_score_adj_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [13 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -4263,7 +4263,7 @@ define internal i64 @oom_score_adj_read(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @oom_score_adj_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @oom_score_adj_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca [13 x i8], align 1
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5) #18
@@ -4311,7 +4311,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @oom_score_adj_write(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @proc_loginuid_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal i64 @proc_loginuid_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [11 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -4357,7 +4357,7 @@ define internal i64 @proc_loginuid_read(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @proc_loginuid_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal i64 @proc_loginuid_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -4418,7 +4418,7 @@ declare dso_local i32 @audit_set_loginuid(i32) local_unnamed_addr #2
 declare dso_local i32 @kstrtouint_from_user(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @proc_sessionid_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal i64 @proc_sessionid_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [11 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -4470,7 +4470,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @proc_tgid_stat(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_tgid_io_accounting(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 align 16 {
+define internal i32 @proc_tgid_io_accounting(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 1880
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1056
@@ -4614,7 +4614,7 @@ do_io_accounting.exit:                            ; preds = %4, %93
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_task_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
+define internal ptr @proc_task_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @get_pid_task(ptr noundef %5, i32 noundef 0) #18
@@ -4717,7 +4717,7 @@ define internal ptr @proc_task_lookup(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_task_getattr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 align 16 {
+define internal noundef i32 @proc_task_getattr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -4761,7 +4761,7 @@ define internal noundef i32 @proc_task_getattr(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_task_instantiate(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal ptr @proc_task_instantiate(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @proc_pid_make_inode(ptr noundef %5, ptr noundef %1, i16 noundef zeroext 16749)
@@ -4865,7 +4865,7 @@ pid_update_inode.exit:                            ; preds = %19, %31, %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_tid_base_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
+define internal ptr @proc_tid_base_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %4, align 8
   %5 = tail call fastcc ptr @proc_pident_lookup(ptr %.val, ptr noundef %1, ptr noundef nonnull @tid_base_stuff, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @tid_base_stuff, i64 1560))
@@ -4873,13 +4873,13 @@ define internal ptr @proc_tid_base_lookup(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @proc_tid_base_readdir(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @proc_tid_base_readdir(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc i32 @proc_pident_readdir(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @tid_base_stuff, i32 noundef 39), !range !20
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -2, 1) i32 @proc_task_readdir(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -2, 1) i32 @proc_task_readdir(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca [11 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -5151,7 +5151,7 @@ define internal noundef range(i32 -2, 1) i32 @proc_task_readdir(ptr nocapture no
 declare dso_local i32 @__task_pid_nr_ns(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_map_files_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 align 16 {
+define internal ptr @proc_map_files_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr i8, ptr %0, i64 -72
@@ -5389,7 +5389,7 @@ declare dso_local void @__mmap_lock_do_trace_acquire_returned(ptr noundef, i1 no
 declare dso_local ptr @mtree_load(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @map_files_get_link(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @map_files_get_link(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5580,7 +5580,7 @@ define internal i32 @map_files_get_link(ptr nocapture noundef readonly %0, ptr n
 declare dso_local ptr @backing_file_user_path(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @proc_map_files_get_link(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #0 align 16 {
+define internal ptr @proc_map_files_get_link(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = tail call zeroext i1 @ns_capable(ptr noundef nonnull @init_user_ns, i32 noundef 40) #18
   br i1 %4, label %7, label %5
 
@@ -5601,7 +5601,7 @@ define internal ptr @proc_map_files_get_link(ptr noundef %0, ptr nocapture nound
 declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @map_files_d_revalidate(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal i32 @map_files_d_revalidate(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = and i32 %1, 64
@@ -5825,7 +5825,7 @@ define internal i32 @map_files_d_revalidate(ptr nocapture noundef readonly %0, i
 declare dso_local void @__mmap_lock_do_trace_released(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_map_files_readdir(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @proc_map_files_readdir(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.anon.44, align 8
   %4 = alloca %struct.vma_iterator, align 8
   %5 = alloca [34 x i8], align 16
@@ -6081,7 +6081,7 @@ declare dso_local void @__genradix_free(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @mas_find(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @timens_offsets_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal i64 @timens_offsets_write(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = alloca [2 x %struct.proc_timens_offset], align 16
   %6 = alloca [10 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -6246,13 +6246,13 @@ declare dso_local ptr @memdup_user_nul(ptr noundef, i64 noundef) local_unnamed_a
 declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @proc_timens_set_offset(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -3, 1) i32 @timens_offsets_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef range(i32 -3, 1) i32 @timens_offsets_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
@@ -6292,7 +6292,7 @@ define internal noundef range(i32 -3, 1) i32 @timens_offsets_show(ptr noundef %0
 declare dso_local void @proc_timens_show_offsets(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @proc_coredump_filter_read(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @proc_coredump_filter_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [13 x i8], align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -6349,7 +6349,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proc_coredump_filter_rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @proc_coredump_filter_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i64 @proc_coredump_filter_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #18
   store i32 0, ptr %5, align 4, !annotation !10
@@ -6434,7 +6434,7 @@ define internal i64 @proc_coredump_filter_write(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @timerslack_ns_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i64 @timerslack_ns_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %7 = load ptr, ptr %6, align 8
@@ -6538,7 +6538,7 @@ declare dso_local i32 @kstrtoull_from_user(ptr noundef, i64 noundef, i32 noundef
 declare dso_local i32 @security_task_setscheduler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @timerslack_ns_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @timerslack_ns_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 -72
@@ -6606,7 +6606,7 @@ define internal i32 @timerslack_ns_show(ptr noundef %0, ptr nocapture readnone %
 declare dso_local i32 @security_task_getscheduler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

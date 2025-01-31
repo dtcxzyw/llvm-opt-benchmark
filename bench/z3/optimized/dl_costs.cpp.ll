@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7datalog5costsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog5costsC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 4
   %instructions = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog5costs5emptyEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog5costs5emptyEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7datalog5costs5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog5costs5resetEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %this) local_unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 4
   %instructions = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -58,7 +58,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK7datalog5costsmiERKS0_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %o) local_unnamed_addr #4 align 2 {
+define hidden i64 @_ZNK7datalog5costsmiERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %o) local_unnamed_addr #4 align 2 {
 entry:
   %retval.sroa.0.0.copyload = load i32, ptr %this, align 4
   %retval.sroa.4.0.this.addr.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7datalog5costspLERKS0_(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %o) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN7datalog5costspLERKS0_(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %o) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %o, align 4
   %1 = load i32, ptr %this, align 4
@@ -92,7 +92,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog5costs17passes_thresholdsERNS_7contextE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog5costs17passes_thresholdsERNS_7contextE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %call = tail call noundef i32 @_ZNK7datalog7context33dl_profile_milliseconds_thresholdEv(ptr noundef nonnull align 8 dereferenceable(3556) %ctx)
@@ -103,7 +103,7 @@ entry:
 declare noundef i32 @_ZNK7datalog7context33dl_profile_milliseconds_thresholdEv(ptr noundef nonnull align 8 dereferenceable(3556)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog5costs6outputERSo(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #6 align 2 {
+define hidden void @_ZNK7datalog5costs6outputERSo(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str)
   %instructions = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -121,7 +121,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog16accounted_objectD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog16accounted_objectD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_parent_object = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_parent_object, align 8
@@ -162,7 +162,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 declare void @_ZN7datalog12rule_manager7dec_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog16accounted_object28set_accounting_parent_objectERNS_7contextEPNS_4ruleE(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, ptr noundef %parent) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN7datalog16accounted_object28set_accounting_parent_objectERNS_7contextEPNS_4ruleE(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, ptr noundef %parent) local_unnamed_addr #6 align 2 {
 entry:
   %m_parent_object = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_parent_object, align 8
@@ -186,7 +186,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN7datalog12rule_manager7inc_refEPNS_4ruleE(ptr noundef nonnull align 8 dereferenceable(1368), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7datalog16accounted_object13process_costsEv(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7datalog16accounted_object13process_costsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_current_cost.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %m_current_cost.i, align 8
@@ -224,7 +224,7 @@ do.end:                                           ; preds = %do.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK7datalog16accounted_object14get_total_costERNS_5costsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %result) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK7datalog16accounted_object14get_total_costERNS_5costsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %result) local_unnamed_addr #5 align 2 {
 entry:
   store i32 0, ptr %result, align 4
   %instructions.i = getelementptr inbounds nuw i8, ptr %result, i64 4
@@ -247,7 +247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog16accounted_object24passes_output_thresholdsERNS_7contextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog16accounted_object24passes_output_thresholdsERNS_7contextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) local_unnamed_addr #6 align 2 {
 entry:
   %m_current_cost.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_current_cost.i, align 8
@@ -260,7 +260,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog16accounted_object14output_profileERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #6 align 2 {
+define hidden void @_ZNK7datalog16accounted_object14output_profileERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #6 align 2 {
 entry:
   %m_current_cost.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_current_cost.i, align 8
@@ -281,7 +281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog13cost_recorderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 16)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog13cost_recorderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 16)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 _ZN9stopwatch5startEv.exit:
   store ptr null, ptr %this, align 8
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
@@ -298,7 +298,7 @@ _ZN9stopwatch5startEv.exit:
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog13cost_recorderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog13cost_recorderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -387,7 +387,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog13cost_recorder5startEPNS_16accounted_objectE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 17)) %this, ptr noundef %obj) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN7datalog13cost_recorder5startEPNS_16accounted_objectE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) initializes((16, 17)) %this, ptr noundef %obj) local_unnamed_addr #7 align 2 {
 entry:
   %m_stopwatch = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_stopwatch, align 8
@@ -473,7 +473,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

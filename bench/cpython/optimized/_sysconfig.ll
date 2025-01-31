@@ -888,7 +888,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_sysconfig_config_vars(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_sysconfig_config_vars(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyDict_New() #2
   %cmp.i = icmp eq ptr %call.i, null

@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @global_context = external local_unnamed_addr global %struct.GlobalContext, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @llvm_emit_check_block_branch(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @llvm_emit_check_block_branch(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -114,7 +114,7 @@ declare ptr @LLVMBasicBlockAsValue(ptr noundef) local_unnamed_addr #1
 declare void @LLVMDeleteBasicBlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_br(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_br(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -152,7 +152,7 @@ llvm_emit_check_block_branch.exit:                ; preds = %12, %2, %14
 declare ptr @LLVMBuildBr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_block(ptr nocapture noundef initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_block(ptr noundef captures(none) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   tail call void @LLVMAppendExistingBasicBlock(ptr noundef %4, ptr noundef %1) #7
@@ -173,7 +173,7 @@ declare void @LLVMAppendExistingBasicBlock(ptr noundef, ptr noundef) local_unnam
 declare void @LLVMPositionBuilderAtEnd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @llvm_get_next_param(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @llvm_get_next_param(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4
@@ -598,7 +598,7 @@ define dso_local void @llvm_emit_return_implicit(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -2072,7 +2072,7 @@ declare ptr @type_get_vector(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @type_get_flexible_array(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @LLVMGetSubprogram(ptr noundef) local_unnamed_addr #1
 
@@ -2230,13 +2230,13 @@ declare i32 @LLVMPreferredAlignmentOfGlobal(ptr noundef, ptr noundef) local_unna
 declare i32 @llvm.umax.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

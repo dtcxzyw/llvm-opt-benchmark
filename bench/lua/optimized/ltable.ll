@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [19 x i8] c"table index is NaN\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @luaH_realasize(ptr nocapture noundef readonly %t) local_unnamed_addr #0 {
+define hidden i32 @luaH_realasize(ptr noundef readonly captures(none) %t) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %t, i64 10
   %0 = load i8, ptr %flags, align 2
@@ -49,7 +49,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @luaH_next(ptr noundef %L, ptr nocapture noundef readonly %t, ptr nocapture noundef %key) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @luaH_next(ptr noundef %L, ptr noundef readonly captures(none) %t, ptr noundef captures(none) %key) local_unnamed_addr #1 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %t, i64 10
   %0 = load i8, ptr %flags.i, align 2
@@ -216,7 +216,7 @@ return:                                           ; preds = %for.cond13, %return
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @luaH_resize(ptr noundef %L, ptr noundef %t, i32 noundef %newasize, i32 noundef %nhsize) local_unnamed_addr #1 {
@@ -562,7 +562,7 @@ freehash.exit:                                    ; preds = %reinsert.exit, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaH_setint(ptr noundef %L, ptr noundef %t, i64 noundef %key, ptr nocapture noundef readonly %value) local_unnamed_addr #1 {
+define hidden void @luaH_setint(ptr noundef %L, ptr noundef %t, i64 noundef %key, ptr noundef readonly captures(none) %value) local_unnamed_addr #1 {
 entry:
   %k = alloca %struct.TValue, align 8
   %alimit1.i = getelementptr inbounds nuw i8, ptr %t, i64 12
@@ -682,7 +682,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freehash(ptr noundef %L, ptr nocapture noundef readonly %t) unnamed_addr #1 {
+define internal fastcc void @freehash(ptr noundef %L, ptr noundef readonly captures(none) %t) unnamed_addr #1 {
 entry:
   %lastfree = getelementptr inbounds nuw i8, ptr %t, i64 32
   %0 = load ptr, ptr %lastfree, align 8
@@ -811,7 +811,7 @@ luaH_realasize.exit:                              ; preds = %freehash.exit, %if.
 declare hidden void @luaM_free_(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @luaH_getint(ptr nocapture noundef %t, i64 noundef %key) local_unnamed_addr #5 {
+define hidden ptr @luaH_getint(ptr noundef captures(none) %t, i64 noundef %key) local_unnamed_addr #5 {
 entry:
   %alimit1 = getelementptr inbounds nuw i8, ptr %t, i64 12
   %0 = load i32, ptr %alimit1, align 4
@@ -907,7 +907,7 @@ return:                                           ; preds = %if.else24, %land.lh
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @luaH_getshortstr(ptr nocapture noundef readonly %t, ptr noundef readonly %key) local_unnamed_addr #6 {
+define hidden ptr @luaH_getshortstr(ptr noundef readonly captures(none) %t, ptr noundef readonly %key) local_unnamed_addr #6 {
 entry:
   %node = getelementptr inbounds nuw i8, ptr %t, i64 24
   %0 = load ptr, ptr %node, align 8
@@ -953,7 +953,7 @@ return:                                           ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaH_getstr(ptr nocapture noundef readonly %t, ptr noundef %key) local_unnamed_addr #1 {
+define hidden ptr @luaH_getstr(ptr noundef readonly captures(none) %t, ptr noundef %key) local_unnamed_addr #1 {
 entry:
   %ko = alloca %struct.TValue, align 8
   %tt = getelementptr inbounds nuw i8, ptr %key, i64 8
@@ -1014,7 +1014,7 @@ return:                                           ; preds = %if.else.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getgeneric(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %key, i32 noundef range(i32 0, 2) %deadok) unnamed_addr #1 {
+define internal fastcc ptr @getgeneric(ptr noundef readonly captures(none) %t, ptr noundef readonly captures(none) %key, i32 noundef range(i32 0, 2) %deadok) unnamed_addr #1 {
 entry:
   %call = tail call fastcc ptr @mainpositionTV(ptr noundef %t, ptr noundef %key)
   %tt_.i = getelementptr inbounds nuw i8, ptr %key, i64 8
@@ -1182,7 +1182,7 @@ return:                                           ; preds = %equalkey.exit, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @luaH_get(ptr nocapture noundef %t, ptr nocapture noundef readonly %key) local_unnamed_addr #1 {
+define hidden ptr @luaH_get(ptr noundef captures(none) %t, ptr noundef readonly captures(none) %key) local_unnamed_addr #1 {
 entry:
   %k = alloca i64, align 8
   %tt_ = getelementptr inbounds nuw i8, ptr %key, i64 8
@@ -1433,7 +1433,7 @@ return:                                           ; preds = %if.else24.i51, %lan
 declare hidden i32 @luaV_flttointeger(double noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaH_finishset(ptr noundef %L, ptr noundef %t, ptr nocapture noundef readonly %key, ptr nocapture noundef %slot, ptr nocapture noundef readonly %value) local_unnamed_addr #1 {
+define hidden void @luaH_finishset(ptr noundef %L, ptr noundef %t, ptr noundef readonly captures(none) %key, ptr noundef captures(none) %slot, ptr noundef readonly captures(none) %value) local_unnamed_addr #1 {
 entry:
   %tt_ = getelementptr inbounds nuw i8, ptr %slot, i64 8
   %0 = load i8, ptr %tt_, align 8
@@ -1457,7 +1457,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @luaH_newkey(ptr noundef %L, ptr noundef %t, ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %value) unnamed_addr #1 {
+define internal fastcc void @luaH_newkey(ptr noundef %L, ptr noundef %t, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value) unnamed_addr #1 {
 entry:
   %key.i = alloca %struct.TValue, align 8
   %nums.i = alloca [32 x i32], align 16
@@ -1756,14 +1756,14 @@ computesizes.exit:                                ; preds = %land.rhs.i, %for.bo
   %sub.i = sub i32 %inc9.i, %na.0.lcssa.i
   call void @luaH_resize(ptr noundef %L, ptr noundef %t, i32 noundef %optimal.0.lcssa.i, i32 noundef %sub.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %nums.i)
-  %call.i74 = call ptr @luaH_get(ptr noundef %t, ptr noundef %key.addr.0)
+  %call.i74 = call ptr @luaH_get(ptr noundef %t, ptr noundef nonnull %key.addr.0)
   %tt_.i118 = getelementptr inbounds nuw i8, ptr %call.i74, i64 8
   %35 = load i8, ptr %tt_.i118, align 8
   %cmp.i119 = icmp eq i8 %35, 32
   br i1 %cmp.i119, label %if.then.i121, label %if.else.i
 
 if.then.i121:                                     ; preds = %computesizes.exit
-  call fastcc void @luaH_newkey(ptr noundef %L, ptr noundef %t, ptr noundef %key.addr.0, ptr noundef %value)
+  call fastcc void @luaH_newkey(ptr noundef %L, ptr noundef %t, ptr noundef nonnull %key.addr.0, ptr noundef %value)
   br label %return
 
 if.else.i:                                        ; preds = %computesizes.exit
@@ -1901,7 +1901,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaH_set(ptr noundef %L, ptr noundef %t, ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %value) local_unnamed_addr #1 {
+define hidden void @luaH_set(ptr noundef %L, ptr noundef %t, ptr noundef readonly captures(none) %key, ptr noundef readonly captures(none) %value) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @luaH_get(ptr noundef %t, ptr noundef %key)
   %tt_.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -1926,7 +1926,7 @@ luaH_finishset.exit:                              ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @luaH_getn(ptr nocapture noundef %t) local_unnamed_addr #5 {
+define hidden i64 @luaH_getn(ptr noundef captures(none) %t) local_unnamed_addr #5 {
 entry:
   %alimit = getelementptr inbounds nuw i8, ptr %t, i64 12
   %0 = load i32, ptr %alimit, align 4
@@ -2486,7 +2486,7 @@ declare hidden i32 @luaO_ceillog2(i32 noundef) local_unnamed_addr #3
 declare hidden ptr @luaM_malloc_(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mainpositionTV(ptr nocapture noundef readonly %t, ptr nocapture noundef readonly %key) unnamed_addr #1 {
+define internal fastcc ptr @mainpositionTV(ptr noundef readonly captures(none) %t, ptr noundef readonly captures(none) %key) unnamed_addr #1 {
 entry:
   %i.i = alloca i32, align 4
   %tt_ = getelementptr inbounds nuw i8, ptr %key, i64 8
@@ -2678,7 +2678,7 @@ return:                                           ; preds = %sw.default, %sw.bb5
 declare hidden i32 @luaS_hashlongstr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare hidden i32 @luaS_eqlngstr(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2688,16 +2688,16 @@ declare hidden void @luaC_barrierback_(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

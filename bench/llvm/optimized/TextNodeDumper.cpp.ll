@@ -2026,7 +2026,7 @@ define dso_local void @_ZN5clang14TextNodeDumperC2ERN4llvm11raw_ostreamERKNS_10A
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang14TextNodeDumperC2ERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(1168) initializes((0, 9)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
@@ -2671,7 +2671,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %2, %12, %14, %15
 declare noundef ptr @_ZNK5clang8comments7Comment18getCommentKindNameEv(ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper11dumpPointerEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper11dumpPointerEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
@@ -2723,7 +2723,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper15dumpSourceRangeENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(1168) %0, i64 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper15dumpSourceRangeENS_11SourceRangeE(ptr noundef nonnull align 8 captures(none) dereferenceable(1168) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %.sroa.012.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
@@ -9315,7 +9315,7 @@ declare noundef ptr @_ZNK5clang4Decl15getDeclKindNameEv(ptr noundef nonnull alig
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKv(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper12dumpLocationENS_14SourceLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(1168) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper12dumpLocationENS_14SourceLocationE(ptr noundef nonnull align 8 captures(none) dereferenceable(1168) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::PresumedLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   %5 = load ptr, ptr %4, align 8
@@ -10413,7 +10413,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %28, %_ZN4llvm11raw_
 declare noundef ptr @_ZNK5clang18CXXCtorInitializer12getBaseClassEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper5VisitERKNS_9BlockDecl7CaptureE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper5VisitERKNS_9BlockDecl7CaptureE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -10535,7 +10535,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %56, %58
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper5VisitEPKNS_9OMPClauseE(ptr nocapture noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper5VisitEPKNS_9OMPClauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %.not = icmp eq ptr %1, null
@@ -10786,7 +10786,7 @@ declare { ptr, i64 } @_ZN4llvm3omp19getOpenMPClauseNameENS0_6ClauseE(i32 noundef
 declare void @_ZNK4llvm9StringRef5upperB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper5VisitEPKNS_13OpenACCClauseE(ptr nocapture noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper5VisitEPKNS_13OpenACCClauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -11476,7 +11476,7 @@ _ZN5clang29printOpenACCDefaultClauseKindIN4llvm11raw_ostreamEEERT_S4_NS_24OpenAC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -11778,7 +11778,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %29, %_ZN4llvm11raw_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper5VisitEPKNS_8concepts11RequirementE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper5VisitEPKNS_8concepts11RequirementE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -12121,7 +12121,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %197, %195, %28, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS3_S3_jEjN4llvm9StringRefES8_(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %class.anon.614, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %._crit_edge, label %.preheader.lr.ph
@@ -14099,12 +14099,12 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %14, %15
 declare void @_ZNK5clang13SourceManager14getPresumedLocENS_14SourceLocationEb(ptr dead_on_unwind writable sret(%"class.clang::PresumedLoc") align 8, ptr noundef nonnull align 8 dereferenceable(696), i32, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN5clanglsERN4llvm11raw_ostreamENS_15DeclarationNameE(ptr noundef nonnull align 8 dereferenceable(48), i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %.not = icmp eq i64 %.sroa.0.0.copyload.i, 0
@@ -14163,7 +14163,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %25, %_ZN4llvm11raw_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19dumpAccessSpecifierENS_15AccessSpecifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19dumpAccessSpecifierENS_15AccessSpecifierE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   switch i32 %1, label %5 [
     i32 0, label %6
     i32 1, label %3
@@ -14211,7 +14211,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %2, %19, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS_9BlockDeclEPNS_19CompoundLiteralExprEEEE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS_9BlockDeclEPNS_19CompoundLiteralExprEEEE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i = alloca { i64, i64 }, align 8
   %3 = alloca %"class.std::function", align 8
   %4 = alloca i8, align 1
@@ -14433,7 +14433,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i.i:                ; preds = %"_ZNSt8functionIFvb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper30dumpTemplateSpecializationKindENS_26TemplateSpecializationKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper30dumpTemplateSpecializationKindENS_26TemplateSpecializationKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   switch i32 %1, label %_ZN4llvm11raw_ostreamlsEPKc.exit [
     i32 4, label %51
     i32 1, label %3
@@ -14746,7 +14746,7 @@ declare void @_ZNK5clang10ASTContext28getCanonicalTemplateArgumentERKNS_16Templa
 declare noundef zeroext i1 @_ZNK5clang16TemplateArgument18structurallyEqualsERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang14TextNodeDumper14getCommandNameEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang14TextNodeDumper14getCommandNameEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14776,7 +14776,7 @@ declare noundef ptr @_ZNK5clang8comments13CommandTraits14getCommandInfoEj(ptr no
 declare noundef ptr @_ZN5clang8comments13CommandTraits21getBuiltinCommandInfoEj(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, i64 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper14printFPOptionsENS_17FPOptionsOverrideE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %.sroa.17.0.extract.shift = lshr i64 %1, 32
   %.sroa.17.0.extract.trunc = trunc nuw i64 %.sroa.17.0.extract.shift to i32
   %3 = and i32 %.sroa.17.0.extract.trunc, 3
@@ -15383,7 +15383,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit45:               ; preds = %334, %336
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16visitTextCommentEPKNS_8comments11TextCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16visitTextCommentEPKNS_8comments11TextCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -15467,7 +15467,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %38, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25visitInlineCommandCommentEPKNS_8comments20InlineCommandCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25visitInlineCommandCommentEPKNS_8comments20InlineCommandCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -15818,7 +15818,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49:               ; preds = %187, %189
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24visitHTMLStartTagCommentEPKNS_8comments19HTMLStartTagCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24visitHTMLStartTagCommentEPKNS_8comments19HTMLStartTagCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -16117,7 +16117,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %151, %149, %.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22visitHTMLEndTagCommentEPKNS_8comments17HTMLEndTagCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22visitHTMLEndTagCommentEPKNS_8comments17HTMLEndTagCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -16201,7 +16201,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %38, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24visitBlockCommandCommentEPKNS_8comments19BlockCommandCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24visitBlockCommandCommentEPKNS_8comments19BlockCommandCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -16426,7 +16426,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit28:               ; preds = %110, %112
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24visitParamCommandCommentEPKNS_8comments19ParamCommandCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24visitParamCommandCommentEPKNS_8comments19ParamCommandCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -16730,7 +16730,7 @@ declare noundef ptr @_ZN5clang8comments19ParamCommandComment20getDirectionAsStri
 declare { ptr, i64 } @_ZNK5clang8comments19ParamCommandComment12getParamNameEPKNS0_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25visitTParamCommandCommentEPKNS_8comments20TParamCommandCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25visitTParamCommandCommentEPKNS_8comments20TParamCommandCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 4294967295
@@ -16999,7 +16999,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit38:               ; preds = %140, %138, %_ZN4llv
 declare { ptr, i64 } @_ZNK5clang8comments20TParamCommandComment12getParamNameEPKNS0_11FullCommentE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25visitVerbatimBlockCommentEPKNS_8comments20VerbatimBlockCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25visitVerbatimBlockCommentEPKNS_8comments20VerbatimBlockCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -17160,7 +17160,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %77, %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper29visitVerbatimBlockLineCommentEPKNS_8comments24VerbatimBlockLineCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper29visitVerbatimBlockLineCommentEPKNS_8comments24VerbatimBlockLineCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -17244,7 +17244,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %38, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24visitVerbatimLineCommentEPKNS_8comments19VerbatimLineCommentEPKNS1_11FullCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24visitVerbatimLineCommentEPKNS_8comments19VerbatimLineCommentEPKNS1_11FullCommentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -17328,7 +17328,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %38, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitNullTemplateArgumentERKNS_16TemplateArgumentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitNullTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -17420,7 +17420,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5clang14TextNodeDumper28VisitNullPtrTemplateArgumentERKNS_16TemplateArgumentE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
@@ -18941,7 +18941,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper11VisitIfStmtEPKNS_6IfStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper11VisitIfStmtEPKNS_6IfStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 8192
   %.not = icmp eq i16 %4, 0
@@ -19142,7 +19142,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %117, %115, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper15VisitSwitchStmtEPKNS_10SwitchStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper15VisitSwitchStmtEPKNS_10SwitchStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 256
   %.not = icmp eq i16 %4, 0
@@ -19207,7 +19207,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %36, %34, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper14VisitWhileStmtEPKNS_9WhileStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper14VisitWhileStmtEPKNS_9WhileStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 256
   %.not = icmp eq i16 %4, 0
@@ -19242,7 +19242,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %16, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper14VisitLabelStmtEPKNS_9LabelStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper14VisitLabelStmtEPKNS_9LabelStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -19355,7 +19355,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %59, %57, %_ZN4llvm1
 declare noundef ptr @_ZNK5clang9LabelStmt7getNameEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper13VisitGotoStmtEPKNS_8GotoStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper13VisitGotoStmtEPKNS_8GotoStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -19496,7 +19496,7 @@ _ZN5clang14TextNodeDumper11dumpPointerEPKv.exit:  ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper13VisitCaseStmtEPKNS_8CaseStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper13VisitCaseStmtEPKNS_8CaseStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 256
   %.not = icmp eq i16 %4, 0
@@ -19531,7 +19531,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %16, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper15VisitReturnStmtEPKNS_10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper15VisitReturnStmtEPKNS_10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 256
   %.not.i = icmp eq i16 %4, 0
@@ -19593,7 +19593,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %2, %31, %29, %_ZNK5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16VisitCoawaitExprEPKNS_11CoawaitExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16VisitCoawaitExprEPKNS_11CoawaitExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i24, ptr %1, align 8
   %4 = and i24 %3, 262144
   %.not = icmp eq i24 %4, 0
@@ -19628,7 +19628,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %16, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper17VisitCoreturnStmtEPKNS_12CoreturnStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper17VisitCoreturnStmtEPKNS_12CoreturnStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -19885,7 +19885,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i:                  ; preds = %"_ZNSt8functionIFvb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper13VisitCallExprEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 524288
   %.not = icmp eq i32 %4, 0
@@ -19943,7 +19943,7 @@ _ZNK5clang8CallExpr13getFPFeaturesEv.exit:        ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24VisitCXXOperatorCallExprEPKNS_19CXXOperatorCallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24VisitCXXOperatorCallExprEPKNS_19CXXOperatorCallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 63
@@ -20088,7 +20088,7 @@ _ZN5clang14TextNodeDumper13VisitCallExprEPKNS_8CallExprE.exit: ; preds = %_ZN4ll
 declare noundef ptr @_ZN5clang19getOperatorSpellingENS_22OverloadedOperatorKindE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper13VisitCastExprEPKNS_8CastExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -20397,7 +20397,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %98, %96, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitImplicitCastExprEPKNS_16ImplicitCastExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitImplicitCastExprEPKNS_16ImplicitCastExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang14TextNodeDumper13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %1)
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 33554432
@@ -20433,7 +20433,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %16, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16VisitDeclRefExprEPKNS_11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16VisitDeclRefExprEPKNS_11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -20716,7 +20716,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit37:               ; preds = %157, %155, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper30VisitDependentScopeDeclRefExprEPKNS_25DependentScopeDeclRefExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -20731,7 +20731,7 @@ _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitUnresolvedLookupExprEPKNS_20UnresolvedLookupExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -20930,7 +20930,7 @@ _ZN5clang14TextNodeDumper11dumpPointerEPKv.exit:  ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper20VisitObjCIvarRefExprEPKNS_15ObjCIvarRefExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper20VisitObjCIvarRefExprEPKNS_15ObjCIvarRefExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
@@ -21160,7 +21160,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit25:               ; preds = %124, %122, %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper29VisitSYCLUniqueStableNameExprEPKNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper29VisitSYCLUniqueStableNameExprEPKNS_24SYCLUniqueStableNameExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %4, align 8
@@ -21189,7 +21189,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19VisitPredefinedExprEPKNS_14PredefinedExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19VisitPredefinedExprEPKNS_14PredefinedExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -21250,7 +21250,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %29, %31, %32
 declare { ptr, i64 } @_ZN5clang14PredefinedExpr16getIdentKindNameENS_19PredefinedIdentKindE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitCharacterLiteralEPKNS_16CharacterLiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitCharacterLiteralEPKNS_16CharacterLiteralE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
@@ -21306,7 +21306,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19VisitIntegerLiteralEPKNS_14IntegerLiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19VisitIntegerLiteralEPKNS_14IntegerLiteralE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21448,7 +21448,7 @@ _ZN4llvm11SmallStringILj40EED2Ev.exit:            ; preds = %7, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitFixedPointLiteralEPKNS_17FixedPointLiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitFixedPointLiteralEPKNS_17FixedPointLiteralE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
@@ -21508,7 +21508,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
 declare void @_ZNK5clang17FixedPointLiteral16getValueAsStringB5cxx11Ej(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(36), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper20VisitFloatingLiteralEPKNS_15FloatingLiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper20VisitFloatingLiteralEPKNS_15FloatingLiteralE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
@@ -21564,7 +21564,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
 declare noundef double @_ZNK5clang15FloatingLiteral27getValueAsApproximateDoubleEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper18VisitStringLiteralEPKNS_13StringLiteralE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper18VisitStringLiteralEPKNS_13StringLiteralE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1104
@@ -21619,7 +21619,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
 declare void @_ZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper17VisitInitListExprEPKNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper17VisitInitListExprEPKNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i, 2
@@ -21663,7 +21663,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitGenericSelectionExprEPKNS_20GenericSelectionExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitGenericSelectionExprEPKNS_20GenericSelectionExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1073709056
@@ -21699,7 +21699,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %20, %18, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper18VisitUnaryOperatorEPKNS_13UnaryOperatorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper18VisitUnaryOperatorEPKNS_13UnaryOperatorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -21878,7 +21878,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit18:               ; preds = %90, %88, %_ZN4llvm1
 declare { ptr, i64 } @_ZN5clang13UnaryOperator12getOpcodeStrENS_17UnaryOperatorKindE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper29VisitUnaryExprOrTypeTraitExprEPKNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper29VisitUnaryExprOrTypeTraitExprEPKNS_24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -21976,7 +21976,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %45, %47
 declare noundef ptr @_ZN5clang16getTraitSpellingENS_20UnaryExprOrTypeTraitE(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper15VisitMemberExprEPKNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper15VisitMemberExprEPKNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -22183,7 +22183,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %_ZN5clang14TextNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitExtVectorElementExprEPKNS_20ExtVectorElementExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitExtVectorElementExprEPKNS_20ExtVectorElementExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -22244,7 +22244,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %29, %31, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19VisitBinaryOperatorEPKNS_14BinaryOperatorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19VisitBinaryOperatorEPKNS_14BinaryOperatorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -22345,7 +22345,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %42, %44
 declare { ptr, i64 } @_ZN5clang14BinaryOperator12getOpcodeStrENS_18BinaryOperatorKindE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -22476,7 +22476,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %61, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper18VisitAddrLabelExprEPKNS_13AddrLabelExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper18VisitAddrLabelExprEPKNS_13AddrLabelExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -22594,7 +22594,7 @@ _ZN5clang14TextNodeDumper11dumpPointerEPKv.exit:  ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitCXXNamedCastExprEPKNS_16CXXNamedCastExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitCXXNamedCastExprEPKNS_16CXXNamedCastExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.clang::QualType", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -22791,7 +22791,7 @@ declare noundef ptr @_ZNK5clang16CXXNamedCastExpr11getCastNameEv(ptr noundef non
 declare void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper23VisitCXXBoolLiteralExprEPKNS_18CXXBoolLiteralExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper23VisitCXXBoolLiteralExprEPKNS_18CXXBoolLiteralExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -22847,7 +22847,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %26, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16VisitCXXThisExprEPKNS_11CXXThisExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16VisitCXXThisExprEPKNS_11CXXThisExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 262144
   %.not = icmp eq i32 %4, 0
@@ -22936,7 +22936,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %49, %51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper26VisitCXXFunctionalCastExprEPKNS_21CXXFunctionalCastExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper26VisitCXXFunctionalCastExprEPKNS_21CXXFunctionalCastExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.clang::QualType", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -23067,7 +23067,7 @@ _ZNK5clang8CastExpr13getFPFeaturesEv.exit:        ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitCXXStaticCastExprEPKNS_17CXXStaticCastExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitCXXStaticCastExprEPKNS_17CXXStaticCastExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang14TextNodeDumper21VisitCXXNamedCastExprEPKNS_16CXXNamedCastExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %1)
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 67108864
@@ -23085,7 +23085,7 @@ _ZNK5clang8CastExpr13getFPFeaturesEv.exit:        ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper31VisitCXXUnresolvedConstructExprEPKNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper31VisitCXXUnresolvedConstructExprEPKNS_26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %.0.copyload.i.i.i.i.i, -8
@@ -23145,7 +23145,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %29, %27, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -23320,7 +23320,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %98, %96, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitCXXBindTemporaryExprEPKNS_20CXXBindTemporaryExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -23415,7 +23415,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper15VisitCXXNewExprEPKNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper15VisitCXXNewExprEPKNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 262144
   %.not8 = icmp eq i32 %4, 0
@@ -23511,7 +23511,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper18VisitCXXDeleteExprEPKNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper18VisitCXXDeleteExprEPKNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 262144
   %.not8 = icmp eq i32 %4, 0
@@ -23607,7 +23607,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper18VisitTypeTraitExprEPKNS_13TypeTraitExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper18VisitTypeTraitExprEPKNS_13TypeTraitExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -23672,7 +23672,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %_ZN4llvm11raw_ostre
 declare noundef ptr @_ZN5clang16getTraitSpellingENS_9TypeTraitE(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper23VisitArrayTypeTraitExprEPKNS_18ArrayTypeTraitExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper23VisitArrayTypeTraitExprEPKNS_18ArrayTypeTraitExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -23738,7 +23738,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %_ZN4llvm11raw_ostre
 declare noundef ptr @_ZN5clang16getTraitSpellingENS_14ArrayTypeTraitE(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24VisitExpressionTraitExprEPKNS_19ExpressionTraitExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24VisitExpressionTraitExprEPKNS_19ExpressionTraitExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -23803,7 +23803,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %_ZN4llvm11raw_ostre
 declare noundef ptr @_ZN5clang16getTraitSpellingENS_15ExpressionTraitE(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitCXXDefaultArgExprEPKNS_17CXXDefaultArgExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitCXXDefaultArgExprEPKNS_17CXXDefaultArgExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 262144
   %.not = icmp eq i32 %4, 0
@@ -23838,7 +23838,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %16, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper23VisitCXXDefaultInitExprEPKNS_18CXXDefaultInitExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper23VisitCXXDefaultInitExprEPKNS_18CXXDefaultInitExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 262144
   %.not = icmp eq i32 %4, 0
@@ -23873,7 +23873,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %16, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper29VisitMaterializeTemporaryExprEPKNS_24MaterializeTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper29VisitMaterializeTemporaryExprEPKNS_24MaterializeTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
@@ -23921,7 +23921,7 @@ _ZNK5clang24MaterializeTemporaryExpr16getExtendingDeclEv.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitExprWithCleanupsEPKNS_16ExprWithCleanupsE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitExprWithCleanupsEPKNS_16ExprWithCleanupsE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::PointerUnion.633", align 8
   %4 = load i32, ptr %1, align 8
   %.not6 = icmp ult i32 %4, 524288
@@ -23948,7 +23948,7 @@ define dso_local void @_ZN5clang14TextNodeDumper21VisitExprWithCleanupsEPKNS_16E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19VisitSizeOfPackExprEPKNS_14SizeOfPackExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19VisitSizeOfPackExprEPKNS_14SizeOfPackExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -24055,7 +24055,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %_ZN5clang14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper32VisitCXXDependentScopeMemberExprEPKNS_27CXXDependentScopeMemberExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper32VisitCXXDependentScopeMemberExprEPKNS_27CXXDependentScopeMemberExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -24254,7 +24254,7 @@ declare i64 @_ZNK5clang15ObjCMessageExpr11getSelectorEv(ptr noundef nonnull alig
 declare void @_ZNK5clang8Selector5printERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper18VisitObjCBoxedExprEPKNS_13ObjCBoxedExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper18VisitObjCBoxedExprEPKNS_13ObjCBoxedExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::Selector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -24298,7 +24298,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper20VisitObjCAtCatchStmtEPKNS_15ObjCAtCatchStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper20VisitObjCAtCatchStmtEPKNS_15ObjCAtCatchStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -24333,7 +24333,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %16, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19VisitObjCEncodeExprEPKNS_14ObjCEncodeExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19VisitObjCEncodeExprEPKNS_14ObjCEncodeExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %4, align 8
@@ -24362,7 +24362,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitObjCSelectorExprEPKNS_16ObjCSelectorExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitObjCSelectorExprEPKNS_16ObjCSelectorExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::Selector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
@@ -24394,7 +24394,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitObjCProtocolExprEPKNS_16ObjCProtocolExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitObjCProtocolExprEPKNS_16ObjCProtocolExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -24423,7 +24423,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24VisitObjCPropertyRefExprEPKNS_19ObjCPropertyRefExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24VisitObjCPropertyRefExprEPKNS_19ObjCPropertyRefExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::Selector", align 8
   %4 = alloca %"class.clang::Selector", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -24750,7 +24750,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit44:               ; preds = %179, %177, %163, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitObjCSubscriptRefExprEPKNS_20ObjCSubscriptRefExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitObjCSubscriptRefExprEPKNS_20ObjCSubscriptRefExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::Selector", align 8
   %4 = alloca %"class.clang::Selector", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -25028,7 +25028,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit35:               ; preds = %167, %165, %150
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24VisitObjCBoolLiteralExprEPKNS_19ObjCBoolLiteralExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24VisitObjCBoolLiteralExprEPKNS_19ObjCBoolLiteralExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -25237,7 +25237,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit19:               ; preds = %77, %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper30VisitConceptSpecializationExprEPKNS_25ConceptSpecializationExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper30VisitConceptSpecializationExprEPKNS_25ConceptSpecializationExprE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -25268,7 +25268,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper17VisitRequiresExprEPKNS_12RequiresExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper17VisitRequiresExprEPKNS_12RequiresExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %4 = load i16, ptr %3, align 1
   %5 = and i16 %4, 256
@@ -25309,7 +25309,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %23, %21, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24VisitRValueReferenceTypeEPKNS_13ReferenceTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24VisitRValueReferenceTypeEPKNS_13ReferenceTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i24, ptr %3, align 16
   %5 = and i24 %4, 524288
@@ -25345,7 +25345,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper14VisitArrayTypeEPKNS_9ArrayTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper14VisitArrayTypeEPKNS_9ArrayTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.clang::Qualifiers", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -25442,7 +25442,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitConstantArrayTypeEPKNS_17ConstantArrayTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitConstantArrayTypeEPKNS_17ConstantArrayTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %5 = load ptr, ptr %4, align 8
@@ -25540,7 +25540,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang17Constan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitVariableArrayTypeEPKNS_17VariableArrayTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitVariableArrayTypeEPKNS_17VariableArrayTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -25570,7 +25570,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper28VisitDependentSizedArrayTypeEPKNS_23DependentSizedArrayTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper28VisitDependentSizedArrayTypeEPKNS_23DependentSizedArrayTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang14TextNodeDumper14VisitArrayTypeEPKNS_9ArrayTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %1)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -25600,7 +25600,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper32VisitDependentSizedExtVectorTypeEPKNS_27DependentSizedExtVectorTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper32VisitDependentSizedExtVectorTypeEPKNS_27DependentSizedExtVectorTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -25629,7 +25629,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper15VisitVectorTypeEPKNS_10VectorTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper15VisitVectorTypeEPKNS_10VectorTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 16
   %5 = lshr i32 %4, 19
@@ -25896,7 +25896,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %158, %160
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper17VisitFunctionTypeEPKNS_12FunctionTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper17VisitFunctionTypeEPKNS_12FunctionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 16
   %5 = trunc i64 %4 to i32
@@ -27290,7 +27290,7 @@ _ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit: ; preds = %90, %_ZNK5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24VisitUnresolvedUsingTypeEPKNS_19UnresolvedUsingTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24VisitUnresolvedUsingTypeEPKNS_19UnresolvedUsingTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %4, ptr null, i64 0)
@@ -27298,7 +27298,7 @@ define dso_local void @_ZN5clang14TextNodeDumper24VisitUnresolvedUsingTypeEPKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper14VisitUsingTypeEPKNS_9UsingTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper14VisitUsingTypeEPKNS_9UsingTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 16
   tail call void @_ZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %4, ptr null, i64 0)
@@ -27337,7 +27337,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %19, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16VisitTypedefTypeEPKNS_11TypedefTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16VisitTypedefTypeEPKNS_11TypedefTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 16
   tail call void @_ZN5clang14TextNodeDumper11dumpDeclRefEPKNS_4DeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef %4, ptr null, i64 0)
@@ -27376,7 +27376,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %21, %19, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper23VisitUnaryTransformTypeEPKNS_18UnaryTransformTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper23VisitUnaryTransformTypeEPKNS_18UnaryTransformTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %_ZN4llvm11raw_ostreamlsEPKc.exit [
@@ -27796,7 +27796,7 @@ define dso_local void @_ZN5clang14TextNodeDumper12VisitTagTypeEPKNS_7TagTypeE(pt
 declare noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitTemplateTypeParmTypeEPKNS_20TemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitTemplateTypeParmTypeEPKNS_20TemplateTypeParmTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -28228,7 +28228,7 @@ declare noundef ptr @_ZNK5clang29SubstTemplateTypeParmPackType17getAssociatedDec
 declare noundef ptr @_ZNK5clang29SubstTemplateTypeParmPackType20getReplacedParameterEv(ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper13VisitAutoTypeEPKNS_8AutoTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper13VisitAutoTypeEPKNS_8AutoTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 16
   %5 = and i32 %4, 1572864
@@ -28309,7 +28309,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit7:                ; preds = %42, %40, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper38VisitDeducedTemplateSpecializationTypeEPKNS_33DeducedTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper38VisitDeducedTemplateSpecializationTypeEPKNS_33DeducedTemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nonnull @.str.708, i64 4, i64 %.sroa.0.0.copyload.i, ptr nonnull align 8 dereferenceable(1168) %0)
@@ -28317,7 +28317,7 @@ define dso_local void @_ZN5clang14TextNodeDumper38VisitDeducedTemplateSpecializa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper31VisitTemplateSpecializationTypeEPKNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper31VisitTemplateSpecializationTypeEPKNS_26TemplateSpecializationTypeE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 16
   %5 = and i32 %4, 524288
@@ -28374,7 +28374,7 @@ define dso_local void @_ZN5clang14TextNodeDumper22VisitObjCInterfaceTypeEPKNS_17
 declare noundef ptr @_ZNK5clang17ObjCInterfaceType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitPackExpansionTypeEPKNS_17PackExpansionTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitPackExpansionTypeEPKNS_17PackExpansionTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %.not.not.i.not = icmp eq i32 %4, 0
@@ -28416,7 +28416,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper12VisitTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr %1, ptr nocapture readnone %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper12VisitTypeLocENS_7TypeLocE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr %1, ptr readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -16
   %6 = inttoptr i64 %5 to ptr
@@ -28426,7 +28426,7 @@ define dso_local void @_ZN5clang14TextNodeDumper12VisitTypeLocENS_7TypeLocE(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper14VisitLabelDeclEPKNS_9LabelDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper14VisitLabelDeclEPKNS_9LabelDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -28485,7 +28485,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16VisitTypedefDeclEPKNS_11TypedefDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16VisitTypedefDeclEPKNS_11TypedefDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -28603,7 +28603,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %59, %57, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper13VisitEnumDeclEPKNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper13VisitEnumDeclEPKNS_8EnumDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load i40, ptr %3, align 8
   %5 = icmp slt i40 %4, 0
@@ -28816,7 +28816,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %105, %107
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper15VisitRecordDeclEPKNS_10RecordDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper15VisitRecordDeclEPKNS_10RecordDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -28989,7 +28989,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %94, %92, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitEnumConstantDeclEPKNS_16EnumConstantDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitEnumConstantDeclEPKNS_16EnumConstantDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -29071,7 +29071,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %37, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitIndirectFieldDeclEPKNS_17IndirectFieldDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitIndirectFieldDeclEPKNS_17IndirectFieldDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -30327,7 +30327,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %19, %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper34VisitLifetimeExtendedTemporaryDeclEPKNS_29LifetimeExtendedTemporaryDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper34VisitLifetimeExtendedTemporaryDeclEPKNS_29LifetimeExtendedTemporaryDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -30412,7 +30412,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN5clang10ColorSco
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper14VisitFieldDeclEPKNS_9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper14VisitFieldDeclEPKNS_9FieldDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -31329,7 +31329,7 @@ declare noundef zeroext i1 @_ZNK5clang7VarDecl15isParameterPackEv(ptr noundef no
 declare noundef ptr @_ZNK5clang7VarDecl13evaluateValueEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16VisitBindingDeclEPKNS_11BindingDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16VisitBindingDeclEPKNS_11BindingDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -31411,7 +31411,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %37, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper17VisitCapturedDeclEPKNS_12CapturedDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper17VisitCapturedDeclEPKNS_12CapturedDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK5clang12CapturedDecl9isNothrowEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #18
   br i1 %3, label %4, label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -31500,7 +31500,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %10, %12
 declare { ptr, i64 } @_ZN5clang10ASTContext21getModuleInitializersEPNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitPragmaCommentDeclEPKNS_17PragmaCommentDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitPragmaCommentDeclEPKNS_17PragmaCommentDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -31727,7 +31727,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit22:               ; preds = %127, %125, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper29VisitPragmaDetectMismatchDeclEPKNS_24PragmaDetectMismatchDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper29VisitPragmaDetectMismatchDeclEPKNS_24PragmaDetectMismatchDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -31867,7 +31867,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %69, %71
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper27VisitOMPExecutableDirectiveEPKNS_22OMPExecutableDirectiveE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper27VisitOMPExecutableDirectiveEPKNS_22OMPExecutableDirectiveE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK5clang22OMPExecutableDirective21isStandaloneDirectiveEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   br i1 %3, label %4, label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
@@ -31902,7 +31902,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %15, %2
 declare noundef zeroext i1 @_ZNK5clang22OMPExecutableDirective21isStandaloneDirectiveEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper28VisitOMPDeclareReductionDeclEPKNS_23OMPDeclareReductionDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper28VisitOMPDeclareReductionDeclEPKNS_23OMPDeclareReductionDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -32185,7 +32185,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %152, %150, %137, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper20VisitOMPRequiresDeclEPKNS_15OMPRequiresDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper20VisitOMPRequiresDeclEPKNS_15OMPRequiresDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i = alloca { i64, i64 }, align 8
   %3 = alloca %"class.std::function", align 8
   %4 = alloca i8, align 1
@@ -32408,7 +32408,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i.i:                ; preds = %"_ZNSt8functionIFvb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24VisitOMPCapturedExprDeclEPKNS_19OMPCapturedExprDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24VisitOMPCapturedExprDeclEPKNS_19OMPCapturedExprDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -32490,7 +32490,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %37, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper18VisitNamespaceDeclEPKNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper18VisitNamespaceDeclEPKNS_13NamespaceDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -32650,7 +32650,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper23VisitNamespaceAliasDeclEPKNS_18NamespaceAliasDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper23VisitNamespaceAliasDeclEPKNS_18NamespaceAliasDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -32712,7 +32712,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper18VisitTypeAliasDeclEPKNS_13TypeAliasDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper18VisitTypeAliasDeclEPKNS_13TypeAliasDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -32800,7 +32800,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %40, %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper26VisitTypeAliasTemplateDeclEPKNS_21TypeAliasTemplateDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper26VisitTypeAliasTemplateDeclEPKNS_21TypeAliasTemplateDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -33438,7 +33438,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i.i31:              ; preds = %"_ZNSt8functionIFvb
 declare noundef ptr @_ZNK5clang13CXXRecordDecl30getInstantiatedFromMemberClassEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitFunctionTemplateDeclEPKNS_20FunctionTemplateDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitFunctionTemplateDeclEPKNS_20FunctionTemplateDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -33497,7 +33497,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitClassTemplateDeclEPKNS_17ClassTemplateDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitClassTemplateDeclEPKNS_17ClassTemplateDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -33556,7 +33556,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper20VisitVarTemplateDeclEPKNS_15VarTemplateDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper20VisitVarTemplateDeclEPKNS_15VarTemplateDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -33615,7 +33615,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper24VisitBuiltinTemplateDeclEPKNS_19BuiltinTemplateDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper24VisitBuiltinTemplateDeclEPKNS_19BuiltinTemplateDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -33680,7 +33680,7 @@ declare noundef i32 @_ZNK5clang20TemplateTypeParmDecl8getIndexEv(ptr noundef non
 declare noundef zeroext i1 @_ZNK5clang20TemplateTypeParmDecl15isParameterPackEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper28VisitNonTypeTemplateParmDeclEPKNS_23NonTypeTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper28VisitNonTypeTemplateParmDeclEPKNS_23NonTypeTemplateParmDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.sroa.0.0.copyload.i = load i64, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1096
@@ -33846,7 +33846,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %_ZN4llvm11r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper29VisitTemplateTemplateParmDeclEPKNS_24TemplateTemplateParmDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper29VisitTemplateTemplateParmDeclEPKNS_24TemplateTemplateParmDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -34044,7 +34044,7 @@ _ZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierE.e
 declare void @_ZNK5clang19NestedNameSpecifier5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper18VisitUsingEnumDeclEPKNS_13UsingEnumDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper18VisitUsingEnumDeclEPKNS_13UsingEnumDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -34077,7 +34077,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper32VisitUnresolvedUsingTypenameDeclEPKNS_27UnresolvedUsingTypenameDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper32VisitUnresolvedUsingTypenameDeclEPKNS_27UnresolvedUsingTypenameDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -34183,7 +34183,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %29, %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper20VisitUsingShadowDeclEPKNS_15UsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper20VisitUsingShadowDeclEPKNS_15UsingShadowDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -34868,7 +34868,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i.i28:              ; preds = %"_ZNSt8functionIFvb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper20VisitLinkageSpecDeclEPKNS_15LinkageSpecDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper20VisitLinkageSpecDeclEPKNS_15LinkageSpecDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i16, ptr %3, align 8
   %5 = lshr i16 %4, 13
@@ -34930,7 +34930,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %35, %33, %19, %17, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19VisitAccessSpecDeclEPKNS_14AccessSpecDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19VisitAccessSpecDeclEPKNS_14AccessSpecDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -35001,7 +35001,7 @@ _ZN5clang14TextNodeDumper19dumpAccessSpecifierENS_15AccessSpecifierE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper15VisitFriendDeclEPKNS_10FriendDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper15VisitFriendDeclEPKNS_10FriendDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %3, align 8
   %4 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
@@ -35072,7 +35072,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %34, %32, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper17VisitObjCIvarDeclEPKNS_12ObjCIvarDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper17VisitObjCIvarDeclEPKNS_12ObjCIvarDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -35310,7 +35310,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %133, %131, %118, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19VisitObjCMethodDeclEPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19VisitObjCMethodDeclEPKNS_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i24, ptr %3, align 8
   %5 = and i24 %4, 131072
@@ -35466,7 +35466,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit13:               ; preds = %80, %78, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper22VisitObjCTypeParamDeclEPKNS_17ObjCTypeParamDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper22VisitObjCTypeParamDeclEPKNS_17ObjCTypeParamDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -35792,7 +35792,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
 declare noundef ptr @_ZNK5clang20ObjCCategoryImplDecl15getCategoryDeclEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitObjCProtocolDeclEPKNS_16ObjCProtocolDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitObjCProtocolDeclEPKNS_16ObjCProtocolDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -36092,7 +36092,7 @@ _ZNK5clang17ObjCInterfaceDecl12protocol_endEv.exit: ; preds = %_ZNK5clang17ObjCI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper27VisitObjCImplementationDeclEPKNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper27VisitObjCImplementationDeclEPKNS_22ObjCImplementationDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -36157,7 +36157,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper28VisitObjCCompatibleAliasDeclEPKNS_23ObjCCompatibleAliasDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper28VisitObjCCompatibleAliasDeclEPKNS_23ObjCCompatibleAliasDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -36219,7 +36219,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper21VisitObjCPropertyDeclEPKNS_16ObjCPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper21VisitObjCPropertyDeclEPKNS_16ObjCPropertyDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -36723,7 +36723,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit77:               ; preds = %269, %267, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitObjCPropertyImplDeclEPKNS_20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitObjCPropertyImplDeclEPKNS_20ObjCPropertyImplDeclE(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -36833,7 +36833,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %54, %52, %47, %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper14VisitBlockDeclEPKNS_9BlockDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper14VisitBlockDeclEPKNS_9BlockDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 8192
@@ -36899,7 +36899,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit5:                ; preds = %37, %35, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16VisitConceptDeclEPKNS_11ConceptDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16VisitConceptDeclEPKNS_11ConceptDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %3, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
@@ -36958,7 +36958,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %2, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper17VisitCompoundStmtEPKNS_12CompoundStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper17VisitCompoundStmtEPKNS_12CompoundStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 256
   %.not = icmp eq i16 %4, 0
@@ -36979,7 +36979,7 @@ define dso_local void @_ZN5clang14TextNodeDumper17VisitCompoundStmtEPKNS_12Compo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19VisitHLSLBufferDeclEPKNS_14HLSLBufferDeclE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19VisitHLSLBufferDeclEPKNS_14HLSLBufferDeclE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -37082,7 +37082,7 @@ _ZN5clang14TextNodeDumper8dumpNameEPKNS_9NamedDeclE.exit: ; preds = %_ZN4llvm11r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper19VisitHLSLOutArgExprEPKNS_14HLSLOutArgExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper19VisitHLSLOutArgExprEPKNS_14HLSLOutArgExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -37116,7 +37116,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitOpenACCConstructStmtEPKNS_20OpenACCConstructStmtE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitOpenACCConstructStmtEPKNS_20OpenACCConstructStmtE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -37146,7 +37146,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper25VisitOpenACCLoopConstructEPKNS_20OpenACCLoopConstructE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper25VisitOpenACCLoopConstructEPKNS_20OpenACCLoopConstructE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -37601,7 +37601,7 @@ _ZNSt8functionIFvbEED2Ev.exit.i12:                ; preds = %"_ZNSt8functionIFvb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper15VisitAtomicExprEPKNS_10AtomicExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper15VisitAtomicExprEPKNS_10AtomicExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1168) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -40461,12 +40461,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_08__invokeES3_j"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) #10 align 2 {
+define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_08__invokeES3_j"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = zext i32 %1 to i64
@@ -40475,10 +40475,10 @@ define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14Te
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_18__invokeES3_j"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) #10 align 2 {
+define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_18__invokeES3_j"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = zext i32 %1 to i64
@@ -40487,7 +40487,7 @@ define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14Te
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_38__invokeES3_j"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) #10 align 2 {
+define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_38__invokeES3_j"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = zext i32 %1 to i64
@@ -40496,7 +40496,7 @@ define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14Te
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_48__invokeES3_j"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, i32 noundef %1) #10 align 2 {
+define internal noundef nonnull align 8 dereferenceable(72) ptr @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEEN3$_48__invokeES3_j"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %0, i32 noundef %1) #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -59550,7 +59550,7 @@ define linkonce_odr hidden void @_ZN5clang11TypeVisitorINS_14TextNodeDumperEvE15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper5VisitEPKNS_4DeclEENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper5VisitEPKNS_4DeclEENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1096
@@ -59765,7 +59765,7 @@ declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noun
 declare void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitEPKNS1_4DeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitEPKNS1_4DeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -59952,7 +59952,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitEPKNS1_4DeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitEPKNS1_4DeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitEPKNS1_4DeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -60013,7 +60013,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper19dumpAPValueChildrenERKNS1_7APValueENS1_8QualTypeEPFS7_S7_jEjN4llvm9StringRefESC_E3$_0EEvSC_T_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper19dumpAPValueChildrenERKNS1_7APValueENS1_8QualTypeEPFS7_S7_jEjN4llvm9StringRefESC_E3$_0EEvSC_T_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -60254,7 +60254,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper19dumpAPValueChildrenERKNS1_7APValueENS1_8QualTypeEPFS7_S7_jEjN4llvm9StringRefESC_E3$_0EEvSC_T_EUlbE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper19dumpAPValueChildrenERKNS1_7APValueENS1_8QualTypeEPFS7_S7_jEjN4llvm9StringRefESC_E3$_0EEvSC_T_EUlbE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper19dumpAPValueChildrenERKNS1_7APValueENS1_8QualTypeEPFS7_S7_jEjN4llvm9StringRefESC_E3$_0EEvSC_T_EUlbE_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -60318,7 +60318,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEENK3$_2clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper5VisitERKNS_7APValueENS_8QualTypeEENK3$_2clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -60389,7 +60389,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitERKNS3_7APValueENS3_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSE_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitERKNS3_7APValueENS3_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSE_"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
@@ -60482,7 +60482,7 @@ define internal fastcc void @"_ZZN5clang17TextTreeStructure8AddChildIZNS_14TextN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -60669,7 +60669,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -60733,7 +60733,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_5EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_5EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -60924,7 +60924,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_5EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_5EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper5VisitERKNS1_7APValueENS1_8QualTypeEE3$_5EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -60989,7 +60989,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS_9BlockDeclEPNS_19CompoundLiteralExprEEEEENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS_9BlockDeclEPNS_19CompoundLiteralExprEEEEENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -61125,7 +61125,7 @@ _ZN5clang14TextNodeDumper11dumpPointerEPKv.exit:  ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS1_9BlockDeclEPNS1_19CompoundLiteralExprEEEEE3$_0EEvNS5_9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS1_9BlockDeclEPNS1_19CompoundLiteralExprEEEEE3$_0EEvNS5_9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -61312,7 +61312,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS1_9BlockDeclEPNS1_19CompoundLiteralExprEEEEE3$_0EEvNS5_9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS1_9BlockDeclEPNS1_19CompoundLiteralExprEEEEE3$_0EEvNS5_9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17dumpCleanupObjectERKN4llvm12PointerUnionIJPNS1_9BlockDeclEPNS1_19CompoundLiteralExprEEEEE3$_0EEvNS5_9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSJ_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -61562,7 +61562,7 @@ _ZNSt8functionIFvbEED2Ev.exit:                    ; preds = %67, %60, %"_ZNSt8fu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -61945,7 +61945,7 @@ declare noundef ptr @_ZNK5clang19NestedNameSpecifier14getAsNamespaceEv(ptr nound
 declare noundef ptr @_ZNK5clang19NestedNameSpecifier19getAsNamespaceAliasEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper23dumpNestedNameSpecifierEPKNS1_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper23dumpNestedNameSpecifierEPKNS1_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -62132,7 +62132,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper23dumpNestedNameSpecifierEPKNS1_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper23dumpNestedNameSpecifierEPKNS1_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper23dumpNestedNameSpecifierEPKNS1_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -62175,7 +62175,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper11dumpDeclRefEPKNS1_4DeclEN4llvm9StringRefEE3$_0EEvS9_T_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper11dumpDeclRefEPKNS1_4DeclEN4llvm9StringRefEE3$_0EEvS9_T_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -62418,7 +62418,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper11dumpDeclRefEPKNS1_4DeclEN4llvm9StringRefEE3$_0EEvS9_T_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper11dumpDeclRefEPKNS1_4DeclEN4llvm9StringRefEE3$_0EEvS9_T_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper11dumpDeclRefEPKNS1_4DeclEN4llvm9StringRefEE3$_0EEvS9_T_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -62653,7 +62653,7 @@ declare void @_ZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_14Printin
 declare i64 @_ZNK5clang10ASTContext24getCanonicalTemplateNameERKNS_12TemplateNameE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper16dumpTemplateNameENS1_12TemplateNameEN4llvm9StringRefEE3$_0EEvS7_T_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper16dumpTemplateNameENS1_12TemplateNameEN4llvm9StringRefEE3$_0EEvS7_T_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -62840,7 +62840,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper16dumpTemplateNameENS1_12TemplateNameEN4llvm9StringRefEE3$_0EEvS7_T_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper16dumpTemplateNameENS1_12TemplateNameEN4llvm9StringRefEE3$_0EEvS7_T_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper16dumpTemplateNameENS1_12TemplateNameEN4llvm9StringRefEE3$_0EEvS7_T_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -62885,7 +62885,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -63075,7 +63075,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -63118,7 +63118,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -63308,7 +63308,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -63351,7 +63351,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_2EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_2EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -63543,7 +63543,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_2EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_2EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_2EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -63586,7 +63586,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_3EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_3EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -63776,7 +63776,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_3EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_3EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20dumpBareTemplateNameENS1_12TemplateNameEE3$_3EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -63821,7 +63821,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 declare void @_ZNK5clang12ConstantExpr16getAPValueResultEv(ptr dead_on_unwind writable sret(%"class.clang::APValue") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitConstantExprEPKNS1_12ConstantExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitConstantExprEPKNS1_12ConstantExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.clang::APValue", align 8
   %.val = load ptr, ptr %0, align 8
@@ -64027,7 +64027,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitConstantExprEPKNS1_12ConstantExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitConstantExprEPKNS1_12ConstantExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitConstantExprEPKNS1_12ConstantExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -64070,7 +64070,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper22VisitFunctionProtoTypeEPKNS_17FunctionProtoTypeEENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper22VisitFunctionProtoTypeEPKNS_17FunctionProtoTypeEENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -64165,7 +64165,7 @@ _ZN5clang14TextNodeDumper8dumpTypeENS_8QualTypeE.exit: ; preds = %42, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -64352,7 +64352,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -64395,7 +64395,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -64609,7 +64609,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper22VisitFunctionProtoTypeEPKNS1_17FunctionProtoTypeEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -64652,7 +64652,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -64842,7 +64842,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -64885,7 +64885,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper17VisitFunctionDeclEPKNS_12FunctionDeclEENK3$_1clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper17VisitFunctionDeclEPKNS_12FunctionDeclEENK3$_1clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -65174,7 +65174,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit24:               ; preds = %101, %103
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -65361,7 +65361,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper17VisitFunctionDeclEPKNS1_12FunctionDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -65404,7 +65404,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper12VisitVarDeclEPKNS1_7VarDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper12VisitVarDeclEPKNS1_7VarDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -65598,7 +65598,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper12VisitVarDeclEPKNS1_7VarDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper12VisitVarDeclEPKNS1_7VarDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper12VisitVarDeclEPKNS1_7VarDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -65641,7 +65641,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper20VisitOMPRequiresDeclEPKNS_15OMPRequiresDeclEENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper20VisitOMPRequiresDeclEPKNS_15OMPRequiresDeclEENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -65870,7 +65870,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %32, %_ZN4llvm11raw_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20VisitOMPRequiresDeclEPKNS1_15OMPRequiresDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20VisitOMPRequiresDeclEPKNS1_15OMPRequiresDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -66057,7 +66057,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20VisitOMPRequiresDeclEPKNS1_15OMPRequiresDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20VisitOMPRequiresDeclEPKNS1_15OMPRequiresDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper20VisitOMPRequiresDeclEPKNS1_15OMPRequiresDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -66100,7 +66100,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i126 = alloca { i64, i64 }, align 8
   %2 = alloca %"class.std::function", align 8
   %3 = alloca i8, align 1
@@ -68190,7 +68190,7 @@ declare noundef zeroext i1 @_ZNK5clang13CXXRecordDecl41lambdaIsDefaultConstructi
 declare noundef nonnull align 8 dereferenceable(841) ptr @_ZNK5clang4Decl11getLangOptsEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE_clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -68620,7 +68620,7 @@ _ZNK5clang13CXXRecordDecl38defaultedDefaultConstructorIsConstexprEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -68807,7 +68807,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -68850,7 +68850,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE0_clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE0_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -69360,7 +69360,7 @@ _ZNK5clang13CXXRecordDecl36implicitCopyConstructorHasConstParamEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -69547,7 +69547,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -69590,7 +69590,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE1_clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE1_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -70057,7 +70057,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13CXXRecordDecl28needsI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE1_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE1_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -70244,7 +70244,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE1_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE1_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE1_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -70287,7 +70287,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE2_clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE2_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -70686,7 +70686,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %255, %253, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE2_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE2_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -70873,7 +70873,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE2_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE2_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE2_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -70916,7 +70916,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE3_clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE3_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -71345,7 +71345,7 @@ _ZNK5clang13CXXRecordDecl8isLambdaEv.exit:        ; preds = %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE3_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE3_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -71532,7 +71532,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE3_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE3_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE3_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -71575,7 +71575,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE4_clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_0clEvENKUlvE4_clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -71972,7 +71972,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit29:               ; preds = %256, %254, %234, %_
 declare noundef zeroext i1 @_ZNK5clang13CXXRecordDecl22hasConstexprDestructorEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE4_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE4_EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -72159,7 +72159,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE4_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE4_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEENK3$_0clEvEUlvE4_EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -72202,7 +72202,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -72389,7 +72389,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -72432,7 +72432,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_1clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper18VisitCXXRecordDeclEPKNS_13CXXRecordDeclEENK3$_1clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -72590,7 +72590,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %80, %78, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -72777,7 +72777,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper18VisitCXXRecordDeclEPKNS1_13CXXRecordDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -72820,7 +72820,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -73036,7 +73036,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -73079,7 +73079,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_1clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_1clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -73138,7 +73138,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %26, %28
 declare noundef ptr @_ZNK5clang26ConstructorUsingShadowDecl21getNominatedBaseClassEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -73325,7 +73325,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -73368,7 +73368,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_2clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS_26ConstructorUsingShadowDeclEENK3$_2clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 1096
   %4 = load ptr, ptr %3, align 8
@@ -73447,7 +73447,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %40, %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_2EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_2EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -73634,7 +73634,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_2EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_2EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper31VisitConstructorUsingShadowDeclEPKNS1_26ConstructorUsingShadowDeclEE3$_2EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -73677,7 +73677,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -73872,7 +73872,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_0EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -73915,7 +73915,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_1EEvN4llvm9StringRefET_EUlbE_E9_M_invokeERKSt9_Any_dataOb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) #0 align 2 {
   %3 = alloca i8, align 1
   %.val = load ptr, ptr %0, align 8
   %.val2 = load i8, ptr %1, align 1
@@ -74110,7 +74110,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #0 align 2 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZN5clang17TextTreeStructure8AddChildIZNS1_14TextNodeDumper14VisitEmbedExprEPKNS1_9EmbedExprEE3$_1EEvN4llvm9StringRefET_EUlbE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit" [
     i32 1, label %4
     i32 0, label %5
@@ -74153,16 +74153,16 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvbEZN5clang17Text
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #17

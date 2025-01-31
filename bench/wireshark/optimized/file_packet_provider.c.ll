@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [8 x i8] c"unknown\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cap_file_provider_get_frame_ts(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @cap_file_provider_get_frame_ts(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -68,7 +68,7 @@ define hidden ptr @cap_file_provider_get_frame_ts(ptr nocapture noundef readonly
 declare ptr @frame_data_sequence_find(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cap_file_provider_get_interface_name(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @cap_file_provider_get_interface_name(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @wtap_file_get_idb_info(ptr noundef %5) #4
@@ -132,7 +132,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare i32 @wtap_block_get_string_option_value(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cap_file_provider_get_interface_description(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @cap_file_provider_get_interface_description(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @wtap_file_get_idb_info(ptr noundef %5) #4
@@ -170,7 +170,7 @@ define hidden ptr @cap_file_provider_get_interface_description(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cap_file_provider_get_modified_block(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @cap_file_provider_get_modified_block(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -188,7 +188,7 @@ define hidden ptr @cap_file_provider_get_modified_block(ptr nocapture noundef re
 declare ptr @g_tree_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cap_file_provider_set_modified_block(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @cap_file_provider_set_modified_block(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -212,7 +212,7 @@ define hidden void @cap_file_provider_set_modified_block(ptr nocapture noundef %
 declare ptr @g_tree_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @frame_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -1, 2) i32 @frame_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
   %6 = tail call i32 @llvm.ucmp.i32.i32(i32 %4, i32 %5)

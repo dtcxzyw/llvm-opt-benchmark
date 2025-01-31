@@ -2864,7 +2864,7 @@ ehcleanup18:                                      ; preds = %lpad8, %lpad.i, %eh
 declare noundef ptr @_ZN7testing8internal20TypedTestSuitePState25VerifyRegisteredTestNamesEPKcS3_iS3_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestENS0_9TemplatesINS4_33gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableEJNS7_21ResizeGrowSmallTablesENS7_23ResizeReduceSmallTablesEEEENS0_5TypesINS4_10ValueTableIlLb0EEEJNSD_IlLb1EEEEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESJ_SJ_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISU_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26TypeParameterizedTestSuiteIN4absl18container_internal12_GLOBAL__N_120SmallTableResizeTestENS0_9TemplatesINS4_33gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableEJNS7_21ResizeGrowSmallTablesENS7_23ResizeReduceSmallTablesEEEENS0_5TypesINS4_10ValueTableIlLb0EEEJNSD_IlLb1EEEEEEE8RegisterEPKcNS0_12CodeLocationEPKNS0_20TypedTestSuitePStateESJ_SJ_RKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISU_EE(ptr noundef nonnull %code_location, ptr noundef %test_names, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %type_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i41.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i.i.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -5290,7 +5290,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -5303,7 +5303,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -5342,7 +5342,7 @@ declare void @_ZN7testing4Test5SetUpEv(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN7testing4Test8TearDownEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_127Util_NormalizeCapacity_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIimTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp4 = alloca %"class.testing::Message", align 8
@@ -6441,7 +6441,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -6454,7 +6454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -6487,7 +6487,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_127Util_GrowthAndCapacity_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %growth = alloca i64, align 8
   %gtest_trace_104 = alloca %"class.testing::ScopedTrace", align 1
@@ -8381,7 +8381,7 @@ declare void @_ZN7testing11ScopedTrace9PushTraceEPKciNSt7__cxx1112basic_stringIc
 declare void @_ZNK7testing7Message9GetStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
@@ -8736,7 +8736,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal11MatcherBaseIRKmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8977,7 +8977,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal31CanonicalizeForStdLibVersioningENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef %s) local_unnamed_addr #3 comdat {
@@ -9758,7 +9758,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -9771,7 +9771,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -9804,7 +9804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Util_probe_seq_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %offsets = alloca %"class.std::vector.143", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -13178,7 +13178,7 @@ if.end16:                                         ; preds = %entry, %if.then14, 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -13191,7 +13191,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -13224,7 +13224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_118BitMask_Smoke_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp38 = alloca %"class.testing::internal::PredicateFormatterFromMatcher.202", align 1
@@ -18300,7 +18300,7 @@ lpad:                                             ; preds = %if.else.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -18313,7 +18313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -18346,7 +18346,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_122BitMask_WithShift_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIjmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp3 = alloca %"class.testing::Message", align 8
@@ -18545,7 +18545,7 @@ eh.resume:                                        ; preds = %lpad20, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -18558,7 +18558,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -18591,7 +18591,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_128BitMask_LeadingTrailing_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareIjiTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp5 = alloca %"class.testing::Message", align 8
@@ -19733,7 +19733,7 @@ eh.resume:                                        ; preds = %lpad243, %_ZN7testi
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -19746,7 +19746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -19779,7 +19779,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Group_EmptyGroup_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp8 = alloca %"class.testing::Message", align 8
@@ -19902,7 +19902,7 @@ for.end:                                          ; preds = %_ZN7testing15Assert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Group_Match_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Group_Match_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -19915,7 +19915,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Group_Match_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Group_Match_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -19948,7 +19948,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Group_Match_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Group_Match_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.testing::internal::PredicateFormatterFromMatcher.202", align 1
@@ -23873,7 +23873,7 @@ ehcleanup:                                        ; preds = %lpad18, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -23886,7 +23886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -23919,7 +23919,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Group_MaskEmpty_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.testing::internal::PredicateFormatterFromMatcher.322", align 4
@@ -24897,7 +24897,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -24910,7 +24910,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -24943,7 +24943,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Group_MaskFull_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.testing::internal::PredicateFormatterFromMatcher.334", align 4
@@ -26237,7 +26237,7 @@ lpad:                                             ; preds = %if.else.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -26250,7 +26250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -26283,7 +26283,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_129Group_MaskEmptyOrDeleted_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp = alloca %"class.testing::internal::PredicateFormatterFromMatcher.322", align 4
@@ -26490,7 +26490,7 @@ eh.resume:                                        ; preds = %lpad59, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -26503,7 +26503,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -26536,7 +26536,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Batch_DropDeletes_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp27 = alloca i8, align 1
@@ -26901,7 +26901,7 @@ _ZNSt6vectorIN4absl18container_internal6ctrl_tESaIS2_EED2Ev.exit94: ; preds = %_
 declare void @_ZN4absl18container_internal37ConvertDeletedToEmptyAndFullToDeletedEPNS0_6ctrl_tEm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal18CmpHelperEQFailureIN4absl18container_internal6ctrl_tES4_EENS_15AssertionResultEPKcS7_RKT_RKT0_(ptr noalias sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 1 dereferenceable(1) %lhs, ptr noundef nonnull align 1 dereferenceable(1) %rhs) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -26983,7 +26983,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i6,
 declare void @_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -26996,7 +26996,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -27029,7 +27029,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_137Group_CountLeadingEmptyOrDeleted_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp33 = alloca i32, align 4
@@ -27615,7 +27615,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -27628,7 +27628,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -27661,7 +27661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_135Table_EmptyFunctorOptimization_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareImmTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp3 = alloca %"class.testing::Message", align 8
@@ -27860,7 +27860,7 @@ eh.resume:                                        ; preds = %lpad19, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Empty_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Empty_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -27873,7 +27873,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Empty_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Empty_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -27906,7 +27906,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Table_Empty_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Table_Empty_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp5 = alloca %"class.testing::Message", align 8
@@ -28010,7 +28010,7 @@ if.end38:                                         ; preds = %if.end, %_ZNKSt14de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -28023,7 +28023,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -28056,7 +28056,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Table_LookupEmpty_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds nuw (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
@@ -28080,10 +28080,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #18
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert1_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert1_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -28096,7 +28096,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert1_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert1_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -28129,7 +28129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_118Table_Insert1_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_118Table_Insert1_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar_27 = alloca %"class.testing::AssertionResult", align 8
@@ -29341,7 +29341,7 @@ declare void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingle
 declare void @_ZN4absl18container_internal24DropDeletesWithoutResizeERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEPv(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE12hash_slot_fnEPvSC_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE12hash_slot_fnEPvSC_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   %add.i.i.i.i.i.i.i = add i64 %call2.val, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -29354,7 +29354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE16transfer_slot_fnEPvSC_SC_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE16transfer_slot_fnEPvSC_SC_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -29826,7 +29826,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEl(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert2_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert2_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -29839,7 +29839,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert2_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_118Table_Insert2_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -29872,7 +29872,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_118Table_Insert2_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_118Table_Insert2_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar_27 = alloca %"class.testing::AssertionResult", align 8
@@ -31177,7 +31177,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit440: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -31190,7 +31190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -31223,7 +31223,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_126Table_InsertCollision_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::BadTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -32627,13 +32627,13 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr nocapture readnone %set, ptr nocapture readnone %slot) #7 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr readnone captures(none) %set, ptr readnone captures(none) %slot) #7 align 2 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIiESaIiEE16transfer_slot_fnEPvSA_SA_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIiESaIiEE16transfer_slot_fnEPvSA_SA_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -32641,7 +32641,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -32654,7 +32654,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -32687,7 +32687,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_144Table_InsertCollisionAndFindAfterDelete_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::BadTable", align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -34322,7 +34322,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 declare void @_ZN4absl18container_internal13EraseMetaOnlyERNS0_12CommonFieldsEPNS0_6ctrl_tEm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -34335,7 +34335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -34368,7 +34368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_131Table_InsertWithinCapacity_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -36149,12 +36149,12 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #21
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #21
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #21
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal5posix5AbortEv() local_unnamed_addr #22 comdat {
@@ -36374,7 +36374,7 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -36387,7 +36387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -36420,7 +36420,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Table_LazyEmplace_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %args.addr.i.i.i.i.i42 = alloca ptr, align 8
   %args.addr2.i.i.i.i.i43 = alloca ptr, align 8
@@ -37320,7 +37320,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_111StringTableD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_111StringTableD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i.i = load i64, ptr %0, align 8
@@ -37656,7 +37656,7 @@ declare noundef i64 @_ZN4absl13hash_internal15MixingHashState28CombineLargeConti
 declare noundef i64 @_ZN4absl13hash_internal15MixingHashState16LowLevelHashImplEPKhm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #25
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nounwind
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -37870,7 +37870,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE12hash_slot_fnEPvS8_(ptr nocapture readnone %set, ptr noundef nonnull %slot) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE12hash_slot_fnEPvS8_(ptr readnone captures(none) %set, ptr noundef nonnull %slot) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call1.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(64) %slot) #35
   %0 = extractvalue { i64, ptr } %call1.i.i.i, 0
@@ -37886,7 +37886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE16transfer_slot_fnEPvS8_S8_(ptr nocapture readnone %set, ptr noundef %dst, ptr noundef nonnull %src) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE16transfer_slot_fnEPvS8_S8_(ptr readnone captures(none) %set, ptr noundef %dst, ptr noundef nonnull %src) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i = alloca %"struct.std::pair.438", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i.i.i.i)
@@ -39413,7 +39413,7 @@ delete.end:                                       ; preds = %_ZN7testing8interna
 declare void @_ZN7testing8internal13PrintStringToERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSo(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -39426,7 +39426,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -39459,7 +39459,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Table_ContainsEmpty_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.prefetch.p0(ptr nonnull readonly getelementptr inbounds nuw (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), i32 0, i32 1, i32 1)
   %conv.i.i.i.i.i = zext i64 ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64) to i128
@@ -39483,7 +39483,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains1_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains1_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -39496,7 +39496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains1_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains1_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -39529,7 +39529,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Contains1_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Contains1_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar_18 = alloca %"class.testing::AssertionResult", align 8
@@ -40305,7 +40305,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit198: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains2_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains2_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -40318,7 +40318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains2_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Contains2_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -40351,7 +40351,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Contains2_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Contains2_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar_18 = alloca %"class.testing::AssertionResult", align 8
@@ -40968,7 +40968,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit168: ; pre
 declare void @_ZN4absl18container_internal17ClearBackingArrayERNS0_12CommonFieldsERKNS0_15PolicyFunctionsEb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Decompose_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Decompose_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -40981,7 +40981,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Decompose_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Decompose_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -41014,7 +41014,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Decompose_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Decompose_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_113TestDecomposeINS1_13DecomposeHashENS1_11DecomposeEqEEEvb()
   tail call fastcc void @_ZN4absl18container_internal12_GLOBAL__N_113TestDecomposeIZNS1_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadNS1_11DecomposeEqEEEvb()
@@ -61110,7 +61110,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashENS2_11DecomposeEqESaIiEE12hash_slot_fnEPvS8_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashENS2_11DecomposeEqESaIiEE12hash_slot_fnEPvS8_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i32, ptr %slot, align 4
   %conv.i.i.i.i = sext i32 %call2.val to i64
@@ -61118,7 +61118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashENS2_11DecomposeEqESaIiEE16transfer_slot_fnEPvS8_S8_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 4)) %dst, ptr nocapture noundef readonly %src) #26 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashENS2_11DecomposeEqESaIiEE16transfer_slot_fnEPvS8_S8_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 4)) %dst, ptr noundef readonly captures(none) %src) #26 align 2 {
 entry:
   %src.val = load i32, ptr %src, align 4
   store i32 %src.val, ptr %dst, align 4
@@ -61972,7 +61972,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadNS2_11DecomposeEqESaIiEE12hash_slot_fnEPvS9_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadNS2_11DecomposeEqESaIiEE12hash_slot_fnEPvS9_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i32, ptr %slot, align 4
   %conv.i.i.i.i = sext i32 %call2.val to i64
@@ -61980,7 +61980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadNS2_11DecomposeEqESaIiEE16transfer_slot_fnEPvS9_S9_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 4)) %dst, ptr nocapture noundef readonly %src) #26 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadNS2_11DecomposeEqESaIiEE16transfer_slot_fnEPvS9_S9_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 4)) %dst, ptr noundef readonly captures(none) %src) #26 align 2 {
 entry:
   %src.val = load i32, ptr %src, align 4
   store i32 %src.val, ptr %dst, align 4
@@ -62274,7 +62274,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadZNS4_8TestBodyEvE24TransparentEqIntOverloadSaIiEE12hash_slot_fnEPvS9_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadZNS4_8TestBodyEvE24TransparentEqIntOverloadSaIiEE12hash_slot_fnEPvS9_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i32, ptr %slot, align 4
   %conv.i.i.i.i = sext i32 %call2.val to i64
@@ -62282,7 +62282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadZNS4_8TestBodyEvE24TransparentEqIntOverloadSaIiEE16transfer_slot_fnEPvS9_S9_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 4)) %dst, ptr nocapture noundef readonly %src) #26 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyEZNS2_20Table_Decompose_Test8TestBodyEvE26TransparentHashIntOverloadZNS4_8TestBodyEvE24TransparentEqIntOverloadSaIiEE16transfer_slot_fnEPvS9_S9_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 4)) %dst, ptr noundef readonly captures(none) %src) #26 align 2 {
 entry:
   %src.val = load i32, ptr %src, align 4
   store i32 %src.val, ptr %dst, align 4
@@ -62576,7 +62576,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashEZNS2_20Table_Decompose_Test8TestBodyEvE24TransparentEqIntOverloadSaIiEE12hash_slot_fnEPvS9_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashEZNS2_20Table_Decompose_Test8TestBodyEvE24TransparentEqIntOverloadSaIiEE12hash_slot_fnEPvS9_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i32, ptr %slot, align 4
   %conv.i.i.i.i = sext i32 %call2.val to i64
@@ -62584,7 +62584,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashEZNS2_20Table_Decompose_Test8TestBodyEvE24TransparentEqIntOverloadSaIiEE16transfer_slot_fnEPvS9_S9_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 4)) %dst, ptr nocapture noundef readonly %src) #26 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_115DecomposePolicyENS2_13DecomposeHashEZNS2_20Table_Decompose_Test8TestBodyEvE24TransparentEqIntOverloadSaIiEE16transfer_slot_fnEPvS9_S9_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 4)) %dst, ptr noundef readonly captures(none) %src) #26 align 2 {
 entry:
   %src.val = load i32, ptr %src, align 4
   store i32 %src.val, ptr %dst, align 4
@@ -62595,7 +62595,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -62608,7 +62608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -62641,7 +62641,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_129Table_RehashWithNoResize_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::Modulo1000HashTable", align 8
   %kMinFullGroups = alloca i64, align 8
@@ -64055,7 +64055,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit69: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_14Modulo1000HashESt8equal_toIiESaIiEE7emplaceIJRiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINS9_8iteratorEbEDpOSD_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %args) unnamed_addr #16 align 2 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_14Modulo1000HashESt8equal_toIiESaIiEE7emplaceIJRiETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEESt4pairINS9_8iteratorEbEDpOSD_(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %args) unnamed_addr #16 align 2 {
 entry:
   %tmp.i.i.i.i.i.i.i.i = alloca [8 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2654)
@@ -64413,7 +64413,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i64 -999, 1000) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_14Modulo1000HashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef range(i64 -999, 1000) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_14Modulo1000HashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   %conv.i.i.i.i = trunc i64 %call2.val to i32
@@ -64423,7 +64423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_14Modulo1000HashESt8equal_toIiESaIiEE16transfer_slot_fnEPvSA_SA_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_14Modulo1000HashESt8equal_toIiESaIiEE16transfer_slot_fnEPvSA_SA_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -64431,7 +64431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -64444,7 +64444,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -64477,7 +64477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_132Table_InsertEraseStressTest_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %keys = alloca %"class.std::deque", align 8
@@ -65359,7 +65359,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -65372,7 +65372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -65405,7 +65405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_126Table_InsertOverloads_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i19 = alloca %"class.std::basic_string_view", align 8
   %ref.tmp.i.i.i.i.i = alloca %"class.std::basic_string_view", align 8
@@ -66300,7 +66300,7 @@ ehcleanup42:                                      ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEE22find_or_prepare_insertISt17basic_string_viewIcSt11char_traitsIcEEEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %key) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %this.val6 = load ptr, ptr %this, align 8
   tail call void @llvm.prefetch.p0(ptr readonly %this.val6, i32 0, i32 1, i32 1)
@@ -66427,7 +66427,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl18container_internal12_GLOBAL__N_111StringTableERS6_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr nocapture noundef nonnull readonly %listener) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl18container_internal12_GLOBAL__N_111StringTableERS6_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef nonnull readonly captures(none) %listener) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -66612,7 +66612,7 @@ return:                                           ; preds = %invoke.cont21, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_111StringTableEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_111StringTableEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -67443,7 +67443,7 @@ lpad:                                             ; preds = %if.else.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -67554,7 +67554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEE15MatchAndExplainES7_PNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %container, ptr noundef %listener) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_111StringTableEE15MatchAndExplainES7_PNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %container, ptr noundef %listener) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %did_match.i = alloca %"class.std::vector.576", align 8
@@ -68301,7 +68301,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -68384,7 +68384,7 @@ _ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111St
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEE19MatchAndExplainImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKS8_S7_PNS_19MatchResultListenerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %listener) #3 align 2 {
+define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEE19MatchAndExplainImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKS8_S7_PNS_19MatchResultListenerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %listener) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -68398,7 +68398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEE12DescribeImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEvRKS8_PSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef %os, i1 noundef zeroext %negation) #3 align 2 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEE12DescribeImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEvRKS8_PSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef %os, i1 noundef zeroext %negation) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -68413,7 +68413,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEE16GetDescriberImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_111StringTableEE16GetDescriberImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m) #27 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -68450,7 +68450,7 @@ delete.end:                                       ; preds = %_ZN7testing8interna
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %value, ptr noundef nonnull %os) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal14UniversalPrintIN4absl18container_internal12_GLOBAL__N_111StringTableEEEvRKT_PSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %value, ptr noundef nonnull %os) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %os, i8 noundef signext 123)
   %container.val.i.i.i.i = load ptr, ptr %value, align 8, !nonnull !1153, !noundef !1153
@@ -68551,7 +68551,7 @@ _ZN7testing8internal16UniversalPrinterIN4absl18container_internal12_GLOBAL__N_11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -68564,7 +68564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -68597,7 +68597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Table_LargeTable_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -68855,7 +68855,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit31: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -68868,7 +68868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -68901,7 +68901,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_137Table_EnsureNonQuadraticAsInRust_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %t2 = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
@@ -69204,7 +69204,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit94: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -69217,7 +69217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -69250,7 +69250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Table_ClearBug_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %capacity = alloca i64, align 8
@@ -70104,7 +70104,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit232: ; pre
 declare i64 @llvm.abs.i64(i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Erase_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Erase_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -70117,7 +70117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Erase_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Erase_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -70150,7 +70150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Table_Erase_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Table_Erase_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar_27 = alloca %"class.testing::AssertionResult", align 8
@@ -70768,7 +70768,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit168: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -70781,7 +70781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -70814,7 +70814,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_138Table_EraseMaintainsValidIterator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %kNumElements = alloca i32, align 4
@@ -71527,7 +71527,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -71540,7 +71540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -71573,7 +71573,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Table_EraseBeginEnd_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -72045,7 +72045,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit64: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -72058,7 +72058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -72091,7 +72091,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_165Table_DISABLED_EnsureNonQuadraticTopNXorSeedByProbeSeqLength_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view.i = alloca %"class.absl::log_internal::LogMessage::OstreamView", align 8
   %v.addr.i = alloca i64, align 8
@@ -73861,7 +73861,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit80:                  ; preds = %ehcleanup53, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3mapImN4absl18container_internal12_GLOBAL__N_110ProbeStatsESt4lessImESaISt4pairIKmS3_EEEixERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__k) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZNSt3mapImN4absl18container_internal12_GLOBAL__N_110ProbeStatsESt4lessImESaISt4pairIKmS3_EEEixERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %__k) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__k.val = load i64, ptr %__k, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -74119,7 +74119,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeImSt4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_110ProbeStatsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_110ProbeStatsD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %single_table_ratios = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %single_table_ratios, align 8
@@ -74144,7 +74144,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_111VerifyStatsEmRKNS1_13ExpectedStatsERKNS1_10ProbeStatsE(i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(64) %exp, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %stats) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_111VerifyStatsEmRKNS1_13ExpectedStatsERKNS1_10ProbeStatsE(i64 noundef %size, ptr noundef nonnull align 8 dereferenceable(64) %exp, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %stats) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::vector.606", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -74826,7 +74826,7 @@ declare void @_ZN4absl12log_internal10LogMessageC1EPKciNS1_7InfoTagE(ptr noundef
 declare void @_ZN4absl12log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #29
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_113ExpectedStatsD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_113ExpectedStatsD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pecentile_probes = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %pecentile_probes, align 8
@@ -75772,7 +75772,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef no
 declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %s) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl18container_internal12_GLOBAL__N_1lsERSoRKNS1_10ProbeStatsE(ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %s) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.606", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull @.str.410)
@@ -75896,7 +75896,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit24:                  ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4absl18container_internal12_GLOBAL__N_110ProbeStats24ProbeNormalizedHistogramEv(ptr noalias nocapture nonnull align 8 %agg.result, ptr readonly %this.0.val, ptr readnone %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4absl18container_internal12_GLOBAL__N_110ProbeStats24ProbeNormalizedHistogramEv(ptr noalias nonnull align 8 captures(none) %agg.result, ptr readonly %this.0.val, ptr readnone %this.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.not4.i = icmp eq ptr %this.0.val, %this.8.val
   br i1 %cmp.i.not4.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEyET0_T_S9_S8_.exit.thread, label %for.body.i
@@ -77127,7 +77127,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeImSt4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -77140,7 +77140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -77173,7 +77173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_173Table_DISABLED_EnsureNonQuadraticTopNLinearTransformByProbeSeqLength_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %view.i = alloca %"class.absl::log_internal::LogMessage::OstreamView", align 8
   %v.addr.i = alloca i64, align 8
@@ -78653,7 +78653,7 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
 declare void @_ZNSt13random_device7_M_finiEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -78666,7 +78666,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -78699,7 +78699,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_125Table_EraseCollision_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::BadTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -81392,7 +81392,7 @@ _ZN4absl18container_internal12_GLOBAL__N_18BadTableD2Ev.exit1026: ; preds = %ehc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -81405,7 +81405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -81438,7 +81438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_129Table_EraseInsertProbing_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i39.i = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i14.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -83236,7 +83236,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_18BadTableEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_18BadTableEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -83873,7 +83873,7 @@ lpad:                                             ; preds = %if.else.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_18BadTableEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_18BadTableEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -83984,7 +83984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_18BadTableEE15MatchAndExplainES7_PNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %container, ptr noundef %listener) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_18BadTableEE15MatchAndExplainES7_PNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %container, ptr noundef %listener) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %ss.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -84508,7 +84508,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -84591,7 +84591,7 @@ _ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18Bad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEE19MatchAndExplainImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKS8_S7_PNS_19MatchResultListenerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %listener) #3 align 2 {
+define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEE19MatchAndExplainImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKS8_S7_PNS_19MatchResultListenerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %listener) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -84605,7 +84605,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEE12DescribeImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEvRKS8_PSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef %os, i1 noundef zeroext %negation) #3 align 2 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEE12DescribeImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEvRKS8_PSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef %os, i1 noundef zeroext %negation) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -84620,7 +84620,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEE16GetDescriberImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_18BadTableEE16GetDescriberImplINS8_11ValuePolicyIPKNS_16MatcherInterfaceIS7_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m) #27 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -84657,7 +84657,7 @@ delete.end:                                       ; preds = %_ZN7testing8interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Clear_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Clear_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -84670,7 +84670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Clear_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Clear_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -84703,7 +84703,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Table_Clear_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Table_Clear_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar_26 = alloca %"class.testing::AssertionResult", align 8
@@ -85493,7 +85493,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit246: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_115Table_Swap_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_115Table_Swap_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -85506,7 +85506,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_115Table_Swap_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_115Table_Swap_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -85539,7 +85539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_115Table_Swap_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_115Table_Swap_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar_27 = alloca %"class.testing::AssertionResult", align 8
@@ -86435,7 +86435,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit288: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_117Table_Rehash_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_117Table_Rehash_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -86448,7 +86448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_117Table_Rehash_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_117Table_Rehash_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -86481,7 +86481,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Table_Rehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Table_Rehash_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -87235,7 +87235,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit280: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -87248,7 +87248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -87281,7 +87281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_146Table_RehashDoesNotRehashWhenNotNecessary_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %p = alloca ptr, align 8
@@ -87790,7 +87790,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i9,
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -87803,7 +87803,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -87836,7 +87836,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_148Table_RehashZeroDoesNotAllocateOnEmptyTable_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp6 = alloca %"class.testing::Message", align 8
@@ -87941,7 +87941,7 @@ ehcleanup16:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -87954,7 +87954,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -87987,7 +87987,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_142Table_RehashZeroDeallocatesEmptyTable_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -88886,7 +88886,7 @@ ehcleanup26:                                      ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -88899,7 +88899,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -88932,7 +88932,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_133Table_RehashZeroForcesRehash_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %p = alloca ptr, align 8
@@ -89902,7 +89902,7 @@ ehcleanup26:                                      ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -89915,7 +89915,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -89948,7 +89948,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_132Table_ConstructFromInitList_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::StringTable", align 8
   %ref.tmp = alloca [4 x %"struct.std::pair.438"], align 8
@@ -90155,7 +90155,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -90168,7 +90168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -90201,7 +90201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Table_CopyConstruct_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -91348,7 +91348,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit335: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
   %ref.tmp.sroa.3.0.this.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -91518,7 +91518,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 declare { i64, i64 } @_ZN4absl18container_internal29find_first_non_full_outoflineERKNS0_12CommonFieldsEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -91531,7 +91531,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -91564,7 +91564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_133Table_CopyConstructWithAlloc_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp6.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
   %agg.tmp7.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
@@ -92230,7 +92230,7 @@ eh.resume:                                        ; preds = %lpad6.body, %lpad.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -92243,7 +92243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -92276,7 +92276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_132Table_AllocWithExplicitCtor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp5 = alloca %"class.testing::Message", align 8
@@ -92380,7 +92380,7 @@ ehcleanup15:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -92393,7 +92393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -92426,7 +92426,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Table_MoveConstruct_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp6.i.i.i.i.i.i.i.i.i.i.i.i315 = alloca %"class.std::tuple.698", align 8
   %agg.tmp7.i.i.i.i.i.i.i.i.i.i.i.i316 = alloca %"class.std::tuple.698", align 8
@@ -94017,7 +94017,7 @@ eh.resume:                                        ; preds = %lpad159, %ehcleanup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -94030,7 +94030,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -94063,7 +94063,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_133Table_MoveConstructWithAlloc_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i = alloca %"class.absl::container_internal::CommonFields", align 8
   %agg.tmp6.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
@@ -94616,7 +94616,7 @@ ehcleanup78:                                      ; preds = %ehcleanup77, %ehcle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -94629,7 +94629,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -94662,7 +94662,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Table_CopyAssign_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i = alloca %"class.absl::container_internal::raw_hash_set.426", align 8
   %agg.tmp6.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
@@ -95217,7 +95217,7 @@ ehcleanup73:                                      ; preds = %ehcleanup72, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEC2ERKS7_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %that) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEC2ERKS7_RKS6_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %that) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i.i.i = alloca %"struct.std::pair.438", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %this, align 8
@@ -95399,7 +95399,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36, %inv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i = load i64, ptr %0, align 8
@@ -95446,7 +95446,7 @@ invoke.cont:                                      ; preds = %_ZN4absl18container
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -95459,7 +95459,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -95492,7 +95492,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_125Table_CopySelfAssign_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp6.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
   %agg.tmp7.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
@@ -95995,7 +95995,7 @@ ehcleanup71:                                      ; preds = %ehcleanup70, %ehcle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -96008,7 +96008,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -96041,7 +96041,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Table_MoveAssign_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp6.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
   %agg.tmp7.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
@@ -96589,7 +96589,7 @@ ehcleanup72:                                      ; preds = %ehcleanup71, %ehcle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -96602,7 +96602,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -96635,7 +96635,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_125Table_MoveSelfAssign_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp6.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
   %agg.tmp7.i.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.std::tuple.698", align 8
@@ -96844,7 +96844,7 @@ ehcleanup18:                                      ; preds = %ehcleanup16, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_Equality_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_Equality_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -96857,7 +96857,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_Equality_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_119Table_Equality_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -96890,7 +96890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Table_Equality_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Table_Equality_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i.i4.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ss.i.i.i.i.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -97638,7 +97638,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18container_internaleqERKNS0_12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %b) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18container_internaleqERKNS0_12raw_hash_setINS0_12_GLOBAL__N_112StringPolicyENS2_10StringHashENS2_8StringEqESaIiEEES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %b) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %a, i64 24
   %a.val5 = load i64, ptr %0, align 8
@@ -97914,7 +97914,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality2_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality2_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -97927,7 +97927,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality2_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality2_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -97960,7 +97960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Equality2_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Equality2_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i26 = alloca %"class.std::basic_string_view", align 8
   %ref.tmp.i.i.i.i.i = alloca %"class.std::basic_string_view", align 8
@@ -98503,7 +98503,7 @@ ehcleanup84:                                      ; preds = %arraydestroy.body13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_111StringTableES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %val1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %val2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal11CmpHelperNEIN4absl18container_internal12_GLOBAL__N_111StringTableES5_EENS_15AssertionResultEPKcS8_RKT_RKT0_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %val1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %val2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i166.i = alloca %"class.testing::Message", align 8
   %ss.i.i.i158.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -99053,7 +99053,7 @@ return:                                           ; preds = %_ZN7testing8interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality3_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality3_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -99066,7 +99066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality3_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_120Table_Equality3_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -99099,7 +99099,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Equality3_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_120Table_Equality3_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i26 = alloca %"class.std::basic_string_view", align 8
   %ref.tmp.i.i.i.i.i = alloca %"class.std::basic_string_view", align 8
@@ -99642,7 +99642,7 @@ ehcleanup84:                                      ; preds = %arraydestroy.body13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -99655,7 +99655,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -99688,7 +99688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_131Table_NumDeletedRegression_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN4absl18container_internal11kEmptyGroupE, i64 16), ptr %t, align 8
@@ -99904,7 +99904,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit68: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -99917,7 +99917,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -99950,7 +99950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_136Table_FindFullDeletedRegression_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -100264,7 +100264,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit22: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -100277,7 +100277,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -100310,7 +100310,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_144Table_ReplacingDeletedSlotDoesNotRehash_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %t7 = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
@@ -101001,7 +101001,7 @@ eh.resume:                                        ; preds = %eh.resume.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -101014,7 +101014,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -101047,13 +101047,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_131Table_NoThrowMoveConstruct_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 cleanup:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -101066,7 +101066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -101099,13 +101099,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Table_NoThrowMoveAssign_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 cleanup:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -101118,7 +101118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -101151,13 +101151,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_127Table_NoThrowSwappable_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 cleanup:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -101170,7 +101170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -101203,7 +101203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_130Table_HeterogeneousLookup_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i.i.i.i.i.i.i.i.i.i.i24 = alloca [8 x i8], align 8
   %tmp.i.i.i.i.i.i.i.i.i.i.i.i = alloca [8 x i8], align 8
@@ -101943,14 +101943,14 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE4HashZNS5_8TestBodyEvE2EqNS0_5AllocIlEEE12hash_slot_fnEPvSB_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE4HashZNS5_8TestBodyEvE2EqNS0_5AllocIlEEE12hash_slot_fnEPvSB_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   ret i64 %call2.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE4HashZNS5_8TestBodyEvE2EqNS0_5AllocIlEEE16transfer_slot_fnEPvSB_SB_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE4HashZNS5_8TestBodyEvE2EqNS0_5AllocIlEEE16transfer_slot_fnEPvSB_SB_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -101958,7 +101958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE4HashZNS5_8TestBodyEvE2EqNS0_5AllocIlEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE4HashZNS5_8TestBodyEvE2EqNS0_5AllocIlEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, ptr nonnull readnone align 8 captures(none) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %common, align 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %common, i64 24
@@ -102148,14 +102148,14 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE5THashZNS5_8TestBodyEvE3TEqNS0_5AllocIlEEE12hash_slot_fnEPvSB_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE5THashZNS5_8TestBodyEvE3TEqNS0_5AllocIlEEE12hash_slot_fnEPvSB_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   ret i64 %call2.val
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE5THashZNS5_8TestBodyEvE3TEqNS0_5AllocIlEEE16transfer_slot_fnEPvSB_SB_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE5THashZNS5_8TestBodyEvE3TEqNS0_5AllocIlEEE16transfer_slot_fnEPvSB_SB_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -102163,7 +102163,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE5THashZNS5_8TestBodyEvE3TEqNS0_5AllocIlEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEEZNS2_30Table_HeterogeneousLookup_Test8TestBodyEvE5THashZNS5_8TestBodyEvE3TEqNS0_5AllocIlEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, ptr nonnull readnone align 8 captures(none) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %common, align 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %common, i64 24
@@ -102176,7 +102176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -102189,7 +102189,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -102222,13 +102222,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_139Table_HeterogeneousLookupOverloads_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -102241,7 +102241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -102274,13 +102274,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_136Iterator_IsDefaultConstructible_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -102293,7 +102293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -102326,13 +102326,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_141ConstIterator_IsDefaultConstructible_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -102345,7 +102345,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -102378,13 +102378,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_137Iterator_ConvertsToConstIterator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -102397,7 +102397,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -102430,7 +102430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Iterator_Iterates_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -103217,7 +103217,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEERS7_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr nocapture noundef nonnull readonly %listener) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEERS7_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef nonnull readonly captures(none) %listener) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -103509,7 +103509,7 @@ return:                                           ; preds = %invoke.cont21, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -104036,7 +104036,7 @@ lpad:                                             ; preds = %if.else.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -104147,7 +104147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEE15MatchAndExplainES8_PNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %container, ptr noundef %listener) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK7testing8internal31UnorderedElementsAreMatcherImplIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEE15MatchAndExplainES8_PNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %container, ptr noundef %listener) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %ss.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -104671,7 +104671,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -104754,7 +104754,7 @@ _ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110Va
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEE19MatchAndExplainImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKS9_S8_PNS_19MatchResultListenerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %listener) #3 align 2 {
+define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEE19MatchAndExplainImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKS9_S8_PNS_19MatchResultListenerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %listener) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -104768,7 +104768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEE12DescribeImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEvRKS9_PSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef %os, i1 noundef zeroext %negation) #3 align 2 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEE12DescribeImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEvRKS9_PSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef %os, i1 noundef zeroext %negation) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -104783,7 +104783,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEEE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m) #27 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -104820,7 +104820,7 @@ delete.end:                                       ; preds = %_ZN7testing8interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Merge_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Merge_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -104833,7 +104833,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Merge_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_116Table_Merge_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -104866,7 +104866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Table_Merge_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_116Table_Merge_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.537", align 8
   %ref.tmp5.i = alloca %"struct.absl::container_internal::raw_hash_set<absl::container_internal::(anonymous namespace)::StringPolicy, absl::container_internal::(anonymous namespace)::StringHash, absl::container_internal::(anonymous namespace)::StringEq, std::allocator<int>>::InsertSlot", align 8
@@ -106809,7 +106809,7 @@ lpad:                                             ; preds = %if.else.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %f, ptr nonnull %p.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_112StringPolicy10apply_implINS0_12raw_hash_setIS2_NS1_10StringHashENS1_8StringEqESaIiEE10InsertSlotILb0EEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt5tupleIJSI_EEvEEDTclclsr3stdE7declvalIT_EEclL_ZSt7declvalIRKSt17basic_string_viewIcSE_EEDTcl9__declvalISL_ELi0EEEvEEL_ZSt19piecewise_constructEclsr3stdE7declvalISJ_IJT0_EEEEclsr3stdE7declvalIT1_EEEEOSL_St4pairIST_SU_E(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 17)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %f, ptr nonnull %p.0.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i = alloca %"struct.std::pair.438", align 8
   %ref.tmp = alloca %"class.std::basic_string_view", align 8
@@ -106986,7 +106986,7 @@ lpad:                                             ; preds = %if.else.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -106999,7 +106999,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -107032,7 +107032,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16.i169 = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i170 = alloca %"class.testing::internal::GTestLog", align 4
@@ -109629,7 +109629,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvEN5TableD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvEN5TableD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i.i = load i64, ptr %0, align 8
@@ -109674,7 +109674,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_50Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueLb0EEEZNS4_8TestBodyEvE1HSt8equal_toIS5_ESaIS5_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_50Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueLb0EEEZNS4_8TestBodyEvE1HSt8equal_toIS5_ESaIS5_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i = load i64, ptr %0, align 8
@@ -109952,7 +109952,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableRS7_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr nocapture noundef nonnull readonly %listener) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN7testing8internal20MatchPrintAndExplainIKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableRS7_EEbRT_RKNS_7MatcherIT0_EEPNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef nonnull align 8 dereferenceable(24) %matcher, ptr noundef nonnull readonly captures(none) %listener) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
@@ -110243,7 +110243,7 @@ return:                                           ; preds = %invoke.cont21, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -110284,7 +110284,7 @@ _ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKZNS5_8TestBodyEvE5ValueEESt6vectorISH_SaISH_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SP_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %this, ptr readonly %first.coerce, ptr readnone %last.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEC2IN9__gnu_cxx17__normal_iteratorIPNS_7MatcherIRKZNS5_8TestBodyEvE5ValueEESt6vectorISH_SaISH_EEEEEENS0_23UnorderedMatcherRequire5FlagsET_SP_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 12), (16, 64)) %this, ptr readonly %first.coerce, ptr readnone %last.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Matcher.841", align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -110502,7 +110502,7 @@ _ZN7testing8internal35UnorderedElementsAreMatcherImplBaseD2Ev.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -110537,7 +110537,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -110686,7 +110686,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -110769,7 +110769,7 @@ _ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK7testing8internal22CastAndAppendTransformIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEclIS6_EENS_7MatcherIS8_EERKT_(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %a) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK7testing8internal22CastAndAppendTransformIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEclIS6_EENS_7MatcherIS8_EERKT_(ptr noalias nonnull align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %a) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i.i = alloca %"class.testing::internal::EqMatcher.846", align 8
   %agg.tmp.i.i.i.i = alloca %struct.Value, align 8
@@ -110834,7 +110834,7 @@ _ZN7testing11MatcherCastIRKZN4absl18container_internal12_GLOBAL__N_150Table_Iter
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE19MatchAndExplainImplINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb0EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_clptfp1_6streamEEERKS9_S8_PNS_19MatchResultListenerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr nocapture readonly %listener) #6 align 2 {
+define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE19MatchAndExplainImplINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb0EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_clptfp1_6streamEEERKS9_S8_PNS_19MatchResultListenerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr readonly captures(none) %listener) #6 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -110862,7 +110862,7 @@ _ZNK7testing8internal14ComparisonBaseINS0_9EqMatcherIZN4absl18container_internal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE12DescribeImplINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb0EEEEEvRKS9_PSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef nonnull %os, i1 noundef zeroext %negation) #3 align 2 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueE12DescribeImplINS9_11ValuePolicyINS0_9EqMatcherIS6_EELb0EEEEEvRKS9_PSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef nonnull %os, i1 noundef zeroext %negation) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -110897,7 +110897,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EE9push_backEOS9_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %__x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueEESaIS9_EE9push_backEOS9_(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %__x) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -111030,7 +111030,7 @@ _ZNSt6vectorIN7testing7MatcherIRKZN4absl18container_internal12_GLOBAL__N_150Tabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -111141,7 +111141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableE15MatchAndExplainES8_PNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %container, ptr noundef %listener) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK7testing8internal31UnorderedElementsAreMatcherImplIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableE15MatchAndExplainES8_PNS_19MatchResultListenerE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %container, ptr noundef %listener) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.testing::internal::GTestLog", align 4
   %ss.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -111664,7 +111664,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -111747,7 +111747,7 @@ _ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150T
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableE19MatchAndExplainImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKS9_S8_PNS_19MatchResultListenerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %listener) #3 align 2 {
+define internal noundef zeroext i1 @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableE19MatchAndExplainImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEDTcldtclsrT_3Getfp_E15MatchAndExplainfp0_fp1_EERKS9_S8_PNS_19MatchResultListenerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %listener) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -111761,7 +111761,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableE12DescribeImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEvRKS9_PSob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m, ptr noundef %os, i1 noundef zeroext %negation) #3 align 2 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableE12DescribeImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEvRKS9_PSob(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m, ptr noundef %os, i1 noundef zeroext %negation) #3 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -111776,7 +111776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %m) #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN7testing8internal11MatcherBaseIRKZN4absl18container_internal12_GLOBAL__N_150Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5TableE16GetDescriberImplINS9_11ValuePolicyIPKNS_16MatcherInterfaceIS8_EELb1EEEEEPKNS_25MatcherDescriberInterfaceERKS9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %m) #27 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %m, i64 16
   %m.val = load ptr, ptr %0, align 8
@@ -111813,7 +111813,7 @@ delete.end:                                       ; preds = %_ZN7testing8interna
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_50Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueLb0EEEZNS4_8TestBodyEvE1HSt8equal_toIS5_ESaIS5_EE12hash_slot_fnEPvSC_(ptr nocapture readnone %set, ptr noundef nonnull %slot) #3 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_50Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueLb0EEEZNS4_8TestBodyEvE1HSt8equal_toIS5_ESaIS5_EE12hash_slot_fnEPvSC_(ptr readnone captures(none) %set, ptr noundef nonnull %slot) #3 align 2 {
 entry:
   %call.i.i.i.i.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %slot) #35
   %0 = extractvalue { i64, ptr } %call.i.i.i.i.i.i.i.i.i, 0
@@ -111829,7 +111829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_50Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueLb0EEEZNS4_8TestBodyEvE1HSt8equal_toIS5_ESaIS5_EE16transfer_slot_fnEPvSC_SC_(ptr nocapture readnone %set, ptr noundef nonnull %dst, ptr noundef nonnull %src) #6 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIZNS2_50Table_IteratorEmplaceConstructibleRequirement_Test8TestBodyEvE5ValueLb0EEEZNS4_8TestBodyEvE1HSt8equal_toIS5_ESaIS5_EE16transfer_slot_fnEPvSC_SC_(ptr readnone captures(none) %set, ptr noundef nonnull %dst, ptr noundef nonnull %src) #6 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef nonnull align 8 dereferenceable(32) %src) #35
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %src) #35
@@ -111968,7 +111968,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -111981,7 +111981,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -112014,7 +112014,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Nodes_EmptyNodeType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4absl18container_internal11node_handleINS0_12_GLOBAL__N_112StringPolicyENS0_18hash_policy_traitsIS3_vEESaIiEvED2Ev.exit:
   ret void
 }
@@ -112045,7 +112045,7 @@ _ZN4absl18container_internal16node_handle_baseINS0_18hash_policy_traitsINS0_12_G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -112058,7 +112058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -112091,7 +112091,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_124Nodes_ExtractInsert_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res.i442 = alloca %"struct.std::pair.537", align 8
   %ref.tmp.i443 = alloca %"struct.absl::container_internal::raw_hash_set<absl::container_internal::(anonymous namespace)::StringPolicy, absl::container_internal::(anonymous namespace)::StringHash, absl::container_internal::(anonymous namespace)::StringEq, std::allocator<int>>::InsertSlot", align 8
@@ -115376,7 +115376,7 @@ eh.resume:                                        ; preds = %lpad6.body, %lpad.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -115389,7 +115389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -115422,7 +115422,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_121Nodes_HintInsert_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %ref.tmp = alloca [3 x i32], align 4
@@ -117472,7 +117472,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -117485,7 +117485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -117518,7 +117518,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_142Table_IterationOrderChangesByInstance_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i.i = alloca [8 x i8], align 8
   %ref.tmp2 = alloca [4 x i32], align 4
@@ -118330,7 +118330,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN4absl18container
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_116OrderOfIterationERKNS1_10ValueTableIlLb0EEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr readonly %t.0.val, ptr nocapture readonly %t.8.val) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12_GLOBAL__N_116OrderOfIterationERKNS1_10ValueTableIlLb0EEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr readonly %t.0.val, ptr readonly captures(none) %t.8.val) unnamed_addr #16 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i.i.i = icmp ne ptr %t.0.val, null
   tail call void @llvm.assume(i1 %cmp.i.i.i.i)
@@ -118454,7 +118454,7 @@ invoke.cont:                                      ; preds = %while.end.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEESaIS4_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -118502,7 +118502,7 @@ _ZNSt12_Vector_baseIN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -118515,7 +118515,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -118548,7 +118548,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_140Table_IterationOrderChangesOnRehash_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %garbage = alloca %"class.std::vector.908", align 8
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
@@ -118958,7 +118958,7 @@ ehcleanup24:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -118971,7 +118971,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -119004,7 +119004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_127Table_UnstablePointers_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %old_ptr = alloca i64, align 8
@@ -119378,7 +119378,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit114: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -119391,7 +119391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -119424,7 +119424,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_142TableDeathTest_InvalidIteratorAsserts_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 if.then:
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp3 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -119487,7 +119487,7 @@ _ZN7testing7MessageD2Ev.exit34:                   ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -119500,7 +119500,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -119533,7 +119533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_158TableDeathTest_IteratorInvalidAssertsEqualityOperator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 if.then:
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp3 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -119596,7 +119596,7 @@ _ZN7testing7MessageD2Ev.exit98:                   ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -119609,7 +119609,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -119642,7 +119642,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %resize_helper.i = alloca %"class.absl::container_internal::HashSetResizeHelper", align 8
   %agg.tmp.i = alloca %"struct.absl::container_internal::(anonymous namespace)::CustomAlloc.967", align 1
@@ -120490,7 +120490,7 @@ while.end:                                        ; preds = %while.cond
 declare void @_ZN7testing8internal20DoubleNearPredFormatEPKcS2_S2_ddd(ptr sret(%"class.testing::AssertionResult") align 8, ptr noundef, ptr noundef, ptr noundef, double noundef, double noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN4absl18container_internal12_GLOBAL__N_119CustomAllocIntTableESaIS3_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN4absl18container_internal12_GLOBAL__N_119CustomAllocIntTableESaIS3_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -120545,7 +120545,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #14
 declare void @_ZN4absl5Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN4absl18container_internal14HashtablezInfoEEZNS1_12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataS4_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readnone align 8 %__args) #26 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN4absl18container_internal14HashtablezInfoEEZNS1_12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_dataS4_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readnone align 8 captures(none) %__args) #26 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %0 = load i64, ptr %call.val, align 8
@@ -120555,7 +120555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4absl18container_internal14HashtablezInfoEEZNS1_12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4absl18container_internal14HashtablezInfoEEZNS1_12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -120581,7 +120581,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS2_11CustomAllocIlEEE12hash_slot_fnEPvSD_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS2_11CustomAllocIlEEE12hash_slot_fnEPvSD_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   %add.i.i.i.i.i.i.i = add i64 %call2.val, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -120594,7 +120594,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS2_11CustomAllocIlEEE16transfer_slot_fnEPvSD_SD_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS2_11CustomAllocIlEEE16transfer_slot_fnEPvSD_SD_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -120602,7 +120602,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS2_11CustomAllocIlEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, ptr nocapture nonnull readnone align 8 %0) #6 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS2_11CustomAllocIlEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, ptr nonnull readnone align 8 captures(none) %0) #6 align 2 {
 entry:
   %1 = load ptr, ptr %common, align 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %common, i64 24
@@ -120615,7 +120615,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRKN4absl18container_internal14HashtablezInfoEEZNS1_12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataS4_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture nonnull readnone align 8 %__args) #26 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRKN4absl18container_internal14HashtablezInfoEEZNS1_12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEvE3$_1E9_M_invokeERKSt9_Any_dataS4_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr nonnull readnone align 8 captures(none) %__args) #26 align 2 {
 entry:
   %call.val = load ptr, ptr %__functor, align 8
   %0 = load i64, ptr %call.val, align 8
@@ -120625,7 +120625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4absl18container_internal14HashtablezInfoEEZNS1_12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKN4absl18container_internal14HashtablezInfoEEZNS1_12_GLOBAL__N_151RawHashSamplerTest_DoNotSampleCustomAllocators_Test8TestBodyEvE3$_1E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull align 8 dereferenceable(16) %__source, i32 noundef %__op) #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -120651,7 +120651,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -120664,7 +120664,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -120697,7 +120697,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_145Iterator_InvalidUseCrashesWithSanitizers_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp2 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -120760,7 +120760,7 @@ _ZN7testing7MessageD2Ev.exit7:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -120773,7 +120773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -120806,7 +120806,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_156Iterator_InvalidUseWithReserveCrashesWithSanitizers_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp2 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -120869,7 +120869,7 @@ _ZN7testing7MessageD2Ev.exit7:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -120882,7 +120882,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -120915,7 +120915,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_153Iterator_InvalidUseWithMoveCrashesWithSanitizers_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp2 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -120978,7 +120978,7 @@ _ZN7testing7MessageD2Ev.exit7:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -120991,7 +120991,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -121024,7 +121024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_151Table_ReservedGrowthUpdatesWhenTableDoesntGrow_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %cap = alloca i64, align 8
@@ -121631,7 +121631,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit170: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -121644,7 +121644,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -121677,7 +121677,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_144Table_EraseBeginEndResetsReservedGrowth_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %tmp.i.i.i.i.i.i.i.i.i.i = alloca [8 x i8], align 8
   %frozen = alloca i8, align 1
@@ -123147,13 +123147,13 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIlENS2_14FreezableAllocIlEEE12hash_slot_fnEPvSB_(ptr nocapture readnone %set, ptr nocapture readnone %slot) #7 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIlENS2_14FreezableAllocIlEEE12hash_slot_fnEPvSB_(ptr readnone captures(none) %set, ptr readnone captures(none) %slot) #7 align 2 {
 entry:
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIlENS2_14FreezableAllocIlEEE16transfer_slot_fnEPvSB_SB_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIlENS2_14FreezableAllocIlEEE16transfer_slot_fnEPvSB_SB_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -123161,7 +123161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIlENS2_14FreezableAllocIlEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, ptr nocapture nonnull readnone align 8 %0) #6 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11BadFastHashESt8equal_toIlENS2_14FreezableAllocIlEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, ptr nonnull readnone align 8 captures(none) %0) #6 align 2 {
 entry:
   %1 = load ptr, ptr %common, align 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %common, i64 24
@@ -123174,7 +123174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -123187,7 +123187,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -123220,7 +123220,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_138Table_GenerationInfoResetsOnClear_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp2 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -123283,7 +123283,7 @@ _ZN7testing7MessageD2Ev.exit7:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -123296,7 +123296,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -123329,7 +123329,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_151Table_InvalidReferenceUseCrashesWithSanitizers_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp2 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -123392,7 +123392,7 @@ _ZN7testing7MessageD2Ev.exit7:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -123405,7 +123405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -123438,7 +123438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_146Iterator_InvalidComparisonDifferentTables_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Message", align 8
   %ref.tmp2 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -123501,7 +123501,7 @@ _ZN7testing7MessageD2Ev.exit7:                    ; preds = %ehcleanup, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -123514,7 +123514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -123547,7 +123547,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_131Table_AllocatorPropagation_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZN4absl18container_internal20TestAllocPropagationINS0_12_GLOBAL__N_115RawHashSetAllocEEEvv()
   ret void
@@ -133107,7 +133107,7 @@ eh.resume:                                        ; preds = %ehcleanup483, %ehcl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i = load i64, ptr %0, align 8
@@ -133172,7 +133172,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i = load i64, ptr %0, align 8
@@ -133457,7 +133457,7 @@ return:                                           ; preds = %if.then.i.i.i.i38, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEE12hash_slot_fnEPvSD_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEE12hash_slot_fnEPvSD_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   %add.i.i.i.i.i.i.i = add i64 %call2.val, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -133470,7 +133470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEE16transfer_slot_fnEPvSD_SD_(ptr nocapture noundef readonly %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #26 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEE16transfer_slot_fnEPvSD_SD_(ptr noundef readonly captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #26 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -133498,7 +133498,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34CopyAssignPropagatingCountingAllocIiEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, ptr nonnull readnone align 8 captures(none) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %capacity_.i = getelementptr inbounds nuw i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
@@ -134469,7 +134469,7 @@ if.end17:                                         ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEE12hash_slot_fnEPvSD_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEE12hash_slot_fnEPvSD_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   %add.i.i.i.i.i.i.i = add i64 %call2.val, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -134482,7 +134482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEE16transfer_slot_fnEPvSD_SD_(ptr nocapture noundef readonly %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #26 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEE16transfer_slot_fnEPvSD_SD_(ptr noundef readonly captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #26 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -134510,7 +134510,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, ptr nonnull readnone align 8 captures(none) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %capacity_.i = getelementptr inbounds nuw i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
@@ -134619,7 +134619,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i6,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i = load i64, ptr %0, align 8
@@ -134684,7 +134684,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEEaSEOSC_(ptr noundef nonnull returned align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(48) %that) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(48) ptr @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_17CountingAllocatorIiEEEaSEOSC_(ptr noundef nonnull returned align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %that) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %add.ptr.i.i5.i = getelementptr inbounds nuw i8, ptr %that, i64 32
@@ -135040,7 +135040,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEE12hash_slot_fnEPvSD_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEE12hash_slot_fnEPvSD_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   %add.i.i.i.i.i.i.i = add i64 %call2.val, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -135053,7 +135053,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEE16transfer_slot_fnEPvSD_SD_(ptr nocapture noundef readonly %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #26 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEE16transfer_slot_fnEPvSD_SD_(ptr noundef readonly captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #26 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -135081,7 +135081,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_34MoveAssignPropagatingCountingAllocIiEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, ptr nonnull readnone align 8 captures(none) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %capacity_.i = getelementptr inbounds nuw i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
@@ -136886,7 +136886,7 @@ ehcleanup26:                                      ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %this.val.i = load i64, ptr %0, align 8
@@ -136951,7 +136951,7 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEE12hash_slot_fnEPvSD_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEE12hash_slot_fnEPvSD_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   %add.i.i.i.i.i.i.i = add i64 %call2.val, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -136964,7 +136964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEE16transfer_slot_fnEPvSD_SD_(ptr nocapture noundef readonly %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #26 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEE16transfer_slot_fnEPvSD_SD_(ptr noundef readonly captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #26 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -136992,7 +136992,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS_13hash_internal4HashIlEESt8equal_toIlENS0_28SwapPropagatingCountingAllocIiEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, ptr nonnull readnone align 8 captures(none) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %capacity_.i = getelementptr inbounds nuw i8, ptr %common, i64 16
   %1 = load i64, ptr %capacity_.i, align 8
@@ -138256,7 +138256,7 @@ ehcleanup26:                                      ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_TestEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_TestEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -138269,7 +138269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_TestEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -138302,7 +138302,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_122Table_CountedHash_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp5 = alloca %"class.testing::Message", align 8
@@ -140124,7 +140124,7 @@ return:                                           ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11CountedHashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr nocapture noundef %set, ptr nocapture noundef readonly %slot) #20 align 2 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11CountedHashESt8equal_toIiESaIiEE12hash_slot_fnEPvSA_(ptr noundef captures(none) %set, ptr noundef readonly captures(none) %slot) #20 align 2 {
 entry:
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %set, i64 32
   %call2.val = load i64, ptr %slot, align 8
@@ -140137,7 +140137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11CountedHashESt8equal_toIiESaIiEE16transfer_slot_fnEPvSA_SA_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb0EEENS2_11CountedHashESt8equal_toIiESaIiEE16transfer_slot_fnEPvSA_SA_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i64, ptr %src, align 8
   store i64 %src.val, ptr %dst, align 8
@@ -140258,26 +140258,15 @@ cond.true:                                        ; preds = %entry
 
 call.i.noexc:                                     ; preds = %cond.true
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %call.i5, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
-          to label %.noexc unwind label %lpad
+          to label %if.end.i unwind label %lpad
 
-.noexc:                                           ; preds = %call.i.noexc
-  %cmp.i = icmp eq ptr %str, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %.noexc
-  invoke void @_ZSt19__throw_logic_errorPKc(ptr noundef nonnull @.str.553) #38
-          to label %invoke.cont.i unwind label %lpad.i
-
-invoke.cont.i:                                    ; preds = %if.then.i
-  unreachable
-
-lpad.i:                                           ; preds = %if.end.i, %if.then.i
+lpad.i:                                           ; preds = %if.end.i
   %0 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #35
   br label %eh.resume
 
-if.end.i:                                         ; preds = %.noexc
+if.end.i:                                         ; preds = %call.i.noexc
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #35
   %add.ptr.i = getelementptr inbounds i8, ptr %str, i64 %call.i.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %str, ptr noundef nonnull %add.ptr.i)
@@ -140295,7 +140284,7 @@ call.i.noexc8:                                    ; preds = %cond.false
 .noexc10:                                         ; preds = %call.i.noexc8
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 0, ptr %_M_string_length.i, align 8
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %str, ptr noundef nonnull %call)
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %str, ptr noundef nonnull %call)
           to label %cleanup.done10 unwind label %lpad.i6
 
 lpad.i6:                                          ; preds = %.noexc10
@@ -140423,7 +140412,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #25
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb0EEEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb0EEEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -140436,7 +140425,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb0EEEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb0EEEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -140469,7 +140458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS1_10ValueTableIlLb0EEEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS1_10ValueTableIlLb0EEEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -141007,7 +140996,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit126: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb1EEEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb1EEEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -141020,7 +141009,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb1EEEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS4_10ValueTableIlLb1EEEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -141053,7 +141042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS1_10ValueTableIlLb1EEEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_20InsertIntoSmallTableINS1_10ValueTableIlLb1EEEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable.1042", align 8
   %i = alloca i32, align 4
@@ -141540,7 +141529,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb1EED2Ev.exit126: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %key) unnamed_addr #16 align 2 {
+define internal fastcc { i64, i8 } @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE22find_or_prepare_insertIiEESt4pairImbERKT_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %key) unnamed_addr #16 align 2 {
 entry:
   %tmp.i.i.i = alloca [8 x i8], align 8
   %this.val6 = load ptr, ptr %this, align 8
@@ -141879,7 +141868,7 @@ if.end34:                                         ; preds = %invoke.cont, %if.el
 declare void @_ZN4absl18container_internal19HashSetResizeHelper35GrowSizeIntoSingleGroupTransferableERNS0_12CommonFieldsEPvm(ptr noundef nonnull align 8 dereferenceable(17), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE12hash_slot_fnEPvSC_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIlLb1EEENS_13hash_internal4HashIlEESt8equal_toIlESaIlEE12hash_slot_fnEPvSC_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i64, ptr %slot, align 8
   %add.i.i.i.i.i.i.i = add i64 %call2.val, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -141900,7 +141889,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb0EEEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb0EEEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -141913,7 +141902,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb0EEEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb0EEEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -141946,7 +141935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS1_10ValueTableIlLb0EEEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS1_10ValueTableIlLb0EEEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i.i = alloca [8 x i8], align 8
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
@@ -142635,7 +142624,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit129: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb1EEEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb1EEEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -142648,7 +142637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb1EEEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS4_10ValueTableIlLb1EEEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -142681,7 +142670,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS1_10ValueTableIlLb1EEEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_21ResizeGrowSmallTablesINS1_10ValueTableIlLb1EEEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i202 = alloca %"class.std::allocator", align 1
   %agg.tmp.i184 = alloca %"class.std::allocator", align 1
@@ -143568,7 +143557,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb1EED2Ev.exit125: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb0EEEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb0EEEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -143581,7 +143570,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb0EEEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb0EEEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -143614,7 +143603,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS1_10ValueTableIlLb0EEEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS1_10ValueTableIlLb0EEEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i.i = alloca [8 x i8], align 8
   %t = alloca %"struct.absl::container_internal::(anonymous namespace)::ValueTable", align 8
@@ -144213,7 +144202,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb0EED2Ev.exit115: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb1EEEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb1EEEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -144226,7 +144215,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb1EEEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS4_10ValueTableIlLb1EEEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -144259,7 +144248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS1_10ValueTableIlLb1EEEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_133gtest_suite_SmallTableResizeTest_23ResizeReduceSmallTablesINS1_10ValueTableIlLb1EEEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i123 = alloca %"class.std::allocator", align 1
   %resize_helper.i = alloca %"class.absl::container_internal::HashSetResizeHelper", align 8
@@ -144882,7 +144871,7 @@ _ZN4absl18container_internal12_GLOBAL__N_110ValueTableIlLb1EED2Ev.exit115: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_10ValueTableIhLb0EEEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_10ValueTableIhLb0EEEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -144895,7 +144884,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_10ValueTableIhLb0EEEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_10ValueTableIhLb0EEEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -144928,7 +144917,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS1_10ValueTableIhLb0EEEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS1_10ValueTableIhLb0EEEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %resize_helper.i = alloca %"class.absl::container_internal::HashSetResizeHelper", align 8
   %agg.tmp.i = alloca %"class.std::allocator", align 1
@@ -146409,7 +146398,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.i.i6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhESaIhEE12hash_slot_fnEPvSC_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhESaIhEE12hash_slot_fnEPvSC_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i8, ptr %slot, align 1
   %conv.i.i.i.i.i.i = zext i8 %call2.val to i64
@@ -146423,7 +146412,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhESaIhEE16transfer_slot_fnEPvSC_SC_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 1)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhESaIhEE16transfer_slot_fnEPvSC_SC_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 1)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i8, ptr %src, align 1
   store i8 %src.val, ptr %dst, align 1
@@ -147282,7 +147271,7 @@ ehcleanup26:                                      ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_26MinimumAlignmentUint8TableEEEED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_26MinimumAlignmentUint8TableEEEED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -147295,7 +147284,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_26MinimumAlignmentUint8TableEEEE10CreateTestEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS4_26MinimumAlignmentUint8TableEEEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   invoke void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -147328,7 +147317,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS1_26MinimumAlignmentUint8TableEE8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_126AlignOneTest_AlignOne_TestINS1_26MinimumAlignmentUint8TableEE8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %resize_helper.i = alloca %"class.absl::container_internal::HashSetResizeHelper", align 8
   %agg.tmp.i = alloca %"struct.absl::container_internal::MinimumAlignmentAlloc.1101", align 1
@@ -148653,7 +148642,7 @@ _ZN4absl18container_internal12_GLOBAL__N_126MinimumAlignmentUint8TableD2Ev.exit1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhENS0_21MinimumAlignmentAllocIhEEE12hash_slot_fnEPvSD_(ptr nocapture readnone %set, ptr nocapture noundef readonly %slot) #19 align 2 {
+define internal noundef i64 @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhENS0_21MinimumAlignmentAllocIhEEE12hash_slot_fnEPvSD_(ptr readnone captures(none) %set, ptr noundef readonly captures(none) %slot) #19 align 2 {
 entry:
   %call2.val = load i8, ptr %slot, align 1
   %conv.i.i.i.i.i.i = zext i8 %call2.val to i64
@@ -148667,7 +148656,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhENS0_21MinimumAlignmentAllocIhEEE16transfer_slot_fnEPvSD_SD_(ptr nocapture readnone %set, ptr nocapture noundef writeonly initializes((0, 1)) %dst, ptr nocapture noundef readonly %src) #20 align 2 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhENS0_21MinimumAlignmentAllocIhEEE16transfer_slot_fnEPvSD_SD_(ptr readnone captures(none) %set, ptr noundef writeonly captures(none) initializes((0, 1)) %dst, ptr noundef readonly captures(none) %src) #20 align 2 {
 entry:
   %src.val = load i8, ptr %src, align 1
   store i8 %src.val, ptr %dst, align 1
@@ -148675,7 +148664,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhENS0_21MinimumAlignmentAllocIhEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %common, ptr nocapture nonnull readnone align 8 %0) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12raw_hash_setINS0_12_GLOBAL__N_111ValuePolicyIhLb0EEENS_13hash_internal4HashIhEESt8equal_toIhENS0_21MinimumAlignmentAllocIhEEE10dealloc_fnERNS0_12CommonFieldsERKNS0_15PolicyFunctionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %common, ptr nonnull readnone align 8 captures(none) %0) #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %common, align 8
   %size_.i.i = getelementptr inbounds nuw i8, ptr %common, i64 24
@@ -157226,10 +157215,10 @@ declare i8 @llvm.cttz.i8(i8, i1 immarg) #31
 declare void @llvm.experimental.noalias.scope.decl(metadata) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #33
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #33
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #31
@@ -157241,7 +157230,7 @@ declare i64 @llvm.umin.i64(i64, i64) #31
 declare i64 @llvm.fshl.i64(i64, i64, i64) #31
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #34
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #34
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

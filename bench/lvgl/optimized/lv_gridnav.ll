@@ -73,7 +73,7 @@ define void @lv_gridnav_remove(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #2
 
@@ -550,7 +550,7 @@ lv_gridnav_remove.exit:                           ; preds = %202, %199, %194, %.
 declare void @lv_obj_remove_flag(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @lv_obj_get_event_count(ptr noundef) local_unnamed_addr #2
 

@@ -49,7 +49,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [15 x ptr] [ptr @__UNIQUE_ID___addressable_drm_buddy_alloc_blocks342, ptr @__UNIQUE_ID___addressable_drm_buddy_block_print343, ptr @__UNIQUE_ID___addressable_drm_buddy_block_trim337, ptr @__UNIQUE_ID___addressable_drm_buddy_fini323, ptr @__UNIQUE_ID___addressable_drm_buddy_free_block328, ptr @__UNIQUE_ID___addressable_drm_buddy_free_list329, ptr @__UNIQUE_ID___addressable_drm_buddy_init318, ptr @__UNIQUE_ID___addressable_drm_buddy_module_init347, ptr @__UNIQUE_ID___addressable_drm_buddy_print345, ptr @__UNIQUE_ID___addressable_drm_get_buddy326, ptr @__UNIQUE_ID_description348, ptr @__UNIQUE_ID_file349, ptr @__UNIQUE_ID_license350, ptr @__exitcall_drm_buddy_module_exit, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched208], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp uge i64 %1, %2
   %5 = icmp ugt i64 %2, 4095
   %6 = and i1 %4, %5
@@ -270,16 +270,16 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_buddy_init(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_buddy_fini(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_buddy_fini(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -365,7 +365,7 @@ define dso_local ptr @drm_get_buddy(ptr noundef readonly %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_buddy_free_block(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_buddy_free_block(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = and i64 %3, 3072
   %5 = icmp eq i64 %4, 1024
@@ -390,7 +390,7 @@ define dso_local void @drm_buddy_free_block(ptr nocapture noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__drm_buddy_free(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__drm_buddy_free(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -491,7 +491,7 @@ define internal fastcc void @__drm_buddy_free(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_buddy_free_list(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_buddy_free_list(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %.loopexit, label %5
@@ -535,7 +535,7 @@ define dso_local void @drm_buddy_free_list(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -28, 1) i32 @drm_buddy_block_trim(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local range(i32 -28, 1) i32 @drm_buddy_block_trim(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #8
   store ptr %4, ptr %4, align 8
@@ -700,7 +700,7 @@ define dso_local range(i32 -28, 1) i32 @drm_buddy_block_trim(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -28, 1) i32 @__alloc_range(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 1) i32 @__alloc_range(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
   %7 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #8
   store ptr %7, ptr %7, align 8
@@ -951,7 +951,7 @@ define internal fastcc range(i32 -28, 1) i32 @__alloc_range(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -28, 1) i32 @drm_buddy_alloc_blocks(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #0 align 16 {
+define dso_local range(i32 -28, 1) i32 @drm_buddy_alloc_blocks(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #0 align 16 {
   %8 = alloca %struct.list_head, align 8
   %9 = alloca %struct.list_head, align 8
   %10 = alloca %struct.list_head, align 8
@@ -1674,7 +1674,7 @@ __drm_buddy_alloc_range.exit:                     ; preds = %48, %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -28, 1) i32 @__alloc_contig_try_harder(ptr nocapture noundef %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -28, 1) i32 @__alloc_contig_try_harder(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.list_head, align 8
   %6 = alloca %struct.list_head, align 8
   %7 = alloca i64, align 8
@@ -1903,7 +1903,7 @@ define internal fastcc range(i32 -28, 1) i32 @__alloc_contig_try_harder(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_buddy_block_print(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local void @drm_buddy_block_print(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = and i64 %4, -4096
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1919,7 +1919,7 @@ define dso_local void @drm_buddy_block_print(ptr nocapture noundef readonly %0, 
 declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_buddy_print(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_buddy_print(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 10
@@ -2017,7 +2017,7 @@ declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @split_block(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @split_block(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = trunc i64 %3 to i32
   %5 = and i32 %4, 63

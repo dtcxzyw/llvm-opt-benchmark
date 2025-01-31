@@ -24,7 +24,7 @@ define noundef i32 @ompi_netpatterns_register_mca_params() local_unnamed_addr #0
 declare i32 @mca_base_var_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define noundef i32 @ompi_netpatterns_base_err(ptr nocapture noundef readonly %0, ...) local_unnamed_addr #2 {
+define noundef i32 @ompi_netpatterns_base_err(ptr noundef readonly captures(none) %0, ...) local_unnamed_addr #2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
   %3 = load ptr, ptr @stderr, align 8
@@ -34,7 +34,7 @@ define noundef i32 @ompi_netpatterns_base_err(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @ompi_netpatterns_init() local_unnamed_addr #0 {

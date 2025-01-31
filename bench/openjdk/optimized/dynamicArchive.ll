@@ -269,7 +269,7 @@ $_ZTVN16MetaspaceClosure6MSORefI10ArrayKlassEE = comdat any
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE9load_initEPv.1 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm548932ES1_EELNS_11BarrierTypeE2ELm548932EE18oop_access_barrierEPv], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21DynamicArchiveBuilder11init_headerEv(ptr nocapture noundef nonnull align 8 dereferenceable(1096) initializes((1088, 1096)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21DynamicArchiveBuilder11init_headerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1096) initializes((1088, 1096)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 9, i32 noundef 0) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %4 = load ptr, ptr %3, align 8
@@ -314,7 +314,7 @@ declare void @_ZN11FileMapInfoC1EPKcb(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN11FileMapInfo15populate_headerEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21DynamicArchiveBuilder14release_headerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1096) initializes((1088, 1096)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21DynamicArchiveBuilder14release_headerEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1096) initializes((1088, 1096)) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN11FileMapInfo21_dynamic_archive_infoE, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -334,7 +334,7 @@ define hidden void @_ZN21DynamicArchiveBuilder14release_headerEv(ptr nocapture n
 declare void @_ZN11FileMapInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21DynamicArchiveBuilder9post_dumpEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1096) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21DynamicArchiveBuilder9post_dumpEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1096) %0) local_unnamed_addr #0 align 2 {
   store ptr null, ptr @_ZN16ArchivePtrMarker7_ptrmapE, align 8
   store ptr null, ptr @_ZN16ArchivePtrMarker10_rw_ptrmapE, align 8
   store ptr null, ptr @_ZN16ArchivePtrMarker10_ro_ptrmapE, align 8
@@ -573,7 +573,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_39ELS1_0ELS1_
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK21DynamicArchiveBuilder34remark_pointers_for_instance_klassEP13InstanceKlassb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1096) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK21DynamicArchiveBuilder34remark_pointers_for_instance_klassEP13InstanceKlassb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1096) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.PointerRemarker, align 8
   %5 = alloca %class.PointerRemarker.4, align 8
   br i1 %2, label %6, label %10
@@ -750,7 +750,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_39ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21DynamicArchiveBuilder20gather_array_klassesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1096) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21DynamicArchiveBuilder20gather_array_klassesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1096) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -1363,7 +1363,7 @@ define hidden void @_ZN14DynamicArchive13dump_for_jcmdEPKcP10JavaThread(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14DynamicArchive8validateEP11FileMapInfo(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14DynamicArchive8validateEP11FileMapInfo(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN11FileMapInfo13_current_infoE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -1420,7 +1420,7 @@ define hidden noundef zeroext i1 @_ZN14DynamicArchive8validateEP11FileMapInfo(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20DynamicArchiveHeader5printEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(812) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20DynamicArchiveHeader5printEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(812) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
@@ -2950,13 +2950,13 @@ declare i32 @llvm.ctpop.i32(i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

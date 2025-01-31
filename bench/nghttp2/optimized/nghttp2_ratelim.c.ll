@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_ratelim_init(ptr nocapture noundef writeonly initializes((0, 32)) %rl, i64 noundef %burst, i64 noundef %rate) local_unnamed_addr #0 {
+define hidden void @nghttp2_ratelim_init(ptr noundef writeonly captures(none) initializes((0, 32)) %rl, i64 noundef %burst, i64 noundef %rate) local_unnamed_addr #0 {
 entry:
   store i64 %burst, ptr %rl, align 8
   %val = getelementptr inbounds nuw i8, ptr %rl, i64 16
@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nghttp2_ratelim_update(ptr nocapture noundef %rl, i64 noundef %tstamp) local_unnamed_addr #1 {
+define hidden void @nghttp2_ratelim_update(ptr noundef captures(none) %rl, i64 noundef %tstamp) local_unnamed_addr #1 {
 entry:
   %tstamp1 = getelementptr inbounds nuw i8, ptr %rl, i64 24
   %0 = load i64, ptr %tstamp1, align 8
@@ -66,7 +66,7 @@ return:                                           ; preds = %entry, %if.end18, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 1) i32 @nghttp2_ratelim_drain(ptr nocapture noundef %rl, i64 noundef %n) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @nghttp2_ratelim_drain(ptr noundef captures(none) %rl, i64 noundef %n) local_unnamed_addr #1 {
 entry:
   %val = getelementptr inbounds nuw i8, ptr %rl, i64 16
   %0 = load i64, ptr %val, align 8

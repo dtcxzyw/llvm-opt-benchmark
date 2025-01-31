@@ -233,7 +233,7 @@ declare zeroext i1 @sysbus_realize_and_unref(ptr noundef, ptr noundef) local_unn
 declare void @sysbus_mmio_map(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @pflash_cfi01_get_blk(ptr nocapture noundef readonly %fl) local_unnamed_addr #3 {
+define dso_local ptr @pflash_cfi01_get_blk(ptr noundef readonly captures(none) %fl) local_unnamed_addr #3 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %fl, i64 816
   %0 = load ptr, ptr %blk, align 16
@@ -298,7 +298,7 @@ declare ptr @loc_pop(ptr noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pflash_cfi01_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @pflash_cfi01_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
   %reset = getelementptr inbounds nuw i8, ptr %call.i, i64 136
@@ -623,7 +623,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare void @memory_region_rom_device_set_romd(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -648,7 +648,7 @@ declare void @vmstate_unregister_ram(ptr noundef, ptr noundef) local_unnamed_add
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @pflash_mem_read_with_attrs(ptr nocapture noundef %opaque, i64 noundef %addr, ptr nocapture noundef writeonly %value, i32 noundef %len, i32 %attrs.coerce) #0 {
+define internal noundef i32 @pflash_mem_read_with_attrs(ptr noundef captures(none) %opaque, i64 noundef %addr, ptr noundef writeonly captures(none) %value, i32 noundef %len, i32 %attrs.coerce) #0 {
 entry:
   %_now.i.i150.i = alloca %struct.timeval, align 8
   %_now.i.i.i93.i = alloca %struct.timeval, align 8
@@ -2092,7 +2092,7 @@ return:                                           ; preds = %trace_pflash_mode_r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @pflash_data_read(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %width, i32 noundef range(i32 0, 2) %be) unnamed_addr #0 {
+define internal fastcc i32 @pflash_data_read(ptr noundef readonly captures(none) %pfl, i64 noundef %offset, i32 noundef %width, i32 noundef range(i32 0, 2) %be) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %storage = getelementptr inbounds nuw i8, ptr %pfl, i64 1240
@@ -2419,10 +2419,10 @@ _nocheck__trace_pflash_write_block_erase.exit:    ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pflash_update(ptr nocapture noundef readonly %pfl, i32 noundef %offset, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc void @pflash_update(ptr noundef readonly captures(none) %pfl, i32 noundef %offset, i32 noundef %size) unnamed_addr #0 {
 entry:
   %blk = getelementptr inbounds nuw i8, ptr %pfl, i64 816
   %0 = load ptr, ptr %blk, align 16
@@ -2455,7 +2455,7 @@ if.end15:                                         ; preds = %if.then, %if.then12
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pflash_data_write(ptr nocapture noundef readonly %pfl, i64 noundef %offset, i32 noundef %value, i32 noundef %width, i32 noundef range(i32 0, 2) %be) unnamed_addr #0 {
+define internal fastcc void @pflash_data_write(ptr noundef readonly captures(none) %pfl, i64 noundef %offset, i32 noundef %value, i32 noundef %width, i32 noundef range(i32 0, 2) %be) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %storage = getelementptr inbounds nuw i8, ptr %pfl, i64 1240
@@ -2604,7 +2604,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @postload_update_cb(ptr nocapture noundef %opaque, i1 zeroext %running, i32 %state) #0 {
+define internal void @postload_update_cb(ptr noundef captures(none) %opaque, i1 zeroext %running, i32 %state) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vmstate = getelementptr inbounds nuw i8, ptr %opaque, i64 1248
@@ -2683,10 +2683,10 @@ declare void @qemu_del_vm_change_state_handler(ptr noundef) local_unnamed_addr #
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_instrument_InstrumentationImpl_jarFile(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_instrument_InstrumentationImpl_jarFile(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call ptr @jarFile(ptr noundef %0, ptr noundef %4) #2
   ret ptr %5
@@ -13,7 +13,7 @@ define ptr @Java_sun_instrument_InstrumentationImpl_jarFile(ptr noundef %0, ptr 
 declare ptr @jarFile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_instrument_InstrumentationImpl_isModifiableClass0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_instrument_InstrumentationImpl_isModifiableClass0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call zeroext i8 @isModifiableClass(ptr noundef %0, ptr noundef %5, ptr noundef %3) #2
   ret i8 %6
@@ -22,7 +22,7 @@ define zeroext i8 @Java_sun_instrument_InstrumentationImpl_isModifiableClass0(pt
 declare zeroext i8 @isModifiableClass(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_instrument_InstrumentationImpl_isRetransformClassesSupported0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_instrument_InstrumentationImpl_isRetransformClassesSupported0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call zeroext i8 @isRetransformClassesSupported(ptr noundef %0, ptr noundef %4) #2
   ret i8 %5
@@ -31,7 +31,7 @@ define zeroext i8 @Java_sun_instrument_InstrumentationImpl_isRetransformClassesS
 declare zeroext i8 @isRetransformClassesSupported(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_instrument_InstrumentationImpl_setHasTransformers(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_instrument_InstrumentationImpl_setHasTransformers(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   tail call void @setHasTransformers(ptr noundef %0, ptr noundef %5, i8 noundef zeroext %3) #2
   ret void
@@ -40,7 +40,7 @@ define void @Java_sun_instrument_InstrumentationImpl_setHasTransformers(ptr noun
 declare void @setHasTransformers(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_instrument_InstrumentationImpl_setHasRetransformableTransformers(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_instrument_InstrumentationImpl_setHasRetransformableTransformers(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   tail call void @setHasRetransformableTransformers(ptr noundef %0, ptr noundef %5, i8 noundef zeroext %3) #2
   ret void
@@ -49,7 +49,7 @@ define void @Java_sun_instrument_InstrumentationImpl_setHasRetransformableTransf
 declare void @setHasRetransformableTransformers(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_instrument_InstrumentationImpl_retransformClasses0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_instrument_InstrumentationImpl_retransformClasses0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   tail call void @retransformClasses(ptr noundef %0, ptr noundef %5, ptr noundef %3) #2
   ret void
@@ -58,7 +58,7 @@ define void @Java_sun_instrument_InstrumentationImpl_retransformClasses0(ptr nou
 declare void @retransformClasses(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_instrument_InstrumentationImpl_redefineClasses0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_instrument_InstrumentationImpl_redefineClasses0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   tail call void @redefineClasses(ptr noundef %0, ptr noundef %5, ptr noundef %3) #2
   ret void
@@ -67,7 +67,7 @@ define void @Java_sun_instrument_InstrumentationImpl_redefineClasses0(ptr nounde
 declare void @redefineClasses(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_instrument_InstrumentationImpl_getAllLoadedClasses0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_instrument_InstrumentationImpl_getAllLoadedClasses0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call ptr @getAllLoadedClasses(ptr noundef %0, ptr noundef %4) #2
   ret ptr %5
@@ -76,7 +76,7 @@ define ptr @Java_sun_instrument_InstrumentationImpl_getAllLoadedClasses0(ptr nou
 declare ptr @getAllLoadedClasses(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_instrument_InstrumentationImpl_getInitiatedClasses0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Java_sun_instrument_InstrumentationImpl_getInitiatedClasses0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call ptr @getInitiatedClasses(ptr noundef %0, ptr noundef %5, ptr noundef %3) #2
   ret ptr %6
@@ -85,7 +85,7 @@ define ptr @Java_sun_instrument_InstrumentationImpl_getInitiatedClasses0(ptr nou
 declare ptr @getInitiatedClasses(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_instrument_InstrumentationImpl_getObjectSize0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i64 @Java_sun_instrument_InstrumentationImpl_getObjectSize0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i64 @getObjectSize(ptr noundef %0, ptr noundef %5, ptr noundef %3) #2
   ret i64 %6
@@ -94,7 +94,7 @@ define i64 @Java_sun_instrument_InstrumentationImpl_getObjectSize0(ptr noundef %
 declare i64 @getObjectSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_instrument_InstrumentationImpl_appendToClassLoaderSearch0(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define void @Java_sun_instrument_InstrumentationImpl_appendToClassLoaderSearch0(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   tail call void @appendToClassLoaderSearch(ptr noundef %0, ptr noundef %6, ptr noundef %3, i8 noundef zeroext %4) #2
   ret void
@@ -103,7 +103,7 @@ define void @Java_sun_instrument_InstrumentationImpl_appendToClassLoaderSearch0(
 declare void @appendToClassLoaderSearch(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_instrument_InstrumentationImpl_setNativeMethodPrefixes(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define void @Java_sun_instrument_InstrumentationImpl_setNativeMethodPrefixes(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %2 to ptr
   tail call void @setNativeMethodPrefixes(ptr noundef %0, ptr noundef %6, ptr noundef %3, i8 noundef zeroext %4) #2
   ret void
@@ -112,7 +112,7 @@ define void @Java_sun_instrument_InstrumentationImpl_setNativeMethodPrefixes(ptr
 declare void @setNativeMethodPrefixes(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_instrument_InstrumentationImpl_loadAgent0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_instrument_InstrumentationImpl_loadAgent0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @loadAgent(ptr noundef %0, ptr noundef %2) #2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %5

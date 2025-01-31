@@ -102,12 +102,12 @@ declare dso_local i32 @xfrm6_rcv(ptr noundef) #1
 declare dso_local i32 @xfrm_input(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @ah6_rcv_cb(ptr nocapture readnone %0, i32 %1) #3 align 16 {
+define internal noundef i32 @ah6_rcv_cb(ptr readnone captures(none) %0, i32 %1) #3 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ah6_err(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2, i8 zeroext %3, i32 noundef %4, i32 noundef %5) #4 align 16 {
+define internal noundef i32 @ah6_err(ptr noundef %0, ptr readnone captures(none) %1, i8 noundef zeroext %2, i8 zeroext %3, i32 noundef %4, i32 noundef %5) #4 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 272
@@ -170,7 +170,7 @@ define internal noundef i32 @ah6_err(ptr noundef %0, ptr nocapture readnone %1, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @xfrm_state_lookup(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
@@ -182,10 +182,10 @@ declare dso_local void @ip6_redirect(ptr noundef, ptr noundef, i32 noundef, i32 
 declare dso_local void @ip6_update_pmtu(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__xfrm_state_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
@@ -194,7 +194,7 @@ declare dso_local void @__xfrm_state_destroy(ptr noundef, i1 noundef zeroext) lo
 declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @ah6_init_state(ptr nocapture noundef %0, ptr noundef writeonly %1) #4 align 16 {
+define internal noundef range(i32 -22, 1) i32 @ah6_init_state(ptr noundef captures(none) %0, ptr noundef writeonly %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -338,7 +338,7 @@ define internal noundef range(i32 -22, 1) i32 @ah6_init_state(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ah6_destroy(ptr nocapture noundef readonly %0) #4 align 16 {
+define internal void @ah6_destroy(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -357,7 +357,7 @@ define internal void @ah6_destroy(ptr nocapture noundef readonly %0) #4 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ah6_input(ptr nocapture noundef readonly %0, ptr noundef %1) #4 align 16 {
+define internal i32 @ah6_input(ptr noundef readonly captures(none) %0, ptr noundef %1) #4 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -689,7 +689,7 @@ sg_set_buf.exit:                                  ; preds = %170
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ah6_output(ptr nocapture noundef readonly %0, ptr noundef %1) #4 align 16 {
+define internal i32 @ah6_output(ptr noundef readonly captures(none) %0, ptr noundef %1) #4 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   store ptr null, ptr %3, align 8, !annotation !11
@@ -986,7 +986,7 @@ declare dso_local i32 @skb_cow_data(ptr noundef, i32 noundef, ptr noundef) local
 declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
 define internal fastcc noundef range(i32 -22, 1) i32 @ipv6_clear_mutable_options(ptr noundef %0, i32 noundef range(i32 -65535, 65536) %1) unnamed_addr #10 align 16 {
@@ -1250,7 +1250,7 @@ declare dso_local ptr @__pskb_pull_tail(ptr noundef, i32 noundef) local_unnamed_
 declare dso_local i32 @pskb_expand_head(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @xfrm_input_resume(ptr noundef, i32 noundef) local_unnamed_addr #1

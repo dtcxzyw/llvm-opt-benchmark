@@ -1107,7 +1107,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_sna(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.423) #5
@@ -1761,7 +1761,7 @@ dissect_nlp.exit:                                 ; preds = %344, %377, %374, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sna_xid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_sna_xid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.423) #5
@@ -1796,7 +1796,7 @@ define internal i32 @dissect_sna_xid(ptr noundef %0, ptr noundef %1, ptr noundef
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sna_fid_to_str_buf(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
+define internal i32 @sna_fid_to_str_buf(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %29 [
@@ -1859,7 +1859,7 @@ define internal i32 @sna_fid_to_str_buf(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @sna_address_str_len(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @sna_address_str_len(ptr readnone captures(none) %0) #2 {
   ret i32 14
 }
 
@@ -2753,7 +2753,7 @@ declare ptr @word_to_hex(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 declare ptr @dword_to_hex(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #4

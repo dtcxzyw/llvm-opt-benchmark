@@ -94,7 +94,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [6 x i8] c"value\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_enum_new(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
+define hidden ptr @zend_enum_new(ptr noundef writeonly captures(none) initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = tail call ptr @zend_objects_new(ptr noundef %1) #12
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -394,7 +394,7 @@ zend_verify_enum_properties.exit:                 ; preds = %.critedge.i, %1
   %130 = getelementptr inbounds nuw [3 x ptr], ptr @zend_verify_enum_magic_methods.forbidden_methods, i64 0, i64 %indvars.iv.i
   %131 = load ptr, ptr %130, align 8
   %132 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %131) #14
-  %133 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %123, ptr noundef %131, i64 noundef %132) #12
+  %133 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %123, ptr noundef nonnull %131, i64 noundef %132) #12
   %.not43.i5 = icmp eq ptr %133, null
   br i1 %.not43.i5, label %128, label %134
 
@@ -402,7 +402,7 @@ zend_verify_enum_properties.exit:                 ; preds = %.critedge.i, %1
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %136 = load ptr, ptr %135, align 8
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.8, ptr noundef nonnull %137, ptr noundef %131) #13
+  tail call void (i32, ptr, ...) @zend_error_noreturn(i32 noundef 64, ptr noundef nonnull @.str.8, ptr noundef nonnull %137, ptr noundef nonnull %131) #13
   unreachable
 
 zend_verify_enum_magic_methods.exit:              ; preds = %128
@@ -463,7 +463,7 @@ define hidden void @zend_register_enum_ce() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_implement_unit_enum(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @zend_implement_unit_enum(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 268435456
@@ -485,7 +485,7 @@ define internal noundef i32 @zend_implement_unit_enum(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @zend_implement_backed_enum(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @zend_implement_backed_enum(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 268435456
@@ -523,12 +523,12 @@ define internal noundef i32 @zend_implement_backed_enum(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @zend_objects_not_comparable(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_enum_add_interfaces(ptr nocapture noundef initializes((360, 368)) %0) local_unnamed_addr #0 {
+define hidden void @zend_enum_add_interfaces(ptr noundef captures(none) initializes((360, 368)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
@@ -937,7 +937,7 @@ declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @zend_hash_add_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @zend_enum_get_case_by_value(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = load i8, ptr %1, align 8
   %7 = icmp eq i8 %6, 2
   br i1 %7, label %8, label %15
@@ -1322,7 +1322,7 @@ define hidden void @zend_enum_register_funcs(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_enum_cases_func(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define internal void @zend_enum_cases_func(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1550,13 +1550,13 @@ define internal fastcc void @zend_enum_register_func(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_enum_from_func(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @zend_enum_from_func(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @zend_enum_from_base(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_enum_try_from_func(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @zend_enum_try_from_func(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   tail call fastcc void @zend_enum_from_base(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret void
 }
@@ -1629,7 +1629,7 @@ switch.edge:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %6, i8 0, i64 512, i1 false)
   %9 = load ptr, ptr @zend_string_init_interned, align 8
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #14
-  %11 = tail call ptr %9(ptr noundef %0, i64 noundef %10, i1 noundef zeroext true) #12
+  %11 = tail call ptr %9(ptr noundef nonnull %0, i64 noundef %10, i1 noundef zeroext true) #12
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 360
@@ -1738,10 +1738,10 @@ zend_enum_register_props.exit:                    ; preds = %35, %49
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @zend_register_internal_class(ptr noundef) local_unnamed_addr #1
 
@@ -1919,7 +1919,7 @@ declare ptr @zend_declare_class_constant_ex(ptr noundef, ptr noundef, ptr nounde
 define void @zend_enum_add_case_cstr(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @zend_string_init_interned, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
-  %6 = tail call ptr %4(ptr noundef %1, i64 noundef %5, i1 noundef zeroext true) #12
+  %6 = tail call ptr %4(ptr noundef nonnull %1, i64 noundef %5, i1 noundef zeroext true) #12
   tail call void @zend_enum_add_case(ptr noundef %0, ptr noundef %6, ptr noundef %2)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
@@ -2027,7 +2027,7 @@ define ptr @zend_enum_get_case(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @zend_enum_get_case_cstr(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @zend_enum_get_case_cstr(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %4 = and i64 %3, -8
   %5 = add i64 %4, 32
@@ -2040,7 +2040,7 @@ define ptr @zend_enum_get_case_cstr(ptr noundef %0, ptr nocapture noundef readon
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %3, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr align 1 %1, i64 %3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 1 %1, i64 %3, i1 false)
   %11 = getelementptr inbounds [1 x i8], ptr %10, i64 0, i64 %3
   store i8 0, ptr %11, align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2163,7 +2163,7 @@ declare ptr @zend_separate_class_constants_table(ptr noundef) local_unnamed_addr
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
@@ -2180,7 +2180,7 @@ declare ptr @zend_map_ptr_new() local_unnamed_addr #1
 declare ptr @zend_hash_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @zend_enum_from_base(ptr noundef %0, ptr noundef writeonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -2496,10 +2496,10 @@ declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 nounde
 declare zeroext i1 @zend_parse_arg_str_or_long_slow(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

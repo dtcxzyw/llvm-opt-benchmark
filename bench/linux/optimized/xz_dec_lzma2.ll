@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 8) i32 @xz_dec_lzma2_run(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -743,7 +743,7 @@ declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 7) i32 @xz_dec_lzma2_reset(ptr nocapture noundef %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 7) i32 @xz_dec_lzma2_reset(ptr noundef captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ugt i8 %1, 39
   br i1 %3, label %39, label %4
 
@@ -832,10 +832,10 @@ define dso_local void @xz_dec_lzma2_end(ptr noundef %0) local_unnamed_addr #1 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
 define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_addr #0 align 16 {
@@ -1907,10 +1907,10 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @lzma_len(ptr nocapture noundef initializes((144, 148)) %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #6 align 16 {
+define internal fastcc void @lzma_len(ptr noundef captures(none) initializes((144, 148)) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #6 align 16 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp ult i32 %4, 16777216
   br i1 %5, label %6, label %._crit_edge

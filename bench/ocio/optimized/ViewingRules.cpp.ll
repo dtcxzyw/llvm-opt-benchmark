@@ -247,7 +247,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev12ViewingRulesEE = comdat any
 @_ZN19OpenColorIO_v2_4dev12ViewingRulesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev12ViewingRulesD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRulesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRulesC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12ViewingRulesE, i64 16), ptr %this, align 8
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -261,10 +261,10 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRulesD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRulesD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12ViewingRulesE, i64 16), ptr %this, align 8
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -393,7 +393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRules6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRules6CreateEv(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20
   invoke void @_ZN19OpenColorIO_v2_4dev12ViewingRulesC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %call)
@@ -478,7 +478,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19OpenColorIO_v2_4dev12ViewingRules18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev12ViewingRules18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12ViewingRules6CreateEv(ptr sret(%"class.std::shared_ptr") align 8 %agg.result)
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -941,7 +941,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev11ViewingRuleELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19OpenColorIO_v2_4dev12ViewingRules4Impl16validatePositionEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev12ViewingRules4Impl16validatePositionEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1063,7 +1063,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19OpenColorIO_v2_4dev12ViewingRules4Impl15validateNewRuleEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev12ViewingRules4Impl15validateNewRuleEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp26 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1283,7 +1283,7 @@ unreachable:                                      ; preds = %invoke.cont31
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK19OpenColorIO_v2_4dev12ViewingRules4Impl8validateESt8functionIFSt10shared_ptrIKNS_10ColorSpaceEEPKcEERKS3_INS_13ColorSpaceSetEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %colorSpaceAccessor, ptr noundef nonnull align 8 dereferenceable(16) %colorspaces) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev12ViewingRules4Impl8validateESt8functionIFSt10shared_ptrIKNS_10ColorSpaceEEPKcEERKS3_INS_13ColorSpaceSetEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %colorSpaceAccessor, ptr noundef nonnull align 8 dereferenceable(16) %colorspaces) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2130,7 +2130,7 @@ unreachable:                                      ; preds = %invoke.cont119, %in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules13getNumEntriesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules13getNumEntriesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
@@ -2145,7 +2145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, -1) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules15getIndexForRuleEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %ruleName) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 0, -1) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules15getIndexForRuleEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %ruleName) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2251,7 +2251,7 @@ unreachable:                                      ; preds = %invoke.cont18
 declare noundef i32 @_ZN19OpenColorIO_v2_4dev8Platform10StrcasecmpEPKcS2_(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules7getNameEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules7getNameEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
 entry:
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
@@ -2266,7 +2266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules17getNumColorSpacesEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules17getNumColorSpacesEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
 entry:
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
@@ -2288,7 +2288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules13getColorSpaceEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %colorSpaceIndex) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules13getColorSpaceEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %colorSpaceIndex) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2457,7 +2457,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRules13addColorSpaceEmPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, ptr noundef %colorSpace) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRules13addColorSpaceEmPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, ptr noundef %colorSpace) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2768,7 +2768,7 @@ if.end:                                           ; preds = %invoke.cont12, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRules16removeColorSpaceEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %colorSpaceIndex) local_unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRules16removeColorSpaceEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %colorSpaceIndex) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules13getColorSpaceEmm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %colorSpaceIndex)
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2950,7 +2950,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules15getNumEncodingsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules15getNumEncodingsEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
 entry:
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
@@ -2972,7 +2972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules11getEncodingEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %encodingIndex) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules11getEncodingEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %encodingIndex) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3129,7 +3129,7 @@ unreachable:                                      ; preds = %invoke.cont36
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRules11addEncodingEmPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, ptr noundef %encoding) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRules11addEncodingEmPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, ptr noundef %encoding) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3364,7 +3364,7 @@ unreachable:                                      ; preds = %invoke.cont64, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRules14removeEncodingEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %encodingIndex) local_unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRules14removeEncodingEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %encodingIndex) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules11getEncodingEmm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %encodingIndex)
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3378,7 +3378,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules16getNumCustomKeysEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK19OpenColorIO_v2_4dev12ViewingRules16getNumCustomKeysEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
 entry:
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
@@ -3393,7 +3393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules16getCustomKeyNameEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %key) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules16getCustomKeyNameEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %key) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3590,7 +3590,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules17getCustomKeyValueEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %key) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK19OpenColorIO_v2_4dev12ViewingRules17getCustomKeyValueEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, i64 noundef %key) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3773,7 +3773,7 @@ unreachable:                                      ; preds = %invoke.cont31
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRules12setCustomKeyEmPKcS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRules12setCustomKeyEmPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, ptr noundef %key, ptr noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4038,7 +4038,7 @@ eh.resume:                                        ; preds = %ehcleanup22, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRules10insertRuleEmPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRules10insertRuleEmPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex, ptr noundef %name) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ruleName = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4506,7 +4506,7 @@ if.end38:                                         ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRules10removeRuleEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRules10removeRuleEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 noundef %ruleIndex) local_unnamed_addr #0 align 2 {
 entry:
   %m_impl = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
@@ -4519,7 +4519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4devlsERSoRKNS_12ViewingRulesE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vr) local_unnamed_addr #0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4devlsERSoRKNS_12ViewingRulesE(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %vr) local_unnamed_addr #0 {
 entry:
   %m_impl.i = getelementptr inbounds nuw i8, ptr %vr, i64 8
   %0 = load ptr, ptr %m_impl.i, align 8
@@ -4698,7 +4698,7 @@ for.end67:                                        ; preds = %for.inc65, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8FindRuleESt10shared_ptrIKNS_12ViewingRulesEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm(ptr nocapture noundef readonly %vr, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %ruleIndex) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev8FindRuleESt10shared_ptrIKNS_12ViewingRulesEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm(ptr noundef readonly captures(none) %vr, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %ruleIndex) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ruleName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.11", align 1
@@ -7216,7 +7216,7 @@ _ZN19OpenColorIO_v2_4dev19CustomKeysContainerD2Ev.exit: ; preds = %_ZN19OpenColo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN19OpenColorIO_v2_4dev12ViewingRulesEPFvS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
@@ -7993,13 +7993,13 @@ declare i64 @llvm.umin.i64(i64, i64) #16
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

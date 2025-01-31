@@ -67,13 +67,13 @@ cleanup:                                          ; preds = %cond.true22, %if.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare float @ldexpf(float noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_Z12f32Tou32Slowf(float noundef %f) local_unnamed_addr #3 {
@@ -149,7 +149,7 @@ cleanup36:                                        ; preds = %cleanup, %if.then8,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare float @frexpf(float noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare float @frexpf(float noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef i32 @_Z25getFloatSerializationTypev() local_unnamed_addr #7 {

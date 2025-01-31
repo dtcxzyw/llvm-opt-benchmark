@@ -1596,7 +1596,7 @@ return:                                           ; preds = %land.lhs.true10.i, 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7msdfgen5Shape10addContourEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN7msdfgen7Contour7addEdgeEONS_10EdgeHolderE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
@@ -1606,7 +1606,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL10readDoubleERdRPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %output, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pathDef) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL10readDoubleERdRPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %output, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pathDef) unnamed_addr #4 {
 entry:
   %end = alloca ptr, align 8
   %pathDef.promoted.i = load ptr, ptr %pathDef, align 8
@@ -1876,7 +1876,7 @@ declare noundef i32 @_ZN8tinyxml211XMLDocument8LoadFileEPKc(ptr noundef nonnull 
 declare i32 @llvm.abs.i32(i32, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7msdfgenL22findPathByForwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %path, ptr nocapture noundef nonnull align 4 dereferenceable(4) %flags, ptr nocapture noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef nonnull %parent, i1 noundef zeroext %hasTransformation) unnamed_addr #0 {
+define internal fastcc void @_ZN7msdfgenL22findPathByForwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %path, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %flags, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %skips, ptr noundef nonnull %parent, i1 noundef zeroext %hasTransformation) unnamed_addr #0 {
 entry:
   %call.i = tail call noundef ptr @_ZNK8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(104) %parent, ptr noundef null)
   %tobool.not33 = icmp eq ptr %call.i, null
@@ -2018,7 +2018,7 @@ for.end:                                          ; preds = %land.rhs, %for.inc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7msdfgenL23findPathByBackwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %path, ptr nocapture noundef nonnull align 4 dereferenceable(4) %flags, ptr nocapture noundef nonnull align 4 dereferenceable(4) %skips, ptr noundef nonnull %parent, i1 noundef zeroext %hasTransformation) unnamed_addr #0 {
+define internal fastcc void @_ZN7msdfgenL23findPathByBackwardIndexERPN8tinyxml210XMLElementERiS4_S2_b(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %path, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %flags, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %skips, ptr noundef nonnull %parent, i1 noundef zeroext %hasTransformation) unnamed_addr #0 {
 entry:
   %call.i = tail call noundef ptr @_ZNK8tinyxml27XMLNode16LastChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(104) %parent, ptr noundef null)
   %tobool.not33 = icmp eq ptr %call.i, null
@@ -2167,7 +2167,7 @@ declare noundef double @_ZNK8tinyxml210XMLElement15DoubleAttributeEPKcd(ptr noun
 declare void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7msdfgen12loadSvgShapeERNS_5ShapeERNS0_6BoundsEPKc(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr nocapture noundef nonnull align 8 dereferenceable(32) %viewBox, ptr noundef %filename) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN7msdfgen12loadSvgShapeERNS_5ShapeERNS0_6BoundsEPKc(ptr noundef nonnull align 8 dereferenceable(25) %output, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %viewBox, ptr noundef %filename) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %end.i = alloca ptr, align 8
   %doc = alloca %"class.tinyxml2::XMLDocument", align 8
@@ -2352,7 +2352,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 declare void @_ZN6SkPathC1Ev(ptr noundef nonnull align 8 dereferenceable(15)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7msdfgenL11gatherPathsER6SkPathRiPN8tinyxml210XMLElementERK8SkMatrix(ptr noundef nonnull align 8 dereferenceable(15) %fullPath, ptr nocapture noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull %parent, ptr noundef nonnull align 4 dereferenceable(40) %transformation) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7msdfgenL11gatherPathsER6SkPathRiPN8tinyxml210XMLElementERK8SkMatrix(ptr noundef nonnull align 8 dereferenceable(15) %fullPath, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %flags, ptr noundef nonnull %parent, ptr noundef nonnull align 4 dereferenceable(40) %transformation) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %end.i3.i112 = alloca ptr, align 8
   %end.i.i113 = alloca ptr, align 8
@@ -2907,14 +2907,14 @@ declare void @_ZN6SkPathD1Ev(ptr noundef nonnull align 8 dereferenceable(15)) un
 declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_NS_9EdgeColorE(double, double, double, double, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_NS_9EdgeColorE(double, double, double, double, double, double, i32 noundef) local_unnamed_addr #1
 
 declare noundef ptr @_ZN7msdfgen11EdgeSegment6createENS_7Vector2ES1_S1_S1_NS_9EdgeColorE(double, double, double, double, double, double, double, double, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
@@ -2937,7 +2937,7 @@ declare double @acos(double noundef) local_unnamed_addr #8
 declare noundef ptr @_ZNK8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef ptr @_ZNK8tinyxml27XMLNode5ValueEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
@@ -2948,7 +2948,7 @@ declare noundef ptr @_ZNK8tinyxml27XMLNode16LastChildElementEPKc(ptr noundef non
 declare noundef ptr @_ZNK8tinyxml27XMLNode22PreviousSiblingElementEPKc(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7msdfgenL21combineTransformationERiRK8SkMatrixPKcS5_(ptr noalias nonnull align 4 %agg.result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(40) %parentTransformation, ptr noundef %transformationString, ptr noundef %transformationOriginString) unnamed_addr #0 {
+define internal fastcc void @_ZN7msdfgenL21combineTransformationERiRK8SkMatrixPKcS5_(ptr noalias nonnull align 4 %agg.result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %flags, ptr noundef nonnull align 4 dereferenceable(40) %parentTransformation, ptr noundef %transformationString, ptr noundef %transformationOriginString) unnamed_addr #0 {
 entry:
   %end.i3.i = alloca ptr, align 8
   %end.i.i = alloca ptr, align 8
@@ -3435,14 +3435,14 @@ declare noundef nonnull align 8 dereferenceable(15) ptr @_ZN6SkPath5closeEv(ptr 
 declare noundef zeroext i1 @_Z2OpRK6SkPathS1_8SkPathOpPS_(ptr noundef nonnull align 8 dereferenceable(15), ptr noundef nonnull align 8 dereferenceable(15), i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr nocapture noundef nonnull writeonly %dst, ptr nocapture noundef nonnull align 4 dereferenceable(4) %count, ptr nocapture noundef nonnull align 8 dereferenceable(8) %str, ptr nocapture noundef readonly %name) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN7msdfgenL20readTransformationOpEPfRiRPKcS3_(ptr noundef nonnull writeonly captures(none) %dst, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %count, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %str, ptr noundef readonly captures(none) %name) unnamed_addr #4 {
 entry:
   %end.i = alloca ptr, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #18
   %0 = load ptr, ptr %str, align 8
   %sext = shl i64 %call, 32
   %conv1 = ashr exact i64 %sext, 32
-  %bcmp = tail call i32 @bcmp(ptr %0, ptr %name, i64 %conv1)
+  %bcmp = tail call i32 @bcmp(ptr %0, ptr nonnull %name, i64 %conv1)
   %tobool.not = icmp eq i32 %bcmp, 0
   br i1 %tobool.not, label %if.then, label %return
 
@@ -3574,7 +3574,7 @@ declare noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setRotateE
 declare double @tan(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef nonnull align 4 dereferenceable(40) ptr @_ZN8SkMatrix9setConcatERKS_S1_(ptr noundef nonnull align 4 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(40)) local_unnamed_addr #1
 
@@ -3589,19 +3589,19 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 declare i8 @llvm.fshl.i8(i8, i8, i8) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

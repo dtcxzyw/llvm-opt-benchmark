@@ -97,10 +97,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @GifFreeMapObject(ptr noundef %0) local_unnamed_addr #6 {
@@ -119,7 +119,7 @@ define hidden void @GifFreeMapObject(ptr noundef %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @GifUnionColorMap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @GifUnionColorMap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
   %. = tail call i32 @llvm.smax.i32(i32 %4, i32 %5)
@@ -366,7 +366,7 @@ GifMakeMapObject.exit.thread:                     ; preds = %11, %GifBitSize.exi
 declare ptr @openbsd_reallocarray(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @GifApplyTranslation(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define hidden void @GifApplyTranslation(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -398,7 +398,7 @@ define hidden void @GifApplyTranslation(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #1 {
   %6 = load ptr, ptr %1, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %14, label %8
@@ -453,7 +453,7 @@ define hidden range(i32 0, 2) i32 @GifAddExtensionBlock(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @GifFreeExtensions(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define hidden void @GifFreeExtensions(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %15, label %.preheader
@@ -744,7 +744,7 @@ GifMakeMapObject.exit:                            ; preds = %GifBitSize.exit24.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define hidden void @GifFreeSavedImages(ptr noundef %0) local_unnamed_addr #1 {
@@ -840,7 +840,7 @@ GifFreeExtensions.exit:                           ; preds = %18, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

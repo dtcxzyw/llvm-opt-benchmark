@@ -95,16 +95,16 @@ return:                                           ; preds = %entry, %sw.bb12, %s
 declare i32 @fwide(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZN2EA4StdC10ScanfLocal12FILEReader16ENS0_10ReadActionEiPv(i32 noundef %readAction, i32 noundef %value, ptr noundef %pContext) local_unnamed_addr #0 {
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC10ScanfLocal13StringReader8ENS0_10ReadActionEiPv(i32 noundef %readAction, i32 noundef %0, ptr nocapture noundef %pContext) local_unnamed_addr #4 {
+define dso_local noundef i32 @_ZN2EA4StdC10ScanfLocal13StringReader8ENS0_10ReadActionEiPv(i32 noundef %readAction, i32 noundef %0, ptr noundef captures(none) %pContext) local_unnamed_addr #4 {
 entry:
   switch i32 %readAction, label %return [
     i32 4, label %sw.bb11
@@ -174,7 +174,7 @@ return:                                           ; preds = %entry, %if.else9, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC10ScanfLocal14StringReader16ENS0_10ReadActionEiPv(i32 noundef %readAction, i32 noundef %0, ptr nocapture noundef %pContext) local_unnamed_addr #4 {
+define dso_local noundef i32 @_ZN2EA4StdC10ScanfLocal14StringReader16ENS0_10ReadActionEiPv(i32 noundef %readAction, i32 noundef %0, ptr noundef captures(none) %pContext) local_unnamed_addr #4 {
 entry:
   switch i32 %readAction, label %return [
     i32 4, label %sw.bb11
@@ -227,7 +227,7 @@ return:                                           ; preds = %entry, %if.else9, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv(i32 noundef %readAction, i32 noundef %0, ptr nocapture noundef %pContext) local_unnamed_addr #4 {
+define dso_local noundef i32 @_ZN2EA4StdC10ScanfLocal14StringReader32ENS0_10ReadActionEiPv(i32 noundef %readAction, i32 noundef %0, ptr noundef captures(none) %pContext) local_unnamed_addr #4 {
 entry:
   switch i32 %readAction, label %return [
     i32 4, label %sw.bb11
@@ -279,7 +279,7 @@ return:                                           ; preds = %entry, %if.else9, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef double @_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv(ptr nocapture noundef nonnull readonly align 2 dereferenceable(30) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef double @_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv(ptr noundef nonnull readonly align 2 captures(none) dereferenceable(30) %this) local_unnamed_addr #5 align 2 {
 entry:
   %buffer = alloca [36 x i8], align 16
   %mExponent = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -378,7 +378,7 @@ if.end56:                                         ; preds = %while.body
   %idxprom57 = ashr exact i64 %sext, 32
   %arrayidx58 = getelementptr inbounds [36 x i8], ptr %buffer, i64 0, i64 %idxprom57
   store i8 0, ptr %arrayidx58, align 1
-  %call = call double @strtod(ptr nocapture noundef nonnull %buffer, ptr noundef null) #14
+  %call = call double @strtod(ptr noundef nonnull captures(none) %buffer, ptr noundef null) #14
   br label %return
 
 return:                                           ; preds = %if.end56, %for.end
@@ -390,10 +390,10 @@ return:                                           ; preds = %if.end56, %for.end
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC10ScanfLocal15ReadFormatSpan8ERNS1_10FormatDataERiPFiNS0_10ReadActionEiPvES6_iRPcS4_(ptr nocapture noundef nonnull align 4 dereferenceable(52) %fd, ptr nocapture noundef nonnull align 4 dereferenceable(4) %c, ptr nocapture noundef readonly %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nReadCount) #8 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC10ScanfLocal15ReadFormatSpan8ERNS1_10FormatDataERiPFiNS0_10ReadActionEiPvES6_iRPcS4_(ptr noundef nonnull align 4 captures(none) dereferenceable(52) %fd, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %c, ptr noundef readonly captures(none) %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nReadCount) #8 {
 entry:
   %buffer = alloca [7 x i8], align 1
   %c16 = alloca [2 x i16], align 2
@@ -592,7 +592,7 @@ declare noundef i32 @_ZN2EA4StdC7StrlcpyEPDsPKcmm(ptr noundef, ptr noundef, i64 
 declare noundef i32 @_ZN2EA4StdC7StrlcpyEPDiPKcmm(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC10ScanfLocal16ReadFormatSpan16ERNS1_10FormatDataERiPFiNS0_10ReadActionEiPvES6_iRPcS4_(ptr nocapture noundef nonnull align 4 dereferenceable(52) %fd, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %c, ptr nocapture noundef readonly %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nReadCount) #8 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC10ScanfLocal16ReadFormatSpan16ERNS1_10FormatDataERiPFiNS0_10ReadActionEiPvES6_iRPcS4_(ptr noundef nonnull align 4 captures(none) dereferenceable(52) %fd, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %c, ptr noundef readonly captures(none) %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nReadCount) #8 {
 entry:
   %c16 = alloca i16, align 2
   %0 = load i32, ptr %fd, align 4
@@ -689,7 +689,7 @@ while.end:                                        ; preds = %_ZNK2EA4StdC10Scanf
 declare noundef i32 @_ZN2EA4StdC7StrlcpyEPcPKDsmm(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC10ScanfLocal16ReadFormatSpan32ERNS1_10FormatDataERiPFiNS0_10ReadActionEiPvES6_iRPcS4_(ptr nocapture noundef nonnull align 4 dereferenceable(52) %fd, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %c, ptr nocapture noundef readonly %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pArgumentCurrent, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nReadCount) #8 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC10ScanfLocal16ReadFormatSpan32ERNS1_10FormatDataERiPFiNS0_10ReadActionEiPvES6_iRPcS4_(ptr noundef nonnull align 4 captures(none) dereferenceable(52) %fd, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %c, ptr noundef readonly captures(none) %pReadFunction, ptr noundef %pContext, i32 noundef %stringTypeSize, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pArgumentCurrent, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nReadCount) #8 {
 entry:
   %c32 = alloca i32, align 4
   %0 = load i32, ptr %fd, align 4
@@ -4583,7 +4583,7 @@ if.end56.i:                                       ; preds = %while.body.i
   %idxprom57.i = ashr exact i64 %sext.i, 32
   %arrayidx58.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom57.i
   store i8 0, ptr %arrayidx58.i, align 1
-  %call.i = call double @strtod(ptr nocapture noundef nonnull %buffer.i, ptr noundef null) #14
+  %call.i = call double @strtod(ptr noundef nonnull captures(none) %buffer.i, ptr noundef null) #14
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
 
 _ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit: ; preds = %for.end.i, %if.end56.i
@@ -4613,10 +4613,10 @@ return:                                           ; preds = %54, %if.else271, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZN2EA4StdC10ScanfLocal10VscanfUtilIPFiNS0_10ReadActionEiPvEPFbRNS1_10FormatDataERiS6_S4_iRPcS9_EDsE10ReadFormatEPKDsPS7_(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %pFormat, ptr noundef %pFormatData) local_unnamed_addr #8 comdat align 2 {
@@ -5962,7 +5962,7 @@ if.end56.i:                                       ; preds = %while.body.i
   %idxprom57.i = ashr exact i64 %sext.i, 32
   %arrayidx58.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom57.i
   store i8 0, ptr %arrayidx58.i, align 1
-  %call.i = call double @strtod(ptr nocapture noundef nonnull %buffer.i, ptr noundef null) #14
+  %call.i = call double @strtod(ptr noundef nonnull captures(none) %buffer.i, ptr noundef null) #14
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
 
 _ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit: ; preds = %for.end.i, %if.end56.i
@@ -7309,7 +7309,7 @@ if.end56.i:                                       ; preds = %while.body.i
   %idxprom57.i = ashr exact i64 %sext.i, 32
   %arrayidx58.i = getelementptr inbounds [36 x i8], ptr %buffer.i, i64 0, i64 %idxprom57.i
   store i8 0, ptr %arrayidx58.i, align 1
-  %call.i = call double @strtod(ptr nocapture noundef nonnull %buffer.i, ptr noundef null) #14
+  %call.i = call double @strtod(ptr noundef nonnull captures(none) %buffer.i, ptr noundef null) #14
   br label %_ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit
 
 _ZNK2EA4StdC10ScanfLocal11DoubleValue8ToDoubleEv.exit: ; preds = %for.end.i, %if.end56.i
@@ -7342,10 +7342,10 @@ return:                                           ; preds = %38, %if.else256, %i
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

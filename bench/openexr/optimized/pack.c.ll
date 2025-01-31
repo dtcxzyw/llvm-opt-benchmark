@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @internal_exr_match_encode(ptr nocapture noundef readnone %encode, i32 noundef %isdeep) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @internal_exr_match_encode(ptr noundef readnone captures(none) %encode, i32 noundef %isdeep) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %isdeep, 0
   %default_pack.default_pack_deep = select i1 %tobool.not, ptr @default_pack, ptr @default_pack_deep
@@ -15,13 +15,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @default_pack_deep(ptr nocapture readnone %encode) #0 {
+define internal noundef i32 @default_pack_deep(ptr readnone captures(none) %encode) #0 {
 entry:
   ret i32 3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @default_pack(ptr nocapture noundef %encode) #1 {
+define internal range(i32 0, 4) i32 @default_pack(ptr noundef captures(none) %encode) #1 {
 entry:
   %height = getelementptr inbounds nuw i8, ptr %encode, i64 36
   %0 = load i32, ptr %height, align 4

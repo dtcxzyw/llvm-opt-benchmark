@@ -2320,7 +2320,7 @@ define internal fastcc noundef nonnull ptr @_ZL10cvGetMatNDPKvP7CvMatNDPi(ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 2) i32 @cvNextNArraySlice(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -2663,7 +2663,7 @@ declare ptr @cvCreateMemStorage(i32 noundef) local_unnamed_addr #3
 declare ptr @cvCreateSet(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define void @cvReleaseSparseMat(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -6716,7 +6716,7 @@ define ptr @cvPtr1D(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL13icvGetNodePtrP11CvSparseMatPKiPiiPj(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -12431,7 +12431,7 @@ define { i64, double } @cvCheckTermCriteria(i64 %0, double %1, double noundef %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv14DefaultDeleterI5CvMatEclEPS1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK2cv14DefaultDeleterI5CvMatEclEPS1_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   call void @cvReleaseMat(ptr noundef nonnull %3)
@@ -12439,7 +12439,7 @@ define void @_ZNK2cv14DefaultDeleterI5CvMatEclEPS1_(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv14DefaultDeleterI9_IplImageEclEPS1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv14DefaultDeleterI9_IplImageEclEPS1_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.not9.i = icmp eq ptr %1, null
   br i1 %.not9.i, label %cvReleaseImage.exit, label %3
 
@@ -12466,7 +12466,7 @@ cvReleaseImage.exit:                              ; preds = %2, %5, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv14DefaultDeleterI7CvMatNDEclEPS1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK2cv14DefaultDeleterI7CvMatNDEclEPS1_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   call void @cvReleaseMat(ptr noundef nonnull %3)
@@ -12474,7 +12474,7 @@ define void @_ZNK2cv14DefaultDeleterI7CvMatNDEclEPS1_(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv14DefaultDeleterI11CvSparseMatEclEPS1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK2cv14DefaultDeleterI11CvSparseMatEclEPS1_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   call void @cvReleaseSparseMat(ptr noundef nonnull %3)
@@ -12482,7 +12482,7 @@ define void @_ZNK2cv14DefaultDeleterI11CvSparseMatEclEPS1_(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv14DefaultDeleterI12CvMemStorageEclEPS1_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK2cv14DefaultDeleterI12CvMemStorageEclEPS1_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   call void @cvReleaseMemStorage(ptr noundef nonnull %3)
@@ -12742,10 +12742,10 @@ declare i32 @llvm.ctpop.i32(i32) #8
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

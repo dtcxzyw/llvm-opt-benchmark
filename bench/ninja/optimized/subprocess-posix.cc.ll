@@ -139,7 +139,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN10Subprocess6FinishEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN10Subprocess6FinishEv(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #5 align 2 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
@@ -443,14 +443,14 @@ define dso_local void @_ZN10Subprocess11OnPipeReadyEv(ptr noundef nonnull align 
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK10Subprocess4DoneEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef zeroext i1 @_ZNK10Subprocess4DoneEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, -1
@@ -518,7 +518,7 @@ declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #1
 declare i32 @sigpending(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare i32 @sigismember(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -609,7 +609,7 @@ declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -808,7 +808,7 @@ _ZNSt6vectorIP10SubprocessSaIS1_EED2Ev.exit:      ; preds = %_ZNSt5queueIP10Subp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13SubprocessSet5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(688) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13SubprocessSet5ClearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(688) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1123,24 +1123,24 @@ _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit:            ; preds = %35, %.thread
 
 43:                                               ; preds = %40
   tail call void @perror(ptr noundef nonnull @.str.19) #24
-  br label %.outer._crit_edge
+  br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23
 
 44:                                               ; preds = %40
   %45 = load i32, ptr @_ZN13SubprocessSet12interrupted_E, align 4
   %46 = icmp ne i32 %45, 0
-  br label %.outer._crit_edge
+  br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23
 
 47:                                               ; preds = %38
   tail call void @_ZN13SubprocessSet25HandlePendingInterruptionEv()
   %48 = load i32, ptr @_ZN13SubprocessSet12interrupted_E, align 4
   %.not62 = icmp eq i32 %48, 0
-  br i1 %.not62, label %49, label %.outer._crit_edge
+  br i1 %.not62, label %49, label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %0, align 8
   %51 = load ptr, ptr %4, align 8
   %.not6387 = icmp eq ptr %50, %51
-  br i1 %.not6387, label %.outer._crit_edge, label %.outer.split.lr.ph
+  br i1 %.not6387, label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23, label %.outer.split.lr.ph
 
 .outer.split.lr.ph:                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1263,32 +1263,23 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPP10SubprocessSt6vectorIS3_SaIS3_EEEES8
   %.pre9296 = phi ptr [ %101, %99 ], [ %.pre92, %102 ]
   %.sroa.025.0.ph.be = phi ptr [ %93, %99 ], [ %103, %102 ]
   %.not63 = icmp eq ptr %.sroa.025.0.ph.be, %.pre9296
-  br i1 %.not63, label %.outer._crit_edge.thread, label %.outer.split, !llvm.loop !10
+  br i1 %.not63, label %.outer._crit_edge.loopexit, label %.outer.split, !llvm.loop !10
 
-.outer._crit_edge.thread:                         ; preds = %.outer.backedge
+.outer._crit_edge.loopexit:                       ; preds = %.outer.backedge
   %.pre93 = load i32, ptr @_ZN13SubprocessSet12interrupted_E, align 4
   %104 = icmp ne i32 %.pre93, 0
-  br label %105
-
-.outer._crit_edge:                                ; preds = %49, %47, %44, %43
-  %.0 = phi i1 [ false, %43 ], [ %46, %44 ], [ true, %47 ], [ false, %49 ]
-  %.not.i.i.i22 = icmp eq ptr %.sroa.051.1, null
-  br i1 %.not.i.i.i22, label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23, label %105
-
-105:                                              ; preds = %.outer._crit_edge.thread, %.outer._crit_edge
-  %.0100 = phi i1 [ %104, %.outer._crit_edge.thread ], [ %.0, %.outer._crit_edge ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.051.1) #25
   br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23
 
-_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23:          ; preds = %.outer._crit_edge, %105
-  %.0101 = phi i1 [ %.0, %.outer._crit_edge ], [ %.0100, %105 ]
-  ret i1 %.0101
+_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit23:          ; preds = %49, %.outer._crit_edge.loopexit, %47, %44, %43
+  %.0 = phi i1 [ false, %43 ], [ %46, %44 ], [ true, %47 ], [ %104, %.outer._crit_edge.loopexit ], [ false, %49 ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.051.1) #25
+  ret i1 %.0
 }
 
 declare i32 @ppoll(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN13SubprocessSet12NextFinishedEv(ptr nocapture noundef nonnull align 8 dereferenceable(688) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN13SubprocessSet12NextFinishedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(688) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %2, align 8
@@ -1469,7 +1460,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #6
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIP10SubprocessSaIS1_EE16_M_push_back_auxIJRKS1_EEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #5 comdat align 2 {
@@ -1664,10 +1655,10 @@ _ZSt4copyIPPP10SubprocessS3_ET0_T_S5_S4_.exit:    ; preds = %32, %31, %28, %27, 
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

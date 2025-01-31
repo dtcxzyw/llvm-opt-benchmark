@@ -166,7 +166,7 @@ lv_display_add_event_cb.exit:                     ; preds = %41, %45
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #2
 
@@ -238,7 +238,7 @@ define internal void @disp_event_cb(ptr noundef %0) #0 {
 declare void @lv_timer_ready(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_display_delete(ptr noundef %0) local_unnamed_addr #0 {
@@ -1592,7 +1592,7 @@ define zeroext i1 @lv_display_flush_is_last(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_display_is_double_buffered(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define zeroext i1 @lv_display_is_double_buffered(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !65
   %4 = icmp ne ptr %3, null
@@ -2244,7 +2244,7 @@ declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @lv_anim_set_start_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @scr_load_anim_start(ptr nocapture noundef readonly %0) #0 {
+define internal void @scr_load_anim_start(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !74
   %3 = tail call ptr @lv_obj_get_display(ptr noundef %2) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
@@ -2260,7 +2260,7 @@ define internal void @scr_load_anim_start(ptr nocapture noundef readonly %0) #0 
 declare void @lv_anim_set_completed_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @scr_anim_completed(ptr nocapture noundef readonly %0) #0 {
+define internal void @scr_anim_completed(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !74
   %3 = tail call ptr @lv_obj_get_display(ptr noundef %2) #13
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 800
@@ -3065,7 +3065,7 @@ declare void @lv_area_set_height(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @lv_obj_tree_walk(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @invalidate_layout_cb(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @invalidate_layout_cb(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %0) #13
   ret i32 0
 }

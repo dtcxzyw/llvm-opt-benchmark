@@ -120,7 +120,7 @@ define dso_local i64 @drm_compat_ioctl(ptr noundef %0, i32 noundef %1, i64 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @drm_ioctl(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
@@ -129,7 +129,7 @@ declare dso_local i64 @drm_ioctl(ptr noundef, i32 noundef, i64 noundef) local_un
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @compat_drm_version(ptr noundef %0, i32 %1, i64 noundef %2) #0 align 16 {
@@ -322,7 +322,7 @@ define internal i32 @compat_drm_getclient(ptr noundef %0, i32 %1, i64 noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -14, 1) i32 @compat_drm_getstats(ptr nocapture readnone %0, i32 %1, i64 noundef %2) #0 align 16 {
+define internal range(i32 -14, 1) i32 @compat_drm_getstats(ptr readnone captures(none) %0, i32 %1, i64 noundef %2) #0 align 16 {
   %4 = icmp sgt i64 %2, -1
   br i1 %4, label %5, label %13
 
@@ -345,7 +345,7 @@ define internal range(i32 -14, 1) i32 @compat_drm_getstats(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @compat_drm_setunique(ptr nocapture readnone %0, i32 %1, i64 %2) #3 align 16 {
+define internal noundef i32 @compat_drm_setunique(ptr readnone captures(none) %0, i32 %1, i64 %2) #3 align 16 {
   ret i32 -22
 }
 
@@ -402,7 +402,7 @@ define internal i32 @compat_drm_wait_vblank(ptr noundef %0, i32 %1, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @compat_drm_update_draw(ptr nocapture readnone %0, i32 %1, i64 %2) #3 align 16 {
+define internal noundef i32 @compat_drm_update_draw(ptr readnone captures(none) %0, i32 %1, i64 %2) #3 align 16 {
   ret i32 0
 }
 
@@ -449,7 +449,7 @@ define internal i32 @compat_drm_mode_addfb2(ptr noundef %0, i32 %1, i64 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @drm_ioctl_kernel(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

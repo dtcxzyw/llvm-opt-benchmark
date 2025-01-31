@@ -24,10 +24,10 @@ define hidden noundef ptr @getStrFor(ptr noundef %0, ptr noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1arrow(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1arrow(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = load ptr, ptr @gtk, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load ptr, ptr %13, align 8
@@ -54,7 +54,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1arrow(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1box(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1box(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = load ptr, ptr @gtk, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 248
   %15 = load ptr, ptr %14, align 8
@@ -81,7 +81,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1box(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1box_1gap(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1box_1gap(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12) local_unnamed_addr #0 {
   %14 = load ptr, ptr @gtk, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 248
   %16 = load ptr, ptr %15, align 8
@@ -108,7 +108,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1box_1gap(
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1check(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1check(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr @gtk, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %12 = load ptr, ptr %11, align 8
@@ -135,7 +135,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1check(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1expander(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1expander(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = load ptr, ptr @gtk, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 248
   %13 = load ptr, ptr %12, align 8
@@ -162,7 +162,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1expander(
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1extension(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1extension(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = load ptr, ptr @gtk, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load ptr, ptr %13, align 8
@@ -189,7 +189,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1extension
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1flat_1box(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i8 noundef zeroext %10) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1flat_1box(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i8 noundef zeroext %10) local_unnamed_addr #0 {
   %12 = load ptr, ptr @gtk, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load ptr, ptr %13, align 8
@@ -217,7 +217,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1flat_1box
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1focus(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1focus(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr @gtk, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %12 = load ptr, ptr %11, align 8
@@ -244,7 +244,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1focus(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1handle(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1handle(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = load ptr, ptr @gtk, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load ptr, ptr %13, align 8
@@ -271,7 +271,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1handle(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1hline(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1hline(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr @gtk, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %12 = load ptr, ptr %11, align 8
@@ -298,7 +298,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1hline(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1option(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1option(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr @gtk, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %12 = load ptr, ptr %11, align 8
@@ -325,7 +325,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1option(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1shadow(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1shadow(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #0 {
   %13 = load ptr, ptr @gtk, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 248
   %15 = load ptr, ptr %14, align 8
@@ -352,7 +352,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1shadow(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1slider(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i8 noundef zeroext %11) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1slider(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i8 noundef zeroext %11) local_unnamed_addr #0 {
   %13 = load ptr, ptr @gtk, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 248
   %15 = load ptr, ptr %14, align 8
@@ -380,7 +380,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1slider(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1vline(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1vline(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr @gtk, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 248
   %12 = load ptr, ptr %11, align 8
@@ -407,7 +407,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1vline(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1background(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1background(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = load ptr, ptr @gtk, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 248
   %11 = load ptr, ptr %10, align 8
@@ -424,7 +424,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1paint_1backgroun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_nativeStartPainting(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_nativeStartPainting(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, 32767
   %6 = icmp sgt i32 %3, 32767
   %or.cond = or i1 %5, %6
@@ -464,7 +464,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_nativeStartPainting(ptr 
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_java_swing_plaf_gtk_GTKEngine_nativeFinishPainting(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Java_com_sun_java_swing_plaf_gtk_GTKEngine_nativeFinishPainting(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1776
   %8 = load ptr, ptr %7, align 8
@@ -505,7 +505,7 @@ define i32 @Java_com_sun_java_swing_plaf_gtk_GTKEngine_nativeFinishPainting(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1switch_1theme(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1switch_1theme(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @gtk, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -514,7 +514,7 @@ define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1switch_1theme(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1get_1gtk_1setting(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1get_1gtk_1setting(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @gtk, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 248
   %6 = load ptr, ptr %5, align 8
@@ -531,7 +531,7 @@ define ptr @Java_com_sun_java_swing_plaf_gtk_GTKEngine_native_1get_1gtk_1setting
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_nativeSetRangeValue(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
+define void @Java_com_sun_java_swing_plaf_gtk_GTKEngine_nativeSetRangeValue(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #0 {
   %8 = load ptr, ptr @gtk, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 248
   %10 = load ptr, ptr %9, align 8

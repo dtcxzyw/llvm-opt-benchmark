@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { [1 x ptr] }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_NtkCollectBoxes(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Wlc_NtkCollectBoxes(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %3, align 4
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
@@ -146,7 +146,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge, %55
 declare void @Abc_FrameSetBoxes(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Wlc_NtkCollectAddMult(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define noalias noundef ptr @Wlc_NtkCollectAddMult(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 4)) %2, ptr noundef captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -385,7 +385,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge.thread, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Wlc_NtkPairIsUifable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Wlc_NtkPairIsUifable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val29 = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 12
@@ -594,7 +594,7 @@ Wlc_ObjFanin.exit40:                              ; preds = %Wlc_ObjFanin.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Wlc_NtkCollectMultipliers(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Wlc_NtkCollectMultipliers(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -722,7 +722,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge.thread, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Wlc_NtkFindUifableMultiplierPairs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Wlc_NtkFindUifableMultiplierPairs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Wlc_NtkCollectMultipliers(ptr noundef %0)
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1960,13 +1960,13 @@ declare i32 @Wlc_ObjCreate(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7

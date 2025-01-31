@@ -81,10 +81,10 @@ define dso_local ptr @tick_get_tick_sched(i32 noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal range(i32 0, 2) i32 @setup_tick_nohz(ptr noundef %0) #2 section ".init.text" align 16 {
@@ -617,7 +617,7 @@ define dso_local void @tick_nohz_idle_stop_tick() local_unnamed_addr #5 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @tick_nohz_next_event(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc i64 @tick_nohz_next_event(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #5 align 16 {
   br label %3
 
 3:                                                ; preds = %.loopexit, %2
@@ -851,7 +851,7 @@ define dso_local i64 @tick_nohz_get_next_hrtimer() local_unnamed_addr #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @tick_nohz_get_sleep_length(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #5 align 16 {
+define dso_local i64 @tick_nohz_get_sleep_length(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #5 align 16 {
   %2 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @tick_cpu_device) #15, !srcloc !53
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !54
@@ -1521,7 +1521,7 @@ define dso_local void @tick_cancel_sched_timer(i32 noundef %0) local_unnamed_add
 declare dso_local i32 @hrtimer_cancel(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tick_clock_notify() local_unnamed_addr #5 align 16 {
@@ -1834,7 +1834,7 @@ declare dso_local void @timers_update_nohz() local_unnamed_addr #6
 declare dso_local i32 @tick_switch_to_oneshot(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tick_nohz_lowres_handler(ptr nocapture noundef writeonly initializes((24, 32)) %0) #5 align 16 {
+define internal void @tick_nohz_lowres_handler(ptr noundef writeonly captures(none) initializes((24, 32)) %0) #5 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_sched) #15, !srcloc !95
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(ptr) @__irq_regs) #15, !srcloc !83

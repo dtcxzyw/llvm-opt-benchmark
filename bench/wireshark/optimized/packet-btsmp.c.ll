@@ -422,7 +422,7 @@ declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unname
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 5) i32 @dissect_btsmp_auth_req(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 2, 5) i32 @dissect_btsmp_auth_req(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_append_str(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.116) #2
@@ -479,7 +479,7 @@ define internal fastcc range(i32 2, 5) i32 @dissect_btsmp_auth_req(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_btsmp_key_dist(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_btsmp_key_dist(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8

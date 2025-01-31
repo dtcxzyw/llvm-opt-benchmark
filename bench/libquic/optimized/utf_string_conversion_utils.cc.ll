@@ -103,7 +103,7 @@ declare void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE5c
 declare void @_ZNSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %src, i32 noundef %src_len, ptr noundef %char_index, ptr nocapture noundef writeonly initializes((0, 4)) %code_point_out) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKciPiPj(ptr noundef %src, i32 noundef %src_len, ptr noundef %char_index, ptr noundef writeonly captures(none) initializes((0, 4)) %code_point_out) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %char_index, align 4
   %inc = add nsw i32 %0, 1
@@ -140,7 +140,7 @@ if.end7:                                          ; preds = %if.then, %if.then6,
 declare noundef i32 @_ZN8base_icu21utf8_nextCharSafeBodyEPKhPiiia(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr nocapture noundef readonly %src, i32 noundef %src_len, ptr nocapture noundef %char_index, ptr nocapture noundef %code_point) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKtiPiPj(ptr noundef readonly captures(none) %src, i32 noundef %src_len, ptr noundef captures(none) %char_index, ptr noundef captures(none) %code_point) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %char_index, align 4
   %idxprom = sext i32 %0 to i64
@@ -199,7 +199,7 @@ return:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKwiPiPj(ptr nocapture noundef readonly %src, i32 noundef %src_len, ptr nocapture noundef readonly %char_index, ptr nocapture noundef writeonly initializes((0, 4)) %code_point) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN4base20ReadUnicodeCharacterEPKwiPiPj(ptr noundef readonly captures(none) %src, i32 noundef %src_len, ptr noundef readonly captures(none) %char_index, ptr noundef writeonly captures(none) initializes((0, 4)) %code_point) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %char_index, align 4
   %idxprom = sext i32 %0 to i64

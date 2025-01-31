@@ -31,14 +31,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [39 x i8] c"((uintptr_t)ptr & ENTRY_PTR_MASK) == 0\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @dictSetHashFunctionSeed(ptr nocapture noundef readonly %seed) local_unnamed_addr #0 {
+define dso_local void @dictSetHashFunctionSeed(ptr noundef readonly captures(none) %seed) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) @dict_hash_function_seed, ptr noundef nonnull align 1 dereferenceable(16) %seed, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @dictGetHashFunctionSeed() local_unnamed_addr #2 {
@@ -112,7 +112,7 @@ if.end:                                           ; preds = %cond.end.thread, %i
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @dictCreateMultiple(ptr noundef %type, i32 noundef %count) local_unnamed_addr #3 {
@@ -734,7 +734,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @dictRehashMicroseconds(ptr noundef %d, i64 noundef %us) local_unnamed_addr #3 {
@@ -1177,7 +1177,7 @@ return:                                           ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @dictInsertAtPosition(ptr nocapture noundef %d, ptr noundef %key, ptr noundef %position) local_unnamed_addr #3 {
+define dso_local noundef ptr @dictInsertAtPosition(ptr noundef captures(none) %d, ptr noundef %key, ptr noundef %position) local_unnamed_addr #3 {
 entry:
   %rehashidx = getelementptr inbounds nuw i8, ptr %d, i64 40
   %0 = load i64, ptr %rehashidx, align 8
@@ -2084,7 +2084,7 @@ cond.end:                                         ; preds = %entry, %dictGetVal.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dictTwoPhaseUnlinkFind(ptr noundef %d, ptr noundef %key, ptr nocapture noundef writeonly %plink, ptr nocapture noundef writeonly %table_index) local_unnamed_addr #3 {
+define dso_local ptr @dictTwoPhaseUnlinkFind(ptr noundef %d, ptr noundef %key, ptr noundef writeonly captures(none) %plink, ptr noundef writeonly captures(none) %table_index) local_unnamed_addr #3 {
 entry:
   %ht_used = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load i64, ptr %ht_used, align 8
@@ -2233,7 +2233,7 @@ return:                                           ; preds = %while.end, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dictTwoPhaseUnlinkFree(ptr noundef %d, ptr noundef %he, ptr nocapture noundef writeonly %plink, i32 noundef %table_index) local_unnamed_addr #3 {
+define dso_local void @dictTwoPhaseUnlinkFree(ptr noundef %d, ptr noundef %he, ptr noundef writeonly captures(none) %plink, i32 noundef %table_index) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %he, null
   br i1 %cmp, label %return, label %if.end
@@ -2330,7 +2330,7 @@ return:                                           ; preds = %entry, %if.end17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dictSetKey(ptr noundef %d, ptr nocapture noundef writeonly %de, ptr noundef %key) local_unnamed_addr #3 {
+define dso_local void @dictSetKey(ptr noundef %d, ptr noundef writeonly captures(none) %de, ptr noundef %key) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %d, align 8
   %no_value = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2556,7 +2556,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @dictMemUsage(ptr nocapture noundef readonly %d) local_unnamed_addr #11 {
+define dso_local i64 @dictMemUsage(ptr noundef readonly captures(none) %d) local_unnamed_addr #11 {
 entry:
   %ht_used = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load i64, ptr %ht_used, align 8
@@ -2591,7 +2591,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i64 @dictFingerprint(ptr nocapture noundef readonly %d) local_unnamed_addr #12 {
+define dso_local i64 @dictFingerprint(ptr noundef readonly captures(none) %d) local_unnamed_addr #12 {
 entry:
   %integers = alloca [6 x i64], align 16
   %ht_table = getelementptr inbounds nuw i8, ptr %d, i64 8
@@ -2650,7 +2650,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @dictInitIterator(ptr nocapture noundef writeonly initializes((0, 40)) %iter, ptr noundef %d) local_unnamed_addr #13 {
+define dso_local void @dictInitIterator(ptr noundef writeonly captures(none) initializes((0, 40)) %iter, ptr noundef %d) local_unnamed_addr #13 {
 entry:
   store ptr %d, ptr %iter, align 8
   %table = getelementptr inbounds nuw i8, ptr %iter, i64 16
@@ -2663,7 +2663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @dictInitSafeIterator(ptr nocapture noundef writeonly initializes((0, 40)) %iter, ptr noundef %d) local_unnamed_addr #13 {
+define dso_local void @dictInitSafeIterator(ptr noundef writeonly captures(none) initializes((0, 40)) %iter, ptr noundef %d) local_unnamed_addr #13 {
 entry:
   store ptr %d, ptr %iter, align 8
   %table.i = getelementptr inbounds nuw i8, ptr %iter, i64 16
@@ -2678,7 +2678,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dictResetIterator(ptr nocapture noundef readonly %iter) local_unnamed_addr #3 {
+define dso_local void @dictResetIterator(ptr noundef readonly captures(none) %iter) local_unnamed_addr #3 {
 entry:
   %integers.i = alloca [6 x i64], align 16
   %index = getelementptr inbounds nuw i8, ptr %iter, i64 8
@@ -2807,7 +2807,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @dictNext(ptr nocapture noundef %iter) local_unnamed_addr #14 {
+define dso_local ptr @dictNext(ptr noundef captures(none) %iter) local_unnamed_addr #14 {
 entry:
   %integers.i = alloca [6 x i64], align 16
   %entry1 = getelementptr inbounds nuw i8, ptr %iter, i64 24
@@ -3193,7 +3193,7 @@ declare i64 @genrand64_int64() local_unnamed_addr #4
 declare i64 @random() local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @dictGetSomeKeys(ptr noundef %d, ptr nocapture noundef writeonly %des, i32 noundef %count) local_unnamed_addr #3 {
+define dso_local i32 @dictGetSomeKeys(ptr noundef %d, ptr noundef writeonly captures(none) %des, i32 noundef %count) local_unnamed_addr #3 {
 entry:
   %ht_used = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load i64, ptr %ht_used, align 8
@@ -3433,14 +3433,14 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @rand() local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dictScan(ptr nocapture noundef %d, i64 noundef %v, ptr nocapture noundef readonly %fn, ptr noundef %privdata) local_unnamed_addr #3 {
+define dso_local i64 @dictScan(ptr noundef captures(none) %d, i64 noundef %v, ptr noundef readonly captures(none) %fn, ptr noundef %privdata) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @dictScanDefrag(ptr noundef %d, i64 noundef %v, ptr noundef %fn, ptr noundef null, ptr noundef %privdata)
   ret i64 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dictScanDefrag(ptr nocapture noundef %d, i64 noundef %v, ptr nocapture noundef readonly %fn, ptr noundef readonly %defragfns, ptr noundef %privdata) local_unnamed_addr #3 {
+define dso_local i64 @dictScanDefrag(ptr noundef captures(none) %d, i64 noundef %v, ptr noundef readonly captures(none) %fn, ptr noundef readonly %defragfns, ptr noundef %privdata) local_unnamed_addr #3 {
 entry:
   %ht_used = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load i64, ptr %ht_used, align 8
@@ -3748,7 +3748,7 @@ return:                                           ; preds = %entry, %if.end169
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dictDefragBucket(ptr noundef %bucketref, ptr nocapture noundef nonnull readonly %defragfns) unnamed_addr #3 {
+define internal fastcc void @dictDefragBucket(ptr noundef %bucketref, ptr noundef nonnull readonly captures(none) %defragfns) unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %defragfns, align 8
   %defragKey = getelementptr inbounds nuw i8, ptr %defragfns, i64 8
@@ -3962,7 +3962,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dictGetHash(ptr nocapture noundef readonly %d, ptr noundef %key) local_unnamed_addr #3 {
+define dso_local i64 @dictGetHash(ptr noundef readonly captures(none) %d, ptr noundef %key) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %d, align 8
   %1 = load ptr, ptr %0, align 8
@@ -3971,7 +3971,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @dictFindEntryByPtrAndHash(ptr nocapture noundef readonly %d, ptr noundef readnone %oldptr, i64 noundef %hash) local_unnamed_addr #17 {
+define dso_local ptr @dictFindEntryByPtrAndHash(ptr noundef readonly captures(none) %d, ptr noundef readnone %oldptr, i64 noundef %hash) local_unnamed_addr #17 {
 entry:
   %ht_used = getelementptr inbounds nuw i8, ptr %d, i64 24
   %0 = load i64, ptr %ht_used, align 8
@@ -4058,7 +4058,7 @@ return:                                           ; preds = %while.end, %dictGet
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dictRehashingInfo(ptr nocapture noundef readonly %d, ptr nocapture noundef writeonly %from_size, ptr nocapture noundef writeonly %to_size) local_unnamed_addr #3 {
+define dso_local void @dictRehashingInfo(ptr noundef readonly captures(none) %d, ptr noundef writeonly captures(none) %from_size, ptr noundef writeonly captures(none) %to_size) local_unnamed_addr #3 {
 entry:
   %rehashidx = getelementptr inbounds nuw i8, ptr %d, i64 40
   %0 = load i64, ptr %rehashidx, align 8
@@ -4101,7 +4101,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @dictCombineStats(ptr nocapture noundef readonly %from, ptr nocapture noundef %into) local_unnamed_addr #14 {
+define dso_local void @dictCombineStats(ptr noundef readonly captures(none) %from, ptr noundef captures(none) %into) local_unnamed_addr #14 {
 entry:
   %buckets = getelementptr inbounds nuw i8, ptr %from, i64 8
   %0 = load i64, ptr %buckets, align 8
@@ -4156,7 +4156,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias noundef ptr @dictGetStatsHt(ptr nocapture noundef readonly %d, i32 noundef %htidx, i32 noundef %full) local_unnamed_addr #3 {
+define dso_local noalias noundef ptr @dictGetStatsHt(ptr noundef readonly captures(none) %d, i32 noundef %htidx, i32 noundef %full) local_unnamed_addr #3 {
 entry:
   %call = tail call noalias dereferenceable_or_null(400) ptr @zcalloc(i64 noundef 400) #23
   %call1 = tail call noalias dereferenceable_or_null(56) ptr @zcalloc(i64 noundef 56) #23
@@ -4256,7 +4256,7 @@ return:                                           ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local i64 @dictGetStatsMsg(ptr nocapture noundef %buf, i64 noundef %bufsize, ptr nocapture noundef readonly %stats, i32 noundef %full) local_unnamed_addr #9 {
+define dso_local i64 @dictGetStatsMsg(ptr noundef captures(none) %buf, i64 noundef %bufsize, ptr noundef readonly captures(none) %stats, i32 noundef %full) local_unnamed_addr #9 {
 entry:
   %htUsed = getelementptr inbounds nuw i8, ptr %stats, i64 40
   %0 = load i64, ptr %htUsed, align 8
@@ -4348,13 +4348,13 @@ return:                                           ; preds = %if.end51, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dictGetStats(ptr nocapture noundef %buf, i64 noundef %bufsize, ptr nocapture noundef readonly %d, i32 noundef %full) local_unnamed_addr #3 {
+define dso_local void @dictGetStats(ptr noundef captures(none) %buf, i64 noundef %bufsize, ptr noundef readonly captures(none) %d, i32 noundef %full) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @dictGetStatsHt(ptr noundef %d, i32 noundef 0, i32 noundef %full)
   %call1 = tail call i64 @dictGetStatsMsg(ptr noundef %buf, i64 noundef %bufsize, ptr noundef %call, i32 noundef %full)
@@ -4400,10 +4400,10 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #20
 declare i64 @llvm.umin.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

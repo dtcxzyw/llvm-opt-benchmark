@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ade9f7a0850fbf939fbb2c4249dd7fa3.2 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.ade9f7a0850fbf939fbb2c4249dd7fa3.0, [8 x i8] zeroinitializer }>, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define noundef i16 @"_ZN9softposit7quire167convert43_$LT$impl$u20$softposit..quire16..Q16E1$GT$8to_posit17he7ba2f7c005a4e92E"(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #0 {
+define noundef i16 @"_ZN9softposit7quire167convert43_$LT$impl$u20$softposit..quire16..Q16E1$GT$8to_posit17he7ba2f7c005a4e92E"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = load i128, ptr %0, align 16, !noundef !4
   switch i128 %2, label %4 [
     i128 0, label %5
@@ -197,7 +197,7 @@ define noundef i128 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define noundef i16 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$8to_posit17hf4274d16066d93deE"(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #0 {
+define noundef i16 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$8to_posit17hf4274d16066d93deE"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = tail call noundef i16 @"_ZN9softposit7quire167convert43_$LT$impl$u20$softposit..quire16..Q16E1$GT$8to_posit17he7ba2f7c005a4e92E"(ptr noalias noundef nonnull readonly align 16 dereferenceable(16) %0)
   ret i16 %2
 }
@@ -208,20 +208,20 @@ define noundef i128 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef i128 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$7to_bits17h9f4952deddad1fe2E"(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #3 {
+define noundef i128 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$7to_bits17h9f4952deddad1fe2E"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load i128, ptr %0, align 16, !noundef !4
   ret i128 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$7is_zero17h75362d6e965a0a97E"(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #3 {
+define noundef zeroext i1 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$7is_zero17h75362d6e965a0a97E"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load i128, ptr %0, align 16, !noundef !4
   %3 = icmp eq i128 %2, 0
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$6is_nar17h9efe0582547e9373E"(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #3 {
+define noundef zeroext i1 @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$6is_nar17h9efe0582547e9373E"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0) unnamed_addr #3 {
   %2 = load i128, ptr %0, align 16, !noundef !4
   %3 = icmp eq i128 %2, -170141183460469231731687303715884105728
   ret i1 %3
@@ -240,13 +240,13 @@ define void @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$5clear17hb29b9c95b4bf20beE"(ptr noalias nocapture noundef writeonly align 16 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #4 {
+define void @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$5clear17hb29b9c95b4bf20beE"(ptr noalias noundef writeonly align 16 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #4 {
   store i128 0, ptr %0, align 16
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$3neg17hb26955a75aee91aaE"(ptr noalias nocapture noundef align 16 dereferenceable(16) %0) unnamed_addr #5 {
+define void @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$3neg17hb26955a75aee91aaE"(ptr noalias noundef align 16 captures(none) dereferenceable(16) %0) unnamed_addr #5 {
   %2 = load i128, ptr %0, align 16, !noundef !4
   %3 = sub i128 0, %2
   store i128 %3, ptr %0, align 16
@@ -254,7 +254,7 @@ define void @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core..fmt..Display$GT$3fmt17h8c09ea3c6dbfcb7eE"(ptr noalias nocapture noundef readonly align 16 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define noundef zeroext i1 @"_ZN64_$LT$softposit..quire16..Q16E1$u20$as$u20$core..fmt..Display$GT$3fmt17h8c09ea3c6dbfcb7eE"(ptr noalias noundef readonly align 16 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #2 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca double, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -348,7 +348,7 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !5
+  %41 = call noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.val1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3), !noalias !5
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
@@ -356,7 +356,7 @@ _ZN4core3fmt9Formatter9write_fmt17h40252474da72b710E.exit: ; preds = %2, %7, %_Z
 }
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #2
+declare noundef zeroext i1 @_ZN4core3fmt5write17hd9a8d7d029f9ea1aE(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN9softposit7quire163ops3fdp17h6da150bf3eda9608E(ptr noalias noundef align 16 dereferenceable(16), i16 noundef, i16 noundef, i1 noundef zeroext) unnamed_addr #2
@@ -365,10 +365,10 @@ declare void @_ZN9softposit7quire163ops3fdp17h6da150bf3eda9608E(ptr noalias noun
 declare noundef zeroext i1 @"_ZN4core3fmt5float52_$LT$impl$u20$core..fmt..Display$u20$for$u20$f64$GT$3fmt17h2ea2ae54310fbdaeE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

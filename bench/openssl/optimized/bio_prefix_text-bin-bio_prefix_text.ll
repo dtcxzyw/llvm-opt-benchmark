@@ -189,7 +189,7 @@ if.end35.i:                                       ; preds = %sw.bb30.i
   br i1 %cmp38.not.i, label %if.end49.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end35.i
-  %call41.i = call i64 @strtoul(ptr noundef %call36.i, ptr noundef nonnull %endptr.i, i32 noundef 10) #7
+  %call41.i = call i64 @strtoul(ptr noundef nonnull %call36.i, ptr noundef nonnull %endptr.i, i32 noundef 10) #7
   %15 = load ptr, ptr %endptr.i, align 8
   %16 = load i8, ptr %15, align 1
   %cmp44.not.i = icmp eq i8 %16, 58
@@ -197,7 +197,7 @@ if.then40.i:                                      ; preds = %if.end35.i
 
 if.then46.i:                                      ; preds = %if.then40.i
   %17 = load ptr, ptr @bio_err, align 8
-  %call47.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.14, ptr noundef %call.i, ptr noundef %call36.i) #7
+  %call47.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.14, ptr noundef %call.i, ptr noundef nonnull %call36.i) #7
   br label %setup.exit.thread
 
 if.end48.i:                                       ; preds = %if.then40.i
@@ -207,7 +207,7 @@ if.end48.i:                                       ; preds = %if.then40.i
 if.end49.i:                                       ; preds = %if.end48.i, %if.end35.i
   %colon.0.i = phi ptr [ %incdec.ptr.i, %if.end48.i ], [ %call36.i, %if.end35.i ]
   %idx.0.i = phi i64 [ %call41.i, %if.end48.i ], [ 0, %if.end35.i ]
-  %call50.i = call i64 @strtoul(ptr noundef %colon.0.i, ptr noundef nonnull %endptr.i, i32 noundef 10) #7
+  %call50.i = call i64 @strtoul(ptr noundef nonnull %colon.0.i, ptr noundef nonnull %endptr.i, i32 noundef 10) #7
   %18 = load ptr, ptr %endptr.i, align 8
   %19 = load i8, ptr %18, align 1
   %cmp53.not.i = icmp eq i8 %19, 0
@@ -215,7 +215,7 @@ if.end49.i:                                       ; preds = %if.end48.i, %if.end
 
 if.then55.i:                                      ; preds = %if.end49.i
   %20 = load ptr, ptr @bio_err, align 8
-  %call56.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %20, ptr noundef nonnull @.str.15, ptr noundef %call.i, ptr noundef %call36.i) #7
+  %call56.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %20, ptr noundef nonnull @.str.15, ptr noundef %call.i, ptr noundef nonnull %call36.i) #7
   br label %setup.exit.thread
 
 if.end57.i:                                       ; preds = %if.end49.i
@@ -239,7 +239,7 @@ if.end62.i:                                       ; preds = %if.end57.i
 
 if.then67.i:                                      ; preds = %if.end62.i
   %25 = load ptr, ptr @bio_err, align 8
-  %call68.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.17, ptr noundef %call.i, ptr noundef %call36.i) #7
+  %call68.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %25, ptr noundef nonnull @.str.17, ptr noundef %call.i, ptr noundef nonnull %call36.i) #7
   br label %setup.exit.thread
 
 sw.bb70.i:                                        ; preds = %while.cond.i
@@ -259,7 +259,7 @@ if.end75.i:                                       ; preds = %sw.bb70.i
   br i1 %cmp78.not.i, label %if.end91.i, label %if.then80.i
 
 if.then80.i:                                      ; preds = %if.end75.i
-  %call81.i = call i64 @strtoul(ptr noundef %call76.i, ptr noundef nonnull %endptr.i, i32 noundef 10) #7
+  %call81.i = call i64 @strtoul(ptr noundef nonnull %call76.i, ptr noundef nonnull %endptr.i, i32 noundef 10) #7
   %28 = load ptr, ptr %endptr.i, align 8
   %29 = load i8, ptr %28, align 1
   %cmp84.not.i = icmp eq i8 %29, 58
@@ -267,7 +267,7 @@ if.then80.i:                                      ; preds = %if.end75.i
 
 if.then86.i:                                      ; preds = %if.then80.i
   %30 = load ptr, ptr @bio_err, align 8
-  %call87.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %30, ptr noundef nonnull @.str.19, ptr noundef %call.i, ptr noundef %call76.i) #7
+  %call87.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %30, ptr noundef nonnull @.str.19, ptr noundef %call.i, ptr noundef nonnull %call76.i) #7
   br label %setup.exit.thread
 
 if.end88.i:                                       ; preds = %if.then80.i
@@ -291,13 +291,13 @@ if.end97.i:                                       ; preds = %if.end91.i
   %33 = load ptr, ptr @chain, align 8
   %arrayidx98.i = getelementptr inbounds ptr, ptr %33, i64 %idx.1.i
   %34 = load ptr, ptr %arrayidx98.i, align 8
-  %call99.i = tail call i64 @BIO_ctrl(ptr noundef %34, i32 noundef 79, i64 noundef 0, ptr noundef %colon.1.i) #7
+  %call99.i = tail call i64 @BIO_ctrl(ptr noundef %34, i32 noundef 79, i64 noundef 0, ptr noundef nonnull %colon.1.i) #7
   %cmp100.i = icmp slt i64 %call99.i, 1
   br i1 %cmp100.i, label %if.then102.i, label %sw.epilog.i
 
 if.then102.i:                                     ; preds = %if.end97.i
   %35 = load ptr, ptr @bio_err, align 8
-  %call103.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.20, ptr noundef %call.i, ptr noundef %call76.i) #7
+  %call103.i = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %35, ptr noundef nonnull @.str.20, ptr noundef %call.i, ptr noundef nonnull %call76.i) #7
   br label %setup.exit.thread
 
 sw.epilog.i:                                      ; preds = %if.end11.i.i, %if.end97.i, %if.end62.i
@@ -402,7 +402,7 @@ declare i32 @opt_next() local_unnamed_addr #1
 declare ptr @opt_arg() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -436,10 +436,10 @@ declare void @llvm.va_start.p0(ptr) #5
 declare void @llvm.va_end.p0(ptr) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

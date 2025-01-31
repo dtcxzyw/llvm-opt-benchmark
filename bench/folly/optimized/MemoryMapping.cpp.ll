@@ -72,12 +72,12 @@ $_ZN6google17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIc
 @_ZN5folly13MemoryMappingD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly13MemoryMappingD2Ev
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #1 comdat {
@@ -92,7 +92,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
@@ -202,7 +202,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMappingC2ENS_4FileEllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %file, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2ENS_4FileEllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %file, i64 noundef %offset, i64 noundef %length, ptr noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 captures(none) %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessageFatal", align 8
   tail call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef nonnull align 4 dereferenceable(5) %file) #19
@@ -276,7 +276,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMapping4initEll(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMapping4initEll(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"class.google::LogMessageFatal", align 8
   %st = alloca %struct.stat, align 8
@@ -812,7 +812,7 @@ declare void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5))
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMappingC2EPKcllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %name, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2EPKcllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %name, i64 noundef %offset, i64 noundef %length, ptr noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 captures(none) %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::File", align 4
   %writable = getelementptr inbounds nuw i8, ptr %options, i64 11
@@ -837,7 +837,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN5folly4FileC1EPKcij(ptr noundef nonnull align 4 dereferenceable(5), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMappingC2EillNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %fd, i64 noundef %offset, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2EillNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %fd, i64 noundef %offset, i64 noundef %length, ptr noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 captures(none) %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::File", align 4
   call void @_ZN5folly4FileC1Eib(ptr noundef nonnull align 4 dereferenceable(5) %agg.tmp, i32 noundef %fd, i1 noundef zeroext false) #19
@@ -859,7 +859,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN5folly4FileC1Eib(ptr noundef nonnull align 4 dereferenceable(5), i32 noundef, i1 noundef zeroext) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMappingC2ENS0_13AnonymousTypeElNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 5), (8, 49), (56, 72)) %this, i32 %0, i64 noundef %length, ptr nocapture noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMappingC2ENS0_13AnonymousTypeElNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 5), (8, 49), (56, 72)) %this, i32 %0, i64 noundef %length, ptr noundef readonly byval(%"struct.folly::MemoryMapping::Options") align 8 captures(none) %options) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 -1, ptr %this, align 8, !tbaa !7
   %ownsFd_.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -886,7 +886,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZN6google10LogMessage9SendToLogEv(ptr noundef nonnull align 8 dereferenceable(96)) #5
 
@@ -974,7 +974,7 @@ entry:
 declare i32 @mlock2(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %mode, i8 %flags.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly13MemoryMapping5mlockENS0_8LockModeENS0_9LockFlagsE(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, i32 noundef %mode, i8 %flags.coerce) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v9::format_arg_store", align 16
   %msg = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1356,7 +1356,7 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 declare i32 @munlock(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5folly13MemoryMapping9LockFlagseqERKS1_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %other) local_unnamed_addr #12 align 2 {
+define noundef zeroext i1 @_ZNK5folly13MemoryMapping9LockFlagseqERKS1_(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %other) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i8, ptr %this, align 1, !tbaa !73, !range !26, !noundef !27
   %1 = load i8, ptr %other, align 1, !tbaa !73, !range !26, !noundef !27
@@ -1370,7 +1370,7 @@ declare i32 @mlock(ptr noundef, i64 noundef) local_unnamed_addr #8
 declare void @_ZN3fmt2v97vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, i64, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMapping7munlockEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %dontneed) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13MemoryMapping7munlockEb(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %this, i1 noundef zeroext %dontneed) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::ErrnoLogMessage", align 8
   %indirect-arg-temp = alloca { i64, i64 }, align 8
@@ -1497,7 +1497,7 @@ ehcleanup:                                        ; preds = %lpad18, %lpad
 declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13MemoryMapping14hintLinearScanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly13MemoryMapping14hintLinearScanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) local_unnamed_addr #7 align 2 {
 entry:
   %mapLength_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %mapLength_.i, align 8, !tbaa !43
@@ -1506,7 +1506,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly13MemoryMapping6adviseEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %advice) local_unnamed_addr #7 align 2 {
+define void @_ZNK5folly13MemoryMapping6adviseEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %advice) local_unnamed_addr #7 align 2 {
 entry:
   %mapLength_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %mapLength_, align 8, !tbaa !43
@@ -1630,7 +1630,7 @@ terminate.lpad:                                   ; preds = %invoke.cont10, %.no
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly13MemoryMapping6adviseEimm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %advice, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly13MemoryMapping6adviseEimm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %advice, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_result = alloca %"struct.google::CheckOpString", align 8
   %ref.tmp = alloca i64, align 8
@@ -1898,7 +1898,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly20alignedForwardMemcpyEPvPKvm(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %size) local_unnamed_addr #13 {
+define void @_ZN5folly20alignedForwardMemcpyEPvPKvm(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %size) local_unnamed_addr #13 {
 entry:
   %cmp13 = icmp ugt i64 %size, 7
   br i1 %cmp13, label %while.body.preheader, label %while.cond2.preheader
@@ -2414,7 +2414,7 @@ declare void @llvm.assume(i1 noundef) #15
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #18

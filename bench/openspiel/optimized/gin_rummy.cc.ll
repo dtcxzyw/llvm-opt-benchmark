@@ -1352,7 +1352,7 @@ declare void @_ZN10open_spiel14GameRegistererC1ERKNS_8GameTypeESt8functionIFSt10
 declare void @_ZN10open_spiel28RegisterSingleTensorObserverC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9gin_rummy13GinRummyStateC2ESt10shared_ptrIKNS_4GameEEbiiiiii(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr nocapture noundef %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9gin_rummy13GinRummyStateC2ESt10shared_ptrIKNS_4GameEEbiiiiii(ptr noundef nonnull align 8 dereferenceable(528) %0, ptr noundef captures(none) %1, i1 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::shared_ptr", align 8
   %11 = alloca %"class.std::vector.31", align 8
   %12 = alloca %"class.std::vector.31", align 8
@@ -2151,7 +2151,7 @@ _ZNSt12__shared_ptrIKN10open_spiel4GameELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
 declare void @_ZN10open_spiel9gin_rummy13GinRummyUtilsC1Eiii(ptr noundef nonnull align 8 dereferenceable(120), i32 noundef, i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN10open_spiel24ActionObservationHistoryESaIS1_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4886,7 +4886,7 @@ define void @_ZN10open_spiel9gin_rummy13GinRummyState15ApplyWallActionEl(ptr nou
 declare void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN10open_spiel24ActionObservationHistory6ExtendEN4absl7debian28optionalIlEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32), i8, i64, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -5056,7 +5056,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9gin_rummy13GinRummyState11StockToHandEil(ptr nocapture noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9gin_rummy13GinRummyState11StockToHandEil(ptr noundef nonnull align 8 captures(none) dereferenceable(528) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -5147,7 +5147,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %13, %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel9gin_rummy13GinRummyState13StockToUpcardEl(ptr nocapture noundef nonnull align 8 dereferenceable(528) initializes((236, 240)) %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9gin_rummy13GinRummyState13StockToUpcardEl(ptr noundef nonnull align 8 captures(none) dereferenceable(528) initializes((236, 240)) %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -5230,7 +5230,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9gin_rummy13GinRummyState12UpcardToHandEi(ptr nocapture noundef nonnull align 8 dereferenceable(528) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9gin_rummy13GinRummyState12UpcardToHandEi(ptr noundef nonnull align 8 captures(none) dereferenceable(528) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -5521,7 +5521,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel9gin_rummy13GinRummyState14RemoveFromHandEil(ptr nocapture noundef nonnull readonly align 8 dereferenceable(528) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9gin_rummy13GinRummyState14RemoveFromHandEil(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(528) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -5833,7 +5833,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.56") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState12LegalActionsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.56") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %31 [
@@ -5957,7 +5957,7 @@ _ZNK10open_spiel9gin_rummy13GinRummyState16DrawLegalActionsEv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState16DealLegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.56") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState16DealLegalActionsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.56") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %4 = load i32, ptr %3, align 4
@@ -6088,7 +6088,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState23FirstUpcardLegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.56") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState23FirstUpcardLegalActionsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.56") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %4 = load ptr, ptr %3, align 8
@@ -6140,7 +6140,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit:           ; preds = %_ZNSt6vectorIlSaIlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState16DrawLegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.56") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState16DrawLegalActionsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.56") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6175,7 +6175,7 @@ _ZNSt6vectorIlSaIlEE9push_backEOl.exit12:         ; preds = %_ZNKSt6vectorIlSaIl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState19DiscardLegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.56") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState19DiscardLegalActionsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.56") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 220
   %5 = load i32, ptr %4, align 4
@@ -6338,7 +6338,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEEEvT_S7_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState17KnockLegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.56") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState17KnockLegalActionsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.56") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.31", align 8
   %4 = alloca %"class.std::vector.31", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -6759,7 +6759,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState18LayoffLegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.56") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState18LayoffLegalActionsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.56") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.31", align 8
   %4 = alloca %"class.std::vector.31", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -7203,7 +7203,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState16WallLegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.56") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState16WallLegalActionsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.56") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIlSaIlEE12_M_check_lenEmPKc.exit.i.i.i:
   %2 = alloca %"class.std::vector.31", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -7349,7 +7349,7 @@ declare void @_ZNK10open_spiel9gin_rummy13GinRummyUtils10AllLayoffsERKSt6vectorI
 declare noundef i32 @_ZNK10open_spiel9gin_rummy13GinRummyUtils11MinDeadwoodESt6vectorIiSaIiEEN4absl7debian28optionalIiEE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState14ChanceOutcomesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.63") align 8 %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState14ChanceOutcomesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.63") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
@@ -8961,7 +8961,7 @@ declare void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_tr
 declare void @_ZNK10open_spiel9gin_rummy13GinRummyUtils12HandToStringB5cxx11ERKSt6vectorIiSaIiEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.75") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState7ReturnsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.75") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -9076,7 +9076,7 @@ define void @_ZNK10open_spiel9gin_rummy13GinRummyState7ReturnsEv(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy13GinRummyState5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy13GinRummyState5CloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(528) ptr @_Znwm(i64 noundef 528) #28
   invoke void @_ZN10open_spiel9gin_rummy13GinRummyStateC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(528) %3, ptr noundef nonnull align 8 dereferenceable(528) %1)
           to label %4 unwind label %5
@@ -9586,7 +9586,7 @@ _ZN10open_spiel19ContiguousAllocatorC2EN4absl7debian24SpanIfEE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9gin_rummy12GinRummyGameC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9gin_rummy12GinRummyGameC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.155", align 1
   %4 = alloca %"class.std::allocator.155", align 1
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
@@ -12291,7 +12291,7 @@ _ZNSt23enable_shared_from_thisIN10open_spiel4GameEED2Ev.exit: ; preds = %_ZN10op
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9gin_rummy12GinRummyGame12MakeObserverEN4absl7debian28optionalINS_18IIGObservationTypeEEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessISD_ESaISt4pairIKSD_SE_EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.95") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 %2, i32 %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9gin_rummy12GinRummyGame12MakeObserverEN4absl7debian28optionalINS_18IIGObservationTypeEEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessISD_ESaISt4pairIKSD_SE_EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.95") align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2, i32 %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::allocator.155", align 1
   %.sroa.0 = alloca %"class.absl::debian2::optional_internal::optional_data_dtor_base.93", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14842,7 +14842,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiSt6vectorIiSaIiEEESt10_Select1stIS5_ESt4lessIiESaIS5_E
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -15301,7 +15301,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt8_Rb_treeIiSt4pairIKiSt6vectorIiSaIiEEESt10_Select1stIS5_ESt4lessIiESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22182,7 +22182,7 @@ _ZN4absl7debian213InlinedVectorIiLm4ESaIiEED2Ev.exit18: ; preds = %45, %49
 declare void @_ZNK10open_spiel24ActionObservationHistory8ToStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN10open_spiel9gin_rummy16GinRummyObserverESaIvEJNS4_18IIGObservationTypeEEEERPT_St20_Sp_alloc_shared_tagIT0_EDpOT1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, ptr noundef nonnull align 4 dereferenceable(8) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -22830,10 +22830,10 @@ __cxx_global_var_init.10.exit:                    ; preds = %161, %163
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
@@ -22848,7 +22848,7 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

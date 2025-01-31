@@ -20,12 +20,12 @@ $_ZNK4llvm11RTTIExtendsIN5clang19ModuleFileExtensionENS_8RTTIRootEE3isAEPKv = co
 @_ZN5clang25ModuleFileExtensionReaderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang25ModuleFileExtensionReaderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang19ModuleFileExtensionD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang19ModuleFileExtensionD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN5clang19ModuleFileExtensionD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang19ModuleFileExtensionD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #6
   unreachable
 }
@@ -34,23 +34,23 @@ define dso_local void @_ZN5clang19ModuleFileExtensionD0Ev(ptr nocapture nonnull 
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK5clang19ModuleFileExtension13hashExtensionERN4llvm11HashBuilderINS1_3MD5ELNS1_10endiannessE1EEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 1 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang19ModuleFileExtension13hashExtensionERN4llvm11HashBuilderINS1_3MD5ELNS1_10endiannessE1EEE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 1 captures(none) %1) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang25ModuleFileExtensionWriterD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang25ModuleFileExtensionWriterD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN5clang25ModuleFileExtensionWriterD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang25ModuleFileExtensionWriterD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #6
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang25ModuleFileExtensionReaderD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang25ModuleFileExtensionReaderD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 

@@ -329,7 +329,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev33ConvertStringToGradingStyleAndDirEPKcRNS_12GradingStyleERNS_18TransformDirectionE(ptr noundef %str, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %style, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dir) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev33ConvertStringToGradingStyleAndDirEPKcRNS_12GradingStyleERNS_18TransformDirectionE(ptr noundef %str, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %style, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %dir) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -162,10 +162,10 @@ Vec_VecStart.exit:                                ; preds = %62
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @Res_SimAdjust(ptr nocapture noundef initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @Res_SimAdjust(ptr noundef captures(none) initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   tail call void @srand(i32 noundef 2748) #14
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -562,10 +562,10 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %39
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_InfoRandomBytes(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Abc_InfoRandomBytes(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -605,7 +605,7 @@ define void @Abc_InfoRandomBytes(ptr nocapture noundef writeonly %0, i32 noundef
 declare i32 @rand() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Res_SimSetRandomBytes(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define void @Res_SimSetRandomBytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 40
   %.val1219 = load ptr, ptr %3, align 8
@@ -711,7 +711,7 @@ Abc_InfoRandomBytes.exit:                         ; preds = %.lr.ph.i15, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res_SimSetDerivedBytes(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Res_SimSetDerivedBytes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %.sroa.0388 = alloca ptr, align 16
   %.sroa.2389 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1236,7 +1236,7 @@ Abc_InfoRandomBytes.exit.loopexit.us:             ; preds = %.lr.ph.i.us
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Res_SimSetGiven(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define void @Res_SimSetGiven(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 40
@@ -1313,7 +1313,7 @@ define void @Res_SimSetGiven(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Res_SimPerformOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @Res_SimPerformOne(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr i8, ptr %1, i64 8
@@ -1442,7 +1442,7 @@ define void @Res_SimPerformOne(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Res_SimTransferOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @Res_SimTransferOne(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr i8, ptr %1, i64 8
@@ -1503,7 +1503,7 @@ define void @Res_SimTransferOne(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Res_SimPerformRound(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Res_SimPerformRound(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -1632,7 +1632,7 @@ Res_SimTransferOne.exit.us:                       ; preds = %.lr.ph.i.us, %.lr.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Res_SimPadSimInfo(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @Res_SimPadSimInfo(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ult i32 %1, 32
   %5 = getelementptr i8, ptr %0, i64 4
   %.val2528 = load i32, ptr %5, align 4
@@ -1720,7 +1720,7 @@ define void @Res_SimPadSimInfo(ptr nocapture noundef readonly %0, i32 noundef %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Res_SimDeriveInfoReplicate(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Res_SimDeriveInfoReplicate(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 48
   %.val28 = load ptr, ptr %3, align 8
@@ -1827,7 +1827,7 @@ define void @Res_SimDeriveInfoReplicate(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Res_SimDeriveInfoComplement(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @Res_SimDeriveInfoComplement(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 48
   %.val32 = load ptr, ptr %3, align 8
@@ -1939,7 +1939,7 @@ define void @Res_SimDeriveInfoComplement(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Res_SimPrintOutPatterns(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @Res_SimPrintOutPatterns(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 48
   %.val10 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val10, i64 4
@@ -1978,10 +1978,10 @@ define void @Res_SimPrintOutPatterns(ptr nocapture noundef readonly %0, ptr noca
 declare void @Extra_PrintBinary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @Res_SimPrintNodePatterns(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define void @Res_SimPrintNodePatterns(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -2007,7 +2007,7 @@ define void @Res_SimPrintNodePatterns(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Res_SimCountResults(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #9 {
+define void @Res_SimCountResults(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #9 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
@@ -2092,7 +2092,7 @@ define void @Res_SimCountResults(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Res_SimCollectPatterns(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Res_SimCollectPatterns(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -2377,7 +2377,7 @@ define void @Res_SimCollectPatterns(ptr nocapture noundef %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Res_SimVerifyValue(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Res_SimVerifyValue(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 40
   %.val2932 = load ptr, ptr %4, align 8

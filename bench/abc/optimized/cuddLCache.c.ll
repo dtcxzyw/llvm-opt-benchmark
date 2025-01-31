@@ -91,13 +91,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare i32 @cuddComputeFloorLog2(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define void @cuddLocalCacheQuit(ptr noundef %0) local_unnamed_addr #0 {
@@ -162,7 +162,7 @@ cuddLocalCacheRemoveFromList.exit:                ; preds = %.lr.ph, %1, %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @cuddLocalCacheInsert(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @cuddLocalCacheInsert(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -205,10 +205,10 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define ptr @cuddLocalCacheLookup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @cuddLocalCacheLookup(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load double, ptr %3, align 8
   %5 = fadd double %4, 1.000000e+00
@@ -411,7 +411,7 @@ cuddLocalCacheResize.exit:                        ; preds = %34, %45, %.loopexit
 declare void @cuddReclaim(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @cuddLocalCacheClearDead(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @cuddLocalCacheClearDead(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %.02231 = load ptr, ptr %2, align 8
   %.not32 = icmp eq ptr %.02231, null
@@ -523,7 +523,7 @@ define void @cuddLocalCacheClearDead(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @cuddLocalCacheClearAll(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define void @cuddLocalCacheClearAll(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %.06 = load ptr, ptr %2, align 8
   %.not7 = icmp eq ptr %.06, null
@@ -605,7 +605,7 @@ define noalias noundef ptr @cuddHashTableInit(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cuddHashTableQuit(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @cuddHashTableQuit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -671,7 +671,7 @@ define void @cuddHashTableQuit(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddHashTableInsert(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddHashTableInsert(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -780,7 +780,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cuddHashTableResize(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @cuddHashTableResize(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1057,7 +1057,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %.lr.ph13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @cuddHashTableAlloc(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @cuddHashTableAlloc(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1189,7 +1189,7 @@ define internal fastcc noundef ptr @cuddHashTableAlloc(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @cuddHashTableLookup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define ptr @cuddHashTableLookup(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
@@ -1312,7 +1312,7 @@ ddLCHash.exit:                                    ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddHashTableInsert1(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddHashTableInsert1(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1376,7 +1376,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert1(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @cuddHashTableLookup1(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
+define ptr @cuddHashTableLookup1(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -1458,7 +1458,7 @@ define ptr @cuddHashTableLookup1(ptr nocapture noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddHashTableInsert2(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddHashTableInsert2(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1535,7 +1535,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert2(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @cuddHashTableLookup2(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define ptr @cuddHashTableLookup2(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr
@@ -1636,7 +1636,7 @@ define ptr @cuddHashTableLookup2(ptr nocapture noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddHashTableInsert3(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @cuddHashTableInsert3(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1725,7 +1725,7 @@ define range(i32 0, 2) i32 @cuddHashTableInsert3(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @cuddHashTableLookup3(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define ptr @cuddHashTableLookup3(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = ptrtoint ptr %2 to i64
   %6 = and i64 %5, -2
   %7 = inttoptr i64 %6 to ptr
@@ -1842,7 +1842,7 @@ define ptr @cuddHashTableLookup3(ptr nocapture noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

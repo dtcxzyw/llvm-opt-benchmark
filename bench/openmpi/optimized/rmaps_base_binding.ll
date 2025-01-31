@@ -36,7 +36,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_process_info = external global %struct.prte_process_info_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @prte_rmaps_base_bind_proc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond63 = icmp ult i32 %6, 64
   br i1 %or.cond63, label %7, label %24
@@ -704,7 +704,7 @@ declare ptr @prte_util_print_jobids(ptr noundef) local_unnamed_addr #1
 declare ptr @prte_hwloc_base_print_binding(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -43, 1) i32 @bind_to_cpuset(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -43, 1) i32 @bind_to_cpuset(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_rmaps_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %5, 64
   br i1 %or.cond, label %6, label %20
@@ -737,7 +737,7 @@ define internal fastcc range(i32 -43, 1) i32 @bind_to_cpuset(ptr noundef %0, ptr
 24:                                               ; preds = %20
   %25 = tail call ptr @PMIx_Argv_split(ptr noundef nonnull %22, i32 noundef 44) #6
   %26 = load ptr, ptr %25, align 8
-  %27 = tail call i64 @strtoul(ptr nocapture noundef %26, ptr noundef null, i32 noundef 10) #6
+  %27 = tail call i64 @strtoul(ptr noundef captures(none) %26, ptr noundef null, i32 noundef 10) #6
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %30 = load i8, ptr %29, align 2
@@ -941,7 +941,7 @@ declare i32 @hwloc_get_type_depth(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @PMIx_Argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #1
 
@@ -955,7 +955,7 @@ declare ptr @prte_rmaps_base_print_mapping(i16 noundef zeroext) local_unnamed_ad
 declare i32 @hwloc_bitmap_list_asprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @PMIx_Argv_join(ptr noundef, i32 noundef) local_unnamed_addr #1
 

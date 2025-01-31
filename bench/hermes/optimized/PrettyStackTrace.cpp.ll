@@ -28,20 +28,20 @@ $_ZN4llvh22PrettyStackTraceFormatD0Ev = comdat any
 @_ZN4llvh22PrettyStackTraceFormatC1EPKcz = hidden unnamed_addr alias void (ptr, ptr, ...), ptr @_ZN4llvh22PrettyStackTraceFormatC2EPKcz
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh21PrettyStackTraceEntryE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4llvh21PrettyStackTraceEntryD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN4llvh21PrettyStackTraceEntryD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN4llvh21PrettyStackTraceEntryD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN4llvh21PrettyStackTraceEntryD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #13
   unreachable
@@ -51,7 +51,7 @@ entry:
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh22PrettyStackTraceString5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #4 align 2 {
+define hidden void @_ZNK4llvh22PrettyStackTraceString5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #4 align 2 {
 entry:
   %Str = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Str, align 8
@@ -110,7 +110,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16:               ; preds = %if.then.i.i14, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, ptr nocapture noundef readonly %Format, ...) unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, ptr noundef readonly captures(none) %Format, ...) unnamed_addr #4 align 2 {
 entry:
   %AP = alloca [1 x %struct.__va_list_tag], align 16
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 16), ptr %this, align 8
@@ -177,10 +177,10 @@ return:                                           ; preds = %entry, %_ZN4llvh15S
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh22PrettyStackTraceFormat5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #4 align 2 {
+define hidden void @_ZNK4llvh22PrettyStackTraceFormat5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #4 align 2 {
 entry:
   %Str = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %Str, align 8
@@ -211,7 +211,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK4llvh23PrettyStackTraceProgram5printERNS_11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #4 align 2 {
+define hidden void @_ZNK4llvh23PrettyStackTraceProgram5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) unnamed_addr #4 align 2 {
 entry:
   %OutBufEnd.i5.i = getelementptr inbounds nuw i8, ptr %OS, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i, align 8
@@ -335,7 +335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4llvh23RestorePrettyStackStateEPKv(ptr nocapture noundef readnone %Top) local_unnamed_addr #1 {
+define hidden void @_ZN4llvh23RestorePrettyStackStateEPKv(ptr noundef readnone captures(none) %Top) local_unnamed_addr #1 {
 entry:
   ret void
 }
@@ -414,10 +414,10 @@ _ZN4llvh22PrettyStackTraceFormatD2Ev.exit:        ; preds = %entry, %if.then.i.i
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36), i8 noundef zeroext) local_unnamed_addr #6
 
@@ -425,7 +425,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5w
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
@@ -436,7 +436,7 @@ declare void @llvm.va_start.p0(ptr) #11
 declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

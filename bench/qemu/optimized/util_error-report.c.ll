@@ -119,10 +119,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @loc_restore(ptr nocapture noundef readonly %loc) local_unnamed_addr #0 {
+define dso_local void @loc_restore(ptr noundef readonly captures(none) %loc) local_unnamed_addr #0 {
 entry:
   %prev2 = getelementptr inbounds nuw i8, ptr %loc, i64 16
   %0 = load ptr, ptr %prev2, align 8
@@ -473,7 +473,7 @@ declare void @g_set_prgname(ptr noundef) local_unnamed_addr #1
 declare ptr @g_log_set_default_handler(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_log_func(ptr noundef %log_domain, i32 noundef %log_level, ptr noundef %message, ptr nocapture readnone %user_data) #0 {
+define internal void @qemu_log_func(ptr noundef %log_domain, i32 noundef %log_level, ptr noundef %message, ptr readnone captures(none) %user_data) #0 {
 entry:
   %and = and i32 %log_level, -4
   switch i32 %and, label %sw.epilog [
@@ -548,10 +548,10 @@ declare void @g_date_time_unref(ptr noundef) local_unnamed_addr #1
 declare ptr @g_get_prgname() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #7

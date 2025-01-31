@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [70 x i8] c"../openssl/providers/implementations/encode_decode/endecoder_common.c\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @ossl_prov_get_keymgmt_new(ptr nocapture noundef readonly %fns) local_unnamed_addr #0 {
+define ptr @ossl_prov_get_keymgmt_new(ptr noundef readonly captures(none) %fns) local_unnamed_addr #0 {
 entry:
   br label %for.cond
 
@@ -33,7 +33,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @ossl_prov_get_keymgmt_free(ptr nocapture noundef readonly %fns) local_unnamed_addr #0 {
+define ptr @ossl_prov_get_keymgmt_free(ptr noundef readonly captures(none) %fns) local_unnamed_addr #0 {
 entry:
   br label %for.cond
 
@@ -60,7 +60,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @ossl_prov_get_keymgmt_import(ptr nocapture noundef readonly %fns) local_unnamed_addr #0 {
+define ptr @ossl_prov_get_keymgmt_import(ptr noundef readonly captures(none) %fns) local_unnamed_addr #0 {
 entry:
   br label %for.cond
 
@@ -87,7 +87,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @ossl_prov_get_keymgmt_export(ptr nocapture noundef readonly %fns) local_unnamed_addr #0 {
+define ptr @ossl_prov_get_keymgmt_export(ptr noundef readonly captures(none) %fns) local_unnamed_addr #0 {
 entry:
   br label %for.cond
 
@@ -114,7 +114,7 @@ return:                                           ; preds = %for.cond, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_prov_import_key(ptr nocapture noundef readonly %fns, ptr noundef %provctx, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #1 {
+define ptr @ossl_prov_import_key(ptr noundef readonly captures(none) %fns, ptr noundef %provctx, i32 noundef %selection, ptr noundef %params) local_unnamed_addr #1 {
 entry:
   br label %for.cond.i
 
@@ -202,7 +202,7 @@ if.end10:                                         ; preds = %for.cond.i16, %lor.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_prov_free_key(ptr nocapture noundef readonly %fns, ptr noundef %key) local_unnamed_addr #1 {
+define void @ossl_prov_free_key(ptr noundef readonly captures(none) %fns, ptr noundef %key) local_unnamed_addr #1 {
 entry:
   br label %for.cond.i
 
@@ -233,7 +233,7 @@ if.end:                                           ; preds = %for.cond.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_read_der(ptr noundef %provctx, ptr noundef %cin, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_read_der(ptr noundef %provctx, ptr noundef %cin, ptr noundef writeonly captures(none) %data, ptr noundef writeonly captures(none) %len) local_unnamed_addr #1 {
 entry:
   %mem = alloca ptr, align 8
   store ptr null, ptr %mem, align 8

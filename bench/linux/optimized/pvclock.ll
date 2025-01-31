@@ -22,7 +22,7 @@ define dso_local void @pvclock_set_flags(i8 noundef zeroext %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @pvclock_tsc_khz(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local i64 @pvclock_tsc_khz(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 1
   %4 = zext i32 %3 to i64
@@ -60,7 +60,7 @@ define dso_local void @pvclock_resume() local_unnamed_addr #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i8 @pvclock_read_flags(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local zeroext i8 @pvclock_read_flags(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %.pre = load i32, ptr %0, align 1
   br label %3
@@ -82,7 +82,7 @@ define dso_local zeroext i8 @pvclock_read_flags(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @pvclock_clocksource_read(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local i64 @pvclock_clocksource_read(ptr noundef captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -170,7 +170,7 @@ define dso_local i64 @pvclock_clocksource_read(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern noprofile nounwind null_pointer_is_valid
-define dso_local i64 @pvclock_clocksource_read_nowd(ptr nocapture noundef readonly %0) local_unnamed_addr #5 section ".noinstr.text" align 16 {
+define dso_local i64 @pvclock_clocksource_read_nowd(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 section ".noinstr.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -245,7 +245,7 @@ define dso_local i64 @pvclock_clocksource_read_nowd(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pvclock_read_wallclock(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local void @pvclock_read_wallclock(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre = load i32, ptr %0, align 1

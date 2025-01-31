@@ -405,7 +405,7 @@ define range(i32 -21, 1) i32 @opal_hwloc_base_get_topology() local_unnamed_addr 
   %158 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %157) #10
   %159 = trunc i64 %158 to i32
   %160 = add i32 %159, 1
-  %161 = call i32 @hwloc_topology_set_xmlbuffer(ptr noundef %156, ptr noundef %157, i32 noundef %160) #9
+  %161 = call i32 @hwloc_topology_set_xmlbuffer(ptr noundef %156, ptr noundef nonnull %157, i32 noundef %160) #9
   %.not77 = icmp eq i32 %161, 0
   br i1 %.not77, label %165, label %162
 
@@ -623,10 +623,10 @@ declare i32 @PMIx_Value_unload(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @PMIx_Value_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #2
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @opal_strerror(i32 noundef) local_unnamed_addr #1
 
@@ -635,23 +635,23 @@ declare i32 @hwloc_shmem_topology_adopt(ptr noundef, i32 noundef, i64 noundef, p
 declare i32 @opal_output_get_verbosity(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @hwloc_topology_init(ptr noundef) local_unnamed_addr #1
 
 declare i32 @hwloc_topology_set_xmlbuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #1
 
@@ -927,7 +927,7 @@ hwloc_get_nbobjs_by_type.exit.thread48:           ; preds = %9, %hwloc_get_nbobj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @df_search(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc ptr @df_search(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef %2) #9
   %switch = icmp ugt i32 %7, -3
   br i1 %switch, label %hwloc_get_next_obj_by_depth.exit.thread, label %8
@@ -1264,10 +1264,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare noalias ptr @opal_argv_split(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare void @opal_argv_free(ptr noundef) local_unnamed_addr #1
 

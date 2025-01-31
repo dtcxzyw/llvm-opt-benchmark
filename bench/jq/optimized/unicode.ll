@@ -615,7 +615,7 @@ target triple = "x86_64-pc-linux-gnu"
 @gperf_downcase = internal unnamed_addr constant [256 x i8] c"\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\7F\80\81\82\83\84\85\86\87\88\89\8A\8B\8C\8D\8E\8F\90\91\92\93\94\95\96\97\98\99\9A\9B\9C\9D\9E\9F\A0\A1\A2\A3\A4\A5\A6\A7\A8\A9\AA\AB\AC\AD\AE\AF\B0\B1\B2\B3\B4\B5\B6\B7\B8\B9\BA\BB\BC\BD\BE\BF\C0\C1\C2\C3\C4\C5\C6\C7\C8\C9\CA\CB\CC\CD\CE\CF\D0\D1\D2\D3\D4\D5\D6\D7\D8\D9\DA\DB\DC\DD\DE\DF\E0\E1\E2\E3\E4\E5\E6\E7\E8\E9\EA\EB\EC\ED\EE\EF\F0\F1\F2\F3\F4\F5\F6\F7\F8\F9\FA\FB\FC\FD\FE\FF", align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_unicode_mbc_case_fold(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @onigenc_unicode_mbc_case_fold(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -715,7 +715,7 @@ define i32 @onigenc_unicode_mbc_case_fold(ptr nocapture noundef readonly %0, i32
 declare ptr @onigenc_unicode_unfold_key(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @onigenc_unicode_apply_all_case_fold(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -902,7 +902,7 @@ apply_case_fold2.exit53.thread:                   ; preds = %48, %57, %.lr.ph.i4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i32 0, 4216) %1, i32 noundef range(i32 4215, 4219) %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i32 0, 4216) %1, i32 noundef range(i32 4215, 4219) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1082,7 +1082,7 @@ define internal fastcc i32 @apply_case_fold1(i32 noundef %0, i32 noundef range(i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @apply_case_fold3(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @apply_case_fold3(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   br label %5
@@ -1159,7 +1159,7 @@ define internal fastcc i32 @apply_case_fold3(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @onigenc_unicode_get_case_fold_codes_by_str(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x [4 x i32]], align 16
   %8 = alloca [3 x i32], align 4
@@ -2612,7 +2612,7 @@ define i32 @onigenc_unicode_is_code_ctype(i32 noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @wb_get_next_main_code(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = tail call i32 %6(ptr noundef %1) #10
   %8 = sext i32 %7 to i64
@@ -2974,7 +2974,7 @@ unicode_egcb_is_break_2code.exit.thread:          ; preds = %93, %unicode_egcb_i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @onig_unicode_define_user_property(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @onig_unicode_define_user_property(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @UserDefinedPropertyNum, align 4
   %4 = icmp sgt i32 %3, 19
   br i1 %4, label %45, label %5
@@ -3085,13 +3085,13 @@ define range(i32 -2147483648, 1) i32 @onig_unicode_define_user_property(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @onig_st_init_strend_table_with_size(i32 noundef) local_unnamed_addr #1
 
@@ -3100,7 +3100,7 @@ declare i32 @onig_st_insert_strend(ptr noundef, ptr noundef, ptr noundef, i64 no
 declare i32 @onig_is_in_code_range(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = icmp ugt i32 %0, 605
   br i1 %3, label %4, label %11
 
@@ -3132,7 +3132,7 @@ define range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
+define range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
   store i32 0, ptr %1, align 4
   %4 = icmp ugt i32 %0, 605
   br i1 %4, label %5, label %12
@@ -3165,7 +3165,7 @@ onigenc_unicode_ctype_code_range.exit:            ; preds = %5, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @onigenc_unicode_property_name_to_ctype(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @onigenc_unicode_property_name_to_ctype(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [61 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = icmp ult ptr %1, %2
@@ -3399,13 +3399,13 @@ unicode_lookup_property_name.exit.thread:         ; preds = %13, %8, %gperf_case
 declare i32 @onig_st_lookup_strend(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #9

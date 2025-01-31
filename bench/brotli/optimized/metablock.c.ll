@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kBrotliLog2Table = external hidden local_unnamed_addr constant [256 x double], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @BrotliInitDistanceParams(ptr nocapture noundef writeonly initializes((0, 8)) %dist_params, i32 noundef %npostfix, i32 noundef %ndirect, i32 noundef %large_window) local_unnamed_addr #0 {
+define hidden void @BrotliInitDistanceParams(ptr noundef writeonly captures(none) initializes((0, 8)) %dist_params, i32 noundef %npostfix, i32 noundef %ndirect, i32 noundef %large_window) local_unnamed_addr #0 {
 entry:
   store i32 %npostfix, ptr %dist_params, align 8
   %num_direct_distance_codes = getelementptr inbounds nuw i8, ptr %dist_params, i64 4
@@ -367,7 +367,7 @@ for.inc.i:                                        ; preds = %if.then8.i, %land.l
 
 lor.lhs.false:                                    ; preds = %for.inc.i, %for.inc.us.i, %if.end.thread.i, %if.end.i
   %extra_bits.0.lcssa.i = phi double [ 0.000000e+00, %if.end.i ], [ 0.000000e+00, %if.end.thread.i ], [ %extra_bits.1.us.i, %for.inc.us.i ], [ %extra_bits.1.i, %for.inc.i ]
-  %call28.i = tail call double @BrotliPopulationCostDistance(ptr noundef %call) #9
+  %call28.i = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %call) #9
   %add29.i = fadd double %extra_bits.0.lcssa.i, %call28.i
   %cmp9 = fcmp ogt double %add29.i, %best_dist_cost.1354
   br i1 %cmp9, label %for.end, label %if.end11
@@ -456,7 +456,7 @@ for.inc.i254:                                     ; preds = %if.then8.i258, %lan
 
 ComputeDistanceCost.exit269:                      ; preds = %for.inc.i254, %if.end.i238
   %extra_bits.0.lcssa.i167 = phi double [ 0.000000e+00, %if.end.i238 ], [ %extra_bits.1.i255, %for.inc.i254 ]
-  %call28.i168 = tail call double @BrotliPopulationCostDistance(ptr noundef %call) #9
+  %call28.i168 = tail call double @BrotliPopulationCostDistance(ptr noundef nonnull %call) #9
   %add29.i169 = fadd double %extra_bits.0.lcssa.i167, %call28.i168
   %cmp23 = fcmp olt double %add29.i169, %best_dist_cost.1348399
   br i1 %cmp23, label %if.then24, label %if.end27
@@ -820,7 +820,7 @@ cond.end152:                                      ; preds = %cond.end141.thread,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare hidden ptr @BrotliAllocate(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -835,7 +835,7 @@ declare hidden void @BrotliClusterHistogramsLiteral(ptr noundef, ptr noundef, i6
 declare hidden void @BrotliClusterHistogramsDistance(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliBuildMetaBlockGreedy(ptr noundef %m, ptr nocapture noundef readonly %ringbuffer, i64 noundef %pos, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, ptr nocapture noundef readonly %literal_context_lut, i64 noundef %num_contexts, ptr nocapture noundef readonly %static_context_map, ptr nocapture noundef readonly %commands, i64 noundef %n_commands, ptr noundef %mb) local_unnamed_addr #1 {
+define hidden void @BrotliBuildMetaBlockGreedy(ptr noundef %m, ptr noundef readonly captures(none) %ringbuffer, i64 noundef %pos, i64 noundef %mask, i8 noundef zeroext %prev_byte, i8 noundef zeroext %prev_byte2, ptr noundef readonly captures(none) %literal_context_lut, i64 noundef %num_contexts, ptr noundef readonly captures(none) %static_context_map, ptr noundef readonly captures(none) %commands, i64 noundef %n_commands, ptr noundef %mb) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @BrotliAllocate(ptr noundef %m, i64 noundef 12488) #9
   %cmp = icmp eq i64 %num_contexts, 1
@@ -1505,7 +1505,7 @@ if.end:                                           ; preds = %for.inc15.i, %cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BrotliOptimizeHistograms(i32 noundef %num_distance_codes, ptr nocapture noundef readonly %mb) local_unnamed_addr #1 {
+define hidden void @BrotliOptimizeHistograms(i32 noundef %num_distance_codes, ptr noundef readonly captures(none) %mb) local_unnamed_addr #1 {
 entry:
   %good_for_rle = alloca [704 x i8], align 16
   %literal_histograms_size = getelementptr inbounds nuw i8, ptr %mb, i64 184
@@ -1577,13 +1577,13 @@ declare hidden void @BrotliOptimizeHuffmanCountsForRle(i64 noundef, ptr noundef,
 declare hidden double @BrotliPopulationCostDistance(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitBlockSplitterCommand(ptr noundef %m, ptr nocapture noundef initializes((0, 40), (48, 56), (5720, 5744), (5776, 5784)) %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
+define internal fastcc void @InitBlockSplitterCommand(ptr noundef %m, ptr noundef captures(none) initializes((0, 40), (48, 56), (5720, 5744), (5776, 5784)) %self, i64 noundef %num_symbols, ptr noundef %split, ptr noundef writeonly captures(none) %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
 entry:
   %div69 = lshr i64 %num_symbols, 10
   %add = add nuw nsw i64 %div69, 1
@@ -1699,7 +1699,7 @@ if.end55:                                         ; preds = %if.end50, %if.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitBlockSplitterDistance(ptr noundef %m, ptr nocapture noundef initializes((0, 40), (48, 56), (4440, 4464), (4496, 4504)) %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
+define internal fastcc void @InitBlockSplitterDistance(ptr noundef %m, ptr noundef captures(none) initializes((0, 40), (48, 56), (4440, 4464), (4496, 4504)) %self, i64 noundef %num_symbols, ptr noundef %split, ptr noundef writeonly captures(none) %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
 entry:
   %div69 = lshr i64 %num_symbols, 9
   %add = add nuw nsw i64 %div69, 1

@@ -2618,7 +2618,7 @@ fatal_error:                                      ; preds = %if.end16, %if.end11
 declare void @_PyRuntimeState_ReInitThreads(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @PyThread_get_thread_native_id() local_unnamed_addr #1
 
@@ -2687,7 +2687,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_Py_Uid_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %p) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_Py_Uid_Converter(ptr noundef %obj, ptr noundef writeonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %call = tail call ptr @_PyNumber_Index(ptr noundef %obj) #22
@@ -2810,7 +2810,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_Py_Gid_Converter(ptr noundef %obj, ptr nocapture noundef writeonly %p) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @_Py_Gid_Converter(ptr noundef %obj, ptr noundef writeonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %call = tail call ptr @_PyNumber_Index(ptr noundef %obj) #22
@@ -3215,7 +3215,7 @@ declare ptr @_PyObject_MakeTpCall(ptr noundef, ptr noundef, ptr noundef, i64 nou
 declare ptr @_Py_CheckFunctionResult(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_posix_traverse(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_posix_traverse(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -3358,7 +3358,7 @@ return:                                           ; preds = %if.then118, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_posix_clear(ptr nocapture noundef readonly %module) #0 {
+define internal noundef i32 @_posix_clear(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -3641,14 +3641,14 @@ do.end77:                                         ; preds = %do.body71, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_posix_free(ptr nocapture noundef readonly %module) #0 {
+define internal void @_posix_free(ptr noundef readonly captures(none) %module) #0 {
 entry:
   %call = tail call i32 @_posix_clear(ptr noundef %module)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_stat(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_stat(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -3790,7 +3790,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_access(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_access(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -3990,7 +3990,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_ttyname(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_ttyname(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -4012,7 +4012,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_chdir(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_chdir(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %path = alloca %struct.path_t, align 8
@@ -4123,7 +4123,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_chmod(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_chmod(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -4346,7 +4346,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fchmod(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_fchmod(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -4396,7 +4396,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_chown(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_chown(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -4631,7 +4631,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fchown(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_fchown(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %uid = alloca i32, align 4
@@ -4710,7 +4710,7 @@ exit:                                             ; preds = %land.rhs.i, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_lchown(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_lchown(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -4826,7 +4826,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_chroot(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_chroot(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %path = alloca %struct.path_t, align 8
@@ -4923,7 +4923,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_ctermid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_ctermid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %buffer.i = alloca [9 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 9, ptr nonnull %buffer.i)
@@ -4947,21 +4947,21 @@ os_ctermid_impl.exit:                             ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getcwd(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getcwd(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call fastcc ptr @posix_getcwd(i32 noundef 0)
   ret ptr %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getcwdb(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getcwdb(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call fastcc ptr @posix_getcwd(i32 noundef 1)
   ret ptr %call.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_link(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_link(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %src = alloca %struct.path_t, align 8
@@ -5262,7 +5262,7 @@ path_cleanup.exit62:                              ; preds = %do.body3.i49, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_listdir(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_listdir(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %path = alloca %struct.path_t, align 8
@@ -5640,7 +5640,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_lstat(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_lstat(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -5766,7 +5766,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_mkdir(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_mkdir(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -5945,7 +5945,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_nice(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_nice(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -6006,7 +6006,7 @@ exit:                                             ; preds = %if.end.i7, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getpriority(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_getpriority(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -6087,7 +6087,7 @@ exit:                                             ; preds = %if.end.i21, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setpriority(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_setpriority(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -6159,7 +6159,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_posix_spawn(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_posix_spawn(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [10 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -6351,7 +6351,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_posix_spawnp(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_posix_spawnp(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [10 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -6543,7 +6543,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_readlink(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_readlink(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %buffer.i = alloca [4097 x i8], align 16
   %argsbuf = alloca [2 x ptr], align 16
@@ -6719,7 +6719,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_copy_file_range(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_copy_file_range(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %offset_src_val.i = alloca i64, align 8
   %offset_dst_val.i = alloca i64, align 8
@@ -6921,7 +6921,7 @@ exit:                                             ; preds = %land.lhs.true34, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_splice(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_splice(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %offset_src_val.i = alloca i64, align 8
   %offset_dst_val.i = alloca i64, align 8
@@ -7147,7 +7147,7 @@ exit:                                             ; preds = %if.end58, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_rename(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_rename(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %src = alloca %struct.path_t, align 8
@@ -7368,7 +7368,7 @@ path_cleanup.exit51:                              ; preds = %do.body3.i38, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_replace(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_replace(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %src = alloca %struct.path_t, align 8
@@ -7589,7 +7589,7 @@ path_cleanup.exit51:                              ; preds = %do.body3.i38, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_rmdir(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_rmdir(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -7745,7 +7745,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_symlink(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_symlink(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %src = alloca %struct.path_t, align 8
@@ -7998,7 +7998,7 @@ path_cleanup.exit45:                              ; preds = %do.body3.i32, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_system(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_system(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %command = alloca ptr, align 8
@@ -8074,7 +8074,7 @@ Py_XDECREF.exit:                                  ; preds = %exit, %if.then.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_umask(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_umask(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -8121,7 +8121,7 @@ exit:                                             ; preds = %if.end.i6, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_uname(ptr nocapture noundef readonly %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_uname(ptr noundef readonly captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %u.i = alloca %struct.utsname, align 1
   call void @llvm.lifetime.start.p0(i64 390, ptr nonnull %u.i)
@@ -8269,7 +8269,7 @@ os_uname_impl.exit:                               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_unlink(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_unlink(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -8425,7 +8425,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_remove(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_remove(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -8581,7 +8581,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @os_utime(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @os_utime(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %ts.i.i = alloca [2 x %struct.timespec], align 16
   %utime.i = alloca %struct.utime_t, align 8
@@ -9026,7 +9026,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_times(ptr nocapture noundef readonly %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_times(ptr noundef readonly captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %process.i = alloca %struct.tms, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %process.i)
@@ -9191,7 +9191,7 @@ os_times_impl.exit:                               ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @os__exit(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noalias noundef ptr @os__exit(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -9231,7 +9231,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @os_execv(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noalias noundef ptr @os_execv(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %argc.i = alloca i64, align 8
   %path = alloca %struct.path_t, align 8
@@ -9431,7 +9431,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @os_execve(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noalias noundef ptr @os_execve(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argc.i = alloca i64, align 8
   %envc.i = alloca i64, align 8
@@ -9658,7 +9658,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fork(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_fork(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -9744,7 +9744,7 @@ os_fork_impl.exit:                                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @os_register_at_fork(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @os_register_at_fork(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -9950,7 +9950,7 @@ exit:                                             ; preds = %if.then2.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sched_get_priority_max(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_sched_get_priority_max(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -10013,7 +10013,7 @@ exit:                                             ; preds = %if.end.i15, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sched_get_priority_min(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_sched_get_priority_min(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -10076,7 +10076,7 @@ exit:                                             ; preds = %if.end.i15, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sched_getparam(ptr nocapture noundef readonly %module, ptr noundef %arg) #0 {
+define internal ptr @os_sched_getparam(ptr noundef readonly captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %param.i = alloca %struct.sched_param, align 4
   %pid = alloca i32, align 4
@@ -10143,7 +10143,7 @@ exit:                                             ; preds = %entry, %os_sched_ge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sched_getscheduler(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_sched_getscheduler(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %pid = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.303, ptr noundef nonnull %pid) #22
@@ -10172,7 +10172,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sched_rr_get_interval(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_sched_rr_get_interval(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %interval.i = alloca %struct.timespec, align 8
   %pid = alloca i32, align 4
@@ -10220,7 +10220,7 @@ exit:                                             ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sched_setparam(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @os_sched_setparam(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %param.i = alloca %struct.sched_param, align 4
   %pid = alloca i32, align 4
@@ -10291,7 +10291,7 @@ exit:                                             ; preds = %entry, %os_sched_se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sched_setscheduler(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @os_sched_setscheduler(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %param.i = alloca %struct.sched_param, align 4
   %pid = alloca i32, align 4
@@ -10364,7 +10364,7 @@ exit:                                             ; preds = %entry, %os_sched_se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sched_yield(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_sched_yield(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyEval_SaveThread() #22
   %call1.i = tail call i32 @sched_yield() #22
@@ -10383,7 +10383,7 @@ os_sched_yield_impl.exit:                         ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @os_sched_setaffinity(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @os_sched_setaffinity(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %pid = alloca i32, align 4
   %mask = alloca ptr, align 8
@@ -10618,7 +10618,7 @@ exit:                                             ; preds = %if.then1.i.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sched_getaffinity(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_sched_getaffinity(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %pid = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.311, ptr noundef nonnull %pid) #22
@@ -10777,7 +10777,7 @@ exit:                                             ; preds = %if.then1.i.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_openpty(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_openpty(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %master_fd.i = alloca i32, align 4
   %slave_fd.i = alloca i32, align 4
@@ -10838,7 +10838,7 @@ os_openpty_impl.exit:                             ; preds = %if.end8.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_login_tty(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_login_tty(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %fd = alloca i32, align 4
   %call = call i32 @_PyLong_FileDescriptor_Converter(ptr noundef %arg, ptr noundef nonnull %fd) #22
@@ -10862,7 +10862,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_forkpty(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_forkpty(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %master_fd.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %master_fd.i)
@@ -10951,7 +10951,7 @@ os_forkpty_impl.exit:                             ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getegid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getegid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @getegid() #22
   %cmp.i.i = icmp eq i32 %call.i, -1
@@ -10972,7 +10972,7 @@ os_getegid_impl.exit:                             ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_geteuid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_geteuid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @geteuid() #22
   %cmp.i.i = icmp eq i32 %call.i, -1
@@ -10993,7 +10993,7 @@ os_geteuid_impl.exit:                             ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getgid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getgid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @getgid() #22
   %cmp.i.i = icmp eq i32 %call.i, -1
@@ -11014,7 +11014,7 @@ os_getgid_impl.exit:                              ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getgrouplist(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_getgrouplist(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %ngroups.i = alloca i32, align 4
   %basegid = alloca i32, align 4
@@ -11198,7 +11198,7 @@ exit:                                             ; preds = %if.end16, %if.end7,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getgroups(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getgroups(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @getgroups(i32 noundef 0, ptr noundef null) #22
   %cmp.i = icmp slt i32 %call.i, 0
@@ -11314,7 +11314,7 @@ os_getgroups_impl.exit:                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getpid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getpid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @getpid() #22
   %conv.i = sext i32 %call.i to i64
@@ -11323,7 +11323,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getpgrp(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getpgrp(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @getpgrp() #22
   %conv.i = sext i32 %call.i to i64
@@ -11332,7 +11332,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getppid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getppid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @getppid() #22
   %conv.i = sext i32 %call.i to i64
@@ -11341,7 +11341,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getuid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getuid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @getuid() #22
   %cmp.i.i = icmp eq i32 %call.i, -1
@@ -11362,7 +11362,7 @@ os_getuid_impl.exit:                              ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getlogin(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getlogin(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @__errno_location() #24
   %0 = load i32, ptr %call.i, align 4
@@ -11396,7 +11396,7 @@ os_getlogin_impl.exit:                            ; preds = %if.then4.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_kill(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @os_kill(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %pid = alloca i32, align 4
   %signal = alloca i64, align 8
@@ -11434,7 +11434,7 @@ exit:                                             ; preds = %if.end6.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_killpg(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @os_killpg(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %pgid = alloca i32, align 4
   %signal = alloca i32, align 4
@@ -11465,7 +11465,7 @@ exit:                                             ; preds = %if.then3.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setuid(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_setuid(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %uid = alloca i32, align 4
   %call = call i32 @_Py_Uid_Converter(ptr noundef %arg, ptr noundef nonnull %uid)
@@ -11489,7 +11489,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_seteuid(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_seteuid(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %euid = alloca i32, align 4
   %call = call i32 @_Py_Uid_Converter(ptr noundef %arg, ptr noundef nonnull %euid)
@@ -11513,7 +11513,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setreuid(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_setreuid(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %ruid = alloca i32, align 4
   %euid = alloca i32, align 4
@@ -11556,7 +11556,7 @@ exit:                                             ; preds = %if.then.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setgid(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_setgid(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %gid = alloca i32, align 4
   %call = call i32 @_Py_Gid_Converter(ptr noundef %arg, ptr noundef nonnull %gid)
@@ -11580,7 +11580,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setegid(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_setegid(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %egid = alloca i32, align 4
   %call = call i32 @_Py_Gid_Converter(ptr noundef %arg, ptr noundef nonnull %egid)
@@ -11604,7 +11604,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setregid(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_setregid(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %rgid = alloca i32, align 4
   %egid = alloca i32, align 4
@@ -11647,7 +11647,7 @@ exit:                                             ; preds = %if.then.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @os_setgroups(ptr nocapture readnone %module, ptr noundef %groups) #0 {
+define internal noundef ptr @os_setgroups(ptr readnone captures(none) %module, ptr noundef %groups) #0 {
 entry:
   %call = tail call i32 @PySequence_Check(ptr noundef %groups) #22
   %tobool.not = icmp eq i32 %call, 0
@@ -11792,7 +11792,7 @@ return:                                           ; preds = %if.end, %if.end31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_initgroups(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_initgroups(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %oname = alloca ptr, align 8
   %gid = alloca i32, align 4
@@ -11859,7 +11859,7 @@ Py_XDECREF.exit:                                  ; preds = %lor.lhs.false, %exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getpgid(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_getpgid(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %pid = alloca i32, align 4
   %call = call i32 (ptr, i64, ptr, ptr, ...) @_PyArg_ParseStackAndKeywords(ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames, ptr noundef nonnull @os_getpgid._parser, ptr noundef nonnull %pid) #22
@@ -11888,7 +11888,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setpgrp(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_setpgrp(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @setpgrp() #22
   %cmp.i = icmp slt i32 %call.i, 0
@@ -11905,7 +11905,7 @@ os_setpgrp_impl.exit:                             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_wait(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_wait(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %status.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %status.i)
@@ -11949,7 +11949,7 @@ os_wait_impl.exit:                                ; preds = %land.rhs.i, %cond.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_wait3(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_wait3(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -11987,7 +11987,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_wait4(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_wait4(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %ru.i = alloca %struct.rusage, align 8
   %status.i = alloca i32, align 4
@@ -12045,7 +12045,7 @@ exit:                                             ; preds = %entry, %os_wait4_im
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_waitid(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @os_waitid(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %si.i = alloca %struct.siginfo_t, align 8
   %idtype = alloca i32, align 4
@@ -12168,7 +12168,7 @@ exit:                                             ; preds = %entry, %os_waitid_i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_waitpid(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @os_waitpid(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %status.i = alloca i32, align 4
   %pid = alloca i32, align 4
@@ -12225,7 +12225,7 @@ exit:                                             ; preds = %entry, %os_waitpid_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_pidfd_open(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_pidfd_open(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %pid = alloca i32, align 4
   %flags = alloca i32, align 4
@@ -12258,7 +12258,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getsid(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_getsid(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %pid = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.341, ptr noundef nonnull %pid) #22
@@ -12287,7 +12287,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setsid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_setsid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @setsid() #22
   %cmp.i = icmp slt i32 %call.i, 0
@@ -12304,7 +12304,7 @@ os_setsid_impl.exit:                              ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setpgid(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @os_setpgid(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %pid = alloca i32, align 4
   %pgrp = alloca i32, align 4
@@ -12330,7 +12330,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_tcgetpgrp(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_tcgetpgrp(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -12377,7 +12377,7 @@ exit:                                             ; preds = %if.end.i6, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_tcsetpgrp(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @os_tcsetpgrp(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %fd = alloca i32, align 4
   %pgid = alloca i32, align 4
@@ -12403,7 +12403,7 @@ exit:                                             ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_open(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_open(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -12636,7 +12636,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_close(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_close(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -12688,7 +12688,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @os_closerange(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @os_closerange(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -12743,7 +12743,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_device_encoding(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_device_encoding(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -12781,7 +12781,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_dup(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_dup(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -12814,7 +12814,7 @@ exit:                                             ; preds = %land.lhs.true4, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_dup2(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_dup2(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -12962,7 +12962,7 @@ exit:                                             ; preds = %land.lhs.true37, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_lockf(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_lockf(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 3
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -13026,7 +13026,7 @@ exit:                                             ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_lseek(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_lseek(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 3
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -13104,7 +13104,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_read(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_read(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -13175,7 +13175,7 @@ exit:                                             ; preds = %if.end14.split, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_readv(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_readv(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -13219,7 +13219,7 @@ exit:                                             ; preds = %land.lhs.true12, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_pread(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_pread(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %buffer.i = alloca ptr, align 8
   %or.cond = icmp eq i64 %nargs, 3
@@ -13364,7 +13364,7 @@ exit:                                             ; preds = %if.end20, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_preadv(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_preadv(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %iov.i = alloca ptr, align 8
   %buf.i = alloca ptr, align 8
@@ -13518,7 +13518,7 @@ exit:                                             ; preds = %land.lhs.true28, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_write(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_write(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %data = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %data, i8 0, i64 80, i1 false)
@@ -13581,7 +13581,7 @@ if.end24:                                         ; preds = %if.then23, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_writev(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_writev(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -13625,7 +13625,7 @@ exit:                                             ; preds = %land.lhs.true12, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_pwrite(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_pwrite(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %buffer = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %buffer, i8 0, i64 80, i1 false)
@@ -13721,7 +13721,7 @@ if.end29:                                         ; preds = %if.then28, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_pwritev(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_pwritev(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %iov.i = alloca ptr, align 8
   %buf.i = alloca ptr, align 8
@@ -13869,7 +13869,7 @@ exit:                                             ; preds = %land.lhs.true28, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sendfile(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_sendfile(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %cmp = icmp eq ptr %kwnames, null
@@ -13954,7 +13954,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fstat(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_fstat(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %st.i13 = alloca %struct.stat, align 8
   %st.i = alloca %struct.stat, align 8
@@ -14061,7 +14061,7 @@ exit:                                             ; preds = %os_fstat_impl.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_isatty(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_isatty(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -14096,7 +14096,7 @@ exit:                                             ; preds = %land.lhs.true4, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_pipe(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_pipe(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %fds.i = alloca [2 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %fds.i)
@@ -14166,7 +14166,7 @@ os_pipe_impl.exit:                                ; preds = %if.then12.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_pipe2(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_pipe2(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %fds.i4 = alloca [2 x i32], align 4
   %fds.i = alloca [2 x i32], align 4
@@ -14231,7 +14231,7 @@ exit:                                             ; preds = %os_pipe2_impl.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_mkfifo(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_mkfifo(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -14429,7 +14429,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_mknod(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_mknod(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [4 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -14649,7 +14649,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_major(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_major(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef %arg) #22
   %call1.i = tail call ptr @PyErr_Occurred() #22
@@ -14677,7 +14677,7 @@ exit:                                             ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_minor(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_minor(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef %arg) #22
   %call1.i = tail call ptr @PyErr_Occurred() #22
@@ -14705,7 +14705,7 @@ exit:                                             ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_makedev(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_makedev(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -14759,7 +14759,7 @@ exit:                                             ; preds = %land.lhs.true19, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_ftruncate(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_ftruncate(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -14798,7 +14798,7 @@ exit:                                             ; preds = %if.end8, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_truncate(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_truncate(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -14914,7 +14914,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_posix_fallocate(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_posix_fallocate(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 3
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -14978,7 +14978,7 @@ exit:                                             ; preds = %land.rhs.i, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_posix_fadvise(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_posix_fadvise(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 4
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -15069,7 +15069,7 @@ exit:                                             ; preds = %land.rhs.i, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_putenv(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_putenv(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %name = alloca ptr, align 8
   %value = alloca ptr, align 8
@@ -15173,7 +15173,7 @@ Py_XDECREF.exit15:                                ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_unsetenv(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_unsetenv(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %name = alloca ptr, align 8
   store ptr null, ptr %name, align 8
@@ -15225,7 +15225,7 @@ Py_XDECREF.exit:                                  ; preds = %exit, %if.then.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_strerror(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_strerror(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -15270,7 +15270,7 @@ exit:                                             ; preds = %if.end.i6, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fchdir(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_fchdir(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %fd = alloca i32, align 4
@@ -15328,7 +15328,7 @@ exit:                                             ; preds = %land.rhs.i.i, %do.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fsync(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_fsync(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %fd = alloca i32, align 4
@@ -15384,7 +15384,7 @@ exit:                                             ; preds = %land.rhs.i.i, %do.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @os_sync(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @os_sync(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyEval_SaveThread() #22
   tail call void @sync() #22
@@ -15393,7 +15393,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fdatasync(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_fdatasync(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %fd = alloca i32, align 4
@@ -15449,7 +15449,7 @@ exit:                                             ; preds = %land.rhs.i.i, %do.b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_WCOREDUMP(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_WCOREDUMP(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -15476,7 +15476,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_WIFCONTINUED(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_WIFCONTINUED(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -15519,7 +15519,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_WIFSTOPPED(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_WIFSTOPPED(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -15563,7 +15563,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_WIFSIGNALED(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_WIFSIGNALED(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -15609,7 +15609,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_WIFEXITED(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_WIFEXITED(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -15653,7 +15653,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_WEXITSTATUS(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_WEXITSTATUS(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -15697,7 +15697,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_WTERMSIG(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_WTERMSIG(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -15740,7 +15740,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_WSTOPSIG(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_WSTOPSIG(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -15784,7 +15784,7 @@ exit:                                             ; preds = %land.lhs.true8, %co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fstatvfs(ptr nocapture noundef readonly %module, ptr noundef %arg) #0 {
+define internal ptr @os_fstatvfs(ptr noundef readonly captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -15806,7 +15806,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_statvfs(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_statvfs(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %st.i = alloca %struct.statvfs, align 8
   %argsbuf = alloca [1 x ptr], align 8
@@ -15928,7 +15928,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_confstr(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_confstr(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %buffer.i = alloca [255 x i8], align 16
   %name = alloca i32, align 4
@@ -15991,7 +15991,7 @@ exit:                                             ; preds = %entry, %os_confstr_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_sysconf(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_sysconf(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %name = alloca i32, align 4
   %call.i = call fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull %name, ptr noundef nonnull @posix_constants_sysconf, i64 noundef 135)
@@ -16031,7 +16031,7 @@ exit:                                             ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fpathconf(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_fpathconf(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %fd = alloca i32, align 4
   %name = alloca i32, align 4
@@ -16090,7 +16090,7 @@ exit:                                             ; preds = %land.lhs.true13, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_pathconf(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_pathconf(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -16227,14 +16227,14 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
-define internal noalias noundef nonnull ptr @os_abort(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #7 {
+define internal noalias noundef nonnull ptr @os_abort(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #7 {
 entry:
   tail call void @abort() #23
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os__path_normpath(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os__path_normpath(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %len.i = alloca i64, align 8
   %norm_len.i = alloca i64, align 8
@@ -16296,7 +16296,7 @@ exit:                                             ; preds = %cond.end, %os__path
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getloadavg(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getloadavg(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %loadavg.i = alloca [3 x double], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %loadavg.i)
@@ -16325,7 +16325,7 @@ os_getloadavg_impl.exit:                          ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_urandom(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_urandom(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call ptr @_PyNumber_Index(ptr noundef %arg) #22
   %cmp.not = icmp eq ptr %call, null
@@ -16406,7 +16406,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setresuid(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_setresuid(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %ruid = alloca i32, align 4
   %euid = alloca i32, align 4
@@ -16458,7 +16458,7 @@ exit:                                             ; preds = %if.then.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setresgid(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_setresgid(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %rgid = alloca i32, align 4
   %egid = alloca i32, align 4
@@ -16510,7 +16510,7 @@ exit:                                             ; preds = %if.then.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getresuid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getresuid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ruid.i = alloca i32, align 4
   %euid.i = alloca i32, align 4
@@ -16585,7 +16585,7 @@ os_getresuid_impl.exit:                           ; preds = %if.then.i, %_PyLong
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getresgid(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_getresgid(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %rgid.i = alloca i32, align 4
   %egid.i = alloca i32, align 4
@@ -16660,7 +16660,7 @@ os_getresgid_impl.exit:                           ; preds = %if.then.i, %_PyLong
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getxattr(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_getxattr(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %buffer.i = alloca ptr, align 8
   %argsbuf = alloca [3 x ptr], align 16
@@ -17089,7 +17089,7 @@ path_cleanup.exit40:                              ; preds = %do.body3.i27, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @os_setxattr(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @os_setxattr(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [5 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -17364,7 +17364,7 @@ if.end55:                                         ; preds = %if.then54, %path_cl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_removexattr(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_removexattr(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [3 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -17589,7 +17589,7 @@ path_cleanup.exit37:                              ; preds = %do.body3.i24, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_listxattr(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_listxattr(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %path = alloca %struct.path_t, align 8
@@ -17963,7 +17963,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_get_terminal_size(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_get_terminal_size(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %w.i = alloca %struct.winsize, align 2
   %0 = load ptr, ptr @stdout, align 8
@@ -18053,7 +18053,7 @@ exit:                                             ; preds = %land.lhs.true8, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_cpu_count(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_cpu_count(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @_Py_GetConfig() #22
   %cpu_count.i = getelementptr inbounds nuw i8, ptr %call.i, i64 268
@@ -18086,7 +18086,7 @@ os_cpu_count_impl.exit:                           ; preds = %if.end.i, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_get_inheritable(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_get_inheritable(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -18119,7 +18119,7 @@ exit:                                             ; preds = %land.lhs.true4, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_set_inheritable(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_set_inheritable(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -18165,7 +18165,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_get_blocking(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_get_blocking(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #22
   %cmp = icmp eq i32 %call, -1
@@ -18198,7 +18198,7 @@ exit:                                             ; preds = %land.lhs.true4, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_set_blocking(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @os_set_blocking(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -18238,7 +18238,7 @@ exit:                                             ; preds = %if.end8, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_scandir(ptr nocapture noundef readonly %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_scandir(ptr noundef readonly captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %path = alloca %struct.path_t, align 8
@@ -18423,7 +18423,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_fspath(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_fspath(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -18450,7 +18450,7 @@ exit:                                             ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_getrandom(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_getrandom(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %bytes.i = alloca ptr, align 8
   %argsbuf = alloca [2 x ptr], align 16
@@ -18613,7 +18613,7 @@ exit:                                             ; preds = %land.lhs.true29, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_memfd_create(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_memfd_create(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %name = alloca ptr, align 8
@@ -18712,7 +18712,7 @@ Py_XDECREF.exit:                                  ; preds = %exit, %if.then.i15,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_eventfd(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_eventfd(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %initval = alloca i32, align 4
@@ -18787,7 +18787,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_eventfd_read(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_eventfd_read(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %value.i = alloca i64, align 8
   %argsbuf = alloca [1 x ptr], align 8
@@ -18841,7 +18841,7 @@ exit:                                             ; preds = %if.end, %cond.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_eventfd_write(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_eventfd_write(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %fd = alloca i32, align 4
@@ -18892,7 +18892,7 @@ exit:                                             ; preds = %if.then.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_waitstatus_to_exitcode(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_waitstatus_to_exitcode(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -18968,7 +18968,7 @@ exit:                                             ; preds = %if.end33.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_setns(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_setns(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %fd = alloca i32, align 4
@@ -19038,7 +19038,7 @@ exit:                                             ; preds = %if.then.i, %skip_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_unshare(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_unshare(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -19090,7 +19090,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_timerfd_create(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_timerfd_create(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %tobool.not = icmp eq ptr %kwnames, null
@@ -19168,7 +19168,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_timerfd_settime(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_timerfd_settime(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %new_value.i = alloca %struct.itimerspec, align 8
   %old_value.i = alloca %struct.itimerspec, align 8
@@ -19345,7 +19345,7 @@ exit:                                             ; preds = %land.lhs.true67, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_timerfd_settime_ns(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_timerfd_settime_ns(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %value.i.i = alloca i64, align 8
   %interval.i.i = alloca i64, align 8
@@ -19520,7 +19520,7 @@ exit:                                             ; preds = %land.lhs.true53, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_timerfd_gettime(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_timerfd_gettime(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %curr_value.i = alloca %struct.itimerspec, align 8
   %fd = alloca i32, align 4
@@ -19557,7 +19557,7 @@ exit:                                             ; preds = %entry, %os_timerfd_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_timerfd_gettime_ns(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @os_timerfd_gettime_ns(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %value.i.i = alloca i64, align 8
   %interval.i.i = alloca i64, align 8
@@ -19619,7 +19619,7 @@ exit:                                             ; preds = %entry, %os_timerfd_
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 131073) i32 @path_converter(ptr noundef %o, ptr nocapture noundef nonnull %p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 131073) i32 @path_converter(ptr noundef %o, ptr noundef nonnull captures(none) %p) unnamed_addr #0 {
 entry:
   %bytes = alloca ptr, align 8
   store ptr null, ptr %bytes, align 8
@@ -20029,7 +20029,7 @@ declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #1
 declare i32 @PyUnicode_FSConverter(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_fd_converter(ptr noundef %o, ptr nocapture noundef nonnull writeonly %p) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_fd_converter(ptr noundef %o, ptr noundef nonnull writeonly captures(none) %p) unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %call = tail call ptr @_PyNumber_Index(ptr noundef %o) #22
@@ -20087,10 +20087,10 @@ return:                                           ; preds = %entry, %if.end10, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @posix_do_stat(ptr nocapture noundef readonly %module, ptr nocapture noundef nonnull readonly %path, i32 noundef %dir_fd, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
+define internal fastcc ptr @posix_do_stat(ptr noundef readonly captures(none) %module, ptr noundef nonnull readonly captures(none) %path, i32 noundef %dir_fd, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %wide.i = getelementptr inbounds nuw i8, ptr %path, i64 24
@@ -20196,21 +20196,21 @@ return:                                           ; preds = %fd_and_follow_symli
 declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @fstatat64(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @PyEval_RestoreThread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_pystat_fromstructstat(ptr nocapture noundef readonly %module, ptr nocapture noundef nonnull readonly %st) unnamed_addr #0 {
+define internal fastcc ptr @_pystat_fromstructstat(ptr noundef readonly captures(none) %module, ptr noundef nonnull readonly captures(none) %st) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -20388,7 +20388,7 @@ declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @fill_time(ptr nocapture noundef readonly %module, ptr noundef nonnull %v, i32 noundef range(i32 7, 10) %s_index, i32 noundef range(i32 10, 13) %f_index, i32 noundef range(i32 13, 16) %ns_index, i64 noundef %sec, i64 noundef %nsec) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @fill_time(ptr noundef readonly captures(none) %module, ptr noundef nonnull %v, i32 noundef range(i32 7, 10) %s_index, i32 noundef range(i32 10, 13) %f_index, i32 noundef range(i32 13, 16) %ns_index, i64 noundef %sec, i64 noundef %nsec) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyLong_FromTime_t(i64 noundef %sec) #22
   %call1 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %nsec) #22
@@ -20542,7 +20542,7 @@ declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 declare i32 @faccessat(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @os_ttyname_impl(i32 noundef %fd) unnamed_addr #0 {
@@ -20617,7 +20617,7 @@ declare i32 @fchmod(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @fchmodat(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @os_fchmod_impl(i32 noundef %fd, i32 noundef %mode) unnamed_addr #0 {
@@ -20660,19 +20660,19 @@ declare i32 @PyErr_CheckSignals() local_unnamed_addr #1
 declare i32 @fchown(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lchown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @lchown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @fchownat(i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @chroot(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @ctermid(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @ctermid(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @posix_getcwd(i32 noundef range(i32 0, 2) %use_bytes) unnamed_addr #0 {
@@ -20760,7 +20760,7 @@ declare i32 @_Py_dup(i32 noundef) local_unnamed_addr #1
 declare ptr @fdopendir(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
@@ -20776,13 +20776,13 @@ declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @rewinddir(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @mkdirat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #9
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @nice(i32 noundef) local_unnamed_addr #4
@@ -20794,7 +20794,7 @@ declare i32 @getpriority(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @setpriority(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @py_posix_spawn(i32 noundef range(i32 0, 2) %use_posix_spawnp, ptr nocapture noundef readonly %module, ptr nocapture noundef nonnull readonly %path, ptr noundef %argv, ptr noundef %env, ptr noundef %file_actions, ptr noundef %setpgroup, i32 noundef range(i32 0, -2147483648) %resetids, i32 noundef range(i32 0, -2147483648) %setsid, ptr noundef %setsigmask, ptr noundef %setsigdef, ptr noundef %scheduler) unnamed_addr #0 {
+define internal fastcc ptr @py_posix_spawn(i32 noundef range(i32 0, 2) %use_posix_spawnp, ptr noundef readonly captures(none) %module, ptr noundef nonnull readonly captures(none) %path, ptr noundef %argv, ptr noundef %env, ptr noundef %file_actions, ptr noundef %setpgroup, i32 noundef range(i32 0, -2147483648) %resetids, i32 noundef range(i32 0, -2147483648) %setsid, ptr noundef %setsigmask, ptr noundef %setsigdef, ptr noundef %scheduler) unnamed_addr #0 {
 entry:
   %set.i = alloca %struct.__sigset_t, align 8
   %set45.i = alloca %struct.__sigset_t, align 8
@@ -21449,7 +21449,7 @@ if.end50:                                         ; preds = %if.end97.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %schedparam.i)
   %object = getelementptr inbounds nuw i8, ptr %path, i64 56
   %69 = load ptr, ptr %object, align 8
-  %call51 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.240, ptr noundef %69, ptr noundef %argv, ptr noundef %env) #22
+  %call51 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.239, ptr noundef nonnull @.str.240, ptr noundef %69, ptr noundef nonnull %argv, ptr noundef %env) #22
   %cmp52 = icmp slt i32 %call51, 0
   br i1 %cmp52, label %exit, label %if.end54
 
@@ -21576,7 +21576,7 @@ declare i64 @PySequence_Size(ptr noundef) local_unnamed_addr #1
 declare i32 @PyMapping_Check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_arglist(ptr noundef %argv, ptr nocapture noundef nonnull %argc) unnamed_addr #0 {
+define internal fastcc ptr @parse_arglist(ptr noundef %argv, ptr noundef nonnull captures(none) %argc) unnamed_addr #0 {
 entry:
   %ub.i = alloca ptr, align 8
   %0 = load i64, ptr %argc, align 8
@@ -21736,7 +21736,7 @@ return:                                           ; preds = %free_string_array.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @parse_envlist(ptr noundef %env, ptr nocapture noundef nonnull writeonly %envc_ptr) unnamed_addr #0 {
+define internal fastcc ptr @parse_envlist(ptr noundef %env, ptr noundef nonnull writeonly captures(none) %envc_ptr) unnamed_addr #0 {
 entry:
   %ub.i = alloca ptr, align 8
   %key2 = alloca ptr, align 8
@@ -22181,7 +22181,7 @@ declare ptr @PyStructSequence_GetItem(ptr noundef, i64 noundef) local_unnamed_ad
 declare i64 @readlinkat(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #1
 
@@ -22194,7 +22194,7 @@ declare i32 @_PyLong_UnsignedInt_Converter(ptr noundef, ptr noundef) #1
 declare i64 @splice(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @internal_rename(ptr nocapture noundef nonnull readonly %src, ptr nocapture noundef nonnull readonly %dst, i32 noundef %src_dir_fd, i32 noundef %dst_dir_fd, i32 noundef range(i32 0, 2) %is_replace) unnamed_addr #0 {
+define internal fastcc ptr @internal_rename(ptr noundef nonnull readonly captures(none) %src, ptr noundef nonnull readonly captures(none) %dst, i32 noundef %src_dir_fd, i32 noundef %dst_dir_fd, i32 noundef range(i32 0, 2) %is_replace) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %is_replace, 0
   %cond = select i1 %tobool.not, ptr @.str.37, ptr @.str.38
@@ -22279,13 +22279,13 @@ return:                                           ; preds = %if.end30, %entry, %
 declare i32 @renameat(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @unlinkat(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @symlinkat(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
@@ -22296,26 +22296,26 @@ declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @umask(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @uname(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @uname(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare i64 @PyTuple_Size(ptr noundef) local_unnamed_addr #1
 
 declare i32 @_PyTime_ObjectToTimespec(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @split_py_long_to_s_and_ns(ptr %module.32.val.0.val, ptr noundef %py_long, ptr nocapture noundef nonnull writeonly %s, ptr nocapture noundef nonnull writeonly %ns) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @split_py_long_to_s_and_ns(ptr %module.32.val.0.val, ptr noundef %py_long, ptr noundef nonnull writeonly captures(none) %s, ptr noundef nonnull writeonly captures(none) %ns) unnamed_addr #0 {
 entry:
   %call1 = tail call ptr @PyNumber_Divmod(ptr noundef %py_long, ptr noundef %module.32.val.0.val) #22
   %tobool.not = icmp eq ptr %call1, null
@@ -22398,7 +22398,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @utime_nofollow_symlinks(ptr nocapture noundef nonnull readonly %ut, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc i32 @utime_nofollow_symlinks(ptr noundef nonnull readonly captures(none) %ut, ptr noundef %path) unnamed_addr #0 {
 entry:
   %ts = alloca [2 x %struct.timespec], align 16
   %0 = load i32, ptr %ut, align 8
@@ -22430,7 +22430,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @utime_dir_fd(ptr nocapture noundef nonnull readonly %ut, i32 noundef %dir_fd, ptr noundef %path, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
+define internal fastcc i32 @utime_dir_fd(ptr noundef nonnull readonly captures(none) %ut, i32 noundef %dir_fd, ptr noundef %path, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
 entry:
   %ts = alloca [2 x %struct.timespec], align 16
   %0 = load i32, ptr %ut, align 8
@@ -22464,7 +22464,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @utime_default(ptr nocapture noundef nonnull readonly %ut, ptr noundef %path) unnamed_addr #0 {
+define internal fastcc i32 @utime_default(ptr noundef nonnull readonly captures(none) %ut, ptr noundef %path) unnamed_addr #0 {
 entry:
   %ts = alloca [2 x %struct.timespec], align 16
   %0 = load i32, ptr %ut, align 8
@@ -22506,7 +22506,7 @@ declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare i32 @futimens(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @times(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
 declare void @_exit(i32 noundef) local_unnamed_addr #2
@@ -22704,19 +22704,19 @@ if.end34:                                         ; preds = %if.end.i56, %if.the
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #12
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @PyImport_GetModule(ptr noundef) local_unnamed_addr #1
 
@@ -22908,7 +22908,7 @@ return:                                           ; preds = %land.rhs, %cond.tru
 declare i32 @wait3(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @wait_helper(i32 noundef range(i32 0, -2147483648) %pid, i32 noundef %status, ptr nocapture noundef nonnull %ru) unnamed_addr #0 {
+define internal fastcc ptr @wait_helper(i32 noundef range(i32 0, -2147483648) %pid, i32 noundef %status, ptr noundef nonnull captures(none) %ru) unnamed_addr #0 {
 entry:
   %cmp1 = icmp eq i32 %pid, 0
   br i1 %cmp1, label %if.then2, label %if.end3
@@ -23078,7 +23078,7 @@ declare i32 @tcsetpgrp(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @openat64(i32 noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
 
 declare void @_Py_closerange(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -23240,7 +23240,7 @@ return:                                           ; preds = %iov_cleanup.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr nocapture noundef nonnull initializes((0, 8)) %iov, ptr nocapture noundef nonnull %buf, ptr noundef %seq, i64 noundef range(i64 0, -9223372036854775808) %cnt, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr noundef nonnull captures(none) initializes((0, 8)) %iov, ptr noundef nonnull captures(none) %buf, ptr noundef %seq, i64 noundef range(i64 0, -9223372036854775808) %cnt, i32 noundef range(i32 0, 2) %type) unnamed_addr #0 {
 entry:
   %cmp = icmp samesign ugt i64 %cnt, 576460752303423487
   br i1 %cmp, label %cond.end.thread, label %cond.end
@@ -23624,7 +23624,7 @@ declare i32 @posix_fadvise64(i32 noundef, i64 noundef, i64 noundef, i32 noundef)
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4
@@ -23639,7 +23639,7 @@ declare void @sync() local_unnamed_addr #4
 declare i32 @fdatasync(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @os_fstatvfs_impl(ptr nocapture noundef readonly %module, i32 noundef %fd) unnamed_addr #0 {
+define internal fastcc ptr @os_fstatvfs_impl(ptr noundef readonly captures(none) %module, i32 noundef %fd) unnamed_addr #0 {
 entry:
   %st = alloca %struct.statvfs, align 8
   br label %do.body
@@ -23681,10 +23681,10 @@ return:                                           ; preds = %land.rhs, %cond.tru
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstatvfs64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fstatvfs64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_pystatvfs_fromstructstatvfs(ptr %module.32.val.48.val, ptr nocapture noundef readonly byval(%struct.statvfs) align 8 %st) unnamed_addr #0 {
+define internal fastcc ptr @_pystatvfs_fromstructstatvfs(ptr %module.32.val.48.val, ptr noundef readonly byval(%struct.statvfs) align 8 captures(none) %st) unnamed_addr #0 {
 entry:
   %call2 = tail call ptr @PyStructSequence_New(ptr noundef %module.32.val.48.val) #22
   %cmp = icmp eq ptr %call2, null
@@ -23760,10 +23760,10 @@ return:                                           ; preds = %if.end, %if.end.i, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @statvfs64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @statvfs64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr nocapture noundef nonnull writeonly %valuep, ptr nocapture noundef readonly %table, i64 noundef range(i64 20, 136) %tablesize) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @conv_confname(ptr noundef %arg, ptr noundef nonnull writeonly captures(none) %valuep, ptr noundef readonly captures(none) %table, i64 noundef range(i64 20, 136) %tablesize) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val15 = load ptr, ptr %0, align 8
@@ -23846,7 +23846,7 @@ return:                                           ; preds = %if.end11, %land.lhs
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare i64 @confstr(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
@@ -23920,7 +23920,7 @@ declare i64 @listxattr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare i64 @llistxattr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #4
@@ -23968,7 +23968,7 @@ declare i64 @_PyTime_FromSecondsDouble(double noundef, i32 noundef) local_unname
 declare i32 @timerfd_settime(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @build_itimerspec(ptr nocapture noundef nonnull readonly %curr_value) unnamed_addr #0 {
+define internal fastcc ptr @build_itimerspec(ptr noundef nonnull readonly captures(none) %curr_value) unnamed_addr #0 {
 entry:
   %it_value = getelementptr inbounds nuw i8, ptr %curr_value, i64 16
   %0 = load i64, ptr %it_value, align 8
@@ -24103,7 +24103,7 @@ if.end.i84.i:                                     ; preds = %if.then13.i
 if.end14.i:                                       ; preds = %if.end8.i
   %add.ptr.i = getelementptr i8, ptr %call5.i, i64 1
   %call16.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr.i) #25
-  %call17.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef %add.ptr.i, i64 noundef %call16.i) #22
+  %call17.i = tail call ptr @PyBytes_FromStringAndSize(ptr noundef nonnull %add.ptr.i, i64 noundef %call16.i) #22
   %cmp18.i = icmp eq ptr %call17.i, null
   br i1 %cmp18.i, label %if.then20.i, label %if.end21.i
 
@@ -25446,10 +25446,10 @@ return:                                           ; preds = %if.end.i15, %if.the
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @cmp_constdefs(ptr nocapture noundef readonly %v1, ptr nocapture noundef readonly %v2) #15 {
+define internal i32 @cmp_constdefs(ptr noundef readonly captures(none) %v1, ptr noundef readonly captures(none) %v2) #15 {
 entry:
   %0 = load ptr, ptr %v1, align 8
   %1 = load ptr, ptr %v2, align 8
@@ -25586,7 +25586,7 @@ path_cleanup.exit:                                ; preds = %do.body3.i, %if.the
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ScandirIterator_iternext(ptr nocapture noundef %iterator) #0 {
+define internal ptr @ScandirIterator_iternext(ptr noundef captures(none) %iterator) #0 {
 entry:
   %dirp = getelementptr inbounds nuw i8, ptr %iterator, i64 88
   %0 = load ptr, ptr %dirp, align 8
@@ -25871,10 +25871,10 @@ declare ptr @PyType_GetModule(ptr noundef) local_unnamed_addr #1
 declare ptr @PyBytes_FromString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @ScandirIterator_enter(ptr noundef returned %self, ptr nocapture readnone %args) #17 {
+define internal noundef ptr @ScandirIterator_enter(ptr noundef returned %self, ptr readnone captures(none) %args) #17 {
 entry:
   %0 = load i32, ptr %self, align 8
   %add.i.i = add i32 %0, 1
@@ -25890,7 +25890,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @ScandirIterator_exit(ptr nocapture noundef %self, ptr nocapture readnone %args) #0 {
+define internal noundef nonnull ptr @ScandirIterator_exit(ptr noundef captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %dirp1.i = getelementptr inbounds nuw i8, ptr %self, i64 88
   %0 = load ptr, ptr %dirp1.i, align 8
@@ -25919,7 +25919,7 @@ ScandirIterator_closedir.exit:                    ; preds = %entry, %if.end4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @ScandirIterator_close(ptr nocapture noundef %self, ptr nocapture readnone %args) #0 {
+define internal noundef nonnull ptr @ScandirIterator_close(ptr noundef captures(none) %self, ptr readnone captures(none) %args) #0 {
 entry:
   %dirp1.i = getelementptr inbounds nuw i8, ptr %self, i64 88
   %0 = load ptr, ptr %dirp1.i, align 8
@@ -26062,7 +26062,7 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit36, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @DirEntry_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @DirEntry_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %name, align 8
@@ -26073,7 +26073,7 @@ entry:
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_DirEntry_is_dir(ptr nocapture noundef %self, ptr noundef %defining_class, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_DirEntry_is_dir(ptr noundef captures(none) %self, ptr noundef %defining_class, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -26131,7 +26131,7 @@ exit:                                             ; preds = %land.lhs.true21, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_DirEntry_is_file(ptr nocapture noundef %self, ptr noundef %defining_class, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @os_DirEntry_is_file(ptr noundef captures(none) %self, ptr noundef %defining_class, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -26189,7 +26189,7 @@ exit:                                             ; preds = %land.lhs.true21, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_DirEntry_is_symlink(ptr nocapture noundef %self, ptr noundef %defining_class, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @os_DirEntry_is_symlink(ptr noundef captures(none) %self, ptr noundef %defining_class, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -26232,14 +26232,14 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_DirEntry_is_junction(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_DirEntry_is_junction(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call2 = tail call ptr @PyBool_FromLong(i64 noundef 0) #22
   ret ptr %call2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @os_DirEntry_stat(ptr nocapture noundef %self, ptr noundef %defining_class, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @os_DirEntry_stat(ptr noundef captures(none) %self, ptr noundef %defining_class, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -26286,7 +26286,7 @@ exit:                                             ; preds = %if.end14, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @os_DirEntry_inode(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @os_DirEntry_inode(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 56
   %self.val = load i64, ptr %0, align 8
@@ -26295,7 +26295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @os_DirEntry___fspath__(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #18 {
+define internal noundef ptr @os_DirEntry___fspath__(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #18 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 24
   %self.val = load ptr, ptr %0, align 8
@@ -26315,7 +26315,7 @@ os_DirEntry___fspath___impl.exit:                 ; preds = %entry, %if.end.i.i.
 declare ptr @Py_GenericAlias(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr nocapture noundef %self, i32 noundef range(i32 0, -2147483648) %follow_symlinks, i16 noundef zeroext range(i16 16384, -24575) %mode_bits) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @DirEntry_test_mode(ptr noundef %defining_class, ptr noundef captures(none) %self, i32 noundef range(i32 0, -2147483648) %follow_symlinks, i16 noundef zeroext range(i16 16384, -24575) %mode_bits) unnamed_addr #0 {
 entry:
   %d_type = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load i8, ptr %d_type, align 8
@@ -26457,7 +26457,7 @@ return:                                           ; preds = %if.then9, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @os_DirEntry_stat_impl(ptr nocapture noundef %self, ptr noundef %defining_class, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
+define internal fastcc noundef ptr @os_DirEntry_stat_impl(ptr noundef captures(none) %self, ptr noundef %defining_class, i32 noundef range(i32 0, -2147483648) %follow_symlinks) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %follow_symlinks, 0
   br i1 %tobool.not, label %if.then, label %if.end
@@ -26570,7 +26570,7 @@ return:                                           ; preds = %if.end14.thread27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @DirEntry_fetch_stat(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %self, i32 noundef range(i32 0, 2) %follow_symlinks) unnamed_addr #0 {
+define internal fastcc ptr @DirEntry_fetch_stat(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %self, i32 noundef range(i32 0, 2) %follow_symlinks) unnamed_addr #0 {
 entry:
   %st = alloca %struct.stat, align 8
   %ub = alloca ptr, align 8
@@ -26746,10 +26746,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #21

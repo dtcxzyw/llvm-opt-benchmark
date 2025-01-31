@@ -909,7 +909,7 @@ if.then198:                                       ; preds = %sw.bb194
 if.end200:                                        ; preds = %sw.bb194
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %call196, i64 1
   store i8 0, ptr %call196, align 1
-  %call201 = call i32 @X509V3_add_value(ptr noundef %call195, ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %headers) #9
+  %call201 = call i32 @X509V3_add_value(ptr noundef nonnull %call195, ptr noundef nonnull %incdec.ptr, ptr noundef nonnull %headers) #9
   %tobool202.not = icmp eq i32 %call201, 0
   br i1 %tobool202.not, label %end, label %sw.epilog
 
@@ -1722,7 +1722,7 @@ declare void @opt_help(ptr noundef) local_unnamed_addr #1
 declare ptr @opt_arg() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1875,7 +1875,7 @@ declare i32 @ASN1_i2d_bio(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @i2d_OCSP_REQUEST(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_ocsp_response(ptr noundef %err, ptr nocapture noundef nonnull writeonly %resp, ptr noundef %req, ptr nocapture noundef nonnull readonly %db, ptr noundef %ca, ptr noundef %rcert, ptr noundef %rkey, ptr noundef %rmd, ptr noundef %sigopts, ptr noundef %rother, i64 noundef range(i64 0, 2048) %flags, i32 noundef %nmin, i32 noundef %ndays, i32 noundef range(i32 0, 2) %badsig, ptr noundef %resp_md) unnamed_addr #0 {
+define internal fastcc void @make_ocsp_response(ptr noundef %err, ptr noundef nonnull writeonly captures(none) %resp, ptr noundef %req, ptr noundef nonnull readonly captures(none) %db, ptr noundef %ca, ptr noundef %rcert, ptr noundef %rkey, ptr noundef %rmd, ptr noundef %sigopts, ptr noundef %rother, i64 noundef range(i64 0, 2048) %flags, i32 noundef %nmin, i32 noundef %ndays, i32 noundef range(i32 0, 2) %badsig, ptr noundef %resp_md) unnamed_addr #0 {
 entry:
   %row.i = alloca [6 x ptr], align 16
   %pkctx = alloca ptr, align 8
@@ -2378,7 +2378,7 @@ declare ptr @OCSP_RESPONSE_it() local_unnamed_addr #1
 declare void @SSL_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @syslog(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -2484,13 +2484,13 @@ declare i32 @http_server_get_asn1_req(ptr noundef, ptr noundef, ptr noundef, ptr
 declare i32 @http_server_send_asn1_resp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

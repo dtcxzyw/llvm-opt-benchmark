@@ -232,17 +232,17 @@ $_ZN4llvm12function_refIFN5clang12ActionResultIPNS1_4ExprELb1EEES4_EE11callback_
 @switch.table._ZN5clang22printOpenACCClauseKindIKNS_19StreamingDiagnosticEEERT_S4_NS_17OpenACCClauseKindE = private unnamed_addr constant [51 x ptr] [ptr @.str.37, ptr @.str.42, ptr @.str.53, ptr @.str.43, ptr @.str.12, ptr @.str.59, ptr @.str.56, ptr @.str.48, ptr @.str.27, ptr @.str.41, ptr @.str.52, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.55, ptr @.str.11, ptr @.str.29, ptr @.str.30, ptr @.str.31, ptr @.str.35, ptr @.str.33, ptr @.str.38, ptr @.str.40, ptr @.str.44, ptr @.str.45, ptr @.str.49, ptr @.str.50, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.51, ptr @.str.17, ptr @.str.13, ptr @.str.57, ptr @.str.46, ptr @.str.47, ptr @.str.32, ptr @.str.28, ptr @.str.34, ptr @.str.36, ptr @.str.10, ptr @.str.54, ptr @.str.39, ptr @.str.58, ptr @.str.84], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN5clang6Parser18OpenACCCanContinueEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN5clang6Parser18OpenACCCanContinueEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
   ret i64 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i64 @_ZN5clang6Parser21OpenACCCannotContinueEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN5clang6Parser21OpenACCCannotContinueEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
   ret i64 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i64 4, 0) i64 @_ZN5clang6Parser14OpenACCSuccessEPNS_13OpenACCClauseE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2936) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 4, 0) i64 @_ZN5clang6Parser14OpenACCSuccessEPNS_13OpenACCClauseE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2936) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = or i64 %3, 4
   ret i64 %4
@@ -293,7 +293,7 @@ _ZN5clang4Sema25CorrectDelayedTyposInExprENS_12ActionResultIPNS_4ExprELb1EEEPNS_
 declare i64 @_ZN5clang6Parser15ParseExpressionENS0_13TypeCastStateE(ptr noundef nonnull align 8 dereferenceable(2936), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN5clang4Sema14ActOnConditionEPNS_5ScopeENS_14SourceLocationEPNS_4ExprENS0_13ConditionKindEb(ptr dead_on_unwind writable sret(%"class.clang::Sema::ConditionResult") align 8, ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, i32, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -1618,7 +1618,7 @@ _ZN5clang6Parser19ParseOpenACCIntExprENS_20OpenACCDirectiveKindENS_17OpenACCClau
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE(i32 noundef range(i32 0, 9) %0, ptr nocapture readonly %.8.val, i16 %.16.val) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121isOpenACCSpecialTokenENS_23OpenACCSpecialTokenKindEN5clang5TokenE(i32 noundef range(i32 0, 9) %0, ptr readonly captures(none) %.8.val, i16 %.16.val) unnamed_addr #5 {
   %2 = icmp eq i16 %.16.val, 103
   %3 = icmp eq i32 %0, 8
   %or.cond = and i1 %3, %2
@@ -2672,7 +2672,7 @@ declare noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker16expectAndConsum
 declare void @_ZN5clang24BalancedDelimiterTracker9skipToEndEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_127getOpenACCDefaultClauseKindEN5clang5TokenE(ptr nocapture readonly %.8.val, i16 %.16.val) unnamed_addr #5 {
+define internal fastcc noundef range(i32 0, 3) i32 @_ZN12_GLOBAL__N_127getOpenACCDefaultClauseKindEN5clang5TokenE(ptr readonly captures(none) %.8.val, i16 %.16.val) unnamed_addr #5 {
   %1 = icmp eq i16 %.16.val, 5
   br i1 %1, label %2, label %_ZN4llvm12StringSwitchIN5clang24OpenACCDefaultClauseKindES2_E4CaseENS_13StringLiteralES2_.exit8.thread
 
@@ -5990,7 +5990,7 @@ declare void @_ZN5clang11SemaOpenACC14ActOnConstructENS_20OpenACCDirectiveKindEN
 declare void @_ZN5clang6Parser4DiagENS_14SourceLocationEj(ptr dead_on_unwind writable sret(%"class.clang::DiagnosticBuilder") align 8, ptr noundef nonnull align 8 dereferenceable(2936), i32, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local ptr @_ZN5clang6Parser25ParseOpenACCDirectiveDeclEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #1 align 2 {
@@ -6531,7 +6531,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateN5clang11SemaOpenACC19OpenACCParsedClause14DefaultDetailsENS6_16ConditionDetailsENS6_14IntExprDetailsENS6_14VarListDetailsENS6_11WaitDetailsENS6_17DeviceTypeDetailsENS6_16ReductionDetailsEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S7_S8_S9_SA_SB_SC_SD_EEEEDcOT0_DpOT1_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(81) %1) local_unnamed_addr #1 comdat {
@@ -6722,7 +6722,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 der
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -7319,13 +7319,13 @@ define linkonce_odr hidden i64 @_ZN4llvm12function_refIFN5clang12ActionResultIPN
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

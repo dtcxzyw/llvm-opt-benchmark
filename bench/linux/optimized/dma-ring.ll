@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [28 x i8] c"drivers/misc/mei/dma-ring.c\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mei_dmam_ring_free(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @mei_dmam_ring_free(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   br label %3
 
@@ -111,7 +111,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @mei_dma_ring_is_allocated(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @mei_dma_ring_is_allocated(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3248
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
@@ -119,7 +119,7 @@ define dso_local zeroext i1 @mei_dma_ring_is_allocated(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @mei_dma_ring_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @mei_dma_ring_reset(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3296
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -134,10 +134,10 @@ define dso_local void @mei_dma_ring_reset(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mei_dma_ring_read(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @mei_dma_ring_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 3296
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -214,7 +214,7 @@ define dso_local void @mei_dma_ring_read(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mei_dma_ring_empty_slots(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @mei_dma_ring_empty_slots(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 3296
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3248
@@ -252,7 +252,7 @@ define dso_local i32 @mei_dma_ring_empty_slots(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mei_dma_ring_write(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @mei_dma_ring_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 3296
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -322,7 +322,7 @@ declare dso_local void @dmam_free_coherent(ptr noundef, i64 noundef, ptr noundef
 declare dso_local ptr @dmam_alloc_attrs(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #6

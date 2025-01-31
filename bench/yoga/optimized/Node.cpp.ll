@@ -62,7 +62,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook4yoga4NodeC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((8, 252)) %this) unnamed_addr #3 align 2 {
+define void @_ZN8facebook4yoga4NodeC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(640) initializes((8, 252)) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN8facebook4yoga6Config10getDefaultEv()
   tail call void @_ZN8facebook4yoga4NodeC2EPKNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(640) %this, ptr noundef nonnull %call)
@@ -72,7 +72,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN8facebook4yoga6Config10getDefaultEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook4yoga4NodeC2EPKNS0_6ConfigE(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((8, 252)) %this, ptr noundef %config) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook4yoga4NodeC2EPKNS0_6ConfigE(ptr noundef nonnull align 8 captures(none) dereferenceable(640) initializes((8, 252)) %this, ptr noundef %config) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bf.load = load i8, ptr %this, align 8
   %bf.set = and i8 %bf.load, -16
@@ -265,10 +265,10 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
@@ -277,7 +277,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef zeroext i1 @_ZNK8facebook4yoga6Config14useWebDefaultsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4NodeC2EOS1_(ptr noundef nonnull align 8 dereferenceable(640) initializes((8, 252)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(640) %node) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook4yoga4NodeC2EOS1_(ptr noundef nonnull align 8 dereferenceable(640) initializes((8, 252)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(640) %node) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bf.load = load i8, ptr %this, align 8
   %bf.set = and i8 %bf.load, -16
@@ -526,7 +526,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 4) i8 @_ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
+define noundef zeroext range(i8 0, 4) i8 @_ZNK8facebook4yoga4Node29getInlineStartEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
 entry:
   %config_.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i, align 8
@@ -562,7 +562,7 @@ cond.end:                                         ; preds = %switch.lookup, %con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 4) i8 @_ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
+define noundef zeroext range(i8 0, 4) i8 @_ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
 entry:
   %config_.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i, align 8
@@ -598,7 +598,7 @@ cond.end:                                         ; preds = %switch.lookup, %con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 4, 6) i8 @_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
+define noundef zeroext range(i8 4, 6) i8 @_ZNK8facebook4yoga4Node35getFlexStartRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
 entry:
   %config_.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i, align 8
@@ -632,7 +632,7 @@ cond.end:                                         ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 4, 6) i8 @_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
+define noundef zeroext range(i8 4, 6) i8 @_ZNK8facebook4yoga4Node33getFlexEndRelativeEdgeUsingErrataENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %flexDirection, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 {
 entry:
   %config_.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i, align 8
@@ -666,7 +666,7 @@ cond.end:                                         ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook4yoga4Node26isFlexStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8facebook4yoga4Node26isFlexStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -797,7 +797,7 @@ _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit: ; preds = %cond.end, %cond.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook4yoga4Node28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8facebook4yoga4Node28isInlineStartPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -932,7 +932,7 @@ _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit: ; preds = %cond.end, %cond.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook4yoga4Node24isFlexEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8facebook4yoga4Node24isFlexEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -1063,7 +1063,7 @@ _ZNK8facebook4yoga12CompactValue11isUndefinedEv.exit: ; preds = %cond.end, %cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook4yoga4Node26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8facebook4yoga4Node26isInlineEndPositionDefinedENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -1198,7 +1198,7 @@ _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit: ; preds = %cond.end, %cond.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node20getFlexStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node20getFlexStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -1367,7 +1367,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node22getInlineStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node22getInlineStartPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -1540,7 +1540,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node18getFlexEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node18getFlexEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -1709,7 +1709,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node20getInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node20getInlineEndPositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -1882,7 +1882,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node18getFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node18getFlexStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -2051,7 +2051,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node20getInlineStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node20getInlineStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -2224,7 +2224,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node16getFlexEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node16getFlexEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -2393,7 +2393,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node18getInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node18getInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -2566,7 +2566,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node20getInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node20getInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -2720,7 +2720,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %cond.end, %cond.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node18getFlexStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node18getFlexStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -2870,7 +2870,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %cond.end, %cond.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node18getInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node18getInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -3024,7 +3024,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %cond.end, %cond.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node16getFlexEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node16getFlexEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -3174,7 +3174,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %cond.end, %cond.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node21getInlineStartPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node21getInlineStartPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -3350,7 +3350,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node19getFlexStartPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node19getFlexStartPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -3522,7 +3522,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node19getInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node19getInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %config_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
   %0 = load ptr, ptr %config_.i.i, align 8
@@ -3698,7 +3698,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node17getFlexEndPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node17getFlexEndPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -3870,7 +3870,7 @@ _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node30getInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node30getInlineStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK8facebook4yoga4Node21getInlineStartPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize)
   %call2 = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
@@ -3879,7 +3879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node28getFlexStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node28getFlexStartPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK8facebook4yoga4Node19getFlexStartPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize)
   %call2 = tail call noundef float @_ZNK8facebook4yoga4Node18getFlexStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
@@ -3888,7 +3888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node28getInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node28getInlineEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK8facebook4yoga4Node19getInlineEndPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize)
   %call2 = tail call noundef float @_ZNK8facebook4yoga4Node18getInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
@@ -3897,7 +3897,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node26getFlexEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node26getFlexEndPaddingAndBorderENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK8facebook4yoga4Node17getFlexEndPaddingENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %widthSize)
   %call2 = tail call noundef float @_ZNK8facebook4yoga4Node16getFlexEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction)
@@ -3906,7 +3906,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node16getBorderForAxisENS0_13FlexDirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node16getBorderForAxisENS0_13FlexDirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineStartBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext 1)
   %call2 = tail call noundef float @_ZNK8facebook4yoga4Node18getInlineEndBorderENS0_13FlexDirectionENS0_9DirectionE(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext 1)
@@ -3915,7 +3915,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, float noundef %widthSize) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node16getMarginForAxisENS0_13FlexDirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, float noundef %widthSize) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK8facebook4yoga4Node20getInlineStartMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext 1, float noundef %widthSize)
   %call2 = tail call noundef float @_ZNK8facebook4yoga4Node18getInlineEndMarginENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext 1, float noundef %widthSize)
@@ -3924,7 +3924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZNK8facebook4yoga4Node13getGapForAxisENS0_13FlexDirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZNK8facebook4yoga4Node13getGapForAxisENS0_13FlexDirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -4048,7 +4048,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZN8facebook4yoga4Node19dimensionWithMarginENS0_13FlexDirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, float noundef %widthSize) local_unnamed_addr #3 align 2 {
+define noundef float @_ZN8facebook4yoga4Node19dimensionWithMarginENS0_13FlexDirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, float noundef %widthSize) local_unnamed_addr #3 align 2 {
 entry:
   %0 = icmp ult i8 %axis, 4
   br i1 %0, label %switch.lookup, label %sw.epilog.i
@@ -4072,7 +4072,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8facebook4yoga4Node24isLayoutDimensionDefinedENS0_13FlexDirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8facebook4yoga4Node24isLayoutDimensionDefinedENS0_13FlexDirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #3 align 2 {
 entry:
   %0 = icmp ult i8 %axis, 4
   br i1 %0, label %switch.lookup, label %sw.epilog.i
@@ -4093,7 +4093,7 @@ switch.lookup:                                    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, float noundef %ownerSize) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8facebook4yoga4Node21styleDefinesDimensionENS0_13FlexDirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, float noundef %ownerSize) local_unnamed_addr #3 align 2 {
 entry:
   %0 = icmp ult i8 %axis, 4
   br i1 %0, label %switch.lookup, label %sw.epilog.i
@@ -4178,7 +4178,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4Node12replaceChildEPS1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr noundef %child, i64 noundef %index) local_unnamed_addr #9 align 2 {
+define void @_ZN8facebook4yoga4Node12replaceChildEPS1_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, ptr noundef %child, i64 noundef %index) local_unnamed_addr #9 align 2 {
 entry:
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 592
   %0 = load ptr, ptr %children_, align 8
@@ -4188,7 +4188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4Node12replaceChildEPS1_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, ptr noundef readnone %oldChild, ptr noundef %newChild) local_unnamed_addr #6 align 2 {
+define void @_ZN8facebook4yoga4Node12replaceChildEPS1_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, ptr noundef readnone %oldChild, ptr noundef %newChild) local_unnamed_addr #6 align 2 {
 entry:
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 592
   %0 = load ptr, ptr %children_, align 8
@@ -4463,7 +4463,7 @@ if.end10:                                         ; preds = %entry, %if.then8, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN8facebook4yoga4Node11removeChildEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, ptr noundef readnone %child) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8facebook4yoga4Node11removeChildEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, ptr noundef readnone %child) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 592
   %0 = load ptr, ptr %children_, align 8
@@ -4597,7 +4597,7 @@ return:                                           ; preds = %for.end.i.i.i, %_ZS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4Node11removeChildEm(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i64 noundef %index) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook4yoga4Node11removeChildEm(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, i64 noundef %index) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 592
   %0 = load ptr, ptr %children_, align 8
@@ -4624,7 +4624,7 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE5eraseEN9__gnu_cxx17__normal_iterator
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook4yoga4Node18setLayoutDirectionENS0_9DirectionE(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %direction) local_unnamed_addr #11 align 2 {
+define void @_ZN8facebook4yoga4Node18setLayoutDirectionENS0_9DirectionE(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %direction) local_unnamed_addr #11 align 2 {
 entry:
   %direction_.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %bf.load.i = load i8, ptr %direction_.i, align 8
@@ -4636,7 +4636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook4yoga4Node15setLayoutMarginEfNS0_4EdgeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %margin, i8 noundef zeroext %edge) local_unnamed_addr #3 align 2 {
+define void @_ZN8facebook4yoga4Node15setLayoutMarginEfNS0_4EdgeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) %this, float noundef %margin, i8 noundef zeroext %edge) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.i.i = icmp ult i8 %edge, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i, ptr noundef nonnull @.str.8)
@@ -4648,7 +4648,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook4yoga4Node15setLayoutBorderEfNS0_4EdgeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %border, i8 noundef zeroext %edge) local_unnamed_addr #3 align 2 {
+define void @_ZN8facebook4yoga4Node15setLayoutBorderEfNS0_4EdgeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) %this, float noundef %border, i8 noundef zeroext %edge) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.i.i = icmp ult i8 %edge, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i, ptr noundef nonnull @.str.8)
@@ -4660,7 +4660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook4yoga4Node16setLayoutPaddingEfNS0_4EdgeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %padding, i8 noundef zeroext %edge) local_unnamed_addr #3 align 2 {
+define void @_ZN8facebook4yoga4Node16setLayoutPaddingEfNS0_4EdgeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) %this, float noundef %padding, i8 noundef zeroext %edge) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.i.i = icmp ult i8 %edge, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i, ptr noundef nonnull @.str.8)
@@ -4672,7 +4672,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node27setLayoutLastOwnerDirectionENS0_9DirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((264, 265)) %this, i8 noundef zeroext %direction) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node27setLayoutLastOwnerDirectionENS0_9DirectionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) initializes((264, 265)) %this, i8 noundef zeroext %direction) local_unnamed_addr #12 align 2 {
 entry:
   %lastOwnerDirection = getelementptr inbounds nuw i8, ptr %this, i64 264
   store i8 %direction, ptr %lastOwnerDirection, align 8
@@ -4680,7 +4680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node26setLayoutComputedFlexBasisENS0_13FloatOptionalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((256, 260)) %this, float %computedFlexBasis.coerce) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node26setLayoutComputedFlexBasisENS0_13FloatOptionalE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) initializes((256, 260)) %this, float %computedFlexBasis.coerce) local_unnamed_addr #12 align 2 {
 entry:
   %computedFlexBasis2 = getelementptr inbounds nuw i8, ptr %this, i64 256
   store float %computedFlexBasis.coerce, ptr %computedFlexBasis2, align 8
@@ -4688,7 +4688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %position, i8 noundef zeroext %edge) local_unnamed_addr #3 align 2 {
+define void @_ZN8facebook4yoga4Node17setLayoutPositionEfNS0_4EdgeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) %this, float noundef %position, i8 noundef zeroext %edge) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.i.i = icmp ult i8 %edge, 4
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext %cmp.i.i, ptr noundef nonnull @.str.8)
@@ -4700,7 +4700,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node36setLayoutComputedFlexBasisGenerationEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((252, 256)) %this, i32 noundef %computedFlexBasisGeneration) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node36setLayoutComputedFlexBasisGenerationEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) initializes((252, 256)) %this, i32 noundef %computedFlexBasisGeneration) local_unnamed_addr #12 align 2 {
 entry:
   %layout_ = getelementptr inbounds nuw i8, ptr %this, i64 252
   store i32 %computedFlexBasisGeneration, ptr %layout_, align 4
@@ -4708,7 +4708,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node26setLayoutMeasuredDimensionEfNS0_9DimensionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %measuredDimension, i8 noundef zeroext %dimension) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node26setLayoutMeasuredDimensionEfNS0_9DimensionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) %this, float noundef %measuredDimension, i8 noundef zeroext %dimension) local_unnamed_addr #12 align 2 {
 entry:
   %measuredDimensions_.i = getelementptr inbounds nuw i8, ptr %this, i64 500
   %conv.i = zext i8 %dimension to i64
@@ -4718,7 +4718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook4yoga4Node20setLayoutHadOverflowEb(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i1 noundef zeroext %hadOverflow) local_unnamed_addr #11 align 2 {
+define void @_ZN8facebook4yoga4Node20setLayoutHadOverflowEb(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, i1 noundef zeroext %hadOverflow) local_unnamed_addr #11 align 2 {
 entry:
   %hadOverflow_.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %bf.load.i = load i8, ptr %hadOverflow_.i, align 8
@@ -4730,7 +4730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook4yoga4Node18setLayoutDimensionEfNS0_9DimensionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %LengthValue, i8 noundef zeroext %dimension) local_unnamed_addr #12 align 2 {
+define void @_ZN8facebook4yoga4Node18setLayoutDimensionEfNS0_9DimensionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(640) %this, float noundef %LengthValue, i8 noundef zeroext %dimension) local_unnamed_addr #12 align 2 {
 entry:
   %dimensions_.i = getelementptr inbounds nuw i8, ptr %this, i64 492
   %conv.i = zext i8 %dimension to i64
@@ -4740,7 +4740,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node16relativePositionENS0_13FlexDirectionENS0_9DirectionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis, i8 noundef zeroext %direction, float noundef %axisSize) local_unnamed_addr #3 align 2 {
 entry:
   %positionType_.i = getelementptr inbounds nuw i8, ptr %this, i64 49
   %bf.load.i = load i24, ptr %positionType_.i, align 1
@@ -4773,7 +4773,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook4yoga4Node11setPositionENS0_9DirectionEfff(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this, i8 noundef zeroext %direction, float noundef %mainSize, float noundef %crossSize, float noundef %ownerWidth) local_unnamed_addr #3 align 2 {
+define void @_ZN8facebook4yoga4Node11setPositionENS0_9DirectionEfff(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %direction, float noundef %mainSize, float noundef %crossSize, float noundef %ownerWidth) local_unnamed_addr #3 align 2 {
 entry:
   %owner_ = getelementptr inbounds nuw i8, ptr %this, i64 584
   %0 = load ptr, ptr %owner_, align 8
@@ -4962,7 +4962,7 @@ _ZNK8facebook4yoga4Node27getInlineEndEdgeUsingErrataENS0_13FlexDirectionENS0_9Di
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK8facebook4yoga4Node23getFlexStartMarginValueENS0_13FlexDirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZNK8facebook4yoga4Node23getFlexStartMarginValueENS0_13FlexDirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -5062,7 +5062,7 @@ return:                                           ; preds = %if.end.i20, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK8facebook4yoga4Node19marginTrailingValueENS0_13FlexDirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZNK8facebook4yoga4Node19marginTrailingValueENS0_13FlexDirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %axis) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = and i8 %axis, -2
   %1 = icmp eq i8 %0, 2
@@ -5162,7 +5162,7 @@ return:                                           ; preds = %if.end.i20, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK8facebook4yoga4Node19resolveFlexBasisPtrEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this) local_unnamed_addr #3 align 2 {
+define i64 @_ZNK8facebook4yoga4Node19resolveFlexBasisPtrEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this) local_unnamed_addr #3 align 2 {
 entry:
   %flexBasis_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload.i = load i32, ptr %flexBasis_.i, align 8
@@ -5239,7 +5239,7 @@ return:                                           ; preds = %if.end18, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook4yoga4Node16resolveDimensionEv(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook4yoga4Node16resolveDimensionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca [2 x i8], align 1
   store i8 0, ptr %ref.tmp2, align 1
@@ -5449,7 +5449,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext range(i8 1, 0) i8 @_ZN8facebook4yoga4Node16resolveDirectionENS0_9DirectionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this, i8 noundef zeroext %ownerDirection) local_unnamed_addr #14 align 2 {
+define noundef zeroext range(i8 1, 0) i8 @_ZN8facebook4yoga4Node16resolveDirectionENS0_9DirectionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this, i8 noundef zeroext %ownerDirection) local_unnamed_addr #14 align 2 {
 entry:
   %style_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %bf.load.i = load i8, ptr %style_, align 8
@@ -5523,7 +5523,7 @@ for.end:                                          ; preds = %if.end, %entry
 declare noundef ptr @_ZNK8facebook4yoga6Config9cloneNodeEPK6YGNodeS4_m(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this) local_unnamed_addr #14 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this) local_unnamed_addr #14 align 2 {
 entry:
   %owner_ = getelementptr inbounds nuw i8, ptr %this, i64 584
   %0 = load ptr, ptr %owner_, align 8
@@ -5551,7 +5551,7 @@ return:                                           ; preds = %if.end, %if.end9, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZNK8facebook4yoga4Node17resolveFlexShrinkEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this) local_unnamed_addr #3 align 2 {
+define noundef float @_ZNK8facebook4yoga4Node17resolveFlexShrinkEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this) local_unnamed_addr #3 align 2 {
 entry:
   %owner_ = getelementptr inbounds nuw i8, ptr %this, i64 584
   %0 = load ptr, ptr %owner_, align 8
@@ -5592,7 +5592,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8facebook4yoga4Node14isNodeFlexibleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %this) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8facebook4yoga4Node14isNodeFlexibleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(640) %this) local_unnamed_addr #3 align 2 {
 entry:
   %positionType_.i = getelementptr inbounds nuw i8, ptr %this, i64 49
   %bf.load.i = load i24, ptr %positionType_.i, align 1
@@ -5736,7 +5736,7 @@ declare noundef zeroext i1 @_ZNK8facebook4yoga6Config9hasErrataENS0_6ErrataE(ptr
 declare void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19

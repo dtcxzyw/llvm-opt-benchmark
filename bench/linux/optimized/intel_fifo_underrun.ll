@@ -919,7 +919,7 @@ define dso_local void @intel_check_pch_fifo_underruns(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_init_fifo_underrun_reporting(ptr noundef %0, ptr nocapture noundef initializes((1720, 1721)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_init_fifo_underrun_reporting(ptr noundef %0, ptr noundef captures(none) initializes((1720, 1721)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = xor i1 %2, true
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1720
   %6 = zext i1 %4 to i8

@@ -10,7 +10,7 @@ $_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArray
 @_ZN20JvmtiDeferredUpdatesD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20JvmtiDeferredUpdatesD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JvmtiDeferredUpdates10create_forEP10JavaThread(ptr nocapture noundef writeonly initializes((1000, 1008)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20JvmtiDeferredUpdates10create_forEP10JavaThread(ptr noundef writeonly captures(none) initializes((1000, 1008)) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 7, i32 noundef 0) #3
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -81,7 +81,7 @@ _ZN13GrowableArrayIP29jvmtiDeferredLocalVariableSetED2Ev.exit: ; preds = %._crit
 declare void @_ZN29jvmtiDeferredLocalVariableSetD1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JvmtiDeferredUpdates27inc_relock_count_after_waitEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20JvmtiDeferredUpdates27inc_relock_count_after_waitEP10JavaThread(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -112,7 +112,7 @@ define hidden void @_ZN20JvmtiDeferredUpdates27inc_relock_count_after_waitEP10Ja
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN20JvmtiDeferredUpdates37get_and_reset_relock_count_after_waitEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN20JvmtiDeferredUpdates37get_and_reset_relock_count_after_waitEP10JavaThread(ptr noundef captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -149,7 +149,7 @@ _ZN20JvmtiDeferredUpdatesD2Ev.exit:               ; preds = %._crit_edge.i, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JvmtiDeferredUpdates24delete_updates_for_frameEP10JavaThreadPl(ptr nocapture noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20JvmtiDeferredUpdates24delete_updates_for_frameEP10JavaThreadPl(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

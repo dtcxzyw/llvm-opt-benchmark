@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Session_get_errhandler = weak alias i32 (ptr, ptr), ptr @PMPI_Session_get_errhandler
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMPI_Session_get_errhandler(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define i32 @PMPI_Session_get_errhandler(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load i8, ptr @ompi_mpi_param_check, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %22

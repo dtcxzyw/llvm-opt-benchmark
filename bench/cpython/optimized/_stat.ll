@@ -107,7 +107,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISDIR(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISDIR(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -151,7 +151,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISCHR(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISCHR(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -195,7 +195,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISBLK(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISBLK(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -239,7 +239,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISREG(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISREG(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -283,7 +283,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISFIFO(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISFIFO(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -327,7 +327,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISLNK(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISLNK(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -371,7 +371,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISSOCK(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISSOCK(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -415,7 +415,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISDOOR(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISDOOR(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -454,7 +454,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISPORT(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISPORT(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -493,7 +493,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_ISWHT(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_ISWHT(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -532,7 +532,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_IMODE(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_IMODE(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -573,7 +573,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_S_IFMT(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_S_IFMT(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2
   %cmp.i = icmp eq i64 %call.i, -1
@@ -614,7 +614,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stat_filemode(ptr nocapture readnone %self, ptr noundef %omode) #0 {
+define internal ptr @stat_filemode(ptr readnone captures(none) %self, ptr noundef %omode) #0 {
 entry:
   %buf = alloca [10 x i8], align 1
   %call.i = tail call i64 @PyLong_AsUnsignedLong(ptr noundef %omode) #2

@@ -197,7 +197,7 @@ $_ZN5clang18PPChainedCallbacks5EndifENS_14SourceLocationES1_ = comdat any
 @_ZN5clang18PPChainedCallbacksD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang18PPChainedCallbacksD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang11PPCallbacksD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11PPCallbacksD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
@@ -212,12 +212,12 @@ define dso_local void @_ZN5clang11PPCallbacksD0Ev(ptr noundef nonnull align 8 de
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang11PPCallbacks10HasIncludeENS_14SourceLocationEN4llvm9StringRefEbNS_20CustomizableOptionalINS_12FileEntryRefEEENS_6SrcMgr18CharacteristicKindE(ptr nocapture nonnull readnone align 8 %0, i32 %1, ptr nocapture readnone %2, i64 %3, i1 zeroext %4, ptr nocapture readnone %5, i32 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11PPCallbacks10HasIncludeENS_14SourceLocationEN4llvm9StringRefEbNS_20CustomizableOptionalINS_12FileEntryRefEEENS_6SrcMgr18CharacteristicKindE(ptr nonnull readnone align 8 captures(none) %0, i32 %1, ptr readnone captures(none) %2, i64 %3, i1 zeroext %4, ptr readnone captures(none) %5, i32 %6) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18PPChainedCallbacksD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang18PPChainedCallbacksD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 384) (i8, ptr @_ZTVN5clang18PPChainedCallbacksE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -258,7 +258,7 @@ define dso_local void @_ZN5clang18PPChainedCallbacksD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18PPChainedCallbacks10HasIncludeENS_14SourceLocationEN4llvm9StringRefEbNS_20CustomizableOptionalINS_12FileEntryRefEEENS_6SrcMgr18CharacteristicKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, ptr %2, i64 %3, i1 noundef zeroext %4, ptr %5, i32 noundef %6) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang18PPChainedCallbacks10HasIncludeENS_14SourceLocationEN4llvm9StringRefEbNS_20CustomizableOptionalINS_12FileEntryRefEEENS_6SrcMgr18CharacteristicKindE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 %1, ptr %2, i64 %3, i1 noundef zeroext %4, ptr %5, i32 noundef %6) unnamed_addr #1 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8

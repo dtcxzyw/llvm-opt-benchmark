@@ -80,16 +80,16 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [7 x i8] c"H5HF_t\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__op_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @H5HF__op_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %0, i64 %1, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__op_write(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef i32 @H5HF__op_write(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %2, i64 %1, i1 false)
   ret i32 0
 }
@@ -412,7 +412,7 @@ define ptr @H5HF_open(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF_get_id_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define noundef i32 @H5HF_get_id_len(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load i32, ptr %4, align 8
@@ -422,7 +422,7 @@ define noundef i32 @H5HF_get_id_len(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF_get_heap_addr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define noundef i32 @H5HF_get_heap_addr(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 576
   %5 = load i64, ptr %4, align 8
@@ -431,7 +431,7 @@ define noundef i32 @H5HF_get_heap_addr(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF_insert(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF_insert(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %6, label %10
 
@@ -517,7 +517,7 @@ declare i32 @H5HF__tiny_insert(ptr noundef, i64 noundef, ptr noundef, ptr nounde
 declare i32 @H5HF__man_insert(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF_get_obj_len(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF_get_obj_len(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1
   %.not = icmp ult i8 %4, 64
   br i1 %.not, label %9, label %5
@@ -601,10 +601,10 @@ declare i32 @H5HF__huge_get_obj_len(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @H5HF__tiny_get_obj_len(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF_get_obj_off(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF_get_obj_off(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1
   %.not = icmp ult i8 %4, 64
   br i1 %.not, label %9, label %5
@@ -671,7 +671,7 @@ declare void @H5HF__man_get_obj_off(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @H5HF__huge_get_obj_off(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = load i8, ptr %1, align 1
   %.not = icmp ult i8 %4, 64
   br i1 %.not, label %9, label %5
@@ -755,7 +755,7 @@ declare i32 @H5HF__huge_read(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @H5HF__tiny_read(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF_write(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF_write(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = load i8, ptr %1, align 1
   %.not = icmp ult i8 %5, 64
   br i1 %.not, label %10, label %6
@@ -831,7 +831,7 @@ declare i32 @H5HF__man_write(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @H5HF__huge_write(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF_op(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF_op(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = load i8, ptr %1, align 1
   %.not = icmp ult i8 %5, 64
   br i1 %.not, label %10, label %6
@@ -915,7 +915,7 @@ declare i32 @H5HF__huge_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 declare i32 @H5HF__tiny_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF_remove(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5HF_remove(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1
   %.not = icmp ult i8 %3, 64
   br i1 %.not, label %8, label %4

@@ -113,7 +113,7 @@ declare void @_ZN3g2o9ParameterC2Ev(ptr noundef nonnull align 8 dereferenceable(
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3g2o18ParameterSE2Offset9setOffsetERKNS_3SE2E(ptr nocapture noundef nonnull align 16 dereferenceable(192) initializes((16, 24), (32, 192)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o18ParameterSE2Offset9setOffsetERKNS_3SE2E(ptr noundef nonnull align 16 captures(none) dereferenceable(192) initializes((16, 24), (32, 192)) %0, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %1, align 16
   store i64 %4, ptr %3, align 16
@@ -173,7 +173,7 @@ define void @_ZN3g2o18ParameterSE2Offset9setOffsetERKNS_3SE2E(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3g2o18ParameterSE2Offset4readERSi(ptr nocapture noundef nonnull align 16 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o18ParameterSE2Offset4readERSi(ptr noundef nonnull align 16 captures(none) dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.31", align 16
   br label %4
 
@@ -269,7 +269,7 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEEEbRSiRNS2_9D
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK3g2o18ParameterSE2Offset5writeERSo(ptr nocapture noundef nonnull readonly align 16 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK3g2o18ParameterSE2Offset5writeERSo(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::Matrix.31", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
@@ -374,12 +374,12 @@ _ZNSt6vectorIPN3g2o9ParameterESaIS2_EED2Ev.exit5: ; preds = %27, %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @_ZN3g2o5CacheC2EPNS_14CacheContainerERKSt6vectorIPNS_9ParameterESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3g2o14CacheSE2Offset19resolveDependenciesEv(ptr nocapture noundef nonnull align 16 dereferenceable(432) initializes((72, 80)) %0) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN3g2o14CacheSE2Offset19resolveDependenciesEv(ptr noundef nonnull align 16 captures(none) dereferenceable(432) initializes((72, 80)) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 16
   %4 = load ptr, ptr %3, align 8
@@ -609,7 +609,7 @@ declare double @cos(double noundef) local_unnamed_addr #9
 declare double @sin(double noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o14CacheSE2Offset14setOffsetParamEPNS_18ParameterSE2OffsetE(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(432) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN3g2o14CacheSE2Offset14setOffsetParamEPNS_18ParameterSE2OffsetE(ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(432) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   ret void

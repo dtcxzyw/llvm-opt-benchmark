@@ -71,11 +71,11 @@ define void @Rtl_NtkCleanFile(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not19, label %16, label %18
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call i32 @fputs(ptr noundef %13, ptr noundef nonnull %7)
+  %17 = tail call i32 @fputs(ptr noundef nonnull %13, ptr noundef nonnull %7)
   br label %18
 
 18:                                               ; preds = %16, %.lr.ph
-  %19 = tail call ptr @fgets(ptr noundef %13, i32 noundef 1000000, ptr noundef nonnull %2)
+  %19 = tail call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1000000, ptr noundef nonnull %2)
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
@@ -97,28 +97,28 @@ define void @Rtl_NtkCleanFile(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define void @Rtl_NtkCleanFile2(ptr noundef %0) local_unnamed_addr #0 {
@@ -152,11 +152,11 @@ define void @Rtl_NtkCleanFile2(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not19, label %16, label %18
 
 16:                                               ; preds = %.lr.ph
-  %17 = tail call i32 @fputs(ptr noundef %13, ptr noundef nonnull %7)
+  %17 = tail call i32 @fputs(ptr noundef nonnull %13, ptr noundef nonnull %7)
   br label %18
 
 18:                                               ; preds = %16, %.lr.ph
-  %19 = tail call ptr @fgets(ptr noundef %13, i32 noundef 1000000, ptr noundef nonnull %2)
+  %19 = tail call ptr @fgets(ptr noundef nonnull %13, i32 noundef 1000000, ptr noundef nonnull %2)
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
@@ -234,10 +234,10 @@ define range(i32 0, 2) i32 @Wln_ConvertToRtl(ptr noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Wln_ReadSystemVerilog(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -247,7 +247,7 @@ define ptr @Wln_ReadSystemVerilog(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not24, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = tail call ptr @Rtl_LibReadFile(ptr noundef %0, ptr noundef %0) #12
+  %9 = tail call ptr @Rtl_LibReadFile(ptr noundef nonnull %0, ptr noundef nonnull %0) #12
   br label %Wln_ConvertToRtl.exit.thread
 
 10:                                               ; preds = %5
@@ -281,7 +281,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   %23 = select i1 %.not26, ptr @.str.20, ptr %1
   %.not27 = icmp eq i32 %3, 0
   %24 = select i1 %.not27, ptr @.str.20, ptr @.str.23
-  %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %.0.i, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef %0, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @.str.15) #12
+  %25 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.18, ptr noundef %.0.i, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %0, ptr noundef nonnull %22, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull @.str.15) #12
   %.not28 = icmp eq i32 %4, 0
   br i1 %.not28, label %27, label %26
 
@@ -311,7 +311,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
 
 39:                                               ; preds = %33
   %40 = tail call i32 @fclose(ptr noundef nonnull %34)
-  %41 = tail call ptr @Rtl_LibReadFile(ptr noundef nonnull @.str.15, ptr noundef %0) #12
+  %41 = tail call ptr @Rtl_LibReadFile(ptr noundef nonnull @.str.15, ptr noundef nonnull %0) #12
   %42 = icmp eq ptr %41, null
   br i1 %42, label %43, label %45
 
@@ -332,10 +332,10 @@ Wln_ConvertToRtl.exit.thread:                     ; preds = %36, %30, %45, %43, 
 declare ptr @Rtl_LibReadFile(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define ptr @Wln_BlastSystemVerilog(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
@@ -375,7 +375,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   %.not44 = icmp eq i32 %6, 0
   %25 = select i1 %.not44, ptr @.str.32, ptr @.str.31
   %26 = select i1 %.not43, ptr @.str.20, ptr %25
-  %27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef %.0.i, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef %0, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef nonnull @.str.26) #12
+  %27 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) @.str.27, ptr noundef %.0.i, ptr noundef nonnull %19, ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %26, ptr noundef nonnull @.str.26) #12
   %.not45 = icmp eq i32 %7, 0
   br i1 %.not45, label %29, label %28
 
@@ -434,7 +434,7 @@ Wln_GetYosysName.exit:                            ; preds = %15, %17
   br label %58
 
 55:                                               ; preds = %49
-  %56 = tail call ptr @Extra_FileNameWithoutPath(ptr noundef %0) #12
+  %56 = tail call ptr @Extra_FileNameWithoutPath(ptr noundef nonnull %0) #12
   %57 = tail call ptr @Extra_FileNameGeneric(ptr noundef %56) #12
   br label %58
 
@@ -495,13 +495,13 @@ declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #5
 declare ptr @Extra_FileNameWithoutPath(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -206,7 +206,7 @@ declare void @grpc_slice_buffer_init(ptr noundef) local_unnamed_addr #1
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL23fake_handshaker_destroyP14tsi_handshaker(ptr noundef %self) #0 {
@@ -239,7 +239,7 @@ _ZL23tsi_fake_frame_destructP14tsi_fake_frame.exit6: ; preds = %_ZL23tsi_fake_fr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 9) i32 @_ZL20fake_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef writeonly %bytes_to_send, ptr noundef writeonly %bytes_to_send_size, ptr noundef writeonly %handshaker_result, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %error) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 9) i32 @_ZL20fake_handshaker_nextP14tsi_handshakerPKhmPS2_PmPP21tsi_handshaker_resultPFv10tsi_resultPvS2_mS6_ES9_PNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef captures(none) %self, ptr noundef %received_bytes, i64 noundef %received_bytes_size, ptr noundef writeonly %bytes_to_send, ptr noundef writeonly %bytes_to_send_size, ptr noundef writeonly %handshaker_result, ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %error) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %consumed_bytes_size = alloca i64, align 8
   %cmp = icmp ne i64 %received_bytes_size, 0
@@ -300,7 +300,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %if.en
   %arrayidx.i.i = getelementptr inbounds nuw [4 x ptr], ptr @_ZL34tsi_fake_handshake_message_strings, i64 0, i64 %indvars.iv.i.i
   %6 = load ptr, ptr %arrayidx.i.i, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
-  %call3.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i, ptr noundef %6, i64 noundef %call.i.i) #11
+  %call3.i.i = tail call i32 @strncmp(ptr noundef nonnull readonly %add.ptr.i, ptr noundef nonnull %6, i64 noundef %call.i.i) #11
   %cmp4.i.i = icmp eq i32 %call3.i.i, 0
   br i1 %cmp4.i.i, label %if.end10.i, label %for.inc.i.i
 
@@ -352,7 +352,7 @@ if.end.i24.i:                                     ; preds = %_ZL36tsi_fake_hands
 
 _ZL36tsi_fake_handshake_message_to_stringi.exit29.i: ; preds = %if.end.i24.i, %if.then.i28.i
   %retval.0.i27.i = phi ptr [ @.str.17, %if.then.i28.i ], [ %8, %if.end.i24.i ]
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 690, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef %retval.0.i21.i, ptr noundef %retval.0.i27.i)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 690, i32 noundef 2, ptr noundef nonnull @.str.4, ptr noundef nonnull %retval.0.i21.i, ptr noundef %retval.0.i27.i)
   br label %if.end15.i
 
 if.end15.i:                                       ; preds = %_ZL36tsi_fake_handshake_message_to_stringi.exit29.i, %if.end10.i
@@ -374,7 +374,7 @@ if.then.i35.i:                                    ; preds = %if.then17.i
 
 _ZL36tsi_fake_handshake_message_to_stringi.exit36.i: ; preds = %if.then.i35.i, %if.then17.i
   %retval.0.i34.i = phi ptr [ @.str.17, %if.then.i35.i ], [ %6, %if.then17.i ]
-  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 695, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull %.str.6..str.7.i, ptr noundef %retval.0.i34.i)
+  tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 695, i32 noundef 1, ptr noundef nonnull @.str.5, ptr noundef nonnull %.str.6..str.7.i, ptr noundef nonnull %retval.0.i34.i)
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %_ZL36tsi_fake_handshake_message_to_stringi.exit36.i, %if.end15.i
@@ -508,7 +508,7 @@ _ZL23tsi_fake_frame_set_dataPhmP14tsi_fake_frame.exit.i: ; preds = %if.then6.i.i
   store i8 %conv10.i.i.i, ptr %25, align 1
   %27 = load ptr, ptr %outgoing_frame.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %27, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr readonly align 1 %retval.0.i.i, i64 %call6.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i, ptr nonnull readonly align 1 %retval.0.i.i, i64 %call6.i, i1 false)
   store i64 0, ptr %offset.i.i49, align 8
   store i32 1, ptr %needs_draining.i, align 8
   %28 = tail call i32 @llvm.smin.i32(i32 %20, i32 2)
@@ -688,7 +688,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 8) i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %incoming_bytes, ptr nocapture noundef %incoming_bytes_size, ptr nocapture noundef %frame, ptr noundef %error) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 8) i32 @_ZL21tsi_fake_frame_decodePKhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %incoming_bytes, ptr noundef captures(none) %incoming_bytes_size, ptr noundef captures(none) %frame, ptr noundef %error) unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %incoming_bytes_size, align 8
   %needs_draining = getelementptr inbounds nuw i8, ptr %frame, i64 32
@@ -809,15 +809,15 @@ return:                                           ; preds = %if.then, %if.then1,
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35fake_handshaker_result_extract_peerPK21tsi_handshaker_resultP8tsi_peer(ptr nocapture readnone %0, ptr noundef %peer) #0 {
+define internal noundef i32 @_ZL35fake_handshaker_result_extract_peerPK21tsi_handshaker_resultP8tsi_peer(ptr readnone captures(none) %0, ptr noundef %peer) #0 {
 entry:
   %call = tail call noundef i32 @_Z18tsi_construct_peermP8tsi_peer(i64 noundef 2, ptr noundef %peer)
   %cmp.not = icmp eq i32 %call, 0
@@ -851,14 +851,14 @@ return:                                           ; preds = %if.end4, %if.then10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL47fake_handshaker_result_get_frame_protector_typePK21tsi_handshaker_resultP24tsi_frame_protector_type(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %frame_protector_type) #5 {
+define internal noundef i32 @_ZL47fake_handshaker_result_get_frame_protector_typePK21tsi_handshaker_resultP24tsi_frame_protector_type(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %frame_protector_type) #5 {
 entry:
   store i32 2, ptr %frame_protector_type, align 4
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL54fake_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr nocapture readnone %0, ptr noundef readonly %max_output_protected_frame_size, ptr nocapture noundef writeonly initializes((0, 8)) %protector) #0 {
+define internal noundef i32 @_ZL54fake_handshaker_result_create_zero_copy_grpc_protectorPK21tsi_handshaker_resultPmPP28tsi_zero_copy_grpc_protector(ptr readnone captures(none) %0, ptr noundef readonly %max_output_protected_frame_size, ptr noundef writeonly captures(none) initializes((0, 8)) %protector) #0 {
 entry:
   %call.i = tail call ptr @gpr_zalloc(i64 noundef 552)
   %header_sb.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
@@ -884,7 +884,7 @@ _Z40tsi_create_fake_zero_copy_grpc_protectorPm.exit: ; preds = %entry, %cond.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL45fake_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr nocapture readnone %0, ptr noundef readonly %max_output_protected_frame_size, ptr nocapture noundef writeonly initializes((0, 8)) %protector) #0 {
+define internal noundef i32 @_ZL45fake_handshaker_result_create_frame_protectorPK21tsi_handshaker_resultPmPP19tsi_frame_protector(ptr readnone captures(none) %0, ptr noundef readonly %max_output_protected_frame_size, ptr noundef writeonly captures(none) initializes((0, 8)) %protector) #0 {
 entry:
   %call.i.i = tail call noundef ptr @gpr_zalloc(i64 noundef 96)
   %cmp.i = icmp eq ptr %max_output_protected_frame_size, null
@@ -904,7 +904,7 @@ _Z31tsi_create_fake_frame_protectorPm.exit:       ; preds = %entry, %cond.false.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZL39fake_handshaker_result_get_unused_bytesPK21tsi_handshaker_resultPPKhPm(ptr nocapture noundef readonly %self, ptr nocapture noundef writeonly initializes((0, 8)) %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %bytes_size) #6 {
+define internal noundef i32 @_ZL39fake_handshaker_result_get_unused_bytesPK21tsi_handshaker_resultPPKhPm(ptr noundef readonly captures(none) %self, ptr noundef writeonly captures(none) initializes((0, 8)) %bytes, ptr noundef writeonly captures(none) initializes((0, 8)) %bytes_size) #6 {
 entry:
   %unused_bytes_size = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load i64, ptr %unused_bytes_size, align 8
@@ -934,7 +934,7 @@ declare void @_Z17tsi_peer_destructP8tsi_peer(ptr noundef) local_unnamed_addr #1
 declare noundef ptr @_Z28tsi_security_level_to_string18tsi_security_level(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 8) i32 @_ZL22fake_protector_protectP19tsi_frame_protectorPKhPmPhS3_(ptr nocapture noundef %self, ptr noundef %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size, ptr nocapture noundef writeonly %protected_output_frames, ptr nocapture noundef %protected_output_frames_size) #0 {
+define internal noundef range(i32 0, 8) i32 @_ZL22fake_protector_protectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef captures(none) %self, ptr noundef %unprotected_bytes, ptr noundef captures(none) %unprotected_bytes_size, ptr noundef writeonly captures(none) %protected_output_frames, ptr noundef captures(none) %protected_output_frames_size) #0 {
 entry:
   %frame_header = alloca [4 x i8], align 1
   %written_in_frame_size = alloca i64, align 8
@@ -1070,7 +1070,7 @@ return:                                           ; preds = %15, %_ZL21tsi_fake_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef range(i32 0, 8) i32 @_ZL28fake_protector_protect_flushP19tsi_frame_protectorPhPmS2_(ptr nocapture noundef %self, ptr nocapture noundef writeonly %protected_output_frames, ptr nocapture noundef %protected_output_frames_size, ptr nocapture noundef writeonly initializes((0, 8)) %still_pending_size) #7 {
+define internal noundef range(i32 0, 8) i32 @_ZL28fake_protector_protect_flushP19tsi_frame_protectorPhPmS2_(ptr noundef captures(none) %self, ptr noundef writeonly captures(none) %protected_output_frames, ptr noundef captures(none) %protected_output_frames_size, ptr noundef writeonly captures(none) initializes((0, 8)) %still_pending_size) #7 {
 entry:
   %protect_frame = getelementptr inbounds nuw i8, ptr %self, i64 8
   %needs_draining = getelementptr inbounds nuw i8, ptr %self, i64 40
@@ -1155,7 +1155,7 @@ _ZL21tsi_fake_frame_encodePhPmP14tsi_fake_framePNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 8) i32 @_ZL24fake_protector_unprotectP19tsi_frame_protectorPKhPmPhS3_(ptr nocapture noundef %self, ptr noundef %protected_frames_bytes, ptr nocapture noundef %protected_frames_bytes_size, ptr nocapture noundef writeonly %unprotected_bytes, ptr nocapture noundef %unprotected_bytes_size) #0 {
+define internal noundef range(i32 0, 8) i32 @_ZL24fake_protector_unprotectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef captures(none) %self, ptr noundef %protected_frames_bytes, ptr noundef captures(none) %protected_frames_bytes_size, ptr noundef writeonly captures(none) %unprotected_bytes, ptr noundef captures(none) %unprotected_bytes_size) #0 {
 entry:
   %unprotect_frame = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load i64, ptr %unprotected_bytes_size, align 8
@@ -1561,10 +1561,10 @@ declare void @grpc_slice_buffer_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

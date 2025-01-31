@@ -232,7 +232,7 @@ declare ptr @cm_zlib_zcalloc(ptr noundef, i32 noundef, i32 noundef) #1
 declare void @cm_zlib_zcfree(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -3, 1) i32 @cm_zlib_deflateEnd(ptr noundef %0) local_unnamed_addr #0 {
@@ -659,7 +659,7 @@ deflateStateCheck.exit.thread:                    ; preds = %23, %13, %17, %19, 
 declare i64 @cm_zlib_adler32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_window(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1042,7 +1042,7 @@ deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %3, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateResetKeep(ptr noundef %0) local_unnamed_addr #0 {
@@ -2922,7 +2922,7 @@ deflateStateCheck.exit.thread:                    ; preds = %654, %12, %16, %18,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @slide_hash(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc void @slide_hash(ptr noundef readonly captures(none) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -3202,7 +3202,7 @@ deflateStateCheck.exit:                           ; preds = %32, %32, %32, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @flush_pending(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @flush_pending(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @cm_zlib__tr_flush_bits(ptr noundef %3) #10
@@ -6074,7 +6074,7 @@ flush_pending.exit193:                            ; preds = %408, %423, %441
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @longest_match(ptr nocapture noundef %0, i32 noundef range(i32 1, 65536) %1) unnamed_addr #8 {
+define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 noundef range(i32 1, 65536) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96

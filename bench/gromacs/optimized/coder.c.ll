@@ -16,16 +16,16 @@ define ptr @Ptngc_coder_init() local_unnamed_addr #0 {
 declare ptr @Ptngc_warnmalloc_x(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Ptngc_coder_deinit(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Ptngc_coder_deinit(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   tail call void @free(ptr noundef %0) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ptngc_out8bits(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define void @Ptngc_out8bits(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 7
@@ -61,7 +61,7 @@ define void @Ptngc_out8bits(ptr nocapture noundef %0, ptr nocapture noundef %1) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ptngc_write_pattern(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define void @Ptngc_write_pattern(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = load i32, ptr %0, align 4
   %6 = shl i32 %5, %2
   store i32 %6, ptr %0, align 4
@@ -130,7 +130,7 @@ Ptngc_out8bits.exit:                              ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ptngc_writebits(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define void @Ptngc_writebits(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = load i32, ptr %0, align 4
   %6 = shl i32 %5, %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -168,7 +168,7 @@ Ptngc_out8bits.exit:                              ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ptngc_write32bits(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define void @Ptngc_write32bits(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %2, 7
   %6 = add nsw i32 %2, -8
   %7 = shl i32 255, %6
@@ -273,7 +273,7 @@ Ptngc_writebits.exit:                             ; preds = %.lr.ph.i.i, %40, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ptngc_writemanybits(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
+define void @Ptngc_writemanybits(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #4 {
   %5 = icmp sgt i32 %2, 23
   br i1 %5, label %.lr.ph, label %.preheader
 
@@ -452,7 +452,7 @@ Ptngc_writebits.exit29:                           ; preds = %.lr.ph.i.i28, %78, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ptngc_pack_flush(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define void @Ptngc_pack_flush(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1435,7 +1435,7 @@ declare i32 @llvm.umax.i32(i32, i32) #5
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

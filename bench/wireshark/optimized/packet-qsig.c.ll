@@ -4068,14 +4068,14 @@ get_err.exit.thread:                              ; preds = %18, %46, %51, %48, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ie_cs4(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ie_cs4(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_qsig_ie(ptr noundef %0, ptr noundef %2, i32 noundef 4)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ie_cs5(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ie_cs5(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_qsig_ie(ptr noundef %0, ptr noundef %2, i32 noundef 5)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   ret i32 %5
@@ -4146,7 +4146,7 @@ define internal i32 @dissect_qsig_T_extensionId(i1 noundef zeroext %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_T_extensionArgument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_qsig_T_extensionArgument(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = tail call ptr @tvb_new_subset_remaining(ptr noundef %1, i32 noundef %2) #4
   %8 = load ptr, ptr @extension_dissector_table, align 8
   %9 = load ptr, ptr @extension_oid, align 8
@@ -4364,7 +4364,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_na_NameArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_na_NameArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_na_qsig_na_NameArg_PDU, align 4
@@ -4374,7 +4374,7 @@ define internal i32 @dissect_qsig_na_NameArg_PDU(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_ARG_activateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_ARG_activateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_ARG_activateDiversionQ_PDU, align 4
@@ -4384,7 +4384,7 @@ define internal i32 @dissect_qsig_cf_ARG_activateDiversionQ_PDU(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_RES_activateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_RES_activateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_RES_activateDiversionQ_PDU, align 4
@@ -4394,7 +4394,7 @@ define internal i32 @dissect_qsig_cf_RES_activateDiversionQ_PDU(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_ARG_deactivateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_ARG_deactivateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_ARG_deactivateDiversionQ_PDU, align 4
@@ -4404,7 +4404,7 @@ define internal i32 @dissect_qsig_cf_ARG_deactivateDiversionQ_PDU(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_RES_deactivateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_RES_deactivateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_RES_deactivateDiversionQ_PDU, align 4
@@ -4414,7 +4414,7 @@ define internal i32 @dissect_qsig_cf_RES_deactivateDiversionQ_PDU(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_ARG_interrogateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_ARG_interrogateDiversionQ_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_ARG_interrogateDiversionQ_PDU, align 4
@@ -4424,7 +4424,7 @@ define internal i32 @dissect_qsig_cf_ARG_interrogateDiversionQ_PDU(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_IntResultList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_IntResultList_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_IntResultList_PDU, align 4
@@ -4434,7 +4434,7 @@ define internal i32 @dissect_qsig_cf_IntResultList_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_ARG_checkRestriction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_ARG_checkRestriction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_ARG_checkRestriction_PDU, align 4
@@ -4444,7 +4444,7 @@ define internal i32 @dissect_qsig_cf_ARG_checkRestriction_PDU(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_RES_checkRestriction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_RES_checkRestriction_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_RES_checkRestriction_PDU, align 4
@@ -4454,7 +4454,7 @@ define internal i32 @dissect_qsig_cf_RES_checkRestriction_PDU(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_ARG_callRerouteing_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_ARG_callRerouteing_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_ARG_callRerouteing_PDU, align 4
@@ -4464,7 +4464,7 @@ define internal i32 @dissect_qsig_cf_ARG_callRerouteing_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_RES_callRerouteing_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_RES_callRerouteing_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_RES_callRerouteing_PDU, align 4
@@ -4474,7 +4474,7 @@ define internal i32 @dissect_qsig_cf_RES_callRerouteing_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_ARG_divertingLegInformation1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_ARG_divertingLegInformation1_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_ARG_divertingLegInformation1_PDU, align 4
@@ -4484,7 +4484,7 @@ define internal i32 @dissect_qsig_cf_ARG_divertingLegInformation1_PDU(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_ARG_divertingLegInformation2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_ARG_divertingLegInformation2_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_ARG_divertingLegInformation2_PDU, align 4
@@ -4494,7 +4494,7 @@ define internal i32 @dissect_qsig_cf_ARG_divertingLegInformation2_PDU(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_ARG_divertingLegInformation3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_ARG_divertingLegInformation3_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_ARG_divertingLegInformation3_PDU, align 4
@@ -4504,7 +4504,7 @@ define internal i32 @dissect_qsig_cf_ARG_divertingLegInformation3_PDU(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_ARG_cfnrDivertedLegFailed_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_ARG_cfnrDivertedLegFailed_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_ARG_cfnrDivertedLegFailed_PDU, align 4
@@ -4514,7 +4514,7 @@ define internal i32 @dissect_qsig_cf_ARG_cfnrDivertedLegFailed_PDU(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pr_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pr_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pr_qsig_pr_DummyArg_PDU, align 4
@@ -4524,7 +4524,7 @@ define internal i32 @dissect_qsig_pr_DummyArg_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pr_PRProposeArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pr_PRProposeArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pr_qsig_pr_PRProposeArg_PDU, align 4
@@ -4534,7 +4534,7 @@ define internal i32 @dissect_qsig_pr_PRProposeArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pr_PRSetupArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pr_PRSetupArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pr_qsig_pr_PRSetupArg_PDU, align 4
@@ -4544,7 +4544,7 @@ define internal i32 @dissect_qsig_pr_PRSetupArg_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pr_DummyResult_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pr_DummyResult_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pr_qsig_pr_DummyResult_PDU, align 4
@@ -4554,7 +4554,7 @@ define internal i32 @dissect_qsig_pr_DummyResult_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pr_PRRetainArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pr_PRRetainArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pr_qsig_pr_PRRetainArg_PDU, align 4
@@ -4564,7 +4564,7 @@ define internal i32 @dissect_qsig_pr_PRRetainArg_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_DummyArg_PDU, align 4
@@ -4574,7 +4574,7 @@ define internal i32 @dissect_qsig_ct_DummyArg_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_CTIdentifyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_CTIdentifyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_CTIdentifyRes_PDU, align 4
@@ -4584,7 +4584,7 @@ define internal i32 @dissect_qsig_ct_CTIdentifyRes_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_CTInitiateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_CTInitiateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_CTInitiateArg_PDU, align 4
@@ -4594,7 +4594,7 @@ define internal i32 @dissect_qsig_ct_CTInitiateArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_DummyRes_PDU, align 4
@@ -4604,7 +4604,7 @@ define internal i32 @dissect_qsig_ct_DummyRes_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_CTSetupArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_CTSetupArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_CTSetupArg_PDU, align 4
@@ -4614,7 +4614,7 @@ define internal i32 @dissect_qsig_ct_CTSetupArg_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_CTActiveArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_CTActiveArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_CTActiveArg_PDU, align 4
@@ -4624,7 +4624,7 @@ define internal i32 @dissect_qsig_ct_CTActiveArg_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_CTCompleteArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_CTCompleteArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_CTCompleteArg_PDU, align 4
@@ -4634,7 +4634,7 @@ define internal i32 @dissect_qsig_ct_CTCompleteArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_CTUpdateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_CTUpdateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_CTUpdateArg_PDU, align 4
@@ -4644,7 +4644,7 @@ define internal i32 @dissect_qsig_ct_CTUpdateArg_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_SubaddressTransferArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_SubaddressTransferArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_SubaddressTransferArg_PDU, align 4
@@ -4654,7 +4654,7 @@ define internal i32 @dissect_qsig_ct_SubaddressTransferArg_PDU(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cc_CcRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cc_CcRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cc_qsig_cc_CcRequestArg_PDU, align 4
@@ -4664,7 +4664,7 @@ define internal i32 @dissect_qsig_cc_CcRequestArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cc_CcRequestRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cc_CcRequestRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cc_qsig_cc_CcRequestRes_PDU, align 4
@@ -4674,7 +4674,7 @@ define internal i32 @dissect_qsig_cc_CcRequestRes_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cc_CcOptionalArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cc_CcOptionalArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cc_qsig_cc_CcOptionalArg_PDU, align 4
@@ -4684,7 +4684,7 @@ define internal i32 @dissect_qsig_cc_CcOptionalArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cc_CcExtension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cc_CcExtension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cc_qsig_cc_CcExtension_PDU, align 4
@@ -4694,7 +4694,7 @@ define internal i32 @dissect_qsig_cc_CcExtension_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_co_PathRetainArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_co_PathRetainArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_co_qsig_co_PathRetainArg_PDU, align 4
@@ -4704,7 +4704,7 @@ define internal i32 @dissect_qsig_co_PathRetainArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_co_ServiceAvailableArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_co_ServiceAvailableArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_co_qsig_co_ServiceAvailableArg_PDU, align 4
@@ -4714,7 +4714,7 @@ define internal i32 @dissect_qsig_co_ServiceAvailableArg_PDU(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_co_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_co_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_co_qsig_co_DummyArg_PDU, align 4
@@ -4724,7 +4724,7 @@ define internal i32 @dissect_qsig_co_DummyArg_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_co_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_co_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_co_qsig_co_DummyRes_PDU, align 4
@@ -4734,7 +4734,7 @@ define internal i32 @dissect_qsig_co_DummyRes_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_DNDActivateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_DNDActivateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_DNDActivateArg_PDU, align 4
@@ -4744,7 +4744,7 @@ define internal i32 @dissect_qsig_dnd_DNDActivateArg_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_DNDActivateRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_DNDActivateRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_DNDActivateRes_PDU, align 4
@@ -4754,7 +4754,7 @@ define internal i32 @dissect_qsig_dnd_DNDActivateRes_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_DNDDeactivateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_DNDDeactivateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_DNDDeactivateArg_PDU, align 4
@@ -4764,7 +4764,7 @@ define internal i32 @dissect_qsig_dnd_DNDDeactivateArg_PDU(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_DummyRes_PDU, align 4
@@ -4774,7 +4774,7 @@ define internal i32 @dissect_qsig_dnd_DummyRes_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_DNDInterrogateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_DNDInterrogateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_DNDInterrogateArg_PDU, align 4
@@ -4784,7 +4784,7 @@ define internal i32 @dissect_qsig_dnd_DNDInterrogateArg_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_DNDInterrogateRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_DNDInterrogateRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_DNDInterrogateRes_PDU, align 4
@@ -4794,7 +4794,7 @@ define internal i32 @dissect_qsig_dnd_DNDInterrogateRes_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_DNDOverrideArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_DNDOverrideArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_DNDOverrideArg_PDU, align 4
@@ -4804,7 +4804,7 @@ define internal i32 @dissect_qsig_dnd_DNDOverrideArg_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_PathRetainArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_PathRetainArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_PathRetainArg_PDU, align 4
@@ -4814,7 +4814,7 @@ define internal i32 @dissect_qsig_dnd_PathRetainArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_ServiceAvailableArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_ServiceAvailableArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_ServiceAvailableArg_PDU, align 4
@@ -4824,7 +4824,7 @@ define internal i32 @dissect_qsig_dnd_ServiceAvailableArg_PDU(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_DummyArg_PDU, align 4
@@ -4834,7 +4834,7 @@ define internal i32 @dissect_qsig_dnd_DummyArg_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ci_PathRetainArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ci_PathRetainArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ci_qsig_ci_PathRetainArg_PDU, align 4
@@ -4844,7 +4844,7 @@ define internal i32 @dissect_qsig_ci_PathRetainArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ci_ServiceAvailableArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ci_ServiceAvailableArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ci_qsig_ci_ServiceAvailableArg_PDU, align 4
@@ -4854,7 +4854,7 @@ define internal i32 @dissect_qsig_ci_ServiceAvailableArg_PDU(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ci_CIRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ci_CIRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ci_qsig_ci_CIRequestArg_PDU, align 4
@@ -4864,7 +4864,7 @@ define internal i32 @dissect_qsig_ci_CIRequestArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ci_CIRequestRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ci_CIRequestRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ci_qsig_ci_CIRequestRes_PDU, align 4
@@ -4874,7 +4874,7 @@ define internal i32 @dissect_qsig_ci_CIRequestRes_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ci_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ci_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ci_qsig_ci_DummyArg_PDU, align 4
@@ -4884,7 +4884,7 @@ define internal i32 @dissect_qsig_ci_DummyArg_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ci_CIGetCIPLRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ci_CIGetCIPLRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ci_qsig_ci_CIGetCIPLRes_PDU, align 4
@@ -4894,7 +4894,7 @@ define internal i32 @dissect_qsig_ci_CIGetCIPLRes_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ci_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ci_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ci_qsig_ci_DummyRes_PDU, align 4
@@ -4904,7 +4904,7 @@ define internal i32 @dissect_qsig_ci_DummyRes_PDU(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_AocRateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_AocRateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_AocRateArg_PDU, align 4
@@ -4914,7 +4914,7 @@ define internal i32 @dissect_qsig_aoc_AocRateArg_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_AocInterimArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_AocInterimArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_AocInterimArg_PDU, align 4
@@ -4924,7 +4924,7 @@ define internal i32 @dissect_qsig_aoc_AocInterimArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_AocFinalArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_AocFinalArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_AocFinalArg_PDU, align 4
@@ -4934,7 +4934,7 @@ define internal i32 @dissect_qsig_aoc_AocFinalArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_ChargeRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_ChargeRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_ChargeRequestArg_PDU, align 4
@@ -4944,7 +4944,7 @@ define internal i32 @dissect_qsig_aoc_ChargeRequestArg_PDU(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_ChargeRequestRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_ChargeRequestRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_ChargeRequestRes_PDU, align 4
@@ -4954,7 +4954,7 @@ define internal i32 @dissect_qsig_aoc_ChargeRequestRes_PDU(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_DummyArg_PDU, align 4
@@ -4964,7 +4964,7 @@ define internal i32 @dissect_qsig_aoc_DummyArg_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_AocCompleteArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_AocCompleteArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_AocCompleteArg_PDU, align 4
@@ -4974,7 +4974,7 @@ define internal i32 @dissect_qsig_aoc_AocCompleteArg_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_AocCompleteRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_AocCompleteRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_AocCompleteRes_PDU, align 4
@@ -4984,7 +4984,7 @@ define internal i32 @dissect_qsig_aoc_AocCompleteRes_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_AocDivChargeReqArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_AocDivChargeReqArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_AocDivChargeReqArg_PDU, align 4
@@ -4994,7 +4994,7 @@ define internal i32 @dissect_qsig_aoc_AocDivChargeReqArg_PDU(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_re_ReAlertingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_re_ReAlertingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_re_qsig_re_ReAlertingArg_PDU, align 4
@@ -5004,7 +5004,7 @@ define internal i32 @dissect_qsig_re_ReAlertingArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_re_ReAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_re_ReAnswerArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_re_qsig_re_ReAnswerArg_PDU, align 4
@@ -5014,7 +5014,7 @@ define internal i32 @dissect_qsig_re_ReAnswerArg_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sync_SynchronizationReqArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sync_SynchronizationReqArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sync_qsig_sync_SynchronizationReqArg_PDU, align 4
@@ -5024,7 +5024,7 @@ define internal i32 @dissect_qsig_sync_SynchronizationReqArg_PDU(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sync_SynchronizationReqRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sync_SynchronizationReqRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sync_qsig_sync_SynchronizationReqRes_PDU, align 4
@@ -5034,7 +5034,7 @@ define internal i32 @dissect_qsig_sync_SynchronizationReqRes_PDU(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sync_SynchronizationInfoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sync_SynchronizationInfoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sync_qsig_sync_SynchronizationInfoArg_PDU, align 4
@@ -5044,7 +5044,7 @@ define internal i32 @dissect_qsig_sync_SynchronizationInfoArg_PDU(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cint_CintInformation1Arg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cint_CintInformation1Arg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cint_qsig_cint_CintInformation1Arg_PDU, align 4
@@ -5054,7 +5054,7 @@ define internal i32 @dissect_qsig_cint_CintInformation1Arg_PDU(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cint_CintInformation2Arg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cint_CintInformation2Arg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cint_qsig_cint_CintInformation2Arg_PDU, align 4
@@ -5064,7 +5064,7 @@ define internal i32 @dissect_qsig_cint_CintInformation2Arg_PDU(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cint_CintCondArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cint_CintCondArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cint_qsig_cint_CintCondArg_PDU, align 4
@@ -5074,7 +5074,7 @@ define internal i32 @dissect_qsig_cint_CintCondArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cint_CintExtension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cint_CintExtension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cint_qsig_cint_CintExtension_PDU, align 4
@@ -5084,7 +5084,7 @@ define internal i32 @dissect_qsig_cint_CintExtension_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cmn_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cmn_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cmn_qsig_cmn_DummyArg_PDU, align 4
@@ -5094,7 +5094,7 @@ define internal i32 @dissect_qsig_cmn_DummyArg_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cmn_CmnArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cmn_CmnArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cmn_qsig_cmn_CmnArg_PDU, align 4
@@ -5104,7 +5104,7 @@ define internal i32 @dissect_qsig_cmn_CmnArg_PDU(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cpi_CPIRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cpi_CPIRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cpi_qsig_cpi_CPIRequestArg_PDU, align 4
@@ -5114,7 +5114,7 @@ define internal i32 @dissect_qsig_cpi_CPIRequestArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cpi_CPIPRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cpi_CPIPRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cpi_qsig_cpi_CPIPRequestArg_PDU, align 4
@@ -5124,7 +5124,7 @@ define internal i32 @dissect_qsig_cpi_CPIPRequestArg_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumr_PumRegistrArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumr_PumRegistrArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumr_qsig_pumr_PumRegistrArg_PDU, align 4
@@ -5134,7 +5134,7 @@ define internal i32 @dissect_qsig_pumr_PumRegistrArg_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumr_PumRegistrRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumr_PumRegistrRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumr_qsig_pumr_PumRegistrRes_PDU, align 4
@@ -5144,7 +5144,7 @@ define internal i32 @dissect_qsig_pumr_PumRegistrRes_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumr_PumDelRegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumr_PumDelRegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumr_qsig_pumr_PumDelRegArg_PDU, align 4
@@ -5154,7 +5154,7 @@ define internal i32 @dissect_qsig_pumr_PumDelRegArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumr_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumr_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumr_qsig_pumr_DummyRes_PDU, align 4
@@ -5164,7 +5164,7 @@ define internal i32 @dissect_qsig_pumr_DummyRes_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumr_PumDe_regArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumr_PumDe_regArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumr_qsig_pumr_PumDe_regArg_PDU, align 4
@@ -5174,7 +5174,7 @@ define internal i32 @dissect_qsig_pumr_PumDe_regArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumr_PumInterrogArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumr_PumInterrogArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumr_qsig_pumr_PumInterrogArg_PDU, align 4
@@ -5184,7 +5184,7 @@ define internal i32 @dissect_qsig_pumr_PumInterrogArg_PDU(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumr_PumInterrogRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumr_PumInterrogRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumr_qsig_pumr_PumInterrogRes_PDU, align 4
@@ -5194,7 +5194,7 @@ define internal i32 @dissect_qsig_pumr_PumInterrogRes_PDU(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumch_EnquiryArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumch_EnquiryArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumch_qsig_pumch_EnquiryArg_PDU, align 4
@@ -5204,7 +5204,7 @@ define internal i32 @dissect_qsig_pumch_EnquiryArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumch_EnquiryRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumch_EnquiryRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumch_qsig_pumch_EnquiryRes_PDU, align 4
@@ -5214,7 +5214,7 @@ define internal i32 @dissect_qsig_pumch_EnquiryRes_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumch_DivertArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumch_DivertArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumch_qsig_pumch_DivertArg_PDU, align 4
@@ -5224,7 +5224,7 @@ define internal i32 @dissect_qsig_pumch_DivertArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumch_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumch_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumch_qsig_pumch_DummyRes_PDU, align 4
@@ -5234,7 +5234,7 @@ define internal i32 @dissect_qsig_pumch_DummyRes_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumch_InformArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumch_InformArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumch_qsig_pumch_InformArg_PDU, align 4
@@ -5244,7 +5244,7 @@ define internal i32 @dissect_qsig_pumch_InformArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumch_PumoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumch_PumoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumch_qsig_pumch_PumoArg_PDU, align 4
@@ -5254,7 +5254,7 @@ define internal i32 @dissect_qsig_pumch_PumoArg_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ssct_SSCTInitiateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ssct_SSCTInitiateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ssct_qsig_ssct_SSCTInitiateArg_PDU, align 4
@@ -5264,7 +5264,7 @@ define internal i32 @dissect_qsig_ssct_SSCTInitiateArg_PDU(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ssct_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ssct_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ssct_qsig_ssct_DummyRes_PDU, align 4
@@ -5274,7 +5274,7 @@ define internal i32 @dissect_qsig_ssct_DummyRes_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ssct_SSCTSetupArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ssct_SSCTSetupArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ssct_qsig_ssct_SSCTSetupArg_PDU, align 4
@@ -5284,7 +5284,7 @@ define internal i32 @dissect_qsig_ssct_SSCTSetupArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ssct_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ssct_DummyArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ssct_qsig_ssct_DummyArg_PDU, align 4
@@ -5294,7 +5294,7 @@ define internal i32 @dissect_qsig_ssct_DummyArg_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ssct_SSCTDigitInfoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ssct_SSCTDigitInfoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ssct_qsig_ssct_SSCTDigitInfoArg_PDU, align 4
@@ -5304,7 +5304,7 @@ define internal i32 @dissect_qsig_ssct_SSCTDigitInfoArg_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_LocUpdArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_LocUpdArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_LocUpdArg_PDU, align 4
@@ -5314,7 +5314,7 @@ define internal i32 @dissect_qsig_wtmlr_LocUpdArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_DummyRes_PDU, align 4
@@ -5324,7 +5324,7 @@ define internal i32 @dissect_qsig_wtmlr_DummyRes_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_LocDelArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_LocDelArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_LocDelArg_PDU, align 4
@@ -5334,7 +5334,7 @@ define internal i32 @dissect_qsig_wtmlr_LocDelArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_LocDeRegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_LocDeRegArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_LocDeRegArg_PDU, align 4
@@ -5344,7 +5344,7 @@ define internal i32 @dissect_qsig_wtmlr_LocDeRegArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_PisnEnqArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_PisnEnqArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_PisnEnqArg_PDU, align 4
@@ -5354,7 +5354,7 @@ define internal i32 @dissect_qsig_wtmlr_PisnEnqArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_PisnEnqRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_PisnEnqRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_PisnEnqRes_PDU, align 4
@@ -5364,7 +5364,7 @@ define internal i32 @dissect_qsig_wtmlr_PisnEnqRes_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_GetRRCInfArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_GetRRCInfArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_GetRRCInfArg_PDU, align 4
@@ -5374,7 +5374,7 @@ define internal i32 @dissect_qsig_wtmlr_GetRRCInfArg_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_GetRRCInfRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_GetRRCInfRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_GetRRCInfRes_PDU, align 4
@@ -5384,7 +5384,7 @@ define internal i32 @dissect_qsig_wtmlr_GetRRCInfRes_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_LocInfoCheckArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_LocInfoCheckArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_LocInfoCheckArg_PDU, align 4
@@ -5394,7 +5394,7 @@ define internal i32 @dissect_qsig_wtmlr_LocInfoCheckArg_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_LocInfoCheckRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_LocInfoCheckRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_LocInfoCheckRes_PDU, align 4
@@ -5404,7 +5404,7 @@ define internal i32 @dissect_qsig_wtmlr_LocInfoCheckRes_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmch_EnquiryArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmch_EnquiryArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmch_qsig_wtmch_EnquiryArg_PDU, align 4
@@ -5414,7 +5414,7 @@ define internal i32 @dissect_qsig_wtmch_EnquiryArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmch_EnquiryRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmch_EnquiryRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmch_qsig_wtmch_EnquiryRes_PDU, align 4
@@ -5424,7 +5424,7 @@ define internal i32 @dissect_qsig_wtmch_EnquiryRes_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmch_DivertArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmch_DivertArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmch_qsig_wtmch_DivertArg_PDU, align 4
@@ -5434,7 +5434,7 @@ define internal i32 @dissect_qsig_wtmch_DivertArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmch_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmch_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmch_qsig_wtmch_DummyRes_PDU, align 4
@@ -5444,7 +5444,7 @@ define internal i32 @dissect_qsig_wtmch_DummyRes_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmch_InformArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmch_InformArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmch_qsig_wtmch_InformArg_PDU, align 4
@@ -5454,7 +5454,7 @@ define internal i32 @dissect_qsig_wtmch_InformArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmch_WtmoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmch_WtmoArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmch_qsig_wtmch_WtmoArg_PDU, align 4
@@ -5464,7 +5464,7 @@ define internal i32 @dissect_qsig_wtmch_WtmoArg_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmau_AuthWtmArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmau_AuthWtmArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmau_qsig_wtmau_AuthWtmArg_PDU, align 4
@@ -5474,7 +5474,7 @@ define internal i32 @dissect_qsig_wtmau_AuthWtmArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmau_AuthWtmRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmau_AuthWtmRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmau_qsig_wtmau_AuthWtmRes_PDU, align 4
@@ -5484,7 +5484,7 @@ define internal i32 @dissect_qsig_wtmau_AuthWtmRes_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmau_WtatParamArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmau_WtatParamArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmau_qsig_wtmau_WtatParamArg_PDU, align 4
@@ -5494,7 +5494,7 @@ define internal i32 @dissect_qsig_wtmau_WtatParamArg_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmau_WtatParamRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmau_WtatParamRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmau_qsig_wtmau_WtatParamRes_PDU, align 4
@@ -5504,7 +5504,7 @@ define internal i32 @dissect_qsig_wtmau_WtatParamRes_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmau_WtanParamArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmau_WtanParamArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmau_qsig_wtmau_WtanParamArg_PDU, align 4
@@ -5514,7 +5514,7 @@ define internal i32 @dissect_qsig_wtmau_WtanParamArg_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmau_WtanParamRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmau_WtanParamRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmau_qsig_wtmau_WtanParamRes_PDU, align 4
@@ -5524,7 +5524,7 @@ define internal i32 @dissect_qsig_wtmau_WtanParamRes_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmau_ARG_transferAuthParam_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmau_ARG_transferAuthParam_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmau_qsig_wtmau_ARG_transferAuthParam_PDU, align 4
@@ -5534,7 +5534,7 @@ define internal i32 @dissect_qsig_wtmau_ARG_transferAuthParam_PDU(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sd_DisplayArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sd_DisplayArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sd_qsig_sd_DisplayArg_PDU, align 4
@@ -5544,7 +5544,7 @@ define internal i32 @dissect_qsig_sd_DisplayArg_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sd_KeypadArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sd_KeypadArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sd_qsig_sd_KeypadArg_PDU, align 4
@@ -5554,7 +5554,7 @@ define internal i32 @dissect_qsig_sd_KeypadArg_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cidl_CallIdentificationAssignArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cidl_CallIdentificationAssignArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cidl_qsig_cidl_CallIdentificationAssignArg_PDU, align 4
@@ -5564,7 +5564,7 @@ define internal i32 @dissect_qsig_cidl_CallIdentificationAssignArg_PDU(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cidl_CallIdentificationUpdateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cidl_CallIdentificationUpdateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cidl_qsig_cidl_CallIdentificationUpdateArg_PDU, align 4
@@ -5574,7 +5574,7 @@ define internal i32 @dissect_qsig_cidl_CallIdentificationUpdateArg_PDU(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_SmsSubmitArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_SmsSubmitArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_SmsSubmitArg_PDU, align 4
@@ -5584,7 +5584,7 @@ define internal i32 @dissect_qsig_sms_SmsSubmitArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_SmsSubmitRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_SmsSubmitRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_SmsSubmitRes_PDU, align 4
@@ -5594,7 +5594,7 @@ define internal i32 @dissect_qsig_sms_SmsSubmitRes_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_SmsDeliverArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_SmsDeliverArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_SmsDeliverArg_PDU, align 4
@@ -5604,7 +5604,7 @@ define internal i32 @dissect_qsig_sms_SmsDeliverArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_SmsDeliverRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_SmsDeliverRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_SmsDeliverRes_PDU, align 4
@@ -5614,7 +5614,7 @@ define internal i32 @dissect_qsig_sms_SmsDeliverRes_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_SmsStatusReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_SmsStatusReportArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_SmsStatusReportArg_PDU, align 4
@@ -5624,7 +5624,7 @@ define internal i32 @dissect_qsig_sms_SmsStatusReportArg_PDU(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_SmsStatusReportRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_SmsStatusReportRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_SmsStatusReportRes_PDU, align 4
@@ -5634,7 +5634,7 @@ define internal i32 @dissect_qsig_sms_SmsStatusReportRes_PDU(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_SmsCommandArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_SmsCommandArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_SmsCommandArg_PDU, align 4
@@ -5644,7 +5644,7 @@ define internal i32 @dissect_qsig_sms_SmsCommandArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_SmsCommandRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_SmsCommandRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_SmsCommandRes_PDU, align 4
@@ -5654,7 +5654,7 @@ define internal i32 @dissect_qsig_sms_SmsCommandRes_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_ScAlertArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_ScAlertArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_ScAlertArg_PDU, align 4
@@ -5664,7 +5664,7 @@ define internal i32 @dissect_qsig_sms_ScAlertArg_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_DummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_DummyRes_PDU, align 4
@@ -5674,7 +5674,7 @@ define internal i32 @dissect_qsig_sms_DummyRes_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcr_MCRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcr_MCRequestArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcr_qsig_mcr_MCRequestArg_PDU, align 4
@@ -5684,7 +5684,7 @@ define internal i32 @dissect_qsig_mcr_MCRequestArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcr_MCRequestResult_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcr_MCRequestResult_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcr_qsig_mcr_MCRequestResult_PDU, align 4
@@ -5694,7 +5694,7 @@ define internal i32 @dissect_qsig_mcr_MCRequestResult_PDU(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcr_MCInformArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcr_MCInformArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcr_qsig_mcr_MCInformArg_PDU, align 4
@@ -5704,7 +5704,7 @@ define internal i32 @dissect_qsig_mcr_MCInformArg_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcr_MCAlertingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcr_MCAlertingArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcr_qsig_mcr_MCAlertingArg_PDU, align 4
@@ -5714,7 +5714,7 @@ define internal i32 @dissect_qsig_mcr_MCAlertingArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMNewMsgArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMNewMsgArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMNewMsgArg_PDU, align 4
@@ -5724,7 +5724,7 @@ define internal i32 @dissect_qsig_mcm_MCMNewMsgArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMDummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMDummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMDummyRes_PDU, align 4
@@ -5734,7 +5734,7 @@ define internal i32 @dissect_qsig_mcm_MCMDummyRes_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMNoNewMsgArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMNoNewMsgArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMNoNewMsgArg_PDU, align 4
@@ -5744,7 +5744,7 @@ define internal i32 @dissect_qsig_mcm_MCMNoNewMsgArg_PDU(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMUpdateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMUpdateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMUpdateArg_PDU, align 4
@@ -5754,7 +5754,7 @@ define internal i32 @dissect_qsig_mcm_MCMUpdateArg_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMUpdateReqArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMUpdateReqArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMUpdateReqArg_PDU, align 4
@@ -5764,7 +5764,7 @@ define internal i32 @dissect_qsig_mcm_MCMUpdateReqArg_PDU(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMUpdateReqRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMUpdateReqRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMUpdateReqRes_PDU, align 4
@@ -5774,7 +5774,7 @@ define internal i32 @dissect_qsig_mcm_MCMUpdateReqRes_PDU(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMServiceArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMServiceArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMServiceArg_PDU, align 4
@@ -5784,7 +5784,7 @@ define internal i32 @dissect_qsig_mcm_MCMServiceArg_PDU(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMInterrogateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMInterrogateArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMInterrogateArg_PDU, align 4
@@ -5794,7 +5794,7 @@ define internal i32 @dissect_qsig_mcm_MCMInterrogateArg_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMInterrogateRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMInterrogateRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMInterrogateRes_PDU, align 4
@@ -5804,7 +5804,7 @@ define internal i32 @dissect_qsig_mcm_MCMInterrogateRes_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_MCMailboxFullArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_MCMailboxFullArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_MCMailboxFullArg_PDU, align 4
@@ -5814,7 +5814,7 @@ define internal i32 @dissect_qsig_mcm_MCMailboxFullArg_PDU(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mid_MIDMailboxAuthArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mid_MIDMailboxAuthArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mid_qsig_mid_MIDMailboxAuthArg_PDU, align 4
@@ -5824,7 +5824,7 @@ define internal i32 @dissect_qsig_mid_MIDMailboxAuthArg_PDU(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mid_MIDDummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mid_MIDDummyRes_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mid_qsig_mid_MIDDummyRes_PDU, align 4
@@ -5834,7 +5834,7 @@ define internal i32 @dissect_qsig_mid_MIDDummyRes_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mid_MIDMailboxIDArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mid_MIDMailboxIDArg_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mid_qsig_mid_MIDMailboxIDArg_PDU, align 4
@@ -7380,7 +7380,7 @@ define internal i32 @dissect_qsig_wtmau_DefinedIDs(i1 noundef zeroext %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_qsig_wtmau_T_param(i1 zeroext %0, ptr nocapture readnone %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #3 {
+define internal noundef i32 @dissect_qsig_wtmau_T_param(i1 zeroext %0, ptr readnone captures(none) %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #3 {
   ret i32 %2
 }
 
@@ -8083,7 +8083,7 @@ define internal i32 @dissect_qsig_mid_SEQUENCE_OF_Extension(i1 noundef zeroext %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cf_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cf_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cf_qsig_cf_Extension_PDU, align 4
@@ -8094,7 +8094,7 @@ define internal i32 @dissect_qsig_cf_Extension_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pr_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pr_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pr_qsig_pr_Extension_PDU, align 4
@@ -8105,7 +8105,7 @@ define internal i32 @dissect_qsig_pr_Extension_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ct_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ct_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ct_qsig_ct_Extension_PDU, align 4
@@ -8116,7 +8116,7 @@ define internal i32 @dissect_qsig_ct_Extension_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_cc_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_cc_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_cc_qsig_cc_Extension_PDU, align 4
@@ -8127,7 +8127,7 @@ define internal i32 @dissect_qsig_cc_Extension_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_co_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_co_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_co_qsig_co_Extension_PDU, align 4
@@ -8138,7 +8138,7 @@ define internal i32 @dissect_qsig_co_Extension_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_dnd_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_dnd_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_dnd_qsig_dnd_Extension_PDU, align 4
@@ -8149,7 +8149,7 @@ define internal i32 @dissect_qsig_dnd_Extension_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ci_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ci_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ci_qsig_ci_Extension_PDU, align 4
@@ -8160,7 +8160,7 @@ define internal i32 @dissect_qsig_ci_Extension_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_aoc_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_aoc_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_aoc_qsig_aoc_Extension_PDU, align 4
@@ -8171,7 +8171,7 @@ define internal i32 @dissect_qsig_aoc_Extension_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sync_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sync_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sync_qsig_sync_Extension_PDU, align 4
@@ -8182,7 +8182,7 @@ define internal i32 @dissect_qsig_sync_Extension_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumr_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumr_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumr_qsig_pumr_Extension_PDU, align 4
@@ -8193,7 +8193,7 @@ define internal i32 @dissect_qsig_pumr_Extension_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_pumch_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_pumch_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_pumch_qsig_pumch_Extension_PDU, align 4
@@ -8204,7 +8204,7 @@ define internal i32 @dissect_qsig_pumch_Extension_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_ssct_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_ssct_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_ssct_qsig_ssct_Extension_PDU, align 4
@@ -8215,7 +8215,7 @@ define internal i32 @dissect_qsig_ssct_Extension_PDU(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmlr_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmlr_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmlr_qsig_wtmlr_Extension_PDU, align 4
@@ -8226,7 +8226,7 @@ define internal i32 @dissect_qsig_wtmlr_Extension_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmch_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmch_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmch_qsig_wtmch_Extension_PDU, align 4
@@ -8237,7 +8237,7 @@ define internal i32 @dissect_qsig_wtmch_Extension_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_wtmau_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_wtmau_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_wtmau_qsig_wtmau_Extension_PDU, align 4
@@ -8248,7 +8248,7 @@ define internal i32 @dissect_qsig_wtmau_Extension_PDU(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sd_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sd_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sd_qsig_sd_Extension_PDU, align 4
@@ -8259,7 +8259,7 @@ define internal i32 @dissect_qsig_sd_Extension_PDU(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_PAR_smsDeliverError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_PAR_smsDeliverError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_PAR_smsDeliverError_PDU, align 4
@@ -8269,7 +8269,7 @@ define internal i32 @dissect_qsig_sms_PAR_smsDeliverError_PDU(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_PAR_smsSubmitError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_PAR_smsSubmitError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_PAR_smsSubmitError_PDU, align 4
@@ -8279,7 +8279,7 @@ define internal i32 @dissect_qsig_sms_PAR_smsSubmitError_PDU(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_PAR_smsStatusReportError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_PAR_smsStatusReportError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_PAR_smsStatusReportError_PDU, align 4
@@ -8289,7 +8289,7 @@ define internal i32 @dissect_qsig_sms_PAR_smsStatusReportError_PDU(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_PAR_smsCommandError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_PAR_smsCommandError_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_PAR_smsCommandError_PDU, align 4
@@ -8299,7 +8299,7 @@ define internal i32 @dissect_qsig_sms_PAR_smsCommandError_PDU(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_sms_SmsExtension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_sms_SmsExtension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_sms_qsig_sms_SmsExtension_PDU, align 4
@@ -8309,7 +8309,7 @@ define internal i32 @dissect_qsig_sms_SmsExtension_PDU(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcr_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcr_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcr_qsig_mcr_Extension_PDU, align 4
@@ -8320,7 +8320,7 @@ define internal i32 @dissect_qsig_mcr_Extension_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mcm_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mcm_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mcm_qsig_mcm_Extension_PDU, align 4
@@ -8331,7 +8331,7 @@ define internal i32 @dissect_qsig_mcm_Extension_PDU(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_qsig_mid_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_qsig_mid_Extension_PDU(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct._asn1_ctx_t, align 8
   call void @asn1_ctx_init(ptr noundef nonnull %5, i32 noundef 0, i1 noundef zeroext true, ptr noundef %1) #4
   %6 = load i32, ptr @hf_qsig_mid_qsig_mid_Extension_PDU, align 4

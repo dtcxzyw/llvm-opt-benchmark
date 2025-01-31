@@ -46,7 +46,7 @@ entry:
 declare void @register_archiver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @write_zip_archive(ptr nocapture readnone %ar, ptr noundef %args) #0 {
+define internal i32 @write_zip_archive(ptr readnone captures(none) %ar, ptr noundef %args) #0 {
 entry:
   %trailer64.i.i = alloca %struct.zip64_dir_trailer, align 1
   %locator64.i.i = alloca %struct.zip64_dir_trailer_locator, align 1
@@ -415,7 +415,7 @@ if.end:                                           ; preds = %write_zip_trailer.e
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @archive_zip_config(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr nocapture readnone %data) #0 {
+define internal i32 @archive_zip_config(ptr noundef %var, ptr noundef %value, ptr readnone captures(none) %ctx, ptr readnone captures(none) %data) #0 {
 entry:
   %call = tail call i32 @userdiff_config(ptr noundef %var, ptr noundef %value) #8
   ret i32 %call
@@ -426,7 +426,7 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @write_archive_entries(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @write_zip_entry(ptr nocapture noundef readonly %args, ptr noundef %oid, ptr noundef %path, i64 noundef %pathlen, i32 noundef %mode, ptr noundef %buffer, i64 noundef %size) #0 {
+define internal i32 @write_zip_entry(ptr noundef readonly captures(none) %args, ptr noundef %oid, ptr noundef %path, i64 noundef %pathlen, i32 noundef %mode, ptr noundef %buffer, i64 noundef %size) #0 {
 entry:
   %stream.i = alloca %struct.git_zstream, align 8
   %size.addr = alloca i64, align 8
@@ -2179,7 +2179,7 @@ declare i32 @git_deflate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @git_deflate_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2199,13 +2199,13 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

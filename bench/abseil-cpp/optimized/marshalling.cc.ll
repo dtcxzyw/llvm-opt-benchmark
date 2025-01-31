@@ -96,7 +96,7 @@ $_ZN4absl16strings_internal13JoinAlgorithmIN9__gnu_cxx17__normal_iteratorIPKNSt7
 @switch.table._ZN4absl15AbslUnparseFlagB5cxx11ENS_11LogSeverityE = private unnamed_addr constant [4 x ptr] [ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22], align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
   %1 = extractvalue { i64, ptr } %call.i, 0
@@ -116,14 +116,14 @@ for.body:                                         ; preds = %entry, %for.cond
   %arrayidx = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kTrue, i64 0, i64 %i.012
   %5 = load ptr, ptr %arrayidx, align 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #15
-  %call3 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %3, ptr %4, i64 %call.i.i, ptr %5) #15
+  %call3 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %3, ptr %4, i64 %call.i.i, ptr nonnull %5) #15
   br i1 %call3, label %return.sink.split, label %if.else
 
 if.else:                                          ; preds = %for.body
   %arrayidx6 = getelementptr inbounds nuw [5 x ptr], ptr @__const._ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPbPNSt7__cxx1112basic_stringIcS3_SaIcEEE.kFalse, i64 0, i64 %i.012
   %6 = load ptr, ptr %arrayidx6, align 8
   %call.i.i7 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
-  %call7 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %3, ptr %4, i64 %call.i.i7, ptr %6) #15
+  %call7 = tail call noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64 %3, ptr %4, i64 %call.i.i7, ptr nonnull %6) #15
   br i1 %call7, label %return.sink.split, label %for.cond
 
 return.sink.split:                                ; preds = %if.else, %for.body
@@ -137,13 +137,13 @@ return:                                           ; preds = %for.cond, %return.s
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64, ptr, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPsPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPsPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i32, align 4
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -204,7 +204,7 @@ return:                                           ; preds = %_ZN4absl14flags_int
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPtPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPtPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i32, align 4
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -264,7 +264,7 @@ return:                                           ; preds = %_ZN4absl14flags_int
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPiPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 4)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPiPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 4)) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i32, align 4
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -315,7 +315,7 @@ _ZN4absl14flags_internal13ParseFlagImplIiEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPjPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 4)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPjPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 4)) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i32, align 4
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -366,7 +366,7 @@ _ZN4absl14flags_internal13ParseFlagImplIjEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPlPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPlPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i64, align 8
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -417,7 +417,7 @@ _ZN4absl14flags_internal13ParseFlagImplIlEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPmPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPmPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i64, align 8
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -468,7 +468,7 @@ _ZN4absl14flags_internal13ParseFlagImplImEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPxPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPxPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i64, align 8
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -519,7 +519,7 @@ _ZN4absl14flags_internal13ParseFlagImplIxEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPyPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPyPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) initializes((0, 8)) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i64, align 8
   %call.i.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -570,7 +570,7 @@ _ZN4absl14flags_internal13ParseFlagImplIyEEbSt17basic_string_viewIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128EPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128EPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %call.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
   %1 = extractvalue { i64, ptr } %call.i, 0
@@ -636,7 +636,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64, ptr, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128EPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128EPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %call.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
   %1 = extractvalue { i64, ptr } %call.i, 0
@@ -702,7 +702,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64, ptr, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPfPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPfPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewIcSt11char_traitsIcEEPf(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst)
   ret i1 %call
@@ -711,7 +711,7 @@ entry:
 declare noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewIcSt11char_traitsIcEEPf(i64, ptr, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPdPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPdPNSt7__cxx1112basic_stringIcS3_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewIcSt11char_traitsIcEEPd(i64 %text.coerce0, ptr %text.coerce1, ptr noundef %dst)
   ret i1 %call
@@ -720,7 +720,7 @@ entry:
 declare noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewIcSt11char_traitsIcEEPd(i64, ptr, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEES9_(i64 %text.coerce0, ptr %text.coerce1, ptr noundef nonnull %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEES9_(i64 %text.coerce0, ptr %text.coerce1, ptr noundef nonnull %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
 entry:
   %call2 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %dst, ptr noundef %text.coerce1, i64 noundef %text.coerce0)
   ret i1 true
@@ -729,7 +729,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPSt6vectorINSt7__cxx1112basic_stringIcS3_SaIcEEESaIS9_EEPS9_(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef %dst, ptr nocapture noundef readnone %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl14flags_internal13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPSt6vectorINSt7__cxx1112basic_stringIcS3_SaIcEEESaIS9_EEPS9_(i64 %text.coerce0, ptr %text.coerce1, ptr noundef captures(none) %dst, ptr noundef readnone captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.absl::strings_internal::Splitter<absl::ByChar, absl::AllowEmpty, std::basic_string_view<char>>::ConvertToContainer", align 1
   %ref.tmp = alloca %"class.std::vector", align 8
@@ -1389,7 +1389,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl14flags_internal15AbslUnparseFlagERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl14flags_internal15AbslUnparseFlagERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %v) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %v, align 8, !noalias !47
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %v, i64 8
@@ -1399,7 +1399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS_11LogSeverityEPNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %dst, ptr noundef %err) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4absl13AbslParseFlagESt17basic_string_viewIcSt11char_traitsIcEEPNS_11LogSeverityEPNSt7__cxx1112basic_stringIcS2_SaIcEEE(i64 %text.coerce0, ptr %text.coerce1, ptr noundef writeonly captures(none) %dst, ptr noundef %err) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i.i.i.i = alloca i32, align 4
   %call.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %text.coerce0, ptr %text.coerce1)
@@ -1889,7 +1889,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
@@ -2445,7 +2445,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
@@ -2744,13 +2744,13 @@ declare i64 @llvm.umin.i64(i64, i64) #11
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.AppendStringToManifest = private unnamed_addr constant [23 x i8] c"AppendStringToManifest\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InitializeBackupManifest(ptr nocapture noundef initializes((0, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @InitializeBackupManifest(ptr noundef captures(none) initializes((0, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
@@ -98,7 +98,7 @@ define dso_local void @InitializeBackupManifest(ptr nocapture noundef initialize
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @BufFileCreateTemp(i1 noundef zeroext) local_unnamed_addr #2
 
@@ -118,7 +118,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @AppendStringToManifest(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @AppendStringToManifest(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 34
   %5 = load i8, ptr %4, align 2
@@ -135,7 +135,7 @@ define internal fastcc void @AppendStringToManifest(ptr nocapture noundef %0, pt
   %9 = load ptr, ptr %8, align 8
   %sext = shl i64 %3, 32
   %10 = ashr exact i64 %sext, 32
-  %11 = tail call i32 @pg_cryptohash_update(ptr noundef %9, ptr noundef %1, i64 noundef %10) #7
+  %11 = tail call i32 @pg_cryptohash_update(ptr noundef %9, ptr noundef nonnull %1, i64 noundef %10) #7
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %18
 
@@ -151,7 +151,7 @@ define internal fastcc void @AppendStringToManifest(ptr nocapture noundef %0, pt
 18:                                               ; preds = %._crit_edge, %7
   %.pre-phi = phi i64 [ %.pre11, %._crit_edge ], [ %10, %7 ]
   %19 = load ptr, ptr %0, align 8
-  tail call void @BufFileWrite(ptr noundef %19, ptr noundef %1, i64 noundef %.pre-phi) #7
+  tail call void @BufFileWrite(ptr noundef %19, ptr noundef nonnull %1, i64 noundef %.pre-phi) #7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %.pre-phi
@@ -162,7 +162,7 @@ define internal fastcc void @AppendStringToManifest(ptr nocapture noundef %0, pt
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @FreeBackupManifest(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @FreeBackupManifest(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @pg_cryptohash_free(ptr noundef %3) #7
@@ -173,7 +173,7 @@ define dso_local void @FreeBackupManifest(ptr nocapture noundef %0) local_unname
 declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @AddFileToBackupManifest(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca [1024 x i8], align 16
   %9 = alloca %struct.StringInfoData, align 8
@@ -217,12 +217,12 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
   br i1 %25, label %29, label %26
 
 26:                                               ; preds = %20
-  %27 = call zeroext i1 @pg_verify_mbstr(i32 noundef 6, ptr noundef %.0, i32 noundef %22, i1 noundef zeroext true) #7
+  %27 = call zeroext i1 @pg_verify_mbstr(i32 noundef 6, ptr noundef nonnull %.0, i32 noundef %22, i1 noundef zeroext true) #7
   br i1 %27, label %28, label %29
 
 28:                                               ; preds = %26
   call void @appendStringInfoString(ptr noundef nonnull %9, ptr noundef nonnull @.str.5) #7
-  call void @escape_json(ptr noundef nonnull %9, ptr noundef %.0) #7
+  call void @escape_json(ptr noundef nonnull %9, ptr noundef nonnull %.0) #7
   br label %41
 
 29:                                               ; preds = %26, %20
@@ -236,7 +236,7 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
   %34 = load i32, ptr %33, align 8
   %35 = sext i32 %34 to i64
   %36 = getelementptr i8, ptr %32, i64 %35
-  %37 = call i64 @hex_encode(ptr noundef %.0, i64 noundef %31, ptr noundef %36) #7
+  %37 = call i64 @hex_encode(ptr noundef nonnull %.0, i64 noundef %31, ptr noundef %36) #7
   %38 = load i32, ptr %33, align 8
   %39 = trunc i64 %37 to i32
   %40 = add i32 %38, %39
@@ -273,7 +273,7 @@ define dso_local void @AddFileToBackupManifest(ptr nocapture noundef %0, i32 nou
 56:                                               ; preds = %53
   %57 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #8
   call void @llvm.assume(i1 %57)
-  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef %.0) #7
+  %58 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.12, ptr noundef nonnull %.0) #7
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 185, ptr noundef nonnull @__func__.AddFileToBackupManifest) #7
   unreachable
 
@@ -317,7 +317,7 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unname
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @pg_verify_mbstr(i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -338,7 +338,7 @@ declare i32 @pg_checksum_final(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @pg_checksum_type_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AddWALInfoToBackupManifest(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @AddWALInfoToBackupManifest(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.val = load ptr, ptr %0, align 8
   %.not53 = icmp eq ptr %.val, null
   br i1 %.not53, label %53, label %6
@@ -455,7 +455,7 @@ declare ptr @readTimeLineHistory(i32 noundef) local_unnamed_addr #2
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SendBackupManifest(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @SendBackupManifest(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca [65 x i8], align 16
   %.val = load ptr, ptr %0, align 8

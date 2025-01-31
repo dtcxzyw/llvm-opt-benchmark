@@ -46,7 +46,7 @@ $_ZN6Assimp23FlipWindingOrderProcessD0Ev = comdat any
 @_ZN6Assimp14FlipUVsProcessD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp14FlipUVsProcessD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp21MakeLeftHandedProcess8IsActiveEj(ptr nocapture nonnull readnone align 8 %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp21MakeLeftHandedProcess8IsActiveEj(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
 entry:
   %and = and i32 %pFlags, 4
   %cmp = icmp ne i32 %and, 0
@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %pScene) unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess7ExecuteEP7aiScene(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %pScene) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %class.aiMatrix4x4t, align 4
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
@@ -312,7 +312,7 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #2
 declare void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef %pNode, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %pParentGlobalRotation) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessNodeEP6aiNodeRK12aiMatrix4x4tIfE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(none) %pNode, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %pParentGlobalRotation) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %class.aiMatrix4x4t, align 4
   %mTransformation = getelementptr inbounds nuw i8, ptr %pNode, i64 1028
@@ -505,7 +505,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %pMesh) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess11ProcessMeshEP6aiMesh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %pMesh) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq ptr %pMesh, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -767,7 +767,7 @@ if.end113:                                        ; preds = %for.body106, %for.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef readonly %_mat) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly %_mat) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq ptr %_mat, null
   br i1 %cmp, label %if.then, label %for.cond.preheader
@@ -816,7 +816,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %pAnim) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess16ProcessAnimationEP10aiNodeAnim(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %pAnim) local_unnamed_addr #5 align 2 {
 entry:
   %mNumPositionKeys = getelementptr inbounds nuw i8, ptr %pAnim, i64 1028
   %0 = load i32, ptr %mNumPositionKeys, align 4
@@ -873,7 +873,7 @@ for.end17:                                        ; preds = %for.body5, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef %pCam) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6Assimp21MakeLeftHandedProcess13ProcessCameraEP8aiCamera(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef captures(none) %pCam) local_unnamed_addr #6 align 2 {
 entry:
   %mPosition = getelementptr inbounds nuw i8, ptr %pCam, i64 1028
   %0 = load float, ptr %mPosition, align 4
@@ -903,10 +903,10 @@ entry:
 declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6Assimp14FlipUVsProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 align 2 {
@@ -941,7 +941,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp14FlipUVsProcess8IsActiveEj(ptr nocapture nonnull readnone align 8 %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp14FlipUVsProcess8IsActiveEj(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
 entry:
   %and = and i32 %pFlags, 8388608
   %cmp = icmp ne i32 %and, 0
@@ -949,7 +949,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess7ExecuteEP7aiScene(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pScene) unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp14FlipUVsProcess7ExecuteEP7aiScene(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %pScene) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.5)
@@ -1154,7 +1154,7 @@ for.end10:                                        ; preds = %_ZN6Assimp14FlipUVs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr noundef readonly %pMesh) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp14FlipUVsProcess11ProcessMeshEP6aiMesh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly %pMesh) local_unnamed_addr #5 align 2 {
 entry:
   %cmp.i = icmp eq ptr %pMesh, null
   br i1 %cmp.i, label %_ZN12_GLOBAL__N_17flipUVsI6aiMeshEEvPT_.exit, label %for.cond.preheader.i
@@ -1263,7 +1263,7 @@ for.end:                                          ; preds = %_ZN12_GLOBAL__N_17f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %_mat) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp14FlipUVsProcess15ProcessMaterialEP10aiMaterial(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef readonly captures(none) %_mat) local_unnamed_addr #4 align 2 {
 entry:
   %mNumProperties = getelementptr inbounds nuw i8, ptr %_mat, i64 8
   %0 = load i32, ptr %mNumProperties, align 8
@@ -1316,7 +1316,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp23FlipWindingOrderProcess8IsActiveEj(ptr nocapture nonnull readnone align 8 %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp23FlipWindingOrderProcess8IsActiveEj(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
 entry:
   %and = and i32 %pFlags, 16777216
   %cmp = icmp ne i32 %and, 0
@@ -1324,7 +1324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %pScene) unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp23FlipWindingOrderProcess7ExecuteEP7aiScene(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %pScene) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5debugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.9)
@@ -1356,7 +1356,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr nocapture noundef readonly %pMesh) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noundef readonly captures(none) %pMesh) local_unnamed_addr #5 align 2 {
 entry:
   %__tmp.i80 = alloca %class.aiColor4t, align 4
   %__tmp.i73 = alloca %class.aiVector3t, align 4
@@ -1655,13 +1655,13 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

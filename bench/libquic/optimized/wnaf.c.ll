@@ -678,7 +678,7 @@ declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EC_POINT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @EC_POINT_clear_free(ptr noundef) local_unnamed_addr #1
 

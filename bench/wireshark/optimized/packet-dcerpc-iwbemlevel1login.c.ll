@@ -125,7 +125,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.67 = private unnamed_addr constant [24 x i8] c"Pointer to PCtx (uint8)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @IWbemLevel1Login_dissect_struct_ORPCTHIS(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @IWbemLevel1Login_dissect_struct_ORPCTHIS(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -144,7 +144,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @IWbemLevel1Login_dissect_struct_ORPCTHAT(ptr noundef %0, i32 noundef returned %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden noundef i32 @IWbemLevel1Login_dissect_struct_ORPCTHAT(ptr noundef %0, i32 noundef returned %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %9
 
@@ -230,7 +230,7 @@ define internal i32 @IWbemLevel1Login_dissect_element_IWbemServices_services_(pt
 declare i32 @dissect_dcom_OBJREF(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum0_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum0_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.47, ptr %7, align 8
   ret i32 %1
@@ -259,7 +259,7 @@ define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum0_response(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum1_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum1_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.48, ptr %7, align 8
   ret i32 %1
@@ -288,7 +288,7 @@ define internal i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum1_response(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemLevel1Login_dissect_iwbemlevel1login_opnum2_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #2 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.49, ptr %7, align 8
   ret i32 %1

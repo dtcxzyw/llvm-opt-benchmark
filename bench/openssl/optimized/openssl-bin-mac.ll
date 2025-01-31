@@ -384,7 +384,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @alloc_mac_algorithm_name(ptr nocapture noundef nonnull %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
+define internal fastcc noundef ptr @alloc_mac_algorithm_name(ptr noundef nonnull captures(none) %optp, ptr noundef %name, ptr noundef %arg) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #4
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arg) #4
@@ -402,7 +402,7 @@ if.end:                                           ; preds = %entry
 
 if.end6:                                          ; preds = %entry, %if.end
   %call7 = tail call ptr @app_malloc(i64 noundef %add2, ptr noundef nonnull @.str.42) #3
-  %call8 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call7, i64 noundef %add2, ptr noundef nonnull @.str.43, ptr noundef %name, ptr noundef %arg) #3
+  %call8 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %call7, i64 noundef %add2, ptr noundef nonnull @.str.43, ptr noundef nonnull %name, ptr noundef nonnull %arg) #3
   %1 = load ptr, ptr %optp, align 8
   %call11 = tail call i32 @OPENSSL_sk_push(ptr noundef %1, ptr noundef %call7) #3
   %tobool.not = icmp eq i32 %call11, 0
@@ -466,7 +466,7 @@ declare void @EVP_MAC_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_MAC_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 

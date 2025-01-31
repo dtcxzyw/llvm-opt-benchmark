@@ -350,7 +350,7 @@ define hidden void @_ZN13ObjectMonitorD2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK13ObjectMonitor6objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK13ObjectMonitor6objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm598084EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
@@ -359,7 +359,7 @@ define hidden noundef ptr @_ZNK13ObjectMonitor6objectEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK13ObjectMonitor11object_peekEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK13ObjectMonitor11object_peekEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
@@ -368,7 +368,7 @@ define hidden noundef ptr @_ZNK13ObjectMonitor11object_peekEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ObjectMonitor13ExitOnSuspendclEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ObjectMonitor13ExitOnSuspendclEP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(9) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1513
   %4 = load volatile i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -594,7 +594,7 @@ _ZN13ObjectMonitor18try_set_owner_fromEPvS0_.exit: ; preds = %45, %_ZN13ObjectMo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ObjectMonitor18ClearSuccOnSuspendclEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ObjectMonitor18ClearSuccOnSuspendclEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1513
   %4 = load volatile i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -2358,7 +2358,7 @@ declare noundef i32 @_ZN13PlatformEvent4parkEl(ptr noundef nonnull align 8 deref
 declare void @_ZN13PlatformEvent4parkEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ObjectMonitor18UnlinkAfterAcquireEP10JavaThreadP12ObjectWaiter(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ObjectMonitor18UnlinkAfterAcquireEP10JavaThreadP12ObjectWaiter(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 44
   %5 = load volatile i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 4
@@ -2722,7 +2722,7 @@ _ZN18SafepointMechanism14should_processEP10JavaThreadb.exit: ; preds = %37, %_ZN
 declare noundef i64 @_ZN14JfrThreadLocal18external_thread_idEPK6Thread(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ObjectMonitor10ExitEpilogEP10JavaThreadP12ObjectWaiter(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ObjectMonitor10ExitEpilogEP10JavaThreadP12ObjectWaiter(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -3556,7 +3556,7 @@ declare void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef, ptr noundef) local_unn
 declare void @_ZN6Thread11SpinReleaseEPVi(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ObjectWaiter16wait_reenter_endEP13ObjectMonitor(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12ObjectWaiter16wait_reenter_endEP13ObjectMonitor(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3753,7 +3753,7 @@ _ZN13ObjectMonitor13DequeueWaiterEv.exit.thread:  ; preds = %2, %_ZN12ObjectWait
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ObjectWaiter18wait_reenter_beginEP13ObjectMonitor(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((48, 49)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12ObjectWaiter18wait_reenter_beginEP13ObjectMonitor(ptr noundef nonnull align 8 captures(none) dereferenceable(49) initializes((48, 49)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -7741,13 +7741,13 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

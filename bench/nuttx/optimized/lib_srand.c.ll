@@ -36,7 +36,7 @@ nrand_r.exit:                                     ; preds = %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2147483647) i32 @rand_r(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define range(i32 0, 2147483647) i32 @rand_r(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
   br label %4

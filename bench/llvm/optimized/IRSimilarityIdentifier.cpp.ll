@@ -625,7 +625,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit31: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm12IRSimilarity17IRInstructionData23predicateForConsistencyEPNS_7CmpInstE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm12IRSimilarity17IRInstructionData23predicateForConsistencyEPNS_7CmpInstE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 63
@@ -651,7 +651,7 @@ define dso_local noundef i32 @_ZN4llvm12IRSimilarity17IRInstructionData23predica
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionDataC2ERNS0_21IRInstructionDataListE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
@@ -674,7 +674,7 @@ define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionDataC2ERNS0_21IRInst
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionData19setBranchSuccessorsERNS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionData19setBranchSuccessorsERNS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -893,7 +893,7 @@ _ZSt4nextIPPN4llvm5ValueEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionData13setCalleeNameEb(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
@@ -1109,7 +1109,7 @@ declare noundef zeroext i1 @_ZNK4llvm8CallBase14isIndirectCallEv(ptr noundef non
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionData18setPHIPredecessorsERNS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionData18setPHIPredecessorsERNS_8DenseMapIPNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1257,7 +1257,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK4llvm12IRSimilarity17IRInstructionData12getPredicateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1495,7 +1495,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %83, %99, %_ZN4llvmn
 declare noundef zeroext i1 @_ZNK4llvm11Instruction17isSameOperationAsEPKS0_j(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJRKNS_11SmallVectorIPNS_5ValueELj4EEES9_EEEZNS_12IRSimilarity7isCloseERKNSC_17IRInstructionDataESF_E3$_0EEbOT_T0_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @"_ZN4llvm6all_ofIRNS_6detail5zippyINS1_12zip_shortestEJRKNS_11SmallVectorIPNS_5ValueELj4EEES9_EEEZNS_12IRSimilarity7isCloseERKNSC_17IRInstructionDataESF_E3$_0EEbOT_T0_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !noalias !25
   %4 = load ptr, ptr %3, align 8, !noalias !25
@@ -1807,7 +1807,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm11InstVisitorINS_12IRSimilarity1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper18mapToLegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EE(ptr noundef nonnull align 8 dereferenceable(92) initializes((56, 57)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(10) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper18mapToLegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EE(ptr noundef nonnull align 8 dereferenceable(92) initializes((56, 57)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(10) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.82", align 8
   %6 = alloca %"struct.std::pair.85", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2061,7 +2061,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %104, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper20mapToIllegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EEb(ptr nocapture noundef nonnull align 8 dereferenceable(92) initializes((57, 58)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(10) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper20mapToIllegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EEb(ptr noundef nonnull align 8 captures(none) dereferenceable(92) initializes((57, 58)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(10) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 0, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2305,7 +2305,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm12IRSimilarity19IRInstructionMapper25allocateIRInstructionDataERNS_11InstructionEbRNS0_21IRInstructionDataListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm12IRSimilarity19IRInstructionMapper25allocateIRInstructionDataERNS_11InstructionEbRNS0_21IRInstructionDataListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -2349,7 +2349,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_12IRSimilarity17IRInstructionDataEE8Alloca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm12IRSimilarity19IRInstructionMapper25allocateIRInstructionDataERNS0_21IRInstructionDataListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm12IRSimilarity19IRInstructionMapper25allocateIRInstructionDataERNS0_21IRInstructionDataListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
@@ -2393,7 +2393,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_12IRSimilarity17IRInstructionDataEE8Alloca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm12IRSimilarity19IRInstructionMapper29allocateIRInstructionDataListEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm12IRSimilarity19IRInstructionMapper29allocateIRInstructionDataListEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(92) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -3884,7 +3884,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS1_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate9isSimilarERKS1_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4293,7 +4293,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate35compareNonCommutativeOperandMappingENS1_14OperandMappingES2_(ptr nocapture noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::OperandMapping") align 8 %0, ptr nocapture noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::OperandMapping") align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate35compareNonCommutativeOperandMappingENS1_14OperandMappingES2_(ptr noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::OperandMapping") align 8 captures(none) %0, ptr noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::OperandMapping") align 8 captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4435,7 +4435,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6det
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate32compareCommutativeOperandMappingENS1_14OperandMappingES2_(ptr nocapture noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::OperandMapping") align 8 %0, ptr nocapture noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::OperandMapping") align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate32compareCommutativeOperandMappingENS1_14OperandMappingES2_(ptr noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::OperandMapping") align 8 captures(none) %0, ptr noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::OperandMapping") align 8 captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DenseSet.147", align 8
   %4 = alloca %"class.llvm::DenseSet.147", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 20, i1 false)
@@ -4707,7 +4707,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL35checkNumberingAndReplaceCommutativeRKN4llvm8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEERNS0_IjNS_8DenseSetIjNS3_IjvEEEESC_NS6_IjSD_EEEERNS_8ArrayRefIS2_EERSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL35checkNumberingAndReplaceCommutativeRKN4llvm8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEERNS0_IjNS_8DenseSetIjNS3_IjvEEEESC_NS6_IjSD_EEEERNS_8ArrayRefIS2_EERSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca %"struct.std::pair.145", align 8
   %6 = alloca %"class.llvm::DenseSet.147", align 8
   %7 = load ptr, ptr %2, align 8
@@ -5515,7 +5515,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate24compareAssignmentMappingEjRKjRNS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES7_NS_6detail12DenseMapPairIjS8_EEEESD_(i32 noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr nocapture nonnull readnone align 8 %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate24compareAssignmentMappingEjRKjRNS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES7_NS_6detail12DenseMapPairIjS8_EEEESD_(i32 noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr nonnull readnone align 8 captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.145", align 8
   %6 = alloca %"class.llvm::DenseSet.147", align 8
   %7 = alloca [1 x i32], align 4
@@ -6177,7 +6177,7 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate22checkRelativeLocationsENS1_18RelativeLocMappingES2_(ptr nocapture noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::RelativeLocMapping") align 8 %0, ptr nocapture noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::RelativeLocMapping") align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate22checkRelativeLocationsENS1_18RelativeLocMappingES2_(ptr noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::RelativeLocMapping") align 8 captures(none) %0, ptr noundef readonly byval(%"struct.llvm::IRSimilarity::IRSimilarityCandidate::RelativeLocMapping") align 8 captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::DenseSet", align 8
@@ -7069,7 +7069,7 @@ _ZN4llvm12IRSimilarity17IRInstructionData16getBlockOperValsEv.exit65: ; preds = 
 declare noundef zeroext i1 @_ZNK4llvm11Instruction13isCommutativeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate7overlapERKS1_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm12IRSimilarity21IRSimilarityCandidate7overlapERKS1_S3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1) local_unnamed_addr #8 align 2 {
   %.val = load i32, ptr %0, align 8
   %.val4 = load i32, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7761,7 +7761,7 @@ _ZN4llvm12IRSimilarity19IRInstructionMapper16initializeForBBsERNS_8FunctionERj.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity22IRSimilarityIdentifier14populateMapperERNS_8ArrayRefISt10unique_ptrINS_6ModuleESt14default_deleteIS4_EEEERSt6vectorIPNS0_17IRInstructionDataESaISC_EERSA_IjSaIjEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity22IRSimilarityIdentifier14populateMapperERNS_8ArrayRefISt10unique_ptrINS_6ModuleESt14default_deleteIS4_EEEERSt6vectorIPNS0_17IRInstructionDataESaISC_EERSA_IjSaIjEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8
@@ -7782,7 +7782,7 @@ define dso_local void @_ZN4llvm12IRSimilarity22IRSimilarityIdentifier14populateM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity21IRSimilarityCandidate27createCanonicalRelationFromERS1_RNS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES6_NS_6detail12DenseMapPairIjS7_EEEESC_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity21IRSimilarityCandidate27createCanonicalRelationFromERS1_RNS_8DenseMapIjNS_8DenseSetIjNS_12DenseMapInfoIjvEEEES6_NS_6detail12DenseMapPairIjS7_EEEESC_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::DenseSet.147", align 8
   %7 = alloca i32, align 4
@@ -9041,7 +9041,7 @@ _ZN4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmp
 declare void @_ZN4llvm10BasicBlock24instructionsWithoutDebugEb(ptr dead_on_unwind writable sret(%"class.llvm::iterator_range.318") align 8, ptr noundef nonnull align 8 dereferenceable(80), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity21IRSimilarityCandidate27createCanonicalRelationFromERS1_S2_S2_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity21IRSimilarityCandidate27createCanonicalRelationFromERS1_S2_S2_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.312", align 8
   %6 = alloca %"struct.std::pair.312", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9734,7 +9734,7 @@ _ZN4llvm16DenseMapIteratorIjPNS_5ValueENS_12DenseMapInfoIjvEENS_6detail12DenseMa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity22IRSimilarityIdentifier14findCandidatesERSt6vectorIPNS0_17IRInstructionDataESaIS4_EERS2_IjSaIjEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity22IRSimilarityIdentifier14findCandidatesERSt6vectorIPNS0_17IRInstructionDataESaIS4_EERS2_IjSaIjEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::DenseMap.475", align 8
   %5 = alloca %"class.llvm::DenseSet.147", align 8
   %6 = alloca %"class.llvm::DenseMap.349", align 8
@@ -16616,7 +16616,7 @@ define internal noundef nonnull ptr @_ZL51initializeIRSimilarityIdentifierWrappe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm33IRSimilarityIdentifierWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm33IRSimilarityIdentifierWrapperPassC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.612, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16658,7 +16658,7 @@ _ZN4llvm47initializeIRSimilarityIdentifierWrapperPassPassERNS_12PassRegistryE.ex
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm33IRSimilarityIdentifierWrapperPass16doInitializationERNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm33IRSimilarityIdentifierWrapperPass16doInitializationERNS_6ModuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #28
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm15DisableBranchesE, i64 128), align 8
@@ -16785,7 +16785,7 @@ _ZN4llvm12IRSimilarity19IRInstructionMapperC2EPNS_24SpecificBumpPtrAllocatorINS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm33IRSimilarityIdentifierWrapperPass14doFinalizationERNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm33IRSimilarityIdentifierWrapperPass14doFinalizationERNS_6ModuleE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
@@ -16802,7 +16802,7 @@ _ZNSt10unique_ptrIN4llvm12IRSimilarity22IRSimilarityIdentifierESt14default_delet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm33IRSimilarityIdentifierWrapperPass11runOnModuleERNS_6ModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm33IRSimilarityIdentifierWrapperPass11runOnModuleERNS_6ModuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12IRSimilarity22IRSimilarityIdentifier14findSimilarityERNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(328) %4, ptr noundef nonnull align 8 dereferenceable(857) %1)
@@ -16810,7 +16810,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm33IRSimilarityIdentifierWrapperPass
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20IRSimilarityAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::IRSimilarity::IRSimilarityIdentifier") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20IRSimilarityAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.llvm::IRSimilarity::IRSimilarityIdentifier") align 8 %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm15DisableBranchesE, i64 128), align 8
   %6 = trunc i8 %5 to i1
   %7 = xor i1 %6, true
@@ -16909,7 +16909,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_12IRSimilarity21IRInstructionDataListEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm31IRSimilarityAnalysisPrinterPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm31IRSimilarityAnalysisPrinterPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::allocator", align 1
@@ -17337,10 +17337,10 @@ declare void @_ZNK4llvm4Pass14verifyAnalysisEv(ptr noundef nonnull align 8 deref
 declare void @_ZN4llvm4Pass17dumpPassStructureEj(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef ptr @_ZNK4llvm11Instruction9getModuleEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #4
 
@@ -18887,7 +18887,7 @@ _ZN4llvm15SmallVectorImplIPvE5eraseEPKS1_S4_.exit: ; preds = %_ZN4llvm20BumpPtrA
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm24SpecificBumpPtrAllocatorINS_22SuffixTreeInternalNodeEE10DestroyAllEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #0 comdat align 2 {
@@ -26439,13 +26439,13 @@ define internal void @_GLOBAL__sub_I_IRSimilarityIdentifier.cpp() #18 section ".
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

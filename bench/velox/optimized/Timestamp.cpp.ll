@@ -140,7 +140,7 @@ _ZN8facebook5velox9Timestamp10fromMillisEl.exit:  ; preds = %if.then.i, %if.end.
 declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9Timestamp5toGMTERKN4date9time_zoneE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %zone) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9Timestamp5toGMTERKN4date9time_zoneE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %zone) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %cmp = icmp slt i64 %0, -1096193692799
@@ -277,7 +277,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9Timestamp5toGMTEs(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i16 noundef signext %tzID) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9Timestamp5toGMTEs(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i16 noundef signext %tzID) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %cmp = icmp eq i16 %tzID, 0
@@ -336,7 +336,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define range(i64 -1096193779200000, 971890876800001) i64 @_ZNK8facebook5velox9Timestamp11toTimePointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define range(i64 -1096193779200000, 971890876800001) i64 @_ZNK8facebook5velox9Timestamp11toTimePointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %this, align 8
   %conv.i = sext i64 %0 to i128
@@ -369,7 +369,7 @@ _ZN8facebook5velox12_GLOBAL__N_117validateTimePointERKNSt6chrono10time_pointINS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9Timestamp10toTimezoneERKN4date9time_zoneE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %zone) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9Timestamp10toTimezoneERKN4date9time_zoneE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(64) %zone) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.i = alloca %"struct.date::sys_info", align 8
   %0 = load i64, ptr %this, align 8
@@ -423,7 +423,7 @@ _ZNK8facebook5velox9Timestamp11toTimePointEv.exit: ; preds = %_ZNK8facebook5velo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9Timestamp10toTimezoneEs(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i16 noundef signext %tzID) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9Timestamp10toTimezoneEs(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i16 noundef signext %tzID) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %i.i.i = alloca %"struct.date::sys_info", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -519,7 +519,7 @@ if.end10:                                         ; preds = %if.then4, %invoke.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9Timestamp10epochToUtcElR2tm(i64 noundef %epoch, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12), (24, 28)) %tm) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN8facebook5velox9Timestamp10epochToUtcElR2tm(i64 noundef %epoch, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 12), (24, 28)) %tm) local_unnamed_addr #8 align 2 {
 entry:
   %div = sdiv i64 %epoch, 86400
   %rem1 = srem i64 %epoch, 86400
@@ -661,7 +661,7 @@ return:                                           ; preds = %while.end39, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9Timestamp10tmToStringB5cxx11ERK2tmmRKNS0_24TimestampToStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %tmValue, i64 noundef %nanos, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %options) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9Timestamp10tmToStringB5cxx11ERK2tmmRKNS0_24TimestampToStringOptionsE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %tmValue, i64 noundef %nanos, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(4) %options) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %options, align 1
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #16
@@ -960,13 +960,13 @@ declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr n
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8facebook5velox7parseToEN5folly5RangeIPKcEERNS0_9TimestampE(ptr nocapture readnone %in.coerce0, ptr nocapture readnone %in.coerce1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %out) local_unnamed_addr #9 {
+define void @_ZN8facebook5velox7parseToEN5folly5RangeIPKcEERNS0_9TimestampE(ptr readnone captures(none) %in.coerce0, ptr readnone captures(none) %in.coerce1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %out) local_unnamed_addr #9 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZSt9to_stringB5cxx11RKN8facebook5velox9TimestampE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts) local_unnamed_addr #2 {
+define void @_ZSt9to_stringB5cxx11RKN8facebook5velox9TimestampE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ts) local_unnamed_addr #2 {
 entry:
   %tm.i = alloca %struct.tm, align 8
   %ref.tmp = alloca %"struct.facebook::velox::TimestampToStringOptions", align 1
@@ -2217,10 +2217,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #13
 declare i64 @llvm.abs.i64(i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

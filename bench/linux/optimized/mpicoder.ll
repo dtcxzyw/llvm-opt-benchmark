@@ -30,7 +30,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mpi_print: ;
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_mpi_fromstr346, ptr @__UNIQUE_ID___addressable_mpi_get_buffer349, ptr @__UNIQUE_ID___addressable_mpi_print356, ptr @__UNIQUE_ID___addressable_mpi_read_buffer348, ptr @__UNIQUE_ID___addressable_mpi_read_from_buffer345, ptr @__UNIQUE_ID___addressable_mpi_read_raw_data344, ptr @__UNIQUE_ID___addressable_mpi_read_raw_from_sgl355, ptr @__UNIQUE_ID___addressable_mpi_scanval347, ptr @__UNIQUE_ID___addressable_mpi_write_to_sgl352], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mpi_read_raw_data(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local ptr @mpi_read_raw_data(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.thread7, label %4
 
@@ -142,7 +142,7 @@ define dso_local ptr @mpi_read_raw_data(ptr nocapture noundef readonly %0, i64 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
@@ -151,10 +151,10 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @mpi_alloc(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mpi_read_from_buffer(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local ptr @mpi_read_from_buffer(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ult i32 %3, 2
   br i1 %4, label %29, label %5
@@ -202,7 +202,7 @@ define dso_local ptr @mpi_read_from_buffer(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @mpi_fromstr(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mpi_fromstr(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 45
   %5 = zext i1 %4 to i64
@@ -358,7 +358,7 @@ define dso_local noundef range(i32 -22, 1) i32 @mpi_fromstr(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mpi_clear(ptr noundef) local_unnamed_addr #3
@@ -367,7 +367,7 @@ declare dso_local void @mpi_clear(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @mpi_resize(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mpi_scanval(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local ptr @mpi_scanval(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = tail call ptr @mpi_alloc(i32 noundef 0) #12
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -397,7 +397,7 @@ declare dso_local void @mpi_free(ptr noundef) local_unnamed_addr #3
 declare dso_local void @mpi_normalize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define dso_local noundef range(i32 -75, 1) i32 @mpi_read_buffer(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #5 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @mpi_read_buffer(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #5 align 16 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -504,10 +504,10 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_read_buffer(ptr nocapture no
 declare i64 @llvm.bswap.i64(i64) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mpi_get_buffer(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) #0 align 16 {
+define dso_local ptr @mpi_get_buffer(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %75, label %6
@@ -629,7 +629,7 @@ define dso_local ptr @mpi_get_buffer(ptr nocapture noundef readonly %0, ptr noun
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -75, 1) i32 @mpi_write_to_sgl(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
+define dso_local noundef range(i32 -75, 1) i32 @mpi_write_to_sgl(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.sg_mapping_iter, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
@@ -763,7 +763,7 @@ define dso_local noundef range(i32 -75, 1) i32 @mpi_write_to_sgl(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @sg_nents_for_len(ptr noundef, i64 noundef) local_unnamed_addr #3

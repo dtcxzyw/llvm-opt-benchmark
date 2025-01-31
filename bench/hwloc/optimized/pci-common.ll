@@ -139,7 +139,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.hwloc_pci_class_string.11 = private unnamed_addr constant [10 x ptr] [ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.30, ptr @.str.93, ptr @.str.94, ptr @.str.95], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hwloc_pci_discovery_init(ptr nocapture noundef writeonly initializes((880, 904), (920, 936)) %0) local_unnamed_addr #0 {
+define hidden void @hwloc_pci_discovery_init(ptr noundef writeonly captures(none) initializes((880, 904), (920, 936)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 896
@@ -150,7 +150,7 @@ define hidden void @hwloc_pci_discovery_init(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hwloc_pci_discovery_prepare(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @hwloc_pci_discovery_prepare(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca %struct.stat, align 8
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str) #21
   %.not = icmp eq ptr %3, null
@@ -218,22 +218,22 @@ define hidden void @hwloc_pci_discovery_prepare(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_pci_forced_locality_parse(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
+define internal fastcc void @hwloc_pci_forced_locality_parse(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -371,17 +371,17 @@ hwloc_pci_forced_locality_parse_one.exit:         ; preds = %26, %30, %.sink.spl
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @hwloc_hide_errors() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare i32 @close(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hwloc_pci_discovery_exit(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden void @hwloc_pci_discovery_exit(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 884
   %3 = load i32, ptr %2, align 4
   %.not19 = icmp eq i32 %3, 0
@@ -435,7 +435,7 @@ define hidden void @hwloc_pci_discovery_exit(ptr nocapture noundef %0) local_unn
 declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @hwloc_pcidisc_tree_insert_by_busid(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @hwloc_pcidisc_tree_insert_by_busid(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %.not8489.i = icmp eq ptr %3, null
   br i1 %.not8489.i, label %tailrecurse._crit_edge.i, label %.lr.ph.lr.ph.i
@@ -1519,7 +1519,7 @@ hwloc__pci_find_by_busid.exit:                    ; preds = %tailrecurse.loopexi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #9 {
+define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = alloca [256 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6
@@ -1572,10 +1572,10 @@ define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #11 {
+define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #11 {
   %4 = add i32 %1, 18
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
@@ -1620,7 +1620,7 @@ define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 14, 16) i32 @hwloc_pcidisc_check_bridge_type(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #12 {
+define range(i32 14, 16) i32 @hwloc_pcidisc_check_bridge_type(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %.not = icmp eq i32 %0, 1540
   br i1 %.not, label %3, label %9
 
@@ -1638,7 +1638,7 @@ define range(i32 14, 16) i32 @hwloc_pcidisc_check_bridge_type(i32 noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #11 {
+define range(i32 -1, 1) i32 @hwloc_pcidisc_find_bridge_buses(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #11 {
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 25
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
@@ -1900,13 +1900,13 @@ switch.lookup48:                                  ; preds = %30
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #15
@@ -1916,7 +1916,7 @@ declare noalias ptr @hwloc_bitmap_alloc() local_unnamed_addr #7
 declare i32 @hwloc_bitmap_sscanf(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 declare void @hwloc_free_unlinked_object(ptr noundef) local_unnamed_addr #7
 
@@ -1930,10 +1930,10 @@ declare ptr @hwloc_topology_get_topology_cpuset(ptr noundef) local_unnamed_addr 
 declare ptr @hwloc_find_insert_io_parent_by_complete_cpuset(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @hwloc_bitmap_last(ptr noundef) local_unnamed_addr #17
@@ -1946,13 +1946,13 @@ declare i32 @hwloc_bitmap_set_range(ptr noundef, i32 noundef, i32 noundef) local
 declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #20

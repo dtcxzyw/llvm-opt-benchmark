@@ -192,7 +192,7 @@ return:                                           ; preds = %entry, %fail_metric
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @uv__calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -358,7 +358,7 @@ declare void @uv_mutex_lock(ptr noundef) local_unnamed_addr #2
 declare void @uv_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -38, 1) i32 @uv__loop_configure(ptr nocapture noundef %loop, i32 noundef %option, ptr nocapture noundef %ap) local_unnamed_addr #3 {
+define hidden range(i32 -38, 1) i32 @uv__loop_configure(ptr noundef captures(none) %loop, i32 noundef %option, ptr noundef captures(none) %ap) local_unnamed_addr #3 {
 entry:
   switch i32 %option, label %return [
     i32 1, label %if.then

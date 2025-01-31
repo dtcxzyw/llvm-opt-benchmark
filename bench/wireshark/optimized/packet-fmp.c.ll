@@ -442,7 +442,7 @@ declare void @rpc_init_prog(i32 noundef, i32 noundef, i32 noundef, i64 noundef, 
 declare i32 @dissect_rpc_void(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_SessionCreate_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_SessionCreate_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_hostID, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #3
   %7 = load i32, ptr @hf_fmp_btime, align 4
@@ -455,7 +455,7 @@ define internal i32 @dissect_FMP_SessionCreate_request(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_SessionCreate_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_SessionCreate_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -482,21 +482,21 @@ define internal i32 @dissect_FMP_SessionCreate_reply(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_HeartBeat_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_HeartBeat_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_HeartBeat_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_HeartBeat_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_Mount_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_Mount_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_capability, align 4
@@ -507,7 +507,7 @@ define internal i32 @dissect_FMP_Mount_request(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_Mount_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_Mount_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -630,7 +630,7 @@ dissect_fmp_vmInfo.exit:                          ; preds = %._crit_edge.i.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_Open_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_Open_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call fastcc i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %6, ptr noundef %2)
@@ -638,7 +638,7 @@ define internal i32 @dissect_FMP_Open_request(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_Open_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_Open_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -662,7 +662,7 @@ define internal i32 @dissect_FMP_Open_reply(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_Close_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_Close_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_fmpFHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_msgNum, align 4
@@ -671,7 +671,7 @@ define internal i32 @dissect_FMP_Close_request(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_Close_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_Close_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -689,7 +689,7 @@ define internal i32 @dissect_FMP_Close_reply(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenGetMap_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenGetMap_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call fastcc i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %6, ptr noundef %2)
@@ -703,7 +703,7 @@ define internal i32 @dissect_FMP_OpenGetMap_request(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenGetMap_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenGetMap_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -730,7 +730,7 @@ define internal i32 @dissect_FMP_OpenGetMap_reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenAllocSpace_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenAllocSpace_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call fastcc i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %6, ptr noundef %2)
@@ -744,7 +744,7 @@ define internal i32 @dissect_FMP_OpenAllocSpace_request(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenAllocSpace_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenAllocSpace_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -771,7 +771,7 @@ define internal i32 @dissect_FMP_OpenAllocSpace_reply(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_GetMap_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_GetMap_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_fmpFHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_msgNum, align 4
@@ -786,7 +786,7 @@ define internal i32 @dissect_FMP_GetMap_request(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_GetMap_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_GetMap_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -809,7 +809,7 @@ define internal i32 @dissect_FMP_GetMap_reply(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_AllocSpace_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_AllocSpace_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_fmpFHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_msgNum, align 4
@@ -824,7 +824,7 @@ define internal i32 @dissect_FMP_AllocSpace_request(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_AllocSpace_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_AllocSpace_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -847,7 +847,7 @@ define internal i32 @dissect_FMP_AllocSpace_reply(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_Flush_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_Flush_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_fmpFHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_msgNum, align 4
@@ -860,7 +860,7 @@ define internal i32 @dissect_FMP_Flush_request(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_Flush_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_Flush_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -878,7 +878,7 @@ define internal i32 @dissect_FMP_Flush_reply(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_CancelReq_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_CancelReq_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_fmpFHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_msgNum, align 4
@@ -889,7 +889,7 @@ define internal i32 @dissect_FMP_CancelReq_request(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_CancelReq_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_CancelReq_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -907,7 +907,7 @@ define internal i32 @dissect_FMP_CancelReq_reply(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_PlugIn_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_PlugIn_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %dissect_plugInID.exit, label %5
 
@@ -923,7 +923,7 @@ dissect_plugInID.exit:                            ; preds = %4, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_PlugIn_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_PlugIn_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -941,21 +941,21 @@ define internal i32 @dissect_FMP_PlugIn_reply(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_SessionTerminate_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_SessionTerminate_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_SessionTerminate_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_SessionTerminate_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_FMP_SessionCreateEx_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_FMP_SessionCreateEx_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_hostID, align 4
   %6 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0, ptr noundef null) #3
   %7 = load i32, ptr @hf_fmp_btime, align 4
@@ -985,7 +985,7 @@ define internal noundef i32 @dissect_FMP_SessionCreateEx_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_SessionCreateEx_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_SessionCreateEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1026,7 +1026,7 @@ define internal i32 @dissect_FMP_SessionCreateEx_reply(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_ReportClientError_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_ReportClientError_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_fmp_description, align 4
   %7 = tail call i32 @dissect_rpc_string(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef 0, ptr noundef null) #3
@@ -1040,14 +1040,14 @@ define internal i32 @dissect_FMP_ReportClientError_request(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_ReportClientError_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_ReportClientError_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_GetAttr_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_GetAttr_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_fmpFHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_msgNum, align 4
@@ -1056,7 +1056,7 @@ define internal i32 @dissect_FMP_GetAttr_request(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_GetAttr_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_GetAttr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1075,7 +1075,7 @@ define internal i32 @dissect_FMP_GetAttr_reply(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenGetAttr_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenGetAttr_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call fastcc i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %6, ptr noundef %2)
@@ -1083,7 +1083,7 @@ define internal i32 @dissect_FMP_OpenGetAttr_request(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenGetAttr_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenGetAttr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1108,7 +1108,7 @@ define internal i32 @dissect_FMP_OpenGetAttr_reply(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_FlushGetAttr_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_FlushGetAttr_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef 0, ptr noundef %2)
   %6 = load i32, ptr @hf_fmp_msgNum, align 4
   %7 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %6, i32 noundef %5) #3
@@ -1124,7 +1124,7 @@ define internal i32 @dissect_FMP_FlushGetAttr_request(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_FlushGetAttr_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_FlushGetAttr_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1143,7 +1143,7 @@ define internal i32 @dissect_FMP_FlushGetAttr_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenGetMapEx_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenGetMapEx_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call fastcc i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %6, ptr noundef %2)
@@ -1157,7 +1157,7 @@ define internal i32 @dissect_FMP_OpenGetMapEx_request(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenGetMapEx_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenGetMapEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1184,7 +1184,7 @@ define internal i32 @dissect_FMP_OpenGetMapEx_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenAllocSpaceEx_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenAllocSpaceEx_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_sessionHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = tail call fastcc i32 @dissect_fmp_fileHandleSrc(ptr noundef %0, i32 noundef %6, ptr noundef %2)
@@ -1198,7 +1198,7 @@ define internal i32 @dissect_FMP_OpenAllocSpaceEx_request(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_OpenAllocSpaceEx_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_OpenAllocSpaceEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1225,7 +1225,7 @@ define internal i32 @dissect_FMP_OpenAllocSpaceEx_reply(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_GetMapEx_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_GetMapEx_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_fmpFHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_msgNum, align 4
@@ -1240,7 +1240,7 @@ define internal i32 @dissect_FMP_GetMapEx_request(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_GetMapEx_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_GetMapEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1263,7 +1263,7 @@ define internal i32 @dissect_FMP_GetMapEx_reply(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_AllocSpaceEx_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_AllocSpaceEx_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_fmpFHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_msgNum, align 4
@@ -1278,7 +1278,7 @@ define internal i32 @dissect_FMP_AllocSpaceEx_request(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_AllocSpaceEx_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_AllocSpaceEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1301,7 +1301,7 @@ define internal i32 @dissect_FMP_AllocSpaceEx_reply(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_FlushEx_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_FlushEx_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_fmpFHandle, align 4
   %6 = tail call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_msgNum, align 4
@@ -1314,7 +1314,7 @@ define internal i32 @dissect_FMP_FlushEx_request(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_FlushEx_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_FlushEx_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1332,7 +1332,7 @@ define internal i32 @dissect_FMP_FlushEx_reply(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_GetVolumeInfo_request(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_GetVolumeInfo_request(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_fmp_topVolumeId, align 4
   %6 = tail call i32 @dissect_rpc_uint32(ptr noundef %0, ptr noundef %2, i32 noundef %5, i32 noundef 0) #3
   %7 = load i32, ptr @hf_fmp_cursor, align 4
@@ -1343,7 +1343,7 @@ define internal i32 @dissect_FMP_GetVolumeInfo_request(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_FMP_GetVolumeInfo_reply(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_FMP_GetVolumeInfo_reply(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = call fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef 0, ptr noundef %2, ptr noundef %5)
   %7 = load i32, ptr %5, align 4
@@ -1401,7 +1401,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #3
   switch i32 %5, label %7 [
     i32 0, label %8
@@ -1938,10 +1938,10 @@ define internal fastcc i32 @dissect_fmp_extentListEx(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -171,7 +171,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.203 = private unnamed_addr constant [4 x i8] c"zza\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_ot_tags_from_script(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden void @hb_ot_tags_from_script(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [2 x i32], align 4
   store i32 2, ptr %4, align 4
@@ -2960,7 +2960,7 @@ sub_11326.i.thread.i:                             ; preds = %.preheader.i1064.i.
 1061:                                             ; preds = %1060, %1055
   %.064.i = phi ptr [ @_ZL13ot_languages3, %1060 ], [ @_ZL13ot_languages2, %1055 ]
   %.063.i = phi i32 [ 1212, %1060 ], [ 203, %1055 ]
-  %1062 = tail call i32 @hb_tag_from_string(ptr noundef %.061.i, i32 noundef %1059)
+  %1062 = tail call i32 @hb_tag_from_string(ptr noundef nonnull %.061.i, i32 noundef %1059)
   %1063 = load atomic i32, ptr @_ZZL24hb_ot_tags_from_languagePKcS0_PjS1_E12last_tag_idx.0 monotonic, align 4
   %1064 = icmp ult i32 %1063, %.063.i
   br i1 %1064, label %1065, label %.lr.ph.preheader.i.i.i.i
@@ -2973,7 +2973,7 @@ sub_11326.i.thread.i:                             ; preds = %.preheader.i1064.i.
   br i1 %1069, label %.critedge.i, label %.lr.ph.preheader.i.i.i.i
 
 1070:                                             ; preds = %1055
-  %1071 = tail call i32 @hb_tag_from_string(ptr noundef %.061.i, i32 noundef %1059)
+  %1071 = tail call i32 @hb_tag_from_string(ptr noundef nonnull %.061.i, i32 noundef %1059)
   %1072 = load atomic i32, ptr @_ZZL24hb_ot_tags_from_languagePKcS0_PjS1_E12last_tag_idx.0 monotonic, align 4
   br label %.loopexit.i
 
@@ -3093,7 +3093,7 @@ sub_11326.i.thread.i:                             ; preds = %.preheader.i1064.i.
   br i1 %1124, label %1125, label %.sink.split
 
 1125:                                             ; preds = %1121
-  %1126 = tail call i32 @hb_tag_from_string(ptr noundef %.061.i, i32 noundef 3)
+  %1126 = tail call i32 @hb_tag_from_string(ptr noundef nonnull %.061.i, i32 noundef 3)
   %1127 = and i32 %1126, -538976257
   store i32 %1127, ptr %5, align 4
   br label %.sink.split
@@ -3319,7 +3319,7 @@ define hidden i32 @hb_ot_tag_from_language(ptr noundef %0) local_unnamed_addr #0
 declare ptr @hb_language_to_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL24parse_private_use_subtagPKcPjS1_S0_PFhhE(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca [4 x i8], align 1
   %7 = icmp ne ptr %0, null
   %8 = icmp ne ptr %1, null
@@ -3933,7 +3933,7 @@ declare void @hb_tag_to_string(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @hb_language_from_string(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @hb_ot_tags_to_script_and_language(i32 noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
@@ -4055,7 +4055,7 @@ hb_ot_tag_to_script.exit:                         ; preds = %8, %10, %11, %12, %
   br i1 %.not.i, label %_ZL9hb_memcpyPvPKvm.exit, label %48
 
 48:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr readonly align 1 %42, i64 %43, i1 false), !alias.scope !49
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %45, ptr nonnull readonly align 1 %42, i64 %43, i1 false), !alias.scope !49
   br label %_ZL9hb_memcpyPvPKvm.exit
 
 _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %47, %48
@@ -4123,16 +4123,16 @@ _ZL9hb_memcpyPvPKvm.exit:                         ; preds = %47, %48
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -4140,7 +4140,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare i32 @hb_tag_from_string(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL14subtag_matchesPKcS0_S0_j(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 3, 9) %3) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @_ZL14subtag_matchesPKcS0_S0_j(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 3, 9) %3) unnamed_addr #7 {
   %5 = ptrtoint ptr %1 to i64
   %6 = ptrtoint ptr %0 to i64
   %7 = sub i64 %5, %6
@@ -4177,16 +4177,16 @@ define internal fastcc noundef zeroext i1 @_ZL14subtag_matchesPKcS0_S0_j(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

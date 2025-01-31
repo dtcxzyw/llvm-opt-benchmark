@@ -227,7 +227,7 @@ do.end48:                                         ; preds = %if.then43, %do.body
 declare i32 @event_priority_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evsig_ensure_saved_(ptr nocapture noundef %sig, i32 noundef %evsignal) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evsig_ensure_saved_(ptr noundef captures(none) %sig, i32 noundef %evsignal) local_unnamed_addr #0 {
 entry:
   %sh_old_max = getelementptr inbounds nuw i8, ptr %sig, i64 664
   %0 = load i32, ptr %sh_old_max, align 8
@@ -282,10 +282,10 @@ declare ptr @event_mm_realloc_(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @event_warn(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evsig_set_handler_(ptr nocapture noundef %base, i32 noundef %evsignal, ptr noundef %handler) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evsig_set_handler_(ptr noundef captures(none) %base, i32 noundef %evsignal, ptr noundef %handler) local_unnamed_addr #0 {
 entry:
   %sa = alloca %struct.sigaction, align 8
   %sh_old_max.i = getelementptr inbounds nuw i8, ptr %base, i64 704
@@ -386,7 +386,7 @@ declare i32 @sigfillset(ptr noundef) local_unnamed_addr #4
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @evsig_restore_handler_(ptr nocapture noundef readonly %base, i32 noundef %evsignal) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @evsig_restore_handler_(ptr noundef readonly captures(none) %base, i32 noundef %evsignal) local_unnamed_addr #0 {
 entry:
   %sh_old_max = getelementptr inbounds nuw i8, ptr %base, i64 704
   %0 = load i32, ptr %sh_old_max, align 8
@@ -591,7 +591,7 @@ return:                                           ; preds = %entry, %if.then
 declare ptr @evthread_setup_global_lock_(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
@@ -599,7 +599,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare void @evmap_signal_active_(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @evsig_add(ptr noundef %base, i32 noundef %evsignal, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #0 {
+define internal range(i32 -1, 1) i32 @evsig_add(ptr noundef %base, i32 noundef %evsignal, i16 signext %old, i16 signext %events, ptr readnone captures(none) %p) #0 {
 entry:
   %sig1 = getelementptr inbounds nuw i8, ptr %base, i64 40
   %0 = load ptr, ptr @evsig_base_lock, align 8
@@ -706,7 +706,7 @@ return:                                           ; preds = %if.then41, %do.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @evsig_del(ptr nocapture noundef %base, i32 noundef %evsignal, i16 signext %old, i16 signext %events, ptr nocapture readnone %p) #0 {
+define internal range(i32 -1, 1) i32 @evsig_del(ptr noundef captures(none) %base, i32 noundef %evsignal, i16 signext %old, i16 signext %events, ptr readnone captures(none) %p) #0 {
 entry:
   %0 = load i32, ptr @event_debug_logging_mask_, align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -824,7 +824,7 @@ return:                                           ; preds = %for.end, %if.then
 declare i32 @event_add_nolock_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #4

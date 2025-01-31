@@ -450,7 +450,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN9grpc_core8channelz8BaseNodeD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN9grpc_core8channelz8BaseNodeD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #25
   unreachable
@@ -533,7 +533,7 @@ _ZNSt8__detail9__variant17_Copy_assign_baseILb0EJSt9monostatebN9grpc_core12exper
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz18CallCountingHelper17RecordCallStartedEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core8channelz18CallCountingHelper17RecordCallStartedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = atomicrmw add ptr %this, i64 1 monotonic, align 8
   %last_call_started_cycle_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -546,7 +546,7 @@ entry:
 declare noundef double @_Z21gpr_get_cycle_counterv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core8channelz18CallCountingHelper16RecordCallFailedEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core8channelz18CallCountingHelper16RecordCallFailedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
 entry:
   %calls_failed_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = atomicrmw add ptr %calls_failed_, i64 1 monotonic, align 8
@@ -554,7 +554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core8channelz18CallCountingHelper19RecordCallSucceededEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core8channelz18CallCountingHelper19RecordCallSucceededEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #9 align 2 {
 entry:
   %calls_succeeded_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %calls_succeeded_, i64 1 monotonic, align 8
@@ -562,7 +562,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz18CallCountingHelper18PopulateCallCountsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %json) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz18CallCountingHelper18PopulateCallCountsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %json) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i133 = alloca %class.anon, align 1
   %ref.tmp.i.i.i.i.i121 = alloca %class.anon, align 1
@@ -1381,7 +1381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz24PerCpuCallCountingHelper18PopulateCallCountsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %json) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz24PerCpuCallCountingHelper18PopulateCallCountsEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12experimental4JsonESt4lessIS8_ESaISt4pairIKS8_SA_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %json) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i144 = alloca %class.anon, align 1
   %ref.tmp.i.i.i.i.i132 = alloca %class.anon, align 1
@@ -5097,7 +5097,7 @@ _ZNSt12_Vector_baseIN9grpc_core12experimental4JsonESaIS2_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core8channelz11ChannelNode20SetConnectivityStateE23grpc_connectivity_state(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) %this, i32 noundef %state) local_unnamed_addr #9 align 2 {
+define void @_ZN9grpc_core8channelz11ChannelNode20SetConnectivityStateE23grpc_connectivity_state(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(304) %this, i32 noundef %state) local_unnamed_addr #9 align 2 {
 entry:
   %connectivity_state_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %shl = shl i32 %state, 1
@@ -5633,7 +5633,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10ServerNode14AddChildSocketENS_13RefCountedPtrINS0_10SocketNodeEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz10ServerNode14AddChildSocketENS_13RefCountedPtrINS0_10SocketNodeEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef captures(none) %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %ref.tmp = alloca %"struct.std::pair.50", align 8
   %child_mu_ = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -5861,7 +5861,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit2:       ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10ServerNode20AddChildListenSocketENS_13RefCountedPtrINS0_16ListenSocketNodeEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz10ServerNode20AddChildListenSocketENS_13RefCountedPtrINS0_16ListenSocketNodeEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef captures(none) %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %ref.tmp = alloca %"struct.std::pair.58", align 8
   %child_mu_ = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -9422,7 +9422,7 @@ entry:
 declare void @_Z31grpc_channel_arg_pointer_createPcPvPK23grpc_arg_pointer_vtable(ptr sret(%struct.grpc_arg) align 8, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10SocketNode8Security18GetFromChannelArgsEPK17grpc_channel_args(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.52") align 8 initializes((0, 8)) %agg.result, ptr noundef %args) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core8channelz10SocketNode8Security18GetFromChannelArgsEPK17grpc_channel_args(ptr noalias writeonly sret(%"class.grpc_core::RefCountedPtr.52") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %args) local_unnamed_addr #3 align 2 {
 entry:
   %call.i = tail call noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr noundef %args, ptr noundef nonnull @.str.35)
   %cmp.i = icmp eq ptr %call.i, null
@@ -9451,7 +9451,7 @@ cond.end:                                         ; preds = %_Z30grpc_channel_ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10SocketNodeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_NS_13RefCountedPtrINS1_8SecurityEEE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 20), (24, 32)) %this, ptr noundef %local, ptr noundef %remote, ptr noundef nonnull %name, ptr nocapture noundef %security) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz10SocketNodeC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_NS_13RefCountedPtrINS1_8SecurityEEE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 20), (24, 32)) %this, ptr noundef %local, ptr noundef %remote, ptr noundef nonnull %name, ptr noundef captures(none) %security) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name) #24
@@ -9496,7 +9496,7 @@ invoke.cont:                                      ; preds = %call.i.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10SocketNode28RecordStreamStartedFromLocalEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core8channelz10SocketNode28RecordStreamStartedFromLocalEv(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
 entry:
   %streams_started_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = atomicrmw add ptr %streams_started_, i64 1 monotonic, align 8
@@ -9508,7 +9508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10SocketNode29RecordStreamStartedFromRemoteEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core8channelz10SocketNode29RecordStreamStartedFromRemoteEv(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
 entry:
   %streams_started_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = atomicrmw add ptr %streams_started_, i64 1 monotonic, align 8
@@ -9520,7 +9520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10SocketNode18RecordMessagesSentEj(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, i32 noundef %num_sent) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core8channelz10SocketNode18RecordMessagesSentEj(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this, i32 noundef %num_sent) local_unnamed_addr #3 align 2 {
 entry:
   %conv = zext i32 %num_sent to i64
   %messages_sent_ = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -9533,7 +9533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz10SocketNode21RecordMessageReceivedEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core8channelz10SocketNode21RecordMessageReceivedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %this) local_unnamed_addr #3 align 2 {
 entry:
   %messages_received_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = atomicrmw add ptr %messages_received_, i64 1 monotonic, align 8
@@ -15300,7 +15300,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 declare void @_ZN4absl12lts_202308025Mutex6UnlockEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare noundef i64 @_ZN9grpc_core13PerCpuOptions6ShardsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
@@ -17538,7 +17538,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nounwind
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
@@ -19374,10 +19374,10 @@ declare extern_weak void @_ZTHN9grpc_core20PerCpuShardingHelper6state_E() #0
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22

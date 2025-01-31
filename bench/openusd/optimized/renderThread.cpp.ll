@@ -262,7 +262,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread17SetRenderCallbackESt8functionIFvvEE(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread17SetRenderCallbackESt8functionIFvvEE(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %3 = alloca %"class.std::function", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -341,7 +341,7 @@ _ZNSt8functionIFvvEEaSERKS1_.exit:                ; preds = %_ZNSt8functionIFvvE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread19SetShutdownCallbackESt8functionIFvvEE(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread19SetShutdownCallbackESt8functionIFvvEE(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %3 = alloca %"class.std::function", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -658,7 +658,7 @@ declare void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 
 declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread15IsThreadRunningEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread15IsThreadRunningEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %.sroa.0.0.copyload.i = load i64, ptr %2, align 8
   %3 = icmp ne i64 %.sroa.0.0.copyload.i, 0
@@ -698,7 +698,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11IsRenderingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11IsRenderingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %3 = load atomic i8, ptr %2 seq_cst, align 4
   %4 = trunc i8 %3 to i1
@@ -736,7 +736,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11PauseRenderEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11PauseRenderEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 163
   store atomic i8 1, ptr %2 seq_cst, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 162
@@ -745,7 +745,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread11PauseRenderE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread12ResumeRenderEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread12ResumeRenderEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 163
   store atomic i8 1, ptr %2 seq_cst, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 162
@@ -754,7 +754,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread12ResumeRender
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread15IsStopRequestedEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread15IsStopRequestedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = atomicrmw xchg ptr %2, i8 1 seq_cst, align 1
   %.not = icmp eq i8 %3, 0
@@ -776,7 +776,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread16IsPauseRequestedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread16IsPauseRequestedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 162
   %3 = load atomic i8, ptr %2 seq_cst, align 2
   %4 = trunc i8 %3 to i1
@@ -784,7 +784,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread12IsPauseDirtyEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread12IsPauseDirtyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(216) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 163
   %3 = atomicrmw xchg ptr %2, i8 0 seq_cst, align 1
   %4 = trunc i8 %3 to i1
@@ -792,7 +792,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread15LockFramebufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_lock") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14HdRenderThread15LockFramebufferEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_lock") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %3, ptr %0, align 8
   %4 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %3) #15
@@ -810,10 +810,10 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvvEPS0_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #1 comdat align 2 {
@@ -915,10 +915,10 @@ declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noun
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

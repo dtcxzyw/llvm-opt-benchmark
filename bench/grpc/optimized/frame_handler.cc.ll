@@ -16,7 +16,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z23alts_reset_frame_writerP17alts_frame_writerPKhm(ptr nocapture noundef writeonly %writer, ptr noundef %buffer, i64 noundef %length) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z23alts_reset_frame_writerP17alts_frame_writerPKhm(ptr noundef writeonly captures(none) %writer, ptr noundef %buffer, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %buffer, null
   br i1 %cmp, label %return, label %if.end
@@ -70,7 +70,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z22alts_write_frame_bytesP17alts_frame_writerPhPm(ptr nocapture noundef %writer, ptr noundef writeonly %output, ptr noundef %bytes_size) local_unnamed_addr #2 {
+define noundef zeroext i1 @_Z22alts_write_frame_bytesP17alts_frame_writerPhPm(ptr noundef captures(none) %writer, ptr noundef writeonly %output, ptr noundef %bytes_size) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ne ptr %bytes_size, null
   %cmp1 = icmp ne ptr %output, null
@@ -148,7 +148,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z25alts_is_frame_writer_doneP17alts_frame_writer(ptr nocapture noundef readonly %writer) local_unnamed_addr #3 {
+define noundef zeroext i1 @_Z25alts_is_frame_writer_doneP17alts_frame_writer(ptr noundef readonly captures(none) %writer) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %writer, align 8
   %cmp = icmp eq ptr %0, null
@@ -168,10 +168,10 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z35alts_get_num_writer_bytes_remainingP17alts_frame_writer(ptr nocapture noundef readonly %writer) local_unnamed_addr #3 {
+define noundef i64 @_Z35alts_get_num_writer_bytes_remainingP17alts_frame_writer(ptr noundef readonly captures(none) %writer) local_unnamed_addr #3 {
 entry:
   %header_bytes_written = getelementptr inbounds nuw i8, ptr %writer, i64 24
   %0 = load i64, ptr %header_bytes_written, align 8
@@ -202,7 +202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr nocapture noundef readonly %reader) local_unnamed_addr #3 {
+define noundef zeroext i1 @_Z25alts_is_frame_reader_doneP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %reader, align 8
   %cmp = icmp eq ptr %0, null
@@ -226,7 +226,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z26alts_has_read_frame_lengthP17alts_frame_reader(ptr nocapture noundef readonly %reader) local_unnamed_addr #3 {
+define noundef zeroext i1 @_Z26alts_has_read_frame_lengthP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
 entry:
   %header_bytes_read = getelementptr inbounds nuw i8, ptr %reader, i64 16
   %0 = load i64, ptr %header_bytes_read, align 8
@@ -235,7 +235,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr nocapture noundef readonly %reader) local_unnamed_addr #3 {
+define noundef i64 @_Z31alts_get_reader_bytes_remainingP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
 entry:
   %header_bytes_read.i = getelementptr inbounds nuw i8, ptr %reader, i64 16
   %0 = load i64, ptr %header_bytes_read.i, align 8
@@ -253,14 +253,14 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr nocapture noundef writeonly initializes((0, 8)) %reader, ptr noundef %buffer) local_unnamed_addr #5 {
+define void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr noundef writeonly captures(none) initializes((0, 8)) %reader, ptr noundef %buffer) local_unnamed_addr #5 {
 entry:
   store ptr %buffer, ptr %reader, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_Z23alts_reset_frame_readerP17alts_frame_readerPh(ptr nocapture noundef writeonly %reader, ptr noundef %buffer) local_unnamed_addr #5 {
+define noundef zeroext i1 @_Z23alts_reset_frame_readerP17alts_frame_readerPh(ptr noundef writeonly captures(none) %reader, ptr noundef %buffer) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ne ptr %buffer, null
   br i1 %cmp, label %if.end, label %return
@@ -276,7 +276,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z21alts_read_frame_bytesP17alts_frame_readerPKhPm(ptr nocapture noundef %reader, ptr noundef readonly %bytes, ptr noundef %bytes_size) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z21alts_read_frame_bytesP17alts_frame_readerPKhPm(ptr noundef captures(none) %reader, ptr noundef readonly %bytes, ptr noundef %bytes_size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %bytes_size, null
   br i1 %cmp, label %return, label %if.end
@@ -388,7 +388,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr nocapture noundef readonly %reader) local_unnamed_addr #3 {
+define noundef i64 @_Z26alts_get_output_bytes_readP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
 entry:
   %output_bytes_read = getelementptr inbounds nuw i8, ptr %reader, i64 24
   %0 = load i64, ptr %output_bytes_read, align 8
@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_Z22alts_get_output_bufferP17alts_frame_reader(ptr nocapture noundef readonly %reader) local_unnamed_addr #3 {
+define noundef ptr @_Z22alts_get_output_bufferP17alts_frame_reader(ptr noundef readonly captures(none) %reader) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %reader, align 8
   ret ptr %0
@@ -412,7 +412,7 @@ entry:
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

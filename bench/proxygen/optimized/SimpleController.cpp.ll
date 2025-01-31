@@ -63,7 +63,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen16SimpleControllerC2EPNS_19HTTPSessionAcceptorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %acceptor) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16SimpleControllerC2EPNS_19HTTPSessionAcceptorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %acceptor) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen16SimpleControllerE, i64 16), ptr %this, align 8
   %acceptor_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen16SimpleController17getRequestHandlerERNS_15HTTPTransactionEPNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(912) %txn, ptr noundef %msg) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8proxygen16SimpleController17getRequestHandlerERNS_15HTTPTransactionEPNS_11HTTPMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(912) %txn, ptr noundef %msg) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %acceptor_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -123,7 +123,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN8proxygen16SimpleController20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_13HTTPExceptionERKN5folly13SocketAddressE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %error, ptr noundef nonnull align 8 dereferenceable(27) %localAddress) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8proxygen16SimpleController20getParseErrorHandlerEPNS_15HTTPTransactionERKNS_13HTTPExceptionERKN5folly13SocketAddressE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %error, ptr noundef nonnull align 8 dereferenceable(27) %localAddress) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::allocator", align 1
@@ -239,7 +239,7 @@ declare void @_ZN8proxygen25CodecErrorResponseHandlerC1ENS_9ErrorCodeE(ptr nound
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN8proxygen16SimpleController18createErrorHandlerEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_13HTTPErrorPageE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, i32 noundef %statusCode, ptr noundef nonnull align 8 dereferenceable(32) %statusMessage, ptr noundef %errorPage) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8proxygen16SimpleController18createErrorHandlerEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_13HTTPErrorPageE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, i32 noundef %statusCode, ptr noundef nonnull align 8 dereferenceable(32) %statusMessage, ptr noundef %errorPage) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #16
   invoke void @_ZN8proxygen25HTTPDirectResponseHandlerC1EjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_13HTTPErrorPageE(ptr noundef nonnull align 8 dereferenceable(61) %call, i32 noundef %statusCode, ptr noundef nonnull align 8 dereferenceable(32) %statusMessage, ptr noundef %errorPage)
@@ -265,7 +265,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN8proxygen16SimpleController28getTransactionTimeoutHandlerEPNS_15HTTPTransactionERKN5folly13SocketAddressE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture readnone %0, ptr noundef nonnull align 8 dereferenceable(27) %localAddress) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8proxygen16SimpleController28getTransactionTimeoutHandlerEPNS_15HTTPTransactionERKN5folly13SocketAddressE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr readnone captures(none) %0, ptr noundef nonnull align 8 dereferenceable(27) %localAddress) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -342,13 +342,13 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8proxygen16SimpleController13attachSessionEPNS_15HTTPSessionBaseE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #8 align 2 {
+define void @_ZN8proxygen16SimpleController13attachSessionEPNS_15HTTPSessionBaseE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8proxygen16SimpleController13detachSessionEPKNS_15HTTPSessionBaseE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #8 align 2 {
+define void @_ZN8proxygen16SimpleController13detachSessionEPKNS_15HTTPSessionBaseE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
@@ -356,7 +356,7 @@ entry:
 declare void @_ZN8proxygen25HTTPDirectResponseHandlerC1EjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_13HTTPErrorPageE(ptr noundef nonnull align 8 dereferenceable(61), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK8proxygen16SimpleController26getGracefulShutdownTimeoutEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 {
+define i64 @_ZNK8proxygen16SimpleController26getGracefulShutdownTimeoutEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #9 align 2 {
 entry:
   %acceptor_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %acceptor_, align 8

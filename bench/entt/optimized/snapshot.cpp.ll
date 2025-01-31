@@ -1376,7 +1376,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -1511,13 +1511,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN31BasicSnapshot_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN31BasicSnapshot_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 cleanup:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -1697,7 +1697,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare noundef zeroext i1 @_ZN7testing8internal10AlwaysTrueEv() local_unnamed_addr #0
 
@@ -2020,7 +2020,7 @@ _ZN4entt8internal16registry_contextISaINS_6entityEEED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32BasicSnapshot_GetEntityType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32BasicSnapshot_GetEntityType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -5347,7 +5347,7 @@ ehcleanup572:                                     ; preds = %ehcleanup570, %ehcl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIS2_ZN32BasicSnapshot_GetEntityType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr %archive.0.val) unnamed_addr #4 align 2 {
@@ -5839,7 +5839,7 @@ _ZNSt12_Vector_baseIN4entt9basic_anyILm16ELm8EEESaIS2_EED2Ev.exit: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26BasicSnapshot_GetType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN26BasicSnapshot_GetType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -9483,7 +9483,7 @@ _ZN4entt8any_castIKiLm16ELm8EEEPT_PNS_9basic_anyIXT0_EXT1_EEE.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN31BasicSnapshot_GetEmptyType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN31BasicSnapshot_GetEmptyType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -12111,7 +12111,7 @@ if.end:                                           ; preds = %"_ZSt5applyIZNK4ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32BasicSnapshot_GetTypeSparse_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32BasicSnapshot_GetTypeSparse_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -15891,7 +15891,7 @@ if.end12:                                         ; preds = %if.end, %"_ZZN32Bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37BasicSnapshotLoader_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37BasicSnapshotLoader_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 cleanup:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -16026,7 +16026,7 @@ eh.resume:                                        ; preds = %ehcleanup181, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN55BasicSnapshotLoaderDeathTest_DISABLED_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN55BasicSnapshotLoaderDeathTest_DISABLED_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -16791,17 +16791,17 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 declare void @_ZN7testing8internal18FormatFileLocationB5cxx11EPKci(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZN7testing8internal9DeathTest11LastMessageEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38BasicSnapshotLoader_GetEntityType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN38BasicSnapshotLoader_GetEntityType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -20117,7 +20117,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIS2_ZN38BasicSnapshotLoader_GetEntityType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIS2_ZN38BasicSnapshotLoader_GetEntityType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %archive) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !233
   %entities.i.i = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -20393,7 +20393,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32BasicSnapshotLoader_GetType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32BasicSnapshotLoader_GetType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -23254,7 +23254,7 @@ ehcleanup522:                                     ; preds = %ehcleanup512, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshotLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshotLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem = alloca i32, align 4
   %0 = load ptr, ptr %this, align 8, !tbaa !233
@@ -23510,7 +23510,7 @@ while.end:                                        ; preds = %if.end, %"_ZZN32Bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37BasicSnapshotLoader_GetEmptyType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37BasicSnapshotLoader_GetEmptyType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -25896,7 +25896,7 @@ ehcleanup447:                                     ; preds = %ehcleanup439, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN37BasicSnapshotLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 1493973694, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN37BasicSnapshotLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %archive, i32 noundef range(i32 1493973694, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !233
   %call.i = tail call noundef nonnull align 8 dereferenceable(152) ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE6assureIN4test5emptyEEERDaj(ptr noundef nonnull align 8 dereferenceable(320) %0, i32 noundef %id)
@@ -26101,7 +26101,7 @@ while.end:                                        ; preds = %if.end, %"_ZZN37Bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38BasicSnapshotLoader_GetTypeSparse_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN38BasicSnapshotLoader_GetTypeSparse_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -29068,7 +29068,7 @@ ehcleanup534:                                     ; preds = %ehcleanup524, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN38BasicSnapshotLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN38BasicSnapshotLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem = alloca i32, align 4
   %0 = load ptr, ptr %this, align 8, !tbaa !233
@@ -29324,7 +29324,7 @@ while.end:                                        ; preds = %if.end, %"_ZZN38Bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN44BasicSnapshotLoader_GetTypeWithListener_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN44BasicSnapshotLoader_GetTypeWithListener_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %struct.shadow, align 4
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
@@ -30623,7 +30623,7 @@ ehcleanup147:                                     ; preds = %ehcleanup145, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32BasicSnapshotLoader_Orphans_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32BasicSnapshotLoader_Orphans_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem.i = alloca i32, align 4
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
@@ -32627,7 +32627,7 @@ ehcleanup258:                                     ; preds = %ehcleanup249, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN39BasicContinuousLoader_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN39BasicContinuousLoader_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 cleanup:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -32929,7 +32929,7 @@ _ZN4entt9dense_mapIjSt4pairINS_6entityES2_ESt4hashIjESt8equal_toIjESaIS1_IKjS3_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN40BasicContinuousLoader_GetEntityType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN40BasicContinuousLoader_GetEntityType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -42272,7 +42272,7 @@ ehcleanup2256:                                    ; preds = %ehcleanup2254, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIS2_ZN40BasicContinuousLoader_GetEntityType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIS2_ZN40BasicContinuousLoader_GetEntityType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %archive) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %entity = alloca i32, align 4
   %reg = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -42763,7 +42763,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34BasicContinuousLoader_GetType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34BasicContinuousLoader_GetType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -46847,7 +46847,7 @@ ehcleanup763:                                     ; preds = %ehcleanup753, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN34BasicContinuousLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN34BasicContinuousLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem = alloca i32, align 4
   %reg = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -47149,7 +47149,7 @@ while.end:                                        ; preds = %if.end, %while.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42BasicContinuousLoader_GetTypeExtended_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42BasicContinuousLoader_GetTypeExtended_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %struct.shadow, align 4
   %entity.i = alloca i32, align 4
@@ -51073,7 +51073,7 @@ ehcleanup539:                                     ; preds = %ehcleanup529, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN39BasicContinuousLoader_GetEmptyType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN39BasicContinuousLoader_GetEmptyType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -54771,7 +54771,7 @@ ehcleanup686:                                     ; preds = %ehcleanup678, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN39BasicContinuousLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 1493973694, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN39BasicContinuousLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %archive, i32 noundef range(i32 1493973694, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reg = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %reg, align 8, !tbaa !323
@@ -55022,7 +55022,7 @@ while.end:                                        ; preds = %if.end, %while.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN40BasicContinuousLoader_GetTypeSparse_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN40BasicContinuousLoader_GetTypeSparse_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -59212,7 +59212,7 @@ ehcleanup775:                                     ; preds = %ehcleanup765, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN40BasicContinuousLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @"_ZN4entt23basic_continuous_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN40BasicContinuousLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull returned align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %archive, i32 noundef range(i32 -1779859874, -931295754) %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem = alloca i32, align 4
   %reg = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -59514,7 +59514,7 @@ while.end:                                        ; preds = %if.end, %while.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN46BasicContinuousLoader_GetTypeWithListener_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN46BasicContinuousLoader_GetTypeWithListener_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %struct.shadow, align 4
   %ref.tmp.i = alloca %"class.std::allocator.47", align 1
@@ -61024,7 +61024,7 @@ ehcleanup149:                                     ; preds = %ehcleanup147, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34BasicContinuousLoader_Orphans_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34BasicContinuousLoader_Orphans_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem.i = alloca i32, align 4
   %entity.i = alloca i32, align 4
@@ -66021,7 +66021,7 @@ if.end94:                                         ; preds = %for.body.i.i.i154, 
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
@@ -68950,7 +68950,7 @@ _ZN4entt10type_indexINS_14basic_registryINS_6entityESaIS2_EEEvE5valueEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN4entt9basic_anyILm16ELm8EE12basic_vtableINS_14basic_registryINS_6entityESaIS4_EEEEEPKvNS_8internal13any_operationERKS1_S8_(i8 noundef zeroext %op, ptr noundef nonnull align 8 dereferenceable(33) %value, ptr noundef %other) #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -70143,7 +70143,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEE5clearESt12_Ios_Iostate(ptr noundef nonnull align 8 dereferenceable(264), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK7testing8internal19MatchesRegexMatcher10DescribeToEPSo(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef %os) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -75235,7 +75235,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %if.end
-  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 noundef %call.i.i)
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i

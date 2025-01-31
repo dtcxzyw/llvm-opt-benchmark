@@ -893,7 +893,7 @@ define range(i32 -1, 1) i32 @H5Pget_link_creation_order(i64 noundef %0, ptr noun
 declare i32 @H5P__register_real(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__gcrt_group_info_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @H5P__gcrt_group_info_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %65, label %5
@@ -992,7 +992,7 @@ define internal noundef i32 @H5P__gcrt_group_info_enc(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 16)) %1) #3 {
+define internal noundef i32 @H5P__gcrt_group_info_dec(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 16)) %1) #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) @H5G_def_ginfo_g, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = load i8, ptr %3, align 1
@@ -1124,7 +1124,7 @@ define internal noundef i32 @H5P__gcrt_group_info_dec(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__gcrt_link_info_enc(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 {
+define internal noundef i32 @H5P__gcrt_link_info_enc(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %23, label %5
@@ -1167,7 +1167,7 @@ define internal noundef i32 @H5P__gcrt_link_info_enc(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__gcrt_link_info_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__gcrt_link_info_dec(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -1201,7 +1201,7 @@ define internal range(i32 -1, 1) i32 @H5P__gcrt_link_info_dec(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

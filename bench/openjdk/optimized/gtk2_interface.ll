@@ -2642,31 +2642,31 @@ declare ptr @dlerror() local_unnamed_addr #1
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @putenv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @XSetErrorHandler(ptr noundef) local_unnamed_addr #11
 
@@ -4638,7 +4638,7 @@ throw_exception.exit:                             ; preds = %28, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = load ptr, ptr @fp_gdk_pixbuf_get_from_drawable, align 8
   %5 = load ptr, ptr @gtk2_white_pixbuf, align 8
   %6 = load ptr, ptr @gtk2_white_pixmap, align 8
@@ -4765,7 +4765,7 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gtk2_get_xthickness(ptr nocapture readnone %0, i32 noundef %1) #0 {
+define internal i32 @gtk2_get_xthickness(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr @gtk2_window, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %init_containers.exit
@@ -4799,7 +4799,7 @@ init_containers.exit:                             ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gtk2_get_ythickness(ptr nocapture readnone %0, i32 noundef %1) #0 {
+define internal i32 @gtk2_get_ythickness(ptr readnone captures(none) %0, i32 noundef %1) #0 {
   %3 = load ptr, ptr @gtk2_window, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %init_containers.exit
@@ -4833,7 +4833,7 @@ init_containers.exit:                             ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 16777216) i32 @gtk2_get_color_for_state(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal range(i32 0, 16777216) i32 @gtk2_get_color_for_state(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = load ptr, ptr @gtk2_window, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %init_containers.exit
@@ -5594,14 +5594,14 @@ define internal noundef i32 @gtk2_get_drawable_data(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal ptr @gtk2_get_window(ptr nocapture noundef readonly %0) #12 {
+define internal ptr @gtk2_get_window(ptr noundef readonly captures(none) %0) #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal void @flush_gtk_event_loop() #0 {
@@ -5664,7 +5664,7 @@ create_Object.exit:                               ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @create_Long(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
@@ -5805,7 +5805,7 @@ create_Object.exit:                               ; preds = %2, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @create_Insets(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @create_Insets(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [4 x %union.jvalue], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4
@@ -5918,19 +5918,19 @@ define internal fastcc zeroext range(i8 0, 2) i8 @gtk2_get_pixbuf_data(ptr nound
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

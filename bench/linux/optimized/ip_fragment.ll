@@ -115,7 +115,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip_check_def
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_ip_check_defrag774, ptr @__UNIQUE_ID___addressable_ip_defrag773, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_defrag(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @ip_defrag(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.frag_v4_compare_key, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -628,13 +628,13 @@ define dso_local i32 @ip_defrag(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @ip_check_defrag(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef ptr @ip_check_defrag(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = alloca %struct.iphdr, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -769,7 +769,7 @@ skb_share_check.exit:                             ; preds = %48
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -825,7 +825,7 @@ define dso_local void @ipfrag_init() local_unnamed_addr #6 section ".init.text" 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ip4_frag_init(ptr nocapture noundef initializes((8, 28), (176, 177), (192, 200)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @ip4_frag_init(ptr noundef captures(none) initializes((8, 28), (176, 177), (192, 200)) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.inetpeer_addr, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
@@ -866,7 +866,7 @@ define internal void @ip4_frag_init(ptr nocapture noundef initializes((8, 28), (
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ip4_frag_free(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ip4_frag_free(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1008,7 +1008,7 @@ define internal void @ip_expire(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @inet_frags_init(ptr noundef) local_unnamed_addr #3
@@ -1215,7 +1215,7 @@ declare dso_local void @__icmp_send(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @ip4_key_hashfn(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2) #10 align 16 {
+define internal i32 @ip4_key_hashfn(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2) #10 align 16 {
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -1279,7 +1279,7 @@ define internal i32 @ip4_key_hashfn(ptr nocapture noundef readonly %0, i32 %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i32 @ip4_obj_hashfn(ptr nocapture noundef readonly %0, i32 %1, i32 noundef %2) #10 align 16 {
+define internal i32 @ip4_obj_hashfn(ptr noundef readonly captures(none) %0, i32 %1, i32 noundef %2) #10 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr i8, ptr %0, i64 12
@@ -1344,7 +1344,7 @@ define internal i32 @ip4_obj_hashfn(ptr nocapture noundef readonly %0, i32 %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @ip4_obj_cmpfn(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #11 align 16 {
+define internal range(i32 0, 2) i32 @ip4_obj_cmpfn(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #11 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1436,7 +1436,7 @@ define internal range(i32 -2147483648, 1) i32 @ipv4_frags_init_net(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal void @ipv4_frags_pre_exit_net(ptr nocapture noundef readonly %0) #12 align 16 {
+define internal void @ipv4_frags_pre_exit_net(ptr noundef readonly captures(none) %0) #12 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1064
   %3 = load ptr, ptr %2, align 8
   store volatile i64 0, ptr %3, align 64
@@ -1446,7 +1446,7 @@ define internal void @ipv4_frags_pre_exit_net(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ipv4_frags_exit_net(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ipv4_frags_exit_net(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1484,7 +1484,7 @@ declare dso_local void @unregister_net_sysctl_table(ptr noundef) local_unnamed_a
 declare i16 @llvm.umax.i16(i16, i16) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #4

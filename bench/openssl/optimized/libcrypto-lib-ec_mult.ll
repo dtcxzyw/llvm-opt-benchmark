@@ -354,7 +354,7 @@ for.body:                                         ; preds = %for.cond
   %35 = load i32, ptr %Z_is_one161, align 8
   %xor166 = xor i32 %35, %and
   store i32 %xor166, ptr %Z_is_one161, align 8
-  %call168 = tail call fastcc i32 @ec_point_ladder_step(ptr noundef %group, ptr noundef nonnull %r, ptr noundef %call12, ptr noundef %call10, ptr noundef %ctx)
+  %call168 = tail call fastcc i32 @ec_point_ladder_step(ptr noundef nonnull %group, ptr noundef nonnull %r, ptr noundef %call12, ptr noundef %call10, ptr noundef %ctx)
   %tobool169.not = icmp eq i32 %call168, 0
   br i1 %tobool169.not, label %err.sink.split, label %for.cond, !llvm.loop !6
 
@@ -516,7 +516,7 @@ declare void @EC_POINT_clear_free(ptr noundef) local_unnamed_addr #2
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ec_wNAF_mul(ptr noundef %group, ptr noundef %r, ptr noundef %scalar, i64 noundef %num, ptr nocapture noundef readonly %points, ptr nocapture noundef readonly %scalars, ptr noundef %ctx) local_unnamed_addr #1 {
+define i32 @ossl_ec_wNAF_mul(ptr noundef %group, ptr noundef %r, ptr noundef %scalar, i64 noundef %num, ptr noundef readonly captures(none) %points, ptr noundef readonly captures(none) %scalars, ptr noundef %ctx) local_unnamed_addr #1 {
 entry:
   %tmp_len = alloca i64, align 8
   %order = getelementptr inbounds nuw i8, ptr %group, i64 16
@@ -1226,7 +1226,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @bn_compute_wNAF(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @EC_POINT_dbl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1565,7 +1565,7 @@ declare ptr @EC_GROUP_get0_order(ptr noundef) local_unnamed_addr #2
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_ec_wNAF_have_precompute_mult(ptr nocapture noundef readonly %group) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_ec_wNAF_have_precompute_mult(ptr noundef readonly captures(none) %group) local_unnamed_addr #4 {
 entry:
   %pre_comp_type = getelementptr inbounds nuw i8, ptr %group, i64 152
   %0 = load i32, ptr %pre_comp_type, align 8

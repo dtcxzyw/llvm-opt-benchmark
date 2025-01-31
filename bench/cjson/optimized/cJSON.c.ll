@@ -117,7 +117,7 @@ define noundef nonnull ptr @cJSON_Version() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
 define void @cJSON_InitHooks(ptr noundef readonly %0) local_unnamed_addr #4 {
@@ -154,10 +154,10 @@ define void @cJSON_InitHooks(ptr noundef readonly %0) local_unnamed_addr #4 {
 declare noalias noundef ptr @malloc(i64 noundef) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #6
+declare void @free(ptr allocptr noundef captures(none)) #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
@@ -230,7 +230,7 @@ define void @cJSON_Delete(ptr noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define noundef double @cJSON_SetNumberHelper(ptr nocapture noundef writeonly initializes((40, 44), (48, 56)) %0, double noundef returned %1) local_unnamed_addr #9 {
+define noundef double @cJSON_SetNumberHelper(ptr noundef writeonly captures(none) initializes((40, 44), (48, 56)) %0, double noundef returned %1) local_unnamed_addr #9 {
   %3 = fcmp ult double %1, 0x41DFFFFFFFC00000
   br i1 %3, label %4, label %8
 
@@ -252,7 +252,7 @@ define noundef double @cJSON_SetNumberHelper(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define ptr @cJSON_SetValuestring(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #8 {
+define ptr @cJSON_SetValuestring(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %cJSON_strdup.exit.thread, label %4
 
@@ -281,41 +281,37 @@ define ptr @cJSON_SetValuestring(ptr noundef %0, ptr noundef readonly %1) local_
   br label %cJSON_strdup.exit.thread
 
 18:                                               ; preds = %12
-  %19 = icmp eq ptr %1, null
-  br i1 %19, label %cJSON_strdup.exit.thread, label %20
+  %19 = add i64 %13, 1
+  %20 = load ptr, ptr @global_hooks, align 8
+  %21 = tail call ptr %20(i64 noundef %19) #31
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %cJSON_strdup.exit.thread, label %23
 
-20:                                               ; preds = %18
-  %21 = add i64 %13, 1
-  %22 = load ptr, ptr @global_hooks, align 8
-  %23 = tail call ptr %22(i64 noundef %21) #31
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %cJSON_strdup.exit.thread, label %25
+23:                                               ; preds = %18
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %21, ptr nonnull readonly align 1 %1, i64 %19, i1 false)
+  %24 = load ptr, ptr %9, align 8
+  %.not23 = icmp eq ptr %24, null
+  br i1 %.not23, label %27, label %25
 
-25:                                               ; preds = %20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %23, ptr nonnull readonly align 1 %1, i64 %21, i1 false)
-  %26 = load ptr, ptr %9, align 8
-  %.not23 = icmp eq ptr %26, null
-  br i1 %.not23, label %29, label %27
+25:                                               ; preds = %23
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
+  tail call void %26(ptr noundef nonnull %24) #31
+  br label %27
 
-27:                                               ; preds = %25
-  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_hooks, i64 8), align 8
-  tail call void %28(ptr noundef nonnull %26) #31
-  br label %29
-
-29:                                               ; preds = %27, %25
-  store ptr %23, ptr %9, align 8
+27:                                               ; preds = %25, %23
+  store ptr %21, ptr %9, align 8
   br label %cJSON_strdup.exit.thread
 
-cJSON_strdup.exit.thread:                         ; preds = %20, %18, %8, %2, %4, %29, %15
-  %.0 = phi ptr [ %17, %15 ], [ %23, %29 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %18 ], [ null, %20 ]
+cJSON_strdup.exit.thread:                         ; preds = %18, %8, %2, %4, %27, %15
+  %.0 = phi ptr [ %17, %15 ], [ %21, %27 ], [ null, %4 ], [ null, %2 ], [ null, %8 ], [ null, %18 ]
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #11
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
 define void @cJSON_free(ptr noundef %0) local_unnamed_addr #8 {
@@ -523,13 +519,13 @@ buffer_skip_whitespace.exit42:                    ; preds = %34, %.critedge.i39,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_value(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @parse_value(ptr noundef nonnull writeonly captures(none) %0, ptr noundef %1) unnamed_addr #8 {
   %3 = alloca ptr, align 8
   %4 = alloca [64 x i8], align 16
   %5 = icmp eq ptr %1, null
@@ -5597,7 +5593,7 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly %0, ptr noundef r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSON_malloc(i64 noundef %0) local_unnamed_addr #8 {
@@ -5607,10 +5603,10 @@ define ptr @cJSON_malloc(i64 noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_string(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @parse_string(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -5929,7 +5925,7 @@ utf16_literal_to_utf8.exit:                       ; preds = %110, %.loopexit.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_object(ptr nocapture noundef nonnull writeonly %0, ptr noundef nonnull %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @parse_object(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 999
@@ -6228,7 +6224,7 @@ buffer_skip_whitespace.exit108:                   ; preds = %99, %.critedge.i105
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define internal fastcc i32 @parse_hex4(ptr nocapture noundef readonly %0) unnamed_addr #24 {
+define internal fastcc i32 @parse_hex4(ptr noundef readonly captures(none) %0) unnamed_addr #24 {
   br label %2
 
 2:                                                ; preds = %1, %11
@@ -6268,13 +6264,13 @@ define internal fastcc i32 @parse_hex4(ptr nocapture noundef readonly %0) unname
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #25
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nounwind
 declare ptr @localeconv() local_unnamed_addr #26
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @ensure(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #8 {
+define internal fastcc ptr @ensure(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %57, label %5
@@ -6392,10 +6388,10 @@ define internal fastcc ptr @ensure(ptr nocapture noundef nonnull %0, i64 noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #8 {
+define internal fastcc range(i32 0, 2) i32 @print_string_ptr(ptr noundef %0, ptr noundef nonnull captures(none) %1) unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.preheader
 
@@ -6659,10 +6655,10 @@ declare double @llvm.fabs.f64(double) #28
 declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #29

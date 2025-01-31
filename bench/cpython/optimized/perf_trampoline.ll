@@ -890,7 +890,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @perf_map_write_entry(ptr nocapture readnone %state, ptr noundef %code_addr, i32 noundef %code_size, ptr nocapture noundef readonly %co) #0 {
+define internal void @perf_map_write_entry(ptr readnone captures(none) %state, ptr noundef %code_addr, i32 noundef %code_size, ptr noundef readonly captures(none) %co) #0 {
 entry:
   %co_qualname = getelementptr inbounds nuw i8, ptr %co, i64 128
   %0 = load ptr, ptr %co_qualname, align 8
@@ -932,7 +932,7 @@ return:                                           ; preds = %if.end7, %if.end13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @perf_map_free_state(ptr nocapture readnone %state) #0 {
+define internal noundef i32 @perf_map_free_state(ptr readnone captures(none) %state) #0 {
 entry:
   tail call void @PyUnstable_PerfMapState_Fini() #9
   ret i32 0
@@ -1546,7 +1546,7 @@ return:                                           ; preds = %if.end12, %if.then5
 declare i32 @getppid() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i32 @PyUnstable_CopyPerfMapFile(ptr noundef) local_unnamed_addr #3
 
@@ -1583,7 +1583,7 @@ declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #3
 declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5

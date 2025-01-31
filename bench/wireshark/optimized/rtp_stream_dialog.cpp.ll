@@ -4261,7 +4261,7 @@ declare noundef ptr @_ZN5QMenu9addActionERK7QString(ptr noundef nonnull align 8 
 declare void @_ZN7QAction10setToolTipERK7QString(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog28on_actionCopyAsCsv_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog28on_actionCopyAsCsv_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QMetaType, align 8
   %4 = alloca %class.QString, align 8
@@ -5363,7 +5363,7 @@ _ZN7QStringD2Ev.exit110:                          ; preds = %414, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog29on_actionCopyAsYaml_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog29on_actionCopyAsYaml_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QTextStream, align 8
   %4 = alloca %"class.QtPrivate::QForeachContainer.40", align 8
@@ -5661,10 +5661,10 @@ _ZN7QStringD2Ev.exit36:                           ; preds = %93, %_ZN17QArrayDat
 declare void @_ZN11QPushButton7setMenuEP5QMenu(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog8tapResetEP18_rtpstream_tapinfo(ptr nocapture noundef readonly %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog8tapResetEP18_rtpstream_tapinfo(ptr noundef readonly captures(none) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QTreeWidgetItemIterator, align 8
   %3 = alloca %struct._rtpstream_id, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5742,7 +5742,7 @@ _ZN5QListI13_rtpstream_idE6appendERKS0_.exit:     ; preds = %22, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog7tapDrawEP18_rtpstream_tapinfo(ptr nocapture noundef readonly %0) #0 align 2 {
+define void @_ZN15RtpStreamDialog7tapDrawEP18_rtpstream_tapinfo(ptr noundef readonly captures(none) %0) #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -5794,7 +5794,7 @@ declare void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 der
 declare void @_ZN15QAbstractButton7toggledEb(ptr noundef nonnull align 8 dereferenceable(40), i1 noundef zeroext) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog28displayFilterCheckBoxToggledEb(ptr nocapture noundef nonnull align 8 dereferenceable(360) %0, i1 noundef zeroext %1) #0 align 2 {
+define void @_ZN15RtpStreamDialog28displayFilterCheckBoxToggledEb(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0, i1 noundef zeroext %1) #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -5998,7 +5998,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog16freeLastSelectedEv(ptr nocapture noundef nonnull align 8 dereferenceable(360) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog16freeLastSelectedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct._rtpstream_id, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -6103,7 +6103,7 @@ define void @_ZThn16_N15RtpStreamDialogD0Ev(ptr noundef %0) unnamed_addr #9 alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog21setRtpStreamSelectionEP13_rtpstream_idb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog21setRtpStreamSelectionEP13_rtpstream_idb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QTreeWidgetItemIterator, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %6 = load ptr, ptr %5, align 8
@@ -6164,7 +6164,7 @@ declare noundef nonnull align 8 dereferenceable(20) ptr @_ZN23QTreeWidgetItemIte
 declare void @_ZN23QTreeWidgetItemIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog15selectRtpStreamE5QListIP13_rtpstream_idE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog15selectRtpStreamE5QListIP13_rtpstream_idE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpStreamDialog6mutex_E) #19
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
@@ -6239,10 +6239,10 @@ _ZN9QtPrivate17QForeachContainerI5QListIP13_rtpstream_idEED2Ev.exit8: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog17deselectRtpStreamE5QListIP13_rtpstream_idE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog17deselectRtpStreamE5QListIP13_rtpstream_idE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN15RtpStreamDialog6mutex_E) #19
   %.not.i.i = icmp eq i32 %3, 0
   br i1 %.not.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, label %4
@@ -6317,7 +6317,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP13_rtpstream_idEED2Ev.exit8: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15RtpStreamDialog11eventFilterEP7QObjectP6QEvent(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef readnone %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN15RtpStreamDialog11eventFilterEP7QObjectP6QEvent(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef readnone captures(none) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
@@ -6990,7 +6990,7 @@ define void @_ZN15RtpStreamDialog31on_actionSelectInvert_triggeredEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog28on_actionSelectAll_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpStreamDialog28on_actionSelectAll_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -7003,7 +7003,7 @@ define void @_ZN15RtpStreamDialog28on_actionSelectAll_triggeredEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog29on_actionSelectNone_triggeredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpStreamDialog29on_actionSelectNone_triggeredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -7019,7 +7019,7 @@ define void @_ZN15RtpStreamDialog26on_actionAnalyze_triggeredEv(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog12captureEventE12CaptureEvent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpStreamDialog12captureEventE12CaptureEvent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZNK12CaptureEvent14captureContextEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   %4 = icmp eq i32 %3, 2050
   br i1 %4, label %5, label %12
@@ -9677,7 +9677,7 @@ declare void @_ZN7QAction10setEnabledEb(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN15WiresharkDialog13updateWidgetsEv(ptr noundef nonnull align 8 dereferenceable(133)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15RtpStreamDialog13streamRowDataEi(ptr dead_on_unwind noalias writable sret(%class.QList.29) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK15RtpStreamDialog13streamRowDataEi(ptr dead_on_unwind noalias writable sret(%class.QList.29) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QVariant, align 8
@@ -11381,7 +11381,7 @@ declare void @_ZN15RtpStreamDialog10goToPacketEi(ptr noundef nonnull align 8 der
 declare void @rtpstream_mark(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog17getSelectedRtpIdsEv(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog17getSelectedRtpIdsEv(ptr dead_on_unwind noalias writable sret(%class.QList.22) align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QList.17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -11508,7 +11508,7 @@ define void @_ZN15RtpStreamDialog40on_streamTreeWidget_itemSelectionChangedEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog26on_buttonBox_helpRequestedEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpStreamDialog26on_buttonBox_helpRequestedEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(360) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @mainApp, align 8
   tail call void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef nonnull align 8 dereferenceable(216) %2, i32 noundef 250)
   ret void
@@ -11519,7 +11519,7 @@ declare void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef
 declare void @_ZN11CaptureFile12retapPacketsEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog22on_todCheckBox_toggledEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpStreamDialog22on_todCheckBox_toggledEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QTreeWidgetItemIterator, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
@@ -12066,7 +12066,7 @@ _ZN5QListIP13_rtpstream_idED2Ev.exit7:            ; preds = %21, %_ZN17QArrayDat
 declare void @_ZN15RtpStreamDialog33rtpAnalysisDialogRemoveRtpStreamsE5QListIP13_rtpstream_idE(ptr noundef nonnull align 8 dereferenceable(360), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpStreamDialog20displayFilterSuccessEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpStreamDialog20displayFilterSuccessEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(360) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   br i1 %1, label %3, label %12
 
 3:                                                ; preds = %2
@@ -15205,7 +15205,7 @@ declare void @rtpstream_info_calc_free(ptr noundef) local_unnamed_addr #3
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 declare void @_ZN7QString6numberEii(ptr dead_on_unwind writable sret(%class.QString) align 8, i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -15448,7 +15448,7 @@ declare noundef i32 @_ZNK9QMetaType8idHelperEv(ptr noundef nonnull align 8 deref
 declare void @_ZNK6QBrushcv8QVariantEv(ptr dead_on_unwind writable sret(%class.QVariant) align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
@@ -16273,7 +16273,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %_ZN9QtPrivate16QGen
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerI7QStringE12allocateGrowERKS1_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer.39) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -18764,10 +18764,10 @@ _ZNK17QArrayDataPointerIP13_rtpstream_idE5flagsEv.exit: ; preds = %39, %_ZNK17QA
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

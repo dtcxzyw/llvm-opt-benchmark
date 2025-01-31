@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define void @zend_insert_sort(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   switch i64 %1, label %54 [
     i64 0, label %zend_sort_2.exit
     i64 1, label %zend_sort_2.exit
@@ -221,7 +221,7 @@ zend_sort_2.exit:                                 ; preds = %.loopexit, %.prehea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_sort_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc void @zend_sort_4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = tail call i32 %4(ptr noundef %0, ptr noundef %1) #1
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %16, label %9

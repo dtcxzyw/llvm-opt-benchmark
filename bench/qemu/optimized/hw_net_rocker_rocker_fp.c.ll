@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.DEVICE = private unnamed_addr constant [7 x i8] c"DEVICE\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @fp_port_get_name(ptr nocapture noundef readonly %port) local_unnamed_addr #0 {
+define dso_local ptr @fp_port_get_name(ptr noundef readonly captures(none) %port) local_unnamed_addr #0 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %port, i64 24
   %0 = load ptr, ptr %name, align 8
@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @fp_port_get_link_up(ptr nocapture noundef readonly %port) local_unnamed_addr #1 {
+define dso_local zeroext i1 @fp_port_get_link_up(ptr noundef readonly captures(none) %port) local_unnamed_addr #1 {
 entry:
   %nic = getelementptr inbounds nuw i8, ptr %port, i64 48
   %0 = load ptr, ptr %nic, align 8
@@ -35,7 +35,7 @@ entry:
 declare ptr @qemu_get_queue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @fp_port_get_info(ptr nocapture noundef readonly %port) local_unnamed_addr #1 {
+define dso_local noalias noundef ptr @fp_port_get_info(ptr noundef readonly captures(none) %port) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #10
   %name = getelementptr inbounds nuw i8, ptr %port, i64 24
@@ -79,7 +79,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @fp_port_get_macaddr(ptr nocapture noundef readonly %port, ptr nocapture noundef writeonly initializes((0, 6)) %macaddr) local_unnamed_addr #4 {
+define dso_local void @fp_port_get_macaddr(ptr noundef readonly captures(none) %port, ptr noundef writeonly captures(none) initializes((0, 6)) %macaddr) local_unnamed_addr #4 {
 entry:
   %conf = getelementptr inbounds nuw i8, ptr %port, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %macaddr, ptr noundef nonnull align 8 dereferenceable(6) %conf, i64 6, i1 false)
@@ -87,16 +87,16 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local void @fp_port_set_macaddr(ptr nocapture noundef readnone %port, ptr nocapture noundef readnone %macaddr) local_unnamed_addr #6 {
+define dso_local void @fp_port_set_macaddr(ptr noundef readnone captures(none) %port, ptr noundef readnone captures(none) %macaddr) local_unnamed_addr #6 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i8 @fp_port_get_learning(ptr nocapture noundef readonly %port) local_unnamed_addr #0 {
+define dso_local zeroext i8 @fp_port_get_learning(ptr noundef readonly captures(none) %port) local_unnamed_addr #0 {
 entry:
   %learning = getelementptr inbounds nuw i8, ptr %port, i64 46
   %0 = load i8, ptr %learning, align 2
@@ -104,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @fp_port_set_learning(ptr nocapture noundef writeonly initializes((46, 47)) %port, i8 noundef zeroext %learning) local_unnamed_addr #7 {
+define dso_local void @fp_port_set_learning(ptr noundef writeonly captures(none) initializes((46, 47)) %port, i8 noundef zeroext %learning) local_unnamed_addr #7 {
 entry:
   %learning1 = getelementptr inbounds nuw i8, ptr %port, i64 46
   store i8 %learning, ptr %learning1, align 2
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @fp_port_get_settings(ptr nocapture noundef readonly %port, ptr nocapture noundef writeonly initializes((0, 4)) %speed, ptr nocapture noundef writeonly initializes((0, 1)) %duplex, ptr nocapture noundef writeonly initializes((0, 1)) %autoneg) local_unnamed_addr #4 {
+define dso_local noundef i32 @fp_port_get_settings(ptr noundef readonly captures(none) %port, ptr noundef writeonly captures(none) initializes((0, 4)) %speed, ptr noundef writeonly captures(none) initializes((0, 1)) %duplex, ptr noundef writeonly captures(none) initializes((0, 1)) %autoneg) local_unnamed_addr #4 {
 entry:
   %speed1 = getelementptr inbounds nuw i8, ptr %port, i64 40
   %0 = load i32, ptr %speed1, align 8
@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @fp_port_set_settings(ptr nocapture noundef writeonly initializes((40, 46)) %port, i32 noundef %speed, i8 noundef zeroext %duplex, i8 noundef zeroext %autoneg) local_unnamed_addr #7 {
+define dso_local noundef i32 @fp_port_set_settings(ptr noundef writeonly captures(none) initializes((40, 46)) %port, i32 noundef %speed, i8 noundef zeroext %duplex, i8 noundef zeroext %autoneg) local_unnamed_addr #7 {
 entry:
   %speed1 = getelementptr inbounds nuw i8, ptr %port, i64 40
   store i32 %speed, ptr %speed1, align 8
@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @fp_port_from_pport(i32 noundef %pport, ptr nocapture noundef writeonly %port) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @fp_port_from_pport(i32 noundef %pport, ptr noundef writeonly captures(none) %port) local_unnamed_addr #7 {
 entry:
   %0 = add i32 %pport, -1
   %or.cond = icmp ult i32 %0, 62
@@ -154,7 +154,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @fp_port_eg(ptr nocapture noundef readonly %port, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #1 {
+define dso_local noundef i32 @fp_port_eg(ptr noundef readonly captures(none) %port, ptr noundef %iov, i32 noundef %iovcnt) local_unnamed_addr #1 {
 entry:
   %nic = getelementptr inbounds nuw i8, ptr %port, i64 48
   %0 = load ptr, ptr %nic, align 8
@@ -175,7 +175,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i64 @qemu_sendv_packet(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @fp_port_get_world(ptr nocapture noundef readonly %port) local_unnamed_addr #0 {
+define dso_local ptr @fp_port_get_world(ptr noundef readonly captures(none) %port) local_unnamed_addr #0 {
 entry:
   %world = getelementptr inbounds nuw i8, ptr %port, i64 8
   %0 = load ptr, ptr %world, align 8
@@ -183,7 +183,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @fp_port_set_world(ptr nocapture noundef writeonly initializes((8, 16)) %port, ptr noundef %world) local_unnamed_addr #1 {
+define dso_local void @fp_port_set_world(ptr noundef writeonly captures(none) initializes((8, 16)) %port, ptr noundef %world) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @world_name(ptr noundef %world) #9
   %world2 = getelementptr inbounds nuw i8, ptr %port, i64 8
@@ -194,7 +194,7 @@ entry:
 declare ptr @world_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @fp_port_check_world(ptr nocapture noundef readonly %port, ptr noundef readnone %world) local_unnamed_addr #0 {
+define dso_local zeroext i1 @fp_port_check_world(ptr noundef readonly captures(none) %port, ptr noundef readnone %world) local_unnamed_addr #0 {
 entry:
   %world1 = getelementptr inbounds nuw i8, ptr %port, i64 8
   %0 = load ptr, ptr %world1, align 8
@@ -203,7 +203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @fp_port_enabled(ptr nocapture noundef readonly %port) local_unnamed_addr #0 {
+define dso_local zeroext i1 @fp_port_enabled(ptr noundef readonly captures(none) %port) local_unnamed_addr #0 {
 entry:
   %enabled = getelementptr inbounds nuw i8, ptr %port, i64 36
   %0 = load i8, ptr %enabled, align 4
@@ -212,7 +212,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @fp_port_enable(ptr nocapture noundef initializes((36, 37)) %port) local_unnamed_addr #1 {
+define dso_local void @fp_port_enable(ptr noundef captures(none) initializes((36, 37)) %port) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %port, i64 48
   %port.val = load ptr, ptr %0, align 8
@@ -237,7 +237,7 @@ fp_port_set_link.exit:                            ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @fp_port_disable(ptr nocapture noundef initializes((36, 37)) %port) local_unnamed_addr #1 {
+define dso_local void @fp_port_disable(ptr noundef captures(none) initializes((36, 37)) %port) local_unnamed_addr #1 {
 entry:
   %enabled = getelementptr inbounds nuw i8, ptr %port, i64 36
   store i8 0, ptr %enabled, align 4
@@ -262,7 +262,7 @@ fp_port_set_link.exit:                            ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @fp_port_alloc(ptr noundef %r, ptr noundef %sw_name, ptr nocapture noundef readonly %start_mac, i32 noundef %index, ptr nocapture noundef readonly %peers) local_unnamed_addr #1 {
+define dso_local noundef ptr @fp_port_alloc(ptr noundef %r, ptr noundef %sw_name, ptr noundef readonly captures(none) %start_mac, i32 noundef %index, ptr noundef readonly captures(none) %peers) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias dereferenceable_or_null(8272) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 8272) #11
   store ptr %r, ptr %call, align 8
@@ -329,7 +329,7 @@ declare ptr @qemu_new_nic(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare void @qemu_format_nic_info_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @fp_port_reset(ptr nocapture noundef initializes((36, 37), (40, 46)) %port) local_unnamed_addr #1 {
+define dso_local void @fp_port_reset(ptr noundef captures(none) initializes((36, 37), (40, 46)) %port) local_unnamed_addr #1 {
 entry:
   %enabled.i = getelementptr inbounds nuw i8, ptr %port, i64 36
   store i8 0, ptr %enabled.i, align 4
@@ -425,7 +425,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @fp_port_cleanup(ptr nocapture readnone %nc) #6 {
+define internal void @fp_port_cleanup(ptr readnone captures(none) %nc) #6 {
 entry:
   ret void
 }

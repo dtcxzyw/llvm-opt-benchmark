@@ -41,7 +41,7 @@ define dso_local void @free_attrmap(ptr noundef %0) local_unnamed_addr #0 {
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @build_attrmap_by_position(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = tail call ptr @palloc0(i64 noundef 16) #5
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -295,7 +295,7 @@ declare ptr @format_type_with_typemod(i32 noundef, i32 noundef) local_unnamed_ad
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %0, align 8
   %.fr59 = freeze i32 %5
@@ -531,14 +531,14 @@ define dso_local ptr @build_attrmap_by_name(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @build_attrmap_by_name_if_req(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call ptr @build_attrmap_by_name(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
   %5 = load i32, ptr %0, align 8
   %6 = load i32, ptr %1, align 8

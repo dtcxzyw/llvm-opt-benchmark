@@ -278,7 +278,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib18PlainVanillaPayoffEEE = comdat an
 @_ZN8QuantLib28AnalyticComplexChooserEngineC1EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib28AnalyticComplexChooserEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -363,7 +363,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -497,7 +497,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28AnalyticComplexChooserEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr nocapture noundef %process) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28AnalyticComplexChooserEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef captures(none) %process) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   tail call void @_ZN8QuantLib13GenericEngineINS_20ComplexChooserOption9argumentsENS_14OneAssetOption7resultsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this)
@@ -1055,7 +1055,7 @@ _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine12callMaturityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine12callMaturityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 392
@@ -1094,7 +1094,7 @@ _ZNK5boost10shared_ptrIN8QuantLib8ExerciseEEptEv.exit: ; preds = %_ZNK5boost10sh
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine11putMaturityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine11putMaturityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 392
@@ -1220,7 +1220,7 @@ while.end:                                        ; preds = %while.body, %_ZNK5b
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine12riskFreeRateEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine12riskFreeRateEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::InterestRate", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp) #25
@@ -1295,7 +1295,7 @@ _ZN8QuantLib12InterestRateD2Ev.exit:              ; preds = %_ZNK5boost10shared_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine13dividendYieldEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine13dividendYieldEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::InterestRate", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp) #25
@@ -1370,7 +1370,7 @@ _ZN8QuantLib12InterestRateD2Ev.exit:              ; preds = %_ZNK5boost10shared_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine10volatilityEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine10volatilityEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   %0 = load ptr, ptr %process_, align 8, !tbaa !39
@@ -1991,7 +1991,7 @@ _ZN5boost10shared_ptrIN8QuantLib18PlainVanillaPayoffEED2Ev.exit: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine6strikeENS_6Option4TypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, i32 noundef %optionType) local_unnamed_addr #12 align 2 {
+define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine6strikeENS_6Option4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, i32 noundef %optionType) local_unnamed_addr #12 align 2 {
 entry:
   %cmp = icmp eq i32 %optionType, 1
   %retval.0.in.v = select i1 %cmp, i64 160, i64 168
@@ -2046,7 +2046,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine16dividendDiscountEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine16dividendDiscountEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   %0 = load ptr, ptr %process_, align 8, !tbaa !39
@@ -2078,7 +2078,7 @@ _ZNK5boost10shared_ptrIN8QuantLib18YieldTermStructureEEptEv.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine16riskFreeDiscountEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib28AnalyticComplexChooserEngine16riskFreeDiscountEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #7 align 2 {
 entry:
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   %0 = load ptr, ptr %process_, align 8, !tbaa !39
@@ -3096,7 +3096,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #18
@@ -4167,7 +4167,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
@@ -4287,13 +4287,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #22
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

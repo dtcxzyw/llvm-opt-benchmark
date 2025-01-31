@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [11 x i8] c"HTTP_PROXY\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_php_import_environment_variables(ptr nocapture noundef readonly %0) #0 {
+define hidden void @_php_import_environment_variables(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca i64, align 8
   %4 = load ptr, ptr @environ, align 8
@@ -234,7 +234,7 @@ define hidden void @_php_load_environment_variables(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_register_variable(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @php_register_variable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -253,7 +253,7 @@ define void @php_register_variable(ptr nocapture noundef readonly %0, ptr nocapt
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %5, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr readonly align 1 %1, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %14, ptr nonnull readonly align 1 %1, i64 %5, i1 false)
   %15 = getelementptr inbounds [1 x i8], ptr %14, i64 0, i64 %5
   store i8 0, ptr %15, align 1
   br label %php_register_variable_safe.exit
@@ -289,7 +289,7 @@ php_register_variable_safe.exit:                  ; preds = %7, %18, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_register_variable_safe(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @php_register_variable_safe(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = icmp ugt i64 %2, 1
   br i1 %6, label %7, label %16
@@ -341,10 +341,10 @@ define void @php_register_variable_safe(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @php_register_variable_ex(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -1184,7 +1184,7 @@ define void @php_register_variable_ex(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_register_known_variable(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define void @php_register_known_variable(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %5)
   %6 = icmp ne i64 %1, 0
@@ -1223,10 +1223,10 @@ declare void @llvm.assume(i1 noundef) #2
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare void @_efree(ptr noundef) local_unnamed_addr #5
 
@@ -1251,7 +1251,7 @@ declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #5
 declare ptr @zend_hash_index_update(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @php_std_post_handler(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @php_std_post_handler(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.post_var_data, align 8
   %4 = alloca [8192 x i8], align 16
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8
@@ -1377,14 +1377,14 @@ define void @php_std_post_handler(ptr nocapture noundef readnone %0, ptr noundef
 declare i32 @_php_stream_seek(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #5
 
 declare i64 @_php_stream_read(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr nocapture noundef nonnull initializes((16, 32)) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @add_post_vars(ptr noundef %0, ptr noundef nonnull captures(none) initializes((16, 32)) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -1575,7 +1575,7 @@ add_post_var.exit.thread:                         ; preds = %22, %add_post_var.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @php_default_input_filter(i32 noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #8 {
+define noundef i32 @php_default_input_filter(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #8 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -1588,7 +1588,7 @@ define noundef i32 @php_default_input_filter(i32 noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct._zval_struct, align 8
@@ -1793,14 +1793,14 @@ define void @php_default_treat_data(i32 noundef %0, ptr noundef %1, ptr nocaptur
   br i1 %switch129, label %.thread122, label %.thread125
 
 .thread122:                                       ; preds = %84
-  %88 = call i64 @php_raw_url_decode(ptr noundef %86, i64 noundef %87) #17
+  %88 = call i64 @php_raw_url_decode(ptr noundef nonnull %86, i64 noundef %87) #17
   %89 = load ptr, ptr %5, align 8
   %90 = call noalias ptr @_estrndup(ptr noundef %89, i64 noundef %88) #17
   store ptr %90, ptr %5, align 8
   br label %99
 
 .thread125:                                       ; preds = %84
-  %91 = call i64 @php_url_decode(ptr noundef %86, i64 noundef %87) #17
+  %91 = call i64 @php_url_decode(ptr noundef nonnull %86, i64 noundef %87) #17
   %92 = load ptr, ptr %5, align 8
   %93 = call noalias ptr @_estrndup(ptr noundef %92, i64 noundef %91) #17
   store ptr %93, ptr %5, align 8
@@ -1904,7 +1904,7 @@ declare void @sapi_handle_post(ptr noundef) local_unnamed_addr #5
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 declare i64 @php_raw_url_decode(ptr noundef, i64 noundef) local_unnamed_addr #5
 
@@ -1964,7 +1964,7 @@ define void @php_build_argv(ptr noundef %0, ptr noundef readonly %1) local_unnam
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store i64 %19, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 1 %18, i64 %19, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 1 %18, i64 %19, i1 false)
   %27 = getelementptr inbounds [1 x i8], ptr %26, i64 0, i64 %19
   store i8 0, ptr %27, align 1
   store ptr %22, ptr %5, align 8
@@ -2954,13 +2954,13 @@ declare zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef, i64 noundef, ptr no
 declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_http_proxy(ptr noundef %0) unnamed_addr #0 {
@@ -3013,12 +3013,12 @@ declare ptr @zend_hash_find_known_hash(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @zend_hash_find(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @zend_hash_str_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_autoglobal_merge(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @php_autoglobal_merge(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, getelementptr inbounds nuw (i8, ptr @executor_globals, i64 304)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3181,16 +3181,16 @@ define internal fastcc void @php_autoglobal_merge(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -118,13 +118,13 @@ define dso_local void @ext4_mark_bitmap_end(i32 noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ext4_end_bitmap_read(ptr noundef %0, i32 noundef %1) #0 align 16 {
@@ -924,7 +924,7 @@ declare dso_local i32 @__ext4_journal_get_write_access(ptr noundef, i32 noundef,
 declare dso_local ptr @ext4_get_group_desc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @ext4_lock_group(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #5 align 16 {
+define internal fastcc void @ext4_lock_group(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 424
@@ -1235,7 +1235,7 @@ define dso_local i32 @ext4_mark_inode_used(ptr noundef %0, i32 noundef %1) local
 declare dso_local i32 @sync_dirty_buffer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @ext4_has_group_desc_csum(ptr nocapture noundef readonly %0) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 0, 2) i32 @ext4_has_group_desc_csum(ptr noundef readonly captures(none) %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104
@@ -2263,7 +2263,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   store i64 %577, ptr %578, align 8
   %579 = getelementptr inbounds nuw i8, ptr %56, i64 144
   store i64 0, ptr %579, align 8
-  %580 = call { i64, i64 } @simple_inode_init_ts(ptr noundef %56) #10
+  %580 = call { i64, i64 } @simple_inode_init_ts(ptr noundef nonnull %56) #10
   %581 = getelementptr i8, ptr %56, i64 616
   %582 = getelementptr inbounds nuw i8, ptr %56, i64 104
   %583 = load i64, ptr %582, align 8
@@ -2309,7 +2309,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %.pre133, ptr %605, align 8
   %606 = getelementptr i8, ptr %56, i64 708
   store i32 -1, ptr %606, align 4
-  call void @ext4_set_inode_flags(ptr noundef %56, i1 noundef zeroext true) #10
+  call void @ext4_set_inode_flags(ptr noundef nonnull %56, i1 noundef zeroext true) #10
   %607 = getelementptr inbounds nuw i8, ptr %56, i64 40
   %608 = load ptr, ptr %607, align 8
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 80
@@ -2339,7 +2339,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   br label %626
 
 626:                                              ; preds = %622, %620, %613
-  %627 = call i32 @insert_inode_locked(ptr noundef %56) #10
+  %627 = call i32 @insert_inode_locked(ptr noundef nonnull %56) #10
   %628 = icmp slt i32 %627, 0
   br i1 %628, label %629, label %631
 
@@ -2409,7 +2409,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   br label %666
 
 666:                                              ; preds = %665, %660, %646
-  %667 = call i32 @dquot_alloc_inode(ptr noundef %56) #10
+  %667 = call i32 @dquot_alloc_inode(ptr noundef nonnull %56) #10
   %668 = icmp eq i32 %667, 0
   br i1 %668, label %669, label %711
 
@@ -2420,12 +2420,12 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %672, label %673, label %679
 
 673:                                              ; preds = %669
-  %674 = call i32 @ext4_init_acl(ptr noundef %338, ptr noundef %56, ptr noundef nonnull %2) #10
+  %674 = call i32 @ext4_init_acl(ptr noundef %338, ptr noundef nonnull %56, ptr noundef nonnull %2) #10
   %675 = icmp eq i32 %674, 0
   br i1 %675, label %676, label %709
 
 676:                                              ; preds = %673
-  %677 = call i32 @ext4_init_security(ptr noundef %338, ptr noundef %56, ptr noundef nonnull %2, ptr noundef %4) #10
+  %677 = call i32 @ext4_init_security(ptr noundef %338, ptr noundef nonnull %56, ptr noundef nonnull %2, ptr noundef %4) #10
   %678 = icmp eq i32 %677, 0
   br i1 %678, label %679, label %709
 
@@ -2450,7 +2450,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
 689:                                              ; preds = %687, %687, %687
   %690 = getelementptr i8, ptr %56, i64 -214
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %690, i32 8, ptr elementtype(i8) %690) #10, !srcloc !10
-  call void @ext4_ext_tree_init(ptr noundef %338, ptr noundef %56) #10
+  call void @ext4_ext_tree_init(ptr noundef %338, ptr noundef nonnull %56) #10
   br label %691
 
 691:                                              ; preds = %689, %687, %679
@@ -2471,7 +2471,7 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
   br label %702
 
 702:                                              ; preds = %693, %691
-  %703 = call i32 @__ext4_mark_inode_dirty(ptr noundef %338, ptr noundef %56, ptr noundef nonnull @__func__.__ext4_new_inode, i32 noundef 1344) #10
+  %703 = call i32 @__ext4_mark_inode_dirty(ptr noundef %338, ptr noundef nonnull %56, ptr noundef nonnull @__func__.__ext4_new_inode, i32 noundef 1344) #10
   %704 = icmp eq i32 %703, 0
   br i1 %704, label %706, label %705
 
@@ -2490,13 +2490,13 @@ define dso_local ptr @__ext4_new_inode(ptr noundef %0, ptr noundef %1, ptr nound
 
 709:                                              ; preds = %705, %676, %673
   %710 = phi i32 [ %703, %705 ], [ %674, %673 ], [ %677, %676 ]
-  call void @dquot_free_inode(ptr noundef %56) #10
+  call void @dquot_free_inode(ptr noundef nonnull %56) #10
   br label %711
 
 711:                                              ; preds = %709, %666
   %712 = phi i32 [ %667, %666 ], [ %710, %709 ]
-  call void @clear_nlink(ptr noundef %56) #10
-  call void @unlock_new_inode(ptr noundef %56) #10
+  call void @clear_nlink(ptr noundef nonnull %56) #10
+  call void @unlock_new_inode(ptr noundef nonnull %56) #10
   br label %.thread55
 
 .thread55:                                        ; preds = %.loopexit, %258, %465, %441, %432, %473, %.thread51, %711, %629, %551, %419, %414, %341, %336, %332, %248, %127, %117, %112
@@ -2592,7 +2592,7 @@ define internal fastcc i32 @ext4_xattr_credits_for_new_inode(ptr noundef nonnull
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @find_group_orlov(ptr noundef %0, ptr noundef nonnull %1, ptr noundef writeonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.dx_hash_info, align 8
   %7 = getelementptr i8, ptr %1, i64 -224
   %8 = load i32, ptr %7, align 8
@@ -2926,7 +2926,7 @@ get_orlov_stats.exit12.thread:                    ; preds = %.split, %get_orlov_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @find_inode_bit(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @find_inode_bit(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 552
@@ -3072,7 +3072,7 @@ declare dso_local i32 @insert_inode_locked(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @get_random_u32() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @ext4_has_metadata_csum(ptr nocapture noundef readonly %0) unnamed_addr #5 align 16 {
+define internal fastcc range(i32 0, 2) i32 @ext4_has_metadata_csum(ptr noundef readonly captures(none) %0) unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 104

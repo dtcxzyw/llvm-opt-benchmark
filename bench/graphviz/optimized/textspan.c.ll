@@ -206,7 +206,7 @@ declare zeroext i1 @emit_once(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @gvtextlayout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @textfont_dict_open(ptr noundef initializes((216, 228), (232, 256)) %0) local_unnamed_addr #0 {
@@ -230,7 +230,7 @@ define void @textfont_dict_open(ptr noundef initializes((216, 228), (232, 256)) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noalias noundef ptr @textfont_makef(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 {
+define internal noalias noundef ptr @textfont_makef(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #19
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
@@ -271,7 +271,7 @@ define internal noalias noundef ptr @textfont_makef(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @textfont_freef(ptr nocapture noundef %0, ptr nocapture readnone %1) #4 {
+define internal void @textfont_freef(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -282,7 +282,7 @@ define internal void @textfont_freef(ptr nocapture noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @textfont_comparf(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #5 {
+define internal i32 @textfont_comparf(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #5 {
   %5 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %5, null
   %6 = load ptr, ptr %2, align 8
@@ -355,7 +355,7 @@ define internal i32 @textfont_comparf(ptr nocapture readnone %0, ptr nocapture n
 declare ptr @dtopen(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @textfont_dict_close(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @textfont_dict_close(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @dtclose(ptr noundef %3) #16
@@ -365,25 +365,25 @@ define void @textfont_dict_close(ptr nocapture noundef readonly %0) local_unname
 declare i32 @dtclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal i32 @fontcmpf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal i32 @fontcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef %3) #15
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #11 {
@@ -400,10 +400,10 @@ declare double @estimate_text_width_1pt(ptr noundef, ptr noundef, i1 noundef zer
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

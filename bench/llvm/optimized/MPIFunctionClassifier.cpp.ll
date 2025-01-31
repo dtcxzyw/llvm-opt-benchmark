@@ -46,7 +46,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 @.str.28 = private unnamed_addr constant [12 x i8] c"MPI_Barrier\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento3mpi21MPIFunctionClassifier14identifierInitERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) initializes((784, 792)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento3mpi21MPIFunctionClassifier14identifierInitERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) initializes((784, 792)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang4ento3mpi21MPIFunctionClassifier27initPointToPointIdentifiersERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1)
   tail call void @_ZN5clang4ento3mpi21MPIFunctionClassifier25initCollectiveIdentifiersERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1)
   tail call void @_ZN5clang4ento3mpi21MPIFunctionClassifier25initAdditionalIdentifiersERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1)
@@ -54,7 +54,7 @@ define dso_local void @_ZN5clang4ento3mpi21MPIFunctionClassifier14identifierInit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento3mpi21MPIFunctionClassifier27initPointToPointIdentifiersERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) initializes((784, 792)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento3mpi21MPIFunctionClassifier27initPointToPointIdentifiersERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) initializes((784, 792)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 17296
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr nonnull @.str, i64 8)
@@ -596,7 +596,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento3mpi21MPIFunctionClassifier25initCollectiveIdentifiersERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) initializes((864, 872)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento3mpi21MPIFunctionClassifier25initCollectiveIdentifiersERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) initializes((864, 872)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 17296
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr nonnull @.str.10, i64 11)
@@ -1678,7 +1678,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang14IdentifierInfoELb1EE9push_backES3_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento3mpi21MPIFunctionClassifier25initAdditionalIdentifiersERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) initializes((984, 992)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento3mpi21MPIFunctionClassifier25initAdditionalIdentifiersERNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(1016) initializes((984, 992)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 17296
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %4, ptr nonnull @.str.24, i64 13)
@@ -2454,7 +2454,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang14IdentifierInfoELj6EEEPKS3_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier13isScatterTypeEPKNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier13isScatterTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2466,7 +2466,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier12isGatherTypeEPKNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier12isGatherTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2492,7 +2492,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier15isAllgatherTypeEPKNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier15isAllgatherTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2504,7 +2504,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier14isAlltoallTypeEPKNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier14isAlltoallTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2516,7 +2516,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier11isBcastTypeEPKNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier11isBcastTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2528,7 +2528,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier12isReduceTypeEPKNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier12isReduceTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2554,7 +2554,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier10isMPI_WaitEPKNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier10isMPI_WaitEPKNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2562,7 +2562,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier13isMPI_WaitallEPKNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier13isMPI_WaitallEPKNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2570,7 +2570,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier10isWaitTypeEPKNS_14IdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier10isWaitTypeEPKNS_14IdentifierInfoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1016) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -2582,7 +2582,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento3mpi21MPIFunctionClassifier1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierInfoENS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE21try_emplace_with_hashIJDnEEESt4pairINS_17StringMapIteratorIS3_EEbENS_9StringRefEjDpOT_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr %1, i64 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 comdat align 2 {

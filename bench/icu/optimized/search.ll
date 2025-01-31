@@ -134,7 +134,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7514SearchIteratorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7514SearchIteratorD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #17
   unreachable
@@ -144,7 +144,7 @@ entry:
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7514SearchIterator12setAttributeE16USearchAttribute21USearchAttributeValueR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %attribute, i32 noundef %value, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #9 align 2 {
+define void @_ZN6icu_7514SearchIterator12setAttributeE16USearchAttribute21USearchAttributeValueR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, i32 noundef %attribute, i32 noundef %value, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -212,7 +212,7 @@ if.end18:                                         ; preds = %if.end15.thread, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -32768, 32768) i32 @_ZNK6icu_7514SearchIterator12getAttributeE16USearchAttribute(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %attribute) local_unnamed_addr #10 align 2 {
+define noundef range(i32 -32768, 32768) i32 @_ZNK6icu_7514SearchIterator12getAttributeE16USearchAttribute(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, i32 noundef %attribute) local_unnamed_addr #10 align 2 {
 entry:
   switch i32 %attribute, label %return [
     i32 0, label %sw.bb
@@ -255,7 +255,7 @@ return:                                           ; preds = %sw.bb6, %entry, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7514SearchIterator15getMatchedStartEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK6icu_7514SearchIterator15getMatchedStartEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_search_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_search_, align 8
@@ -265,7 +265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7514SearchIterator16getMatchedLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK6icu_7514SearchIterator16getMatchedLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_search_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_search_, align 8
@@ -275,7 +275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7514SearchIterator14getMatchedTextERNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %result) local_unnamed_addr #0 align 2 {
+define void @_ZNK6icu_7514SearchIterator14getMatchedTextERNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %result) local_unnamed_addr #0 align 2 {
 entry:
   %m_search_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_search_, align 8
@@ -319,7 +319,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7514SearchIterator16setBreakIteratorEPNS_13BreakIteratorER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %breakiter, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #9 align 2 {
+define void @_ZN6icu_7514SearchIterator16setBreakIteratorEPNS_13BreakIteratorER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, ptr noundef %breakiter, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -339,7 +339,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7514SearchIterator16getBreakIteratorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #11 align 2 {
+define noundef ptr @_ZNK6icu_7514SearchIterator16getBreakIteratorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_breakiterator_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_breakiterator_, align 8
@@ -347,7 +347,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514SearchIterator7setTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7514SearchIterator7setTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -1256,7 +1256,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7514SearchIterator14setMatchLengthEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %length) unnamed_addr #9 align 2 {
+define void @_ZN6icu_7514SearchIterator14setMatchLengthEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, i32 noundef %length) unnamed_addr #9 align 2 {
 entry:
   %m_search_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_search_, align 8
@@ -1266,7 +1266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7514SearchIterator13setMatchStartEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i32 noundef %position) unnamed_addr #9 align 2 {
+define void @_ZN6icu_7514SearchIterator13setMatchStartEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, i32 noundef %position) unnamed_addr #9 align 2 {
 entry:
   %m_search_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_search_, align 8
@@ -1284,13 +1284,13 @@ declare void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 de
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

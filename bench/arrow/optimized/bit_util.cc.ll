@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN5arrow8bit_utilL16kTrailingBitmaskE = internal unnamed_addr constant [8 x i8] c"\FF\FE\FC\F8\F0\E0\C0\80", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8bit_util9SetBitsToEPhllb(ptr nocapture noundef %bits, i64 noundef %start_offset, i64 noundef %length, i1 noundef zeroext %bits_are_set) local_unnamed_addr #0 {
+define void @_ZN5arrow8bit_util9SetBitsToEPhllb(ptr noundef captures(none) %bits, i64 noundef %start_offset, i64 noundef %length, i1 noundef zeroext %bits_are_set) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %length, 0
   br i1 %cmp, label %return, label %if.end
@@ -71,10 +71,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8bit_util9SetBitmapEPhll(ptr nocapture noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 {
+define void @_ZN5arrow8bit_util9SetBitmapEPhll(ptr noundef captures(none) %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq i64 %length, 0
   br i1 %cmp.i, label %_ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit, label %if.end.i
@@ -156,7 +156,7 @@ _ZN5arrow8bit_util13SetBitmapImplILb1EEEvPhll.exit: ; preds = %entry, %if.then10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8bit_util11ClearBitmapEPhll(ptr nocapture noundef %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 {
+define void @_ZN5arrow8bit_util11ClearBitmapEPhll(ptr noundef captures(none) %data, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq i64 %length, 0
   br i1 %cmp.i, label %_ZN5arrow8bit_util13SetBitmapImplILb0EEEvPhll.exit, label %if.end.i

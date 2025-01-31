@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @sunFontIDs = external local_unnamed_addr global %struct.FontManagerNativeIDs, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_font_NativeStrikeDisposer_freeNativeScalerContext(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_font_NativeStrikeDisposer_freeNativeScalerContext(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %9, label %5
@@ -34,10 +34,10 @@ define void @Java_sun_font_NativeStrikeDisposer_freeNativeScalerContext(ptr noca
 declare void @AWTFreeFont(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noundef i64 @Java_sun_font_NativeStrike_createNullScalerContext(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define noundef i64 @Java_sun_font_NativeStrike_createNullScalerContext(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   %3 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
@@ -58,7 +58,7 @@ define noundef i64 @Java_sun_font_NativeStrike_createNullScalerContext(ptr nocap
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @Java_sun_font_NativeStrike_createScalerContext(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
+define noundef i64 @Java_sun_font_NativeStrike_createScalerContext(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, double noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1368
   %8 = load ptr, ptr %7, align 8
@@ -160,7 +160,7 @@ declare i32 @AWTFontMaxCharOrByte2(ptr noundef) local_unnamed_addr #1
 declare i32 @AWTFontDefaultChar(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_fontExists(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_fontExists(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1368
   %6 = load ptr, ptr %5, align 8
@@ -193,7 +193,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_fontExists(ptr nounde
 declare i32 @AWTCountFonts(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_haveBitmapFonts(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_haveBitmapFonts(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1368
   %6 = load ptr, ptr %5, align 8
@@ -224,7 +224,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_font_NativeFont_haveBitmapFonts(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_font_NativeFont_countGlyphs(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_sun_font_NativeFont_countGlyphs(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i64 @Java_sun_font_NativeStrike_createScalerContext(ptr noundef %0, ptr poison, ptr noundef %2, i32 noundef %3, double noundef 1.000000e+00)
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %12, label %7
@@ -244,7 +244,7 @@ define i32 @Java_sun_font_NativeFont_countGlyphs(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Java_sun_font_NativeStrike_getMaxGlyph(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #5 {
+define range(i32 -2147483647, -2147483648) i32 @Java_sun_font_NativeStrike_getMaxGlyph(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %10, label %5
 
@@ -261,7 +261,7 @@ define range(i32 -2147483647, -2147483648) i32 @Java_sun_font_NativeStrike_getMa
 }
 
 ; Function Attrs: nounwind uwtable
-define float @Java_sun_font_NativeFont_getGlyphAdvance(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define float @Java_sun_font_NativeFont_getGlyphAdvance(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.AWTChar2b, align 1
   store ptr null, ptr %5, align 8
@@ -349,7 +349,7 @@ declare void @AWTFontTextExtents16(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @AWTFreeChar(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_font_NativeFont_getGlyphImageNoDefault(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i64 @Java_sun_font_NativeFont_getGlyphImageNoDefault(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.AWTChar2b, align 1
   %6 = inttoptr i64 %2 to ptr
   %7 = icmp eq i64 %2, 0
@@ -396,7 +396,7 @@ define i64 @Java_sun_font_NativeFont_getGlyphImageNoDefault(ptr nocapture nounde
 declare i64 @AWTFontGenerateImage(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_font_NativeFont_getGlyphImage(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i64 @Java_sun_font_NativeFont_getGlyphImage(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.AWTChar2b, align 1
   %6 = inttoptr i64 %2 to ptr
   %7 = icmp eq i64 %2, 0
@@ -447,7 +447,7 @@ define i64 @Java_sun_font_NativeFont_getGlyphImage(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_font_NativeFont_getFontMetrics(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_font_NativeFont_getFontMetrics(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %26, label %5
 
@@ -488,7 +488,7 @@ declare i32 @AWTFontDescent(ptr noundef) local_unnamed_addr #1
 declare ptr @AWTFontMaxBounds(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

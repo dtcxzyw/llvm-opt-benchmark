@@ -65,13 +65,13 @@ return:                                           ; preds = %cond.end5.thread, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stbds_arrfreef(ptr nocapture noundef %a) local_unnamed_addr #3 {
+define void @stbds_arrfreef(ptr noundef captures(none) %a) local_unnamed_addr #3 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %a, i64 -32
   tail call void @free(ptr noundef nonnull %add.ptr) #21
@@ -79,7 +79,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @stbds_rand_seed(i64 noundef %seed) local_unnamed_addr #5 {
@@ -307,10 +307,10 @@ if.end131:                                        ; preds = %for.inc128, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @stbds_hash_string(ptr nocapture noundef readonly %str, i64 noundef %seed) local_unnamed_addr #10 {
+define i64 @stbds_hash_string(ptr noundef readonly captures(none) %str, i64 noundef %seed) local_unnamed_addr #10 {
 entry:
   %0 = load i8, ptr %str, align 1
   %tobool.not23 = icmp eq i8 %0, 0
@@ -349,7 +349,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @stbds_siphash_bytes(ptr nocapture noundef readonly %p, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #10 {
+define i64 @stbds_siphash_bytes(ptr noundef readonly captures(none) %p, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #10 {
 entry:
   %xor = xor i64 %seed, 8317987319222330741
   %xor1 = xor i64 %seed, -7237128888997146478
@@ -512,7 +512,7 @@ sw.epilog:                                        ; preds = %sw.bb104, %for.end6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @stbds_hash_bytes(ptr nocapture noundef readonly %p, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #10 {
+define i64 @stbds_hash_bytes(ptr noundef readonly captures(none) %p, i64 noundef %len, i64 noundef %seed) local_unnamed_addr #10 {
 entry:
   switch i64 %len, label %if.else89 [
     i64 4, label %if.then
@@ -579,7 +579,7 @@ return:                                           ; preds = %if.else89, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbds_is_key_equal(ptr nocapture noundef readonly %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode, i64 noundef %i) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @stbds_is_key_equal(ptr noundef readonly captures(none) %a, i64 noundef %elemsize, ptr noundef readonly captures(none) %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode, i64 noundef %i) local_unnamed_addr #11 {
 entry:
   %cmp = icmp sgt i32 %mode, 0
   %mul = mul i64 %i, %elemsize
@@ -604,10 +604,10 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define void @stbds_hmfree_func(ptr noundef %a, i64 noundef %elemsize) local_unnamed_addr #13 {
@@ -678,7 +678,7 @@ return:                                           ; preds = %entry, %if.end16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbds_strreset(ptr nocapture noundef %a) local_unnamed_addr #13 {
+define void @stbds_strreset(ptr noundef captures(none) %a) local_unnamed_addr #13 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not4 = icmp eq ptr %0, null
@@ -697,7 +697,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @stbds_hm_find_slot(ptr nocapture noundef readonly %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode) local_unnamed_addr #14 {
+define i64 @stbds_hm_find_slot(ptr noundef readonly captures(none) %a, i64 noundef %elemsize, ptr noundef readonly captures(none) %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode) local_unnamed_addr #14 {
 entry:
   %idx.neg = sub i64 0, %elemsize
   %add.ptr = getelementptr inbounds i8, ptr %a, i64 %idx.neg
@@ -960,7 +960,7 @@ return:                                           ; preds = %if.else, %if.else.u
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @stbds_hmget_key_ts(ptr noundef readonly %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, ptr nocapture noundef writeonly initializes((0, 8)) %temp, i32 noundef %mode) local_unnamed_addr #8 {
+define ptr @stbds_hmget_key_ts(ptr noundef readonly %a, i64 noundef %elemsize, ptr noundef readonly captures(none) %key, i64 noundef %keysize, ptr noundef writeonly captures(none) initializes((0, 8)) %temp, i32 noundef %mode) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %if.else
@@ -1017,7 +1017,7 @@ return:                                           ; preds = %if.then5, %if.else1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @stbds_hmget_key(ptr noundef %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, i32 noundef %mode) local_unnamed_addr #8 {
+define ptr @stbds_hmget_key(ptr noundef %a, i64 noundef %elemsize, ptr noundef readonly captures(none) %key, i64 noundef %keysize, i32 noundef %mode) local_unnamed_addr #8 {
 entry:
   %cmp.i = icmp eq ptr %a, null
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1624,7 +1624,7 @@ sw.bb:                                            ; preds = %if.end161
   %call.i174 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %key) #22
   %add.i175 = add i64 %call.i174, 1
   %malloc.i176 = tail call noalias noundef ptr @malloc(i64 %add.i175)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %malloc.i176, ptr readonly align 1 %key, i64 %add.i175, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %malloc.i176, ptr nonnull readonly align 1 %key, i64 %add.i175, i1 false)
   %mul183 = mul i64 %cond149199207, %elemsize
   %add.ptr184 = getelementptr inbounds i8, ptr %a.addr.1, i64 %mul183
   store ptr %malloc.i176, ptr %add.ptr184, align 8
@@ -1668,7 +1668,7 @@ if.then7.i:                                       ; preds = %if.end.i
   %add8.i = add i64 %call.i177, 9
   %malloc33.i = tail call ptr @malloc(i64 %add8.i)
   %storage.i186 = getelementptr inbounds nuw i8, ptr %malloc33.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %storage.i186, ptr readonly align 1 %key, i64 %add.i178, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %storage.i186, ptr nonnull readonly align 1 %key, i64 %add.i178, i1 false)
   %47 = load ptr, ptr %string179, align 8
   %tobool.not.i187 = icmp eq ptr %47, null
   br i1 %tobool.not.i187, label %if.else.i188, label %if.then11.i
@@ -1702,7 +1702,7 @@ if.end31.i:                                       ; preds = %if.else22.i, %entry
   %add.ptr36.i = getelementptr inbounds i8, ptr %add.ptr.i180, i64 %idx.neg.i
   %sub.i181 = sub i64 %50, %add.i178
   store i64 %sub.i181, ptr %remaining.i, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr36.i, ptr readonly align 1 %key, i64 %add.i178, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr36.i, ptr nonnull readonly align 1 %key, i64 %add.i178, i1 false)
   br label %stbds_stralloc.exit
 
 stbds_stralloc.exit:                              ; preds = %if.then11.i, %if.else.i188, %if.end31.i
@@ -1740,17 +1740,17 @@ return:                                           ; preds = %if.then45.thread, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @stbds_strdup(ptr nocapture noundef readonly %str) local_unnamed_addr #15 {
+define noalias noundef ptr @stbds_strdup(ptr noundef readonly captures(none) %str) local_unnamed_addr #15 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #22
   %add = add i64 %call, 1
   %malloc = tail call ptr @malloc(i64 %add)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %malloc, ptr align 1 %str, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %malloc, ptr nonnull align 1 %str, i64 %add, i1 false)
   ret ptr %malloc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define nonnull ptr @stbds_stralloc(ptr nocapture noundef %a, ptr nocapture noundef readonly %str) local_unnamed_addr #15 {
+define nonnull ptr @stbds_stralloc(ptr noundef captures(none) %a, ptr noundef readonly captures(none) %str) local_unnamed_addr #15 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #22
   %add = add i64 %call, 1
@@ -1785,7 +1785,7 @@ if.then7:                                         ; preds = %if.end
   %add8 = add i64 %call, 9
   %malloc33 = tail call ptr @malloc(i64 %add8)
   %storage = getelementptr inbounds nuw i8, ptr %malloc33, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %storage, ptr align 1 %str, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %storage, ptr nonnull align 1 %str, i64 %add, i1 false)
   %3 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %3, null
   br i1 %tobool.not, label %if.else, label %if.then11
@@ -1819,7 +1819,7 @@ if.end31:                                         ; preds = %entry.if.end31_crit
   %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
   %sub = sub i64 %6, %add
   store i64 %sub, ptr %remaining, align 8
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr36, ptr align 1 %str, i64 %add, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr36, ptr nonnull align 1 %str, i64 %add, i1 false)
   br label %return
 
 return:                                           ; preds = %if.then11, %if.else, %if.end31
@@ -1883,7 +1883,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbds_hmdel_key(ptr noundef returned %a, i64 noundef %elemsize, ptr nocapture noundef readonly %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode) local_unnamed_addr #13 {
+define noundef ptr @stbds_hmdel_key(ptr noundef returned %a, i64 noundef %elemsize, ptr noundef readonly captures(none) %key, i64 noundef %keysize, i64 noundef %keyoffset, i32 noundef %mode) local_unnamed_addr #13 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %return, label %if.else
@@ -2025,10 +2025,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
@@ -2040,7 +2040,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 attributes #0 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

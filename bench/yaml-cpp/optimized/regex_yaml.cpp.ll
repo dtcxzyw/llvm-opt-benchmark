@@ -41,7 +41,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML5RegExC2ENS_8REGEX_OPE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, i32 noundef %op) unnamed_addr #3 align 2 {
+define void @_ZN4YAML5RegExC2ENS_8REGEX_OPE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 6), (8, 32)) %this, i32 noundef %op) unnamed_addr #3 align 2 {
 entry:
   store i32 %op, ptr %this, align 8
   %m_a = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -54,10 +54,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML5RegExC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this) unnamed_addr #3 align 2 {
+define void @_ZN4YAML5RegExC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 6), (8, 32)) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %m_a.i = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML5RegExC2Ec(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, i8 noundef signext %ch) unnamed_addr #3 align 2 {
+define void @_ZN4YAML5RegExC2Ec(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 6), (8, 32)) %this, i8 noundef signext %ch) unnamed_addr #3 align 2 {
 entry:
   store i32 1, ptr %this, align 8
   %m_a = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML5RegExC2Ecc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, i8 noundef signext %a, i8 noundef signext %z) unnamed_addr #3 align 2 {
+define void @_ZN4YAML5RegExC2Ecc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 6), (8, 32)) %this, i8 noundef signext %a, i8 noundef signext %z) unnamed_addr #3 align 2 {
 entry:
   store i32 2, ptr %this, align 8
   %m_a = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -515,7 +515,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11

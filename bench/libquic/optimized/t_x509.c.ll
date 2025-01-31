@@ -546,7 +546,7 @@ declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_TIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_TIME_print(ptr noundef %bp, ptr noundef readonly captures(none) %tm) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %tm, i64 4
   %0 = load i32, ptr %type, align 4
@@ -593,10 +593,10 @@ declare i32 @X509V3_extensions_print(ptr noundef, ptr noundef, ptr noundef, i64 
 declare i32 @X509_CERT_AUX_print(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %bp, ptr nocapture noundef readonly %x) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_ocspid_print(ptr noundef %bp, ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %dertmp = alloca ptr, align 8
   %SHA1md = alloca [20 x i8], align 16
@@ -779,7 +779,7 @@ return:                                           ; preds = %if.then30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_UTCTIME_print(ptr noundef %bp, ptr noundef readonly captures(none) %tm) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %tm, align 8
   %data = getelementptr inbounds nuw i8, ptr %tm, i64 8
@@ -907,7 +907,7 @@ return:                                           ; preds = %if.end100, %err
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr nocapture noundef readonly %tm) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_GENERALIZEDTIME_print(ptr noundef %bp, ptr noundef readonly captures(none) %tm) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %tm, align 8
   %data = getelementptr inbounds nuw i8, ptr %tm, i64 8

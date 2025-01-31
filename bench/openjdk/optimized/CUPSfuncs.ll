@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [6 x i8] c"%ddpi\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_print_CUPSPrinter_initIDs(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_print_CUPSPrinter_initIDs(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dlopen(ptr noundef nonnull @.str, i32 noundef 257) #5
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -151,7 +151,7 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_print_CUPSPrinter_getCupsServer(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_print_CUPSPrinter_getCupsServer(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @j2d_cupsServer, align 8
   %4 = tail call ptr %3() #5
   %.not = icmp eq ptr %4, null
@@ -169,14 +169,14 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsServer(ptr noundef %0, ptr nocaptu
 declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_print_CUPSPrinter_getCupsPort(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_sun_print_CUPSPrinter_getCupsPort(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @j2d_ippPort, align 8
   %4 = tail call i32 %3() #5
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinter(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinter(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr @j2d_cupsGetDests, align 8
   %5 = call i32 %4(ptr noundef nonnull %3) #5
@@ -204,7 +204,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinter(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -316,7 +316,7 @@ define ptr @Java_sun_print_CUPSPrinter_getCupsDefaultPrinters(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_sun_print_CUPSPrinter_canConnect(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_sun_print_CUPSPrinter_canConnect(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1352
   %7 = load ptr, ptr %6, align 8
@@ -345,7 +345,7 @@ define zeroext range(i8 0, 2) i8 @Java_sun_print_CUPSPrinter_canConnect(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
@@ -619,10 +619,10 @@ define ptr @Java_sun_print_CUPSPrinter_getMedia(ptr noundef %0, ptr nocapture no
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
@@ -790,7 +790,7 @@ define ptr @Java_sun_print_CUPSPrinter_getOutputBins(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8
@@ -968,10 +968,10 @@ define ptr @Java_sun_print_CUPSPrinter_getPageSizes(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1234,7 +1234,7 @@ define void @Java_sun_print_CUPSPrinter_getResolutions(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

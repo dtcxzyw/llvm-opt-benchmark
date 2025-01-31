@@ -87,7 +87,7 @@ declare i32 @git_config_get_string_tmp(ptr noundef, ptr noundef) local_unnamed_a
 declare void @die(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 3) i32 @determine_protocol_version_server() local_unnamed_addr #0 {
@@ -173,7 +173,7 @@ if.end10:                                         ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @string_list_split(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -182,7 +182,7 @@ declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @trace2_data_intmax_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @determine_protocol_version_client(ptr nocapture noundef readonly %server_response) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @determine_protocol_version_client(ptr noundef readonly captures(none) %server_response) local_unnamed_addr #0 {
 entry:
   %scevgep = getelementptr i8, ptr %server_response, i64 8
   br label %do.body.i

@@ -57,7 +57,7 @@ define dso_local i32 @ps2_sendbyte(ptr noundef initializes((81, 82)) %0, i8 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @ps2_do_sendbyte(ptr noundef initializes((81, 82)) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef range(i32 1, 3) %3) unnamed_addr #0 align 16 {
@@ -172,7 +172,7 @@ define internal fastcc i32 @ps2_do_sendbyte(ptr noundef initializes((81, 82)) %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ps2_begin_command(ptr noundef %0) #0 align 16 {
@@ -292,7 +292,7 @@ define dso_local void @ps2_drain(ptr noundef %0, i64 noundef %1, i32 noundef %2)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_wait_entry(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -587,7 +587,7 @@ define dso_local i32 @__ps2_command(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ps2_adjust_timeout(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @ps2_adjust_timeout(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   switch i32 %1, label %29 [
     i32 767, label %4
     i32 754, label %6
@@ -727,7 +727,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @ps2_interrupt(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef i32 @ps2_interrupt(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88

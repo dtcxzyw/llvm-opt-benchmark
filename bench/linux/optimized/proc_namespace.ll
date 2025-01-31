@@ -90,7 +90,7 @@ define internal noundef range(i32 65, 76) i32 @mounts_poll(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mounts_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal i32 @mounts_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %3, align 8
   %4 = tail call fastcc i32 @mounts_open_common(ptr %.val, ptr noundef %1, ptr noundef nonnull @show_vfsmnt)
@@ -115,7 +115,7 @@ define internal i32 @mounts_release(ptr noundef %0, ptr noundef %1) #1 align 16 
 declare dso_local i64 @copy_splice_read(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mountinfo_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal i32 @mountinfo_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %3, align 8
   %4 = tail call fastcc i32 @mounts_open_common(ptr %.val, ptr noundef %1, ptr noundef nonnull @show_mountinfo)
@@ -123,7 +123,7 @@ define internal i32 @mountinfo_open(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mountstats_open(ptr nocapture noundef readonly %0, ptr noundef %1) #1 align 16 {
+define internal i32 @mountstats_open(ptr noundef readonly captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -72
   %.val = load ptr, ptr %3, align 8
   %4 = tail call fastcc i32 @mounts_open_common(ptr %.val, ptr noundef %1, ptr noundef nonnull @show_vfsstat)
@@ -131,10 +131,10 @@ define internal i32 @mountstats_open(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @mounts_open_common(ptr %.-72.val, ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
@@ -436,13 +436,13 @@ define internal i32 @show_vfsmnt(ptr noundef %0, ptr noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @seq_open_private(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @path_put(ptr noundef) local_unnamed_addr #0
@@ -484,7 +484,7 @@ declare dso_local zeroext i1 @__mnt_is_readonly(ptr noundef) local_unnamed_addr 
 declare dso_local void @seq_escape_mem(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @security_sb_show_options(ptr noundef, ptr noundef) local_unnamed_addr #0

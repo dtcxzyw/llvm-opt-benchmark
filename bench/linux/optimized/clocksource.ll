@@ -165,7 +165,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [17 x ptr] [ptr @__UNIQUE_ID___addressable___clocksource_register_scale340, ptr @__UNIQUE_ID___addressable___clocksource_update_freq_scale337, ptr @__UNIQUE_ID___addressable_clocks_calc_mult_shift314, ptr @__UNIQUE_ID___addressable_clocksource_change_rating341, ptr @__UNIQUE_ID___addressable_clocksource_done_booting330, ptr @__UNIQUE_ID___addressable_clocksource_unregister342, ptr @__UNIQUE_ID___addressable_clocksource_verify_percpu324, ptr @__UNIQUE_ID___addressable_init_clocksource_sysfs348, ptr @__UNIQUE_ID___addressable_max_cswd_read_retries316, ptr @__UNIQUE_ID_max_cswd_read_retriestype315, ptr @__UNIQUE_ID_verify_n_cpustype317, ptr @__param_max_cswd_read_retries, ptr @__param_verify_n_cpus, ptr @__setup_boot_override_clock, ptr @__setup_boot_override_clocksource, ptr @clocksource_verify_percpu.__UNIQUE_ID___addressable___SCK__preempt_schedule322, ptr @clocksource_verify_percpu.__UNIQUE_ID___addressable___SCK__preempt_schedule323], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: write)
-define dso_local void @clocks_calc_mult_shift(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @clocks_calc_mult_shift(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = zext i32 %4 to i64
   %7 = zext i32 %2 to i64
   %8 = mul nuw i64 %6, %7
@@ -222,10 +222,10 @@ define dso_local void @clocks_calc_mult_shift(ptr nocapture noundef writeonly %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @clocksource_mark_unstable(ptr noundef %0) local_unnamed_addr #2 align 16 {
@@ -903,7 +903,7 @@ define internal noundef i32 @clocksource_done_booting() #8 section ".init.text" 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__clocksource_update_freq_scale(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local void @__clocksource_update_freq_scale(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #2 align 16 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.thread, label %4
 
@@ -1639,7 +1639,7 @@ define internal fastcc noundef range(i32 -16, 1) i32 @clocksource_unbind(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i64 -22, 32) i64 @sysfs_get_uname(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #9 align 16 {
+define dso_local noundef range(i64 -22, 32) i64 @sysfs_get_uname(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #9 align 16 {
   %4 = add i64 %2, -32
   %5 = icmp ult i64 %4, -31
   br i1 %5, label %17, label %6
@@ -1669,7 +1669,7 @@ define dso_local noundef range(i64 -22, 32) i64 @sysfs_get_uname(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal i32 @init_clocksource_sysfs() #8 section ".init.text" align 16 {
@@ -1716,7 +1716,7 @@ define internal noundef i32 @boot_override_clock(ptr noundef %0) #8 section ".in
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @clocksource_watchdog_work(ptr nocapture readnone %0) #2 align 16 {
+define internal void @clocksource_watchdog_work(ptr readnone captures(none) %0) #2 align 16 {
   %2 = tail call ptr (ptr, ptr, i32, ptr, ...) @kthread_create_on_node(ptr noundef nonnull @clocksource_watchdog_kthread, ptr noundef null, i32 noundef -1, ptr noundef nonnull @.str.11) #16
   %3 = icmp ugt ptr %2, inttoptr (i64 -4096 to ptr)
   br i1 %3, label %6, label %4
@@ -1733,7 +1733,7 @@ define internal void @clocksource_watchdog_work(ptr nocapture readnone %0) #2 al
 declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @clocksource_watchdog_kthread(ptr nocapture readnone %0) #2 align 16 {
+define internal noundef i32 @clocksource_watchdog_kthread(ptr readnone captures(none) %0) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %2 = tail call fastcc i32 @__clocksource_watchdog_kthread(), !range !38
   %3 = icmp eq i32 %2, 0
@@ -1875,7 +1875,7 @@ declare dso_local i32 @timer_delete(ptr noundef) local_unnamed_addr #3
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__get_random_u32_below(i32 noundef) local_unnamed_addr #3
@@ -2058,7 +2058,7 @@ define internal fastcc void @__clocksource_select(i1 noundef zeroext %0) unnamed
 declare dso_local i32 @tick_oneshot_mode_active() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @timekeeping_notify(ptr noundef) local_unnamed_addr #3
@@ -2067,7 +2067,7 @@ declare dso_local i32 @timekeeping_notify(ptr noundef) local_unnamed_addr #3
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @clocksource_watchdog(ptr nocapture readnone %0) #2 align 16 {
+define internal void @clocksource_watchdog(ptr readnone captures(none) %0) #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @watchdog_lock) #16
   %2 = load i1, ptr @watchdog_running, align 4
   br i1 %2, label %3, label %291
@@ -2516,7 +2516,7 @@ declare dso_local i32 @subsys_system_register(ptr noundef, ptr noundef) local_un
 declare dso_local i32 @device_register(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -2147483648, 2147483648) i64 @current_clocksource_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal noundef range(i64 -2147483648, 2147483648) i64 @current_clocksource_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %4 = load ptr, ptr @curr_clocksource, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -2528,7 +2528,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @current_clocksou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i64 -22, 32) i64 @current_clocksource_store(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 align 16 {
+define internal noundef range(i64 -22, 32) i64 @current_clocksource_store(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %5 = add i64 %3, -32
   %6 = icmp ult i64 %5, -31
@@ -2561,10 +2561,10 @@ define internal noundef range(i64 -22, 32) i64 @current_clocksource_store(ptr no
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @unbind_clocksource_store(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i64 noundef %3) #2 align 16 {
+define internal noundef i64 @unbind_clocksource_store(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #2 align 16 {
   %5 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
   %6 = add i64 %3, -32
@@ -2625,7 +2625,7 @@ define internal noundef i64 @unbind_clocksource_store(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @available_clocksource_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #2 align 16 {
+define internal i64 @available_clocksource_show(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #2 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @clocksource_mutex) #16
   %4 = load ptr, ptr @clocksource_list, align 8
   %5 = icmp eq ptr %4, @clocksource_list

@@ -146,7 +146,7 @@ declare i32 @ec_GFp_simple_group_set_curve(ptr noundef, ptr noundef, ptr noundef
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_mont_field_mul(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #0 {
+define hidden i32 @ec_GFp_mont_field_mul(ptr noundef readonly captures(none) %group, ptr noundef %r, ptr noundef %a, ptr noundef %b, ptr noundef %ctx) #0 {
 entry:
   %mont = getelementptr inbounds nuw i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8
@@ -169,7 +169,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_mont_field_sqr(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #0 {
+define hidden i32 @ec_GFp_mont_field_sqr(ptr noundef readonly captures(none) %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #0 {
 entry:
   %mont = getelementptr inbounds nuw i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8
@@ -190,7 +190,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_mont_field_encode(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #0 {
+define hidden i32 @ec_GFp_mont_field_encode(ptr noundef readonly captures(none) %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #0 {
 entry:
   %mont = getelementptr inbounds nuw i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8
@@ -213,7 +213,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @BN_to_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @ec_GFp_mont_field_decode(ptr nocapture noundef readonly %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #0 {
+define hidden i32 @ec_GFp_mont_field_decode(ptr noundef readonly captures(none) %group, ptr noundef %r, ptr noundef %a, ptr noundef %ctx) #0 {
 entry:
   %mont = getelementptr inbounds nuw i8, ptr %group, i64 160
   %0 = load ptr, ptr %mont, align 8

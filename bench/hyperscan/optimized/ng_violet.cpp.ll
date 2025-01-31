@@ -2271,12 +2271,12 @@ ehcleanup140:                                     ; preds = %lpad132, %ehcleanup
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN3ue221insertion_ordered_mapISt10shared_ptrINS_8NGHolderEESt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISC_EEEixERKS3_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %key) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2595,14 +2595,14 @@ if.end:                                           ; preds = %_ZNSt6vectorIN3ue21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare noundef zeroext i1 @_ZN3ue223reduceGraphEquivalencesERNS_8NGHolderERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #3
 
 declare noundef i32 @_ZN3ue218isImplementableNFAERKNS_8NGHolderEPKNS_13ReportManagerERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef, ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L23removeRedundantLiteralsERNS_11RoseInGraphERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(56) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L23removeRedundantLiteralsERNS_11RoseInGraphERKNS_14CompileContextE(ptr noundef nonnull align 8 dereferenceable(56) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i454.i.i = alloca %"class.std::tuple.853", align 8
   %ref.tmp10.i455.i.i = alloca %"class.std::tuple.356", align 1
@@ -5020,7 +5020,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L24doInitialVioletTransformERKNS_8NGHolderEbRKNS_14CompileContextE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %h, i1 noundef zeroext %last_chance, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L24doInitialVioletTransformERKNS_8NGHolderEbRKNS_14CompileContextE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %h, i1 noundef zeroext %last_chance, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp8.i1056 = alloca %"struct.std::pair.1040", align 8
   %__dnew.i.i.i566 = alloca i64, align 8
@@ -18700,7 +18700,7 @@ if.end47:                                         ; preds = %_ZNSt6vectorIN3ue29
 declare void @_ZNK3ue211ue2_literal4elemcvNS_9CharReachEEv(ptr sret(%"class.ue2::CharReach") align 8, ptr noundef nonnull align 1 dereferenceable(2)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN3ue29CharReachESaIS1_EE19_M_range_initializeINS0_11ue2_literal14const_iteratorEEEvT_S7_St18input_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__first.coerce0, i64 %__first.coerce1, ptr %__last.coerce0, i64 %__last.coerce1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19437,7 +19437,7 @@ cond.end:                                         ; preds = %cond.true, %_ZNKSt9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19478,7 +19478,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L28restoreTrailingLiteralStatesERNS_8NGHolderERKSt6vectorISt4pairINS_11ue2_literalEjESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %lits) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L28restoreTrailingLiteralStatesERNS_8NGHolderERKSt6vectorISt4pairINS_11ue2_literalEjESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %lits) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp12.i.i = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp14.i.i = alloca %"class.boost::container::vec_iterator.231", align 8
@@ -20186,7 +20186,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
 declare void @_ZN3ue210calcDepthsERKNS_8NGHolderE(ptr sret(%"class.std::vector.133") align 8, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19findBestPrefixSplitERKNS_8NGHolderERKSt6vectorINS_14NFAVertexDepthESaIS4_EERKNS_11RoseInGraphERKS3_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS9_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISI_EEbRKNS_14CompileContextE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %depths, ptr %ee.0.val, ptr %ee.8.val, i1 noundef zeroext %last_chance, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19findBestPrefixSplitERKNS_8NGHolderERKSt6vectorINS_14NFAVertexDepthESaIS4_EERKNS_11RoseInGraphERKS3_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS9_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISI_EEbRKNS_14CompileContextE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %depths, ptr %ee.0.val, ptr %ee.8.val, i1 noundef zeroext %last_chance, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i = alloca %"struct.std::_Rb_tree<ue2::ue2_literal, ue2::ue2_literal, std::_Identity<ue2::ue2_literal>, std::less<ue2::ue2_literal>>::_Alloc_node", align 8
   %best_lit.i = alloca %"struct.ue2::ue2_literal", align 8
@@ -20989,7 +20989,7 @@ ehcleanup:                                        ; preds = %lpad, %ehcleanup136
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS2_EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt10unique_ptrIN3ue212_GLOBAL__N_111VertLitInfoESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -21028,7 +21028,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L13splitRoseEdgeERKNS_8NGHolderERNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISC_EERKNS_12_GLOBAL__N_111VertLitInfoE(ptr noundef nonnull align 8 dereferenceable(136) %base_graph, ptr noundef nonnull align 8 dereferenceable(56) %vg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ee, ptr noundef nonnull align 8 dereferenceable(88) %split) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L13splitRoseEdgeERKNS_8NGHolderERNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISC_EERKNS_12_GLOBAL__N_111VertLitInfoE(ptr noundef nonnull align 8 dereferenceable(136) %base_graph, ptr noundef nonnull align 8 dereferenceable(56) %vg, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ee, ptr noundef nonnull align 8 dereferenceable(88) %split) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.ue2::flat_detail::iter_wrapper.626", align 8
   %agg.tmp1.i = alloca %"class.ue2::flat_detail::iter_wrapper.626", align 8
@@ -23496,7 +23496,7 @@ ehcleanup395:                                     ; preds = %ehcleanup393, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L12doNetflowCutERNS_8NGHolderEPKSt6vectorINS_14NFAVertexDepthESaIS3_EERNS_11RoseInGraphERKS2_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS8_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISG_EEbRKNS_4GreyEj(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr nocapture noundef readonly %depths, ptr noundef nonnull align 8 dereferenceable(56) %vg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ee, i1 noundef zeroext %for_prefix, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey, i32 noundef range(i32 0, 9) %min_allowed_length) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L12doNetflowCutERNS_8NGHolderEPKSt6vectorINS_14NFAVertexDepthESaIS3_EERNS_11RoseInGraphERKS2_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS8_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISG_EEbRKNS_4GreyEj(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef readonly captures(none) %depths, ptr noundef nonnull align 8 dereferenceable(56) %vg, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ee, i1 noundef zeroext %for_prefix, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %grey, i32 noundef range(i32 0, 9) %min_allowed_length) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseInGraph, ue2::RoseInVertexProps, ue2::RoseInEdgeProps>>, std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseInGraph, ue2::RoseInVertexProps, ue2::RoseInEdgeProps>>, std::vector<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseInGraph, ue2::RoseInVertexProps, ue2::RoseInEdgeProps>>, ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>>>, std::_Select1st<std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseInGraph, ue2::RoseInVertexProps, ue2::RoseInEdgeProps>>, std::vector<std::pair<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseInGraph, ue2::RoseInVertexProps, ue2::RoseInEdgeProps>>, ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>>>>, std::less<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::RoseInGraph, ue2::RoseInVertexProps, ue2::RoseInEdgeProps>>>>::_Auto_node", align 8
   %ref.tmp.i421 = alloca %"struct.ue2::ue2_literal", align 8
@@ -29835,7 +29835,7 @@ declare void @_ZNSt14overflow_errorD1Ev(ptr noundef nonnull align 8 dereferencea
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignINS_13move_iteratorIPjEEEEvT_SA_PNS_11move_detail13disable_if_orIvNSB_7is_sameINSB_17integral_constantIjLj1EEENSE_IjLj0EEEEENSB_14is_convertibleISA_mEENS0_3dtl17is_input_iteratorISA_Xsr21has_iterator_categoryISA_EE5valueEEENSB_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %first.coerce, ptr %last.coerce, ptr noundef %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -30183,7 +30183,7 @@ _ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE40priv_forwa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr noalias nonnull align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %h, ptr %ee.0.val, ptr %ee.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L14poisonVerticesERKNS_8NGHolderERKNS_11RoseInGraphERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphIS3_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISD_EERKNS_4GreyE(ptr noalias nonnull align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %h, ptr %ee.0.val, ptr %ee.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %grey) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %bad_edges = alloca %"class.ue2::flat_set.274", align 8
   %ref.tmp = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
@@ -30275,7 +30275,7 @@ _ZN3ue211flat_detail9flat_baseINS_12graph_detail15edge_descriptorINS_9ue2_graphI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L13findBestSplitERKNS_8NGHolderEPKSt6vectorINS_14NFAVertexDepthESaIS4_EEbjPKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessISG_ESaISG_EESM_bRKNS_14CompileContextE(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef readonly %depths, i1 noundef zeroext %for_prefix, i32 noundef %min_len, ptr noundef %allowed_cand, ptr noundef readonly %disallowed_cand, i1 noundef zeroext %last_chance, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L13findBestSplitERKNS_8NGHolderEPKSt6vectorINS_14NFAVertexDepthESaIS4_EEbjPKSt3setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessISG_ESaISG_EESM_bRKNS_14CompileContextE(ptr noalias nonnull align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef readonly captures(none) %depths, i1 noundef zeroext %for_prefix, i32 noundef %min_len, ptr noundef %allowed_cand, ptr noundef readonly %disallowed_cand, i1 noundef zeroext %last_chance, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %vis.i = alloca %"class.boost::dfs_visitor", align 1
   %agg.tmp2.i = alloca %"class.ue2::small_color_map", align 8
@@ -35867,7 +35867,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHold
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L11poisonEdgesERKNS_8NGHolderEPKSt6vectorINS_14NFAVertexDepthESaIS4_EERKNS_11RoseInGraphERKS3_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS9_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISI_EEbRKNS_4GreyE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(136) %h, ptr nocapture noundef readonly %depths, ptr readonly %ee.0.val, ptr readnone %ee.8.val, i1 noundef zeroext %for_prefix, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L11poisonEdgesERKNS_8NGHolderEPKSt6vectorINS_14NFAVertexDepthESaIS4_EERKNS_11RoseInGraphERKS3_INS_12graph_detail15edge_descriptorINS_9ue2_graphIS9_NS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISI_EEbRKNS_4GreyE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(136) %h, ptr noundef readonly captures(none) %depths, ptr readonly %ee.0.val, ptr readnone %ee.8.val, i1 noundef zeroext %for_prefix, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %grey) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__node5.i = alloca %"struct.std::_Hashtable<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, boost::dynamic_bitset<>>, std::allocator<std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, boost::dynamic_bitset<>>>, std::__detail::_Select1st, std::equal_to<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>, std::hash<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node", align 8
   %ref.tmp.i.i.i = alloca %"class.ue2::graph_detail::edge_descriptor.179", align 8
@@ -43567,7 +43567,7 @@ _ZNSt12__shared_ptrIN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L9can_matchERKNS_8NGHolderERKNS_11ue2_literalEb(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %lit, i1 noundef zeroext %overhang_ok) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L9can_matchERKNS_8NGHolderERKNS_11ue2_literalEb(ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %lit, i1 noundef zeroext %overhang_ok) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %curr = alloca %"class.std::set.266", align 8
   %next = alloca %"class.std::set.266", align 8
@@ -57389,7 +57389,7 @@ if.end:                                           ; preds = %lor.lhs.false.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIbN3ue28flat_setIjSt4lessIjESaIjEEEES0_IKS7_NS1_12_GLOBAL__N_111VertLitInfoEESt10_Select1stISB_ES3_IS7_ESaISB_EE24_M_get_insert_unique_posERS8_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %__k) unnamed_addr #19 align 2 {
+define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeISt4pairIbN3ue28flat_setIjSt4lessIjESaIjEEEES0_IKS7_NS1_12_GLOBAL__N_111VertLitInfoEESt10_Select1stISB_ES3_IS7_ESaISB_EE24_M_get_insert_unique_posERS8_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %__k) unnamed_addr #19 align 2 {
 entry:
   %_M_parent.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -57757,7 +57757,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeISt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L16lookForDoubleCutERKNS_8NGHolderERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISB_EERS7_RKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ee, ptr noundef nonnull align 8 dereferenceable(56) %vg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(292) %grey) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L16lookForDoubleCutERKNS_8NGHolderERKSt6vectorINS_12graph_detail15edge_descriptorINS_9ue2_graphINS_11RoseInGraphENS_17RoseInVertexPropsENS_15RoseInEdgePropsEEEEESaISB_EERS7_RKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %ee, ptr noundef nonnull align 8 dereferenceable(56) %vg, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(292) %grey) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %lit.i = alloca %"struct.ue2::ue2_literal", align 8
   %ref.tmp130.i = alloca [1 x %"struct.ue2::ue2_literal"], align 8

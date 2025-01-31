@@ -426,7 +426,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_edp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_edp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [1 x %struct.vec_t], align 16
@@ -553,7 +553,7 @@ dissect_link_tlv.exit.thread:                     ; preds = %61
   %80 = load ptr, ptr %45, align 8
   %81 = load ptr, ptr %6, align 8
   %82 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %81) #5
-  %83 = call ptr @format_text(ptr noundef %80, ptr noundef %81, i64 noundef %82) #4
+  %83 = call ptr @format_text(ptr noundef %80, ptr noundef nonnull %81, i64 noundef %82) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %72, ptr noundef nonnull @.str.244, ptr noundef %83) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   br label %dissect_link_tlv.exit
@@ -694,7 +694,7 @@ dissect_link_tlv.exit.thread:                     ; preds = %61
   %190 = load ptr, ptr %45, align 8
   %191 = load ptr, ptr %5, align 8
   %192 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %191) #5
-  %193 = call ptr @format_text(ptr noundef %190, ptr noundef %191, i64 noundef %192) #4
+  %193 = call ptr @format_text(ptr noundef %190, ptr noundef nonnull %191, i64 noundef %192) #4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %136, ptr noundef nonnull @.str.249, ptr noundef %193) #4
   br label %dissect_vlan_tlv.exit
 
@@ -1059,7 +1059,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @format_text(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1068,10 +1068,10 @@ declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare void @tree_expanded_set(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -112,7 +112,7 @@ free_object_addresses.exit:                       ; preds = %AcquireDeletionLock
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AcquireDeletionLock(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @AcquireDeletionLock(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   switch i32 %3, label %13 [
     i32 1259, label %4
@@ -1014,7 +1014,7 @@ add_exact_object_address_extra.exit:              ; preds = %352, %356
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reportDependentObjects(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @reportDependentObjects(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.StringInfoData, align 8
   %6 = alloca %struct.StringInfoData, align 8
   %7 = and i32 %2, 4
@@ -1354,7 +1354,7 @@ define internal fastcc void @reportDependentObjects(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @deleteObjectsInList(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @deleteObjectsInList(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [3 x %struct.ScanKeyData], align 16
   %5 = alloca [3 x %struct.ScanKeyData], align 16
   %6 = tail call zeroext i1 @trackDroppedObjectsNeeded() #10
@@ -1705,7 +1705,7 @@ declare void @LockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, i3
 declare void @LockDatabaseObject(i32 noundef, i32 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReleaseDeletionLock(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ReleaseDeletionLock(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 1259
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3448,10 +3448,10 @@ free_object_addresses.exit40:                     ; preds = %121, %130
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_exact_object_address(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @add_exact_object_address(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3483,7 +3483,7 @@ define dso_local void @add_exact_object_address(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @recordDependencyOn(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3492,7 +3492,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @object_address_present(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @object_address_present(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %.01214 = add i32 %4, -1
@@ -3541,7 +3541,7 @@ define dso_local noundef zeroext i1 @object_address_present(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @record_object_address_dependencies(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @record_object_address_dependencies(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 2
@@ -3624,7 +3624,7 @@ eliminate_duplicate_dependencies.exit:            ; preds = %3, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sort_object_addresses(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @sort_object_addresses(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 1
@@ -3643,7 +3643,7 @@ define dso_local void @sort_object_addresses(ptr nocapture noundef readonly %0) 
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @object_address_comparator(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @object_address_comparator(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -3686,7 +3686,7 @@ define internal range(i32 -1, 2) i32 @object_address_comparator(ptr nocapture no
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 41) i32 @getObjectClass(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 41) i32 @getObjectClass(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %.not = icmp eq i32 %2, 1259
   br i1 %.not, label %.thread, label %3
@@ -3897,7 +3897,7 @@ declare void @EventTriggerSQLDropAddObject(ptr noundef, i1 noundef zeroext, i1 n
 declare void @RunObjectDropHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @doDeletion(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @doDeletion(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [1 x %struct.ScanKeyData], align 16
   %4 = tail call i32 @getObjectClass(ptr noundef %0)
   switch i32 %4, label %default.unreachable32 [
@@ -4231,7 +4231,7 @@ declare i32 @get_object_oid_index(i32 noundef) local_unnamed_addr #1
 declare void @check_stack_depth() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @object_address_present_add_flags(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #7 {
+define internal fastcc zeroext i1 @object_address_present_add_flags(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load i32, ptr %4, align 8
   %.02226 = add i32 %5, -1
@@ -4368,7 +4368,7 @@ declare i32 @errdetail_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @errmsg_plural(ptr noundef, ptr noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_object_address(i32 noundef range(i32 1247, 3603) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc void @add_object_address(i32 noundef range(i32 1247, 3603) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -4404,7 +4404,7 @@ define internal fastcc void @add_object_address(i32 noundef range(i32 1247, 3603
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_function_rte_ref(ptr nocapture noundef readonly %0, i16 noundef signext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @process_function_rte_ref(ptr noundef readonly captures(none) %0, i16 noundef signext %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4547,10 +4547,10 @@ declare ptr @get_expr_result_tupdesc(ptr noundef, i1 noundef zeroext) local_unna
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

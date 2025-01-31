@@ -35,7 +35,7 @@ $_ZTIN3irr2io10IWriteFileE = comdat any
 @_ZTIN3irr2io10CWriteFileE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr2io10CWriteFileE, ptr @_ZTIN3irr2io10IWriteFileE }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CWriteFileC2ERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io10CWriteFileC2ERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -105,7 +105,7 @@ _ZN3irr2io10CWriteFile8openFileEb.exit:           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3irr2io10CWriteFile8openFileEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 48)) %this, i1 noundef zeroext %append) local_unnamed_addr #1 align 2 {
+define void @_ZN3irr2io10CWriteFile8openFileEb(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((40, 48)) %this, i1 noundef zeroext %append) local_unnamed_addr #1 align 2 {
 entry:
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !10
@@ -203,7 +203,7 @@ _ZN3irr2io10CWriteFile8openFileEb.exit:           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CWriteFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io10CWriteFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -245,7 +245,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 64)) %this) unnamed_addr #0 align 2 {
@@ -409,7 +409,7 @@ _ZN3irr2io10CWriteFileD0Ev.exit:                  ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN3irr2io10CWriteFile5writeEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef %buffer, i64 noundef %sizeToWrite) unnamed_addr #1 align 2 {
+define noundef i64 @_ZN3irr2io10CWriteFile5writeEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef captures(none) %buffer, i64 noundef %sizeToWrite) unnamed_addr #1 align 2 {
 entry:
   %File.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i, align 8, !tbaa !18
@@ -426,10 +426,10 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3irr2io10CWriteFile4seekElb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, i64 noundef %finalPos, i1 noundef zeroext %relativeMovement) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN3irr2io10CWriteFile4seekElb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, i64 noundef %finalPos, i1 noundef zeroext %relativeMovement) unnamed_addr #1 align 2 {
 entry:
   %File.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i, align 8, !tbaa !18
@@ -448,10 +448,10 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZNK3irr2io10CWriteFile6getPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define noundef i64 @_ZNK3irr2io10CWriteFile6getPosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %File = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File, align 8, !tbaa !18
@@ -460,10 +460,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io10CWriteFile11getFileNameEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 {
@@ -473,7 +473,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZN3irr2io10CWriteFile5flushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN3irr2io10CWriteFile5flushEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   %File.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %File.i, align 8, !tbaa !18
@@ -491,7 +491,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN3irr2io10CWriteFile15createWriteFileERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append) local_unnamed_addr #0 align 2 {

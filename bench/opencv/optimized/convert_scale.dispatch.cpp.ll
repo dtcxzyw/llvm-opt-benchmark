@@ -43,7 +43,7 @@ define hidden noundef ptr @_ZN2cv12cpu_baseline18getCvtScaleAbsFuncEi(i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScaleAbs8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScaleAbs8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -97,7 +97,7 @@ _ZN2cv12cpu_baseline10cvtabs_32fIhhEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL15cvtScaleAbs8s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL15cvtScaleAbs8s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -151,7 +151,7 @@ _ZN2cv12cpu_baseline10cvtabs_32fIahEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs16u8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs16u8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -206,7 +206,7 @@ _ZN2cv12cpu_baseline10cvtabs_32fIthEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs16s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs16s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -261,7 +261,7 @@ _ZN2cv12cpu_baseline10cvtabs_32fIshEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs32s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs32s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -316,7 +316,7 @@ _ZN2cv12cpu_baseline10cvtabs_32fIihEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs32f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs32f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -370,7 +370,7 @@ _ZN2cv12cpu_baseline10cvtabs_32fIfhEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs64f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL16cvtScaleAbs64f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %.sroa.2.0.extract.shift.i = lshr i64 %6, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %9 = lshr i64 %1, 3
@@ -439,7 +439,7 @@ define hidden noundef ptr @_ZN2cv12cpu_baseline19getConvertScaleFuncEii(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL10cvtScale8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL10cvtScale8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -492,7 +492,7 @@ _ZN2cv12cpu_baseline7cvt_32fIhhEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL12cvtScale8s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL12cvtScale8s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -545,7 +545,7 @@ _ZN2cv12cpu_baseline7cvt_32fIahEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale16u8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale16u8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -599,7 +599,7 @@ _ZN2cv12cpu_baseline7cvt_32fIthEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale16s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale16s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -653,7 +653,7 @@ _ZN2cv12cpu_baseline7cvt_32fIshEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale32s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale32s8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -707,7 +707,7 @@ _ZN2cv12cpu_baseline7cvt_32fIihEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale32f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale32f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -760,7 +760,7 @@ _ZN2cv12cpu_baseline7cvt_32fIfhEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale64f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale64f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %.sroa.2.0.extract.shift.i = lshr i64 %6, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %9 = lshr i64 %1, 3
@@ -817,7 +817,7 @@ _ZN2cv12cpu_baseline7cvt_32fIdhEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale16f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale16f8uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -897,7 +897,7 @@ _ZN2cv12cpu_baseline7cvt_32fINS_6hfloatEhEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL12cvtScale8u8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL12cvtScale8u8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -950,7 +950,7 @@ _ZN2cv12cpu_baseline7cvt_32fIhaEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL10cvtScale8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL10cvtScale8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1003,7 +1003,7 @@ _ZN2cv12cpu_baseline7cvt_32fIaaEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale16u8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale16u8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1057,7 +1057,7 @@ _ZN2cv12cpu_baseline7cvt_32fItaEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale16s8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale16s8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1111,7 +1111,7 @@ _ZN2cv12cpu_baseline7cvt_32fIsaEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale32s8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale32s8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1165,7 +1165,7 @@ _ZN2cv12cpu_baseline7cvt_32fIiaEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale32f8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale32f8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1218,7 +1218,7 @@ _ZN2cv12cpu_baseline7cvt_32fIfaEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale64f8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale64f8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %.sroa.2.0.extract.shift.i = lshr i64 %6, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %9 = lshr i64 %1, 3
@@ -1275,7 +1275,7 @@ _ZN2cv12cpu_baseline7cvt_32fIdaEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale16f8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale16f8sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1355,7 +1355,7 @@ _ZN2cv12cpu_baseline7cvt_32fINS_6hfloatEaEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1409,7 +1409,7 @@ _ZN2cv12cpu_baseline7cvt_32fIhtEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1463,7 +1463,7 @@ _ZN2cv12cpu_baseline7cvt_32fIatEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL11cvtScale16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL11cvtScale16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1518,7 +1518,7 @@ _ZN2cv12cpu_baseline7cvt_32fIttEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1573,7 +1573,7 @@ _ZN2cv12cpu_baseline7cvt_32fIstEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1628,7 +1628,7 @@ _ZN2cv12cpu_baseline7cvt_32fIitEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1682,7 +1682,7 @@ _ZN2cv12cpu_baseline7cvt_32fIftEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %.sroa.2.0.extract.shift.i = lshr i64 %6, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %9 = lshr i64 %1, 3
@@ -1740,7 +1740,7 @@ _ZN2cv12cpu_baseline7cvt_32fIdtEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16f16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16f16uEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1821,7 +1821,7 @@ _ZN2cv12cpu_baseline8cvt1_32fINS_6hfloatEtEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1875,7 +1875,7 @@ _ZN2cv12cpu_baseline7cvt_32fIhsEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1929,7 +1929,7 @@ _ZN2cv12cpu_baseline7cvt_32fIasEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1984,7 +1984,7 @@ _ZN2cv12cpu_baseline7cvt_32fItsEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL11cvtScale16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL11cvtScale16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2039,7 +2039,7 @@ _ZN2cv12cpu_baseline7cvt_32fIssEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2094,7 +2094,7 @@ _ZN2cv12cpu_baseline7cvt_32fIisEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2148,7 +2148,7 @@ _ZN2cv12cpu_baseline7cvt_32fIfsEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %.sroa.2.0.extract.shift.i = lshr i64 %6, 32
   %.sroa.2.0.extract.trunc.i = trunc nuw i64 %.sroa.2.0.extract.shift.i to i32
   %9 = lshr i64 %1, 3
@@ -2206,7 +2206,7 @@ _ZN2cv12cpu_baseline7cvt_32fIdsEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16f16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16f16sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2287,7 +2287,7 @@ _ZN2cv12cpu_baseline8cvt1_32fINS_6hfloatEsEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8u32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8u32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2338,7 +2338,7 @@ _ZN2cv12cpu_baseline7cvt_32fIhiEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8s32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8s32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2389,7 +2389,7 @@ _ZN2cv12cpu_baseline7cvt_32fIaiEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16u32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16u32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2441,7 +2441,7 @@ _ZN2cv12cpu_baseline7cvt_32fItiEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16s32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16s32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2493,7 +2493,7 @@ _ZN2cv12cpu_baseline7cvt_32fIsiEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL11cvtScale32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL11cvtScale32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -2543,7 +2543,7 @@ _ZN2cv12cpu_baseline7cvt_64fIiiEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32f32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32f32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2594,7 +2594,7 @@ _ZN2cv12cpu_baseline7cvt_32fIfiEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale64f32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale64f32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -2643,7 +2643,7 @@ _ZN2cv12cpu_baseline7cvt_64fIdiEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16f32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #1 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16f32sEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #1 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2721,7 +2721,7 @@ _ZN2cv12cpu_baseline8cvt1_32fINS_6hfloatEiEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8u32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8u32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2770,7 +2770,7 @@ _ZN2cv12cpu_baseline7cvt_32fIhfEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8s32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8s32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2819,7 +2819,7 @@ _ZN2cv12cpu_baseline7cvt_32fIafEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16u32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16u32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2869,7 +2869,7 @@ _ZN2cv12cpu_baseline7cvt_32fItfEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16s32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16s32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2919,7 +2919,7 @@ _ZN2cv12cpu_baseline7cvt_32fIsfEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32s32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32s32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2969,7 +2969,7 @@ _ZN2cv12cpu_baseline7cvt_32fIifEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL11cvtScale32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL11cvtScale32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3018,7 +3018,7 @@ _ZN2cv12cpu_baseline7cvt_32fIffEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale64f32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale64f32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -3066,7 +3066,7 @@ _ZN2cv12cpu_baseline7cvt_64fIdfEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16f32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16f32fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3142,7 +3142,7 @@ _ZN2cv12cpu_baseline8cvt1_32fINS_6hfloatEfEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8u64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8u64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -3189,7 +3189,7 @@ _ZN2cv12cpu_baseline7cvt_64fIhdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8s64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8s64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -3236,7 +3236,7 @@ _ZN2cv12cpu_baseline7cvt_64fIadEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16u64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16u64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -3284,7 +3284,7 @@ _ZN2cv12cpu_baseline7cvt_64fItdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16s64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16s64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -3332,7 +3332,7 @@ _ZN2cv12cpu_baseline7cvt_64fIsdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32s64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32s64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -3380,7 +3380,7 @@ _ZN2cv12cpu_baseline7cvt_64fIidEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32f64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32f64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -3428,7 +3428,7 @@ _ZN2cv12cpu_baseline7cvt_64fIfdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL11cvtScale64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL11cvtScale64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -3475,7 +3475,7 @@ _ZN2cv12cpu_baseline7cvt_64fIddEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16f64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16f64fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -3550,7 +3550,7 @@ _ZN2cv12cpu_baseline7cvt_64fINS_6hfloatEdEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8u16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3635,7 +3635,7 @@ _ZN2cv12cpu_baseline8cvt1_32fIhNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL13cvtScale8s16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3720,7 +3720,7 @@ _ZN2cv12cpu_baseline8cvt1_32fIaNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16u16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3806,7 +3806,7 @@ _ZN2cv12cpu_baseline8cvt1_32fItNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale16s16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3892,7 +3892,7 @@ _ZN2cv12cpu_baseline8cvt1_32fIsNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32s16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3978,7 +3978,7 @@ _ZN2cv12cpu_baseline8cvt1_32fIiNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale32f16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4063,7 +4063,7 @@ _ZN2cv12cpu_baseline8cvt1_32fIfNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEff.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL14cvtScale64f16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %11 = load double, ptr %10, align 8
@@ -4147,7 +4147,7 @@ _ZN2cv12cpu_baseline7cvt_64fIdNS_6hfloatEEEvPKT_mPT0_mNS_5Size_IiEEdd.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL11cvtScale16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture readnone %2, i64 %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, ptr nocapture noundef readonly %7) #2 {
+define internal void @_ZN2cv12cpu_baselineL11cvtScale16fEPKhmS2_mPhmNS_5Size_IiEEPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2, i64 %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, ptr noundef readonly captures(none) %7) #2 {
   %9 = load double, ptr %7, align 8
   %10 = fptrunc double %9 to float
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4575,7 +4575,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i64 @_ZN2cv19getContinuousSize2DERNS_3MatES1_i(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #4
 
@@ -4632,10 +4632,10 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

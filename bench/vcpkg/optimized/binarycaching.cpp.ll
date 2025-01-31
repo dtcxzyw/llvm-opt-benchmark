@@ -1157,13 +1157,13 @@ declare void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_trai
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2080,7 +2080,7 @@ _ZNSt6vectorIPKN5vcpkg17InstallPlanActionESaIS3_EED2Ev.exit76: ; preds = %_ZNSt6
 declare ptr @_ZNK5vcpkg17InstallPlanAction11package_abiB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(528)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_restoreEPKNS_19IReadBinaryProviderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   %4 = load i8, ptr %0, align 8
   switch i8 %4, label %54 [
@@ -2227,7 +2227,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus22should_attempt_res
 declare void @_ZN5vcpkg12ElapsedTimerC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5vcpkg11CacheStatus16mark_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2395,7 +2395,7 @@ _ZNSt6vectorIPKN5vcpkg19IReadBinaryProviderESaIS3_EE9push_backERKS3_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg11CacheStatus13mark_restoredEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg11CacheStatus13mark_restoredEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.vcpkg::LineInfo", align 8
   %3 = load i8, ptr %0, align 8
   switch i8 %3, label %10 [
@@ -2471,14 +2471,14 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg19ReadOnlyBinaryCache11is_restore
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus11is_restoredEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #6 align 2 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp eq i8 %2, 2
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.99") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg19ReadOnlyBinaryCache8precheckENS_4SpanIKNS_17InstallPlanActionEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.99") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::LineInfo", align 8
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
   %7 = alloca %"struct.vcpkg::LineInfo", align 8
@@ -3536,7 +3536,7 @@ _ZNSt6vectorIPN5vcpkg11CacheStatusESaIS2_EED2Ev.exit84: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_precheckEPKNS_19IReadBinaryProviderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   %4 = load i8, ptr %0, align 8
   switch i8 %4, label %50 [
@@ -3674,7 +3674,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus23should_attempt_pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg11CacheStatus14mark_availableEPKNS_19IReadBinaryProviderE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg11CacheStatus14mark_availableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   %4 = load i8, ptr %0, align 8
   switch i8 %4, label %7 [
@@ -9569,7 +9569,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @_ZN5vcpkg6Checks11unreachableERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKNS_19IReadBinaryProviderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef readnone %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9677,7 +9677,7 @@ define dso_local noundef zeroext i1 @_ZNK5vcpkg11CacheStatus14is_unavailableEPKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK5vcpkg11CacheStatus22get_available_providerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.vcpkg::LineInfo", align 8
   %3 = load i8, ptr %0, align 8
   switch i8 %3, label %7 [
@@ -16294,7 +16294,7 @@ declare void @_ZN5vcpkg18HelpTableFormatter6headerENS_10StringViewE(ptr noundef 
 declare void @_ZN5vcpkg18HelpTableFormatter4textENS_10StringViewEi(ptr noundef nonnull align 8 dereferenceable(32), ptr, i64, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg30generate_nuget_packages_configB5cxx11ERKNS_10ActionPlanENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1, ptr %2, i64 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg30generate_nuget_packages_configB5cxx11ERKNS_10ActionPlanENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr %2, i64 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::XmlSerializer", align 8
   %6 = alloca %"struct.vcpkg::NugetReference", align 8
   %7 = alloca %"struct.vcpkg::StringView", align 8
@@ -16762,7 +16762,7 @@ declare void @_ZN5vcpkg7ZipTool4makeERKNS_9ToolCacheERNS_11MessageSinkE(ptr dead
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5vcpkg10VcpkgPaths8packagesEv(ptr noundef nonnull align 8 dereferenceable(400)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_123NugetReadBinaryProviderEJRNS0_23NugetBaseBinaryProviderENS0_11NuGetSourceEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_123NugetReadBinaryProviderEJRNS0_23NugetBaseBinaryProviderENS0_11NuGetSourceEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.(anonymous namespace)::NuGetSource", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 16, i1 false)
@@ -17278,7 +17278,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #5
 
@@ -17702,7 +17702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare void @_ZN5vcpkg7Strings7details15append_internalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret void
 }
 
@@ -17782,7 +17782,7 @@ define internal void @_ZN12_GLOBAL__N_114GcsStorageToolD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_114GcsStorageTool16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114GcsStorageTool16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.fmt::v10::format_arg_store", align 16
   %6 = alloca %"struct.vcpkg::ElapsedTime", align 8
   %.sroa.03.0.copyload = load i64, ptr @_ZN5vcpkg26msgRestoredPackagesFromGCSE, align 8
@@ -19100,7 +19100,7 @@ define linkonce_odr dso_local void @_ZNK3fmt3v1017basic_format_argsINS0_20basic_
   br i1 %19, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %15
-  %bcmp.i.i = tail call i32 @bcmp(ptr %17, ptr %2, i64 %..i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %17, ptr %2, i64 %..i.i.i)
   %20 = icmp eq i32 %bcmp.i.i, 0
   %21 = icmp eq i64 %18, %3
   %or.cond.i = select i1 %20, i1 %21, i1 false
@@ -20276,7 +20276,7 @@ _ZZN3fmt3v106detail13compute_widthENS0_17basic_string_viewIcEEENK17count_code_po
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local ptr @_ZN3fmt3v106detail20write_escaped_stringIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EE(ptr %0, ptr %1, i64 %2) local_unnamed_addr #0 comdat {
@@ -21189,10 +21189,10 @@ declare void @_ZN5vcpkg30cmd_execute_and_capture_outputERKNS_7CommandE(ptr dead_
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNR5vcpkg7Command10string_argENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32), ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret void
 }
 
@@ -21267,7 +21267,7 @@ define internal void @_ZN12_GLOBAL__N_114AwsStorageToolD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_114AwsStorageTool16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114AwsStorageTool16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.fmt::v10::format_arg_store", align 16
   %6 = alloca %"struct.vcpkg::ElapsedTime", align 8
   %.sroa.03.0.copyload = load i64, ptr @_ZN5vcpkg26msgRestoredPackagesFromAWSE, align 8
@@ -21616,7 +21616,7 @@ _ZNO5vcpkg7Command10string_argENS_10StringViewE.exit17: ; preds = %_ZNO5vcpkg7Co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret void
 }
 
@@ -21691,7 +21691,7 @@ define internal void @_ZN12_GLOBAL__N_114CosStorageToolD0Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_114CosStorageTool16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_114CosStorageTool16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.fmt::v10::format_arg_store", align 16
   %6 = alloca %"struct.vcpkg::ElapsedTime", align 8
   %.sroa.03.0.copyload = load i64, ptr @_ZN5vcpkg26msgRestoredPackagesFromCOSE, align 8
@@ -22016,7 +22016,7 @@ define internal void @_ZN12_GLOBAL__N_123FilesReadBinaryProviderD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_121ZipReadBinaryProvider5fetchEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_13RestoreResultEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr nocapture writeonly %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_121ZipReadBinaryProvider5fetchEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_13RestoreResultEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr writeonly captures(none) %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::IgnoreErrors", align 8
   %7 = alloca %"struct.vcpkg::LineInfo", align 8
   %8 = alloca %"struct.vcpkg::ElapsedTimer", align 8
@@ -22544,7 +22544,7 @@ _ZN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEED2Ev.exit28: ; preds = %48, %.b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_123FilesReadBinaryProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture writeonly %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_123FilesReadBinaryProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr readonly captures(none) %1, i64 %2, ptr writeonly captures(none) %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
   %7 = alloca %"struct.vcpkg::Path", align 8
   %8 = alloca %"struct.vcpkg::Path", align 8
@@ -22680,7 +22680,7 @@ define internal void @_ZNK12_GLOBAL__N_123FilesReadBinaryProvider16restored_mess
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_123FilesReadBinaryProvider12acquire_zipsEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_8OptionalINS_11ZipResourceEEEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture readonly %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_123FilesReadBinaryProvider12acquire_zipsEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_8OptionalINS_11ZipResourceEEEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr readonly captures(none) %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
   %7 = alloca %"struct.vcpkg::Path", align 8
   %8 = alloca %"struct.vcpkg::Path", align 8
@@ -22998,7 +22998,7 @@ _ZNSt12_Vector_baseIN5vcpkg7CommandESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5vcpkg8OptionalIN12_GLOBAL__N_111ZipResourceEEESaIS4_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -23461,7 +23461,7 @@ define internal void @_ZN12_GLOBAL__N_121HttpGetBinaryProviderD0Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_121HttpGetBinaryProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture writeonly %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_121HttpGetBinaryProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr readonly captures(none) %1, i64 %2, ptr writeonly captures(none) %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"struct.vcpkg::BinaryPackageReadInfo", align 8
@@ -23642,7 +23642,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_121HttpGetBinaryProvider16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_121HttpGetBinaryProvider16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.fmt::v10::format_arg_store", align 16
   %6 = alloca %"struct.vcpkg::ElapsedTime", align 8
   %.sroa.03.0.copyload = load i64, ptr @_ZN5vcpkg27msgRestoredPackagesFromHTTPE, align 8
@@ -23674,7 +23674,7 @@ define internal void @_ZNK12_GLOBAL__N_121HttpGetBinaryProvider16restored_messag
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_121HttpGetBinaryProvider12acquire_zipsEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_8OptionalINS_11ZipResourceEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture readonly %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_121HttpGetBinaryProvider12acquire_zipsEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_8OptionalINS_11ZipResourceEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr readonly captures(none) %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.506", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"struct.vcpkg::BinaryPackageReadInfo", align 8
@@ -24425,7 +24425,7 @@ _ZN12_GLOBAL__N_121ObjectStorageProviderD2Ev.exit: ; preds = %1, %19, %32, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_121ObjectStorageProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture writeonly %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_121ObjectStorageProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr readonly captures(none) %1, i64 %2, ptr writeonly captures(none) %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
   %7 = alloca %"struct.vcpkg::ExpectedT.154", align 8
   %8 = alloca %"struct.vcpkg::StringView", align 8
@@ -24521,7 +24521,7 @@ _ZN12_GLOBAL__N_121ObjectStorageProvider16make_object_pathERKNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_121ObjectStorageProvider16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_121ObjectStorageProvider16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %.val = load ptr, ptr %5, align 8
   %6 = load ptr, ptr %.val, align 8
@@ -24532,7 +24532,7 @@ define internal void @_ZNK12_GLOBAL__N_121ObjectStorageProvider16restored_messag
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_121ObjectStorageProvider12acquire_zipsEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_8OptionalINS_11ZipResourceEEEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture readonly %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_121ObjectStorageProvider12acquire_zipsEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_8OptionalINS_11ZipResourceEEEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr readonly captures(none) %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
   %7 = alloca %"struct.vcpkg::Path", align 8
   %8 = alloca %"struct.vcpkg::ExpectedT.154", align 8
@@ -24690,7 +24690,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
           to label %9 unwind label %13
 
 9:                                                ; preds = %3
-  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %6)
+  %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %6)
           to label %11 unwind label %13
 
 11:                                               ; preds = %9
@@ -24733,12 +24733,12 @@ define internal void @_ZN12_GLOBAL__N_117GHABinaryProviderD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK12_GLOBAL__N_117GHABinaryProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #16 align 2 {
+define internal void @_ZNK12_GLOBAL__N_117GHABinaryProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i64 %4) unnamed_addr #16 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_117GHABinaryProvider16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_117GHABinaryProvider16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.fmt::v10::format_arg_store", align 16
   %6 = alloca %"struct.vcpkg::ElapsedTime", align 8
   %.sroa.03.0.copyload = load i64, ptr @_ZN5vcpkg26msgRestoredPackagesFromGHAE, align 8
@@ -24770,7 +24770,7 @@ define internal void @_ZNK12_GLOBAL__N_117GHABinaryProvider16restored_messageEmN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_117GHABinaryProvider12acquire_zipsEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_8OptionalINS_11ZipResourceEEEEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture readonly %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_117GHABinaryProvider12acquire_zipsEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_8OptionalINS_11ZipResourceEEEEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr readonly captures(none) %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %"struct.vcpkg::StringView", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25611,7 +25611,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg
 declare void @_ZN5vcpkg4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124FilesWriteBinaryProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_124FilesWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -25680,7 +25680,7 @@ _ZN12_GLOBAL__N_124FilesWriteBinaryProviderD2Ev.exit: ; preds = %_ZSt8_DestroyIP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_124FilesWriteBinaryProvider12push_successERKN5vcpkg22BinaryPackageWriteInfoERNS1_11MessageSinkE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZN12_GLOBAL__N_124FilesWriteBinaryProvider12push_successERKN5vcpkg22BinaryPackageWriteInfoERNS1_11MessageSinkE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v10::format_arg_store.469", align 16
   %5 = alloca %"struct.vcpkg::msg::TagArg.159", align 8
   %6 = alloca %"struct.vcpkg::LineInfo", align 8
@@ -25901,12 +25901,12 @@ _ZN5vcpkg11MessageSink7printlnENS_5ColorEONS_15LocalizedStringE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124FilesWriteBinaryProvider17needs_nuspec_dataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124FilesWriteBinaryProvider17needs_nuspec_dataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124FilesWriteBinaryProvider14needs_zip_fileEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_124FilesWriteBinaryProvider14needs_zip_fileEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 true
 }
 
@@ -25989,7 +25989,7 @@ _ZNSt12_Vector_baseIN5vcpkg11UrlTemplateESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121HTTPPutBinaryProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_121HTTPPutBinaryProviderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -26209,19 +26209,19 @@ _ZN5vcpkg9ExpectedTIiNS_15LocalizedStringEED2Ev.exit: ; preds = %54, %50, %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_121HTTPPutBinaryProvider17needs_nuspec_dataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_121HTTPPutBinaryProvider17needs_nuspec_dataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_121HTTPPutBinaryProvider14needs_zip_fileEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_121HTTPPutBinaryProvider14needs_zip_fileEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 true
 }
 
 declare void @_ZN5vcpkg8put_fileERKNS_18ReadOnlyFilesystemENS_10StringViewERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EENS_4SpanIKSA_EERKNS_4PathES3_(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExpectedT.542") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr, i64, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef byval(%"struct.vcpkg::Span.232") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef byval(%"struct.vcpkg::StringView") align 8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val = load ptr, ptr %2, align 8
@@ -26336,7 +26336,7 @@ define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderD0Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_125ObjectStoragePushProvider12push_successERKN5vcpkg22BinaryPackageWriteInfoERNS1_11MessageSinkE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZN12_GLOBAL__N_125ObjectStoragePushProvider12push_successERKN5vcpkg22BinaryPackageWriteInfoERNS1_11MessageSinkE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::ExpectedT.154", align 8
   %5 = alloca %"struct.vcpkg::StringView", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26452,12 +26452,12 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit17: ; preds = %40, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_125ObjectStoragePushProvider17needs_nuspec_dataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_125ObjectStoragePushProvider17needs_nuspec_dataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_125ObjectStoragePushProvider14needs_zip_fileEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_125ObjectStoragePushProvider14needs_zip_fileEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 true
 }
 
@@ -26483,7 +26483,7 @@ define internal void @_ZN12_GLOBAL__N_121GHABinaryPushProviderD0Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i64 0, 2) i64 @_ZN12_GLOBAL__N_121GHABinaryPushProvider12push_successERKN5vcpkg22BinaryPackageWriteInfoERNS1_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i64 0, 2) i64 @_ZN12_GLOBAL__N_121GHABinaryPushProvider12push_successERKN5vcpkg22BinaryPackageWriteInfoERNS1_11MessageSinkE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.vcpkg::StringView", align 8
   %6 = alloca %"struct.vcpkg::Json::Object", align 8
@@ -27285,12 +27285,12 @@ _ZN5vcpkg4Json6ObjectD2Ev.exit:                   ; preds = %266, %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_121GHABinaryPushProvider17needs_nuspec_dataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_121GHABinaryPushProvider17needs_nuspec_dataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_121GHABinaryPushProvider14needs_zip_fileEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_121GHABinaryPushProvider14needs_zip_fileEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 true
 }
 
@@ -27751,7 +27751,7 @@ define internal void @_ZN12_GLOBAL__N_123NugetReadBinaryProviderD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_123NugetReadBinaryProvider5fetchEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_13RestoreResultEEE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr readonly %1, i64 %2, ptr nocapture writeonly %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_123NugetReadBinaryProvider5fetchEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_13RestoreResultEEE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr readonly %1, i64 %2, ptr writeonly captures(none) %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::StringView", align 8
   %7 = alloca %"struct.vcpkg::Command", align 8
   %8 = alloca %"struct.vcpkg::XmlSerializer", align 8
@@ -28295,12 +28295,12 @@ _ZNSt6vectorIN5vcpkg14NugetReferenceESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK12_GLOBAL__N_123NugetReadBinaryProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #16 align 2 {
+define internal void @_ZNK12_GLOBAL__N_123NugetReadBinaryProvider8precheckEN5vcpkg4SpanIKPKNS1_17InstallPlanActionEEENS2_INS1_17CacheAvailabilityEEE(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3, i64 %4) unnamed_addr #16 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_123NugetReadBinaryProvider16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_123NugetReadBinaryProvider16restored_messageEmNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::LocalizedString") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i64 noundef %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.fmt::v10::format_arg_store", align 16
   %6 = alloca %"struct.vcpkg::ElapsedTime", align 8
   %.sroa.03.0.copyload = load i64, ptr @_ZN5vcpkg28msgRestoredPackagesFromNuGetE, align 8
@@ -29740,12 +29740,12 @@ _ZN5vcpkg9ExpectedTINS_4UnitENS_15LocalizedStringEED2Ev.exit99: ; preds = %227, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123NugetBinaryPushProvider17needs_nuspec_dataEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123NugetBinaryPushProvider17needs_nuspec_dataEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123NugetBinaryPushProvider14needs_zip_fileEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_123NugetBinaryPushProvider14needs_zip_fileEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i1 false
 }
 
@@ -30177,7 +30177,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9
 declare void @_ZN5vcpkg10ParserBaseC2ENS_10StringViewES1_NS_10TextRowColE(ptr noundef nonnull align 8 dereferenceable(168), ptr, i64, ptr, i64, i64) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser18parse_all_segmentsB5cxx11Ev(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser18parse_all_segmentsB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [4 x i8], align 4
   %4 = alloca %"struct.vcpkg::SourceLoc", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -30907,7 +30907,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef range(i64 2, 4) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRSt6vectorIT_SaIS9_EESC_OS9_RKS8_ISt4pairIN5vcpkg9SourceLocES7_ESaISH_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, i64 noundef range(i64 2, 4) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -31194,7 +31194,7 @@ declare void @_ZN5vcpkg4PathC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 declare noundef zeroext i1 @_ZNK5vcpkg4Path11is_absoluteEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg4PathEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, i64 noundef range(i64 1, 3) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg4PathEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, i64 noundef range(i64 1, 3) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -31382,7 +31382,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg3msg6formatIJNS0_10base_url_tENS0_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteERbS1_RKSt6vectorISt4pairIN5vcpkg9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i64 noundef range(i64 1, 4) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteERbS1_RKSt6vectorISt4pairIN5vcpkg9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISC_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, i64 noundef range(i64 1, 4) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LocalizedString", align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -31489,7 +31489,7 @@ _ZNSt16allocator_traitsISaIN5vcpkg11UrlTemplateEEE9constructIS1_JRKS1_EEEvRS2_PT
 declare noundef zeroext i1 @_ZNK5vcpkg15LocalizedString5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg11UrlTemplateEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_120ConfigSegmentsParser16handle_readwriteIN5vcpkg11UrlTemplateEEEvRSt6vectorIT_SaIS5_EES8_OS5_RKS4_ISt4pairINS2_9SourceLocENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISI_EEm(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LocalizedString", align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -32874,7 +32874,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZN5vcpkg7details22api_stable_format_implENS_10StringViewEPFvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1_ES2_(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExpectedT") align 8, ptr, i64, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5vcpkg7details20api_stable_format_cbIZNKS_11UrlTemplate5validEvE3$_0EEvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE"(ptr nocapture noundef readonly %0, ptr nocapture nonnull readnone align 8 %1, ptr %2, i64 %3) #0 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5vcpkg7details20api_stable_format_cbIZNKS_11UrlTemplate5validEvE3$_0EEvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE"(ptr noundef readonly captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr %2, i64 %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::StringView", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -33062,7 +33062,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt9__find_ifIPKN5vcpkg13StringLiter
 declare noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr, i64, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5vcpkg7details20api_stable_format_cbIZNKS_11UrlTemplate21instantiate_variablesB5cxx11ERKNS_21BinaryPackageReadInfoEE3$_0EEvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE"(ptr nocapture noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %2, i64 %3) #0 {
+define internal void @"_ZN5vcpkg7details20api_stable_format_cbIZNKS_11UrlTemplate21instantiate_variablesB5cxx11ERKNS_21BinaryPackageReadInfoEE3$_0EEvPvRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_10StringViewE"(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %2, i64 %3) #0 {
   %5 = alloca %"struct.vcpkg::StringView", align 8
   %6 = alloca %"struct.vcpkg::Triplet", align 8
   %7 = alloca %"struct.vcpkg::LineInfo", align 8
@@ -34342,13 +34342,13 @@ declare i64 @llvm.umin.i64(i64, i64) #22
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

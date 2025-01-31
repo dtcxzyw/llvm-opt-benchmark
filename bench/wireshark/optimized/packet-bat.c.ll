@@ -170,7 +170,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.67) #2
@@ -326,7 +326,7 @@ define internal i32 @dissect_bat_batman(ptr noundef %0, ptr noundef %1, ptr noun
 
 108:                                              ; preds = %.lr.ph.split.us.i
   %109 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %109, ptr noundef %1, ptr noundef %105) #2
+  tail call void @tap_queue_packet(i32 noundef %109, ptr noundef nonnull %1, ptr noundef %105) #2
   br label %dissect_bat_hna.exit.us.i
 
 dissect_bat_hna.exit.us.i:                        ; preds = %108, %.lr.ph.split.us.i
@@ -350,7 +350,7 @@ dissect_bat_hna.exit.us.i:                        ; preds = %108, %.lr.ph.split.
 
 120:                                              ; preds = %.lr.ph.split.i
   %121 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %121, ptr noundef %1, ptr noundef %117) #2
+  tail call void @tap_queue_packet(i32 noundef %121, ptr noundef nonnull %1, ptr noundef %117) #2
   br label %122
 
 122:                                              ; preds = %120, %.lr.ph.split.i
@@ -408,7 +408,7 @@ dissect_bat_batman_v5.exit:                       ; preds = %dissect_bat_hna.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bat_gw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bat_gw(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc(ptr noundef %6, i64 noundef 1) #2
@@ -494,7 +494,7 @@ define internal i32 @dissect_bat_gw(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bat_vis(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bat_vis(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.77) #2
@@ -575,7 +575,7 @@ define internal i32 @dissect_bat_vis(ptr noundef %0, ptr noundef %1, ptr noundef
 
 50:                                               ; preds = %.lr.ph.split.us.i
   %51 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %51, ptr noundef %1, ptr noundef %47) #2
+  tail call void @tap_queue_packet(i32 noundef %51, ptr noundef nonnull %1, ptr noundef %47) #2
   br label %dissect_vis_entry_v22.exit.us.i
 
 dissect_vis_entry_v22.exit.us.i:                  ; preds = %50, %.lr.ph.split.us.i
@@ -598,7 +598,7 @@ dissect_vis_entry_v22.exit.us.i:                  ; preds = %50, %.lr.ph.split.u
 
 58:                                               ; preds = %.lr.ph.split.split.us.i
   %59 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %59, ptr noundef %1, ptr noundef %55) #2
+  tail call void @tap_queue_packet(i32 noundef %59, ptr noundef nonnull %1, ptr noundef %55) #2
   br label %dissect_vis_entry_v22.exit.us72.i
 
 dissect_vis_entry_v22.exit.us72.i:                ; preds = %58, %.lr.ph.split.split.us.i
@@ -635,7 +635,7 @@ dissect_vis_entry_v22.exit.us72.i:                ; preds = %58, %.lr.ph.split.s
 
 77:                                               ; preds = %.lr.ph.split.split.i
   %78 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %78, ptr noundef %1, ptr noundef %74) #2
+  tail call void @tap_queue_packet(i32 noundef %78, ptr noundef nonnull %1, ptr noundef %74) #2
   br label %79
 
 79:                                               ; preds = %77, %.lr.ph.split.split.i
@@ -705,7 +705,7 @@ dissect_vis_entry_v22.exit.i:                     ; preds = %.sink.split.i.i, %7
 
 116:                                              ; preds = %112
   %117 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %117, ptr noundef %1, ptr noundef %113) #2
+  tail call void @tap_queue_packet(i32 noundef %117, ptr noundef nonnull %1, ptr noundef %113) #2
   br label %dissect_bat_vis_v22.exit.sink.split
 
 118:                                              ; preds = %4
@@ -779,7 +779,7 @@ dissect_vis_entry_v22.exit.i:                     ; preds = %.sink.split.i.i, %7
 
 160:                                              ; preds = %.lr.ph.split.us.i31
   %161 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %161, ptr noundef %1, ptr noundef %157) #2
+  tail call void @tap_queue_packet(i32 noundef %161, ptr noundef nonnull %1, ptr noundef %157) #2
   br label %dissect_vis_entry_v23.exit.us.i
 
 dissect_vis_entry_v23.exit.us.i:                  ; preds = %160, %.lr.ph.split.us.i31
@@ -802,7 +802,7 @@ dissect_vis_entry_v23.exit.us.i:                  ; preds = %160, %.lr.ph.split.
 
 168:                                              ; preds = %.lr.ph.split.split.us.i27
   %169 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %169, ptr noundef %1, ptr noundef %165) #2
+  tail call void @tap_queue_packet(i32 noundef %169, ptr noundef nonnull %1, ptr noundef %165) #2
   br label %dissect_vis_entry_v23.exit.us72.i
 
 dissect_vis_entry_v23.exit.us72.i:                ; preds = %168, %.lr.ph.split.split.us.i27
@@ -839,7 +839,7 @@ dissect_vis_entry_v23.exit.us72.i:                ; preds = %168, %.lr.ph.split.
 
 187:                                              ; preds = %.lr.ph.split.split.i21
   %188 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %188, ptr noundef %1, ptr noundef %184) #2
+  tail call void @tap_queue_packet(i32 noundef %188, ptr noundef nonnull %1, ptr noundef %184) #2
   br label %189
 
 189:                                              ; preds = %187, %.lr.ph.split.split.i21
@@ -908,7 +908,7 @@ dissect_vis_entry_v23.exit.i:                     ; preds = %.sink.split.i.i25, 
 
 226:                                              ; preds = %222
   %227 = load i32, ptr @bat_follow_tap, align 4
-  tail call void @tap_queue_packet(i32 noundef %227, ptr noundef %1, ptr noundef %223) #2
+  tail call void @tap_queue_packet(i32 noundef %227, ptr noundef nonnull %1, ptr noundef %223) #2
   br label %dissect_bat_vis_v22.exit.sink.split
 
 228:                                              ; preds = %4
@@ -919,7 +919,7 @@ dissect_vis_entry_v23.exit.i:                     ; preds = %.sink.split.i.i25, 
 
 dissect_bat_vis_v22.exit.sink.split:              ; preds = %222, %226, %112, %116, %228
   %.sink = phi ptr [ %0, %228 ], [ %113, %116 ], [ %113, %112 ], [ %223, %226 ], [ %223, %222 ]
-  %231 = tail call i32 @call_data_dissector(ptr noundef %.sink, ptr noundef %1, ptr noundef %2) #2
+  %231 = tail call i32 @call_data_dissector(ptr noundef %.sink, ptr noundef nonnull %1, ptr noundef %2) #2
   br label %dissect_bat_vis_v22.exit
 
 dissect_bat_vis_v22.exit:                         ; preds = %dissect_bat_vis_v22.exit.sink.split, %._crit_edge.i16, %._crit_edge.i

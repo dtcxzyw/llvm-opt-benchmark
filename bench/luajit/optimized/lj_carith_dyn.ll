@@ -1011,7 +1011,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb7, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @lj_carith_check64(ptr noundef %L, i32 noundef %narg, ptr nocapture noundef %id) local_unnamed_addr #0 {
+define hidden i64 @lj_carith_check64(ptr noundef %L, i32 noundef %narg, ptr noundef captures(none) %id) local_unnamed_addr #0 {
 entry:
   %x = alloca i64, align 8
   %base = getelementptr inbounds nuw i8, ptr %L, i64 32
@@ -1400,10 +1400,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 declare i64 @llvm.umax.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

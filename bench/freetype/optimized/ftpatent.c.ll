@@ -4,12 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @FT_Face_CheckTrueTypePatents(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef zeroext i8 @FT_Face_CheckTrueTypePatents(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i8 @FT_Face_SetUnpatentedHinting(ptr nocapture noundef readnone %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
+define noundef zeroext i8 @FT_Face_SetUnpatentedHinting(ptr noundef readnone captures(none) %0, i8 noundef zeroext %1) local_unnamed_addr #0 {
   ret i8 0
 }
 

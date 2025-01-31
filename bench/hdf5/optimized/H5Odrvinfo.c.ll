@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [13 x i8] c"Buffer size:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__drvinfo_decode(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal noundef ptr @H5O__drvinfo_decode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %5, i64 %4
   %.ptr62 = getelementptr i8, ptr %7, i64 -1
   %8 = icmp ugt ptr %5, %.ptr62
@@ -176,7 +176,7 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5O__drvinfo_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 11)) %3, ptr nocapture noundef readonly %4) #1 {
+define internal noundef i32 @H5O__drvinfo_encode(ptr readnone captures(none) %0, i1 zeroext %1, i64 %2, ptr noundef writeonly captures(none) initializes((0, 11)) %3, ptr noundef readonly captures(none) %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 248
@@ -201,7 +201,7 @@ define internal noundef i32 @H5O__drvinfo_encode(ptr nocapture readnone %0, i1 z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__drvinfo_copy(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal noundef ptr @H5O__drvinfo_copy(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %10
 
@@ -254,7 +254,7 @@ define internal noundef ptr @H5O__drvinfo_copy(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @H5O__drvinfo_size(ptr nocapture readnone %0, i1 zeroext %1, ptr nocapture noundef readonly %2) #2 {
+define internal i64 @H5O__drvinfo_size(ptr readnone captures(none) %0, i1 zeroext %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 11
@@ -262,7 +262,7 @@ define internal i64 @H5O__drvinfo_size(ptr nocapture readnone %0, i1 zeroext %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__drvinfo_reset(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @H5O__drvinfo_reset(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @H5MM_xfree(ptr noundef %3) #9
@@ -271,7 +271,7 @@ define internal noundef i32 @H5O__drvinfo_reset(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5O__drvinfo_debug(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #3 {
+define internal noundef i32 @H5O__drvinfo_debug(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #3 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.9, i32 noundef %3, ptr noundef nonnull @.str.10, i32 noundef %4, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #9
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -286,7 +286,7 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
@@ -294,7 +294,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare ptr @H5MM_xfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

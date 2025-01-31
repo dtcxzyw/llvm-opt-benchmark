@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [77 x i8] c"Unknown lock type in ompi_osc_sm_unlock -- this is an OMPI programming error\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_sm_lock(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_sm_lock(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 272
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4448
@@ -87,7 +87,7 @@ start_exclusive.exit:                             ; preds = %.lr.ph.i, %18, %39,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_sm_unlock(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_sm_unlock(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
   fence seq_cst
@@ -139,7 +139,7 @@ define range(i32 -102, 1) i32 @ompi_osc_sm_unlock(i32 noundef %0, ptr nocapture 
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_sm_lock_all(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_sm_lock_all(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 232
@@ -218,7 +218,7 @@ ompi_osc_sm_lock.exit:                            ; preds = %34, %.lr.ph.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -102, 1) i32 @ompi_osc_sm_unlock_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -102, 1) i32 @ompi_osc_sm_unlock_all(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 232
@@ -290,31 +290,31 @@ ompi_osc_sm_unlock.exit.thread:                   ; preds = %25, %.lr.ph, %1, %o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define noundef i32 @ompi_osc_sm_sync(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define noundef i32 @ompi_osc_sm_sync(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   fence seq_cst
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define noundef i32 @ompi_osc_sm_flush(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef i32 @ompi_osc_sm_flush(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   fence seq_cst
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define noundef i32 @ompi_osc_sm_flush_all(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define noundef i32 @ompi_osc_sm_flush_all(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   fence seq_cst
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define noundef i32 @ompi_osc_sm_flush_local(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define noundef i32 @ompi_osc_sm_flush_local(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 {
   fence seq_cst
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define noundef i32 @ompi_osc_sm_flush_local_all(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define noundef i32 @ompi_osc_sm_flush_local_all(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   fence seq_cst
   ret i32 0
 }

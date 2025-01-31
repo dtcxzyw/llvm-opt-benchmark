@@ -78,7 +78,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qemu_loglevel = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @cpu_is_stopped(ptr nocapture noundef readonly %cpu) local_unnamed_addr #0 {
+define dso_local zeroext i1 @cpu_is_stopped(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %stopped = getelementptr inbounds nuw i8, ptr %cpu, i64 203
   %0 = load i8, ptr %stopped, align 1
@@ -98,7 +98,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 declare zeroext i1 @runstate_is_running() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @cpu_work_list_empty(ptr nocapture noundef readonly %cpu) local_unnamed_addr #2 {
+define dso_local zeroext i1 @cpu_work_list_empty(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #2 {
 entry:
   %work_list = getelementptr inbounds nuw i8, ptr %cpu, i64 496
   %0 = load atomic i64, ptr %work_list monotonic, align 16
@@ -198,7 +198,7 @@ return:                                           ; preds = %for.body, %while.en
 }
 
 ; Function Attrs: cold noreturn nounwind sspstrong uwtable
-define dso_local void @hw_error(ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #4 {
+define dso_local void @hw_error(ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #4 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -235,10 +235,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 declare void @cpu_dump_state(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -625,7 +625,7 @@ trace_vm_stop_flush_all.exit:                     ; preds = %if.end2, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @cpu_can_run(ptr nocapture noundef readonly %cpu) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @cpu_can_run(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %stop = getelementptr inbounds nuw i8, ptr %cpu, i64 202
   %0 = load i8, ptr %stop, align 2
@@ -835,7 +835,7 @@ declare void @qemu_plugin_vcpu_idle_cb(ptr noundef) local_unnamed_addr #1
 declare void @qemu_plugin_vcpu_resume_cb(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpus_kick_thread(ptr nocapture noundef %cpu) local_unnamed_addr #0 {
+define dso_local void @cpus_kick_thread(ptr noundef captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %thread_kicked = getelementptr inbounds nuw i8, ptr %cpu, i64 200
   %0 = load i8, ptr %thread_kicked, align 8
@@ -966,7 +966,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @qemu_cpu_is_self(ptr nocapture noundef readonly %cpu) local_unnamed_addr #0 {
+define dso_local zeroext i1 @qemu_cpu_is_self(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   %thread = getelementptr inbounds nuw i8, ptr %cpu, i64 176
   %0 = load ptr, ptr %thread, align 16
@@ -1078,7 +1078,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_thread_signal_created(ptr nocapture noundef writeonly initializes((201, 202)) %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_thread_signal_created(ptr noundef writeonly captures(none) initializes((201, 202)) %cpu) local_unnamed_addr #0 {
 entry:
   %created = getelementptr inbounds nuw i8, ptr %cpu, i64 201
   store i8 1, ptr %created, align 1
@@ -1089,7 +1089,7 @@ entry:
 declare void @qemu_cond_signal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @cpu_thread_signal_destroyed(ptr nocapture noundef writeonly initializes((201, 202)) %cpu) local_unnamed_addr #0 {
+define dso_local void @cpu_thread_signal_destroyed(ptr noundef writeonly captures(none) initializes((201, 202)) %cpu) local_unnamed_addr #0 {
 entry:
   %created = getelementptr inbounds nuw i8, ptr %cpu, i64 201
   store i8 0, ptr %created, align 1
@@ -1778,7 +1778,7 @@ declare ptr @qemu_get_cpu(i32 noundef) local_unnamed_addr #1
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @error_setg_file_open_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1788,10 +1788,10 @@ declare ptr @__errno_location() local_unnamed_addr #11
 declare i32 @cpu_memory_rw_debug(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qmp_pmemsave(i64 noundef %addr, i64 noundef %size, ptr noundef %filename, ptr noundef %errp) local_unnamed_addr #0 {
@@ -1861,10 +1861,10 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare void @cpu_disable_ticks() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @sigbus_handler(i32 %n, ptr nocapture noundef readonly %siginfo, ptr nocapture readnone %ctx) #0 {
+define internal void @sigbus_handler(i32 %n, ptr noundef readonly captures(none) %siginfo, ptr readnone captures(none) %ctx) #0 {
 entry:
   %si_code = getelementptr inbounds nuw i8, ptr %siginfo, i64 8
   %0 = load i32, ptr %si_code, align 8
@@ -1952,12 +1952,12 @@ declare i32 @sigaddset(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1972,13 +1972,13 @@ declare void @llvm.va_start.p0(ptr) #13
 declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16

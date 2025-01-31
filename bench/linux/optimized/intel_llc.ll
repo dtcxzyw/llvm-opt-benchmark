@@ -117,7 +117,7 @@ define dso_local void @intel_llc_enable(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @intel_llc_disable(ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_llc_disable(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 align 16 {
   ret void
 }
 

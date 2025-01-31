@@ -211,7 +211,7 @@ _ZN26GrowableArrayWithAllocatorI15BytecodeCPEntry13GrowableArrayIS0_EE6appendERK
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare noundef zeroext i16 @_ZN12ConstantPool17name_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) local_unnamed_addr #2
 
@@ -222,7 +222,7 @@ declare noundef zeroext i16 @_ZN12ConstantPool27uncached_klass_ref_index_atEi(pt
 declare noundef zeroext i16 @_ZN12ConstantPool35uncached_name_and_type_ref_index_atEi(ptr noundef nonnull align 8 dereferenceable(68), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i16 @_ZN20BytecodeConstantPool11find_or_addERK15BytecodeCPEntryP10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 60
   %6 = load i32, ptr %5, align 4
@@ -340,7 +340,7 @@ _ZN26GrowableArrayWithAllocatorI15BytecodeCPEntry13GrowableArrayIS0_EE6appendERK
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK20BytecodeConstantPool20create_constant_poolEP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2092) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK20BytecodeConstantPool20create_constant_poolEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2092) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.constantPoolHandle, align 8
   %4 = alloca %class.constantPoolHandle, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -619,7 +619,7 @@ declare void @_ZN12ConstantPool29initialize_unresolved_klassesEP15ClassLoaderDat
 declare void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler6appendEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler6appendEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -654,7 +654,7 @@ _ZN26GrowableArrayWithAllocatorIh13GrowableArrayIhEE6appendERKh.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler6appendEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler6appendEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -741,7 +741,7 @@ _ZN5Bytes11put_Java_u2EPht.exit:                  ; preds = %52, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler6appendEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler6appendEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -888,7 +888,7 @@ _ZN5Bytes11put_Java_u4EPhj.exit:                  ; preds = %90, %91
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler3dupEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler3dupEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -923,7 +923,7 @@ _ZN26GrowableArrayWithAllocatorIh13GrowableArrayIhEE6appendERKh.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler4_newEP6SymbolP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler4_newEP6SymbolP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.BytecodeCPEntry, align 8
   %5 = alloca %class.BytecodeCPEntry, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -995,7 +995,7 @@ _ZN26GrowableArrayWithAllocatorIh13GrowableArrayIhEE6appendERKh.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler11load_stringEP6SymbolP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler11load_stringEP6SymbolP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.BytecodeCPEntry, align 8
   %5 = alloca %class.BytecodeCPEntry, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1133,7 +1133,7 @@ _ZN17BytecodeAssembler5ldc_wEt.exit:              ; preds = %56, %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler3ldcEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler3ldcEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1198,7 +1198,7 @@ _ZN17BytecodeAssembler6appendEh.exit:             ; preds = %_ZN26GrowableArrayW
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler5ldc_wEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler5ldc_wEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1234,7 +1234,7 @@ _ZN26GrowableArrayWithAllocatorIh13GrowableArrayIhEE6appendERKh.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler6athrowEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler6athrowEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1269,7 +1269,7 @@ _ZN26GrowableArrayWithAllocatorIh13GrowableArrayIhEE6appendERKh.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BytecodeAssembler13invokespecialEP6SymbolS1_S1_P10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BytecodeAssembler13invokespecialEP6SymbolS1_S1_P10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef zeroext i16 @_ZN20BytecodeConstantPool9methodrefEP6SymbolS1_S1_P10JavaThread(ptr noundef nonnull align 8 dereferenceable(2092) %7, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -1851,10 +1851,10 @@ _ZN13GrowableArrayIhE10deallocateEPh.exit:        ; preds = %42, %39, %.preheade
 declare i32 @llvm.ctpop.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

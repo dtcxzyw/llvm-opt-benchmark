@@ -63,7 +63,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_trace_events_eprobe_init_early413, ptr @_kbl_addr_process_fetch_insn], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @process_fetch_insn(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define internal i32 @process_fetch_insn(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca [666 x i8], align 16
   %6 = alloca i8, align 1
   %7 = alloca i64, align 8
@@ -766,10 +766,10 @@ define internal i32 @trace_events_eprobe_init_early() #1 section ".init.text" al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @copy_from_kernel_nofault(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -781,7 +781,7 @@ declare dso_local i64 @copy_from_user_nofault(ptr noundef, ptr noundef, i64 noun
 declare dso_local i64 @strnlen_user_nofault(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @sprint_symbol(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -805,7 +805,7 @@ define internal i32 @eprobe_dyn_event_create(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @eprobe_dyn_event_show(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @eprobe_dyn_event_show(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 -32
   %4 = getelementptr i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -874,7 +874,7 @@ define internal noundef i32 @eprobe_dyn_event_show(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i1 @eprobe_dyn_event_is_busy(ptr nocapture noundef readonly %0) #6 align 16 {
+define internal zeroext i1 @eprobe_dyn_event_is_busy(ptr noundef readonly captures(none) %0) #6 align 16 {
   %2 = getelementptr i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -936,7 +936,7 @@ define internal noundef range(i32 -16, 1) i32 @eprobe_dyn_event_release(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @eprobe_dyn_event_match(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define internal zeroext i1 @eprobe_dyn_event_match(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
   %6 = getelementptr i8, ptr %4, i64 -32
   %7 = icmp eq ptr %0, null
   br i1 %7, label %16, label %8
@@ -1652,7 +1652,7 @@ declare dso_local void @__trace_probe_log_err(i32 noundef, i32 noundef) local_un
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
@@ -1740,10 +1740,10 @@ declare dso_local void @trace_event_dyn_put_ref(ptr noundef) local_unnamed_addr 
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @create_event_filter(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
@@ -2310,7 +2310,7 @@ declare dso_local i32 @trace_event_trigger_enable_disable(ptr noundef, i32 nound
 declare dso_local void @update_cond_flag(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @eprobe_trigger_func(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @eprobe_trigger_func(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca [666 x i8], align 16
   %6 = alloca i8, align 1
   %7 = alloca i64, align 8
@@ -3174,17 +3174,17 @@ thread-pre-split:                                 ; preds = %231, %233, %241, %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @eprobe_trigger_init(ptr nocapture readnone %0) #12 align 16 {
+define internal noundef i32 @eprobe_trigger_init(ptr readnone captures(none) %0) #12 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @eprobe_trigger_free(ptr nocapture readnone %0) #12 align 16 {
+define internal void @eprobe_trigger_free(ptr readnone captures(none) %0) #12 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @eprobe_trigger_print(ptr nocapture readnone %0, ptr nocapture readnone %1) #12 align 16 {
+define internal noundef i32 @eprobe_trigger_print(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #12 align 16 {
   ret i32 0
 }
 
@@ -3201,22 +3201,22 @@ declare dso_local void @trace_event_buffer_commit(ptr noundef) local_unnamed_add
 declare dso_local zeroext i1 @__trace_trigger_soft_disabled(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @eprobe_trigger_cmd_parse(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #12 align 16 {
+define internal noundef i32 @eprobe_trigger_cmd_parse(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #12 align 16 {
   ret i32 -1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @eprobe_trigger_reg_func(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 align 16 {
+define internal noundef i32 @eprobe_trigger_reg_func(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 align 16 {
   ret i32 -1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @eprobe_trigger_unreg_func(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 align 16 {
+define internal void @eprobe_trigger_unreg_func(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @eprobe_trigger_get_ops(ptr nocapture readnone %0, ptr nocapture readnone %1) #12 align 16 {
+define internal noundef nonnull ptr @eprobe_trigger_get_ops(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #12 align 16 {
   ret ptr @eprobe_trigger_ops
 }
 
@@ -3245,7 +3245,7 @@ declare dso_local void @trace_probe_unlink(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @trace_remove_event_call(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @trace_probe_match_command_args(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3

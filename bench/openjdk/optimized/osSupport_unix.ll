@@ -9,13 +9,13 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN21SimpleCriticalSectionC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN21SimpleCriticalSectionC2Ev
 
 ; Function Attrs: mustprogress nofree uwtable
-define hidden noundef i32 @_ZN9osSupport12openReadOnlyEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN9osSupport12openReadOnlyEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %0, i32 noundef 0)
   ret i32 %2
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i32 @_ZN9osSupport5closeEi(i32 noundef %0) local_unnamed_addr #2 align 2 {
@@ -26,7 +26,7 @@ define hidden noundef i32 @_ZN9osSupport5closeEi(i32 noundef %0) local_unnamed_a
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN9osSupport4sizeEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN9osSupport4sizeEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 2 {
   %2 = alloca %struct.stat, align 8
   %3 = call i32 @stat64(ptr noundef %0, ptr noundef nonnull %2) #8
   %4 = icmp slt i32 %3, 0
@@ -52,7 +52,7 @@ define hidden noundef range(i64 -2147483648, 2147483648) i64 @_ZN9osSupport4size
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN9osSupport4readEiPcll(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #2 align 2 {
@@ -63,7 +63,7 @@ define hidden noundef i64 @_ZN9osSupport4readEiPcll(i32 noundef %0, ptr noundef 
 declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9osSupport10map_memoryEiPKcmm(i32 noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN9osSupport10map_memoryEiPKcmm(i32 noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = tail call ptr @mmap64(ptr noundef null, i64 noundef %3, i32 noundef 1, i32 noundef 1, i32 noundef %0, i64 noundef %2) #8
   %6 = icmp eq ptr %5, inttoptr (i64 -1 to ptr)
   %. = select i1 %6, ptr null, ptr %5

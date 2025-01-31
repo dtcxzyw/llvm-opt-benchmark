@@ -336,7 +336,7 @@ define noundef ptr @bit_alloc(i64 noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @bit_test(ptr nocapture noundef readonly %0, i64 noundef %1) #1 {
+define range(i32 0, 2) i32 @bit_test(ptr noundef readonly captures(none) %0, i64 noundef %1) #1 {
   %3 = ashr i64 %1, 6
   %4 = getelementptr i64, ptr %0, i64 %3
   %5 = getelementptr i8, ptr %4, i64 16
@@ -349,7 +349,7 @@ define range(i32 0, 2) i32 @bit_test(ptr nocapture noundef readonly %0, i64 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @bit_set(ptr nocapture noundef %0, i64 noundef %1) #2 {
+define void @bit_set(ptr noundef captures(none) %0, i64 noundef %1) #2 {
   %3 = and i64 %1, 63
   %4 = shl nuw i64 1, %3
   %5 = ashr i64 %1, 6
@@ -362,7 +362,7 @@ define void @bit_set(ptr nocapture noundef %0, i64 noundef %1) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @bit_clear(ptr nocapture noundef %0, i64 noundef %1) #2 {
+define void @bit_clear(ptr noundef captures(none) %0, i64 noundef %1) #2 {
   %3 = and i64 %1, 63
   %4 = shl nuw i64 1, %3
   %5 = xor i64 %4, -1
@@ -376,7 +376,7 @@ define void @bit_clear(ptr nocapture noundef %0, i64 noundef %1) #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_nclear(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #3 {
+define void @bit_nclear(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) #3 {
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   %.not20 = icmp sle i64 %1, %2
   %4 = and i64 %1, -9223372036854775801
@@ -445,7 +445,7 @@ define void @bit_nclear(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_nset(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #3 {
+define void @bit_nset(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) #3 {
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   %.not20 = icmp sle i64 %1, %2
   %4 = and i64 %1, -9223372036854775801
@@ -512,7 +512,7 @@ define void @bit_nset(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_set_all(ptr nocapture noundef %0) #3 {
+define void @bit_set_all(ptr noundef captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
@@ -547,7 +547,7 @@ bit_nset.exit:                                    ; preds = %.critedge.i, %1, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_clear_all(ptr nocapture noundef %0) #3 {
+define void @bit_clear_all(ptr noundef captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
@@ -583,7 +583,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %1, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_ffc(ptr nocapture noundef readonly %0) #4 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_ffc(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp sgt i64 %3, 0
@@ -646,7 +646,7 @@ define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_ffc(ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @bit_ffs(ptr nocapture noundef readonly %0) #4 {
+define i64 @bit_ffs(ptr noundef readonly captures(none) %0) #4 {
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8
   %2 = icmp sgt i64 %.pre.i, 0
@@ -684,14 +684,14 @@ bit_ffs_from_bit.exit:                            ; preds = %._crit_edge.i.outer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @bit_size(ptr nocapture noundef readonly %0) #1 {
+define i64 @bit_size(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #3 {
+define void @bit_and(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -739,7 +739,7 @@ define void @bit_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_not(ptr nocapture noundef %0) #3 {
+define void @bit_not(ptr noundef captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
@@ -763,7 +763,7 @@ define void @bit_not(ptr nocapture noundef %0) #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_or(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #3 {
+define void @bit_or(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -812,7 +812,7 @@ define void @bit_or(ptr nocapture noundef %0, ptr nocapture noundef readonly %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
+define i32 @bit_set_count(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep = getelementptr i8, ptr %0, i64 16
@@ -859,7 +859,7 @@ define i32 @bit_set_count(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 {
+define i32 @bit_set_count_range(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #4 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
@@ -956,7 +956,7 @@ define i32 @bit_set_count_range(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @bit_clear_count(ptr nocapture noundef readonly %0) #4 {
+define i32 @bit_clear_count(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
@@ -1005,7 +1005,7 @@ bit_set_count.exit:                               ; preds = %._crit_edge.i, %12
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -2147483646, -2147483648) i32 @bit_clear_count_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 {
+define range(i32 -2147483646, -2147483648) i32 @bit_clear_count_range(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #4 {
   %4 = sub nsw i32 %2, %1
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %63, label %6
@@ -1112,7 +1112,7 @@ bit_set_count_range.exit:                         ; preds = %._crit_edge.i, %51
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @bit_nset_max_count(ptr nocapture noundef readonly %0) #4 {
+define i32 @bit_nset_max_count(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 4294967295
@@ -1163,7 +1163,7 @@ define i32 @bit_nset_max_count(ptr nocapture noundef readonly %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @bit_rotate_copy(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 {
+define noundef ptr @bit_rotate_copy(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = sub nsw i64 %2, %5
@@ -1288,7 +1288,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %3, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @bit_rotate(ptr nocapture noundef %0, i32 noundef %1) #0 {
+define void @bit_rotate(ptr noundef captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %17, label %5
@@ -1317,7 +1317,7 @@ define void @bit_rotate(ptr nocapture noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @bit_fmt(ptr noundef returned initializes((0, 1)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define noundef ptr @bit_fmt(ptr noundef returned initializes((0, 1)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   store i8 0, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %invariant.gep43 = getelementptr i8, ptr %2, i64 16
@@ -1416,7 +1416,7 @@ define noundef ptr @bit_fmt(ptr noundef returned initializes((0, 1)) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bit_fmt_full(ptr nocapture noundef readonly %0) #0 {
+define ptr @bit_fmt_full(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1498,7 +1498,7 @@ define ptr @bit_fmt_full(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @bit_unfmt(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define range(i32 -1, 1) i32 @bit_unfmt(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %4
@@ -1676,13 +1676,13 @@ define ptr @bitfmt2int(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bit_fmt_hexmask(ptr nocapture noundef readonly %0) #0 {
+define ptr @bit_fmt_hexmask(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call fastcc ptr @_bit_fmt_hexmask(ptr noundef %0, i1 noundef zeroext false)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bit_fmt_hexmask_trim(ptr nocapture noundef readonly %0) #0 {
+define ptr @bit_fmt_hexmask_trim(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call fastcc ptr @_bit_fmt_hexmask(ptr noundef %0, i1 noundef zeroext true)
   ret ptr %2
 }
@@ -1865,7 +1865,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %5, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bit_fmt_binmask(ptr nocapture noundef readonly %0) #0 {
+define ptr @bit_fmt_binmask(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add nsw i64 %3, 1
@@ -1898,7 +1898,7 @@ define ptr @bit_fmt_binmask(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define void @bit_unfmt_binmask(ptr nocapture noundef %0, ptr noundef readonly %1) #5 {
+define void @bit_unfmt_binmask(ptr noundef captures(none) %0, ptr noundef readonly %1) #5 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %sext = shl i64 %3, 32
   %4 = ashr exact i64 %sext, 32
@@ -1969,7 +1969,7 @@ bit_nclear.exit:                                  ; preds = %.critedge.i, %2, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -63, 9223372036854775807) i64 @bit_fls(ptr nocapture noundef readonly %0) #4 {
+define range(i64 -63, 9223372036854775807) i64 @bit_fls(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -2031,7 +2031,7 @@ bit_fls_from_bit.exit:                            ; preds = %7, %13, %.outer.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -63, -9223372036854775808) i64 @bit_fls_from_bit(ptr nocapture noundef readonly %0, i64 noundef %1) #4 {
+define range(i64 -63, -9223372036854775808) i64 @bit_fls_from_bit(ptr noundef readonly captures(none) %0, i64 noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -2094,7 +2094,7 @@ define range(i64 -63, -9223372036854775808) i64 @bit_fls_from_bit(ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_fill_gaps(ptr nocapture noundef %0) #3 {
+define void @bit_fill_gaps(ptr noundef captures(none) %0) #3 {
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8
   %2 = icmp sgt i64 %.pre.i.i, 0
@@ -2245,7 +2245,7 @@ bit_nset.exit:                                    ; preds = %._crit_edge.i.outer
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @bit_super_set(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define range(i32 0, 2) i32 @bit_super_set(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
@@ -2290,7 +2290,7 @@ define range(i32 0, 2) i32 @bit_super_set(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @bit_overlap(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define i32 @bit_overlap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
@@ -2341,7 +2341,7 @@ _bit_overlap_internal.exit:                       ; preds = %7, %2, %.split.us.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @bit_overlap_any(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define range(i32 0, 2) i32 @bit_overlap_any(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp sgt i64 %4, 0
@@ -2391,7 +2391,7 @@ _bit_overlap_internal.exit:                       ; preds = %8, %16, %2, %.split
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @bit_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define range(i32 0, 2) i32 @bit_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2443,7 +2443,7 @@ define range(i32 0, 2) i32 @bit_equal(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @bit_copy(ptr nocapture noundef readonly %0) #0 {
+define noundef ptr @bit_copy(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %sext = shl i64 %3, 32
@@ -2463,7 +2463,7 @@ define noundef ptr @bit_copy(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
+define noundef ptr @bit_pick_cnt(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -2591,7 +2591,7 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @bit_nffc(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define i64 @bit_nffc(ptr noundef readonly captures(none) %0, i32 noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %invariant.gep = getelementptr i8, ptr %0, i64 16
@@ -2632,7 +2632,7 @@ define i64 @bit_nffc(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @bit_noc(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 {
+define i64 @bit_noc(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #4 {
   %4 = add nsw i32 %2, %1
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2715,7 +2715,7 @@ define i64 @bit_noc(ptr nocapture noundef readonly %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @bit_nffs(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define i64 @bit_nffs(ptr noundef readonly captures(none) %0, i32 noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -2762,7 +2762,7 @@ define i64 @bit_nffs(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @bit_copybits(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 {
+define void @bit_copybits(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2776,7 +2776,7 @@ define void @bit_copybits(ptr nocapture noundef writeonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_get_bit_num(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define range(i64 -9223372036854775808, 9223372036854775807) i64 @bit_get_bit_num(ptr noundef readonly captures(none) %0, i32 noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %invariant.gep = getelementptr i8, ptr %0, i64 16
@@ -2842,10 +2842,10 @@ define void @slurm_bit_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @bit_ffs_from_bit(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 {
+define i64 @bit_ffs_from_bit(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = and i64 %1, 63
   %.not = icmp ne i64 %3, 0
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2909,7 +2909,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #8
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_and_not(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @bit_and_not(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2959,7 +2959,7 @@ define void @bit_and_not(ptr nocapture noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_or_not(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @bit_or_not(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3009,23 +3009,23 @@ define void @bit_or_not(ptr nocapture noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.ctpop.i64(i64) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #6
 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define ptr @bit_fmt_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @bit_fmt_range(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3111,7 +3111,7 @@ define ptr @bit_fmt_range(ptr nocapture noundef readonly %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @inx2bitstr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @inx2bitstr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -3255,7 +3255,7 @@ bit_nset.exit:                                    ; preds = %.critedge2.i27, %52
 declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define ptr @inx2bitfmt(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -3391,7 +3391,7 @@ define ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_bit_fmt_hexmask(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc ptr @_bit_fmt_hexmask(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   br i1 %1, label %5, label %28
@@ -3608,7 +3608,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #13
 declare i32 @toupper(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @bit_consolidate(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @bit_consolidate(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16

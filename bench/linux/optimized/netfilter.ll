@@ -292,16 +292,16 @@ define dso_local i32 @ip6_route_me_harder(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @dst_release(ptr noundef) local_unnamed_addr #4
@@ -313,7 +313,7 @@ declare dso_local ptr @xfrm_lookup(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare dso_local i32 @pskb_expand_head(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -32768, 32768) i32 @__nf_ip6_route(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local range(i32 -32768, 32768) i32 @__nf_ip6_route(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = select i1 %3, ptr @__nf_ip6_route.fake_sk, ptr null
   %6 = tail call ptr @ip6_route_output_flags(ptr noundef %0, ptr noundef %5, ptr noundef %2, i32 noundef 0) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -335,7 +335,7 @@ define dso_local range(i32 -32768, 32768) i32 @__nf_ip6_route(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @br_ip6_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
+define dso_local i32 @br_ip6_fragment(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 align 16 {
   %6 = alloca %struct.ip6_frag_state, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %struct.ip6_fraglist_iter, align 8
@@ -698,7 +698,7 @@ declare dso_local void @ip6_route_input(ptr noundef) #4
 declare dso_local i32 @ip6_fragment(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @nf_ip6_reroute(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @nf_ip6_reroute(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 3

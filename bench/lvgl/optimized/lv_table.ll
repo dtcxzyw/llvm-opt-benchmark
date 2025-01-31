@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_table_constructor(ptr nocapture readnone %0, ptr nocapture noundef initializes((64, 72), (80, 96)) %1) #0 {
+define internal void @lv_table_constructor(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((64, 72), (80, 96)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 1, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -51,7 +51,7 @@ define internal void @lv_table_constructor(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_table_destructor(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @lv_table_destructor(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %5 = load i32, ptr %3, align 8, !tbaa !3
@@ -144,7 +144,7 @@ define internal void @lv_table_destructor(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_table_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_table_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_point_t, align 4
   %4 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_table_class, ptr noundef %1) #9
   %.not = icmp eq i32 %4, 1
@@ -539,14 +539,14 @@ define noundef ptr @lv_table_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_table_set_cell_value(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1510,7 +1510,7 @@ define internal fastcc void @scroll_to_selected_cell(ptr noundef %0) unnamed_add
 declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define nonnull ptr @lv_table_get_cell_value(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define nonnull ptr @lv_table_get_cell_value(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4, !tbaa !12
   %.not = icmp ult i32 %1, %5
@@ -1541,21 +1541,21 @@ define nonnull ptr @lv_table_get_cell_value(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_table_get_row_count(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @lv_table_get_row_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4, !tbaa !12
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_table_get_column_count(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @lv_table_get_column_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8, !tbaa !3
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_table_get_column_width(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define i32 @lv_table_get_column_width(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %.not = icmp ult i32 %1, %4
@@ -1575,7 +1575,7 @@ define i32 @lv_table_get_column_width(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @lv_table_has_cell_ctrl(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define zeroext i1 @lv_table_has_cell_ctrl(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %.not = icmp ult i32 %1, %6
@@ -1610,7 +1610,7 @@ define zeroext i1 @lv_table_has_cell_ctrl(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_table_get_selected_cell(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #6 {
+define void @lv_table_get_selected_cell(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %5 = load i32, ptr %4, align 4, !tbaa !33
   store i32 %5, ptr %1, align 4, !tbaa !15
@@ -1621,7 +1621,7 @@ define void @lv_table_get_selected_cell(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_table_get_cell_user_data(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #4 {
+define ptr @lv_table_get_cell_user_data(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) local_unnamed_addr #4 {
   %4 = zext i16 %1 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %6 = load i32, ptr %5, align 4, !tbaa !12
@@ -2243,7 +2243,7 @@ declare ptr @lv_event_get_layer(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @lv_draw_rect_dsc_init(ptr noundef) local_unnamed_addr #2
 
@@ -2262,7 +2262,7 @@ declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
 declare void @lv_draw_label(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_row_height(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @get_row_height(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.lv_point_t, align 4
   %11 = tail call i32 @lv_font_get_line_height(ptr noundef %2) #9
   %12 = add i32 %8, %7
@@ -2395,7 +2395,7 @@ declare zeroext i1 @lv_obj_refresh_self_size(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_cell_area(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc void @get_cell_area(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull captures(none) initializes((0, 4)) %3) unnamed_addr #0 {
   store i32 0, ptr %3, align 4, !tbaa !41
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

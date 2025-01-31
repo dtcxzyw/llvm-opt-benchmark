@@ -135,7 +135,7 @@ define hidden void @eventHelper_initialize(i8 noundef signext %0) local_unnamed_
 declare ptr @debugMonitorCreate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @commandLoop(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #2 {
+define internal void @commandLoop(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = alloca %struct.PacketOutputStream, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.PacketOutputStream, align 8
@@ -1104,7 +1104,7 @@ declare void @log_message_begin(ptr noundef, ptr noundef, i32 noundef) local_unn
 declare void @log_message_end(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @commandLoop_sync() local_unnamed_addr #0 {
@@ -1173,7 +1173,7 @@ declare i32 @bagSize(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @bagEnumerateOver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @enumForCombinedSuspendPolicy(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #4 {
+define internal zeroext range(i8 0, 2) i8 @enumForCombinedSuspendPolicy(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %6 [
     i32 11, label %.sink.split
@@ -1211,7 +1211,7 @@ define internal zeroext range(i8 0, 2) i8 @enumForCombinedSuspendPolicy(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal zeroext range(i8 0, 2) i8 @enumForVMDeath(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal zeroext range(i8 0, 2) i8 @enumForVMDeath(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 8
   %4 = icmp eq i32 %3, 11
   br i1 %4, label %5, label %10
@@ -1234,10 +1234,10 @@ define internal zeroext range(i8 0, 2) i8 @enumForVMDeath(ptr nocapture noundef 
 declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i8 @enumForCopyingSingles(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #6 {
+define internal noundef zeroext i8 @enumForCopyingSingles(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #6 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1353,7 +1353,7 @@ freeCommand.exit:                                 ; preds = %.lr.ph21, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @eventHelper_recordEvent(ptr nocapture noundef readonly %0, i32 noundef %1, i8 noundef signext %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @eventHelper_recordEvent(ptr noundef readonly captures(none) %0, i32 noundef %1, i8 noundef signext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @getEnv() #9
   %6 = tail call ptr @bagAdd(ptr noundef %3) #9
   %7 = icmp eq ptr %6, null
@@ -1557,7 +1557,7 @@ declare ptr @jvmtiErrorText(i32 noundef) local_unnamed_addr #1
 declare void @debugInit_exit(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define hidden void @eventHelper_recordClassUnload(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -1841,10 +1841,10 @@ declare void @tossGlobalRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @invoker_completeInvokeRequest(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

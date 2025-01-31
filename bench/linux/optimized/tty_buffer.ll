@@ -352,7 +352,7 @@ define internal fastcc i32 @__tty_buffer_request_room(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i64 noundef %4) #0 align 16 {
+define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, i64 noundef %4) #0 align 16 {
   br i1 %3, label %.split.us.preheader, label %.split
 
 .split.us.preheader:                              ; preds = %5
@@ -502,13 +502,13 @@ define dso_local i64 @__tty_insert_flip_string_flags(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @tty_prepare_flip_string(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @tty_prepare_flip_string(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 28
@@ -626,7 +626,7 @@ __tty_buffer_request_room.exit:                   ; preds = %28, %34, %18, %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @tty_ldisc_receive_buf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local i64 @tty_ldisc_receive_buf(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
@@ -678,7 +678,7 @@ define dso_local void @tty_flip_buffer_push(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tty_insert_flip_string_and_push_buffer(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @tty_insert_flip_string_and_push_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %4) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1056,7 +1056,7 @@ define internal void @flush_to_ldisc(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef range(i32 -22, 1) i32 @tty_buffer_set_limit(ptr nocapture noundef writeonly %0, i32 noundef %1) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tty_buffer_set_limit(ptr noundef writeonly captures(none) %0, i32 noundef %1) #5 align 16 {
   %3 = icmp slt i32 %1, 256
   br i1 %3, label %6, label %4
 
@@ -1071,7 +1071,7 @@ define dso_local noundef range(i32 -22, 1) i32 @tty_buffer_set_limit(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @tty_buffer_set_lock_subclass(ptr nocapture noundef readnone %0) local_unnamed_addr #6 align 16 {
+define dso_local void @tty_buffer_set_lock_subclass(ptr noundef readnone captures(none) %0) local_unnamed_addr #6 align 16 {
   ret void
 }
 

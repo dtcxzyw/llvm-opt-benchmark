@@ -323,7 +323,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -560,7 +560,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514GMTOffsetFieldC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7514GMTOffsetFieldC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(21) initializes((0, 21)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514GMTOffsetFieldE, i64 16), ptr %this, align 8
   %fText = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -573,7 +573,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514GMTOffsetFieldD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(21) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514GMTOffsetFieldD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(21) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7514GMTOffsetFieldE, i64 16), ptr %this, align 8
   %fText = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -608,7 +608,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7514GMTOffsetField10createTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7514GMTOffsetField10createTextERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -701,7 +701,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #8
 declare ptr @u_strncpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7514GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode(i32 noundef %type, i8 noundef zeroext %width, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7514GMTOffsetField15createTimeFieldENS0_9FieldTypeEhR10UErrorCode(i32 noundef %type, i8 noundef zeroext %width, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -799,7 +799,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7514TimeZoneFormat17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7514TimeZoneFormat17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   ret ptr @_ZZN6icu_7514TimeZoneFormat16getStaticClassIDEvE7classID
 }
@@ -1455,7 +1455,7 @@ declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZN6icu_7518CharStringByteSinkC1EPNS_10CharStringE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #6
 
@@ -1467,7 +1467,7 @@ declare void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 der
 declare i32 @uloc_getCountry_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_ZN6icu_7513TimeZoneNames14createInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
@@ -1482,7 +1482,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @ures_close_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514TimeZoneFormat14initGMTPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %gmtPattern, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514TimeZoneFormat14initGMTPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %gmtPattern, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp7 = alloca %"class.icu_75::UnicodeString", align 8
@@ -1554,7 +1554,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 declare ptr @u_strchr_75(ptr noundef, i16 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7514TimeZoneFormat19expandOffsetPatternERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %offsetHM, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7514TimeZoneFormat19expandOffsetPatternERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %offsetHM, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sep = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -1706,7 +1706,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7514TimeZoneFormat21truncateOffsetPatternERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %offsetHM, ptr noundef nonnull align 8 dereferenceable(64) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7514TimeZoneFormat21truncateOffsetPatternERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %offsetHM, ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %HH = alloca [2 x i16], align 4
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -1834,7 +1834,7 @@ eh.resume:                                        ; preds = %lpad20, %lpad13, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514TimeZoneFormat21initGMTOffsetPatternsER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514TimeZoneFormat21initGMTOffsetPatternsER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %fGMTOffsetPatterns13 = getelementptr inbounds nuw i8, ptr %this, i64 640
   %fGMTOffsetPatternItems17 = getelementptr inbounds nuw i8, ptr %this, i64 1264
@@ -1931,7 +1931,7 @@ declare noundef ptr @_ZN6icu_7515NumberingSystem14createInstanceERKNS_6LocaleER1
 declare noundef signext i8 @_ZNK6icu_7515NumberingSystem13isAlgorithmicEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7514TimeZoneFormat12toCodePointsERKNS_13UnicodeStringEPii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr nocapture noundef writeonly %codeArray, i32 noundef %size) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7514TimeZoneFormat12toCodePointsERKNS_13UnicodeStringEPii(ptr noundef nonnull align 8 dereferenceable(64) %str, ptr noundef writeonly captures(none) %codeArray, i32 noundef %size) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7513UnicodeString11countChar32Eii(ptr noundef nonnull align 8 dereferenceable(64) %str, i32 noundef 0, i32 noundef 2147483647)
   %cmp.not = icmp eq i32 %call, %size
@@ -2612,7 +2612,7 @@ return:                                           ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7514TimeZoneFormat16getTimeZoneNamesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this) local_unnamed_addr #14 align 2 {
+define noundef ptr @_ZNK6icu_7514TimeZoneFormat16getTimeZoneNamesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this) local_unnamed_addr #14 align 2 {
 entry:
   %fTimeZoneNames = getelementptr inbounds nuw i8, ptr %this, i64 560
   %0 = load ptr, ptr %fTimeZoneNames, align 8
@@ -2620,7 +2620,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514TimeZoneFormat18adoptTimeZoneNamesEPNS_13TimeZoneNamesE(ptr nocapture noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef %tznames) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7514TimeZoneFormat18adoptTimeZoneNamesEPNS_13TimeZoneNamesE(ptr noundef nonnull align 8 captures(none) dereferenceable(1328) %this, ptr noundef %tznames) local_unnamed_addr #0 align 2 {
 entry:
   %fTimeZoneNames = getelementptr inbounds nuw i8, ptr %this, i64 560
   %0 = load ptr, ptr %fTimeZoneNames, align 8
@@ -2640,7 +2640,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514TimeZoneFormat16setTimeZoneNamesERKNS_13TimeZoneNamesE(ptr nocapture noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(8) %tznames) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514TimeZoneFormat16setTimeZoneNamesERKNS_13TimeZoneNamesE(ptr noundef nonnull align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(8) %tznames) local_unnamed_addr #1 align 2 {
 entry:
   %fTimeZoneNames = getelementptr inbounds nuw i8, ptr %this, i64 560
   %0 = load ptr, ptr %fTimeZoneNames, align 8
@@ -2664,7 +2664,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7514TimeZoneFormat22setDefaultParseOptionsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1328) initializes((1128, 1132)) %this, i32 noundef %flags) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7514TimeZoneFormat22setDefaultParseOptionsEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1328) initializes((1128, 1132)) %this, i32 noundef %flags) local_unnamed_addr #7 align 2 {
 entry:
   %fDefParseOptionFlags = getelementptr inbounds nuw i8, ptr %this, i64 1128
   store i32 %flags, ptr %fDefParseOptionFlags, align 8
@@ -2672,7 +2672,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat22getDefaultParseOptionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat22getDefaultParseOptionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this) local_unnamed_addr #14 align 2 {
 entry:
   %fDefParseOptionFlags = getelementptr inbounds nuw i8, ptr %this, i64 1128
   %0 = load i32, ptr %fDefParseOptionFlags, align 8
@@ -2688,7 +2688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514TimeZoneFormat13setGMTPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514TimeZoneFormat13setGMTPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7514TimeZoneFormat14initGMTPatternERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
@@ -2854,7 +2854,7 @@ return:                                           ; preds = %for.end.i, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %pattern, i32 noundef %required, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %pattern, i32 noundef %required, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i129 = alloca i16, align 2
   %srcChar.addr.i71 = alloca i16, align 2
@@ -3368,7 +3368,7 @@ eh.resume:                                        ; preds = %lpad, %lpad4.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514TimeZoneFormat28checkAbuttingHoursAndMinutesEv(ptr nocapture noundef nonnull align 8 dereferenceable(1328) initializes((1312, 1313)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514TimeZoneFormat28checkAbuttingHoursAndMinutesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1328) initializes((1312, 1313)) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fAbuttingOffsetHoursAndMinutes = getelementptr inbounds nuw i8, ptr %this, i64 1312
   store i8 0, ptr %fAbuttingOffsetHoursAndMinutes, align 8
@@ -3438,7 +3438,7 @@ for.end24:                                        ; preds = %for.end, %for.cond,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat18getGMTOffsetDigitsERNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull returned align 8 dereferenceable(64) %digits) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat18getGMTOffsetDigitsERNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull returned align 8 dereferenceable(64) %digits) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %digits, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -3466,7 +3466,7 @@ for.end:                                          ; preds = %for.body
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514TimeZoneFormat18setGMTOffsetDigitsERKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %digits, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514TimeZoneFormat18setGMTOffsetDigitsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %digits, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %digitArray = alloca [10 x i32], align 16
   %0 = load i32, ptr %status, align 4
@@ -3511,7 +3511,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514TimeZoneFormat16setGMTZeroFormatERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %gmtZeroFormat, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7514TimeZoneFormat16setGMTZeroFormatERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %gmtZeroFormat, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -3893,7 +3893,7 @@ return:                                           ; preds = %if.end11, %invoke.c
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat14formatSpecificERKNS_8TimeZoneE17UTimeZoneNameTypeS4_dRNS_13UnicodeStringEP23UTimeZoneFormatTimeType(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(72) %tz, i32 noundef %stdType, i32 noundef %dstType, double noundef %date, ptr noundef nonnull returned align 8 dereferenceable(64) %name, ptr noundef writeonly %timeType) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat14formatSpecificERKNS_8TimeZoneE17UTimeZoneNameTypeS4_dRNS_13UnicodeStringEP23UTimeZoneFormatTimeType(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(72) %tz, i32 noundef %stdType, i32 noundef %dstType, double noundef %date, ptr noundef nonnull returned align 8 dereferenceable(64) %name, ptr noundef writeonly %timeType) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -4025,7 +4025,7 @@ eh.resume:                                        ; preds = %ehcleanup26, %ehcle
 declare noundef ptr @_ZN6icu_758ZoneMeta10getShortIDERKNS_8TimeZoneE(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat22formatExemplarLocationERKNS_8TimeZoneERNS_13UnicodeStringE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(72) %tz, ptr noundef nonnull returned align 8 dereferenceable(64) %name) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat22formatExemplarLocationERKNS_8TimeZoneERNS_13UnicodeStringE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(72) %tz, ptr noundef nonnull returned align 8 dereferenceable(64) %name) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %locationBuf = alloca [128 x i16], align 16
   %location = alloca %"class.icu_75::UnicodeString", align 8
@@ -4170,35 +4170,35 @@ ehcleanup37:                                      ; preds = %ehcleanup25, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetLocalizedGMTEiRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %offset, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetLocalizedGMTEiRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %offset, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetLocalizedGMTEiaRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %offset, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %result
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat29formatOffsetShortLocalizedGMTEiRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %offset, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat29formatOffsetShortLocalizedGMTEiRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %offset, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetLocalizedGMTEiaRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %offset, i8 noundef signext 1, ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %result
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetISO8601BasicEiaaaRNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1328) %this, i32 noundef %offset, i8 noundef signext %useUtcIndicator, i8 noundef signext %isShort, i8 noundef signext %ignoreSeconds, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetISO8601BasicEiaaaRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1328) %this, i32 noundef %offset, i8 noundef signext %useUtcIndicator, i8 noundef signext %isShort, i8 noundef signext %ignoreSeconds, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %offset, i8 noundef signext 1, i8 noundef signext %useUtcIndicator, i8 noundef signext %isShort, i8 noundef signext %ignoreSeconds, ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %result
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat27formatOffsetISO8601ExtendedEiaaaRNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1328) %this, i32 noundef %offset, i8 noundef signext %useUtcIndicator, i8 noundef signext %isShort, i8 noundef signext %ignoreSeconds, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat27formatOffsetISO8601ExtendedEiaaaRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1328) %this, i32 noundef %offset, i8 noundef signext %useUtcIndicator, i8 noundef signext %isShort, i8 noundef signext %ignoreSeconds, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull align 8 poison, i32 noundef %offset, i8 noundef signext 0, i8 noundef signext %useUtcIndicator, i8 noundef signext %isShort, i8 noundef signext %ignoreSeconds, ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %result
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat6formatERKNS_11FormattableERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(112) %obj, ptr noundef nonnull returned align 8 dereferenceable(64) %appendTo, ptr nocapture noundef nonnull align 8 dereferenceable(20) %pos, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat6formatERKNS_11FormattableERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(112) %obj, ptr noundef nonnull returned align 8 dereferenceable(64) %appendTo, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %pos, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rawOffset = alloca i32, align 4
   %dstOffset = alloca i32, align 4
@@ -4324,7 +4324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7514TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEiP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %style, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i32 noundef %parseOptions, ptr noundef writeonly %timeType) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6icu_7514TimeZoneFormat5parseE20UTimeZoneFormatStyleRKNS_13UnicodeStringERNS_13ParsePositionEiP23UTimeZoneFormatTimeType(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %style, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos, i32 noundef %parseOptions, ptr noundef writeonly %timeType) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i463 = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp.i464 = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -5764,7 +5764,7 @@ ehcleanup672:                                     ; preds = %lpad, %ehcleanup.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat23parseOffsetLocalizedGMTERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %isShort, ptr noundef writeonly %hasDigitOffset) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat23parseOffsetLocalizedGMTERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos, i8 noundef signext %isShort, ptr noundef writeonly %hasDigitOffset) local_unnamed_addr #1 align 2 {
 entry:
   %parsedLength = alloca i32, align 4
   %index.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
@@ -5899,7 +5899,7 @@ return:                                           ; preds = %for.end, %if.then34
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %offset) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6icu_7514TimeZoneFormat23createTimeZoneForOffsetEi(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %offset) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -5948,28 +5948,28 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat23parseOffsetLocalizedGMTERKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat23parseOffsetLocalizedGMTERKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7514TimeZoneFormat23parseOffsetLocalizedGMTERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext 0, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat28parseOffsetShortLocalizedGMTERKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat28parseOffsetShortLocalizedGMTERKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7514TimeZoneFormat23parseOffsetLocalizedGMTERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext 1, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat18parseOffsetISO8601ERKNS_13UnicodeStringERNS_13ParsePositionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1328) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat18parseOffsetISO8601ERKNS_13UnicodeStringERNS_13ParsePositionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7514TimeZoneFormat18parseOffsetISO8601ERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext 0, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat18parseOffsetISO8601ERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i8 noundef signext %extendedOnly, ptr noundef writeonly %hasDigitOffset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat18parseOffsetISO8601ERKNS_13UnicodeStringERNS_13ParsePositionEaPa(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos, i8 noundef signext %extendedOnly, ptr noundef writeonly %hasDigitOffset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %posOffset = alloca %"class.icu_75::ParsePosition", align 8
   %posBasic = alloca %"class.icu_75::ParsePosition", align 8
@@ -6187,7 +6187,7 @@ if.end8:                                          ; preds = %if.end, %entry
 declare noundef ptr @_ZN6icu_758TimeZone14createTimeZoneERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7514TimeZoneFormat20getTZDBTimeZoneNamesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6icu_7514TimeZoneFormat20getTZDBTimeZoneNamesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -6267,7 +6267,7 @@ return:                                           ; preds = %entry, %if.end5
 declare noundef i32 @_ZNK6icu_7520TimeZoneGenericNames13findBestMatchERKNS_13UnicodeStringEijRS1_R23UTimeZoneFormatTimeTypeR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat11parseZoneIDERKNS_13UnicodeStringERNS_13ParsePositionERS1_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, ptr noundef nonnull returned align 8 dereferenceable(64) %tzID) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat11parseZoneIDERKNS_13UnicodeStringERNS_13ParsePositionERS1_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos, ptr noundef nonnull returned align 8 dereferenceable(64) %tzID) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end.i:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -6458,7 +6458,7 @@ if.end20:                                         ; preds = %if.else, %if.then19
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat16parseShortZoneIDERKNS_13UnicodeStringERNS_13ParsePositionERS1_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, ptr noundef nonnull returned align 8 dereferenceable(64) %tzID) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat16parseShortZoneIDERKNS_13UnicodeStringERNS_13ParsePositionERS1_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos, ptr noundef nonnull returned align 8 dereferenceable(64) %tzID) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end.i:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -6657,7 +6657,7 @@ if.end20:                                         ; preds = %if.else, %if.then19
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat21parseExemplarLocationERKNS_13UnicodeStringERNS_13ParsePositionERS1_(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, ptr noundef nonnull returned align 8 dereferenceable(64) %tzID) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat21parseExemplarLocationERKNS_13UnicodeStringERNS_13ParsePositionERS1_(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos, ptr noundef nonnull returned align 8 dereferenceable(64) %tzID) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mzIDBuf.i = alloca [32 x i16], align 16
   %mzID.i = alloca %"class.icu_75::UnicodeString", align 8
@@ -6848,7 +6848,7 @@ declare void @umtx_unlock_75(ptr noundef) local_unnamed_addr #6
 declare void @_ZN6icu_7517TZDBTimeZoneNamesC1ERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nocapture nonnull readnone align 8 %this, i32 noundef %offset, i8 noundef signext %isBasic, i8 noundef signext %useUtcIndicator, i8 noundef signext %isShort, i8 noundef signext %ignoreSeconds, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat19formatOffsetISO8601EiaaaaRNS_13UnicodeStringER10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %offset, i8 noundef signext %isBasic, i8 noundef signext %useUtcIndicator, i8 noundef signext %isShort, i8 noundef signext %ignoreSeconds, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %srcChar.addr.i45 = alloca i16, align 2
   %srcChar.addr.i43 = alloca i16, align 2
@@ -7044,7 +7044,7 @@ return:                                           ; preds = %for.body42.us, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetLocalizedGMTEiaRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %offset, i8 noundef signext %isShort, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetLocalizedGMTEiaRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %this, i32 noundef %offset, i8 noundef signext %isShort, ptr noundef nonnull returned align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -7272,7 +7272,7 @@ return:                                           ; preds = %for.end, %if.then6,
 declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7514TimeZoneFormat18appendOffsetDigitsERNS_13UnicodeStringEih(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %buf, i32 noundef %n, i8 noundef zeroext %minDigits) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7514TimeZoneFormat18appendOffsetDigitsERNS_13UnicodeStringEih(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %buf, i32 noundef %n, i8 noundef zeroext %minDigits) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp sgt i32 %n, 9
   %cond.neg = select i1 %cmp, i32 -2, i32 -1
@@ -7316,7 +7316,7 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7514TimeZoneFormat22parseAsciiOffsetFieldsERKNS_13UnicodeStringERNS_13ParsePositionEDsNS0_12OffsetFieldsES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i16 noundef zeroext %sep, i32 noundef %minFields, i32 noundef %maxFields) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZN6icu_7514TimeZoneFormat22parseAsciiOffsetFieldsERKNS_13UnicodeStringERNS_13ParsePositionEDsNS0_12OffsetFieldsES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos, i16 noundef zeroext %sep, i32 noundef %minFields, i32 noundef %maxFields) local_unnamed_addr #16 align 2 {
 entry:
   %fieldVal = alloca [3 x i32], align 4
   %fieldLen = alloca [3 x i32], align 4
@@ -7490,7 +7490,7 @@ return:                                           ; preds = %if.end85, %if.then8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 86399001) i32 @_ZN6icu_7514TimeZoneFormat30parseAbuttingAsciiOffsetFieldsERKNS_13UnicodeStringERNS_13ParsePositionENS0_12OffsetFieldsES6_a(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i32 noundef %minFields, i32 noundef %maxFields, i8 noundef signext %fixedHourWidth) local_unnamed_addr #16 align 2 {
+define noundef range(i32 -2147483648, 86399001) i32 @_ZN6icu_7514TimeZoneFormat30parseAbuttingAsciiOffsetFieldsERKNS_13UnicodeStringERNS_13ParsePositionENS0_12OffsetFieldsES6_a(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %text, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pos, i32 noundef %minFields, i32 noundef %maxFields, i8 noundef signext %fixedHourWidth) local_unnamed_addr #16 align 2 {
 entry:
   %digits = alloca [6 x i32], align 16
   %index.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
@@ -7669,7 +7669,7 @@ return:                                           ; preds = %if.end82, %if.then8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat30parseOffsetLocalizedGMTPatternERKNS_13UnicodeStringEiaRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i8 signext %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %parsedLen) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat30parseOffsetLocalizedGMTPatternERKNS_13UnicodeStringEiaRi(ptr noundef nonnull align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i8 signext %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %parsedLen) local_unnamed_addr #1 align 2 {
 entry:
   %len = alloca i32, align 4
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1144
@@ -7772,7 +7772,7 @@ do.end:                                           ; preds = %if.end8, %_ZNK6icu_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat30parseOffsetDefaultLocalizedGMTERKNS_13UnicodeStringEiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %parsedLen) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat30parseOffsetDefaultLocalizedGMTERKNS_13UnicodeStringEiRi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %parsedLen) local_unnamed_addr #1 align 2 {
 entry:
   %lenWithSep = alloca i32, align 4
   %lenAbut = alloca i32, align 4
@@ -7871,7 +7871,7 @@ do.end:                                           ; preds = %for.cond, %_ZNK6icu
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat17parseOffsetFieldsERKNS_13UnicodeStringEiaRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i8 signext %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %parsedLen) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat17parseOffsetFieldsERKNS_13UnicodeStringEiaRi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i8 signext %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %parsedLen) local_unnamed_addr #1 align 2 {
 entry:
   %offsetH = alloca i32, align 4
   %offsetM = alloca i32, align 4
@@ -7996,7 +7996,7 @@ if.end49:                                         ; preds = %for.inc, %if.then44
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat28parseOffsetFieldsWithPatternERKNS_13UnicodeStringEiPNS_7UVectorEaRiS6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef %patternItems, i8 noundef signext %forceSingleHourDigit, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %hour, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %min, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %sec) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat28parseOffsetFieldsWithPatternERKNS_13UnicodeStringEiPNS_7UVectorEaRiS6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef %patternItems, i8 noundef signext %forceSingleHourDigit, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %hour, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %min, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %sec) local_unnamed_addr #1 align 2 {
 entry:
   %count.i = getelementptr inbounds nuw i8, ptr %patternItems, i64 8
   %0 = load i32, ptr %count.i, align 8
@@ -8364,7 +8364,7 @@ declare noundef signext i8 @_ZN6icu_7512PatternProps12isWhiteSpaceEi(i32 noundef
 declare noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 65536) i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i8 noundef zeroext %minDigits, i8 noundef zeroext %maxDigits, i16 noundef zeroext %minVal, i16 noundef zeroext %maxVal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %parsedLen) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 65536) i32 @_ZNK6icu_7514TimeZoneFormat35parseOffsetFieldWithLocalizedDigitsERKNS_13UnicodeStringEihhttRi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i8 noundef zeroext %minDigits, i8 noundef zeroext %maxDigits, i16 noundef zeroext %minVal, i16 noundef zeroext %maxVal, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %parsedLen) local_unnamed_addr #1 align 2 {
 entry:
   store i32 0, ptr %parsedLen, align 4
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %text, i64 8
@@ -8457,7 +8457,7 @@ if.end15:                                         ; preds = %while.end, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483648, 86399001) i32 @_ZNK6icu_7514TimeZoneFormat25parseAbuttingOffsetFieldsERKNS_13UnicodeStringEiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %parsedLen) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -2147483648, 86399001) i32 @_ZNK6icu_7514TimeZoneFormat25parseAbuttingOffsetFieldsERKNS_13UnicodeStringEiRi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %parsedLen) local_unnamed_addr #1 align 2 {
 entry:
   %digits = alloca [6 x i32], align 16
   %parsed = alloca [6 x i32], align 16
@@ -8621,7 +8621,7 @@ return:                                           ; preds = %if.end68, %return.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 10) i32 @_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %len) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -1, 10) i32 @_ZNK6icu_7514TimeZoneFormat25parseSingleLocalizedDigitERKNS_13UnicodeStringEiRi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %len) local_unnamed_addr #1 align 2 {
 entry:
   store i32 0, ptr %len, align 4
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %text, i64 8
@@ -8674,7 +8674,7 @@ if.end16:                                         ; preds = %if.then7, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7514TimeZoneFormat24parseDefaultOffsetFieldsERKNS_13UnicodeStringEiDsRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i16 noundef zeroext %separator, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %parsedLen) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7514TimeZoneFormat24parseDefaultOffsetFieldsERKNS_13UnicodeStringEiDsRi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1328) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, i32 noundef %start, i16 noundef zeroext %separator, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %parsedLen) local_unnamed_addr #1 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds nuw i8, ptr %text, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8
@@ -9115,7 +9115,7 @@ for.end:                                          ; preds = %if.end15, %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7514TimeZoneFormat7unquoteERKNS_13UnicodeStringERS1_(ptr noundef nonnull align 8 dereferenceable(64) %pattern, ptr noundef nonnull returned align 8 dereferenceable(64) %result) local_unnamed_addr #1 align 2 {
@@ -9243,7 +9243,7 @@ declare noundef signext i8 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection15get
 declare noundef signext i8 @_ZNK6icu_7513TimeZoneNames19MatchInfoCollection15getMetaZoneIDAtEiRNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7518ZoneIdMatchHandlerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7518ZoneIdMatchHandlerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 24)) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7518ZoneIdMatchHandlerE, i64 16), ptr %this, align 8
   %fLen = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -9272,7 +9272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518ZoneIdMatchHandler11handleMatchEiPKNS_13CharacterNodeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %matchLength, ptr nocapture noundef readonly %node, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7518ZoneIdMatchHandler11handleMatchEiPKNS_13CharacterNodeER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i32 noundef %matchLength, ptr noundef readonly captures(none) %node, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -9313,7 +9313,7 @@ return:                                           ; preds = %if.end, %if.then6, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN6icu_7518ZoneIdMatchHandler5getIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #14 align 2 {
+define noundef ptr @_ZN6icu_7518ZoneIdMatchHandler5getIDEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #14 align 2 {
 entry:
   %fID = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fID, align 8
@@ -9321,7 +9321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6icu_7518ZoneIdMatchHandler11getMatchLenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #14 align 2 {
+define noundef i32 @_ZN6icu_7518ZoneIdMatchHandler11getMatchLenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #14 align 2 {
 entry:
   %fLen = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %fLen, align 8
@@ -9415,10 +9415,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #18
 declare i32 @llvm.smin.i32(i32, i32) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

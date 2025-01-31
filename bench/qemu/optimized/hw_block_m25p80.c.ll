@@ -2421,7 +2421,7 @@ declare ptr @blk_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare zeroext i1 @blk_check_size_and_read_all(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @m25p80_write_protect_pin_irq_handler(ptr noundef %opaque, i32 noundef %n, i32 noundef %level) #0 {
@@ -2445,7 +2445,7 @@ if.end:                                           ; preds = %entry
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2864,7 +2864,7 @@ sw.epilog193:                                     ; preds = %trace_m25p80_comple
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @flash_sync_dirty(ptr nocapture noundef %s, i64 noundef range(i64 -1, 4294967296) %newpage) unnamed_addr #0 {
+define internal fastcc void @flash_sync_dirty(ptr noundef captures(none) %s, i64 noundef range(i64 -1, 4294967296) %newpage) unnamed_addr #0 {
 entry:
   %dirty_page = getelementptr inbounds nuw i8, ptr %s, i64 272
   %0 = load i64, ptr %dirty_page, align 8
@@ -2939,7 +2939,7 @@ declare void @qemu_iovec_destroy(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 2, 5) i32 @get_addr_length(ptr nocapture noundef readonly %s) unnamed_addr #7 {
+define internal fastcc range(i32 2, 5) i32 @get_addr_length(ptr noundef readonly captures(none) %s) unnamed_addr #7 {
 entry:
   %pi = getelementptr inbounds nuw i8, ptr %s, i64 280
   %0 = load ptr, ptr %pi, align 8
@@ -3160,7 +3160,7 @@ return:                                           ; preds = %if.end4.i, %lor.lhs
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @decode_fast_read_cmd(ptr nocapture noundef initializes((200, 201), (220, 228), (229, 230)) %s) unnamed_addr #9 {
+define internal fastcc void @decode_fast_read_cmd(ptr noundef captures(none) initializes((200, 201), (220, 228), (229, 230)) %s) unnamed_addr #9 {
 entry:
   %pi.i = getelementptr inbounds nuw i8, ptr %s, i64 280
   %0 = load ptr, ptr %pi.i, align 8
@@ -3513,7 +3513,7 @@ trace_m25p80_reset_done.exit:                     ; preds = %sw.epilog, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @m25p80_pre_load(ptr nocapture noundef writeonly initializes((228, 229)) %opaque) #10 {
+define internal noundef i32 @m25p80_pre_load(ptr noundef writeonly captures(none) initializes((228, 229)) %opaque) #10 {
 entry:
   %data_read_loop = getelementptr inbounds nuw i8, ptr %opaque, i64 228
   store i8 0, ptr %data_read_loop, align 4
@@ -3521,14 +3521,14 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @m25p80_pre_save(ptr nocapture noundef %opaque) #0 {
+define internal noundef i32 @m25p80_pre_save(ptr noundef captures(none) %opaque) #0 {
 entry:
   tail call fastcc void @flash_sync_dirty(ptr noundef %opaque, i64 noundef -1)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @m25p80_data_read_loop_needed(ptr nocapture noundef readonly %opaque) #11 {
+define internal zeroext i1 @m25p80_data_read_loop_needed(ptr noundef readonly captures(none) %opaque) #11 {
 entry:
   %data_read_loop = getelementptr inbounds nuw i8, ptr %opaque, i64 228
   %0 = load i8, ptr %data_read_loop, align 4
@@ -3537,7 +3537,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @m25p80_aai_enable_needed(ptr nocapture noundef readonly %opaque) #11 {
+define internal zeroext i1 @m25p80_aai_enable_needed(ptr noundef readonly captures(none) %opaque) #11 {
 entry:
   %aai_enable = getelementptr inbounds nuw i8, ptr %opaque, i64 261
   %0 = load i8, ptr %aai_enable, align 1
@@ -3546,7 +3546,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @m25p80_wp_level_srwd_needed(ptr nocapture noundef readonly %opaque) #11 {
+define internal zeroext i1 @m25p80_wp_level_srwd_needed(ptr noundef readonly captures(none) %opaque) #11 {
 entry:
   %wp_level = getelementptr inbounds nuw i8, ptr %opaque, i64 256
   %0 = load i8, ptr %wp_level, align 8
@@ -3565,7 +3565,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @m25p80_block_protect_needed(ptr nocapture noundef readonly %opaque) #11 {
+define internal zeroext i1 @m25p80_block_protect_needed(ptr noundef readonly captures(none) %opaque) #11 {
 entry:
   %block_protect0 = getelementptr inbounds nuw i8, ptr %opaque, i64 262
   %0 = load i8, ptr %block_protect0, align 2
@@ -3602,10 +3602,10 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

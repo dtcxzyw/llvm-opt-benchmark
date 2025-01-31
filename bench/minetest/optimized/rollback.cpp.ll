@@ -345,7 +345,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15RollbackManagerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8IGameDef(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %world_path, ptr noundef %gamedef_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManagerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP8IGameDef(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %world_path, ptr noundef %gamedef_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -716,10 +716,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %if.
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: uwtable
 define dso_local noundef zeroext i1 @_ZN15RollbackManager12initDatabaseEv(ptr noundef nonnull align 8 dereferenceable(264) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -3996,7 +3996,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager16registerNewActorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager16registerNewActorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %id, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -4151,7 +4151,7 @@ _ZN6EntityD2Ev.exit13:                            ; preds = %if.then.i.i.i9, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager15registerNewNodeEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager15registerNewNodeEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, i32 noundef %id, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -4306,7 +4306,7 @@ _ZN6EntityD2Ev.exit13:                            ; preds = %if.then.i.i.i9, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN15RollbackManager10getActorIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN15RollbackManager10getActorIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4718,7 +4718,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs, i64 noundef %call.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !25
   %2 = load ptr, ptr %call2.i, align 8, !tbaa !44
@@ -4907,7 +4907,7 @@ declare i32 @sqlite3_reset(ptr noundef) local_unnamed_addr #0
 declare i64 @sqlite3_last_insert_rowid(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN15RollbackManager9getNodeIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN15RollbackManager9getNodeIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5301,7 +5301,7 @@ unreachable:                                      ; preds = %invoke.cont74, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN15RollbackManager12getActorNameEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, i32 noundef %id) local_unnamed_addr #13 align 2 {
+define dso_local noundef ptr @_ZN15RollbackManager12getActorNameEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this, i32 noundef %id) local_unnamed_addr #13 align 2 {
 entry:
   %knownActors = getelementptr inbounds nuw i8, ptr %this, i64 216
   %0 = load ptr, ptr %knownActors, align 8, !tbaa !79
@@ -5332,7 +5332,7 @@ cleanup:                                          ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN15RollbackManager11getNodeNameEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, i32 noundef %id) local_unnamed_addr #13 align 2 {
+define dso_local noundef ptr @_ZN15RollbackManager11getNodeNameEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this, i32 noundef %id) local_unnamed_addr #13 align 2 {
 entry:
   %knownNodes = getelementptr inbounds nuw i8, ptr %this, i64 240
   %0 = load ptr, ptr %knownNodes, align 8, !tbaa !79
@@ -5363,7 +5363,7 @@ cleanup:                                          ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN15RollbackManager12createTablesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15RollbackManager12createTablesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5559,7 +5559,7 @@ declare i32 @sqlite3_column_int(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15RollbackManager11registerRowERK9ActionRow(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(532) %row) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15RollbackManager11registerRowERK9ActionRow(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this, ptr noundef nonnull align 8 dereferenceable(532) %row) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i1661 = alloca i64, align 8
   %__dnew.i.i.i1643 = alloca i64, align 8
@@ -6877,7 +6877,7 @@ invoke.cont268:                                   ; preds = %if.end.i.i.i.i.i.i1
   store i8 0, ptr %arrayidx.i.i.i.i1670, align 1, !tbaa !27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i1661) #30, !noalias !123
   %158 = load ptr, ptr %x, align 8, !tbaa !44
-  %call.i1679 = call i64 @strtol(ptr nocapture noundef nonnull %158, ptr noundef null, i32 noundef 10) #30
+  %call.i1679 = call i64 @strtol(ptr noundef nonnull captures(none) %158, ptr noundef null, i32 noundef 10) #30
   %conv.i = trunc i64 %call.i1679 to i32
   %call273 = invoke i32 @sqlite3_bind_int(ptr noundef %cond, i32 noundef 10, i32 noundef %conv.i)
           to label %invoke.cont272 unwind label %lpad271
@@ -7000,7 +7000,7 @@ cleanup.action298:                                ; preds = %ehcleanup292.thread
 
 if.end300:                                        ; preds = %invoke.cont272
   %175 = load ptr, ptr %y, align 8, !tbaa !44
-  %call.i1692 = call i64 @strtol(ptr nocapture noundef nonnull %175, ptr noundef null, i32 noundef 10) #30
+  %call.i1692 = call i64 @strtol(ptr noundef nonnull captures(none) %175, ptr noundef null, i32 noundef 10) #30
   %conv.i1693 = trunc i64 %call.i1692 to i32
   %call304 = invoke i32 @sqlite3_bind_int(ptr noundef %cond, i32 noundef 11, i32 noundef %conv.i1693)
           to label %invoke.cont303 unwind label %lpad271
@@ -7108,7 +7108,7 @@ cleanup.action329:                                ; preds = %ehcleanup323.thread
 
 if.end331:                                        ; preds = %invoke.cont303
   %189 = load ptr, ptr %z, align 8, !tbaa !44
-  %call.i1706 = call i64 @strtol(ptr nocapture noundef nonnull %189, ptr noundef null, i32 noundef 10) #30
+  %call.i1706 = call i64 @strtol(ptr noundef nonnull captures(none) %189, ptr noundef null, i32 noundef 10) #30
   %conv.i1707 = trunc i64 %call.i1706 to i32
   %call335 = invoke i32 @sqlite3_bind_int(ptr noundef %cond, i32 noundef 12, i32 noundef %conv.i1707)
           to label %invoke.cont334 unwind label %lpad271
@@ -10655,7 +10655,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 declare i32 @sqlite3_bind_null(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager20actionRowsFromSelectB5cxx11EP12sqlite3_stmt(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.46") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, ptr noundef %stmt) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager20actionRowsFromSelectB5cxx11EP12sqlite3_stmt(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.46") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this, ptr noundef %stmt) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i250 = alloca i64, align 8
   %__dnew.i.i199 = alloca i64, align 8
@@ -12078,7 +12078,7 @@ _ZN15RollbackManager12getActorNameEi.exit:        ; preds = %for.inc.i, %if.then
   %spec.select.i = phi ptr [ %144, %if.then.i522 ], [ @.str.21, %if.else ], [ @.str.21, %for.inc.i ]
   %145 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !26
   %call.i.i.i524 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i) #30
-  %call3.i.i525 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %location.i, i64 noundef 0, i64 noundef %145, ptr noundef %spec.select.i, i64 noundef %call.i.i.i524)
+  %call3.i.i525 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %location.i, i64 noundef 0, i64 noundef %145, ptr noundef nonnull %spec.select.i, i64 noundef %call.i.i.i524)
           to label %if.end127 unwind label %lpad4
 
 if.end127:                                        ; preds = %_ZN15RollbackManager12getActorNameEi.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit502
@@ -12683,7 +12683,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont38, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager29rollbackActionsFromActionRowsERKNSt7__cxx114listI9ActionRowSaIS2_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %rows) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager29rollbackActionsFromActionRowsERKNSt7__cxx114listI9ActionRowSaIS2_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %rows) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %action = alloca %struct.RollbackAction, align 8
   %_M_prev.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -12771,7 +12771,7 @@ cond.end:                                         ; preds = %for.inc.i, %if.then
   %cond = phi ptr [ @.str.21, %invoke.cont ], [ %4, %if.then.i ], [ @.str.21, %cond.true ], [ @.str.21, %for.inc.i ]
   %5 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !26
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond) #30
-  %call3.i.i87 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %actor8, i64 noundef 0, i64 noundef %5, ptr noundef %cond, i64 noundef %call.i.i.i)
+  %call3.i.i87 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %actor8, i64 noundef 0, i64 noundef %5, ptr noundef nonnull %cond, i64 noundef %call.i.i.i)
           to label %invoke.cont10 unwind label %lpad9.loopexit
 
 invoke.cont10:                                    ; preds = %cond.end
@@ -12900,7 +12900,7 @@ for.inc.i99:                                      ; preds = %for.body.i96
 _ZN15RollbackManager11getNodeNameEi.exit:         ; preds = %for.inc.i99, %if.then.i103, %if.then
   %spec.select.i102 = phi ptr [ %21, %if.then.i103 ], [ @.str.21, %if.then ], [ @.str.21, %for.inc.i99 ]
   %call.i.i.i106 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i102) #30
-  %call3.i.i107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %inventory_stack, i64 noundef 0, i64 noundef 0, ptr noundef %spec.select.i102, i64 noundef %call.i.i.i106)
+  %call3.i.i107 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %inventory_stack, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %spec.select.i102, i64 noundef %call.i.i.i106)
           to label %sw.epilog unwind label %lpad9.loopexit
 
 sw.bb29:                                          ; preds = %invoke.cont10
@@ -12939,7 +12939,7 @@ _ZN15RollbackManager11getNodeNameEi.exit121:      ; preds = %for.inc.i115, %if.t
   %spec.select.i118 = phi ptr [ %29, %if.then.i119 ], [ @.str.21, %sw.bb29 ], [ @.str.21, %for.inc.i115 ]
   %30 = load i64, ptr %_M_string_length.i.i.i122, align 8, !tbaa !26
   %call.i.i.i123 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i118) #30
-  %call3.i.i124 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %n_old, i64 noundef 0, i64 noundef %30, ptr noundef %spec.select.i118, i64 noundef %call.i.i.i123)
+  %call3.i.i124 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %n_old, i64 noundef 0, i64 noundef %30, ptr noundef nonnull %spec.select.i118, i64 noundef %call.i.i.i123)
           to label %invoke.cont36 unwind label %lpad9.loopexit
 
 invoke.cont36:                                    ; preds = %_ZN15RollbackManager11getNodeNameEi.exit121
@@ -12978,7 +12978,7 @@ _ZN15RollbackManager11getNodeNameEi.exit140:      ; preds = %for.inc.i134, %if.t
   %spec.select.i137 = phi ptr [ %36, %if.then.i138 ], [ @.str.21, %invoke.cont41 ], [ @.str.21, %for.inc.i134 ]
   %37 = load i64, ptr %_M_string_length.i.i.i141, align 8, !tbaa !26
   %call.i.i.i142 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.select.i137) #30
-  %call3.i.i143 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %n_new, i64 noundef 0, i64 noundef %37, ptr noundef %spec.select.i137, i64 noundef %call.i.i.i142)
+  %call3.i.i143 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %n_new, i64 noundef 0, i64 noundef %37, ptr noundef nonnull %spec.select.i137, i64 noundef %call.i.i.i142)
           to label %invoke.cont45 unwind label %lpad9.loopexit
 
 invoke.cont45:                                    ; preds = %_ZN15RollbackManager11getNodeNameEi.exit140
@@ -13181,7 +13181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14RollbackActionD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -13336,7 +13336,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager12getRowsSinceElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.46") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 noundef %firstTime, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %actor) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager12getRowsSinceElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.46") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 noundef %firstTime, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %actor) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::list.46", align 8
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %actor, i64 8
@@ -13438,7 +13438,7 @@ lpad.body:                                        ; preds = %lpad, %lpad9.body.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager18getRowsSince_rangeB5cxx11ElN3irr4core8vector3dIsEEii(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.46") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, i64 noundef %start_time, i48 %p.coerce, i32 noundef %range, i32 noundef %limit) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager18getRowsSince_rangeB5cxx11ElN3irr4core8vector3dIsEEii(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.46") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this, i64 noundef %start_time, i48 %p.coerce, i32 noundef %range, i32 noundef %limit) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::list.46", align 8
   %p.sroa.0.0.extract.trunc = trunc i48 %p.coerce to i32
@@ -13555,7 +13555,7 @@ lpad.body:                                        ; preds = %lpad, %lpad9.body.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager21getActionsSince_rangeB5cxx11ElN3irr4core8vector3dIsEEii(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this, i64 noundef %start_time, i48 %p.coerce, i32 noundef %range, i32 noundef %limit) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager21getActionsSince_rangeB5cxx11ElN3irr4core8vector3dIsEEii(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this, i64 noundef %start_time, i48 %p.coerce, i32 noundef %range, i32 noundef %limit) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::list.46", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #30
@@ -13590,7 +13590,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager15getActionsSinceElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 noundef %start_time, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %actor) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager15getActionsSinceElRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this, i64 noundef %start_time, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %actor) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::list.46", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #30
@@ -14273,7 +14273,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager8getActorB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager8getActorB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %current_actor = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -14322,7 +14322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN15RollbackManager12isActorGuessEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) unnamed_addr #18 align 2 {
+define dso_local noundef zeroext i1 @_ZN15RollbackManager12isActorGuessEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(264) %this) unnamed_addr #18 align 2 {
 entry:
   %current_actor_is_guess = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i8, ptr %current_actor_is_guess, align 8, !tbaa !28, !range !174, !noundef !175
@@ -14918,7 +14918,7 @@ _ZN15RollbackManager21getActionsSince_rangeB5cxx11ElN3irr4core8vector3dIsEEii.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15RollbackManager16getRevertActionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEl(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %actor_filter, i64 noundef %seconds) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15RollbackManager16getRevertActionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEl(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %actor_filter, i64 noundef %seconds) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::list.46", align 8
   %call = tail call i64 @time(ptr noundef null) #30
@@ -15024,7 +15024,7 @@ _ZN13BaseExceptionD2Ev.exit:                      ; preds = %if.then.i.i.i, %_ZN
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #20
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15198,7 +15198,7 @@ lpad.body:                                        ; preds = %lpad, %lpad.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEsSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_sEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19549,7 +19549,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #24
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #22
@@ -20204,7 +20204,7 @@ declare i64 @llvm.umin.i64(i64, i64) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -220,25 +220,25 @@ $_ZTIN3gmx15FloatOptionInfoE = comdat any
 @_ZN3gmx16TimeUnitBehaviorC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx16TimeUnitBehaviorC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx15TimeUnitManagerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx15TimeUnitManagerC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #0 align 2 {
   store i32 1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx15TimeUnitManagerC2ENS_8TimeUnitE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN3gmx15TimeUnitManagerC2ENS_8TimeUnitE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx15TimeUnitManager11setTimeUnitENS_8TimeUnitE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx15TimeUnitManager11setTimeUnitENS_8TimeUnitE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK3gmx15TimeUnitManager16timeUnitAsStringEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK3gmx15TimeUnitManager16timeUnitAsStringEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds [6 x ptr], ptr @_ZN3gmx12_GLOBAL__N_115c_timeUnitNamesE, i64 0, i64 %3
@@ -247,7 +247,7 @@ define noundef ptr @_ZNK3gmx15TimeUnitManager16timeUnitAsStringEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK3gmx15TimeUnitManager15timeScaleFactorEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK3gmx15TimeUnitManager15timeScaleFactorEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds [6 x double], ptr @_ZN3gmx12_GLOBAL__N_122c_timeUnitScaleFactorsE, i64 0, i64 %3
@@ -256,7 +256,7 @@ define noundef double @_ZNK3gmx15TimeUnitManager15timeScaleFactorEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK3gmx15TimeUnitManager22inverseTimeScaleFactorEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK3gmx15TimeUnitManager22inverseTimeScaleFactorEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds [6 x double], ptr @_ZN3gmx12_GLOBAL__N_122c_timeUnitScaleFactorsE, i64 0, i64 %3
@@ -266,7 +266,7 @@ define noundef double @_ZNK3gmx15TimeUnitManager22inverseTimeScaleFactorEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx16TimeUnitBehaviorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx16TimeUnitBehaviorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3gmx16TimeUnitBehaviorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %2, align 8
@@ -276,7 +276,7 @@ define void @_ZN3gmx16TimeUnitBehaviorC2Ev(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx16TimeUnitBehavior11setTimeUnitENS_8TimeUnitE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN3gmx16TimeUnitBehavior11setTimeUnitENS_8TimeUnitE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -293,7 +293,7 @@ define void @_ZN3gmx16TimeUnitBehavior11setTimeUnitENS_8TimeUnitE(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx16TimeUnitBehavior16setTimeUnitStoreEPNS_8TimeUnitE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx16TimeUnitBehavior16setTimeUnitStoreEPNS_8TimeUnitE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -303,7 +303,7 @@ define void @_ZN3gmx16TimeUnitBehavior16setTimeUnitStoreEPNS_8TimeUnitE(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx16TimeUnitBehavior26setTimeUnitFromEnvironmentEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx16TimeUnitBehavior26setTimeUnitFromEnvironmentEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.gmx::IdentityFormatter", align 1
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -420,13 +420,13 @@ _ZN3gmx16TimeUnitBehavior11setTimeUnitENS_8TimeUnitE.exit: ; preds = %35, %30, %
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ...) local_unnamed_addr #8
 
@@ -671,7 +671,7 @@ define linkonce_odr void @_ZN3gmx10EnumOptionINS_8TimeUnitEED2Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx16TimeUnitBehavior16optionsFinishingEPNS_7OptionsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx16TimeUnitBehavior16optionsFinishingEPNS_7OptionsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %2 = alloca %"class.gmx::OptionsModifyingIterator", align 8
   %3 = alloca %"class.gmx::OptionsModifyingIterator", align 8
@@ -729,7 +729,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_16DoubleOptionI
 declare noundef nonnull align 1 ptr @_ZN3gmx7Options11rootSectionEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_16DoubleOptionInfoEED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #12 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_16DoubleOptionInfoEED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #12 align 2 {
   ret void
 }
 
@@ -743,7 +743,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_15FloatOptionIn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_15FloatOptionInfoEED2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #12 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_15FloatOptionInfoEED2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #12 align 2 {
   ret void
 }
 
@@ -986,7 +986,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #8
 
@@ -1642,7 +1642,7 @@ _ZNSt6vectorIN3gmx8TimeUnitESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vecto
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #18
@@ -1671,7 +1671,7 @@ define linkonce_odr void @_ZN3gmx27OptionsModifyingTypeVisitorINS_16DoubleOption
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_16DoubleOptionInfoEE15visitOptionTypeEPS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_16DoubleOptionInfoEE15visitOptionTypeEPS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK3gmx16DoubleOptionInfo6isTimeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %3, label %4, label %7
 
@@ -1719,7 +1719,7 @@ define linkonce_odr void @_ZN3gmx27OptionsModifyingTypeVisitorINS_15FloatOptionI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_15FloatOptionInfoEE15visitOptionTypeEPS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_116TimeOptionScalerINS_15FloatOptionInfoEE15visitOptionTypeEPS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK3gmx15FloatOptionInfo6isTimeEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %3, label %4, label %7
 
@@ -1738,13 +1738,13 @@ declare noundef zeroext i1 @_ZNK3gmx15FloatOptionInfo6isTimeEv(ptr noundef nonnu
 declare void @_ZN3gmx15FloatOptionInfo14setScaleFactorEd(ptr noundef nonnull align 8 dereferenceable(16), double noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

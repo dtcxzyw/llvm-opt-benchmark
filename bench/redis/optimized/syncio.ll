@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @syncWrite(i32 noundef %fd, ptr nocapture noundef readonly %ptr, i64 noundef %size, i64 noundef %timeout) local_unnamed_addr #0 {
+define dso_local noundef i64 @syncWrite(i32 noundef %fd, ptr noundef readonly captures(none) %ptr, i64 noundef %size, i64 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @mstime() #5
   br label %while.body
@@ -56,7 +56,7 @@ return:                                           ; preds = %if.end6, %if.then, 
 declare i64 @mstime() local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
@@ -64,7 +64,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @aeWait(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @syncRead(i32 noundef %fd, ptr nocapture noundef %ptr, i64 noundef %size, i64 noundef %timeout) local_unnamed_addr #0 {
+define dso_local i64 @syncRead(i32 noundef %fd, ptr noundef captures(none) %ptr, i64 noundef %size, i64 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @mstime() #5
   %cmp = icmp eq i64 %size, 0
@@ -117,10 +117,10 @@ return:                                           ; preds = %if.end12, %if.then7
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @syncReadLine(i32 noundef %fd, ptr nocapture noundef %ptr, i64 noundef %size, i64 noundef %timeout) local_unnamed_addr #0 {
+define dso_local i64 @syncReadLine(i32 noundef %fd, ptr noundef captures(none) %ptr, i64 noundef %size, i64 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %c = alloca i8, align 1
   %size.addr.012 = add nsw i64 %size, -1

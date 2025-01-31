@@ -154,7 +154,7 @@ $_ZTIN19OpenColorIO_v2_4dev25ExposureContrastTransformE = comdat any
 @_ZTIN19OpenColorIO_v2_4dev25ExposureContrastTransformE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN19OpenColorIO_v2_4dev25ExposureContrastTransformE, ptr @_ZTIN19OpenColorIO_v2_4dev9TransformE }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers12GetProcessorERKSt10shared_ptrIKNS_6ConfigEEPKcS8_S8_RKS1_IKNS_15MatrixTransformEENS_18TransformDirectionE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %config, ptr noundef %workingName, ptr noundef %displayName, ptr noundef %viewName, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %channelView, i32 noundef %direction) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers12GetProcessorERKSt10shared_ptrIKNS_6ConfigEEPKcS8_S8_RKS1_IKNS_15MatrixTransformEENS_18TransformDirectionE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %config, ptr noundef %workingName, ptr noundef %displayName, ptr noundef %viewName, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %channelView, i32 noundef %direction) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.3", align 8
   %0 = load ptr, ptr %config, align 8
@@ -247,7 +247,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers12GetProcessorERKSt10shared_ptrIKNS_6ConfigEERKS1_IKNS_7ContextEEPKcSD_SD_RKS1_IKNS_15MatrixTransformEENS_18TransformDirectionE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %config, ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef %workingName, ptr noundef %displayName, ptr noundef %viewName, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %channelView, i32 noundef %direction) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers12GetProcessorERKSt10shared_ptrIKNS_6ConfigEERKS1_IKNS_7ContextEEPKcSD_SD_RKS1_IKNS_15MatrixTransformEENS_18TransformDirectionE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %config, ptr noundef nonnull align 8 dereferenceable(16) %context, ptr noundef %workingName, ptr noundef %displayName, ptr noundef %viewName, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %channelView, i32 noundef %direction) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %displayTransform = alloca %"class.std::shared_ptr.9", align 8
   %processor = alloca %"class.std::shared_ptr", align 8
@@ -2361,7 +2361,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev20DisplayViewTransformELN9__gnu_cxx12_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers20GetIdentityProcessorERKSt10shared_ptrIKNS_6ConfigEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers20GetIdentityProcessorERKSt10shared_ptrIKNS_6ConfigEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %config) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %group = alloca %"class.std::shared_ptr.15", align 8
   %ex = alloca %"class.std::shared_ptr.30", align 8
@@ -3081,7 +3081,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev9TransformELN9__gnu_cxx12_Lock_policyE
 declare void @_ZNK19OpenColorIO_v2_4dev6Config12getProcessorERKSt10shared_ptrIKNS_9TransformEE(ptr sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers20AddActiveDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers20AddActiveDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp5.i141 = alloca %class.anon.55, align 8
   %ref.tmp.i120 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4452,7 +4452,7 @@ declare noundef ptr @_ZNK19OpenColorIO_v2_4dev6Config14getActiveViewsEv(ptr noun
 declare void @_ZN19OpenColorIO_v2_4dev6Config14setActiveViewsEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers23RemoveActiveDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers23RemoveActiveDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i172 = alloca %"class.std::allocator.33", align 1
   %agg.tmp5.i163 = alloca %class.anon.55, align 8
@@ -5880,7 +5880,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers14AddDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_S6_RKS1_INS_10ColorSpaceEERS1_INS_13FileTransformEES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName, ptr noundef %lookDefinition, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %colorSpace, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %userTransform, ptr noundef %connectionColorSpaceName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers14AddDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_S6_RKS1_INS_10ColorSpaceEERS1_INS_13FileTransformEES6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName, ptr noundef %lookDefinition, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %colorSpace, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %userTransform, ptr noundef %connectionColorSpaceName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %grp = alloca %"class.std::shared_ptr.15", align 8
   %connectionCS = alloca %"class.std::shared_ptr.40", align 8
@@ -7150,7 +7150,7 @@ declare void @_ZN19OpenColorIO_v2_4dev6Config14addDisplayViewEPKcS2_S2_S2_(ptr n
 declare noundef ptr @_ZNK19OpenColorIO_v2_4dev10ColorSpace7getNameEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers14AddDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_S6_S6_S6_S6_S6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName, ptr noundef %lookDefinition, ptr noundef %colorSpaceName, ptr noundef %colorSpaceFamily, ptr noundef %colorSpaceDescription, ptr noundef %categories, ptr noundef %transformFilePath, ptr noundef %connectionColorSpaceName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers14AddDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_S6_S6_S6_S6_S6_S6_S6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName, ptr noundef %lookDefinition, ptr noundef %colorSpaceName, ptr noundef %colorSpaceFamily, ptr noundef %colorSpaceDescription, ptr noundef %categories, ptr noundef %transformFilePath, ptr noundef %connectionColorSpaceName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %colorSpace = alloca %"class.std::shared_ptr.46", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.40", align 8
@@ -7965,7 +7965,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev10ColorSpaceELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers17RemoveDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev18DisplayViewHelpers17RemoveDisplayViewERSt10shared_ptrINS_6ConfigEEPKcS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %config, ptr noundef %displayName, ptr noundef %viewName) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.33", align 1
@@ -9203,7 +9203,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
@@ -9218,13 +9218,13 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -450,12 +450,12 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dissect_http2_pdu = private unnamed_addr constant [10 x ptr] [ptr @dissect_http2_header_flags.http2_data_flags, ptr @dissect_http2_header_flags.http2_hdr_flags, ptr @dissect_http2_header_flags.http2_unused_flags, ptr @dissect_http2_header_flags.http2_unused_flags, ptr @dissect_http2_header_flags.http2_settings_flags, ptr @dissect_http2_header_flags.http2_push_promise_flags, ptr @dissect_http2_header_flags.http2_ping_flags, ptr @dissect_http2_header_flags.http2_unused_flags, ptr @dissect_http2_header_flags.http2_unused_flags, ptr @dissect_http2_header_flags.http2_continuation_flags], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @http2_get_stream_id(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden noundef i32 @http2_get_stream_id(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @http2_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @http2_get_stream_id_le(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr @streamid_hash, align 8
   %5 = zext i32 %0 to i64
   %6 = inttoptr i64 %5 to ptr
@@ -526,7 +526,7 @@ is_http2_stream_contains.exit.thread:             ; preds = %.lr.ph, %is_http2_s
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @http2_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @http2_get_stream_id_ge(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr @streamid_hash, align 8
   %5 = zext i32 %0 to i64
   %6 = inttoptr i64 %5 to ptr
@@ -591,7 +591,7 @@ is_http2_stream_contains.exit.thread:             ; preds = %.lr.ph, %is_http2_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noalias noundef ptr @http2_get_header_value(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @http2_get_header_value(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   ret ptr null
 }
 
@@ -708,7 +708,7 @@ define internal fastcc void @dissect_http2_settings(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_http2_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define hidden i32 @dissect_http2_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1230,7 +1230,7 @@ dissect_http2_origin.exit:                        ; preds = %.lr.ph.i, %274
 
 dissect_http2_headers.exit:                       ; preds = %257, %253, %219, %210, %157, %152, %92, %297, %291, %dissect_http2_origin.exit, %dissect_http2_altsvc.exit, %223, %206, %dissect_http2_push_promise.exit, %167, %164, %161, %dissect_http2_data.exit
   %300 = load i32, ptr @http2_tap, align 4
-  call void @tap_queue_packet(i32 noundef %300, ptr noundef %1, ptr noundef nonnull %97) #6
+  call void @tap_queue_packet(i32 noundef %300, ptr noundef nonnull %1, ptr noundef nonnull %97) #6
   %301 = load i32, ptr @http2_follow_tap, align 4
   %302 = call i32 @have_tap_listener(i32 noundef %301) #6
   %.not170 = icmp eq i32 %302, 0
@@ -1244,7 +1244,7 @@ dissect_http2_headers.exit:                       ; preds = %257, %253, %219, %2
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i64 %306, ptr %307, align 8
   %308 = load i32, ptr @http2_follow_tap, align 4
-  call void @tap_queue_packet(i32 noundef %308, ptr noundef %1, ptr noundef nonnull %305) #6
+  call void @tap_queue_packet(i32 noundef %308, ptr noundef nonnull %1, ptr noundef nonnull %305) #6
   br label %309
 
 309:                                              ; preds = %303, %dissect_http2_headers.exit
@@ -1436,7 +1436,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #2
 declare void @register_follow_stream(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @http2_follow_conv_filter(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #1 {
+define internal noalias ptr @http2_follow_conv_filter(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %.thread [
@@ -1509,7 +1509,7 @@ declare ptr @tcp_follow_address_filter(ptr noundef, ptr noundef, i32 noundef, i3
 declare ptr @tcp_port_to_display(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @follow_http2_tap_listener(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #1 {
+define internal i32 @follow_http2_tap_listener(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load i64, ptr %6, align 8
   %.not = icmp eq i64 %7, -1
@@ -1534,7 +1534,7 @@ define internal i32 @follow_http2_tap_listener(ptr noundef %0, ptr noundef %1, p
 declare i32 @get_tcp_stream_count() #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @http2_get_sub_stream_id(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #1 {
+define internal range(i32 0, 2) i32 @http2_get_sub_stream_id(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) #1 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %5
 
@@ -1586,7 +1586,7 @@ declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_http2_heur_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal range(i32 0, 2) i32 @dissect_http2_heur_ssl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = tail call i32 @dissect_http2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef null)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6
@@ -1636,7 +1636,7 @@ define internal range(i32 0, 2) i32 @dissect_http2_heur(ptr noundef %0, ptr noun
 declare ptr @stats_tree_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @http2_stats_tree_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal noundef i32 @http2_stats_tree_packet(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #1 {
   %6 = tail call i32 @stats_tree_manip_node_int(i32 noundef 0, ptr noundef %0, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 0, i32 noundef 1) #6
   %7 = load i32, ptr @st_node_http2_type, align 4
   %8 = load i8, ptr %3, align 1
@@ -1675,7 +1675,7 @@ declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @adjust_window_size(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
+define internal fastcc void @adjust_window_size(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
   %7 = tail call ptr @get_tcp_conversation_data(ptr noundef null, ptr noundef %1) #6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 208
   %9 = load ptr, ptr %8, align 8
@@ -1825,7 +1825,7 @@ declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_http2_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @get_http2_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = tail call i32 @tvb_memeql(ptr noundef %1, i32 noundef %2, ptr noundef nonnull @kMagicHello, i64 noundef 24) #6
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %10, label %7
@@ -1859,10 +1859,10 @@ declare i32 @llvm.umax.i32(i32, i32) #4
 declare i32 @llvm.umin.i32(i32, i32) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

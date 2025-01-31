@@ -354,7 +354,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_addstring(ptr noundef %B, ptr nocapture noundef readonly %s) local_unnamed_addr #0 {
+define dso_local void @luaL_addstring(ptr noundef %B, ptr noundef readonly captures(none) %s) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #20
   %cmp.not.i = icmp eq i64 %call, 0
@@ -362,7 +362,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i = tail call fastcc ptr @prepbuffsize(ptr noundef %B, i64 noundef %call, i32 noundef -1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr readonly align 1 %s, i64 %call, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr nonnull readonly align 1 %s, i64 %call, i1 false)
   %n.i = getelementptr inbounds nuw i8, ptr %B, i64 16
   %0 = load i64, ptr %n.i, align 8
   %add.i = add i64 %0, %call
@@ -529,7 +529,7 @@ luaL_where.exit:                                  ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @pushglobalfuncname(ptr noundef %L, ptr noundef nonnull %ar) unnamed_addr #0 {
@@ -871,7 +871,7 @@ lor.end:                                          ; preds = %if.then2.i, %lor.rh
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @luaL_checkoption(ptr noundef %L, i32 noundef %arg, ptr noundef %def, ptr nocapture noundef readonly %lst) local_unnamed_addr #0 {
+define dso_local i32 @luaL_checkoption(ptr noundef %L, i32 noundef %arg, ptr noundef %def, ptr noundef readonly captures(none) %lst) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %def, null
   br i1 %tobool.not, label %cond.false, label %cond.true
@@ -1042,7 +1042,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local double @luaL_checknumber(ptr noundef %L, i32 noundef %arg) local_unnamed_addr #0 {
@@ -1287,7 +1287,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_addlstring(ptr noundef %B, ptr nocapture noundef readonly %s, i64 noundef %l) local_unnamed_addr #0 {
+define dso_local void @luaL_addlstring(ptr noundef %B, ptr noundef readonly captures(none) %s, i64 noundef %l) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %l, 0
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1306,7 +1306,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @lua_pushlstring(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1634,14 +1634,14 @@ return:                                           ; preds = %if.end56, %if.then5
 declare i32 @lua_gettop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare ptr @freopen64(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @lua_load(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal ptr @getF(ptr nocapture readnone %L, ptr noundef %ud, ptr nocapture noundef writeonly %size) #7 {
+define internal ptr @getF(ptr readnone captures(none) %L, ptr noundef %ud, ptr noundef writeonly captures(none) %size) #7 {
 entry:
   %0 = load i32, ptr %ud, align 8
   %cmp = icmp sgt i32 %0, 0
@@ -1677,10 +1677,10 @@ return:                                           ; preds = %if.else, %if.end6
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @luaL_loadbufferx(ptr noundef %L, ptr noundef %buff, i64 noundef %size, ptr noundef %name, ptr noundef %mode) local_unnamed_addr #0 {
@@ -1694,7 +1694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @getS(ptr nocapture readnone %L, ptr nocapture noundef %ud, ptr nocapture noundef writeonly %size) #9 {
+define internal ptr @getS(ptr readnone captures(none) %L, ptr noundef captures(none) %ud, ptr noundef writeonly captures(none) %size) #9 {
 entry:
   %size1 = getelementptr inbounds nuw i8, ptr %ud, i64 8
   %0 = load i64, ptr %size1, align 8
@@ -1721,7 +1721,7 @@ entry:
   store ptr %s, ptr %ls.i, align 8
   %size1.i = getelementptr inbounds nuw i8, ptr %ls.i, i64 8
   store i64 %call, ptr %size1.i, align 8
-  %call.i = call i32 @lua_load(ptr noundef %L, ptr noundef nonnull @getS, ptr noundef nonnull %ls.i, ptr noundef %s, ptr noundef null) #19
+  %call.i = call i32 @lua_load(ptr noundef %L, ptr noundef nonnull @getS, ptr noundef nonnull %ls.i, ptr noundef nonnull %s, ptr noundef null) #19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ls.i)
   ret i32 %call.i
 }
@@ -1896,7 +1896,7 @@ declare i32 @lua_toboolean(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @lua_topointer(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_setfuncs(ptr noundef %L, ptr nocapture noundef readonly %l, i32 noundef %nup) local_unnamed_addr #0 {
+define dso_local void @luaL_setfuncs(ptr noundef %L, ptr noundef readonly captures(none) %l, i32 noundef %nup) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @lua_checkstack(ptr noundef %L, i32 noundef %nup) #19
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -2047,7 +2047,7 @@ if.end6:                                          ; preds = %if.then5, %if.end
 declare void @lua_setglobal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_addgsub(ptr noundef %b, ptr noundef %s, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define dso_local void @luaL_addgsub(ptr noundef %b, ptr noundef %s, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %r) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %p) #20
   %call116 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %s, ptr noundef nonnull dereferenceable(1) %p) #20
@@ -2069,7 +2069,7 @@ if.then.i:                                        ; preds = %while.body
   %sub.ptr.lhs.cast = ptrtoint ptr %call119 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %call.i = tail call fastcc ptr @prepbuffsize(ptr noundef %b, i64 noundef %sub.ptr.sub, i32 noundef -1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr readonly align 1 %s.addr.018, i64 %sub.ptr.sub, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i, ptr nonnull readonly align 1 %s.addr.018, i64 %sub.ptr.sub, i1 false)
   %0 = load i64, ptr %n.i, align 8
   %add.i = add i64 %0, %sub.ptr.sub
   store i64 %add.i, ptr %n.i, align 8
@@ -2082,7 +2082,7 @@ luaL_addlstring.exit:                             ; preds = %while.body, %if.the
 
 if.then.i.i:                                      ; preds = %luaL_addlstring.exit
   %call.i.i = tail call fastcc ptr @prepbuffsize(ptr noundef %b, i64 noundef %call.i8, i32 noundef -1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr readonly align 1 %r, i64 %call.i8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i, ptr nonnull readonly align 1 %r, i64 %call.i8, i1 false)
   %1 = load i64, ptr %n.i, align 8
   %add.i.i = add i64 %1, %call.i8
   store i64 %add.i.i, ptr %n.i, align 8
@@ -2102,7 +2102,7 @@ while.end:                                        ; preds = %luaL_addstring.exit
 
 if.then.i.i11:                                    ; preds = %while.end
   %call.i.i12 = tail call fastcc ptr @prepbuffsize(ptr noundef %b, i64 noundef %call.i9, i32 noundef -1)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i12, ptr readonly align 1 %s.addr.0.lcssa, i64 %call.i9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call.i.i12, ptr nonnull readonly align 1 %s.addr.0.lcssa, i64 %call.i9, i1 false)
   %n.i.i13 = getelementptr inbounds nuw i8, ptr %b, i64 16
   %2 = load i64, ptr %n.i.i13, align 8
   %add.i.i14 = add i64 %2, %call.i9
@@ -2114,10 +2114,10 @@ luaL_addstring.exit15:                            ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @luaL_gsub(ptr noundef %L, ptr noundef %s, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %r) local_unnamed_addr #0 {
+define dso_local ptr @luaL_gsub(ptr noundef %L, ptr noundef %s, ptr noundef readonly captures(none) %p, ptr noundef readonly captures(none) %r) local_unnamed_addr #0 {
 entry:
   %b = alloca %struct.luaL_Buffer, align 8
   %L1.i = getelementptr inbounds nuw i8, ptr %b, i64 24
@@ -2168,7 +2168,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @lua_newstate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal noalias noundef ptr @l_alloc(ptr nocapture readnone %ud, ptr nocapture noundef %ptr, i64 %osize, i64 noundef %nsize) #10 {
+define internal noalias noundef ptr @l_alloc(ptr readnone captures(none) %ud, ptr noundef captures(none) %ptr, i64 %osize, i64 noundef %nsize) #10 {
 entry:
   %cmp = icmp eq i64 %nsize, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -2204,7 +2204,7 @@ entry:
 declare void @lua_setwarnf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @warnfoff(ptr noundef %ud, ptr nocapture noundef readonly %message, i32 noundef %tocont) #0 {
+define internal void @warnfoff(ptr noundef %ud, ptr noundef readonly captures(none) %message, i32 noundef %tocont) #0 {
 entry:
   %tobool.not.i = icmp eq i32 %tocont, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %checkcontrol.exit
@@ -2360,28 +2360,28 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @warnfon(ptr noundef %ud, ptr nocapture noundef readonly %message, i32 noundef %tocont) #0 {
+define internal void @warnfon(ptr noundef %ud, ptr noundef readonly captures(none) %message, i32 noundef %tocont) #0 {
 entry:
   %tobool.not.i = icmp eq i32 %tocont, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.end
@@ -2432,7 +2432,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal void @warnfcont(ptr noundef %ud, ptr nocapture noundef readonly %message, i32 noundef %tocont) #11 {
+define internal void @warnfcont(ptr noundef %ud, ptr noundef readonly captures(none) %message, i32 noundef %tocont) #11 {
 entry:
   %0 = load ptr, ptr @stderr, align 8
   %fputs = tail call i32 @fputs(ptr %message, ptr %0) #23
@@ -2461,25 +2461,25 @@ declare void @llvm.va_start.p0(ptr) #14
 declare void @llvm.va_end.p0(ptr) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

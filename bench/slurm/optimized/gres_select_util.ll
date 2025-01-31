@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.gres_select_util_job_min_tasks = private unnamed_addr constant [31 x i8] c"gres_select_util_job_min_tasks\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define void @gres_select_util_job_set_defs(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %83, label %8
 
@@ -473,7 +473,7 @@ define range(i32 0, -2147483648) i32 @gres_select_util_job_min_tasks(i32 noundef
 declare i32 @slurm_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @gres_select_util_job_mem_set(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %62, label %4

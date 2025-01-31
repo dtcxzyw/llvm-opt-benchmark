@@ -163,10 +163,10 @@ define dso_local noundef range(i32 -12, 1) i32 @intel_root_gt_init_early(ptr nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @intel_gt_assign_ggtt(ptr noundef initializes((32, 40)) %0) local_unnamed_addr #0 align 16 {
@@ -469,7 +469,7 @@ declare dso_local void @intel_mocs_init(ptr noundef) local_unnamed_addr #1
 declare dso_local void @intel_uncore_forcewake_put(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local range(i32 0, 1278377) i32 @intel_gt_perf_limit_reasons_reg(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 1278377) i32 @intel_gt_perf_limit_reasons_reg(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7176
   %4 = load i8, ptr %3, align 8
@@ -903,7 +903,7 @@ define dso_local void @intel_gt_check_and_clear_faults(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_flush_ggtt_writes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_flush_ggtt_writes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !10
@@ -955,7 +955,7 @@ define dso_local void @intel_gt_flush_ggtt_writes(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_chipset_flush(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_chipset_flush(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !11
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7176
@@ -1810,7 +1810,7 @@ declare dso_local void @intel_gt_fini_buffer_pool(ptr noundef) local_unnamed_add
 declare dso_local void @intel_gt_fini_hwconfig(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_driver_late_release_all(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_driver_late_release_all(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   tail call void @rcu_barrier() #7
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9304
   br label %3
@@ -2108,7 +2108,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 declare dso_local void @__i915_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -18, -19) i32 @intel_gt_tiles_init(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -18, -19) i32 @intel_gt_tiles_init(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9304
   br label %.backedge
 
@@ -2195,7 +2195,7 @@ declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local void @intel_sseu_dump(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @intel_gt_coherent_map_type(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @intel_gt_coherent_map_type(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = tail call zeroext i1 @i915_gem_object_is_lmem(ptr noundef %1) #7
   br i1 %4, label %30, label %5
 
@@ -2239,7 +2239,7 @@ define dso_local range(i32 0, 2) i32 @intel_gt_coherent_map_type(ptr nocapture n
 declare dso_local zeroext i1 @i915_gem_object_is_lmem(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @intel_gt_needs_wa_22016122933(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local zeroext i1 @intel_gt_needs_wa_22016122933(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7179
   %4 = load i8, ptr %3, align 1
@@ -2264,7 +2264,7 @@ define dso_local zeroext i1 @intel_gt_needs_wa_22016122933(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @intel_gt_bind_context_set_ready(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local void @intel_gt_bind_context_set_ready(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr i8, ptr %0, i64 4048
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2286,7 +2286,7 @@ define dso_local void @intel_gt_bind_context_set_ready(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @intel_gt_bind_context_set_unready(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local void @intel_gt_bind_context_set_unready(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr i8, ptr %0, i64 4048
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2308,7 +2308,7 @@ define dso_local void @intel_gt_bind_context_set_unready(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @intel_gt_is_bind_context_ready(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local noundef zeroext i1 @intel_gt_is_bind_context_ready(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr i8, ptr %0, i64 4048
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2329,7 +2329,7 @@ define dso_local noundef zeroext i1 @intel_gt_is_bind_context_ready(ptr nocaptur
 declare dso_local noalias ptr @drmm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #1 section ".spinlock.text"

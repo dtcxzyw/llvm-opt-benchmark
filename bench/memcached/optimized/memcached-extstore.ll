@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.extstore_err = private unnamed_addr constant [7 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extstore_get_stats(ptr noundef %ptr, ptr nocapture noundef initializes((0, 144)) %st) local_unnamed_addr #0 {
+define dso_local void @extstore_get_stats(ptr noundef %ptr, ptr noundef captures(none) initializes((0, 144)) %st) local_unnamed_addr #0 {
 entry:
   %stats_mutex = getelementptr inbounds nuw i8, ptr %ptr, i64 144
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats_mutex) #12
@@ -98,13 +98,13 @@ for.end:                                          ; preds = %for.body, %entry
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extstore_get_page_data(ptr noundef %ptr, ptr nocapture noundef readonly %st) local_unnamed_addr #0 {
+define dso_local void @extstore_get_page_data(ptr noundef %ptr, ptr noundef readonly captures(none) %st) local_unnamed_addr #0 {
 entry:
   %stats_mutex = getelementptr inbounds nuw i8, ptr %ptr, i64 144
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %stats_mutex) #12
@@ -140,7 +140,7 @@ sw.epilog:                                        ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @extstore_init(ptr noundef %fh, ptr nocapture noundef readonly %cf, ptr nocapture noundef writeonly %res) local_unnamed_addr #0 {
+define dso_local noundef ptr @extstore_init(ptr noundef %fh, ptr noundef readonly captures(none) %cf, ptr noundef writeonly captures(none) %res) local_unnamed_addr #0 {
 entry:
   %thread = alloca i64, align 8
   %lock = alloca %struct.flock, align 8
@@ -547,10 +547,10 @@ return:                                           ; preds = %for.end211, %if.the
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #5
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #7
 
@@ -1244,7 +1244,7 @@ if.end107:                                        ; preds = %if.end, %if.end104,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extstore_run_maint(ptr nocapture noundef readonly %ptr) local_unnamed_addr #0 {
+define dso_local void @extstore_run_maint(ptr noundef readonly captures(none) %ptr) local_unnamed_addr #0 {
 entry:
   %maint_thread = getelementptr inbounds nuw i8, ptr %ptr, i64 72
   %0 = load ptr, ptr %maint_thread, align 8
@@ -1257,7 +1257,7 @@ entry:
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @extstore_write_request(ptr noundef %ptr, i32 noundef %bucket, i32 noundef %free_bucket, ptr nocapture noundef %io) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extstore_write_request(ptr noundef %ptr, i32 noundef %bucket, i32 noundef %free_bucket, ptr noundef captures(none) %io) local_unnamed_addr #0 {
 entry:
   %page_bucketcount = getelementptr inbounds nuw i8, ptr %ptr, i64 132
   %0 = load i32, ptr %page_bucketcount, align 4
@@ -1554,7 +1554,7 @@ return:                                           ; preds = %if.end3, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_submit_wbuf(ptr noundef %e, ptr nocapture noundef nonnull readonly %p) unnamed_addr #0 {
+define internal fastcc void @_submit_wbuf(ptr noundef %e, ptr noundef nonnull readonly captures(none) %p) unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef %e) #12
   %io_stack = getelementptr inbounds nuw i8, ptr %e, i64 56
@@ -1601,7 +1601,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_allocate_wbuf(ptr noundef %e, ptr nocapture noundef nonnull %p) unnamed_addr #0 {
+define internal fastcc void @_allocate_wbuf(ptr noundef %e, ptr noundef nonnull captures(none) %p) unnamed_addr #0 {
 entry:
   %call = tail call i32 @pthread_mutex_lock(ptr noundef %e) #12
   %wbuf_stack = getelementptr inbounds nuw i8, ptr %e, i64 48
@@ -1646,7 +1646,7 @@ if.end11:                                         ; preds = %if.end.thread, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extstore_write(ptr noundef %ptr, ptr nocapture noundef initializes((36, 40), (44, 48)) %io) local_unnamed_addr #0 {
+define dso_local void @extstore_write(ptr noundef %ptr, ptr noundef captures(none) initializes((36, 40), (44, 48)) %io) local_unnamed_addr #0 {
 entry:
   %pages = getelementptr inbounds nuw i8, ptr %ptr, i64 40
   %0 = load ptr, ptr %pages, align 8
@@ -1872,7 +1872,7 @@ if.end34:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @extstore_check(ptr nocapture noundef readonly %ptr, i32 noundef %page_id, i64 noundef %page_version) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @extstore_check(ptr noundef readonly captures(none) %ptr, i32 noundef %page_id, i64 noundef %page_version) local_unnamed_addr #0 {
 entry:
   %pages = getelementptr inbounds nuw i8, ptr %ptr, i64 40
   %0 = load ptr, ptr %pages, align 8
@@ -1889,7 +1889,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extstore_close_page(ptr nocapture noundef readonly %ptr, i32 noundef %page_id, i64 noundef %page_version) local_unnamed_addr #0 {
+define dso_local void @extstore_close_page(ptr noundef readonly captures(none) %ptr, i32 noundef %page_id, i64 noundef %page_version) local_unnamed_addr #0 {
 entry:
   %pages = getelementptr inbounds nuw i8, ptr %ptr, i64 40
   %0 = load ptr, ptr %pages, align 8
@@ -1925,7 +1925,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare i32 @pthread_setname_np(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
 define internal void @_wbuf_cb(ptr noundef %ep, ptr noundef initializes((8, 16)) %io, i32 %ret) #0 {
@@ -1978,12 +1978,12 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare i64 @preadv(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare noundef i64 @pwrite(i32 noundef, ptr nocapture noundef readonly, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10

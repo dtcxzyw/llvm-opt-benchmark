@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.compare_special_version_forms.special_forms = private unnamed_addr constant [11 x %struct.special_forms_t] [%struct.special_forms_t { ptr @.str.16, i32 0 }, %struct.special_forms_t { ptr @.str.17, i32 1 }, %struct.special_forms_t { ptr @.str.18, i32 1 }, %struct.special_forms_t { ptr @.str.19, i32 2 }, %struct.special_forms_t { ptr @.str.20, i32 2 }, %struct.special_forms_t { ptr @.str.21, i32 3 }, %struct.special_forms_t { ptr @.str.22, i32 3 }, %struct.special_forms_t { ptr @.str.23, i32 4 }, %struct.special_forms_t { ptr @.str.24, i32 5 }, %struct.special_forms_t { ptr @.str.25, i32 5 }, %struct.special_forms_t zeroinitializer], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noalias ptr @php_canonicalize_version(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #7
   %3 = tail call noalias ptr @_safe_emalloc(i64 noundef %2, i64 noundef 2, i64 noundef 1) #8
   %4 = icmp eq i64 %2, 0
@@ -157,7 +157,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -270,8 +270,8 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   br i1 %.not81, label %.preheader124, label %46
 
 46:                                               ; preds = %45
-  %47 = tail call i64 @strtol(ptr nocapture noundef nonnull %.062140183, ptr noundef null, i32 noundef 10) #8
-  %48 = tail call i64 @strtol(ptr nocapture noundef nonnull %.060143182, ptr noundef null, i32 noundef 10) #8
+  %47 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.062140183, ptr noundef null, i32 noundef 10) #8
+  %48 = tail call i64 @strtol(ptr noundef nonnull captures(none) %.060143182, ptr noundef null, i32 noundef 10) #8
   %.not83 = icmp eq i64 %47, %48
   br i1 %.not83, label %.thread107, label %.critedge.thread118.loopexit.split.loop.exit
 
@@ -503,12 +503,12 @@ declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_version_compare(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -739,12 +739,12 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #6

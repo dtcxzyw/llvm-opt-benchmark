@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef %w, i32 noundef %n, ptr nocapture noundef readonly %trans, i32 noundef %scheduling_mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN4absl13base_internal12SpinLockWaitEPSt6atomicIjEiPKNS0_22SpinLockWaitTransitionENS0_14SchedulingModeE(ptr noundef %w, i32 noundef %n, ptr noundef readonly captures(none) %trans, i32 noundef %scheduling_mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not47 = icmp eq i32 %n, 0
   br i1 %cmp.not47, label %for.cond.us, label %for.cond.preheader

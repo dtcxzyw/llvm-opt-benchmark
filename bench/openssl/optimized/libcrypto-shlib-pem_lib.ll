@@ -97,10 +97,10 @@ return:                                           ; preds = %if.end15, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @EVP_get_pw_prompt() local_unnamed_addr #3
 
@@ -113,7 +113,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define void @PEM_proc_type(ptr noundef %buf, i32 noundef %type) local_unnamed_addr #0 {
@@ -138,21 +138,21 @@ if.end8:                                          ; preds = %entry, %if.then2, %
   %str.0 = phi ptr [ @.str.3, %if.then2 ], [ @.str.4, %if.then5 ], [ @.str.5, %if.else6 ], [ @.str.2, %entry ]
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %call
   %sub = sub i64 1024, %call
-  %call9 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.6, ptr noundef nonnull %str.0) #10
+  %call9 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.6, ptr noundef nonnull %str.0) #10
   ret void
 }
 
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @PEM_dek_info(ptr noundef %buf, ptr noundef %type, i32 noundef %len, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define void @PEM_dek_info(ptr noundef %buf, ptr noundef %type, i32 noundef %len, ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buf) #9
   %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %call
   %0 = trunc i64 %call to i32
   %conv = sub i32 1024, %0
   %conv1 = sext i32 %conv to i64
-  %call2 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %add.ptr, i64 noundef %conv1, ptr noundef nonnull @.str.7, ptr noundef %type) #10
+  %call2 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %conv1, ptr noundef nonnull @.str.7, ptr noundef %type) #10
   %cmp = icmp sgt i32 %call2, 0
   br i1 %cmp, label %if.then, label %if.end23
 
@@ -234,14 +234,14 @@ declare ptr @PEM_ASN1_read_bio(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr nocapture noundef writeonly %pdata, ptr nocapture noundef writeonly %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_bytes_read_bio(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @pem_bytes_read_bio_flags(ptr noundef %pdata, ptr noundef %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pem_bytes_read_bio_flags(ptr nocapture noundef writeonly %pdata, ptr nocapture noundef writeonly %plen, ptr noundef writeonly %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef range(i32 2, 4) %flags) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pem_bytes_read_bio_flags(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef writeonly %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef range(i32 2, 4) %flags) unnamed_addr #0 {
 entry:
   %e.i = alloca ptr, align 8
   %cipher = alloca %struct.evp_cipher_info_st, align 8
@@ -536,12 +536,12 @@ pem_free.exit36.thread:                           ; preds = %err
   br label %return
 
 if.then.i33:                                      ; preds = %if.then20
-  call void @CRYPTO_secure_clear_free(ptr noundef %7, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 278) #10
+  call void @CRYPTO_secure_clear_free(ptr noundef nonnull %7, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 278) #10
   call void @CRYPTO_secure_clear_free(ptr noundef %13, i64 noundef 0, ptr noundef nonnull @.str.1, i32 noundef 279) #10
   br i1 %tobool1850, label %if.then.i39, label %return
 
 pem_free.exit36:                                  ; preds = %if.then20
-  call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 278) #10
+  call void @CRYPTO_free(ptr noundef nonnull %7, ptr noundef nonnull @.str.1, i32 noundef 278) #10
   call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str.1, i32 noundef 279) #10
   br i1 %tobool1850, label %if.else.i41, label %return
 
@@ -562,14 +562,14 @@ return:                                           ; preds = %if.then.i33.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_bytes_read_bio_secmem(ptr nocapture noundef writeonly %pdata, ptr nocapture noundef writeonly %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_bytes_read_bio_secmem(ptr noundef writeonly captures(none) %pdata, ptr noundef writeonly captures(none) %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @pem_bytes_read_bio_flags(ptr noundef %pdata, ptr noundef %plen, ptr noundef %pnm, ptr noundef %name, ptr noundef %bp, ptr noundef %cb, ptr noundef %u, i32 noundef 3)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_ASN1_write(ptr nocapture noundef readonly %i2d, ptr noundef %name, ptr noundef %fp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %callback, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_ASN1_write(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %fp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef %callback, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #10
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #10
@@ -594,7 +594,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr nocapture noundef readonly %i2d, ptr noundef %name, ptr noundef %bp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef readonly %callback, ptr noundef %u) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_ASN1_write_bio(ptr noundef readonly captures(none) %i2d, ptr noundef %name, ptr noundef %bp, ptr noundef %x, ptr noundef %enc, ptr noundef %kstr, i32 noundef %klen, ptr noundef readonly %callback, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %i = alloca i32, align 4
   %j = alloca i32, align 4
@@ -863,7 +863,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp4.not, label %lor.lhs.false, label %if.then84
 
 lor.lhs.false:                                    ; preds = %if.end
-  %call6 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef %name, i32 noundef %conv) #10
+  %call6 = tail call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %name, i32 noundef %conv) #10
   %cmp7.not = icmp eq i32 %call6, %conv
   br i1 %cmp7.not, label %lor.lhs.false9, label %if.then84
 
@@ -951,7 +951,7 @@ if.end64:                                         ; preds = %land.lhs.true59, %w
   br i1 %cmp66.not, label %lor.lhs.false68, label %if.then84
 
 lor.lhs.false68:                                  ; preds = %if.end64
-  %call69 = call i32 @BIO_write(ptr noundef %bp, ptr noundef %name, i32 noundef %conv) #10
+  %call69 = call i32 @BIO_write(ptr noundef %bp, ptr noundef nonnull %name, i32 noundef %conv) #10
   %cmp70.not = icmp eq i32 %call69, %conv
   br i1 %cmp70.not, label %lor.lhs.false72, label %if.then84
 
@@ -986,7 +986,7 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #3
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @PEM_do_header(ptr noundef %cipher, ptr noundef %data, ptr nocapture noundef %plen, ptr noundef readonly %callback, ptr noundef %u) local_unnamed_addr #0 {
+define i32 @PEM_do_header(ptr noundef %cipher, ptr noundef %data, ptr noundef captures(none) %plen, ptr noundef readonly %callback, ptr noundef %u) local_unnamed_addr #0 {
 entry:
   %ilen = alloca i32, align 4
   %key = alloca [64 x i8], align 16
@@ -1097,7 +1097,7 @@ declare i32 @EVP_DecryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @EVP_DecryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %header, ptr nocapture noundef initializes((0, 24)) %cipher) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %header, ptr noundef captures(none) initializes((0, 24)) %cipher) local_unnamed_addr #0 {
 entry:
   %header.addr = alloca ptr, align 8
   %iv = getelementptr inbounds nuw i8, ptr %cipher, i64 8
@@ -1249,18 +1249,18 @@ return:                                           ; preds = %if.end82, %cond.tru
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @EVP_get_cipherbyname(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @load_iv(ptr nocapture noundef nonnull %fromp, ptr nocapture noundef %to, i32 noundef %num) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @load_iv(ptr noundef nonnull captures(none) %fromp, ptr noundef captures(none) %to, i32 noundef %num) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %fromp, align 8
   %cmp16 = icmp sgt i32 %num, 0
@@ -1352,7 +1352,7 @@ declare void @EVP_EncodeFinal(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @EVP_ENCODE_CTX_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_read(ptr noundef %fp, ptr nocapture noundef writeonly %name, ptr nocapture noundef %header, ptr nocapture noundef %data, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_read(ptr noundef %fp, ptr noundef writeonly captures(none) %name, ptr noundef captures(none) %header, ptr noundef captures(none) %data, ptr noundef writeonly captures(none) %len) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @BIO_s_file() #10
   %call1 = tail call ptr @BIO_new(ptr noundef %call) #10
@@ -1377,14 +1377,14 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %bp, ptr nocapture noundef writeonly initializes((0, 8)) %name, ptr nocapture noundef initializes((0, 8)) %header, ptr nocapture noundef initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 8)) %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %bp, ptr noundef writeonly captures(none) initializes((0, 8)) %name, ptr noundef captures(none) initializes((0, 8)) %header, ptr noundef captures(none) initializes((0, 8)) %data, ptr noundef writeonly captures(none) initializes((0, 8)) %len) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PEM_read_bio_ex(ptr noundef %bp, ptr noundef %name, ptr noundef %header, ptr noundef %data, ptr noundef %len, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_read_bio_ex(ptr noundef %bp, ptr nocapture noundef writeonly initializes((0, 8)) %name_out, ptr nocapture noundef initializes((0, 8)) %header, ptr nocapture noundef initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 8)) %len_out, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_read_bio_ex(ptr noundef %bp, ptr noundef writeonly captures(none) initializes((0, 8)) %name_out, ptr noundef captures(none) initializes((0, 8)) %header, ptr noundef captures(none) initializes((0, 8)) %data, ptr noundef writeonly captures(none) initializes((0, 8)) %len_out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   %taillen = alloca i32, align 4
@@ -2110,7 +2110,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @ossl_pem_check_suffix(ptr noundef %pem_str, ptr nocapture noundef readonly %suffix) local_unnamed_addr #5 {
+define noundef i32 @ossl_pem_check_suffix(ptr noundef %pem_str, ptr noundef readonly captures(none) %suffix) local_unnamed_addr #5 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pem_str) #9
   %conv = trunc i64 %call to i32
@@ -2151,7 +2151,7 @@ return:                                           ; preds = %if.end8, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i64 @ERR_peek_error() local_unnamed_addr #3
 
@@ -2166,7 +2166,7 @@ declare i32 @OPENSSL_hexchar2int(i8 noundef zeroext) local_unnamed_addr #3
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @ossl_ctype_check(i32 noundef, i32 noundef) local_unnamed_addr #3
 
@@ -2185,16 +2185,16 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

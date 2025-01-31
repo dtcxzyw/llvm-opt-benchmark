@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @jZAGTable = external local_unnamed_addr constant [0 x i32], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [257 x i8], align 16
   %6 = alloca [257 x i32], align 16
   %or.cond = icmp ugt i32 %2, 3
@@ -256,10 +256,10 @@ define hidden void @jMkCDerived(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((2048, 2056)) %2) local_unnamed_addr #0 {
+define hidden void @jGenOptTbl(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) initializes((2048, 2056)) %2) local_unnamed_addr #0 {
   %4 = alloca [33 x i8], align 16
   %5 = alloca [257 x i32], align 16
   %6 = alloca [257 x i32], align 16
@@ -536,7 +536,7 @@ define hidden void @jGenOptTbl(ptr noundef %0, ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden void @jIHEncoder(ptr noundef %0) local_unnamed_addr #0 {
@@ -726,7 +726,7 @@ define internal void @start_pass_huff(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_gather(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -1047,7 +1047,7 @@ define internal void @finish_pass_gather(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @encode_mcu_huff(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca %struct.working_state, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %5 = load ptr, ptr %4, align 8

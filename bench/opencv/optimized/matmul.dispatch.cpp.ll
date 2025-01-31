@@ -792,7 +792,7 @@ define hidden noundef ptr @_ZN2cv12cpu_baseline16getTransformFuncEi(i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL12transform_8uEPKhPhPKfiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL12transform_8uEPKhPhPKfiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = icmp eq i32 %4, 2
   %8 = icmp eq i32 %5, 2
   %or.cond.i = and i1 %7, %8
@@ -1206,7 +1206,7 @@ _ZN2cv12cpu_baselineL10transform_IhfEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL12transform_8sEPKaPaPKfiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL12transform_8sEPKaPaPKfiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = icmp eq i32 %4, 2
   %8 = icmp eq i32 %5, 2
   %or.cond.i = and i1 %7, %8
@@ -1620,7 +1620,7 @@ _ZN2cv12cpu_baselineL10transform_IafEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13transform_16uEPKtPtPKfiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL13transform_16uEPKtPtPKfiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = icmp eq i32 %4, 2
   %8 = icmp eq i32 %5, 2
   %or.cond.i = and i1 %7, %8
@@ -2034,7 +2034,7 @@ _ZN2cv12cpu_baselineL10transform_ItfEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13transform_16sEPKsPsPKfiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL13transform_16sEPKsPsPKfiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = icmp eq i32 %4, 2
   %8 = icmp eq i32 %5, 2
   %or.cond.i = and i1 %7, %8
@@ -2448,7 +2448,7 @@ _ZN2cv12cpu_baselineL10transform_IsfEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13transform_32sEPKiPiPKdiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL13transform_32sEPKiPiPKdiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = icmp eq i32 %4, 2
   %8 = icmp eq i32 %5, 2
   %or.cond.i = and i1 %7, %8
@@ -2826,7 +2826,7 @@ _ZN2cv12cpu_baselineL10transform_IidEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13transform_32fEPKfPfS2_iii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cv12cpu_baselineL13transform_32fEPKfPfS2_iii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %4, 2
   %8 = icmp eq i32 %5, 2
   %or.cond.i = and i1 %7, %8
@@ -3167,7 +3167,7 @@ _ZN2cv12cpu_baselineL10transform_IffEEvPKT_PS2_PKT0_iii.exit: ; preds = %._crit_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13transform_64fEPKdPdS2_iii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cv12cpu_baselineL13transform_64fEPKdPdS2_iii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %4, 2
   %8 = icmp eq i32 %5, 2
   %or.cond.i = and i1 %7, %8
@@ -3516,7 +3516,7 @@ define hidden noundef ptr @_ZN2cv12cpu_baseline20getDiagTransformFuncEi(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL16diagtransform_8uEPKhPhPKfiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL16diagtransform_8uEPKhPhPKfiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
   %7 = icmp sgt i32 %3, 0
   switch i32 %4, label %.preheader100.i [
     i32 2, label %.preheader101.i
@@ -3757,7 +3757,7 @@ _ZN2cv12cpu_baselineL14diagtransform_IhfEEvPKT_PS2_PKT0_iii.exit: ; preds = %117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL16diagtransform_8sEPKaPaPKfiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL16diagtransform_8sEPKaPaPKfiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
   %7 = icmp sgt i32 %3, 0
   switch i32 %4, label %.preheader100.i [
     i32 2, label %.preheader101.i
@@ -3998,7 +3998,7 @@ _ZN2cv12cpu_baselineL14diagtransform_IafEEvPKT_PS2_PKT0_iii.exit: ; preds = %117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL17diagtransform_16uEPKtPtPKfiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL17diagtransform_16uEPKtPtPKfiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
   %7 = icmp sgt i32 %3, 0
   switch i32 %4, label %.preheader100.i [
     i32 2, label %.preheader101.i
@@ -4239,7 +4239,7 @@ _ZN2cv12cpu_baselineL14diagtransform_ItfEEvPKT_PS2_PKT0_iii.exit: ; preds = %117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL17diagtransform_16sEPKsPsPKfiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL17diagtransform_16sEPKsPsPKfiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
   %7 = icmp sgt i32 %3, 0
   switch i32 %4, label %.preheader100.i [
     i32 2, label %.preheader101.i
@@ -4480,7 +4480,7 @@ _ZN2cv12cpu_baselineL14diagtransform_IsfEEvPKT_PS2_PKT0_iii.exit: ; preds = %117
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL17diagtransform_32sEPKiPiPKdiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
+define internal void @_ZN2cv12cpu_baselineL17diagtransform_32sEPKiPiPKdiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #6 {
   %7 = icmp sgt i32 %3, 0
   switch i32 %4, label %.preheader100.i [
     i32 2, label %.preheader101.i
@@ -4691,7 +4691,7 @@ _ZN2cv12cpu_baselineL14diagtransform_IidEEvPKT_PS2_PKT0_iii.exit: ; preds = %99,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL17diagtransform_32fEPKfPfS2_iii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 %5) #7 {
+define internal void @_ZN2cv12cpu_baselineL17diagtransform_32fEPKfPfS2_iii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #7 {
   %7 = icmp sgt i32 %3, 0
   switch i32 %4, label %.preheader100.i [
     i32 2, label %.preheader101.i
@@ -4872,7 +4872,7 @@ _ZN2cv12cpu_baselineL14diagtransform_IffEEvPKT_PS2_PKT0_iii.exit: ; preds = %81,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL17diagtransform_64fEPKdPdS2_iii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 %5) #7 {
+define internal void @_ZN2cv12cpu_baselineL17diagtransform_64fEPKdPdS2_iii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 %5) #7 {
   %7 = icmp sgt i32 %3, 0
   switch i32 %4, label %.preheader100.i [
     i32 2, label %.preheader101.i
@@ -5098,7 +5098,7 @@ define hidden noundef nonnull ptr @_ZN2cv12cpu_baseline23getPerspectiveTransform
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL24perspectiveTransform_32fEPKfPfPKdiii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cv12cpu_baselineL24perspectiveTransform_32fEPKfPfPKdiii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %4, 2
   %8 = icmp eq i32 %5, 2
   %or.cond.i = and i1 %7, %8
@@ -5477,7 +5477,7 @@ _ZN2cv12cpu_baselineL21perspectiveTransform_IfEEvPKT_PS2_PKdiii.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL24perspectiveTransform_64fEPKdPdS2_iii(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cv12cpu_baselineL24perspectiveTransform_64fEPKdPdS2_iii(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %4, 2
   %8 = icmp eq i32 %5, 2
   %or.cond.i = and i1 %7, %8
@@ -5896,7 +5896,7 @@ define hidden noundef nonnull ptr @_ZN2cv12cpu_baseline15getScaleAddFuncEi(i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL12scaleAdd_32fEPKfS2_PfiS3_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #7 {
+define internal void @_ZN2cv12cpu_baselineL12scaleAdd_32fEPKfS2_PfiS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #7 {
   %6 = load float, ptr %4, align 4
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -5923,7 +5923,7 @@ define internal void @_ZN2cv12cpu_baselineL12scaleAdd_32fEPKfS2_PfiS3_(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL12scaleAdd_64fEPKdS2_PdiS3_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #7 {
+define internal void @_ZN2cv12cpu_baselineL12scaleAdd_64fEPKdS2_PdiS3_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #7 {
   %6 = load double, ptr %4, align 8
   %7 = icmp sgt i32 %3, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
@@ -5995,7 +5995,7 @@ define hidden noundef nonnull ptr @_ZN2cv12cpu_baseline22getMahalanobisImplFuncE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN2cv12cpu_baselineL15MahalanobisImplIfEEdRKNS_3MatES4_S4_Pdi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef %3, i32 noundef %4) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN2cv12cpu_baselineL15MahalanobisImplIfEEdRKNS_3MatES4_S4_Pdi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef captures(none) %3, i32 noundef %4) #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12cpu_baselineL15MahalanobisImplIfEEdRKNS_3MatES4_S4_PdiE26__cv_trace_location_fn1986)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6139,7 +6139,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge72, %65
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN2cv12cpu_baselineL15MahalanobisImplIdEEdRKNS_3MatES4_S4_Pdi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, ptr nocapture noundef %3, i32 noundef %4) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN2cv12cpu_baselineL15MahalanobisImplIdEEdRKNS_3MatES4_S4_Pdi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, ptr noundef captures(none) %3, i32 noundef %4) #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12cpu_baselineL15MahalanobisImplIdEEdRKNS_3MatES4_S4_PdiE26__cv_trace_location_fn1986)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -6393,7 +6393,7 @@ select.unfold:                                    ; preds = %27, %8, %11, %14, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIhfEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIhfEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::AutoBuffer.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -6940,7 +6940,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit266:         ; preds = %225, %223
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIhfEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIhfEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 {
   %5 = alloca [4 x float], align 16
   %6 = alloca %"class.cv::AutoBuffer.3", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7377,7 +7377,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %.split, %.split.us.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIhdEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIhdEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::AutoBuffer.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -7931,7 +7931,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit266:         ; preds = %226, %224
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIhdEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIhdEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 {
   %5 = alloca [4 x double], align 16
   %6 = alloca %"class.cv::AutoBuffer.3", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8354,7 +8354,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %.split, %.split.us.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedRItfEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedRItfEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::AutoBuffer.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -8902,7 +8902,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit266:         ; preds = %226, %224
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedLItfEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedLItfEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 {
   %5 = alloca [4 x float], align 16
   %6 = alloca %"class.cv::AutoBuffer.3", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9340,7 +9340,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %.split, %.split.us.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedRItdEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedRItdEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::AutoBuffer.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -9895,7 +9895,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit266:         ; preds = %227, %225
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedLItdEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedLItdEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 {
   %5 = alloca [4 x double], align 16
   %6 = alloca %"class.cv::AutoBuffer.3", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -10319,7 +10319,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %.split, %.split.us.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIsfEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIsfEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::AutoBuffer.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -10867,7 +10867,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit266:         ; preds = %226, %224
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIsfEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIsfEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 {
   %5 = alloca [4 x float], align 16
   %6 = alloca %"class.cv::AutoBuffer.3", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -11305,7 +11305,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %.split, %.split.us.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIsdEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIsdEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::AutoBuffer.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -11860,7 +11860,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit266:         ; preds = %227, %225
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIsdEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIsdEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 {
   %5 = alloca [4 x double], align 16
   %6 = alloca %"class.cv::AutoBuffer.3", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12284,7 +12284,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %.split, %.split.us.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIffEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIffEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::AutoBuffer.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -12824,7 +12824,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit266:         ; preds = %218, %216
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIffEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIffEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 {
   %5 = alloca [4 x float], align 16
   %6 = alloca %"class.cv::AutoBuffer.3", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13255,7 +13255,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %.split, %.split.us.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIfdEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIfdEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::AutoBuffer.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -13810,7 +13810,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit266:         ; preds = %227, %225
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIfdEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIfdEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 {
   %5 = alloca [4 x double], align 16
   %6 = alloca %"class.cv::AutoBuffer.3", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14234,7 +14234,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %.split, %.split.us.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIddEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedRIddEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::AutoBuffer.3", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -14776,7 +14776,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit266:         ; preds = %214, %212
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIddEEvRKNS_3MatES4_S4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2, double noundef %3) #3 {
+define internal void @_ZN2cv12cpu_baselineL14MulTransposedLIddEEvRKNS_3MatES4_S4_d(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2, double noundef %3) #3 {
   %5 = alloca [4 x double], align 16
   %6 = alloca %"class.cv::AutoBuffer.3", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -15181,7 +15181,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %.split, %.split.us.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN2cv12cpu_baseline10dotProd_8uEPKhS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden noundef double @_ZN2cv12cpu_baseline10dotProd_8uEPKhS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL8dotProd_IhEEdPKT_S4_i.exit
 
@@ -15213,7 +15213,7 @@ _ZN2cv12cpu_baselineL8dotProd_IhEEdPKT_S4_i.exit: ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN2cv12cpu_baseline10dotProd_8sEPKaS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden noundef double @_ZN2cv12cpu_baseline10dotProd_8sEPKaS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL8dotProd_IaEEdPKT_S4_i.exit
 
@@ -15245,7 +15245,7 @@ _ZN2cv12cpu_baselineL8dotProd_IaEEdPKT_S4_i.exit: ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_16uEPKtS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_16uEPKtS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL8dotProd_ItEEdPKT_S4_i.exit
 
@@ -15277,7 +15277,7 @@ _ZN2cv12cpu_baselineL8dotProd_ItEEdPKT_S4_i.exit: ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_16sEPKsS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_16sEPKsS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL8dotProd_IsEEdPKT_S4_i.exit
 
@@ -15309,7 +15309,7 @@ _ZN2cv12cpu_baselineL8dotProd_IsEEdPKT_S4_i.exit: ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_32sEPKiS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_32sEPKiS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL8dotProd_IiEEdPKT_S4_i.exit
 
@@ -15337,7 +15337,7 @@ _ZN2cv12cpu_baselineL8dotProd_IiEEdPKT_S4_i.exit: ; preds = %.lr.ph.i, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_32fEPKfS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_32fEPKfS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL8dotProd_IfEEdPKT_S4_i.exit
 
@@ -15369,7 +15369,7 @@ _ZN2cv12cpu_baselineL8dotProd_IfEEdPKT_S4_i.exit: ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_64fEPKdS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden noundef double @_ZN2cv12cpu_baseline11dotProd_64fEPKdS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader.i, label %_ZN2cv12cpu_baselineL8dotProd_IdEEdPKT_S4_i.exit
 
@@ -16366,7 +16366,7 @@ _ZNK2cv11_InputArray6getMatEi.exit148:            ; preds = %189, %192
 declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
@@ -17210,7 +17210,7 @@ declare void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96
 declare noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, double noundef, double noundef) local_unnamed_addr #0
 
@@ -21444,7 +21444,7 @@ define void @cvPerspectiveTransform(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvScaleAdd(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.CvScalar) align 8 %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @cvScaleAdd(ptr noundef %0, ptr noundef readonly byval(%struct.CvScalar) align 8 captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::Mat", align 8
   %6 = alloca %"class.cv::Mat", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23630,7 +23630,7 @@ declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"
 declare void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN2cvL10dotProd_8uEPKhS1_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN2cvL10dotProd_8uEPKhS1_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cvL10dotProd_8uEPKhS1_iE25__cv_trace_location_fn937)
   %5 = icmp sgt i32 %2, 0
@@ -23681,7 +23681,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN2cvL10dotProd_8sEPKaS1_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN2cvL10dotProd_8sEPKaS1_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cvL10dotProd_8sEPKaS1_iE25__cv_trace_location_fn943)
   %5 = icmp sgt i32 %2, 0
@@ -23732,7 +23732,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN2cvL11dotProd_16uEPKtS1_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN2cvL11dotProd_16uEPKtS1_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cvL11dotProd_16uEPKtS1_iE25__cv_trace_location_fn949)
   %5 = icmp sgt i32 %2, 0
@@ -23783,7 +23783,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN2cvL11dotProd_16sEPKsS1_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN2cvL11dotProd_16sEPKsS1_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cvL11dotProd_16sEPKsS1_iE25__cv_trace_location_fn955)
   %5 = icmp sgt i32 %2, 0
@@ -23834,7 +23834,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN2cvL11dotProd_32sEPKiS1_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN2cvL11dotProd_32sEPKiS1_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cvL11dotProd_32sEPKiS1_iE25__cv_trace_location_fn961)
   %5 = icmp sgt i32 %2, 0
@@ -23881,7 +23881,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN2cvL11dotProd_32fEPKfS1_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN2cvL11dotProd_32fEPKfS1_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cvL11dotProd_32fEPKfS1_iE25__cv_trace_location_fn967)
   %5 = icmp sgt i32 %2, 0
@@ -23932,7 +23932,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN2cvL11dotProd_64fEPKdS1_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN2cvL11dotProd_64fEPKdS1_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cvL11dotProd_64fEPKdS1_iE25__cv_trace_location_fn973)
   %5 = icmp sgt i32 %2, 0
@@ -23977,7 +23977,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv12cpu_baselin
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, double noundef %2, ptr noundef nonnull %3, double noundef %4, ptr nocapture noundef nonnull readonly %5, i32 noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv12cpu_baselineL8gemmImplENS_3MatES1_dS1_dS1_i(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, double noundef %2, ptr noundef nonnull %3, double noundef %4, ptr noundef nonnull readonly captures(none) %5, i32 noundef %6) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
@@ -25864,7 +25864,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit1084:        ; preds = %1124, %.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL17GEMMSingleMul_32fEPKfmS2_mS2_mPfmNS_5Size_IiEES5_ddi(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, ptr nocapture noundef writeonly %6, i64 noundef %7, i64 %8, i64 %9, double noundef %10, double noundef %11, i32 noundef %12) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL17GEMMSingleMul_32fEPKfmS2_mS2_mPfmNS_5Size_IiEES5_ddi(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8, i64 %9, double noundef %10, double noundef %11, i32 noundef %12) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"class.cv::AutoBuffer.4", align 8
   %15 = alloca %"class.cv::AutoBuffer.4", align 8
   %16 = alloca %"class.cv::AutoBuffer", align 8
@@ -26732,7 +26732,7 @@ _ZN2cv12cpu_baselineL13GEMMSingleMulIfdEEvPKT_mS4_mS4_mPS2_mNS_5Size_IiEES7_ddi.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL16GEMMBlockMul_32fEPKfmS2_mPdmNS_5Size_IiEES5_i(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, i64 noundef %5, i64 %6, i64 %7, i32 noundef %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL16GEMMBlockMul_32fEPKfmS2_mPdmNS_5Size_IiEES5_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, i64 noundef %5, i64 %6, i64 %7, i32 noundef %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::AutoBuffer.4", align 8
   call void @llvm.lifetime.start.p0(i64 1072, ptr nonnull %10)
   %.sroa.2.0.extract.shift.i = lshr i64 %6, 32
@@ -27276,7 +27276,7 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulIfdEEvPKT_mS4_mPT0_mNS_5Size_IiEES8_i.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13GEMMStore_32fEPKfmPKdmPfmNS_5Size_IiEEddi(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #7 {
+define internal void @_ZN2cv12cpu_baselineL13GEMMStore_32fEPKfmPKdmPfmNS_5Size_IiEEddi(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #7 {
   %.fr.i = freeze i64 %6
   %11 = lshr i64 %1, 2
   %12 = lshr i64 %3, 3
@@ -27350,7 +27350,7 @@ _ZN2cv12cpu_baselineL9GEMMStoreIfdEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL17GEMMSingleMul_64fEPKdmS2_mS2_mPdmNS_5Size_IiEES5_ddi(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, ptr nocapture noundef writeonly %6, i64 noundef %7, i64 %8, i64 %9, double noundef %10, double noundef %11, i32 noundef %12) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL17GEMMSingleMul_64fEPKdmS2_mS2_mPdmNS_5Size_IiEES5_ddi(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8, i64 %9, double noundef %10, double noundef %11, i32 noundef %12) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"class.cv::AutoBuffer", align 8
   %15 = alloca %"class.cv::AutoBuffer", align 8
   %16 = alloca %"class.cv::AutoBuffer", align 8
@@ -28174,7 +28174,7 @@ _ZN2cv12cpu_baselineL13GEMMSingleMulIddEEvPKT_mS4_mS4_mPS2_mNS_5Size_IiEES7_ddi.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL16GEMMBlockMul_64fEPKdmS2_mPdmNS_5Size_IiEES5_i(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, i64 noundef %5, i64 %6, i64 %7, i32 noundef %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL16GEMMBlockMul_64fEPKdmS2_mPdmNS_5Size_IiEES5_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, i64 noundef %5, i64 %6, i64 %7, i32 noundef %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::AutoBuffer", align 8
   call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %10)
   %.sroa.2.0.extract.shift.i = lshr i64 %6, 32
@@ -28765,7 +28765,7 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulIddEEvPKT_mS4_mPT0_mNS_5Size_IiEES8_i.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL13GEMMStore_64fEPKdmS2_mPdmNS_5Size_IiEEddi(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #7 {
+define internal void @_ZN2cv12cpu_baselineL13GEMMStore_64fEPKdmS2_mPdmNS_5Size_IiEEddi(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #7 {
   %.fr.i = freeze i64 %6
   %11 = lshr i64 %1, 3
   %12 = lshr i64 %3, 3
@@ -28836,7 +28836,7 @@ _ZN2cv12cpu_baselineL9GEMMStoreIddEEvPKT_mPKT0_mPS2_mNS_5Size_IiEEddi.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL18GEMMSingleMul_32fcEPKNS_7ComplexIfEEmS4_mS4_mPS2_mNS_5Size_IiEES7_ddi(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, ptr nocapture noundef writeonly %6, i64 noundef %7, i64 %8, i64 %9, double noundef %10, double noundef %11, i32 noundef %12) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL18GEMMSingleMul_32fcEPKNS_7ComplexIfEEmS4_mS4_mPS2_mNS_5Size_IiEES7_ddi(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8, i64 %9, double noundef %10, double noundef %11, i32 noundef %12) unnamed_addr #17 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"class.cv::AutoBuffer.5", align 8
   %15 = alloca %"class.cv::AutoBuffer.5", align 8
   %16 = alloca %"class.cv::AutoBuffer.7", align 8
@@ -29939,7 +29939,7 @@ _ZN2cv12cpu_baselineL13GEMMSingleMulINS_7ComplexIfEENS2_IdEEEEvPKT_mS7_mS7_mPS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL17GEMMBlockMul_32fcEPKNS_7ComplexIfEEmS4_mPNS1_IdEEmNS_5Size_IiEES8_i(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, i64 noundef %5, i64 %6, i64 %7, i32 noundef %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL17GEMMBlockMul_32fcEPKNS_7ComplexIfEEmS4_mPNS1_IdEEmNS_5Size_IiEES8_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, i64 noundef %5, i64 %6, i64 %7, i32 noundef %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::AutoBuffer.5", align 8
   call void @llvm.lifetime.start.p0(i64 1104, ptr nonnull %10)
   %.sroa.2132.0.extract.shift.i = lshr i64 %6, 32
@@ -30473,7 +30473,7 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulINS_7ComplexIfEENS2_IdEEEEvPKT_mS7_mPT0_mNS_5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPKNS1_IdEEmPS2_mNS_5Size_IiEEddi(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #18 {
+define internal void @_ZN2cv12cpu_baselineL14GEMMStore_32fcEPKNS_7ComplexIfEEmPKNS1_IdEEmPS2_mNS_5Size_IiEEddi(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #18 {
   %.fr.i = freeze i64 %6
   %11 = lshr i64 %1, 3
   %12 = lshr i64 %3, 4
@@ -30565,7 +30565,7 @@ _ZN2cv12cpu_baselineL9GEMMStoreINS_7ComplexIfEENS2_IdEEEEvPKT_mPKT0_mPS5_mNS_5Si
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL18GEMMSingleMul_64fcEPKNS_7ComplexIdEEmS4_mS4_mPS2_mNS_5Size_IiEES7_ddi(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, ptr nocapture noundef writeonly %6, i64 noundef %7, i64 %8, i64 %9, double noundef %10, double noundef %11, i32 noundef %12) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL18GEMMSingleMul_64fcEPKNS_7ComplexIdEEmS4_mS4_mPS2_mNS_5Size_IiEES7_ddi(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, i64 noundef %7, i64 %8, i64 %9, double noundef %10, double noundef %11, i32 noundef %12) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %14 = alloca %"class.cv::AutoBuffer.7", align 8
   %15 = alloca %"class.cv::AutoBuffer.7", align 8
   %16 = alloca %"class.cv::AutoBuffer.7", align 8
@@ -31557,7 +31557,7 @@ _ZN2cv12cpu_baselineL13GEMMSingleMulINS_7ComplexIdEES3_EEvPKT_mS6_mS6_mPS4_mNS_5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN2cv12cpu_baselineL17GEMMBlockMul_64fcEPKNS_7ComplexIdEEmS4_mPS2_mNS_5Size_IiEES7_i(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef %4, i64 noundef %5, i64 %6, i64 %7, i32 noundef %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv12cpu_baselineL17GEMMBlockMul_64fcEPKNS_7ComplexIdEEmS4_mPS2_mNS_5Size_IiEES7_i(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, i64 noundef %5, i64 %6, i64 %7, i32 noundef %8) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::AutoBuffer.7", align 8
   call void @llvm.lifetime.start.p0(i64 1168, ptr nonnull %10)
   %.sroa.2132.0.extract.shift.i = lshr i64 %6, 32
@@ -32062,7 +32062,7 @@ _ZN2cv12cpu_baselineL12GEMMBlockMulINS_7ComplexIdEES3_EEvPKT_mS6_mPT0_mNS_5Size_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv12cpu_baselineL14GEMMStore_64fcEPKNS_7ComplexIdEEmS4_mPS2_mNS_5Size_IiEEddi(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #7 {
+define internal void @_ZN2cv12cpu_baselineL14GEMMStore_64fcEPKNS_7ComplexIdEEmS4_mPS2_mNS_5Size_IiEEddi(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5, i64 %6, double noundef %7, double noundef %8, i32 noundef %9) unnamed_addr #7 {
   %.fr.i = freeze i64 %6
   %11 = lshr i64 %1, 4
   %12 = lshr i64 %3, 4
@@ -32173,10 +32173,10 @@ declare i32 @llvm.smax.i32(i32, i32) #22
 declare i32 @llvm.smin.i32(i32, i32) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #22

@@ -98,7 +98,7 @@ declare i32 @proto_can_toggle_protocol(i32 noundef) local_unnamed_addr #2
 declare void @proto_set_decoding(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @proto_disable_all() local_unnamed_addr #2
 
@@ -578,7 +578,7 @@ set_disabled_heur_dissector_list.exit:            ; preds = %147, %.loopexit21.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_protos_list(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) unnamed_addr #1 {
+define internal fastcc void @read_protos_list(ptr noundef nonnull writeonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8) unnamed_addr #1 {
   %10 = tail call ptr @get_datafile_path(ptr noundef %6) #12
   %11 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %11, null
@@ -928,7 +928,7 @@ declare void @report_failure(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_protos_list(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #1 {
+define internal fastcc void @save_protos_list(ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %0, align 8
   %7 = tail call ptr @get_persconffile_path(ptr noundef %2, i1 noundef zeroext true) #12
@@ -1096,7 +1096,7 @@ define hidden void @cleanup_enabled_and_disabled_lists() local_unnamed_addr #1 {
 declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @disabled_protos_free(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal void @disabled_protos_free(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %3) #12
   tail call void @g_free(ptr noundef nonnull %0) #12
@@ -1110,10 +1110,10 @@ declare ptr @find_heur_dissector_by_unique_short_name(ptr noundef) local_unnamed
 declare ptr @get_datafile_path(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @read_protos_list_file(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(129) ptr @g_malloc(i64 noundef 129) #15
   %5 = load ptr, ptr @g_ascii_table, align 8
   br label %6
@@ -1315,7 +1315,7 @@ switch.early.test:                                ; preds = %.loopexit95
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @get_persconffile_path(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -1325,13 +1325,13 @@ declare ptr @g_list_first(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc_unlocked(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @getc_unlocked(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1345,7 +1345,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 declare ptr @g_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc i32 @read_heur_dissector_list_file(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(129) ptr @g_malloc(i64 noundef 129) #15
   %5 = load ptr, ptr @g_ascii_table, align 8
   br label %6
@@ -1557,17 +1557,17 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare i32 @proto_get_first_protocol(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @proto_get_protocol_filter_name(i32 noundef) local_unnamed_addr #2
 
 declare i32 @proto_get_next_protocol(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare i32 @proto_is_protocol_enabled_by_default(ptr noundef) local_unnamed_addr #2
 
@@ -1589,7 +1589,7 @@ define internal void @sort_heur_dissector_tables(ptr noundef %0, ptr noundef rea
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @write_heur_dissector(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #9 {
+define internal void @write_heur_dissector(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1605,7 +1605,7 @@ declare void @g_slist_free(ptr noundef) local_unnamed_addr #2
 declare void @heur_dissector_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @sort_dissector_table_entries(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #1 {
+define internal void @sort_dissector_table_entries(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #1 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @g_slist_insert_sorted(ptr noundef %4, ptr noundef %1, ptr noundef nonnull @heur_compare) #12
   store ptr %5, ptr %2, align 8
@@ -1615,7 +1615,7 @@ define internal void @sort_dissector_table_entries(ptr nocapture readnone %0, pt
 declare ptr @g_slist_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @heur_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 {
+define internal i32 @heur_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1625,10 +1625,10 @@ define internal i32 @heur_compare(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

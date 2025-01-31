@@ -170,7 +170,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.51 = private unnamed_addr constant [14 x i8] c"preserve_keys\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_class_parents(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_class_parents(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store i8 1, ptr %4, align 1
@@ -323,7 +323,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #1
 declare void @spl_add_class_name(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_class_implements(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_class_implements(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store i8 1, ptr %4, align 1
@@ -391,7 +391,7 @@ define hidden void @zif_class_implements(ptr nocapture noundef readonly %0, ptr 
 declare void @spl_add_interfaces(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_class_uses(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_class_uses(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store i8 1, ptr %4, align 1
@@ -459,7 +459,7 @@ define hidden void @zif_class_uses(ptr nocapture noundef readonly %0, ptr nounde
 declare void @spl_add_traits(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_spl_classes(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_spl_classes(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -598,7 +598,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare void @spl_add_classes(ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_spl_autoload(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zif_spl_autoload(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zend_file_handle, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -902,7 +902,7 @@ select.unfold:                                    ; preds = %spl_autoload.exit.t
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_spl_autoload_extensions(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_spl_autoload_extensions(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1015,7 +1015,7 @@ define hidden void @zif_spl_autoload_extensions(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_spl_autoload_call(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zif_spl_autoload_call(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1178,7 +1178,7 @@ define internal ptr @spl_perform_autoload(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_spl_autoload_register(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_spl_autoload_register(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -1483,7 +1483,7 @@ autoload_func_info_from_fci.exit:                 ; preds = %81, %85
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1496,7 +1496,7 @@ declare noalias ptr @_emalloc_56() local_unnamed_addr #1
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @autoload_func_info_zval_dtor(ptr nocapture noundef readonly %0) #0 {
+define internal void @autoload_func_info_zval_dtor(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call fastcc void @autoload_func_info_destroy(ptr noundef %2)
   ret void
@@ -1511,12 +1511,12 @@ declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unn
 declare noalias ptr @_emalloc_256() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noalias ptr @_emalloc_32() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @spl_find_registered_function(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @spl_find_registered_function(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @spl_autoload_functions, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %autoload_func_info_equals.exit.thread20, label %3
@@ -1756,12 +1756,12 @@ define internal fastcc void @autoload_func_info_destroy(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 declare void @zend_hash_rehash(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_spl_autoload_unregister(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_spl_autoload_unregister(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zend_fcall_info, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   %5 = alloca ptr, align 8
@@ -1901,7 +1901,7 @@ declare void @zend_hash_clean(ptr noundef) local_unnamed_addr #1
 declare void @zend_hash_del_bucket(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_spl_autoload_functions(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zif_spl_autoload_functions(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2065,7 +2065,7 @@ declare i32 @add_next_index_object(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @add_next_index_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_spl_object_hash(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_spl_object_hash(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -2106,7 +2106,7 @@ define hidden void @zif_spl_object_hash(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @php_spl_object_hash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @php_spl_object_hash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -2115,7 +2115,7 @@ define ptr @php_spl_object_hash(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_spl_object_id(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zif_spl_object_id(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -2157,7 +2157,7 @@ define hidden void @zif_spl_object_id(ptr noundef %0, ptr nocapture noundef writ
 declare ptr @zend_strpprintf(i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_info_spl(ptr nocapture readnone %0) #0 {
+define hidden void @zm_info_spl(ptr readnone captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca %struct._zval_struct, align 8
@@ -2619,7 +2619,7 @@ declare void @zval_ptr_dtor(ptr noundef) local_unnamed_addr #1
 declare void @zend_destroy_file_handle(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare noalias ptr @_emalloc_40() local_unnamed_addr #1
 
@@ -2656,13 +2656,13 @@ declare void @zif_iterator_count(ptr noundef, ptr noundef) #1
 declare void @zif_iterator_to_array(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

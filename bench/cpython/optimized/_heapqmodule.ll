@@ -52,7 +52,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_heapq_heappush(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_heapq_heappush(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -98,7 +98,7 @@ exit:                                             ; preds = %if.end.i, %if.end7,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_heapq_heappushpop(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_heapq_heappushpop(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -240,7 +240,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_heapq_heappop(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_heapq_heappop(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -264,7 +264,7 @@ exit:                                             ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_heapq_heapreplace(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_heapq_heapreplace(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -344,7 +344,7 @@ exit:                                             ; preds = %if.then1.i.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_heapq_heapify(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_heapq_heapify(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -368,7 +368,7 @@ exit:                                             ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_heapq__heappop_max(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @_heapq__heappop_max(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -392,7 +392,7 @@ exit:                                             ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_heapq__heapify_max(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal noundef ptr @_heapq__heapify_max(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %arg, i64 8
   %arg.val = load ptr, ptr %0, align 8
@@ -416,7 +416,7 @@ exit:                                             ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_heapq__heapreplace_max(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_heapq__heapreplace_max(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -502,7 +502,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @siftdown(ptr nocapture noundef readonly %heap, i64 noundef %startpos, i64 noundef %pos) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @siftdown(ptr noundef readonly captures(none) %heap, i64 noundef %startpos, i64 noundef %pos) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val = load i64, ptr %0, align 8
@@ -623,7 +623,7 @@ declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) loc
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @siftup(ptr nocapture noundef readonly %heap, i64 noundef %pos) #0 {
+define internal range(i32 -1, 1) i32 @siftup(ptr noundef readonly captures(none) %heap, i64 noundef %pos) #0 {
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val38 = load i64, ptr %0, align 8
@@ -752,7 +752,7 @@ return:                                           ; preds = %Py_DECREF.exit, %wh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @heappop_internal(ptr noundef %heap, ptr nocapture noundef readonly %siftup_func) unnamed_addr #0 {
+define internal fastcc ptr @heappop_internal(ptr noundef %heap, ptr noundef readonly captures(none) %siftup_func) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val = load i64, ptr %0, align 8
@@ -836,7 +836,7 @@ return:                                           ; preds = %if.end7, %if.end.i1
 declare i32 @PyList_SetSlice(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @heapify_internal(ptr noundef %heap, ptr nocapture noundef readonly %siftup_func) unnamed_addr #0 {
+define internal fastcc noundef ptr @heapify_internal(ptr noundef %heap, ptr noundef readonly captures(none) %siftup_func) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val = load i64, ptr %0, align 8
@@ -940,7 +940,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @siftup_max(ptr nocapture noundef readonly %heap, i64 noundef %pos) #0 {
+define internal range(i32 -1, 1) i32 @siftup_max(ptr noundef readonly captures(none) %heap, i64 noundef %pos) #0 {
 entry:
   %0 = getelementptr i8, ptr %heap, i64 16
   %heap.val38 = load i64, ptr %0, align 8

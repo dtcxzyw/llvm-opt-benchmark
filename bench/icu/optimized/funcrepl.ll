@@ -35,13 +35,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7516FunctionReplacer17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7516FunctionReplacer17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7516FunctionReplacer16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7516FunctionReplacerC2EPNS_14TransliteratorEPNS_14UnicodeFunctorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %adoptedTranslit, ptr noundef %adoptedReplacer) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7516FunctionReplacerC2EPNS_14TransliteratorEPNS_14UnicodeFunctorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef %adoptedTranslit, ptr noundef %adoptedReplacer) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 16), ptr %this, align 8
@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516FunctionReplacerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516FunctionReplacerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7516FunctionReplacerE, i64 16), ptr %this, align 8
@@ -196,7 +196,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7516FunctionReplacer7replaceERNS_11ReplaceableEiiRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 4 dereferenceable(4) %cursor) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN6icu_7516FunctionReplacer7replaceERNS_11ReplaceableEiiRi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 4 dereferenceable(4) %cursor) unnamed_addr #2 align 2 {
 entry:
   %replacer = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %replacer, align 8
@@ -220,7 +220,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn8_N6icu_7516FunctionReplacer7replaceERNS_11ReplaceableEiiRi(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 4 dereferenceable(4) %cursor) unnamed_addr #6 align 2 {
+define noundef i32 @_ZThn8_N6icu_7516FunctionReplacer7replaceERNS_11ReplaceableEiiRi(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(8) %text, i32 noundef %start, i32 noundef %limit, ptr noundef nonnull align 4 dereferenceable(4) %cursor) unnamed_addr #6 align 2 {
 entry:
   %replacer.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %replacer.i, align 8
@@ -244,7 +244,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7516FunctionReplacer17toReplacerPatternERNS_13UnicodeStringEa(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull returned align 8 dereferenceable(64) %rule, i8 noundef signext %escapeUnprintable) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7516FunctionReplacer17toReplacerPatternERNS_13UnicodeStringEa(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull returned align 8 dereferenceable(64) %rule, i8 noundef signext %escapeUnprintable) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %str = alloca %"class.icu_75::UnicodeString", align 8
@@ -373,7 +373,7 @@ ehcleanup:                                        ; preds = %lpad24, %lpad9, %lp
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: uwtable
-define noundef nonnull ptr @_ZThn8_NK6icu_7516FunctionReplacer17toReplacerPatternERNS_13UnicodeStringEa(ptr nocapture noundef readonly %this, ptr noundef nonnull returned align 8 dereferenceable(64) %rule, i8 noundef signext %escapeUnprintable) unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZThn8_NK6icu_7516FunctionReplacer17toReplacerPatternERNS_13UnicodeStringEa(ptr noundef readonly captures(none) %this, ptr noundef nonnull returned align 8 dereferenceable(64) %rule, i8 noundef signext %escapeUnprintable) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   %call = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7516FunctionReplacer17toReplacerPatternERNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(64) %rule, i8 noundef signext %escapeUnprintable)
@@ -381,7 +381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7516FunctionReplacer19addReplacementSetToERNS_10UnicodeSetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(200) %toUnionTo) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7516FunctionReplacer19addReplacementSetToERNS_10UnicodeSetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(200) %toUnionTo) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %set = alloca %"class.icu_75::UnicodeSet", align 8
   call void @_ZN6icu_7510UnicodeSetC1Ev(ptr noundef nonnull align 8 dereferenceable(200) %set)
@@ -416,7 +416,7 @@ declare noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7510UnicodeSet
 declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #3
 
 ; Function Attrs: uwtable
-define void @_ZThn8_NK6icu_7516FunctionReplacer19addReplacementSetToERNS_10UnicodeSetE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(200) %toUnionTo) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_NK6icu_7516FunctionReplacer19addReplacementSetToERNS_10UnicodeSetE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(200) %toUnionTo) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %set.i = alloca %"class.icu_75::UnicodeSet", align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %set.i)
@@ -446,7 +446,7 @@ _ZNK6icu_7516FunctionReplacer19addReplacementSetToERNS_10UnicodeSetE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516FunctionReplacer7setDataEPKNS_23TransliterationRuleDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %d) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7516FunctionReplacer7setDataEPKNS_23TransliterationRuleDataE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %d) unnamed_addr #2 align 2 {
 entry:
   %replacer = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %replacer, align 8
@@ -466,10 +466,10 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [9 x i8] c"     %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @register_stat_tap_ui(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @register_stat_tap_ui(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @stat_cmd_arg_list, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8
@@ -64,7 +64,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_list_find_custom(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @search_duplicate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @search_duplicate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %1) #11
@@ -78,7 +78,7 @@ declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wmem_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @sort_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal i32 @sort_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -111,7 +111,7 @@ define range(i32 0, 2) i32 @process_stat_cmd_arg(ptr noundef %0) local_unnamed_a
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #11
-  %13 = tail call i32 @strncmp(ptr noundef %11, ptr noundef %2, i64 noundef %12) #11
+  %13 = tail call i32 @strncmp(ptr noundef nonnull %11, ptr noundef nonnull %2, i64 noundef %12) #11
   %.not17 = icmp eq i32 %13, 0
   br i1 %.not17, label %14, label %19
 
@@ -131,7 +131,7 @@ define range(i32 0, 2) i32 @process_stat_cmd_arg(ptr noundef %0) local_unnamed_a
   br i1 %.not16, label %._crit_edge, label %.lr.ph, !llvm.loop !4
 
 ._crit_edge:                                      ; preds = %19, %6
-  tail call void @g_free(ptr noundef %2) #10
+  tail call void @g_free(ptr noundef nonnull %2) #10
   br label %21
 
 21:                                               ; preds = %._crit_edge, %14
@@ -142,17 +142,17 @@ define range(i32 0, 2) i32 @process_stat_cmd_arg(ptr noundef %0) local_unnamed_a
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @wmem_list_tail(ptr noundef) local_unnamed_addr #1
 
 declare ptr @wmem_list_frame_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
@@ -173,7 +173,7 @@ define void @list_stat_cmd_args() local_unnamed_addr #0 {
 declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @list_stat_cmd_args_func(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 {
+define internal void @list_stat_cmd_args_func(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #6 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -257,7 +257,7 @@ define void @stat_tap_iterate_tables(ptr noundef %0, ptr noundef %1) local_unnam
 declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @stat_tap_get_filter(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define void @stat_tap_get_filter(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
@@ -315,7 +315,7 @@ define noalias noundef ptr @stat_tap_init_table(ptr noundef %0, i32 noundef %1, 
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stat_tap_find_table(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @stat_tap_find_table(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -355,7 +355,7 @@ define noundef ptr @stat_tap_find_table(ptr nocapture noundef readonly %0, ptr n
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @stat_tap_add_table(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @stat_tap_add_table(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -381,7 +381,7 @@ declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare ptr @g_array_insert_vals(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @stat_tap_init_table_row(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define void @stat_tap_init_table_row(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
   %.not = icmp ult i32 %1, %6
@@ -434,7 +434,7 @@ define void @stat_tap_init_table_row(ptr nocapture noundef %0, i32 noundef %1, i
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @stat_tap_get_field_data(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define ptr @stat_tap_get_field_data(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -446,7 +446,7 @@ define ptr @stat_tap_get_field_data(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @stat_tap_set_field_data(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #8 {
+define void @stat_tap_set_field_data(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
@@ -459,7 +459,7 @@ define void @stat_tap_set_field_data(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @reset_stat_table(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @reset_stat_table(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -506,7 +506,7 @@ define void @reset_stat_table(ptr nocapture noundef readonly %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @free_stat_tables(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -610,10 +610,10 @@ define void @free_stat_tables(ptr nocapture noundef readonly %0) local_unnamed_a
 declare ptr @g_array_set_size(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

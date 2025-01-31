@@ -1330,7 +1330,7 @@ if.end226:                                        ; preds = %if.else220, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12GUIScrollBar6setPosERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %pos) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12GUIScrollBar6setPosERKi(ptr noundef nonnull align 8 captures(none) dereferenceable(408) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %pos) local_unnamed_addr #4 align 2 {
 entry:
   %is_horizontal = getelementptr inbounds nuw i8, ptr %this, i64 333
   %0 = load i8, ptr %is_horizontal, align 1, !tbaa !39, !range !50, !noundef !51
@@ -1428,10 +1428,10 @@ if.end20:                                         ; preds = %if.then12, %if.end.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %vtt) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2423,7 +2423,7 @@ return:                                           ; preds = %cond.true.i285, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK12GUIScrollBar6getPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK12GUIScrollBar6getPosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this) local_unnamed_addr #7 align 2 {
 entry:
   %scroll_pos = getelementptr inbounds nuw i8, ptr %this, i64 340
   %0 = load i32, ptr %scroll_pos, align 4, !tbaa !65
@@ -2431,10 +2431,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK12GUIScrollBar18getPosFromMousePosERKN3irr4core8vector2dIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK12GUIScrollBar18getPosFromMousePosERKN3irr4core8vector2dIiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos) local_unnamed_addr #7 align 2 {
 entry:
   %dragged_by_slider = getelementptr inbounds nuw i8, ptr %this, i64 335
   %0 = load i8, ptr %dragged_by_slider, align 1, !tbaa !41, !range !50, !noundef !51
@@ -2854,7 +2854,7 @@ for.body:                                         ; preds = %entry, %for.body
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12GUIScrollBar12setSmallStepERKi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) initializes((360, 364)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %step) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12GUIScrollBar12setSmallStepERKi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(408) initializes((360, 364)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %step) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %step, align 4, !tbaa !43
   %cmp = icmp sgt i32 %0, 0
@@ -2865,7 +2865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12GUIScrollBar12setLargeStepERKi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(408) initializes((364, 368)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %step) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12GUIScrollBar12setLargeStepERKi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(408) initializes((364, 368)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %step) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %step, align 4, !tbaa !43
   %cmp = icmp sgt i32 %0, 0
@@ -2876,7 +2876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIScrollBar6setMaxERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((356, 360)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %max) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12GUIScrollBar6setMaxERKi(ptr noundef nonnull align 8 captures(none) dereferenceable(408) initializes((356, 360)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %max) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %max, align 4, !tbaa !43
   %max_pos = getelementptr inbounds nuw i8, ptr %this, i64 356
@@ -3002,7 +3002,7 @@ _ZN12GUIScrollBar6setPosERKi.exit:                ; preds = %if.then12.i, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIScrollBar6setMinERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((352, 356)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %min) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12GUIScrollBar6setMinERKi(ptr noundef nonnull align 8 captures(none) dereferenceable(408) initializes((352, 356)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %min) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %min, align 4, !tbaa !43
   %min_pos = getelementptr inbounds nuw i8, ptr %this, i64 352
@@ -3128,7 +3128,7 @@ _ZN12GUIScrollBar6setPosERKi.exit:                ; preds = %if.then12.i, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN12GUIScrollBar11setPageSizeERKi(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((372, 376)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %size) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12GUIScrollBar11setPageSizeERKi(ptr noundef nonnull align 8 captures(none) dereferenceable(408) initializes((372, 376)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %size) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %size, align 4, !tbaa !43
   %page_size = getelementptr inbounds nuw i8, ptr %this, i64 372
@@ -4966,7 +4966,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #0
 
@@ -4974,7 +4974,7 @@ declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(pt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
@@ -4992,7 +4992,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

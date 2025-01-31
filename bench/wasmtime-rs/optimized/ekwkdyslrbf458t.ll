@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.0 = internal unnamed_addr constant [25 x i8] c"attempt to divide by zero"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN4core3num20_$LT$impl$u20$u8$GT$17is_ascii_hexdigit17h092db098e2f53e7cE"(ptr nocapture readonly align 1 %0) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN4core3num20_$LT$impl$u20$u8$GT$17is_ascii_hexdigit17h092db098e2f53e7cE"(ptr readonly align 1 captures(none) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1, !noundef !3
   %3 = add i8 %2, -48
   %.0 = icmp ult i8 %3, 10

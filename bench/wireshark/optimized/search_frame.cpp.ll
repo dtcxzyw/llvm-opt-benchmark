@@ -1720,7 +1720,7 @@ _ZN7QStringD2Ev.exit30:                           ; preds = %552, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11SearchFrame25applyRecentSearchSettingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11SearchFrame25applyRecentSearchSettingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
 switch.lookup:
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 72), align 8
   %2 = load i32, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 76), align 4
@@ -3659,7 +3659,7 @@ define void @_ZN11SearchFrame12findPreviousEv(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11SearchFrame8setFocusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN11SearchFrame8setFocusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -3775,7 +3775,7 @@ define void @_ZN11SearchFrame23on_cancelButton_clickedEv(ptr noundef nonnull ali
 declare void @_ZN7QWidget13keyPressEventEP9QKeyEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN11SearchFrame12regexCompileEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN11SearchFrame12regexCompileEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca ptr, align 8
@@ -4007,7 +4007,7 @@ define void @_ZN11SearchFrame39on_searchInComboBox_currentIndexChangedEi(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @_ZN11SearchFrame43on_charEncodingComboBox_currentIndexChangedEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN11SearchFrame43on_charEncodingComboBox_currentIndexChangedEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %switch = icmp ult i32 %1, 3
   br i1 %switch, label %.sink.split, label %3
 
@@ -4020,7 +4020,7 @@ define void @_ZN11SearchFrame43on_charEncodingComboBox_currentIndexChangedEi(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11SearchFrame23on_caseCheckBox_toggledEb(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11SearchFrame23on_caseCheckBox_toggledEb(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i32
   store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 80), align 8
   %4 = tail call noundef zeroext i1 @_ZN11SearchFrame12regexCompileEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
@@ -4112,20 +4112,20 @@ declare void @_ZN7QWidget10setToolTipERK7QString(ptr noundef nonnull align 8 der
 declare void @_ZN15MainApplication9popStatusENS_10StatusInfoE(ptr noundef nonnull align 8 dereferenceable(216), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11SearchFrame29on_searchLineEdit_textChangedERK7QString(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11SearchFrame29on_searchLineEdit_textChangedERK7QString(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN11SearchFrame13updateWidgetsEv(ptr noundef nonnull align 8 dereferenceable(104) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @_ZN11SearchFrame22on_dirCheckBox_toggledEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define void @_ZN11SearchFrame22on_dirCheckBox_toggledEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i32
   store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 84), align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @_ZN11SearchFrame27on_multipleCheckBox_toggledEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define void @_ZN11SearchFrame27on_multipleCheckBox_toggledEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i32
   store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 88), align 8
   ret void
@@ -4151,7 +4151,7 @@ declare i32 @cf_find_packet_summary_line(ptr noundef, ptr noundef, i32 noundef) 
 declare i32 @cf_find_packet_protocol_tree(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @cf_find_packet_dfilter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4999,13 +4999,13 @@ declare void @_ZN15QAbstractButton7setTextERK7QString(ptr noundef nonnull align 
 declare void @_ZN6QLabel7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

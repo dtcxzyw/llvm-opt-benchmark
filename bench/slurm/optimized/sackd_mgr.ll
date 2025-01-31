@@ -84,7 +84,7 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #3
 declare i32 @slurm_pack_list(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @_pack_node(ptr nocapture noundef readonly %0, i16 zeroext %1, ptr noundef %2) #0 {
+define internal void @_pack_node(ptr noundef readonly captures(none) %0, i16 zeroext %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i16, ptr %4, align 8
   tail call void @pack16(i16 noundef zeroext %5, ptr noundef %2) #7
@@ -184,7 +184,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #4
 declare i32 @slurm_unpack_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_unpack_node(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_unpack_node(ptr noundef writeonly captures(none) %0, i16 zeroext %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -381,7 +381,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #4
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_find_sackd_node(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_find_sackd_node(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @xstrcmp(ptr noundef %3, ptr noundef %1) #7
   %.not = icmp eq i32 %4, 0
@@ -390,7 +390,7 @@ define internal range(i32 0, 2) i32 @_find_sackd_node(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_update_sackd_node(ptr noundef initializes((16, 26)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_update_sackd_node(ptr noundef initializes((16, 26)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = tail call i64 @time(ptr noundef null) #7
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -489,7 +489,7 @@ define dso_local void @sackd_mgr_push_reconfig() local_unnamed_addr #0 {
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_each_sackd_node(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_each_sackd_node(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 182, ptr noundef nonnull @__func__._each_sackd_node) #7
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 184, ptr noundef nonnull @__func__._each_sackd_node) #7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -573,7 +573,7 @@ declare void @pack16(i16 noundef zeroext, ptr noundef) local_unnamed_addr #4
 declare void @pack64(i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -605,10 +605,10 @@ declare void @set_agent_arg_r_uid(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @agent_queue_request(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

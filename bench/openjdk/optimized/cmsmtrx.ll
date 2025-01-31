@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.cmsVEC3 = type { [3 x double] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_cmsVEC3init(ptr nocapture noundef writeonly initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
+define hidden void @_cmsVEC3init(ptr noundef writeonly captures(none) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   store double %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
@@ -17,7 +17,7 @@ define hidden void @_cmsVEC3init(ptr nocapture noundef writeonly initializes((0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsVEC3minus(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @_cmsVEC3minus(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = fsub double %4, %5
@@ -40,7 +40,7 @@ define hidden void @_cmsVEC3minus(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsVEC3cross(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @_cmsVEC3cross(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -78,7 +78,7 @@ define hidden void @_cmsVEC3cross(ptr nocapture noundef writeonly initializes((0
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden double @_cmsVEC3dot(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden double @_cmsVEC3dot(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -96,7 +96,7 @@ define hidden double @_cmsVEC3dot(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden double @_cmsVEC3length(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define hidden double @_cmsVEC3length(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -110,7 +110,7 @@ define hidden double @_cmsVEC3length(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden double @_cmsVEC3distance(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden double @_cmsVEC3distance(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
@@ -132,7 +132,7 @@ define hidden double @_cmsVEC3distance(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_cmsMAT3identity(ptr nocapture noundef writeonly initializes((0, 72)) %0) local_unnamed_addr #0 {
+define hidden void @_cmsMAT3identity(ptr noundef writeonly captures(none) initializes((0, 72)) %0) local_unnamed_addr #0 {
   store double 1.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -146,7 +146,7 @@ define hidden void @_cmsMAT3identity(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @_cmsMAT3isIdentity(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @_cmsMAT3isIdentity(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = alloca %struct.cmsMAT3, align 8
   store double 1.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -192,7 +192,7 @@ define hidden range(i32 0, 2) i32 @_cmsMAT3isIdentity(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsMAT3per(ptr nocapture noundef writeonly initializes((0, 72)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @_cmsMAT3per(ptr noundef writeonly captures(none) initializes((0, 72)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -293,7 +293,7 @@ define hidden void @_cmsMAT3per(ptr nocapture noundef writeonly initializes((0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @_cmsMAT3inverse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_cmsMAT3inverse(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load double, ptr %4, align 8
@@ -407,7 +407,7 @@ define hidden range(i32 0, 2) i32 @_cmsMAT3inverse(ptr nocapture noundef readonl
 declare double @llvm.fabs.f64(double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @_cmsMAT3solve(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_cmsMAT3solve(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %.sroa.03.0.copyload = load double, ptr %1, align 8
   %.sroa.68.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.68.0.copyload = load double, ptr %.sroa.68.0..sroa_idx, align 8
@@ -499,7 +499,7 @@ _cmsMAT3inverse.exit.thread:                      ; preds = %3, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_cmsMAT3eval(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define hidden void @_cmsMAT3eval(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load double, ptr %1, align 8
   %5 = load double, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -549,7 +549,7 @@ define hidden void @_cmsMAT3eval(ptr nocapture noundef writeonly initializes((0,
 declare double @llvm.sqrt.f64(double) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

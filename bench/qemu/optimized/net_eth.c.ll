@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [32 x i8] c"bytes_read == sizeof(*dst_addr)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @eth_setup_vlan_headers(ptr nocapture noundef %ehdr, ptr nocapture noundef %ehdr_size, i16 noundef zeroext %vlan_tag, i16 noundef zeroext %vlan_ethtype) local_unnamed_addr #0 {
+define dso_local void @eth_setup_vlan_headers(ptr noundef captures(none) %ehdr, ptr noundef captures(none) %ehdr_size, i16 noundef zeroext %vlan_tag, i16 noundef zeroext %vlan_ethtype) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %ehdr, i64 14
   %add.ptr1 = getelementptr i8, ptr %ehdr, i64 18
@@ -45,10 +45,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext range(i8 0, -120) i8 @eth_get_gso_type(i16 noundef zeroext %l3_proto, ptr nocapture noundef readonly %l3_hdr, i8 noundef zeroext %l4proto) local_unnamed_addr #2 {
+define dso_local zeroext range(i8 0, -120) i8 @eth_get_gso_type(i16 noundef zeroext %l3_proto, ptr noundef readonly captures(none) %l3_hdr, i8 noundef zeroext %l4proto) local_unnamed_addr #2 {
 entry:
   %conv = zext i16 %l3_proto to i32
   switch i16 %l3_proto, label %do.body [
@@ -157,7 +157,7 @@ return:                                           ; preds = %cond.true, %iov_to_
 declare i64 @iov_size(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @eth_get_protocols(ptr noundef %iov, i64 noundef %iovcnt, i64 noundef %iovoff, ptr nocapture noundef writeonly initializes((0, 1)) %hasip4, ptr nocapture noundef writeonly initializes((0, 1)) %hasip6, ptr nocapture noundef initializes((0, 8)) %l3hdr_off, ptr nocapture noundef %l4hdr_off, ptr nocapture noundef writeonly %l5hdr_off, ptr noundef %ip6hdr_info, ptr noundef %ip4hdr_info, ptr noundef initializes((20, 24)) %l4hdr_info) local_unnamed_addr #2 {
+define dso_local void @eth_get_protocols(ptr noundef %iov, i64 noundef %iovcnt, i64 noundef %iovoff, ptr noundef writeonly captures(none) initializes((0, 1)) %hasip4, ptr noundef writeonly captures(none) initializes((0, 1)) %hasip6, ptr noundef captures(none) initializes((0, 8)) %l3hdr_off, ptr noundef captures(none) %l4hdr_off, ptr noundef writeonly captures(none) %l5hdr_off, ptr noundef %ip6hdr_info, ptr noundef %ip4hdr_info, ptr noundef initializes((20, 24)) %l4hdr_info) local_unnamed_addr #2 {
 entry:
   %proto.i = alloca i16, align 2
   %p.i = alloca [18 x i8], align 16
@@ -832,7 +832,7 @@ return:                                           ; preds = %eth_is_ip6_extensio
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, 19) i64 @eth_strip_vlan(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, ptr noundef %new_ehdr_buf, ptr nocapture noundef %payload_offset, ptr nocapture noundef writeonly %tci) local_unnamed_addr #2 {
+define dso_local range(i64 0, 19) i64 @eth_strip_vlan(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, ptr noundef %new_ehdr_buf, ptr noundef captures(none) %payload_offset, ptr noundef writeonly captures(none) %tci) local_unnamed_addr #2 {
 entry:
   %vlan_hdr = alloca %struct.vlan_header, align 4
   %tobool.i.not = icmp eq i32 %iovcnt, 0
@@ -952,7 +952,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, 19) i64 @eth_strip_vlan_ex(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, i32 noundef %index, i16 noundef zeroext %vet, i16 noundef zeroext %vet_ext, ptr noundef %new_ehdr_buf, ptr nocapture noundef writeonly %payload_offset, ptr nocapture noundef writeonly %tci) local_unnamed_addr #2 {
+define dso_local range(i64 0, 19) i64 @eth_strip_vlan_ex(ptr noundef %iov, i32 noundef %iovcnt, i64 noundef %iovoff, i32 noundef %index, i16 noundef zeroext %vet, i16 noundef zeroext %vet_ext, ptr noundef %new_ehdr_buf, ptr noundef writeonly captures(none) %payload_offset, ptr noundef writeonly captures(none) %tci) local_unnamed_addr #2 {
 entry:
   %vlan_hdr = alloca %struct.vlan_header, align 4
   switch i32 %index, label %return [
@@ -1094,7 +1094,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @eth_calc_ip4_pseudo_hdr_csum(ptr nocapture noundef readonly %iphdr, i16 noundef zeroext %csl, ptr nocapture noundef writeonly initializes((0, 4)) %cso) local_unnamed_addr #2 {
+define dso_local i32 @eth_calc_ip4_pseudo_hdr_csum(ptr noundef readonly captures(none) %iphdr, i16 noundef zeroext %csl, ptr noundef writeonly captures(none) initializes((0, 4)) %cso) local_unnamed_addr #2 {
 entry:
   %ipph = alloca %struct.ip_pseudo_header, align 4
   %ip_src = getelementptr inbounds nuw i8, ptr %iphdr, i64 12
@@ -1119,7 +1119,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @eth_calc_ip6_pseudo_hdr_csum(ptr nocapture noundef readonly %iphdr, i16 noundef zeroext %csl, i8 noundef zeroext %l4_proto, ptr nocapture noundef writeonly initializes((0, 4)) %cso) local_unnamed_addr #2 {
+define dso_local i32 @eth_calc_ip6_pseudo_hdr_csum(ptr noundef readonly captures(none) %iphdr, i16 noundef zeroext %csl, i8 noundef zeroext %l4_proto, ptr noundef writeonly captures(none) initializes((0, 4)) %cso) local_unnamed_addr #2 {
 entry:
   %ipph = alloca %struct.ip6_pseudo_header, align 4
   %ip6_src1 = getelementptr inbounds nuw i8, ptr %iphdr, i64 8
@@ -1145,10 +1145,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @eth_pad_short_frame(ptr nocapture noundef writeonly %padded_pkt, ptr noundef %padded_buflen, ptr nocapture noundef readonly %pkt, i64 noundef %pkt_size) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @eth_pad_short_frame(ptr noundef writeonly captures(none) %padded_pkt, ptr noundef %padded_buflen, ptr noundef readonly captures(none) %pkt, i64 noundef %pkt_size) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %padded_buflen, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -1182,7 +1182,7 @@ return:                                           ; preds = %if.end, %if.end3
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #6
@@ -1194,10 +1194,10 @@ declare zeroext i16 @net_checksum_finish(i32 noundef) local_unnamed_addr #3
 declare i32 @net_checksum_add_cont(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

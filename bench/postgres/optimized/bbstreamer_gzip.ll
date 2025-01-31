@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [30 x i8] c"could not decompress data: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_gzip_writer_content(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 {
+define internal void @bbstreamer_gzip_writer_content(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 {
   %6 = icmp eq i32 %3, 0
   br i1 %6, label %21, label %7
 
@@ -55,7 +55,7 @@ define internal void @bbstreamer_gzip_writer_content(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_gzip_writer_finalize(ptr nocapture noundef %0) #0 {
+define internal void @bbstreamer_gzip_writer_finalize(ptr noundef captures(none) %0) #0 {
   %2 = tail call ptr @__errno_location() #6
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -153,7 +153,7 @@ define internal void @bbstreamer_gzip_decompressor_content(ptr noundef initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @bbstreamer_gzip_decompressor_finalize(ptr nocapture noundef readonly %0) #0 {
+define internal void @bbstreamer_gzip_decompressor_finalize(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -187,7 +187,7 @@ define internal void @bbstreamer_gzip_decompressor_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @bbstreamer_gzip_writer_new(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @bbstreamer_gzip_writer_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @palloc0(i64 noundef 56) #7
   store ptr @bbstreamer_gzip_writer_ops, ptr %4, align 8
   %5 = tail call ptr @pstrdup(ptr noundef %0) #7
@@ -267,7 +267,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #2
 declare i32 @dup(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @gzdopen(i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -328,7 +328,7 @@ define dso_local noundef ptr @bbstreamer_gzip_decompressor_new(ptr noundef %0) l
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @gzip_palloc(ptr nocapture readnone %0, i32 noundef %1, i32 noundef %2) #0 {
+define internal ptr @gzip_palloc(ptr readnone captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = mul i32 %2, %1
   %5 = zext i32 %4 to i64
   %6 = tail call ptr @palloc(i64 noundef %5) #7
@@ -336,7 +336,7 @@ define internal ptr @gzip_palloc(ptr nocapture readnone %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gzip_pfree(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @gzip_pfree(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @pfree(ptr noundef %1) #7
   ret void
 }

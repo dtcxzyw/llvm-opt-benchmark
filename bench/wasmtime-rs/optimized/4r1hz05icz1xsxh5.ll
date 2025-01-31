@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.eddf69fcca287eab82c23604dcd207e4.15 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.eddf69fcca287eab82c23604dcd207e4.9, [16 x i8] c"(\00\00\00\00\00\00\00J\00\00\00\0D\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN22cranelift_codegen_meta6shared6define17h5aa7021602ab0dcfE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN22cranelift_codegen_meta6shared6define17h5aa7021602ab0dcfE(ptr writeonly sret({ { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } }, align 8
   %3 = alloca { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
@@ -470,7 +470,7 @@ declare hidden void @_ZN22cranelift_codegen_meta6shared12instructions6define17h4
 declare hidden void @_ZN22cranelift_codegen_meta6shared8settings6define17hfde2b69776ad02caE(ptr sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i8, i8, [6 x i8] }) align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr69drop_in_place$LT$cranelift_codegen_meta..shared..formats..Formats$GT$17h6e234f3f90e781fbE"(ptr align 8) unnamed_addr #0
@@ -560,10 +560,10 @@ declare void @"_ZN4core3ptr75drop_in_place$LT$cranelift_codegen_meta..cdsl..form
 declare void @"_ZN4core3ptr199drop_in_place$LT$std..collections..hash..map..HashMap$LT$cranelift_codegen_meta..cdsl..formats..FormatStructure$C$alloc..rc..Rc$LT$cranelift_codegen_meta..cdsl..formats..InstructionFormat$GT$$GT$$GT$17hcdc3e8e47df2d064E"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

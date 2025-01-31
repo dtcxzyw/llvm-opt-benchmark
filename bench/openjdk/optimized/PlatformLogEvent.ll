@@ -18,12 +18,12 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN8LogEvent4initER16PlatformLogEvent(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN8LogEvent4initER16PlatformLogEvent(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN8LogEvent15appendFormattedERK16PlatformLogEventRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN8LogEvent15appendFormattedERK16PlatformLogEventRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   ret void
 }
 

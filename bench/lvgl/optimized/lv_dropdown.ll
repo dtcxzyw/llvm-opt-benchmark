@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [27 x i8] c"Option 1\0AOption 2\0AOption 3\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_dropdown_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 112)) %1) #0 {
+define internal void @lv_dropdown_constructor(ptr readnone captures(none) %0, ptr noundef initializes((64, 112)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -118,7 +118,7 @@ lv_dropdown_set_options_static.exit:              ; preds = %33, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_dropdown_destructor(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
+define internal void @lv_dropdown_destructor(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %4, null
@@ -148,7 +148,7 @@ define internal void @lv_dropdown_destructor(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_dropdown_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_dropdown_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdown_class, ptr noundef %1) #7
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %4, label %.critedge95
@@ -344,7 +344,7 @@ define internal void @lv_dropdown_event(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_dropdownlist_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_dropdownlist_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 1024) #7
   tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 4) #7
   tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 131072) #7
@@ -354,7 +354,7 @@ define internal void @lv_dropdownlist_constructor(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @lv_dropdownlist_destructor(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @lv_dropdownlist_destructor(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -363,7 +363,7 @@ define internal void @lv_dropdownlist_destructor(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_dropdown_list_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_dropdown_list_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct.lv_area_t, align 4
   %5 = alloca %struct.lv_point_t, align 4
@@ -634,14 +634,14 @@ define noundef ptr @lv_dropdown_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define void @lv_dropdown_set_text(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1139,7 +1139,7 @@ define void @lv_dropdown_set_symbol(ptr noundef initializes((80, 88)) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_dropdown_set_selected_highlight(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @lv_dropdown_set_selected_highlight(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i8, ptr %3, align 8
   %5 = select i1 %1, i8 32, i8 0
@@ -1160,21 +1160,21 @@ define void @lv_dropdown_set_selected_highlight(ptr nocapture noundef %0, i1 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_dropdown_get_list(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_dropdown_get_list(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_dropdown_get_text(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_dropdown_get_text(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @lv_dropdown_get_options(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define nonnull ptr @lv_dropdown_get_options(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = icmp eq ptr %3, null
@@ -1183,21 +1183,21 @@ define nonnull ptr @lv_dropdown_get_options(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_dropdown_get_selected(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_dropdown_get_selected(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4, !tbaa !15
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_dropdown_get_option_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_dropdown_get_option_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8, !tbaa !18
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_dropdown_get_selected_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_dropdown_get_selected_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %.not = icmp eq ptr %5, null
@@ -1309,7 +1309,7 @@ define void @lv_dropdown_get_selected_str(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_dropdown_get_option_index(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @lv_dropdown_get_option_index(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8, !tbaa !12
   %5 = icmp eq ptr %4, null
@@ -1373,14 +1373,14 @@ define i32 @lv_dropdown_get_option_index(ptr nocapture noundef readonly %0, ptr 
 declare i32 @lv_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_dropdown_get_symbol(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define ptr @lv_dropdown_get_symbol(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_dropdown_get_selected_highlight(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define zeroext i1 @lv_dropdown_get_selected_highlight(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 32
@@ -1389,7 +1389,7 @@ define zeroext i1 @lv_dropdown_get_selected_highlight(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @lv_dropdown_get_dir(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 16) i32 @lv_dropdown_get_dir(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 15
@@ -1661,7 +1661,7 @@ declare void @lv_obj_remove_state(ptr noundef, i16 noundef zeroext) local_unname
 declare void @lv_obj_add_flag(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_dropdown_is_open(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define zeroext i1 @lv_dropdown_is_open(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef %3, i32 noundef 1) #7
@@ -2116,10 +2116,10 @@ declare void @lv_indev_get_point(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @draw_box(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext range(i16 1, 34) %3) unnamed_addr #0 {
+define internal fastcc void @draw_box(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext range(i16 1, 34) %3) unnamed_addr #0 {
   %5 = alloca %struct.lv_area_t, align 4
   %6 = alloca %struct.lv_draw_rect_dsc_t, align 8
   %7 = icmp eq i32 %2, 65535
@@ -2189,7 +2189,7 @@ get_label.exit:                                   ; preds = %13, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @draw_box_label(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext range(i16 1, 34) %3) unnamed_addr #0 {
+define internal fastcc void @draw_box_label(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext range(i16 1, 34) %3) unnamed_addr #0 {
   %5 = alloca %struct.lv_draw_label_dsc_t, align 8
   %6 = alloca %struct.lv_area_t, align 4
   %7 = alloca %struct.lv_area_t, align 4

@@ -399,10 +399,10 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
@@ -412,7 +412,7 @@ entry:
   %call = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 216) #9
   tail call void @strbuf_init(ptr noundef %call, i64 noundef 4096) #9
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #11
-  tail call void @strbuf_add(ptr noundef %call, ptr noundef %path, i64 noundef %call.i) #9
+  tail call void @strbuf_add(ptr noundef %call, ptr noundef nonnull %path, i64 noundef %call.i) #9
   %levels_alloc = getelementptr inbounds nuw i8, ptr %call, i64 192
   %0 = load i64, ptr %levels_alloc, align 8
   %cmp = icmp ult i64 %0, 10
@@ -473,10 +473,10 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -486,7 +486,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #5

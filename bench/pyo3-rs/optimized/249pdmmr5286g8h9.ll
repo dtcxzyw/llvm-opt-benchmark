@@ -159,7 +159,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.ca6e988e113f9f3b293ee61d3a823dd5.166 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.ca6e988e113f9f3b293ee61d3a823dd5.165, [16 x i8] c"S\00\00\00\00\00\00\00\17\00\00\00\01\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -248,7 +248,7 @@ define hidden void @_ZN17pyo3_build_config5impl_22target_triple_from_env17hc71af
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig20build_script_outputs17ha337298c4bf8ee3eE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig20build_script_outputs17ha337298c4bf8ee3eE(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -452,7 +452,7 @@ define void @_ZN17pyo3_build_config5impl_17InterpreterConfig20build_script_outpu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_sysconfigdata17haec8d72adf93c8f1E(ptr nocapture writeonly sret([160 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_sysconfigdata17haec8d72adf93c8f1E(ptr writeonly sret([160 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -862,7 +862,7 @@ _ZN17pyo3_build_config5impl_20PythonImplementation10from_soabi17h30a7db2481523c0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_cargo_dep_env17ha1be7e4bab438489E(ptr nocapture writeonly sret([160 x i8]) align 8 initializes((0, 8)) %0) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig18from_cargo_dep_env17ha1be7e4bab438489E(ptr writeonly sret([160 x i8]) align 8 captures(none) initializes((0, 8)) %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -912,13 +912,13 @@ _ZN17pyo3_build_config5impl_13cargo_env_var17hdb3cee141ccec1deE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig20generate_import_libs17hcbee444dbdd8dc39E(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 8)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #1 {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig20generate_import_libs17hcbee444dbdd8dc39E(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr readnone align 8 captures(none) %1) unnamed_addr #1 {
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_17InterpreterConfig16to_cargo_dep_env17hedd07dbe1e385bc6E(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_17InterpreterConfig16to_cargo_dep_env17hedd07dbe1e385bc6E(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -1125,7 +1125,7 @@ define zeroext i1 @"_ZN78_$LT$pyo3_build_config..impl_..PythonVersion$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN86_$LT$pyo3_build_config..impl_..PythonVersion$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h3af3442b56cd7b50E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN86_$LT$pyo3_build_config..impl_..PythonVersion$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h3af3442b56cd7b50E"(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = alloca [40 x i8], align 8
@@ -1228,7 +1228,7 @@ define zeroext i1 @_ZN17pyo3_build_config5impl_20PythonImplementation10is_graalp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_20PythonImplementation10from_soabi17h30a7db2481523c07E(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_20PythonImplementation10from_soabi17h30a7db2481523c07E(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
@@ -1281,7 +1281,7 @@ define void @_ZN17pyo3_build_config5impl_20PythonImplementation10from_soabi17h30
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN85_$LT$pyo3_build_config..impl_..PythonImplementation$u20$as$u20$core..fmt..Display$GT$3fmt17h4ea23338a091b77dE"(ptr nocapture readonly align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN85_$LT$pyo3_build_config..impl_..PythonImplementation$u20$as$u20$core..fmt..Display$GT$3fmt17h4ea23338a091b77dE"(ptr readonly align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [48 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -1334,7 +1334,7 @@ define zeroext i1 @"_ZN85_$LT$pyo3_build_config..impl_..PythonImplementation$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$pyo3_build_config..impl_..PythonImplementation$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1202e372ead01e0cE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN93_$LT$pyo3_build_config..impl_..PythonImplementation$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1202e372ead01e0cE"(ptr writeonly sret([40 x i8]) align 8 captures(none) initializes((0, 9)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [16 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -1569,7 +1569,7 @@ _ZN17pyo3_build_config5impl_19is_extension_module17h0698c3271912dc7dE.exit: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17pyo3_build_config5impl_18CrossCompileConfig29try_from_env_vars_host_target17hbf934016482b0bccE(ptr noalias nocapture writeonly align 8 %0, ptr nonnull align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17pyo3_build_config5impl_18CrossCompileConfig29try_from_env_vars_host_target17hbf934016482b0bccE(ptr noalias writeonly align 8 captures(none) %0, ptr nonnull align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [40 x i8], align 8
   %6 = alloca [40 x i8], align 8
   %7 = alloca [24 x i8], align 8
@@ -1934,7 +1934,7 @@ _ZN17pyo3_build_config5impl_19CrossCompileEnvVars3any17h4acc57195d3ea712E.exit.t
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8from_env17hd1a1c8174357cb87E(ptr noalias nocapture nonnull writeonly align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8from_env17hd1a1c8174357cb87E(ptr noalias nonnull writeonly align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [16 x i8], align 8
   %3 = alloca [48 x i8], align 8
   %4 = alloca [16 x i8], align 8
@@ -2115,7 +2115,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_23cross_compiling_from_to17h14d790cb3bd1a410E(ptr nocapture writeonly sret([72 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_23cross_compiling_from_to17h14d790cb3bd1a410E(ptr writeonly sret([72 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [96 x i8], align 8
   call fastcc void @_ZN17pyo3_build_config5impl_19CrossCompileEnvVars8from_env17hd1a1c8174357cb87E(ptr noalias align 8 %4)
   call fastcc void @_ZN17pyo3_build_config5impl_18CrossCompileConfig29try_from_env_vars_host_target17hbf934016482b0bccE(ptr noalias align 8 %0, ptr align 8 %4, ptr align 8 %1, ptr align 8 %2)
@@ -2174,7 +2174,7 @@ define zeroext i1 @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN82_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h71b6ad70faf8e870E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN82_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h71b6ad70faf8e870E"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 8)) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = tail call zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hcb92cf68a6a12c33E"(ptr align 1 %1, i64 %2, ptr nonnull align 1 @anon.ca6e988e113f9f3b293ee61d3a823dd5.93, i64 8)
   br i1 %5, label %8, label %6
@@ -2217,7 +2217,7 @@ define void @"_ZN82_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..str
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_10BuildFlags3new17hee3e55cefd833770E(ptr nocapture writeonly sret([48 x i8]) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_10BuildFlags3new17hee3e55cefd833770E(ptr writeonly sret([48 x i8]) align 8 captures(none) initializes((0, 48)) %0) unnamed_addr #0 {
   %2 = alloca [48 x i8], align 8
   call void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17hba43ba269d4b54b6E"(ptr nonnull sret([48 x i8]) align 8 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
@@ -2225,7 +2225,7 @@ define void @_ZN17pyo3_build_config5impl_10BuildFlags3new17hee3e55cefd833770E(pt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_10BuildFlags5fixup17h69b231c676a692b5E(ptr nocapture writeonly sret([48 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_10BuildFlags5fixup17h69b231c676a692b5E(ptr writeonly sret([48 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = invoke zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hddd04b21d5eaf480E"(ptr align 8 %1, ptr nonnull align 8 @anon.ca6e988e113f9f3b293ee61d3a823dd5.98)
           to label %7 unwind label %5
@@ -2314,7 +2314,7 @@ define noundef zeroext i1 @"_ZN75_$LT$pyo3_build_config..impl_..BuildFlags$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN83_$LT$pyo3_build_config..impl_..BuildFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h08bdc4a8b6379d7fE"(ptr nocapture writeonly sret([48 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN83_$LT$pyo3_build_config..impl_..BuildFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h08bdc4a8b6379d7fE"(ptr writeonly sret([48 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [48 x i8], align 8
@@ -2575,7 +2575,7 @@ define hidden zeroext i1 @_ZN17pyo3_build_config5impl_9ends_with17hdf444ed2aef9e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_22find_all_sysconfigdata17h70d012363951128dE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_22find_all_sysconfigdata17h70d012363951128dE(ptr writeonly sret([40 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = alloca [16 x i8], align 8
@@ -2945,7 +2945,7 @@ define hidden zeroext i1 @_ZN17pyo3_build_config5impl_18is_cpython_lib_dir17hc1d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile17h0b40827e2629b413E(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr nonnull align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [0 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [48 x i8], align 8
@@ -3099,7 +3099,7 @@ define internal fastcc void @_ZN17pyo3_build_config5impl_21default_cross_compile
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, i8 %1, i8 %2, i8 %3, i1 zeroext %4, ptr align 8 %5) unnamed_addr #0 {
+define void @_ZN17pyo3_build_config5impl_27default_lib_name_for_target17h5eb932eb1ad3895bE(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 8)) %0, i8 %1, i8 %2, i8 %3, i1 zeroext %4, ptr align 8 %5) unnamed_addr #0 {
   %7 = alloca [24 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = alloca [48 x i8], align 8
@@ -3450,7 +3450,7 @@ define void @_ZN17pyo3_build_config5impl_17run_python_script17hcb8d1954457980c1E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(ptr nocapture writeonly sret([40 x i8]) align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(ptr writeonly sret([40 x i8]) align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [0 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
@@ -3974,7 +3974,7 @@ define void @_ZN17pyo3_build_config5impl_16find_interpreter17he93c80b7e2e41228E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17pyo3_build_config5impl_25make_cross_compile_config17h501eb9fcdd8bba40E(ptr nocapture writeonly sret([160 x i8]) align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN17pyo3_build_config5impl_25make_cross_compile_config17h501eb9fcdd8bba40E(ptr writeonly sret([160 x i8]) align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [0 x i8], align 8
   %3 = alloca [48 x i8], align 8
   %4 = alloca [48 x i8], align 8
@@ -5016,7 +5016,7 @@ _ZN17pyo3_build_config5impl_25load_cross_compile_config17h3df21c1adc49da8dE.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN17pyo3_build_config5impl_8unescape17he2c6557a5c517beaE(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 1 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
@@ -5238,7 +5238,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..clone..Clone$GT$5clone17h356342da20e2d3abE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
+define hidden void @"_ZN74_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$u20$core..clone..Clone$GT$5clone17h356342da20e2d3abE"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #3 {
   %3 = alloca [24 x i8], align 8
   %4 = load i64, ptr %1, align 8
   %5 = xor i64 %4, -9223372036854775808
@@ -5315,7 +5315,7 @@ define hidden zeroext i1 @"_ZN76_$LT$pyo3_build_config..impl_..BuildFlag$u20$as$
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core6result13unwrap_failed17h82b551e0ff2b2176E(ptr align 1, i64, ptr align 1, ptr align 8, ptr align 8) unnamed_addr #5
@@ -5672,10 +5672,10 @@ declare { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..o
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9

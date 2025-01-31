@@ -128,7 +128,7 @@ _ZN9grpc_core12_GLOBAL__N_120ExperimentsSingletonEv.exit: ; preds = %entry, %ini
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias nocapture nonnull align 1 %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_133LoadExperimentsFromConfigVariableEv(ptr noalias nonnull align 1 captures(none) %agg.result) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp23 = alloca %"struct.grpc_core::ExperimentMetadata", align 8
@@ -280,7 +280,7 @@ for.body33:                                       ; preds = %for.body24, %for.in
   br i1 %cmp.i, label %land.rhs.i, label %for.inc44
 
 land.rhs.i:                                       ; preds = %for.body33
-  %bcmp.i = call i32 @bcmp(ptr nonnull %experiment.sroa.5.0, ptr %13, i64 %experiment.sroa.0.0.fr)
+  %bcmp.i = call i32 @bcmp(ptr nonnull %experiment.sroa.5.0, ptr nonnull %13, i64 %experiment.sroa.0.0.fr)
   %cmp.i.i34 = icmp eq i32 %bcmp.i, 0
   br i1 %cmp.i.i34, label %if.then38, label %for.inc44
 
@@ -399,7 +399,7 @@ for.end89:                                        ; preds = %for.inc87
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9grpc_core20PrintExperimentsListEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
@@ -740,7 +740,7 @@ ehcleanup89:                                      ; preds = %ehcleanup85, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core35LoadTestOnlyExperimentsFromMetadataEPKNS_18ExperimentMetadataEm(ptr nocapture noundef readonly %experiment_metadata, i64 noundef %num_experiments) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core35LoadTestOnlyExperimentsFromMetadataEPKNS_18ExperimentMetadataEm(ptr noundef readonly captures(none) %experiment_metadata, i64 noundef %num_experiments) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp14.i = alloca %"struct.grpc_core::ExperimentMetadata", align 8
   %ref.tmp.i = alloca %"class.absl::lts_20230802::strings_internal::Splitter", align 8
@@ -905,7 +905,7 @@ for.body25.us37.i:                                ; preds = %_ZN4absl12lts_20230
   br i1 %cmp.i.us41.i, label %land.rhs.i.us42.i, label %for.inc36.us43.i
 
 land.rhs.i.us42.i:                                ; preds = %for.body25.us37.i
-  %bcmp.i.us.i = call i32 @bcmp(ptr nonnull %experiment.sroa.4.0.us.i, ptr %15, i64 %experiment.sroa.0.0.us.fr.i)
+  %bcmp.i.us.i = call i32 @bcmp(ptr nonnull %experiment.sroa.4.0.us.i, ptr nonnull %15, i64 %experiment.sroa.0.0.us.fr.i)
   %cmp.i.i26.us.i = icmp eq i32 %bcmp.i.us.i, 0
   br i1 %cmp.i.i26.us.i, label %if.then30.us.i, label %for.inc36.us43.i
 
@@ -1050,7 +1050,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapISt17basic_string_viewIcSt11char_traitsIcEEmSt4lessIS3_ESaISt4pairIKS3_mEEEixEOS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1215,7 +1215,7 @@ land.rhs.i.i:                                     ; preds = %for.body
   br i1 %cmp.i2.i.i.i, label %if.end6, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %land.rhs.i.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %1, ptr %experiment.coerce1, i64 %experiment.coerce0)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %1, ptr %experiment.coerce1, i64 %experiment.coerce0)
   %cmp.i.i.i = icmp eq i32 %bcmp.i.i, 0
   br i1 %cmp.i.i.i, label %if.end6, label %for.inc
 
@@ -1402,7 +1402,7 @@ declare noundef nonnull align 8 dereferenceable(312) ptr @_ZN9grpc_core10ConfigV
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare { i64, ptr } @_ZNK4absl12lts_202308026ByChar4FindESt17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull align 1 dereferenceable(1), i64, ptr, i64 noundef) local_unnamed_addr #6
 
@@ -2151,10 +2151,10 @@ __cxx_global_var_init.exit:                       ; preds = %arrayctor.loop.i
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17
@@ -2166,10 +2166,10 @@ declare i64 @llvm.smax.i64(i64, i64) #17
 declare i64 @llvm.smin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

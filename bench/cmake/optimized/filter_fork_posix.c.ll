@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pollfd = type { i32, i16, i16 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -25, 1) i32 @__archive_create_child(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 -25, 1) i32 @__archive_create_child(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [2 x i32], align 4
   %7 = alloca [2 x i32], align 4

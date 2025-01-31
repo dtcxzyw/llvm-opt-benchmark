@@ -97,7 +97,7 @@ index_tree_end.exit:                              ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @lzma_index_prealloc(ptr nocapture noundef writeonly initializes((64, 72)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local void @lzma_index_prealloc(ptr noundef writeonly captures(none) initializes((64, 72)) %0, i64 noundef %1) local_unnamed_addr #2 {
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %1, i64 1152921504606846971)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %spec.store.select, ptr %3, align 8
@@ -124,7 +124,7 @@ define dso_local i64 @lzma_index_memusage(i64 noundef %0, i64 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lzma_index_memused(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i64 @lzma_index_memused(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -147,14 +147,14 @@ define dso_local i64 @lzma_index_memused(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lzma_index_block_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i64 @lzma_index_block_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 4294967296) i64 @lzma_index_stream_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local range(i64 0, 4294967296) i64 @lzma_index_stream_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -162,7 +162,7 @@ define dso_local range(i64 0, 4294967296) i64 @lzma_index_stream_count(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local range(i64 0, -3) i64 @lzma_index_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 0, -3) i64 @lzma_index_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -177,14 +177,14 @@ define dso_local range(i64 0, -3) i64 @lzma_index_size(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lzma_index_total_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i64 @lzma_index_total_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i64 @lzma_index_stream_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local i64 @lzma_index_stream_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -203,7 +203,7 @@ define dso_local i64 @lzma_index_stream_size(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local range(i64 -1, -9223372036854775808) i64 @lzma_index_file_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i64 -1, -9223372036854775808) i64 @lzma_index_file_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -255,14 +255,14 @@ index_file_size.exit:                             ; preds = %17, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @lzma_index_uncompressed_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define dso_local i64 @lzma_index_uncompressed_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @lzma_index_checks(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define dso_local i32 @lzma_index_checks(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -285,7 +285,7 @@ define dso_local i32 @lzma_index_checks(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local range(i32 0, 4) i32 @lzma_index_padding_size(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local range(i32 0, 4) i32 @lzma_index_padding_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -326,7 +326,7 @@ define dso_local i32 @lzma_index_stream_flags(ptr noundef readonly %0, ptr nound
 declare i32 @lzma_stream_flags_compare(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: read) uwtable
 define dso_local range(i32 0, 12) i32 @lzma_index_stream_padding(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
@@ -906,7 +906,7 @@ lzma_index_checks.exit:                           ; preds = %140, %164
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @index_cat_helper(ptr nocapture noundef nonnull readonly %0, ptr noundef initializes((16, 24)) %1) unnamed_addr #10 {
+define internal fastcc void @index_cat_helper(ptr noundef nonnull readonly captures(none) %0, ptr noundef initializes((16, 24)) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1039,7 +1039,7 @@ index_tree_append.exit:                           ; preds = %37, %39, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lzma_index_dup(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @lzma_index_dup(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @lzma_alloc(i64 noundef 80, ptr noundef %1) #16
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %index_init_plain.exit.thread, label %4
@@ -1337,7 +1337,7 @@ index_init_plain.exit.thread:                     ; preds = %.preheader.i, %2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @lzma_index_iter_init(ptr nocapture noundef writeonly initializes((256, 296)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @lzma_index_iter_init(ptr noundef writeonly captures(none) initializes((256, 296)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1346,14 +1346,14 @@ define dso_local void @lzma_index_iter_init(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @lzma_index_iter_rewind(ptr nocapture noundef writeonly initializes((264, 296)) %0) local_unnamed_addr #2 {
+define dso_local void @lzma_index_iter_rewind(ptr noundef writeonly captures(none) initializes((264, 296)) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_next(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_next(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = icmp ugt i32 %1, 3
   br i1 %3, label %index_tree_next.exit82, label %4
 
@@ -1628,7 +1628,7 @@ index_tree_next.exit82:                           ; preds = %.preheader.i79, %.p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal fastcc void @iter_set_info(ptr nocapture noundef initializes((0, 8), (32, 88), (288, 296)) %0) unnamed_addr #12 {
+define internal fastcc void @iter_set_info(ptr noundef captures(none) initializes((0, 8), (32, 88), (288, 296)) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -1825,7 +1825,7 @@ define internal fastcc void @iter_set_info(ptr nocapture noundef initializes((0,
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_locate(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #11 {
+define dso_local zeroext range(i8 0, 2) i8 @lzma_index_iter_locate(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -1949,7 +1949,7 @@ define internal fastcc void @index_tree_node_end(ptr noundef nonnull %0, ptr nou
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #14

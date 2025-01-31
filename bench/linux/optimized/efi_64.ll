@@ -195,7 +195,7 @@ define dso_local noundef range(i32 -12, 1) i32 @efi_alloc_page_tables() local_un
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @__get_free_pages(i32 noundef, i32 noundef) local_unnamed_addr #2
@@ -204,7 +204,7 @@ declare dso_local i64 @__get_free_pages(i32 noundef, i32 noundef) local_unnamed_
 declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @efi_sync_low_kernel_mappings() local_unnamed_addr #3 align 16 {
@@ -328,7 +328,7 @@ define dso_local void @efi_sync_low_kernel_mappings() local_unnamed_addr #3 alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local noundef range(i32 0, 2) i32 @efi_setup_page_tables(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 section ".init.text" align 16 {
@@ -441,7 +441,7 @@ declare dso_local ptr @alloc_pages(i32 noundef, i32 noundef) local_unnamed_addr 
 declare dso_local i32 @kernel_unmap_pages_in_pgd(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @efi_map_region(ptr nocapture noundef %0) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local void @efi_map_region(ptr noundef captures(none) %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -490,7 +490,7 @@ define dso_local void @efi_map_region(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc void @__map_region(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc void @__map_region(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi_mm, i64 128), align 64
   %4 = load i32, ptr %0, align 8
   %5 = add i32 %4, -3
@@ -523,7 +523,7 @@ define internal fastcc void @__map_region(ptr nocapture noundef readonly %0, i64
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @efi_map_region_fixed(ptr nocapture noundef readonly %0) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local void @efi_map_region_fixed(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 section ".init.text" align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   tail call fastcc void @__map_region(ptr noundef %0, i64 noundef %3) #16
@@ -632,7 +632,7 @@ define dso_local void @efi_runtime_update_mappings() local_unnamed_addr #0 secti
 declare dso_local i32 @efi_memattr_apply_permissions(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal range(i32 0, 2) i32 @efi_update_mem_attr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 section ".init.text" align 16 {
+define internal range(i32 0, 2) i32 @efi_update_mem_attr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) #0 section ".init.text" align 16 {
   %4 = xor i1 %2, true
   %5 = load i8, ptr @efi_disable_ibt_for_runtime, align 1, !range !13, !noundef !14
   %6 = zext i1 %4 to i8
@@ -651,7 +651,7 @@ define internal range(i32 0, 2) i32 @efi_update_mem_attr(ptr nocapture readnone 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 0, 2) i32 @efi_update_mappings(ptr nocapture noundef readonly %0, i64 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 2) i32 @efi_update_mappings(ptr noundef readonly captures(none) %0, i64 noundef %1) unnamed_addr #0 section ".init.text" align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @efi_mm, i64 128), align 64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
@@ -780,27 +780,27 @@ define dso_local void @efi_thunk_runtime_setup() local_unnamed_addr #6 section "
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @efi_thunk_get_time(ptr nocapture readnone %0, ptr nocapture readnone %1) #10 align 16 {
+define internal noundef i64 @efi_thunk_get_time(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #10 align 16 {
   ret i64 -9223372036854775805
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @efi_thunk_set_time(ptr nocapture readnone %0) #10 align 16 {
+define internal noundef i64 @efi_thunk_set_time(ptr readnone captures(none) %0) #10 align 16 {
   ret i64 -9223372036854775805
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @efi_thunk_get_wakeup_time(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #10 align 16 {
+define internal noundef i64 @efi_thunk_get_wakeup_time(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #10 align 16 {
   ret i64 -9223372036854775805
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @efi_thunk_set_wakeup_time(i8 zeroext %0, ptr nocapture readnone %1) #10 align 16 {
+define internal noundef i64 @efi_thunk_set_wakeup_time(i8 zeroext %0, ptr readnone captures(none) %1) #10 align 16 {
   ret i64 -9223372036854775805
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @efi_thunk_get_variable(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
+define internal i64 @efi_thunk_get_variable(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #3 align 16 {
   %6 = alloca [24 x i8], align 8
   %7 = alloca [3 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
@@ -1058,7 +1058,7 @@ define internal i64 @efi_thunk_get_variable(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @efi_thunk_get_next_variable(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #3 align 16 {
+define internal i64 @efi_thunk_get_next_variable(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #3 align 16 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [3 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
@@ -1245,7 +1245,7 @@ define internal i64 @efi_thunk_get_next_variable(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @efi_thunk_set_variable(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #3 align 16 {
+define internal i64 @efi_thunk_set_variable(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #3 align 16 {
   %6 = alloca [24 x i8], align 8
   %7 = alloca [3 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
@@ -1434,7 +1434,7 @@ define internal i64 @efi_thunk_set_variable(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @efi_thunk_set_variable_nonblocking(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #3 align 16 {
+define internal i64 @efi_thunk_set_variable_nonblocking(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef %4) #3 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca [24 x i8], align 8
   %8 = alloca [3 x i64], align 16
@@ -1647,7 +1647,7 @@ define internal i64 @efi_thunk_set_variable_nonblocking(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @efi_thunk_get_next_high_mono_count(ptr nocapture readnone %0) #10 align 16 {
+define internal noundef i64 @efi_thunk_get_next_high_mono_count(ptr readnone captures(none) %0) #10 align 16 {
   ret i64 -9223372036854775805
 }
 
@@ -2124,12 +2124,12 @@ define internal i64 @efi_thunk_query_variable_info_nonblocking(i32 noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @efi_thunk_update_capsule(ptr nocapture readnone %0, i64 %1, i64 %2) #10 align 16 {
+define internal noundef i64 @efi_thunk_update_capsule(ptr readnone captures(none) %0, i64 %1, i64 %2) #10 align 16 {
   ret i64 -9223372036854775805
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i64 @efi_thunk_query_capsule_caps(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #10 align 16 {
+define internal noundef i64 @efi_thunk_query_capsule_caps(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #10 align 16 {
   ret i64 -9223372036854775805
 }
 
@@ -2258,7 +2258,7 @@ declare dso_local i32 @__p4d_alloc(ptr noundef, ptr noundef, i64 noundef) local_
 declare dso_local i32 @__pud_alloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

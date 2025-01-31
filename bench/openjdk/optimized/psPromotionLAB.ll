@@ -48,7 +48,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @llvm.used = appending global [5 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14PSPromotionLAB10initializeE9MemRegion(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((8, 36)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PSPromotionLAB10initializeE9MemRegion(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((8, 36)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds ptr, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
@@ -72,7 +72,7 @@ define hidden void @_ZN14PSPromotionLAB10initializeE9MemRegion(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PSPromotionLAB5flushEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14PSPromotionLAB5flushEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
@@ -98,7 +98,7 @@ define hidden void @_ZN14PSPromotionLAB5flushEv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PSPromotionLAB17unallocate_objectEPP12HeapWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14PSPromotionLAB17unallocate_objectEPP12HeapWordImplm(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp ule ptr %5, %1
@@ -124,7 +124,7 @@ define hidden void @_ZN14PSPromotionLAB17unallocate_objectEPP12HeapWordImplm(ptr
 declare void @_ZN13CollectedHeap16fill_with_objectEPP12HeapWordImplmb(ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17PSOldPromotionLAB5flushEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN17PSOldPromotionLAB5flushEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
@@ -356,7 +356,7 @@ declare void @_ZN16ObjectStartArray21update_for_block_workEPP12HeapWordImplS2_(p
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

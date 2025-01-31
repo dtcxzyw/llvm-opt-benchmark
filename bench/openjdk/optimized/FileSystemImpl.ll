@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [12 x i8] c"stat failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 1245185) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i32 -3, 1245185) i32 @JNI_OnLoad(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -21,7 +21,7 @@ define range(i32 -3, 1245185) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_jdk_internal_agent_FileSystemImpl_isAccessUserOnly0(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_jdk_internal_agent_FileSystemImpl_isAccessUserOnly0(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca %struct.stat, align 8
   %6 = call ptr @JNU_GetStringPlatformChars(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %4) #3
@@ -63,7 +63,7 @@ define zeroext range(i8 0, 2) i8 @Java_jdk_internal_agent_FileSystemImpl_isAcces
 declare ptr @JNU_GetStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @JNU_ThrowIOExceptionWithLastError(ptr noundef, ptr noundef) local_unnamed_addr #1
 

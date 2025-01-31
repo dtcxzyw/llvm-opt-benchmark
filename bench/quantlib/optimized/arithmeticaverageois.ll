@@ -317,7 +317,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib46ArithmeticAveragedOvernightIn
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -402,7 +402,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -643,7 +643,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ArithmeticAverageOISC2ENS_4Swap4TypeEdNS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES3_dddb(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, i32 noundef %type, double noundef %nominal, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDC, ptr nocapture noundef %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ArithmeticAverageOISC2ENS_4Swap4TypeEdNS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES3_dddb(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, i32 noundef %type, double noundef %nominal, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr noundef captures(none) %fixedDC, ptr noundef captures(none) %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Schedule", align 8
   %agg.tmp16 = alloca %"class.QuantLib::Schedule", align 8
@@ -1216,7 +1216,7 @@ unreachable:                                      ; preds = %invoke.cont14
 declare noundef i32 @_ZNK8QuantLib6Period9frequencyEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ArithmeticAverageOIS10initializeENS_8ScheduleES1_(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef %fixedLegSchedule, ptr nocapture noundef %overnightLegSchedule) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ArithmeticAverageOIS10initializeENS_8ScheduleES1_(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef captures(none) %fixedLegSchedule, ptr noundef captures(none) %overnightLegSchedule) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %ref.tmp6 = alloca %"class.std::vector.65", align 8
@@ -3116,7 +3116,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ArithmeticAverageOISC1ENS_4Swap4TypeEdNS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES3_dddb(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, i32 noundef %type, double noundef %nominal, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDC, ptr nocapture noundef %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ArithmeticAverageOISC1ENS_4Swap4TypeEdNS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES3_dddb(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, i32 noundef %type, double noundef %nominal, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr noundef captures(none) %fixedDC, ptr noundef captures(none) %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Schedule", align 8
   %agg.tmp14 = alloca %"class.QuantLib::Schedule", align 8
@@ -3533,7 +3533,7 @@ ehcleanup18:                                      ; preds = %ehcleanup17, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ArithmeticAverageOISC2ENS_4Swap4TypeESt6vectorIdSaIdEENS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES6_dddb(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, i32 noundef %type, ptr nocapture noundef %nominals, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDC, ptr nocapture noundef %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ArithmeticAverageOISC2ENS_4Swap4TypeESt6vectorIdSaIdEENS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES6_dddb(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef %vtt, i32 noundef %type, ptr noundef captures(none) %nominals, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr noundef captures(none) %fixedDC, ptr noundef captures(none) %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Schedule", align 8
   %agg.tmp14 = alloca %"class.QuantLib::Schedule", align 8
@@ -3918,7 +3918,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ArithmeticAverageOISC1ENS_4Swap4TypeESt6vectorIdSaIdEENS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES6_dddb(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, i32 noundef %type, ptr nocapture noundef %nominals, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDC, ptr nocapture noundef %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ArithmeticAverageOISC1ENS_4Swap4TypeESt6vectorIdSaIdEENS_8ScheduleEdNS_10DayCounterEN5boost10shared_ptrINS_14OvernightIndexEEES6_dddb(ptr noundef nonnull align 8 dereferenceable(368) initializes((368, 376), (384, 388), (392, 400)) %this, i32 noundef %type, ptr noundef captures(none) %nominals, ptr noundef %fixedLegSchedule, double noundef %fixedRate, ptr noundef captures(none) %fixedDC, ptr noundef captures(none) %overnightIndex, ptr noundef %overnightLegSchedule, double noundef %spread, double noundef %meanReversionSpeed, double noundef %volatility, i1 noundef zeroext %byApprox) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Schedule", align 8
   %agg.tmp12 = alloca %"class.QuantLib::Schedule", align 8
@@ -4443,7 +4443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare void @_ZN8QuantLib12FixedRateLegC1ENS_8ScheduleE(ptr noundef nonnull align 8 dereferenceable(269), ptr noundef) unnamed_addr #6
 
@@ -7114,7 +7114,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #20
@@ -8091,7 +8091,7 @@ unreachable:                                      ; preds = %lpad.body
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -8280,7 +8280,7 @@ declare void @llvm.assume(i1 noundef) #24
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #26
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #26
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -533,7 +533,7 @@ declare void @_ZN4node7tracing15NodeTraceBufferC1EmPNS0_5AgentEP9uv_loop_s(ptr n
 declare i32 @uv_thread_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing5Agent9AddClientERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EESt10unique_ptrINS0_16AsyncTraceWriterESt14default_deleteISG_EENS1_22UseDefaultCategoryModeE(ptr noalias nocapture writeonly sret(%"class.node::tracing::AgentWriterHandle") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1312) %this, ptr noundef nonnull align 8 dereferenceable(48) %categories, ptr nocapture noundef %writer, i32 noundef %mode) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node7tracing5Agent9AddClientERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EESt10unique_ptrINS0_16AsyncTraceWriterESt14default_deleteISG_EENS1_22UseDefaultCategoryModeE(ptr noalias writeonly sret(%"class.node::tracing::AgentWriterHandle") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1312) %this, ptr noundef nonnull align 8 dereferenceable(48) %categories, ptr noundef captures(none) %writer, i32 noundef %mode) local_unnamed_addr #3 align 2 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %categories_with_default = alloca %"class.std::set.87", align 8
@@ -832,7 +832,7 @@ _ZN4node7tracing5Agent20ScopedSuspendTracingD2Ev.exit: ; preds = %if.end.i31, %i
 declare i32 @uv_async_send(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node7tracing5Agent13DefaultHandleEv(ptr noalias nocapture writeonly sret(%"class.node::tracing::AgentWriterHandle") align 8 initializes((0, 12)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1312) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4node7tracing5Agent13DefaultHandleEv(ptr noalias writeonly sret(%"class.node::tracing::AgentWriterHandle") align 8 captures(none) initializes((0, 12)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1312) %this) local_unnamed_addr #6 align 2 {
 entry:
   store ptr %this, ptr %agg.result, align 8
   %id_.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1072,7 +1072,7 @@ _ZN4node7tracing5Agent20ScopedSuspendTracingD2Ev.exit: ; preds = %for.end, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK4node7tracing5Agent17CreateTraceConfigEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1312) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK4node7tracing5Agent17CreateTraceConfigEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1312) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::set.87", align 8
   %_M_element_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 888
@@ -1141,7 +1141,7 @@ declare void @_ZN2v88platform7tracing11TraceConfig19AddIncludedCategoryEPKc(ptr 
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node7tracing5Agent20GetEnabledCategoriesB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1312) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node7tracing5Agent20GetEnabledCategoriesB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1312) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::set.87", align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #14
@@ -1211,7 +1211,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing5Agent16AppendTraceEventEPN2v88platform7tracing11TraceObjectE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1312) %this, ptr noundef %trace_event) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node7tracing5Agent16AppendTraceEventEPN2v88platform7tracing11TraceObjectE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1312) %this, ptr noundef %trace_event) local_unnamed_addr #3 align 2 {
 entry:
   %_M_before_begin.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 936
   %__begin2.sroa.0.04 = load ptr, ptr %_M_before_begin.i.i.i, align 8
@@ -1235,7 +1235,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing5Agent16AddMetadataEventESt10unique_ptrIN2v88platform7tracing11TraceObjectESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(1312) %this, ptr nocapture noundef %event) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node7tracing5Agent16AddMetadataEventESt10unique_ptrIN2v88platform7tracing11TraceObjectESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(1312) %this, ptr noundef captures(none) %event) local_unnamed_addr #3 align 2 {
 entry:
   %metadata_events_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 1248
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %metadata_events_mutex_) #14
@@ -1484,7 +1484,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZZN4node7tracing5Agent5StartEvEN3$_08__invokeEPv"(ptr noundef %arg) #3 align 2 {
@@ -3057,10 +3057,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

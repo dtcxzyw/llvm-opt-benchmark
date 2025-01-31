@@ -24,19 +24,19 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden void @_ZN9s_integerC2EPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef readonly %str) unnamed_addr #3 align 2 {
+define hidden void @_ZN9s_integerC2EPKc(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, ptr noundef readonly captures(none) %str) unnamed_addr #3 align 2 {
 entry:
-  %call = tail call i64 @strtol(ptr nocapture noundef %str, ptr noundef null, i32 noundef 10) #8
+  %call = tail call i64 @strtol(ptr noundef captures(none) %str, ptr noundef null, i32 noundef 10) #8
   %conv = trunc i64 %call to i32
   store i32 %conv, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_Z5powerRK9s_integerj(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r, i32 noundef %p) local_unnamed_addr #5 {
+define hidden i32 @_Z5powerRK9s_integerj(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r, i32 noundef %p) local_unnamed_addr #5 {
 entry:
   %cmp.not8 = icmp eq i32 %p, 0
   br i1 %cmp.not8, label %while.end, label %while.body.preheader
@@ -64,7 +64,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, -2147483648) i32 @_Z3gcdRK9s_integerS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r2) local_unnamed_addr #5 {
+define hidden range(i32 0, -2147483648) i32 @_Z3gcdRK9s_integerS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r2) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %r1, align 4
   %1 = load i32, ptr %r2, align 4
@@ -86,7 +86,7 @@ if.then9:                                         ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @_Z3lcmRK9s_integerS1_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %r2) local_unnamed_addr #5 {
+define hidden i32 @_Z3lcmRK9s_integerS1_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %r2) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %r1, align 4
   %1 = load i32, ptr %r2, align 4

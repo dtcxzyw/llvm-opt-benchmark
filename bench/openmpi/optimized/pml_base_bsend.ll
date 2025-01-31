@@ -285,7 +285,7 @@ define range(i32 -30, 1) i32 @mca_pml_base_bsend_attach(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @mca_pml_bsend_alloc_segment(ptr nocapture readnone %0, ptr nocapture noundef %1) #3 {
+define internal ptr @mca_pml_bsend_alloc_segment(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #3 {
   %3 = load i64, ptr %1, align 8
   %4 = load ptr, ptr @mca_pml_bsend_addr, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 %3
@@ -717,7 +717,7 @@ opal_condition_signal.exit:                       ; preds = %15, %13, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_base_bsend_request_fini(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef i32 @mca_pml_base_bsend_request_fini(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0

@@ -28,7 +28,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__28Sdf_CanCastToT
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__12Sdf_SpecType7CanCastERKNS_7SdfSpecERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15SdfCreateHandleINS_8SdfLayerEEENS_11SdfHandleToIT_E6HandleEPS3_(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15SdfCreateHandleINS_8SdfLayerEEENS_11SdfHandleToIT_E6HandleEPS3_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 captures(none) initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8

@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [46 x i8] c"'total_len == WMEM_BLOCK_SIZE' should be TRUE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wmem_block_verify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @wmem_block_verify(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -385,7 +385,7 @@ wmem_block_verify_block.exit:                     ; preds = %90, %143, %145
 declare void @g_assertion_message(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wmem_block_allocator_init(ptr nocapture noundef writeonly initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
+define hidden void @wmem_block_allocator_init(ptr noundef writeonly captures(none) initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 24) #6
   store ptr @wmem_block_alloc, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -407,7 +407,7 @@ define hidden void @wmem_block_allocator_init(ptr nocapture noundef writeonly in
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @wmem_block_alloc(ptr nocapture noundef %0, i64 noundef %1) #0 {
+define internal noundef ptr @wmem_block_alloc(ptr noundef captures(none) %0, i64 noundef %1) #0 {
   %3 = icmp ugt i64 %1, 8388576
   br i1 %3, label %4, label %13
 
@@ -614,7 +614,7 @@ wmem_block_cycle_recycler.exit:                   ; preds = %69, %82, %93
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @wmem_block_realloc(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal ptr @wmem_block_realloc(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 -16
   %5 = getelementptr i8, ptr %1, i64 -12
   %6 = load i32, ptr %5, align 4
@@ -932,7 +932,7 @@ wmem_block_cycle_recycler.exit:                   ; preds = %181, %170, %wmem_bl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @wmem_block_free(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal void @wmem_block_free(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %1, i64 -12
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 4
@@ -1019,7 +1019,7 @@ wmem_block_cycle_recycler.exit:                   ; preds = %44, %33, %17, %wmem
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @wmem_block_free_all(ptr nocapture noundef initializes((8, 24)) %0) #0 {
+define internal void @wmem_block_free_all(ptr noundef captures(none) initializes((8, 24)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -1097,7 +1097,7 @@ wmem_block_init_block.exit:                       ; preds = %18, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @wmem_block_gc(ptr nocapture noundef %0) #0 {
+define internal void @wmem_block_gc(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   store ptr null, ptr %0, align 8
   %.not41 = icmp eq ptr %2, null
@@ -1300,7 +1300,7 @@ wmem_block_gc.exit:                               ; preds = %39, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @wmem_block_split_free_chunk(ptr nocapture noundef %0, ptr noundef %1, i64 noundef range(i64 0, -16) %2) unnamed_addr #2 {
+define internal fastcc void @wmem_block_split_free_chunk(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef range(i64 0, -16) %2) unnamed_addr #2 {
   %4 = add nuw i64 %2, 15
   %5 = and i64 %4, -16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -1465,12 +1465,12 @@ wmem_block_pop_master.exit:                       ; preds = %40, %._crit_edge.i,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noalias ptr @wmem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @wmem_block_merge_free(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 {
+define internal fastcc void @wmem_block_merge_free(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 1
@@ -1706,7 +1706,7 @@ wmem_block_add_to_recycler.exit:                  ; preds = %.sink.split.i, %111
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #5

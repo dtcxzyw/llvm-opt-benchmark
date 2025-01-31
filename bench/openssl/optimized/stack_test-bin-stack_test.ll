@@ -693,7 +693,7 @@ declare i32 @test_ptr_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare i32 @test_false(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @int_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal range(i32 -1, 2) i32 @int_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i32, ptr %0, align 4
@@ -728,7 +728,7 @@ declare ptr @OPENSSL_sk_shift(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -255, 256) i32 @uchar_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #2 {
+define internal range(i32 -255, 256) i32 @uchar_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i8, ptr %0, align 1
@@ -761,7 +761,7 @@ declare ptr @OPENSSL_sk_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @SS_copy(ptr nocapture noundef readonly %p) #0 {
+define internal noalias ptr @SS_copy(ptr noundef readonly captures(none) %p) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 8, ptr noundef nonnull @.str.4, i32 noundef 260) #4
   %cmp.not = icmp eq ptr %call, null

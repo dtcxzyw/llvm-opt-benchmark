@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [67 x i8] c"Nwk_ManRetimeVerifyCutForward(): Internal cut verification failed.\00", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Nwk_ManMarkTfiCone_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Nwk_ManMarkTfiCone_rec(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16
@@ -55,7 +55,7 @@ define void @Nwk_ManMarkTfiCone_rec(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Nwk_ManMarkTfoCone_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Nwk_ManMarkTfoCone_rec(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16
@@ -241,7 +241,7 @@ define range(i32 0, 2) i32 @Nwk_ManPushBackwardFast_rec(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Nwk_ManVerifyCut_rec(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Nwk_ManVerifyCut_rec(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 16
@@ -303,7 +303,7 @@ Nwk_ObjIsLo.exit.thread:                          ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Nwk_ManRetimeVerifyCutForward(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define noundef i32 @Nwk_ManRetimeVerifyCutForward(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val27 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val27, 0
@@ -392,10 +392,10 @@ define noundef i32 @Nwk_ManRetimeVerifyCutForward(ptr noundef %0, ptr nocapture 
 declare void @Nwk_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Nwk_ManRetimeVerifyCutBackward(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 {
+define noundef i32 @Nwk_ManRetimeVerifyCutBackward(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret i32 1
 }
 
@@ -899,7 +899,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #16
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #13
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #13
   call void @free(ptr noundef %9) #13
   br label %16
 
@@ -1187,9 +1187,9 @@ Nwk_ObjSetVisitedBot.exit.i:                      ; preds = %.sink.split.i.i, %1
   br label %Nwk_ManPushBackwardBot_rec.exit
 
 Nwk_ManPushBackwardBot_rec.exit:                  ; preds = %118, %115
-  call void @Nwk_ManIncrementTravId(ptr noundef %0) #13
-  call void @Nwk_ManIncrementTravId(ptr noundef %0) #13
-  call void @Nwk_ManIncrementTravId(ptr noundef %0) #13
+  call void @Nwk_ManIncrementTravId(ptr noundef nonnull %0) #13
+  call void @Nwk_ManIncrementTravId(ptr noundef nonnull %0) #13
+  call void @Nwk_ManIncrementTravId(ptr noundef nonnull %0) #13
   %122 = add nsw i32 %.0173, 1
   br label %Nwk_ManPushBackwardBot_rec.exit.thread
 
@@ -1605,7 +1605,7 @@ Nwk_ObjSetVisitedTop.exit:                        ; preds = %11, %.sink.split.i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #2
 
@@ -1614,16 +1614,16 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #3
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushBackwardTop_rec(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Nwk_ManPushBackwardTop_rec(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %.val42 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 40
   %.val43 = load i32, ptr %3, align 8
@@ -1848,13 +1848,13 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [6 x i8] c"Time:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @H5O__mtime_decode(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal noalias ptr @H5O__mtime_decode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = alloca %struct.tm, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 %4
   %9 = getelementptr inbounds i8, ptr %8, i64 -1
@@ -193,7 +193,7 @@ define internal noalias ptr @H5O__mtime_decode(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__mtime_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define internal noundef i32 @H5O__mtime_encode(ptr readnone captures(none) %0, i1 zeroext %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) #0 {
   %6 = tail call ptr @gmtime(ptr noundef %4) #9
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
@@ -213,7 +213,7 @@ define internal noundef i32 @H5O__mtime_encode(ptr nocapture readnone %0, i1 zer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5O__mtime_copy(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #0 {
+define internal noundef ptr @H5O__mtime_copy(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %10
 
@@ -240,7 +240,7 @@ define internal noundef ptr @H5O__mtime_copy(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @H5O__mtime_size(ptr nocapture readnone %0, i1 zeroext %1, ptr nocapture readnone %2) #1 {
+define internal noundef i64 @H5O__mtime_size(ptr readnone captures(none) %0, i1 zeroext %1, ptr readnone captures(none) %2) #1 {
   ret i64 16
 }
 
@@ -251,7 +251,7 @@ define internal noundef i32 @H5O__mtime_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__mtime_debug(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @H5O__mtime_debug(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = alloca [128 x i8], align 16
   %7 = tail call ptr @localtime(ptr noundef %1) #9
   %8 = call i64 @strftime(ptr noundef nonnull %6, i64 noundef 128, ptr noundef nonnull @.str.10, ptr noundef %7) #9
@@ -260,7 +260,7 @@ define internal noundef i32 @H5O__mtime_debug(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @H5O__mtime_new_decode(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal noalias ptr @H5O__mtime_new_decode(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr i8, ptr %5, i64 %4
   %.ptr40 = getelementptr i8, ptr %7, i64 -1
   %8 = icmp ugt ptr %5, %.ptr40
@@ -349,7 +349,7 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5O__mtime_new_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef readonly %4) #2 {
+define internal noundef i32 @H5O__mtime_new_encode(ptr readnone captures(none) %0, i1 zeroext %1, i64 %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef readonly captures(none) %4) #2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 1, ptr %3, align 1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -380,7 +380,7 @@ define internal noundef i32 @H5O__mtime_new_encode(ptr nocapture readnone %0, i1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @H5O__mtime_new_size(ptr nocapture readnone %0, i1 zeroext %1, ptr nocapture readnone %2) #1 {
+define internal noundef i64 @H5O__mtime_new_size(ptr readnone captures(none) %0, i1 zeroext %1, ptr readnone captures(none) %2) #1 {
   ret i64 8
 }
 
@@ -392,7 +392,7 @@ declare noalias ptr @H5FL_reg_malloc(ptr noundef) local_unnamed_addr #3
 declare ptr @__ctype_b_loc() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i64 @H5_make_time(ptr noundef) local_unnamed_addr #3
 
@@ -400,7 +400,7 @@ declare i64 @H5_make_time(ptr noundef) local_unnamed_addr #3
 declare ptr @gmtime(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -411,7 +411,7 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #6
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

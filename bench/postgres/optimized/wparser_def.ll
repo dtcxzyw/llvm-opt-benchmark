@@ -601,7 +601,7 @@ p_isnotxdigit.exit:                               ; preds = %p_isxdigit.exit.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @p_isalnum(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @p_isalnum(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -670,7 +670,7 @@ define internal i32 @p_isalnum(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @p_isnotalnum(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @p_isnotalnum(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -741,7 +741,7 @@ p_isalnum.exit:                                   ; preds = %8, %17, %25, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @p_isalpha(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @p_isalpha(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -810,7 +810,7 @@ define internal i32 @p_isalpha(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @p_isdigit(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @p_isdigit(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -879,7 +879,7 @@ define internal i32 @p_isdigit(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @p_isspace(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @p_isspace(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -948,7 +948,7 @@ define internal i32 @p_isspace(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @p_isxdigit(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @p_isxdigit(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1017,7 +1017,7 @@ define internal i32 @p_isxdigit(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @p_isEOF(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 0, 2) i32 @p_isEOF(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 8
@@ -1039,7 +1039,7 @@ define internal range(i32 0, 2) i32 @p_isEOF(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @p_iseqC(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 0, 2) i32 @p_iseqC(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1065,7 +1065,7 @@ p_iseq.exit:                                      ; preds = %1, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @prsd_lextype(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local i64 @prsd_lextype(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 576) #16
   br label %3
 
@@ -1101,7 +1101,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @prsd_start(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @prsd_start(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1164,7 +1164,7 @@ TParserInit.exit:                                 ; preds = %20, %25, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @prsd_nexttoken(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @prsd_nexttoken(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1549,7 +1549,7 @@ newTParserPosition.exit:                          ; preds = %91, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @prsd_end(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @prsd_end(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -1593,7 +1593,7 @@ TParserClose.exit:                                ; preds = %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @prsd_headline(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @prsd_headline(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -2316,7 +2316,7 @@ define dso_local i64 @prsd_headline(ptr nocapture noundef readonly %0) local_unn
   %.1364.i = phi i32 [ %.8351.i, %287 ], [ %.0363488.i, %281 ], [ %.0363488.i, %272 ], [ %.0363488.i, %262 ], [ %.0363488.i, %283 ]
   %.1362.i = phi i8 [ %255, %287 ], [ %.0361489.i, %281 ], [ %.0361489.i, %272 ], [ %.0361489.i, %262 ], [ %.0361489.i, %283 ]
   %.1335.i = phi i32 [ %.0354.i, %287 ], [ %.0334490.i, %281 ], [ %.0334490.i, %272 ], [ %.0334490.i, %262 ], [ %.0334490.i, %283 ]
-  %289 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef %16, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
+  %289 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   br i1 %289, label %141, label %._crit_edge492.i, !llvm.loop !15
 
 ._crit_edge492.i:                                 ; preds = %288
@@ -2398,7 +2398,7 @@ mark_hl_words.exit:                               ; preds = %._crit_edge492.i, %
   %.1268.lcssa.i = phi i32 [ %.0267392.i, %.lr.ph.i101 ], [ %494, %486 ]
   %.1265.lcssa.i = phi i32 [ %.0264393.i, %.lr.ph.i101 ], [ %.2266.i, %486 ]
   %.1.lcssa.i = phi ptr [ %.0394.i, %.lr.ph.i101 ], [ %.2.i, %486 ]
-  %316 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef %16, ptr noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+  %316 = call fastcc zeroext i1 @hlCover(ptr noundef readonly %11, ptr noundef nonnull %16, ptr noundef %.0, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   br i1 %316, label %.lr.ph.i101, label %.preheader382.i, !llvm.loop !17
 
 .preheader382.i:                                  ; preds = %.loopexit.i
@@ -3097,7 +3097,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @TS_execute_locations(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @checkcondition_HL(ptr nocapture noundef readonly %0, ptr noundef readnone %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @checkcondition_HL(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -3199,7 +3199,7 @@ define internal range(i32 0, 2) i32 @checkcondition_HL(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
@@ -3240,10 +3240,10 @@ declare i32 @pg_mb2wchar_with_len(ptr noundef, ptr noundef, i32 noundef) local_u
 declare i64 @char2wchar(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @ProcessInterrupts() local_unnamed_addr #2
 
@@ -3252,7 +3252,7 @@ declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @p_isignore(ptr nocapture noundef readonly %0) #9 {
+define internal range(i32 0, 2) i32 @p_isignore(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -3261,7 +3261,7 @@ define internal range(i32 0, 2) i32 @p_isignore(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @p_isasclet(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @p_isasclet(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3342,7 +3342,7 @@ p_isascii.exit.thread:                            ; preds = %1, %p_isalpha.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @p_isspecial(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @p_isspecial(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -3415,7 +3415,7 @@ declare i32 @pg_dsplen(ptr noundef) local_unnamed_addr #2
 declare i32 @GetDatabaseEncoding() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SpecialVerVersion(ptr nocapture noundef readonly %0) #10 {
+define internal void @SpecialVerVersion(ptr noundef readonly captures(none) %0) #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3440,7 +3440,7 @@ define internal void @SpecialVerVersion(ptr nocapture noundef readonly %0) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @SpecialTags(ptr nocapture noundef %0) #0 {
+define internal void @SpecialTags(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3491,7 +3491,7 @@ define internal void @SpecialTags(ptr nocapture noundef %0) #0 {
 declare i32 @pg_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @p_isstophost(ptr nocapture noundef %0) #11 {
+define internal range(i32 0, 2) i32 @p_isstophost(ptr noundef captures(none) %0) #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -3507,7 +3507,7 @@ define internal range(i32 0, 2) i32 @p_isstophost(ptr nocapture noundef %0) #11 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @p_ishost(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @p_ishost(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call ptr @palloc0(i64 noundef 80) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
@@ -3639,7 +3639,7 @@ TParserCopyClose.exit:                            ; preds = %.lr.ph.i, %77
 declare void @check_stack_depth() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @p_isurlchar(ptr nocapture noundef readonly %0) #1 {
+define internal range(i32 0, 2) i32 @p_isurlchar(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -3679,7 +3679,7 @@ define internal range(i32 0, 2) i32 @p_isurlchar(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @p_isURLPath(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 0, 2) i32 @p_isURLPath(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call ptr @palloc0(i64 noundef 80) #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
@@ -3828,7 +3828,7 @@ TParserCopyClose.exit:                            ; preds = %.lr.ph.i, %83
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SpecialFURL(ptr nocapture noundef initializes((49, 50)) %0) #10 {
+define internal void @SpecialFURL(ptr noundef captures(none) initializes((49, 50)) %0) #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 49
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3849,7 +3849,7 @@ define internal void @SpecialFURL(ptr nocapture noundef initializes((49, 50)) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @SpecialHyphen(ptr nocapture noundef readonly %0) #10 {
+define internal void @SpecialHyphen(ptr noundef readonly captures(none) %0) #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3868,7 +3868,7 @@ define internal void @SpecialHyphen(ptr nocapture noundef readonly %0) #10 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @hlCover(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @hlCover(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca %struct.hlCheck, align 8
   %.not = icmp eq ptr %2, null
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -4069,7 +4069,7 @@ define internal fastcc noundef zeroext i1 @hlCover(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @mark_fragment(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #12 {
+define internal fastcc void @mark_fragment(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) unnamed_addr #12 {
   %.not41 = icmp sgt i32 %2, %3
   br i1 %.not41, label %._crit_edge, label %.lr.ph
 
@@ -4200,10 +4200,10 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

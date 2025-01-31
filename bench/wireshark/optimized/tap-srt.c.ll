@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [67 x i8] c"==================================================================\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @register_srt_tables(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @register_srt_tables(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct._stat_tap_ui, align 8
   %5 = tail call i32 @get_srt_proto_id(ptr noundef %1) #9
   %6 = tail call ptr @find_protocol_by_id(i32 noundef %5) #9
@@ -59,7 +59,7 @@ declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #1
 declare i32 @get_srt_proto_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @srt_table_get_tap_string(ptr noundef) local_unnamed_addr #1
 
@@ -148,7 +148,7 @@ declare ptr @get_srt_tap_listener_name(ptr noundef) local_unnamed_addr #1
 declare ptr @get_srt_packet_func(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @srt_draw(ptr nocapture noundef readonly %0) #5 {
+define internal void @srt_draw(ptr noundef readonly captures(none) %0) #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %putchar = tail call i32 @putchar(i32 10)
@@ -215,10 +215,10 @@ declare void @free_srt_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @draw_srt_table_data(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = icmp sgt i32 %5, 0
@@ -338,10 +338,10 @@ define internal fastcc void @draw_srt_table_data(ptr nocapture noundef readonly 
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

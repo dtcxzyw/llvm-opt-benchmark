@@ -1471,7 +1471,7 @@ declare void @_ZNK6google8protobuf10Descriptor6CopyToEPNS0_15DescriptorProtoE(pt
 declare void @_ZN6google8protobuf15DescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(232)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler27StripSourceRetentionOptionsERKNS0_10DescriptorERKNS2_14ExtensionRangeE(ptr noalias nonnull sret(%"class.google::protobuf::DescriptorProto_ExtensionRange") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %message, ptr noundef nonnull align 8 dereferenceable(40) %range) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler27StripSourceRetentionOptionsERKNS0_10DescriptorERKNS2_14ExtensionRangeE(ptr noalias nonnull sret(%"class.google::protobuf::DescriptorProto_ExtensionRange") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %message, ptr noundef nonnull align 8 dereferenceable(40) %range) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6google8protobuf30DescriptorProto_ExtensionRangeC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef null)
   invoke void @_ZNK6google8protobuf10Descriptor14ExtensionRange6CopyToEPNS0_30DescriptorProto_ExtensionRangeE(ptr noundef nonnull align 8 dereferenceable(40) %range, ptr noundef nonnull %agg.result)
@@ -1593,7 +1593,7 @@ declare void @_ZNK6google8protobuf15OneofDescriptor6CopyToEPNS0_20OneofDescripto
 declare void @_ZN6google8protobuf20OneofDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_14EnumDescriptorE(ptr noalias sret(%"class.google::protobuf::EnumOptions") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_14EnumDescriptorE(ptr noalias sret(%"class.google::protobuf::EnumOptions") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = alloca %"class.google::protobuf::EnumOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -1691,7 +1691,7 @@ _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_14EnumDescript
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_19EnumValueDescriptorE(ptr noalias sret(%"class.google::protobuf::EnumValueOptions") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_19EnumValueDescriptorE(ptr noalias sret(%"class.google::protobuf::EnumValueOptions") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = alloca %"class.google::protobuf::EnumValueOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40)
@@ -1791,7 +1791,7 @@ _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_19EnumValueDes
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_15FieldDescriptorE(ptr noalias sret(%"class.google::protobuf::FieldOptions") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_15FieldDescriptorE(ptr noalias sret(%"class.google::protobuf::FieldOptions") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = alloca %"class.google::protobuf::FieldOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
@@ -1889,7 +1889,7 @@ _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_15FieldDescrip
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_14FileDescriptorE(ptr noalias sret(%"class.google::protobuf::FileOptions") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_14FileDescriptorE(ptr noalias sret(%"class.google::protobuf::FileOptions") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = alloca %"class.google::protobuf::FileOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
@@ -1985,7 +1985,7 @@ _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_14FileDescript
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_10DescriptorE(ptr noalias sret(%"class.google::protobuf::MessageOptions") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_10DescriptorE(ptr noalias sret(%"class.google::protobuf::MessageOptions") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = alloca %"class.google::protobuf::MessageOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !49)
@@ -2083,7 +2083,7 @@ _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_10DescriptorEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_10DescriptorERKNS2_14ExtensionRangeE(ptr noalias nonnull sret(%"class.google::protobuf::ExtensionRangeOptions") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %descriptor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %range) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_10DescriptorERKNS2_14ExtensionRangeE(ptr noalias nonnull sret(%"class.google::protobuf::ExtensionRangeOptions") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %descriptor, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %range) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options_.i = getelementptr inbounds nuw i8, ptr %range, i64 8
   %0 = load ptr, ptr %options_.i, align 8
@@ -2109,7 +2109,7 @@ nrvo.skipdtor:                                    ; preds = %entry
 declare void @_ZN6google8protobuf21ExtensionRangeOptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_16MethodDescriptorE(ptr noalias sret(%"class.google::protobuf::MethodOptions") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_16MethodDescriptorE(ptr noalias sret(%"class.google::protobuf::MethodOptions") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = alloca %"class.google::protobuf::MethodOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -2209,7 +2209,7 @@ _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_16MethodDescri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_15OneofDescriptorE(ptr noalias sret(%"class.google::protobuf::OneofOptions") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_15OneofDescriptorE(ptr noalias sret(%"class.google::protobuf::OneofOptions") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = alloca %"class.google::protobuf::OneofOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
@@ -2309,7 +2309,7 @@ _ZN6google8protobuf8compiler12_GLOBAL__N_117StripLocalOptionsINS0_15OneofDescrip
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_17ServiceDescriptorE(ptr noalias sret(%"class.google::protobuf::ServiceOptions") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler32StripLocalSourceRetentionOptionsERKNS0_17ServiceDescriptorE(ptr noalias sret(%"class.google::protobuf::ServiceOptions") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %descriptor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = alloca %"class.google::protobuf::ServiceOptions", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
@@ -2996,7 +2996,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
@@ -3176,7 +3176,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -3255,7 +3255,7 @@ while.body.i.i:                                   ; preds = %while.body.i.i, %wh
   %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %incdec.ptr.i.i.i to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i.i.i.i = sdiv exact i64 %sub.ptr.sub.i.i.i.i, 24
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_less_iterEEvT_T0_SH_T1_T2_(ptr %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.std::pair") align 8 %agg.tmp7.i.i.i)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN4absl12lts_202308024SpanIKiEEiESt6vectorIS8_SaIS8_EEEElS8_NS0_5__ops15_Iter_less_iterEEvT_T0_SH_T1_T2_(ptr nonnull %__first.coerce, i64 noundef 0, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.std::pair") align 8 %agg.tmp7.i.i.i)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp7.i.i.i)
   %cmp.i.i = icmp sgt i64 %sub.ptr.sub.i.i.i.i, 24
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !74
@@ -5732,7 +5732,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef i64 @_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %hash) local_unnamed_addr #3 comdat align 2 {
@@ -5816,7 +5816,7 @@ if.end16:                                         ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #17
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #15
@@ -6278,7 +6278,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20
@@ -6290,10 +6290,10 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -12,14 +12,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN7msdfgen26PseudoDistanceSelectorBaseC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen20TrueDistanceSelector9EdgeCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN7msdfgen20TrueDistanceSelector9EdgeCacheC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen20TrueDistanceSelector5resetERKNS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN7msdfgen20TrueDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %p) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -44,13 +44,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen20TrueDistanceSelector7addEdgeERNS0_9EdgeCacheEPKNS_11EdgeSegmentES5_S5_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %cache, ptr nocapture noundef readnone %prevEdge, ptr noundef %edge, ptr nocapture noundef readnone %nextEdge) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN7msdfgen20TrueDistanceSelector7addEdgeERNS0_9EdgeCacheEPKNS_11EdgeSegmentES5_S5_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %cache, ptr noundef readnone captures(none) %prevEdge, ptr noundef %edge, ptr noundef readnone captures(none) %nextEdge) local_unnamed_addr #4 align 2 {
 entry:
   %dummy = alloca double, align 8
   %agg.tmp.sroa.0.0.copyload = load double, ptr %this, align 8
@@ -113,7 +113,7 @@ if.end18:                                         ; preds = %if.end, %entry
 declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen20TrueDistanceSelector5mergeERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN7msdfgen20TrueDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %other) local_unnamed_addr #1 align 2 {
 entry:
   %minDistance = getelementptr inbounds nuw i8, ptr %other, i64 16
   %agg.tmp.sroa.0.0.copyload = load double, ptr %minDistance, align 8
@@ -143,7 +143,7 @@ if.end:                                           ; preds = %if.then, %_ZN7msdfg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #5 align 2 {
+define dso_local noundef double @_ZNK7msdfgen20TrueDistanceSelector8distanceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #5 align 2 {
 entry:
   %minDistance = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %minDistance, align 8
@@ -151,14 +151,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase9EdgeCacheC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen26PseudoDistanceSelectorBase17getPseudoDistanceERdRKNS_7Vector2ES4_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %distance, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ep, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %edgeDir) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen26PseudoDistanceSelectorBase17getPseudoDistanceERdRKNS_7Vector2ES4_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %distance, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ep, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %edgeDir) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load double, ptr %ep, align 8
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %ep, i64 8
@@ -191,7 +191,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBaseC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %this) unnamed_addr #0 align 2 {
 entry:
   store double 0xFFEFFFFFFFFFFFFF, ptr %this, align 8
   %dot.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -206,7 +206,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase5resetEd(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 48)) %this, double noundef %delta) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase5resetEd(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((16, 48)) %this, double noundef %delta) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load double, ptr %this, align 8
   %cmp.i = fcmp ogt double %0, 0.000000e+00
@@ -225,7 +225,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %cache, ptr nocapture noundef readnone %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK7msdfgen26PseudoDistanceSelectorBase14isEdgeRelevantERKNS0_9EdgeCacheEPKNS_11EdgeSegmentERKNS_7Vector2E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %cache, ptr noundef readnone captures(none) %edge, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %p) local_unnamed_addr #5 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -315,7 +315,7 @@ lor.end:                                          ; preds = %lor.rhs, %cond.fals
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %edge, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %distance, double noundef %param) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase19addEdgeTrueDistanceEPKNS_11EdgeSegmentERKNS_14SignedDistanceEd(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef %edge, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %distance, double noundef %param) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load double, ptr %distance, align 8
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %this, align 8
@@ -347,7 +347,7 @@ if.end:                                           ; preds = %if.then, %_ZN7msdfg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase21addEdgePseudoDistanceEd(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, double noundef %distance) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase21addEdgePseudoDistanceEd(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, double noundef %distance) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = fcmp ugt double %distance, 0.000000e+00
   br i1 %cmp, label %if.end, label %land.lhs.true
@@ -381,7 +381,7 @@ if.end9:                                          ; preds = %if.then7, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %other) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load double, ptr %other, align 8
   %agg.tmp2.sroa.0.0.copyload = load double, ptr %this, align 8
@@ -441,7 +441,7 @@ if.end18:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef double @_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #4 align 2 {
+define dso_local noundef double @_ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %p) local_unnamed_addr #4 align 2 {
 entry:
   %distance2 = alloca %"class.msdfgen::SignedDistance", align 8
   %0 = load double, ptr %this, align 8
@@ -480,7 +480,7 @@ if.end9:                                          ; preds = %if.then, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen26PseudoDistanceSelectorBase12trueDistanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen26PseudoDistanceSelectorBase12trueDistanceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #5 align 2 {
 entry:
   %retval.sroa.0.0.copyload = load double, ptr %this, align 8
   %retval.sroa.2.0.minTrueDistance.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -491,7 +491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen22PseudoDistanceSelector5resetERKNS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN7msdfgen22PseudoDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((16, 48)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %p) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -524,7 +524,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen22PseudoDistanceSelector7addEdgeERNS_26PseudoDistanceSelectorBase9EdgeCacheEPKNS_11EdgeSegmentES6_S6_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %cache, ptr noundef %prevEdge, ptr noundef %edge, ptr noundef %nextEdge) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN7msdfgen22PseudoDistanceSelector7addEdgeERNS_26PseudoDistanceSelectorBase9EdgeCacheEPKNS_11EdgeSegmentES6_S6_(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %cache, ptr noundef %prevEdge, ptr noundef %edge, ptr noundef %nextEdge) local_unnamed_addr #4 align 2 {
 entry:
   %param = alloca double, align 8
   %p = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -863,7 +863,7 @@ if.end72:                                         ; preds = %lor.rhs.i, %cond.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) local_unnamed_addr #4 align 2 {
+define dso_local noundef double @_ZNK7msdfgen22PseudoDistanceSelector8distanceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #4 align 2 {
 entry:
   %distance2.i = alloca %"class.msdfgen::SignedDistance", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %distance2.i)
@@ -905,7 +905,7 @@ _ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen21MultiDistanceSelector5resetERKNS_7Vector2E(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((32, 64), (80, 112), (128, 160)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN7msdfgen21MultiDistanceSelector5resetERKNS_7Vector2E(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((32, 64), (80, 112), (128, 160)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %p) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load double, ptr %p, align 8
   %agg.tmp.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %p, i64 8
@@ -966,7 +966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen21MultiDistanceSelector7addEdgeERNS_26PseudoDistanceSelectorBase9EdgeCacheEPKNS_11EdgeSegmentES6_S6_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %cache, ptr noundef %prevEdge, ptr noundef %edge, ptr noundef %nextEdge) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN7msdfgen21MultiDistanceSelector7addEdgeERNS_26PseudoDistanceSelectorBase9EdgeCacheEPKNS_11EdgeSegmentES6_S6_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %cache, ptr noundef %prevEdge, ptr noundef %edge, ptr noundef %nextEdge) local_unnamed_addr #4 align 2 {
 entry:
   %param = alloca double, align 8
   %color = getelementptr inbounds nuw i8, ptr %edge, i64 8
@@ -1722,7 +1722,7 @@ if.end139:                                        ; preds = %lor.rhs.i102, %cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %other) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN7msdfgen21MultiDistanceSelector5mergeERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %other) local_unnamed_addr #1 align 2 {
 entry:
   %r = getelementptr inbounds nuw i8, ptr %this, i64 16
   %r2 = getelementptr inbounds nuw i8, ptr %other, i64 16
@@ -1896,7 +1896,7 @@ _ZN7msdfgen26PseudoDistanceSelectorBase5mergeERKS0_.exit54: ; preds = %if.end12.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr noalias nocapture writeonly sret(%"struct.msdfgen::MultiDistance") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr noalias writeonly sret(%"struct.msdfgen::MultiDistance") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) local_unnamed_addr #4 align 2 {
 entry:
   %distance2.i19 = alloca %"class.msdfgen::SignedDistance", align 8
   %distance2.i1 = alloca %"class.msdfgen::SignedDistance", align 8
@@ -2015,7 +2015,7 @@ _ZNK7msdfgen26PseudoDistanceSelectorBase15computeDistanceERKNS_7Vector2E.exit36:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { double, double } @_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #5 align 2 {
+define dso_local { double, double } @_ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) local_unnamed_addr #5 align 2 {
 entry:
   %r = getelementptr inbounds nuw i8, ptr %this, i64 16
   %retval.sroa.0.0.copyload.i = load double, ptr %r, align 8
@@ -2069,7 +2069,7 @@ if.end15:                                         ; preds = %if.then11, %_ZN7msd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr noalias nocapture writeonly sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK7msdfgen28MultiAndTrueDistanceSelector8distanceEv(ptr noalias writeonly sret(%"struct.msdfgen::MultiAndTrueDistance") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) local_unnamed_addr #4 align 2 {
 entry:
   %multiDistance = alloca %"struct.msdfgen::MultiDistance", align 8
   call void @_ZNK7msdfgen21MultiDistanceSelector8distanceEv(ptr nonnull sret(%"struct.msdfgen::MultiDistance") align 8 %multiDistance, ptr noundef nonnull align 8 dereferenceable(160) %this)
@@ -2134,16 +2134,16 @@ _ZNK7msdfgen21MultiDistanceSelector12trueDistanceEv.exit: ; preds = %_ZN7msdfgen
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

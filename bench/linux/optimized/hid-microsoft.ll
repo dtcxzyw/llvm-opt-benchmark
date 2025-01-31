@@ -56,7 +56,7 @@ declare dso_local void @hid_unregister_driver(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__hid_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ms_probe(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @ms_probe(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6352
@@ -178,7 +178,7 @@ define internal void @ms_remove(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ms_event(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @ms_event(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %6, align 8
@@ -285,7 +285,7 @@ define internal noundef range(i32 0, 2) i32 @ms_event(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef ptr @ms_report_fixup(ptr noundef %0, ptr noundef returned %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal noundef ptr @ms_report_fixup(ptr noundef %0, ptr noundef returned %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8
@@ -322,7 +322,7 @@ define internal noundef ptr @ms_report_fixup(ptr noundef %0, ptr noundef returne
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -1, 2) i32 @ms_input_mapping(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 align 16 {
+define internal range(i32 -1, 2) i32 @ms_input_mapping(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) #2 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %8, align 8
@@ -587,7 +587,7 @@ define internal range(i32 -1, 2) i32 @ms_input_mapping(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ms_input_mapped(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #2 align 16 {
+define internal noundef i32 @ms_input_mapped(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #2 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 6472
   %8 = load ptr, ptr %7, align 8
   %9 = load i64, ptr %8, align 8
@@ -620,7 +620,7 @@ declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 nounde
 declare dso_local i32 @hid_open_report(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ms_ff_worker(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @ms_ff_worker(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 40
@@ -662,7 +662,7 @@ declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 nound
 declare dso_local i32 @input_ff_create_memless(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ms_play_effect(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal noundef i32 @ms_play_effect(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = load i16, ptr %2, align 8
   %5 = icmp eq i16 %4, 80
   br i1 %5, label %6, label %28
@@ -698,7 +698,7 @@ define internal noundef i32 @ms_play_effect(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @hid_hw_output_report(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

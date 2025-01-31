@@ -172,10 +172,10 @@ define dso_local zeroext i1 @processor_physically_present(ptr noundef %0) local_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_get_type(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -190,7 +190,7 @@ declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr nound
 declare dso_local i32 @acpi_get_cpuid(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define dso_local void @acpi_early_processor_control_setup() local_unnamed_addr #0 section ".init.text" align 16 {
@@ -368,7 +368,7 @@ define dso_local noundef zeroext i1 @acpi_processor_claim_cst_control() #6 align
 declare dso_local i32 @acpi_os_write_port(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_evaluate_cst(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #6 align 16 {
+define dso_local noundef range(i32 -19, 1) i32 @acpi_processor_evaluate_cst(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #6 align 16 {
   %4 = alloca %struct.acpi_buffer, align 8
   %5 = alloca %struct.acpi_processor_cx, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
@@ -619,10 +619,10 @@ declare dso_local void @acpi_handle_printk(ptr noundef, ptr noundef, ptr noundef
 declare dso_local i32 @acpi_processor_ffh_cstate_probe(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
@@ -634,7 +634,7 @@ declare dso_local void @acpi_proc_quirk_mwait_check() local_unnamed_addr #3
 declare dso_local i32 @acpi_walk_namespace(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @acpi_processor_osc(ptr noundef %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 section ".init.text" align 16 {
+define internal i32 @acpi_processor_osc(ptr noundef %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 section ".init.text" align 16 {
   %5 = alloca [2 x i32], align 8
   %6 = alloca %struct.acpi_osc_context, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
@@ -742,7 +742,7 @@ declare dso_local i32 @acpi_run_osc(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal i32 @acpi_processor_ids_walk(ptr noundef %0, i32 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 section ".init.text" align 16 {
+define internal i32 @acpi_processor_ids_walk(ptr noundef %0, i32 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 section ".init.text" align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
   %7 = alloca %union.acpi_object, align 8
@@ -872,7 +872,7 @@ define internal fastcc void @processor_validated_ids_update(i32 noundef %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @acpi_processor_add(ptr noundef %0, ptr nocapture readnone %1) #6 align 16 {
+define internal i32 @acpi_processor_add(ptr noundef %0, ptr readnone captures(none) %1) #6 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.platform_device_info, align 8
   %5 = alloca i8, align 1
@@ -1412,7 +1412,7 @@ declare dso_local i32 @acpi_unbind_one(ptr noundef) local_unnamed_addr #3
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @acpi_device_hid(ptr noundef) local_unnamed_addr #3
@@ -1430,7 +1430,7 @@ declare dso_local i32 @acpi_map_cpuid(i32 noundef, i32 noundef) local_unnamed_ad
 declare dso_local zeroext i1 @acpi_has_method(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @pci_get_subsys(i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -1472,7 +1472,7 @@ declare dso_local void @device_release_driver(ptr noundef) local_unnamed_addr #3
 declare dso_local void @arch_unregister_cpu(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @acpi_processor_container_attach(ptr nocapture readnone %0, ptr nocapture readnone %1) #13 align 16 {
+define internal noundef i32 @acpi_processor_container_attach(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #13 align 16 {
   ret i32 1
 }
 

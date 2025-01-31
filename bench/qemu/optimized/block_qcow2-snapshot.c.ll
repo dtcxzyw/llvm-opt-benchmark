@@ -69,7 +69,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [21 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_read_snapshot_table, ptr @.str.35, ptr @.str.36, i32 430, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.37, ptr @.str.38, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.39, ptr @.str.38, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite_sync, ptr @.str.35, ptr @.str.38, i32 64, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_read_snapshots, ptr @.str.35, ptr @.str.36, i32 265, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_unlock, ptr @.str.35, ptr @.str.40, i32 152, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_do_read_snapshots, ptr @.str.35, ptr @.str.36, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_truncate, ptr @.str.37, ptr @.str.41, i32 223, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_truncate, ptr @.str.39, ptr @.str.41, i32 223, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pread, ptr @.str.35, ptr @.str.42, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qcow2_check_fix_snapshot_table, ptr @.str.35, ptr @.str.36, i32 551, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.37, ptr @.str.38, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite, ptr @.str.39, ptr @.str.38, i32 56, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.37, ptr @.str.38, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.39, ptr @.str.38, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_new_with_bs, ptr @.str.37, ptr @.str.43, i32 28, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_unref, ptr @.str.37, ptr @.str.43, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @qemu_co_mutex_lock, ptr @.str.35, ptr @.str.40, i32 146, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.37, ptr @.str.38, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.39, ptr @.str.38, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.35, ptr @.str.42, i32 47, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcow2_free_snapshots(ptr nocapture noundef readonly %bs) local_unnamed_addr #0 {
+define dso_local void @qcow2_free_snapshots(ptr noundef readonly captures(none) %bs) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -128,7 +128,7 @@ for.end:                                          ; preds = %qcow2_free_single_s
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qcow2_free_single_snapshot(ptr nocapture readonly %bs.24.val, i32 noundef %i) unnamed_addr #0 {
+define internal fastcc void @qcow2_free_single_snapshot(ptr readonly captures(none) %bs.24.val, i32 noundef %i) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i32 %i, -1
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -167,14 +167,14 @@ if.end:                                           ; preds = %land.lhs.true
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_read_snapshots(ptr nocapture noundef readonly %bs, ptr noundef %errp) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_read_snapshots(ptr noundef readonly captures(none) %bs, ptr noundef %errp) #0 {
 entry:
   %call = tail call i32 @qcow2_do_read_snapshots(ptr noundef %bs, i1 noundef zeroext false, ptr noundef null, ptr noundef null, ptr noundef %errp)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @qcow2_do_read_snapshots(ptr nocapture noundef readonly %bs, i1 noundef zeroext %repair, ptr nocapture noundef %nb_clusters_reduced, ptr nocapture noundef %extra_data_dropped, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @qcow2_do_read_snapshots(ptr noundef readonly captures(none) %bs, i1 noundef zeroext %repair, ptr noundef captures(none) %nb_clusters_reduced, ptr noundef captures(none) %extra_data_dropped, ptr noundef %errp) #0 {
 entry:
   %qiov.i132 = alloca %struct.QEMUIOVector, align 8
   %qiov.i127 = alloca %struct.QEMUIOVector, align 8
@@ -860,7 +860,7 @@ return:                                           ; preds = %for.body, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -872,7 +872,7 @@ declare i32 @bdrv_flush(ptr noundef) #1
 declare i32 @qcow2_pre_write_overlap_check(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @bdrv_pwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
@@ -881,7 +881,7 @@ declare i32 @bdrv_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noundef
 declare void @qcow2_free_clusters(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_check_read_snapshot_table(ptr noundef %bs, ptr nocapture noundef %result, i32 noundef %fix) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_check_read_snapshot_table(ptr noundef %bs, ptr noundef captures(none) %result, i32 noundef %fix) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %local_err = alloca ptr, align 8
@@ -1111,7 +1111,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #6
@@ -1127,7 +1127,7 @@ declare void @qemu_co_mutex_lock(ptr noundef) #1
 declare i32 @bdrv_co_pwrite_sync(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @qcow2_check_fix_snapshot_table(ptr noundef %bs, ptr nocapture noundef %result, i32 noundef %fix) #0 {
+define dso_local range(i32 -2147483648, 1) i32 @qcow2_check_fix_snapshot_table(ptr noundef %bs, ptr noundef captures(none) %result, i32 noundef %fix) #0 {
 entry:
   %0 = load i32, ptr %result, align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -1204,7 +1204,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %idx.ext.i = sext i32 %i.02.i to i64
   %id_str1.i = getelementptr %struct.QCowSnapshot, ptr %4, i64 %idx.ext.i, i32 2
   %5 = load ptr, ptr %id_str1.i, align 8
-  %call.i = tail call i64 @strtoul(ptr nocapture noundef %5, ptr noundef null, i32 noundef 10) #16
+  %call.i = tail call i64 @strtoul(ptr noundef captures(none) %5, ptr noundef null, i32 noundef 10) #16
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %call.i, i64 %id_max.03.i)
   %inc.i = add nuw i32 %i.02.i, 1
   %6 = load i32, ptr %nb_snapshots, align 4
@@ -1218,7 +1218,7 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 find_new_snapshot_id.exit:                        ; preds = %if.end2, %for.end.loopexit.i
   %id_max.0.lcssa.i = phi i64 [ 1, %if.end2 ], [ %7, %for.end.loopexit.i ]
   %call3.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %sn_info, i64 noundef 128, ptr noundef nonnull @.str.34, i64 noundef %id_max.0.lcssa.i) #16
-  %call5 = tail call noalias ptr @g_strdup(ptr noundef %sn_info) #16
+  %call5 = tail call noalias ptr @g_strdup(ptr noundef nonnull %sn_info) #16
   %name = getelementptr inbounds nuw i8, ptr %sn_info, i64 128
   %call8 = tail call noalias ptr @g_strdup(ptr noundef nonnull %name) #16
   %total_sectors = getelementptr inbounds nuw i8, ptr %bs, i64 16888
@@ -1411,7 +1411,7 @@ declare i32 @qcow2_update_snapshot_refcount(ptr noundef, i64 noundef, i32 nounde
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @qcow2_cluster_discard(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -1599,7 +1599,7 @@ if.end87:                                         ; preds = %for.end
   call void @g_free(ptr noundef %call38) #16
   %30 = load i64, ptr %l1_table_offset58, align 8
   %31 = load i32, ptr %l1_size29, align 8
-  %call90 = call i32 @qcow2_update_snapshot_refcount(ptr noundef %bs, i64 noundef %30, i32 noundef %31, i32 noundef 0) #16
+  %call90 = call i32 @qcow2_update_snapshot_refcount(ptr noundef nonnull %bs, i64 noundef %30, i32 noundef %31, i32 noundef 0) #16
   %cmp91 = icmp slt i32 %call90, 0
   br i1 %cmp91, label %fail, label %return
 
@@ -1733,7 +1733,7 @@ return:                                           ; preds = %if.end31, %if.end3,
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @find_snapshot_by_id_and_name(ptr nocapture readonly %bs.24.val, ptr noundef readonly %id, ptr noundef readonly %name) unnamed_addr #10 {
+define internal fastcc i32 @find_snapshot_by_id_and_name(ptr readonly captures(none) %bs.24.val, ptr noundef readonly %id, ptr noundef readonly %name) unnamed_addr #10 {
 entry:
   %tobool = icmp ne ptr %id, null
   %tobool1 = icmp ne ptr %name, null
@@ -1837,12 +1837,12 @@ return:                                           ; preds = %for.body34, %for.in
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @qcow2_snapshot_list(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %psn_tab) local_unnamed_addr #0 {
+define dso_local i32 @qcow2_snapshot_list(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) %psn_tab) local_unnamed_addr #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2039,13 +2039,13 @@ declare void @assert_bdrv_graph_readable() local_unnamed_addr #1
 declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #13
@@ -2057,10 +2057,10 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i32 @llvm.umax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

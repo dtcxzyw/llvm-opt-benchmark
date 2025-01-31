@@ -54,14 +54,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [37 x i8] c"o->encoding == OBJ_ENCODING_LISTPACK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeTryConversion(ptr nocapture noundef %o, i32 noundef %lct, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local void @listTypeTryConversion(ptr noundef captures(none) %o, i32 noundef %lct, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @listTypeTryConversionRaw(ptr noundef %o, i32 noundef %lct, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %fn, ptr noundef %data)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listTypeTryConversionRaw(ptr nocapture noundef %o, i32 noundef %lct, ptr noundef readonly %argv, i32 noundef %start, i32 noundef %end, ptr noundef readonly %fn, ptr noundef %data) unnamed_addr #0 {
+define internal fastcc void @listTypeTryConversionRaw(ptr noundef captures(none) %o, i32 noundef %lct, ptr noundef readonly %argv, i32 noundef %start, i32 noundef %end, ptr noundef readonly %fn, ptr noundef %data) unnamed_addr #0 {
 entry:
   %sz_limit.i = alloca i64, align 8
   %count_limit.i = alloca i32, align 4
@@ -328,14 +328,14 @@ if.end16:                                         ; preds = %if.end43.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeTryConversionAppend(ptr nocapture noundef %o, ptr noundef %argv, i32 noundef %start, i32 noundef %end, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local void @listTypeTryConversionAppend(ptr noundef captures(none) %o, ptr noundef %argv, i32 noundef %start, i32 noundef %end, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @listTypeTryConversionRaw(ptr noundef %o, i32 noundef 1, ptr noundef %argv, i32 noundef %start, i32 noundef %end, ptr noundef %fn, ptr noundef %data)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypePush(ptr nocapture noundef %subject, ptr nocapture noundef readonly %value, i32 noundef %where) local_unnamed_addr #0 {
+define dso_local void @listTypePush(ptr noundef captures(none) %subject, ptr noundef readonly captures(none) %value, i32 noundef %where) local_unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %bf.load = load i32, ptr %subject, align 8
@@ -557,7 +557,7 @@ declare i32 @ll2string(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr
 declare void @quicklistPush(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @lpPrependInteger(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -582,7 +582,7 @@ entry:
 declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @listTypePop(ptr nocapture noundef %subject, i32 noundef %where) local_unnamed_addr #0 {
+define dso_local ptr @listTypePop(ptr noundef captures(none) %subject, i32 noundef %where) local_unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %vlong = alloca i64, align 8
@@ -666,7 +666,7 @@ declare ptr @lpGet(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @lpDelete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @listTypeLength(ptr nocapture noundef readonly %subject) local_unnamed_addr #0 {
+define dso_local i64 @listTypeLength(ptr noundef readonly captures(none) %subject) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %subject, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -755,7 +755,7 @@ declare ptr @quicklistGetIteratorAtIdx(ptr noundef, i32 noundef, i64 noundef) lo
 declare ptr @lpSeek(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeSetIteratorDirection(ptr nocapture noundef %li, ptr nocapture noundef readonly %entry1, i8 noundef zeroext %direction) local_unnamed_addr #0 {
+define dso_local void @listTypeSetIteratorDirection(ptr noundef captures(none) %li, ptr noundef readonly captures(none) %entry1, i8 noundef zeroext %direction) local_unnamed_addr #0 {
 entry:
   %direction2 = getelementptr inbounds nuw i8, ptr %li, i64 9
   %0 = load i8, ptr %direction2, align 1
@@ -918,7 +918,7 @@ declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed
 declare i32 @quicklistNext(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @listTypeGetValue(ptr nocapture noundef readonly %entry1, ptr nocapture noundef writeonly %vlen, ptr noundef %lval) local_unnamed_addr #0 {
+define dso_local ptr @listTypeGetValue(ptr noundef readonly captures(none) %entry1, ptr noundef writeonly captures(none) %vlen, ptr noundef %lval) local_unnamed_addr #0 {
 entry:
   %slen = alloca i32, align 4
   %0 = load ptr, ptr %entry1, align 8
@@ -969,7 +969,7 @@ if.end19:                                         ; preds = %if.then4, %if.else,
 declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @listTypeGet(ptr nocapture noundef readonly %entry1) local_unnamed_addr #0 {
+define dso_local ptr @listTypeGet(ptr noundef readonly captures(none) %entry1) local_unnamed_addr #0 {
 entry:
   %slen.i = alloca i32, align 4
   %lval = alloca i64, align 8
@@ -1235,7 +1235,7 @@ declare void @quicklistReplaceEntry(ptr noundef, ptr noundef, ptr noundef, i64 n
 declare ptr @lpReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @listTypeReplaceAtIndex(ptr nocapture noundef %o, i32 noundef %index, ptr noundef %value) local_unnamed_addr #0 {
+define dso_local i32 @listTypeReplaceAtIndex(ptr noundef captures(none) %o, i32 noundef %index, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %call = tail call ptr @getDecodedObject(ptr noundef %value) #9
@@ -1469,7 +1469,7 @@ declare i32 @quicklistCompare(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @lpCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeDelete(ptr nocapture noundef %iter, ptr noundef %entry1) local_unnamed_addr #0 {
+define dso_local void @listTypeDelete(ptr noundef captures(none) %iter, ptr noundef %entry1) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %0 = load ptr, ptr %entry1, align 8
@@ -1539,7 +1539,7 @@ if.end31:                                         ; preds = %if.then18, %if.else
 declare void @quicklistDelEntry(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @listTypeDup(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local noundef ptr @listTypeDup(ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.clear = and i32 %bf.load, 15
@@ -1595,7 +1595,7 @@ declare ptr @lpDup(ptr noundef) local_unnamed_addr #1
 declare ptr @quicklistDup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeDelRange(ptr nocapture noundef %subject, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local void @listTypeDelRange(ptr noundef captures(none) %subject, i64 noundef %start, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %subject, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -1961,7 +1961,7 @@ return:                                           ; preds = %if.end9, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2255,7 +2255,7 @@ if.end19:                                         ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listPopRangeAndReplyWithKey(ptr noundef %c, ptr nocapture noundef %o, ptr noundef %key, i32 noundef %where, i64 noundef %count, i32 noundef %signal, ptr noundef %deleted) local_unnamed_addr #0 {
+define dso_local void @listPopRangeAndReplyWithKey(ptr noundef %c, ptr noundef captures(none) %o, ptr noundef %key, i32 noundef %where, i64 noundef %count, i32 noundef %signal, ptr noundef %deleted) local_unnamed_addr #0 {
 entry:
   %bf.load.i = load i32, ptr %o, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 4
@@ -2330,7 +2330,7 @@ declare void @addReplyArrayLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @addReplyBulk(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addListRangeReply(ptr noundef %c, ptr nocapture noundef readonly %o, i64 noundef %start, i64 noundef %end, i32 noundef %reverse) local_unnamed_addr #0 {
+define dso_local void @addListRangeReply(ptr noundef %c, ptr noundef readonly captures(none) %o, i64 noundef %start, i64 noundef %end, i32 noundef %reverse) local_unnamed_addr #0 {
 entry:
   %bf.load.i = load i32, ptr %o, align 8
   %bf.lshr.i = lshr i32 %bf.load.i, 4
@@ -2413,7 +2413,7 @@ if.end30:                                         ; preds = %if.then26, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listElementsRemoved(ptr noundef %c, ptr noundef %key, i32 noundef %where, ptr nocapture noundef %o, i64 noundef %count, i32 noundef %signal, ptr noundef writeonly %deleted) local_unnamed_addr #0 {
+define dso_local void @listElementsRemoved(ptr noundef %c, ptr noundef %key, i32 noundef %where, ptr noundef captures(none) %o, i64 noundef %count, i32 noundef %signal, ptr noundef writeonly %deleted) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %where, 0
   %cond = select i1 %cmp, ptr @.str.13, ptr @.str.14
@@ -2495,7 +2495,7 @@ if.end14:                                         ; preds = %if.then12, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addListQuicklistRangeReply(ptr noundef %c, ptr nocapture noundef readonly %o, i32 noundef %from, i32 noundef %rangelen, i32 noundef %reverse) local_unnamed_addr #0 {
+define dso_local void @addListQuicklistRangeReply(ptr noundef %c, ptr noundef readonly captures(none) %o, i32 noundef %from, i32 noundef %rangelen, i32 noundef %reverse) local_unnamed_addr #0 {
 entry:
   %qe = alloca %struct.quicklistEntry, align 8
   %conv = sext i32 %rangelen to i64
@@ -2552,7 +2552,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addListListpackRangeReply(ptr noundef %c, ptr nocapture noundef readonly %o, i32 noundef %from, i32 noundef %rangelen, i32 noundef %reverse) local_unnamed_addr #0 {
+define dso_local void @addListListpackRangeReply(ptr noundef %c, ptr noundef readonly captures(none) %o, i32 noundef %from, i32 noundef %rangelen, i32 noundef %reverse) local_unnamed_addr #0 {
 entry:
   %vlen = alloca i32, align 4
   %lval = alloca i64, align 8
@@ -2798,7 +2798,7 @@ declare void @addReplyErrorArity(ptr noundef) local_unnamed_addr #1
 declare i32 @getPositiveLongFromObjectOrReply(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mpopGenericCommand(ptr noundef %c, ptr nocapture noundef readonly %keys, i32 noundef %numkeys, i32 noundef %where, i64 noundef %count) local_unnamed_addr #0 {
+define dso_local void @mpopGenericCommand(ptr noundef %c, ptr noundef readonly captures(none) %keys, i32 noundef %numkeys, i32 noundef %where, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   %cmp22 = icmp sgt i32 %numkeys, 0
   br i1 %cmp22, label %for.body.lr.ph, label %for.end
@@ -3450,7 +3450,7 @@ if.then84.us95:                                   ; preds = %while.body.us92
 
 if.then93.us98:                                   ; preds = %if.then84.us95
   %inc96.us = add nsw i64 %arraylen.071.us87, 1
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %sub89.us97) #9
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %sub89.us97) #9
   %40 = load i64, ptr %count, align 8
   %tobool97.not.us = icmp eq i64 %40, 0
   br i1 %tobool97.not.us, label %if.end107.us99, label %land.lhs.true98.us
@@ -3493,7 +3493,7 @@ if.then84:                                        ; preds = %while.body
 
 if.then93:                                        ; preds = %if.then84
   %inc96 = add nsw i64 %arraylen.071, 1
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %index.069) #9
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %index.069) #9
   %45 = load i64, ptr %count, align 8
   %tobool97.not = icmp eq i64 %45, 0
   br i1 %tobool97.not, label %if.end107, label %land.lhs.true98
@@ -3531,7 +3531,7 @@ listTypeReleaseIterator.exit:                     ; preds = %while.end, %if.then
   br i1 %cmp109.not, label %if.else112, label %if.then111
 
 if.then111:                                       ; preds = %listTypeReleaseIterator.exit
-  call void @setDeferredArrayLen(ptr noundef %c, ptr noundef nonnull %arraylenptr.0, i64 noundef %arraylen.1) #9
+  call void @setDeferredArrayLen(ptr noundef nonnull %c, ptr noundef nonnull %arraylenptr.0, i64 noundef %arraylen.1) #9
   br label %if.end121
 
 if.else112:                                       ; preds = %listTypeReleaseIterator.exit
@@ -3539,7 +3539,7 @@ if.else112:                                       ; preds = %listTypeReleaseIter
   br i1 %cmp113.not, label %if.else116, label %if.then115
 
 if.then115:                                       ; preds = %if.else112
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %matchindex.1) #9
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %matchindex.1) #9
   br label %if.end121
 
 if.else116:                                       ; preds = %if.else112
@@ -3548,7 +3548,7 @@ if.else116:                                       ; preds = %if.else112
   %idxprom118 = sext i32 %49 to i64
   %arrayidx119 = getelementptr inbounds [4 x ptr], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 0, i64 %idxprom118
   %50 = load ptr, ptr %arrayidx119, align 8
-  call void @addReply(ptr noundef %c, ptr noundef %50) #9
+  call void @addReply(ptr noundef nonnull %c, ptr noundef %50) #9
   br label %if.end121
 
 if.end121:                                        ; preds = %if.then33, %if.then19, %if.then, %if.then115, %if.else116, %if.end62, %if.then57, %if.else58, %if.then111, %if.else42, %if.then13
@@ -3790,7 +3790,7 @@ if.end43:                                         ; preds = %if.else42, %if.then
   br label %if.end47
 
 if.end47:                                         ; preds = %if.end43, %listTypeReleaseIterator.exit
-  call void @addReplyLongLong(ptr noundef %c, i64 noundef %removed.1) #9
+  call void @addReplyLongLong(ptr noundef nonnull %c, i64 noundef %removed.1) #9
   br label %return
 
 return:                                           ; preds = %if.end, %lor.lhs.false, %entry, %if.end47
@@ -3831,7 +3831,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @getListPositionFromObjectOrReply(ptr noundef %c, ptr nocapture noundef readonly %arg, ptr nocapture noundef writeonly %position) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @getListPositionFromObjectOrReply(ptr noundef %c, ptr noundef readonly captures(none) %arg, ptr noundef writeonly captures(none) %position) local_unnamed_addr #0 {
 entry:
   %ptr = getelementptr inbounds nuw i8, ptr %arg, i64 8
   %0 = load ptr, ptr %ptr, align 8
@@ -4538,10 +4538,10 @@ declare i64 @llvm.smin.i64(i64, i64) #7
 declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -168,7 +168,7 @@ define range(i32 0, 2) i32 @decode_as_default_reset(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @decode_as_default_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define range(i32 0, 2) i32 @decode_as_default_change(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @get_dissector_table_selector_type(ptr noundef %0) #14
   switch i32 %5, label %12 [
     i32 4, label %6
@@ -207,7 +207,7 @@ define range(i32 0, 2) i32 @decode_as_default_change(ptr noundef %0, ptr noundef
 declare void @dissector_table_foreach_handle(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_proto_add_to_list(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @decode_proto_add_to_list(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @dissector_handle_get_description(ptr noundef %1) #14
   %5 = tail call i32 @dissector_handle_get_protocol_index(ptr noundef %1) #14
   %6 = icmp sgt i32 %5, -1
@@ -338,7 +338,7 @@ define void @decode_clear_all() local_unnamed_addr #0 {
 declare ptr @get_persconffile_path(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -349,7 +349,7 @@ declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 declare i32 @read_prefs_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
+define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 %3) #0 {
   %5 = alloca [4 x ptr], align 16
   %6 = alloca ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -389,7 +389,7 @@ define internal range(i32 0, 3) i32 @read_set_decode_as_entries(ptr nocapture no
   %17 = ptrtoint ptr %12 to i64
   %18 = ptrtoint ptr %.06495 to i64
   %19 = sub i64 %17, %18
-  %20 = tail call noalias ptr @g_strndup(ptr noundef %.06495, i64 noundef %19) #14
+  %20 = tail call noalias ptr @g_strndup(ptr noundef nonnull %.06495, i64 noundef %19) #14
   %21 = getelementptr [4 x ptr], ptr %5, i64 0, i64 %indvars.iv
   store ptr %20, ptr %21, align 8
   %22 = getelementptr i8, ptr %12, i64 1
@@ -558,12 +558,12 @@ decode_build_reset_list.exit:                     ; preds = %72, %76, %78
 declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @save_decode_as_entries(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @save_decode_as_entries(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -626,14 +626,14 @@ declare ptr @g_strerror(i32 noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @get_configuration_namespace() local_unnamed_addr #1
 
 declare void @dissector_all_tables_foreach_changed(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_as_write_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) #0 {
+define internal void @decode_as_write_entry(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) #0 {
   %6 = tail call ptr @dtbl_entry_get_handle(ptr noundef %3) #14
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
@@ -696,7 +696,7 @@ define internal void @decode_as_write_entry(ptr noundef %0, i32 noundef %1, ptr 
 declare void @g_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @decode_as_print_rows(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #4 {
+define internal void @decode_as_print_rows(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #4 {
   %fputs = tail call i32 @fputs(ptr %0, ptr %1)
   ret void
 }
@@ -704,7 +704,7 @@ define internal void @decode_as_print_rows(ptr nocapture noundef readonly %0, pt
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @decode_build_reset_list(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define void @decode_build_reset_list(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #17
   %7 = tail call noalias ptr @g_strdup(ptr noundef %0) #14
   store ptr %7, ptr %6, align 8
@@ -777,13 +777,13 @@ define void @decode_cleanup() local_unnamed_addr #0 {
 declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @next_proto_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 23)) %1) #7 {
+define internal void @next_proto_prompt(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 23)) %1) #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %1, ptr noundef nonnull align 1 dereferenceable(23) @.str.9, i64 23, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @next_proto_value(ptr nocapture readnone %0) #8 {
+define internal noalias noundef ptr @next_proto_value(ptr readnone captures(none) %0) #8 {
   ret ptr null
 }
 
@@ -796,13 +796,13 @@ declare i32 @proto_is_protocol_enabled(ptr noundef) local_unnamed_addr #1
 declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
@@ -816,7 +816,7 @@ declare ptr @dissector_table_get_dissector_handle(ptr noundef, ptr noundef) loca
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #12
 
 declare ptr @prefs_find_module(ptr noundef) local_unnamed_addr #1
 
@@ -837,7 +837,7 @@ declare ptr @dtbl_entry_get_initial_handle(ptr noundef) local_unnamed_addr #1
 declare ptr @g_list_insert_sorted(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

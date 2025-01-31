@@ -89,7 +89,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @llvm.used = appending global [4 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK15MetaspaceTracer19report_gc_thresholdEmmN27MetaspaceGCThresholdUpdater4TypeE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK15MetaspaceTracer19report_gc_thresholdEmmN27MetaspaceGCThresholdUpdater4TypeE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.EventMetaspaceGCThreshold, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %6, i8 0, i64 11, i1 false)
@@ -203,7 +203,7 @@ _ZN8JfrEventI25EventMetaspaceGCThresholdE11write_eventEv.exit: ; preds = %9, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK15MetaspaceTracer35report_metaspace_allocation_failureEP15ClassLoaderDatamN12MetaspaceObj4TypeEN9Metaspace12MetadataTypeE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK15MetaspaceTracer35report_metaspace_allocation_failureEP15ClassLoaderDatamN12MetaspaceObj4TypeEN9Metaspace12MetadataTypeE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.EventMetaspaceAllocationFailure, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -246,7 +246,7 @@ _ZNK15MetaspaceTracer29send_allocation_failure_eventI31EventMetaspaceAllocationF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK15MetaspaceTracer19report_metadata_oomEP15ClassLoaderDatamN12MetaspaceObj4TypeEN9Metaspace12MetadataTypeE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK15MetaspaceTracer19report_metadata_oomEP15ClassLoaderDatamN12MetaspaceObj4TypeEN9Metaspace12MetadataTypeE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.EventMetaspaceOOM, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2257,13 +2257,13 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

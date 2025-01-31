@@ -128,7 +128,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN8proxygen20SecondaryAuthManagerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8proxygen20SecondaryAuthManagerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen20SecondaryAuthManagerC2ESt10unique_ptrIN4fizz8SelfCertESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 12), (24, 28), (32, 40)) %this, ptr nocapture noundef %cert) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20SecondaryAuthManagerC2ESt10unique_ptrIN4fizz8SelfCertESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 12), (24, 28), (32, 40)) %this, ptr noundef captures(none) %cert) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen20SecondaryAuthManagerE, i64 16), ptr %this, align 8
   %requestIdCounter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -259,7 +259,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen20SecondaryAuthManager17createAuthRequestESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EESt6vectorIN4fizz9ExtensionESaIS9_EE(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %certRequestContext, ptr nocapture noundef %extensions) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20SecondaryAuthManager17createAuthRequestESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EESt6vectorIN4fizz9ExtensionESaIS9_EE(ptr noalias writeonly sret(%"struct.std::pair") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %certRequestContext, ptr noundef captures(none) %extensions) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %contextQueue = alloca %"class.folly::IOBufQueue", align 8
   %ref.tmp = alloca %"struct.folly::IOBufQueue::Options", align 1
@@ -833,7 +833,7 @@ _ZN5folly10IOBufQueue18WritableRangeCacheD2Ev.exit: ; preds = %entry, %_ZNK5foll
 declare void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen20SecondaryAuthManager16getAuthenticatorERKN4fizz13AsyncFizzBaseENS_18TransportDirectionEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS8_EE(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(576) %transport, i8 noundef zeroext %dir, i16 noundef zeroext %requestId, ptr nocapture noundef %authRequest) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20SecondaryAuthManager16getAuthenticatorERKN4fizz13AsyncFizzBaseENS_18TransportDirectionEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS8_EE(ptr noalias writeonly sret(%"struct.std::pair") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(576) %transport, i8 noundef zeroext %dir, i16 noundef zeroext %requestId, ptr noundef captures(none) %authRequest) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %authenticator = alloca %"class.std::unique_ptr.12", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.12", align 8
@@ -1025,7 +1025,7 @@ return:                                           ; preds = %lor.rhs, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen20SecondaryAuthManager21validateAuthenticatorERKN4fizz13AsyncFizzBaseENS_18TransportDirectionEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS8_EE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(576) %transport, i8 noundef zeroext %dir, i16 noundef zeroext %certId, ptr nocapture noundef %authenticator) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen20SecondaryAuthManager21validateAuthenticatorERKN4fizz13AsyncFizzBaseENS_18TransportDirectionEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS8_EE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(576) %transport, i8 noundef zeroext %dir, i16 noundef zeroext %certId, ptr noundef captures(none) %authenticator) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i.i.i21 = alloca %"class.std::vector.63", align 8
   %__tmp.i.i.i.i.i = alloca %"class.std::vector.63", align 8
@@ -1485,7 +1485,7 @@ ehcleanup62:                                      ; preds = %_ZN5folly8OptionalI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen20SecondaryAuthManager13verifyContextESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef %authenticator) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20SecondaryAuthManager13verifyContextESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noalias writeonly sret(%"class.folly::Optional") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef captures(none) %authenticator) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.104", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.107", align 1
@@ -1812,7 +1812,7 @@ declare void @_ZN4fizz21ExportedAuthenticator23getAuthenticatorContextESt10uniqu
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEt(ptr noundef nonnull align 8 dereferenceable(8), i16 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen20SecondaryAuthManager9getCertIdEt(ptr noalias nocapture writeonly sret(%"class.folly::Optional.74") align 2 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, i16 noundef zeroext %requestId) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20SecondaryAuthManager9getCertIdEt(ptr noalias writeonly sret(%"class.folly::Optional.74") align 2 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, i16 noundef zeroext %requestId) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %requestId.addr = alloca i16, align 2
   store i16 %requestId, ptr %requestId.addr, align 2
@@ -1952,7 +1952,7 @@ if.end:                                           ; preds = %if.then.i7.i, %clea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen20SecondaryAuthManager11getPeerCertEt(ptr noalias nocapture writeonly sret(%"class.folly::Optional.61") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, i16 noundef zeroext %certId) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20SecondaryAuthManager11getPeerCertEt(ptr noalias writeonly sret(%"class.folly::Optional.61") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, i16 noundef zeroext %certId) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i.i = alloca %"class.std::vector.63", align 8
   %ref.tmp9.i = alloca %"class.std::tuple.104", align 8
@@ -2154,7 +2154,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeItSt4pairIKtSt6vectorIN4fizz16CertificateEntryESaIS4_EEESt10_Select1stIS7_ESt4lessItESaIS7_EE8_M_eraseEPSt13_Rb_tree_nodeIS7_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2315,7 +2315,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeItSt4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare void @_ZN5folly5IOBufD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #4
@@ -3356,10 +3356,10 @@ _ZNSt8_Rb_treeItSt4pairIKtSt6vectorIN4fizz16CertificateEntryESaIS4_EEESt10_Selec
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

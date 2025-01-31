@@ -534,7 +534,7 @@ return:                                           ; preds = %Py_DECREF.exit, %Py
 declare void @_PyPathConfig_ReadGlobal(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @PyStatus_Error(ptr sret(%struct.PyStatus) align 8, ptr noundef) local_unnamed_addr #1
 
@@ -885,7 +885,7 @@ declare ptr @PyEval_EvalCode(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @_PyConfig_FromDict(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
@@ -901,15 +901,15 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare ptr @PyCMethod_New(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_abspath(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @getpath_abspath(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %pathobj = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -955,7 +955,7 @@ return:                                           ; preds = %if.end, %if.end9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_basename(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @getpath_basename(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %path = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.47, ptr noundef nonnull %path) #11
@@ -992,7 +992,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_dirname(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @getpath_dirname(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %path = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.47, ptr noundef nonnull %path) #11
@@ -1022,7 +1022,7 @@ return:                                           ; preds = %entry, %if.end5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @getpath_hassuffix(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal noundef ptr @getpath_hassuffix(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %pathobj = alloca ptr, align 8
   %suffixobj = alloca ptr, align 8
@@ -1093,7 +1093,7 @@ return:                                           ; preds = %if.end, %if.end13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_isabs(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @getpath_isabs(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %pathobj = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.47, ptr noundef nonnull %pathobj) #11
@@ -1126,7 +1126,7 @@ return:                                           ; preds = %if.end, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_isdir(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @getpath_isdir(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %pathobj = alloca ptr, align 8
   %st = alloca %struct.stat, align 8
@@ -1165,7 +1165,7 @@ return:                                           ; preds = %if.end, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_isfile(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @getpath_isfile(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %pathobj = alloca ptr, align 8
   %st = alloca %struct.stat, align 8
@@ -1204,7 +1204,7 @@ return:                                           ; preds = %if.end, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_isxfile(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @getpath_isxfile(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %pathobj = alloca ptr, align 8
   %cchPath = alloca i64, align 8
@@ -1255,7 +1255,7 @@ return:                                           ; preds = %if.end, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_joinpath(ptr nocapture readnone %_unused_self, ptr nocapture noundef readonly %args) #0 {
+define internal ptr @getpath_joinpath(ptr readnone captures(none) %_unused_self, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %cch = alloca i64, align 8
   %0 = getelementptr i8, ptr %args, i64 8
@@ -1452,7 +1452,7 @@ return:                                           ; preds = %if.end80, %if.then7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_readlines(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @getpath_readlines(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %pathobj = alloca ptr, align 8
   %len = alloca i64, align 8
@@ -1716,7 +1716,7 @@ return:                                           ; preds = %if.end19, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getpath_realpath(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal ptr @getpath_realpath(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %pathobj = alloca ptr, align 8
   %resolved = alloca [4097 x i32], align 16
@@ -1851,10 +1851,10 @@ declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #1
 declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @_Py_DecodeUTF8_surrogateescape(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1873,7 +1873,7 @@ declare ptr @wcsrchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare ptr @_Py_join_relfile(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @getpath_warn(ptr nocapture readnone %_unused_self, ptr noundef %args) #0 {
+define internal noundef ptr @getpath_warn(ptr readnone captures(none) %_unused_self, ptr noundef %args) #0 {
 entry:
   %msgobj = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %args, ptr noundef nonnull @.str.47, ptr noundef nonnull %msgobj) #11
@@ -1893,12 +1893,12 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare ptr @PyUnicode_AsUTF8(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @getpath_nowarn(ptr nocapture readnone %_unused_self, ptr nocapture readnone %args) #9 {
+define internal noundef nonnull ptr @getpath_nowarn(ptr readnone captures(none) %_unused_self, ptr readnone captures(none) %args) #9 {
 entry:
   ret ptr @_Py_NoneStruct
 }

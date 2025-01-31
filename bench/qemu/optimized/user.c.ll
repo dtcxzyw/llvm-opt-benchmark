@@ -263,10 +263,10 @@ if.end13:                                         ; preds = %if.end3, %entry, %i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @gdb_put_packet(ptr noundef) local_unnamed_addr #1
 
@@ -410,12 +410,12 @@ declare void @gdb_append_thread_id(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @gdb_put_strbuf() local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare void @gdb_read_byte(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_signalled(ptr nocapture noundef readnone %env, i32 noundef %sig) local_unnamed_addr #0 {
+define dso_local void @gdb_signalled(ptr noundef readnone captures(none) %env, i32 noundef %sig) local_unnamed_addr #0 {
 entry:
   %buf = alloca [4 x i8], align 1
   %0 = load i8, ptr @gdbserver_state, align 8
@@ -658,7 +658,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @cpu_breakpoint_remove_all(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_query_attached(ptr nocapture noundef readnone %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #0 {
+define dso_local void @gdb_handle_query_attached(ptr noundef readnone captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @gdb_put_packet(ptr noundef nonnull @.str.3) #11
   ret void
@@ -707,7 +707,7 @@ trace_gdbstub_op_continue.exit:                   ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @gdb_continue_partial(ptr nocapture noundef readonly %newstates) local_unnamed_addr #0 {
+define dso_local noundef i32 @gdb_continue_partial(ptr noundef readonly captures(none) %newstates) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load atomic i64, ptr @cpus_queue monotonic, align 8
@@ -847,7 +847,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @gdb_breakpoint_insert(ptr nocapture noundef readnone %cs, i32 noundef %type, i64 noundef %addr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @gdb_breakpoint_insert(ptr noundef readnone captures(none) %cs, i32 noundef %type, i64 noundef %addr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %switch = icmp ult i32 %type, 2
   br i1 %switch, label %while.end, label %return
@@ -880,7 +880,7 @@ return:                                           ; preds = %for.body, %while.en
 declare i32 @cpu_breakpoint_insert(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @gdb_breakpoint_remove(ptr nocapture noundef readnone %cs, i32 noundef %type, i64 noundef %addr, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @gdb_breakpoint_remove(ptr noundef readnone captures(none) %cs, i32 noundef %type, i64 noundef %addr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %switch = icmp ult i32 %type, 2
   br i1 %switch, label %while.end, label %return
@@ -929,7 +929,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -941,7 +941,7 @@ declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) loc
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare void @qemu_set_cloexec(i32 noundef) local_unnamed_addr #1
 
@@ -957,7 +957,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #8
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -976,10 +976,10 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

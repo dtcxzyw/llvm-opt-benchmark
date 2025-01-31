@@ -57,7 +57,7 @@ entry:
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_Z15finalize_rlimitv() local_unnamed_addr #3 {
@@ -75,7 +75,7 @@ _Z7deallocISt5mutexEvPT_.exit:                    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8reslimitC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 5), (8, 40)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8reslimitC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 5), (8, 40)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %m_suspend = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -92,7 +92,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK8reslimit5countEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK8reslimit5countEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_count, align 8
@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN8reslimit3incEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_count, align 8
@@ -129,7 +129,7 @@ _ZNK8reslimit12not_canceledEv.exit:               ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN8reslimit3incEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %offset) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN8reslimit3incEj(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i32 noundef %offset) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = zext i32 %offset to i64
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -210,7 +210,7 @@ _ZN6vectorImLb0EjE9push_backERKm.exit:            ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8reslimit3popEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN8reslimit3popEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %m_count, align 8
@@ -250,7 +250,7 @@ _ZN6vectorImLb0EjE4backEv.exit:                   ; preds = %if.end, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK8reslimit14get_cancel_msgEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK8reslimit14get_cancel_msgEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr %this seq_cst, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -318,7 +318,7 @@ lpad:                                             ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8reslimit9pop_childEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8reslimit9pop_childEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_rlimit_mux, align 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
@@ -370,7 +370,7 @@ invoke.cont4:                                     ; preds = %_ZNSt10lock_guardIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8reslimit6cancelEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8reslimit6cancelEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_rlimit_mux, align 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
@@ -390,7 +390,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8reslimit10set_cancelEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %f) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN8reslimit10set_cancelEj(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i32 noundef %f) local_unnamed_addr #10 align 2 {
 entry:
   store atomic i32 %f, ptr %this seq_cst, align 8
   %m_children = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -425,7 +425,7 @@ for.end:                                          ; preds = %_ZNK6vectorIP8resli
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8reslimit12reset_cancelEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8reslimit12reset_cancelEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_rlimit_mux, align 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
@@ -443,7 +443,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8reslimit10inc_cancelEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8reslimit10inc_cancelEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_rlimit_mux, align 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
@@ -463,7 +463,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8reslimit10dec_cancelEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8reslimit10dec_cancelEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZL12g_rlimit_mux, align 8
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #19
@@ -703,7 +703,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

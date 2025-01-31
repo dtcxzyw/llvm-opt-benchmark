@@ -281,7 +281,7 @@ return:                                           ; preds = %_Py_atomic_compare_
 declare void @_PyParkingLot_Unpark(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mutex_unpark(ptr nocapture noundef writeonly %m, ptr noundef %entry1, i32 noundef %has_more_waiters) #0 {
+define internal void @mutex_unpark(ptr noundef writeonly captures(none) %m, ptr noundef %entry1, i32 noundef %has_more_waiters) #0 {
 entry:
   %tobool.not = icmp eq ptr %entry1, null
   br i1 %tobool.not, label %if.end12, label %if.then
@@ -349,7 +349,7 @@ if.end:                                           ; preds = %if.else7.i, %if.the
 declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyRawMutex_LockSlow(ptr nocapture noundef %m) local_unnamed_addr #0 {
+define hidden void @_PyRawMutex_LockSlow(ptr noundef captures(none) %m) local_unnamed_addr #0 {
 entry:
   %waiter = alloca %struct.raw_mutex_entry, align 8
   %sema = getelementptr inbounds nuw i8, ptr %waiter, i64 8
@@ -403,7 +403,7 @@ declare i32 @_PySemaphore_Wait(ptr noundef, i64 noundef, i32 noundef) local_unna
 declare void @_PySemaphore_Destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyRawMutex_UnlockSlow(ptr nocapture noundef %m) local_unnamed_addr #0 {
+define hidden void @_PyRawMutex_UnlockSlow(ptr noundef captures(none) %m) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr %m seq_cst, align 8
   %and17 = and i64 %0, 1
@@ -538,7 +538,7 @@ return:                                           ; preds = %for.cond, %if.end11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_PyOnceFlag_CallOnceSlow(ptr noundef %flag, ptr nocapture noundef readonly %fn, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyOnceFlag_CallOnceSlow(ptr noundef %flag, ptr noundef readonly captures(none) %fn, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %v = alloca i8, align 1
   %0 = load atomic i8, ptr %flag seq_cst, align 1
@@ -790,10 +790,10 @@ if.end:                                           ; preds = %if.then, %entry
 declare i64 @llvm.smax.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

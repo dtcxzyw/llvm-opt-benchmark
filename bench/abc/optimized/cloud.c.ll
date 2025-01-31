@@ -249,7 +249,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @cloudMakeNode(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
+define internal fastcc noundef ptr @cloudMakeNode(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = mul i32 %1, 12582917
@@ -356,7 +356,7 @@ define internal fastcc noundef ptr @cloudMakeNode(ptr nocapture noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cloud_Quit(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Cloud_Quit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -416,10 +416,10 @@ define void @Cloud_Quit(ptr nocapture noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Cloud_Restart(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @Cloud_Restart(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, 1
@@ -460,7 +460,7 @@ define void @Cloud_Restart(ptr nocapture noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Cloud_CacheAllocate(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @Cloud_CacheAllocate(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %4
 
@@ -503,7 +503,7 @@ define void @Cloud_CacheAllocate(ptr nocapture noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @Cloud_MakeNode(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define ptr @Cloud_MakeNode(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = ptrtoint ptr %2 to i64
   %6 = and i64 %5, 1
   %.not = icmp eq i64 %6, 0
@@ -1278,7 +1278,7 @@ Cloud_bddAnd.exit:                                ; preds = %40, %42
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @cloudSupport(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 {
+define internal fastcc void @cloudSupport(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, -268435457
@@ -1319,7 +1319,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @cloudClearMark(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc void @cloudClearMark(ptr noundef captures(none) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, 268435456
@@ -1355,7 +1355,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cloud_SupportSize(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @Cloud_SupportSize(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 4) #13
@@ -1399,7 +1399,7 @@ define i32 @Cloud_SupportSize(ptr nocapture noundef readonly %0, ptr noundef %1)
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Cloud_DagSize(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #7 {
+define range(i32 -2147483647, -2147483648) i32 @Cloud_DagSize(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -1409,7 +1409,7 @@ define range(i32 -2147483647, -2147483648) i32 @Cloud_DagSize(ptr nocapture noun
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @cloudDagSize(ptr nocapture noundef %0) unnamed_addr #7 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @cloudDagSize(ptr noundef captures(none) %0) unnamed_addr #7 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %8, %1
@@ -1526,7 +1526,7 @@ common.ret17:                                     ; preds = %3, %10, %17
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Cloud_SharingSize(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #7 {
+define i32 @Cloud_SharingSize(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1864,10 +1864,10 @@ Cloud_bddAnd.exit:                                ; preds = %Cloud_bddPrintCube.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cloud_bddPrintCube(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @Cloud_bddPrintCube(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -2
   %5 = inttoptr i64 %4 to ptr
@@ -1969,7 +1969,7 @@ define void @Cloud_PrintInfo(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cloud_PrintHashTable(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define void @Cloud_PrintHashTable(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 0
@@ -2002,19 +2002,19 @@ define void @Cloud_PrintHashTable(ptr nocapture noundef readonly %0) local_unnam
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5G__cache_node_free_icr = private unnamed_addr constant [25 x i8] c"H5G__cache_node_free_icr\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5G__cache_node_get_initial_load_size(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5G__cache_node_get_initial_load_size(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = tail call i32 @H5F_sym_leaf_k(ptr noundef %0) #5
   %4 = shl i32 %3, 1
   %5 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #5
@@ -52,7 +52,7 @@ define internal noundef i32 @H5G__cache_node_get_initial_load_size(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5G__cache_node_deserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal ptr @H5G__cache_node_deserialize(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store ptr %0, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 %1
@@ -223,7 +223,7 @@ define internal ptr @H5G__cache_node_deserialize(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5G__cache_node_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
+define internal noundef i32 @H5G__cache_node_image_len(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -231,7 +231,7 @@ define internal noundef i32 @H5G__cache_node_image_len(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__cache_node_serialize(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i64 noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 -1, 1) i32 @H5G__cache_node_serialize(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   store i32 1146048083, ptr %1, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -313,10 +313,10 @@ declare i32 @H5G__node_free(ptr noundef) local_unnamed_addr #2
 declare i32 @H5G__ent_encode_vec(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

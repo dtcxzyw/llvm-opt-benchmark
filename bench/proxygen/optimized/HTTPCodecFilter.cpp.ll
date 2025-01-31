@@ -226,7 +226,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter14onMessageBeginEmPNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr noundef %msg) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter14onMessageBeginEmPNS_11HTTPMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef %msg) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -237,7 +237,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter14onMessageBeginEmPNS_11HTTPMessageE(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr noundef %msg) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter14onMessageBeginEmPNS_11HTTPMessageE(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef %msg) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -248,7 +248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter18onPushMessageBeginEmmPNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i64 noundef %assocStream, ptr noundef %msg) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter18onPushMessageBeginEmmPNS_11HTTPMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i64 noundef %assocStream, ptr noundef %msg) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -260,7 +260,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter18onPushMessageBeginEmmPNS_11HTTPMessageE(ptr nocapture noundef readonly %this, i64 noundef %stream, i64 noundef %assocStream, ptr noundef %msg) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter18onPushMessageBeginEmmPNS_11HTTPMessageE(ptr noundef readonly captures(none) %this, i64 noundef %stream, i64 noundef %assocStream, ptr noundef %msg) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -272,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter16onExMessageBeginEmmbPNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i64 noundef %controlStream, i1 noundef zeroext %unidirectional, ptr noundef %msg) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter16onExMessageBeginEmmbPNS_11HTTPMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i64 noundef %controlStream, i1 noundef zeroext %unidirectional, ptr noundef %msg) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter16onExMessageBeginEmmbPNS_11HTTPMessageE(ptr nocapture noundef readonly %this, i64 noundef %stream, i64 noundef %controlStream, i1 noundef zeroext %unidirectional, ptr noundef %msg) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter16onExMessageBeginEmmbPNS_11HTTPMessageE(ptr noundef readonly captures(none) %this, i64 noundef %stream, i64 noundef %controlStream, i1 noundef zeroext %unidirectional, ptr noundef %msg) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -296,7 +296,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr nocapture noundef %msg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef captures(none) %msg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -350,7 +350,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr nocapture noundef %msg) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter17onHeadersCompleteEmSt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef captures(none) %msg) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -387,7 +387,7 @@ _ZN8proxygen26PassThroughHTTPCodecFilter17onHeadersCompleteEmSt10unique_ptrINS_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr nocapture noundef %chain, i16 noundef zeroext %padding) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef captures(none) %chain, i16 noundef zeroext %padding) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -439,7 +439,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr nocapture noundef %chain, i16 noundef zeroext %padding) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter6onBodyEmSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEt(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef captures(none) %chain, i16 noundef zeroext %padding) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.2", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -476,7 +476,7 @@ _ZN8proxygen26PassThroughHTTPCodecFilter6onBodyEmSt10unique_ptrIN5folly5IOBufESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onChunkHeaderEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i64 noundef %length) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onChunkHeaderEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i64 noundef %length) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -488,7 +488,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onChunkHeaderEmm(ptr nocapture noundef readonly %this, i64 noundef %stream, i64 noundef %length) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onChunkHeaderEmm(ptr noundef readonly captures(none) %this, i64 noundef %stream, i64 noundef %length) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -500,7 +500,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter15onChunkCompleteEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter15onChunkCompleteEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -512,7 +512,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter15onChunkCompleteEm(ptr nocapture noundef readonly %this, i64 noundef %stream) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter15onChunkCompleteEm(ptr noundef readonly captures(none) %this, i64 noundef %stream) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -524,7 +524,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter18onTrailersCompleteEmSt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr nocapture noundef %trailers) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter18onTrailersCompleteEmSt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef captures(none) %trailers) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.10", align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -576,7 +576,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter18onTrailersCompleteEmSt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr nocapture noundef %trailers) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter18onTrailersCompleteEmSt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef captures(none) %trailers) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.10", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -613,7 +613,7 @@ _ZN8proxygen26PassThroughHTTPCodecFilter18onTrailersCompleteEmSt10unique_ptrINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter17onMessageCompleteEmb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i1 noundef zeroext %upgrade) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter17onMessageCompleteEmb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i1 noundef zeroext %upgrade) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -625,7 +625,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter17onMessageCompleteEmb(ptr nocapture noundef readonly %this, i64 noundef %stream, i1 noundef zeroext %upgrade) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter17onMessageCompleteEmb(ptr noundef readonly captures(none) %this, i64 noundef %stream, i1 noundef zeroext %upgrade) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -637,7 +637,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onFrameHeaderEmhmmt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream_id, i8 noundef zeroext %flags, i64 noundef %length, i64 noundef %type, i16 noundef zeroext %version) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onFrameHeaderEmhmmt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream_id, i8 noundef zeroext %flags, i64 noundef %length, i64 noundef %type, i16 noundef zeroext %version) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -649,7 +649,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onFrameHeaderEmhmmt(ptr nocapture noundef readonly %this, i64 noundef %stream_id, i8 noundef zeroext %flags, i64 noundef %length, i64 noundef %type, i16 noundef zeroext %version) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onFrameHeaderEmhmmt(ptr noundef readonly captures(none) %this, i64 noundef %stream_id, i8 noundef zeroext %flags, i64 noundef %length, i64 noundef %type, i16 noundef zeroext %version) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -661,7 +661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter7onErrorEmRKNS_13HTTPExceptionEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newStream) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter7onErrorEmRKNS_13HTTPExceptionEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newStream) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -673,7 +673,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter7onErrorEmRKNS_13HTTPExceptionEb(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newStream) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter7onErrorEmRKNS_13HTTPExceptionEb(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(96) %error, i1 noundef zeroext %newStream) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -685,7 +685,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter7onAbortEmNS_9ErrorCodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter7onAbortEmNS_9ErrorCodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -697,7 +697,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter7onAbortEmNS_9ErrorCodeE(ptr nocapture noundef readonly %this, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter7onAbortEmNS_9ErrorCodeE(ptr noundef readonly captures(none) %this, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -709,7 +709,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter8onGoawayEmNS_9ErrorCodeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %lastGoodStreamID, i8 noundef zeroext %code, ptr nocapture noundef %debugData) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter8onGoawayEmNS_9ErrorCodeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %lastGoodStreamID, i8 noundef zeroext %code, ptr noundef captures(none) %debugData) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -744,7 +744,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter8onGoawayEmNS_9ErrorCodeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr nocapture noundef readonly %this, i64 noundef %lastGoodStreamID, i8 noundef zeroext %code, ptr nocapture noundef %debugData) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter8onGoawayEmNS_9ErrorCodeESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr noundef readonly captures(none) %this, i64 noundef %lastGoodStreamID, i8 noundef zeroext %code, ptr noundef captures(none) %debugData) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.2", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -781,7 +781,7 @@ _ZN8proxygen26PassThroughHTTPCodecFilter8onGoawayEmNS_9ErrorCodeESt10unique_ptrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onPingRequestEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %data) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onPingRequestEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %data) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -793,7 +793,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onPingRequestEm(ptr nocapture noundef readonly %this, i64 noundef %data) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onPingRequestEm(ptr noundef readonly captures(none) %this, i64 noundef %data) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -805,7 +805,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter11onPingReplyEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %data) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter11onPingReplyEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %data) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -817,7 +817,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter11onPingReplyEm(ptr nocapture noundef readonly %this, i64 noundef %data) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter11onPingReplyEm(ptr noundef readonly captures(none) %this, i64 noundef %data) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -829,7 +829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter14onWindowUpdateEmj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i32 noundef %amount) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter14onWindowUpdateEmj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i32 noundef %amount) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -841,7 +841,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter14onWindowUpdateEmj(ptr nocapture noundef readonly %this, i64 noundef %stream, i32 noundef %amount) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter14onWindowUpdateEmj(ptr noundef readonly captures(none) %this, i64 noundef %stream, i32 noundef %amount) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -853,7 +853,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter10onSettingsERKSt6vectorINS_11HTTPSettingESaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter10onSettingsERKSt6vectorINS_11HTTPSettingESaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -865,7 +865,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter10onSettingsERKSt6vectorINS_11HTTPSettingESaIS2_EE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter10onSettingsERKSt6vectorINS_11HTTPSettingESaIS2_EE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(24) %settings) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -877,7 +877,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onSettingsAckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onSettingsAckEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -889,7 +889,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onSettingsAckEv(ptr nocapture noundef readonly %this) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onSettingsAckEv(ptr noundef readonly captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -901,7 +901,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter10onPriorityEmRKSt5tupleIJmbhEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter10onPriorityEmRKSt5tupleIJmbhEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -913,7 +913,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter10onPriorityEmRKSt5tupleIJmbhEE(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter10onPriorityEmRKSt5tupleIJmbhEE(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -925,7 +925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter10onPriorityEmRKNS_12HTTPPriorityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter10onPriorityEmRKNS_12HTTPPriorityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -937,7 +937,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter10onPriorityEmRKNS_12HTTPPriorityE(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter10onPriorityEmRKNS_12HTTPPriorityE(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -949,7 +949,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter14onPushPriorityEmRKNS_12HTTPPriorityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter14onPushPriorityEmRKNS_12HTTPPriorityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -961,7 +961,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter14onPushPriorityEmRKNS_12HTTPPriorityE(ptr nocapture noundef readonly %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter14onPushPriorityEmRKNS_12HTTPPriorityE(ptr noundef readonly captures(none) %this, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -973,7 +973,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen26PassThroughHTTPCodecFilter23onNativeProtocolUpgradeEmNS_13CodecProtocolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %streamID, i8 noundef zeroext %protocol, ptr noundef nonnull align 8 dereferenceable(32) %protocolString, ptr noundef nonnull align 8 dereferenceable(616) %msg) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8proxygen26PassThroughHTTPCodecFilter23onNativeProtocolUpgradeEmNS_13CodecProtocolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11HTTPMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %streamID, i8 noundef zeroext %protocol, ptr noundef nonnull align 8 dereferenceable(32) %protocolString, ptr noundef nonnull align 8 dereferenceable(616) %msg) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -985,7 +985,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter23onNativeProtocolUpgradeEmNS_13CodecProtocolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11HTTPMessageE(ptr nocapture noundef readonly %this, i64 noundef %streamID, i8 noundef zeroext %protocol, ptr noundef nonnull align 8 dereferenceable(32) %protocolString, ptr noundef nonnull align 8 dereferenceable(616) %msg) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter23onNativeProtocolUpgradeEmNS_13CodecProtocolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_11HTTPMessageE(ptr noundef readonly captures(none) %this, i64 noundef %streamID, i8 noundef zeroext %protocol, ptr noundef nonnull align 8 dereferenceable(32) %protocolString, ptr noundef nonnull align 8 dereferenceable(616) %msg) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -997,7 +997,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter21onGenerateFrameHeaderEmhmt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %streamID, i8 noundef zeroext %type, i64 noundef %length, i16 noundef zeroext %version) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter21onGenerateFrameHeaderEmhmt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %streamID, i8 noundef zeroext %type, i64 noundef %length, i16 noundef zeroext %version) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -1011,7 +1011,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter21onGenerateFrameHeaderEmhmt(ptr nocapture noundef readonly %this, i64 noundef %streamID, i8 noundef zeroext %type, i64 noundef %length, i16 noundef zeroext %version) unnamed_addr #4 align 2 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter21onGenerateFrameHeaderEmhmt(ptr noundef readonly captures(none) %this, i64 noundef %streamID, i8 noundef zeroext %type, i64 noundef %length, i16 noundef zeroext %version) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -1025,7 +1025,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter20onCertificateRequestEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i16 noundef zeroext %requestId, ptr nocapture noundef %authRequest) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter20onCertificateRequestEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i16 noundef zeroext %requestId, ptr noundef captures(none) %authRequest) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1060,7 +1060,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter20onCertificateRequestEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr nocapture noundef readonly %this, i16 noundef zeroext %requestId, ptr nocapture noundef %authRequest) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter20onCertificateRequestEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef readonly captures(none) %this, i16 noundef zeroext %requestId, ptr noundef captures(none) %authRequest) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.2", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -1097,7 +1097,7 @@ _ZN8proxygen26PassThroughHTTPCodecFilter20onCertificateRequestEtSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onCertificateEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i16 noundef zeroext %certId, ptr nocapture noundef %authenticator) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter13onCertificateEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i16 noundef zeroext %certId, ptr noundef captures(none) %authenticator) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1132,7 +1132,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onCertificateEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr nocapture noundef readonly %this, i16 noundef zeroext %certId, ptr nocapture noundef %authenticator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N8proxygen26PassThroughHTTPCodecFilter13onCertificateEtSt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr noundef readonly captures(none) %this, i16 noundef zeroext %certId, ptr noundef captures(none) %authenticator) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.2", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
@@ -1169,7 +1169,7 @@ _ZN8proxygen26PassThroughHTTPCodecFilter13onCertificateEtSt10unique_ptrIN5folly5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK8proxygen26PassThroughHTTPCodecFilter18numOutgoingStreamsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK8proxygen26PassThroughHTTPCodecFilter18numOutgoingStreamsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -1181,7 +1181,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn8_NK8proxygen26PassThroughHTTPCodecFilter18numOutgoingStreamsEv(ptr nocapture noundef readonly %this) unnamed_addr #4 align 2 {
+define noundef i32 @_ZThn8_NK8proxygen26PassThroughHTTPCodecFilter18numOutgoingStreamsEv(ptr noundef readonly captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -1193,7 +1193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK8proxygen26PassThroughHTTPCodecFilter18numIncomingStreamsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK8proxygen26PassThroughHTTPCodecFilter18numIncomingStreamsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %callback_, align 8
@@ -1205,7 +1205,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define noundef i32 @_ZThn8_NK8proxygen26PassThroughHTTPCodecFilter18numIncomingStreamsEv(ptr nocapture noundef readonly %this) unnamed_addr #4 align 2 {
+define noundef i32 @_ZThn8_NK8proxygen26PassThroughHTTPCodecFilter18numIncomingStreamsEv(ptr noundef readonly captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -1217,7 +1217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8proxygen26PassThroughHTTPCodecFilter18getCompressionInfoEv(ptr noalias sret(%"struct.proxygen::CompressionInfo") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define void @_ZNK8proxygen26PassThroughHTTPCodecFilter18getCompressionInfoEv(ptr noalias sret(%"struct.proxygen::CompressionInfo") align 4 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1229,7 +1229,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK8proxygen26PassThroughHTTPCodecFilter11getProtocolEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i8 @_ZNK8proxygen26PassThroughHTTPCodecFilter11getProtocolEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1241,7 +1241,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8proxygen26PassThroughHTTPCodecFilter12getUserAgentB5cxx11Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8proxygen26PassThroughHTTPCodecFilter12getUserAgentB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1253,7 +1253,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i8 @_ZNK8proxygen26PassThroughHTTPCodecFilter21getTransportDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i8 @_ZNK8proxygen26PassThroughHTTPCodecFilter21getTransportDirectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1265,7 +1265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter25supportsStreamFlowControlEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter25supportsStreamFlowControlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1277,7 +1277,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter26supportsSessionFlowControlEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter26supportsSessionFlowControlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1289,7 +1289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter12createStreamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter12createStreamEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1326,7 +1326,7 @@ _ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter6isBusyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter6isBusyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1338,7 +1338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter15setParserPausedEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i1 noundef zeroext %paused) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter15setParserPausedEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i1 noundef zeroext %paused) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1350,7 +1350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter14isParserPausedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter14isParserPausedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1362,7 +1362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter9onIngressERKN5folly5IOBufE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(56) %buf) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter9onIngressERKN5folly5IOBufE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(56) %buf) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1374,7 +1374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter12onIngressEOFEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter12onIngressEOFEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1386,7 +1386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen26PassThroughHTTPCodecFilter23onIngressUpgradeMessageERKNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(616) %msg) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8proxygen26PassThroughHTTPCodecFilter23onIngressUpgradeMessageERKNS_11HTTPMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(616) %msg) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1398,7 +1398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter10isReusableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter10isReusableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1410,7 +1410,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter16isWaitingToDrainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter16isWaitingToDrainEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1422,7 +1422,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter21closeOnEgressCompleteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter21closeOnEgressCompleteEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1434,7 +1434,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter24supportsParallelRequestsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter24supportsParallelRequestsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1446,7 +1446,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter24supportsPushTransactionsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8proxygen26PassThroughHTTPCodecFilter24supportsPushTransactionsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1458,7 +1458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter25generateConnectionPrefaceERN5folly10IOBufQueueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter25generateConnectionPrefaceERN5folly10IOBufQueueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1470,7 +1470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter14generateHeaderERN5folly10IOBufQueueEmRKNS_11HTTPMessageEbPNS_14HTTPHeaderSizeERKNS1_8OptionalINS_11HTTPHeadersEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, i1 noundef zeroext %eom, ptr noundef %size, ptr noundef nonnull align 8 dereferenceable(40) %extraHeaders) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter14generateHeaderERN5folly10IOBufQueueEmRKNS_11HTTPMessageEbPNS_14HTTPHeaderSizeERKNS1_8OptionalINS_11HTTPHeadersEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, i1 noundef zeroext %eom, ptr noundef %size, ptr noundef nonnull align 8 dereferenceable(40) %extraHeaders) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1482,7 +1482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter19generatePushPromiseERN5folly10IOBufQueueEmRKNS_11HTTPMessageEmbPNS_14HTTPHeaderSizeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %buf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, i64 noundef %assocStream, i1 noundef zeroext %eom, ptr noundef %size) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter19generatePushPromiseERN5folly10IOBufQueueEmRKNS_11HTTPMessageEmbPNS_14HTTPHeaderSizeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %buf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, i64 noundef %assocStream, i1 noundef zeroext %eom, ptr noundef %size) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1494,7 +1494,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter16generateExHeaderERN5folly10IOBufQueueEmRKNS_11HTTPMessageERKNS_9HTTPCodec12ExAttributesEbPNS_14HTTPHeaderSizeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, ptr noundef nonnull align 8 dereferenceable(9) %exAttributes, i1 noundef zeroext %eom, ptr noundef %size) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter16generateExHeaderERN5folly10IOBufQueueEmRKNS_11HTTPMessageERKNS_9HTTPCodec12ExAttributesEbPNS_14HTTPHeaderSizeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(616) %msg, ptr noundef nonnull align 8 dereferenceable(9) %exAttributes, i1 noundef zeroext %eom, ptr noundef %size) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1506,7 +1506,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter12generateBodyERN5folly10IOBufQueueEmSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EENS1_8OptionalIhEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr nocapture noundef %chain, ptr nocapture noundef readonly %padding, i1 noundef zeroext %eom) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter12generateBodyERN5folly10IOBufQueueEmSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EENS1_8OptionalIhEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef captures(none) %chain, ptr noundef readonly captures(none) %padding, i1 noundef zeroext %eom) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %agg.tmp2 = alloca %"class.folly::Optional.68", align 1
@@ -1557,7 +1557,7 @@ lpad:                                             ; preds = %_ZN5folly8OptionalI
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter15generateBodyDSREmmN5folly8OptionalIhEEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %stream, i64 noundef %length, ptr nocapture noundef readonly %padding, i1 noundef zeroext %eom) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter15generateBodyDSREmmN5folly8OptionalIhEEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %stream, i64 noundef %length, ptr noundef readonly captures(none) %padding, i1 noundef zeroext %eom) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional.68", align 1
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1585,7 +1585,7 @@ _ZN5folly8OptionalIhEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter19generateChunkHeaderERN5folly10IOBufQueueEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, i64 noundef %length) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter19generateChunkHeaderERN5folly10IOBufQueueEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, i64 noundef %length) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1597,7 +1597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter23generateChunkTerminatorERN5folly10IOBufQueueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter23generateChunkTerminatorERN5folly10IOBufQueueEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1609,7 +1609,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16generateTrailersERN5folly10IOBufQueueEmRKNS_11HTTPHeadersE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(32) %trailers) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16generateTrailersERN5folly10IOBufQueueEmRKNS_11HTTPHeadersE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(32) %trailers) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1621,7 +1621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter11generateEOMERN5folly10IOBufQueueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter11generateEOMERN5folly10IOBufQueueEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1633,7 +1633,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter17generateRstStreamERN5folly10IOBufQueueEmNS_9ErrorCodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter17generateRstStreamERN5folly10IOBufQueueEmNS_9ErrorCodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, i8 noundef zeroext %code) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1645,7 +1645,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter14generateGoawayERN5folly10IOBufQueueEmNS_9ErrorCodeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %lastStream, i8 noundef zeroext %statusCode, ptr nocapture noundef %debugData) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter14generateGoawayERN5folly10IOBufQueueEmNS_9ErrorCodeESt10unique_ptrINS1_5IOBufESt14default_deleteIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %lastStream, i8 noundef zeroext %statusCode, ptr noundef captures(none) %debugData) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1680,7 +1680,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter19generatePingRequestERN5folly10IOBufQueueENS1_8OptionalImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr nocapture noundef readonly %data) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter19generatePingRequestERN5folly10IOBufQueueENS1_8OptionalImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, ptr noundef readonly captures(none) %data) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Optional.70", align 8
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1708,7 +1708,7 @@ _ZN5folly8OptionalImEC2ERKS1_.exit:               ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter17generatePingReplyERN5folly10IOBufQueueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %data) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter17generatePingReplyERN5folly10IOBufQueueEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %data) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1720,7 +1720,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16generateSettingsERN5folly10IOBufQueueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %buf) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16generateSettingsERN5folly10IOBufQueueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %buf) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1732,7 +1732,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter19generateSettingsAckERN5folly10IOBufQueueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %buf) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter19generateSettingsAckERN5folly10IOBufQueueE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %buf) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1744,7 +1744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter20generateWindowUpdateERN5folly10IOBufQueueEmj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %buf, i64 noundef %stream, i32 noundef %delta) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter20generateWindowUpdateERN5folly10IOBufQueueEmj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %buf, i64 noundef %stream, i32 noundef %delta) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1756,7 +1756,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16generatePriorityERN5folly10IOBufQueueEmRKSt5tupleIJmbhEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16generatePriorityERN5folly10IOBufQueueEmRKSt5tupleIJmbhEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %stream, ptr noundef nonnull align 8 dereferenceable(16) %pri) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1768,7 +1768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16generatePriorityERN5folly10IOBufQueueEmNS_12HTTPPriorityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %streamId, ptr nocapture noundef readonly %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16generatePriorityERN5folly10IOBufQueueEmNS_12HTTPPriorityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %streamId, ptr noundef readonly captures(none) %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.proxygen::HTTPPriority", align 8
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1792,7 +1792,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter20generatePushPriorityERN5folly10IOBufQueueEmNS_12HTTPPriorityE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %pushId, ptr nocapture noundef readonly %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter20generatePushPriorityERN5folly10IOBufQueueEmNS_12HTTPPriorityE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i64 noundef %pushId, ptr noundef readonly captures(none) %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.proxygen::HTTPPriority", align 8
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1810,7 +1810,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter26generateCertificateRequestERN5folly10IOBufQueueEtSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i16 noundef zeroext %requestId, ptr nocapture noundef %chain) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter26generateCertificateRequestERN5folly10IOBufQueueEtSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i16 noundef zeroext %requestId, ptr noundef captures(none) %chain) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1845,7 +1845,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter19generateCertificateERN5folly10IOBufQueueEtSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i16 noundef zeroext %certId, ptr nocapture noundef %certData) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter19generateCertificateERN5folly10IOBufQueueEtSt10unique_ptrINS1_5IOBufESt14default_deleteIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i16 noundef zeroext %certId, ptr noundef captures(none) %certData) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.2", align 8
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1880,7 +1880,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen26PassThroughHTTPCodecFilter17getEgressSettingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef ptr @_ZN8proxygen26PassThroughHTTPCodecFilter17getEgressSettingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1892,7 +1892,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK8proxygen26PassThroughHTTPCodecFilter18getIngressSettingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK8proxygen26PassThroughHTTPCodecFilter18getIngressSettingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1904,7 +1904,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter23enableDoubleGoawayDrainEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter23enableDoubleGoawayDrainEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1916,7 +1916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen26PassThroughHTTPCodecFilter19setHeaderCodecStatsEPNS_11HeaderCodec5StatsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %stats) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen26PassThroughHTTPCodecFilter19setHeaderCodecStatsEPNS_11HeaderCodec5StatsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef %stats) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1928,7 +1928,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8proxygen26PassThroughHTTPCodecFilter23getLastIncomingStreamIDEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK8proxygen26PassThroughHTTPCodecFilter23getLastIncomingStreamIDEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1940,7 +1940,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK8proxygen26PassThroughHTTPCodecFilter20getDefaultWindowSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK8proxygen26PassThroughHTTPCodecFilter20getDefaultWindowSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1952,7 +1952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16addPriorityNodesERNS_9HTTPCodec13PriorityQueueERN5folly10IOBufQueueEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %queue, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i8 noundef zeroext %maxLevel) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN8proxygen26PassThroughHTTPCodecFilter16addPriorityNodesERNS_9HTTPCodec13PriorityQueueERN5folly10IOBufQueueEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %queue, ptr noundef nonnull align 8 dereferenceable(72) %writeBuf, i8 noundef zeroext %maxLevel) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1964,7 +1964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK8proxygen26PassThroughHTTPCodecFilter23mapPriorityToDependencyEh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i8 noundef zeroext %priority) unnamed_addr #3 align 2 {
+define noundef i64 @_ZNK8proxygen26PassThroughHTTPCodecFilter23mapPriorityToDependencyEh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i8 noundef zeroext %priority) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -1976,7 +1976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext i8 @_ZNK8proxygen26PassThroughHTTPCodecFilter23mapDependencyToPriorityEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %parent) unnamed_addr #3 align 2 {
+define noundef signext i8 @_ZNK8proxygen26PassThroughHTTPCodecFilter23mapDependencyToPriorityEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %parent) unnamed_addr #3 align 2 {
 entry:
   %call_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %call_, align 8
@@ -2195,7 +2195,7 @@ _ZN8proxygen26PassThroughHTTPCodecFilterD0Ev.exit: ; preds = %invoke.cont.i.i.i,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen12HTTPPriorityD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 comdat align 2 {
@@ -2776,13 +2776,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

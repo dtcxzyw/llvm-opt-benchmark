@@ -26,7 +26,7 @@ define hidden noundef nonnull align 8 dereferenceable(21) ptr @_ZN17JfrRecorderT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17JfrRecorderThread5startEP20JfrCheckpointManagerP10JfrPostBoxP10JavaThread(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN17JfrRecorderThread5startEP20JfrCheckpointManagerP10JfrPostBoxP10JavaThread(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.JavaValue, align 8
   %5 = alloca %class.JfrJavaArguments, align 8
   %6 = alloca %class.JavaValue, align 8

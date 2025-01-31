@@ -180,7 +180,7 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %54, %50, %.preheade
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %82 = load i32, ptr %81, align 8
-  %83 = tail call i32 @ompi_errhandler_invoke(ptr noundef %80, ptr noundef %0, i32 noundef %82, i32 noundef %.0.i39, ptr noundef nonnull @FUNC_NAME) #4
+  %83 = tail call i32 @ompi_errhandler_invoke(ptr noundef %80, ptr noundef nonnull %0, i32 noundef %82, i32 noundef %.0.i39, ptr noundef nonnull @FUNC_NAME) #4
   br label %84
 
 84:                                               ; preds = %44, %ompi_errcode_get_mpi_code.exit, %38, %29, %ompi_comm_invalid.exit.thread

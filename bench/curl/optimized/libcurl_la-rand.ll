@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [32 x i8] c"WARNING: using weak random seed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 5, 4) i32 @Curl_rand(ptr noundef %data, ptr nocapture noundef writeonly %rnd, i64 noundef %num) local_unnamed_addr #0 {
+define hidden range(i32 5, 4) i32 @Curl_rand(ptr noundef %data, ptr noundef writeonly captures(none) %rnd, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %r = alloca i32, align 4
   %tobool.not10 = icmp eq i64 %num, 0
@@ -196,7 +196,7 @@ return:                                           ; preds = %Curl_rand.exit, %Cu
 declare void @Curl_hexencode(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 5, 4) i32 @Curl_rand_alnum(ptr noundef %data, ptr nocapture noundef writeonly %rnd, i64 noundef %num) local_unnamed_addr #0 {
+define hidden range(i32 5, 4) i32 @Curl_rand_alnum(ptr noundef %data, ptr noundef writeonly captures(none) %rnd, i64 noundef %num) local_unnamed_addr #0 {
 entry:
   %r = alloca i32, align 4
   %num.addr.08 = add i64 %num, -1
@@ -242,10 +242,10 @@ return:                                           ; preds = %do.body1, %while.en
 declare i32 @Curl_ssl_random(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #2
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
@@ -260,10 +260,10 @@ declare i64 @llvm.umin.i64(i64, i64) #3
 declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

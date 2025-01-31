@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_8(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %lag, ptr nocapture noundef writeonly %autoc) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_8(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %lag, ptr noundef writeonly captures(none) %autoc) local_unnamed_addr #0 {
 entry:
   %i.022 = add i32 %data_len, -1
   %cmp23 = icmp sgt i32 %i.022, -1
@@ -61,7 +61,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_10(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %lag, ptr nocapture noundef writeonly %autoc) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_10(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %lag, ptr noundef writeonly captures(none) %autoc) local_unnamed_addr #0 {
 entry:
   %i.027 = add i32 %data_len, -1
   %cmp28 = icmp sgt i32 %i.027, -1
@@ -126,7 +126,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14(ptr nocapture noundef readonly %data, i32 noundef %data_len, i32 noundef %lag, ptr nocapture noundef writeonly %autoc) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_autocorrelation_intrin_sse2_lag_14(ptr noundef readonly captures(none) %data, i32 noundef %data_len, i32 noundef %lag, ptr noundef writeonly captures(none) %autoc) local_unnamed_addr #0 {
 entry:
   %i.037 = add i32 %data_len, -1
   %cmp38 = icmp sgt i32 %i.037, -1
@@ -207,7 +207,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_sse2(ptr noundef readonly %data, i32 noundef %data_len, ptr noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr nocapture noundef writeonly %residual) local_unnamed_addr #0 {
+define hidden void @FLAC__lpc_compute_residual_from_qlp_coefficients_16_intrin_sse2(ptr noundef readonly %data, i32 noundef %data_len, ptr noundef readonly %qlp_coeff, i32 noundef %order, i32 noundef %lp_quantization, ptr noundef writeonly captures(none) %residual) local_unnamed_addr #0 {
 entry:
   %vecinit3.i1840 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %lp_quantization, i64 0
   %cmp = icmp ult i32 %order, 13

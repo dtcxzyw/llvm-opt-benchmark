@@ -156,7 +156,7 @@ define dso_local void @onas_recvlninit(ptr noundef initializes((5128, 5140)) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timeval, align 8
   %6 = alloca %struct.fd_set, align 8
   %7 = alloca %struct.fd_set, align 8
@@ -349,16 +349,16 @@ define dso_local i32 @onas_recvln(ptr noundef initializes((5136, 5140)) %0, ptr 
 declare i32 @curl_easy_recv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @onas_fd_recvln(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 5144
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5120
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 5152
@@ -481,13 +481,13 @@ declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

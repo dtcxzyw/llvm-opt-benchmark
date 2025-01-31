@@ -882,7 +882,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu4Test12ParserTesterC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu4Test12ParserTesterC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIMN2mu4Test12ParserTesterEFivESaIS4_EE12_M_check_lenEmPKc.exit.i.i.i:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1587,10 +1587,10 @@ _ZNSt6vectorIMN2mu4Test12ParserTesterEFivESaIS4_EED2Ev.exit: ; preds = %246, %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu4Test12ParserTester7AddTestEMS1_FivE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu4Test12ParserTester7AddTestEMS1_FivE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1662,7 +1662,7 @@ _ZNSt6vectorIMN2mu4Test12ParserTesterEFivESaIS4_EE9push_backERKS4_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 67) i32 @_ZN2mu4Test12ParserTester9TestNamesEv(ptr nocapture nonnull readnone align 8 %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 67) i32 @_ZN2mu4Test12ParserTester9TestNamesEv(ptr nonnull readnone align 8 captures(none) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.mu::Parser", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -4351,7 +4351,7 @@ define noundef range(i32 0, 67) i32 @_ZN2mu4Test12ParserTester9TestNamesEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 34) i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 34) i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5203,7 +5203,7 @@ define noundef range(i32 0, 34) i32 @_ZN2mu4Test12ParserTester10TestSyntaxEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 30) i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 30) i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5955,7 +5955,7 @@ define noundef range(i32 0, 30) i32 @_ZN2mu4Test12ParserTester11TestPostFixEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 47) i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 47) i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7132,7 +7132,7 @@ define noundef range(i32 0, 47) i32 @_ZN2mu4Test12ParserTester13TestInfixOprtEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 24) i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 24) i32 @_ZN2mu4Test12ParserTester12TestVarConstEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, double *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, double *>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -8175,7 +8175,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdSt4lessIS5_ESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 83) i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 83) i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10252,7 +10252,7 @@ define noundef range(i32 0, 83) i32 @_ZN2mu4Test12ParserTester12TestMultiArgEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 46) i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 46) i32 @_ZN2mu4Test12ParserTester14TestExpressionEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11404,7 +11404,7 @@ define noundef range(i32 0, 46) i32 @_ZN2mu4Test12ParserTester14TestExpressionEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 97) i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 97) i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13831,7 +13831,7 @@ define noundef range(i32 0, 97) i32 @_ZN2mu4Test12ParserTester14TestIfThenElseEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestInterfaceEv(ptr nocapture nonnull readnone align 8 %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestInterfaceEv(ptr nonnull readnone align 8 captures(none) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [3 x double], align 16
   %3 = alloca %"class.mu::Parser", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14058,7 +14058,7 @@ define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestInterfaceEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 97) i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 97) i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16485,7 +16485,7 @@ define noundef range(i32 0, 97) i32 @_ZN2mu4Test12ParserTester11TestBinOprtEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 50) i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 50) i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17737,7 +17737,7 @@ define noundef range(i32 0, 50) i32 @_ZN2mu4Test12ParserTester13TestExceptionEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 26) i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 26) i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18389,7 +18389,7 @@ define noundef range(i32 0, 26) i32 @_ZN2mu4Test12ParserTester10TestStrArgEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 8) i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 8) i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18591,7 +18591,7 @@ define noundef range(i32 0, 8) i32 @_ZN2mu4Test12ParserTester12TestBulkModeEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestOptimizerEv(ptr nocapture nonnull readnone align 8 %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 3) i32 @_ZN2mu4Test12ParserTester13TestOptimizerEv(ptr nonnull readnone align 8 captures(none) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.mu::ParserCallback", align 8
   %3 = alloca %"class.mu::ParserCallback", align 8
   %4 = alloca %"class.mu::Parser", align 8
@@ -18945,7 +18945,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester8IsHexValEPKcPiPd(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester8IsHexValEPKcPiPd(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19057,7 +19057,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERj(ptr noundef 
 declare { i64, i64 } @_ZNSi5tellgEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
@@ -19116,7 +19116,7 @@ declare void @_ZN2mu11ParserErrorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEib(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.mu::ParserCallback", align 8
   %6 = alloca %"class.mu::ParserCallback", align 8
   %7 = alloca %"class.mu::ParserCallback", align 8
@@ -19853,7 +19853,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester9ThrowTestERKNSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester7EqnTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester7EqnTestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.mu::ParserCallback", align 8
   %6 = alloca %"class.mu::ParserCallback", align 8
   %7 = alloca %"class.mu::ParserCallback", align 8
@@ -23758,7 +23758,7 @@ _ZNSt10unique_ptrIN2mu6ParserESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPdb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [4 x double], align 16
   %6 = alloca [4 x double], align 16
   %7 = alloca [4 x double], align 16
@@ -24165,7 +24165,7 @@ define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester11EqnTestBulkERKNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester10EqnTestIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x double], align 16
   %6 = alloca %"class.mu::ParserInt", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -24540,7 +24540,7 @@ define linkonce_odr noundef double @_ZN2mu4Test12ParserTester5f1of2Edd(double no
 declare void @_ZN2mu10ParserBase17EnableBuiltInOprtEb(ptr noundef nonnull align 8 dereferenceable(596), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarChangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdddd(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN2mu4Test12ParserTester20EqnTestWithVarChangeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdddd(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.mu::Parser", align 8
   %8 = alloca double, align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -25386,7 +25386,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN2mu4Test12ParserTester3RunEv(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -25581,7 +25581,7 @@ define noundef i32 @_ZN2mu4Test12ParserTester3RunEv(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZNK2mu4Test12ParserTester5AbortEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #14 align 2 {
+define void @_ZNK2mu4Test12ParserTester5AbortEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #14 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.661)
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %4
@@ -26875,10 +26875,10 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

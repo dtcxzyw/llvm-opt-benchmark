@@ -89,12 +89,12 @@ return:                                           ; preds = %if.end38, %if.then4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @ossl_md5_block_asm_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define void @MD5_Transform(ptr noundef %c, ptr noundef %data) local_unnamed_addr #0 {
@@ -104,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @MD5_Final(ptr nocapture noundef writeonly initializes((0, 16)) %md, ptr noundef %c) local_unnamed_addr #0 {
+define noundef i32 @MD5_Final(ptr noundef writeonly captures(none) initializes((0, 16)) %md, ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %c, i64 24
   %num = getelementptr inbounds nuw i8, ptr %c, i64 88
@@ -237,7 +237,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @MD5_Init(ptr nocapture noundef writeonly initializes((0, 92)) %c) local_unnamed_addr #4 {
+define noundef i32 @MD5_Init(ptr noundef writeonly captures(none) initializes((0, 92)) %c) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %c, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %0, i8 0, i64 76, i1 false)

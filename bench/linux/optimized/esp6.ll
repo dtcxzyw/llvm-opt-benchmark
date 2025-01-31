@@ -64,7 +64,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [10 x ptr] [ptr @__UNIQUE_ID___addressable_esp6_init1012, ptr @__UNIQUE_ID___addressable_esp6_input_done21009, ptr @__UNIQUE_ID___addressable_esp6_output_head996, ptr @__UNIQUE_ID___addressable_esp6_output_tail1003, ptr @__UNIQUE_ID_alias1016, ptr @__UNIQUE_ID_description1013, ptr @__UNIQUE_ID_file1014, ptr @__UNIQUE_ID_license1015, ptr @__exitcall_esp6_fini, ptr @esp6_fini], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @esp6_output_head(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local i32 @esp6_output_head(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
   store ptr null, ptr %4, align 8, !annotation !5
@@ -442,10 +442,10 @@ define dso_local i32 @esp6_output_head(ptr noundef %0, ptr noundef %1, ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @skb_page_frag_refill(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -499,7 +499,7 @@ define internal fastcc void @get_page(ptr noundef %0) unnamed_addr #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @__skb_fill_page_desc(ptr nocapture noundef %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 16 {
+define internal fastcc void @__skb_fill_page_desc(ptr noundef captures(none) %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -601,7 +601,7 @@ declare dso_local i32 @skb_cow_data(ptr noundef, i32 noundef, ptr noundef) local
 declare dso_local ptr @pskb_put(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define dso_local i32 @esp6_output_tail(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %5 = load i8, ptr %4, align 1
   %6 = icmp sgt i8 %5, -1
@@ -1340,10 +1340,10 @@ define internal void @esp_output_done(ptr noundef %0, i32 noundef %1) #0 align 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @crypto_aead_encrypt(ptr noundef) local_unnamed_addr #2
@@ -1973,12 +1973,12 @@ declare dso_local i32 @xfrm6_rcv(ptr noundef) #2
 declare dso_local i32 @xfrm_input(ptr noundef, i32 noundef, i32 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @esp6_rcv_cb(ptr nocapture readnone %0, i32 %1) #11 align 16 {
+define internal noundef i32 @esp6_rcv_cb(ptr readnone captures(none) %0, i32 %1) #11 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @esp6_err(ptr noundef %0, ptr nocapture readnone %1, i8 noundef zeroext %2, i8 zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define internal noundef i32 @esp6_err(ptr noundef %0, ptr readnone captures(none) %1, i8 noundef zeroext %2, i8 zeroext %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 272
@@ -2052,7 +2052,7 @@ declare dso_local void @ip6_update_pmtu(ptr noundef, ptr noundef, i32 noundef, i
 declare dso_local void @__xfrm_state_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @esp6_init_state(ptr nocapture noundef initializes((736, 744)) %0, ptr noundef writeonly %1) #0 align 16 {
+define internal i32 @esp6_init_state(ptr noundef captures(none) initializes((736, 744)) %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca [128 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 736
@@ -2399,7 +2399,7 @@ define internal i32 @esp6_init_state(ptr nocapture noundef initializes((736, 744
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @esp6_destroy(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @esp6_destroy(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2415,7 +2415,7 @@ define internal void @esp6_destroy(ptr nocapture noundef readonly %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @esp6_input(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @esp6_input(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %5 = load ptr, ptr %4, align 8
@@ -2834,7 +2834,7 @@ define internal i32 @esp6_output(ptr noundef %0, ptr noundef %1) #0 align 16 {
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @crypto_alloc_aead(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2

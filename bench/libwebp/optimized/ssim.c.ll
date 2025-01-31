@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kWeight = internal unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 3, i32 2, i32 1], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden double @VP8SSIMFromStats(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden double @VP8SSIMFromStats(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = zext i32 %3 to i64
@@ -67,7 +67,7 @@ SSIMCalculation.exit:                             ; preds = %1, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden double @VP8SSIMFromStatsClipped(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden double @VP8SSIMFromStatsClipped(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4
   %3 = mul i32 %2, %2
   %4 = shl i32 %3, 6
@@ -171,7 +171,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal double @SSIMGetClipped_C(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #3 {
+define internal double @SSIMGetClipped_C(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #3 {
   %9 = tail call i32 @llvm.smax.i32(i32 %5, i32 3)
   %10 = add nsw i32 %9, -3
   %11 = add nsw i32 %5, 3
@@ -326,7 +326,7 @@ VP8SSIMFromStatsClipped.exit:                     ; preds = %._crit_edge91, %74
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal double @SSIMGet_C(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #3 {
+define internal double @SSIMGet_C(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #3 {
   %5 = sext i32 %1 to i64
   %6 = sext i32 %3 to i64
   br label %.preheader
@@ -422,7 +422,7 @@ VP8SSIMFromStats.exit:                            ; preds = %32, %38
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @AccumulateSSE_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 {
+define internal i32 @AccumulateSSE_C(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 

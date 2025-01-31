@@ -126,7 +126,7 @@ declare noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr n
 declare void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef, ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7515ChineseCalendar26getChineseCalZoneAstroCalcEv(ptr nocapture nonnull readnone align 8 %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK6icu_7515ChineseCalendar26getChineseCalZoneAstroCalcEv(ptr nonnull readnone align 8 captures(none) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp.i = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -270,13 +270,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7515ChineseCalendar7getTypeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7515ChineseCalendar7getTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr @.str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7515ChineseCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK6icu_7515ChineseCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %field, i32 noundef %limitType) unnamed_addr #4 align 2 {
 entry:
   %idxprom = zext i32 %field to i64
   %idxprom2 = zext i32 %limitType to i64
@@ -351,7 +351,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515ChineseCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %julianDay, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7515ChineseCalendar19handleComputeFieldsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(632) %this, i32 noundef %julianDay, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   %sub = add nsw i32 %julianDay, -2440588
   %fGregorianYear.i = getelementptr inbounds nuw i8, ptr %this, i64 288
@@ -366,7 +366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7515ChineseCalendar23getFieldResolutionTableEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7515ChineseCalendar23getFieldResolutionTableEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr @_ZN6icu_7515ChineseCalendar23CHINESE_DATE_PRECEDENCEE
 }
@@ -648,7 +648,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6icu_7515ChineseCalendar12daysToMillisEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, double noundef %days) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK6icu_7515ChineseCalendar12daysToMillisEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %this, double noundef %days) local_unnamed_addr #0 align 2 {
 entry:
   %rawOffset = alloca i32, align 4
   %dstOffset = alloca i32, align 4
@@ -687,7 +687,7 @@ return:                                           ; preds = %if.end4, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6icu_7515ChineseCalendar12millisToDaysEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, double noundef %millis) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK6icu_7515ChineseCalendar12millisToDaysEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %this, double noundef %millis) local_unnamed_addr #0 align 2 {
 entry:
   %rawOffset = alloca i32, align 4
   %dstOffset = alloca i32, align 4
@@ -723,7 +723,7 @@ return:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515ChineseCalendar14winterSolsticeEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, i32 noundef %gyear) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7515ChineseCalendar14winterSolsticeEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %this, i32 noundef %gyear) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rawOffset.i5 = alloca i32, align 4
   %dstOffset.i6 = alloca i32, align 4
@@ -930,7 +930,7 @@ declare void @umtx_unlock_75(ptr noundef) local_unnamed_addr #2
 declare void @_ZN6icu_7513CalendarCache3putEPPS0_iiR10UErrorCode(ptr noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515ChineseCalendar11newMoonNearEda(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, double noundef %days, i8 noundef signext %after) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7515ChineseCalendar11newMoonNearEda(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %this, double noundef %days, i8 noundef signext %after) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rawOffset.i1 = alloca i32, align 4
   %dstOffset.i2 = alloca i32, align 4
@@ -1050,7 +1050,7 @@ declare noundef double @_ZN6icu_7518CalendarAstronomer11getMoonTimeERKNS0_7MoonA
 declare double @_ZN6icu_7518CalendarAstronomer8NEW_MOONEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK6icu_7515ChineseCalendar20synodicMonthsBetweenEii(ptr nocapture nonnull readnone align 8 %this, i32 noundef %day1, i32 noundef %day2) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK6icu_7515ChineseCalendar20synodicMonthsBetweenEii(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %day1, i32 noundef %day2) unnamed_addr #4 align 2 {
 entry:
   %sub = sub nsw i32 %day2, %day1
   %conv = sitofp i32 %sub to double
@@ -1064,7 +1064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1, 13) i32 @_ZNK6icu_7515ChineseCalendar14majorSolarTermEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(632) %this, i32 noundef %days) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 1, 13) i32 @_ZNK6icu_7515ChineseCalendar14majorSolarTermEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(632) %this, i32 noundef %days) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rawOffset.i = alloca i32, align 4
   %dstOffset.i = alloca i32, align 4
@@ -1601,13 +1601,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7515ChineseCalendar18haveDefaultCenturyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef signext i8 @_ZNK6icu_7515ChineseCalendar18haveDefaultCenturyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i8 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6icu_7515ChineseCalendar19defaultCenturyStartEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK6icu_7515ChineseCalendar19defaultCenturyStartEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L29gSystemDefaultCenturyInitOnceE acquire, align 4
   %cmp.i.i = icmp eq i32 %0, 2
@@ -1629,7 +1629,7 @@ _ZNK6icu_7515ChineseCalendar30internalGetDefaultCenturyStartEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK6icu_7515ChineseCalendar30internalGetDefaultCenturyStartEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(632) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK6icu_7515ChineseCalendar30internalGetDefaultCenturyStartEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(632) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L29gSystemDefaultCenturyInitOnceE acquire, align 4
   %cmp.i = icmp eq i32 %0, 2
@@ -1651,7 +1651,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvvE.exit: ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515ChineseCalendar23defaultCenturyStartYearEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7515ChineseCalendar23defaultCenturyStartYearEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L29gSystemDefaultCenturyInitOnceE acquire, align 4
   %cmp.i.i = icmp eq i32 %0, 2
@@ -1673,7 +1673,7 @@ _ZNK6icu_7515ChineseCalendar34internalGetDefaultCenturyStartYearEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7515ChineseCalendar34internalGetDefaultCenturyStartYearEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(632) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7515ChineseCalendar34internalGetDefaultCenturyStartYearEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(632) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i32, ptr @_ZN6icu_75L29gSystemDefaultCenturyInitOnceE acquire, align 4
   %cmp.i = icmp eq i32 %0, 2
@@ -1778,7 +1778,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7515ChineseCalendar17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7515ChineseCalendar17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr @_ZZN6icu_7515ChineseCalendar16getStaticClassIDEvE7classID
 }
@@ -1844,7 +1844,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
 
 if.then9:                                         ; preds = %lor.lhs.false5, %lor.lhs.false, %if.end
   tail call void @_ZN6icu_758Calendar3setE19UCalendarDateFieldsi(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef 22, i32 noundef 0)
-  tail call void @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %code, ptr noundef nonnull align 4 dereferenceable(4) %status)
+  tail call void @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull %code, ptr noundef nonnull align 4 dereferenceable(4) %status)
   br label %return
 
 for.body:                                         ; preds = %lor.lhs.false5, %for.inc
@@ -1875,12 +1875,12 @@ return:                                           ; preds = %entry, %for.end, %i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZN6icu_758Calendar20setTemporalMonthCodeEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK6icu_7515ChineseCalendar16internalGetMonthEv(ptr noundef nonnull align 8 dereferenceable(632) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -2092,10 +2092,10 @@ declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare noundef double @_ZNK6icu_758Calendar15getTimeInMillisER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

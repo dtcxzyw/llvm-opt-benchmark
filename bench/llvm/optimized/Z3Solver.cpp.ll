@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [79 x i8] c"LLVM was not compiled with Z3 support, rebuild with -DLLVM_ENABLE_Z3_SOLVER=ON\00", align 1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define dso_local void @_ZN4llvm14CreateZ3SolverEv(ptr dead_on_unwind noalias nocapture readnone sret(%"class.std::shared_ptr") align 8 %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm14CreateZ3SolverEv(ptr dead_on_unwind noalias readnone sret(%"class.std::shared_ptr") align 8 captures(none) %0) local_unnamed_addr #0 {
   tail call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef nonnull @.str, i1 noundef zeroext false) #4
   unreachable
 }

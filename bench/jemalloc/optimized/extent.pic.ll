@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @tsd_tls = external thread_local(initialexec) global %struct.tsd_s, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @extent_sn_next(ptr nocapture noundef %pac) local_unnamed_addr #0 {
+define hidden i64 @extent_sn_next(ptr noundef captures(none) %pac) local_unnamed_addr #0 {
 entry:
   %extent_sn_next = getelementptr inbounds nuw i8, ptr %pac, i64 62232
   %0 = atomicrmw add ptr %extent_sn_next, i64 1 monotonic, align 8
@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr nocapture noundef nonnull %commit, i1 noundef zeroext %guarded) unnamed_addr #1 {
+define internal fastcc ptr @extent_recycle(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef nonnull captures(none) %commit, i1 noundef zeroext %guarded) unnamed_addr #1 {
 entry:
   %lock.i.i = getelementptr inbounds nuw i8, ptr %ecache, i64 72
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #9
@@ -375,7 +375,7 @@ return:                                           ; preds = %extent_recycle_spli
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ecache_alloc_grow(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr nocapture noundef readnone %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 noundef zeroext %guarded) local_unnamed_addr #1 {
+define hidden ptr @ecache_alloc_grow(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef readnone captures(none) %ecache, ptr noundef %expand_edata, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 noundef zeroext %guarded) local_unnamed_addr #1 {
 entry:
   %zeroed.i.i = alloca i8, align 1
   %committed.i.i = alloca i8, align 1
@@ -723,7 +723,7 @@ return:                                           ; preds = %extent_alloc_retain
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @extent_alloc_wrapper(ptr noundef %tsdn, ptr nocapture noundef %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef %commit, i1 zeroext %growing_retained) local_unnamed_addr #1 {
+define hidden ptr @extent_alloc_wrapper(ptr noundef %tsdn, ptr noundef captures(none) %pac, ptr noundef readonly captures(none) %ehooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, ptr noundef %commit, i1 zeroext %growing_retained) local_unnamed_addr #1 {
 entry:
   %zero.addr = alloca i8, align 1
   %frombool = zext i1 %zero to i8
@@ -924,7 +924,7 @@ return:                                           ; preds = %label_skip_coalesce
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ecache_evict(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %ecache, i64 noundef %npages_min) local_unnamed_addr #1 {
+define hidden ptr @ecache_evict(ptr noundef %tsdn, ptr noundef readonly captures(none) %pac, ptr noundef readonly captures(none) %ehooks, ptr noundef %ecache, i64 noundef %npages_min) local_unnamed_addr #1 {
 entry:
   %coalesced.i = alloca i8, align 1
   %lock.i.i = getelementptr inbounds nuw i8, ptr %ecache, i64 72
@@ -1045,7 +1045,7 @@ declare void @eset_remove(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @emap_update_edata_state(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
-define hidden void @extent_gdump_add(ptr nocapture noundef readnone %tsdn, ptr nocapture noundef readnone %edata) local_unnamed_addr #3 {
+define hidden void @extent_gdump_add(ptr noundef readnone captures(none) %tsdn, ptr noundef readnone captures(none) %edata) local_unnamed_addr #3 {
 entry:
   unreachable
 }
@@ -1395,7 +1395,7 @@ return:                                           ; preds = %extent_dalloc_wrapp
 declare ptr @edata_cache_get(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ehooks_alloc(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef range(i64 0, -4095) %alignment, ptr noundef nonnull %zero, ptr noundef %commit) unnamed_addr #1 {
+define internal fastcc ptr @ehooks_alloc(ptr noundef %tsdn, ptr noundef readonly captures(none) %ehooks, ptr noundef %new_addr, i64 noundef %size, i64 noundef range(i64 0, -4095) %alignment, ptr noundef nonnull %zero, ptr noundef %commit) unnamed_addr #1 {
 entry:
   %ptr.i = getelementptr inbounds nuw i8, ptr %ehooks, i64 8
   %0 = load atomic i64, ptr %ptr.i acquire, align 8
@@ -1474,7 +1474,7 @@ if.end10:                                         ; preds = %if.then, %cond.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %addr, i64 noundef range(i64 0, -4095) %size, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
+define internal fastcc zeroext i1 @ehooks_purge_forced(ptr noundef %tsdn, ptr noundef readonly captures(none) %ehooks, ptr noundef %addr, i64 noundef range(i64 0, -4095) %size, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
 entry:
   %ptr.i = getelementptr inbounds nuw i8, ptr %ehooks, i64 8
   %0 = load atomic i64, ptr %ptr.i acquire, align 8
@@ -1558,7 +1558,7 @@ return:                                           ; preds = %if.then.i.i13, %con
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr noundef %addr, i64 noundef range(i64 0, -4095) %size, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
+define internal fastcc zeroext i1 @ehooks_purge_lazy(ptr noundef %tsdn, ptr noundef readonly captures(none) %ehooks, ptr noundef %addr, i64 noundef range(i64 0, -4095) %size, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
 entry:
   %ptr.i = getelementptr inbounds nuw i8, ptr %ehooks, i64 8
   %0 = load atomic i64, ptr %ptr.i acquire, align 8
@@ -1642,7 +1642,7 @@ return:                                           ; preds = %if.then.i.i13, %con
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @extent_destroy_wrapper(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr noundef %ehooks, ptr noundef %edata) local_unnamed_addr #1 {
+define hidden void @extent_destroy_wrapper(ptr noundef %tsdn, ptr noundef readonly captures(none) %pac, ptr noundef %ehooks, ptr noundef %edata) local_unnamed_addr #1 {
 entry:
   %edata.val18 = load i64, ptr %edata, align 8
   %0 = and i64 %edata.val18, 65536
@@ -1760,14 +1760,14 @@ ehooks_destroy.exit:                              ; preds = %if.then.i, %if.else
 declare void @san_unguard_pages_pre_destroy(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @extent_commit_wrapper(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %edata, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
+define hidden zeroext i1 @extent_commit_wrapper(ptr noundef %tsdn, ptr noundef readonly captures(none) %ehooks, ptr noundef captures(none) %edata, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr noundef %ehooks, ptr noundef %edata, i64 noundef %offset, i64 noundef %length)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %edata, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
+define internal fastcc zeroext i1 @extent_commit_impl(ptr noundef %tsdn, ptr noundef readonly captures(none) %ehooks, ptr noundef captures(none) %edata, i64 noundef %offset, i64 noundef %length) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 8
   %edata.val8 = load ptr, ptr %0, align 8
@@ -1868,7 +1868,7 @@ ehooks_commit.exit:                               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @extent_purge_lazy_wrapper(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef readonly %edata, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
+define hidden zeroext i1 @extent_purge_lazy_wrapper(ptr noundef %tsdn, ptr noundef readonly captures(none) %ehooks, ptr noundef readonly captures(none) %edata, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 8
   %edata.val = load ptr, ptr %0, align 8
@@ -1884,7 +1884,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @extent_purge_forced_wrapper(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef readonly %edata, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
+define hidden zeroext i1 @extent_purge_forced_wrapper(ptr noundef %tsdn, ptr noundef readonly captures(none) %ehooks, ptr noundef readonly captures(none) %edata, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 8
   %edata.val = load ptr, ptr %0, align 8
@@ -1900,14 +1900,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @extent_split_wrapper(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b, i1 noundef zeroext %holding_core_locks) local_unnamed_addr #1 {
+define hidden ptr @extent_split_wrapper(ptr noundef %tsdn, ptr noundef readonly captures(none) %pac, ptr noundef readonly captures(none) %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b, i1 noundef zeroext %holding_core_locks) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b) unnamed_addr #1 {
+define internal fastcc ptr @extent_split_impl(ptr noundef %tsdn, ptr noundef readonly captures(none) %pac, ptr noundef readonly captures(none) %ehooks, ptr noundef %edata, i64 noundef %size_a, i64 noundef %size_b) unnamed_addr #1 {
 entry:
   %prepare = alloca %struct.emap_prepare_s, align 8
   %ptr.i.i = getelementptr inbounds nuw i8, ptr %ehooks, i64 8
@@ -2066,14 +2066,14 @@ return:                                           ; preds = %label_error_b, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @extent_merge_wrapper(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %a, ptr noundef %b) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @extent_merge_wrapper(ptr noundef %tsdn, ptr noundef readonly captures(none) %pac, ptr noundef readonly captures(none) %ehooks, ptr noundef %a, ptr noundef %b) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr noundef %pac, ptr noundef %ehooks, ptr noundef %a, ptr noundef %b)
   ret i1 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %a, ptr noundef %b) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @extent_merge_impl(ptr noundef %tsdn, ptr noundef readonly captures(none) %pac, ptr noundef readonly captures(none) %ehooks, ptr noundef %a, ptr noundef %b) unnamed_addr #1 {
 entry:
   %prepare = alloca %struct.emap_prepare_s, align 8
   %emap = getelementptr inbounds nuw i8, ptr %pac, i64 58384
@@ -2225,7 +2225,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @extent_commit_zero(ptr noundef %tsdn, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef %edata, i1 noundef zeroext %commit, i1 noundef zeroext %zero, i1 noundef zeroext %growing_retained) local_unnamed_addr #1 {
+define hidden zeroext i1 @extent_commit_zero(ptr noundef %tsdn, ptr noundef readonly captures(none) %ehooks, ptr noundef captures(none) %edata, i1 noundef zeroext %commit, i1 noundef zeroext %zero, i1 noundef zeroext %growing_retained) local_unnamed_addr #1 {
 entry:
   br i1 %commit, label %land.lhs.true, label %if.end9
 
@@ -2311,7 +2311,7 @@ declare void @emap_release_edata(ptr noundef, ptr noundef, ptr noundef, i32 noun
 declare ptr @eset_fit(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @extents_abandon_vm(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr nocapture noundef readonly %ecache, ptr noundef %edata) unnamed_addr #1 {
+define internal fastcc void @extents_abandon_vm(ptr noundef %tsdn, ptr noundef readonly captures(none) %pac, ptr noundef readonly captures(none) %ehooks, ptr noundef readonly captures(none) %ecache, ptr noundef %edata) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %edata, i64 16
   %edata.val15 = load i64, ptr %0, align 8
@@ -2356,7 +2356,7 @@ if.end7:                                          ; preds = %if.then, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr nocapture noundef readonly %pac, ptr nocapture noundef readonly %ehooks, ptr noundef %ecache, ptr noundef %edata, ptr nocapture noundef nonnull writeonly %coalesced) unnamed_addr #1 {
+define internal fastcc ptr @extent_try_coalesce_impl(ptr noundef %tsdn, ptr noundef readonly captures(none) %pac, ptr noundef readonly captures(none) %ehooks, ptr noundef %ecache, ptr noundef %edata, ptr noundef nonnull writeonly captures(none) %coalesced) unnamed_addr #1 {
 entry:
   %emap = getelementptr inbounds nuw i8, ptr %pac, i64 58384
   %state = getelementptr inbounds nuw i8, ptr %ecache, i64 19424
@@ -2493,7 +2493,7 @@ declare zeroext i1 @ehooks_default_merge_impl(ptr noundef, ptr noundef, ptr noun
 declare void @ehooks_default_zero_impl(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7
@@ -2502,10 +2502,10 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

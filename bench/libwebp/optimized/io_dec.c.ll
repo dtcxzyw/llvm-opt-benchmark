@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @WebPUpsamplers = external local_unnamed_addr global [0 x ptr], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @WebPInitCustomIo(ptr noundef %0, ptr nocapture noundef writeonly initializes((56, 88)) %1) local_unnamed_addr #0 {
+define hidden void @WebPInitCustomIo(ptr noundef %0, ptr noundef writeonly captures(none) initializes((56, 88)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr @CustomPut, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -429,7 +429,7 @@ InitRGBRescaler.exit:                             ; preds = %166, %128, %149, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @CustomTeardown(ptr nocapture noundef readonly %0) #1 {
+define internal void @CustomTeardown(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -446,7 +446,7 @@ declare void @WebPInitUpsamplers() local_unnamed_addr #2
 declare void @WebPInitSamplers() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EmitSampledRGB(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @EmitSampledRGB(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -484,7 +484,7 @@ define internal i32 @EmitSampledRGB(ptr nocapture noundef readonly %0, ptr nocap
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EmitFancyRGB(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @EmitFancyRGB(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -621,7 +621,7 @@ define internal i32 @EmitFancyRGB(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EmitYUV(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @EmitYUV(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -678,7 +678,7 @@ define internal i32 @EmitYUV(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @EmitAlphaRGBA4444(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #1 {
+define internal noundef i32 @EmitAlphaRGBA4444(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -804,7 +804,7 @@ GetAlphaSourceRow.exit:                           ; preds = %28, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @EmitAlphaRGB(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #1 {
+define internal noundef i32 @EmitAlphaRGB(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -893,7 +893,7 @@ GetAlphaSourceRow.exit:                           ; preds = %32, %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @EmitAlphaYUV(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 %2) #3 {
+define internal noundef i32 @EmitAlphaYUV(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -965,7 +965,7 @@ declare void @WebPInitAlphaProcessing() local_unnamed_addr #2
 declare i32 @WebPRescalerInit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EmitRescaledRGB(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @EmitRescaledRGB(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -1122,7 +1122,7 @@ ExportRGB.exit:                                   ; preds = %WebPRescalerHasPend
 declare void @WebPInitYUV444Converters() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @EmitRescaledAlphaRGB(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal noundef i32 @EmitRescaledAlphaRGB(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1172,7 +1172,7 @@ define internal noundef i32 @EmitRescaledAlphaRGB(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ExportAlphaRGBA4444(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 {
+define internal i32 @ExportAlphaRGBA4444(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1296,7 +1296,7 @@ WebPRescalerHasPendingOutput.exit.thread.thread:  ; preds = %WebPRescalerHasPend
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ExportAlpha(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 {
+define internal i32 @ExportAlpha(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1397,7 +1397,7 @@ declare i32 @WebPRescaleNeededLines(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @WebPRescalerExportRow(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @EmitRescaledYUV(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal i32 @EmitRescaledYUV(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1512,7 +1512,7 @@ Rescale.exit35:                                   ; preds = %.lr.ph.i31, %Rescal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @EmitRescaledAlphaYUV(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 {
+define internal noundef i32 @EmitRescaledAlphaYUV(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1602,12 +1602,12 @@ declare void @WebPMultRows(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i
 declare i32 @WebPRescalerExport(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @WebPSamplerProcessPlane(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @WebPCopyPlane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 

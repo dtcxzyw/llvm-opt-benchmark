@@ -93,7 +93,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN12EventEmitterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN12EventEmitterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN12EventEmitterC2ERK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceES5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12EventEmitterC2ERK11TimeInstantI21CounterRepresentation33FastUnorderedElapsedCounterSourceES5_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -108,7 +108,7 @@ define hidden void @_ZN12EventEmitterC2ERK11TimeInstantI21CounterRepresentation3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12EventEmitterD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN12EventEmitterD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 120
@@ -199,7 +199,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %36, %38
 declare void @_ZN9EdgeStoreC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN12EventEmitter12write_eventsEP13ObjectSamplerP9EdgeStoreb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN12EventEmitter12write_eventsEP13ObjectSamplerP9EdgeStoreb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
   br i1 %3, label %7, label %5
 
 5:                                                ; preds = %4
@@ -312,7 +312,7 @@ declare noundef i64 @_ZN13ObjectSampler10last_sweepEv() local_unnamed_addr #2
 declare noundef ptr @_ZNK13ObjectSampler5firstEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12EventEmitter21link_sample_with_edgeEPK12ObjectSampleP9EdgeStore(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN12EventEmitter21link_sample_with_edgeEPK12ObjectSampleP9EdgeStore(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %5 = icmp eq i32 %4, 2
   br i1 %5, label %6, label %8
@@ -336,7 +336,7 @@ define hidden void @_ZN12EventEmitter21link_sample_with_edgeEPK12ObjectSampleP9E
 declare void @_ZN22ObjectSampleCheckpoint5writeEPK13ObjectSamplerP9EdgeStorebP6Thread(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12EventEmitter11write_eventEPK12ObjectSampleP9EdgeStore(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN12EventEmitter11write_eventEPK12ObjectSampleP9EdgeStore(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.EventOldObjectSample, align 8
   %5 = tail call noundef ptr @_ZNK9EdgeStore3getEPK12ObjectSample(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %1) #10
   %6 = tail call noundef i64 @_ZNK9EdgeStore6get_idEPK4Edge(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %5) #10
@@ -578,7 +578,7 @@ declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #2
 declare noundef zeroext i1 @_ZNK12ObjectSample7is_deadEv(ptr noundef nonnull align 8 dereferenceable(117)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() local_unnamed_addr #2
 
@@ -1992,13 +1992,13 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 declare void @_ZN15JfrEventSetting9set_largeE10JfrEventId(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -768,7 +768,7 @@ collectMatchesForHeapRow.exit.i:                  ; preds = %377
 
 .backedge.i:                                      ; preds = %._crit_edge.i, %402, %collectMatchesForHeapRow.exit.i
   %.3 = phi i64 [ %405, %._crit_edge.i ], [ %.2, %402 ], [ %.2, %collectMatchesForHeapRow.exit.i ]
-  %406 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef readonly %0, ptr noundef %12)
+  %406 = call fastcc zeroext i1 @scanGetCandidate(ptr noundef nonnull readonly %0, ptr noundef %12)
   br i1 %406, label %59, label %._crit_edge63.i, !llvm.loop !14
 
 ._crit_edge63.i:                                  ; preds = %.backedge.i, %44
@@ -2623,7 +2623,7 @@ declare void @ginNewScanKey(ptr noundef) local_unnamed_addr #1
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @tbm_add_page(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2640,7 +2640,7 @@ declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scanGetCandidate(ptr nocapture noundef readonly %0, ptr noundef nonnull initializes((8, 14)) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scanGetCandidate(ptr noundef readonly captures(none) %0, ptr noundef nonnull initializes((8, 14)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i16 -1, ptr %3, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 10
@@ -2771,7 +2771,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @ItemPointerEquals(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare zeroext i16 @gintuple_get_attrnum(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2829,7 +2829,7 @@ declare i32 @GinDataLeafPageGetItemsToTbm(ptr noundef, ptr noundef) local_unname
 declare void @qsort_arg(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @entryIndexByFrequencyCmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
+define internal range(i32 -1, 2) i32 @entryIndexByFrequencyCmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 {
   %4 = load i32, ptr %0, align 4
   %5 = load i32, ptr %1, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2849,7 +2849,7 @@ define internal range(i32 -1, 2) i32 @entryIndexByFrequencyCmp(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @entryGetItem(ptr nocapture noundef readonly %0, ptr noundef %1, i48 %2) unnamed_addr #0 {
+define internal fastcc void @entryGetItem(ptr noundef readonly captures(none) %0, ptr noundef %1, i48 %2) unnamed_addr #0 {
   %.fr = freeze i48 %2
   %.sroa.7.0.extract.shift = lshr i48 %.fr, 16
   %.sroa.11.0.extract.shift = lshr i48 %.fr, 32
@@ -3515,10 +3515,10 @@ declare void @ReleaseBuffer(i32 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #8

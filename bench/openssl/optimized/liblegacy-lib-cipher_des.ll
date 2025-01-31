@@ -151,7 +151,7 @@ return:                                           ; preds = %des_generatekey.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @des_gettable_ctx_params(ptr nocapture readnone %cctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @des_gettable_ctx_params(ptr readnone captures(none) %cctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @des_known_gettable_ctx_params
 }
@@ -392,7 +392,7 @@ declare i32 @ossl_prov_is_running() local_unnamed_addr #1
 declare i32 @ossl_cipher_generic_initiv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ERR_new() local_unnamed_addr #1
 

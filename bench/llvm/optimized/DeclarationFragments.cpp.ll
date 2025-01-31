@@ -458,7 +458,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 11) i32 @_ZN5clang10extractapi20DeclarationFragments27parseFragmentKindFromStringEN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 11) i32 @_ZN5clang10extractapi20DeclarationFragments27parseFragmentKindFromStringEN4llvm9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #4 align 2 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIN5clang10extractapi20DeclarationFragments12FragmentKindES4_E4CaseENS_13StringLiteralES4_.exit74 [
     i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit.i7
@@ -531,10 +531,10 @@ _ZN4llvm12StringSwitchIN5clang10extractapi20DeclarationFragments12FragmentKindES
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi20DeclarationFragments31getExceptionSpecificationStringENS_26ExceptionSpecificationTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi20DeclarationFragments31getExceptionSpecificationStringENS_26ExceptionSpecificationTypeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i32, align 4
@@ -1593,7 +1593,7 @@ _ZNSt6vectorIN5clang10extractapi20DeclarationFragments8FragmentESaIS3_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi20DeclarationFragments24getStructureTypeFragmentEPKNS_10RecordDeclE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi20DeclarationFragments24getStructureTypeFragmentEPKNS_10RecordDeclE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i32, align 4
@@ -1682,7 +1682,7 @@ _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12Fragme
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder18getFragmentsForNNSEPKNS_19NestedNameSpecifierERNS_10ASTContextERNS0_20DeclarationFragmentsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder18getFragmentsForNNSEPKNS_19NestedNameSpecifierERNS_10ASTContextERNS0_20DeclarationFragmentsE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca i32, align 4
@@ -4045,7 +4045,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit337: ; preds = %_ZSt8_Destro
 declare { ptr, i64 } @_ZN5clang15TypeWithKeyword14getKeywordNameENS_21ElaboratedTypeKeywordE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder19getFragmentsForTypeENS_8QualTypeERNS_10ASTContextERNS0_20DeclarationFragmentsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder19getFragmentsForTypeENS_8QualTypeERNS_10ASTContextERNS0_20DeclarationFragmentsE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %6 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -4754,7 +4754,7 @@ define linkonce_odr hidden void @_ZN4llvm11SmallStringILj64EEC2ENS_9StringRefE(p
 declare noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder32getFragmentsForTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEERNS_10ASTContextESt8optionalINS3_INS_19TemplateArgumentLocEEEE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(23096) %3, ptr nocapture noundef readonly byval(%"class.std::optional.390") align 8 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder32getFragmentsForTemplateArgumentsEN4llvm8ArrayRefINS_16TemplateArgumentEEERNS_10ASTContextESt8optionalINS3_INS_19TemplateArgumentLocEEEE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(23096) %3, ptr noundef readonly byval(%"class.std::optional.390") align 8 captures(none) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca i32, align 4
@@ -5952,7 +5952,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder24getFragmentsForNamespaceEPKNS_13NamespaceDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder24getFragmentsForNamespaceEPKNS_13NamespaceDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -6152,7 +6152,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit: ; preds = %_ZSt8_DestroyIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder18getFragmentsForVarEPKNS_7VarDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder18getFragmentsForVarEPKNS_7VarDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -6777,7 +6777,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit91: ; preds = %_ZSt8_Destroy
 declare noundef ptr @_ZN5clang7VarDecl30getStorageClassSpecifierStringENS_12StorageClassE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123findTypeLocForBlockDeclEPKN5clang14TypeSourceInfoERNS0_15FunctionTypeLocERNS0_20FunctionProtoTypeLocE(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_123findTypeLocForBlockDeclEPKN5clang14TypeSourceInfoERNS0_15FunctionTypeLocERNS0_20FunctionProtoTypeLocE(ptr noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZNK5clang7TypeLoc5getAsINS_19BlockPointerTypeLocEEET_v.exit.thread, label %4
 
@@ -6948,7 +6948,7 @@ _ZNK5clang7TypeLoc5getAsINS_19BlockPointerTypeLocEEET_v.exit.thread: ; preds = %
 declare noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder20getFragmentsForBlockEPKNS_9NamedDeclERNS_15FunctionTypeLocERNS_20FunctionProtoTypeLocERNS0_20DeclarationFragmentsE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder20getFragmentsForBlockEPKNS_9NamedDeclERNS_15FunctionTypeLocERNS_20FunctionProtoTypeLocERNS0_20DeclarationFragmentsE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr noundef nonnull %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca i32, align 4
@@ -8917,7 +8917,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit148: ; preds = %_ZSt8_Destro
 declare i64 @_ZNK5clang11ParmVarDecl15getOriginalTypeEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder23getFragmentsForFunctionEPKNS_12FunctionDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder23getFragmentsForFunctionEPKNS_12FunctionDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -10273,7 +10273,7 @@ declare noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnul
 declare noundef zeroext i1 @_ZNK5clang12FunctionDecl10isVariadicEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForEnumConstantEPKNS_16EnumConstantDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForEnumConstantEPKNS_16EnumConstantDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i32, align 4
@@ -10415,7 +10415,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit: ; preds = %_ZSt8_DestroyIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder19getFragmentsForEnumEPKNS_8EnumDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder19getFragmentsForEnumEPKNS_8EnumDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i32, align 4
@@ -10971,7 +10971,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit74: ; preds = %221, %_ZSt8_D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder22getFragmentsForTypedefEPKNS_15TypedefNameDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder22getFragmentsForTypedefEPKNS_15TypedefNameDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -11331,7 +11331,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit48: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder20getFragmentsForFieldEPKNS_9FieldDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder20getFragmentsForFieldEPKNS_9FieldDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -11694,7 +11694,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit48: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder25getFragmentsForRecordDeclEPKNS_10RecordDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder25getFragmentsForRecordDeclEPKNS_10RecordDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i32, align 4
@@ -11992,7 +11992,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit: ; preds = %110, %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder23getFragmentsForCXXClassEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder23getFragmentsForCXXClassEPKNS_13CXXRecordDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i32, align 4
@@ -12277,7 +12277,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit26: ; preds = %111, %_ZSt8_D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder31getFragmentsForSpecialCXXMethodEPKNS_13CXXMethodDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder31getFragmentsForSpecialCXXMethodEPKNS_13CXXMethodDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -12968,7 +12968,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit79: ; preds = %_ZSt8_Destroy
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder24getFragmentsForCXXMethodEPKNS_13CXXMethodDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder24getFragmentsForCXXMethodEPKNS_13CXXMethodDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -13983,7 +13983,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit138: ; preds = %_ZSt8_Destro
 declare noundef zeroext i1 @_ZNK5clang13CXXMethodDecl8isStaticEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder33getFragmentsForConversionFunctionEPKNS_17CXXConversionDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder33getFragmentsForConversionFunctionEPKNS_17CXXConversionDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i32, align 4
@@ -14591,7 +14591,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit49: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder33getFragmentsForOverloadedOperatorEPKNS_13CXXMethodDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder33getFragmentsForOverloadedOperatorEPKNS_13CXXMethodDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -15421,7 +15421,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit106: ; preds = %_ZSt8_Destro
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder33getFragmentsForTemplateParametersEN4llvm8ArrayRefIPNS_9NamedDeclEEE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder33getFragmentsForTemplateParametersEN4llvm8ArrayRefIPNS_9NamedDeclEEE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
@@ -17203,7 +17203,7 @@ declare void @_ZNK5clang7APValue11getAsStringB5cxx11ERKNS_10ASTContextENS_8QualT
 declare void @_ZNK5clang4Stmt11printPrettyERN4llvm11raw_ostreamEPNS_13PrinterHelperERKNS_14PrintingPolicyEjNS1_9StringRefEPKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef byval(%"class.llvm::StringRef") align 8, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder22getFragmentsForConceptEPKNS_11ConceptDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder22getFragmentsForConceptEPKNS_11ConceptDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -17633,7 +17633,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit29: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder35getFragmentsForRedeclarableTemplateEPKNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder35getFragmentsForRedeclarableTemplateEPKNS_24RedeclarableTemplateDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -18068,7 +18068,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit29: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder42getFragmentsForClassTemplateSpecializationEPKNS_31ClassTemplateSpecializationDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder42getFragmentsForClassTemplateSpecializationEPKNS_31ClassTemplateSpecializationDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -18612,7 +18612,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit45: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder49getFragmentsForClassTemplatePartialSpecializationEPKNS_38ClassTemplatePartialSpecializationDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder49getFragmentsForClassTemplatePartialSpecializationEPKNS_38ClassTemplatePartialSpecializationDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -19247,7 +19247,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit68: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder40getFragmentsForVarTemplateSpecializationEPKNS_29VarTemplateSpecializationDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder40getFragmentsForVarTemplateSpecializationEPKNS_29VarTemplateSpecializationDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -19791,7 +19791,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit45: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder47getFragmentsForVarTemplatePartialSpecializationEPKNS_36VarTemplatePartialSpecializationDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder47getFragmentsForVarTemplatePartialSpecializationEPKNS_36VarTemplatePartialSpecializationDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -20426,7 +20426,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit68: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder31getFragmentsForFunctionTemplateEPKNS_20FunctionTemplateDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder31getFragmentsForFunctionTemplateEPKNS_20FunctionTemplateDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -20832,7 +20832,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit36: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder45getFragmentsForFunctionTemplateSpecializationEPKNS_12FunctionDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder45getFragmentsForFunctionTemplateSpecializationEPKNS_12FunctionDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -21093,7 +21093,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit15: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder20getFragmentsForMacroEN4llvm9StringRefEPKNS_9MacroInfoE(ptr dead_on_unwind noalias nonnull writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder20getFragmentsForMacroEN4llvm9StringRefEPKNS_9MacroInfoE(ptr dead_on_unwind noalias nonnull writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -21536,7 +21536,7 @@ _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12Fragme
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCCategoryEPKNS_16ObjCCategoryDeclE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCCategoryEPKNS_16ObjCCategoryDeclE(ptr dead_on_unwind noalias writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -22032,7 +22032,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %88, %_ZN5clang10ext
 declare noundef ptr @_ZNK5clang17ObjCInterfaceDecl13getSuperClassEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder25getFragmentsForObjCMethodEPKNS_14ObjCMethodDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder25getFragmentsForObjCMethodEPKNS_14ObjCMethodDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -22687,7 +22687,7 @@ declare noundef i32 @_ZNK5clang8Selector10getNumArgsEv(ptr noundef nonnull align
 declare { ptr, i64 } @_ZNK5clang8Selector14getNameForSlotEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCPropertyEPKNS_16ObjCPropertyDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCPropertyEPKNS_16ObjCPropertyDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.clang::extractapi::DeclarationFragments", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -23469,7 +23469,7 @@ _ZN5clang10extractapi20DeclarationFragmentsD2Ev.exit93: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCPropertyEPKNS_16ObjCPropertyDeclEENK3$_0clENS_21ObjCPropertyAttribute4KindEN4llvm9StringRefES9_NS0_20DeclarationFragments12FragmentKindE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 noundef range(i32 1, 32769) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCPropertyEPKNS_16ObjCPropertyDeclEENK3$_0clENS_21ObjCPropertyAttribute4KindEN4llvm9StringRefES9_NS0_20DeclarationFragments12FragmentKindE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i32 noundef range(i32 1, 32769) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca i32, align 4
@@ -23703,7 +23703,7 @@ declare i16 @_ZN5clang14AttributedType21stripOuterNullabilityERNS_8QualTypeE(ptr
 declare { ptr, i64 } @_ZN5clang22getNullabilitySpellingENS_15NullabilityKindEb(i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCProtocolEPKNS_16ObjCProtocolDeclE(ptr dead_on_unwind noalias nonnull writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder27getFragmentsForObjCProtocolEPKNS_16ObjCProtocolDeclE(ptr dead_on_unwind noalias nonnull writable sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
 _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12FragmentKindES3_PKNS_4DeclE.exit:
   %2 = alloca %"class.llvm::StringRef", align 8
   %3 = alloca %"class.llvm::StringRef", align 8
@@ -25330,7 +25330,7 @@ _ZN5clang10extractapi20DeclarationFragments6appendEN4llvm9StringRefENS1_12Fragme
 declare void @_ZNK5clang15DeclarationName11getAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder13getSubHeadingEPKNS_14ObjCMethodDeclE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10extractapi27DeclarationFragmentsBuilder13getSubHeadingEPKNS_14ObjCMethodDeclE(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::extractapi::DeclarationFragments") align 8 captures(none) initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i32, align 4
@@ -25737,7 +25737,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
@@ -26223,7 +26223,7 @@ declare void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 der
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
@@ -26253,7 +26253,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64) local_unnamed_addr #2
 
@@ -27087,13 +27087,13 @@ declare void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull ali
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

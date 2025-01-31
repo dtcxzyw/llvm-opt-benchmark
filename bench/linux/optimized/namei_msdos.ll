@@ -71,7 +71,7 @@ define internal i32 @msdos_fill_super(ptr noundef %0, ptr noundef %1, i32 nounde
 declare dso_local i32 @fat_fill_super(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @setup(ptr nocapture noundef initializes((1016, 1024)) %0) #3 align 16 {
+define internal void @setup(ptr noundef captures(none) initializes((1016, 1024)) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
@@ -189,7 +189,7 @@ msdos_find.exit:                                  ; preds = %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @msdos_create(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3, i1 zeroext %4) #2 align 16 {
+define internal i32 @msdos_create(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3, i1 zeroext %4) #2 align 16 {
   %6 = alloca %struct.fat_slot_info, align 8
   %7 = alloca %struct.timespec64, align 8
   %8 = alloca [11 x i8], align 1
@@ -303,7 +303,7 @@ define internal i32 @msdos_create(ptr nocapture readnone %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @msdos_unlink(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @msdos_unlink(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca [11 x i8], align 1
   %4 = alloca %struct.fat_slot_info, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -400,7 +400,7 @@ msdos_find.exit.thread:                           ; preds = %2, %23, %41, %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3) #2 align 16 {
+define internal i32 @msdos_mkdir(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i16 zeroext %3) #2 align 16 {
   %5 = alloca %struct.fat_slot_info, align 8
   %6 = alloca [11 x i8], align 1
   %7 = alloca %struct.timespec64, align 8
@@ -518,7 +518,7 @@ define internal i32 @msdos_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @msdos_rmdir(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal i32 @msdos_rmdir(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = alloca [11 x i8], align 1
   %4 = alloca %struct.fat_slot_info, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -620,7 +620,7 @@ msdos_find.exit.thread:                           ; preds = %14, %25, %43, %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @msdos_rename(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) #2 align 16 {
+define internal i32 @msdos_rename(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) #2 align 16 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %struct.fat_slot_info, align 8
@@ -1074,10 +1074,10 @@ declare dso_local i32 @fat_getattr(ptr noundef, ptr noundef, ptr noundef, i32 no
 declare dso_local i32 @fat_update_time(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
@@ -1092,10 +1092,10 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 declare dso_local ptr @d_splice_alias(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #6 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @msdos_format_name(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #6 align 16 {
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 46
   br i1 %6, label %7, label %15
@@ -1378,10 +1378,10 @@ declare dso_local void @__brelse(ptr noundef) local_unnamed_addr #1
 declare dso_local { i64, i64 } @current_time(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, -2147483648) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 align 16 {
+define internal fastcc i32 @msdos_add_entry(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, -2147483648) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 align 16 {
   %8 = alloca %struct.msdos_dir_entry, align 4
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
@@ -1526,7 +1526,7 @@ declare dso_local void @__fat_fs_error(ptr noundef, i32 noundef, ptr noundef, ..
 declare dso_local zeroext i1 @inode_maybe_inc_iversion(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define internal noundef i32 @msdos_hash(ptr noundef %0, ptr nocapture noundef %1) #10 align 16 {
+define internal noundef i32 @msdos_hash(ptr noundef %0, ptr noundef captures(none) %1) #10 align 16 {
   %3 = alloca [11 x i8], align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -1554,7 +1554,7 @@ define internal noundef i32 @msdos_hash(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal i32 @msdos_cmp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #6 align 16 {
+define internal i32 @msdos_cmp(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #6 align 16 {
   %5 = alloca [11 x i8], align 1
   %6 = alloca [11 x i8], align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1605,7 +1605,7 @@ define internal i32 @msdos_cmp(ptr nocapture noundef readonly %0, i32 noundef %1
 declare dso_local i32 @full_name_hash(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare dso_local i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @register_filesystem(ptr noundef) local_unnamed_addr #1

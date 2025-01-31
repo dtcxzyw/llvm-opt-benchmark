@@ -119,7 +119,7 @@ if.end36:                                         ; preds = %do.body25, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @coroutine_pool_cleanup(ptr nocapture readnone %n, ptr nocapture readnone %value) #0 {
+define internal void @coroutine_pool_cleanup(ptr readnone captures(none) %n, ptr readnone captures(none) %value) #0 {
 entry:
   %ptr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ptr.i)
@@ -406,7 +406,7 @@ while.end58:                                      ; preds = %sw.epilog, %entry
 declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3
@@ -444,7 +444,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @qemu_coroutine_entered(ptr nocapture noundef readonly %co) local_unnamed_addr #5 {
+define dso_local zeroext i1 @qemu_coroutine_entered(ptr noundef readonly captures(none) %co) local_unnamed_addr #5 {
 entry:
   %caller = getelementptr inbounds nuw i8, ptr %co, i64 16
   %0 = load ptr, ptr %caller, align 8
@@ -509,7 +509,7 @@ if.end:                                           ; preds = %trace_qemu_coroutin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qemu_coroutine_get_aio_context(ptr nocapture noundef readonly %co) local_unnamed_addr #5 {
+define dso_local ptr @qemu_coroutine_get_aio_context(ptr noundef readonly captures(none) %co) local_unnamed_addr #5 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %co, i64 40
   %0 = load ptr, ptr %ctx, align 8
@@ -536,20 +536,20 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 declare void @qemu_coroutine_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

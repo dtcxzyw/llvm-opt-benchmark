@@ -1923,7 +1923,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cleanup1_doall(ptr nocapture noundef readonly %a) #1 {
+define internal void @cleanup1_doall(ptr noundef readonly captures(none) %a) #1 {
 entry:
   %obj = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %obj, align 8
@@ -1938,7 +1938,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @cleanup2_doall(ptr nocapture noundef readonly %a) #1 {
+define internal void @cleanup2_doall(ptr noundef readonly captures(none) %a) #1 {
 entry:
   %obj = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %obj, align 8
@@ -2661,7 +2661,7 @@ entry:
 declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @BN_add_word(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -3353,7 +3353,7 @@ declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @CRYPTO_THREAD_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ln_cmp_BSEARCH_CMP_FN(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #6 {
+define internal i32 @ln_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %a_, ptr noundef readonly captures(none) %b_) #6 {
 entry:
   %a_.val = load ptr, ptr %a_, align 8
   %b_.val = load i32, ptr %b_, align 4
@@ -3367,10 +3367,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @sn_cmp_BSEARCH_CMP_FN(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #6 {
+define internal i32 @sn_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %a_, ptr noundef readonly captures(none) %b_) #6 {
 entry:
   %a_.val = load ptr, ptr %a_, align 8
   %b_.val = load i32, ptr %b_, align 4
@@ -3385,7 +3385,7 @@ entry:
 declare i32 @CRYPTO_THREAD_write_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @obj_cmp_BSEARCH_CMP_FN(ptr nocapture noundef readonly %a_, ptr nocapture noundef readonly %b_) #6 {
+define internal i32 @obj_cmp_BSEARCH_CMP_FN(ptr noundef readonly captures(none) %a_, ptr noundef readonly captures(none) %b_) #6 {
 entry:
   %a_.val = load ptr, ptr %a_, align 8
   %b_.val = load i32, ptr %b_, align 4
@@ -3418,15 +3418,15 @@ obj_cmp.exit:                                     ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @added_obj_hash(ptr nocapture noundef readonly %ca) #0 {
+define internal i64 @added_obj_hash(ptr noundef readonly captures(none) %ca) #0 {
 entry:
   %obj = getelementptr inbounds nuw i8, ptr %ca, i64 8
   %0 = load ptr, ptr %obj, align 8
@@ -3500,7 +3500,7 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @added_obj_cmp(ptr nocapture noundef readonly %ca, ptr nocapture noundef readonly %cb) #6 {
+define internal i32 @added_obj_cmp(ptr noundef readonly captures(none) %ca, ptr noundef readonly captures(none) %cb) #6 {
 entry:
   %0 = load i32, ptr %ca, align 8
   %1 = load i32, ptr %cb, align 8
@@ -3588,10 +3588,10 @@ declare i64 @OPENSSL_LH_strhash(ptr noundef) local_unnamed_addr #3
 declare ptr @OPENSSL_LH_insert(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

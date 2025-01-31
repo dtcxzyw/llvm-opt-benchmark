@@ -99,7 +99,7 @@ target triple = "x86_64-pc-linux-gnu"
 @arginfo_class_FiberError___construct = internal constant [1 x %struct._zend_internal_arg_info] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @zend_fiber_stack_limit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @zend_fiber_stack_limit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1736), align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 %2
@@ -107,7 +107,7 @@ define dso_local ptr @zend_fiber_stack_limit(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @zend_fiber_stack_base(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local ptr @zend_fiber_stack_base(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -241,7 +241,7 @@ zend_fiber_stack_allocate.exit.thread:            ; preds = %12, %22, %33
 declare ptr @make_fcontext(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @zend_fiber_trampoline(ptr %0, ptr nocapture readonly %1) #8 {
+define internal void @zend_fiber_trampoline(ptr %0, ptr readonly captures(none) %1) #8 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = load ptr, ptr %3, align 8
@@ -457,10 +457,10 @@ declare void @zend_observer_fiber_switch_notify(ptr noundef, ptr noundef) local_
 declare { ptr, ptr } @jump_fcontext(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber___construct(ptr noundef %0, ptr nocapture readnone %1) #6 {
+define hidden void @zim_Fiber___construct(ptr noundef %0, ptr readnone captures(none) %1) #6 {
   %3 = alloca %struct._zend_fcall_info, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   %5 = alloca ptr, align 8
@@ -548,7 +548,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_start(ptr noundef %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_start(ptr noundef %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -679,7 +679,7 @@ define hidden void @zim_Fiber_start(ptr noundef %0, ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_fiber_execute(ptr nocapture noundef initializes((0, 8)) %0) #10 {
+define internal void @zend_fiber_execute(ptr noundef captures(none) initializes((0, 8)) %0) #10 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
@@ -822,7 +822,7 @@ define internal void @zend_fiber_execute(ptr nocapture noundef initializes((0, 8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_suspend(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_suspend(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -964,7 +964,7 @@ define hidden void @zim_Fiber_suspend(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_resume(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_resume(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1102,7 +1102,7 @@ define hidden void @zim_Fiber_resume(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_throw(ptr noundef %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_throw(ptr noundef %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1276,7 +1276,7 @@ thread-pre-split:                                 ; preds = %20
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_isStarted(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_isStarted(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1304,7 +1304,7 @@ define hidden void @zim_Fiber_isStarted(ptr nocapture noundef readonly %0, ptr n
 declare void @zend_wrong_parameters_none_error() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_isSuspended(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_isSuspended(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1340,7 +1340,7 @@ define hidden void @zim_Fiber_isSuspended(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_isRunning(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_isRunning(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1376,7 +1376,7 @@ define hidden void @zim_Fiber_isRunning(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_isTerminated(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_isTerminated(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1402,7 +1402,7 @@ define hidden void @zim_Fiber_isTerminated(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_getReturn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_getReturn(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1496,7 +1496,7 @@ define hidden void @zim_Fiber_getReturn(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_getCurrent(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 {
+define hidden void @zim_Fiber_getCurrent(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1530,7 +1530,7 @@ define hidden void @zim_Fiber_getCurrent(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_FiberError___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #6 {
+define hidden void @zim_FiberError___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -1602,7 +1602,7 @@ define hidden void @zend_register_fiber_ce() local_unnamed_addr #6 {
 define internal noundef ptr @zend_fiber_object_create(ptr noundef %0) #6 {
   %2 = tail call noalias ptr @_emalloc_384() #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %2, i8 0, i64 328, i1 false)
-  tail call void @zend_object_std_init(ptr noundef %2, ptr noundef %0) #22
+  tail call void @zend_object_std_init(ptr noundef nonnull %2, ptr noundef %0) #22
   ret ptr %2
 }
 
@@ -1742,7 +1742,7 @@ define internal void @zend_fiber_object_free(ptr noundef %0) #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_fiber_object_gc(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #6 {
+define internal ptr @zend_fiber_object_gc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #6 {
   %4 = tail call ptr @zend_get_gc_buffer_create() #22
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -2030,7 +2030,7 @@ declare ptr @zend_ini_string_ex(ptr noundef, i64 noundef, i32 noundef, ptr nound
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 declare i32 @zend_call_function(ptr noundef, ptr noundef) local_unnamed_addr #7
 
@@ -2043,7 +2043,7 @@ declare zeroext i1 @zend_is_unwind_exit(ptr noundef) local_unnamed_addr #7
 declare void @zend_clear_exception() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_fiber_cleanup(ptr nocapture noundef initializes((104, 112), (224, 240)) %0) #6 {
+define internal void @zend_fiber_cleanup(ptr noundef captures(none) initializes((104, 112), (224, 240)) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @zend_ce_fiber, align 8
@@ -2101,10 +2101,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 declare i64 @llvm.ctpop.i64(i64) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

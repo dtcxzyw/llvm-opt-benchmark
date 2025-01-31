@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.agcopyattr = private unnamed_addr constant [4 x i64] [i64 32, i64 16, i64 24, i64 24], align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @freesym(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @freesym(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @Ag_G_global, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -926,7 +926,7 @@ define range(i32 0, 2) i32 @agraphattr_delete(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeattr(ptr noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @freeattr(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call ptr @agraphof(ptr noundef %0) #7
   %4 = tail call ptr @agraphof(ptr noundef %0) #7
   %5 = tail call ptr @agroot(ptr noundef %4) #7
@@ -1090,7 +1090,7 @@ agattrsym.exit.thread:                            ; preds = %2, %agattrsym.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agxget(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @agxget(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @AgDataRecName, align 8
   %4 = tail call ptr @aggetrec(ptr noundef %0, ptr noundef %3, i32 noundef 0) #7
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1398,7 +1398,7 @@ declare i32 @dtsize(ptr noundef) local_unnamed_addr #1
 declare i32 @agapply(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @addattr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @addattr(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr @AgDataRecName, align 8
   %5 = tail call ptr @aggetrec(ptr noundef %1, ptr noundef %4, i32 noundef 0) #7
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -1438,13 +1438,13 @@ declare ptr @agfstout(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agnxtout(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @agfstsubg(ptr noundef) local_unnamed_addr #1
 
@@ -1461,7 +1461,7 @@ declare ptr @dtview(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @agraphattr_init_wrapper(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 {
+define internal void @agraphattr_init_wrapper(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   tail call void @agraphattr_init(ptr noundef %0)
   ret void
 }
@@ -1470,10 +1470,10 @@ define internal void @agraphattr_init_wrapper(ptr noundef %0, ptr nocapture read
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

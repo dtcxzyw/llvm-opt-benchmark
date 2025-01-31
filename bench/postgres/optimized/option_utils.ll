@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [29 x i8] c"unrecognized sync method: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @handle_help_version_opts(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @handle_help_version_opts(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %0, 1
   br i1 %5, label %6, label %.tail7.thread
 
@@ -85,7 +85,7 @@ sub_19:                                           ; preds = %.tail.thread, %.thr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @get_progname(ptr noundef) local_unnamed_addr #2
 
@@ -168,7 +168,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #4
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_sync_method(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parse_sync_method(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(6) @.str.7) #5
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %9, label %5
@@ -179,7 +179,7 @@ define dso_local noundef zeroext i1 @parse_sync_method(ptr noundef %0, ptr nocap
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef %0) #6
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.9, ptr noundef nonnull %0) #6
   br label %10
 
 9:                                                ; preds = %5, %2

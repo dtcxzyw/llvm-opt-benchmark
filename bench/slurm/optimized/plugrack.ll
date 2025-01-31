@@ -304,7 +304,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.stat, align 8
   %5 = alloca [64 x i8], align 16
@@ -333,7 +333,7 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocap
   %21 = getelementptr inbounds i8, ptr %18, i64 %20
   store i8 47, ptr %21, align 1
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
-  %23 = tail call ptr @opendir(ptr noundef %1)
+  %23 = tail call ptr @opendir(ptr noundef nonnull %1)
   %24 = icmp eq ptr %23, null
   br i1 %24, label %29, label %.preheader
 
@@ -348,7 +348,7 @@ define internal fastcc range(i32 -1, 1) i32 @_plugrack_read_single_dir(ptr nocap
   br label %31
 
 29:                                               ; preds = %12
-  %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef %1) #10
+  %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef nonnull %1) #10
   br label %92
 
 31:                                               ; preds = %.lr.ph, %.backedge
@@ -484,7 +484,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @plugrack_release_by_type(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @plugrack_release_by_type(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @list_for_each(ptr noundef %3, ptr noundef nonnull @_foreach_release_plugin, ptr noundef %1) #10
   ret void
@@ -493,7 +493,7 @@ define void @plugrack_release_by_type(ptr nocapture noundef readonly %0, ptr nou
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_release_plugin(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal noundef i32 @_foreach_release_plugin(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -541,7 +541,7 @@ define internal noundef i32 @_foreach_release_plugin(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @plugrack_print_mpi_plugins(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef i32 @plugrack_print_mpi_plugins(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -627,20 +627,20 @@ define noundef i32 @plugrack_print_mpi_plugins(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @plugrack_foreach(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @plugrack_foreach(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.plugrack_foreach_args_t, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -651,7 +651,7 @@ define void @plugrack_foreach(ptr nocapture noundef readonly %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_plugin(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @_foreach_plugin(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -665,7 +665,7 @@ define internal noundef i32 @_foreach_plugin(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 8004) i32 @load_plugins(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 8004) i32 @load_plugins(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.plugrack_foreach_args_t, align 8
   %8 = alloca %struct.plugrack_foreach_args_t, align 8
   %9 = alloca ptr, align 8
@@ -814,7 +814,7 @@ plugrack_read_dir.exit:                           ; preds = %29
   %.070108 = phi ptr [ %75, %.lr.ph ], [ %70, %67 ]
   %71 = load ptr, ptr %12, align 8
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #11
-  %73 = call i32 @xstrncmp(ptr noundef nonnull %.070108, ptr noundef %71, i64 noundef %72) #10
+  %73 = call i32 @xstrncmp(ptr noundef nonnull %.070108, ptr noundef nonnull %71, i64 noundef %72) #10
   %.not83 = icmp eq i32 %73, 0
   %.069.idx = select i1 %.not83, i64 %72, i64 0
   %.069 = getelementptr inbounds i8, ptr %.070108, i64 %.069.idx
@@ -1044,10 +1044,10 @@ _plugin_loaded.exit:                              ; preds = %.lr.ph.i
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1159,20 +1159,20 @@ declare void @plugin_unload(ptr noundef) local_unnamed_addr #1
 declare i64 @pathconf(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @plugin_peek(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1183,13 +1183,13 @@ declare i32 @dlclose(ptr noundef) local_unnamed_addr #6
 declare void @fatal_abort(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

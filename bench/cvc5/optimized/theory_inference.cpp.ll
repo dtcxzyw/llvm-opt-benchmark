@@ -75,7 +75,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemmaC2ENS1_11InferenceIdENS0_12NodeTemplateILb1EEENS1_13LemmaPropertyEPNS0_14ProofGeneratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 28), (32, 40)) %this, i32 noundef %id, ptr nocapture noundef readonly %n, i32 noundef %p, ptr noundef %pg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemmaC2ENS1_11InferenceIdENS0_12NodeTemplateILb1EEENS1_13LemmaPropertyEPNS0_14ProofGeneratorE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 12), (16, 28), (32, 40)) %this, i32 noundef %id, ptr noundef readonly captures(none) %n, i32 noundef %p, ptr noundef %pg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_id.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %id, ptr %d_id.i, align 8
@@ -119,7 +119,7 @@ invoke.cont:                                      ; preds = %if.then13.i.i, %if.
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemma12processLemmaERNS1_13LemmaPropertyE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory17SimpleTheoryLemma12processLemmaERNS1_13LemmaPropertyE(ptr noalias sret(%"class.cvc5::internal::TrustNode") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %d_property = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -232,7 +232,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFactC2ENS1_11InferenceIdENS0_12NodeTemplateILb1EEES5_PNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (16, 32)) %this, i32 noundef %id, ptr nocapture noundef readonly %conc, ptr nocapture noundef readonly %exp, ptr noundef %pg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFactC2ENS1_11InferenceIdENS0_12NodeTemplateILb1EEES5_PNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (16, 32)) %this, i32 noundef %id, ptr noundef readonly captures(none) %conc, ptr noundef readonly captures(none) %exp, ptr noundef %pg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_id.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %id, ptr %d_id.i, align 8
@@ -307,7 +307,7 @@ lpad2:                                            ; preds = %if.then13.i.i8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFact11processFactERSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EERPNS0_14ProofGeneratorE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %exp, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %pg) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory24SimpleTheoryInternalFact11processFactERSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EERPNS0_14ProofGeneratorE(ptr noalias writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %exp, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pg) unnamed_addr #3 align 2 {
 entry:
   %d_exp = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %exp, i64 8

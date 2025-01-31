@@ -88,7 +88,7 @@ define hidden noundef ptr @_Z36pj_projection_specific_setup_calcofiP8PJconsts(pt
 declare noundef ptr @_Z6pj_newv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL17calcofi_e_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL17calcofi_e_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = fadd double %0, -8.000000e+01
   %5 = fmul double %4, 0xBF6C987103B761F5
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 0x3FEBB67AE8584CAB, double 0x3FE312AD613A9096)
@@ -173,7 +173,7 @@ define internal { double, double } @_ZL17calcofi_e_forward5PJ_LPP8PJconsts(doubl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal { double, double } @_ZL17calcofi_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr nocapture readnone %2) #3 {
+define internal { double, double } @_ZL17calcofi_s_inverse5PJ_XYP8PJconsts(double %0, double %1, ptr readnone captures(none) %2) #3 {
   %4 = fadd double %0, -8.000000e+01
   %5 = fmul double %4, 0xBF6C987103B761F5
   %6 = tail call double @llvm.fmuladd.f64(double %5, double 0x3FEBB67AE8584CAB, double 0x3FE312AD613A9096)
@@ -272,7 +272,7 @@ declare double @exp(double noundef) local_unnamed_addr #5
 declare double @atan(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

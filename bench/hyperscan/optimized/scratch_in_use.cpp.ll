@@ -304,7 +304,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z12makeDatabasePKcjj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %expression, i32 noundef %flags, i32 noundef %mode) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z12makeDatabasePKcjj(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef %expression, i32 noundef %flags, i32 noundef %mode) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %db = alloca ptr, align 8
   %compile_err = alloca ptr, align 8
@@ -480,12 +480,12 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @hs_compile(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -618,10 +618,10 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #4
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23ScratchInUse_Block_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN23ScratchInUse_Block_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZL12runBlockTestPFijyyjPvE(ptr noundef nonnull @_ZL15rescan_block_cbjyyjPv)
   ret void
@@ -1968,7 +1968,7 @@ ehcleanup195:                                     ; preds = %ehcleanup191, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL15rescan_block_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef %ctx) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL15rescan_block_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr noundef captures(none) %ctx) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %data = alloca %"class.std::__cxx11::basic_string", align 8
   %err = alloca i32, align 4
@@ -2205,7 +2205,7 @@ ehcleanup28:                                      ; preds = %if.then.i.i50, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN27ScratchInUse_Streaming_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN27ScratchInUse_Streaming_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZL16runStreamingTestPFijyyjPvE(ptr noundef nonnull @_ZL16rescan_stream_cbjyyjPv)
   ret void
@@ -3982,7 +3982,7 @@ ehcleanup263:                                     ; preds = %ehcleanup259, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL16rescan_stream_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef %ctx) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @_ZL16rescan_stream_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr noundef captures(none) %ctx) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %data = alloca %"class.std::__cxx11::basic_string", align 8
   %stream = alloca ptr, align 8
@@ -4593,7 +4593,7 @@ ehcleanup90:                                      ; preds = %if.then.i.i201, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN26ScratchInUse_Vectored_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN26ScratchInUse_Vectored_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZL15runVectoredTestPFijyyjPvE(ptr noundef nonnull @_ZL16rescan_vector_cbjyyjPv)
   ret void
@@ -5995,7 +5995,7 @@ ehcleanup214:                                     ; preds = %ehcleanup210, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL16rescan_vector_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef %ctx) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL16rescan_vector_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr noundef captures(none) %ctx) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %data1 = alloca %"class.std::__cxx11::basic_string", align 8
   %data2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6287,7 +6287,7 @@ ehcleanup41:                                      ; preds = %if.then.i.i89, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37ScratchInUse_ReallocScratchBlock_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN37ScratchInUse_ReallocScratchBlock_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZL12runBlockTestPFijyyjPvE(ptr noundef nonnull @_ZL17rescan_realloc_cbjyyjPv)
   ret void
@@ -6511,28 +6511,28 @@ ehcleanup22:                                      ; preds = %ehcleanup21, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN41ScratchInUse_ReallocScratchStreaming_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN41ScratchInUse_ReallocScratchStreaming_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZL16runStreamingTestPFijyyjPvE(ptr noundef nonnull @_ZL17rescan_realloc_cbjyyjPv)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38ScratchInUse_ReallocScratchVector_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN38ScratchInUse_ReallocScratchVector_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZL15runVectoredTestPFijyyjPvE(ptr noundef nonnull @_ZL17rescan_realloc_cbjyyjPv)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34ScratchInUse_FreeScratchBlock_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN34ScratchInUse_FreeScratchBlock_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZL12runBlockTestPFijyyjPvE(ptr noundef nonnull @_ZL14rescan_free_cbjyyjPv)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL14rescan_free_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr nocapture noundef %ctx) #3 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL14rescan_free_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr noundef captures(none) %ctx) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %err = alloca i32, align 4
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -6702,14 +6702,14 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38ScratchInUse_FreeScratchStreaming_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN38ScratchInUse_FreeScratchStreaming_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZL16runStreamingTestPFijyyjPvE(ptr noundef nonnull @_ZL14rescan_free_cbjyyjPv)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35ScratchInUse_FreeScratchVector_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN35ScratchInUse_FreeScratchVector_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call fastcc void @_ZL15runVectoredTestPFijyyjPvE(ptr noundef nonnull @_ZL14rescan_free_cbjyyjPv)
   ret void
@@ -7483,7 +7483,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %if.end
-  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef %7, i64 noundef %call.i.i)
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull %7, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -7536,7 +7536,7 @@ declare void @_ZNK7testing7Message9GetStringB5cxx11Ev(ptr sret(%"class.std::__cx
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
@@ -7815,7 +7815,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIPKvEERSoT_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7testing8internal11CmpHelperEQIimEENS_15AssertionResultEPKcS4_RKT_RKT0_(ptr noalias sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %expected_expression, ptr noundef %actual_expression, ptr noundef nonnull align 4 dereferenceable(4) %expected, ptr noundef nonnull align 8 dereferenceable(8) %actual) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -8346,7 +8346,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basi
 declare i32 @hs_free_database(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZL8dummy_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr nocapture readnone %4) #14 {
+define internal noundef i32 @_ZL8dummy_cbjyyjPv(i32 %0, i64 %1, i64 %2, i32 %3, ptr readnone captures(none) %4) #14 {
 entry:
   ret i32 0
 }

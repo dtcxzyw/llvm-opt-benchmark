@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @gen9_init_indirectctx_bb.lri = internal unnamed_addr constant [3 x %struct.lri] [%struct.lri { %struct.i915_reg_t { i32 28692 }, i32 268435456 }, %struct.lri { %struct.i915_reg_t { i32 8328 }, i32 131074 }, %struct.lri { %struct.i915_reg_t { i32 8336 }, i32 268439552 }], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @lrc_init_regs(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local void @lrc_init_regs(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   tail call fastcc void @__lrc_init_regs(ptr noundef %5, ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2)
@@ -40,7 +40,7 @@ define dso_local void @lrc_init_regs(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__lrc_init_regs(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc void @__lrc_init_regs(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   br i1 %3, label %5, label %6
 
 5:                                                ; preds = %4
@@ -579,7 +579,7 @@ select.unfold39:                                  ; preds = %358, %343, %354, %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @lrc_reset_regs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local void @lrc_reset_regs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -623,7 +623,7 @@ select.unfold:                                    ; preds = %19, %2, %15, %17
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @lrc_init_state(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @lrc_init_state(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -659,19 +659,19 @@ define dso_local void @lrc_init_state(ptr noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @shmem_read(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local i32 @lrc_indirect_bb(ptr nocapture noundef readonly %0) local_unnamed_addr #5 align 16 {
+define dso_local i32 @lrc_indirect_bb(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -689,7 +689,7 @@ define dso_local i32 @lrc_indirect_bb(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @lrc_alloc(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @lrc_alloc(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, -1
@@ -1266,7 +1266,7 @@ define dso_local range(i32 265, 0) i32 @lrc_update_regs(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @lrc_pre_pin(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @lrc_pre_pin(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 184
@@ -1348,7 +1348,7 @@ define dso_local noundef i32 @lrc_pin(ptr noundef initializes((144, 152)) %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @lrc_unpin(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @lrc_unpin(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1388,7 +1388,7 @@ define internal fastcc void @i915_request_put(ptr noundef nonnull %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @lrc_post_unpin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @lrc_post_unpin(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
@@ -1399,7 +1399,7 @@ define dso_local void @lrc_post_unpin(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @lrc_fini(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @lrc_fini(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1521,7 +1521,7 @@ declare dso_local i32 @intel_sseu_make_rpcs(ptr noundef, ptr noundef) local_unna
 declare dso_local void @i915_oa_init_reg_state(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @gen12_emit_indirect_ctx_xcs(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 56)) %1) unnamed_addr #0 align 16 {
+define internal ptr @gen12_emit_indirect_ctx_xcs(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 56)) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   store i32 348651522, ptr %1, align 4
   %4 = getelementptr i8, ptr %1, i64 8
@@ -1635,7 +1635,7 @@ define internal ptr @gen12_emit_indirect_ctx_xcs(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @gen12_emit_indirect_ctx_rcs(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 84)) %1) unnamed_addr #0 align 16 {
+define internal ptr @gen12_emit_indirect_ctx_rcs(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 84)) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   store i32 348651522, ptr %1, align 4
   %4 = getelementptr i8, ptr %1, i64 8
@@ -1997,7 +1997,7 @@ define internal ptr @gen12_emit_indirect_ctx_rcs(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @lrc_update_offsets(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 16 {
+define dso_local void @lrc_update_offsets(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1248
@@ -2139,7 +2139,7 @@ define dso_local void @lrc_update_offsets(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @lrc_check_regs(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @lrc_check_regs(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2604,7 +2604,7 @@ define dso_local void @lrc_init_wa_ctx(ptr noundef %0) local_unnamed_addr #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal ptr @gen9_init_indirectctx_bb(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 100)) %1) #9 align 16 {
+define internal ptr @gen9_init_indirectctx_bb(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 100)) %1) #9 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   store i32 67108864, ptr %1, align 4
   %4 = getelementptr i8, ptr %1, i64 8
@@ -2733,7 +2733,7 @@ define internal ptr @gen9_init_indirectctx_bb(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal ptr @gen8_init_indirectctx_bb(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 4)) %1) #10 align 16 {
+define internal ptr @gen8_init_indirectctx_bb(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 4)) %1) #10 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   store i32 67108864, ptr %1, align 4
   %4 = load ptr, ptr %0, align 8

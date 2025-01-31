@@ -62,7 +62,7 @@ declare i32 @EVP_CIPHER_CTX_reset(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @CMAC_CTX_get0_cipher_ctx(ptr nocapture noundef readonly %ctx) local_unnamed_addr #2 {
+define ptr @CMAC_CTX_get0_cipher_ctx(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   ret ptr %0
@@ -99,7 +99,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMAC_CTX_copy(ptr nocapture noundef %out, ptr nocapture noundef readonly %in) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMAC_CTX_copy(ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in) local_unnamed_addr #0 {
 entry:
   %nlast_block = getelementptr inbounds nuw i8, ptr %in, i64 136
   %0 = load i32, ptr %nlast_block, align 8
@@ -148,7 +148,7 @@ declare i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_CIPHER_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @CMAC_Init(ptr noundef %ctx, ptr noundef %key, i64 noundef %keylen, ptr noundef %cipher, ptr noundef %impl) local_unnamed_addr #0 {
@@ -316,7 +316,7 @@ return:                                           ; preds = %if.then16, %if.end2
 declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #1
 
@@ -470,7 +470,7 @@ return:                                           ; preds = %while.body60, %whil
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMAC_Final(ptr nocapture noundef %ctx, ptr noundef %out, ptr noundef writeonly %poutlen) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %ctx, ptr noundef %out, ptr noundef writeonly %poutlen) local_unnamed_addr #0 {
 entry:
   %nlast_block = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %0 = load i32, ptr %nlast_block, align 8

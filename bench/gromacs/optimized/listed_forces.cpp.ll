@@ -235,7 +235,7 @@ declare void @_ZN22InteractionDefinitionsC1ERK14gmx_ffparams_t(ptr noundef nonnu
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10unique_ptrI18bonded_threading_tSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -458,7 +458,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18bonded_threading_tD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -627,7 +627,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit: ; pre
 declare void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN12ListedForcesC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2816) initializes((0, 72)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(2816) %1) unnamed_addr #9 align 2 {
+define void @_ZN12ListedForcesC2EOS_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2816) initializes((0, 72)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(2816) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1279,7 +1279,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK12ListedForces14haveRestraintsERK8t_fcdata(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2816) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK12ListedForces14haveRestraintsERK8t_fcdata(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2816) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #10 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1312
   %5 = load ptr, ptr %4, align 8
@@ -1314,7 +1314,7 @@ define noundef zeroext i1 @_ZNK12ListedForces14haveRestraintsERK8t_fcdata(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK12ListedForces14haveCpuBondedsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2816) %0) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK12ListedForces14haveCpuBondedsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2816) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2744
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -1324,7 +1324,7 @@ define noundef zeroext i1 @_ZNK12ListedForces14haveCpuBondedsEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK12ListedForces19haveCpuListedForcesERK8t_fcdata(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2816) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK12ListedForces19haveCpuListedForcesERK8t_fcdata(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2816) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2744
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -1367,7 +1367,7 @@ _ZNK12ListedForces14haveRestraintsERK8t_fcdata.exit: ; preds = %24, %15, %8, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ListedForces9calculateEP13gmx_wallcyclePA3_KfPK9t_commrecPK14gmx_multisim_tN3gmx19ArrayRefWithPaddingIKNSB_11BasicVectorIfEEEENSB_8ArrayRefISF_EEP8t_fcdataPK9history_tPNSB_12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSH_IS2_EES10_S10_NSH_IKbEENSH_IKtEEiPiRKNSB_12StepWorkloadE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2816) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 %14, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 %15, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 %16, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.108") align 8 %17, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.111") align 8 %18, i32 noundef %19, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %21) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ListedForces9calculateEP13gmx_wallcyclePA3_KfPK9t_commrecPK14gmx_multisim_tN3gmx19ArrayRefWithPaddingIKNSB_11BasicVectorIfEEEENSB_8ArrayRefISF_EEP8t_fcdataPK9history_tPNSB_12ForceOutputsEPK10t_forcerecPK5t_pbcP14gmx_enerdata_tP6t_nrnbNSH_IS2_EES10_S10_NSH_IKbEENSH_IKtEEiPiRKNSB_12StepWorkloadE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2816) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 captures(none) %14, ptr noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 captures(none) %15, ptr noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 captures(none) %16, ptr noundef readonly byval(%"class.gmx::ArrayRef.108") align 8 captures(none) %17, ptr noundef readonly byval(%"class.gmx::ArrayRef.111") align 8 captures(none) %18, i32 noundef %19, ptr noundef %20, ptr noundef nonnull align 1 dereferenceable(20) %21) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %23 = alloca %"class.gmx::StepWorkload", align 1
   %24 = alloca %"class.gmx::ArrayRef.105", align 8
   %25 = alloca %"class.gmx::ArrayRef.261", align 8
@@ -2017,7 +2017,7 @@ declare noundef float @_Z15calc_orires_devPK14gmx_multisim_tiPKiPK9t_iparamsN3gm
 declare void @_Z15calc_disres_R_6PK9t_commrecPK14gmx_multisim_tiPKiPA3_KfPK5t_pbcP12t_disresdataPK9history_t(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @_Z21posres_wrapper_lambdaP13gmx_wallcycleRK22InteractionDefinitionsPK5t_pbcPA3_KfP14gmx_enerdata_tN3gmx8ArrayRefIS7_EEPK10t_forcerec(ptr noundef, ptr noundef nonnull align 8 dereferenceable(2736), ptr noundef, ptr noundef, ptr noundef, ptr noundef byval(%"class.gmx::ArrayRef.105") align 8, ptr noundef) local_unnamed_addr #1
 
@@ -2154,7 +2154,7 @@ declare void @_Z8sum_epotRK17gmx_grppairener_tPf(ptr noundef nonnull align 8 der
 declare void @_ZN3gmx19ThreadedForceBufferIA4_fE6reduceEPNS_20ForceWithShiftForcesEPfP17gmx_grppairener_tNS_8ArrayRefIfEERKNS_12StepWorkloadEi(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, ptr noundef, ptr noundef, ptr, ptr, ptr noundef nonnull align 1 dereferenceable(20), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcPA3_fP14gmx_enerdata_tP6t_nrnbN3gmx8ArrayRefIS4_EENSK_IfEESL_SL_NSK_IKbEENSK_IKtEEiP8t_fcdataRKNSJ_12StepWorkloadEPi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(2736) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %14, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %15, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %16, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(20) %18, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %19) #13 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL16calcBondedForcesRK22InteractionDefinitionsP18bonded_threading_tPA3_KfPK10t_forcerecPK5t_pbcPA3_fP14gmx_enerdata_tP6t_nrnbN3gmx8ArrayRefIS4_EENSK_IfEESL_SL_NSK_IKbEENSK_IKtEEiP8t_fcdataRKNSJ_12StepWorkloadEPi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(2736) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %14, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %15, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %16, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %17, ptr noundef nonnull align 1 dereferenceable(20) %18, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %19) #13 personality ptr @__gxx_personality_v0 {
   %21 = alloca i32, align 4
   %22 = alloca i32, align 4
   %23 = alloca i32, align 4
@@ -2419,7 +2419,7 @@ declare noundef nonnull align 8 dereferenceable(128) ptr @_ZN3gmx17ThreadForceBu
 declare noundef nonnull align 4 dereferenceable(28) ptr @_ZN3gmx17ThreadForceBufferIA4_fE4dvdlEv(ptr noundef nonnull align 8 dereferenceable(284)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi(i32 noundef %0, i32 noundef range(i32 -2147483648, 94) %1, ptr noundef nonnull align 8 dereferenceable(2736) %2, ptr %3, ptr %4, i32 noundef %5, i32 %.0.val, ptr nocapture readonly %.8.val, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr nocapture noundef %12, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 %13, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.261") align 8 %14, ptr %.0.val1, ptr %.8.val3, ptr %.0.val5, ptr %.8.val7, ptr %.0.val9, ptr %.8.val11, ptr %.0.val13, ptr %.8.val15, i32 noundef %15, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(20) %17, ptr noundef %18) unnamed_addr #0 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_113calc_one_bondEiiRK22InteractionDefinitionsN3gmx8ArrayRefIKiEEiRK12WorkDivisionPA3_KfPA4_fPA3_fPK10t_forcerecPK5t_pbcP17gmx_grppairener_tP6t_nrnbNS4_ISA_EENS4_IfEESR_SR_NS4_IKbEENS4_IKtEEiP8t_fcdataRKNS3_12StepWorkloadEPi(i32 noundef %0, i32 noundef range(i32 -2147483648, 94) %1, ptr noundef nonnull align 8 dereferenceable(2736) %2, ptr %3, ptr %4, i32 noundef %5, i32 %.0.val, ptr readonly captures(none) %.8.val, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef captures(none) %12, ptr noundef readonly byval(%"class.gmx::ArrayRef.105") align 8 captures(none) %13, ptr noundef readonly byval(%"class.gmx::ArrayRef.261") align 8 captures(none) %14, ptr %.0.val1, ptr %.8.val3, ptr %.0.val5, ptr %.8.val7, ptr %.0.val9, ptr %.8.val11, ptr %.0.val13, ptr %.8.val15, i32 noundef %15, ptr noundef %16, ptr noundef nonnull align 1 dereferenceable(20) %17, ptr noundef %18) unnamed_addr #0 {
   %20 = alloca %"class.gmx::ArrayRef.105", align 8
   %21 = alloca %"class.gmx::ArrayRef.105", align 8
   %22 = alloca %"class.gmx::ArrayRef.105", align 8
@@ -2688,7 +2688,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -2763,10 +2763,10 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+cmov,+crc32,+cx8,+fma,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

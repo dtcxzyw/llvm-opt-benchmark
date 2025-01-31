@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.0e69d7be63cfb1c60dd2b112529465b9.25 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"literal" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN13dsl_auto_type9auto_type16settings_builder58_$LT$impl$u20$dsl_auto_type..auto_type..DeriveSettings$GT$7builder17h275e1fb6f21b568bE"(ptr nocapture writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN13dsl_auto_type9auto_type16settings_builder58_$LT$impl$u20$dsl_auto_type..auto_type..DeriveSettings$GT$7builder17h275e1fb6f21b568bE"(ptr writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %3 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %.sroa.0 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
@@ -72,7 +72,7 @@ define void @"_ZN13dsl_auto_type9auto_type16settings_builder58_$LT$impl$u20$dsl_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN13dsl_auto_type9auto_type16settings_builder93_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..DeriveSettings$GT$7default17h5e01fd3229da0777E"(ptr nocapture writeonly sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] }) align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN13dsl_auto_type9auto_type16settings_builder93_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..DeriveSettings$GT$7default17h5e01fd3229da0777E"(ptr writeonly sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] }) align 8 captures(none) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %3 = alloca { { i64, [3 x i64] }, { {} } }, align 8
   %4 = alloca { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, align 8
@@ -109,7 +109,7 @@ define void @"_ZN13dsl_auto_type9auto_type16settings_builder93_$LT$impl$u20$core
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db9dcE(ptr nocapture writeonly sret({ i64, [10 x i64] }) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db9dcE(ptr writeonly sret({ i64, [10 x i64] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i64, ptr }, i64 }, align 8
   %6 = alloca { i64, [28 x i64] }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
@@ -1552,7 +1552,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h3d135053200db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$darling_core..from_meta..FromMeta$GT$9from_list17ha0ce0c310433b857E"(ptr nocapture writeonly sret({ i64, [15 x i64] }) align 8 %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$darling_core..from_meta..FromMeta$GT$9from_list17ha0ce0c310433b857E"(ptr writeonly sret({ i64, [15 x i64] }) align 8 captures(none) %0, ptr align 8 %1, i64 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [10 x i64] }, align 8
   %5 = alloca { i64, [10 x i64] }, align 8
   %6 = alloca { i64, [10 x i64] }, align 8
@@ -2194,7 +2194,7 @@ define void @"_ZN96_$LT$dsl_auto_type..auto_type..DeriveParameters$u20$as$u20$da
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nonlazybind uwtable
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
@@ -2518,10 +2518,10 @@ declare void @_ZN12darling_core5error5Error9with_span17hc32100669fe3c076E(ptr sr
 declare void @"_ZN4core3ptr53drop_in_place$LT$darling_core..error..Accumulator$GT$17hc3038f3750324f2aE"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

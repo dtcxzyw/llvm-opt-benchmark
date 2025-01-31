@@ -430,7 +430,7 @@ style_init.exit:                                  ; preds = %98, %lv_theme_simpl
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @theme_apply(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @theme_apply(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 760), align 8, !tbaa !3
   %4 = tail call ptr @lv_obj_get_parent(ptr noundef %1) #3
   %5 = icmp eq ptr %4, null

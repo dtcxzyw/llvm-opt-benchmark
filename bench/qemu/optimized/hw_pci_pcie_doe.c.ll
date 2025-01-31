@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.extract32 = private unnamed_addr constant [39 x i8] c"uint32_t extract32(uint32_t, int, int)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_doe_init(ptr noundef %dev, ptr nocapture noundef initializes((0, 10), (24, 52), (56, 64)) %doe_cap, i16 noundef zeroext %offset, ptr noundef %protocols, i1 noundef zeroext %intr, i16 noundef zeroext %vec) local_unnamed_addr #0 {
+define dso_local void @pcie_doe_init(ptr noundef %dev, ptr noundef captures(none) initializes((0, 10), (24, 52), (56, 64)) %doe_cap, i16 noundef zeroext %offset, ptr noundef %protocols, i1 noundef zeroext %intr, i16 noundef zeroext %vec) local_unnamed_addr #0 {
 entry:
   %frombool = zext i1 %intr to i8
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 46, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 24) #9
@@ -118,7 +118,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 16777216) i32 @pcie_doe_build_protocol(ptr nocapture noundef readonly %p) local_unnamed_addr #4 {
+define dso_local range(i32 0, 16777216) i32 @pcie_doe_build_protocol(ptr noundef readonly captures(none) %p) local_unnamed_addr #4 {
 entry:
   %data_obj_type = getelementptr inbounds nuw i8, ptr %p, i64 2
   %0 = load i8, ptr %data_obj_type, align 2
@@ -131,7 +131,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @pcie_doe_get_write_mbox_ptr(ptr nocapture noundef readonly %doe_cap) local_unnamed_addr #4 {
+define dso_local ptr @pcie_doe_get_write_mbox_ptr(ptr noundef readonly captures(none) %doe_cap) local_unnamed_addr #4 {
 entry:
   %write_mbox = getelementptr inbounds nuw i8, ptr %doe_cap, i64 24
   %0 = load ptr, ptr %write_mbox, align 8
@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_doe_set_rsp(ptr nocapture noundef %doe_cap, ptr noundef readonly %rsp) local_unnamed_addr #5 {
+define dso_local void @pcie_doe_set_rsp(ptr noundef captures(none) %doe_cap, ptr noundef readonly %rsp) local_unnamed_addr #5 {
 entry:
   %tobool.not.i = icmp eq ptr %rsp, null
   br i1 %tobool.not.i, label %pcie_doe_get_obj_len.exit, label %if.end.i
@@ -189,10 +189,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @pcie_doe_read_config(ptr nocapture noundef readonly %doe_cap, i32 noundef %addr, i32 noundef %size, ptr nocapture noundef writeonly %buf) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @pcie_doe_read_config(ptr noundef readonly captures(none) %doe_cap, i32 noundef %addr, i32 noundef %size, ptr noundef writeonly captures(none) %buf) local_unnamed_addr #0 {
 entry:
   %offset = getelementptr inbounds nuw i8, ptr %doe_cap, i64 8
   %0 = load i16, ptr %offset, align 8
@@ -617,7 +617,7 @@ sw.epilog:                                        ; preds = %deposit32.exit, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcie_doe_set_error(ptr nocapture noundef initializes((19, 20)) %doe_cap, i1 noundef zeroext %err) unnamed_addr #0 {
+define internal fastcc void @pcie_doe_set_error(ptr noundef captures(none) initializes((19, 20)) %doe_cap, i1 noundef zeroext %err) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %err to i8
   %error = getelementptr inbounds nuw i8, ptr %doe_cap, i64 19
@@ -672,7 +672,7 @@ if.end:                                           ; preds = %if.then12.i, %if.el
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @msix_enabled(ptr noundef) local_unnamed_addr #1
 
@@ -683,7 +683,7 @@ declare zeroext i1 @msi_enabled(ptr noundef) local_unnamed_addr #1
 declare void @msi_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @pcie_doe_discovery(ptr nocapture noundef %doe_cap) unnamed_addr #5 {
+define internal noundef zeroext i1 @pcie_doe_discovery(ptr noundef captures(none) %doe_cap) unnamed_addr #5 {
 pcie_doe_get_obj_len.exit:
   %write_mbox.i = getelementptr inbounds nuw i8, ptr %doe_cap, i64 24
   %0 = load ptr, ptr %write_mbox.i, align 8

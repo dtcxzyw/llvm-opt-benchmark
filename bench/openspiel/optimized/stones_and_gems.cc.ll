@@ -946,7 +946,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiSt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementEiNS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_iEEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_iEES6_S8_SC_EEESt16initializer_listIS9_IS4_iEEmRKS6_RKS8_RKSC_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly %1, i64 range(i64 2, 5) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementEiNS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_iEEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_iEES6_S8_SC_EEESt16initializer_listIS9_IS4_iEEmRKS6_RKS8_RKSC_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly %1, i64 range(i64 2, 5) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [20 x i8], align 4
   %5 = getelementptr inbounds nuw %"struct.std::pair.57", ptr %1, i64 %2
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %0, align 8
@@ -1426,7 +1426,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementEiNS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_iEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementEiNS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_iEEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %.not.i.i.i = icmp eq i64 %3, 0
@@ -1449,7 +1449,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10op
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementES4_NS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_S4_EEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_S4_EES6_S8_SC_EEESt16initializer_listIS9_IS4_S4_EEmRKS6_RKS8_RKSC_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly %1, i64 range(i64 2, 16) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementES4_NS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_S4_EEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_S4_EES6_S8_SC_EEESt16initializer_listIS9_IS4_S4_EEmRKS6_RKS8_RKSC_(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly %1, i64 range(i64 2, 16) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [32 x i8], align 4
   %5 = getelementptr inbounds nuw %"struct.std::pair.69", ptr %1, i64 %2
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %0, align 8
@@ -1928,7 +1928,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementES4_NS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_S4_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementES4_NS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_S4_EEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %.not.i.i.i = icmp eq i64 %3, 0
@@ -2833,7 +2833,7 @@ declare void @_ZN10open_spiel14GameRegistererC1ERKNS_8GameTypeESt8functionIFSt10
 declare void @_ZN10open_spiel28RegisterSingleTensorObserverC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState14ActionToStringB5cxx11Eil(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, i64 noundef %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState14ActionToStringB5cxx11Eil(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
   %6 = alloca %"class.absl::debian2::AlphaNum", align 8
   %7 = alloca i64, align 8
@@ -3232,7 +3232,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState10IsTerminalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState10IsTerminalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -3356,7 +3356,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7Elemen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.95") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7ReturnsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.95") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %4 = load i32, ptr %3, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -3373,7 +3373,7 @@ define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7ReturnsEv(ptr d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.95") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7RewardsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.95") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -3867,7 +3867,7 @@ _ZSt4fillIPfiEvT_S1_RKT0_.exit:                   ; preds = %._crit_edge, %_ZN10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState13CurrentPlayerEv(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #4 align 2 {
@@ -3882,7 +3882,7 @@ define noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState13Current
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZN10open_spiel15stones_and_gems16StonesNGemsState3rngEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0) local_unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZN10open_spiel15stones_and_gems16StonesNGemsState3rngEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 296
@@ -3890,7 +3890,7 @@ define noundef nonnull ptr @_ZN10open_spiel15stones_and_gems16StonesNGemsState3r
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %2 to i64
@@ -3997,7 +3997,7 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiSt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %6 = load i32, ptr %5, align 4
@@ -4119,7 +4119,7 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiSt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #4 align 2 {
   %6 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %4)
   %7 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %4)
   br i1 %7, label %8, label %15
@@ -4140,7 +4140,7 @@ define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState6I
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 2 {
   %5 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %3)
   %6 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %3)
   br i1 %6, label %7, label %15
@@ -4161,7 +4161,7 @@ define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8MoveItemEii(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8MoveItemEii(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = sext i32 %1 to i64
@@ -4193,7 +4193,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8MoveItemEii(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7SetItemEiNS0_7ElementEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7SetItemEiNS0_7ElementEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 align 2 {
   %7 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %9 = sext i32 %7 to i64
@@ -4214,7 +4214,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7SetItemEiNS0_7El
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7GetItemEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define { i64, i64 } @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7GetItemEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
   %6 = sext i32 %5 to i64
@@ -4229,7 +4229,7 @@ define { i64, i64 } @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7GetItem
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState14IsTypeAdjacentEiNS0_7ElementE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState14IsTypeAdjacentEiNS0_7ElementE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #4 align 2 {
   %5 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 1)
   %6 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 1)
   br i1 %6, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.thread
@@ -4295,7 +4295,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11CanRollLeftEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState11CanRollLeftEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   br i1 %4, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit6
@@ -4346,7 +4346,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState12CanRollRightEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState12CanRollRightEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   br i1 %4, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit, label %_ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit6
@@ -4397,7 +4397,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8RollLeftEiNS0_7ElementE(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8RollLeftEiNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
@@ -4446,7 +4446,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8RollLeftEiNS0_7E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9RollRightEiNS0_7ElementE(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9RollRightEiNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
@@ -4495,7 +4495,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9RollRightEiNS0_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState4PushEiNS0_7ElementES2_i(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, i32 noundef %6) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState4PushEiNS0_7ElementES2_i(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3, i64 %4, i64 %5, i32 noundef %6) local_unnamed_addr #4 align 2 {
   %8 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %6)
   %.sroa.04.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %9 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %8, i32 noundef %6)
@@ -4585,7 +4585,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16MoveThroughMagicEiNS0_7ElementE(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16MoveThroughMagicEiNS0_7ElementE(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = icmp slt i32 %6, 1
@@ -4656,7 +4656,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7ExplodeEiNS0_7ElementEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %4)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %8 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %6, i32 noundef 0)
@@ -4848,7 +4848,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState11HasPropertyEiii.exit32.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define internal fastcc { ptr, ptr } @_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %.0.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, ptr } @_ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE4findIS6_EENSG_14const_iteratorERSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %.0.val) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = add nsw i32 %.0.val, 1
   %3 = sext i32 %2 to i64
   %4 = load ptr, ptr %0, align 8
@@ -4923,7 +4923,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10o
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8OpenGateENS0_7ElementE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i64 %1, i64 %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState8OpenGateENS0_7ElementE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i64 %1, i64 %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.013.0.extract.trunc = trunc i64 %1 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
@@ -5159,7 +5159,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPN10open_spiel15stones_and_gems7Element
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(14) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 4 dereferenceable(14) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = add nsw i32 %.0.val, 1
   %3 = sext i32 %2 to i64
   %4 = load ptr, ptr %0, align 8
@@ -5254,7 +5254,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10o
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState11UpdateStoneEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState11UpdateStoneEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.sroa.05.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -5406,7 +5406,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState18UpdateStoneFallingEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState18UpdateStoneFallingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.035.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -5841,7 +5841,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState13UpdateDiamondEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState13UpdateDiamondEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.sroa.05.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -5993,7 +5993,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState20UpdateDiamondFallingEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState20UpdateDiamondFallingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.025.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -6448,7 +6448,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9UpdateNutEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9UpdateNutEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.sroa.05.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -6600,7 +6600,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16UpdateNutFallingEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16UpdateNutFallingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.sroa.05.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -6775,7 +6775,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState10UpdateBombEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState10UpdateBombEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %.sroa.05.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -6927,7 +6927,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState17UpdateBombFallingEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState17UpdateBombFallingEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.09.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %3 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
   %4 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 3)
@@ -7185,7 +7185,7 @@ _ZN4absl7debian218container_internaleqERKNS1_12raw_hash_setINS1_17FlatHashMapPol
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState10UpdateExitEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState10UpdateExitEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -7901,7 +7901,7 @@ _ZN10open_spiel15stones_and_gems12_GLOBAL__N_15IsKeyERKNS0_7ElementE.exit231.thr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEE2atIS6_S7_EEDTclsrT0_5valueclL_ZSt9addressofIKSE_EPT_RSL_EclL_ZSt7declvalIRSK_EDTcl9__declvalISL_ELi0EEEvEEEEERSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 %.0.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = add nsw i32 %.0.val, 1
   %3 = sext i32 %2 to i64
   %4 = load ptr, ptr %0, align 8
@@ -7996,7 +7996,7 @@ _ZNK4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10o
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState13UpdateFireflyEii(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState13UpdateFireflyEii(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = sext i32 %2 to i64
   %5 = add i64 %4, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %6 = zext i64 %5 to i128
@@ -8704,7 +8704,7 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateButterflyEii(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateButterflyEii(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = sext i32 %2 to i64
   %5 = add i64 %4, ptrtoint (ptr @_ZN4absl7debian213hash_internal9HashState5kSeedE to i64)
   %6 = zext i64 %5 to i128
@@ -9412,7 +9412,7 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiN10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState12UpdateOrangeEii(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState12UpdateOrangeEii(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.011.0.copyload = load i64, ptr @_ZN10open_spiel15stones_and_gems12_GLOBAL__N_18kElEmptyE, align 8
   %4 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
   %5 = tail call noundef zeroext i1 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState8InBoundsEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef %2)
@@ -9953,7 +9953,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateMagicWallEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateMagicWallEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -10033,7 +10033,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState15UpdateMagicWall
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState10UpdateBlobEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState10UpdateBlobEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 8
@@ -10155,7 +10155,7 @@ _ZNK10open_spiel15stones_and_gems16StonesNGemsState6IsTypeEiNS0_7ElementEi.exit2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16UpdateExplosionsEi(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState16UpdateExplosionsEi(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = tail call noundef i32 @_ZNK10open_spiel15stones_and_gems16StonesNGemsState15IndexFromActionEii(ptr noundef nonnull readonly align 8 dereferenceable(188) %0, i32 noundef %1, i32 noundef 0)
   %5 = sext i32 %4 to i64
@@ -10277,7 +10277,7 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9StartScanEv(ptr nocapture noundef nonnull align 8 dereferenceable(188) initializes((76, 80), (100, 101), (112, 116)) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9StartScanEv(ptr noundef nonnull align 8 captures(none) dereferenceable(188) initializes((76, 80), (100, 101), (112, 116)) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -10308,7 +10308,7 @@ define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9StartScanEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7EndScanEv(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState7EndScanEv(ptr noundef nonnull align 8 captures(none) dereferenceable(188) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr @_ZN10open_spiel15stones_and_gemsL12kNullElementE, align 8
@@ -10845,10 +10845,10 @@ define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState12LegalActionsEv
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState14ChanceOutcomesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.111") align 8 %0, ptr noundef nonnull align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState14ChanceOutcomesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.111") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8
@@ -11146,7 +11146,7 @@ declare void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_tr
 declare void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumESA_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState9SerializeB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState9SerializeB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::debian2::AlphaNum", align 8
   %4 = alloca %"class.absl::debian2::AlphaNum", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -11790,7 +11790,7 @@ define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState9SerializeB5cxx1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8pop_backEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState5CloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #35
   invoke void @_ZN10open_spiel5StateC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(188) %3, ptr noundef nonnull align 8 dereferenceable(188) %1)
           to label %.noexc unwind label %13
@@ -11836,7 +11836,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsStateC2ESt10shared_ptrIKNS_4GameEEiibiiiNS0_7ElementEbiiiiNS0_4GridEbii(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef readonly byval(%"struct.open_spiel::stones_and_gems::Element") align 8 %8, i1 noundef zeroext %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14, i1 noundef zeroext %15, i32 noundef %16, i32 noundef %17) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsStateC2ESt10shared_ptrIKNS_4GameEEiibiiiNS0_7ElementEbiiiiNS0_4GridEbii(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly byval(%"struct.open_spiel::stones_and_gems::Element") align 8 captures(none) %8, i1 noundef zeroext %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14, i1 noundef zeroext %15, i32 noundef %16, i32 noundef %17) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %19 = alloca %"class.std::shared_ptr", align 8
   %20 = load ptr, ptr %1, align 8
   store ptr %20, ptr %19, align 8
@@ -14850,29 +14850,29 @@ declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1ERKN
 declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame18NumDistinctActionsEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame18NumDistinctActionsEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i32 5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame13MaxGameLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5364) %0) unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame13MaxGameLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5364) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5352
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame10NumPlayersEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame10NumPlayersEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef double @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame10MinUtilityEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #16 align 2 {
+define noundef double @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame10MinUtilityEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #16 align 2 {
   ret double 0.000000e+00
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame10MaxUtilityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5364) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame10MaxUtilityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5364) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5352
   %3 = load i32, ptr %2, align 8
   %4 = sitofp i32 %3 to double
@@ -15237,7 +15237,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7Eleme
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.90") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5364) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.90") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(5364) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 5296
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 5300
@@ -15259,7 +15259,7 @@ define void @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame22ObservationTens
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems15StonesNGemsGame9ParseGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr dead_on_unwind noalias writable sret(%"struct.open_spiel::stones_and_gems::Grid") align 8 initializes((8, 56)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(5364) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, double noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems15StonesNGemsGame9ParseGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr dead_on_unwind noalias writable sret(%"struct.open_spiel::stones_and_gems::Grid") align 8 initializes((8, 56)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(5364) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, double noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer", align 1
   %7 = alloca i32, align 4
@@ -16534,7 +16534,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit:               ; preds = %_ZN4absl7debian28Al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems15StonesNGemsGameC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(5364) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems15StonesNGemsGameC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13GameParameterESt4lessIS8_ESaISt4pairIKS8_S9_EEE(ptr noundef nonnull align 8 dereferenceable(5364) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, open_spiel::GameParameter>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca %"struct.open_spiel::GameType", align 8
   %5 = alloca %"class.std::map", align 8
@@ -23255,7 +23255,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementEiEENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_iEEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -23278,7 +23278,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl7debian218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN10open_spiel15stones_and_gems7ElementES6_EENS5_12_GLOBAL__N_111ElementHashESt8equal_toIS6_ESaISt4pairIKS6_S6_EEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -23482,7 +23482,7 @@ define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN10open_spiel15stones_a
 declare void @llvm.trap() #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferElPc(i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -23654,12 +23654,12 @@ _ZNSt16allocator_traitsISaIN10open_spiel5State12PlayerActionEEE8allocateERS3_m.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare noundef ptr @_ZN4absl7debian216numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #23
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #23
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -28395,10 +28395,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #28
@@ -28407,7 +28407,7 @@ declare i64 @llvm.umax.i64(i64, i64) #28
 declare i32 @llvm.smax.i32(i32, i32) #28
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #31
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

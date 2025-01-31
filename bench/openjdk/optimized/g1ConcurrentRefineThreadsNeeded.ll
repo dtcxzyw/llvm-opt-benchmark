@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN31G1ConcurrentRefineThreadsNeededC1EP8G1Policyd = hidden unnamed_addr alias void (ptr, ptr, double), ptr @_ZN31G1ConcurrentRefineThreadsNeededC2EP8G1Policyd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN31G1ConcurrentRefineThreadsNeededC2EP8G1Policyd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0, ptr noundef %1, double noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN31G1ConcurrentRefineThreadsNeededC2EP8G1Policyd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(36) initializes((0, 36)) %0, ptr noundef %1, double noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
@@ -19,7 +19,7 @@ define hidden void @_ZN31G1ConcurrentRefineThreadsNeededC2EP8G1Policyd(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31G1ConcurrentRefineThreadsNeeded6updateEjmmm(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((16, 36)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN31G1ConcurrentRefineThreadsNeeded6updateEjmmm(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((16, 36)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -128,7 +128,7 @@ declare i32 @llvm.umax.i32(i32, i32) #4
 declare i64 @llvm.umin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

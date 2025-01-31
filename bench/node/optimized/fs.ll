@@ -895,7 +895,7 @@ if.end.i180:                                      ; preds = %lor.lhs.false.i
   br i1 %or.cond.i181, label %if.then7.i, label %if.end16.i
 
 if.then7.i:                                       ; preds = %if.end.i180
-  %call8.i182 = call i32 %97(ptr noundef %95, i32 noundef 524288) #15
+  %call8.i182 = call i32 %97(ptr noundef nonnull %95, i32 noundef 524288) #15
   %cmp9.i183 = icmp sgt i32 %call8.i182, -1
   br i1 %cmp9.i183, label %uv__fs_mkstemp.exit, label %if.end11.i
 
@@ -920,7 +920,7 @@ if.then18.i:                                      ; preds = %if.end16.i
   br label %if.end19.i
 
 if.end19.i:                                       ; preds = %if.then18.i, %if.end16.i
-  %call20.i = call i32 @mkstemp64(ptr noundef %95) #15
+  %call20.i = call i32 @mkstemp64(ptr noundef nonnull %95) #15
   %cmp21.i = icmp sgt i32 %call20.i, -1
   br i1 %cmp21.i, label %land.lhs.true22.i, label %if.end30.i
 
@@ -2720,9 +2720,9 @@ if.else:                                          ; preds = %do.body1
 if.then28:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds i8, ptr %call15, i64 %add
   store ptr %add.ptr, ptr %new_path4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call15, ptr align 1 %path, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call15, ptr nonnull align 1 %path, i64 %add, i1 false)
   %0 = load ptr, ptr %new_path4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %new_path, i64 %add13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %new_path, i64 %add13, i1 false)
   %call29 = tail call i32 @uv__iou_fs_link(ptr noundef %loop, ptr noundef nonnull %req) #15
   %tobool.not = icmp eq i32 %call29, 0
   br i1 %tobool.not, label %do.body36, label %do.end41
@@ -2751,12 +2751,12 @@ do.end41:                                         ; preds = %if.then28, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @uv__iou_fs_link(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3460,9 +3460,9 @@ if.else:                                          ; preds = %do.body1
 if.then28:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds i8, ptr %call15, i64 %add
   store ptr %add.ptr, ptr %new_path4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call15, ptr align 1 %path, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call15, ptr nonnull align 1 %path, i64 %add, i1 false)
   %0 = load ptr, ptr %new_path4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %new_path, i64 %add13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %new_path, i64 %add13, i1 false)
   %call29 = tail call i32 @uv__iou_fs_rename(ptr noundef %loop, ptr noundef nonnull %req) #15
   %tobool.not = icmp eq i32 %call29, 0
   br i1 %tobool.not, label %do.body36, label %do.end41
@@ -3700,9 +3700,9 @@ if.else:                                          ; preds = %do.body1
 if.then29:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds i8, ptr %call15, i64 %add
   store ptr %add.ptr, ptr %new_path4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call15, ptr align 1 %path, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call15, ptr nonnull align 1 %path, i64 %add, i1 false)
   %0 = load ptr, ptr %new_path4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %new_path, i64 %add13, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %new_path, i64 %add13, i1 false)
   %flags27 = getelementptr inbounds nuw i8, ptr %req, i64 284
   store i32 %flags, ptr %flags27, align 4
   %call30 = tail call i32 @uv__iou_fs_symlink(ptr noundef %loop, ptr noundef nonnull %req) #15
@@ -4091,9 +4091,9 @@ if.else:                                          ; preds = %do.body9
 do.body33:                                        ; preds = %if.else
   %add.ptr = getelementptr inbounds i8, ptr %call17, i64 %add
   store ptr %add.ptr, ptr %new_path4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call17, ptr align 1 %path, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call17, ptr nonnull align 1 %path, i64 %add, i1 false)
   %0 = load ptr, ptr %new_path4, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %new_path, i64 %add15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %new_path, i64 %add15, i1 false)
   %flags29 = getelementptr inbounds nuw i8, ptr %req, i64 284
   store i32 %flags, ptr %flags29, align 4
   %active_reqs = getelementptr inbounds nuw i8, ptr %loop, i64 32
@@ -4175,7 +4175,7 @@ do.end25:                                         ; preds = %if.else, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @uv_fs_get_system_error(ptr nocapture noundef readonly %req) local_unnamed_addr #4 {
+define dso_local i32 @uv_fs_get_system_error(ptr noundef readonly captures(none) %req) local_unnamed_addr #4 {
 entry:
   %result = getelementptr inbounds nuw i8, ptr %req, i64 88
   %0 = load i64, ptr %result, align 8
@@ -4188,13 +4188,13 @@ entry:
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @chown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @fchmod(i32 noundef, i32 noundef) local_unnamed_addr #7
@@ -4203,7 +4203,7 @@ declare i32 @fchmod(i32 noundef, i32 noundef) local_unnamed_addr #7
 declare i32 @fchown(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lchown(ptr nocapture noundef readonly, i32 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @lchown(ptr noundef readonly captures(none), i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #7
@@ -4212,19 +4212,19 @@ declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #7
 declare i32 @link(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rmdir(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #8
@@ -4262,7 +4262,7 @@ declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #7
 declare i32 @uv__close_nocheckstdio(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @fstatfs64(i32 noundef, ptr noundef) local_unnamed_addr #7
@@ -4282,13 +4282,13 @@ declare i32 @futimens(i32 noundef, ptr noundef) local_unnamed_addr #7
 declare i32 @utimensat(i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @lstat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @lstat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare ptr @mkdtemp(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @uv_once(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4318,12 +4318,12 @@ declare ptr @dlsym(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare ptr @dlerror() local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #9
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
 declare i32 @uv__getiovmax() local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i64 @readv(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -4334,7 +4334,7 @@ declare i64 @preadv64(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_
 declare i32 @scandir64(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @uv__fs_scandir_filter(ptr nocapture noundef readonly %dent) #4 {
+define internal range(i32 0, 2) i32 @uv__fs_scandir_filter(ptr noundef readonly captures(none) %dent) #4 {
 entry:
   %d_name = getelementptr inbounds nuw i8, ptr %dent, i64 19
   %0 = load i8, ptr %d_name, align 1
@@ -4366,7 +4366,7 @@ land.end:                                         ; preds = %sub_2, %sub_13, %en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @uv__fs_scandir_sort(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #10 {
+define internal i32 @uv__fs_scandir_sort(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #10 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %d_name = getelementptr inbounds nuw i8, ptr %0, i64 19
@@ -4377,20 +4377,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 declare ptr @readdir64(ptr noundef) local_unnamed_addr #1
 
 declare i32 @uv__fs_get_dirent_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @uv__reallocf(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -4398,7 +4398,7 @@ declare ptr @uv__reallocf(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @pathconf(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i64 @sendfile64(i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #7
@@ -4408,12 +4408,12 @@ declare i64 @uv__fs_copy_file_range(i32 noundef, ptr noundef, i32 noundef, ptr n
 declare i32 @uv__kernel_version() local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @statfs64(ptr noundef, ptr noundef) local_unnamed_addr #7
@@ -4428,13 +4428,13 @@ declare i64 @pwritev64(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

@@ -45,7 +45,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg10RubberbandC2ENS_6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %0, i32 %1) unnamed_addr #3 align 2 {
+define void @_ZN3vcg10RubberbandC2ENS_6Color4IhEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((0, 49)) %0, i32 %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3vcg10RubberbandE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -55,10 +55,10 @@ define void @_ZN3vcg10RubberbandC2ENS_6Color4IhEE(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg10Rubberband5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((12, 49)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN3vcg10Rubberband5ResetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((12, 49)) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(37) %2, i8 0, i64 37, i1 false)
   ret void
@@ -394,7 +394,7 @@ declare void @glLineWidth(float noundef) local_unnamed_addr #0
 declare void @glPointSize(float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define <2 x float> @_ZN3vcg10Rubberband18DevicePixelConvertENS_6Point3IfEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(49) %0, <2 x float> %1, float %2) local_unnamed_addr #7 align 2 {
+define <2 x float> @_ZN3vcg10Rubberband18DevicePixelConvertENS_6Point3IfEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(49) %0, <2 x float> %1, float %2) local_unnamed_addr #7 align 2 {
   %4 = alloca [4 x i32], align 16
   %5 = alloca [16 x double], align 16
   %6 = alloca [16 x double], align 16
@@ -454,7 +454,7 @@ declare void @glGetIntegerv(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare void @glReadPixels(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @glGetFloatv(i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -469,7 +469,7 @@ declare void @glVertex2fv(ptr noundef) local_unnamed_addr #0
 declare void @glVertex3fv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg10Rubberband10RenderLineEP9QGLWidgetNS_6Point3IfEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr nocapture noundef readnone %1, <2 x float> %2, float %3, <2 x float> %4, float %5) local_unnamed_addr #7 align 2 {
+define void @_ZN3vcg10Rubberband10RenderLineEP9QGLWidgetNS_6Point3IfEES4_(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef readnone captures(none) %1, <2 x float> %2, float %3, <2 x float> %4, float %5) local_unnamed_addr #7 align 2 {
   %7 = alloca %"class.vcg::Point3", align 8
   %8 = alloca %"class.vcg::Point3", align 8
   store <2 x float> %2, ptr %7, align 8
@@ -516,7 +516,7 @@ define void @_ZN3vcg10Rubberband10RenderLineEP9QGLWidgetNS_6Point3IfEES4_(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg10Rubberband4DragE6QPoint(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 %1) local_unnamed_addr #10 align 2 {
+define void @_ZN3vcg10Rubberband4DragE6QPoint(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0, i64 %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
@@ -532,7 +532,7 @@ define void @_ZN3vcg10Rubberband4DragE6QPoint(ptr nocapture noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg10Rubberband3PinE6QPoint(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i64 %1) local_unnamed_addr #10 align 2 {
+define void @_ZN3vcg10Rubberband3PinE6QPoint(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0, i64 %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
@@ -550,7 +550,7 @@ define void @_ZN3vcg10Rubberband3PinE6QPoint(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN3vcg10Rubberband7IsReadyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZN3vcg10Rubberband7IsReadyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 2
@@ -558,7 +558,7 @@ define noundef zeroext i1 @_ZN3vcg10Rubberband7IsReadyEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg10Rubberband9GetPointsERNS_6Point3IfEES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %2) local_unnamed_addr #10 align 2 {
+define void @_ZN3vcg10Rubberband9GetPointsERNS_6Point3IfEES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %4, i64 12, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -576,10 +576,10 @@ define internal void @_GLOBAL__sub_I_rubberband.cpp() #12 section ".text.startup
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

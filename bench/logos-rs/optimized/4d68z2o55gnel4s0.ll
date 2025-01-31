@@ -53,7 +53,7 @@ define void @"_ZN110_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN110_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro..TokenStream$GT$$GT$6extend28_$u7b$$u7b$closure$u7d$$u7d$17h59ebeacf8da97c89E"(ptr nocapture readonly align 8 %0, i32 %1) unnamed_addr #1 {
+define void @"_ZN110_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..Extend$LT$proc_macro..TokenStream$GT$$GT$6extend28_$u7b$$u7b$closure$u7d$$u7d$17h59ebeacf8da97c89E"(ptr readonly align 8 captures(none) %0, i32 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN10proc_macro19ConcatStreamsHelper4push17h25ab9cf7ce88a852E(ptr align 8 %3, i32 %1)
   ret void
@@ -158,14 +158,14 @@ define i32 @"_ZN114_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN114_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro..TokenTree$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h40f2c9d5d3042267E"(ptr nocapture readonly align 8 %0, ptr align 4 %1) unnamed_addr #1 {
+define void @"_ZN114_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro..TokenTree$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17h40f2c9d5d3042267E"(ptr readonly align 8 captures(none) %0, ptr align 4 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN10proc_macro17ConcatTreesHelper4push17hf5347f76718f2afcE(ptr align 8 %3, ptr align 4 %1)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN114_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro..TokenTree$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hc1e4d3e1c6877840E"(ptr nocapture readonly align 8 %0, ptr align 4 %1) unnamed_addr #1 {
+define void @"_ZN114_$LT$proc_macro..TokenStream$u20$as$u20$core..iter..traits..collect..FromIterator$LT$proc_macro..TokenTree$GT$$GT$9from_iter28_$u7b$$u7b$closure$u7d$$u7d$17hc1e4d3e1c6877840E"(ptr readonly align 8 captures(none) %0, ptr align 4 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN10proc_macro17ConcatTreesHelper4push17hf5347f76718f2afcE(ptr align 8 %3, ptr align 4 %1)
   ret void
@@ -184,7 +184,7 @@ declare void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20
 declare void @_ZN10proc_macro19ConcatStreamsHelper3new17habe88090ae23673fE(ptr sret([24 x i8]) align 8, i64) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare void @_ZN4core4iter6traits8iterator8Iterator8for_each17h74fb54e41d2dd129E(ptr align 8, ptr align 8) unnamed_addr #1

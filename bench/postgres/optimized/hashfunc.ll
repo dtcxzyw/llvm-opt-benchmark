@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.hashtextextended = private unnamed_addr constant [17 x i8] c"hashtextextended\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashchar(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashchar(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -23,7 +23,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashchar(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashcharextended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashcharextended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -36,7 +36,7 @@ define dso_local i64 @hashcharextended(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashint2(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashint2(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -48,7 +48,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashint2(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashint2extended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashint2extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -61,7 +61,7 @@ define dso_local i64 @hashint2extended(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashint4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashint4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -71,7 +71,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashint4(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashint4extended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashint4extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -82,7 +82,7 @@ define dso_local i64 @hashint4extended(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashint8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashint8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 32
@@ -96,7 +96,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashint8(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashint8extended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashint8extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = lshr i64 %3, 32
@@ -111,7 +111,7 @@ define dso_local i64 @hashint8extended(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashoid(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashoid(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -121,7 +121,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashoid(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashoidextended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashoidextended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -132,7 +132,7 @@ define dso_local i64 @hashoidextended(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashenum(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashenum(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -142,7 +142,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashenum(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashenumextended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashenumextended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -153,7 +153,7 @@ define dso_local i64 @hashenumextended(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashfloat4(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashfloat4(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca double, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -177,7 +177,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashfloat4(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashfloat4extended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashfloat4extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca double, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -202,7 +202,7 @@ define dso_local i64 @hashfloat4extended(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashfloat8(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashfloat8(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca double, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8
@@ -229,7 +229,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashfloat8(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashfloat8extended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashfloat8extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca double, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8
@@ -257,7 +257,7 @@ define dso_local i64 @hashfloat8extended(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashoidvector(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashoidvector(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -271,7 +271,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashoidvector(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashoidvectorextended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashoidvectorextended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -286,22 +286,22 @@ define dso_local i64 @hashoidvectorextended(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashname(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashname(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #6
   %6 = trunc i64 %5 to i32
-  %7 = tail call i32 @hash_bytes(ptr noundef %4, i32 noundef %6) #5
+  %7 = tail call i32 @hash_bytes(ptr noundef nonnull %4, i32 noundef %6) #5
   %8 = zext i32 %7 to i64
   ret i64 %8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashnameextended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashnameextended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -309,12 +309,12 @@ define dso_local i64 @hashnameextended(ptr nocapture noundef readonly %0) local_
   %6 = trunc i64 %5 to i32
   %7 = getelementptr i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
-  %9 = tail call i64 @hash_bytes_extended(ptr noundef %4, i32 noundef %6, i64 noundef %8) #5
+  %9 = tail call i64 @hash_bytes_extended(ptr noundef nonnull %4, i32 noundef %6, i64 noundef %8) #5
   ret i64 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashtext(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashtext(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -483,7 +483,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashtextextended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashtextextended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -628,7 +628,7 @@ define dso_local i64 @hashtextextended(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashvarlena(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashvarlena(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -686,7 +686,7 @@ define dso_local range(i64 0, 4294967296) i64 @hashvarlena(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashvarlenaextended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hashvarlenaextended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.6 = private unnamed_addr constant [14 x i8] c"Adding buffer\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_SclReportDupFanins(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_SclReportDupFanins(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -146,10 +146,10 @@ define void @Abc_SclReportDupFanins(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_SclIsInv(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Abc_SclIsInv(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @Mio_GateReadTruth(ptr noundef %3) #17
@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @Abc_SclIsInv(ptr nocapture noundef readonly %0) loca
 declare i64 @Mio_GateReadTruth(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_SclGetRealFaninLit(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @Abc_SclGetRealFaninLit(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 20
   %.val.i = load i32, ptr %2, align 4
   %3 = and i32 %.val.i, 15
@@ -448,7 +448,7 @@ declare void @Abc_ObjPatchFanin(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @Abc_NtkDupDfs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @Abc_SclCountMaxPhases(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @Abc_SclCountMaxPhases(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val38 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val38, i64 4
@@ -798,7 +798,7 @@ Vec_IntFree.exit:                                 ; preds = %84, %85
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFillExtra(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -1091,7 +1091,7 @@ Abc_SclObjIsBufInv.exit:                          ; preds = %23
 declare i32 @Abc_NodeFindFanin(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_SclCheckNtk(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Abc_SclCheckNtk(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1539,7 +1539,7 @@ Abc_SclObjIsBufInv.exit.thread:                   ; preds = %2, %Abc_SclObjIsBuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @Abc_NodeCompareLevels(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define range(i32 -1, 2) i32 @Abc_NodeCompareLevels(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 20
   %.val = load i32, ptr %4, align 4
@@ -1574,7 +1574,7 @@ define range(i32 -1, 2) i32 @Abc_NodeCompareLevels(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 1, 1048577) i32 @Abc_SclComputeReverseLevel(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 1, 1048577) i32 @Abc_SclComputeReverseLevel(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 44
   %.val = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val, 0
@@ -2429,7 +2429,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge6, %120
 declare i32 @Abc_ObjLevelNew(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define float @Abc_BufComputeArr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define float @Abc_BufComputeArr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %1, i64 28
   %.val = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val, 0
@@ -2512,7 +2512,7 @@ define float @Abc_BufComputeArr(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define float @Abc_BufComputeDep(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define float @Abc_BufComputeDep(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 44
   %.val2232 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val2232, 0
@@ -2605,7 +2605,7 @@ define float @Abc_BufComputeDep(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Abc_BufUpdateGlobal(ptr nocapture noundef initializes((80, 84)) %0) local_unnamed_addr #7 {
+define void @Abc_BufUpdateGlobal(ptr noundef captures(none) initializes((80, 84)) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2663,7 +2663,7 @@ define void @Abc_BufUpdateGlobal(ptr nocapture noundef initializes((80, 84)) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufCreateEdges(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Abc_BufCreateEdges(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 20
   %.val16 = load i32, ptr %3, align 4
   %4 = and i32 %.val16, 15
@@ -2863,7 +2863,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare float @Mio_GateReadPinDelay(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufAddToQue(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Abc_BufAddToQue(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 44
   %.val20 = load i32, ptr %3, align 4
   %4 = load i32, ptr %0, align 8
@@ -3246,7 +3246,7 @@ Vec_QueUpdate.exit:                               ; preds = %9, %9, %.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufCollectTfoCone_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Abc_BufCollectTfoCone_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %.val2.i = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 16
   %.val3.i = load i32, ptr %3, align 8
@@ -3396,7 +3396,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufCollectTfoCone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Abc_BufCollectTfoCone(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3460,7 +3460,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufUpdateArr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Abc_BufUpdateArr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3692,7 +3692,7 @@ Abc_BufComputeArr.exit:                           ; preds = %Abc_BufComputeArr.e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufCollectTfiCone_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Abc_BufCollectTfiCone_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %.val2.i = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %0, i64 16
   %.val3.i = load i32, ptr %3, align 8
@@ -3833,7 +3833,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufCollectTfiCone(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Abc_BufCollectTfiCone(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3897,7 +3897,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %2, %Vec_IntFill.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufUpdateDep(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Abc_BufUpdateDep(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -4812,7 +4812,7 @@ declare ptr @Mio_LibraryReadInv(ptr noundef) local_unnamed_addr #3
 declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Buf_ManStop(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Buf_ManStop(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -4996,10 +4996,10 @@ Vec_QueFree.exit:                                 ; preds = %74, %77
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_BufSortByDelay(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @Abc_BufSortByDelay(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5279,7 +5279,7 @@ Vec_IntPush.exit41:                               ; preds = %.Vec_IntGrow.exit10
 declare ptr @Abc_QuickSortCost(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufPrintOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Abc_BufPrintOne(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 32
@@ -5467,7 +5467,7 @@ define void @Abc_BufReplaceBufsByInvs(ptr noundef %0) local_unnamed_addr #2 {
 declare i32 @Abc_NodeIsBuf(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_BufComputeAverage(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define i32 @Abc_BufComputeAverage(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 32
@@ -5565,7 +5565,7 @@ define i32 @Abc_BufComputeAverage(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_BufFindNonBuffDriver(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #2 {
+define ptr @Abc_BufFindNonBuffDriver(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 20
   %.val9 = load i32, ptr %3, align 4
   %4 = and i32 %.val9, 15
@@ -5602,7 +5602,7 @@ tailrecurse._crit_edge:                           ; preds = %.lr.ph, %tailrecurs
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_BufCountNonCritical(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define i32 @Abc_BufCountNonCritical(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5757,7 +5757,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @Abc_BufPerformOne(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 32
@@ -5821,7 +5821,7 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   br i1 %42, label %44, label %43
 
 43:                                               ; preds = %.lr.ph268
-  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %41, ptr noundef %11, ptr noundef %27) #17
+  tail call void @Abc_ObjPatchFanin(ptr noundef nonnull %41, ptr noundef nonnull %11, ptr noundef %27) #17
   %.pre = load ptr, ptr %28, align 8
   br label %44
 
@@ -5838,7 +5838,7 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   tail call void @Abc_BufCreateEdges(ptr noundef nonnull %0, ptr noundef %27)
   tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef %27)
   tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef %27)
-  tail call void @Abc_BufAddToQue(ptr noundef nonnull %0, ptr noundef %11)
+  tail call void @Abc_BufAddToQue(ptr noundef nonnull %0, ptr noundef nonnull %11)
   tail call void @Abc_BufAddToQue(ptr noundef nonnull %0, ptr noundef %27)
   tail call void @Abc_SclTimeIncUpdateLevel(ptr noundef %27) #17
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -5918,7 +5918,7 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %.val197 = load ptr, ptr %83, align 8
   %84 = getelementptr inbounds nuw ptr, ptr %.val197, i64 %indvars.iv294
   %85 = load ptr, ptr %84, align 8
-  tail call void @Abc_ObjPatchFanin(ptr noundef %85, ptr noundef %11, ptr noundef %63) #17
+  tail call void @Abc_ObjPatchFanin(ptr noundef %85, ptr noundef nonnull %11, ptr noundef %63) #17
   %indvars.iv.next295 = add nuw nsw i64 %indvars.iv294, 1
   %86 = load ptr, ptr %77, align 8
   %87 = getelementptr i8, ptr %86, i64 4
@@ -5944,9 +5944,9 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %98 = sext i32 %.val229 to i64
   %99 = getelementptr inbounds i32, ptr %.val226.val, i64 %98
   store i32 %96, ptr %99, align 4
-  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef %11)
+  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef nonnull %11)
   tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef %63)
-  tail call void @Abc_BufAddToQue(ptr noundef nonnull %0, ptr noundef %11)
+  tail call void @Abc_BufAddToQue(ptr noundef nonnull %0, ptr noundef nonnull %11)
   tail call void @Abc_BufAddToQue(ptr noundef nonnull %0, ptr noundef %63)
   %.val207262 = load i32, ptr %64, align 4
   %100 = icmp sgt i32 %.val207262, 0
@@ -6073,7 +6073,7 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 .lr.ph:                                           ; preds = %143, %.lr.ph
   %.4235 = phi i32 [ %165, %.lr.ph ], [ 0, %143 ]
   %163 = load ptr, ptr %5, align 8
-  %164 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef %163, ptr noundef %11) #17
+  %164 = tail call ptr @Abc_NtkCreateNodeInv(ptr noundef %163, ptr noundef nonnull %11) #17
   %165 = add nuw nsw i32 %.4235, 1
   %exitcond.not = icmp eq i32 %165, %128
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !62
@@ -6092,7 +6092,7 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
 .lr.ph238:                                        ; preds = %166, %.lr.ph238
   %.5236 = phi i32 [ %173, %.lr.ph238 ], [ 0, %166 ]
   %171 = load ptr, ptr %5, align 8
-  %172 = tail call ptr @Abc_NtkCreateNodeBuf(ptr noundef %171, ptr noundef %11) #17
+  %172 = tail call ptr @Abc_NtkCreateNodeBuf(ptr noundef %171, ptr noundef nonnull %11) #17
   %173 = add nuw nsw i32 %.5236, 1
   %exitcond270.not = icmp eq i32 %173, %128
   br i1 %exitcond270.not, label %._crit_edge239, label %.lr.ph238, !llvm.loop !63
@@ -6121,8 +6121,8 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   br i1 %180, label %.critedge11.preheader269, label %.critedge11._crit_edge.thread
 
 .critedge11._crit_edge.thread:                    ; preds = %.critedge11.preheader
-  tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef %11)
-  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef %11)
+  tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef nonnull %11)
+  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef nonnull %11)
   br label %.loopexit
 
 .critedge11.preheader269:                         ; preds = %.critedge11.preheader
@@ -6162,7 +6162,7 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %200 = sext i32 %197 to i64
   %201 = getelementptr inbounds ptr, ptr %.val202.val, i64 %200
   %202 = load ptr, ptr %201, align 8
-  tail call void @Abc_ObjPatchFanin(ptr noundef %185, ptr noundef %11, ptr noundef %202) #17
+  tail call void @Abc_ObjPatchFanin(ptr noundef %185, ptr noundef nonnull %11, ptr noundef %202) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %203 = load ptr, ptr %137, align 8
   %204 = getelementptr i8, ptr %203, i64 4
@@ -6187,7 +6187,7 @@ define void @Abc_BufPerformOne(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   br i1 %exitcond275.not, label %.critedge11._crit_edge, label %.critedge11, !llvm.loop !65
 
 .critedge11._crit_edge:                           ; preds = %.critedge11
-  tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef %11)
+  tail call void @Abc_BufUpdateArr(ptr noundef nonnull %0, ptr noundef nonnull %11)
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %214 = getelementptr i8, ptr %0, i64 48
   %215 = getelementptr i8, ptr %0, i64 32
@@ -6297,7 +6297,7 @@ Abc_BufComputeDep.exit:                           ; preds = %Abc_BufComputeDep.e
   br i1 %exitcond280.not, label %._crit_edge249, label %217, !llvm.loop !66
 
 ._crit_edge249:                                   ; preds = %Abc_BufComputeDep.exit
-  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef %11)
+  tail call void @Abc_BufUpdateDep(ptr noundef nonnull %0, ptr noundef nonnull %11)
   %269 = sext i32 %.val215.val to i64
   %wide.trip.count284 = zext nneg i32 %128 to i64
   br label %.lr.ph252
@@ -6541,19 +6541,19 @@ Vec_QuePop.exit:                                  ; preds = %26, %Vec_QueMoveDow
 declare i32 @Abc_NtkLevel(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_QueGrow(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #14 {
+define internal fastcc void @Vec_QueGrow(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #14 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp slt i32 %3, %1
   br i1 %.not, label %4, label %39
@@ -6623,7 +6623,7 @@ define internal fastcc void @Vec_QueGrow(ptr nocapture noundef %0, i32 noundef %
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16

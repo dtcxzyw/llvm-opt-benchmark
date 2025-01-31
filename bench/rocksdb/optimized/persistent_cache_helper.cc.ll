@@ -177,7 +177,7 @@ declare { i64, i64 } @_ZN7rocksdb15BlockBasedTable11GetCacheKeyERKNS_18Offsetabl
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21PersistentCacheHelper18InsertUncompressedERKNS_22PersistentCacheOptionsERKNS_11BlockHandleERKNS_13BlockContentsE(ptr noundef nonnull align 8 dereferenceable(40) %cache_options, ptr noundef nonnull align 8 dereferenceable(16) %handle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %contents) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21PersistentCacheHelper18InsertUncompressedERKNS_22PersistentCacheOptionsERKNS_11BlockHandleERKNS_13BlockContentsE(ptr noundef nonnull align 8 dereferenceable(40) %cache_options, ptr noundef nonnull align 8 dereferenceable(16) %handle, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %contents) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %key = alloca %"class.rocksdb::CacheKey", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -571,7 +571,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6

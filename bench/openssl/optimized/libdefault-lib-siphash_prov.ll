@@ -37,7 +37,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @siphash_dup(ptr nocapture noundef readonly %vsrc) #0 {
+define internal noalias ptr @siphash_dup(ptr noundef readonly captures(none) %vsrc) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call, 0
@@ -130,7 +130,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @siphash_final(ptr noundef %vmacctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) #0 {
+define internal i32 @siphash_final(ptr noundef %vmacctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 noundef %outsize) #0 {
 entry:
   %siphash.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %call.i = tail call i64 @SipHash_hash_size(ptr noundef nonnull %siphash.i) #4
@@ -151,7 +151,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @siphash_gettable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @siphash_gettable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @siphash_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -207,7 +207,7 @@ return:                                           ; preds = %land.lhs.true13, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @siphash_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @siphash_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @siphash_settable_ctx_params.known_settable_ctx_params
 }
@@ -315,7 +315,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 

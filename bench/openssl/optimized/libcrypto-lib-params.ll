@@ -68,7 +68,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @OSSL_PARAM_locate_const(ptr noundef readonly %p, ptr noundef readonly %key) local_unnamed_addr #0 {
@@ -439,7 +439,7 @@ return:                                           ; preds = %if.then36, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_int(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_int(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !7
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -760,7 +760,7 @@ return:                                           ; preds = %if.then38, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_uint(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_uint(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !10
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1081,7 +1081,7 @@ return:                                           ; preds = %if.then45, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_long(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_long(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !13
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1409,7 +1409,7 @@ return:                                           ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_ulong(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_ulong(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !16
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1430,7 +1430,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr nocapture noundef nonnull readonly %p, ptr nocapture noundef nonnull writeonly %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @general_get_int(ptr noundef nonnull readonly captures(none) %p, ptr noundef nonnull writeonly captures(none) %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
 entry:
   %data_type = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
@@ -1554,7 +1554,7 @@ return:                                           ; preds = %if.end.i.i25, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @general_set_int(ptr nocapture noundef nonnull initializes((32, 40)) %p, ptr nocapture noundef nonnull readonly %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @general_set_int(ptr noundef nonnull captures(none) initializes((32, 40)) %p, ptr noundef nonnull readonly captures(none) %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
 entry:
   %return_size = getelementptr inbounds nuw i8, ptr %p, i64 32
   store i64 %val_size, ptr %return_size, align 8
@@ -1653,7 +1653,7 @@ return:                                           ; preds = %entry, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_int32(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_int32(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !20
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1668,7 +1668,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr nocapture noundef nonnull readonly %p, ptr nocapture noundef nonnull writeonly %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @general_get_uint(ptr noundef nonnull readonly captures(none) %p, ptr noundef nonnull writeonly captures(none) %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
 entry:
   %data_type = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = load i32, ptr %data_type, align 8
@@ -1740,7 +1740,7 @@ return:                                           ; preds = %if.then9.i.i, %lor.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @general_set_uint(ptr nocapture noundef nonnull initializes((32, 40)) %p, ptr nocapture noundef nonnull readonly %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @general_set_uint(ptr noundef nonnull captures(none) initializes((32, 40)) %p, ptr noundef nonnull readonly captures(none) %val, i64 noundef range(i64 4, 9) %val_size) unnamed_addr #4 {
 entry:
   %return_size = getelementptr inbounds nuw i8, ptr %p, i64 32
   store i64 %val_size, ptr %return_size, align 8
@@ -1855,7 +1855,7 @@ return:                                           ; preds = %entry, %cond.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_uint32(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_uint32(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !23
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1870,7 +1870,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_int64(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_int64(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !26
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1885,7 +1885,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_uint64(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_uint64(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !29
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1914,7 +1914,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_size_t(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_size_t(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !32
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -1943,7 +1943,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_time_t(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_time_t(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !35
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -2115,7 +2115,7 @@ declare i32 @BN_bn2nativepad(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare i32 @BN_signed_bn2native(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_BN(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_BN(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !38
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -2431,7 +2431,7 @@ return:                                           ; preds = %if.then48, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_double(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_double(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !41
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -2490,7 +2490,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef readonly %p, ptr noundef %val, ptr nocapture noundef nonnull %max_len, ptr noundef writeonly %used_len, i32 noundef range(i32 4, 6) %type) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @get_string_internal(ptr noundef readonly %p, ptr noundef %val, ptr noundef nonnull captures(none) %max_len, ptr noundef writeonly %used_len, i32 noundef range(i32 4, 6) %type) unnamed_addr #4 {
 entry:
   %cmp = icmp eq ptr %val, null
   %cmp1 = icmp eq ptr %used_len, null
@@ -2633,7 +2633,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr nocapture noundef nonnull initializes((32, 40)) %p, ptr nocapture noundef nonnull readonly %val, i64 noundef %len, i32 noundef range(i32 4, 6) %type) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @set_string_internal(ptr noundef nonnull captures(none) initializes((32, 40)) %p, ptr noundef nonnull readonly captures(none) %val, i64 noundef %len, i32 noundef range(i32 4, 6) %type) unnamed_addr #4 {
 entry:
   %return_size = getelementptr inbounds nuw i8, ptr %p, i64 32
   store i64 %len, ptr %return_size, align 8
@@ -2688,7 +2688,7 @@ return:                                           ; preds = %if.end6, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_set_octet_string(ptr noundef %p, ptr noundef readonly %val, i64 noundef %len) local_unnamed_addr #4 {
@@ -2755,7 +2755,7 @@ return:                                           ; preds = %if.end6.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @OSSL_PARAM_construct_utf8_string(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #7 {
+define void @OSSL_PARAM_construct_utf8_string(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #7 {
 entry:
   %cmp = icmp ne ptr %buf, null
   %cmp1 = icmp eq i64 %bsize, 0
@@ -2781,7 +2781,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_octet_string(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_octet_string(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !47
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -2992,7 +2992,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_utf8_ptr(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_utf8_ptr(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !50
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -3007,7 +3007,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_octet_ptr(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_octet_ptr(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 12), (16, 40)) %agg.result, ptr noundef %key, ptr noundef %buf, i64 noundef %bsize) local_unnamed_addr #5 {
 entry:
   store ptr %key, ptr %agg.result, align 8, !alias.scope !53
   %data_type2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -3022,7 +3022,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_param_get1_octet_string(ptr noundef %params, ptr noundef readonly %name, ptr nocapture noundef %out, ptr nocapture noundef %out_len) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @ossl_param_get1_octet_string(ptr noundef %params, ptr noundef readonly %name, ptr noundef captures(none) %out, ptr noundef captures(none) %out_len) local_unnamed_addr #4 {
 entry:
   %max_len.addr.i = alloca i64, align 8
   %buf = alloca ptr, align 8
@@ -3090,7 +3090,7 @@ return:                                           ; preds = %for.inc.i.i, %for.c
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_param_get1_concat_octet_string(ptr noundef readonly %params, ptr noundef %name, ptr nocapture noundef %out, ptr nocapture noundef %out_len, i64 noundef %maxsize) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @ossl_param_get1_concat_octet_string(ptr noundef readonly %params, ptr noundef %name, ptr noundef captures(none) %out, ptr noundef captures(none) %out_len, i64 noundef %maxsize) local_unnamed_addr #4 {
 entry:
   %sz = alloca i64, align 8
   %cmp.i.i = icmp ne ptr %params, null
@@ -3169,7 +3169,7 @@ return:                                           ; preds = %for.inc.i.i, %for.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr nocapture noundef nonnull readonly %p, ptr noundef readonly %name, ptr noundef %out, ptr noundef nonnull %outlen) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @setbuf_fromparams(ptr noundef nonnull readonly captures(none) %p, ptr noundef readonly %name, ptr noundef %out, ptr noundef nonnull %outlen) unnamed_addr #4 {
 entry:
   %pkt = alloca %struct.wpacket_st, align 8
   %cmp = icmp eq ptr %out, null
@@ -3285,14 +3285,14 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @OSSL_PARAM_construct_end(ptr noalias nocapture writeonly sret(%struct.ossl_param_st) align 8 initializes((0, 40)) %agg.result) local_unnamed_addr #5 {
+define void @OSSL_PARAM_construct_end(ptr noalias writeonly sret(%struct.ossl_param_st) align 8 captures(none) initializes((0, 40)) %agg.result) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_PARAM_get_utf8_string_ptr(ptr noundef %p, ptr noundef %val) local_unnamed_addr #4 {
@@ -3397,10 +3397,10 @@ lor.end:                                          ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @unsigned_from_signed(ptr nocapture noundef nonnull writeonly %dest, i64 noundef %dest_len, ptr nocapture noundef readonly %src, i64 noundef %src_len) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @unsigned_from_signed(ptr noundef nonnull writeonly captures(none) %dest, i64 noundef %dest_len, ptr noundef readonly captures(none) %src, i64 noundef %src_len) unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %src, i64 %src_len
   %arrayidx.i = getelementptr i8, ptr %0, i64 -1
@@ -3477,10 +3477,10 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #10
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

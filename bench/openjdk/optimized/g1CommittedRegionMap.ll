@@ -43,7 +43,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_52ELS1_128ELS1_0ELS1_0ELS1_0EE6prefixEPcm =
 @_ZN20G1CommittedRegionMapC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20G1CommittedRegionMapC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17G1HeapRegionRangeC2Ejj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN17G1HeapRegionRangeC2Ejj(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
@@ -51,7 +51,7 @@ define hidden void @_ZN17G1HeapRegionRangeC2Ejj(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20G1CommittedRegionMapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 25), (32, 49), (56, 64)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20G1CommittedRegionMapC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 25), (32, 49), (56, 64)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTV20G1CommittedRegionMap, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %2, i8 0, i64 16, i1 false)
@@ -81,21 +81,21 @@ define hidden void @_ZN20G1CommittedRegionMap10initializeEj(ptr noundef nonnull 
 declare void @_ZN14GrowableBitMapI11CHeapBitMapE10initializeEmb(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK20G1CommittedRegionMap10num_activeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK20G1CommittedRegionMap10num_activeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK20G1CommittedRegionMap12num_inactiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK20G1CommittedRegionMap12num_inactiveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK20G1CommittedRegionMap10max_lengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK20G1CommittedRegionMap10max_lengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -309,7 +309,7 @@ define hidden void @_ZN20G1CommittedRegionMap8uncommitEjj(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @_ZNK20G1CommittedRegionMap17next_active_rangeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden i64 @_ZNK20G1CommittedRegionMap17next_active_rangeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -438,7 +438,7 @@ _ZNK6BitMap20find_first_clear_bitEm.exit:         ; preds = %_ZNK6BitMap18find_f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @_ZNK20G1CommittedRegionMap22next_committable_rangeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden i64 @_ZNK20G1CommittedRegionMap22next_committable_rangeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -567,7 +567,7 @@ _ZNK6BitMap18find_first_set_bitEm.exit:           ; preds = %_ZNK6BitMap20find_f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @_ZNK20G1CommittedRegionMap19next_inactive_rangeEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden i64 @_ZNK20G1CommittedRegionMap19next_inactive_rangeEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -698,7 +698,7 @@ _ZNK6BitMap20find_first_clear_bitEm.exit:         ; preds = %_ZNK6BitMap18find_f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK20G1CommittedRegionMap26guarantee_mt_safety_activeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZNK20G1CommittedRegionMap26guarantee_mt_safety_activeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %24
@@ -749,7 +749,7 @@ declare noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull alig
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK20G1CommittedRegionMap28guarantee_mt_safety_inactiveEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZNK20G1CommittedRegionMap28guarantee_mt_safety_inactiveEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   %2 = load i8, ptr @_ZN8Universe18_fully_initializedE, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %24
@@ -836,7 +836,7 @@ declare void @llvm.va_end.p0(ptr) #8
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

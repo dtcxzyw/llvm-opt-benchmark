@@ -653,7 +653,7 @@ cmp_byte_object.exit:                             ; preds = %252, %246, %239, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc range(i32 0, 3) i32 @cmp_string(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #2 {
@@ -688,7 +688,7 @@ define internal fastcc range(i32 0, 3) i32 @cmp_string(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @cmp_byte_object(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 3) i32 @cmp_byte_object(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -723,7 +723,7 @@ define internal fastcc range(i32 0, 3) i32 @cmp_byte_object(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @cmp_proc_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 3) i32 @cmp_proc_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(260) %0, ptr noundef nonnull dereferenceable(260) %1, i64 noundef 260) #7
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %42, label %5
@@ -1592,7 +1592,7 @@ define internal fastcc range(i32 0, 3) i32 @cmp_envar(ptr noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @cmp_coord(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 5) i32 @cmp_coord(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = load i8, ptr %0, align 8
   %4 = load i8, ptr %1, align 8
   %.not = icmp eq i8 %3, %4
@@ -1634,7 +1634,7 @@ define internal fastcc range(i32 0, 5) i32 @cmp_coord(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8
@@ -1703,7 +1703,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_topo(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6) i32 @cmp_cpuset(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @cmp_cpuset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8
@@ -1758,7 +1758,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_cpuset(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 5) i32 @cmp_geometry(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %3, %4
@@ -1893,7 +1893,7 @@ cmp_coord.exit.thread:                            ; preds = %.thread.i, %59, %58
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @cmp_device(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 5) i32 @cmp_device(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1956,7 +1956,7 @@ define internal fastcc range(i32 0, 5) i32 @cmp_device(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2041,7 +2041,7 @@ define internal fastcc range(i32 0, 5) i32 @cmp_devdist(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @cmp_endpoint(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 3) i32 @cmp_endpoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   %4 = load ptr, ptr %1, align 8
@@ -2124,7 +2124,7 @@ cmp_byte_object.exit:                             ; preds = %38, %37, %32, %30, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 3) i32 @cmp_dbuf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 3) i32 @cmp_dbuf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8
@@ -2166,7 +2166,7 @@ define internal fastcc range(i32 0, 3) i32 @cmp_dbuf(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8
@@ -2373,7 +2373,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_procstats(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8
@@ -2535,7 +2535,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_diskstats(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8
@@ -2637,7 +2637,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_netstats(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8
@@ -2887,7 +2887,7 @@ define internal fastcc range(i32 0, 6) i32 @cmp_nodestats(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @cmp_regattr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = load ptr, ptr %1, align 8
@@ -3000,7 +3000,7 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @cmp_info(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
@@ -3026,7 +3026,7 @@ define internal fastcc i32 @cmp_info(ptr noundef nonnull %0, ptr noundef %1) unn
 declare ptr @pmix_hwloc_print_topology(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @pmix_hwloc_print_cpuset(ptr noundef) local_unnamed_addr #5
 

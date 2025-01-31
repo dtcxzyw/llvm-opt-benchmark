@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @form_KKT(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, double noundef %3, ptr noundef readonly %4, double noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
+define ptr @form_KKT(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, double noundef %3, ptr noundef readonly %4, double noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
   %10 = load i64, ptr %1, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i64, ptr %11, align 8
@@ -1258,7 +1258,7 @@ _kkt_shifts_param2.exit:                          ; preds = %686, %698, %355, %3
 declare ptr @csc_spalloc(i64 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @update_KKT_P(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4, double noundef %5, i64 noundef %6) local_unnamed_addr #2 {
+define void @update_KKT_P(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly captures(none) %4, double noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = icmp slt i64 %3, 1
   br i1 %8, label %.loopexit, label %9
 
@@ -1361,7 +1361,7 @@ define void @update_KKT_P(ptr nocapture noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @update_KKT_A(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 {
+define void @update_KKT_A(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = icmp slt i64 %3, 1
   br i1 %6, label %.loopexit, label %7
 
@@ -1406,7 +1406,7 @@ define void @update_KKT_A(ptr nocapture noundef readonly %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @update_KKT_param2(ptr nocapture noundef readonly %0, ptr noundef readonly %1, double noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) local_unnamed_addr #3 {
+define void @update_KKT_param2(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, double noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   %6 = icmp sgt i64 %4, 0
   br i1 %.not, label %.preheader, label %.preheader16

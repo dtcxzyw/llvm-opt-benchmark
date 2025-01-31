@@ -22,7 +22,7 @@ $_ZTV22MetadataOnStackClosure = comdat any
 @_ZN19MetadataOnStackMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19MetadataOnStackMarkD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19MetadataOnStackMarkC2Ebb(ptr nocapture nonnull readnone align 1 %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN19MetadataOnStackMarkC2Ebb(ptr nonnull readnone align 1 captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.MetadataOnStackClosure, align 8
   tail call void @_ZN7Threads19metadata_handles_doEPFvP8MetadataE(ptr noundef nonnull @_ZN8Metadata13mark_on_stackEPS_) #4
   br i1 %1, label %5, label %9
@@ -74,7 +74,7 @@ declare void @_ZN13ThreadService11metadata_doEPFvP8MetadataE(ptr noundef) local_
 declare void @_ZN5JVMCI11metadata_doEPFvP8MetadataE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19MetadataOnStackMarkD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19MetadataOnStackMarkD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN19MetadataOnStackMark15_current_bufferE, align 8
   %3 = icmp eq ptr %2, null
   %.pre = load ptr, ptr @_ZN19MetadataOnStackMark13_used_buffersE, align 8
@@ -266,7 +266,7 @@ define linkonce_odr hidden void @_ZN22MetadataOnStackClosure11do_metadataEP8Meta
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

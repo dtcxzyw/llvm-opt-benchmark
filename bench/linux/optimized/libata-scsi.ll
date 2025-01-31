@@ -121,7 +121,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ata_scsi_que
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable_ata_common_sdev_groups462, ptr @__UNIQUE_ID___addressable_ata_sas_scsi_ioctl465, ptr @__UNIQUE_ID___addressable_ata_scsi_dma_need_drain469, ptr @__UNIQUE_ID___addressable_ata_scsi_ioctl466, ptr @__UNIQUE_ID___addressable_ata_scsi_queuecmd493, ptr @__UNIQUE_ID___addressable_ata_scsi_slave_alloc476, ptr @__UNIQUE_ID___addressable_ata_scsi_slave_config477, ptr @__UNIQUE_ID___addressable_ata_scsi_slave_destroy478, ptr @__UNIQUE_ID___addressable_ata_scsi_unlock_native_capacity464, ptr @__UNIQUE_ID___addressable_ata_std_bios_param463, ptr @__UNIQUE_ID___addressable_dev_attr_unload_heads461], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @ata_scsi_park_show(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -440
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2064
@@ -281,7 +281,7 @@ select.unfold:                                    ; preds = %63, %63, %63, %63, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @ata_scsi_park_store(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define internal i64 @ata_scsi_park_store(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr i8, ptr %0, i64 -440
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #19
@@ -490,7 +490,7 @@ define dso_local noundef zeroext i1 @ata_scsi_sense_is_valid(i8 noundef zeroext 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_scsi_set_sense(ptr nocapture noundef readonly %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_scsi_set_sense(ptr noundef readonly captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 16
   %8 = trunc i64 %7 to i32
@@ -501,16 +501,16 @@ define dso_local void @ata_scsi_set_sense(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @scsi_build_sense(ptr noundef, i32 noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_scsi_set_sense_information(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_scsi_set_sense_information(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call i64 @ata_tf_read_block(ptr noundef %2, ptr noundef %0) #19
   %5 = icmp eq i64 %4, -1
   br i1 %5, label %10, label %6
@@ -532,7 +532,7 @@ declare dso_local i64 @ata_tf_read_block(ptr noundef, ptr noundef) local_unnamed
 declare dso_local i32 @scsi_set_sense_information(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @ata_std_bios_param(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 12)) %3) #4 align 16 {
+define dso_local noundef i32 @ata_std_bios_param(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 12)) %3) #4 align 16 {
   store i32 255, ptr %3, align 4
   %5 = getelementptr i8, ptr %3, i64 4
   store i32 63, ptr %5, align 4
@@ -544,7 +544,7 @@ define dso_local noundef i32 @ata_std_bios_param(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_scsi_unlock_native_capacity(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @ata_scsi_unlock_native_capacity(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 2064
   %4 = load ptr, ptr %3, align 8
@@ -677,7 +677,7 @@ select.unfold:                                    ; preds = %61, %61, %61, %61, 
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 16 {
+define dso_local ptr @ata_scsi_find_dev(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 14728
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -968,7 +968,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_cmd_ioctl(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @scsi_execute_cmd(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -1416,7 +1416,7 @@ define dso_local i32 @ata_scsi_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ata_scsi_sdev_config(ptr nocapture noundef initializes((416, 420)) %0) local_unnamed_addr #9 align 16 {
+define dso_local void @ata_scsi_sdev_config(ptr noundef captures(none) initializes((416, 420)) %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 332
   %3 = load i64, ptr %2, align 4
   %4 = or i64 %3, 18350080
@@ -1427,7 +1427,7 @@ define dso_local void @ata_scsi_sdev_config(ptr nocapture noundef initializes((4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @ata_scsi_dma_need_drain(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local zeroext i1 @ata_scsi_dma_need_drain(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 412
   %3 = load i8, ptr %2, align 4
   %4 = tail call i32 @atapi_cmd_type(i8 noundef zeroext %3) #19
@@ -1439,7 +1439,7 @@ define dso_local zeroext i1 @ata_scsi_dma_need_drain(ptr nocapture noundef reado
 declare dso_local i32 @atapi_cmd_type(i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_dev_config(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ata_scsi_dev_config(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 1056
@@ -3063,7 +3063,7 @@ define dso_local void @ata_scsi_simulate(ptr noundef %0, ptr noundef %1) local_u
 declare dso_local void @scsi_done(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 0, 4183) i32 @ata_scsi_queuecmd(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %5 = load ptr, ptr %4, align 8
@@ -3194,7 +3194,7 @@ define internal fastcc void @ata_scsi_set_invalid_field(i64 %.16.val, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_scsi_rbuf_fill(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ata_scsi_rbuf_fill(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @ata_scsi_rbuf_lock) #19
@@ -3223,7 +3223,7 @@ define internal fastcc void @ata_scsi_rbuf_fill(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsiop_inq_std(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 16)) %1) #0 align 16 {
+define internal noundef i32 @ata_scsiop_inq_std(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 16)) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i16, ptr %4, align 2
@@ -3329,7 +3329,7 @@ define internal noundef i32 @ata_scsiop_inq_std(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @ata_scsiop_inq_00(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #11 align 16 {
+define internal noundef i32 @ata_scsiop_inq_00(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #11 align 16 {
   br label %3
 
 3:                                                ; preds = %20, %2
@@ -3370,7 +3370,7 @@ define internal noundef i32 @ata_scsiop_inq_00(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsiop_inq_80(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 4)) %1) #0 align 16 {
+define internal noundef i32 @ata_scsiop_inq_80(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 4)) %1) #0 align 16 {
   store i32 335577088, ptr %1, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -3380,7 +3380,7 @@ define internal noundef i32 @ata_scsiop_inq_80(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ata_scsiop_inq_83(ptr nocapture noundef readonly %0, ptr noundef initializes((1, 2), (4, 5), (7, 8)) %1) #0 align 16 {
+define internal noundef i32 @ata_scsiop_inq_83(ptr noundef readonly captures(none) %0, ptr noundef initializes((1, 2), (4, 5), (7, 8)) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %1, i64 1
   store i8 -125, ptr %3, align 1
   %4 = getelementptr i8, ptr %1, i64 4
@@ -3432,7 +3432,7 @@ define internal noundef i32 @ata_scsiop_inq_83(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @ata_scsiop_inq_89(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((1, 4), (8, 39), (40, 41), (48, 49), (56, 57), (60, 572)) %1) #12 align 16 {
+define internal noundef i32 @ata_scsiop_inq_89(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((1, 4), (8, 39), (40, 41), (48, 49), (56, 57), (60, 572)) %1) #12 align 16 {
   %3 = getelementptr i8, ptr %1, i64 1
   store i8 -119, ptr %3, align 1
   %4 = getelementptr i8, ptr %1, i64 2
@@ -3465,7 +3465,7 @@ define internal noundef i32 @ata_scsiop_inq_89(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @ata_scsiop_inq_b0(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((1, 2), (3, 4), (6, 8)) %1) #11 align 16 {
+define internal noundef i32 @ata_scsiop_inq_b0(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((1, 2), (3, 4), (6, 8)) %1) #11 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %1, i64 1
   store i8 -80, ptr %4, align 1
@@ -3533,7 +3533,7 @@ define internal noundef i32 @ata_scsiop_inq_b0(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @ata_scsiop_inq_b1(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #11 align 16 {
+define internal noundef i32 @ata_scsiop_inq_b1(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #11 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 336
@@ -3638,7 +3638,7 @@ define internal noundef i32 @ata_scsiop_inq_b1(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @ata_scsiop_inq_b6(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((1, 2), (3, 4), (8, 20)) %1) #13 align 16 {
+define internal noundef i32 @ata_scsiop_inq_b6(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((1, 2), (3, 4), (8, 20)) %1) #13 align 16 {
   %3 = getelementptr i8, ptr %1, i64 1
   store i8 -74, ptr %3, align 1
   %4 = getelementptr i8, ptr %1, i64 3
@@ -3681,7 +3681,7 @@ define internal noundef i32 @ata_scsiop_inq_b6(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @ata_scsiop_inq_b9(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((1, 4)) %1) #11 align 16 {
+define internal noundef i32 @ata_scsiop_inq_b9(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((1, 4)) %1) #11 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1520
   %5 = load ptr, ptr %4, align 16
@@ -3735,7 +3735,7 @@ define internal noundef i32 @ata_scsiop_inq_b9(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_scsiop_read_cap(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ata_scsiop_read_cap(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 784
   %4 = load i64, ptr %3, align 16
@@ -3989,7 +3989,7 @@ define internal fastcc void @ata_scsiop_read_cap(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_scsi_add_hosts(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ata_scsi_add_hosts(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -4249,7 +4249,7 @@ declare dso_local void @msleep(i32 noundef) local_unnamed_addr #3
 declare dso_local i64 @round_jiffies_relative(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @ata_scsi_offline_dev(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ata_scsi_offline_dev(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4268,7 +4268,7 @@ define dso_local noundef range(i32 0, 2) i32 @ata_scsi_offline_dev(ptr nocapture
 declare dso_local i32 @scsi_device_set_state(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_scsi_media_change_notify(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_scsi_media_change_notify(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -4431,7 +4431,7 @@ define internal fastcc void @ata_scsi_handle_link_detach(ptr noundef %0) unnamed
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ata_scsi_user_scan(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2064
   %6 = load ptr, ptr %5, align 8
   %7 = add i64 %3, -1
@@ -4905,7 +4905,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_rw_xlat(ptr noundef %0) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ata_scsi_write_same_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_write_same_xlat(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -5157,7 +5157,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_write_same_xlat(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @ata_scsi_flush_xlat(ptr nocapture noundef initializes((40, 41), (53, 54)) %0) unnamed_addr #13 align 16 {
+define internal noundef i32 @ata_scsi_flush_xlat(ptr noundef captures(none) initializes((40, 41), (53, 54)) %0) unnamed_addr #13 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = or i64 %3, 4
@@ -5181,7 +5181,7 @@ define internal noundef i32 @ata_scsi_flush_xlat(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr nocapture noundef initializes((40, 41)) %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr noundef captures(none) initializes((40, 41)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5415,7 +5415,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_verify_xlat(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr nocapture noundef initializes((40, 41)) %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr noundef captures(none) initializes((40, 41)) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -5899,7 +5899,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_pass_thru(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ata_scsi_var_len_cdb_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_var_len_cdb_xlat(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 172
@@ -5917,7 +5917,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_var_len_cdb_xlat(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ata_scsi_mode_select_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_mode_select_xlat(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = alloca i16, align 2
   %3 = alloca [64 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6210,7 +6210,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_mode_select_xlat(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ata_scsi_zbc_in_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_zbc_in_xlat(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -6449,7 +6449,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_zbc_in_xlat(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ata_scsi_zbc_out_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_zbc_out_xlat(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -6596,7 +6596,7 @@ define internal noundef range(i32 0, 2) i32 @ata_scsi_zbc_out_xlat(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @ata_scsi_security_inout_xlat(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @ata_scsi_security_inout_xlat(ptr noundef captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 164
@@ -6810,7 +6810,7 @@ declare dso_local i64 @sg_copy_from_buffer(ptr noundef, i32 noundef, ptr noundef
 declare dso_local i64 @sg_copy_to_buffer(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -22, 1) i32 @ata_mselect_caching(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr nocapture noundef writeonly %3) unnamed_addr #11 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @ata_mselect_caching(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 65536) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #11 align 16 {
   %5 = alloca [20 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6897,7 +6897,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @ata_mselect_caching(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr nocapture noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 65536) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 2) i32 @ata_mselect_control(ptr noundef captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 align 16 {
   switch i8 %1, label %81 [
     i8 0, label %6
     i8 -14, label %39
@@ -7050,7 +7050,7 @@ define internal fastcc void @ata_scsi_set_invalid_parameter(i64 %.16.val, ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @scsi_set_sense_field_pointer(ptr noundef, i32 noundef, i16 noundef zeroext, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
@@ -7379,7 +7379,7 @@ define internal void @ata_scsi_qc_complete(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ata_gen_passthru_sense(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ata_gen_passthru_sense(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -7760,10 +7760,10 @@ declare dso_local void @ata_sg_init(ptr noundef, ptr noundef, i32 noundef) local
 declare dso_local void @ata_qc_issue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #17
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc noundef range(i32 0, 493) i32 @ata_msense_control(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #18 align 16 {
+define internal fastcc noundef range(i32 0, 493) i32 @ata_msense_control(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, i8 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #18 align 16 {
   switch i8 %2, label %.loopexit [
     i8 0, label %5
     i8 7, label %18

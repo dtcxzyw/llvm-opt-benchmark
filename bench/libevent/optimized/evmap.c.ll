@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [67 x i8] c"Tried to mix edge-triggered and non-edge-triggered events on fd %d\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @evmap_io_initmap_(ptr nocapture noundef writeonly initializes((0, 12)) %ctx) local_unnamed_addr #0 {
+define dso_local void @evmap_io_initmap_(ptr noundef writeonly captures(none) initializes((0, 12)) %ctx) local_unnamed_addr #0 {
 entry:
   %nentries.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 0, ptr %nentries.i, align 8
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @evmap_signal_initmap_(ptr nocapture noundef writeonly initializes((0, 12)) %ctx) local_unnamed_addr #0 {
+define dso_local void @evmap_signal_initmap_(ptr noundef writeonly captures(none) initializes((0, 12)) %ctx) local_unnamed_addr #0 {
 entry:
   %nentries = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store i32 0, ptr %nentries, align 8
@@ -28,7 +28,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evmap_io_clear_(ptr nocapture noundef %ctx) local_unnamed_addr #1 {
+define dso_local void @evmap_io_clear_(ptr noundef captures(none) %ctx) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -78,7 +78,7 @@ evmap_signal_clear_.exit:                         ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evmap_signal_clear_(ptr nocapture noundef %ctx) local_unnamed_addr #1 {
+define dso_local void @evmap_signal_clear_(ptr noundef captures(none) %ctx) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -339,7 +339,7 @@ declare ptr @event_mm_calloc_(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @event_warnx(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @evmap_io_del_(ptr noundef %base, i32 noundef %fd, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @evmap_io_del_(ptr noundef %base, i32 noundef %fd, ptr noundef readonly captures(none) %ev) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %base, align 8
   %io2 = getelementptr inbounds nuw i8, ptr %base, i64 808
@@ -454,7 +454,7 @@ return:                                           ; preds = %do.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evmap_io_active_(ptr nocapture noundef readonly %base, i32 noundef %fd, i16 noundef signext %events) local_unnamed_addr #1 {
+define dso_local void @evmap_io_active_(ptr noundef readonly captures(none) %base, i32 noundef %fd, i16 noundef signext %events) local_unnamed_addr #1 {
 entry:
   %io1 = getelementptr inbounds nuw i8, ptr %base, i64 808
   %cmp = icmp slt i32 %fd, 0
@@ -637,7 +637,7 @@ return:                                           ; preds = %if.end9.i, %while.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @evmap_signal_del_(ptr noundef %base, i32 noundef %sig, ptr nocapture noundef readonly %ev) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @evmap_signal_del_(ptr noundef %base, i32 noundef %sig, ptr noundef readonly captures(none) %ev) local_unnamed_addr #1 {
 entry:
   %evsigsel = getelementptr inbounds nuw i8, ptr %base, i64 32
   %0 = load ptr, ptr %evsigsel, align 8
@@ -694,7 +694,7 @@ return:                                           ; preds = %if.then20, %entry, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evmap_signal_active_(ptr nocapture noundef readonly %base, i32 noundef %sig, i32 noundef %ncalls) local_unnamed_addr #1 {
+define dso_local void @evmap_signal_active_(ptr noundef readonly captures(none) %base, i32 noundef %sig, i32 noundef %ncalls) local_unnamed_addr #1 {
 entry:
   %sigmap = getelementptr inbounds nuw i8, ptr %base, i64 824
   %cmp = icmp slt i32 %sig, 0
@@ -736,7 +736,7 @@ for.end:                                          ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @evmap_io_get_fdinfo_(ptr nocapture noundef readonly %map, i32 noundef %fd) local_unnamed_addr #3 {
+define dso_local ptr @evmap_io_get_fdinfo_(ptr noundef readonly captures(none) %map, i32 noundef %fd) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %map, align 8
   %idxprom = sext i32 %fd to i64
@@ -891,7 +891,7 @@ return:                                           ; preds = %evmap_signal_foreac
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evmap_delete_all_(ptr nocapture noundef readonly %base) local_unnamed_addr #1 {
+define dso_local void @evmap_delete_all_(ptr noundef readonly captures(none) %base) local_unnamed_addr #1 {
 entry:
   %sigmap1.i = getelementptr inbounds nuw i8, ptr %base, i64 824
   %nentries.i = getelementptr inbounds nuw i8, ptr %base, i64 832
@@ -979,14 +979,14 @@ evmap_io_foreach_fd.exit:                         ; preds = %for.inc.i13, %evmap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @event_changelist_init_(ptr nocapture noundef writeonly initializes((0, 16)) %changelist) local_unnamed_addr #0 {
+define dso_local void @event_changelist_init_(ptr noundef writeonly captures(none) initializes((0, 16)) %changelist) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %changelist, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @event_changelist_remove_all_(ptr nocapture noundef %changelist, ptr nocapture noundef readonly %base) local_unnamed_addr #4 {
+define dso_local void @event_changelist_remove_all_(ptr noundef captures(none) %changelist, ptr noundef readonly captures(none) %base) local_unnamed_addr #4 {
 entry:
   %n_changes = getelementptr inbounds nuw i8, ptr %changelist, i64 8
   %0 = load i32, ptr %n_changes, align 8
@@ -1023,7 +1023,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @event_changelist_freemem_(ptr nocapture noundef initializes((8, 16)) %changelist) local_unnamed_addr #1 {
+define dso_local void @event_changelist_freemem_(ptr noundef captures(none) initializes((8, 16)) %changelist) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %changelist, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1039,7 +1039,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @event_changelist_add_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @event_changelist_add_(ptr noundef captures(none) %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr noundef captures(none) %p) local_unnamed_addr #1 {
 entry:
   %changelist1 = getelementptr inbounds nuw i8, ptr %base, i64 16
   %0 = trunc i16 %events to i8
@@ -1133,7 +1133,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @event_changelist_del_(ptr nocapture noundef %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr nocapture noundef %p) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @event_changelist_del_(ptr noundef captures(none) %base, i32 noundef %fd, i16 noundef signext %old, i16 noundef signext %events, ptr noundef captures(none) %p) local_unnamed_addr #1 {
 entry:
   %changelist1 = getelementptr inbounds nuw i8, ptr %base, i64 16
   %0 = trunc i16 %events to i8
@@ -1242,13 +1242,13 @@ return:                                           ; preds = %if.then30, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @evmap_check_integrity_(ptr nocapture noundef readonly %base) local_unnamed_addr #5 {
+define dso_local void @evmap_check_integrity_(ptr noundef readonly captures(none) %base) local_unnamed_addr #5 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @evmap_foreach_event_(ptr noundef %base, ptr nocapture noundef readonly %fn, ptr noundef %arg) local_unnamed_addr #1 {
+define dso_local i32 @evmap_foreach_event_(ptr noundef %base, ptr noundef readonly captures(none) %fn, ptr noundef %arg) local_unnamed_addr #1 {
 entry:
   %io.i = getelementptr inbounds nuw i8, ptr %base, i64 808
   %nentries.i = getelementptr inbounds nuw i8, ptr %base, i64 816
@@ -1349,7 +1349,7 @@ return:                                           ; preds = %for.body.i16, %for.
 declare ptr @event_mm_realloc_(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @event_del(ptr noundef) local_unnamed_addr #2
 

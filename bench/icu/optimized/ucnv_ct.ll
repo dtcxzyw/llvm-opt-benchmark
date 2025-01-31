@@ -37,7 +37,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.19 = private unnamed_addr constant [18 x i8] c"x11-compound-text\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17_CompoundTextOpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef initializes((16, 24)) %cnv, ptr nocapture noundef readonly %pArgs, ptr noundef %errorCode) #0 {
+define internal void @_ZL17_CompoundTextOpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr noundef captures(none) initializes((16, 24)) %cnv, ptr noundef readonly captures(none) %pArgs, ptr noundef %errorCode) #0 {
 entry:
   %stackPieces = alloca %struct.UConverterNamePieces, align 4
   %stackArgs = alloca %struct.UConverterLoadArgs, align 8
@@ -159,7 +159,7 @@ if.end63:                                         ; preds = %for.end.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL18_CompoundTextCloseP10UConverter(ptr nocapture noundef %converter) #0 {
+define internal void @_ZL18_CompoundTextCloseP10UConverter(ptr noundef captures(none) %converter) #0 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %converter, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -193,13 +193,13 @@ if.end10:                                         ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL18_CompoundTextResetP10UConverter21UConverterResetChoice(ptr nocapture readnone %converter, i32 %choice) #1 {
+define internal void @_ZL18_CompoundTextResetP10UConverter21UConverterResetChoice(ptr readnone captures(none) %converter, i32 %choice) #1 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL41UConverter_toUnicode_CompoundText_OFFSETSP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr noundef %err) #0 {
+define internal void @_ZL41UConverter_toUnicode_CompoundText_OFFSETSP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef %err) #0 {
 entry:
   %subArgs = alloca %struct.UConverterToUnicodeArgs, align 8
   %source = getelementptr inbounds nuw i8, ptr %args, i64 16
@@ -500,7 +500,7 @@ while.end126:                                     ; preds = %if.end125, %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef %err) #0 {
+define internal void @_ZL43UConverter_fromUnicode_CompoundText_OFFSETSP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef captures(none) %err) #0 {
 entry:
   %tmpTargetBuffer = alloca [7 x i8], align 1
   %pValue = alloca i32, align 4
@@ -1088,13 +1088,13 @@ while.end:                                        ; preds = %if.else153, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZL20_CompoundTextgetNamePK10UConverter(ptr nocapture readnone %cnv) #1 {
+define internal noundef nonnull ptr @_ZL20_CompoundTextgetNamePK10UConverter(ptr readnone captures(none) %cnv) #1 {
 entry:
   ret ptr @.str.19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL27_CompoundText_GetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr nocapture noundef readonly %cnv, ptr noundef %sa, i32 noundef %which, ptr noundef %pErrorCode) #0 {
+define internal void @_ZL27_CompoundText_GetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr noundef readonly captures(none) %cnv, ptr noundef %sa, i32 noundef %which, ptr noundef %pErrorCode) #0 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -1134,7 +1134,7 @@ for.end:                                          ; preds = %for.body
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @ucnv_loadSharedData_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1143,10 +1143,10 @@ declare void @ucnv_unloadSharedDataIfReady_75(ptr noundef) local_unnamed_addr #4
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @ucnv_MBCSToUnicodeWithOffsets_75(ptr noundef, ptr noundef) local_unnamed_addr #4
 

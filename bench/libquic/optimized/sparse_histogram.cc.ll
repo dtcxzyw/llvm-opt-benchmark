@@ -156,7 +156,7 @@ declare void @_ZN4base28PersistentHistogramAllocator17FinalizeHistogramEjb(ptr n
 declare void @_ZN4base13HistogramBase23ReportHistogramActivityERKS0_NS0_14ReportActivityE(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base15SparseHistogram16PersistentCreateEPNS_28PersistentHistogramAllocatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16HistogramSamples8MetadataESD_(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %allocator, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %meta, ptr noundef %logged_meta) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base15SparseHistogram16PersistentCreateEPNS_28PersistentHistogramAllocatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16HistogramSamples8MetadataESD_(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef %allocator, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %meta, ptr noundef %logged_meta) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #12
   invoke void @_ZN4base15SparseHistogramC2EPNS_28PersistentHistogramAllocatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16HistogramSamples8MetadataESD_(ptr noundef nonnull align 8 dereferenceable(112) %call, ptr noundef %allocator, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %meta, ptr noundef %logged_meta)
@@ -254,7 +254,7 @@ _ZN4base15SparseHistogramD2Ev.exit:               ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i64 @_ZNK4base15SparseHistogram9name_hashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 {
+define dso_local noundef i64 @_ZNK4base15SparseHistogram9name_hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this) unnamed_addr #6 align 2 {
 entry:
   %samples_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %samples_, align 8
@@ -265,13 +265,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK4base15SparseHistogram16GetHistogramTypeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK4base15SparseHistogram16GetHistogramTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4base15SparseHistogram24HasConstructionArgumentsEiij(ptr nocapture nonnull readnone align 8 %this, i32 %expected_minimum, i32 %expected_maximum, i32 %expected_bucket_count) unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4base15SparseHistogram24HasConstructionArgumentsEiij(ptr nonnull readnone align 8 captures(none) %this, i32 %expected_minimum, i32 %expected_maximum, i32 %expected_bucket_count) unnamed_addr #7 align 2 {
 entry:
   ret i1 false
 }
@@ -341,7 +341,7 @@ _ZN4base8AutoLockD2Ev.exit4:                      ; preds = %lpad
 declare void @_ZNK4base13HistogramBase18FindAndRunCallbackEi(ptr noundef nonnull align 8 dereferenceable(44), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base15SparseHistogram15SnapshotSamplesEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base15SparseHistogram15SnapshotSamplesEv(ptr noalias writeonly sret(%"class.std::unique_ptr.13") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #12
   %vtable = load ptr, ptr %this, align 8
@@ -423,7 +423,7 @@ eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN
 declare void @_ZN4base9SampleMapC1Em(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base15SparseHistogram13SnapshotDeltaEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base15SparseHistogram13SnapshotDeltaEv(ptr noalias writeonly sret(%"class.std::unique_ptr.13") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #12
   %vtable = load ptr, ptr %this, align 8
@@ -520,7 +520,7 @@ eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base15SparseHistogram18SnapshotFinalDeltaEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) initializes((88, 89)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base15SparseHistogram18SnapshotFinalDeltaEv(ptr noalias writeonly sret(%"class.std::unique_ptr.13") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(112) initializes((88, 89)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %final_delta_created_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   store i8 1, ptr %final_delta_created_, align 8
@@ -1399,13 +1399,13 @@ declare noundef zeroext i1 @_ZN4base14PickleIterator10ReadStringEPNSt7__cxx1112b
 declare noundef zeroext i1 @_ZN4base14PickleIterator7ReadIntEPi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK4base15SparseHistogram13GetParametersEPNS_15DictionaryValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %params) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK4base15SparseHistogram13GetParametersEPNS_15DictionaryValueE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %params) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK4base15SparseHistogram21GetCountAndBucketDataEPiPlPNS_9ListValueE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %count, ptr nocapture readnone %sum, ptr nocapture readnone %buckets) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK4base15SparseHistogram21GetCountAndBucketDataEPiPlPNS_9ListValueE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %count, ptr readnone captures(none) %sum, ptr readnone captures(none) %buckets) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -1572,10 +1572,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

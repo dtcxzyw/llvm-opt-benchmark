@@ -835,7 +835,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib24InterpolatedSmileSectionINS2_
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -920,7 +920,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -1721,7 +1721,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib34InterpolatedSwaptionVolatilityCubeC2ERKNS_6HandleINS_27SwaptionVolatilityStructureEEERKSt6vectorINS_6PeriodESaIS7_EESB_RKS6_IdSaIdEERKS6_IS6_INS1_INS_5QuoteEEESaISH_EESaISJ_EERKN5boost10shared_ptrINS_9SwapIndexEEEST_b(ptr noundef nonnull align 8 dereferenceable(544) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %atmVolStructure, ptr noundef nonnull align 8 dereferenceable(24) %optionTenors, ptr noundef nonnull align 8 dereferenceable(24) %swapTenors, ptr noundef nonnull align 8 dereferenceable(24) %strikeSpreads, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volSpreads, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swapIndexBase, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shortSwapIndexBase, i1 noundef zeroext %vegaWeightedSmileFit) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib34InterpolatedSwaptionVolatilityCubeC2ERKNS_6HandleINS_27SwaptionVolatilityStructureEEERKSt6vectorINS_6PeriodESaIS7_EESB_RKS6_IdSaIdEERKS6_IS6_INS1_INS_5QuoteEEESaISH_EESaISJ_EERKN5boost10shared_ptrINS_9SwapIndexEEEST_b(ptr noundef nonnull align 8 dereferenceable(544) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(16) %atmVolStructure, ptr noundef nonnull align 8 dereferenceable(24) %optionTenors, ptr noundef nonnull align 8 dereferenceable(24) %swapTenors, ptr noundef nonnull align 8 dereferenceable(24) %strikeSpreads, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volSpreads, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %swapIndexBase, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shortSwapIndexBase, i1 noundef zeroext %vegaWeightedSmileFit) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector.36", align 8
   %agg.tmp3 = alloca %"class.boost::shared_ptr.41", align 8
@@ -2483,7 +2483,7 @@ _ZN8QuantLib6HandleINS_27SwaptionVolatilityStructureEED2Ev.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib34InterpolatedSwaptionVolatilityCubeC1ERKNS_6HandleINS_27SwaptionVolatilityStructureEEERKSt6vectorINS_6PeriodESaIS7_EESB_RKS6_IdSaIdEERKS6_IS6_INS1_INS_5QuoteEEESaISH_EESaISJ_EERKN5boost10shared_ptrINS_9SwapIndexEEEST_b(ptr noundef nonnull align 8 dereferenceable(544) initializes((544, 552), (560, 564), (568, 576)) %this, ptr noundef nonnull align 8 dereferenceable(16) %atmVolStructure, ptr noundef nonnull align 8 dereferenceable(24) %optionTenors, ptr noundef nonnull align 8 dereferenceable(24) %swapTenors, ptr noundef nonnull align 8 dereferenceable(24) %strikeSpreads, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volSpreads, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swapIndexBase, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %shortSwapIndexBase, i1 noundef zeroext %vegaWeightedSmileFit) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib34InterpolatedSwaptionVolatilityCubeC1ERKNS_6HandleINS_27SwaptionVolatilityStructureEEERKSt6vectorINS_6PeriodESaIS7_EESB_RKS6_IdSaIdEERKS6_IS6_INS1_INS_5QuoteEEESaISH_EESaISJ_EERKN5boost10shared_ptrINS_9SwapIndexEEEST_b(ptr noundef nonnull align 8 dereferenceable(544) initializes((544, 552), (560, 564), (568, 576)) %this, ptr noundef nonnull align 8 dereferenceable(16) %atmVolStructure, ptr noundef nonnull align 8 dereferenceable(24) %optionTenors, ptr noundef nonnull align 8 dereferenceable(24) %swapTenors, ptr noundef nonnull align 8 dereferenceable(24) %strikeSpreads, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %volSpreads, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %swapIndexBase, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %shortSwapIndexBase, i1 noundef zeroext %vegaWeightedSmileFit) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector.36", align 8
   %agg.tmp2 = alloca %"class.boost::shared_ptr.41", align 8
@@ -3930,7 +3930,7 @@ declare noundef double @_ZNK8QuantLib8RoundingclEd(ptr noundef nonnull align 4 d
 declare i64 @_ZNK8QuantLib8Calendar6adjustERKNS_4DateENS_21BusinessDayConventionE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9113,7 +9113,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -9508,7 +9508,7 @@ _ZNSt12_Vector_baseIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit: ; preds = 
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZSt18__do_uninit_fill_nIPN8QuantLib6MatrixEmS1_ET_S3_T0_RKT1_(ptr noundef %__first, i64 noundef %__n, ptr noundef nonnull align 8 dereferenceable(24) %__x) local_unnamed_addr #8 comdat personality ptr @__gxx_personality_v0 {
@@ -9619,7 +9619,7 @@ unreachable:                                      ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib21BilinearInterpolationD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

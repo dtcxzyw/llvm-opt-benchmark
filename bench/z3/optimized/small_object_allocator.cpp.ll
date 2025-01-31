@@ -70,14 +70,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22small_object_allocatorC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((0, 520)) %this, ptr nocapture readnone %id) unnamed_addr #3 align 2 {
+define hidden void @_ZN22small_object_allocatorC2EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(520) initializes((0, 520)) %this, ptr readnone captures(none) %id) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(520) %this, i8 0, i64 520, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22small_object_allocatorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22small_object_allocatorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %for.body
 
@@ -128,7 +128,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22small_object_allocator5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(520) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN22small_object_allocator5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(520) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_free_list = getelementptr inbounds nuw i8, ptr %this, i64 256
   br label %for.body
@@ -162,7 +162,7 @@ for.end:                                          ; preds = %while.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22small_object_allocator10deallocateEmPv(ptr nocapture noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %size, ptr noundef %p) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 captures(none) dereferenceable(520) %this, i64 noundef %size, ptr noundef %p) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq i64 %size, 0
   br i1 %cmp, label %return, label %if.end
@@ -199,7 +199,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN22small_object_allocator8allocateEm(ptr nocapture noundef nonnull align 8 dereferenceable(520) %this, i64 noundef %size) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull align 8 captures(none) dereferenceable(520) %this, i64 noundef %size) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq i64 %size, 0
   br i1 %cmp, label %return, label %if.end
@@ -273,7 +273,7 @@ return:                                           ; preds = %entry, %if.end29, %
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK22small_object_allocator15get_wasted_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK22small_object_allocator15get_wasted_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_free_list = getelementptr inbounds nuw i8, ptr %this, i64 256
   br label %for.body
@@ -303,7 +303,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK22small_object_allocator17get_num_free_objsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZNK22small_object_allocator17get_num_free_objsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_free_list = getelementptr inbounds nuw i8, ptr %this, i64 256
   br label %for.body
@@ -332,7 +332,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22small_object_allocator11consolidateEv(ptr nocapture noundef nonnull align 8 dereferenceable(520) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22small_object_allocator11consolidateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(520) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i128 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i129 = alloca %"class.std::allocator", align 1
@@ -1177,7 +1177,7 @@ _ZN6vectorIPN22small_object_allocator5chunkELb0EjED2Ev.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -1297,7 +1297,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -1900,7 +1900,7 @@ return:                                           ; preds = %_ZSt13__adjust_heap
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZSt6__sortIPPcN9__gnu_cxx5__ops15_Iter_comp_iterI6ptr_ltIcEEEEvT_S8_T0_(ptr noundef %__first, ptr noundef %__last) local_unnamed_addr #7 comdat {
@@ -2465,10 +2465,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

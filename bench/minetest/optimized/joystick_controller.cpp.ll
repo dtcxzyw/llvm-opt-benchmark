@@ -87,7 +87,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK17JoystickButtonCmb11isTriggeredERKN3irr6SEvent14SJoystickEventE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(44) %ev) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK17JoystickButtonCmb11isTriggeredERKN3irr6SEvent14SJoystickEventE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(44) %ev) unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %ev, align 4, !tbaa !4
   %filter_mask = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -100,13 +100,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK15JoystickAxisCmb11isTriggeredERKN3irr6SEvent14SJoystickEventE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(22) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(44) %ev) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK15JoystickAxisCmb11isTriggeredERKN3irr6SEvent14SJoystickEventE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(22) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(44) %ev) unnamed_addr #3 align 2 {
 entry:
   %Axis = getelementptr inbounds nuw i8, ptr %ev, i64 4
   %axis_to_compare = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -934,7 +934,7 @@ declare noundef zeroext i16 @_ZNK8Settings6getU16ERKNSt7__cxx1112basic_stringIcS
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14JoystickLayoutD2Ev(ptr noundef nonnull align 8 dereferenceable(82) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2704,7 +2704,7 @@ ehcleanup10:                                      ; preds = %if.then.i.i27, %_ZN
 declare noundef float @_ZNK8Settings8getFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18JoystickController5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) initializes((96, 104), (112, 144), (456, 488)) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN18JoystickController5clearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(488) initializes((96, 104), (112, 144), (456, 488)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_keys_down = getelementptr inbounds nuw i8, ptr %this, i64 112
   %m_past_keys_pressed = getelementptr inbounds nuw i8, ptr %this, i64 456
@@ -2716,7 +2716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18JoystickController17onJoystickConnectERKSt6vectorIN3irr13SJoystickInfoESaIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(488) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %joystick_infos) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18JoystickController17onJoystickConnectERKSt6vectorIN3irr13SJoystickInfoESaIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(488) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %joystick_infos) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i126 = alloca i64, align 8
   %__dnew.i.i92 = alloca i64, align 8
@@ -3069,7 +3069,7 @@ declare noundef i32 @_ZNK8Settings6getS32ERKNSt7__cxx1112basic_stringIcSt11char_
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8Settings3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18JoystickController27setLayoutFromControllerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(488) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18JoystickController27setLayoutFromControllerNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(488) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %struct.JoystickLayout, align 16
@@ -3628,7 +3628,7 @@ if.end18:                                         ; preds = %_ZN14JoystickLayout
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN18JoystickController11handleEventERKN3irr6SEvent14SJoystickEventE(ptr nocapture noundef nonnull align 8 dereferenceable(488) %this, ptr noundef nonnull align 4 dereferenceable(44) %ev) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN18JoystickController11handleEventERKN3irr6SEvent14SJoystickEventE(ptr noundef nonnull align 8 captures(none) dereferenceable(488) %this, ptr noundef nonnull align 4 dereferenceable(44) %ev) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %keys_pressed = alloca %"class.std::bitset", align 8
@@ -3875,10 +3875,10 @@ return:                                           ; preds = %for.cond91.preheade
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %this, i32 noundef %axis) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(488) %this, i32 noundef %axis) local_unnamed_addr #3 align 2 {
 entry:
   %m_axes_vals = getelementptr inbounds nuw i8, ptr %this, i64 96
   %idxprom = zext i32 %axis to i64
@@ -3909,7 +3909,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN18JoystickController20getMovementDirectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %this) local_unnamed_addr #10 align 2 {
+define dso_local noundef float @_ZN18JoystickController20getMovementDirectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(488) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_axes_vals.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load i16, ptr %m_axes_vals.i, align 8, !tbaa !17
@@ -3960,7 +3960,7 @@ _ZN18JoystickController18getAxisWithoutDeadE12JoystickAxis.exit18: ; preds = %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef float @_ZN18JoystickController16getMovementSpeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZN18JoystickController16getMovementSpeedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(488) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_axes_vals.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 98
@@ -4069,7 +4069,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M_realloc_insertIJN7KeyType1TEiiEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 4 dereferenceable(4) %__args, ptr noundef nonnull align 4 dereferenceable(4) %__args1, ptr noundef nonnull align 4 dereferenceable(4) %__args3) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {

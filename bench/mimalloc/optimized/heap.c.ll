@@ -320,7 +320,7 @@ entry:
 declare i32 @_mi_arena_id_none() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_heap_memid_is_suitable(ptr nocapture noundef readonly %heap, ptr nocapture noundef readonly byval(%struct.mi_memid_s) align 8 %memid) local_unnamed_addr #0 {
+define hidden zeroext i1 @_mi_heap_memid_is_suitable(ptr noundef readonly captures(none) %heap, ptr noundef readonly byval(%struct.mi_memid_s) align 8 captures(none) %memid) local_unnamed_addr #0 {
 entry:
   %arena_id = getelementptr inbounds nuw i8, ptr %heap, i64 2856
   %0 = load i32, ptr %arena_id, align 8
@@ -1004,7 +1004,7 @@ mi_heap_check_owned.exit:                         ; preds = %for.inc.i.i, %mi_he
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %heap, i1 noundef zeroext %visit_blocks, ptr nocapture noundef readonly %visitor, ptr noundef %arg) local_unnamed_addr #0 {
+define noundef zeroext i1 @mi_heap_visit_blocks(ptr noundef %heap, i1 noundef zeroext %visit_blocks, ptr noundef readonly captures(none) %visitor, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %psize.i.i.i.i1 = alloca i64, align 8
   %psize.i.i.i2 = alloca i64, align 8
@@ -1329,14 +1329,14 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_mi_segment_page_free(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 declare ptr @_mi_segment_page_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @mi_free(ptr noundef) local_unnamed_addr #1
 
@@ -1345,10 +1345,10 @@ declare zeroext i1 @_mi_heap_delayed_free_partial(ptr noundef) local_unnamed_add
 declare i64 @_mi_page_queue_append(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

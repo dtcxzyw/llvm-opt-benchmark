@@ -283,15 +283,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -1302,12 +1302,12 @@ declare noundef ptr @_ZN6Client16getTextureSourceEv(ptr noundef nonnull align 8 
 declare { <2 x float>, float } @_ZNK8Settings6getV3FERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef zeroext i16 @_ZNK8Settings6getU16ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14GUIChatConsole9setCursorEbbff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(426) initializes((380, 388)) %this, i1 noundef zeroext %visible, i1 noundef zeroext %blinking, float noundef %blink_speed, float noundef %relative_height) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN14GUIChatConsole9setCursorEbbff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(426) initializes((380, 388)) %this, i1 noundef zeroext %visible, i1 noundef zeroext %blinking, float noundef %blink_speed, float noundef %relative_height) local_unnamed_addr #8 align 2 {
 entry:
   %brmerge.not = and i1 %visible, %blinking
   br i1 %brmerge.not, label %if.end9, label %if.end9.sink.split
@@ -2396,7 +2396,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK14GUIChatConsole6isOpenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(426) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef zeroext i1 @_ZNK14GUIChatConsole6isOpenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(426) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_open = getelementptr inbounds nuw i8, ptr %this, i64 352
   %0 = load i8, ptr %m_open, align 8, !tbaa !49, !range !118, !noundef !119
@@ -2405,7 +2405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK14GUIChatConsole15isOpenInhibitedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(426) %this) local_unnamed_addr #13 align 2 {
+define dso_local noundef zeroext i1 @_ZNK14GUIChatConsole15isOpenInhibitedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(426) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_open_inhibited = getelementptr inbounds nuw i8, ptr %this, i64 372
   %0 = load i32, ptr %m_open_inhibited, align 4, !tbaa !120
@@ -2486,7 +2486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIChatConsole22replaceAndAddToHistoryERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(426) %this, ptr noundef nonnull align 8 dereferenceable(32) %line) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14GUIChatConsole22replaceAndAddToHistoryERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(426) %this, ptr noundef nonnull align 8 dereferenceable(32) %line) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string.5", align 8
@@ -5573,7 +5573,7 @@ declare void @_ZN10ChatPrompt11historyNextEv(ptr noundef nonnull align 8 derefer
 declare void @_ZN10ChatPrompt15cursorOperationENS_8CursorOpENS_11CursorOpDirENS_13CursorOpScopeE(ptr noundef nonnull align 8 dereferenceable(120), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIChatConsole22updatePrimarySelectionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(426) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14GUIChatConsole22updatePrimarySelectionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(426) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %wselected = alloca %"class.std::__cxx11::basic_string.5", align 8
   %selected = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5849,7 +5849,7 @@ declare void @_ZN10ChatPrompt5inputEw(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN11ChatBackend6scrollEi(ptr noundef nonnull align 8 dereferenceable(360), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN14GUIChatConsole12weblinkClickEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(426) %this, i32 noundef %col, i32 noundef %row) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN14GUIChatConsole12weblinkClickEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(426) %this, i32 noundef %col, i32 noundef %row) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %weblink = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7463,7 +7463,7 @@ declare ptr @wmemcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare float @llvm.floor.f32(float) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE7_M_copyILb0ENSB_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS5_ESG_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x, ptr noundef %__p, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7715,7 +7715,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #0
 
@@ -8055,7 +8055,7 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #14

@@ -149,7 +149,7 @@ define dso_local ptr @bio_blkcg_css(ptr noundef readonly %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @blkg_dev_name(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local ptr @blkg_dev_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %4 = load ptr, ptr %3, align 8
@@ -171,7 +171,7 @@ define dso_local ptr @blkg_dev_name(ptr nocapture noundef readonly %0) local_unn
 declare dso_local ptr @bdi_dev_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blkcg_print_blkgs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) #1 align 16 {
+define dso_local void @blkcg_print_blkgs(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) #1 align 16 {
   tail call void @__rcu_read_lock() #16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %8 = load volatile ptr, ptr %7, align 8
@@ -254,16 +254,16 @@ define dso_local void @blkcg_print_blkgs(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i64 @__blkg_prfill_u64(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 align 16 {
+define dso_local noundef i64 @__blkg_prfill_u64(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -288,7 +288,7 @@ define dso_local noundef i64 @__blkg_prfill_u64(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @blkg_conf_init(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr noundef %1) #4 align 16 {
+define dso_local void @blkg_conf_init(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef %1) #4 align 16 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -296,10 +296,10 @@ define dso_local void @blkg_conf_init(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @blkg_conf_open_bdev(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @blkg_conf_open_bdev(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -390,7 +390,7 @@ define dso_local noundef range(i32 -22, 1) i32 @blkg_conf_open_bdev(ptr nocaptur
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @skip_spaces(ptr noundef) local_unnamed_addr #2
@@ -408,7 +408,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blkg_conf_prep(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2) #1 align 16 {
+define dso_local i32 @blkg_conf_prep(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #1 align 16 {
   %4 = tail call i32 @blkg_conf_open_bdev(ptr noundef %2), !range !11
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %167
@@ -1233,7 +1233,7 @@ declare dso_local void @blk_queue_exit(ptr noundef) local_unnamed_addr #2
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blkg_conf_exit(ptr nocapture noundef %0) #1 align 16 {
+define dso_local void @blkg_conf_exit(ptr noundef captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1706,7 +1706,7 @@ blkg_destroy.exit:                                ; preds = %16, %67
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blkcg_exit_disk(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 16 {
+define dso_local void @blkcg_exit_disk(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr i8, ptr %0, i64 80
   %.val = load ptr, ptr %2, align 8
   tail call fastcc void @blkg_destroy_all(ptr %.val)
@@ -1865,7 +1865,7 @@ define internal noundef ptr @blkcg_css_alloc(ptr noundef readnone %0) #1 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @blkcg_css_online(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal noundef i32 @blkcg_css_online(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1943,7 +1943,7 @@ define internal void @blkcg_css_free(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blkcg_rstat_flush(ptr nocapture noundef readonly %0, i32 noundef %1) #1 align 16 {
+define internal void @blkcg_rstat_flush(ptr noundef readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %5 = load ptr, ptr %4, align 64
@@ -1961,7 +1961,7 @@ define internal void @blkcg_rstat_flush(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @blkcg_exit(ptr nocapture noundef %0) #1 align 16 {
+define internal void @blkcg_exit(ptr noundef captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2592
   %3 = load ptr, ptr %2, align 32
   %4 = icmp eq ptr %3, null
@@ -2314,7 +2314,7 @@ declare dso_local void @blk_mq_freeze_queue(ptr noundef) local_unnamed_addr #2
 declare dso_local void @blk_mq_unfreeze_queue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blkcg_deactivate_policy(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #1 align 16 {
+define dso_local void @blkcg_deactivate_policy(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, null
@@ -3109,7 +3109,7 @@ define dso_local void @blkcg_add_delay(ptr noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_associate_blkg_from_css(ptr nocapture noundef %0, ptr noundef %1) #1 align 16 {
+define dso_local void @bio_associate_blkg_from_css(ptr noundef captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3466,7 +3466,7 @@ define dso_local void @bio_associate_blkg(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bio_clone_blkg_association(ptr nocapture noundef %0, ptr noundef readonly %1) #1 align 16 {
+define dso_local void @bio_clone_blkg_association(ptr noundef captures(none) %0, ptr noundef readonly %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3491,7 +3491,7 @@ define dso_local void @bio_clone_blkg_association(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_cgroup_bio_start(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
+define dso_local void @blk_cgroup_bio_start(ptr noundef captures(none) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -4213,7 +4213,7 @@ declare dso_local void @percpu_ref_kill_and_confirm(ptr noundef, ptr noundef) lo
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @blkcg_print_stat(ptr noundef %0, ptr nocapture readnone %1) #1 align 16 {
+define internal noundef i32 @blkcg_print_stat(ptr noundef %0, ptr readnone captures(none) %1) #1 align 16 {
   %3 = alloca %struct.class_dev_iter, align 8
   %4 = alloca %struct.blkg_iostat, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -4498,7 +4498,7 @@ declare dso_local ptr @class_dev_iter_next(ptr noundef) local_unnamed_addr #2
 declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @blkcg_reset_stats(ptr noundef %0, ptr nocapture readnone %1, i64 %2) #1 align 16 {
+define internal noundef i32 @blkcg_reset_stats(ptr noundef %0, ptr readnone captures(none) %1, i64 %2) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @blkcg_pol_mutex) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull %4) #16

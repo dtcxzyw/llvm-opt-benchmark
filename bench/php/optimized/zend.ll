@@ -190,7 +190,7 @@ define i64 @zend_vspprintf(ptr noundef writeonly %0, i64 noundef %1, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -431,7 +431,7 @@ define ptr @zend_strpprintf_unchecked(i64 noundef %0, ptr noundef %1, ...) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @zend_make_printable_zval(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @zend_make_printable_zval(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp ne i8 %4, 6
@@ -946,7 +946,7 @@ tailrecurse:                                      ; preds = %169, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_flat_hash(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @print_flat_hash(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1585,7 +1585,7 @@ tailrecurse:                                      ; preds = %269, %3
   %.1404 = phi i64 [ %.0403, %156 ], [ %153, %150 ]
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
   %161 = getelementptr inbounds i8, ptr %160, i64 %158
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr align 1 %147, i64 %148, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %161, ptr nonnull align 1 %147, i64 %148, i1 false)
   %162 = load ptr, ptr %0, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 16
   store i64 %.1404, ptr %163, align 8
@@ -1965,7 +1965,7 @@ zend_print_zval_r_to_str.exit:                    ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_startup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden void @zend_startup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   tail call void @zend_cpu_startup() #33
   tail call void @start_memory_manager() #33
   tail call void @virtual_cwd_startup() #33
@@ -2122,7 +2122,7 @@ declare i32 @zend_gc_collect_cycles() #2
 declare void @zend_vm_init() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
@@ -2134,7 +2134,7 @@ declare void @zend_function_dtor(ptr noundef) #2
 declare void @destroy_zend_class(ptr noundef) #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @auto_global_dtor(ptr nocapture noundef readonly %0) #6 {
+define internal void @auto_global_dtor(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #33
   ret void
@@ -2143,7 +2143,7 @@ define internal void @auto_global_dtor(ptr nocapture noundef readonly %0) #6 {
 declare void @free_zend_constant(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @module_destructor_zval(ptr nocapture noundef readonly %0) #0 {
+define internal void @module_destructor_zval(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @module_destructor(ptr noundef %2) #33
   ret void
@@ -2160,7 +2160,7 @@ declare void @zend_register_standard_constants() local_unnamed_addr #2
 declare i32 @zend_register_auto_global(ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @php_auto_globals_create_globals(ptr nocapture readnone %0) #7 {
+define internal noundef zeroext i1 @php_auto_globals_create_globals(ptr readnone captures(none) %0) #7 {
   ret i1 false
 }
 
@@ -2284,7 +2284,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
 declare void @zend_hash_graceful_reverse_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @zend_shutdown_extensions() local_unnamed_addr #2
 
@@ -2299,14 +2299,14 @@ declare void @zend_unload_modules() local_unnamed_addr #2
 declare i32 @zend_optimizer_shutdown() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define hidden void @zend_set_utility_values(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define hidden void @zend_set_utility_values(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i8, ptr %0, align 1
   store i8 %2, ptr @zend_uv, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zenderror(ptr noundef %0) local_unnamed_addr #0 {
@@ -2327,7 +2327,7 @@ define hidden void @zenderror(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define void @_zend_bailout(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #11 {
+define void @_zend_bailout(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 416), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5
@@ -2349,7 +2349,7 @@ define void @_zend_bailout(ptr nocapture noundef readnone %0, i32 noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @zend_output_debug_string(i1 noundef zeroext %0, ptr nocapture noundef readnone %1, ...) local_unnamed_addr #7 {
+define void @zend_output_debug_string(i1 noundef zeroext %0, ptr noundef readnone captures(none) %1, ...) local_unnamed_addr #7 {
   ret void
 }
 
@@ -2371,7 +2371,7 @@ define i64 @zend_get_page_size() local_unnamed_addr #0 {
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
-define void @zend_append_version_info(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @zend_append_version_info(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #36
   %4 = add i64 %3, 20
@@ -2392,7 +2392,7 @@ define void @zend_append_version_info(ptr nocapture noundef readonly %0) local_u
   %19 = and i64 %18, 4294967295
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #35
   %21 = and i64 %16, 4294967295
-  %22 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %20, i64 noundef %21, ptr noundef nonnull @.str.7, ptr noundef %2, ptr noundef %6, ptr noundef %10, ptr noundef %14) #33
+  %22 = tail call i32 (ptr, i64, ptr, ...) @ap_php_snprintf(ptr noundef %20, i64 noundef %21, ptr noundef nonnull @.str.7, ptr noundef nonnull %2, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %14) #33
   %23 = load ptr, ptr @zend_version_info, align 8
   %24 = load i32, ptr @zend_version_info_length, align 4
   %25 = add i32 %24, %17
@@ -2407,15 +2407,15 @@ define void @zend_append_version_info(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare i32 @ap_php_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #17
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define ptr @get_zend_version() local_unnamed_addr #18 {
@@ -3050,7 +3050,7 @@ zend_error_va_list.exit:                          ; preds = %9, %15, %22, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_filename_lineno(i32 noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #0 {
+define internal fastcc void @get_filename_lineno(i32 noundef %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #0 {
   switch i32 %0, label %16 [
     i32 16, label %4
     i32 32, label %4
@@ -3941,7 +3941,7 @@ declare ptr @zend_get_executed_filename() local_unnamed_addr #2
 declare i32 @zend_get_executed_lineno() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @free_estring(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @free_estring(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_efree(ptr noundef %2) #33
   ret void
@@ -4132,7 +4132,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #26
 declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @print_hash(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @print_hash(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 16
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -4481,7 +4481,7 @@ define internal fastcc void @print_hash(ptr noundef nonnull %0, ptr nocapture no
   %.1456 = phi i64 [ %.0455, %165 ], [ %163, %160 ]
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 24
   %170 = getelementptr inbounds i8, ptr %169, i64 %167
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr align 1 %157, i64 %158, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr nonnull align 1 %157, i64 %158, i1 false)
   %171 = load ptr, ptr %0, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
   store i64 %.1456, ptr %172, align 8
@@ -4778,14 +4778,14 @@ declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #2
 declare i32 @zend_unmangle_property_name_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #27
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #27
 
 declare void @module_destructor(ptr noundef) local_unnamed_addr #2
 
 declare void @zend_vm_set_opcode_handler(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define internal noundef i32 @OnUpdateErrorReporting(ptr nocapture readnone %0, ptr noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #28 {
+define internal noundef i32 @OnUpdateErrorReporting(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #28 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %7
 
@@ -4801,7 +4801,7 @@ define internal noundef i32 @OnUpdateErrorReporting(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @OnUpdateAssertions(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateAssertions(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5) #0 {
   %7 = ptrtoint ptr %2 to i64
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   %9 = load ptr, ptr %0, align 8
@@ -4835,14 +4835,14 @@ define internal range(i32 -1, 1) i32 @OnUpdateAssertions(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @OnUpdateGCEnabled(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal noundef i32 @OnUpdateGCEnabled(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #0 {
   %7 = tail call zeroext i1 @zend_ini_parse_bool(ptr noundef %1) #33
   %8 = tail call zeroext i1 @gc_enable(i1 noundef zeroext %7) #33
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_gc_enabled_displayer_cb(ptr nocapture readnone %0, i32 %1) #0 {
+define internal void @zend_gc_enabled_displayer_cb(ptr readnone captures(none) %0, i32 %1) #0 {
   %3 = tail call zeroext i1 @gc_enabled() #33
   %4 = load ptr, ptr @zend_write, align 8
   br i1 %3, label %5, label %7
@@ -4864,7 +4864,7 @@ declare i32 @OnUpdateBool(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare void @zend_ini_boolean_displayer_cb(ptr noundef, i32 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @OnUpdateScriptEncoding(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal i32 @OnUpdateScriptEncoding(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #0 {
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @compiler_globals, i64 416), align 8
   %8 = trunc i8 %7 to i1
   br i1 %8, label %9, label %20
@@ -4896,7 +4896,7 @@ define internal i32 @OnUpdateScriptEncoding(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: read) uwtable
-define internal range(i32 -1, 1) i32 @OnSetExceptionStringParamMaxLen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #28 {
+define internal range(i32 -1, 1) i32 @OnSetExceptionStringParamMaxLen(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #28 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = tail call i64 @atoll(ptr noundef nonnull %7) #36
   %or.cond = icmp ult i64 %8, 1000001
@@ -4912,7 +4912,7 @@ define internal range(i32 -1, 1) i32 @OnSetExceptionStringParamMaxLen(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @OnUpdateFiberStackSize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateFiberStackSize(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %12, label %7
 
@@ -4937,7 +4937,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateFiberStackSize(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @OnUpdateMaxAllowedStackSize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateMaxAllowedStackSize(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @zend_ini_parse_quantity_warn(ptr noundef %1, ptr noundef %7) #33
   %9 = icmp slt i64 %8, -1
@@ -4959,7 +4959,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateMaxAllowedStackSize(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @OnUpdateReservedStackSize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, i32 %5) #0 {
+define internal range(i32 -1, 1) i32 @OnUpdateReservedStackSize(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, i32 %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @zend_ini_parse_uquantity_warn(ptr noundef %1, ptr noundef %7) #33
   %9 = icmp eq i64 %8, 0
@@ -4986,7 +4986,7 @@ define internal range(i32 -1, 1) i32 @OnUpdateReservedStackSize(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #29
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #29
 
 declare i64 @zend_ini_parse_quantity_warn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -5001,7 +5001,7 @@ declare ptr @zend_multibyte_get_functions() local_unnamed_addr #2
 declare i32 @zend_multibyte_set_script_encoding_by_string(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #29
+declare i64 @atoll(ptr noundef captures(none)) local_unnamed_addr #29
 
 declare i64 @zend_ini_parse_uquantity_warn(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -5022,10 +5022,10 @@ declare void @llvm.va_start.p0(ptr) #30
 declare void @llvm.va_end.p0(ptr) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #32

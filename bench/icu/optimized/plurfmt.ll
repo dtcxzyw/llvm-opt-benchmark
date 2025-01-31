@@ -313,7 +313,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -556,7 +556,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7512PluralFormat17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7512PluralFormat17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret ptr @_ZZN6icu_7512PluralFormat16getStaticClassIDEvE7classID
 }
@@ -1581,7 +1581,7 @@ declare void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN6icu_7514MessagePatternC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(127), ptr noundef nonnull align 8 dereferenceable(127)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512PluralFormat11copyObjectsERKS0_(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(712) %other) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512PluralFormat11copyObjectsERKS0_(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(712) %other) local_unnamed_addr #1 align 2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -2622,7 +2622,7 @@ return:                                           ; preds = %if.end.i, %_ZN6icu_
 declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512PluralFormat21PluralSelectorAdapter5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7512PluralFormat21PluralSelectorAdapter5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %pluralRules = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %pluralRules, align 8
@@ -2642,7 +2642,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512PluralFormat15setNumberFormatEPKNS_12NumberFormatER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(712) %this, ptr noundef %format, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512PluralFormat15setNumberFormatEPKNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(712) %this, ptr noundef %format, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2879,7 +2879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_7512PluralFormat11parseObjectERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((12, 16)) %pos) unnamed_addr #10 align 2 {
+define void @_ZNK6icu_7512PluralFormat11parseObjectERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((12, 16)) %pos) unnamed_addr #10 align 2 {
 entry:
   %index.i = getelementptr inbounds nuw i8, ptr %pos, i64 8
   %2 = load i32, ptr %index.i, align 8
@@ -2893,7 +2893,7 @@ declare noundef double @_ZNK6icu_7514MessagePattern15getNumericValueERKNS0_4Part
 declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7512PluralFormat9parseTypeERKNS_13UnicodeStringEPKNS_6NFRuleERNS_11FormattableERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr noundef %rbnfLenientScanner, ptr noundef nonnull align 8 dereferenceable(112) %result, ptr nocapture noundef nonnull align 8 dereferenceable(20) %pos) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7512PluralFormat9parseTypeERKNS_13UnicodeStringEPKNS_6NFRuleERNS_11FormattableERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(712) %this, ptr noundef nonnull align 8 dereferenceable(64) %source, ptr noundef %rbnfLenientScanner, ptr noundef nonnull align 8 dereferenceable(112) %result, ptr noundef nonnull align 8 captures(none) dereferenceable(20) %pos) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keyword = alloca %"class.icu_75::UnicodeString", align 8
   %matchedWord = alloca %"class.icu_75::UnicodeString", align 8
@@ -3172,13 +3172,13 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare void @_ZN6icu_7511Formattable9setStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7512PluralFormat14PluralSelectorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7512PluralFormat14PluralSelectorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7512PluralFormat14PluralSelectorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #11 align 2 {
+define void @_ZN6icu_7512PluralFormat14PluralSelectorD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @llvm.trap() #18
   unreachable
@@ -3188,7 +3188,7 @@ entry:
 declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512PluralFormat21PluralSelectorAdapterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7512PluralFormat21PluralSelectorAdapterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %this, align 8
   %pluralRules = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3216,7 +3216,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7512PluralFormat21PluralSelectorAdapter6selectEPvdR10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull %context, double %number, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7512PluralFormat21PluralSelectorAdapter6selectEPvdR10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull %context, double %number, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   %pluralRules = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %pluralRules, align 8
@@ -3231,7 +3231,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_756Format6formatERKNS_11FormattableERNS_13UnicodeStringEPNS_21FieldPositionIteratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(322), ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300), i8) unnamed_addr #6
 
@@ -3258,10 +3258,10 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

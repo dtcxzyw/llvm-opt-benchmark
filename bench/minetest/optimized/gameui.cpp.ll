@@ -172,15 +172,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -518,10 +518,10 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit37: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI4initEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6GameUI4initEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__dnew.i.i121 = alloca i64, align 8
   %spec.i = alloca %struct.FontSpec, align 4
@@ -958,7 +958,7 @@ declare noundef zeroext i16 @_ZNK8Settings6getU16ERKNSt7__cxx1112basic_stringIcS
 declare noundef i32 @_ZN10FontEngine18getDefaultFontSizeEv(ptr noundef nonnull align 8 dereferenceable(638)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI6updateERK8RunStatsP6ClientP14MapDrawControlRK17CameraOrientationRK12PointedThingPK14GUIChatConsolef(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %stats, ptr noundef %client, ptr nocapture noundef readonly %draw_control, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %cam, ptr nocapture noundef nonnull readonly align 4 dereferenceable(69) %pointed_old, ptr noundef %chat_console, float noundef %dtime) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6GameUI6updateERK8RunStatsP6ClientP14MapDrawControlRK17CameraOrientationRK12PointedThingPK14GUIChatConsolef(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %stats, ptr noundef %client, ptr noundef readonly captures(none) %draw_control, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %cam, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(69) %pointed_old, ptr noundef %chat_console, float noundef %dtime) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i850 = alloca %class.EnrichedString, align 8
   %ref.tmp1.i851 = alloca %"class.irr::video::SColor", align 4
@@ -2735,7 +2735,7 @@ declare noundef nonnull align 8 dereferenceable(648) ptr @_ZN17ClientEnvironment
 declare i32 @_ZN3Map7getNodeEN3irr4core8vector3dIsEEPb(ptr noundef nonnull align 8 dereferenceable(144), i48, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI9initFlagsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((0, 5)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6GameUI9initFlagsEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(208) initializes((0, 5)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   store <4 x i8> <i8 1, i8 1, i8 0, i8 0>, ptr %this, align 8, !tbaa !12
@@ -2798,7 +2798,7 @@ ehcleanup:                                        ; preds = %if.then.i.i14, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare noundef zeroext i1 @_ZNK8Settings7getBoolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -2975,7 +2975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI11setChatTextERK14EnrichedStringj(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((128, 132)) %this, ptr noundef nonnull align 8 dereferenceable(80) %chat_text, i32 noundef %recent_chat_count) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN6GameUI11setChatTextERK14EnrichedStringj(ptr noundef nonnull align 8 captures(none) dereferenceable(208) initializes((128, 132)) %this, ptr noundef nonnull align 8 dereferenceable(80) %chat_text, i32 noundef %recent_chat_count) local_unnamed_addr #5 align 2 {
 entry:
   %m_guitext_chat = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_guitext_chat, align 8, !tbaa !44
@@ -3004,7 +3004,7 @@ _Z13setStaticTextPN3irr3gui14IGUIStaticTextERK14EnrichedString.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI14updateChatSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN6GameUI14updateChatSizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #5 align 2 {
 entry:
   %show_minimal_debug = getelementptr inbounds nuw i8, ptr %this, i64 2
   %0 = load i8, ptr %show_minimal_debug, align 2, !tbaa !102, !range !49, !noundef !50
@@ -3178,7 +3178,7 @@ cleanup:                                          ; preds = %_ZN3irr3gui11IGUIEl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI14updateProfilerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6GameUI14updateProfilerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %os = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %str = alloca %class.EnrichedString, align 8
@@ -3742,7 +3742,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI10toggleChatEP6Client(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %client) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6GameUI10toggleChatEP6Client(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef readonly captures(none) %client) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i29 = alloca %"class.std::__cxx11::basic_string.0", align 8
   %ref.tmp.i12 = alloca %"class.std::__cxx11::basic_string.0", align 8
@@ -4267,7 +4267,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI14deleteFormspecEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((176, 184)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6GameUI14deleteFormspecEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) initializes((176, 184)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_formspec = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_formspec, align 8, !tbaa !36
@@ -4307,7 +4307,7 @@ if.end:                                           ; preds = %_ZNK3irr17IReferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GameUI9clearTextEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN6GameUI9clearTextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_guitext_chat = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_guitext_chat, align 8, !tbaa !44
@@ -4454,7 +4454,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef ptr @_ZN10FontEngine7getFontE8FontSpec(ptr noundef nonnull align 8 dereferenceable(638), i64) local_unnamed_addr #0
 
@@ -4516,7 +4516,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_
 declare i32 @swprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 

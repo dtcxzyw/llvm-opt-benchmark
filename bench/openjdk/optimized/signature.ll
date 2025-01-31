@@ -118,7 +118,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN24ResolvingSignatureStreamC1EPK6Method = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN24ResolvingSignatureStreamC2EPK6Method
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17SignatureIterator15set_fingerprintEm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17SignatureIterator15set_fingerprintEm(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = add i64 %1, -1
   %spec.select.i = icmp ult i64 %3, -2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -151,7 +151,7 @@ define hidden void @_ZN17SignatureIterator15set_fingerprintEm(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i8 @_ZN17SignatureIterator11return_typeEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i8 @_ZN17SignatureIterator11return_typeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.SignatureStream, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
@@ -232,7 +232,7 @@ _ZN15SignatureStreamD2Ev.exit:                    ; preds = %.lr.ph.i1, %.prehea
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15SignatureStream19skip_to_return_typeEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN15SignatureStream19skip_to_return_typeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 3
@@ -823,7 +823,7 @@ _ZN13Fingerprinter29initialize_calling_conventionEb.exit: ; preds = %48, %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13Fingerprinter29initialize_calling_conventionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 64)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN13Fingerprinter29initialize_calling_conventionEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((56, 64)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -985,7 +985,7 @@ _ZN15SignatureStreamD2Ev.exit:                    ; preds = %.lr.ph.i, %67, %60,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13Fingerprinter26do_type_calling_conventionE9BasicType(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13Fingerprinter26do_type_calling_conventionE9BasicType(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, i8 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   switch i8 %1, label %49 [
     i8 14, label %51
     i8 4, label %3
@@ -1093,7 +1093,7 @@ define hidden void @_ZN13Fingerprinter26do_type_calling_conventionE9BasicType(pt
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15SignatureStreamC2EPK6Symbolb(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 24), (28, 48)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN15SignatureStreamC2EPK6Symbolb(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((0, 24), (28, 48)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i16, ptr %4, align 4
@@ -1119,7 +1119,7 @@ define hidden void @_ZN15SignatureStreamC2EPK6Symbolb(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15SignatureStream4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1294,7 +1294,7 @@ _ZN15SignatureStream9scan_typeE9BasicType.exit:   ; preds = %56, %39, %47, %65, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15SignatureStreamD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN15SignatureStreamD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6Symbol11_vm_symbolsE, i64 24), align 8
@@ -1335,7 +1335,7 @@ define hidden void @_ZN15SignatureStreamD2Ev(ptr nocapture noundef nonnull reado
 declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN15SignatureStream23skip_whole_array_prefixEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((24, 25)) %0) local_unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZN15SignatureStream23skip_whole_array_prefixEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) initializes((24, 25)) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1365,7 +1365,7 @@ _ZL21decode_signature_chari.exit:                 ; preds = %1, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN9Signature24is_valid_array_signatureEPK6Symbol(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN9Signature24is_valid_array_signatureEPK6Symbol(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
@@ -1459,7 +1459,7 @@ define hidden noundef ptr @_ZN9Signature14strip_envelopeEPK6Symbol(ptr noundef %
 declare noundef ptr @_ZN11SymbolTable10new_symbolEPKci(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15SignatureStream11find_symbolEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN15SignatureStream11find_symbolEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -1592,7 +1592,7 @@ _ZN26GrowableArrayWithAllocatorIP6Symbol13GrowableArrayIS1_EE4pushERKS1_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15SignatureStream8as_klassE6HandleS0_NS_11FailureModeEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN15SignatureStream8as_klassE6HandleS0_NS_11FailureModeEP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr %1, ptr %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, -2
@@ -1641,7 +1641,7 @@ declare noundef ptr @_ZN16SystemDictionary19find_instance_klassEP6ThreadP6Symbol
 declare noundef ptr @_ZN16SystemDictionary15resolve_or_failEP6Symbol6HandleS2_bP10JavaThread(ptr noundef, ptr, ptr, i1 noundef zeroext, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15SignatureStream14as_java_mirrorE6HandleS0_NS_11FailureModeEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN15SignatureStream14as_java_mirrorE6HandleS0_NS_11FailureModeEP10JavaThread(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr %1, ptr %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i8, ptr %6, align 8
   %8 = and i8 %7, -2
@@ -1707,7 +1707,7 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %20, %13, %31, %27, 
 declare noundef ptr @_ZN8Universe11java_mirrorE9BasicType(i8 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN24ResolvingSignatureStreamC2EP6Symbol6HandleS2_b(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 24), (28, 48)) %0, ptr noundef %1, ptr %2, ptr %3, i1 noundef zeroext %4) unnamed_addr #2 align 2 {
+define hidden void @_ZN24ResolvingSignatureStreamC2EP6Symbol6HandleS2_b(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 24), (28, 48)) %0, ptr noundef %1, ptr %2, ptr %3, i1 noundef zeroext %4) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i16, ptr %6, align 4
@@ -1741,7 +1741,7 @@ define hidden void @_ZN24ResolvingSignatureStreamC2EP6Symbol6HandleS2_b(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN24ResolvingSignatureStreamC2EP6SymbolP5Klassb(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 24), (28, 48)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN24ResolvingSignatureStreamC2EP6SymbolP5Klassb(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 24), (28, 48)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 4
@@ -1775,7 +1775,7 @@ define hidden void @_ZN24ResolvingSignatureStreamC2EP6SymbolP5Klassb(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN24ResolvingSignatureStreamC2EPK6Method(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 24), (28, 48)) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN24ResolvingSignatureStreamC2EPK6Method(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((0, 24), (28, 48)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1823,7 +1823,7 @@ define hidden void @_ZN24ResolvingSignatureStreamC2EPK6Method(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ResolvingSignatureStream13cache_handlesEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((64, 80)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24ResolvingSignatureStream13cache_handlesEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) initializes((64, 80)) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -2587,13 +2587,13 @@ declare void @_ZN27GrowableArrayCHeapAllocator10deallocateEPv(ptr noundef) local
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

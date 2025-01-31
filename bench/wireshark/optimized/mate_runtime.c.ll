@@ -130,7 +130,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @destroy_pdus_in_cfg(ptr nocapture readnone %0, ptr nocapture noundef initializes((8, 12)) %1, ptr nocapture readnone %2) #0 {
+define internal void @destroy_pdus_in_cfg(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((8, 12)) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %5, ptr noundef nonnull @destroy_mate_pdus, ptr noundef null) #10
@@ -140,7 +140,7 @@ define internal void @destroy_pdus_in_cfg(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @destroy_gops_in_cfg(ptr nocapture readnone %0, ptr nocapture noundef initializes((8, 12)) %1, ptr nocapture readnone %2) #0 {
+define internal void @destroy_gops_in_cfg(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((8, 12)) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %5, ptr noundef nonnull @return_true, ptr noundef null) #10
@@ -164,7 +164,7 @@ define internal void @destroy_gops_in_cfg(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @destroy_gogs_in_cfg(ptr nocapture readnone %0, ptr nocapture noundef initializes((16, 20)) %1, ptr nocapture readnone %2) #0 {
+define internal void @destroy_gogs_in_cfg(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((16, 20)) %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %5, ptr noundef nonnull @destroy_mate_gogs, ptr noundef null) #10
@@ -184,7 +184,7 @@ declare i32 @g_direct_hash(ptr noundef) #3
 declare i32 @g_direct_equal(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mate_analyze_frame(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @mate_analyze_frame(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -198,7 +198,7 @@ define hidden void @mate_analyze_frame(ptr nocapture noundef readonly %0, ptr no
   store float %11, ptr %13, align 4
   %14 = tail call i32 @proto_tracking_interesting_fields(ptr noundef %2) #10
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %619, label %15
+  br i1 %.not, label %618, label %15
 
 15:                                               ; preds = %3
   %16 = load ptr, ptr @rd, align 8
@@ -207,7 +207,7 @@ define hidden void @mate_analyze_frame(ptr nocapture noundef readonly %0, ptr no
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %20 = load i32, ptr %19, align 4
   %21 = icmp ult i32 %18, %20
-  br i1 %21, label %.preheader81, label %619
+  br i1 %21, label %.preheader81, label %618
 
 .preheader81:                                     ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -227,7 +227,7 @@ define hidden void @mate_analyze_frame(ptr nocapture noundef readonly %0, ptr no
 
 31:                                               ; preds = %.lr.ph92, %._crit_edge.thread
   %indvars.iv103 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next104, %._crit_edge.thread ]
-  %32 = phi ptr [ %23, %.lr.ph92 ], [ %611, %._crit_edge.thread ]
+  %32 = phi ptr [ %23, %.lr.ph92 ], [ %610, %._crit_edge.thread ]
   %.091 = phi ptr [ null, %.lr.ph92 ], [ %.3, %._crit_edge.thread ]
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr ptr, ptr %33, i64 %indvars.iv103
@@ -1333,7 +1333,7 @@ analyze_pdu.exit:                                 ; preds = %.critedge, %350, %3
   br label %603
 
 603:                                              ; preds = %593, %601, %586, %209
-  %.153 = phi ptr [ null, %209 ], [ %61, %601 ], [ %61, %593 ], [ null, %586 ]
+  %.153 = phi i1 [ true, %209 ], [ false, %601 ], [ false, %593 ], [ true, %586 ]
   %.2 = phi ptr [ %.188, %209 ], [ %61, %601 ], [ %61, %593 ], [ %.188, %586 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %604 = load i32, ptr %42, align 8
@@ -1342,38 +1342,37 @@ analyze_pdu.exit:                                 ; preds = %.critedge, %350, %3
   br i1 %606, label %53, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %603
-  %607 = icmp eq ptr %.153, null
-  br i1 %607, label %._crit_edge.thread, label %608
+  br i1 %.153, label %._crit_edge.thread, label %607
 
-608:                                              ; preds = %._crit_edge
-  %609 = getelementptr inbounds nuw i8, ptr %35, i64 76
-  %610 = load i32, ptr %609, align 4
-  %.not61 = icmp eq i32 %610, 0
+607:                                              ; preds = %._crit_edge
+  %608 = getelementptr inbounds nuw i8, ptr %35, i64 76
+  %609 = load i32, ptr %608, align 4
+  %.not61 = icmp eq i32 %609, 0
   br i1 %.not61, label %._crit_edge.thread, label %._crit_edge93.loopexit
 
-._crit_edge.thread:                               ; preds = %.preheader, %31, %608, %._crit_edge
-  %.3 = phi ptr [ %.2, %608 ], [ %.2, %._crit_edge ], [ %.091, %31 ], [ %.091, %.preheader ]
+._crit_edge.thread:                               ; preds = %.preheader, %31, %607, %._crit_edge
+  %.3 = phi ptr [ %.2, %607 ], [ %.2, %._crit_edge ], [ %.091, %31 ], [ %.091, %.preheader ]
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
-  %611 = load ptr, ptr %22, align 8
-  %612 = getelementptr inbounds nuw i8, ptr %611, i64 8
-  %613 = load i32, ptr %612, align 8
-  %614 = zext i32 %613 to i64
-  %615 = icmp samesign ult i64 %indvars.iv.next104, %614
-  br i1 %615, label %31, label %._crit_edge93.loopexit, !llvm.loop !14
+  %610 = load ptr, ptr %22, align 8
+  %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
+  %612 = load i32, ptr %611, align 8
+  %613 = zext i32 %612 to i64
+  %614 = icmp samesign ult i64 %indvars.iv.next104, %613
+  br i1 %614, label %31, label %._crit_edge93.loopexit, !llvm.loop !14
 
-._crit_edge93.loopexit:                           ; preds = %608, %._crit_edge.thread
+._crit_edge93.loopexit:                           ; preds = %607, %._crit_edge.thread
   %.pre = load i32, ptr %19, align 4
   %.pre106 = load ptr, ptr @rd, align 8
   br label %._crit_edge93
 
 ._crit_edge93:                                    ; preds = %._crit_edge93.loopexit, %.preheader81
-  %616 = phi ptr [ %.pre106, %._crit_edge93.loopexit ], [ %16, %.preheader81 ]
-  %617 = phi i32 [ %.pre, %._crit_edge93.loopexit ], [ %20, %.preheader81 ]
-  %618 = getelementptr inbounds nuw i8, ptr %616, i64 8
-  store i32 %617, ptr %618, align 8
-  br label %619
+  %615 = phi ptr [ %.pre106, %._crit_edge93.loopexit ], [ %16, %.preheader81 ]
+  %616 = phi i32 [ %.pre, %._crit_edge93.loopexit ], [ %20, %.preheader81 ]
+  %617 = getelementptr inbounds nuw i8, ptr %615, i64 8
+  store i32 %616, ptr %617, align 8
+  br label %618
 
-619:                                              ; preds = %._crit_edge93, %15, %3
+618:                                              ; preds = %._crit_edge93, %15, %3
   ret void
 }
 
@@ -1415,7 +1414,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_foreach_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @destroy_mate_pdus(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @destroy_mate_pdus(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1431,7 +1430,7 @@ define internal noundef i32 @destroy_mate_pdus(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @return_true(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #4 {
+define internal noundef i32 @return_true(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
   ret i32 1
 }
 
@@ -1440,7 +1439,7 @@ declare i32 @g_str_hash(ptr noundef) #1
 declare i32 @g_str_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @destroy_mate_gops(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @destroy_mate_gops(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1488,7 +1487,7 @@ declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @destroy_mate_gogs(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @destroy_mate_gogs(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1567,7 +1566,7 @@ declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_pdu_fields(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @get_pdu_fields(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load i32, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -1733,7 +1732,7 @@ add_avp.exit.thread:                              ; preds = %add_avp.exit.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @add_avp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @add_avp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -1959,7 +1958,7 @@ declare ptr @get_next_avpl(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @merge_avpl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reanalyze_gop(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @reanalyze_gop(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -2211,13 +2210,13 @@ declare ptr @g_ptr_array_new() local_unnamed_addr #1
 declare i32 @llvm.smin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

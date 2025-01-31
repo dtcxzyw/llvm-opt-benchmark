@@ -415,19 +415,19 @@ thread-pre-split:                                 ; preds = %.backedge, %.prehea
 
 61:                                               ; preds = %.lr.ph122, %thread-pre-split
   %62 = load ptr, ptr %16, align 8
-  %63 = call fastcc i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %62, ptr noundef %4, ptr noundef %3, i8 noundef zeroext 48)
+  %63 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %0, ptr noundef %62, ptr noundef %4, ptr noundef %3, i8 noundef zeroext 48)
   %.not53 = icmp eq i32 %63, 0
   br i1 %.not53, label %64, label %asn1_expect_objtype.exit.thread
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %25, align 8
-  %66 = call fastcc i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %65, ptr noundef %26, ptr noundef %5, i8 noundef zeroext 4)
+  %66 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %0, ptr noundef %65, ptr noundef %26, ptr noundef %5, i8 noundef zeroext 4)
   %.not54 = icmp eq i32 %66, 0
   br i1 %.not54, label %67, label %asn1_expect_objtype.exit.thread
 
 67:                                               ; preds = %64
   %68 = load ptr, ptr %45, align 8
-  %69 = call fastcc i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %68, ptr noundef %26, ptr noundef %5, i8 noundef zeroext 49)
+  %69 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %0, ptr noundef %68, ptr noundef %26, ptr noundef %5, i8 noundef zeroext 49)
   %.not55 = icmp eq i32 %69, 0
   br i1 %.not55, label %70, label %asn1_expect_objtype.exit.thread
 
@@ -451,7 +451,7 @@ thread-pre-split:                                 ; preds = %.backedge, %.prehea
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.backedge
   %74 = phi ptr [ %.pre, %.lr.ph119.preheader ], [ %77, %.backedge ]
-  %75 = call fastcc i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %74, ptr noundef %46, ptr noundef %6, i8 noundef zeroext 48)
+  %75 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %0, ptr noundef %74, ptr noundef %46, ptr noundef %6, i8 noundef zeroext 48)
   %.not58 = icmp eq i32 %75, 0
   br i1 %.not58, label %76, label %asn1_expect_objtype.exit.thread
 
@@ -459,7 +459,7 @@ thread-pre-split:                                 ; preds = %.backedge, %.prehea
   %77 = load ptr, ptr %48, align 8
   store ptr %77, ptr %47, align 8
   %78 = load ptr, ptr %49, align 8
-  %79 = call fastcc i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %78, ptr noundef %50, ptr noundef %7, i8 noundef zeroext 6)
+  %79 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %0, ptr noundef %78, ptr noundef %50, ptr noundef %7, i8 noundef zeroext 6)
   %.not59 = icmp eq i32 %79, 0
   br i1 %.not59, label %80, label %asn1_expect_objtype.exit.thread
 
@@ -482,7 +482,7 @@ thread-pre-split:                                 ; preds = %.backedge, %.prehea
   %87 = ptrtoint ptr %.val.i to i64
   %88 = add i64 %.val4.i, %87
   %89 = sub i64 %86, %88
-  %90 = call ptr %85(ptr noundef %0, i64 noundef %89, i64 noundef 10, i32 noundef 0) #11
+  %90 = call ptr %85(ptr noundef nonnull %0, i64 noundef %89, i64 noundef 10, i32 noundef 0) #11
   %.not61 = icmp eq ptr %90, null
   br i1 %.not61, label %91, label %92
 
@@ -723,7 +723,7 @@ asn1_expect_objtype.exit.thread:                  ; preds = %61, %64, %67, %thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @asn1_parse_mscat(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @asn1_parse_mscat(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef nonnull captures(none) %6, ptr noundef nonnull captures(none) %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca %struct.cli_asn1, align 8
   %12 = alloca %struct.cli_asn1, align 8
@@ -973,7 +973,7 @@ asn1_expect_objtype.exit361:                      ; preds = %49
   br label %114
 
 114:                                              ; preds = %113, %117
-  %115 = call fastcc i32 @asn1_get_x509(ptr noundef %1, ptr noundef %43, ptr noundef %16, ptr noundef %22)
+  %115 = call fastcc i32 @asn1_get_x509(ptr noundef nonnull %1, ptr noundef %43, ptr noundef %16, ptr noundef %22)
   switch i32 %115, label %117 [
     i32 2, label %118
     i32 1, label %116
@@ -1314,7 +1314,7 @@ asn1_expect_objtype.exit361:                      ; preds = %49
 264:                                              ; preds = %119, %263, %111
   %.0204 = phi i32 [ %.1205.lcssa488493, %263 ], [ 27, %119 ], [ 27, %111 ]
   %265 = load ptr, ptr %79, align 8
-  %266 = call fastcc i32 @asn1_get_obj(ptr noundef %1, ptr noundef %265, ptr noundef %10, ptr noundef %11)
+  %266 = call fastcc i32 @asn1_get_obj(ptr noundef nonnull %1, ptr noundef %265, ptr noundef %10, ptr noundef %11)
   %.not284 = icmp eq i32 %266, 0
   br i1 %.not284, label %268, label %267
 
@@ -1329,7 +1329,7 @@ asn1_expect_objtype.exit361:                      ; preds = %49
 
 271:                                              ; preds = %268
   %272 = load ptr, ptr %79, align 8
-  %273 = call fastcc i32 @asn1_get_obj(ptr noundef %1, ptr noundef %272, ptr noundef %10, ptr noundef %11)
+  %273 = call fastcc i32 @asn1_get_obj(ptr noundef nonnull %1, ptr noundef %272, ptr noundef %10, ptr noundef %11)
   %.not285 = icmp eq i32 %273, 0
   br i1 %.not285, label %thread-pre-split379, label %274
 
@@ -1364,7 +1364,7 @@ thread-pre-split379:                              ; preds = %271
   %283 = load i32, ptr %41, align 4
   store i32 %283, ptr %10, align 4
   %284 = load ptr, ptr %43, align 8
-  %285 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %284, ptr noundef %10, ptr noundef %11, i8 noundef zeroext 48)
+  %285 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %284, ptr noundef %10, ptr noundef %11, i8 noundef zeroext 48)
   %.not288 = icmp eq i32 %285, 0
   br i1 %.not288, label %287, label %286
 
@@ -1384,7 +1384,7 @@ thread-pre-split379:                              ; preds = %271
 290:                                              ; preds = %287
   %291 = load i32, ptr %41, align 4
   store i32 %291, ptr %10, align 4
-  %292 = call fastcc i32 @asn1_expect_obj(ptr noundef %1, ptr noundef %43, ptr noundef %10, i8 noundef zeroext 2, i32 noundef 1, ptr noundef nonnull @.str.42)
+  %292 = call fastcc i32 @asn1_expect_obj(ptr noundef nonnull %1, ptr noundef %43, ptr noundef %10, i8 noundef zeroext 2, i32 noundef 1, ptr noundef nonnull @.str.42)
   %.not290 = icmp eq i32 %292, 0
   br i1 %.not290, label %294, label %293
 
@@ -1394,7 +1394,7 @@ thread-pre-split379:                              ; preds = %271
 
 294:                                              ; preds = %290
   %295 = load ptr, ptr %43, align 8
-  %296 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %295, ptr noundef %10, ptr noundef %11, i8 noundef zeroext 48)
+  %296 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %295, ptr noundef %10, ptr noundef %11, i8 noundef zeroext 48)
   %.not291 = icmp eq i32 %296, 0
   br i1 %.not291, label %298, label %297
 
@@ -1406,7 +1406,7 @@ thread-pre-split379:                              ; preds = %271
   %299 = load i32, ptr %41, align 4
   store i32 %299, ptr %16, align 4
   %300 = load ptr, ptr %43, align 8
-  %301 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %300, ptr noundef %16, ptr noundef %12, i8 noundef zeroext 48)
+  %301 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %300, ptr noundef %16, ptr noundef %12, i8 noundef zeroext 48)
   %.not292 = icmp eq i32 %301, 0
   br i1 %.not292, label %303, label %302
 
@@ -1417,7 +1417,7 @@ thread-pre-split379:                              ; preds = %271
 303:                                              ; preds = %298
   %304 = load ptr, ptr %98, align 8
   %305 = load i32, ptr %96, align 4
-  %306 = call fastcc i32 @map_sha1(ptr noundef %1, ptr noundef %304, i32 noundef %305, ptr noundef %14)
+  %306 = call fastcc i32 @map_sha1(ptr noundef nonnull %1, ptr noundef %304, i32 noundef %305, ptr noundef %14)
   %.not293 = icmp eq i32 %306, 0
   br i1 %.not293, label %308, label %307
 
@@ -1428,7 +1428,7 @@ thread-pre-split379:                              ; preds = %271
 308:                                              ; preds = %303
   %309 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %310 = load ptr, ptr %309, align 8
-  %311 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %310, ptr noundef %16, ptr noundef %12, i8 noundef zeroext 2)
+  %311 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %310, ptr noundef %16, ptr noundef %12, i8 noundef zeroext 2)
   %.not294 = icmp eq i32 %311, 0
   br i1 %.not294, label %313, label %312
 
@@ -1439,7 +1439,7 @@ thread-pre-split379:                              ; preds = %271
 313:                                              ; preds = %308
   %314 = load ptr, ptr %98, align 8
   %315 = load i32, ptr %96, align 4
-  %316 = call fastcc i32 @map_sha1(ptr noundef %1, ptr noundef %314, i32 noundef %315, ptr noundef %15)
+  %316 = call fastcc i32 @map_sha1(ptr noundef nonnull %1, ptr noundef %314, i32 noundef %315, ptr noundef %15)
   %.not295 = icmp eq i32 %316, 0
   br i1 %.not295, label %318, label %317
 
@@ -1457,7 +1457,7 @@ thread-pre-split379:                              ; preds = %271
   br label %.thread385
 
 321:                                              ; preds = %318
-  %322 = call fastcc i32 @asn1_expect_hash_algo(ptr noundef %1, ptr noundef %79, ptr noundef %10, ptr noundef %19, ptr noundef %20)
+  %322 = call fastcc i32 @asn1_expect_hash_algo(ptr noundef nonnull %1, ptr noundef %79, ptr noundef %10, ptr noundef %19, ptr noundef %20)
   %.not297 = icmp eq i32 %322, 0
   br i1 %.not297, label %324, label %323
 
@@ -1477,7 +1477,7 @@ thread-pre-split379:                              ; preds = %271
 
 328:                                              ; preds = %324
   %329 = load ptr, ptr %79, align 8
-  %330 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %329, ptr noundef %10, ptr noundef %11, i8 noundef zeroext -96)
+  %330 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %329, ptr noundef %10, ptr noundef %11, i8 noundef zeroext -96)
   %.not299 = icmp eq i32 %330, 0
   br i1 %.not299, label %332, label %331
 
@@ -1529,7 +1529,7 @@ thread-pre-split381:                              ; preds = %361, %373, %408
 353:                                              ; preds = %.lr.ph456, %thread-pre-split381
   %.0200454 = phi i32 [ 0, %.lr.ph456 ], [ %.0200.ph, %thread-pre-split381 ]
   %354 = load ptr, ptr %309, align 8
-  %355 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %354, ptr noundef %16, ptr noundef %12, i8 noundef zeroext 48)
+  %355 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %354, ptr noundef %16, ptr noundef %12, i8 noundef zeroext 48)
   %.not301 = icmp eq i32 %355, 0
   br i1 %.not301, label %357, label %356
 
@@ -1539,7 +1539,7 @@ thread-pre-split381:                              ; preds = %361, %373, %408
 
 357:                                              ; preds = %353
   %358 = load ptr, ptr %98, align 8
-  %359 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %358, ptr noundef %96, ptr noundef %13, i8 noundef zeroext 6)
+  %359 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %358, ptr noundef %96, ptr noundef %13, i8 noundef zeroext 6)
   %.not302 = icmp eq i32 %359, 0
   br i1 %.not302, label %361, label %360
 
@@ -1561,7 +1561,7 @@ thread-pre-split381:                              ; preds = %361, %373, %408
   %367 = ptrtoint ptr %.val.i to i64
   %368 = add i64 %.val4.i, %367
   %369 = sub i64 %366, %368
-  %370 = call ptr %365(ptr noundef %1, i64 noundef %369, i64 noundef 9, i32 noundef 0) #11
+  %370 = call ptr %365(ptr noundef nonnull %1, i64 noundef %369, i64 noundef 9, i32 noundef 0) #11
   %.not304 = icmp eq ptr %370, null
   br i1 %.not304, label %371, label %372
 
@@ -1689,7 +1689,7 @@ thread-pre-split381:                              ; preds = %361, %373, %408
   br label %.thread385
 
 413:                                              ; preds = %._crit_edge457
-  %414 = call fastcc i32 @asn1_expect_algo(ptr noundef %1, ptr noundef %79, ptr noundef %10)
+  %414 = call fastcc i32 @asn1_expect_algo(ptr noundef nonnull %1, ptr noundef %79, ptr noundef %10)
   %.not319 = icmp eq i32 %414, 0
   br i1 %.not319, label %416, label %415
 
@@ -1699,7 +1699,7 @@ thread-pre-split381:                              ; preds = %361, %373, %408
 
 416:                                              ; preds = %413
   %417 = load ptr, ptr %79, align 8
-  %418 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %417, ptr noundef %10, ptr noundef %11, i8 noundef zeroext 4)
+  %418 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %417, ptr noundef %10, ptr noundef %11, i8 noundef zeroext 4)
   %.not320 = icmp eq i32 %418, 0
   br i1 %.not320, label %420, label %419
 
@@ -1719,7 +1719,7 @@ thread-pre-split381:                              ; preds = %361, %373, %408
 424:                                              ; preds = %420
   %425 = load ptr, ptr %6, align 8
   %426 = load i32, ptr %7, align 4
-  %427 = call fastcc i32 @map_hash(ptr noundef %1, ptr noundef %425, i32 noundef %426, ptr noundef %17, i32 noundef %325)
+  %427 = call fastcc i32 @map_hash(ptr noundef nonnull %1, ptr noundef %425, i32 noundef %426, ptr noundef %17, i32 noundef %325)
   %.not321 = icmp eq i32 %427, 0
   br i1 %.not321, label %429, label %428
 
@@ -1748,7 +1748,7 @@ thread-pre-split381:                              ; preds = %361, %373, %408
   %438 = ptrtoint ptr %.val.i364 to i64
   %439 = add i64 %.val4.i365, %438
   %440 = sub i64 %335, %439
-  %441 = call ptr %435(ptr noundef %1, i64 noundef %440, i64 noundef range(i64 0, 4294967296) %434, i32 noundef 0) #11
+  %441 = call ptr %435(ptr noundef nonnull %1, i64 noundef %440, i64 noundef range(i64 0, 4294967296) %434, i32 noundef 0) #11
   %.not324 = icmp eq ptr %441, null
   br i1 %.not324, label %442, label %443
 
@@ -1869,7 +1869,7 @@ thread-pre-split388:                              ; preds = %thread-pre-split388
 493:                                              ; preds = %.lr.ph462, %thread-pre-split388
   %.3203460 = phi i32 [ 0, %.lr.ph462 ], [ %.3203.ph, %thread-pre-split388 ]
   %494 = load ptr, ptr %309, align 8
-  %495 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %494, ptr noundef %16, ptr noundef %12, i8 noundef zeroext 48)
+  %495 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %494, ptr noundef %16, ptr noundef %12, i8 noundef zeroext 48)
   %.not331 = icmp eq i32 %495, 0
   br i1 %.not331, label %497, label %496
 
@@ -1879,7 +1879,7 @@ thread-pre-split388:                              ; preds = %thread-pre-split388
 
 497:                                              ; preds = %493
   %498 = load ptr, ptr %98, align 8
-  %499 = call fastcc i32 @asn1_expect_objtype(ptr noundef %1, ptr noundef %498, ptr noundef %96, ptr noundef %13, i8 noundef zeroext 6)
+  %499 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %1, ptr noundef %498, ptr noundef %96, ptr noundef %13, i8 noundef zeroext 6)
   %.not332 = icmp eq i32 %499, 0
   br i1 %.not332, label %501, label %500
 
@@ -1903,7 +1903,7 @@ thread-pre-split388:                              ; preds = %thread-pre-split388
   %509 = ptrtoint ptr %.val.i368 to i64
   %510 = add i64 %.val4.i369, %509
   %511 = sub i64 %508, %510
-  %512 = call ptr %507(ptr noundef %1, i64 noundef %511, i64 noundef range(i64 0, 4294967296) %505, i32 noundef 0) #11
+  %512 = call ptr %507(ptr noundef nonnull %1, i64 noundef %511, i64 noundef range(i64 0, 4294967296) %505, i32 noundef 0) #11
   %.not333 = icmp eq ptr %512, null
   br i1 %.not333, label %513, label %514
 
@@ -2033,7 +2033,7 @@ thread-pre-split388.sink.split:                   ; preds = %531
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i8 noundef zeroext range(i8 -96, 50) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, i8 noundef zeroext range(i8 -96, 50) %4) unnamed_addr #0 {
   %6 = tail call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %12
@@ -2055,7 +2055,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_expect_objtype(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_expect_obj(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, i8 noundef zeroext range(i8 2, 7) %3, i32 noundef %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_expect_obj(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext range(i8 2, 7) %3, i32 noundef %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca %struct.cli_asn1, align 8
   %8 = load ptr, ptr %1, align 8
   %9 = call fastcc i32 @asn1_get_obj(ptr noundef %0, ptr noundef %8, ptr noundef nonnull %2, ptr noundef nonnull %7)
@@ -2132,7 +2132,7 @@ asn1_expect_objtype.exit.thread:                  ; preds = %6, %12, %35, %34, %
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_expect_list_member(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_expect_list_member(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = tail call fastcc ptr @asn1_expect_algo_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @asn1_expect_list_member.alts, i32 noundef 2)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -2147,7 +2147,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_expect_list_member(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_expect_hash_algo(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_expect_hash_algo(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = tail call fastcc ptr @asn1_expect_algo_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @asn1_expect_hash_algo.alts, i32 noundef 10)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -2171,10 +2171,10 @@ define internal fastcc range(i32 0, 2) i32 @asn1_expect_hash_algo(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @mpool_calloc(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2183,7 +2183,7 @@ declare i32 @hm_addhash_bin(ptr noundef, ptr noundef, i32 noundef, i32 noundef, 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @asn1_check_mscat(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 1, 0) i32 @asn1_check_mscat(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.cli_asn1, align 8
   %10 = alloca i32, align 4
@@ -2420,7 +2420,7 @@ declare i32 @cl_update_hash(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @cl_finish_hash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @asn1_get_x509(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @asn1_get_x509(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.cli_asn1, align 8
   %6 = alloca %struct.cli_asn1, align 8
   %7 = alloca %struct.cli_asn1, align 8
@@ -3174,7 +3174,7 @@ declare i32 @cli_append_virus(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @crtmgr_trust_list_lookup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @crtmgr_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3183,7 +3183,7 @@ declare void @crtmgr_del(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @crtmgr_verify_crt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_get_obj(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_get_obj(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr %2, align 4
   %6 = tail call i32 @llvm.umin.i32(i32 %5, i32 6)
   %7 = icmp ult i32 %5, 2
@@ -3342,10 +3342,10 @@ define internal fastcc range(i32 0, 2) i32 @map_sha1(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_expect_algo(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_expect_algo(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = alloca %struct.cli_asn1, align 8
   %5 = alloca %struct.cli_asn1, align 8
   %6 = alloca i32, align 4
@@ -3581,7 +3581,7 @@ declare ptr @crtmgr_verify_pkcs7(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i64 @time(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_parse_countersignature(ptr noundef %0, ptr %.0.val, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_parse_countersignature(ptr noundef %0, ptr %.0.val, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.cli_asn1, align 8
   %9 = alloca %struct.cli_asn1, align 8
   %10 = alloca %struct.cli_asn1, align 8
@@ -3819,7 +3819,7 @@ thread-pre-split:                                 ; preds = %163, %153, %157, %1
 112:                                              ; preds = %.lr.ph, %thread-pre-split
   %.04842 = phi i32 [ 0, %.lr.ph ], [ %.048.ph, %thread-pre-split ]
   %113 = load ptr, ptr %56, align 8
-  %114 = call fastcc i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %113, ptr noundef %13, ptr noundef %9, i8 noundef zeroext 48)
+  %114 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %0, ptr noundef %113, ptr noundef %13, ptr noundef %9, i8 noundef zeroext 48)
   %.not70 = icmp eq i32 %114, 0
   br i1 %.not70, label %116, label %115
 
@@ -3829,7 +3829,7 @@ thread-pre-split:                                 ; preds = %163, %153, %157, %1
 
 116:                                              ; preds = %112
   %117 = load ptr, ptr %41, align 8
-  %118 = call fastcc i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %117, ptr noundef %37, ptr noundef %10, i8 noundef zeroext 6)
+  %118 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %0, ptr noundef %117, ptr noundef %37, ptr noundef %10, i8 noundef zeroext 6)
   %.not71 = icmp eq i32 %118, 0
   br i1 %.not71, label %120, label %119
 
@@ -3851,7 +3851,7 @@ thread-pre-split:                                 ; preds = %163, %153, %157, %1
   %126 = ptrtoint ptr %.val.i110 to i64
   %127 = add i64 %.val4.i111, %126
   %128 = sub i64 %125, %127
-  %129 = call ptr %124(ptr noundef %0, i64 noundef %128, i64 noundef 9, i32 noundef 0) #11
+  %129 = call ptr %124(ptr noundef nonnull %0, i64 noundef %128, i64 noundef 9, i32 noundef 0) #11
   %.not73 = icmp eq ptr %129, null
   br i1 %.not73, label %130, label %131
 
@@ -3977,7 +3977,7 @@ default.unreachable44:                            ; preds = %146
   br label %.thread16
 
 168:                                              ; preds = %._crit_edge
-  %169 = call fastcc i32 @asn1_expect_rsa(ptr noundef %0, ptr noundef %85, ptr noundef %14, ptr noundef %17)
+  %169 = call fastcc i32 @asn1_expect_rsa(ptr noundef nonnull %0, ptr noundef %85, ptr noundef %14, ptr noundef %17)
   %.not92 = icmp eq i32 %169, 0
   br i1 %.not92, label %171, label %170
 
@@ -3998,7 +3998,7 @@ default.unreachable44:                            ; preds = %146
 
 174:                                              ; preds = %171
   %175 = load ptr, ptr %85, align 8
-  %176 = call fastcc i32 @asn1_expect_objtype(ptr noundef %0, ptr noundef %175, ptr noundef %14, ptr noundef %8, i8 noundef zeroext 4)
+  %176 = call fastcc i32 @asn1_expect_objtype(ptr noundef nonnull %0, ptr noundef %175, ptr noundef %14, ptr noundef %8, i8 noundef zeroext 4)
   %.not95 = icmp eq i32 %176, 0
   br i1 %.not95, label %178, label %177
 
@@ -4032,7 +4032,7 @@ default.unreachable44:                            ; preds = %146
   %188 = ptrtoint ptr %.val.i112 to i64
   %189 = add i64 %.val4.i113, %188
   %190 = sub i64 %99, %189
-  %191 = call ptr %187(ptr noundef %0, i64 noundef %190, i64 noundef range(i64 0, 4294967296) %186, i32 noundef 0) #11
+  %191 = call ptr %187(ptr noundef nonnull %0, i64 noundef %190, i64 noundef range(i64 0, 4294967296) %186, i32 noundef 0) #11
   %.not97 = icmp eq ptr %191, null
   br i1 %.not97, label %192, label %193
 
@@ -4090,7 +4090,7 @@ default.unreachable44:                            ; preds = %146
 declare i32 @cli_crt_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @map_raw(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @map_raw(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call i32 @llvm.umin.i32(i32 %2, i32 63)
   %6 = zext nneg i32 %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -4126,7 +4126,7 @@ define internal fastcc range(i32 0, 2) i32 @map_raw(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_expect_rsa(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_expect_rsa(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call fastcc ptr @asn1_expect_algo_multi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @asn1_expect_rsa.alts, i32 noundef 8)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %8
@@ -4147,7 +4147,7 @@ define internal fastcc range(i32 0, 2) i32 @asn1_expect_rsa(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_get_time(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_get_time(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.cli_asn1, align 8
   %6 = alloca %struct.tm, align 8
   %7 = load ptr, ptr %1, align 8
@@ -4394,7 +4394,7 @@ asn1_getnum.exit115:                              ; preds = %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_get_rsa_pubkey(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_get_rsa_pubkey(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.cli_asn1, align 8
   %6 = alloca i32, align 4
   %7 = load ptr, ptr %1, align 8
@@ -4609,7 +4609,7 @@ declare void @cli_crt_clear(ptr noundef) local_unnamed_addr #1
 declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @asn1_expect_algo_multi(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr noundef readonly %3, i32 noundef range(i32 2, 11) %4) unnamed_addr #0 {
+define internal fastcc ptr @asn1_expect_algo_multi(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef readonly %3, i32 noundef range(i32 2, 11) %4) unnamed_addr #0 {
   %6 = alloca %struct.cli_asn1, align 8
   %7 = alloca %struct.cli_asn1, align 8
   %8 = alloca i32, align 4
@@ -4754,7 +4754,7 @@ asn1_expect_objtype.exit.i:                       ; preds = %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 100) i32 @asn1_getnum(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 100) i32 @asn1_getnum(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1
   %3 = add i8 %2, -58
   %or.cond = icmp ult i8 %3, -10
@@ -4786,7 +4786,7 @@ define internal fastcc range(i32 -1, 100) i32 @asn1_getnum(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @cl_sha1(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4801,16 +4801,16 @@ declare ptr @cl_sha512(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local
 declare ptr @cl_hash_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

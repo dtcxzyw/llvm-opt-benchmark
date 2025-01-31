@@ -77,7 +77,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [16 x i8], align 16
   %.not = icmp eq ptr %2, null
@@ -254,7 +254,7 @@ declare void @dtls_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare void @dissector_all_tables_foreach_table(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_foreach_decode_as(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal void @add_foreach_decode_as(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call ptr @find_dissector_table(ptr noundef %0) #2
   %5 = tail call i32 @dissector_table_supports_decode_as(ptr noundef %4) #2
   %.not = icmp eq i32 %5, 0

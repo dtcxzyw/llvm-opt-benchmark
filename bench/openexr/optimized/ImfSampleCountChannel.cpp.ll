@@ -110,13 +110,13 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK7Imf_3_218SampleCountChannel9pixelTypeEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK7Imf_3_218SampleCountChannel9pixelTypeEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7Imf_3_218SampleCountChannel5sliceEv(ptr noalias nonnull sret(%"struct.Imf_3_2::Slice") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #3 align 2 {
+define void @_ZNK7Imf_3_218SampleCountChannel5sliceEv(ptr noalias nonnull sret(%"struct.Imf_3_2::Slice") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #3 align 2 {
 entry:
   %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %_base, align 8
@@ -135,7 +135,7 @@ entry:
 declare void @_ZN7Imf_3_25SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50), i32 noundef, ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef, double noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(192) ptr @_ZN7Imf_3_218SampleCountChannel9deepLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(192) ptr @_ZN7Imf_3_218SampleCountChannel9deepLevelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(192) ptr @_ZNK7Imf_3_218SampleCountChannel9deepLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(192) ptr @_ZNK7Imf_3_218SampleCountChannel9deepLevelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218SampleCountChannel3setEiij(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %x, i32 noundef %y, i32 noundef %newNumSamples) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_218SampleCountChannel3setEiij(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, i32 noundef %x, i32 noundef %y, i32 noundef %newNumSamples) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_base = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -449,7 +449,7 @@ declare hidden void @_ZN7Imf_3_214DeepImageLevel14moveSampleListEmjjm(ptr nounde
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_218SampleCountChannel16resetBasePointerEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((56, 64)) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN7Imf_3_218SampleCountChannel16resetBasePointerEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((56, 64)) %this) local_unnamed_addr #9 align 2 {
 entry:
   %_numSamples = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_numSamples, align 8
@@ -494,7 +494,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218SampleCountChannel3setEiPj(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %r, ptr nocapture noundef readonly %newNumSamples) local_unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_218SampleCountChannel3setEiPj(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, i32 noundef %r, ptr noundef readonly captures(none) %newNumSamples) local_unnamed_addr #3 align 2 {
 entry:
   %_level.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_level.i, align 8
@@ -524,7 +524,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218SampleCountChannel5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_218SampleCountChannel5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_numPixels.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -610,7 +610,7 @@ unreachable:                                      ; preds = %invoke.cont17
 declare hidden void @_ZN7Imf_3_214DeepImageLevel21initializeSampleListsEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN7Imf_3_218SampleCountChannel9beginEditEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
+define noundef ptr @_ZN7Imf_3_218SampleCountChannel9beginEditEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_numSamples = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %_numSamples, align 8
@@ -618,7 +618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218SampleCountChannel7endEditEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((80, 96)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_218SampleCountChannel7endEditEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) initializes((80, 96)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_totalNumSamples = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -836,7 +836,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

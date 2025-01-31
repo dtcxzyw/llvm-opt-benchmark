@@ -425,7 +425,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm73687110EP12HeapWordImplLNS_11BarrierTyp
 @_ZN22UnsafeMemoryAccessMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN22UnsafeMemoryAccessMarkD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12StubRoutines10jbyte_copyEPaS0_m(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 2 {
+define hidden void @_ZN12StubRoutines10jbyte_copyEPaS0_m(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 align 2 {
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %0, i64 %2, i1 false)
   ret void
 }
@@ -851,7 +851,7 @@ declare void @_ZN12StubCodeDesc8unfreezeEv() local_unnamed_addr #4
 declare void @_ZN12StubCodeDesc6freezeEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12StubRoutines20select_fill_functionE9BasicTypebRPKc(i8 noundef zeroext %0, i1 noundef zeroext %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN12StubRoutines20select_fill_functionE9BasicTypebRPKc(i8 noundef zeroext %0, i1 noundef zeroext %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   switch i8 %0, label %7 [
     i8 8, label %4
     i8 4, label %4
@@ -906,7 +906,7 @@ define hidden noundef ptr @_ZN12StubRoutines20select_fill_functionE9BasicTypebRP
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN12StubRoutines25select_arraycopy_functionE9BasicTypebbRPKcb(i8 noundef zeroext %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN12StubRoutines25select_arraycopy_functionE9BasicTypebbRPKcb(i8 noundef zeroext %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
   %6 = zext i1 %1 to i32
   %7 = select i1 %2, i32 2, i32 0
   %8 = or disjoint i32 %7, %6
@@ -1090,7 +1090,7 @@ default.unreachable36:                            ; preds = %45, %36, %27, %18, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22UnsafeMemoryAccessMarkC2EP17StubCodeGeneratorbbPh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN22UnsafeMemoryAccessMarkC2EP17StubCodeGeneratorbbPh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   store ptr null, ptr %0, align 8
@@ -1137,7 +1137,7 @@ _ZN18UnsafeMemoryAccess12add_to_tableEPhS0_S0_.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22UnsafeMemoryAccessMarkD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN22UnsafeMemoryAccessMarkD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %25, label %3
@@ -1402,7 +1402,7 @@ declare void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 derefer
 declare void @_ZN5Chunk9next_chopEPS_(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare void @_Copy_conjoint_jshorts_atomic(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -3920,7 +3920,7 @@ _ZN11ZBarrierSet13AccessBarrierILm73687110ES_E21oop_arraycopy_in_heapEP12arrayOo
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

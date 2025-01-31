@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @use_icount = dso_local local_unnamed_addr global i32 0, align 4
 
 ; Function Attrs: cold nofree noreturn nounwind sspstrong uwtable
-define dso_local void @icount_update(ptr nocapture noundef readnone %cpu) local_unnamed_addr #0 {
+define dso_local void @icount_update(ptr noundef readnone captures(none) %cpu) local_unnamed_addr #0 {
 entry:
   tail call void @abort() #5
   unreachable
@@ -19,7 +19,7 @@ entry:
 declare void @abort() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @icount_configure(ptr nocapture noundef readnone %opts, ptr noundef %errp) local_unnamed_addr #2 {
+define dso_local void @icount_configure(ptr noundef readnone captures(none) %opts, ptr noundef %errp) local_unnamed_addr #2 {
 entry:
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str, i32 noundef 16, ptr noundef nonnull @__func__.icount_configure, ptr noundef nonnull @.str.1) #6
   ret void

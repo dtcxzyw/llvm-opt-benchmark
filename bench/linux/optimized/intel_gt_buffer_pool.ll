@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @jiffies = external dso_local global i64, section ".data..cacheline_aligned", align 64
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_buffer_pool_mark_used(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_buffer_pool_mark_used(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 212
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -513,7 +513,7 @@ define internal fastcc zeroext i1 @pool_free_older_than(ptr noundef %0, i64 noun
 declare dso_local zeroext i1 @cancel_delayed_work_sync(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @intel_gt_fini_buffer_pool(ptr nocapture noundef readnone %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_gt_fini_buffer_pool(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 align 16 {
   ret void
 }
 

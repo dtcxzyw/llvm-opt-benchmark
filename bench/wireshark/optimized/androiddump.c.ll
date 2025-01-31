@@ -736,7 +736,7 @@ declare ptr @please_report_bug() local_unnamed_addr #1
 declare void @extcap_cmdline_debug(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -890,18 +890,18 @@ define internal fastcc void @register_interfaces(ptr noundef %0, ptr noundef %1,
 77:                                               ; preds = %66
   %sext = shl i64 %70, 32
   %78 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr align 1 %.0164236, i64 %78, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr nonnull align 1 %.0164236, i64 %78, i1 false)
   %79 = getelementptr [512 x i8], ptr %11, i64 0, i64 %78
   store i8 0, ptr %79, align 1
   store i8 0, ptr %12, align 16
   %80 = ptrtoint ptr %73 to i64
   %81 = sub i64 %80, %68
-  %82 = call ptr @g_strstr_len(ptr noundef %67, i64 noundef %81, ptr noundef nonnull @.str.75) #16
+  %82 = call ptr @g_strstr_len(ptr noundef nonnull %67, i64 noundef %81, ptr noundef nonnull @.str.75) #16
   %.not187 = icmp eq ptr %82, null
   br i1 %.not187, label %94, label %83
 
 83:                                               ; preds = %77
-  %84 = call ptr @g_strstr_len(ptr noundef %67, i64 noundef %81, ptr noundef nonnull @.str.76) #16
+  %84 = call ptr @g_strstr_len(ptr noundef nonnull %67, i64 noundef %81, ptr noundef nonnull @.str.76) #16
   %.not188 = icmp eq ptr %84, null
   br i1 %.not188, label %94, label %85
 
@@ -1358,7 +1358,7 @@ define internal fastcc void @new_fake_interface_for_list_dlts(ptr noundef %0, pt
   br i1 %.not.i19.not, label %8, label %9
 
 8:                                                ; preds = %6, %4, %2
-  tail call void @extcap_base_register_interface_ext(ptr noundef %0, ptr noundef %1, ptr noundef %1, i16 noundef zeroext 99, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.138) #16
+  tail call void @extcap_base_register_interface_ext(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %1, i16 noundef zeroext 99, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.138) #16
   br label %28
 
 9:                                                ; preds = %6
@@ -1402,21 +1402,21 @@ is_logcat_interface.exit:                         ; preds = %13
   br i1 %.not.i10.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_text_interface.exit
 
 is_logcat_text_interface.exit:                    ; preds = %22
-  %24 = tail call fastcc i32 @is_specified_interface(ptr noundef readonly %1, ptr noundef nonnull @.str.92)
+  %24 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull readonly %1, ptr noundef nonnull @.str.92)
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %25, label %is_logcat_interface.exit.thread
 
 is_logcat_interface.exit.thread:                  ; preds = %16, %18, %20, %22, %9, %11, %13, %is_logcat_text_interface.exit, %is_logcat_interface.exit
-  tail call void @extcap_base_register_interface(ptr noundef %0, ptr noundef %1, ptr noundef %1, i16 noundef zeroext 252, ptr noundef nonnull @.str.139) #16
+  tail call void @extcap_base_register_interface(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %1, i16 noundef zeroext 252, ptr noundef nonnull @.str.139) #16
   br label %28
 
 25:                                               ; preds = %is_logcat_text_interface.exit
-  %26 = tail call fastcc i32 @is_specified_interface(ptr noundef %1, ptr noundef nonnull @.str.42)
+  %26 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull %1, ptr noundef nonnull @.str.42)
   %.not17 = icmp eq i32 %26, 0
   br i1 %.not17, label %28, label %27
 
 27:                                               ; preds = %25
-  tail call void @extcap_base_register_interface(ptr noundef %0, ptr noundef %1, ptr noundef %1, i16 noundef zeroext 1, ptr noundef nonnull @.str.140) #16
+  tail call void @extcap_base_register_interface(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %1, i16 noundef zeroext 1, ptr noundef nonnull @.str.140) #16
   br label %28
 
 28:                                               ; preds = %is_logcat_interface.exit.thread, %27, %25, %8
@@ -1510,7 +1510,7 @@ define internal fastcc range(i32 0, 8) i32 @list_config(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @is_logcat_interface(ptr nocapture noundef readonly %0) unnamed_addr #4 {
+define internal fastcc zeroext i1 @is_logcat_interface(ptr noundef readonly captures(none) %0) unnamed_addr #4 {
   %2 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(20) @.str.80, i64 noundef 19) #19
   %.not.i.not = icmp eq i32 %2, 0
   br i1 %.not.i.not, label %9, label %3
@@ -1536,7 +1536,7 @@ define internal fastcc zeroext i1 @is_logcat_interface(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 43) i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 43) i32 @capture_android_logcat_text(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 2) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = tail call fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %1, i32 noundef 155)
@@ -1549,7 +1549,7 @@ define internal fastcc range(i32 -1, 43) i32 @capture_android_logcat_text(ptr no
   %13 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #19
-  %16 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %14, i64 noundef %15) #19
+  %16 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull readonly %14, i64 noundef %15) #19
   %.not.i.not.i = icmp eq i32 %16, 0
   br i1 %.not.i.not.i, label %17, label %24
 
@@ -1597,32 +1597,32 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
   br i1 %.not.i120.not, label %47, label %35
 
 35:                                               ; preds = %33
-  %36 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.84)
+  %36 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull %0, ptr noundef nonnull @.str.84)
   %.not104 = icmp eq i32 %36, 0
   br i1 %.not104, label %37, label %47
 
 37:                                               ; preds = %35
-  %38 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.90)
+  %38 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull %0, ptr noundef nonnull @.str.90)
   %.not105 = icmp eq i32 %38, 0
   br i1 %.not105, label %39, label %47
 
 39:                                               ; preds = %37
-  %40 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.86)
+  %40 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull %0, ptr noundef nonnull @.str.86)
   %.not106 = icmp eq i32 %40, 0
   br i1 %.not106, label %41, label %47
 
 41:                                               ; preds = %39
-  %42 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.91)
+  %42 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull %0, ptr noundef nonnull @.str.91)
   %.not107 = icmp eq i32 %42, 0
   br i1 %.not107, label %43, label %47
 
 43:                                               ; preds = %41
-  %44 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.92)
+  %44 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull %0, ptr noundef nonnull @.str.92)
   %.not108 = icmp eq i32 %44, 0
   br i1 %.not108, label %45, label %47
 
 45:                                               ; preds = %43
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2056, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.159, ptr noundef %0) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2056, ptr noundef nonnull @__func__.capture_android_logcat_text, ptr noundef nonnull @.str.159, ptr noundef nonnull %0) #16
   %46 = tail call i32 @close(i32 noundef %25) #16
   br label %106
 
@@ -1773,7 +1773,7 @@ get_serial_from_interface.exit:                   ; preds = %24, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 45) i32 @capture_android_logcat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 45) i32 @capture_android_logcat(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %1, i32 noundef 155)
   %6 = extractvalue { i32, ptr } %5, 0
   %7 = extractvalue { i32, ptr } %5, 1
@@ -1784,7 +1784,7 @@ define internal fastcc range(i32 -1, 45) i32 @capture_android_logcat(ptr noundef
   %9 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #19
-  %12 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %10, i64 noundef %11) #19
+  %12 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull readonly %10, i64 noundef %11) #19
   %.not.i.not.i = icmp eq i32 %12, 0
   br i1 %.not.i.not.i, label %13, label %20
 
@@ -1832,7 +1832,7 @@ get_serial_from_interface.exit:                   ; preds = %20, %17
   br i1 %.not.i10.not.i, label %select.unfold, label %interface_to_logbuf.exit
 
 interface_to_logbuf.exit:                         ; preds = %29
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2203, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.159, ptr noundef %0) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 2203, ptr noundef nonnull @__func__.capture_android_logcat, ptr noundef nonnull @.str.159, ptr noundef nonnull %0) #16
   br label %.loopexit.sink.split
 
 select.unfold:                                    ; preds = %29, %23, %25, %27
@@ -1991,7 +1991,7 @@ select.unfold:                                    ; preds = %29, %23, %25, %27
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @is_logcat_text_interface(ptr nocapture noundef readonly %0) unnamed_addr #4 {
+define internal fastcc zeroext i1 @is_logcat_text_interface(ptr noundef readonly captures(none) %0) unnamed_addr #4 {
   %2 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %0, ptr noundef nonnull dereferenceable(25) @.str.88, i64 noundef 24) #19
   %.not.i.not = icmp eq i32 %2, 0
   br i1 %.not.i.not, label %12, label %3
@@ -2012,7 +2012,7 @@ define internal fastcc zeroext i1 @is_logcat_text_interface(ptr nocapture nounde
   br i1 %.not.i10.not, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call fastcc i32 @is_specified_interface(ptr noundef %0, ptr noundef nonnull @.str.92)
+  %10 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull %0, ptr noundef nonnull @.str.92)
   %11 = icmp ne i32 %10, 0
   br label %12
 
@@ -2022,16 +2022,16 @@ define internal fastcc zeroext i1 @is_logcat_text_interface(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_specified_interface(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @is_specified_interface(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
-  %4 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %1, i64 noundef %3) #19
+  %4 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3) #19
   %.not = icmp eq i32 %4, 0
   %5 = zext i1 %.not to i32
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 39) i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 39) i32 @capture_android_bluetooth_hcidump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %struct.tm, align 8
@@ -2047,7 +2047,7 @@ define internal fastcc range(i32 -1, 39) i32 @capture_android_bluetooth_hcidump(
   %13 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %14) #19
-  %16 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %14, i64 noundef %15) #19
+  %16 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull readonly %14, i64 noundef %15) #19
   %.not.i.not.i = icmp eq i32 %16, 0
   br i1 %.not.i.not.i, label %17, label %24
 
@@ -2538,7 +2538,7 @@ thread-pre-split:                                 ; preds = %114
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 41) i32 @capture_android_bluetooth_external_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 41) i32 @capture_android_bluetooth_external_parser(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca %struct.timeval, align 8
   %10 = alloca %struct.timeval, align 8
   %11 = alloca i32, align 4
@@ -2554,7 +2554,7 @@ define internal fastcc range(i32 -1, 41) i32 @capture_android_bluetooth_external
   %18 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #19
-  %21 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %19, i64 noundef %20) #19
+  %21 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull readonly %19, i64 noundef %20) #19
   %.not.i.not.i = icmp eq i32 %21, 0
   br i1 %.not.i.not.i, label %22, label %29
 
@@ -2982,7 +2982,7 @@ default.unreachable:                              ; preds = %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 42) i32 @capture_android_bluetooth_btsnoop_net(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 42) i32 @capture_android_bluetooth_btsnoop_net(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call fastcc { i32, ptr } @extcap_dumper_open(ptr noundef %1, i32 noundef 99)
   %6 = extractvalue { i32, ptr } %5, 0
   %7 = extractvalue { i32, ptr } %5, 1
@@ -2993,7 +2993,7 @@ define internal fastcc range(i32 -1, 42) i32 @capture_android_bluetooth_btsnoop_
   %9 = getelementptr [13 x ptr], ptr @get_serial_from_interface.iface_prefix, i64 0, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %10) #19
-  %12 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef readonly %10, i64 noundef %11) #19
+  %12 = tail call i32 @strncmp(ptr noundef readonly %0, ptr noundef nonnull readonly %10, i64 noundef %11) #19
   %.not.i.not.i = icmp eq i32 %12, 0
   br i1 %.not.i.not.i, label %13, label %20
 
@@ -3157,7 +3157,7 @@ get_serial_from_interface.exit:                   ; preds = %20, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 46) i32 @capture_android_tcpdump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 46) i32 @capture_android_tcpdump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -3575,7 +3575,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @g_strstr_len(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3622,26 +3622,26 @@ define internal fastcc i32 @adb_connect_transport(ptr noundef %0, i16 %.0.val, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -1) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -1) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %6 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 65535, ptr noundef nonnull @.str.109, i64 noundef %5) #16
-  %7 = tail call i64 @send(i32 noundef %0, ptr noundef %2, i64 noundef 4, i32 noundef 0) #16
+  %7 = tail call i64 @send(i32 noundef %0, ptr noundef nonnull %2, i64 noundef 4, i32 noundef 0) #16
   %8 = icmp slt i64 %7, 4
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %4
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 758, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.111, ptr noundef %1) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 758, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.111, ptr noundef nonnull %1) #16
   br label %43
 
 10:                                               ; preds = %4
   %sext = shl i64 %5, 32
   %11 = ashr exact i64 %sext, 32
-  %12 = tail call i64 @send(i32 noundef %0, ptr noundef %1, i64 noundef %11, i32 noundef 0) #16
+  %12 = tail call i64 @send(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %11, i32 noundef 0) #16
   %.not = icmp eq i64 %12, %5
   br i1 %.not, label %.preheader, label %13
 
 13:                                               ; preds = %10
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 764, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.134, ptr noundef %1) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 764, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.134, ptr noundef nonnull %1) #16
   store i64 0, ptr %3, align 8
   br label %43
 
@@ -3661,7 +3661,7 @@ define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -
   br i1 %21, label %22, label %14
 
 22:                                               ; preds = %.preheader
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 775, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.112, ptr noundef %1) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 775, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.112, ptr noundef nonnull %1) #16
   br label %43
 
 23:                                               ; preds = %14
@@ -3685,7 +3685,7 @@ define internal fastcc noundef ptr @adb_send_and_read(i32 noundef range(i32 0, -
   br i1 %36, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %30, %23
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 789, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.114, ptr noundef %1) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 789, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.114, ptr noundef nonnull %1) #16
   br label %43
 
 .lr.ph:                                           ; preds = %23, %30
@@ -3701,7 +3701,7 @@ split:                                            ; preds = %.lr.ph
   br i1 %.not4, label %41, label %40
 
 40:                                               ; preds = %split
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 803, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.116, ptr noundef %1) #16
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 803, ptr noundef nonnull @__func__.adb_send_and_read, ptr noundef nonnull @.str.116, ptr noundef nonnull %1) #16
   store i64 0, ptr %3, align 8
   br label %43
 
@@ -3735,7 +3735,7 @@ define internal fastcc void @new_interface(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i26.not, label %13, label %14
 
 13:                                               ; preds = %11, %9, %5
-  tail call void @extcap_base_register_interface_ext(ptr noundef %0, ptr noundef %6, ptr noundef %7, i16 noundef zeroext 99, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.138) #16
+  tail call void @extcap_base_register_interface_ext(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %7, i16 noundef zeroext 99, ptr noundef nonnull @.str.137, ptr noundef nonnull @.str.138) #16
   br label %33
 
 14:                                               ; preds = %11
@@ -3779,25 +3779,25 @@ is_logcat_interface.exit:                         ; preds = %18
   br i1 %.not.i10.not.i, label %is_logcat_interface.exit.thread, label %is_logcat_text_interface.exit
 
 is_logcat_text_interface.exit:                    ; preds = %27
-  %29 = tail call fastcc i32 @is_specified_interface(ptr noundef readonly %6, ptr noundef nonnull @.str.92)
+  %29 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.92)
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %is_logcat_interface.exit.thread
 
 is_logcat_interface.exit.thread:                  ; preds = %21, %23, %25, %27, %14, %16, %18, %is_logcat_text_interface.exit, %is_logcat_interface.exit
-  tail call void @extcap_base_register_interface(ptr noundef %0, ptr noundef %6, ptr noundef %7, i16 noundef zeroext 252, ptr noundef nonnull @.str.139) #16
+  tail call void @extcap_base_register_interface(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %7, i16 noundef zeroext 252, ptr noundef nonnull @.str.139) #16
   br label %33
 
 30:                                               ; preds = %is_logcat_text_interface.exit
-  %31 = tail call fastcc i32 @is_specified_interface(ptr noundef %6, ptr noundef nonnull @.str.42)
+  %31 = tail call fastcc i32 @is_specified_interface(ptr noundef nonnull %6, ptr noundef nonnull @.str.42)
   %.not24 = icmp eq i32 %31, 0
   br i1 %.not24, label %33, label %32
 
 32:                                               ; preds = %30
-  tail call void @extcap_base_register_interface(ptr noundef %0, ptr noundef %6, ptr noundef %7, i16 noundef zeroext 1, ptr noundef nonnull @.str.140) #16
+  tail call void @extcap_base_register_interface(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %7, i16 noundef zeroext 1, ptr noundef nonnull @.str.140) #16
   br label %33
 
 33:                                               ; preds = %is_logcat_interface.exit.thread, %32, %30, %13
-  tail call void @g_free(ptr noundef %6) #16
+  tail call void @g_free(ptr noundef nonnull %6) #16
   tail call void @g_free(ptr noundef %7) #16
   ret void
 }
@@ -3805,19 +3805,19 @@ is_logcat_interface.exit.thread:                  ; preds = %21, %23, %25, %27, 
 declare i64 @g_ascii_strtoull(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 declare zeroext i1 @ws_inet_pton4(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3854,7 +3854,7 @@ declare zeroext i1 @ws_hexstrtou32(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @g_regex_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @g_regex_match(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3876,18 +3876,18 @@ define internal fastcc range(i32 0, 34) i32 @adb_send(i32 noundef range(i32 0, -
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 824, ptr noundef nonnull @__func__.adb_send, ptr noundef nonnull @.str.111, ptr noundef %1) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 824, ptr noundef nonnull @__func__.adb_send, ptr noundef nonnull @.str.111, ptr noundef nonnull %1) #16
   br label %25
 
 9:                                                ; preds = %2
   %sext = shl i64 %4, 32
   %10 = ashr exact i64 %sext, 32
-  %11 = call i64 @send(i32 noundef %0, ptr noundef %1, i64 noundef %10, i32 noundef 0) #16
+  %11 = call i64 @send(i32 noundef %0, ptr noundef nonnull %1, i64 noundef %10, i32 noundef 0) #16
   %.not = icmp eq i64 %11, %4
   br i1 %.not, label %.preheader, label %12
 
 12:                                               ; preds = %9
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 830, ptr noundef nonnull @__func__.adb_send, ptr noundef nonnull @.str.134, ptr noundef %1) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 830, ptr noundef nonnull @__func__.adb_send, ptr noundef nonnull @.str.134, ptr noundef nonnull %1) #16
   br label %25
 
 13:                                               ; preds = %.preheader
@@ -3907,7 +3907,7 @@ define internal fastcc range(i32 0, 34) i32 @adb_send(i32 noundef range(i32 0, -
   br i1 %22, label %23, label %13
 
 23:                                               ; preds = %.preheader
-  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 839, ptr noundef nonnull @__func__.adb_send, ptr noundef nonnull @.str.112, ptr noundef %1) #16
+  call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_full(ptr noundef nonnull @.str.1, i32 noundef 5, ptr noundef nonnull @.str.2, i64 noundef 839, ptr noundef nonnull @__func__.adb_send, ptr noundef nonnull @.str.112, ptr noundef nonnull %1) #16
   br label %25
 
 24:                                               ; preds = %13
@@ -3926,7 +3926,7 @@ declare void @extcap_base_register_interface_ext(ptr noundef, ptr noundef, ptr n
 declare void @extcap_base_register_interface(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @extcap_config_debug(ptr noundef) local_unnamed_addr #1
 
@@ -3982,7 +3982,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #10
 declare ptr @localtime(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @extcap_dumper_dump(i32 %0, ptr nonnull %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, i32 noundef %7) unnamed_addr #0 {
@@ -4053,7 +4053,7 @@ define internal fastcc noundef zeroext i1 @extcap_dumper_dump(i32 %0, ptr nonnul
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare void @wtap_init(i32 noundef) local_unnamed_addr #1
 
@@ -4071,14 +4071,14 @@ declare i32 @wtap_dump(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr n
 declare i32 @wtap_dump_file_type_subtype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @g_shell_quote(ptr noundef) local_unnamed_addr #1
 
 declare i32 @wtap_pcap_encap_to_wtap_encap(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #14
@@ -4093,10 +4093,10 @@ declare i32 @llvm.bswap.i32(i32) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef range(i32 0, 14) i32 @_ZN13LogDecorators11from_stringEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 14) i32 @_ZN13LogDecorators11from_stringEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %12
@@ -74,10 +74,10 @@ define hidden noundef range(i32 0, 14) i32 @_ZN13LogDecorators11from_stringEPKc(
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13LogDecorators5parseEPKcP12outputStream(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13LogDecorators5parseEPKcP12outputStream(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %7, label %5
 
@@ -121,14 +121,14 @@ define hidden noundef zeroext i1 @_ZN13LogDecorators5parseEPKcP12outputStream(pt
   %.0814.i = phi i64 [ %28, %27 ], [ 0, %.preheader ]
   %18 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814.i
   %19 = load ptr, ptr %18, align 16
-  %20 = tail call i32 @strcasecmp(ptr noundef readonly %.023, ptr noundef %19) #5
+  %20 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.023, ptr noundef %19) #5
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %_ZN13LogDecorators11from_stringEPKc.exit, label %22
 
 22:                                               ; preds = %17
   %23 = getelementptr inbounds nuw [0 x [2 x ptr]], ptr @_ZN13LogDecorators5_nameE, i64 0, i64 %.0814.i, i64 1
   %24 = load ptr, ptr %23, align 8
-  %25 = tail call i32 @strcasecmp(ptr noundef readonly %.023, ptr noundef %24) #5
+  %25 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %.023, ptr noundef %24) #5
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %_ZN13LogDecorators11from_stringEPKc.exit, label %27
 
@@ -147,7 +147,7 @@ _ZN13LogDecorators11from_stringEPKc.exit.thread:  ; preds = %_ZN13LogDecorators1
   br i1 %.not29, label %.thread, label %29
 
 29:                                               ; preds = %_ZN13LogDecorators11from_stringEPKc.exit.thread
-  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.28, ptr noundef %.023) #6
+  tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull @.str.28, ptr noundef nonnull %.023) #6
   br label %.thread
 
 30:                                               ; preds = %_ZN13LogDecorators11from_stringEPKc.exit

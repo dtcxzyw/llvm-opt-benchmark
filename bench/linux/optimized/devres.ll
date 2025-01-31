@@ -53,7 +53,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_devm_arch_io
 @llvm.compiler.used = appending global [16 x ptr] [ptr @__UNIQUE_ID___addressable_devm_arch_io_reserve_memtype_wc376, ptr @__UNIQUE_ID___addressable_devm_arch_phys_wc_add375, ptr @__UNIQUE_ID___addressable_devm_ioport_map361, ptr @__UNIQUE_ID___addressable_devm_ioport_unmap364, ptr @__UNIQUE_ID___addressable_devm_ioremap352, ptr @__UNIQUE_ID___addressable_devm_ioremap_resource359, ptr @__UNIQUE_ID___addressable_devm_ioremap_uc353, ptr @__UNIQUE_ID___addressable_devm_ioremap_wc354, ptr @__UNIQUE_ID___addressable_devm_iounmap357, ptr @__UNIQUE_ID___addressable_devm_of_iomap360, ptr @__UNIQUE_ID___addressable_pcim_iomap367, ptr @__UNIQUE_ID___addressable_pcim_iomap_regions372, ptr @__UNIQUE_ID___addressable_pcim_iomap_regions_request_all373, ptr @__UNIQUE_ID___addressable_pcim_iomap_table365, ptr @__UNIQUE_ID___addressable_pcim_iounmap371, ptr @__UNIQUE_ID___addressable_pcim_iounmap_regions374], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @devm_ioremap_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @devm_ioremap_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   tail call void @iounmap(ptr noundef %3) #5
   ret void
@@ -164,7 +164,7 @@ define dso_local void @devm_iounmap(ptr noundef %0, ptr noundef %1) #0 align 16 
 declare dso_local i32 @devres_destroy(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 2) i32 @devm_ioremap_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #2 align 16 {
+define internal range(i32 0, 2) i32 @devm_ioremap_match(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #2 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %2
   %6 = zext i1 %5 to i32
@@ -327,7 +327,7 @@ define dso_local ptr @devm_ioremap_resource_wc(ptr noundef %0, ptr noundef %1) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef nonnull ptr @devm_of_iomap(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #3 align 16 {
+define dso_local noundef nonnull ptr @devm_of_iomap(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #3 align 16 {
   ret ptr inttoptr (i64 -22 to ptr)
 }
 
@@ -362,7 +362,7 @@ define dso_local ptr @devm_ioport_map(ptr noundef %0, i64 noundef %1, i32 nounde
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_ioport_map_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @devm_ioport_map_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   tail call void @ioport_unmap(ptr noundef %3) #5
   ret void
@@ -398,7 +398,7 @@ define dso_local void @devm_ioport_unmap(ptr noundef %0, ptr noundef %1) #0 alig
 declare dso_local void @ioport_unmap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 2) i32 @devm_ioport_map_match(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef readnone %2) #2 align 16 {
+define internal range(i32 0, 2) i32 @devm_ioport_map_match(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #2 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %2
   %6 = zext i1 %5 to i32
@@ -432,7 +432,7 @@ define dso_local ptr @pcim_iomap_table(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @devres_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pcim_iomap_release(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @pcim_iomap_release(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -184
   br label %4
 
@@ -775,7 +775,7 @@ define dso_local i32 @devm_arch_phys_wc_add(ptr noundef %0, i64 noundef %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_arch_phys_ac_add_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @devm_arch_phys_ac_add_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i32, ptr %1, align 4
   tail call void @arch_phys_wc_del(i32 noundef %3) #5
   ret void
@@ -814,7 +814,7 @@ define dso_local i32 @devm_arch_io_reserve_memtype_wc(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_arch_io_free_memtype_wc_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @devm_arch_io_free_memtype_wc_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8

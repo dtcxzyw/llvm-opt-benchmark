@@ -249,7 +249,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vmxnet3_class_init(ptr noundef %class, ptr nocapture readnone %data) #0 {
+define internal void @vmxnet3_class_init(ptr noundef %class, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #15
   %call.i16 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %class, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #15
@@ -293,7 +293,7 @@ declare void @device_add_bootindex_property(ptr noundef, ptr noundef, ptr nounde
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vmxnet3_pci_realize(ptr noundef %pci_dev, ptr nocapture readnone %errp) #0 {
+define internal void @vmxnet3_pci_realize(ptr noundef %pci_dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %pci_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.6, i32 noundef 27, ptr noundef nonnull @__func__.VMXNET3) #15
   %bar0 = getelementptr inbounds nuw i8, ptr %call.i, i64 10832
@@ -524,7 +524,7 @@ vmxnet3_unuse_msix_vectors.exit.i:                ; preds = %for.body.i.i
   br label %vmxnet3_cleanup_msix.exit
 
 vmxnet3_cleanup_msix.exit:                        ; preds = %vmxnet3_net_uninit.exit, %vmxnet3_unuse_msix_vectors.exit.i
-  %call.i.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
+  %call.i.i3 = tail call ptr @object_dynamic_cast_assert(ptr noundef nonnull %call.i, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #15
   tail call void @msi_uninit(ptr noundef %call.i.i3) #15
   ret void
 }
@@ -620,7 +620,7 @@ declare i32 @msi_init(ptr noundef, i8 noundef zeroext, i32 noundef, i1 noundef z
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare zeroext i1 @pci_bus_is_express(ptr noundef) local_unnamed_addr #1
 
@@ -629,7 +629,7 @@ declare i32 @pcie_endpoint_cap_init(ptr noundef, i8 noundef zeroext) local_unnam
 declare void @pcie_dev_ser_num_init(ptr noundef, i16 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @vmxnet3_io_bar0_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 %size) #4 {
+define internal range(i64 0, 2) i64 @vmxnet3_io_bar0_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 %size) #4 {
 entry:
   %cmp1.i = icmp ugt i64 %addr, 199
   br i1 %cmp1.i, label %return, label %if.then
@@ -1101,7 +1101,7 @@ declare i64 @net_tx_pkt_get_total_len(ptr noundef) local_unnamed_addr #1
 declare i32 @net_tx_pkt_get_packet_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @vmxnet3_update_interrupt_line_state(ptr noundef %s, i32 noundef %lidx) unnamed_addr #0 {
@@ -2387,7 +2387,7 @@ declare void @net_rx_pkt_init(ptr noundef) local_unnamed_addr #1
 declare void @hw_error(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3532,7 +3532,7 @@ return:                                           ; preds = %for.cond8.i, %retur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @vmxnet3_pre_save(ptr nocapture noundef initializes((14860, 14864)) %opaque) #9 {
+define internal noundef i32 @vmxnet3_pre_save(ptr noundef captures(none) initializes((14860, 14864)) %opaque) #9 {
 entry:
   %mcast_list_len = getelementptr inbounds nuw i8, ptr %opaque, i64 14856
   %0 = load i32, ptr %mcast_list_len, align 8
@@ -3543,7 +3543,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vmxnet3_mcast_list_pre_load(ptr nocapture noundef initializes((14848, 14856)) %opaque) #0 {
+define internal noundef i32 @vmxnet3_mcast_list_pre_load(ptr noundef captures(none) initializes((14848, 14856)) %opaque) #0 {
 entry:
   %mcast_list_buff_size = getelementptr inbounds nuw i8, ptr %opaque, i64 14860
   %0 = load i32, ptr %mcast_list_buff_size, align 4
@@ -3555,7 +3555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @vmxnet3_mc_list_needed(ptr nocapture readnone %opaque) #10 {
+define internal noundef zeroext i1 @vmxnet3_mc_list_needed(ptr readnone captures(none) %opaque) #10 {
 entry:
   ret i1 true
 }
@@ -3570,16 +3570,16 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #12
 declare i32 @llvm.umin.i32(i32, i32) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #12

@@ -71,7 +71,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental14MakeThreadPoolEm(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, i64 noundef %reserve_threads) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental14MakeThreadPoolEm(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, i64 noundef %reserve_threads) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %thread_pool = alloca %"class.std::shared_ptr.0", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.3", align 8
@@ -402,7 +402,7 @@ declare void @_ZN17grpc_event_engine12experimental22ObjectGroupForkHandler14Post
 declare void @_ZN17grpc_event_engine12experimental22ObjectGroupForkHandler13PostforkChildEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
@@ -476,7 +476,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_thread_pool_factory.cc() #9 section ".text.startup" {

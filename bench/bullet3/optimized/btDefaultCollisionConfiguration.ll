@@ -184,7 +184,7 @@ $_ZTIN31btConvexPlaneCollisionAlgorithm10CreateFuncE = comdat any
 @_ZN31btDefaultCollisionConfigurationD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN31btDefaultCollisionConfigurationD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultCollisionConstructionInfo(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (24, 25), (48, 120), (136, 176)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %constructionInfo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultCollisionConstructionInfo(ptr noundef nonnull align 8 captures(none) dereferenceable(176) initializes((0, 8), (24, 25), (48, 120), (136, 176)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %constructionInfo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV31btDefaultCollisionConfiguration, i64 16), ptr %this, align 8
   %m_useEpaPenetrationAlgorithm = getelementptr inbounds nuw i8, ptr %constructionInfo, i64 28
@@ -419,7 +419,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN23btConvexConvexAlgorithm10CreateFuncC1EP30btConvexPenetrationDepthSolver(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV31btDefaultCollisionConfiguration, i64 16), ptr %this, align 8
   %m_ownsCollisionAlgorithmPool = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -650,7 +650,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration35getClosestPointsAlgorithmCreateFuncEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %proxyType0, i32 noundef %proxyType1) unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration35getClosestPointsAlgorithmCreateFuncEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %proxyType0, i32 noundef %proxyType1) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i32 %proxyType0, 8
   %cmp2 = icmp eq i32 %proxyType1, 8
@@ -718,7 +718,7 @@ return:                                           ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration31getCollisionAlgorithmCreateFuncEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %proxyType0, i32 noundef %proxyType1) unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN31btDefaultCollisionConfiguration31getCollisionAlgorithmCreateFuncEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %proxyType0, i32 noundef %proxyType1) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq i32 %proxyType0, 8
   %cmp2 = icmp eq i32 %proxyType1, 8
@@ -791,7 +791,7 @@ return:                                           ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN31btDefaultCollisionConfiguration35setConvexConvexMultipointIterationsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %numPerturbationIterations, i32 noundef %minimumPointsPerturbationThreshold) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN31btDefaultCollisionConfiguration35setConvexConvexMultipointIterationsEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %numPerturbationIterations, i32 noundef %minimumPointsPerturbationThreshold) local_unnamed_addr #7 align 2 {
 entry:
   %m_convexConvexCreateFunc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_convexConvexCreateFunc, align 8
@@ -803,7 +803,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN31btDefaultCollisionConfiguration34setPlaneConvexMultipointIterationsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %numPerturbationIterations, i32 noundef %minimumPointsPerturbationThreshold) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN31btDefaultCollisionConfiguration34setPlaneConvexMultipointIterationsEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %numPerturbationIterations, i32 noundef %minimumPointsPerturbationThreshold) local_unnamed_addr #7 align 2 {
 entry:
   %m_convexPlaneCF = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_convexPlaneCF, align 8

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @cnsPlane2ToBig5Level2 = internal constant [49 x %struct.codes_t] [%struct.codes_t { i16 8481, i16 -14016 }, %struct.codes_t { i16 8491, i16 -14005 }, %struct.codes_t { i16 8524, i16 -13890 }, %struct.codes_t { i16 8525, i16 -13972 }, %struct.codes_t { i16 8573, i16 -13889 }, %struct.codes_t { i16 8781, i16 -13577 }, %struct.codes_t { i16 8782, i16 -13843 }, %struct.codes_t { i16 9273, i16 -13576 }, %struct.codes_t { i16 14462, i16 -10373 }, %struct.codes_t { i16 16234, i16 -10374 }, %struct.codes_t { i16 16235, i16 -9305 }, %struct.codes_t { i16 17444, i16 0 }, %struct.codes_t { i16 16758, i16 -8708 }, %struct.codes_t { i16 16759, i16 0 }, %struct.codes_t { i16 17444, i16 -8707 }, %struct.codes_t { i16 21835, i16 -5135 }, %struct.codes_t { i16 21836, i16 -5981 }, %struct.codes_t { i16 22306, i16 -4898 }, %struct.codes_t { i16 22307, i16 -5770 }, %struct.codes_t { i16 23080, i16 -3893 }, %struct.codes_t { i16 23081, i16 -5285 }, %struct.codes_t { i16 23359, i16 -5134 }, %struct.codes_t { i16 23658, i16 -4897 }, %struct.codes_t { i16 23924, i16 -4010 }, %struct.codes_t { i16 23925, i16 -4694 }, %struct.codes_t { i16 24633, i16 -4372 }, %struct.codes_t { i16 25155, i16 -4009 }, %struct.codes_t { i16 25399, i16 -3892 }, %struct.codes_t { i16 25647, i16 -4373 }, %struct.codes_t { i16 25648, i16 -3741 }, %struct.codes_t { i16 25656, i16 -3732 }, %struct.codes_t { i16 25971, i16 -3479 }, %struct.codes_t { i16 26189, i16 -2891 }, %struct.codes_t { i16 26190, i16 -3389 }, %struct.codes_t { i16 26465, i16 -3733 }, %struct.codes_t { i16 26466, i16 -3211 }, %struct.codes_t { i16 26932, i16 -3480 }, %struct.codes_t { i16 26933, i16 -2970 }, %struct.codes_t { i16 26978, i16 -2890 }, %struct.codes_t { i16 27211, i16 -2461 }, %struct.codes_t { i16 27212, i16 -2819 }, %struct.codes_t { i16 27730, i16 -2460 }, %struct.codes_t { i16 29030, i16 -1596 }, %struct.codes_t { i16 29031, i16 -1673 }, %struct.codes_t { i16 29236, i16 -1595 }, %struct.codes_t { i16 29237, i16 -1593 }, %struct.codes_t { i16 29248, i16 -1594 }, %struct.codes_t { i16 29249, i16 -1582 }, %struct.codes_t { i16 29253, i16 0 }], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp ult i16 %0, -14016
   br i1 %3, label %.preheader, label %14
 
@@ -86,7 +86,7 @@ define hidden zeroext range(i16 -32640, 64) i16 @BIG5toCNS(i16 noundef zeroext %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i16 @BinarySearchRange(ptr nocapture noundef readonly %0, i32 noundef range(i32 23, 48) %1, i16 noundef zeroext %2) unnamed_addr #1 {
+define internal fastcc zeroext i16 @BinarySearchRange(ptr noundef readonly captures(none) %0, i32 noundef range(i32 23, 48) %1, i16 noundef zeroext %2) unnamed_addr #1 {
   %4 = lshr i32 %1, 1
   br label %5
 

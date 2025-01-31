@@ -880,7 +880,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN15tree_sitter_cli8generate6render9Generator18add_character_tree17h3296c62629bf08d9E.98 = private unnamed_addr constant [4 x i64] [i64 1, i64 2, i64 2, i64 2], align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tree_sitter_cli..generate..char_tree..CharacterTree$GT$$GT$17h980ac426943546d9E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$tree_sitter_cli..generate..char_tree..CharacterTree$GT$$GT$17h980ac426943546d9E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8, !range !4, !noundef !5
   %4 = icmp eq i32 %3, 1114113
@@ -939,7 +939,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$core..option..Opti
 define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$$LP$alloc..string..String$C$tree_sitter_cli..generate..tables..FieldLocation$RP$$GT$17h00e385f3da96a1cfE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !18
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8, !range !27, !noalias !18, !noundef !5
   %.not.i.i.i.i = icmp eq i64 %4, 0
@@ -959,17 +959,17 @@ define internal fastcc void @"_ZN4core3ptr101drop_in_place$LT$$LP$alloc..string.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h451dae50dc7539e5E"(ptr noalias nocapture nonnull readnone align 1 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h451dae50dc7539e5E"(ptr noalias nonnull readnone align 1 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr52drop_in_place$LT$std..thread..local..AccessError$GT$17h12b46d8ec200dfcbE"(ptr noalias nocapture nonnull readnone align 1 %0) unnamed_addr #1 {
+define internal void @"_ZN4core3ptr52drop_in_place$LT$std..thread..local..AccessError$GT$17h12b46d8ec200dfcbE"(ptr noalias nonnull readnone align 1 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..char_tree..CharacterTree$GT$$GT$17h286eca13ff07bb64E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$alloc..boxed..Box$LT$tree_sitter_cli..generate..char_tree..CharacterTree$GT$$GT$17h286eca13ff07bb64E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load ptr, ptr %0, align 8, !noundef !5
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %3, align 8, !range !28, !alias.scope !29, !noundef !5
@@ -1029,7 +1029,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$alloc..boxed..Box$L
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hadc7d08eb0c5e1caE"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define internal noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17hadc7d08eb0c5e1caE"(ptr noalias nonnull readonly align 1 captures(none) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1b0636034553e74e02679d3fd1cb529e.30, i64 noundef 5)
   ret i1 %3
 }
@@ -1041,7 +1041,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h6df651ed30efb638E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 {
+define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h6df651ed30efb638E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !41, !noalias !48, !noundef !5
   %6 = load i64, ptr %0, align 8, !alias.scope !41, !noalias !48, !noundef !5
@@ -1192,7 +1192,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h4c603e1027e347b1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h4c603e1027e347b1E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1202,7 +1202,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h38df39364f13becdE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 %.0.val, i8 %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h38df39364f13becdE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 %.0.val, i8 %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
@@ -1348,7 +1348,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(24) ptr @"_ZN9has
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h527477648c497318E"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 %.0.val, i8 %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h527477648c497318E"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 %.0.val, i8 %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
@@ -1494,7 +1494,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(32) ptr @"_ZN9has
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5e91f3b1a7370c5fE"(ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 %.0.val, i8 %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5e91f3b1a7370c5fE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, i64 %.0.val, i8 %.8.val) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { i64, i64, i64, i64 }, align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8
@@ -1640,7 +1640,7 @@ define internal fastcc noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9has
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator8generate17h78715c34876b49e6E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(760) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator8generate17h78715c34876b49e6E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(760) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -2150,7 +2150,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator8gene
   tail call void @llvm.experimental.noalias.scope.decl(metadata !257)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %499), !noalias !257
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %480), !noalias !260
-  invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5b7c0e1625c728ecE.llvm.4798233110106368611"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %480, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.c4e87e2c8a34425207bbef40b7b3cab7.38.llvm.4798233110106368611)
+  invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5b7c0e1625c728ecE.llvm.4798233110106368611"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %480, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.c4e87e2c8a34425207bbef40b7b3cab7.38.llvm.4798233110106368611)
           to label %.noexc unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc:                                           ; preds = %2
@@ -2336,14 +2336,14 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator8gene
           to label %571 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 570:                                              ; preds = %567
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %497, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %566)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %497, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %566)
           to label %572 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 571:                                              ; preds = %569
   unreachable
 
 572:                                              ; preds = %570
-  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h3fa026414cfc9ef4E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %498, ptr noalias noundef nonnull align 8 dereferenceable(48) %565, i64 noundef 0, i8 noundef 2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %497)
+  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h3fa026414cfc9ef4E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %498, ptr noalias noundef nonnull align 8 dereferenceable(48) %565, i64 noundef 0, i8 noundef 2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %497)
           to label %573 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 573:                                              ; preds = %572
@@ -2355,7 +2355,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator8gene
 
 576:                                              ; preds = %573
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %479), !noalias !289
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %479, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %498)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %479, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %498)
           to label %.noexc194.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc194.i:                                      ; preds = %576
@@ -2662,7 +2662,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.i.i.i), !noalias !351
   %715 = icmp ne ptr %.sroa.9453.0793.i, null
   call void @llvm.assume(i1 %715)
-  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h26703e180f2cb085E.llvm.17454970623020605724"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 dereferenceable(24) %.sroa.4.i.i.i, ptr noundef nonnull %.sroa.9453.0793.i, i64 noundef %.sroa.10.0794.i)
+  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h26703e180f2cb085E.llvm.17454970623020605724"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(24) %.sroa.4.i.i.i, ptr noundef nonnull %.sroa.9453.0793.i, i64 noundef %.sroa.10.0794.i)
           to label %.noexc386.i unwind label %.loopexit.split-lp.loopexit.i
 
 .noexc386.i:                                      ; preds = %714
@@ -2683,7 +2683,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   store i64 %.sroa.10.1.i, ptr %.sroa.10.8..sroa_idx.i, align 8, !noalias !257
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %427), !noalias !357
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %426), !noalias !360
-  invoke void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$7next_kv17h235c3c0ac50160b3E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %426, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %428)
+  invoke void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$7next_kv17h235c3c0ac50160b3E"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %426, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %428)
           to label %.noexc.i.i383.i unwind label %.loopexit629.i, !noalias !364
 
 .noexc.i.i383.i:                                  ; preds = %716
@@ -2706,12 +2706,12 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i: 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %425), !noalias !360
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %424), !noalias !360
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %424, ptr noundef nonnull align 8 dereferenceable(24) %427, i64 24, i1 false), !noalias !360
-  invoke void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h47aaccccb5bae479E"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 dereferenceable(24) %425, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %424)
+  invoke void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h47aaccccb5bae479E"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(24) %425, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %424)
           to label %.noexc2.i.i.i unwind label %.loopexit629.i, !noalias !364
 
 .noexc2.i.i.i:                                    ; preds = %720
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %424), !noalias !360
-  %721 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17h9fb91dd0003313d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %427)
+  %721 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17h9fb91dd0003313d8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %427)
           to label %725 unwind label %.loopexit629.i, !noalias !364
 
 .loopexit629.i:                                   ; preds = %.noexc2.i.i.i, %720, %716
@@ -3196,7 +3196,7 @@ select.unfold563.cont.i:                          ; preds = %select.unfold563.in
 
 906:                                              ; preds = %889
   %907 = getelementptr inbounds i8, ptr %897, i64 -24
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %492, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %907)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %492, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %907)
           to label %908 unwind label %.thread556.loopexit.i
 
 908:                                              ; preds = %906
@@ -3209,7 +3209,7 @@ select.unfold563.cont.i:                          ; preds = %select.unfold563.in
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %484), !noalias !257
   %910 = load ptr, ptr %495, align 8, !noalias !257, !nonnull !5, !align !441, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %481), !noalias !257
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %481, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %910)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %481, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %910)
           to label %969 unwind label %848
 
 .loopexit.i:                                      ; preds = %.thread.i.i, %820
@@ -3218,7 +3218,7 @@ select.unfold563.cont.i:                          ; preds = %select.unfold563.in
   call void @llvm.assume(i1 %911)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %491), !noalias !257
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %482), !noalias !257
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %482, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %823)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %482, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %823)
           to label %917 unwind label %.thread556.loopexit.i
 
 .thread569.i:                                     ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$13binary_search28_$u7b$$u7b$closure$u7d$$u7d$17hf4e3ca63b462ca74E.exit.i.i", %840, %938
@@ -3306,7 +3306,7 @@ select.unfold563.cont.i:                          ; preds = %select.unfold563.in
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %485), !noalias !257
   %941 = load ptr, ptr %915, align 8, !nonnull !5, !noundef !5
   %942 = load i64, ptr %916, align 8, !noundef !5
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias nocapture noundef align 8 dereferenceable(24) %485, ptr noalias noundef nonnull readonly align 1 %941, i64 noundef %942)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %485, ptr noalias noundef nonnull readonly align 1 %941, i64 noundef %942)
           to label %948 unwind label %.thread556.loopexit.i
 
 943:                                              ; preds = %.thread569.i
@@ -3315,7 +3315,7 @@ select.unfold563.cont.i:                          ; preds = %select.unfold563.in
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %488), !noalias !257
   %944 = load ptr, ptr %915, align 8, !nonnull !5, !noundef !5
   %945 = load i64, ptr %916, align 8, !noundef !5
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias nocapture noundef align 8 dereferenceable(24) %488, ptr noalias noundef nonnull readonly align 1 %944, i64 noundef %945)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %488, ptr noalias noundef nonnull readonly align 1 %944, i64 noundef %945)
           to label %961 unwind label %.thread556.loopexit.i
 
 946:                                              ; preds = %948
@@ -3333,13 +3333,13 @@ select.unfold563.cont.i:                          ; preds = %select.unfold563.in
   store ptr %486, ptr %.sroa.7474.0..sroa_idx.i, align 8, !noalias !545
   store i64 1, ptr %.sroa.8475.0..sroa_idx.i, align 8, !noalias !545
   store ptr null, ptr %.sroa.10476.0..sroa_idx.i, align 8, !noalias !545
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %487, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %470)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %487, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %470)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i unwind label %946
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %948
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %470), !noalias !534
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %469), !noalias !546
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %469, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %485)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %469, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %485)
           to label %.noexc250.i unwind label %953
 
 .noexc250.i:                                      ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i
@@ -3393,13 +3393,13 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i:  ; preds = %948
   store ptr %489, ptr %.sroa.7468.0..sroa_idx.i, align 8, !noalias !566
   store i64 1, ptr %.sroa.8469.0..sroa_idx.i, align 8, !noalias !566
   store ptr null, ptr %.sroa.10470.0..sroa_idx.i, align 8, !noalias !566
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %490, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %468)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %490, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %468)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i unwind label %959
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i: ; preds = %961
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %468), !noalias !555
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %467), !noalias !567
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %467, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %488)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %467, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %488)
           to label %.noexc260.i unwind label %966
 
 .noexc260.i:                                      ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i
@@ -3511,7 +3511,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i: ; preds = %961
 991:                                              ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.i.i ], [ %lpad.loopexit.split-lp.i.i, %.loopexit.split-lp.i.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %423), !noalias !620
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %423, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %484)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %423, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %484)
           to label %.noexc392.i unwind label %1031
 
 .noexc392.i:                                      ; preds = %991
@@ -3644,7 +3644,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i: ; preds = %961
 
 1038:                                             ; preds = %1033
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %462), !noalias !668
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %462, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %463)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %462, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %463)
           to label %.noexc.i268.i unwind label %1049, !noalias !679
 
 .noexc.i268.i:                                    ; preds = %1038
@@ -3670,7 +3670,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i: ; preds = %961
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %461), !noalias !680
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %461, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.5479.i, i64 32, i1 false), !noalias !657
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %679, ptr noundef nonnull align 8 dereferenceable(24) %493, i64 24, i1 false), !noalias !257
-  %1043 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h6c9775291d655438E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %660, i64 noundef %1005, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %461)
+  %1043 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h6c9775291d655438E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %660, i64 noundef %1005, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %461)
           to label %.noexc271.i unwind label %.thread556.loopexit.i
 
 .noexc271.i:                                      ; preds = %.thread12.i.i
@@ -3680,7 +3680,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i: ; preds = %961
 1044:                                             ; preds = %"_ZN4core3ptr60drop_in_place$LT$tree_sitter_cli..generate..rules..Alias$GT$17h4272a451e12367d6E.exit.i.i.i.i.i", %1033
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %463), !noalias !653
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %460), !noalias !684
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %460, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %483)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %460, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %483)
           to label %.noexc272.i unwind label %.thread556.loopexit.i
 
 .noexc272.i:                                      ; preds = %1044
@@ -3727,7 +3727,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit258.i: ; preds = %961
   %1053 = icmp ule i64 %.019.lcssa.i.i, %731
   call void @llvm.assume(i1 %1053)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %496), !noalias !257
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %496, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %726)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %496, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %726)
           to label %1055 unwind label %.loopexit.split-lp.loopexit.i
 
 .loopexit612.i:                                   ; preds = %734, %1080
@@ -4350,7 +4350,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %448), !noalias !811
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %447), !noalias !811
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %446), !noalias !811
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias nocapture noundef align 8 dereferenceable(24) %446, ptr noalias noundef nonnull readonly align 1 %.sink23.i103.i.i, i64 noundef %.sink21.i104.i.i)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %446, ptr noalias noundef nonnull readonly align 1 %.sink23.i103.i.i, i64 noundef %.sink21.i104.i.i)
           to label %.noexc375.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc375.i:                                      ; preds = %1299
@@ -4362,14 +4362,14 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr %447, ptr %.sroa.781.0..sroa_idx.i.i, align 8, !noalias !831
   store i64 1, ptr %.sroa.882.0..sroa_idx.i.i, align 8, !noalias !831
   store ptr null, ptr %.sroa.1083.0..sroa_idx.i.i, align 8, !noalias !831
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %448, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %435)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %448, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %435)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i unwind label %1325, !noalias !808
 
 1300:                                             ; preds = %_ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13034b3fE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %454), !noalias !811
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %453), !noalias !811
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %452), !noalias !811
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias nocapture noundef align 8 dereferenceable(24) %452, ptr noalias noundef nonnull readonly align 1 %.sink23.i.i.i, i64 noundef %.sink21.i.i.i)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %452, ptr noalias noundef nonnull readonly align 1 %.sink23.i.i.i, i64 noundef %.sink21.i.i.i)
           to label %.noexc376.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc376.i:                                      ; preds = %1300
@@ -4381,14 +4381,14 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr %453, ptr %.sroa.7.0..sroa_idx.i.i, align 8, !noalias !843
   store i64 1, ptr %.sroa.872.0..sroa_idx.i.i, align 8, !noalias !843
   store ptr null, ptr %.sroa.10.0..sroa_idx.i.i, align 8, !noalias !843
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %454, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %439)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %454, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %439)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i unwind label %1302, !noalias !808
 
 1301:                                             ; preds = %_ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13034b3fE.exit.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %451), !noalias !811
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %450), !noalias !811
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %449), !noalias !811
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias nocapture noundef align 8 dereferenceable(24) %449, ptr noalias noundef nonnull readonly align 1 %.sink23.i.i.i, i64 noundef %.sink21.i.i.i)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %449, ptr noalias noundef nonnull readonly align 1 %.sink23.i.i.i, i64 noundef %.sink21.i.i.i)
           to label %.noexc377.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc377.i:                                      ; preds = %1301
@@ -4400,7 +4400,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr %450, ptr %.sroa.775.0..sroa_idx.i.i, align 8, !noalias !855
   store i64 1, ptr %.sroa.876.0..sroa_idx.i.i, align 8, !noalias !855
   store ptr null, ptr %.sroa.1077.0..sroa_idx.i.i, align 8, !noalias !855
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %451, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %437)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %451, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %437)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit42.i.i unwind label %1316, !noalias !808
 
 1302:                                             ; preds = %.noexc376.i
@@ -4412,7 +4412,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i: ; preds = %.noexc376.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %439), !noalias !832
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %438), !noalias !856
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %438, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %452)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %438, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %452)
           to label %.noexc34.i.i unwind label %1308, !noalias !808
 
 .noexc34.i.i:                                     ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i
@@ -4472,7 +4472,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit.i.i: ; preds = %.noexc376.i
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit42.i.i: ; preds = %.noexc377.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %437), !noalias !844
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %436), !noalias !883
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %436, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %449)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %436, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %449)
           to label %.noexc44.i.i unwind label %1322, !noalias !808
 
 .noexc44.i.i:                                     ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit42.i.i
@@ -4509,7 +4509,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit42.i.i: ; preds = %.noexc377.i
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc375.i
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %435), !noalias !820
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %434), !noalias !892
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %434, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %446)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %434, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %446)
           to label %.noexc55.i.i unwind label %1331, !noalias !808
 
 .noexc55.i.i:                                     ; preds = %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i
@@ -4691,7 +4691,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc375.i
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hf39944e6911b849cE.exit.thread.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hf10db56fcc68f59cE.exit.i.i", %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hf39944e6911b849cE.exit.i", %1311
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %433), !noalias !947
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %433, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %444)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %433, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %444)
           to label %.noexc59.i.i unwind label %1274, !noalias !808
 
 .noexc59.i.i:                                     ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hf39944e6911b849cE.exit.thread.i"
@@ -4713,7 +4713,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc375.i
   %1383 = load i64, ptr %532, align 8, !noalias !811, !noundef !5
   %1384 = load i64, ptr %.sroa.519.0..sroa_idx.i.i, align 8, !noalias !811, !noundef !5
   %1385 = sub i64 %1383, %1384
-  invoke void @_ZN5alloc6string6String5drain17h454cf8b80d20879fE(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, ptr, i64, i64 }) align 8 dereferenceable(40) %443, ptr noalias noundef nonnull align 8 dereferenceable(24) %455, i64 noundef %1385)
+  invoke void @_ZN5alloc6string6String5drain17h454cf8b80d20879fE(ptr noalias noundef nonnull sret({ { ptr, ptr }, ptr, i64, i64 }) align 8 captures(none) dereferenceable(40) %443, ptr noalias noundef nonnull align 8 dereferenceable(24) %455, i64 noundef %1385)
           to label %1388 unwind label %.loopexit.split-lp646.loopexit.i, !noalias !808
 
 1386:                                             ; preds = %1379, %.noexc59.i.i
@@ -4724,7 +4724,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc375.i
 
 1387:                                             ; preds = %1386, %.noexc374.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %442), !noalias !811
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %442, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %455)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %442, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %455)
           to label %1425 unwind label %1274, !noalias !808
 
 1388:                                             ; preds = %1382
@@ -4790,7 +4790,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc375.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %431), !noalias !956
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %432), !noalias !956
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %430), !noalias !962
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %430, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %444)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %430, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %444)
           to label %.noexc65.i.i unwind label %1402, !noalias !808
 
 .noexc65.i.i:                                     ; preds = %1397
@@ -4871,7 +4871,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc375.i
   br i1 %1424, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hf39944e6911b849cE.exit.thread.i", label %.lr.ph.i
 
 1425:                                             ; preds = %1387
-  %1426 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h938ed0c993448bbbE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %499, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %442)
+  %1426 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h938ed0c993448bbbE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %499, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %442)
           to label %1427 unwind label %1274, !noalias !808
 
 1427:                                             ; preds = %1425
@@ -4879,7 +4879,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc375.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %441), !noalias !811
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %440), !noalias !811
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %440, ptr noundef nonnull align 8 dereferenceable(24) %455, i64 24, i1 false), !noalias !811
-  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h3fa026414cfc9ef4E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %441, ptr noalias noundef nonnull align 8 dereferenceable(48) %551, i64 noundef %1269, i8 noundef range(i8 0, 5) %1271, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %440)
+  invoke void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h3fa026414cfc9ef4E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %441, ptr noalias noundef nonnull align 8 dereferenceable(48) %551, i64 noundef %1269, i8 noundef range(i8 0, 5) %1271, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %440)
           to label %.noexc378.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc378.i:                                      ; preds = %1427
@@ -4891,7 +4891,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit53.i.i: ; preds = %.noexc375.i
 
 .noexc69.i.i:                                     ; preds = %.noexc378.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %429), !noalias !988
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %429, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %441)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %429, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %441)
           to label %.noexc379.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 .noexc379.i:                                      ; preds = %.noexc69.i.i
@@ -5441,7 +5441,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1443, align 8, !noalias !997
   %1444 = getelementptr inbounds nuw i8, ptr %411, i64 24
   store i64 0, ptr %1444, align 8, !noalias !997
-  %1445 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %411)
+  %1445 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %411)
           to label %.noexc39 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc39:                                         ; preds = %._crit_edge.i38
@@ -5493,7 +5493,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1438, align 8, !noalias !997
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1439, align 8, !noalias !997
   store i64 0, ptr %1440, align 8, !noalias !997
-  %1463 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %412)
+  %1463 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %412)
           to label %.noexc42 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1719
 
 .noexc42:                                         ; preds = %1462
@@ -5518,7 +5518,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1467, align 8, !noalias !997
   %1468 = getelementptr inbounds nuw i8, ptr %409, i64 24
   store i64 0, ptr %1468, align 8, !noalias !997
-  %1469 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %409)
+  %1469 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %409)
           to label %.noexc44 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc44:                                         ; preds = %._crit_edge34.i
@@ -5549,7 +5549,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1459, align 8, !noalias !997
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1460, align 8, !noalias !997
   store i64 0, ptr %1461, align 8, !noalias !997
-  %1475 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %410)
+  %1475 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %410)
           to label %.noexc47 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1712
 
 .noexc47:                                         ; preds = %1474
@@ -5594,7 +5594,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1490, align 8, !noalias !1020
   %1491 = getelementptr inbounds nuw i8, ptr %407, i64 24
   store i64 0, ptr %1491, align 8, !noalias !1020
-  %1492 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %407)
+  %1492 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %407)
           to label %.noexc56 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc56:                                         ; preds = %._crit_edge.i52
@@ -5644,7 +5644,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1485, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1486, align 8, !noalias !1020
   store i64 0, ptr %1487, align 8, !noalias !1020
-  %1508 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %408)
+  %1508 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %408)
           to label %.noexc59 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1705
 
 .noexc59:                                         ; preds = %1507
@@ -5669,7 +5669,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1512, align 8, !noalias !1020
   %1513 = getelementptr inbounds nuw i8, ptr %405, i64 24
   store i64 0, ptr %1513, align 8, !noalias !1020
-  %1514 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %405)
+  %1514 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %405)
           to label %.noexc61 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc61:                                         ; preds = %._crit_edge234.i
@@ -5719,7 +5719,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1504, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1505, align 8, !noalias !1020
   store i64 0, ptr %1506, align 8, !noalias !1020
-  %1530 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %406)
+  %1530 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %406)
           to label %.noexc64 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1698
 
 .noexc64:                                         ; preds = %1529
@@ -5744,7 +5744,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1534, align 8, !noalias !1020
   %1535 = getelementptr inbounds nuw i8, ptr %403, i64 24
   store i64 0, ptr %1535, align 8, !noalias !1020
-  %1536 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %403)
+  %1536 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %403)
           to label %.noexc66 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc66:                                         ; preds = %._crit_edge237.i
@@ -5794,7 +5794,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1526, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1527, align 8, !noalias !1020
   store i64 0, ptr %1528, align 8, !noalias !1020
-  %1552 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %404)
+  %1552 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %404)
           to label %.noexc69 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1691
 
 .noexc69:                                         ; preds = %1551
@@ -5819,7 +5819,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1556, align 8, !noalias !1020
   %1557 = getelementptr inbounds nuw i8, ptr %401, i64 24
   store i64 0, ptr %1557, align 8, !noalias !1020
-  %1558 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %401)
+  %1558 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %401)
           to label %.noexc71 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc71:                                         ; preds = %._crit_edge240.i
@@ -5863,7 +5863,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1548, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1549, align 8, !noalias !1020
   store i64 0, ptr %1550, align 8, !noalias !1020
-  %1572 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %402)
+  %1572 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %402)
           to label %.noexc74 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1684
 
 .noexc74:                                         ; preds = %1571
@@ -5900,7 +5900,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1582, align 8, !noalias !1020
   %1583 = getelementptr inbounds nuw i8, ptr %399, i64 24
   store i64 0, ptr %1583, align 8, !noalias !1020
-  %1584 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %399)
+  %1584 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %399)
           to label %.noexc76 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc76:                                         ; preds = %._crit_edge244.i
@@ -5950,7 +5950,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1577, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1578, align 8, !noalias !1020
   store i64 0, ptr %1579, align 8, !noalias !1020
-  %1600 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %400)
+  %1600 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %400)
           to label %.noexc79 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1677
 
 .noexc79:                                         ; preds = %1599
@@ -5975,7 +5975,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1604, align 8, !noalias !1020
   %1605 = getelementptr inbounds nuw i8, ptr %397, i64 24
   store i64 0, ptr %1605, align 8, !noalias !1020
-  %1606 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %397)
+  %1606 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %397)
           to label %.noexc81 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc81:                                         ; preds = %._crit_edge247.i
@@ -6025,7 +6025,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1596, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1597, align 8, !noalias !1020
   store i64 0, ptr %1598, align 8, !noalias !1020
-  %1622 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %398)
+  %1622 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %398)
           to label %.noexc84 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1670
 
 .noexc84:                                         ; preds = %1621
@@ -6050,7 +6050,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1626, align 8, !noalias !1020
   %1627 = getelementptr inbounds nuw i8, ptr %395, i64 24
   store i64 0, ptr %1627, align 8, !noalias !1020
-  %1628 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %395)
+  %1628 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %395)
           to label %.noexc86 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc86:                                         ; preds = %._crit_edge250.i
@@ -6100,7 +6100,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1618, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1619, align 8, !noalias !1020
   store i64 0, ptr %1620, align 8, !noalias !1020
-  %1644 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %396)
+  %1644 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %396)
           to label %.noexc89 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1663
 
 .noexc89:                                         ; preds = %1643
@@ -6125,7 +6125,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1648, align 8, !noalias !1020
   %1649 = getelementptr inbounds nuw i8, ptr %393, i64 24
   store i64 0, ptr %1649, align 8, !noalias !1020
-  %1650 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %393)
+  %1650 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %393)
           to label %.noexc91 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc91:                                         ; preds = %._crit_edge253.i
@@ -6175,7 +6175,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1640, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1641, align 8, !noalias !1020
   store i64 0, ptr %1642, align 8, !noalias !1020
-  %1666 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %394)
+  %1666 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %394)
           to label %.noexc94 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1656
 
 .noexc94:                                         ; preds = %1665
@@ -6200,7 +6200,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1670, align 8, !noalias !1020
   %1671 = getelementptr inbounds nuw i8, ptr %391, i64 24
   store i64 0, ptr %1671, align 8, !noalias !1020
-  %1672 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %391)
+  %1672 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %391)
           to label %.noexc96 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc96:                                         ; preds = %._crit_edge256.i
@@ -6250,7 +6250,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1662, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1663, align 8, !noalias !1020
   store i64 0, ptr %1664, align 8, !noalias !1020
-  %1688 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %392)
+  %1688 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %392)
           to label %.noexc99 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1649
 
 .noexc99:                                         ; preds = %1687
@@ -6275,7 +6275,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1692, align 8, !noalias !1020
   %1693 = getelementptr inbounds nuw i8, ptr %389, i64 24
   store i64 0, ptr %1693, align 8, !noalias !1020
-  %1694 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %389)
+  %1694 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %389)
           to label %.noexc101 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc101:                                        ; preds = %._crit_edge259.i
@@ -6325,7 +6325,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1684, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1685, align 8, !noalias !1020
   store i64 0, ptr %1686, align 8, !noalias !1020
-  %1710 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %390)
+  %1710 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %390)
           to label %.noexc104 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1642
 
 .noexc104:                                        ; preds = %1709
@@ -6350,7 +6350,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1714, align 8, !noalias !1020
   %1715 = getelementptr inbounds nuw i8, ptr %387, i64 24
   store i64 0, ptr %1715, align 8, !noalias !1020
-  %1716 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %387)
+  %1716 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %387)
           to label %.noexc106 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc106:                                        ; preds = %._crit_edge262.i
@@ -6400,7 +6400,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1706, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1707, align 8, !noalias !1020
   store i64 0, ptr %1708, align 8, !noalias !1020
-  %1732 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %388)
+  %1732 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %388)
           to label %.noexc109 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1635
 
 .noexc109:                                        ; preds = %1731
@@ -6425,7 +6425,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1736, align 8, !noalias !1020
   %1737 = getelementptr inbounds nuw i8, ptr %385, i64 24
   store i64 0, ptr %1737, align 8, !noalias !1020
-  %1738 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %385)
+  %1738 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %385)
           to label %.noexc111 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc111:                                        ; preds = %._crit_edge265.i
@@ -6466,7 +6466,7 @@ _ZN15tree_sitter_cli8generate6render9Generator16assign_symbol_id17hf788fe52517be
   store ptr null, ptr %1728, align 8, !noalias !1020
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1729, align 8, !noalias !1020
   store i64 0, ptr %1730, align 8, !noalias !1020
-  %1749 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %386)
+  %1749 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %386)
           to label %.noexc114 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1628
 
 .noexc114:                                        ; preds = %1748
@@ -6519,7 +6519,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %381, ptr %1765, align 8, !alias.scope !1146, !noalias !1149
   %1766 = getelementptr inbounds nuw i8, ptr %382, i64 24
   store i64 1, ptr %1766, align 8, !alias.scope !1146, !noalias !1149
-  %1767 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %382)
+  %1767 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %382)
           to label %.noexc124 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc124:                                        ; preds = %._crit_edge.i119
@@ -6570,7 +6570,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1758, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1759, align 8, !noalias !1143
   store i64 0, ptr %1760, align 8, !noalias !1143
-  %1783 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %383)
+  %1783 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %383)
           to label %.noexc127 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1621
 
 .noexc127:                                        ; preds = %1782
@@ -6602,7 +6602,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %378, ptr %1789, align 8, !alias.scope !1162, !noalias !1165
   %1790 = getelementptr inbounds nuw i8, ptr %379, i64 24
   store i64 1, ptr %1790, align 8, !alias.scope !1162, !noalias !1165
-  %1791 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %379)
+  %1791 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %379)
           to label %.noexc129 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc129:                                        ; preds = %._crit_edge221.i
@@ -6654,7 +6654,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1779, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1780, align 8, !noalias !1143
   store i64 0, ptr %1781, align 8, !noalias !1143
-  %1807 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %380)
+  %1807 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %380)
           to label %.noexc132 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1614
 
 .noexc132:                                        ; preds = %1806
@@ -6683,7 +6683,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %374, ptr %1812, align 8, !alias.scope !1178, !noalias !1181
   %1813 = getelementptr inbounds nuw i8, ptr %375, i64 24
   store i64 1, ptr %1813, align 8, !alias.scope !1178, !noalias !1181
-  %1814 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %375)
+  %1814 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %375)
           to label %.noexc134 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc134:                                        ; preds = %._crit_edge224.i
@@ -6734,7 +6734,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1803, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1804, align 8, !noalias !1143
   store i64 0, ptr %1805, align 8, !noalias !1143
-  %1830 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %376)
+  %1830 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %376)
           to label %.noexc137 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1607
 
 .noexc137:                                        ; preds = %1829
@@ -6766,7 +6766,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %371, ptr %1836, align 8, !alias.scope !1194, !noalias !1197
   %1837 = getelementptr inbounds nuw i8, ptr %372, i64 24
   store i64 1, ptr %1837, align 8, !alias.scope !1194, !noalias !1197
-  %1838 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %372)
+  %1838 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %372)
           to label %.noexc139 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc139:                                        ; preds = %._crit_edge227.i
@@ -6818,7 +6818,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1826, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1827, align 8, !noalias !1143
   store i64 0, ptr %1828, align 8, !noalias !1143
-  %1854 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %373)
+  %1854 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %373)
           to label %.noexc142 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1600
 
 .noexc142:                                        ; preds = %1853
@@ -6851,7 +6851,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %367, ptr %1861, align 8, !alias.scope !1210, !noalias !1213
   %1862 = getelementptr inbounds nuw i8, ptr %368, i64 24
   store i64 1, ptr %1862, align 8, !alias.scope !1210, !noalias !1213
-  %1863 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %368)
+  %1863 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %368)
           to label %.noexc144 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc144:                                        ; preds = %._crit_edge230.i
@@ -6903,7 +6903,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1850, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1851, align 8, !noalias !1143
   store i64 0, ptr %1852, align 8, !noalias !1143
-  %1879 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %369)
+  %1879 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %369)
           to label %.noexc147 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1593
 
 .noexc147:                                        ; preds = %1878
@@ -6932,7 +6932,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %363, ptr %1884, align 8, !alias.scope !1226, !noalias !1229
   %1885 = getelementptr inbounds nuw i8, ptr %364, i64 24
   store i64 1, ptr %1885, align 8, !alias.scope !1226, !noalias !1229
-  %1886 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %364)
+  %1886 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %364)
           to label %.noexc149 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc149:                                        ; preds = %._crit_edge233.i
@@ -6983,7 +6983,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1875, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1876, align 8, !noalias !1143
   store i64 0, ptr %1877, align 8, !noalias !1143
-  %1902 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %365)
+  %1902 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %365)
           to label %.noexc152 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1586
 
 .noexc152:                                        ; preds = %1901
@@ -7015,7 +7015,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %360, ptr %1908, align 8, !alias.scope !1242, !noalias !1245
   %1909 = getelementptr inbounds nuw i8, ptr %361, i64 24
   store i64 1, ptr %1909, align 8, !alias.scope !1242, !noalias !1245
-  %1910 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %361)
+  %1910 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %361)
           to label %.noexc154 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc154:                                        ; preds = %._crit_edge236.i
@@ -7067,7 +7067,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1898, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1899, align 8, !noalias !1143
   store i64 0, ptr %1900, align 8, !noalias !1143
-  %1926 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %362)
+  %1926 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %362)
           to label %.noexc157 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1579
 
 .noexc157:                                        ; preds = %1925
@@ -7100,7 +7100,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %356, ptr %1933, align 8, !alias.scope !1258, !noalias !1261
   %1934 = getelementptr inbounds nuw i8, ptr %357, i64 24
   store i64 1, ptr %1934, align 8, !alias.scope !1258, !noalias !1261
-  %1935 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %357)
+  %1935 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %357)
           to label %.noexc159 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc159:                                        ; preds = %._crit_edge239.i
@@ -7152,7 +7152,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1922, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1923, align 8, !noalias !1143
   store i64 0, ptr %1924, align 8, !noalias !1143
-  %1951 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %358)
+  %1951 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %358)
           to label %.noexc162 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1572
 
 .noexc162:                                        ; preds = %1950
@@ -7182,7 +7182,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %352, ptr %1957, align 8, !alias.scope !1274, !noalias !1277
   %1958 = getelementptr inbounds nuw i8, ptr %353, i64 24
   store i64 1, ptr %1958, align 8, !alias.scope !1274, !noalias !1277
-  %1959 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %353)
+  %1959 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %353)
           to label %.noexc164 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc164:                                        ; preds = %._crit_edge242.i
@@ -7233,7 +7233,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1947, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1948, align 8, !noalias !1143
   store i64 0, ptr %1949, align 8, !noalias !1143
-  %1975 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %354)
+  %1975 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %354)
           to label %.noexc167 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1565
 
 .noexc167:                                        ; preds = %1974
@@ -7265,7 +7265,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr %349, ptr %1981, align 8, !alias.scope !1290, !noalias !1293
   %1982 = getelementptr inbounds nuw i8, ptr %350, i64 24
   store i64 1, ptr %1982, align 8, !alias.scope !1290, !noalias !1293
-  %1983 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %350)
+  %1983 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %350)
           to label %.noexc169 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc169:                                        ; preds = %._crit_edge245.i
@@ -7317,7 +7317,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1971, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1972, align 8, !noalias !1143
   store i64 0, ptr %1973, align 8, !noalias !1143
-  %1999 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %351)
+  %1999 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %351)
           to label %.noexc172 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1558
 
 .noexc172:                                        ; preds = %1998
@@ -7342,7 +7342,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2003, align 8, !noalias !1143
   %2004 = getelementptr inbounds nuw i8, ptr %346, i64 24
   store i64 0, ptr %2004, align 8, !noalias !1143
-  %2005 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %346)
+  %2005 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %346)
           to label %.noexc174 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc174:                                        ; preds = %._crit_edge248.i
@@ -7373,7 +7373,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %1995, align 8, !noalias !1143
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1996, align 8, !noalias !1143
   store i64 0, ptr %1997, align 8, !noalias !1143
-  %2011 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %347)
+  %2011 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %347)
           to label %.noexc177 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1551
 
 .noexc177:                                        ; preds = %2010
@@ -7419,7 +7419,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2026, align 8, !noalias !1316
   %2027 = getelementptr inbounds nuw i8, ptr %344, i64 24
   store i64 0, ptr %2027, align 8, !noalias !1316
-  %2028 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %344)
+  %2028 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %344)
           to label %.noexc202 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc202:                                        ; preds = %._crit_edge.i181
@@ -7488,7 +7488,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %2021, align 8, !noalias !1316
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2022, align 8, !noalias !1316
   store i64 0, ptr %2023, align 8, !noalias !1316
-  %2056 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %345)
+  %2056 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %345)
           to label %.noexc206 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1544
 
 .noexc206:                                        ; preds = %2055
@@ -7560,7 +7560,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   %.sink = phi ptr [ %145, %4151 ], [ %142, %4069 ], [ %178, %3758 ], [ %227, %3416 ], [ %245, %3270 ], [ %272, %3193 ], [ %261, %2981 ], [ %258, %2858 ], [ %306, %2510 ], [ %321, %2306 ], [ %336, %2087 ]
   %2088 = phi ptr [ @anon.1b0636034553e74e02679d3fd1cb529e.237, %4151 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.230, %4069 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.276, %3758 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.180, %3416 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.170, %3270 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.225, %3193 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.200, %2981 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.187, %2858 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.155, %2510 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.141, %2306 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.126, %2087 ]
   store ptr null, ptr %.sink, align 8, !noalias !5
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2088) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2088) #20
           to label %.cont2509 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .cont2509:                                        ; preds = %.invoke2508
@@ -7590,7 +7590,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2097, align 8, !noalias !1316
   %2098 = getelementptr inbounds nuw i8, ptr %334, i64 24
   store i64 0, ptr %2098, align 8, !noalias !1316
-  %2099 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %334)
+  %2099 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %334)
           to label %.noexc209 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc209:                                        ; preds = %._crit_edge139.i
@@ -7640,7 +7640,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %2092, align 8, !noalias !1316
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2093, align 8, !noalias !1316
   store i64 0, ptr %2094, align 8, !noalias !1316
-  %2115 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %335)
+  %2115 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %335)
           to label %.noexc212 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1501
 
 .noexc212:                                        ; preds = %2114
@@ -7665,7 +7665,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2119, align 8, !noalias !1316
   %2120 = getelementptr inbounds nuw i8, ptr %332, i64 24
   store i64 0, ptr %2120, align 8, !noalias !1316
-  %2121 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %332)
+  %2121 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %332)
           to label %.noexc214 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc214:                                        ; preds = %._crit_edge142.i
@@ -7696,7 +7696,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %2111, align 8, !noalias !1316
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2112, align 8, !noalias !1316
   store i64 0, ptr %2113, align 8, !noalias !1316
-  %2127 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %333)
+  %2127 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %333)
           to label %.noexc217 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1494
 
 .noexc217:                                        ; preds = %2126
@@ -7807,7 +7807,7 @@ _ZN15tree_sitter_cli8generate6render9Generator11add_pragmas17h80bc9f4c6403f71dE.
   store ptr null, ptr %2062, align 8, !noalias !1316
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2063, align 8, !noalias !1316
   store i64 0, ptr %2064, align 8, !noalias !1316
-  %2168 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %339)
+  %2168 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %339)
           to label %.noexc222 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1515
 
 .noexc222:                                        ; preds = %.lr.ph130.i
@@ -7840,7 +7840,7 @@ select.unfold.i.cont:                             ; preds = %select.unfold.i.inv
   store ptr null, ptr %2073, align 8, !alias.scope !1394, !noalias !1397
   store ptr %337, ptr %2074, align 8, !alias.scope !1394, !noalias !1397
   store i64 2, ptr %2075, align 8, !alias.scope !1394, !noalias !1397
-  %2173 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %338)
+  %2173 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %338)
           to label %.noexc225 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1523
 
 .noexc225:                                        ; preds = %2171
@@ -7912,7 +7912,7 @@ select.unfold.i.cont:                             ; preds = %select.unfold.i.inv
   store ptr null, ptr %2045, align 8, !noalias !1316
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2046, align 8, !noalias !1316
   store i64 0, ptr %2047, align 8, !noalias !1316
-  %2193 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %342)
+  %2193 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %342)
           to label %.noexc230 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1530
 
 .noexc230:                                        ; preds = %.lr.ph123.i
@@ -7936,7 +7936,7 @@ select.unfold.i.cont:                             ; preds = %select.unfold.i.inv
   store ptr null, ptr %2052, align 8, !alias.scope !1410, !noalias !1413
   store ptr %340, ptr %2053, align 8, !alias.scope !1410, !noalias !1413
   store i64 2, ptr %2054, align 8, !alias.scope !1410, !noalias !1413
-  %2196 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %341)
+  %2196 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %341)
           to label %.noexc233 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1537
 
 .noexc233:                                        ; preds = %2195
@@ -8005,7 +8005,7 @@ select.unfold.i.cont:                             ; preds = %select.unfold.i.inv
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2221, align 8, !noalias !1426
   %2222 = getelementptr inbounds nuw i8, ptr %330, i64 24
   store i64 0, ptr %2222, align 8, !noalias !1426
-  %2223 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %330)
+  %2223 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %330)
           to label %.noexc279 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc279:                                        ; preds = %._crit_edge.i239
@@ -8070,7 +8070,7 @@ select.unfold.i.cont:                             ; preds = %select.unfold.i.inv
   store ptr null, ptr %2216, align 8, !noalias !1426
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2217, align 8, !noalias !1426
   store i64 0, ptr %2218, align 8, !noalias !1426
-  %2252 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %331)
+  %2252 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %331)
           to label %.noexc282 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1487
 
 .noexc282:                                        ; preds = %2251
@@ -8198,7 +8198,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 "_ZN4core6option15Option$LT$T$GT$6map_or17hf8f23e8fe72322d4E.exit.i": ; preds = %2297, %_ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13034b3fE.exit.i245
   %.pn7.i.i = phi ptr [ %.val.i86.i, %2297 ], [ %.sink23.i.i246, %_ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13034b3fE.exit.i245 ]
   %.pn5.i.i = phi i64 [ %.val4.i.i, %2297 ], [ %.sink21.i.i247, %_ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13034b3fE.exit.i245 ]
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15sanitize_string17h2c45d535d173d735E(ptr noalias nocapture noundef align 8 dereferenceable(24) %329, ptr noalias noundef nonnull readonly align 1 %.pn7.i.i, i64 noundef %.pn5.i.i)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15sanitize_string17h2c45d535d173d735E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %329, ptr noalias noundef nonnull readonly align 1 %.pn7.i.i, i64 noundef %.pn5.i.i)
           to label %.noexc288 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1479
 
 .noexc288:                                        ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hf8f23e8fe72322d4E.exit.i"
@@ -8246,7 +8246,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2315, align 8, !noalias !1426
   %2316 = getelementptr inbounds nuw i8, ptr %319, i64 24
   store i64 0, ptr %2316, align 8, !noalias !1426
-  %2317 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %319)
+  %2317 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %319)
           to label %.noexc290 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc290:                                        ; preds = %._crit_edge172.i
@@ -8296,7 +8296,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2310, align 8, !noalias !1426
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2311, align 8, !noalias !1426
   store i64 0, ptr %2312, align 8, !noalias !1426
-  %2333 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %320)
+  %2333 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %320)
           to label %.noexc293 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1450
 
 .noexc293:                                        ; preds = %2332
@@ -8321,7 +8321,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2337, align 8, !noalias !1426
   %2338 = getelementptr inbounds nuw i8, ptr %317, i64 24
   store i64 0, ptr %2338, align 8, !noalias !1426
-  %2339 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %317)
+  %2339 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %317)
           to label %.noexc295 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc295:                                        ; preds = %._crit_edge175.i
@@ -8352,7 +8352,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2329, align 8, !noalias !1426
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2330, align 8, !noalias !1426
   store i64 0, ptr %2331, align 8, !noalias !1426
-  %2345 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %318)
+  %2345 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %318)
           to label %.noexc298 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1443
 
 .noexc298:                                        ; preds = %2344
@@ -8463,7 +8463,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2257, align 8, !noalias !1426
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2258, align 8, !noalias !1426
   store i64 0, ptr %2259, align 8, !noalias !1426
-  %2386 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %325)
+  %2386 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %325)
           to label %.noexc303 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1464
 
 .noexc303:                                        ; preds = %.lr.ph163.i
@@ -8498,7 +8498,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   %2391 = load ptr, ptr %2390, align 8, !nonnull !5, !noundef !5
   %2392 = getelementptr inbounds nuw i8, ptr %.sroa.0113.0165.i, i64 16
   %2393 = load i64, ptr %2392, align 8, !noundef !5
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15sanitize_string17h2c45d535d173d735E(ptr noalias nocapture noundef align 8 dereferenceable(24) %322, ptr noalias noundef nonnull readonly align 1 %2391, i64 noundef %2393)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15sanitize_string17h2c45d535d173d735E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %322, ptr noalias noundef nonnull readonly align 1 %2391, i64 noundef %2393)
           to label %.noexc306 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1472
 
 .noexc306:                                        ; preds = %2389
@@ -8512,7 +8512,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2268, align 8, !alias.scope !1516, !noalias !1519
   store ptr %323, ptr %2269, align 8, !alias.scope !1516, !noalias !1519
   store i64 2, ptr %2270, align 8, !alias.scope !1516, !noalias !1519
-  %2395 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %324)
+  %2395 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %324)
           to label %2396 unwind label %.loopexit.i263
 
 2396:                                             ; preds = %.noexc306
@@ -8530,7 +8530,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 2398:                                             ; preds = %2396
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !1426
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %316), !noalias !1522
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %316, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %322)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %316, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %322)
           to label %.noexc307 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1472
 
 .noexc307:                                        ; preds = %2398
@@ -8615,7 +8615,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2238, align 8, !noalias !1426
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2239, align 8, !noalias !1426
   store i64 0, ptr %2240, align 8, !noalias !1426
-  %2417 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %328)
+  %2417 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %328)
           to label %2441 unwind label %.loopexit137.i
 
 2418:                                             ; preds = %._crit_edge157.i
@@ -8639,7 +8639,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2245, align 8, !alias.scope !1541, !noalias !1544
   store ptr %326, ptr %2246, align 8, !alias.scope !1541, !noalias !1544
   store i64 2, ptr %2247, align 8, !alias.scope !1541, !noalias !1544
-  %2423 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %327)
+  %2423 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %327)
           to label %2424 unwind label %.loopexit.split-lp138.loopexit.i
 
 2424:                                             ; preds = %2422
@@ -8672,7 +8672,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   %2435 = add i64 %2434, 1
   store i64 %2435, ptr %1446, align 8, !alias.scope !1556, !noalias !1554
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %315), !noalias !1557
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %315, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %329)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %315, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %329)
           to label %.noexc312 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1479
 
 .noexc312:                                        ; preds = %2430
@@ -8740,7 +8740,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2455, align 8, !noalias !1566
   %2456 = getelementptr inbounds nuw i8, ptr %313, i64 24
   store i64 0, ptr %2456, align 8, !noalias !1566
-  %2457 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %313)
+  %2457 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %313)
           to label %.noexc362 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc362:                                        ; preds = %._crit_edge.i317
@@ -8802,7 +8802,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2450, align 8, !noalias !1566
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2451, align 8, !noalias !1566
   store i64 0, ptr %2452, align 8, !noalias !1566
-  %2483 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %314)
+  %2483 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %314)
           to label %.noexc365 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc365:                                        ; preds = %2482
@@ -8888,7 +8888,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2519, align 8, !noalias !1566
   %2520 = getelementptr inbounds nuw i8, ptr %304, i64 24
   store i64 0, ptr %2520, align 8, !noalias !1566
-  %2521 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %304)
+  %2521 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %304)
           to label %.noexc368 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc368:                                        ; preds = %._crit_edge179.i
@@ -8938,7 +8938,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2514, align 8, !noalias !1566
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2515, align 8, !noalias !1566
   store i64 0, ptr %2516, align 8, !noalias !1566
-  %2537 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %305)
+  %2537 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %305)
           to label %.noexc371 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc371:                                        ; preds = %2536
@@ -8963,7 +8963,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2541, align 8, !noalias !1566
   %2542 = getelementptr inbounds nuw i8, ptr %302, i64 24
   store i64 0, ptr %2542, align 8, !noalias !1566
-  %2543 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %302)
+  %2543 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %302)
           to label %.noexc373 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc373:                                        ; preds = %._crit_edge182.i
@@ -8994,7 +8994,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2533, align 8, !noalias !1566
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2534, align 8, !noalias !1566
   store i64 0, ptr %2535, align 8, !noalias !1566
-  %2549 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %303)
+  %2549 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %303)
           to label %.noexc376 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc376:                                        ; preds = %2548
@@ -9105,7 +9105,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2488, align 8, !noalias !1566
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2489, align 8, !noalias !1566
   store i64 0, ptr %2490, align 8, !noalias !1566
-  %2590 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %309)
+  %2590 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %309)
           to label %.noexc381 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc381:                                        ; preds = %.lr.ph170.i
@@ -9217,7 +9217,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2499, align 8, !alias.scope !1689, !noalias !1692
   store ptr %307, ptr %2500, align 8, !alias.scope !1689, !noalias !1692
   store i64 2, ptr %2501, align 8, !alias.scope !1689, !noalias !1692
-  %2634 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %308)
+  %2634 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %308)
           to label %.noexc388 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc388:                                        ; preds = %2632
@@ -9273,7 +9273,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2472, align 8, !noalias !1566
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2473, align 8, !noalias !1566
   store i64 0, ptr %2474, align 8, !noalias !1566
-  %2648 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %312)
+  %2648 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %312)
           to label %.noexc392 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc392:                                        ; preds = %.lr.ph163.i322
@@ -9318,7 +9318,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2479, align 8, !alias.scope !1705, !noalias !1708
   store ptr %310, ptr %2480, align 8, !alias.scope !1705, !noalias !1708
   store i64 2, ptr %2481, align 8, !alias.scope !1705, !noalias !1708
-  %2658 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %311)
+  %2658 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %311)
           to label %.noexc399 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc399:                                        ; preds = %2657
@@ -9384,7 +9384,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2682, align 8, !noalias !1721
   %2683 = getelementptr inbounds nuw i8, ptr %300, i64 24
   store i64 0, ptr %2683, align 8, !noalias !1721
-  %2684 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %300)
+  %2684 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %300)
           to label %.noexc437 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc437:                                        ; preds = %._crit_edge.i404
@@ -9544,7 +9544,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2677, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2678, align 8, !noalias !1721
   store i64 0, ptr %2679, align 8, !noalias !1721
-  %2808 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %301)
+  %2808 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %301)
           to label %.noexc440 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc440:                                        ; preds = %2807
@@ -9653,7 +9653,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2867, align 8, !noalias !1721
   %2868 = getelementptr inbounds nuw i8, ptr %256, i64 24
   store i64 0, ptr %2868, align 8, !noalias !1721
-  %2869 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %256)
+  %2869 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %256)
           to label %.noexc443 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc443:                                        ; preds = %._crit_edge522.i
@@ -9703,7 +9703,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2862, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2863, align 8, !noalias !1721
   store i64 0, ptr %2864, align 8, !noalias !1721
-  %2885 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %257)
+  %2885 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %257)
           to label %.noexc446 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc446:                                        ; preds = %2884
@@ -9728,7 +9728,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2889, align 8, !noalias !1721
   %2890 = getelementptr inbounds nuw i8, ptr %254, i64 24
   store i64 0, ptr %2890, align 8, !noalias !1721
-  %2891 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %254)
+  %2891 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %254)
           to label %.noexc448 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc448:                                        ; preds = %._crit_edge525.i
@@ -9759,7 +9759,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2881, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2882, align 8, !noalias !1721
   store i64 0, ptr %2883, align 8, !noalias !1721
-  %2897 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %255)
+  %2897 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %255)
           to label %.noexc451 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc451:                                        ; preds = %2896
@@ -9870,7 +9870,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2813, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2814, align 8, !noalias !1721
   store i64 0, ptr %2815, align 8, !noalias !1721
-  %2938 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %269)
+  %2938 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %269)
           to label %.noexc456 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc456:                                        ; preds = %.lr.ph503.i
@@ -9893,7 +9893,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2822, align 8, !alias.scope !1799, !noalias !1802
   store ptr %267, ptr %2823, align 8, !alias.scope !1799, !noalias !1802
   store i64 1, ptr %2824, align 8, !alias.scope !1799, !noalias !1802
-  %2942 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %268)
+  %2942 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %268)
           to label %.noexc459 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc459:                                        ; preds = %2940
@@ -9938,7 +9938,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2830, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2831, align 8, !noalias !1721
   store i64 0, ptr %2832, align 8, !noalias !1721
-  %2954 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %265)
+  %2954 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %265)
           to label %.noexc462 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc462:                                        ; preds = %._crit_edge507.i
@@ -9981,7 +9981,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2826, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2827, align 8, !noalias !1721
   store i64 0, ptr %2828, align 8, !noalias !1721
-  %2965 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %266)
+  %2965 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %266)
           to label %.noexc465 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc465:                                        ; preds = %.lr.ph506.i
@@ -10005,7 +10005,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2839, align 8, !alias.scope !1825, !noalias !1828
   store ptr %262, ptr %2840, align 8, !alias.scope !1825, !noalias !1828
   store i64 1, ptr %2841, align 8, !alias.scope !1825, !noalias !1828
-  %2967 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %263)
+  %2967 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %263)
           to label %.noexc467 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc467:                                        ; preds = %._crit_edge510.i
@@ -10049,7 +10049,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2834, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2835, align 8, !noalias !1721
   store i64 0, ptr %2836, align 8, !noalias !1721
-  %2979 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %264)
+  %2979 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %264)
           to label %.noexc470 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc470:                                        ; preds = %.lr.ph509.i
@@ -10080,7 +10080,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2847, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2848, align 8, !noalias !1721
   store i64 0, ptr %2849, align 8, !noalias !1721
-  %2984 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %259)
+  %2984 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %259)
           to label %.noexc473 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc473:                                        ; preds = %._crit_edge514.i
@@ -10122,7 +10122,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2843, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2844, align 8, !noalias !1721
   store i64 0, ptr %2845, align 8, !noalias !1721
-  %2995 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %260)
+  %2995 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %260)
           to label %.noexc476 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc476:                                        ; preds = %.lr.ph513.i
@@ -10157,7 +10157,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2699, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2700, align 8, !noalias !1721
   store i64 0, ptr %2701, align 8, !noalias !1721
-  %3000 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %299)
+  %3000 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %299)
           to label %.noexc479 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc479:                                        ; preds = %.lr.ph454.i
@@ -10179,7 +10179,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2704, align 8, !alias.scope !1851, !noalias !1854
   store ptr %297, ptr %2705, align 8, !alias.scope !1851, !noalias !1854
   store i64 1, ptr %2706, align 8, !alias.scope !1851, !noalias !1854
-  %3003 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %298)
+  %3003 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %298)
           to label %.noexc482 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc482:                                        ; preds = %3002
@@ -10290,7 +10290,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2712, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2713, align 8, !noalias !1721
   store i64 0, ptr %2714, align 8, !noalias !1721
-  %3031 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %294)
+  %3031 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %294)
           to label %.noexc489 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc489:                                        ; preds = %._crit_edge459.i
@@ -10333,7 +10333,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2708, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2709, align 8, !noalias !1721
   store i64 0, ptr %2710, align 8, !noalias !1721
-  %3042 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %295)
+  %3042 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %295)
           to label %.noexc492 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc492:                                        ; preds = %.lr.ph458.i
@@ -10357,7 +10357,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2721, align 8, !alias.scope !1884, !noalias !1887
   store ptr %291, ptr %2722, align 8, !alias.scope !1884, !noalias !1887
   store i64 1, ptr %2723, align 8, !alias.scope !1884, !noalias !1887
-  %3044 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %292)
+  %3044 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %292)
           to label %.noexc494 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc494:                                        ; preds = %._crit_edge462.i
@@ -10400,7 +10400,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2716, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2717, align 8, !noalias !1721
   store i64 0, ptr %2718, align 8, !noalias !1721
-  %3054 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %293)
+  %3054 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %293)
           to label %.noexc497 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc497:                                        ; preds = %.lr.ph461.i
@@ -10446,7 +10446,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2777, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2778, align 8, !noalias !1721
   store i64 0, ptr %2779, align 8, !noalias !1721
-  %3066 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %281)
+  %3066 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %281)
           to label %.noexc499 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc499:                                        ; preds = %._crit_edge486.i
@@ -10489,7 +10489,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2773, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2774, align 8, !noalias !1721
   store i64 0, ptr %2775, align 8, !noalias !1721
-  %3077 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %282)
+  %3077 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %282)
           to label %.noexc502 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc502:                                        ; preds = %.lr.ph485.i
@@ -10510,7 +10510,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2785, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2786, align 8, !noalias !1721
   store i64 0, ptr %2787, align 8, !noalias !1721
-  %3079 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %279)
+  %3079 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %279)
           to label %.noexc504 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc504:                                        ; preds = %._crit_edge489.i
@@ -10582,7 +10582,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2781, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2782, align 8, !noalias !1721
   store i64 0, ptr %2783, align 8, !noalias !1721
-  %3102 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %280)
+  %3102 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %280)
           to label %.noexc508 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc508:                                        ; preds = %.lr.ph488.i
@@ -10609,7 +10609,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2796, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2797, align 8, !noalias !1721
   store i64 0, ptr %2798, align 8, !noalias !1721
-  %3106 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %277)
+  %3106 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %277)
           to label %.noexc510 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc510:                                        ; preds = %._crit_edge493.i
@@ -10650,7 +10650,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2792, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2793, align 8, !noalias !1721
   store i64 0, ptr %2794, align 8, !noalias !1721
-  %3116 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %278)
+  %3116 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %278)
           to label %.noexc513 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc513:                                        ; preds = %.lr.ph492.i
@@ -10671,7 +10671,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2761, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2762, align 8, !noalias !1721
   store i64 0, ptr %2763, align 8, !noalias !1721
-  %3118 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %275)
+  %3118 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %275)
           to label %.noexc515 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc515:                                        ; preds = %._crit_edge480.i
@@ -10714,7 +10714,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2757, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2758, align 8, !noalias !1721
   store i64 0, ptr %2759, align 8, !noalias !1721
-  %3129 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %276)
+  %3129 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %276)
           to label %.noexc518 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc518:                                        ; preds = %.lr.ph479.i
@@ -10735,7 +10735,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2769, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2770, align 8, !noalias !1721
   store i64 0, ptr %2771, align 8, !noalias !1721
-  %3131 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %273)
+  %3131 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %273)
           to label %.noexc520 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc520:                                        ; preds = %._crit_edge483.i
@@ -10776,7 +10776,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2765, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2766, align 8, !noalias !1721
   store i64 0, ptr %2767, align 8, !noalias !1721
-  %3141 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %274)
+  %3141 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %274)
           to label %.noexc523 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc523:                                        ; preds = %.lr.ph482.i
@@ -10797,7 +10797,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2745, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2746, align 8, !noalias !1721
   store i64 0, ptr %2747, align 8, !noalias !1721
-  %3143 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %285)
+  %3143 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %285)
           to label %.noexc525 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc525:                                        ; preds = %._crit_edge473.i
@@ -10840,7 +10840,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2741, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2742, align 8, !noalias !1721
   store i64 0, ptr %2743, align 8, !noalias !1721
-  %3154 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %286)
+  %3154 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %286)
           to label %.noexc528 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc528:                                        ; preds = %.lr.ph472.i
@@ -10861,7 +10861,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2753, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2754, align 8, !noalias !1721
   store i64 0, ptr %2755, align 8, !noalias !1721
-  %3156 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %283)
+  %3156 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %283)
           to label %.noexc530 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc530:                                        ; preds = %._crit_edge476.i
@@ -10902,7 +10902,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2749, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2750, align 8, !noalias !1721
   store i64 0, ptr %2751, align 8, !noalias !1721
-  %3166 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %284)
+  %3166 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %284)
           to label %.noexc533 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc533:                                        ; preds = %.lr.ph475.i
@@ -10923,7 +10923,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2729, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2730, align 8, !noalias !1721
   store i64 0, ptr %2731, align 8, !noalias !1721
-  %3168 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %289)
+  %3168 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %289)
           to label %.noexc535 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc535:                                        ; preds = %._crit_edge466.i
@@ -10966,7 +10966,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2725, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2726, align 8, !noalias !1721
   store i64 0, ptr %2727, align 8, !noalias !1721
-  %3179 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %290)
+  %3179 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %290)
           to label %.noexc538 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc538:                                        ; preds = %.lr.ph465.i
@@ -10987,7 +10987,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2737, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2738, align 8, !noalias !1721
   store i64 0, ptr %2739, align 8, !noalias !1721
-  %3181 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %287)
+  %3181 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %287)
           to label %.noexc540 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc540:                                        ; preds = %._crit_edge469.i
@@ -11028,7 +11028,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2733, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2734, align 8, !noalias !1721
   store i64 0, ptr %2735, align 8, !noalias !1721
-  %3191 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %288)
+  %3191 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %288)
           to label %.noexc543 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc543:                                        ; preds = %.lr.ph468.i
@@ -11059,7 +11059,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2804, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2805, align 8, !noalias !1721
   store i64 0, ptr %2806, align 8, !noalias !1721
-  %3196 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %270)
+  %3196 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %270)
           to label %.noexc546 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc546:                                        ; preds = %._crit_edge497.i
@@ -11101,7 +11101,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %2800, align 8, !noalias !1721
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %2801, align 8, !noalias !1721
   store i64 0, ptr %2802, align 8, !noalias !1721
-  %3207 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %271)
+  %3207 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %271)
           to label %.noexc549 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc549:                                        ; preds = %.lr.ph496.i
@@ -11152,7 +11152,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3226, align 8, !noalias !2019
   %3227 = getelementptr inbounds nuw i8, ptr %251, i64 24
   store i64 0, ptr %3227, align 8, !noalias !2019
-  %3228 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %251)
+  %3228 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %251)
           to label %.noexc569 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc569:                                        ; preds = %._crit_edge.i554
@@ -11224,7 +11224,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3221, align 8, !noalias !2019
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3222, align 8, !noalias !2019
   store i64 0, ptr %3223, align 8, !noalias !2019
-  %3262 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %252)
+  %3262 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %252)
           to label %.noexc572 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc572:                                        ; preds = %3261
@@ -11284,7 +11284,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3279, align 8, !noalias !2019
   %3280 = getelementptr inbounds nuw i8, ptr %243, i64 24
   store i64 0, ptr %3280, align 8, !noalias !2019
-  %3281 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %243)
+  %3281 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %243)
           to label %.noexc575 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc575:                                        ; preds = %._crit_edge106.i
@@ -11334,7 +11334,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3274, align 8, !noalias !2019
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3275, align 8, !noalias !2019
   store i64 0, ptr %3276, align 8, !noalias !2019
-  %3297 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %244)
+  %3297 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %244)
           to label %.noexc578 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc578:                                        ; preds = %3296
@@ -11359,7 +11359,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3301, align 8, !noalias !2019
   %3302 = getelementptr inbounds nuw i8, ptr %241, i64 24
   store i64 0, ptr %3302, align 8, !noalias !2019
-  %3303 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %241)
+  %3303 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %241)
           to label %.noexc580 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc580:                                        ; preds = %._crit_edge109.i
@@ -11390,7 +11390,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3293, align 8, !noalias !2019
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3294, align 8, !noalias !2019
   store i64 0, ptr %3295, align 8, !noalias !2019
-  %3309 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %242)
+  %3309 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %242)
           to label %.noexc583 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc583:                                        ; preds = %3308
@@ -11412,7 +11412,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3246, align 8, !noalias !2019
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3247, align 8, !noalias !2019
   store i64 0, ptr %3248, align 8, !noalias !2019
-  %3311 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %250)
+  %3311 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %250)
           to label %.noexc585 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc585:                                        ; preds = %.lr.ph97.i
@@ -11461,7 +11461,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr %239, ptr %.sroa.7.0..sroa_idx.i.i557, align 8, !noalias !2067
   store i64 1, ptr %.sroa.8.0..sroa_idx.i.i, align 8, !noalias !2067
   store ptr null, ptr %.sroa.10.0..sroa_idx.i.i558, align 8, !noalias !2067
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %247, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %238)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %247, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %238)
           to label %.noexc587 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc587:                                        ; preds = %._crit_edge98.i
@@ -11479,7 +11479,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3255, align 8, !alias.scope !2068, !noalias !2071
   store ptr %248, ptr %3256, align 8, !alias.scope !2068, !noalias !2071
   store i64 2, ptr %3257, align 8, !alias.scope !2068, !noalias !2071
-  %3318 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %249)
+  %3318 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %249)
           to label %3319 unwind label %.loopexit.i559
 
 3319:                                             ; preds = %.noexc587
@@ -11498,7 +11498,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !2019
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %246), !noalias !2019
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %237), !noalias !2074
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %237, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %247)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %237, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %247)
           to label %.noexc588 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc588:                                        ; preds = %3321
@@ -11583,7 +11583,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3355, align 8, !noalias !2093
   %3356 = getelementptr inbounds nuw i8, ptr %235, i64 24
   store i64 0, ptr %3356, align 8, !noalias !2093
-  %3357 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %235)
+  %3357 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %235)
           to label %.noexc623 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc623:                                        ; preds = %._crit_edge.i597
@@ -11635,7 +11635,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3350, align 8, !noalias !2093
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3351, align 8, !noalias !2093
   store i64 0, ptr %3352, align 8, !noalias !2093
-  %3374 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %236)
+  %3374 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %236)
           to label %.noexc626 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc626:                                        ; preds = %3373
@@ -11660,7 +11660,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3378, align 8, !noalias !2093
   %3379 = getelementptr inbounds nuw i8, ptr %233, i64 24
   store i64 0, ptr %3379, align 8, !noalias !2093
-  %3380 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %233)
+  %3380 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %233)
           to label %.noexc628 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc628:                                        ; preds = %._crit_edge107.i
@@ -11728,7 +11728,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3370, align 8, !noalias !2093
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3371, align 8, !noalias !2093
   store i64 0, ptr %3372, align 8, !noalias !2093
-  %3409 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %234)
+  %3409 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %234)
           to label %.noexc631 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc631:                                        ; preds = %3408
@@ -11784,7 +11784,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3425, align 8, !noalias !2093
   %3426 = getelementptr inbounds nuw i8, ptr %225, i64 24
   store i64 0, ptr %3426, align 8, !noalias !2093
-  %3427 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %225)
+  %3427 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %225)
           to label %.noexc634 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc634:                                        ; preds = %._crit_edge118.i
@@ -11834,7 +11834,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3420, align 8, !noalias !2093
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3421, align 8, !noalias !2093
   store i64 0, ptr %3422, align 8, !noalias !2093
-  %3443 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %226)
+  %3443 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %226)
           to label %.noexc637 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc637:                                        ; preds = %3442
@@ -11859,7 +11859,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3447, align 8, !noalias !2093
   %3448 = getelementptr inbounds nuw i8, ptr %223, i64 24
   store i64 0, ptr %3448, align 8, !noalias !2093
-  %3449 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %223)
+  %3449 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %223)
           to label %.noexc639 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc639:                                        ; preds = %._crit_edge121.i
@@ -11890,7 +11890,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3439, align 8, !noalias !2093
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3440, align 8, !noalias !2093
   store i64 0, ptr %3441, align 8, !noalias !2093
-  %3455 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %224)
+  %3455 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %224)
           to label %.noexc642 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc642:                                        ; preds = %3454
@@ -11912,7 +11912,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3393, align 8, !noalias !2093
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3394, align 8, !noalias !2093
   store i64 0, ptr %3395, align 8, !noalias !2093
-  %3457 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %231)
+  %3457 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %231)
           to label %.noexc644 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc644:                                        ; preds = %.lr.ph110.i
@@ -11966,7 +11966,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr %221, ptr %.sroa.7.0..sroa_idx.i.i603, align 8, !noalias !2151
   store i64 1, ptr %.sroa.8.0..sroa_idx.i.i604, align 8, !noalias !2151
   store ptr null, ptr %.sroa.10.0..sroa_idx.i.i605, align 8, !noalias !2151
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %228, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %220)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %228, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %220)
           to label %.noexc646 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc646:                                        ; preds = %._crit_edge111.i
@@ -11982,7 +11982,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3402, align 8, !alias.scope !2152, !noalias !2155
   store ptr %229, ptr %3403, align 8, !alias.scope !2152, !noalias !2155
   store i64 2, ptr %3404, align 8, !alias.scope !2152, !noalias !2155
-  %3465 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %230)
+  %3465 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %230)
           to label %3466 unwind label %.loopexit.i608
 
 3466:                                             ; preds = %.noexc646
@@ -12000,7 +12000,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 3468:                                             ; preds = %3466
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !2093
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %219), !noalias !2158
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %219, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %219, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %228)
           to label %.noexc647 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc647:                                        ; preds = %3468
@@ -12072,7 +12072,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr inttoptr (i64 8 to ptr), ptr %3493, align 8, !noalias !2177
   %3494 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store i64 0, ptr %3494, align 8, !noalias !2177
-  %3495 = invoke fastcc noundef i64 @_ZN15tree_sitter_cli8generate6render9Generator16get_field_map_id17h7075d6c83239afc1E(ptr noalias nocapture noundef align 8 dereferenceable(24) %216, ptr noalias noundef align 8 dereferenceable(24) %218, ptr noalias noundef align 8 dereferenceable(8) %217)
+  %3495 = invoke fastcc noundef i64 @_ZN15tree_sitter_cli8generate6render9Generator16get_field_map_id17h7075d6c83239afc1E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %216, ptr noalias noundef align 8 dereferenceable(24) %218, ptr noalias noundef align 8 dereferenceable(8) %217)
           to label %3497 unwind label %.thread.i
 
 .thread355.thread438.loopexit.i:                  ; preds = %3634
@@ -12175,7 +12175,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3518, align 8, !noalias !2177
   %3519 = getelementptr inbounds nuw i8, ptr %209, i64 24
   store i64 0, ptr %3519, align 8, !noalias !2177
-  %3520 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %209)
+  %3520 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %209)
           to label %3524 unwind label %.loopexit.split-lp479.loopexit.split-lp.i
 
 3521:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit260.i", %.lr.ph531.i
@@ -12187,7 +12187,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3508, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3509, align 8, !noalias !2177
   store i64 0, ptr %3510, align 8, !noalias !2177
-  %3523 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %210)
+  %3523 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %210)
           to label %3899 unwind label %.loopexit478.i
 
 3524:                                             ; preds = %._crit_edge532.i
@@ -12335,7 +12335,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 3570:                                             ; preds = %3567
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %201), !noalias !2177
   store ptr null, ptr %201, align 8, !noalias !2177
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %201, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.270) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %201, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.270) #20
           to label %3577 unwind label %.thread355.thread438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 3571:                                             ; preds = %3567
@@ -12365,7 +12365,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3580, align 8, !noalias !2177
   %3581 = getelementptr inbounds nuw i8, ptr %199, i64 24
   store i64 0, ptr %3581, align 8, !noalias !2177
-  %3582 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %199)
+  %3582 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %199)
           to label %3586 unwind label %.thread355.thread438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 3583:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit251.i", %.lr.ph542.i
@@ -12377,7 +12377,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3574, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3575, align 8, !noalias !2177
   store i64 0, ptr %3576, align 8, !noalias !2177
-  %3585 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %200)
+  %3585 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %200)
           to label %3877 unwind label %.thread355.thread438.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 3586:                                             ; preds = %._crit_edge543.i
@@ -12438,7 +12438,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3606, align 8, !noalias !2177
   %3607 = getelementptr inbounds nuw i8, ptr %197, i64 24
   store i64 0, ptr %3607, align 8, !noalias !2177
-  %3608 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %197)
+  %3608 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %197)
           to label %3612 unwind label %.thread355.thread438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 3609:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit249.i", %.lr.ph546.i
@@ -12450,7 +12450,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3601, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3602, align 8, !noalias !2177
   store i64 0, ptr %3603, align 8, !noalias !2177
-  %3611 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %198)
+  %3611 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %198)
           to label %3876 unwind label %.thread355.thread438.loopexit.split-lp.loopexit.i
 
 3612:                                             ; preds = %._crit_edge547.i
@@ -12503,7 +12503,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3631, align 8, !noalias !2177
   %3632 = getelementptr inbounds nuw i8, ptr %195, i64 24
   store i64 0, ptr %3632, align 8, !noalias !2177
-  %3633 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %195)
+  %3633 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %195)
           to label %3637 unwind label %.thread355.thread438.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 3634:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit247.i", %.lr.ph550.i
@@ -12515,7 +12515,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3626, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3627, align 8, !noalias !2177
   store i64 0, ptr %3628, align 8, !noalias !2177
-  %3636 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %196)
+  %3636 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %196)
           to label %3875 unwind label %.thread355.thread438.loopexit.i
 
 3637:                                             ; preds = %._crit_edge551.i
@@ -12662,7 +12662,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   %3713 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { i64, i8 } }], ptr %3709, i64 0, i64 %.08.i.i.i.i
   %3714 = add nuw i64 %.08.i.i.i.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %160), !noalias !2266
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %160, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3713)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %160, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3713)
           to label %.noexc.i.i.i.i unwind label %3721, !noalias !2279
 
 .noexc.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i
@@ -12698,7 +12698,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   %3727 = getelementptr inbounds [0 x { { { { i64, ptr }, i64 } }, { i64, i8 } }], ptr %3709, i64 0, i64 %.1.i.i.i563.i
   %3728 = add i64 %.1.i.i.i563.i, 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %158), !noalias !2280
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %158, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3727)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %158, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %3727)
           to label %.noexc282.i unwind label %3735
 
 .noexc282.i:                                      ; preds = %3726
@@ -12730,7 +12730,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha8671ad490c87f4eE.llvm.15559585470061597875.exit.i.i": ; preds = %"_ZN4core3ptr101drop_in_place$LT$$LP$alloc..string..String$C$tree_sitter_cli..generate..tables..FieldLocation$RP$$GT$17h00e385f3da96a1cfE.llvm.15559585470061597875.exit.i.i.i.i", %.lr.ph554.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %159), !noalias !2291
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9bf41c5ba1b6567eE.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %159, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3707)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9bf41c5ba1b6567eE.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %159, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3707)
           to label %.noexc278.i unwind label %3745
 
 .noexc278.i:                                      ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17ha8671ad490c87f4eE.llvm.15559585470061597875.exit.i.i"
@@ -12851,7 +12851,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3767, align 8, !noalias !2177
   %3768 = getelementptr inbounds nuw i8, ptr %176, i64 24
   store i64 0, ptr %3768, align 8, !noalias !2177
-  %3769 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %176)
+  %3769 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %176)
           to label %.noexc693 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc693:                                        ; preds = %._crit_edge569.i
@@ -12867,7 +12867,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3762, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3763, align 8, !noalias !2177
   store i64 0, ptr %3764, align 8, !noalias !2177
-  %3771 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %177)
+  %3771 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %177)
           to label %.noexc694 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc694:                                        ; preds = %3770
@@ -12920,7 +12920,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3789, align 8, !noalias !2177
   %3790 = getelementptr inbounds nuw i8, ptr %174, i64 24
   store i64 0, ptr %3790, align 8, !noalias !2177
-  %3791 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %174)
+  %3791 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %174)
           to label %.noexc697 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc697:                                        ; preds = %._crit_edge573.i
@@ -12936,7 +12936,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3784, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3785, align 8, !noalias !2177
   store i64 0, ptr %3786, align 8, !noalias !2177
-  %3793 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %175)
+  %3793 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %175)
           to label %.noexc698 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc698:                                        ; preds = %3792
@@ -12990,7 +12990,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3657, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3658, align 8, !noalias !2177
   store i64 0, ptr %3659, align 8, !noalias !2177
-  %3801 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %191)
+  %3801 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %191)
           to label %3874 unwind label %.loopexit448.i
 
 ._crit_edge558.i:                                 ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit245.i", %3756
@@ -13003,7 +13003,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3662, align 8, !alias.scope !2316, !noalias !2319
   store ptr %189, ptr %3663, align 8, !alias.scope !2316, !noalias !2319
   store i64 1, ptr %3664, align 8, !alias.scope !2316, !noalias !2319
-  %3802 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %190)
+  %3802 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %190)
           to label %3803 unwind label %.loopexit.split-lp449.loopexit.i
 
 3803:                                             ; preds = %._crit_edge558.i
@@ -13107,7 +13107,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 3829:                                             ; preds = %"_ZN4core3ptr140drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$tree_sitter_cli..generate..tables..FieldLocation$RP$$GT$$GT$17h388e9a41a30e4df5E.exit223.i"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %179), !noalias !2177
   store ptr null, ptr %179, align 8, !noalias !2177
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %179, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.282) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %179, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.282) #20
           to label %3577 unwind label %.loopexit.split-lp457.i
 
 3830:                                             ; preds = %"_ZN4core3ptr140drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$alloc..string..String$C$tree_sitter_cli..generate..tables..FieldLocation$RP$$GT$$GT$17h388e9a41a30e4df5E.exit223.i"
@@ -13121,7 +13121,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 .loopexit.split-lp.i676:                          ; preds = %3842, %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i680, %.loopexit.i674
   %.pn.i677 = phi { ptr, i32 } [ %lpad.phi447.i, %3842 ], [ %lpad.loopexit.i675, %.loopexit.i674 ], [ %lpad.loopexit441.i, %.loopexit.split-lp.loopexit.i680 ], [ %lpad.loopexit.split-lp442.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %172), !noalias !2337
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %172, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %187)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %172, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %187)
           to label %.noexc224.i unwind label %3870
 
 .noexc224.i:                                      ; preds = %.loopexit.split-lp.i676
@@ -13174,7 +13174,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr %170, ptr %.sroa.7.0..sroa_idx.i.i665, align 8, !noalias !2361
   store i64 1, ptr %.sroa.8.0..sroa_idx.i.i666, align 8, !noalias !2361
   store ptr null, ptr %.sroa.10.0..sroa_idx.i.i667, align 8, !noalias !2361
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %182, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %169)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %182, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %169)
           to label %3843 unwind label %.loopexit.split-lp.loopexit.i680
 
 .lr.ph561.i:                                      ; preds = %3825, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit243.i"
@@ -13186,7 +13186,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3667, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3668, align 8, !noalias !2177
   store i64 0, ptr %3669, align 8, !noalias !2177
-  %3841 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %185)
+  %3841 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %185)
           to label %3872 unwind label %.loopexit.i674
 
 .loopexit444.i:                                   ; preds = %3843
@@ -13217,7 +13217,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3677, align 8, !alias.scope !2362, !noalias !2365
   store ptr %183, ptr %3678, align 8, !alias.scope !2362, !noalias !2365
   store i64 2, ptr %3679, align 8, !alias.scope !2362, !noalias !2365
-  %3844 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %184)
+  %3844 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %184)
           to label %3845 unwind label %.loopexit444.i
 
 3845:                                             ; preds = %3843
@@ -13235,7 +13235,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 3847:                                             ; preds = %3845
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !2177
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %168), !noalias !2368
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %168, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %182)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %168, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %182)
           to label %.noexc231.i unwind label %.loopexit.split-lp.loopexit.i680
 
 .noexc231.i:                                      ; preds = %3847
@@ -13264,7 +13264,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3688, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3689, align 8, !noalias !2177
   store i64 0, ptr %3690, align 8, !noalias !2177
-  %3856 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %180)
+  %3856 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %180)
           to label %3860 unwind label %.loopexit.split-lp.loopexit.i680
 
 3857:                                             ; preds = %3852
@@ -13274,7 +13274,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3684, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3685, align 8, !noalias !2177
   store i64 0, ptr %3686, align 8, !noalias !2177
-  %3858 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %181)
+  %3858 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %181)
           to label %3859 unwind label %.loopexit.split-lp.loopexit.i680
 
 3859:                                             ; preds = %3857
@@ -13295,7 +13295,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !2177
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %186), !noalias !2177
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %167), !noalias !2377
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %167, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %187)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %167, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %187)
           to label %.noexc239.i unwind label %3820
 
 .noexc239.i:                                      ; preds = %3861
@@ -13426,7 +13426,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3541, align 8, !noalias !2177
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3542, align 8, !noalias !2177
   store i64 0, ptr %3543, align 8, !noalias !2177
-  %3885 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %204)
+  %3885 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %204)
           to label %3898 unwind label %.loopexit470.i
 
 ._crit_edge536.i:                                 ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit258.i", %3878
@@ -13443,7 +13443,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store ptr null, ptr %3550, align 8, !alias.scope !2388, !noalias !2391
   store ptr %202, ptr %3551, align 8, !alias.scope !2388, !noalias !2391
   store i64 3, ptr %3552, align 8, !alias.scope !2388, !noalias !2391
-  %3886 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %203)
+  %3886 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %203)
           to label %3887 unwind label %.loopexit.split-lp471.loopexit.i
 
 3887:                                             ; preds = %._crit_edge536.i
@@ -13586,7 +13586,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.4.i.i.i652), !noalias !2415
   %3921 = icmp ne ptr %.sroa.10290.0519.i, null
   call void @llvm.assume(i1 %3921)
-  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h26703e180f2cb085E.llvm.17454970623020605724"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 dereferenceable(24) %.sroa.4.i.i.i652, ptr noundef nonnull %.sroa.10290.0519.i, i64 noundef %.sroa.12.0518.i)
+  invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h26703e180f2cb085E.llvm.17454970623020605724"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(24) %.sroa.4.i.i.i652, ptr noundef nonnull %.sroa.10290.0519.i, i64 noundef %.sroa.12.0518.i)
           to label %.noexc263.i unwind label %.loopexit.split-lp485.loopexit.i
 
 .noexc263.i:                                      ; preds = %3920
@@ -13607,7 +13607,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   store i64 %.sroa.12.1.i, ptr %.sroa.12.8..sroa_idx.i, align 8, !noalias !2177
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %165), !noalias !2421
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %164), !noalias !2424
-  invoke void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$7next_kv17h235c3c0ac50160b3E"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %164, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %166)
+  invoke void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$7next_kv17h235c3c0ac50160b3E"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %164, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %166)
           to label %.noexc.i.i.i658 unwind label %.loopexit492.i, !noalias !2428
 
 .noexc.i.i.i658:                                  ; preds = %3922
@@ -13630,12 +13630,12 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %163), !noalias !2424
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %162), !noalias !2424
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %162, ptr noundef nonnull align 8 dereferenceable(24) %165, i64 24, i1 false), !noalias !2424
-  invoke void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h47aaccccb5bae479E"(ptr noalias nocapture noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 dereferenceable(24) %163, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %162)
+  invoke void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h47aaccccb5bae479E"(ptr noalias noundef nonnull sret({ { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(24) %163, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %162)
           to label %.noexc2.i.i.i659 unwind label %.loopexit492.i, !noalias !2428
 
 .noexc2.i.i.i659:                                 ; preds = %3926
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %162), !noalias !2424
-  %3927 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17h9fb91dd0003313d8E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %165)
+  %3927 = invoke { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17h9fb91dd0003313d8E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %165)
           to label %3948 unwind label %.loopexit492.i, !noalias !2428
 
 .loopexit492.i:                                   ; preds = %.noexc2.i.i.i659, %3926, %3922
@@ -13668,11 +13668,11 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   %3931 = phi i64 [ %.pre608.i, %._crit_edge.loopexit.i ], [ 0, %3910 ]
   %3932 = phi ptr [ %.pre.i661, %._crit_edge.loopexit.i ], [ inttoptr (i64 8 to ptr), %3910 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %211), !noalias !2177
-  invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha530b6d1f6a18a79E.llvm.1408760718162522189"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %211, ptr noalias noundef nonnull readonly align 8 %3932, i64 noundef %3931)
+  invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha530b6d1f6a18a79E.llvm.1408760718162522189"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %211, ptr noalias noundef nonnull readonly align 8 %3932, i64 noundef %3931)
           to label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h88dc924c94884470E.exit.i" unwind label %.loopexit.split-lp485.loopexit.split-lp.loopexit.i
 
 "_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h88dc924c94884470E.exit.i": ; preds = %._crit_edge.i662
-  %3933 = invoke fastcc noundef i64 @_ZN15tree_sitter_cli8generate6render9Generator16get_field_map_id17h7075d6c83239afc1E(ptr noalias nocapture noundef align 8 dereferenceable(24) %211, ptr noalias noundef align 8 dereferenceable(24) %218, ptr noalias noundef align 8 dereferenceable(8) %217)
+  %3933 = invoke fastcc noundef i64 @_ZN15tree_sitter_cli8generate6render9Generator16get_field_map_id17h7075d6c83239afc1E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %211, ptr noalias noundef align 8 dereferenceable(24) %218, ptr noalias noundef align 8 dereferenceable(8) %217)
           to label %3934 unwind label %.loopexit.split-lp485.loopexit.split-lp.loopexit.i
 
 3934:                                             ; preds = %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h88dc924c94884470E.exit.i"
@@ -13735,7 +13735,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
   %3957 = getelementptr inbounds nuw i8, ptr %.sroa.0297.0516.i, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %213), !noalias !2177
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %212), !noalias !2177
-  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %212, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3949)
+  invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %212, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3949)
           to label %3958 unwind label %.loopexit484.i
 
 3958:                                             ; preds = %.lr.ph.i660
@@ -13785,7 +13785,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13
 .thread349.i:                                     ; preds = %.body265.i, %.loopexit.split-lp479.loopexit.split-lp.i, %.loopexit.split-lp479.loopexit.i, %.loopexit478.i
   %.pn145354.i = phi { ptr, i32 } [ %eh.lpad-body266.i, %.body265.i ], [ %lpad.loopexit480.i, %.loopexit478.i ], [ %lpad.loopexit500.i, %.loopexit.split-lp479.loopexit.i ], [ %lpad.loopexit.split-lp501.i, %.loopexit.split-lp479.loopexit.split-lp.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %161), !noalias !2443
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a7d1584ffc11e60E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %161, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a7d1584ffc11e60E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %161, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %215)
           to label %.noexc275.i unwind label %3870
 
 .noexc275.i:                                      ; preds = %.thread349.i
@@ -13847,7 +13847,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3995, align 8, !noalias !2450
   %3996 = getelementptr inbounds nuw i8, ptr %156, i64 24
   store i64 0, ptr %3996, align 8, !noalias !2450
-  %3997 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %156)
+  %3997 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %156)
           to label %.noexc745 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc745:                                        ; preds = %._crit_edge.i707
@@ -13949,7 +13949,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %3990, align 8, !noalias !2450
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %3991, align 8, !noalias !2450
   store i64 0, ptr %3992, align 8, !noalias !2450
-  %4059 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %157)
+  %4059 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %157)
           to label %.noexc748 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc748:                                        ; preds = %4058
@@ -14012,7 +14012,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4078, align 8, !noalias !2450
   %4079 = getelementptr inbounds nuw i8, ptr %140, i64 24
   store i64 0, ptr %4079, align 8, !noalias !2450
-  %4080 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %140)
+  %4080 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %140)
           to label %.noexc751 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc751:                                        ; preds = %._crit_edge206.i
@@ -14062,7 +14062,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4073, align 8, !noalias !2450
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4074, align 8, !noalias !2450
   store i64 0, ptr %4075, align 8, !noalias !2450
-  %4096 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %141)
+  %4096 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %141)
           to label %.noexc754 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit
 
 .noexc754:                                        ; preds = %4095
@@ -14087,7 +14087,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4100, align 8, !noalias !2450
   %4101 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store i64 0, ptr %4101, align 8, !noalias !2450
-  %4102 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %138)
+  %4102 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %138)
           to label %.noexc756 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc756:                                        ; preds = %._crit_edge209.i
@@ -14118,7 +14118,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4092, align 8, !noalias !2450
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4093, align 8, !noalias !2450
   store i64 0, ptr %4094, align 8, !noalias !2450
-  %4108 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %139)
+  %4108 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %139)
           to label %.noexc759 unwind label %.loopexit.split-lp1247.loopexit
 
 .noexc759:                                        ; preds = %4107
@@ -14153,7 +14153,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4055, align 8, !noalias !2450
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4056, align 8, !noalias !2450
   store i64 0, ptr %4057, align 8, !noalias !2450
-  %4116 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %153)
+  %4116 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %153)
           to label %.noexc761 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc761:                                        ; preds = %._crit_edge198.i
@@ -14176,7 +14176,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4051, align 8, !noalias !2450
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4052, align 8, !noalias !2450
   store i64 0, ptr %4053, align 8, !noalias !2450
-  %4120 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %154)
+  %4120 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %154)
           to label %.noexc763 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc763:                                        ; preds = %.lr.ph197.i
@@ -14224,7 +14224,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4019, align 8, !alias.scope !2492, !noalias !2495
   store ptr %150, ptr %4020, align 8, !alias.scope !2492, !noalias !2495
   store i64 1, ptr %4021, align 8, !alias.scope !2492, !noalias !2495
-  %4127 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %151)
+  %4127 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %151)
           to label %.noexc766 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc766:                                        ; preds = %._crit_edge182.i717
@@ -14274,7 +14274,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4014, align 8, !noalias !2450
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4015, align 8, !noalias !2450
   store i64 0, ptr %4016, align 8, !noalias !2450
-  %4144 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %152)
+  %4144 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %152)
           to label %.noexc769 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc769:                                        ; preds = %.lr.ph181.i716
@@ -14325,7 +14325,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4047, align 8, !noalias !2450
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4048, align 8, !noalias !2450
   store i64 0, ptr %4049, align 8, !noalias !2450
-  %4154 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %143)
+  %4154 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %143)
           to label %.noexc772 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc772:                                        ; preds = %._crit_edge194.i
@@ -14348,7 +14348,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4043, align 8, !noalias !2450
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4044, align 8, !noalias !2450
   store i64 0, ptr %4045, align 8, !noalias !2450
-  %4158 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %144)
+  %4158 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %144)
           to label %.noexc774 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc774:                                        ; preds = %.lr.ph193.i
@@ -14541,7 +14541,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4023, align 8, !noalias !2450
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4024, align 8, !noalias !2450
   store i64 0, ptr %4025, align 8, !noalias !2450
-  %4230 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %148)
+  %4230 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %148)
           to label %.noexc783 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc783:                                        ; preds = %.lr.ph185.i
@@ -14566,7 +14566,7 @@ _ZN15tree_sitter_cli8generate6render9Generator19add_field_sequences17hadaa28896a
   store ptr null, ptr %4039, align 8, !alias.scope !2601, !noalias !2604
   store ptr %146, ptr %4040, align 8, !alias.scope !2601, !noalias !2604
   store i64 2, ptr %4041, align 8, !alias.scope !2601, !noalias !2604
-  %4234 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %147)
+  %4234 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %147)
           to label %.noexc786 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc786:                                        ; preds = %4232
@@ -14752,7 +14752,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store i16 %4294, ptr %.sroa.078.sroa.6.0..sroa_idx.i, align 8, !noalias !2617
   %.sroa.078.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %130, i64 32
   store i64 %4285, ptr %.sroa.078.sroa.8.0..sroa_idx.i, align 8, !noalias !2617
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8f59e7c4ef4a6182E.llvm.1408760718162522189"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %131, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %130)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8f59e7c4ef4a6182E.llvm.1408760718162522189"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %131, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %130)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd32e08170d46df04E.exit.i" unwind label %.loopexit.split-lp403.loopexit.split-lp.i
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd32e08170d46df04E.exit.i": ; preds = %._crit_edge.i808
@@ -14814,7 +14814,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4311, align 8, !noalias !2617
   %4312 = getelementptr inbounds nuw i8, ptr %128, i64 24
   store i64 0, ptr %4312, align 8, !noalias !2617
-  %4313 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %128)
+  %4313 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %128)
           to label %4317 unwind label %.loopexit.split-lp398.i
 
 4314:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit220.i", %.lr.ph424.i
@@ -14826,7 +14826,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4306, align 8, !noalias !2617
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4307, align 8, !noalias !2617
   store i64 0, ptr %4308, align 8, !noalias !2617
-  %4316 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %129)
+  %4316 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %129)
           to label %4558 unwind label %.loopexit397.i
 
 4317:                                             ; preds = %._crit_edge425.i
@@ -15036,7 +15036,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4388, align 8, !noalias !2617
   %4389 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store i64 0, ptr %4389, align 8, !noalias !2617
-  %4390 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %111)
+  %4390 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %111)
           to label %4394 unwind label %.thread313.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 4391:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit196.i", %.lr.ph447.i
@@ -15048,7 +15048,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4383, align 8, !noalias !2617
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4384, align 8, !noalias !2617
   store i64 0, ptr %4385, align 8, !noalias !2617
-  %4393 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %112)
+  %4393 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %112)
           to label %4466 unwind label %.thread313.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 4394:                                             ; preds = %._crit_edge448.i
@@ -15086,7 +15086,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
 4408:                                             ; preds = %4400
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %110), !noalias !2617
   store ptr null, ptr %110, align 8, !noalias !2617
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.247) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.247) #20
           to label %4415 unwind label %.thread313.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 4409:                                             ; preds = %4400
@@ -15116,7 +15116,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4418, align 8, !noalias !2617
   %4419 = getelementptr inbounds nuw i8, ptr %108, i64 24
   store i64 0, ptr %4419, align 8, !noalias !2617
-  %4420 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %108)
+  %4420 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %108)
           to label %4424 unwind label %.thread313.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 4421:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit194.i", %.lr.ph451.i
@@ -15128,7 +15128,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4412, align 8, !noalias !2617
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4413, align 8, !noalias !2617
   store i64 0, ptr %4414, align 8, !noalias !2617
-  %4423 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %109)
+  %4423 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %109)
           to label %4465 unwind label %.thread313.loopexit.split-lp.loopexit.i
 
 4424:                                             ; preds = %._crit_edge452.i
@@ -15181,7 +15181,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4443, align 8, !noalias !2617
   %4444 = getelementptr inbounds nuw i8, ptr %106, i64 24
   store i64 0, ptr %4444, align 8, !noalias !2617
-  %4445 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %106)
+  %4445 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %106)
           to label %4449 unwind label %.thread313.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 4446:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit192.i823", %.lr.ph455.i
@@ -15193,7 +15193,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4438, align 8, !noalias !2617
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4439, align 8, !noalias !2617
   store i64 0, ptr %4440, align 8, !noalias !2617
-  %4448 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %107)
+  %4448 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %107)
           to label %4464 unwind label %.thread313.loopexit.i
 
 4449:                                             ; preds = %._crit_edge456.i
@@ -15325,7 +15325,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4334, align 8, !noalias !2617
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4335, align 8, !noalias !2617
   store i64 0, ptr %4336, align 8, !noalias !2617
-  %4483 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %124)
+  %4483 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %124)
           to label %4555 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i817
 
 ._crit_edge429.i:                                 ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit218.i", %4480
@@ -15345,7 +15345,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4341, align 8, !alias.scope !2724, !noalias !2727
   store ptr %122, ptr %4342, align 8, !alias.scope !2724, !noalias !2727
   store i64 2, ptr %4343, align 8, !alias.scope !2724, !noalias !2727
-  %4487 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %123)
+  %4487 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %123)
           to label %4488 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i813
 
 4488:                                             ; preds = %._crit_edge429.i
@@ -15401,7 +15401,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4345, align 8, !noalias !2617
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4346, align 8, !noalias !2617
   store i64 0, ptr %4347, align 8, !noalias !2617
-  %4504 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %120)
+  %4504 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %120)
           to label %4554 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i818
 
 ._crit_edge433.i:                                 ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit216.i", %4495
@@ -15414,7 +15414,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4350, align 8, !alias.scope !2740, !noalias !2743
   store ptr %118, ptr %4351, align 8, !alias.scope !2740, !noalias !2743
   store i64 1, ptr %4352, align 8, !alias.scope !2740, !noalias !2743
-  %4505 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %119)
+  %4505 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %119)
           to label %4506 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i813
 
 4506:                                             ; preds = %._crit_edge433.i
@@ -15470,7 +15470,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
 4525:                                             ; preds = %._crit_edge441.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %113), !noalias !2617
   store ptr null, ptr %113, align 8, !noalias !2617
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.258) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %113, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.258) #20
           to label %4415 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i827
 
 4526:                                             ; preds = %._crit_edge441.i
@@ -15492,7 +15492,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4354, align 8, !noalias !2617
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4355, align 8, !noalias !2617
   store i64 0, ptr %4356, align 8, !noalias !2617
-  %4532 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %116)
+  %4532 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %116)
           to label %4553 unwind label %.loopexit.i819
 
 ._crit_edge437.i:                                 ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit214.i", %.lr.ph440.i
@@ -15505,7 +15505,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr null, ptr %4359, align 8, !alias.scope !2758, !noalias !2761
   store ptr %114, ptr %4360, align 8, !alias.scope !2758, !noalias !2761
   store i64 1, ptr %4361, align 8, !alias.scope !2758, !noalias !2761
-  %4533 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %115)
+  %4533 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %115)
           to label %4534 unwind label %.loopexit.split-lp.loopexit.i820.loopexit
 
 4534:                                             ; preds = %._crit_edge437.i
@@ -15631,7 +15631,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
 4559:                                             ; preds = %.loopexit.split-lp398.i, %.loopexit397.i
   %lpad.phi401.i = phi { ptr, i32 } [ %lpad.loopexit399.i, %.loopexit397.i ], [ %lpad.loopexit.split-lp400.i, %.loopexit.split-lp398.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %101), !noalias !2774
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2b3980590787b184E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %131)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2b3980590787b184E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %101, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %131)
           to label %.noexc221.i unwind label %4556
 
 .noexc221.i:                                      ; preds = %4559
@@ -16016,7 +16016,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   %4721 = load i64, ptr %4582, align 8, !noundef !5
   %4722 = load i8, ptr %4583, align 8, !range !130, !noundef !5
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %105), !noalias !2617
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17ha68d57965f383987E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %105, ptr noalias noundef nonnull align 8 dereferenceable(48) %133, i64 noundef %4721, i8 noundef %4722)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17ha68d57965f383987E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %105, ptr noalias noundef nonnull align 8 dereferenceable(48) %133, i64 noundef %4721, i8 noundef %4722)
           to label %4723 unwind label %.loopexit.split-lp403.loopexit.i.loopexit
 
 4723:                                             ; preds = %4719
@@ -16038,7 +16038,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4282, ptr noundef nonnull align 8 dereferenceable(24) %132, i64 24, i1 false), !noalias !2951
   store i64 %.sroa.5299.0.copyload.i, ptr %96, align 8, !noalias !2944
   store i8 %.sroa.6300.0.copyload.i, ptr %4283, align 8, !noalias !2944
-  %4725 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hc33e59317b3172e0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4298.0.copyload.i, i64 noundef %.sroa.0297.0.copyload.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %96)
+  %4725 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hc33e59317b3172e0E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4298.0.copyload.i, i64 noundef %.sroa.0297.0.copyload.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %96)
           to label %.noexc254.i unwind label %.loopexit.split-lp403.loopexit.i.loopexit
 
 .noexc254.i:                                      ; preds = %.thread.i.i867
@@ -16053,7 +16053,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store i64 0, ptr %4279, align 8, !noalias !2617
   %4727 = inttoptr i64 %.sroa.0297.0.copyload.i to ptr
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %95), !noalias !2952
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4da6c28aa0034bf6E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %132)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4da6c28aa0034bf6E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %95, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %132)
           to label %.noexc255.i857 unwind label %.loopexit.split-lp403.loopexit.i.loopexit
 
 .noexc255.i857:                                   ; preds = %4726
@@ -16217,7 +16217,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i79
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4785, align 8, !noalias !2974
   %4786 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i64 0, ptr %4786, align 8, !noalias !2974
-  %4787 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %89)
+  %4787 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %89)
           to label %.noexc902 unwind label %.loopexit.split-lp1247.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexi1721
 
 .noexc902:                                        ; preds = %._crit_edge.i882
@@ -16307,7 +16307,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i88
   store ptr null, ptr %4780, align 8, !noalias !2974
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4781, align 8, !noalias !2974
   store i64 0, ptr %4782, align 8, !noalias !2974
-  %4823 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %90)
+  %4823 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %90)
           to label %.noexc907 unwind label %.loopexit1246
 
 .noexc907:                                        ; preds = %4822
@@ -16367,13 +16367,13 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i88
   %4830 = getelementptr inbounds nuw i8, ptr %.sroa.0.0142.i, i64 136
   %4831 = load i64, ptr %4830, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %77), !noalias !2974
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17haa17f335b276f419E"(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %77, ptr noalias noundef nonnull align 8 dereferenceable(48) %88, i64 noundef %4831)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17haa17f335b276f419E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %77, ptr noalias noundef nonnull align 8 dereferenceable(48) %88, i64 noundef %4831)
           to label %4891 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i888
 
 4832:                                             ; preds = %._crit_edge144.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %82), !noalias !2974
   store ptr null, ptr %82, align 8, !noalias !2974
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.263) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.263) #20
           to label %4839 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 4833:                                             ; preds = %._crit_edge144.i
@@ -16403,7 +16403,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i88
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4842, align 8, !noalias !2974
   %4843 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store i64 0, ptr %4843, align 8, !noalias !2974
-  %4844 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %80)
+  %4844 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %80)
           to label %4848 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 4845:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit81.i", %.lr.ph147.i
@@ -16415,7 +16415,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i88
   store ptr null, ptr %4836, align 8, !noalias !2974
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4837, align 8, !noalias !2974
   store i64 0, ptr %4838, align 8, !noalias !2974
-  %4847 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %81)
+  %4847 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %81)
           to label %4890 unwind label %.loopexit.split-lp.loopexit.i894
 
 4848:                                             ; preds = %._crit_edge148.i
@@ -16468,7 +16468,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i88
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4867, align 8, !noalias !2974
   %4868 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store i64 0, ptr %4868, align 8, !noalias !2974
-  %4869 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %78)
+  %4869 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %78)
           to label %4873 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 4870:                                             ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit79.i897", %.lr.ph151.i
@@ -16480,7 +16480,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i88
   store ptr null, ptr %4862, align 8, !noalias !2974
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4863, align 8, !noalias !2974
   store i64 0, ptr %4864, align 8, !noalias !2974
-  %4872 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %79)
+  %4872 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %79)
           to label %4889 unwind label %.loopexit.i895
 
 4873:                                             ; preds = %._crit_edge152.i
@@ -16615,7 +16615,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i88
   store ptr null, ptr %4812, align 8, !noalias !2974
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4813, align 8, !noalias !2974
   store i64 0, ptr %4814, align 8, !noalias !2974
-  %4927 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %85)
+  %4927 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %85)
           to label %4942 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.i891
 
 ._crit_edge140.i:                                 ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit89.i892", %"_ZN3std11collections4hash3map18Entry$LT$K$C$V$GT$9or_insert17ha9b1cec5a032379eE.exit.i"
@@ -16630,7 +16630,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i.i88
   store ptr null, ptr %4819, align 8, !alias.scope !3040, !noalias !3043
   store ptr %83, ptr %4820, align 8, !alias.scope !3040, !noalias !3043
   store i64 2, ptr %4821, align 8, !alias.scope !3040, !noalias !3043
-  %4928 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %84)
+  %4928 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %84)
           to label %4929 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i888
 
 4929:                                             ; preds = %._crit_edge140.i
@@ -16842,7 +16842,7 @@ _ZN15tree_sitter_cli8generate6render9Generator25add_primary_state_id_list17h2460
   store ptr %.sroa.6.0.copyload2229, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %501, i64 16
   store i64 %.sroa.7.0.copyload2232, ptr %.sroa.7.0..sroa_idx, align 8
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add_lex_function17h362dc5d624100dd8E(ptr noalias noundef align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 1 @anon.1b0636034553e74e02679d3fd1cb529e.36, i64 noundef 6, ptr noalias nocapture noundef align 8 dereferenceable(24) %501, i1 noundef zeroext true)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add_lex_function17h362dc5d624100dd8E(ptr noalias noundef align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 1 @anon.1b0636034553e74e02679d3fd1cb529e.36, i64 noundef 6, ptr noalias noundef align 8 captures(none) dereferenceable(24) %501, i1 noundef zeroext true)
           to label %4948 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 4948:                                             ; preds = %4946
@@ -16874,7 +16874,7 @@ _ZN15tree_sitter_cli8generate6render9Generator25add_primary_state_id_list17h2460
   store ptr %.sroa.62236.0.copyload2239, ptr %.sroa.62236.0..sroa_idx, align 8
   %.sroa.72240.0..sroa_idx = getelementptr inbounds nuw i8, ptr %500, i64 16
   store i64 %.sroa.72240.0.copyload2243, ptr %.sroa.72240.0..sroa_idx, align 8
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add_lex_function17h362dc5d624100dd8E(ptr noalias noundef align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 1 @anon.1b0636034553e74e02679d3fd1cb529e.37, i64 noundef 15, ptr noalias nocapture noundef align 8 dereferenceable(24) %500, i1 noundef zeroext false)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add_lex_function17h362dc5d624100dd8E(ptr noalias noundef align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 1 @anon.1b0636034553e74e02679d3fd1cb529e.37, i64 noundef 15, ptr noalias noundef align 8 captures(none) dereferenceable(24) %500, i1 noundef zeroext false)
           to label %4955 unwind label %4951
 
 4955:                                             ; preds = %4953
@@ -16905,7 +16905,7 @@ _ZN15tree_sitter_cli8generate6render9Generator25add_primary_state_id_list17h2460
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4964, align 8, !noalias !3067
   %4965 = getelementptr inbounds nuw i8, ptr %75, i64 24
   store i64 0, ptr %4965, align 8, !noalias !3067
-  %4966 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %75)
+  %4966 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75)
           to label %.noexc944 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc944:                                        ; preds = %._crit_edge.i918
@@ -16998,7 +16998,7 @@ _ZN15tree_sitter_cli8generate6render9Generator25add_primary_state_id_list17h2460
   store ptr null, ptr %4959, align 8, !noalias !3067
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4960, align 8, !noalias !3067
   store i64 0, ptr %4961, align 8, !noalias !3067
-  %5017 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %76)
+  %5017 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %76)
           to label %.noexc947 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc947:                                        ; preds = %5016
@@ -17075,7 +17075,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   %.sink2518 = phi ptr [ %20, %5595 ], [ %17, %5481 ], [ %39, %5296 ], [ %51, %5169 ], [ %64, %5037 ]
   %5038 = phi ptr [ @anon.1b0636034553e74e02679d3fd1cb529e.504, %5595 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.498, %5481 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.488, %5296 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.480, %5169 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.465, %5037 ]
   store ptr null, ptr %.sink2518, align 8, !noalias !5
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink2518, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5038) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1435, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink2518, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5038) #20
           to label %.cont2515 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont2515:                                        ; preds = %.invoke2514
@@ -17105,7 +17105,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5047, align 8, !noalias !3067
   %5048 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store i64 0, ptr %5048, align 8, !noalias !3067
-  %5049 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %62)
+  %5049 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %62)
           to label %.noexc951 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc951:                                        ; preds = %._crit_edge152.i928
@@ -17155,7 +17155,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5042, align 8, !noalias !3067
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5043, align 8, !noalias !3067
   store i64 0, ptr %5044, align 8, !noalias !3067
-  %5065 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %63)
+  %5065 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %63)
           to label %.noexc954 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc954:                                        ; preds = %5064
@@ -17180,7 +17180,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5069, align 8, !noalias !3067
   %5070 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store i64 0, ptr %5070, align 8, !noalias !3067
-  %5071 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %60)
+  %5071 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %60)
           to label %.noexc956 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc956:                                        ; preds = %._crit_edge155.i
@@ -17211,7 +17211,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5061, align 8, !noalias !3067
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5062, align 8, !noalias !3067
   store i64 0, ptr %5063, align 8, !noalias !3067
-  %5077 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %61)
+  %5077 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %61)
           to label %.noexc959 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc959:                                        ; preds = %5076
@@ -17257,7 +17257,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5004, align 8, !alias.scope !3118, !noalias !3121
   store ptr %65, ptr %5005, align 8, !alias.scope !3118, !noalias !3121
   store i64 2, ptr %5006, align 8, !alias.scope !3118, !noalias !3121
-  %5088 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %66)
+  %5088 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %66)
           to label %.noexc961 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc961:                                        ; preds = %._crit_edge140.i938
@@ -17281,7 +17281,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %4997, align 8, !noalias !3067
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4998, align 8, !noalias !3067
   store i64 0, ptr %4999, align 8, !noalias !3067
-  %5092 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %67)
+  %5092 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %67)
           to label %.noexc963 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc963:                                        ; preds = %.lr.ph139.i937
@@ -17310,7 +17310,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %4993, align 8, !alias.scope !3133, !noalias !3136
   store ptr %68, ptr %4994, align 8, !alias.scope !3133, !noalias !3136
   store i64 3, ptr %4995, align 8, !alias.scope !3133, !noalias !3136
-  %5095 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %69)
+  %5095 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %69)
           to label %.noexc965 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc965:                                        ; preds = %._crit_edge136.i
@@ -17334,7 +17334,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %4984, align 8, !noalias !3067
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %4985, align 8, !noalias !3067
   store i64 0, ptr %4986, align 8, !noalias !3067
-  %5099 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %70)
+  %5099 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %70)
           to label %.noexc967 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc967:                                        ; preds = %.lr.ph135.i
@@ -17379,7 +17379,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5013, align 8, !alias.scope !3148, !noalias !3151
   store ptr %71, ptr %5014, align 8, !alias.scope !3148, !noalias !3151
   store i64 1, ptr %5015, align 8, !alias.scope !3148, !noalias !3151
-  %5106 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %72)
+  %5106 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %72)
           to label %.noexc970 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc970:                                        ; preds = %._crit_edge144.i941
@@ -17403,7 +17403,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5008, align 8, !noalias !3067
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5009, align 8, !noalias !3067
   store i64 0, ptr %5010, align 8, !noalias !3067
-  %5110 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %73)
+  %5110 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %73)
           to label %.noexc972 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc972:                                        ; preds = %.lr.ph143.i940
@@ -17464,7 +17464,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5132, align 8, !noalias !3163
   %5133 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i64 0, ptr %5133, align 8, !noalias !3163
-  %5134 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %57)
+  %5134 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %57)
           to label %.noexc1000 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1000:                                       ; preds = %._crit_edge.i978
@@ -17527,7 +17527,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5127, align 8, !noalias !3163
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5128, align 8, !noalias !3163
   store i64 0, ptr %5129, align 8, !noalias !3163
-  %5162 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %58)
+  %5162 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %58)
           to label %.noexc1003 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1003:                                       ; preds = %5161
@@ -17587,7 +17587,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5178, align 8, !noalias !3163
   %5179 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store i64 0, ptr %5179, align 8, !noalias !3163
-  %5180 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %49)
+  %5180 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %49)
           to label %.noexc1006 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1006:                                       ; preds = %._crit_edge107.i992
@@ -17637,7 +17637,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5173, align 8, !noalias !3163
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5174, align 8, !noalias !3163
   store i64 0, ptr %5175, align 8, !noalias !3163
-  %5196 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %50)
+  %5196 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %50)
           to label %.noexc1009 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1009:                                       ; preds = %5195
@@ -17662,7 +17662,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5200, align 8, !noalias !3163
   %5201 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store i64 0, ptr %5201, align 8, !noalias !3163
-  %5202 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %47)
+  %5202 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %47)
           to label %.noexc1011 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1011:                                       ; preds = %._crit_edge110.i
@@ -17693,7 +17693,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5192, align 8, !noalias !3163
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5193, align 8, !noalias !3163
   store i64 0, ptr %5194, align 8, !noalias !3163
-  %5208 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %48)
+  %5208 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %48)
           to label %.noexc1014 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1014:                                       ; preds = %5207
@@ -17738,7 +17738,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5148, align 8, !noalias !3163
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5149, align 8, !noalias !3163
   store i64 0, ptr %5150, align 8, !noalias !3163
-  %5215 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %55)
+  %5215 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %55)
           to label %.noexc1017 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1017:                                       ; preds = %.lr.ph99.i
@@ -17774,7 +17774,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   %.val62.i = load ptr, ptr %5220, align 8, !nonnull !5, !noundef !5
   %5221 = getelementptr i8, ptr %5219, i64 16
   %.val63.i = load i64, ptr %5221, align 8, !noundef !5
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17external_token_id17h99770f24502c546bE(ptr noalias nocapture noundef align 8 dereferenceable(24) %52, ptr %.val62.i, i64 %.val63.i)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17external_token_id17h99770f24502c546bE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %52, ptr %.val62.i, i64 %.val63.i)
           to label %.noexc1019 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1019:                                       ; preds = %5218
@@ -17787,7 +17787,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5155, align 8, !alias.scope !3196, !noalias !3199
   store ptr %53, ptr %5156, align 8, !alias.scope !3196, !noalias !3199
   store i64 2, ptr %5157, align 8, !alias.scope !3196, !noalias !3199
-  %5222 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %54)
+  %5222 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %54)
           to label %5223 unwind label %.loopexit.i985
 
 5223:                                             ; preds = %.noexc1019
@@ -17805,7 +17805,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
 5225:                                             ; preds = %5223
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !3163
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46), !noalias !3202
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %52)
           to label %.noexc1020 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1020:                                       ; preds = %5225
@@ -17889,7 +17889,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5255, align 8, !noalias !3221
   %5256 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store i64 0, ptr %5256, align 8, !noalias !3221
-  %5257 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %44)
+  %5257 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %44)
           to label %.noexc1050 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1050:                                       ; preds = %._crit_edge.i1029
@@ -17952,7 +17952,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5250, align 8, !noalias !3221
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5251, align 8, !noalias !3221
   store i64 0, ptr %5252, align 8, !noalias !3221
-  %5285 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %45)
+  %5285 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %45)
           to label %.noexc1053 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1053:                                       ; preds = %5284
@@ -18018,7 +18018,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5305, align 8, !noalias !3221
   %5306 = getelementptr inbounds nuw i8, ptr %37, i64 24
   store i64 0, ptr %5306, align 8, !noalias !3221
-  %5307 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %37)
+  %5307 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %37)
           to label %.noexc1057 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1057:                                       ; preds = %._crit_edge120.i
@@ -18068,7 +18068,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5300, align 8, !noalias !3221
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5301, align 8, !noalias !3221
   store i64 0, ptr %5302, align 8, !noalias !3221
-  %5323 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %38)
+  %5323 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38)
           to label %.noexc1060 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1060:                                       ; preds = %5322
@@ -18093,7 +18093,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5327, align 8, !noalias !3221
   %5328 = getelementptr inbounds nuw i8, ptr %35, i64 24
   store i64 0, ptr %5328, align 8, !noalias !3221
-  %5329 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %35)
+  %5329 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %35)
           to label %.noexc1062 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1062:                                       ; preds = %._crit_edge123.i
@@ -18124,7 +18124,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5319, align 8, !noalias !3221
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5320, align 8, !noalias !3221
   store i64 0, ptr %5321, align 8, !noalias !3221
-  %5335 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %36)
+  %5335 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %36)
           to label %.noexc1065 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1065:                                       ; preds = %5334
@@ -18158,7 +18158,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   %.val70.i1036 = load ptr, ptr %5342, align 8, !nonnull !5, !noundef !5
   %5343 = getelementptr i8, ptr %5292, i64 16
   %.val71.i = load i64, ptr %5343, align 8, !noundef !5
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17external_token_id17h99770f24502c546bE(ptr noalias nocapture noundef align 8 dereferenceable(24) %40, ptr %.val70.i1036, i64 %.val71.i)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17external_token_id17h99770f24502c546bE(ptr noalias noundef align 8 captures(none) dereferenceable(24) %40, ptr %.val70.i1036, i64 %.val71.i)
           to label %.noexc1067 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1067:                                       ; preds = %._crit_edge113.i
@@ -18173,7 +18173,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5271, align 8, !noalias !3221
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5272, align 8, !noalias !3221
   store i64 0, ptr %5273, align 8, !noalias !3221
-  %5345 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %43)
+  %5345 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
           to label %.noexc1068 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1068:                                       ; preds = %.lr.ph112.i
@@ -18223,7 +18223,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5278, align 8, !alias.scope !3254, !noalias !3257
   store ptr %41, ptr %5279, align 8, !alias.scope !3254, !noalias !3257
   store i64 2, ptr %5280, align 8, !alias.scope !3254, !noalias !3257
-  %5353 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %42)
+  %5353 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %42)
           to label %5354 unwind label %.loopexit.i1037
 
 5354:                                             ; preds = %5352
@@ -18241,7 +18241,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
 5356:                                             ; preds = %5354
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !3221
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !3260
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %40)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %40)
           to label %.noexc1070 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1070:                                       ; preds = %5356
@@ -18329,7 +18329,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr %31, ptr %5388, align 8, !alias.scope !3282, !noalias !3285
   %5389 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store i64 1, ptr %5389, align 8, !alias.scope !3282, !noalias !3285
-  %5390 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %32)
+  %5390 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %32)
           to label %.noexc1106 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1106:                                       ; preds = %._crit_edge.i1079
@@ -18434,7 +18434,7 @@ _ZN15tree_sitter_cli8generate6tables10ParseState28is_end_of_non_terminal_extra17
   store ptr null, ptr %5380, align 8, !noalias !3279
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5381, align 8, !noalias !3279
   store i64 0, ptr %5382, align 8, !noalias !3279
-  %5442 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %33)
+  %5442 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %33)
           to label %.noexc1109 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1109:                                       ; preds = %5441
@@ -18572,7 +18572,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.i
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5490, align 8, !noalias !3279
   %5491 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 0, ptr %5491, align 8, !noalias !3279
-  %5492 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %15)
+  %5492 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15)
           to label %.noexc1115 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1115:                                       ; preds = %._crit_edge305.i
@@ -18622,7 +18622,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.i
   store ptr null, ptr %5485, align 8, !noalias !3279
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5486, align 8, !noalias !3279
   store i64 0, ptr %5487, align 8, !noalias !3279
-  %5508 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %16)
+  %5508 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
           to label %.noexc1118 unwind label %.loopexit.split-lp.loopexit
 
 .noexc1118:                                       ; preds = %5507
@@ -18647,7 +18647,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.i
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5512, align 8, !noalias !3279
   %5513 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %5513, align 8, !noalias !3279
-  %5514 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
+  %5514 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
           to label %.noexc1120 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc1120:                                       ; preds = %._crit_edge308.i
@@ -18678,7 +18678,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.i
   store ptr null, ptr %5504, align 8, !noalias !3279
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5505, align 8, !noalias !3279
   store i64 0, ptr %5506, align 8, !noalias !3279
-  %5520 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
+  %5520 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
           to label %.noexc1123 unwind label %.loopexit
 
 .noexc1123:                                       ; preds = %5519
@@ -18712,7 +18712,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.t
   store ptr null, ptr %5414, align 8, !alias.scope !3330, !noalias !3333
   store ptr %26, ptr %5415, align 8, !alias.scope !3330, !noalias !3333
   store i64 1, ptr %5416, align 8, !alias.scope !3330, !noalias !3333
-  %5524 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %27)
+  %5524 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %27)
           to label %.noexc1125 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1125:                                       ; preds = %._crit_edge291.i
@@ -18755,7 +18755,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.t
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9929d4a61b7e541cE.exit106.i": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hf10db56fcc68f59cE.exit105.i"
   %.val90.i = load ptr, ptr %5403, align 8, !alias.scope !3279, !nonnull !5, !noundef !5
   %5538 = getelementptr inbounds [0 x { i64, i64, i8, i8, [6 x i8] }], ptr %.val90.i, i64 0, i64 %5536
-  invoke void @_ZN15tree_sitter_cli8generate5rules8TokenSet4iter17hd36df5225347388dE(ptr noalias nocapture noundef nonnull sret({ { i64, [10 x i64] }, { i64, i8 } }) align 8 dereferenceable(104) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5538)
+  invoke void @_ZN15tree_sitter_cli8generate5rules8TokenSet4iter17hd36df5225347388dE(ptr noalias noundef nonnull sret({ { i64, [10 x i64] }, { i64, i8 } }) align 8 captures(none) dereferenceable(104) %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5538)
           to label %.noexc1129 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1129:                                       ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h9929d4a61b7e541cE.exit106.i"
@@ -18784,7 +18784,7 @@ _ZN15tree_sitter_cli8generate5rules8TokenSet8is_empty17h025bd69e9bbdcce1E.exit.t
   store ptr null, ptr %5409, align 8, !noalias !3279
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5410, align 8, !noalias !3279
   store i64 0, ptr %5411, align 8, !noalias !3279
-  %5541 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %28)
+  %5541 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %28)
           to label %.noexc1130 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1130:                                       ; preds = %.lr.ph290.i
@@ -18961,7 +18961,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i: ; 
   store ptr null, ptr %5438, align 8, !noalias !3279
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5439, align 8, !noalias !3279
   store i64 0, ptr %5440, align 8, !noalias !3279
-  %5598 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %18)
+  %5598 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18)
           to label %.noexc1133 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1133:                                       ; preds = %._crit_edge298.i
@@ -19002,7 +19002,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i: ; 
   store ptr null, ptr %5434, align 8, !noalias !3279
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5435, align 8, !noalias !3279
   store i64 0, ptr %5436, align 8, !noalias !3279
-  %5608 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %19)
+  %5608 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
           to label %.noexc1136 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1136:                                       ; preds = %.lr.ph297.i
@@ -19034,7 +19034,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i: ; 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10), !noalias !3400
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !3400
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !3400
-  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias nocapture noundef align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %.val88.i, i64 noundef %.val89.i)
+  invoke fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %.val88.i, i64 noundef %.val89.i)
           to label %.noexc1139 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1139:                                       ; preds = %"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hade10c463f6b6fabE.exit.i1093"
@@ -19046,7 +19046,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i: ; 
   store ptr %9, ptr %.sroa.7.0..sroa_idx.i.i1083, align 8, !noalias !3414
   store i64 1, ptr %.sroa.8.0..sroa_idx.i.i1084, align 8, !noalias !3414
   store ptr null, ptr %.sroa.10.0..sroa_idx.i.i1085, align 8, !noalias !3414
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %5616 unwind label %5614, !noalias !3415
 
 5614:                                             ; preds = %.noexc1139
@@ -19058,7 +19058,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i: ; 
 5616:                                             ; preds = %.noexc1139
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !3403
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !3416
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
           to label %.noexc8.i.i unwind label %5621, !noalias !3415
 
 .noexc8.i.i:                                      ; preds = %5616
@@ -19092,7 +19092,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i: ; 
   store ptr null, ptr %5418, align 8, !noalias !3279
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %5419, align 8, !noalias !3279
   store i64 0, ptr %5420, align 8, !noalias !3279
-  %5625 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %24)
+  %5625 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24)
           to label %.noexc1142 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1142:                                       ; preds = %.lr.ph293.i
@@ -19134,7 +19134,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i: ; 
   store ptr null, ptr %5427, align 8, !alias.scope !3425, !noalias !3428
   store ptr %22, ptr %5428, align 8, !alias.scope !3425, !noalias !3428
   store i64 1, ptr %5429, align 8, !alias.scope !3425, !noalias !3428
-  %5629 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %23)
+  %5629 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %23)
           to label %5630 unwind label %.loopexit.i1096
 
 5630:                                             ; preds = %5628
@@ -19152,7 +19152,7 @@ _ZN4core3ops8function6FnOnce9call_once17h4b75a0778e16e091E.exit.thread16.i.i: ; 
 5632:                                             ; preds = %5630
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %3), !noalias !3279
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !3431
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %21)
           to label %.noexc1144 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc1144:                                       ; preds = %5632
@@ -19214,7 +19214,7 @@ _ZN15tree_sitter_cli8generate6render9Generator32add_external_scanner_states_list
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5654 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !3450
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5654)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %5654)
           to label %.noexc1148 unwind label %5662
 
 .noexc1148:                                       ; preds = %5653
@@ -19461,7 +19461,7 @@ _ZN15tree_sitter_cli8generate6render9Generator32add_external_scanner_states_list
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add_lex_function17h362dc5d624100dd8E(ptr noalias noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 6, 16) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add_lex_function17h362dc5d624100dd8E(ptr noalias noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 6, 16) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { i64, i64, i64, i64 }, align 8
   %8 = alloca [8 x i8], align 8
@@ -19584,7 +19584,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store i8 %122, ptr %119, align 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %118)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %70), !noalias !3524
-  invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5b7c0e1625c728ecE.llvm.4798233110106368611"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.c4e87e2c8a34425207bbef40b7b3cab7.38.llvm.4798233110106368611)
+  invoke void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5b7c0e1625c728ecE.llvm.4798233110106368611"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %70, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.c4e87e2c8a34425207bbef40b7b3cab7.38.llvm.4798233110106368611)
           to label %.noexc unwind label %.thread
 
 .noexc:                                           ; preds = %5
@@ -19645,7 +19645,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr %3, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %115, i64 48
   store ptr %117, ptr %.sroa.7.0..sroa_idx, align 8
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h0c4c948184a3c9c9E.llvm.1408760718162522189"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %116, ptr noalias nocapture noundef nonnull align 8 dereferenceable(56) %115)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h0c4c948184a3c9c9E.llvm.1408760718162522189"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %116, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(56) %115)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h13f13fbb21458158E.exit" unwind label %141
 
 140:                                              ; preds = %.thread414, %141
@@ -19665,7 +19665,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   %143 = load ptr, ptr %131, align 8, !nonnull !5, !noundef !5
   %144 = load i64, ptr %132, align 8, !noundef !5
   %145 = getelementptr inbounds { { { i64, ptr }, i64 }, { i64, i8 }, i64 }, ptr %143, i64 %144
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h935c2773829a0778E.llvm.1408760718162522189"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %114, ptr noundef nonnull %143, ptr noundef nonnull %145)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h935c2773829a0778E.llvm.1408760718162522189"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %114, ptr noundef nonnull %143, ptr noundef nonnull %145)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hc47211483f6a2903E.exit" unwind label %146
 
 .thread414:                                       ; preds = %.thread419.loopexit, %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit, %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.thread419.loopexit.split-lp.loopexit, %"_ZN4core3ptr64drop_in_place$LT$tree_sitter_cli..generate..tables..LexState$GT$17hff1da8277f900e18E.exit335", %.body364, %204, %1191, %146
@@ -19889,7 +19889,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %217, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %218, align 8
   store i64 0, ptr %219, align 8
-  %222 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %100)
+  %222 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %100)
           to label %1087 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge739:                                   ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit343", %213
@@ -19907,7 +19907,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr %98, ptr %226, align 8, !alias.scope !3548, !noalias !3551
   %227 = getelementptr inbounds nuw i8, ptr %99, i64 24
   store i64 1, ptr %227, align 8, !alias.scope !3548, !noalias !3551
-  %228 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %99)
+  %228 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %99)
           to label %229 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 229:                                              ; preds = %._crit_edge739
@@ -19965,7 +19965,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %251, align 8
   %252 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store i64 0, ptr %252, align 8
-  %253 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %96)
+  %253 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %96)
           to label %257 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 254:                                              ; preds = %.lr.ph742, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit341"
@@ -19977,7 +19977,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %246, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %247, align 8
   store i64 0, ptr %248, align 8
-  %256 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %97)
+  %256 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %97)
           to label %1086 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 257:                                              ; preds = %._crit_edge743
@@ -20030,7 +20030,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %276, align 8
   %277 = getelementptr inbounds nuw i8, ptr %94, i64 24
   store i64 0, ptr %277, align 8
-  %278 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %94)
+  %278 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %94)
           to label %282 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 279:                                              ; preds = %.lr.ph746, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit339"
@@ -20042,7 +20042,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %271, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %272, align 8
   store i64 0, ptr %273, align 8
-  %281 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %95)
+  %281 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %95)
           to label %1085 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 282:                                              ; preds = %._crit_edge747
@@ -20095,7 +20095,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %301, align 8
   %302 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store i64 0, ptr %302, align 8
-  %303 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %92)
+  %303 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %92)
           to label %307 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 304:                                              ; preds = %.lr.ph750, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit337"
@@ -20107,7 +20107,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %296, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %297, align 8
   store i64 0, ptr %298, align 8
-  %306 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %93)
+  %306 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %93)
           to label %1084 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 307:                                              ; preds = %._crit_edge751
@@ -20427,7 +20427,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %530, align 8
   %531 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store i64 0, ptr %531, align 8
-  %532 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %82)
+  %532 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %82)
           to label %536 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 533:                                              ; preds = %.lr.ph758, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit316"
@@ -20439,7 +20439,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %525, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %526, align 8
   store i64 0, ptr %527, align 8
-  %535 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %83)
+  %535 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %83)
           to label %675 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 536:                                              ; preds = %._crit_edge759
@@ -20494,7 +20494,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %556, align 8
   %557 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store i64 0, ptr %557, align 8
-  %558 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %80)
+  %558 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %80)
           to label %562 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 559:                                              ; preds = %.lr.ph762, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit314"
@@ -20506,7 +20506,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %551, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %552, align 8
   store i64 0, ptr %553, align 8
-  %561 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %81)
+  %561 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %81)
           to label %674 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 562:                                              ; preds = %._crit_edge763
@@ -20582,7 +20582,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %590, align 8
   %591 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store i64 0, ptr %591, align 8
-  %592 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %76)
+  %592 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %76)
           to label %596 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 593:                                              ; preds = %.lr.ph766, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit312"
@@ -20594,7 +20594,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %585, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %586, align 8
   store i64 0, ptr %587, align 8
-  %595 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %77)
+  %595 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %77)
           to label %673 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit
 
 596:                                              ; preds = %._crit_edge767
@@ -20637,7 +20637,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   %.sink = phi ptr [ %79, %576 ], [ %78, %581 ], [ %75, %610 ]
   %611 = phi ptr [ @anon.1b0636034553e74e02679d3fd1cb529e.316, %576 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.317, %581 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.321, %610 ]
   store ptr null, ptr %.sink, align 8
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %611) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %611) #20
           to label %.cont960 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont960:                                         ; preds = %.invoke959
@@ -20667,7 +20667,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %620, align 8
   %621 = getelementptr inbounds nuw i8, ptr %73, i64 24
   store i64 0, ptr %621, align 8
-  %622 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %73)
+  %622 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %73)
           to label %626 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 623:                                              ; preds = %.lr.ph770, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit310"
@@ -20679,7 +20679,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %615, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %616, align 8
   store i64 0, ptr %617, align 8
-  %625 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %74)
+  %625 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %74)
           to label %672 unwind label %.thread419.loopexit.split-lp.loopexit
 
 626:                                              ; preds = %._crit_edge771
@@ -20732,7 +20732,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %645, align 8
   %646 = getelementptr inbounds nuw i8, ptr %71, i64 24
   store i64 0, ptr %646, align 8
-  %647 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %71)
+  %647 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %71)
           to label %651 unwind label %.thread419.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 648:                                              ; preds = %.lr.ph774, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit308"
@@ -20744,7 +20744,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %640, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %641, align 8
   store i64 0, ptr %642, align 8
-  %650 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %72)
+  %650 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %72)
           to label %671 unwind label %.thread419.loopexit
 
 651:                                              ; preds = %._crit_edge775
@@ -20883,7 +20883,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %324, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %325, align 8
   store i64 0, ptr %326, align 8
-  %679 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %88)
+  %679 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %88)
           to label %1083 unwind label %.loopexit
 
 ._crit_edge755:                                   ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit333", %519
@@ -20896,7 +20896,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %329, align 8, !alias.scope !3671, !noalias !3674
   store ptr %86, ptr %330, align 8, !alias.scope !3671, !noalias !3674
   store i64 1, ptr %331, align 8, !alias.scope !3671, !noalias !3674
-  %680 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %87)
+  %680 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %87)
           to label %681 unwind label %.loopexit.split-lp.loopexit
 
 681:                                              ; preds = %._crit_edge755
@@ -21009,7 +21009,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %337, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %338, align 8, !noalias !3698
   store i64 0, ptr %339, align 8, !noalias !3698
-  %713 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %67)
+  %713 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %67)
           to label %733 unwind label %.loopexit.split-lp176.loopexit.i, !noalias !3699
 
 714:                                              ; preds = %._crit_edge.i
@@ -21031,7 +21031,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %343, align 8, !alias.scope !3700, !noalias !3703
   store ptr %65, ptr %344, align 8, !alias.scope !3700, !noalias !3703
   store i64 1, ptr %345, align 8, !alias.scope !3700, !noalias !3703
-  %719 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %66)
+  %719 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %66)
           to label %720 unwind label %.loopexit.split-lp176.loopexit.split-lp.i.loopexit, !noalias !3699
 
 720:                                              ; preds = %718
@@ -21101,7 +21101,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %350, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %351, align 8, !noalias !3698
   store i64 0, ptr %352, align 8, !noalias !3698
-  %738 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %63)
+  %738 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %63)
           to label %752 unwind label %.loopexit175.i, !noalias !3699
 
 ._crit_edge238.i:                                 ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit93.i", %734
@@ -21114,7 +21114,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %355, align 8, !alias.scope !3717, !noalias !3720
   store ptr %61, ptr %356, align 8, !alias.scope !3717, !noalias !3720
   store i64 1, ptr %357, align 8, !alias.scope !3717, !noalias !3720
-  %739 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %62)
+  %739 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %62)
           to label %740 unwind label %.loopexit.split-lp176.loopexit.split-lp.i.loopexit, !noalias !3699
 
 740:                                              ; preds = %._crit_edge238.i
@@ -21229,7 +21229,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %513, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %514, align 8, !noalias !3698
   store i64 0, ptr %515, align 8, !noalias !3698
-  %768 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %47)
+  %768 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %47)
           to label %.noexc324 unwind label %.body329.thread473.loopexit.split-lp.loopexit
 
 .noexc324:                                        ; preds = %._crit_edge245.i
@@ -21245,7 +21245,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %509, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %510, align 8, !noalias !3698
   store i64 0, ptr %511, align 8, !noalias !3698
-  %769 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %48)
+  %769 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %48)
           to label %.noexc325 unwind label %.body329.thread473.loopexit
 
 .noexc325:                                        ; preds = %.lr.ph244.i
@@ -21316,7 +21316,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
 
 780:                                              ; preds = %.body.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46), !noalias !3761
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7892d52ed27f36f2E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %358)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7892d52ed27f36f2E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %358)
           to label %.noexc105.i unwind label %1064, !noalias !3699
 
 .noexc105.i:                                      ; preds = %780
@@ -21350,7 +21350,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %363, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %364, align 8, !noalias !3698
   store i64 0, ptr %365, align 8, !noalias !3698
-  %789 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %57)
+  %789 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %57)
           to label %1062 unwind label %.loopexit.i, !noalias !3699
 
 790:                                              ; preds = %._crit_edge242.i
@@ -21373,7 +21373,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %367, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %368, align 8, !noalias !3698
   store i64 0, ptr %369, align 8, !noalias !3698
-  %800 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %56)
+  %800 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %56)
           to label %804 unwind label %.loopexit.split-lp.loopexit.i.loopexit, !noalias !3699
 
 .invoke317.i:                                     ; preds = %790, %762
@@ -21405,7 +21405,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator16add
   store ptr null, ptr %371, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %372, align 8, !noalias !3698
   store i64 0, ptr %373, align 8, !noalias !3698
-  %810 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %55)
+  %810 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %55)
           to label %867 unwind label %.loopexit.split-lp.loopexit.i.loopexit, !noalias !3699
 
 811:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit110.i", %805
@@ -21564,7 +21564,7 @@ select.unfold:                                    ; preds = %811, %848
   store ptr null, ptr %378, align 8, !alias.scope !3841, !noalias !3844
   store ptr %53, ptr %379, align 8, !alias.scope !3841, !noalias !3844
   store i64 2, ptr %380, align 8, !alias.scope !3841, !noalias !3844
-  %871 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %54)
+  %871 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %54)
           to label %872 unwind label %.loopexit.split-lp.loopexit.i.loopexit, !noalias !3699
 
 872:                                              ; preds = %868
@@ -21590,7 +21590,7 @@ select.unfold:                                    ; preds = %811, %848
   store ptr null, ptr %490, align 8, !alias.scope !3853, !noalias !3856
   store ptr %11, ptr %491, align 8, !alias.scope !3853, !noalias !3856
   store i64 1, ptr %492, align 8, !alias.scope !3853, !noalias !3856
-  %877 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12)
+  %877 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
           to label %.noexc382 unwind label %.loopexit.split-lp.loopexit.i.loopexit
 
 .noexc382:                                        ; preds = %876
@@ -21613,7 +21613,7 @@ select.unfold:                                    ; preds = %811, %848
   store ptr null, ptr %495, align 8, !alias.scope !3859, !noalias !3862
   store ptr %13, ptr %496, align 8, !alias.scope !3859, !noalias !3862
   store i64 1, ptr %497, align 8, !alias.scope !3859, !noalias !3862
-  %879 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
+  %879 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
           to label %.noexc384 unwind label %.loopexit.split-lp.loopexit.i.loopexit
 
 .noexc384:                                        ; preds = %878
@@ -21633,7 +21633,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %382, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %383, align 8, !noalias !3698
   store i64 0, ptr %384, align 8, !noalias !3698
-  %880 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52)
+  %880 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %52)
           to label %881 unwind label %.loopexit.split-lp.loopexit.i.loopexit, !noalias !3699
 
 881:                                              ; preds = %_ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b89546a178E.exit386
@@ -21651,7 +21651,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
 
 885:                                              ; preds = %882
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45), !noalias !3868
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7892d52ed27f36f2E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %358)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7892d52ed27f36f2E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %358)
           to label %.noexc117.i unwind label %759, !noalias !3699
 
 .noexc117.i:                                      ; preds = %885
@@ -21684,7 +21684,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %389, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %390, align 8, !noalias !3698
   store i64 0, ptr %391, align 8, !noalias !3698
-  %894 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %51)
+  %894 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %51)
           to label %903 unwind label %.loopexit.split-lp.loopexit.i.loopexit, !noalias !3699
 
 895:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit127.i", %794
@@ -21703,7 +21703,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %500, align 8, !alias.scope !3892, !noalias !3895
   store ptr %15, ptr %501, align 8, !alias.scope !3892, !noalias !3895
   store i64 1, ptr %502, align 8, !alias.scope !3892, !noalias !3895
-  %899 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %16)
+  %899 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
           to label %.noexc376 unwind label %.loopexit.split-lp.loopexit.i.loopexit
 
 .noexc376:                                        ; preds = %898
@@ -21734,7 +21734,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %505, align 8, !alias.scope !3898, !noalias !3901
   store ptr %17, ptr %506, align 8, !alias.scope !3898, !noalias !3901
   store i64 1, ptr %507, align 8, !alias.scope !3898, !noalias !3901
-  %902 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %18)
+  %902 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18)
           to label %.noexc378 unwind label %.loopexit.split-lp.loopexit.i.loopexit
 
 .noexc378:                                        ; preds = %901
@@ -21802,7 +21802,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
 .loopexit.i.i:                                    ; preds = %.loopexit.split.us.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i, %.loopexit.split-lp.loopexit.i.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i.loopexit.i, %.loopexit.split.i.i
   %lpad.phi.i.i = phi { ptr, i32 } [ %lpad.loopexit.i.i, %.loopexit.split.i.i ], [ %lpad.loopexit.us.i.i, %.loopexit.split.us.i.i ], [ %lpad.loopexit.split-lp104.i.i, %.loopexit.split-lp.loopexit.split-lp.i.i ], [ %lpad.loopexit.i, %.loopexit.split-lp.loopexit.i.loopexit.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i.loopexit.split-lp.i ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !3912
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
           to label %.noexc374 unwind label %1047
 
 .noexc374:                                        ; preds = %.loopexit.i.i
@@ -21847,7 +21847,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %428, align 8, !alias.scope !3921, !noalias !3924
   store ptr %42, ptr %429, align 8, !alias.scope !3921, !noalias !3924
   store i64 1, ptr %430, align 8, !alias.scope !3921, !noalias !3924
-  %927 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %43)
+  %927 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
           to label %928 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 928:                                              ; preds = %926
@@ -21872,7 +21872,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %432, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %433, align 8, !noalias !3909
   store i64 0, ptr %434, align 8, !noalias !3909
-  %934 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %41)
+  %934 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %41)
           to label %935 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 935:                                              ; preds = %933
@@ -21908,7 +21908,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %436, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %437, align 8, !noalias !3909
   store i64 0, ptr %438, align 8, !noalias !3909
-  %948 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %34)
+  %948 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %34)
           to label %949 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 949:                                              ; preds = %947
@@ -21928,7 +21928,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %440, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %441, align 8, !noalias !3909
   store i64 0, ptr %442, align 8, !noalias !3909
-  %952 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %33)
+  %952 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %33)
           to label %953 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 953:                                              ; preds = %951
@@ -21948,7 +21948,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %444, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %445, align 8, !noalias !3909
   store i64 0, ptr %446, align 8, !noalias !3909
-  %956 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %32)
+  %956 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %32)
           to label %957 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 957:                                              ; preds = %955
@@ -21963,7 +21963,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %448, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %449, align 8, !noalias !3909
   store i64 0, ptr %450, align 8, !noalias !3909
-  %959 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %37)
+  %959 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %37)
           to label %960 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 960:                                              ; preds = %958
@@ -21986,7 +21986,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %453, align 8, !alias.scope !3929, !noalias !3932
   store ptr %35, ptr %454, align 8, !alias.scope !3929, !noalias !3932
   store i64 1, ptr %455, align 8, !alias.scope !3929, !noalias !3932
-  %963 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %36)
+  %963 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %36)
           to label %964 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 964:                                              ; preds = %962
@@ -22011,7 +22011,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %457, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %458, align 8, !noalias !3909
   store i64 0, ptr %459, align 8, !noalias !3909
-  %967 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %40)
+  %967 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %40)
           to label %968 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 968:                                              ; preds = %.thread140.i.i
@@ -22031,7 +22031,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %461, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %462, align 8, !noalias !3909
   store i64 0, ptr %463, align 8, !noalias !3909
-  %970 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %39)
+  %970 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %39)
           to label %971 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 971:                                              ; preds = %969
@@ -22056,7 +22056,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %465, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %466, align 8, !noalias !3909
   store i64 0, ptr %467, align 8, !noalias !3909
-  %976 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %38)
+  %976 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %38)
           to label %977 unwind label %.loopexit.split.us.i.i, !noalias !3699
 
 977:                                              ; preds = %975
@@ -22139,7 +22139,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
 
 ._crit_edge113.i.i:                               ; preds = %1044, %978
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21), !noalias !3945
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %44)
           to label %.noexc124.i unwind label %.loopexit.split-lp.loopexit.i.loopexit, !noalias !3699
 
 .noexc124.i:                                      ; preds = %._crit_edge113.i.i
@@ -22178,7 +22178,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %394, align 8, !alias.scope !3954, !noalias !3957
   store ptr %30, ptr %395, align 8, !alias.scope !3954, !noalias !3957
   store i64 1, ptr %396, align 8, !alias.scope !3954, !noalias !3957
-  %1009 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %31)
+  %1009 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %31)
           to label %1010 unwind label %.loopexit.split.i.i, !noalias !3699
 
 1010:                                             ; preds = %1008
@@ -22203,7 +22203,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %423, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %424, align 8, !noalias !3909
   store i64 0, ptr %425, align 8, !noalias !3909
-  %1016 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %29)
+  %1016 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %29)
           to label %1042 unwind label %.loopexit.split.i.i, !noalias !3699
 
 1017:                                             ; preds = %1012
@@ -22217,7 +22217,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %414, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %415, align 8, !noalias !3909
   store i64 0, ptr %416, align 8, !noalias !3909
-  %1020 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %28)
+  %1020 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %28)
           to label %1036 unwind label %.loopexit.split.i.i, !noalias !3699
 
 1021:                                             ; preds = %1017
@@ -22227,7 +22227,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %410, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %411, align 8, !noalias !3909
   store i64 0, ptr %412, align 8, !noalias !3909
-  %1022 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %22)
+  %1022 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %22)
           to label %1025 unwind label %.loopexit.split.i.i, !noalias !3699
 
 1023:                                             ; preds = %1017
@@ -22237,7 +22237,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %398, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %399, align 8, !noalias !3909
   store i64 0, ptr %400, align 8, !noalias !3909
-  %1024 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %25)
+  %1024 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %25)
           to label %1027 unwind label %.loopexit.split.i.i, !noalias !3699
 
 1025:                                             ; preds = %1021
@@ -22270,7 +22270,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %402, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %403, align 8, !noalias !3909
   store i64 0, ptr %404, align 8, !noalias !3909
-  %1030 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %24)
+  %1030 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24)
           to label %1031 unwind label %.loopexit.split.i.i, !noalias !3699
 
 1031:                                             ; preds = %1029
@@ -22290,7 +22290,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %406, align 8, !noalias !3909
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %407, align 8, !noalias !3909
   store i64 0, ptr %408, align 8, !noalias !3909
-  %1034 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %23)
+  %1034 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %23)
           to label %1035 unwind label %.loopexit.split.i.i, !noalias !3699
 
 1035:                                             ; preds = %1033
@@ -22322,7 +22322,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %419, align 8, !alias.scope !3960, !noalias !3963
   store ptr %26, ptr %420, align 8, !alias.scope !3960, !noalias !3963
   store i64 1, ptr %421, align 8, !alias.scope !3960, !noalias !3963
-  %1039 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %27)
+  %1039 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %27)
           to label %1040 unwind label %.loopexit.split.i.i, !noalias !3699
 
 1040:                                             ; preds = %1038
@@ -22371,7 +22371,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %471, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %472, align 8, !noalias !3698
   store i64 0, ptr %473, align 8, !noalias !3698
-  %1050 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %50)
+  %1050 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %50)
           to label %1051 unwind label %.loopexit.split-lp.loopexit.i.loopexit, !noalias !3699
 
 1051:                                             ; preds = %1049
@@ -22390,7 +22390,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %475, align 8, !noalias !3698
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %476, align 8, !noalias !3698
   store i64 0, ptr %477, align 8, !noalias !3698
-  %1052 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %49)
+  %1052 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %49)
           to label %1053 unwind label %.loopexit.split-lp.loopexit.i.loopexit, !noalias !3699
 
 1053:                                             ; preds = %_ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b89546a178E.exit
@@ -22408,7 +22408,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
 
 1057:                                             ; preds = %1054
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !3969
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7892d52ed27f36f2E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %358)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7892d52ed27f36f2E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %358)
           to label %.noexc132.i unwind label %759, !noalias !3699
 
 .noexc132.i:                                      ; preds = %1057
@@ -22491,7 +22491,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
 1074:                                             ; preds = %1066
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %84)
   store ptr null, ptr %84, align 8
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.329) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %214, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %84, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.329) #20
           to label %580 unwind label %677
 
 1075:                                             ; preds = %1066
@@ -22613,7 +22613,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %160, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %161, align 8
   store i64 0, ptr %162, align 8
-  %1093 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %112)
+  %1093 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %112)
           to label %1190 unwind label %.loopexit.split-lp549.loopexit
 
 1094:                                             ; preds = %._crit_edge
@@ -22635,7 +22635,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %168, align 8, !alias.scope !3985, !noalias !3988
   store ptr %110, ptr %169, align 8, !alias.scope !3985, !noalias !3988
   store i64 2, ptr %170, align 8, !alias.scope !3985, !noalias !3988
-  %1099 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %111)
+  %1099 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %111)
           to label %1100 unwind label %.loopexit.split-lp549.loopexit.split-lp.loopexit
 
 1100:                                             ; preds = %1097
@@ -22688,7 +22688,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %178, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %179, align 8
   store i64 0, ptr %180, align 8
-  %1115 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %108)
+  %1115 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %108)
           to label %1118 unwind label %.loopexit.split-lp549.loopexit.split-lp.loopexit
 
 .lr.ph723:                                        ; preds = %1107, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit371"
@@ -22700,7 +22700,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %174, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %175, align 8
   store i64 0, ptr %176, align 8
-  %1117 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %109)
+  %1117 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %109)
           to label %1189 unwind label %.loopexit548
 
 1118:                                             ; preds = %._crit_edge724
@@ -22715,7 +22715,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   %1121 = load ptr, ptr %1120, align 8, !nonnull !5, !noundef !5
   %1122 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %1123 = load i64, ptr %1122, align 8, !noundef !5
-  invoke void @_ZN15tree_sitter_cli8generate9char_tree13CharacterTree11from_ranges17h14d641c7639d446fE(ptr noalias nocapture noundef nonnull sret({ [4 x i32], i32, [1 x i32] }) align 8 dereferenceable(24) %107, ptr noalias noundef nonnull readonly align 4 %1121, i64 noundef %1123)
+  invoke void @_ZN15tree_sitter_cli8generate9char_tree13CharacterTree11from_ranges17h14d641c7639d446fE(ptr noalias noundef nonnull sret({ [4 x i32], i32, [1 x i32] }) align 8 captures(none) dereferenceable(24) %107, ptr noalias noundef nonnull readonly align 4 %1121, i64 noundef %1123)
           to label %1124 unwind label %.loopexit.split-lp549.loopexit.split-lp.loopexit
 
 1124:                                             ; preds = %1119
@@ -22757,7 +22757,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %183, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %184, align 8
   store i64 0, ptr %185, align 8
-  %1128 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %106)
+  %1128 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %106)
           to label %1129 unwind label %.loopexit.split-lp541.loopexit.split-lp.loopexit
 
 1129:                                             ; preds = %1127
@@ -22782,7 +22782,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
 1134:                                             ; preds = %1131
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %105)
   store ptr null, ptr %105, align 8
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %158, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.342) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %158, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %105, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.342) #20
           to label %580 unwind label %.loopexit.split-lp541.loopexit.split-lp.loopexit.split-lp
 
 1135:                                             ; preds = %1131
@@ -22798,7 +22798,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %191, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %192, align 8
   store i64 0, ptr %193, align 8
-  %1137 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %103)
+  %1137 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %103)
           to label %1140 unwind label %.loopexit.split-lp541.loopexit.split-lp.loopexit
 
 .lr.ph727:                                        ; preds = %1135, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit369"
@@ -22810,7 +22810,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %187, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %188, align 8
   store i64 0, ptr %189, align 8
-  %1139 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %104)
+  %1139 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %104)
           to label %1188 unwind label %.loopexit.split-lp541.loopexit
 
 1140:                                             ; preds = %._crit_edge728
@@ -22852,7 +22852,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %199, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %200, align 8
   store i64 0, ptr %201, align 8
-  %1153 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %101)
+  %1153 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %101)
           to label %1156 unwind label %.loopexit.split-lp541.loopexit.split-lp.loopexit
 
 .lr.ph731:                                        ; preds = %1146, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit367"
@@ -22864,7 +22864,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
   store ptr null, ptr %195, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %196, align 8
   store i64 0, ptr %197, align 8
-  %1155 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %102)
+  %1155 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %102)
           to label %1187 unwind label %.loopexit540
 
 1156:                                             ; preds = %._crit_edge732
@@ -23002,7 +23002,7 @@ _ZN15tree_sitter_cli8generate6render9Generator18add_advance_action17hc4b639b8954
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i8 } @_ZN15tree_sitter_cli8generate6render9Generator25symbol_for_advance_action17h9fe492a416d81d49E(ptr noalias nocapture noundef readonly align 8 dereferenceable(760) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i64, i8 } @_ZN15tree_sitter_cli8generate6render9Generator25symbol_for_advance_action17h9fe492a416d81d49E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(760) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, ptr }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -23034,7 +23034,7 @@ define hidden { i64, i8 } @_ZN15tree_sitter_cli8generate6render9Generator25symbo
 
 ._crit_edge40:                                    ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !4044
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %19 = load i64, ptr %18, align 8, !range !27, !noalias !4044, !noundef !5
   %.not.i.i.i = icmp eq i64 %19, 0
@@ -23106,7 +23106,7 @@ define hidden { i64, i8 } @_ZN15tree_sitter_cli8generate6render9Generator25symbo
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %39 = load i64, ptr %38, align 8, !noundef !5
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !4051
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load i64, ptr %40, align 8, !range !27, !noalias !4051, !noundef !5
   %.not.i.i.i15 = icmp eq i64 %41, 0
@@ -23215,7 +23215,7 @@ define hidden { i64, i8 } @_ZN15tree_sitter_cli8generate6render9Generator25symbo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator18add_character_tree17h3296c62629bf08d9E(ptr noalias noundef nonnull align 8 dereferenceable(760) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator18add_character_tree17h3296c62629bf08d9E(ptr noalias noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca {}, align 1
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %5 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -23247,7 +23247,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator18add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %25, align 8
-  %26 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %26 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %26, label %27, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit"
@@ -23280,7 +23280,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator18add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i64 0, ptr %37, align 8
-  %38 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %38 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %38, label %39, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit73"
@@ -23344,7 +23344,7 @@ switch.lookup:                                    ; preds = %28
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 0, ptr %59, align 8
-  %60 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %18)
+  %60 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %60, label %61, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit74"
@@ -23377,7 +23377,7 @@ switch.lookup:                                    ; preds = %28
   store ptr %16, ptr %67, align 8, !alias.scope !4080, !noalias !4083
   %68 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i64 1, ptr %68, align 8, !alias.scope !4080, !noalias !4083
-  %69 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %17)
+  %69 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %69, label %70, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit75"
@@ -23414,7 +23414,7 @@ switch.lookup:                                    ; preds = %28
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %78, align 8
   %79 = getelementptr inbounds nuw i8, ptr %15, i64 24
   store i64 0, ptr %79, align 8
-  %80 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %15)
+  %80 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %15)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %80, label %81, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit76"
@@ -23445,7 +23445,7 @@ switch.lookup:                                    ; preds = %28
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %86, align 8
   %87 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %87, align 8
-  %88 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
+  %88 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %88, label %89, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit78"
@@ -23481,7 +23481,7 @@ switch.lookup:                                    ; preds = %28
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %100, align 8
   %101 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %101, align 8
-  %102 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
+  %102 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %102, label %103, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit79"
@@ -23506,7 +23506,7 @@ switch.lookup:                                    ; preds = %28
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %106, align 8
   %107 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 0, ptr %107, align 8
-  %108 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11)
+  %108 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %108, label %109, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit80"
@@ -23528,7 +23528,7 @@ switch.lookup:                                    ; preds = %28
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %112, align 8
   %113 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %113, align 8
-  %114 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
+  %114 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %114, label %115, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit81"
@@ -23558,7 +23558,7 @@ switch.lookup:                                    ; preds = %28
   store ptr null, ptr %94, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %95, align 8
   store i64 0, ptr %96, align 8
-  %122 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12)
+  %122 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %122, label %123, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit82"
@@ -23584,7 +23584,7 @@ switch.lookup:                                    ; preds = %28
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %127, align 8
   %128 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %128, align 8
-  %129 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  %129 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %129, label %130, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit83"
@@ -23608,7 +23608,7 @@ switch.lookup:                                    ; preds = %28
   store ptr null, ptr %118, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %119, align 8
   store i64 0, ptr %120, align 8
-  %134 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
+  %134 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %134, label %135, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit84"
@@ -23626,7 +23626,7 @@ switch.lookup:                                    ; preds = %28
 137:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit83"
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   store ptr null, ptr %7, align 8
-  call void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %90, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.448) #20
+  call void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %90, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.448) #20
   unreachable
 
 .thread103:                                       ; preds = %72, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit76", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit79"
@@ -23640,7 +23640,7 @@ switch.lookup:                                    ; preds = %28
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %141, align 8
-  %142 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %142 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %142, label %143, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit85"
@@ -23866,7 +23866,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
 
 169:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h993f561c0dc5ec20E.exit"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83), !noalias !4097
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb4764bed1c045d4fE.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %155)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb4764bed1c045d4fE.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %83, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %155)
           to label %.noexc unwind label %.thread877.loopexit.split-lp
 
 .noexc:                                           ; preds = %169
@@ -23922,7 +23922,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %185, align 8
   %186 = getelementptr inbounds nuw i8, ptr %153, i64 24
   store i64 0, ptr %186, align 8
-  %187 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %153)
+  %187 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %153)
           to label %191 unwind label %.thread877.loopexit.split-lp
 
 188:                                              ; preds = %.lr.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit778"
@@ -23934,7 +23934,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   store ptr null, ptr %180, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %181, align 8
   store i64 0, ptr %182, align 8
-  %190 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %154)
+  %190 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %154)
           to label %1672 unwind label %.thread877.loopexit
 
 191:                                              ; preds = %._crit_edge
@@ -24088,7 +24088,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   %.3 = phi i1 [ true, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h817ecf1b287bccbfE.exit" ], [ false, %983 ], [ false, %362 ], [ false, %.thread178.i ], [ false, %954 ], [ true, %.loopexit1078 ], [ true, %.loopexit.split-lp1079.loopexit ], [ true, %.loopexit.split-lp1079.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.2.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph.ph, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ false, %.body524.thread940.loopexit.split-lp.loopexit ], [ false, %.body524.thread940.loopexit.split-lp.loopexit.split-lp ], [ false, %.body524.thread940.loopexit ]
   %.pn369 = phi { ptr, i32 } [ %.pn.pn, %"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h817ecf1b287bccbfE.exit" ], [ %lpad.thr_comm.split-lp939, %983 ], [ %363, %362 ], [ %.pn.pn.i, %.thread178.i ], [ %lpad.phi228.i, %954 ], [ %lpad.loopexit1080, %.loopexit1078 ], [ %lpad.loopexit1082, %.loopexit.split-lp1079.loopexit ], [ %lpad.loopexit1085, %.loopexit.split-lp1079.loopexit.split-lp.loopexit ], [ %lpad.loopexit1087, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1090, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1092, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1095, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1097, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1102, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1104, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit1107, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit1024, %.body524.thread940.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp1025, %.body524.thread940.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit, %.body524.thread940.loopexit ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %82), !noalias !4123
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hda0f7cf11fa6f538E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %151)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hda0f7cf11fa6f538E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %82, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %151)
           to label %.noexc444 unwind label %984
 
 .noexc444:                                        ; preds = %.body
@@ -24190,7 +24190,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   %.sink = phi ptr [ %138, %1498 ], [ %135, %293 ]
   %294 = phi ptr [ @anon.1b0636034553e74e02679d3fd1cb529e.546, %1498 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.513, %293 ]
   store ptr null, ptr %.sink, align 8
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %294) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %294) #20
           to label %.cont1335 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont1335:                                        ; preds = %.invoke1334
@@ -24223,7 +24223,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %304, align 8
   %305 = getelementptr inbounds nuw i8, ptr %133, i64 24
   store i64 0, ptr %305, align 8
-  %306 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %133)
+  %306 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %133)
           to label %310 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 307:                                              ; preds = %.lr.ph1159, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit653"
@@ -24235,7 +24235,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   store ptr null, ptr %298, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %299, align 8
   store i64 0, ptr %300, align 8
-  %309 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %134)
+  %309 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %134)
           to label %1367 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit
 
 310:                                              ; preds = %._crit_edge1160
@@ -24296,7 +24296,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %330, align 8
   %331 = getelementptr inbounds nuw i8, ptr %131, i64 24
   store i64 0, ptr %331, align 8
-  %332 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %131)
+  %332 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %131)
           to label %336 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 333:                                              ; preds = %.lr.ph1163, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit651"
@@ -24308,7 +24308,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   store ptr null, ptr %325, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %326, align 8
   store i64 0, ptr %327, align 8
-  %335 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %132)
+  %335 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %132)
           to label %1366 unwind label %.loopexit.split-lp1079.loopexit
 
 336:                                              ; preds = %._crit_edge1164
@@ -24370,7 +24370,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   %359 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %360 = load i64, ptr %359, align 8, !alias.scope !4160, !noalias !4161, !noundef !5
   %361 = add i64 %360, 1
-  invoke void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17hf9fb29035c672816E.llvm.4513845701186752324"(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, ptr, i16, [3 x i16] }) align 8 dereferenceable(32) %80, ptr noundef nonnull %358, ptr noundef nonnull %358, i64 noundef %361)
+  invoke void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17hf9fb29035c672816E.llvm.4513845701186752324"(ptr noalias noundef nonnull sret({ ptr, ptr, ptr, i16, [3 x i16] }) align 8 captures(none) dereferenceable(32) %80, ptr noundef nonnull %358, ptr noundef nonnull %358, i64 noundef %361)
           to label %"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd79a48475d8b179bE.exit.i" unwind label %362, !noalias !4165
 
 362:                                              ; preds = %357
@@ -24393,7 +24393,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %80), !noalias !4164
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %79), !noalias !4168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull align 8 dereferenceable(48) %84, i64 32, i1 false), !noalias !4173
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h198ebca6089e0509E.llvm.4513845701186752324"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %.sroa.0.i, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %79)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h198ebca6089e0509E.llvm.4513845701186752324"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %.sroa.0.i, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %79)
           to label %657 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 ._crit_edge1168:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit649", %351
@@ -24407,7 +24407,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %370, align 8
   %371 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store i64 0, ptr %371, align 8
-  %372 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %129)
+  %372 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %129)
           to label %376 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 373:                                              ; preds = %.lr.ph1167, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit649"
@@ -24419,7 +24419,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
   store ptr null, ptr %354, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %355, align 8
   store i64 0, ptr %356, align 8
-  %375 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %130)
+  %375 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %130)
           to label %1365 unwind label %.loopexit1078
 
 376:                                              ; preds = %._crit_edge1168
@@ -24477,7 +24477,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
 "_ZN4core3ptr191drop_in_place$LT$std..collections..hash..map..HashMap$LT$$LP$usize$C$tree_sitter_cli..generate..rules..SymbolType$RP$$C$alloc..vec..Vec$LT$tree_sitter_cli..generate..rules..Symbol$GT$$GT$$GT$17h319556b174b7855eE.exit": ; preds = %.loopexit.split-lp, %401
   %.pn.pn = phi { ptr, i32 } [ %402, %401 ], [ %.pn, %.loopexit.split-lp ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %78), !noalias !4191
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %127)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %127)
           to label %.noexc470 unwind label %984
 
 .noexc470:                                        ; preds = %"_ZN4core3ptr191drop_in_place$LT$std..collections..hash..map..HashMap$LT$$LP$usize$C$tree_sitter_cli..generate..rules..SymbolType$RP$$C$alloc..vec..Vec$LT$tree_sitter_cli..generate..rules..Symbol$GT$$GT$$GT$17h319556b174b7855eE.exit"
@@ -24741,7 +24741,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   %.sink1342 = phi ptr [ %94, %598 ], [ %105, %498 ]
   %499 = phi ptr [ @anon.1b0636034553e74e02679d3fd1cb529e.525, %598 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.519, %498 ]
   store ptr null, ptr %.sink1342, align 8
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink1342, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %499) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink1342, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %499) #20
           to label %.cont1339 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont1339:                                        ; preds = %.invoke1338
@@ -24771,7 +24771,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %508, align 8
   %509 = getelementptr inbounds nuw i8, ptr %103, i64 24
   store i64 0, ptr %509, align 8
-  %510 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %103)
+  %510 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %103)
           to label %514 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 511:                                              ; preds = %.lr.ph1203, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit554"
@@ -24783,7 +24783,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %503, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %504, align 8
   store i64 0, ptr %505, align 8
-  %513 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %104)
+  %513 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %104)
           to label %1013 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 514:                                              ; preds = %._crit_edge1204
@@ -24844,7 +24844,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %534, align 8
   %535 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store i64 0, ptr %535, align 8
-  %536 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %101)
+  %536 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %101)
           to label %540 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 537:                                              ; preds = %.lr.ph1207, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit552"
@@ -24856,7 +24856,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %529, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %530, align 8
   store i64 0, ptr %531, align 8
-  %539 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %102)
+  %539 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %102)
           to label %1012 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 540:                                              ; preds = %._crit_edge1208
@@ -24909,7 +24909,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %559, align 8
   %560 = getelementptr inbounds nuw i8, ptr %99, i64 24
   store i64 0, ptr %560, align 8
-  %561 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %99)
+  %561 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %99)
           to label %565 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 562:                                              ; preds = %.lr.ph1211, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit550"
@@ -24921,7 +24921,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %554, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %555, align 8
   store i64 0, ptr %556, align 8
-  %564 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %100)
+  %564 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %100)
           to label %1011 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 565:                                              ; preds = %._crit_edge1212
@@ -25020,7 +25020,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %607, align 8
   %608 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store i64 0, ptr %608, align 8
-  %609 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %92)
+  %609 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %92)
           to label %613 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 610:                                              ; preds = %.lr.ph1223, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit540"
@@ -25032,7 +25032,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %602, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %603, align 8
   store i64 0, ptr %604, align 8
-  %612 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %93)
+  %612 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %93)
           to label %987 unwind label %.loopexit.split-lp.loopexit
 
 613:                                              ; preds = %._crit_edge1224
@@ -25085,7 +25085,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %632, align 8
   %633 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store i64 0, ptr %633, align 8
-  %634 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %90)
+  %634 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %90)
           to label %638 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 635:                                              ; preds = %.lr.ph1227, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit538"
@@ -25097,7 +25097,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %627, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %628, align 8
   store i64 0, ptr %629, align 8
-  %637 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %91)
+  %637 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %91)
           to label %986 unwind label %.loopexit
 
 638:                                              ; preds = %._crit_edge1228
@@ -25134,7 +25134,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
 "_ZN4core3ptr191drop_in_place$LT$std..collections..hash..map..HashMap$LT$$LP$usize$C$tree_sitter_cli..generate..rules..SymbolType$RP$$C$alloc..vec..Vec$LT$tree_sitter_cli..generate..rules..Symbol$GT$$GT$$GT$17h319556b174b7855eE.exit503": ; preds = %644
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %126)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %77), !noalias !4252
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %127)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %127)
           to label %.noexc505 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc505:                                        ; preds = %"_ZN4core3ptr191drop_in_place$LT$std..collections..hash..map..HashMap$LT$$LP$usize$C$tree_sitter_cli..generate..rules..SymbolType$RP$$C$alloc..vec..Vec$LT$tree_sitter_cli..generate..rules..Symbol$GT$$GT$$GT$17h319556b174b7855eE.exit503"
@@ -25164,7 +25164,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %84)
   %.sroa.0207.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 56
   store i64 %367, ptr %.sroa.0207.sroa.4.0..sroa_idx, align 8
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h66ed028d3495139dE.llvm.1408760718162522189"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %89, ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %88)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h66ed028d3495139dE.llvm.1408760718162522189"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %89, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(64) %88)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd34110b84449e626E.exit" unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hd34110b84449e626E.exit": ; preds = %657
@@ -25225,7 +25225,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %671, align 8, !noalias !4271
   %672 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store i64 0, ptr %672, align 8, !noalias !4271
-  %673 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %74)
+  %673 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %74)
           to label %677 unwind label %.loopexit.split-lp225.i, !noalias !4269
 
 674:                                              ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit137.i", %.lr.ph.i
@@ -25237,7 +25237,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %665, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %666, align 8, !noalias !4271
   store i64 0, ptr %667, align 8, !noalias !4271
-  %676 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %75)
+  %676 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75)
           to label %953 unwind label %.loopexit224.i, !noalias !4269
 
 677:                                              ; preds = %._crit_edge.i
@@ -25416,7 +25416,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
 773:                                              ; preds = %.noexc512
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %45), !noalias !4271
   store ptr null, ptr %45, align 8, !noalias !4271
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.560) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %45, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.560) #20
           to label %.noexc513 unwind label %.body524.thread940.loopexit.split-lp.loopexit.split-lp
 
 .noexc513:                                        ; preds = %773
@@ -25449,7 +25449,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %783, align 8, !noalias !4271
   %784 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 0, ptr %784, align 8, !noalias !4271
-  %785 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %43)
+  %785 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
           to label %.noexc514 unwind label %.body524.thread940.loopexit.split-lp.loopexit.split-lp
 
 .noexc514:                                        ; preds = %._crit_edge233.i
@@ -25465,7 +25465,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %777, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %778, align 8, !noalias !4271
   store i64 0, ptr %779, align 8, !noalias !4271
-  %787 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %44)
+  %787 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %44)
           to label %.noexc515 unwind label %.body524.thread940.loopexit.split-lp.loopexit
 
 .noexc515:                                        ; preds = %786
@@ -25526,7 +25526,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %806, align 8, !noalias !4271
   %807 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i64 0, ptr %807, align 8, !noalias !4271
-  %808 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %41)
+  %808 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %41)
           to label %.noexc518 unwind label %.body524.thread940.loopexit.split-lp.loopexit.split-lp
 
 .noexc518:                                        ; preds = %._crit_edge237.i
@@ -25542,7 +25542,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %801, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %802, align 8, !noalias !4271
   store i64 0, ptr %803, align 8, !noalias !4271
-  %810 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %42)
+  %810 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %42)
           to label %.noexc519 unwind label %.body524.thread940.loopexit
 
 .noexc519:                                        ; preds = %809
@@ -25609,7 +25609,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %701, align 8, !alias.scope !4308, !noalias !4311
   store ptr %69, ptr %702, align 8, !alias.scope !4308, !noalias !4311
   store i64 3, ptr %703, align 8, !alias.scope !4308, !noalias !4311
-  %819 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %70)
+  %819 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %70)
           to label %820 unwind label %.loopexit216.i, !noalias !4269
 
 820:                                              ; preds = %817
@@ -25705,7 +25705,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %705, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %706, align 8, !noalias !4271
   store i64 0, ptr %707, align 8, !noalias !4271
-  %835 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %66)
+  %835 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %66)
           to label %844 unwind label %.loopexit.i, !noalias !4269
 
 836:                                              ; preds = %"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4f886e083aca76feE.llvm.15559585470061597875.exit.i.i"
@@ -25717,7 +25717,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %765, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %766, align 8, !noalias !4271
   store i64 0, ptr %767, align 8, !noalias !4271
-  %837 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %46)
+  %837 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %46)
           to label %838 unwind label %.thread188.loopexit.i, !noalias !4269
 
 838:                                              ; preds = %836
@@ -25773,7 +25773,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %757, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %758, align 8, !noalias !4271
   store i64 0, ptr %759, align 8, !noalias !4271
-  %848 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %65)
+  %848 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %65)
           to label %909 unwind label %.loopexit.i, !noalias !4269
 
 849:                                              ; preds = %846
@@ -25789,7 +25789,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %743, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %744, align 8, !noalias !4271
   store i64 0, ptr %745, align 8, !noalias !4271
-  %852 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %63)
+  %852 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %63)
           to label %921 unwind label %.loopexit.i, !noalias !4269
 
 853:                                              ; preds = %846
@@ -25799,7 +25799,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %739, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %740, align 8, !noalias !4271
   store i64 0, ptr %741, align 8, !noalias !4271
-  %854 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %64)
+  %854 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %64)
           to label %922 unwind label %.loopexit.i, !noalias !4269
 
 855:                                              ; preds = %846
@@ -25951,7 +25951,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %761, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %762, align 8, !noalias !4271
   store i64 0, ptr %763, align 8, !noalias !4271
-  %911 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %47)
+  %911 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %47)
           to label %945 unwind label %.loopexit.i, !noalias !4269
 
 912:                                              ; preds = %849
@@ -25964,7 +25964,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %748, align 8, !alias.scope !4393, !noalias !4396
   store ptr %58, ptr %749, align 8, !alias.scope !4393, !noalias !4396
   store i64 1, ptr %750, align 8, !alias.scope !4393, !noalias !4396
-  %913 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %59)
+  %913 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %59)
           to label %914 unwind label %.loopexit.i, !noalias !4269
 
 914:                                              ; preds = %912
@@ -25991,7 +25991,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i463:
   store ptr null, ptr %753, align 8, !alias.scope !4399, !noalias !4402
   store ptr %60, ptr %754, align 8, !alias.scope !4399, !noalias !4402
   store i64 1, ptr %755, align 8, !alias.scope !4399, !noalias !4402
-  %918 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %61)
+  %918 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %61)
           to label %919 unwind label %.loopexit.i, !noalias !4269
 
 919:                                              ; preds = %917
@@ -26037,7 +26037,7 @@ select.unfold.i:                                  ; preds = %855, %890
   store ptr null, ptr %721, align 8, !alias.scope !4405, !noalias !4408
   store ptr %53, ptr %722, align 8, !alias.scope !4405, !noalias !4408
   store i64 2, ptr %723, align 8, !alias.scope !4405, !noalias !4408
-  %925 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %54)
+  %925 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %54)
           to label %926 unwind label %.loopexit.i, !noalias !4269
 
 926:                                              ; preds = %923
@@ -26067,7 +26067,7 @@ select.unfold.i:                                  ; preds = %855, %890
   store ptr null, ptr %726, align 8, !alias.scope !4411, !noalias !4414
   store ptr %51, ptr %727, align 8, !alias.scope !4411, !noalias !4414
   store i64 1, ptr %728, align 8, !alias.scope !4411, !noalias !4414
-  %934 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52)
+  %934 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %52)
           to label %935 unwind label %.loopexit.i, !noalias !4269
 
 935:                                              ; preds = %933
@@ -26087,7 +26087,7 @@ select.unfold.i:                                  ; preds = %855, %890
   store ptr null, ptr %735, align 8, !noalias !4271
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %736, align 8, !noalias !4271
   store i64 0, ptr %737, align 8, !noalias !4271
-  %938 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %48)
+  %938 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %48)
           to label %943 unwind label %.loopexit.i, !noalias !4269
 
 939:                                              ; preds = %930
@@ -26100,7 +26100,7 @@ select.unfold.i:                                  ; preds = %855, %890
   store ptr null, ptr %731, align 8, !alias.scope !4417, !noalias !4420
   store ptr %49, ptr %732, align 8, !alias.scope !4417, !noalias !4420
   store i64 1, ptr %733, align 8, !alias.scope !4417, !noalias !4420
-  %940 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %50)
+  %940 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %50)
           to label %941 unwind label %.loopexit.i, !noalias !4269
 
 941:                                              ; preds = %939
@@ -26194,7 +26194,7 @@ select.unfold.i:                                  ; preds = %855, %890
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %89)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35), !noalias !4425
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hda0f7cf11fa6f538E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %151)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hda0f7cf11fa6f538E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %151)
           to label %.noexc527 unwind label %974
 
 .noexc527:                                        ; preds = %955
@@ -26214,7 +26214,7 @@ select.unfold.i:                                  ; preds = %855, %890
   %.4 = phi i1 [ %.3, %"_ZN4core3ptr148drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$tree_sitter_cli..generate..rules..Symbol$C$$RF$tree_sitter_cli..generate..tables..GotoAction$RP$$GT$$GT$17hb396c7a58a479651E.exit" ], [ false, %974 ]
   %.pn369.pn = phi { ptr, i32 } [ %.pn369, %"_ZN4core3ptr148drop_in_place$LT$alloc..vec..Vec$LT$$LP$$RF$tree_sitter_cli..generate..rules..Symbol$C$$RF$tree_sitter_cli..generate..tables..GotoAction$RP$$GT$$GT$17hb396c7a58a479651E.exit" ], [ %975, %974 ]
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34), !noalias !4106
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hffedd7d71b6b92edE.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %152)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hffedd7d71b6b92edE.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %152)
           to label %.noexc531 unwind label %984
 
 .noexc531:                                        ; preds = %967
@@ -26239,7 +26239,7 @@ select.unfold.i:                                  ; preds = %855, %890
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35), !noalias !4425
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %151)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33), !noalias !4432
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hffedd7d71b6b92edE.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %152)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hffedd7d71b6b92edE.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %152)
   %976 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %977 = load i64, ptr %976, align 8, !range !27, !noalias !4432, !noundef !5
   %.not.i.i.i533 = icmp eq i64 %977, 0
@@ -26321,7 +26321,7 @@ select.unfold.i:                                  ; preds = %855, %890
   store ptr null, ptr %583, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %584, align 8
   store i64 0, ptr %585, align 8
-  %994 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %97)
+  %994 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %97)
           to label %1010 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 995:                                              ; preds = %._crit_edge1216
@@ -26336,7 +26336,7 @@ select.unfold.i:                                  ; preds = %855, %890
   store ptr null, ptr %590, align 8, !alias.scope !4439, !noalias !4442
   store ptr %95, ptr %591, align 8, !alias.scope !4439, !noalias !4442
   store i64 2, ptr %592, align 8, !alias.scope !4439, !noalias !4442
-  %997 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %96)
+  %997 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %96)
           to label %998 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 998:                                              ; preds = %995
@@ -26647,7 +26647,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   store ptr %1111, ptr %.sroa.4.0..sroa_idx.i572, align 8, !noalias !4553
   store i64 %1108, ptr %.sroa.5.0..sroa_idx.i573, align 8, !noalias !4553
   store i8 %1103, ptr %421, align 8, !noalias !4553
-  %1114 = invoke { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h43d5f0914355906fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %157, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %30, i64 noundef %1104)
+  %1114 = invoke { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h43d5f0914355906fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %157, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %30, i64 noundef %1104)
           to label %.noexc580 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc580:                                        ; preds = %.noexc579
@@ -26697,7 +26697,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   store i16 %1132, ptr %.sroa.0285.sroa.6.0..sroa_idx, align 8
   store i64 %1134, ptr %.sroa.0285.sroa.8.0..sroa_idx, align 8
   store ptr %126, ptr %.sroa.0285.sroa.10.0..sroa_idx, align 8
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9cc1afdff01c122cE.llvm.1408760718162522189"(ptr noalias nocapture noundef nonnull sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %124)
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9cc1afdff01c122cE.llvm.1408760718162522189"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %124)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h5b009ee9e9c75235E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h5b009ee9e9c75235E.exit": ; preds = %._crit_edge1176
@@ -26773,7 +26773,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   store ptr null, ptr %433, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %434, align 8
   store i64 0, ptr %435, align 8
-  %1143 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %123)
+  %1143 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %123)
           to label %1308 unwind label %.loopexit.split-lp1046.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1180:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit622", %1140
@@ -26791,7 +26791,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   store ptr null, ptr %440, align 8, !alias.scope !4582, !noalias !4585
   store ptr %121, ptr %441, align 8, !alias.scope !4582, !noalias !4585
   store i64 2, ptr %442, align 8, !alias.scope !4582, !noalias !4585
-  %1145 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %122)
+  %1145 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %122)
           to label %1146 unwind label %.loopexit.split-lp1046.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1146:                                             ; preds = %._crit_edge1180
@@ -26866,7 +26866,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   %.sink1347 = phi ptr [ %107, %1225 ], [ %106, %1170 ]
   %1171 = phi ptr [ @anon.1b0636034553e74e02679d3fd1cb529e.542, %1225 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.534, %1170 ]
   store ptr null, ptr %.sink1347, align 8
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink1347, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1171) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %177, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink1347, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1171) #20
           to label %.cont1344 unwind label %.loopexit.split-lp1046.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .cont1344:                                        ; preds = %.invoke1343
@@ -26908,7 +26908,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   store ptr null, ptr %455, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %456, align 8
   store i64 0, ptr %457, align 8
-  %1185 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %118)
+  %1185 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %118)
           to label %1204 unwind label %.loopexit.split-lp1046.loopexit.split-lp.loopexit
 
 ._crit_edge1188:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit599", %1182
@@ -26927,7 +26927,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   store ptr null, ptr %462, align 8, !alias.scope !4598, !noalias !4601
   store ptr %116, ptr %463, align 8, !alias.scope !4598, !noalias !4601
   store i64 2, ptr %464, align 8, !alias.scope !4598, !noalias !4601
-  %1188 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %117)
+  %1188 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %117)
           to label %1189 unwind label %.loopexit.split-lp1046.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1189:                                             ; preds = %._crit_edge1188
@@ -26990,7 +26990,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   store ptr null, ptr %444, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %445, align 8
   store i64 0, ptr %446, align 8
-  %1206 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %114)
+  %1206 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %114)
           to label %1307 unwind label %.loopexit.split-lp1046.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1184:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit620", %1183
@@ -27009,7 +27009,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   store ptr null, ptr %451, align 8, !alias.scope !4614, !noalias !4617
   store ptr %112, ptr %452, align 8, !alias.scope !4614, !noalias !4617
   store i64 2, ptr %453, align 8, !alias.scope !4614, !noalias !4617
-  %1209 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %113)
+  %1209 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %113)
           to label %1210 unwind label %.loopexit.split-lp1046.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1210:                                             ; preds = %._crit_edge1184
@@ -27211,7 +27211,7 @@ select.unfold.i571:                               ; preds = %1075, %.select.unfo
   store ptr null, ptr %466, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %467, align 8
   store i64 0, ptr %468, align 8
-  %1284 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %110)
+  %1284 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %110)
           to label %1306 unwind label %.loopexit1045
 
 select.unfold967:                                 ; preds = %._crit_edge1192, %1264
@@ -27227,7 +27227,7 @@ select.unfold967:                                 ; preds = %._crit_edge1192, %1
   store ptr null, ptr %480, align 8, !alias.scope !4695, !noalias !4698
   store ptr %108, ptr %481, align 8, !alias.scope !4695, !noalias !4698
   store i64 1, ptr %482, align 8, !alias.scope !4695, !noalias !4698
-  %1287 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %109)
+  %1287 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %109)
           to label %1288 unwind label %.loopexit.split-lp1046.loopexit
 
 1288:                                             ; preds = %1285
@@ -27335,7 +27335,7 @@ select.unfold967:                                 ; preds = %._crit_edge1192, %1
 1317:                                             ; preds = %1312, %1309
   %.0340 = phi i64 [ %1316, %1312 ], [ %1311, %1309 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %85)
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17heb902d254b893e18E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %126, i64 noundef %.0340, i8 noundef 4)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17heb902d254b893e18E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %85, ptr noalias noundef nonnull align 8 dereferenceable(48) %126, i64 noundef %.0340, i8 noundef 4)
           to label %1318 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1318:                                             ; preds = %1317
@@ -27360,7 +27360,7 @@ select.unfold967:                                 ; preds = %._crit_edge1192, %1
   store i64 0, ptr %427, align 8, !noalias !4717
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i625, align 8, !noalias !4717
   store i64 0, ptr %.sroa.5.0..sroa_idx.i626, align 8, !noalias !4717
-  %1323 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h837be00499997e5dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4863.0.copyload, i64 noundef %.sroa.0862.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %24)
+  %1323 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h837be00499997e5dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4863.0.copyload, i64 noundef %.sroa.0862.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %24)
           to label %.noexc627 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc627:                                        ; preds = %1322
@@ -27404,7 +27404,7 @@ select.unfold967:                                 ; preds = %._crit_edge1192, %1
 _ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4a01665a6a20E.exit: ; preds = %.noexc580, %1100
   %.0.i569 = phi i64 [ %1102, %1100 ], [ %1104, %.noexc580 ]
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %86)
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17heb902d254b893e18E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %86, ptr noalias noundef nonnull align 8 dereferenceable(48) %126, i64 noundef %.0.i569, i8 noundef 3)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17heb902d254b893e18E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %86, ptr noalias noundef nonnull align 8 dereferenceable(48) %126, i64 noundef %.0.i569, i8 noundef 3)
           to label %1341 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1341:                                             ; preds = %_ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4a01665a6a20E.exit
@@ -27429,7 +27429,7 @@ _ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4
   store i64 0, ptr %424, align 8, !noalias !4727
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i641, align 8, !noalias !4727
   store i64 0, ptr %.sroa.5.0..sroa_idx.i642, align 8, !noalias !4727
-  %1346 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h837be00499997e5dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4846.0.copyload, i64 noundef %.sroa.0845.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %23)
+  %1346 = invoke noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h837be00499997e5dE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sroa.4846.0.copyload, i64 noundef %.sroa.0845.0.copyload, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(40) %23)
           to label %.noexc643 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc643:                                        ; preds = %1345
@@ -27510,7 +27510,7 @@ _ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4
   store ptr null, ptr %220, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %221, align 8
   store i64 0, ptr %222, align 8
-  %1369 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %149)
+  %1369 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %149)
           to label %1671 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1131:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit776", %290
@@ -27523,7 +27523,7 @@ _ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4
   store ptr null, ptr %225, align 8, !alias.scope !4731, !noalias !4734
   store ptr %147, ptr %226, align 8, !alias.scope !4731, !noalias !4734
   store i64 1, ptr %227, align 8, !alias.scope !4731, !noalias !4734
-  %1370 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %148)
+  %1370 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %148)
           to label %1371 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1371:                                             ; preds = %._crit_edge1131
@@ -27825,7 +27825,7 @@ select.unfold.i681:                               ; preds = %1455, %.select.unfo
   store ptr %1491, ptr %.sroa.4.0..sroa_idx.i682, align 8, !noalias !4852
   store i64 %1488, ptr %.sroa.5.0..sroa_idx.i683, align 8, !noalias !4852
   store i8 %1483, ptr %255, align 8, !noalias !4852
-  %1494 = invoke { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h43d5f0914355906fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %157, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %19, i64 noundef %1484)
+  %1494 = invoke { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h43d5f0914355906fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %157, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %19, i64 noundef %1484)
           to label %.noexc692 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc692:                                        ; preds = %.noexc691
@@ -27853,7 +27853,7 @@ select.unfold.i681:                               ; preds = %1455, %.select.unfo
   store ptr null, ptr %276, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %277, align 8
   store i64 0, ptr %278, align 8
-  %1501 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %136)
+  %1501 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %136)
           to label %1504 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .lr.ph1149:                                       ; preds = %1499, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit700"
@@ -27865,7 +27865,7 @@ select.unfold.i681:                               ; preds = %1455, %.select.unfo
   store ptr null, ptr %272, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %273, align 8
   store i64 0, ptr %274, align 8
-  %1503 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %137)
+  %1503 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %137)
           to label %1517 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1504:                                             ; preds = %._crit_edge1150
@@ -28061,7 +28061,7 @@ _ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4
   store ptr null, ptr %257, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %258, align 8
   store i64 0, ptr %259, align 8
-  %1575 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %141)
+  %1575 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %141)
           to label %1593 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 select.unfold1007.invoke:                         ; preds = %._crit_edge1135, %._crit_edge1142, %1630, %1555
@@ -28083,7 +28083,7 @@ select.unfold1007.cont:                           ; preds = %select.unfold1007.i
   store ptr null, ptr %268, align 8, !alias.scope !4933, !noalias !4936
   store ptr %139, ptr %269, align 8, !alias.scope !4933, !noalias !4936
   store i64 2, ptr %270, align 8, !alias.scope !4933, !noalias !4936
-  %1579 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %140)
+  %1579 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %140)
           to label %1580 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1580:                                             ; preds = %1577
@@ -28269,7 +28269,7 @@ select.unfold1007.cont:                           ; preds = %select.unfold1007.i
   store ptr null, ptr %230, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %231, align 8
   store i64 0, ptr %232, align 8
-  %1650 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %146)
+  %1650 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %146)
           to label %1670 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1651:                                             ; preds = %1633
@@ -28292,7 +28292,7 @@ select.unfold1007.cont:                           ; preds = %select.unfold1007.i
   store ptr null, ptr %246, align 8, !alias.scope !5014, !noalias !5017
   store ptr %144, ptr %247, align 8, !alias.scope !5014, !noalias !5017
   store i64 2, ptr %248, align 8, !alias.scope !5014, !noalias !5017
-  %1657 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %145)
+  %1657 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %145)
           to label %1658 unwind label %.loopexit.split-lp1079.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1658:                                             ; preds = %1651
@@ -28546,7 +28546,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17add
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !5054
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !5054
-  call void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %144, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  call void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %144, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !5043
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %143)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %142)
@@ -28565,7 +28565,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17add
   store i64 1, ptr %.sroa.81195.0..sroa_idx, align 8, !noalias !5066
   %.sroa.101196.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.101196.0..sroa_idx, align 8, !noalias !5066
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %141, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %141, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777 unwind label %149
 
 148:                                              ; preds = %.loopexit.split-lp, %149
@@ -28911,7 +28911,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %159, align 8
   %160 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store i64 0, ptr %160, align 8
-  %161 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %138)
+  %161 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %138)
           to label %165 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 162:                                              ; preds = %.lr.ph, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1191"
@@ -28923,7 +28923,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %154, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %155, align 8
   store i64 0, ptr %156, align 8
-  %164 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %139)
+  %164 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %139)
           to label %1769 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1523
 
 165:                                              ; preds = %._crit_edge
@@ -28986,7 +28986,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %187, align 8
   %188 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store i64 0, ptr %188, align 8
-  %189 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %136)
+  %189 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %136)
           to label %193 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 190:                                              ; preds = %.lr.ph1531, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1189"
@@ -28998,7 +28998,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %182, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %183, align 8
   store i64 0, ptr %184, align 8
-  %192 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %137)
+  %192 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %137)
           to label %1768 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1516
 
 193:                                              ; preds = %._crit_edge1532
@@ -29051,7 +29051,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %212, align 8
   %213 = getelementptr inbounds nuw i8, ptr %134, i64 24
   store i64 0, ptr %213, align 8
-  %214 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %134)
+  %214 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %134)
           to label %218 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 215:                                              ; preds = %.lr.ph1535, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1187"
@@ -29063,7 +29063,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %207, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %208, align 8
   store i64 0, ptr %209, align 8
-  %217 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %135)
+  %217 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %135)
           to label %1767 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 218:                                              ; preds = %._crit_edge1536
@@ -29132,7 +29132,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %236, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %237, align 8
   store i64 0, ptr %238, align 8
-  %247 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %133)
+  %247 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %133)
           to label %1766 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1540:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1185", %233
@@ -29150,7 +29150,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %131, ptr %251, align 8, !alias.scope !5097, !noalias !5100
   %252 = getelementptr inbounds nuw i8, ptr %132, i64 24
   store i64 1, ptr %252, align 8, !alias.scope !5097, !noalias !5100
-  %253 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %132)
+  %253 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %132)
           to label %254 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 254:                                              ; preds = %._crit_edge1540
@@ -29202,7 +29202,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %268, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %269, align 8
   store i64 0, ptr %270, align 8
-  %273 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %130)
+  %273 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %130)
           to label %1765 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1544:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1183", %260
@@ -29220,7 +29220,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %128, ptr %277, align 8, !alias.scope !5113, !noalias !5116
   %278 = getelementptr inbounds nuw i8, ptr %129, i64 24
   store i64 1, ptr %278, align 8, !alias.scope !5113, !noalias !5116
-  %279 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %129)
+  %279 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %129)
           to label %280 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 280:                                              ; preds = %._crit_edge1544
@@ -29272,7 +29272,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %294, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %295, align 8
   store i64 0, ptr %296, align 8
-  %299 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %127)
+  %299 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %127)
           to label %1764 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1548:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1181", %286
@@ -29290,7 +29290,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %125, ptr %303, align 8, !alias.scope !5129, !noalias !5132
   %304 = getelementptr inbounds nuw i8, ptr %126, i64 24
   store i64 1, ptr %304, align 8, !alias.scope !5129, !noalias !5132
-  %305 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %126)
+  %305 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %126)
           to label %306 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 306:                                              ; preds = %._crit_edge1548
@@ -29342,7 +29342,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %320, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %321, align 8
   store i64 0, ptr %322, align 8
-  %325 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %124)
+  %325 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %124)
           to label %1763 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1552:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1179", %312
@@ -29360,7 +29360,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %122, ptr %329, align 8, !alias.scope !5145, !noalias !5148
   %330 = getelementptr inbounds nuw i8, ptr %123, i64 24
   store i64 1, ptr %330, align 8, !alias.scope !5145, !noalias !5148
-  %331 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %123)
+  %331 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %123)
           to label %332 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 332:                                              ; preds = %._crit_edge1552
@@ -29412,7 +29412,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %346, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %347, align 8
   store i64 0, ptr %348, align 8
-  %351 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %121)
+  %351 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %121)
           to label %1762 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1556:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1177", %338
@@ -29430,7 +29430,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %119, ptr %355, align 8, !alias.scope !5161, !noalias !5164
   %356 = getelementptr inbounds nuw i8, ptr %120, i64 24
   store i64 1, ptr %356, align 8, !alias.scope !5161, !noalias !5164
-  %357 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %120)
+  %357 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %120)
           to label %358 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 358:                                              ; preds = %._crit_edge1556
@@ -29484,7 +29484,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %377, align 8
   %378 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store i64 0, ptr %378, align 8
-  %379 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %117)
+  %379 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %117)
           to label %383 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 380:                                              ; preds = %.lr.ph1559, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1175"
@@ -29496,7 +29496,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %372, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %373, align 8
   store i64 0, ptr %374, align 8
-  %382 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %118)
+  %382 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %118)
           to label %1761 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 383:                                              ; preds = %._crit_edge1560
@@ -29540,7 +29540,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %396, align 8
   %397 = getelementptr inbounds nuw i8, ptr %115, i64 24
   store i64 0, ptr %397, align 8
-  %398 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %115)
+  %398 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %115)
           to label %402 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 399:                                              ; preds = %.lr.ph1563, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1173"
@@ -29552,7 +29552,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %242, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %243, align 8
   store i64 0, ptr %244, align 8
-  %401 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %116)
+  %401 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %116)
           to label %1760 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 402:                                              ; preds = %._crit_edge1564
@@ -29605,7 +29605,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %421, align 8
   %422 = getelementptr inbounds nuw i8, ptr %113, i64 24
   store i64 0, ptr %422, align 8
-  %423 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %113)
+  %423 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %113)
           to label %427 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 424:                                              ; preds = %.lr.ph1567, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1171"
@@ -29617,7 +29617,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %416, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %417, align 8
   store i64 0, ptr %418, align 8
-  %426 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %114)
+  %426 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %114)
           to label %1759 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 427:                                              ; preds = %._crit_edge1568
@@ -29670,7 +29670,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %446, align 8
   %447 = getelementptr inbounds nuw i8, ptr %111, i64 24
   store i64 0, ptr %447, align 8
-  %448 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %111)
+  %448 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %111)
           to label %452 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 449:                                              ; preds = %.lr.ph1571, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1169"
@@ -29682,7 +29682,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %441, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %442, align 8
   store i64 0, ptr %443, align 8
-  %451 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %112)
+  %451 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %112)
           to label %1758 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 452:                                              ; preds = %._crit_edge1572
@@ -29735,7 +29735,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %471, align 8
   %472 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store i64 0, ptr %472, align 8
-  %473 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %109)
+  %473 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %109)
           to label %477 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 474:                                              ; preds = %.lr.ph1575, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1167"
@@ -29747,7 +29747,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %466, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %467, align 8
   store i64 0, ptr %468, align 8
-  %476 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %110)
+  %476 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %110)
           to label %1757 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 477:                                              ; preds = %._crit_edge1576
@@ -29800,7 +29800,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %496, align 8
   %497 = getelementptr inbounds nuw i8, ptr %107, i64 24
   store i64 0, ptr %497, align 8
-  %498 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %107)
+  %498 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %107)
           to label %502 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 499:                                              ; preds = %.lr.ph1579, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1165"
@@ -29812,7 +29812,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %491, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %492, align 8
   store i64 0, ptr %493, align 8
-  %501 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %108)
+  %501 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %108)
           to label %1756 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 502:                                              ; preds = %._crit_edge1580
@@ -29865,7 +29865,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %521, align 8
   %522 = getelementptr inbounds nuw i8, ptr %105, i64 24
   store i64 0, ptr %522, align 8
-  %523 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %105)
+  %523 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %105)
           to label %527 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 524:                                              ; preds = %.lr.ph1583, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1163"
@@ -29877,7 +29877,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %516, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %517, align 8
   store i64 0, ptr %518, align 8
-  %526 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %106)
+  %526 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %106)
           to label %1755 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 527:                                              ; preds = %._crit_edge1584
@@ -29928,7 +29928,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %541, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %542, align 8
   store i64 0, ptr %543, align 8
-  %546 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %104)
+  %546 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %104)
           to label %1754 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1588:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1161", %533
@@ -29946,7 +29946,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %102, ptr %550, align 8, !alias.scope !5247, !noalias !5250
   %551 = getelementptr inbounds nuw i8, ptr %103, i64 24
   store i64 1, ptr %551, align 8, !alias.scope !5247, !noalias !5250
-  %552 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %103)
+  %552 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %103)
           to label %553 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 553:                                              ; preds = %._crit_edge1588
@@ -30002,7 +30002,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %573, align 8
   %574 = getelementptr inbounds nuw i8, ptr %100, i64 24
   store i64 0, ptr %574, align 8
-  %575 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %100)
+  %575 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %100)
           to label %579 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 576:                                              ; preds = %.lr.ph1591, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1159"
@@ -30014,7 +30014,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %568, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %569, align 8
   store i64 0, ptr %570, align 8
-  %578 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %101)
+  %578 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %101)
           to label %1753 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 579:                                              ; preds = %._crit_edge1592
@@ -30069,7 +30069,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %599, align 8
   %600 = getelementptr inbounds nuw i8, ptr %98, i64 24
   store i64 0, ptr %600, align 8
-  %601 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %98)
+  %601 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %98)
           to label %605 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 602:                                              ; preds = %.lr.ph1595, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1157"
@@ -30081,7 +30081,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %594, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %595, align 8
   store i64 0, ptr %596, align 8
-  %604 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %99)
+  %604 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %99)
           to label %1752 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 605:                                              ; preds = %._crit_edge1596
@@ -30134,7 +30134,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %624, align 8
   %625 = getelementptr inbounds nuw i8, ptr %96, i64 24
   store i64 0, ptr %625, align 8
-  %626 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %96)
+  %626 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %96)
           to label %630 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 627:                                              ; preds = %.lr.ph1599, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1155"
@@ -30146,7 +30146,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %619, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %620, align 8
   store i64 0, ptr %621, align 8
-  %629 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %97)
+  %629 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %97)
           to label %1751 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 630:                                              ; preds = %._crit_edge1600
@@ -30199,7 +30199,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %649, align 8
   %650 = getelementptr inbounds nuw i8, ptr %94, i64 24
   store i64 0, ptr %650, align 8
-  %651 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %94)
+  %651 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %94)
           to label %655 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 652:                                              ; preds = %.lr.ph1603, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1153"
@@ -30211,7 +30211,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %644, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %645, align 8
   store i64 0, ptr %646, align 8
-  %654 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %95)
+  %654 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %95)
           to label %1750 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 655:                                              ; preds = %._crit_edge1604
@@ -30264,7 +30264,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %674, align 8
   %675 = getelementptr inbounds nuw i8, ptr %92, i64 24
   store i64 0, ptr %675, align 8
-  %676 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %92)
+  %676 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %92)
           to label %680 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 677:                                              ; preds = %.lr.ph1607, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1151"
@@ -30276,7 +30276,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %669, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %670, align 8
   store i64 0, ptr %671, align 8
-  %679 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %93)
+  %679 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %93)
           to label %1749 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 680:                                              ; preds = %._crit_edge1608
@@ -30329,7 +30329,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %699, align 8
   %700 = getelementptr inbounds nuw i8, ptr %90, i64 24
   store i64 0, ptr %700, align 8
-  %701 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %90)
+  %701 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %90)
           to label %705 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 702:                                              ; preds = %.lr.ph1611, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1149"
@@ -30341,7 +30341,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %694, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %695, align 8
   store i64 0, ptr %696, align 8
-  %704 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %91)
+  %704 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %91)
           to label %1748 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 705:                                              ; preds = %._crit_edge1612
@@ -30394,7 +30394,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %724, align 8
   %725 = getelementptr inbounds nuw i8, ptr %88, i64 24
   store i64 0, ptr %725, align 8
-  %726 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %88)
+  %726 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %88)
           to label %730 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 727:                                              ; preds = %.lr.ph1615, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1147"
@@ -30406,7 +30406,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %719, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %720, align 8
   store i64 0, ptr %721, align 8
-  %729 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %89)
+  %729 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %89)
           to label %1747 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 730:                                              ; preds = %._crit_edge1616
@@ -30459,7 +30459,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %749, align 8
   %750 = getelementptr inbounds nuw i8, ptr %86, i64 24
   store i64 0, ptr %750, align 8
-  %751 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %86)
+  %751 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %86)
           to label %755 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 752:                                              ; preds = %.lr.ph1619, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1145"
@@ -30471,7 +30471,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %744, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %745, align 8
   store i64 0, ptr %746, align 8
-  %754 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %87)
+  %754 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %87)
           to label %1746 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 755:                                              ; preds = %._crit_edge1620
@@ -30524,7 +30524,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %774, align 8
   %775 = getelementptr inbounds nuw i8, ptr %84, i64 24
   store i64 0, ptr %775, align 8
-  %776 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %84)
+  %776 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %84)
           to label %780 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 777:                                              ; preds = %.lr.ph1623, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1143"
@@ -30536,7 +30536,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %769, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %770, align 8
   store i64 0, ptr %771, align 8
-  %779 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %85)
+  %779 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %85)
           to label %1745 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 780:                                              ; preds = %._crit_edge1624
@@ -30589,7 +30589,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %799, align 8
   %800 = getelementptr inbounds nuw i8, ptr %82, i64 24
   store i64 0, ptr %800, align 8
-  %801 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %82)
+  %801 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %82)
           to label %805 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 802:                                              ; preds = %.lr.ph1627, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1141"
@@ -30601,7 +30601,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %794, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %795, align 8
   store i64 0, ptr %796, align 8
-  %804 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %83)
+  %804 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %83)
           to label %1744 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 805:                                              ; preds = %._crit_edge1628
@@ -30654,7 +30654,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %824, align 8
   %825 = getelementptr inbounds nuw i8, ptr %80, i64 24
   store i64 0, ptr %825, align 8
-  %826 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %80)
+  %826 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %80)
           to label %830 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 827:                                              ; preds = %.lr.ph1631, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1139"
@@ -30666,7 +30666,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %819, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %820, align 8
   store i64 0, ptr %821, align 8
-  %829 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %81)
+  %829 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %81)
           to label %1743 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 830:                                              ; preds = %._crit_edge1632
@@ -30719,7 +30719,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %849, align 8
   %850 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store i64 0, ptr %850, align 8
-  %851 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %78)
+  %851 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %78)
           to label %855 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 852:                                              ; preds = %.lr.ph1635, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1137"
@@ -30731,7 +30731,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %844, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %845, align 8
   store i64 0, ptr %846, align 8
-  %854 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %79)
+  %854 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %79)
           to label %1742 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 855:                                              ; preds = %._crit_edge1636
@@ -30804,7 +30804,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %886, align 8
   %887 = getelementptr inbounds nuw i8, ptr %76, i64 24
   store i64 0, ptr %887, align 8
-  %888 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %76)
+  %888 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %76)
           to label %892 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 889:                                              ; preds = %.lr.ph1639, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1135"
@@ -30816,7 +30816,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %875, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %876, align 8
   store i64 0, ptr %877, align 8
-  %891 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %77)
+  %891 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %77)
           to label %1741 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 892:                                              ; preds = %._crit_edge1640
@@ -30869,7 +30869,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %911, align 8
   %912 = getelementptr inbounds nuw i8, ptr %74, i64 24
   store i64 0, ptr %912, align 8
-  %913 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %74)
+  %913 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %74)
           to label %917 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 914:                                              ; preds = %.lr.ph1643, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1133"
@@ -30881,7 +30881,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %906, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %907, align 8
   store i64 0, ptr %908, align 8
-  %916 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %75)
+  %916 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %75)
           to label %1740 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 917:                                              ; preds = %._crit_edge1644
@@ -30925,7 +30925,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %930, align 8
   %931 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store i64 0, ptr %931, align 8
-  %932 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %72)
+  %932 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %72)
           to label %936 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 933:                                              ; preds = %.lr.ph1647, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1131"
@@ -30937,7 +30937,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %881, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %882, align 8
   store i64 0, ptr %883, align 8
-  %935 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %73)
+  %935 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %73)
           to label %1739 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 936:                                              ; preds = %._crit_edge1648
@@ -30990,7 +30990,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %955, align 8
   %956 = getelementptr inbounds nuw i8, ptr %70, i64 24
   store i64 0, ptr %956, align 8
-  %957 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %70)
+  %957 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %70)
           to label %961 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 958:                                              ; preds = %.lr.ph1651, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1129"
@@ -31002,7 +31002,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %950, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %951, align 8
   store i64 0, ptr %952, align 8
-  %960 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %71)
+  %960 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %71)
           to label %1738 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 961:                                              ; preds = %._crit_edge1652
@@ -31073,7 +31073,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %990, align 8
   %991 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store i64 0, ptr %991, align 8
-  %992 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %68)
+  %992 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %68)
           to label %996 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 993:                                              ; preds = %.lr.ph1655, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1127"
@@ -31085,7 +31085,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %979, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %980, align 8
   store i64 0, ptr %981, align 8
-  %995 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %69)
+  %995 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %69)
           to label %1737 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 996:                                              ; preds = %._crit_edge1656
@@ -31138,7 +31138,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1015, align 8
   %1016 = getelementptr inbounds nuw i8, ptr %66, i64 24
   store i64 0, ptr %1016, align 8
-  %1017 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %66)
+  %1017 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %66)
           to label %1021 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1018:                                             ; preds = %.lr.ph1659, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1125"
@@ -31150,7 +31150,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1010, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1011, align 8
   store i64 0, ptr %1012, align 8
-  %1020 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %67)
+  %1020 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %67)
           to label %1736 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1021:                                             ; preds = %._crit_edge1660
@@ -31203,7 +31203,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1040, align 8
   %1041 = getelementptr inbounds nuw i8, ptr %64, i64 24
   store i64 0, ptr %1041, align 8
-  %1042 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %64)
+  %1042 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %64)
           to label %1046 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1043:                                             ; preds = %.lr.ph1663, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1123"
@@ -31215,7 +31215,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1035, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1036, align 8
   store i64 0, ptr %1037, align 8
-  %1045 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %65)
+  %1045 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %65)
           to label %1735 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1046:                                             ; preds = %._crit_edge1664
@@ -31259,7 +31259,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1059, align 8
   %1060 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store i64 0, ptr %1060, align 8
-  %1061 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %62)
+  %1061 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %62)
           to label %1065 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1062:                                             ; preds = %.lr.ph1667, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1121"
@@ -31271,7 +31271,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %985, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %986, align 8
   store i64 0, ptr %987, align 8
-  %1064 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %63)
+  %1064 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %63)
           to label %1734 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1065:                                             ; preds = %._crit_edge1668
@@ -31324,7 +31324,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1084, align 8
   %1085 = getelementptr inbounds nuw i8, ptr %60, i64 24
   store i64 0, ptr %1085, align 8
-  %1086 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %60)
+  %1086 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %60)
           to label %1090 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1087:                                             ; preds = %.lr.ph1671, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1119"
@@ -31336,7 +31336,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1079, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1080, align 8
   store i64 0, ptr %1081, align 8
-  %1089 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %61)
+  %1089 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %61)
           to label %1733 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1090:                                             ; preds = %._crit_edge1672
@@ -31389,7 +31389,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1109, align 8
   %1110 = getelementptr inbounds nuw i8, ptr %58, i64 24
   store i64 0, ptr %1110, align 8
-  %1111 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %58)
+  %1111 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %58)
           to label %1115 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1112:                                             ; preds = %.lr.ph1675, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1117"
@@ -31401,7 +31401,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1104, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1105, align 8
   store i64 0, ptr %1106, align 8
-  %1114 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %59)
+  %1114 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %59)
           to label %1732 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1115:                                             ; preds = %._crit_edge1676
@@ -31472,7 +31472,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1144, align 8
   %1145 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store i64 0, ptr %1145, align 8
-  %1146 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %56)
+  %1146 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %56)
           to label %1150 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1147:                                             ; preds = %.lr.ph1679, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1115"
@@ -31484,7 +31484,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1133, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1134, align 8
   store i64 0, ptr %1135, align 8
-  %1149 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %57)
+  %1149 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %57)
           to label %1731 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1150:                                             ; preds = %._crit_edge1680
@@ -31528,7 +31528,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1163, align 8
   %1164 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store i64 0, ptr %1164, align 8
-  %1165 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %54)
+  %1165 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %54)
           to label %1169 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1166:                                             ; preds = %.lr.ph1683, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1113"
@@ -31540,7 +31540,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1139, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1140, align 8
   store i64 0, ptr %1141, align 8
-  %1168 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %55)
+  %1168 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %55)
           to label %1730 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1169:                                             ; preds = %._crit_edge1684
@@ -31593,7 +31593,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1188, align 8
   %1189 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store i64 0, ptr %1189, align 8
-  %1190 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %52)
+  %1190 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %52)
           to label %1194 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1191:                                             ; preds = %.lr.ph1687, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1111"
@@ -31605,7 +31605,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1183, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1184, align 8
   store i64 0, ptr %1185, align 8
-  %1193 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %53)
+  %1193 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %53)
           to label %1729 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1194:                                             ; preds = %._crit_edge1688
@@ -31671,7 +31671,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1221, align 8
   %1222 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i64 0, ptr %1222, align 8
-  %1223 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %50)
+  %1223 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %50)
           to label %1227 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1224:                                             ; preds = %.lr.ph1691, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit993"
@@ -31683,7 +31683,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1213, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1214, align 8
   store i64 0, ptr %1215, align 8
-  %1226 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %51)
+  %1226 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %51)
           to label %1273 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1227:                                             ; preds = %._crit_edge1692
@@ -31741,7 +31741,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1241, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1242, align 8
   store i64 0, ptr %1243, align 8
-  %1248 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %49)
+  %1248 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %49)
           to label %1272 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1249:                                             ; preds = %._crit_edge1696
@@ -31768,7 +31768,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %47, ptr %1257, align 8, !alias.scope !5523, !noalias !5526
   %1258 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store i64 1, ptr %1258, align 8, !alias.scope !5523, !noalias !5526
-  %1259 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %48)
+  %1259 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %48)
           to label %1260 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1260:                                             ; preds = %1253
@@ -31851,7 +31851,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1286, align 8
   %1287 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i64 0, ptr %1287, align 8
-  %1288 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %45)
+  %1288 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %45)
           to label %1292 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1289:                                             ; preds = %.lr.ph1699, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1109"
@@ -31863,7 +31863,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1277, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1278, align 8
   store i64 0, ptr %1279, align 8
-  %1291 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %46)
+  %1291 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %46)
           to label %1728 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1292:                                             ; preds = %._crit_edge1700
@@ -31918,7 +31918,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1312, align 8
   %1313 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 0, ptr %1313, align 8
-  %1314 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %43)
+  %1314 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %43)
           to label %1318 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1315:                                             ; preds = %.lr.ph1703, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1107"
@@ -31930,7 +31930,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1307, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1308, align 8
   store i64 0, ptr %1309, align 8
-  %1317 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %44)
+  %1317 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %44)
           to label %1727 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1318:                                             ; preds = %._crit_edge1704
@@ -31983,7 +31983,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1337, align 8
   %1338 = getelementptr inbounds nuw i8, ptr %41, i64 24
   store i64 0, ptr %1338, align 8
-  %1339 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %41)
+  %1339 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %41)
           to label %1343 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1340:                                             ; preds = %.lr.ph1707, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1105"
@@ -31995,7 +31995,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1332, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1333, align 8
   store i64 0, ptr %1334, align 8
-  %1342 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %42)
+  %1342 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %42)
           to label %1726 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1343:                                             ; preds = %._crit_edge1708
@@ -32046,7 +32046,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1357, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1358, align 8
   store i64 0, ptr %1359, align 8
-  %1362 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %40)
+  %1362 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %40)
           to label %1725 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1712:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1103", %1349
@@ -32064,7 +32064,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %38, ptr %1366, align 8, !alias.scope !5569, !noalias !5572
   %1367 = getelementptr inbounds nuw i8, ptr %39, i64 24
   store i64 1, ptr %1367, align 8, !alias.scope !5569, !noalias !5572
-  %1368 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %39)
+  %1368 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %39)
           to label %1369 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1369:                                             ; preds = %._crit_edge1712
@@ -32116,7 +32116,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1383, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1384, align 8
   store i64 0, ptr %1385, align 8
-  %1388 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %37)
+  %1388 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %37)
           to label %1724 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1716:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1101", %1375
@@ -32134,7 +32134,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %35, ptr %1392, align 8, !alias.scope !5585, !noalias !5588
   %1393 = getelementptr inbounds nuw i8, ptr %36, i64 24
   store i64 1, ptr %1393, align 8, !alias.scope !5585, !noalias !5588
-  %1394 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %36)
+  %1394 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %36)
           to label %1395 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1395:                                             ; preds = %._crit_edge1716
@@ -32186,7 +32186,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1409, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1410, align 8
   store i64 0, ptr %1411, align 8
-  %1414 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %34)
+  %1414 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %34)
           to label %1723 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1720:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1099", %1401
@@ -32204,7 +32204,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %32, ptr %1418, align 8, !alias.scope !5601, !noalias !5604
   %1419 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 1, ptr %1419, align 8, !alias.scope !5601, !noalias !5604
-  %1420 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %33)
+  %1420 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %33)
           to label %1421 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1421:                                             ; preds = %._crit_edge1720
@@ -32256,7 +32256,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1435, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1436, align 8
   store i64 0, ptr %1437, align 8
-  %1440 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %31)
+  %1440 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %31)
           to label %1722 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1724:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1097", %1427
@@ -32274,7 +32274,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %29, ptr %1444, align 8, !alias.scope !5617, !noalias !5620
   %1445 = getelementptr inbounds nuw i8, ptr %30, i64 24
   store i64 1, ptr %1445, align 8, !alias.scope !5617, !noalias !5620
-  %1446 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %30)
+  %1446 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %30)
           to label %1447 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1447:                                             ; preds = %._crit_edge1724
@@ -32326,7 +32326,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1461, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1462, align 8
   store i64 0, ptr %1463, align 8
-  %1466 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %28)
+  %1466 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %28)
           to label %1721 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 ._crit_edge1728:                                  ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1095", %1453
@@ -32344,7 +32344,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr %26, ptr %1470, align 8, !alias.scope !5633, !noalias !5636
   %1471 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 1, ptr %1471, align 8, !alias.scope !5633, !noalias !5636
-  %1472 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %27)
+  %1472 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %27)
           to label %1473 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1473:                                             ; preds = %._crit_edge1728
@@ -32388,7 +32388,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   %.sink = phi ptr [ %15, %1596 ], [ %20, %1542 ], [ %25, %1487 ]
   %1488 = phi ptr [ @anon.1b0636034553e74e02679d3fd1cb529e.765, %1596 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.760, %1542 ], [ @anon.1b0636034553e74e02679d3fd1cb529e.755, %1487 ]
   store ptr null, ptr %.sink, align 8
-  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %151, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1488) #20
+  invoke void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef 1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %151, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) @anon.1b0636034553e74e02679d3fd1cb529e.125, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %.sink, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1488) #20
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 .cont:                                            ; preds = %.invoke
@@ -32418,7 +32418,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1497, align 8
   %1498 = getelementptr inbounds nuw i8, ptr %23, i64 24
   store i64 0, ptr %1498, align 8
-  %1499 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %23)
+  %1499 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %23)
           to label %1503 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1500:                                             ; preds = %.lr.ph1731, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1093"
@@ -32430,7 +32430,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1492, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1493, align 8
   store i64 0, ptr %1494, align 8
-  %1502 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %24)
+  %1502 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %24)
           to label %1720 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1503:                                             ; preds = %._crit_edge1732
@@ -32491,7 +32491,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1525, align 8
   %1526 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i64 0, ptr %1526, align 8
-  %1527 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %21)
+  %1527 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %21)
           to label %1531 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1528:                                             ; preds = %.lr.ph1735, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1091"
@@ -32503,7 +32503,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1517, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1518, align 8
   store i64 0, ptr %1519, align 8
-  %1530 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %22)
+  %1530 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %22)
           to label %1719 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1531:                                             ; preds = %._crit_edge1736
@@ -32564,7 +32564,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1551, align 8
   %1552 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 0, ptr %1552, align 8
-  %1553 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %18)
+  %1553 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18)
           to label %1557 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1554:                                             ; preds = %.lr.ph1739, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1089"
@@ -32576,7 +32576,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1546, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1547, align 8
   store i64 0, ptr %1548, align 8
-  %1556 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %19)
+  %1556 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %19)
           to label %1718 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1557:                                             ; preds = %._crit_edge1740
@@ -32629,7 +32629,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1576, align 8
   %1577 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 0, ptr %1577, align 8
-  %1578 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %16)
+  %1578 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %16)
           to label %1582 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1579:                                             ; preds = %.lr.ph1743, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1087"
@@ -32641,7 +32641,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1571, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1572, align 8
   store i64 0, ptr %1573, align 8
-  %1581 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %17)
+  %1581 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %17)
           to label %1717 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1582:                                             ; preds = %._crit_edge1744
@@ -32704,7 +32704,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1605, align 8
   %1606 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %1606, align 8
-  %1607 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
+  %1607 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
           to label %1611 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1608:                                             ; preds = %.lr.ph1747, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1085"
@@ -32716,7 +32716,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1600, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1601, align 8
   store i64 0, ptr %1602, align 8
-  %1610 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
+  %1610 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
           to label %1716 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1611:                                             ; preds = %._crit_edge1748
@@ -32769,7 +32769,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1630, align 8
   %1631 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 0, ptr %1631, align 8
-  %1632 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11)
+  %1632 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
           to label %1636 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1633:                                             ; preds = %.lr.ph1751, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1083"
@@ -32781,7 +32781,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1625, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1626, align 8
   store i64 0, ptr %1627, align 8
-  %1635 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12)
+  %1635 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
           to label %1715 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 1636:                                             ; preds = %._crit_edge1752
@@ -32834,7 +32834,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1655, align 8
   %1656 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %1656, align 8
-  %1657 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
+  %1657 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
           to label %1661 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1658:                                             ; preds = %.lr.ph1755, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1081"
@@ -32846,7 +32846,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1650, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1651, align 8
   store i64 0, ptr %1652, align 8
-  %1660 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
+  %1660 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
           to label %1714 unwind label %.loopexit.split-lp.loopexit
 
 1661:                                             ; preds = %._crit_edge1756
@@ -32899,7 +32899,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1680, align 8
   %1681 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %1681, align 8
-  %1682 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %1682 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %1686 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.sp1525
 
 1683:                                             ; preds = %.lr.ph1759, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit1079"
@@ -32911,7 +32911,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   store ptr null, ptr %1675, align 8
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %1676, align 8
   store i64 0, ptr %1677, align 8
-  %1685 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  %1685 = invoke noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
           to label %1713 unwind label %.loopexit
 
 1686:                                             ; preds = %._crit_edge1760
@@ -32943,7 +32943,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   %1697 = add i64 %1696, 1
   store i64 %1697, ptr %168, align 8, !alias.scope !5728, !noalias !5726
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !5729
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %142)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %142)
           to label %.noexc1074 unwind label %149
 
 .noexc1074:                                       ; preds = %1692
@@ -32964,7 +32964,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4), !noalias !5729
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %142)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !5738
-  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %144)
+  call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %144)
   %1706 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %1707 = load i64, ptr %1706, align 8, !range !27, !noalias !5738, !noundef !5
   %.not.i.i.i.i1076 = icmp eq i64 %1707, 0
@@ -33564,7 +33564,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit777: ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4a01665a6a20E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator24get_parse_action_list_id17h691c4a01665a6a20E(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { i64, ptr }, i64 }, i8, [7 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5747)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5750)
@@ -33668,7 +33668,7 @@ select.unfold:                                    ; preds = %21, %.select.unfold
   store i64 %51, ptr %.sroa.5.0..sroa_idx, align 8
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i8 %46, ptr %57, align 8
-  %58 = call { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h43d5f0914355906fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %47)
+  %58 = call { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h43d5f0914355906fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %4, i64 noundef %47)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4)
   %59 = add i64 %51, 1
   %60 = load i64, ptr %2, align 8, !noundef !5
@@ -33681,7 +33681,7 @@ select.unfold:                                    ; preds = %21, %.select.unfold
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef i64 @_ZN15tree_sitter_cli8generate6render9Generator16get_field_map_id17h7075d6c83239afc1E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef i64 @_ZN15tree_sitter_cli8generate6render9Generator16get_field_map_id17h7075d6c83239afc1E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }, align 8
   %5 = alloca { i64, { { i64, ptr }, i64 } }, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -33714,7 +33714,7 @@ define internal fastcc noundef i64 @_ZN15tree_sitter_cli8generate6render9Generat
   %.val.i.i = load ptr, ptr %21, align 8, !noalias !5806, !nonnull !5, !noundef !5
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4), !noalias !5807
   %22 = getelementptr inbounds { { { { i64, ptr }, i64 } }, { i64, i8 } }, ptr %.val.i.i, i64 %13
-  invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h73dd4b7a3b2a9a61E"(ptr noalias nocapture noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 dereferenceable(56) %4, ptr noundef nonnull readonly align 8 %.val.i.i, ptr noundef nonnull readonly %22, ptr noundef nonnull readonly align 8 %15, ptr noundef nonnull readonly %16)
+  invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h73dd4b7a3b2a9a61E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %4, ptr noundef nonnull readonly align 8 %.val.i.i, ptr noundef nonnull readonly %22, ptr noundef nonnull readonly align 8 %15, ptr noundef nonnull readonly %16)
           to label %.noexc unwind label %45
 
 .noexc:                                           ; preds = %"_ZN15tree_sitter_cli8generate6render9Generator16get_field_map_id28_$u7b$$u7b$closure$u7d$$u7d$17h4050432129a71491E.exit.i"
@@ -33802,7 +33802,7 @@ define internal fastcc noundef i64 @_ZN15tree_sitter_cli8generate6render9Generat
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17external_token_id17h99770f24502c546bE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17external_token_id17h99770f24502c546bE(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr nonnull %.8.val, i64 %.16.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = alloca { { { i64, ptr }, i64 } }, align 8
@@ -33811,7 +33811,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17ext
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.8.val, i64 noundef %.16.val)
+  call fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %.8.val, i64 noundef %.16.val)
   store ptr %4, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..fmt..Display$GT$3fmt17h4c603e1027e347b1E", ptr %7, align 8
@@ -33825,7 +33825,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17ext
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8, !noalias !5827
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8, !noalias !5827
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3)
           to label %10 unwind label %8
 
 8:                                                ; preds = %1
@@ -33837,7 +33837,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17ext
 10:                                               ; preds = %1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !5816
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !5828
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
           to label %.noexc8 unwind label %18
 
 .noexc8:                                          ; preds = %10
@@ -33880,7 +33880,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator17ext
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13034b3fE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i8, [7 x i8] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(760) %1, i64 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN15tree_sitter_cli8generate6render9Generator19metadata_for_symbol17h707d123d13034b3fE(ptr noalias noundef writeonly sret({ { ptr, i64 }, i8, [7 x i8] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(760) %1, i64 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   switch i8 %3, label %5 [
     i8 0, label %6
     i8 1, label %42
@@ -33971,7 +33971,7 @@ define hidden void @_ZN15tree_sitter_cli8generate6render9Generator19metadata_for
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator19sanitize_identifier17ha565836a5ac5d634E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -34487,7 +34487,7 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit: ; preds = %168, %.noexc72
   store i64 1, ptr %.sroa.88.0..sroa_idx, align 8, !noalias !5875
   store ptr %13, ptr %.sroa.10.0..sroa_idx9, align 8, !noalias !5875
   store i64 1, ptr %.sroa.1110.0..sroa_idx, align 8, !noalias !5875
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %16, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit unwind label %.loopexit
 
 180:                                              ; preds = %.thread30
@@ -34513,7 +34513,7 @@ _ZN5alloc6string6String4push17hda7d9bb0deee805fE.exit: ; preds = %168, %.noexc72
   store i64 1, ptr %.sroa.814.0..sroa_idx, align 8, !noalias !5887
   store ptr %8, ptr %.sroa.1015.0..sroa_idx, align 8, !noalias !5887
   store i64 1, ptr %.sroa.1116.0..sroa_idx, align 8, !noalias !5887
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit81 unwind label %.loopexit
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit81:  ; preds = %180
@@ -34554,7 +34554,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit81:  ; preds = %180
   %195 = add i64 %194, %182
   store i64 %195, ptr %.sroa.538.0..sroa_idx, align 8, !alias.scope !5897, !noalias !5895
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !5898
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %12)
           to label %.noexc85 unwind label %.loopexit
 
 .noexc85:                                         ; preds = %190
@@ -34617,7 +34617,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %179
   %217 = add i64 %216, %204
   store i64 %217, ptr %.sroa.538.0..sroa_idx, align 8, !alias.scope !5916, !noalias !5914
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !5917
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %17)
           to label %.noexc91 unwind label %.loopexit
 
 .noexc91:                                         ; preds = %212
@@ -34641,7 +34641,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %179
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15sanitize_string17h2c45d535d173d735E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15sanitize_string17h2c45d535d173d735E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -35126,7 +35126,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15san
   store i64 1, ptr %.sroa.84.0..sroa_idx, align 8, !noalias !6050
   store ptr %20, ptr %.sroa.10.0..sroa_idx5, align 8, !noalias !6050
   store i64 1, ptr %.sroa.116.0..sroa_idx, align 8, !noalias !6050
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %23, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit unwind label %83
 
 214:                                              ; preds = %211
@@ -35156,7 +35156,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15san
   store i64 1, ptr %.sroa.810.0..sroa_idx, align 8, !noalias !6062
   store ptr %15, ptr %.sroa.1011.0..sroa_idx, align 8, !noalias !6062
   store i64 1, ptr %.sroa.1112.0..sroa_idx, align 8, !noalias !6062
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit107 unwind label %83
 
 217:                                              ; preds = %214
@@ -35186,7 +35186,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator15san
   store i64 1, ptr %.sroa.816.0..sroa_idx, align 8, !noalias !6074
   store ptr %10, ptr %.sroa.1017.0..sroa_idx, align 8, !noalias !6074
   store i64 1, ptr %.sroa.1118.0..sroa_idx, align 8, !noalias !6074
-  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %_ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit114 unwind label %83
 
 _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit114: ; preds = %218
@@ -35227,7 +35227,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit114: ; preds = %218
   %233 = add i64 %232, %220
   store i64 %233, ptr %.sroa.543.0..sroa_idx, align 8, !alias.scope !6084, !noalias !6082
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !6085
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14)
           to label %.noexc118 unwind label %83
 
 .noexc118:                                        ; preds = %228
@@ -35290,7 +35290,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit107: ; preds = %216
   %255 = add i64 %254, %242
   store i64 %255, ptr %.sroa.543.0..sroa_idx, align 8, !alias.scope !6103, !noalias !6101
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !6104
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %19)
           to label %.noexc124 unwind label %83
 
 .noexc124:                                        ; preds = %250
@@ -35347,7 +35347,7 @@ _ZN5alloc3fmt6format17h55b1a8bf61a7c713E.exit:    ; preds = %213
   %275 = add i64 %274, %262
   store i64 %275, ptr %.sroa.543.0..sroa_idx, align 8, !alias.scope !6122, !noalias !6120
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !6123
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %24)
           to label %.noexc131 unwind label %83
 
 .noexc131:                                        ; preds = %270
@@ -35407,7 +35407,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator13add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store i64 0, ptr %20, align 8
-  %21 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14)
+  %21 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %21, label %22, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit"
@@ -35431,7 +35431,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator13add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store i64 0, ptr %27, align 8
-  %28 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %13)
+  %28 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %13)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %28, label %29, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit16"
@@ -35455,7 +35455,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator13add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i64 0, ptr %34, align 8
-  %35 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %12)
+  %35 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %12)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %35, label %36, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit17"
@@ -35479,7 +35479,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator13add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 0, ptr %41, align 8
-  %42 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11)
+  %42 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %42, label %43, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit18"
@@ -35503,7 +35503,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator13add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 24
   store i64 0, ptr %48, align 8
-  %49 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %10)
+  %49 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %49, label %50, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit19"
@@ -35527,7 +35527,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator13add
   store ptr @anon.1b0636034553e74e02679d3fd1cb529e.12, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %55, align 8
-  %56 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9)
+  %56 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %56, label %57, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit20"
@@ -35563,7 +35563,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator13add
   store ptr %7, ptr %65, align 8, !alias.scope !6132, !noalias !6135
   %66 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %66, align 8, !alias.scope !6132, !noalias !6135
-  %67 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  %67 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %67, label %68, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit21"
@@ -35594,7 +35594,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator13add
   store ptr %5, ptr %73, align 8, !alias.scope !6138, !noalias !6141
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 1, ptr %74, align 8, !alias.scope !6138, !noalias !6141
-  %75 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6)
+  %75 = call noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.6, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %3)
   br i1 %75, label %76, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h3b3a45854500a51fE.exit22"
@@ -35611,7 +35611,7 @@ define internal fastcc void @_ZN15tree_sitter_cli8generate6render9Generator13add
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN15tree_sitter_cli8generate6render13render_c_code17hee5253b6b64fd4feE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef align 8 dereferenceable(104) %3, ptr noalias nocapture noundef align 8 dereferenceable(24) %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5, i64 %6, i8 noundef %7, ptr noalias nocapture noundef align 8 dereferenceable(184) %8, ptr noalias nocapture noundef align 8 dereferenceable(48) %9, ptr noalias nocapture noundef align 8 dereferenceable(48) %10, i64 noundef %11) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN15tree_sitter_cli8generate6render13render_c_code17hee5253b6b64fd4feE(ptr noalias noundef writeonly sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, ptr noalias noundef align 8 captures(none) dereferenceable(104) %3, ptr noalias noundef align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5, i64 %6, i8 noundef %7, ptr noalias noundef align 8 captures(none) dereferenceable(184) %8, ptr noalias noundef align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef align 8 captures(none) dereferenceable(48) %10, i64 noundef %11) unnamed_addr #0 personality ptr @rust_eh_personality {
   %13 = alloca {}, align 1
   %14 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
   %15 = alloca { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, align 8
@@ -35671,7 +35671,7 @@ define hidden void @_ZN15tree_sitter_cli8generate6render13render_c_code17hee5253
   store ptr %26, ptr %41, align 8, !alias.scope !6144, !noalias !6147
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 24
   store i64 3, ptr %42, align 8, !alias.scope !6144, !noalias !6147
-  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.906) #20
+  invoke void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b0636034553e74e02679d3fd1cb529e.906) #20
           to label %44 unwind label %.thread129
 
 .thread129:                                       ; preds = %33
@@ -35938,7 +35938,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i79: 
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
-  call fastcc void @_ZN15tree_sitter_cli8generate6render9Generator8generate17h78715c34876b49e6E(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(760) %25)
+  call fastcc void @_ZN15tree_sitter_cli8generate6render9Generator8generate17h78715c34876b49e6E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(760) %25)
   call void @llvm.lifetime.end.p0(i64 760, ptr nonnull %25)
   ret void
 
@@ -36003,10 +36003,10 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i79: 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
@@ -36021,16 +36021,16 @@ declare void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() unnamed
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h952e2c7f9e287bb9E(ptr noalias noundef align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare hidden noundef zeroext i1 @_ZN4core3fmt5Write9write_fmt17h952e2c7f9e287bb9E(ptr noalias noundef align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17hc9733ab76fb3c52cE"(ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @memcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
+declare void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h54d4af2b1bb3d966E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -36048,7 +36048,7 @@ declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_i
 declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias nocapture noundef sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17h98b3f23304827ac9E"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #0
@@ -36096,22 +36096,22 @@ declare hidden void @"_ZN4core3ptr65drop_in_place$LT$tree_sitter_cli..generate..
 declare void @_ZN4core6option13expect_failed17hc85eb6037a3050f7E(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
 
 ; Function Attrs: nonlazybind uwtable
-declare void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias nocapture noundef sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+declare void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hebbb1fc2363025c1E"(ptr noalias noundef sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h3fa026414cfc9ef4E"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(48), i64 noundef, i8 noundef, ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h3fa026414cfc9ef4E"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 dereferenceable(48), i64 noundef, i8 noundef, ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h80100b17880edb08E"(ptr noalias noundef align 8 dereferenceable(48), i64 noundef, i8 noundef, i64 noundef, i8 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare noundef zeroext i1 @_ZN4core3fmt5write17h3ed6aeaa977c8e45E(ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hd4e120d68e8c14a8E"(ptr noalias noundef align 8 dereferenceable(48), i64 noundef, i8 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare hidden void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef, ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
+declare hidden void @_ZN4core9panicking13assert_failed17h4b7d493fcccb59bcE(i8 noundef, ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17ha3bc4909a91288ecE"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -36132,19 +36132,19 @@ declare hidden noundef zeroext i1 @"_ZN52_$LT$$RF$mut$u20$T$u20$as$u20$core..fmt
 declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17haa143d038a2f7e29E"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN15tree_sitter_cli8generate9char_tree13CharacterTree11from_ranges17h14d641c7639d446fE(ptr noalias nocapture noundef sret({ [4 x i32], i32, [1 x i32] }) align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 4, i64 noundef) unnamed_addr #0
+declare hidden void @_ZN15tree_sitter_cli8generate9char_tree13CharacterTree11from_ranges17h14d641c7639d446fE(ptr noalias noundef sret({ [4 x i32], i32, [1 x i32] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 4, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN15tree_sitter_cli8generate5rules8TokenSet4iter17hd36df5225347388dE(ptr noalias nocapture noundef sret({ { i64, [10 x i64] }, { i64, i8 } }) align 8 dereferenceable(104), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+declare hidden void @_ZN15tree_sitter_cli8generate5rules8TokenSet4iter17hd36df5225347388dE(ptr noalias noundef sret({ { i64, [10 x i64] }, { i64, i8 } }) align 8 captures(none) dereferenceable(104), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h43d5f0914355906fE"(ptr noalias noundef align 8 dereferenceable(48), ptr noalias nocapture noundef align 8 dereferenceable(32), i64 noundef) unnamed_addr #0
+declare hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h43d5f0914355906fE"(ptr noalias noundef align 8 dereferenceable(48), ptr noalias noundef align 8 captures(none) dereferenceable(32), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN5alloc6string6String5drain17h454cf8b80d20879fE(ptr noalias nocapture noundef sret({ { ptr, ptr }, ptr, i64, i64 }) align 8 dereferenceable(40), ptr noalias noundef align 8 dereferenceable(24), i64 noundef) unnamed_addr #0
+declare hidden void @_ZN5alloc6string6String5drain17h454cf8b80d20879fE(ptr noalias noundef sret({ { ptr, ptr }, ptr, i64, i64 }) align 8 captures(none) dereferenceable(40), ptr noalias noundef align 8 dereferenceable(24), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h938ed0c993448bbbE"(ptr noalias noundef align 8 dereferenceable(48), ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h938ed0c993448bbbE"(ptr noalias noundef align 8 dereferenceable(48), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$u32$GT$3fmt17h8bc82e815ecfb0b7E"(ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
@@ -36156,10 +36156,10 @@ declare noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Disp
 declare noundef zeroext i1 @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17he4f8681ce2737fc3E"(ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h55347c500b6769bbE.llvm.13013766950239737229"(ptr noundef nonnull align 8, ptr noalias noundef align 8 dereferenceable_or_null(24)) unnamed_addr #0
@@ -36195,22 +36195,22 @@ declare hidden void @_ZN4core5slice4sort7recurse17h5f7815451da1f45cE.llvm.146754
 declare hidden void @_ZN4core5slice4sort7recurse17h7d631aca80b45a51E.llvm.14675458225591540946(ptr noalias noundef nonnull align 8, i64 noundef, ptr noalias noundef align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable_or_null(16), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h73dd4b7a3b2a9a61E"(ptr noalias nocapture noundef sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 dereferenceable(56), ptr noundef nonnull, ptr noundef, ptr noundef nonnull, ptr noundef) unnamed_addr #0
+declare hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h73dd4b7a3b2a9a61E"(ptr noalias noundef sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56), ptr noundef nonnull, ptr noundef, ptr noundef nonnull, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h8bf51ac302d3755bE.llvm.11948190557966450743(ptr noalias noundef align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5b7c0e1625c728ecE.llvm.4798233110106368611"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #2
+declare hidden void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h5b7c0e1625c728ecE.llvm.4798233110106368611"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hc33e59317b3172e0E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #0
+declare hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17hc33e59317b3172e0E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h6c9775291d655438E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias nocapture noundef align 8 dereferenceable(56)) unnamed_addr #0
+declare hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h6c9775291d655438E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias noundef align 8 captures(none) dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h837be00499997e5dE"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #0
+declare hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_no_grow17h837be00499997e5dE"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h806c2d75f94c2f57E.llvm.4798233110106368611"(ptr noalias noundef align 2 dereferenceable(2)) unnamed_addr #2
@@ -36219,13 +36219,13 @@ declare hidden { i64, i64 } @"_ZN95_$LT$hashbrown..raw..bitmask..BitMaskIter$u20
 declare hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h2e3e2e758bb4f45aE.llvm.4798233110106368611"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17ha68d57965f383987E"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40), ptr noalias noundef align 8 dereferenceable(48), i64 noundef, i8 noundef) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17ha68d57965f383987E"(ptr noalias noundef sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40), ptr noalias noundef align 8 dereferenceable(48), i64 noundef, i8 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17haa17f335b276f419E"(ptr noalias nocapture noundef sret({ i64, [3 x i64] }) align 8 dereferenceable(32), ptr noalias noundef align 8 dereferenceable(48), i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17haa17f335b276f419E"(ptr noalias noundef sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32), ptr noalias noundef align 8 dereferenceable(48), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17heb902d254b893e18E"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40), ptr noalias noundef align 8 dereferenceable(48), i64 noundef, i8 noundef) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17heb902d254b893e18E"(ptr noalias noundef sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40), ptr noalias noundef align 8 dereferenceable(48), i64 noundef, i8 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17h28ef92f5508f8aaaE"(ptr noalias noundef readonly align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
@@ -36291,7 +36291,7 @@ declare hidden void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..Vec$LT$tree_si
 declare hidden void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h80292f77b629338bE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h843100ac3ff507c4E.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haede868bec369f27E.llvm.15559585470061597875"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
@@ -36300,7 +36300,7 @@ declare hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 declare hidden void @"_ZN4core3ptr147drop_in_place$LT$alloc..vec..Vec$LT$$LP$tree_sitter_cli..generate..nfa..CharacterSet$C$tree_sitter_cli..generate..tables..AdvanceAction$RP$$GT$$GT$17hf8ad32e3398eb2d7E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7892d52ed27f36f2E.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7892d52ed27f36f2E.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr104drop_in_place$LT$alloc..vec..Vec$LT$$RF$tree_sitter_cli..generate..render..LargeCharacterSetInfo$GT$$GT$17h35968610bba744a0E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
@@ -36321,7 +36321,7 @@ declare hidden void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..
 declare hidden void @"_ZN4core3ptr90drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter_cli..generate..tables..ParseAction$GT$$GT$17ha049cdeed305ecf9E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb4764bed1c045d4fE.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb4764bed1c045d4fE.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr113drop_in_place$LT$std..collections..hash..map..HashMap$LT$tree_sitter_cli..generate..rules..Symbol$C$usize$GT$$GT$17h4e055aeeba546660E"(ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #0
@@ -36345,7 +36345,7 @@ declare hidden void @"_ZN4core3ptr124drop_in_place$LT$alloc..vec..Vec$LT$$LP$all
 declare hidden void @"_ZN4core3ptr131drop_in_place$LT$alloc..raw_vec..RawVec$LT$$LP$alloc..string..String$C$tree_sitter_cli..generate..tables..FieldLocation$RP$$GT$$GT$17h823be45bfc821a47E.llvm.15559585470061597875"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9bf41c5ba1b6567eE.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h9bf41c5ba1b6567eE.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb88a42824e4a752dE.llvm.15559585470061597875"(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
@@ -36372,16 +36372,16 @@ declare hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
 declare hidden void @"_ZN4core3ptr147drop_in_place$LT$std..collections..hash..map..HashMap$LT$tree_sitter_cli..generate..rules..Symbol$C$tree_sitter_cli..generate..rules..Alias$GT$$GT$17h6f1c74c6e86cc742E"(ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hda0f7cf11fa6f538E.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hda0f7cf11fa6f538E.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr148drop_in_place$LT$std..collections..hash..map..HashMap$LT$tree_sitter_cli..generate..rules..Symbol$C$tree_sitter_cli..generate..rules..Symbol$GT$$GT$17h96db35a857b226c7E"(ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2b3980590787b184E.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h2b3980590787b184E.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hffedd7d71b6b92edE.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hffedd7d71b6b92edE.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr163drop_in_place$LT$alloc..vec..Vec$LT$$LP$usize$C$alloc..vec..Vec$LT$$LP$alloc..string..String$C$tree_sitter_cli..generate..tables..FieldLocation$RP$$GT$$RP$$GT$$GT$17ha9c1fd0623fc0f7bE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
@@ -36405,13 +36405,13 @@ declare void @"_ZN62_$LT$alloc..string..Drain$u20$as$u20$core..ops..drop..Drop$G
 declare hidden void @"_ZN4core3ptr49drop_in_place$LT$alloc..vec..Vec$LT$usize$GT$$GT$17h817ecf1b287bccbfE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h18fc9ab6cfe121caE.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr87drop_in_place$LT$alloc..vec..Vec$LT$tree_sitter_cli..generate..tables..LexState$GT$$GT$17h1ccfd835965944eeE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a7d1584ffc11e60E.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h7a7d1584ffc11e60E.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$GT$17h258e09d99ad34bbaE"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
@@ -36423,7 +36423,7 @@ declare hidden void @"_ZN4core3ptr66drop_in_place$LT$tree_sitter_cli..generate..
 declare hidden void @"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u32$GT$$GT$17hbeefc529703e514aE"(ptr noalias noundef align 8 dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4da6c28aa0034bf6E.llvm.15559585470061597875"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h4da6c28aa0034bf6E.llvm.15559585470061597875"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr71drop_in_place$LT$tree_sitter_cli..generate..grammars..SyntaxGrammar$GT$17h40823c311d831c85E"(ptr noalias noundef align 8 dereferenceable(184)) unnamed_addr #0
@@ -36447,16 +36447,16 @@ declare hidden { i64, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17he6
 declare hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hec4ef6a236f245d9E.llvm.17454970623020605724"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h26703e180f2cb085E.llvm.17454970623020605724"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64, {} }) align 8 dereferenceable(24), ptr noundef nonnull, i64 noundef) unnamed_addr #2
+declare hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17h26703e180f2cb085E.llvm.17454970623020605724"(ptr noalias noundef sret({ { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(24), ptr noundef nonnull, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$7next_kv17h235c3c0ac50160b3E"(ptr noalias nocapture noundef sret({ ptr, [2 x i64] }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN5alloc11collections5btree8navigate227_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..Leaf$GT$$C$alloc..collections..btree..node..marker..Edge$GT$$GT$7next_kv17h235c3c0ac50160b3E"(ptr noalias noundef sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h47aaccccb5bae479E"(ptr noalias nocapture noundef sret({ { ptr, i64 }, i64, {} }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc..collections..btree..node..Handle$LT$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$C$alloc..collections..btree..node..marker..KV$GT$$GT$14next_leaf_edge17h47aaccccb5bae479E"(ptr noalias noundef sret({ { ptr, i64 }, i64, {} }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17h9fb91dd0003313d8E"(ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Immut$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$7into_kv17h9fb91dd0003313d8E"(ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h3e36ecb9762fc236E.llvm.18097807149992804452"(ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #2
@@ -36468,13 +36468,13 @@ declare hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice
 declare hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h31514493b943f15eE"(i64 noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6insert13assert_failed17hea34bd98052bae2aE"(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #5
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha530b6d1f6a18a79E.llvm.1408760718162522189"(ptr noalias nocapture noundef sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 8, i64 noundef) unnamed_addr #2
+declare hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17ha530b6d1f6a18a79E.llvm.1408760718162522189"(ptr noalias noundef sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 8, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9784c901d6a629cfE.llvm.1408760718162522189"(ptr noalias noundef align 8 dereferenceable(24), ptr noundef nonnull, ptr noundef) unnamed_addr #0
@@ -36483,19 +36483,19 @@ declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17h9784c9
 declare hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17ha829aeeab839ba79E.llvm.1408760718162522189"(ptr noalias noundef align 8 dereferenceable(24), ptr noundef nonnull, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h0c4c948184a3c9c9E.llvm.1408760718162522189"(ptr noalias nocapture noundef sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(56)) unnamed_addr #0
+declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h0c4c948184a3c9c9E.llvm.1408760718162522189"(ptr noalias noundef sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9cc1afdff01c122cE.llvm.1408760718162522189"(ptr noalias nocapture noundef sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h9cc1afdff01c122cE.llvm.1408760718162522189"(ptr noalias noundef sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h935c2773829a0778E.llvm.1408760718162522189"(ptr noalias nocapture noundef sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24), ptr noundef nonnull, ptr noundef) unnamed_addr #0
+declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h935c2773829a0778E.llvm.1408760718162522189"(ptr noalias noundef sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24), ptr noundef nonnull, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8f59e7c4ef4a6182E.llvm.1408760718162522189"(ptr noalias nocapture noundef sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(40)) unnamed_addr #0
+declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h8f59e7c4ef4a6182E.llvm.1408760718162522189"(ptr noalias noundef sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h66ed028d3495139dE.llvm.1408760718162522189"(ptr noalias nocapture noundef sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(64)) unnamed_addr #0
+declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h66ed028d3495139dE.llvm.1408760718162522189"(ptr noalias noundef sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #11
@@ -36519,10 +36519,10 @@ declare hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3
 declare hidden noundef i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hafc75c1be4c6b7a4E.llvm.4513845701186752324(ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h198ebca6089e0509E.llvm.4513845701186752324"(ptr noalias nocapture noundef sret({ i64, [2 x i64] }) align 8 dereferenceable(24), ptr noalias nocapture noundef align 8 dereferenceable(32)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15into_allocation17h198ebca6089e0509E.llvm.4513845701186752324"(ptr noalias noundef sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17hf9fb29035c672816E.llvm.4513845701186752324"(ptr noalias nocapture noundef sret({ ptr, ptr, ptr, i16, [3 x i16] }) align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17hf9fb29035c672816E.llvm.4513845701186752324"(ptr noalias noundef sret({ ptr, ptr, ptr, i16, [3 x i16] }) align 8 captures(none) dereferenceable(32), ptr noundef, ptr noundef nonnull, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hf1720a18def5c7dfE.llvm.4513845701186752324(ptr noalias noundef align 8 dereferenceable(32)) unnamed_addr #0
@@ -36570,7 +36570,7 @@ declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$5clear17h40f1937e7
 declare hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash17h547f6eb31d34c480E.llvm.4513845701186752324"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #14
 
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

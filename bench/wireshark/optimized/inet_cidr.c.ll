@@ -18,7 +18,7 @@ define i32 @ws_ipv4_get_subnet_mask(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ws_ipv4_addr_and_mask_init(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @ws_ipv4_addr_and_mask_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @llvm.bswap.i32(i32 %1)
   store i32 %4, ptr %0, align 4
   %5 = zext i32 %2 to i64
@@ -30,7 +30,7 @@ define void @ws_ipv4_addr_and_mask_init(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @ws_ipv4_addr_and_mask_contains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define zeroext i1 @ws_ipv4_addr_and_mask_contains(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call i32 @llvm.bswap.i32(i32 %3)
   %.val = load i32, ptr %0, align 4
@@ -43,7 +43,7 @@ define zeroext i1 @ws_ipv4_addr_and_mask_contains(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define zeroext i1 @ws_ipv6_addr_and_prefix_contains(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = alloca %struct.ipv6_addr_and_prefix, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -112,7 +112,7 @@ compare_ipv6.exit:                                ; preds = %12, %._crit_edge.i,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5

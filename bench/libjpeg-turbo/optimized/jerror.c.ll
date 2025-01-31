@@ -158,7 +158,7 @@ define noundef ptr @jpeg_std_error(ptr noundef returned writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: cold noreturn nounwind uwtable
 define internal void @error_exit(ptr noundef %0) #2 {
@@ -231,7 +231,7 @@ define internal void @output_message(ptr noundef %0) #4 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @format_message(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
+define internal void @format_message(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i32, ptr %4, align 8
@@ -337,7 +337,7 @@ define internal void @format_message(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @reset_error_mgr(ptr nocapture noundef readonly %0) #6 {
+define internal void @reset_error_mgr(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store i64 0, ptr %3, align 8
@@ -353,10 +353,10 @@ declare void @jpeg_destroy(ptr noundef) local_unnamed_addr #7
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

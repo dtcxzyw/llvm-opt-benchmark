@@ -85,7 +85,7 @@ define dso_local void @execute(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -93,7 +93,7 @@ declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare i32 @fork() local_unnamed_addr #1

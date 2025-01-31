@@ -42,7 +42,7 @@ $_ZTV13lua_exception = comdat any
 @switch.table._ZNK13lua_exception4whatEv = private unnamed_addr constant [4 x ptr] [ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8], align 8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_Z20luaD_rawrunprotectedP9lua_StatePFvS0_PvES1_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_Z20luaD_rawrunprotectedP9lua_StatePFvS0_PvES1_(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   invoke void %1(ptr noundef %0, ptr noundef %2)
           to label %35 unwind label %4
 
@@ -1310,7 +1310,7 @@ define dso_local noundef i32 @_Z9lua_breakP9lua_State(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z15lua_isyieldableP9lua_State(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define dso_local noundef range(i32 0, 2) i32 @_Z15lua_isyieldableP9lua_State(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i16, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 82
@@ -1321,7 +1321,7 @@ define dso_local noundef range(i32 0, 2) i32 @_Z15lua_isyieldableP9lua_State(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_Z10luaD_pcallP9lua_StatePFvS0_PvES1_ll(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden noundef i32 @_Z10luaD_pcallP9lua_StatePFvS0_PvES1_ll(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load i16, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1503,7 +1503,7 @@ _ZL19restore_stack_limitP9lua_State.exit:         ; preds = %83, %_ZL11seterroro
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL11callerrfuncP9lua_StatePv(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_ZL11callerrfuncP9lua_StatePv(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -16
@@ -1607,7 +1607,7 @@ declare hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef, ptr nou
 declare hidden void @_Z12luau_poscallP9lua_StateP10lua_TValue(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13

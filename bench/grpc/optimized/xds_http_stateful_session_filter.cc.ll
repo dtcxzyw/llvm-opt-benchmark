@@ -197,19 +197,19 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define { i64, ptr } @_ZNK9grpc_core28XdsHttpStatefulSessionFilter15ConfigProtoNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, ptr } @_ZNK9grpc_core28XdsHttpStatefulSessionFilter15ConfigProtoNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   ret { i64, ptr } { i64 65, ptr @.str }
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define { i64, ptr } @_ZNK9grpc_core28XdsHttpStatefulSessionFilter23OverrideConfigProtoNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, ptr } @_ZNK9grpc_core28XdsHttpStatefulSessionFilter23OverrideConfigProtoNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   ret { i64, ptr } { i64 73, ptr @.str.1 }
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter14PopulateSymtabEP11upb_DefPool(ptr nocapture nonnull readnone align 8 %this, ptr noundef %symtab) unnamed_addr #4 align 2 {
+define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter14PopulateSymtabEP11upb_DefPool(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %symtab) unnamed_addr #4 align 2 {
 entry:
   %call.i = tail call zeroext i1 @_upb_DefPool_LoadDefInit(ptr noundef %symtab, ptr noundef nonnull @envoy_extensions_filters_http_stateful_session_v3_stateful_session_proto_upbdefinit)
   %call1.i = tail call ptr @upb_DefPool_FindMessageByName(ptr noundef %symtab, ptr noundef nonnull @.str)
@@ -221,7 +221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter20GenerateFilterConfigERKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias sret(%"class.std::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %extension, ptr noundef %errors) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter20GenerateFilterConfigERKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias sret(%"class.std::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef readonly captures(none) %extension, ptr noundef %errors) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %class.anon, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i = alloca %class.anon, align 1
@@ -376,7 +376,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ValidateStatefulSessionB5cxx11ERKNS_15XdsResourceType13DecodeContextEPK65envoy_extensions_filters_http_stateful_session_v3_StatefulSessionPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %stateful_session, ptr noundef nonnull %errors) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_123ValidateStatefulSessionB5cxx11ERKNS_15XdsResourceType13DecodeContextEPK65envoy_extensions_filters_http_stateful_session_v3_StatefulSessionPNS_16ValidationErrorsE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef nonnull readonly captures(none) %stateful_session, ptr noundef nonnull %errors) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i144 = alloca %"class.std::allocator.53", align 1
   %ref.tmp.i.i.i.i129 = alloca %class.anon, align 1
@@ -1097,7 +1097,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter28GenerateFilterConfigOverrideERKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias sret(%"class.std::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr nocapture noundef readonly %extension, ptr noundef %errors) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter28GenerateFilterConfigOverrideERKNS_15XdsResourceType13DecodeContextENS_12XdsExtensionEPNS_16ValidationErrorsE(ptr noalias sret(%"class.std::optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %context, ptr noundef readonly captures(none) %extension, ptr noundef %errors) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %class.anon, align 1
   %ref.tmp.i.i.i.i.i.i.i.i.i.i.i.i = alloca %class.anon, align 1
@@ -1399,13 +1399,13 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK9grpc_core28XdsHttpStatefulSessionFilter14channel_filterEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define noundef nonnull ptr @_ZNK9grpc_core28XdsHttpStatefulSessionFilter14channel_filterEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret ptr @_ZN9grpc_core21StatefulSessionFilter7kFilterE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter17ModifyChannelArgsERKNS_11ChannelArgsE(ptr noalias sret(%"class.grpc_core::ChannelArgs") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter17ModifyChannelArgsERKNS_11ChannelArgsE(ptr noalias sret(%"class.grpc_core::ChannelArgs") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEEi(ptr sret(%"class.grpc_core::ChannelArgs") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %args, i64 50, ptr nonnull @.str.5, i32 noundef 1)
   ret void
@@ -1414,7 +1414,7 @@ entry:
 declare void @_ZNK9grpc_core11ChannelArgs3SetESt17basic_string_viewIcSt11char_traitsIcEEi(ptr sret(%"class.grpc_core::ChannelArgs") align 8, ptr noundef nonnull align 8 dereferenceable(8), i64, ptr, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter21GenerateServiceConfigERKNS_17XdsHttpFilterImpl12FilterConfigEPS3_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(72) %hcm_filter_config, ptr noundef %filter_config_override) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core28XdsHttpStatefulSessionFilter21GenerateServiceConfigERKNS_17XdsHttpFilterImpl12FilterConfigEPS3_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(72) %hcm_filter_config, ptr noundef %filter_config_override) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.grpc_core::XdsHttpFilterImpl::ServiceConfigJsonEntry", align 8
   %ref.tmp4 = alloca %"class.std::allocator.53", align 1
@@ -1574,7 +1574,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare zeroext i1 @_upb_DefPool_LoadDefInit(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -1583,7 +1583,7 @@ declare ptr @upb_DefPool_FindMessageByName(ptr noundef, ptr noundef) local_unnam
 declare i32 @upb_Decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare ptr @_upb_Arena_SlowMalloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -1849,7 +1849,7 @@ return:                                           ; preds = %if.then.i.i.i.i, %_
 declare void @_ZN9grpc_core19ExtractXdsExtensionERKNS_15XdsResourceType13DecodeContextEPK19google_protobuf_AnyPNS_16ValidationErrorsE(ptr sret(%"class.std::optional.64") align 8, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -3204,13 +3204,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

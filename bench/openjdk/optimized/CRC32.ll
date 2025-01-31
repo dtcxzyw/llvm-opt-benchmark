@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_util_zip_CRC32_update(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Java_java_util_zip_CRC32_update(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1 x i8], align 1
   %6 = trunc i32 %3 to i8
   store i8 %6, ptr %5, align 1
@@ -17,7 +17,7 @@ define i32 @Java_java_util_zip_CRC32_update(ptr nocapture noundef readnone %0, p
 declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_util_zip_CRC32_updateBytes0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_java_util_zip_CRC32_updateBytes0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1776
   %9 = load ptr, ptr %8, align 8
@@ -51,7 +51,7 @@ define i32 @ZIP_CRC32(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_util_zip_CRC32_updateByteBuffer0(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Java_java_util_zip_CRC32_updateByteBuffer0(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %14, label %7
 

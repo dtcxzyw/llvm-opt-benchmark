@@ -481,7 +481,7 @@ declare i64 @evidence_num_alerts(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @cacheset_add(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2, i32 noundef %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @cacheset_add(ptr noundef captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef %2, i32 noundef %3) unnamed_addr #4 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 1
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 1
@@ -1106,7 +1106,7 @@ cache_lookup_hash.exit:                           ; preds = %24, %34, %cacheset_
 declare ptr @mpool_calloc(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @splay(i64 %.0.val, i64 %.8.val, i64 noundef %0, ptr nocapture noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @splay(i64 %.0.val, i64 %.8.val, i64 noundef %0, ptr noundef captures(none) %1) unnamed_addr #4 {
   %3 = alloca %struct.node, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1342,7 +1342,7 @@ cmp.exit104.thread:                               ; preds = %67, %62, %53, %74
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #6

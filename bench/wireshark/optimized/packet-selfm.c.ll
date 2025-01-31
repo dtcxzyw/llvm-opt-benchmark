@@ -916,7 +916,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_selfm_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_selfm_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %6 = icmp slt i32 %5, 2
   br i1 %6, label %89, label %7
@@ -1252,7 +1252,7 @@ fastser_uns_wordbit_save.exit181:                 ; preds = %.preheader, %.sink.
   %.0173 = phi ptr [ %17, %14 ], [ %21, %fastser_uns_wordbit_save.exit181 ]
   %64 = tail call ptr @wmem_file_scope() #4
   %65 = load i32, ptr @proto_selfm, align 4
-  tail call void @p_add_proto_data(ptr noundef %64, ptr noundef %1, i32 noundef %65, i32 noundef 0, ptr noundef nonnull %.0173) #4
+  tail call void @p_add_proto_data(ptr noundef %64, ptr noundef nonnull %1, i32 noundef %65, i32 noundef 0, ptr noundef nonnull %.0173) #4
   %66 = add i16 %8, 23103
   %or.cond5 = icmp ult i16 %66, 3
   br i1 %or.cond5, label %67, label %131
@@ -1440,7 +1440,7 @@ fmconfig_frame_fast.exit:                         ; preds = %.lr.ph.split.i, %.l
 171:                                              ; preds = %.thread
   %172 = add i32 %.12, 10
   %173 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %172) #4
-  %174 = tail call fastcc i32 @dissect_fastmsg_readresp_frame(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 12, i8 noundef zeroext %173)
+  %174 = tail call fastcc i32 @dissect_fastmsg_readresp_frame(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %1, i32 noundef 12, i8 noundef zeroext %173)
   %175 = add i32 %174, 2
   %.pre = add i32 %174, 11
   br label %176
@@ -3652,7 +3652,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @proto_tree_add_time(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

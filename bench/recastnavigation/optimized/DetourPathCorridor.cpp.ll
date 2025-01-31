@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @_ZN14dtPathCorridorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN14dtPathCorridorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_Z25dtMergeCorridorStartMovedPjiiPKji(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @_Z25dtMergeCorridorStartMovedPjiiPKji(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.split.us.preheader, label %.split65.us.thread
 
@@ -126,10 +126,10 @@ define noundef i32 @_Z25dtMergeCorridorStartMovedPjiiPKji(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #2 {
+define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = icmp sgt i32 %1, 0
   %7 = icmp sgt i32 %4, 0
   %or.cond75 = and i1 %6, %7
@@ -206,10 +206,10 @@ define noundef i32 @_Z23dtMergeCorridorEndMovedPjiiPKji(ptr nocapture noundef %0
 declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_Z28dtMergeCorridorStartShortcutPjiiPKji(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef i32 @_Z28dtMergeCorridorStartShortcutPjiiPKji(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %4, 0
   br i1 %6, label %.split.us.preheader, label %.split63.us.thread
 
@@ -305,14 +305,14 @@ define noundef i32 @_Z28dtMergeCorridorStartShortcutPjiiPKji(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14dtPathCorridorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 40)) %0) unnamed_addr #4 align 2 {
+define void @_ZN14dtPathCorridorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((24, 40)) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14dtPathCorridorD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14dtPathCorridorD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   invoke void @_Z6dtFreePv(ptr noundef %3)
@@ -346,7 +346,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14dtPathCorridor4initEi(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN14dtPathCorridor4initEi(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %4 = icmp eq ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -381,7 +381,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor4initEi(ptr nocapture noundef nonn
 declare noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14dtPathCorridor5resetEjPKf(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 24), (32, 36)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
+define void @_ZN14dtPathCorridor5resetEjPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 24), (32, 36)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %5 = icmp ne ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -423,7 +423,7 @@ define void @_ZN14dtPathCorridor5resetEjPKf(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #2 align 2 {
+define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #2 align 2 {
   %8 = alloca i32, align 4
   %9 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %10 = icmp ne ptr %9, null
@@ -540,7 +540,7 @@ define noundef i32 @_ZN14dtPathCorridor11findCornersEPfPhPjiP14dtNavMeshQueryPK1
 declare noundef i32 @_ZNK14dtNavMeshQuery16findStraightPathEPKfS1_PKjiPfPhPjPiii(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14dtPathCorridor22optimizePathVisibilityEPKffP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, float noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define void @_ZN14dtPathCorridor22optimizePathVisibilityEPKffP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly captures(none) %1, float noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = alloca [3 x float], align 4
   %7 = alloca [32 x i32], align 16
   %8 = alloca float, align 4
@@ -874,7 +874,7 @@ declare noundef i32 @_ZN14dtNavMeshQuery20updateSlicedFindPathEiPi(ptr noundef n
 declare noundef i32 @_ZN14dtNavMeshQuery29finalizeSlicedFindPathPartialEPKjiPjPii(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14dtPathCorridor25moveOverOffmeshConnectionEjPjPfS1_P14dtNavMeshQuery(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN14dtPathCorridor25moveOverOffmeshConnectionEjPjPfS1_P14dtNavMeshQuery(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5) local_unnamed_addr #2 align 2 {
   %7 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %8 = icmp eq ptr %7, null
   %9 = icmp ne ptr %5, null
@@ -1329,7 +1329,7 @@ _Z23dtMergeCorridorEndMovedPjiiPKji.exit:         ; preds = %30, %._crit_edge58.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((12, 24), (32, 36)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((12, 24), (32, 36)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %6 = icmp ne ptr %5, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1388,7 +1388,7 @@ define void @_ZN14dtPathCorridor11setCorridorEPKfPKji(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14dtPathCorridor12fixPathStartEjPKf(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN14dtPathCorridor12fixPathStartEjPKf(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 12)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %5 = icmp ne ptr %4, null
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1446,7 +1446,7 @@ define noundef zeroext i1 @_ZN14dtPathCorridor12fixPathStartEjPKf(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14dtPathCorridor15trimInvalidPathEjPKfP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN14dtPathCorridor15trimInvalidPathEjPKfP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = alloca [3 x float], align 4
   %7 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %8 = icmp eq ptr %7, null
@@ -1569,7 +1569,7 @@ declare noundef zeroext i1 @_ZNK14dtNavMeshQuery14isValidPolyRefEjPK13dtQueryFil
 declare noundef i32 @_ZNK14dtNavMeshQuery26closestPointOnPolyBoundaryEjPKfPf(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14dtPathCorridor7isValidEiP14dtNavMeshQueryPK13dtQueryFilter(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN14dtPathCorridor7isValidEiP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
   %7 = tail call noundef i32 @llvm.smin.i32(i32 %6, i32 %1)
@@ -1607,7 +1607,7 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #9

@@ -201,10 +201,10 @@ define internal i64 @real_crc32(i64 noundef %0, ptr noundef %1, i64 noundef %2) 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @archive_write_zip_options(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal range(i32 -30, 1) i32 @archive_write_zip_options(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca [12 x i8], align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
@@ -1424,7 +1424,7 @@ cd_alloc.exit373:                                 ; preds = %486, %494, %501
   %510 = call ptr @archive_entry_pathname(ptr noundef %509) #13
   %511 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %510) #16
   %512 = call i32 @archive_entry_filetype(ptr noundef %509) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i371, ptr align 1 %510, i64 %511, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i371, ptr nonnull align 1 %510, i64 %511, i1 false)
   %513 = icmp eq i32 %512, 16384
   br i1 %513, label %514, label %copy_path.exit
 
@@ -2126,7 +2126,7 @@ trad_enc_init.exit.i:                             ; preds = %.lr.ph.i.i, %44
   br i1 %exitcond.not.i.i, label %trad_enc_encrypt_update.exit.i, label %74, !llvm.loop !8
 
 trad_enc_encrypt_update.exit.i:                   ; preds = %74
-  %103 = call i32 @__archive_write_output(ptr noundef %0, ptr noundef nonnull %15, i64 noundef 12) #13
+  %103 = call i32 @__archive_write_output(ptr noundef nonnull %0, ptr noundef nonnull %15, i64 noundef 12) #13
   %.not18.i = icmp eq i32 %103, 0
   br i1 %.not18.i, label %106, label %104
 
@@ -3611,7 +3611,7 @@ define internal range(i32 -30, 1) i32 @archive_write_zip_close(ptr noundef %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @archive_write_zip_free(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @archive_write_zip_free(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 240
@@ -3670,7 +3670,7 @@ define internal noundef i32 @archive_write_zip_free(ptr nocapture noundef %0) #0
 declare i64 @cm_zlib_crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @is_winzip_aes_encryption_supported(i32 noundef range(i32 2, 4) %0) unnamed_addr #0 {
@@ -3720,7 +3720,7 @@ define internal fastcc range(i32 0, 2) i32 @is_winzip_aes_encryption_supported(i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @fake_crc32(i64 %0, ptr nocapture readnone %1, i64 %2) #6 {
+define internal noundef i64 @fake_crc32(i64 %0, ptr readnone captures(none) %1, i64 %2) #6 {
   ret i64 0
 }
 
@@ -3763,13 +3763,13 @@ declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #8
 declare ptr @archive_entry_symlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i64 @archive_entry_mtime(ptr noundef) local_unnamed_addr #1
 
@@ -3811,10 +3811,10 @@ declare i64 @llvm.smin.i64(i64, i64) #11
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

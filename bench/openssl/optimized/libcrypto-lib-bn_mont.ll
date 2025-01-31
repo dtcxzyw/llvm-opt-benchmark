@@ -123,7 +123,7 @@ declare i32 @bn_sqr_fixed_top(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @bn_mul_fixed_top(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %r, ptr nocapture noundef readonly %mont) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @bn_from_montgomery_word(ptr noundef %ret, ptr noundef nonnull %r, ptr noundef readonly captures(none) %mont) unnamed_addr #0 {
 entry:
   %N = getelementptr inbounds nuw i8, ptr %mont, i64 32
   %top = getelementptr inbounds nuw i8, ptr %mont, i64 40
@@ -256,7 +256,7 @@ return:                                           ; preds = %for.body61, %if.end
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_from_montgomery(ptr noundef %ret, ptr noundef %a, ptr nocapture noundef readonly %mont, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_from_montgomery(ptr noundef %ret, ptr noundef %a, ptr noundef readonly captures(none) %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call.i = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -280,7 +280,7 @@ bn_from_mont_fixed_top.exit:                      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bn_from_mont_fixed_top(ptr noundef %ret, ptr noundef %a, ptr nocapture noundef readonly %mont, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_from_mont_fixed_top(ptr noundef %ret, ptr noundef %a, ptr noundef readonly captures(none) %mont, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   tail call void @BN_CTX_start(ptr noundef %ctx) #4
   %call = tail call ptr @BN_CTX_get(ptr noundef %ctx) #4
@@ -629,7 +629,7 @@ return:                                           ; preds = %if.end8, %if.end3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BN_MONT_CTX_set_locked(ptr nocapture noundef %pmont, ptr noundef %lock, ptr noundef %mod, ptr noundef %ctx) local_unnamed_addr #0 {
+define ptr @BN_MONT_CTX_set_locked(ptr noundef captures(none) %pmont, ptr noundef %lock, ptr noundef %mod, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @CRYPTO_THREAD_read_lock(ptr noundef %lock) #4
   %tobool.not = icmp eq i32 %call, 0
@@ -743,7 +743,7 @@ declare i64 @bn_sub_words(ptr noundef, ptr noundef, ptr noundef, i32 noundef) lo
 declare i32 @llvm.smax.i32(i32, i32) #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -42,7 +42,7 @@ define hidden noundef ptr @_ZN13OopStorageSet11create_weakEPKc8MEMFLAGS(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN13OopStorageSet11fill_strongEPP10OopStorage(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13OopStorageSet11fill_strongEPP10OopStorage(ptr noundef writeonly captures(none) %0) local_unnamed_addr #2 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -68,7 +68,7 @@ define hidden noundef ptr @_ZN13OopStorageSet11get_storageEj(i32 noundef %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN13OopStorageSet9fill_weakEPP10OopStorage(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13OopStorageSet9fill_weakEPP10OopStorage(ptr noundef writeonly captures(none) %0) local_unnamed_addr #2 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2
@@ -87,7 +87,7 @@ define hidden void @_ZN13OopStorageSet9fill_weakEPP10OopStorage(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN13OopStorageSet8fill_allEPP10OopStorage(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13OopStorageSet8fill_allEPP10OopStorage(ptr noundef writeonly captures(none) %0) local_unnamed_addr #2 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %2

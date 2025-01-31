@@ -355,7 +355,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %tobool8.not, label %if.then27, label %lor.lhs.false9
 
 lor.lhs.false9:                                   ; preds = %lor.lhs.false
-  %call10 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef %protocol_label, i64 noundef %call) #4
+  %call10 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef nonnull %protocol_label, i64 noundef %call) #4
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %if.then27, label %lor.lhs.false12
 
@@ -365,7 +365,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false9
   br i1 %tobool14.not, label %if.then27, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false12
-  %call16 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef %label, i64 noundef %call1) #4
+  %call16 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef nonnull %label, i64 noundef %call1) #4
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.then27, label %lor.lhs.false18
 
@@ -409,7 +409,7 @@ return:                                           ; preds = %entry, %end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -461,7 +461,7 @@ lor.lhs.false12:                                  ; preds = %lor.lhs.false
   br i1 %tobool14.not, label %if.then33, label %lor.lhs.false15
 
 lor.lhs.false15:                                  ; preds = %lor.lhs.false12
-  %call16 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef %protocol_label, i64 noundef %call) #4
+  %call16 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef nonnull %protocol_label, i64 noundef %call) #4
   %tobool17.not = icmp eq i32 %call16, 0
   br i1 %tobool17.not, label %if.then33, label %lor.lhs.false18
 
@@ -471,7 +471,7 @@ lor.lhs.false18:                                  ; preds = %lor.lhs.false15
   br i1 %tobool20.not, label %if.then33, label %lor.lhs.false21
 
 lor.lhs.false21:                                  ; preds = %lor.lhs.false18
-  %call22 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef %label, i64 noundef %call1) #4
+  %call22 = call i32 @WPACKET_memcpy(ptr noundef nonnull %pkt, ptr noundef nonnull %label, i64 noundef %call1) #4
   %tobool23.not = icmp eq i32 %call22, 0
   br i1 %tobool23.not, label %if.then33, label %lor.lhs.false24
 
@@ -578,7 +578,7 @@ declare void @EVP_KDF_free(ptr noundef) local_unnamed_addr #1
 declare void @OSSL_PARAM_construct_utf8_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 

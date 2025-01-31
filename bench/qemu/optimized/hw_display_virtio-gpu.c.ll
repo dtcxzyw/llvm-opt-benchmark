@@ -191,7 +191,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [1 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_get_buffer, ptr @.str.95, ptr @.str.96, i32 38, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_gpu_update_cursor_data(ptr nocapture noundef readonly %g, ptr nocapture noundef readonly %s, i32 noundef %resource_id) #0 {
+define dso_local void @virtio_gpu_update_cursor_data(ptr noundef readonly captures(none) %g, ptr noundef readonly captures(none) %s, i32 noundef %resource_id) #0 {
 entry:
   %0 = getelementptr i8, ptr %g, i64 3040
   %g.val = load ptr, ptr %0, align 8
@@ -299,10 +299,10 @@ declare i32 @pixman_image_get_height(ptr noundef) local_unnamed_addr #1
 declare ptr @pixman_image_get_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @virtio_gpu_find_resource(ptr nocapture noundef readonly %g, i32 noundef %resource_id) local_unnamed_addr #3 {
+define dso_local noundef ptr @virtio_gpu_find_resource(ptr noundef readonly captures(none) %g, i32 noundef %resource_id) local_unnamed_addr #3 {
 entry:
   %reslist = getelementptr inbounds nuw i8, ptr %g, i64 3040
   %res.04 = load ptr, ptr %reslist, align 8
@@ -400,7 +400,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_gpu_get_display_info(ptr noundef %g, ptr noundef %cmd) local_unnamed_addr #0 {
@@ -554,7 +554,7 @@ return:                                           ; preds = %if.then6, %do.body3
 declare void @virtio_gpu_base_generate_edid(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %nr_entries, i32 noundef %offset, ptr nocapture noundef readonly %cmd, ptr noundef %addr, ptr nocapture noundef %iov, ptr nocapture noundef writeonly %niov) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @virtio_gpu_create_mapping_iov(ptr noundef %g, i32 noundef %nr_entries, i32 noundef %offset, ptr noundef readonly captures(none) %cmd, ptr noundef %addr, ptr noundef captures(none) %iov, ptr noundef writeonly captures(none) %niov) local_unnamed_addr #0 {
 entry:
   %xlen.i = alloca i64, align 8
   %cmp = icmp ugt i32 %nr_entries, 16384
@@ -3220,7 +3220,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @virtio_gpu_device_realize(ptr noundef %qdev, ptr noundef %errp) #0 {
@@ -3308,7 +3308,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare zeroext i1 @virtio_gpu_base_device_realize(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_gpu_handle_ctrl_cb(ptr noundef %vdev, ptr nocapture readnone %vq) #0 {
+define internal void @virtio_gpu_handle_ctrl_cb(ptr noundef %vdev, ptr readnone captures(none) %vq) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.22, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_GPU) #12
   %ctrl_bh = getelementptr inbounds nuw i8, ptr %call.i, i64 2952
@@ -3318,7 +3318,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_gpu_handle_cursor_cb(ptr noundef %vdev, ptr nocapture readnone %vq) #0 {
+define internal void @virtio_gpu_handle_cursor_cb(ptr noundef %vdev, ptr readnone captures(none) %vq) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.55, ptr noundef nonnull @.str.22, i32 noundef 33, ptr noundef nonnull @__func__.VIRTIO_GPU) #12
   %cursor_bh = getelementptr inbounds nuw i8, ptr %call.i, i64 2960
@@ -3636,7 +3636,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @virtio_gpu_blob_load(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @virtio_gpu_blob_load(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %call = tail call i32 @qemu_get_be32(ptr noundef %f) #12
   %cmp.not30 = icmp eq i32 %call, 0
@@ -3724,7 +3724,7 @@ return:                                           ; preds = %if.end24, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @virtio_gpu_blob_save(ptr noundef %f, ptr nocapture noundef readonly %opaque, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal noundef i32 @virtio_gpu_blob_save(ptr noundef %f, ptr noundef readonly captures(none) %opaque, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %cmdq = getelementptr inbounds nuw i8, ptr %opaque, i64 3056
   %0 = load ptr, ptr %cmdq, align 16
@@ -3815,7 +3815,7 @@ declare i64 @iov_from_buf_full(ptr noundef, i32 noundef, i64 noundef, ptr nounde
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
@@ -3959,7 +3959,7 @@ declare i32 @pixman_image_get_format(ptr noundef) local_unnamed_addr #1
 declare i32 @pixman_image_get_stride(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %scanout_id, ptr noundef nonnull %fb, ptr noundef nonnull %res, ptr noundef nonnull %r, ptr nocapture noundef writeonly %error) unnamed_addr #0 {
+define internal fastcc void @virtio_gpu_do_set_scanout(ptr noundef %g, i32 noundef %scanout_id, ptr noundef nonnull %fb, ptr noundef nonnull %res, ptr noundef nonnull %r, ptr noundef writeonly captures(none) %error) unnamed_addr #0 {
 entry:
   %scanout1 = getelementptr inbounds nuw i8, ptr %g, i64 864
   %idxprom = zext i32 %scanout_id to i64
@@ -4199,7 +4199,7 @@ return:                                           ; preds = %if.then44, %if.else
 declare i32 @virtio_gpu_update_dmabuf(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @virtio_gpu_update_scanout(ptr nocapture noundef %g, i32 noundef %scanout_id, ptr nocapture noundef nonnull %res, ptr nocapture noundef nonnull readonly %r) unnamed_addr #8 {
+define internal fastcc void @virtio_gpu_update_scanout(ptr noundef captures(none) %g, i32 noundef %scanout_id, ptr noundef nonnull captures(none) %res, ptr noundef nonnull readonly captures(none) %r) unnamed_addr #8 {
 entry:
   %scanout1 = getelementptr inbounds nuw i8, ptr %g, i64 864
   %idxprom = zext i32 %scanout_id to i64
@@ -4263,7 +4263,7 @@ declare ptr @pixman_image_ref(ptr noundef) local_unnamed_addr #1
 declare void @pixman_image_set_destroy_function(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_unref_resource(ptr nocapture readnone %image, ptr noundef %data) #0 {
+define internal void @virtio_unref_resource(ptr readnone captures(none) %image, ptr noundef %data) #0 {
 entry:
   %call = tail call i32 @pixman_image_unref(ptr noundef %data) #12
   ret void
@@ -4282,7 +4282,7 @@ declare i32 @virtio_queue_ready(ptr noundef) local_unnamed_addr #1
 declare ptr @virtqueue_pop(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @update_cursor(ptr noundef %g, ptr nocapture noundef readonly %cursor) unnamed_addr #0 {
+define internal fastcc void @update_cursor(ptr noundef %g, ptr noundef readonly captures(none) %cursor) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %g) #12
@@ -4535,7 +4535,7 @@ declare void @qemu_put_be64(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_gpu_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @virtio_gpu_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.62, ptr noundef nonnull @.str.63, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #12
   %call.i11 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #12
@@ -4755,7 +4755,7 @@ do.end16:                                         ; preds = %do.body9, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_gpu_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 16)) %config) #0 {
+define internal void @virtio_gpu_get_config(ptr noundef %vdev, ptr noundef writeonly captures(none) initializes((0, 16)) %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #12
   %virtio_config = getelementptr inbounds nuw i8, ptr %call.i, i64 552
@@ -4764,7 +4764,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_gpu_set_config(ptr noundef %vdev, ptr nocapture noundef readonly %config) #0 {
+define internal void @virtio_gpu_set_config(ptr noundef %vdev, ptr noundef readonly captures(none) %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #12
   %events_clear = getelementptr inbounds nuw i8, ptr %config, i64 4
@@ -4877,7 +4877,7 @@ return:                                           ; preds = %if.end6, %for.inc, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @virtio_gpu_load(ptr noundef %f, ptr noundef initializes((3088, 3096)) %opaque, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @virtio_gpu_load(ptr noundef %f, ptr noundef initializes((3088, 3096)) %opaque, i64 %size, ptr readnone captures(none) %field) #0 {
 entry:
   %hostmem = getelementptr inbounds nuw i8, ptr %opaque, i64 3088
   store i64 0, ptr %hostmem, align 16
@@ -5053,7 +5053,7 @@ return:                                           ; preds = %for.body.i, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @virtio_gpu_save(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field, ptr nocapture readnone %vmdesc) #0 {
+define internal i32 @virtio_gpu_save(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr readnone captures(none) %field, ptr readnone captures(none) %vmdesc) #0 {
 entry:
   %cmdq = getelementptr inbounds nuw i8, ptr %opaque, i64 3056
   %0 = load ptr, ptr %cmdq, align 16
@@ -5159,10 +5159,10 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

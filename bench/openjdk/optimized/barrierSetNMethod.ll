@@ -141,7 +141,7 @@ define hidden noundef i32 @_ZNK17BarrierSetNMethod20disarmed_guard_valueEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod22supports_entry_barrierEP7nmethod(ptr nocapture noundef nonnull readnone align 8 dereferenceable(12) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod22supports_entry_barrierEP7nmethod(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(12) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZNK6Method26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(88) %4) #8
@@ -240,12 +240,12 @@ define hidden noundef nonnull ptr @_ZNK17BarrierSetNMethod28disarmed_guard_value
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK17BarrierSetNMethod34thread_disarmed_guard_value_offsetEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK17BarrierSetNMethod34thread_disarmed_guard_value_offsetEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret i32 32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17BarrierSetNMethod16arm_all_nmethodsEv(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17BarrierSetNMethod16arm_all_nmethodsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.BarrierSetNMethodArmClosure, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -478,7 +478,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE94ELS1_8ELS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN17BarrierSetNMethod21nmethod_entry_barrierEP7nmethodEN19OopKeepAliveClosure6do_oopEPP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal void @_ZZN17BarrierSetNMethod21nmethod_entry_barrierEP7nmethodEN19OopKeepAliveClosure6do_oopEPP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm593988EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
   %4 = tail call noundef ptr %3(ptr noundef %1) #8
   %.not = icmp eq ptr %4, null
@@ -497,7 +497,7 @@ define internal void @_ZZN17BarrierSetNMethod21nmethod_entry_barrierEP7nmethodEN
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal void @_ZZN17BarrierSetNMethod21nmethod_entry_barrierEP7nmethodEN19OopKeepAliveClosure6do_oopEP9narrowOop(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #4 align 2 {
+define internal void @_ZZN17BarrierSetNMethod21nmethod_entry_barrierEP7nmethodEN19OopKeepAliveClosure6do_oopEP9narrowOop(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 100) #9

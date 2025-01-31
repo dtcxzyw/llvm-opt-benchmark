@@ -786,10 +786,10 @@ return:                                           ; preds = %if.end402, %if.end3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @index_output_cb(ptr nocapture readnone %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal noundef i32 @index_output_cb(ptr readnone captures(none) %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.end, label %if.then
@@ -804,7 +804,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @exclude_per_directory_cb(ptr nocapture noundef readonly %opt, ptr nocapture noundef readonly %arg, i32 noundef %unset) #0 {
+define internal noundef i32 @exclude_per_directory_cb(ptr noundef readonly captures(none) %opt, ptr noundef readonly captures(none) %arg, i32 noundef %unset) #0 {
 entry:
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.end, label %if.then
@@ -850,11 +850,11 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @git_default_submodule_config(ptr noundef %var, ptr noundef %value, ptr noundef %cb) #9
+  %call1 = tail call i32 @git_default_submodule_config(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %cb) #9
   br label %return
 
 if.end:                                           ; preds = %entry
-  %call2 = tail call i32 @git_default_config(ptr noundef %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %cb) #9
+  %call2 = tail call i32 @git_default_config(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %cb) #9
   br label %return
 
 return:                                           ; preds = %if.end, %if.then
@@ -910,7 +910,7 @@ declare i32 @is_index_unborn(ptr noundef) local_unnamed_addr #2
 declare i32 @threeway_merge(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @debug_merge(ptr nocapture noundef readonly %stages, ptr nocapture noundef readonly %o) #0 {
+define internal noundef i32 @debug_merge(ptr noundef readonly captures(none) %stages, ptr noundef readonly captures(none) %o) #0 {
 entry:
   %buf = alloca [24 x i8], align 16
   %merge_size = getelementptr inbounds nuw i8, ptr %o, i64 236
@@ -1020,7 +1020,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @set_alternate_index_output(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @git_default_submodule_config(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1032,7 +1032,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #5
 declare ptr @parse_tree_indirect(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i32 @xsnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -1041,7 +1041,7 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #2
 declare i32 @parse_tree_gently(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #8

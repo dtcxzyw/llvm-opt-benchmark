@@ -679,7 +679,7 @@ $_ZTIN3irr5video18COpenGLCoreFeatureE = comdat any
 @_ZN3irr5video23COpenGLExtensionHandlerC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3irr5video23COpenGLExtensionHandlerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1872) initializes((0, 6), (8, 541), (544, 556), (560, 1872)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1872) initializes((0, 6), (8, 541), (544, 556), (560, 1872)) %this) unnamed_addr #0 align 2 {
 entry:
   store <4 x i8> <i8 0, i8 0, i8 1, i8 1>, ptr %this, align 8, !tbaa !3
   %MaxUserClipPlanes = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -712,13 +712,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3irr5video23COpenGLExtensionHandler4dumpENS_10ELOG_LEVELE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1872) %this, i32 noundef %logLevel) local_unnamed_addr #2 align 2 {
+define void @_ZNK3irr5video23COpenGLExtensionHandler4dumpENS_10ELOG_LEVELE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1872) %this, i32 noundef %logLevel) local_unnamed_addr #2 align 2 {
 entry:
   %FeatureAvailable = getelementptr inbounds nuw i8, ptr %this, i64 62
   br label %for.body
@@ -7293,24 +7293,24 @@ declare ptr @glGetString(i32 noundef) local_unnamed_addr #3
 declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare void @glGetIntegerv(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK3irr5video23COpenGLExtensionHandler12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1872) %this, i32 noundef %feature) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video23COpenGLExtensionHandler12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1872) %this, i32 noundef %feature) local_unnamed_addr #7 align 2 {
 entry:
   switch i32 %feature, label %sw.default [
     i32 0, label %return
@@ -7834,13 +7834,13 @@ declare float @llvm.floor.f32(float) #10
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #10

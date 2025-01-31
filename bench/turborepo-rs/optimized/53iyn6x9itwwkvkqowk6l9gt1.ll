@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: cold nonlazybind uwtable
-define noundef nonnull ptr @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys12thread_local6native4lazyINtB6_7StorageINtNtCs1LoaDTb72WA_4core4cell4CellTyyEEzE10initializeNvNvNvMNtNtBe_4hash6randomNtB2c_11RandomState3new4KEYS6___initECsjIaN6dkKMFO_12turborepo_ci(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef nonnull ptr @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys12thread_local6native4lazyINtB6_7StorageINtNtCs1LoaDTb72WA_4core4cell4CellTyyEEzE10initializeNvNvNvMNtNtBe_4hash6randomNtB2c_11RandomState3new4KEYS6___initECsjIaN6dkKMFO_12turborepo_ci(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %5, label %4
 

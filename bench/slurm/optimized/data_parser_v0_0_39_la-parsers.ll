@@ -1908,7 +1908,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1766 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @_v39_openapi_spec_JOB_EXIT_CODE(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define void @_v39_openapi_spec_JOB_EXIT_CODE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 10, ptr noundef nonnull @.str) #16
   %6 = tail call ptr @data_key_set(ptr noundef %5, ptr noundef nonnull @.str.1) #16
   %7 = tail call ptr @set_openapi_props(ptr noundef %6, i32 noundef 7, ptr noundef nonnull @.str.2) #16
@@ -1928,7 +1928,7 @@ declare ptr @set_openapi_props(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare ptr @data_key_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @_v39_openapi_spec_ROLLUP_STATS(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define void @_v39_openapi_spec_ROLLUP_STATS(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 11, ptr noundef nonnull @.str.11) #16
   %6 = tail call ptr @set_openapi_props(ptr noundef %5, i32 noundef 10, ptr noundef nonnull @.str.12) #16
   %7 = tail call ptr @data_key_set(ptr noundef %6, ptr noundef nonnull @.str.13) #16
@@ -1961,7 +1961,7 @@ declare ptr @data_set_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @data_list_append(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @_v39_openapi_spec_SLURM_STEP_ID(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define void @_v39_openapi_spec_SLURM_STEP_ID(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
 find_parser_by_type.exit:
   %4 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 10, ptr noundef nonnull @.str.28) #16
   %5 = tail call ptr @data_key_set(ptr noundef %4, ptr noundef nonnull @.str.29) #16
@@ -1998,7 +1998,7 @@ define ptr @find_parser_by_type(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_v39_openapi_spec_WCKEY_TAG(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define void @_v39_openapi_spec_WCKEY_TAG(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 10, ptr noundef nonnull @.str.34) #16
   %6 = tail call ptr @data_key_set(ptr noundef %5, ptr noundef nonnull @.str.35) #16
   %7 = tail call ptr @set_openapi_props(ptr noundef %6, i32 noundef 7, ptr noundef nonnull @.str.35) #16
@@ -2013,7 +2013,7 @@ define void @_v39_openapi_spec_WCKEY_TAG(ptr nocapture readnone %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_v39_openapi_spec_STATS_MSG_RPCS_BY_TYPE(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define void @_v39_openapi_spec_STATS_MSG_RPCS_BY_TYPE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 11, ptr noundef nonnull @.str.40) #16
   %6 = tail call ptr @set_openapi_props(ptr noundef %5, i32 noundef 10, ptr noundef nonnull @.str.41) #16
   %7 = tail call ptr @data_key_set(ptr noundef %6, ptr noundef nonnull @.str.42) #16
@@ -2030,7 +2030,7 @@ define void @_v39_openapi_spec_STATS_MSG_RPCS_BY_TYPE(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_v39_openapi_spec_STATS_MSG_RPCS_BY_USER(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define void @_v39_openapi_spec_STATS_MSG_RPCS_BY_USER(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 11, ptr noundef nonnull @.str.51) #16
   %6 = tail call ptr @set_openapi_props(ptr noundef %5, i32 noundef 10, ptr noundef nonnull @.str.16) #16
   %7 = tail call ptr @data_key_set(ptr noundef %6, ptr noundef nonnull @.str.16) #16
@@ -2047,13 +2047,13 @@ define void @_v39_openapi_spec_STATS_MSG_RPCS_BY_USER(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_v39_openapi_spec_JOB_RES_NODES(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define void @_v39_openapi_spec_JOB_RES_NODES(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 11, ptr noundef nonnull @.str.55) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_v39_openapi_spec_JOB_ARRAY_RESPONSE_MSG(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define void @_v39_openapi_spec_JOB_ARRAY_RESPONSE_MSG(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 11, ptr noundef nonnull @.str.56) #16
   %6 = tail call ptr @set_openapi_props(ptr noundef %5, i32 noundef 10, ptr noundef nonnull @.str.57) #16
   %7 = tail call ptr @data_key_set(ptr noundef %6, ptr noundef nonnull @.str.29) #16
@@ -2068,7 +2068,7 @@ define void @_v39_openapi_spec_JOB_ARRAY_RESPONSE_MSG(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @get_parsers(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #3 {
+define void @get_parsers(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #3 {
   store i32 191, ptr %1, align 4
   store ptr @parsers, ptr %0, align 8
   ret void
@@ -2080,7 +2080,7 @@ define void @parsers_init() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STRING(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STRING(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %5, null
   %.str.333. = select i1 %.not, ptr @.str.333, ptr %5
@@ -2089,7 +2089,7 @@ define internal noundef i32 @_v39_dump_STRING(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9203) i32 @_v39_parse_STRING(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_STRING(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %9
@@ -2127,7 +2127,7 @@ define internal range(i32 0, 9203) i32 @_v39_parse_STRING(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_UINT32(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_UINT32(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %6 = and i64 %5, 256
   %.not = icmp eq i64 %6, 0
@@ -2152,7 +2152,7 @@ define internal noundef i32 @_v39_dump_UINT32(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9203) i32 @_v39_parse_UINT32(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_UINT32(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -2200,7 +2200,7 @@ define internal range(i32 0, 9203) i32 @_v39_parse_UINT32(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_UINT32_NO_VAL(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_UINT32_NO_VAL(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @data_set_dict(ptr noundef %2) #16
   %6 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.337) #16
   %7 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.338) #16
@@ -2235,7 +2235,7 @@ define internal noundef i32 @_v39_dump_UINT32_NO_VAL(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_UINT32_NO_VAL(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_UINT32_NO_VAL(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = call i32 @_v39_parse_UINT64_NO_VAL(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
@@ -2256,13 +2256,13 @@ define internal i32 @_v39_parse_UINT32_NO_VAL(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_v39_openapi_spec_UINT32_NO_VAL(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr noundef %3) #0 {
+define internal void @_v39_openapi_spec_UINT32_NO_VAL(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef %3) #0 {
   tail call void @_v39_openapi_spec_UINT64_NO_VAL(ptr poison, ptr poison, ptr poison, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_UINT64(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_UINT64(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i64, ptr %1, align 8
   %switch = icmp ugt i64 %5, -3
   br i1 %switch, label %6, label %8
@@ -2280,7 +2280,7 @@ define internal noundef i32 @_v39_dump_UINT64(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9203) i32 @_v39_parse_UINT64(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_UINT64(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -2322,7 +2322,7 @@ define internal range(i32 0, 9203) i32 @_v39_parse_UINT64(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_UINT64_NO_VAL(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_UINT64_NO_VAL(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @data_set_dict(ptr noundef %2) #16
   %6 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.337) #16
   %7 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.338) #16
@@ -2356,7 +2356,7 @@ define internal noundef i32 @_v39_dump_UINT64_NO_VAL(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_UINT64_NO_VAL(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_UINT64_NO_VAL(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = tail call i32 @data_get_type(ptr noundef %2) #16
@@ -2529,7 +2529,7 @@ _v39_parse_UINT64.exit:                           ; preds = %27, %24, %21, %84, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_v39_openapi_spec_UINT64_NO_VAL(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal void @_v39_openapi_spec_UINT64_NO_VAL(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 10, ptr noundef nonnull @.str.346) #16
   %6 = tail call ptr @data_key_set(ptr noundef %5, ptr noundef nonnull @.str.337) #16
   %7 = tail call ptr @data_set_dict(ptr noundef %6) #16
@@ -2550,7 +2550,7 @@ define internal void @_v39_openapi_spec_UINT64_NO_VAL(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_UINT16(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_UINT16(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i16, ptr %1, align 2
   %6 = zext i16 %5 to i64
   %7 = tail call ptr @data_set_int(ptr noundef %2, i64 noundef %6) #16
@@ -2558,7 +2558,7 @@ define internal noundef i32 @_v39_dump_UINT16(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9203) i32 @_v39_parse_UINT16(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_UINT16(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -2602,7 +2602,7 @@ define internal range(i32 0, 9203) i32 @_v39_parse_UINT16(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_UINT16_NO_VAL(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_UINT16_NO_VAL(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @data_set_dict(ptr noundef %2) #16
   %6 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.337) #16
   %7 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.338) #16
@@ -2637,7 +2637,7 @@ define internal noundef i32 @_v39_dump_UINT16_NO_VAL(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_UINT16_NO_VAL(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_UINT16_NO_VAL(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = call i32 @_v39_parse_UINT64_NO_VAL(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
@@ -2658,20 +2658,20 @@ define internal i32 @_v39_parse_UINT16_NO_VAL(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_v39_openapi_spec_UINT16_NO_VAL(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal void @_v39_openapi_spec_UINT16_NO_VAL(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   tail call void @_v39_openapi_spec_UINT64_NO_VAL(ptr poison, ptr poison, ptr poison, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_INT64(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_INT64(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i64, ptr %1, align 8
   %6 = tail call ptr @data_set_int(ptr noundef %2, i64 noundef %5) #16
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_INT64(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_INT64(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = tail call i32 @data_get_type(ptr noundef %2) #16
@@ -2707,13 +2707,13 @@ define internal i32 @_v39_parse_INT64(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_INT64_NO_VAL(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_INT64_NO_VAL(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @_v39_dump_UINT64_NO_VAL(ptr poison, ptr noundef %1, ptr noundef %2, ptr poison)
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_INT64_NO_VAL(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_INT64_NO_VAL(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = call i32 @_v39_parse_UINT64_NO_VAL(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not = icmp eq i32 %7, 0
@@ -2729,13 +2729,13 @@ define internal i32 @_v39_parse_INT64_NO_VAL(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_v39_openapi_spec_INT64_NO_VAL(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal void @_v39_openapi_spec_INT64_NO_VAL(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   tail call void @_v39_openapi_spec_UINT64_NO_VAL(ptr poison, ptr poison, ptr poison, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_FLOAT128(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_FLOAT128(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load x86_fp80, ptr %1, align 16
   %6 = fptoui x86_fp80 %5 to i32
   %switch = icmp ugt i32 %6, -3
@@ -2755,7 +2755,7 @@ define internal noundef i32 @_v39_dump_FLOAT128(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9203) i32 @_v39_parse_FLOAT128(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_FLOAT128(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -2798,14 +2798,14 @@ define internal range(i32 0, 9203) i32 @_v39_parse_FLOAT128(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_FLOAT64(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_FLOAT64(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load double, ptr %1, align 8
   %6 = tail call ptr @data_set_float(ptr noundef %2, double noundef %5) #16
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9203) i32 @_v39_parse_FLOAT64(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_FLOAT64(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.sink.split, label %8
@@ -2847,7 +2847,7 @@ define internal range(i32 0, 9203) i32 @_v39_parse_FLOAT64(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_FLOAT64_NO_VAL(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_FLOAT64_NO_VAL(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @data_set_dict(ptr noundef %2) #16
   %6 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.337) #16
   %7 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.338) #16
@@ -2882,7 +2882,7 @@ define internal noundef i32 @_v39_dump_FLOAT64_NO_VAL(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_FLOAT64_NO_VAL(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_FLOAT64_NO_VAL(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = tail call i32 @data_get_type(ptr noundef %2) #16
@@ -3055,7 +3055,7 @@ _v39_parse_FLOAT64.exit:                          ; preds = %27, %24, %21, %84, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_v39_openapi_spec_FLOAT64_NO_VAL(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal void @_v39_openapi_spec_FLOAT64_NO_VAL(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call ptr @set_openapi_props(ptr noundef %3, i32 noundef 10, ptr noundef nonnull @.str.356) #16
   %6 = tail call ptr @data_key_set(ptr noundef %5, ptr noundef nonnull @.str.337) #16
   %7 = tail call ptr @data_set_dict(ptr noundef %6) #16
@@ -3076,7 +3076,7 @@ define internal void @_v39_openapi_spec_FLOAT64_NO_VAL(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_BOOL(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_BOOL(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i8, ptr %1, align 1
   %6 = icmp ne i8 %5, 0
   %7 = tail call ptr @data_set_bool(ptr noundef %2, i1 noundef zeroext %6) #16
@@ -3084,7 +3084,7 @@ define internal noundef i32 @_v39_dump_BOOL(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9002) i32 @_v39_parse_BOOL(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_BOOL(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 7) #16
   %7 = icmp eq i32 %6, 7
   br i1 %7, label %8, label %11
@@ -3101,7 +3101,7 @@ define internal range(i32 0, 9002) i32 @_v39_parse_BOOL(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_BOOL16(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_BOOL16(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i16, ptr %1, align 2
   %6 = icmp ne i16 %5, 0
   %7 = tail call ptr @data_set_bool(ptr noundef %2, i1 noundef zeroext %6) #16
@@ -3109,7 +3109,7 @@ define internal noundef i32 @_v39_dump_BOOL16(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9002) i32 @_v39_parse_BOOL16(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_BOOL16(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 7) #16
   %7 = icmp eq i32 %6, 7
   br i1 %7, label %8, label %11
@@ -3126,7 +3126,7 @@ define internal range(i32 0, 9002) i32 @_v39_parse_BOOL16(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_BOOL16_NO_VAL(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_BOOL16_NO_VAL(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i16, ptr %1, align 2
   %6 = icmp ne i16 %5, -2
   %7 = icmp ne i16 %5, 0
@@ -3136,7 +3136,7 @@ define internal noundef i32 @_v39_dump_BOOL16_NO_VAL(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9002) i32 @_v39_parse_BOOL16_NO_VAL(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_BOOL16_NO_VAL(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %_v39_parse_BOOL16.exit.sink.split, label %8
@@ -3172,7 +3172,7 @@ _v39_parse_BOOL16.exit:                           ; preds = %_v39_parse_BOOL16.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_QOS_NAME(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_QOS_NAME(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef %5) #16
   ret i32 0
@@ -3246,7 +3246,7 @@ define internal i32 @_v39_parse_QOS_NAME(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_QOS_ID(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal noundef i32 @_v39_dump_QOS_ID(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
@@ -3291,7 +3291,7 @@ define internal noundef i32 @_v39_dump_QOS_ID(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_QOS_ID(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_QOS_ID(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = call i32 @resolve_qos(i32 noundef 60138, ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull @__func__._v39_parse_QOS_ID, i1 noundef zeroext false) #16
@@ -3318,7 +3318,7 @@ define internal i32 @_v39_parse_QOS_ID(ptr noundef %0, ptr nocapture noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_v39_dump_QOS_STRING_ID_LIST(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @_v39_dump_QOS_STRING_ID_LIST(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.foreach_qos_string_id_t, align 8
   %6 = load ptr, ptr %1, align 8
   store i32 782351915, ptr %5, align 8
@@ -3345,7 +3345,7 @@ define internal range(i32 -1, 1) i32 @_v39_dump_QOS_STRING_ID_LIST(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9002) i32 @_v39_parse_QOS_STRING_ID_LIST(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_QOS_STRING_ID_LIST(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca %struct.foreach_qos_string_id_t, align 8
   store i32 782351915, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3386,7 +3386,7 @@ define internal range(i32 0, 9002) i32 @_v39_parse_QOS_STRING_ID_LIST(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_EXIT_CODE(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_EXIT_CODE(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @data_set_dict(ptr noundef %2) #16
   %6 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.1) #16
   %7 = tail call ptr @data_key_set(ptr noundef %2, ptr noundef nonnull @.str.3) #16
@@ -3453,13 +3453,13 @@ define internal noundef i32 @_v39_dump_JOB_EXIT_CODE(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_EXIT_CODE(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_EXIT_CODE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.370) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_RPC_ID(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_RPC_ID(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @slurmdbd_msg_type_2_str(i32 noundef %5, i32 noundef 1) #16
   %7 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef %6) #16
@@ -3467,24 +3467,24 @@ define internal noundef i32 @_v39_dump_RPC_ID(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_RPC_ID(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_RPC_ID(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.371) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_SELECT_PLUGIN_ID(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_SELECT_PLUGIN_ID(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull @.str.333) #16
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_v39_parse_SELECT_PLUGIN_ID(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #4 {
+define internal noundef i32 @_v39_parse_SELECT_PLUGIN_ID(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #4 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_TASK_DISTRIBUTION(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_TASK_DISTRIBUTION(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @slurm_step_layout_type_name(i32 noundef %6) #16
@@ -3494,13 +3494,13 @@ define internal noundef i32 @_v39_dump_TASK_DISTRIBUTION(ptr nocapture readnone 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_TASK_DISTRIBUTION(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_TASK_DISTRIBUTION(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.372) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_SLURM_STEP_ID(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_SLURM_STEP_ID(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @data_set_dict(ptr noundef %2) #16
   %6 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %6, -2
@@ -3543,13 +3543,13 @@ find_parser_by_type.exit:                         ; preds = %20
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_SLURM_STEP_ID(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_SLURM_STEP_ID(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.373) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STEP_ID(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STEP_ID(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %1, align 4
   switch i32 %6, label %15 [
@@ -3591,13 +3591,13 @@ define internal noundef i32 @_v39_dump_STEP_ID(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STEP_ID(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STEP_ID(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.378) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_WCKEY_TAG(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_WCKEY_TAG(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %8
@@ -3633,13 +3633,13 @@ define internal noundef i32 @_v39_dump_WCKEY_TAG(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_WCKEY_TAG(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_WCKEY_TAG(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.379) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_GROUP_ID(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_GROUP_ID(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @gid_to_string_or_null(i32 noundef %6) #16
@@ -3660,13 +3660,13 @@ define internal noundef i32 @_v39_dump_GROUP_ID(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_GROUP_ID(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_GROUP_ID(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.380) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_REASON(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_REASON(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @job_state_reason_string(i32 noundef %5) #16
   %7 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef %6) #16
@@ -3674,13 +3674,13 @@ define internal noundef i32 @_v39_dump_JOB_REASON(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_REASON(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_REASON(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.381) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_STATE(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_STATE(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @job_state_string(i32 noundef %5) #16
   %7 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef %6) #16
@@ -3688,13 +3688,13 @@ define internal noundef i32 @_v39_dump_JOB_STATE(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_STATE(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_STATE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.382) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_USER_ID(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_USER_ID(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %1, align 4
   %7 = tail call ptr @uid_to_string_or_null(i32 noundef %6) #16
@@ -3715,7 +3715,7 @@ define internal noundef i32 @_v39_dump_USER_ID(ptr nocapture readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9002) i32 @_v39_parse_USER_ID(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9002) i32 @_v39_parse_USER_ID(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %15, label %8
@@ -3740,7 +3740,7 @@ define internal range(i32 0, 9002) i32 @_v39_parse_USER_ID(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_TRES_STR(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_TRES_STR(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 88
@@ -3807,7 +3807,7 @@ define internal i32 @_v39_dump_TRES_STR(ptr nocapture noundef readonly %0, ptr n
 
 find_parser_by_type.exit:                         ; preds = %30, %31
   %.05.i = phi ptr [ %32, %31 ], [ null, %30 ]
-  %36 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef %.05.i, ptr noundef %2, ptr noundef %3) #16
+  %36 = call i32 @dump(ptr noundef nonnull %5, i64 noundef 8, ptr noundef %.05.i, ptr noundef %2, ptr noundef nonnull %3) #16
   %.not21 = icmp eq i32 %36, 0
   br i1 %.not21, label %37, label %40
 
@@ -3826,7 +3826,7 @@ find_parser_by_type.exit:                         ; preds = %30, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_TRES_STR(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_TRES_STR(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -3905,7 +3905,7 @@ find_parser_by_type.exit:                         ; preds = %20, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_CSV_STRING(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_CSV_STRING(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %1, align 8
@@ -4012,7 +4012,7 @@ define internal i32 @_v39_parse_CSV_STRING(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_LICENSES(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_LICENSES(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
@@ -4068,13 +4068,13 @@ find_parser_by_type.exit:                         ; preds = %19, %20
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_LICENSES(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_LICENSES(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.395) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_CORE_SPEC(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_CORE_SPEC(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i16, ptr %1, align 2
   %narrow = tail call i16 @llvm.smax.i16(i16 %5, i16 0)
   %.sink = zext nneg i16 %narrow to i64
@@ -4083,7 +4083,7 @@ define internal noundef i32 @_v39_dump_CORE_SPEC(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_CORE_SPEC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @_v39_parse_CORE_SPEC(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #16
   %.not = icmp eq i32 %6, 4
   br i1 %.not, label %12, label %7
@@ -4131,7 +4131,7 @@ define internal i32 @_v39_parse_CORE_SPEC(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_THREAD_SPEC(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_THREAD_SPEC(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i16, ptr %1, align 2
   %6 = tail call i16 @llvm.smin.i16(i16 %5, i16 0)
   %narrow = and i16 %6, 32767
@@ -4141,7 +4141,7 @@ define internal noundef i32 @_v39_dump_THREAD_SPEC(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_THREAD_SPEC(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @_v39_parse_THREAD_SPEC(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #16
   %.not = icmp eq i32 %6, 4
   br i1 %.not, label %12, label %7
@@ -4190,7 +4190,7 @@ define internal i32 @_v39_parse_THREAD_SPEC(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_NICE(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_NICE(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr %1, align 4
   switch i32 %5, label %6 [
     i32 -2, label %9
@@ -4209,13 +4209,13 @@ define internal noundef i32 @_v39_dump_NICE(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_NICE(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_NICE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.402) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_MEM_PER_CPUS(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_MEM_PER_CPUS(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i64, align 8
   store i64 -2, ptr %5, align 8
   %6 = load i64, ptr %1, align 8
@@ -4233,7 +4233,7 @@ find_parser_by_type.exit:                         ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_MEM_PER_CPUS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_MEM_PER_CPUS(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -4345,7 +4345,7 @@ find_parser_by_type.exit._crit_edge:              ; preds = %find_parser_by_type
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_MEM_PER_NODE(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_MEM_PER_NODE(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
 find_parser_by_type.exit:
   %4 = alloca i64, align 8
   %5 = load i64, ptr %1, align 8
@@ -4357,7 +4357,7 @@ find_parser_by_type.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_MEM_PER_NODE(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_MEM_PER_NODE(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -4468,7 +4468,7 @@ find_parser_by_type.exit._crit_edge:              ; preds = %find_parser_by_type
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_ALLOCATED_CORES(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_ALLOCATED_CORES(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %6 = and i16 %5, 6
   %.not = icmp eq i16 %6, 0
@@ -4486,13 +4486,13 @@ define internal noundef i32 @_v39_dump_ALLOCATED_CORES(ptr nocapture readnone %0
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_ALLOCATED_CORES(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_ALLOCATED_CORES(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.406) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_ALLOCATED_CPUS(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_ALLOCATED_CPUS(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i16, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1120), align 8
   %6 = and i16 %5, 1
   %.not = icmp eq i16 %6, 0
@@ -4510,13 +4510,13 @@ define internal noundef i32 @_v39_dump_ALLOCATED_CPUS(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_ALLOCATED_CPUS(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_ALLOCATED_CPUS(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.407) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_CONTROLLER_PING_MODE(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_CONTROLLER_PING_MODE(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr %1, align 4
   switch i32 %6, label %14 [
@@ -4553,13 +4553,13 @@ define internal noundef i32 @_v39_dump_CONTROLLER_PING_MODE(ptr nocapture readno
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_CONTROLLER_PING_MODE(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_CONTROLLER_PING_MODE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.411) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_CONTROLLER_PING_RESULT(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_CONTROLLER_PING_RESULT(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i8, ptr %1, align 1
   %6 = trunc i8 %5 to i1
   %.str.412..str.413 = select i1 %6, ptr @.str.412, ptr @.str.413
@@ -4568,13 +4568,13 @@ define internal noundef i32 @_v39_dump_CONTROLLER_PING_RESULT(ptr nocapture read
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_CONTROLLER_PING_RESULT(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_CONTROLLER_PING_RESULT(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.414) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_HOSTLIST(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_HOSTLIST(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load ptr, ptr %1, align 8
   %6 = tail call ptr @data_set_list(ptr noundef %2) #16
   %7 = tail call i32 @hostlist_count(ptr noundef %5) #16
@@ -4605,7 +4605,7 @@ define internal noundef i32 @_v39_dump_HOSTLIST(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_HOSTLIST(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_HOSTLIST(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.foreach_hostlist_parse_t, align 8
   store ptr null, ptr %6, align 8
@@ -4692,7 +4692,7 @@ define internal i32 @_v39_parse_HOSTLIST(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_HOSTLIST_STRING(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_HOSTLIST_STRING(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %6, null
@@ -4730,7 +4730,7 @@ define internal i32 @_v39_dump_HOSTLIST_STRING(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_HOSTLIST_STRING(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_HOSTLIST_STRING(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = call i32 @_v39_parse_HOSTLIST(ptr noundef %0, ptr noundef nonnull %6, ptr noundef %2, ptr noundef %3, ptr noundef %4)
@@ -4756,7 +4756,7 @@ define internal i32 @_v39_parse_HOSTLIST_STRING(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_CPU_FREQ_FLAGS(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_CPU_FREQ_FLAGS(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [64 x i8], align 16
   %6 = load i32, ptr %1, align 4
   call void @cpu_freq_to_string(ptr noundef nonnull %5, i32 noundef 64, i32 noundef %6) #16
@@ -4765,13 +4765,13 @@ define internal noundef i32 @_v39_dump_CPU_FREQ_FLAGS(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_CPU_FREQ_FLAGS(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_CPU_FREQ_FLAGS(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.418) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_ERROR(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_ERROR(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr %1, align 4
   %6 = tail call ptr @slurm_strerror(i32 noundef %5) #16
   %7 = tail call ptr @data_set_string(ptr noundef %2, ptr noundef %6) #16
@@ -4779,13 +4779,13 @@ define internal noundef i32 @_v39_dump_ERROR(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_ERROR(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_ERROR(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.368) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_JOB_INFO_MSG(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_JOB_INFO_MSG(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %6
@@ -4845,13 +4845,13 @@ find_parser_by_type.exit:                         ; preds = %20, %21
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_INFO_MSG(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_INFO_MSG(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.420) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STRING_ARRAY(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STRING_ARRAY(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit, label %6
@@ -4879,7 +4879,7 @@ define internal noundef i32 @_v39_dump_STRING_ARRAY(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9203) i32 @_v39_parse_STRING_ARRAY(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_STRING_ARRAY(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %struct.foreach_string_array_t, align 8
   store i32 -1365131733, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4956,7 +4956,7 @@ define internal range(i32 0, 9203) i32 @_v39_parse_STRING_ARRAY(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_SIGNAL(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_SIGNAL(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i16, ptr %1, align 2
   %7 = zext i16 %6 to i32
@@ -4967,7 +4967,7 @@ define internal noundef i32 @_v39_dump_SIGNAL(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_SIGNAL(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @_v39_parse_SIGNAL(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 4) #16
@@ -5032,7 +5032,7 @@ define internal i32 @_v39_parse_SIGNAL(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_BITSTR(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_BITSTR(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %6
@@ -5048,7 +5048,7 @@ define internal noundef i32 @_v39_dump_BITSTR(ptr nocapture readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_BITSTR(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @_v39_parse_BITSTR(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_convert_type(ptr noundef %2, i32 noundef 5) #16
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %12, label %7
@@ -5071,7 +5071,7 @@ define internal i32 @_v39_parse_BITSTR(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_ARRAY_RESPONSE_MSG(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_ARRAY_RESPONSE_MSG(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %6 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %6, 0
@@ -5120,13 +5120,13 @@ define internal noundef i32 @_v39_dump_JOB_ARRAY_RESPONSE_MSG(ptr nocapture read
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_ARRAY_RESPONSE_MSG(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_ARRAY_RESPONSE_MSG(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.430) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_ROLLUP_STATS(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_ROLLUP_STATS(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %.preheader
@@ -5208,13 +5208,13 @@ define internal i32 @_v39_dump_ROLLUP_STATS(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_ROLLUP_STATS(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_ROLLUP_STATS(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.435) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_JOB_EXCLUSIVE(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_JOB_EXCLUSIVE(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   br label %6
 
 5:                                                ; preds = %6
@@ -5237,7 +5237,7 @@ find_parser_by_type.exit:                         ; preds = %5, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_JOB_EXCLUSIVE(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_JOB_EXCLUSIVE(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %8, label %9
@@ -5282,7 +5282,7 @@ find_parser_by_type.exit:                         ; preds = %14, %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_HOLD(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_HOLD(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp eq i32 %5, 0
   %7 = tail call ptr @data_set_bool(ptr noundef %2, i1 noundef zeroext %6) #16
@@ -5290,7 +5290,7 @@ define internal noundef i32 @_v39_dump_HOLD(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 9203) i32 @_v39_parse_HOLD(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 9203) i32 @_v39_parse_HOLD(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %12, label %8
@@ -5313,7 +5313,7 @@ define internal range(i32 0, 9203) i32 @_v39_parse_HOLD(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_JOB_ASSOC_ID(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_JOB_ASSOC_ID(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.slurmdb_assoc_rec, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %6, i8 0, i64 336, i1 false)
@@ -5360,7 +5360,7 @@ find_parser_by_type.exit:                         ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_JOB_ASSOC_ID(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_JOB_ASSOC_ID(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.421, i32 noundef 816, ptr noundef nonnull @__func__._v39_parse_JOB_ASSOC_ID) #16
   store ptr %7, ptr %6, align 8
@@ -5409,7 +5409,7 @@ find_parser_by_type.exit:                         ; preds = %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_QOS_PREEMPT_LIST(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_QOS_PREEMPT_LIST(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = tail call ptr @data_set_list(ptr noundef %2) #16
@@ -5495,7 +5495,7 @@ define internal i32 @_v39_dump_QOS_PREEMPT_LIST(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_QOS_PREEMPT_LIST(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_QOS_PREEMPT_LIST(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
 find_parser_by_type.exit:
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %6 = tail call i32 @parse(ptr noundef nonnull %5, i64 noundef 8, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @parsers, i64 2856), ptr noundef %2, ptr noundef %3, ptr noundef %4) #16
@@ -5518,7 +5518,7 @@ find_parser_by_type.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_STEP_NODES(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_STEP_NODES(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
@@ -5552,13 +5552,13 @@ find_parser_by_type.exit:                         ; preds = %8
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STEP_NODES(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STEP_NODES(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.440) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_STEP_TRES_REQ_MAX(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_STEP_TRES_REQ_MAX(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -5572,13 +5572,13 @@ define internal i32 @_v39_dump_STEP_TRES_REQ_MAX(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STEP_TRES_REQ_MAX(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STEP_TRES_REQ_MAX(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.442) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_STEP_TRES_REQ_MIN(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_STEP_TRES_REQ_MIN(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -5592,13 +5592,13 @@ define internal i32 @_v39_dump_STEP_TRES_REQ_MIN(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STEP_TRES_REQ_MIN(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STEP_TRES_REQ_MIN(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.443) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_STEP_TRES_USAGE_MAX(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_STEP_TRES_USAGE_MAX(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -5612,13 +5612,13 @@ define internal i32 @_v39_dump_STEP_TRES_USAGE_MAX(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STEP_TRES_USAGE_MAX(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STEP_TRES_USAGE_MAX(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.444) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_STEP_TRES_USAGE_MIN(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_STEP_TRES_USAGE_MIN(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 224
@@ -5632,13 +5632,13 @@ define internal i32 @_v39_dump_STEP_TRES_USAGE_MIN(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STEP_TRES_USAGE_MIN(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STEP_TRES_USAGE_MIN(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.445) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_CYCLE_MEAN(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_CYCLE_MEAN(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
@@ -5658,13 +5658,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_CYCLE_MEAN(ptr nocapture readno
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_CYCLE_MEAN(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_CYCLE_MEAN(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.446) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_CYCLE_MEAN_DEPTH(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_CYCLE_MEAN_DEPTH(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
@@ -5684,13 +5684,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_CYCLE_MEAN_DEPTH(ptr nocapture 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_CYCLE_MEAN_DEPTH(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_CYCLE_MEAN_DEPTH(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.447) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_CYCLE_PER_MIN(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_CYCLE_PER_MIN(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5714,13 +5714,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_CYCLE_PER_MIN(ptr nocapture rea
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_CYCLE_PER_MIN(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_CYCLE_PER_MIN(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.448) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_BF_CYCLE_MEAN(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_BF_CYCLE_MEAN(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
@@ -5740,13 +5740,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_BF_CYCLE_MEAN(ptr nocapture rea
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_BF_CYCLE_MEAN(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_BF_CYCLE_MEAN(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.449) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_BF_DEPTH_MEAN(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_BF_DEPTH_MEAN(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
@@ -5766,13 +5766,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_BF_DEPTH_MEAN(ptr nocapture rea
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_BF_DEPTH_MEAN(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_BF_DEPTH_MEAN(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.450) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_BF_DEPTH_MEAN_TRY(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_BF_DEPTH_MEAN_TRY(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
@@ -5792,13 +5792,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_BF_DEPTH_MEAN_TRY(ptr nocapture
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_BF_DEPTH_MEAN_TRY(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_BF_DEPTH_MEAN_TRY(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.451) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_BF_QUEUE_LEN_MEAN(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_BF_QUEUE_LEN_MEAN(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
@@ -5818,13 +5818,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_BF_QUEUE_LEN_MEAN(ptr nocapture
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_BF_QUEUE_LEN_MEAN(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_BF_QUEUE_LEN_MEAN(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.452) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_BF_TABLE_SIZE_MEAN(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_BF_TABLE_SIZE_MEAN(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 140
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 0
@@ -5844,13 +5844,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_BF_TABLE_SIZE_MEAN(ptr nocaptur
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_BF_TABLE_SIZE_MEAN(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_BF_TABLE_SIZE_MEAN(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.453) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_BF_ACTIVE(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_BF_ACTIVE(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %6 = load i32, ptr %5, align 8
   %7 = icmp ne i32 %6, 0
@@ -5859,13 +5859,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_BF_ACTIVE(ptr nocapture readnon
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_BF_ACTIVE(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_BF_ACTIVE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.454) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_TYPE(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_TYPE(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @data_set_list(ptr noundef %2) #16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 220
@@ -5974,13 +5974,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_TYPE(ptr nocapture read
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_RPCS_BY_TYPE(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_RPCS_BY_TYPE(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.455) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_USER(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_USER(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -6114,13 +6114,13 @@ define internal noundef i32 @_v39_dump_STATS_MSG_RPCS_BY_USER(ptr nocapture read
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STATS_MSG_RPCS_BY_USER(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STATS_MSG_RPCS_BY_USER(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.456) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_NODE_SELECT_ALLOC_MEMORY(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_NODE_SELECT_ALLOC_MEMORY(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i64, align 8
   store i64 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -6148,13 +6148,13 @@ define internal i32 @_v39_dump_NODE_SELECT_ALLOC_MEMORY(ptr nocapture noundef re
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_NODE_SELECT_ALLOC_MEMORY(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_NODE_SELECT_ALLOC_MEMORY(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.459) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_NODE_SELECT_ALLOC_CPUS(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_NODE_SELECT_ALLOC_CPUS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i16, align 2
   store i16 0, ptr %5, align 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -6183,13 +6183,13 @@ define internal i32 @_v39_dump_NODE_SELECT_ALLOC_CPUS(ptr nocapture noundef read
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_NODE_SELECT_ALLOC_CPUS(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_NODE_SELECT_ALLOC_CPUS(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.461) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_NODE_SELECT_ALLOC_IDLE_CPUS(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_NODE_SELECT_ALLOC_IDLE_CPUS(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca i16, align 2
   store i16 0, ptr %5, align 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -6222,13 +6222,13 @@ define internal i32 @_v39_dump_NODE_SELECT_ALLOC_IDLE_CPUS(ptr nocapture noundef
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_NODE_SELECT_ALLOC_IDLE_CPUS(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_NODE_SELECT_ALLOC_IDLE_CPUS(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.462) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_NODE_SELECT_TRES_USED(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_NODE_SELECT_TRES_USED(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -6264,13 +6264,13 @@ define internal i32 @_v39_dump_NODE_SELECT_TRES_USED(ptr nocapture noundef reado
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_NODE_SELECT_TRES_USED(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_NODE_SELECT_TRES_USED(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.464) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_NODE_SELECT_TRES_WEIGHTED(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_NODE_SELECT_TRES_WEIGHTED(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca double, align 8
   store double 0.000000e+00, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 320
@@ -6298,13 +6298,13 @@ define internal i32 @_v39_dump_NODE_SELECT_TRES_WEIGHTED(ptr nocapture noundef r
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_NODE_SELECT_TRES_WEIGHTED(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_NODE_SELECT_TRES_WEIGHTED(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.466) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_NODES(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal noundef i32 @_v39_dump_NODES(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %6
@@ -6368,13 +6368,13 @@ find_parser_by_type.exit:                         ; preds = %18, %.preheader
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_NODES(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_NODES(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.468) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_INFO_GRES_DETAIL(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_INFO_GRES_DETAIL(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %7 = load i32, ptr %6, align 8
@@ -6403,13 +6403,13 @@ define internal noundef i32 @_v39_dump_JOB_INFO_GRES_DETAIL(ptr nocapture readno
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_INFO_GRES_DETAIL(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_INFO_GRES_DETAIL(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.469) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_RES_NODES(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_RES_NODES(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call ptr @data_set_list(ptr noundef %2) #16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -6585,13 +6585,13 @@ _dump_node_res.exit:                              ; preds = %101, %25, %78
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_RES_NODES(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_RES_NODES(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.479) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_STEP_INFO_MSG(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_STEP_INFO_MSG(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %6
@@ -6651,13 +6651,13 @@ find_parser_by_type.exit:                         ; preds = %20, %21
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_STEP_INFO_MSG(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_STEP_INFO_MSG(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.481) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_PARTITION_INFO_MSG(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_PARTITION_INFO_MSG(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %6
@@ -6717,13 +6717,13 @@ find_parser_by_type.exit:                         ; preds = %20, %21
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_PARTITION_INFO_MSG(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_PARTITION_INFO_MSG(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.483) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_RESERVATION_INFO_MSG(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal noundef i32 @_v39_dump_RESERVATION_INFO_MSG(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6767,13 +6767,13 @@ find_parser_by_type.exit:                         ; preds = %15, %16
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_RESERVATION_INFO_MSG(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_RESERVATION_INFO_MSG(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.484) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_RESERVATION_INFO_CORE_SPEC(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal noundef i32 @_v39_dump_RESERVATION_INFO_CORE_SPEC(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @data_set_list(ptr noundef %2) #16
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -6817,13 +6817,13 @@ find_parser_by_type.exit:                         ; preds = %15, %16
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_RESERVATION_INFO_CORE_SPEC(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_RESERVATION_INFO_CORE_SPEC(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.485) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_JOB_DESC_MSG_ARGV(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_JOB_DESC_MSG_ARGV(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %5
 
@@ -6843,7 +6843,7 @@ find_parser_by_type.exit:                         ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_JOB_DESC_MSG_ARGV(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_JOB_DESC_MSG_ARGV(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %.critedge, label %find_parser_by_type.exit
@@ -6878,7 +6878,7 @@ find_parser_by_type.exit:                         ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_DESC_MSG_CPU_FREQ(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_DESC_MSG_CPU_FREQ(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 172
   %7 = load i32, ptr %6, align 4
@@ -6913,7 +6913,7 @@ define internal noundef i32 @_v39_dump_JOB_DESC_MSG_CPU_FREQ(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_JOB_DESC_MSG_CPU_FREQ(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @_v39_parse_JOB_DESC_MSG_CPU_FREQ(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = tail call i32 @data_get_type(ptr noundef %2) #16
@@ -6963,7 +6963,7 @@ define internal i32 @_v39_parse_JOB_DESC_MSG_CPU_FREQ(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_JOB_DESC_MSG_ENV(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_JOB_DESC_MSG_ENV(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %5
 
@@ -6983,7 +6983,7 @@ find_parser_by_type.exit:                         ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_JOB_DESC_MSG_ENV(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_JOB_DESC_MSG_ENV(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %13, label %find_parser_by_type.exit
@@ -7003,7 +7003,7 @@ find_parser_by_type.exit:                         ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_dump_JOB_DESC_MSG_SPANK_ENV(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal i32 @_v39_dump_JOB_DESC_MSG_SPANK_ENV(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %5
 
@@ -7023,7 +7023,7 @@ find_parser_by_type.exit:                         ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_JOB_DESC_MSG_SPANK_ENV(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @_v39_parse_JOB_DESC_MSG_SPANK_ENV(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = tail call i32 @data_get_type(ptr noundef %2) #16
   %7 = icmp eq i32 %6, 1
   br i1 %7, label %13, label %find_parser_by_type.exit
@@ -7043,7 +7043,7 @@ find_parser_by_type.exit:                         ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_DESC_MSG_NODES(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_DESC_MSG_NODES(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 352
@@ -7090,7 +7090,7 @@ define internal noundef i32 @_v39_dump_JOB_DESC_MSG_NODES(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_v39_parse_JOB_DESC_MSG_NODES(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal i32 @_v39_parse_JOB_DESC_MSG_NODES(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -7228,7 +7228,7 @@ define internal i32 @_v39_parse_JOB_DESC_MSG_NODES(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_INFO_STDIN(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_INFO_STDIN(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [4096 x i8], align 16
   call void @slurm_get_job_stdin(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %1) #16
   %6 = call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull %5) #16
@@ -7236,13 +7236,13 @@ define internal noundef i32 @_v39_dump_JOB_INFO_STDIN(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_INFO_STDIN(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_INFO_STDIN(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.496) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_INFO_STDOUT(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_INFO_STDOUT(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [4096 x i8], align 16
   call void @slurm_get_job_stdout(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %1) #16
   %6 = call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull %5) #16
@@ -7250,13 +7250,13 @@ define internal noundef i32 @_v39_dump_JOB_INFO_STDOUT(ptr nocapture readnone %0
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_INFO_STDOUT(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_INFO_STDOUT(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.497) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_INFO_STDERR(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_INFO_STDERR(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [4096 x i8], align 16
   call void @slurm_get_job_stderr(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef %1) #16
   %6 = call ptr @data_set_string(ptr noundef %2, ptr noundef nonnull %5) #16
@@ -7264,13 +7264,13 @@ define internal noundef i32 @_v39_dump_JOB_INFO_STDERR(ptr nocapture readnone %0
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_INFO_STDERR(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_INFO_STDERR(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.498) #17
   unreachable
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_v39_dump_JOB_USER(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_v39_dump_JOB_USER(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %7 = load ptr, ptr %6, align 8
@@ -7313,7 +7313,7 @@ define internal noundef i32 @_v39_dump_JOB_USER(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal noundef i32 @_v39_parse_JOB_USER(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #5 {
+define internal noundef i32 @_v39_parse_JOB_USER(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #5 {
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.369, ptr noundef nonnull @.str.499) #17
   unreachable
 }
@@ -7375,7 +7375,7 @@ declare void @on_warn(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2067) i32 @_foreach_dump_qos_string_id(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2067) i32 @_foreach_dump_qos_string_id(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7464,7 +7464,7 @@ declare void @xfree_ptr(ptr noundef) #1
 declare i32 @data_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 1, 5) i32 @_foreach_parse_qos_string_id(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef range(i32 1, 5) i32 @_foreach_parse_qos_string_id(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7561,7 +7561,7 @@ declare i32 @uid_from_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @slurmdb_tres_list_from_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2116) i32 @_foreach_resolve_tres_id(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2116) i32 @_foreach_resolve_tres_id(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7634,7 +7634,7 @@ declare i32 @parse(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr nound
 declare ptr @slurmdb_make_tres_string(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #8
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 1, 5) i32 @_parse_foreach_CSV_STRING_list(ptr noundef %0, ptr noundef %1) #0 {
@@ -7717,14 +7717,14 @@ declare ptr @hostlist_iterator_create(ptr noundef) local_unnamed_addr #1
 declare ptr @hostlist_next(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @hostlist_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 5) i32 @_foreach_hostlist_parse(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_hostlist_parse(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = tail call i32 @data_convert_type(ptr noundef %0, i32 noundef 5) #16
@@ -7792,7 +7792,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare i32 @data_list_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 5) i32 @_foreach_string_array_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_string_array_list(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
   %4 = call i32 @data_get_string_converted(ptr noundef %0, ptr noundef nonnull %3) #16
@@ -7834,7 +7834,7 @@ declare i64 @data_get_dict_length(ptr noundef) local_unnamed_addr #1
 declare i32 @data_dict_for_each_const(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 5) i32 @_foreach_string_array_dict(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal range(i32 1, 5) i32 @_foreach_string_array_dict(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -7888,7 +7888,7 @@ declare ptr @bit_fmt_full(ptr noundef) local_unnamed_addr #1
 declare i32 @bit_unfmt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare i32 @compare_assoc(ptr noundef, ptr noundef) #1
 
@@ -8124,14 +8124,14 @@ find_parser_by_type.exit:                         ; preds = %65, %66
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 
 declare i32 @list_for_each_ro(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_foreach_populate_g_tres_list(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #13 {
+define internal noundef i32 @_foreach_populate_g_tres_list(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #13 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -8157,7 +8157,7 @@ define internal noundef i32 @_foreach_populate_g_tres_list(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @_foreach_list_per_tres_type_nct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 2) i32 @_foreach_list_per_tres_type_nct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
@@ -8261,10 +8261,10 @@ declare void @slurm_get_job_stdout(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @slurm_get_job_stderr(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.smin.i16(i16, i16) #15

@@ -107,7 +107,7 @@ entry:
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7512TimeZoneRuleD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7512TimeZoneRuleD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.trap() #18
   unreachable
@@ -259,7 +259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK6icu_7512TimeZoneRule12getRawOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fRawOffset = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i32, ptr %fRawOffset, align 8
@@ -267,7 +267,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK6icu_7512TimeZoneRule13getDSTSavingsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fDSTSavings = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i32, ptr %fDSTSavings, align 4
@@ -337,7 +337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519InitialTimeZoneRule17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519InitialTimeZoneRule17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @_ZZN6icu_7519InitialTimeZoneRule16getStaticClassIDEvE7classID
 }
@@ -576,25 +576,25 @@ return:                                           ; preds = %if.end.i.i, %_ZNK6i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule13getFirstStartEiiRd(ptr nocapture nonnull readnone align 8 %this, i32 %0, i32 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #8 align 2 {
+define noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule13getFirstStartEiiRd(ptr nonnull readnone align 8 captures(none) %this, i32 %0, i32 %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #8 align 2 {
 entry:
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule13getFinalStartEiiRd(ptr nocapture nonnull readnone align 8 %this, i32 %0, i32 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #8 align 2 {
+define noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule13getFinalStartEiiRd(ptr nonnull readnone align 8 captures(none) %this, i32 %0, i32 %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #8 align 2 {
 entry:
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule12getNextStartEdiiaRd(ptr nocapture nonnull readnone align 8 %this, double %0, i32 %1, i32 %2, i8 signext %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #8 align 2 {
+define noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule12getNextStartEdiiaRd(ptr nonnull readnone align 8 captures(none) %this, double %0, i32 %1, i32 %2, i8 signext %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #8 align 2 {
 entry:
   ret i8 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule16getPreviousStartEdiiaRd(ptr nocapture nonnull readnone align 8 %this, double %0, i32 %1, i32 %2, i8 signext %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #8 align 2 {
+define noundef signext i8 @_ZNK6icu_7519InitialTimeZoneRule16getPreviousStartEdiiaRd(ptr nonnull readnone align 8 captures(none) %this, double %0, i32 %1, i32 %2, i8 signext %3, ptr nonnull readnone align 8 captures(none) %4) unnamed_addr #8 align 2 {
 entry:
   ret i8 0
 }
@@ -606,7 +606,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7518AnnualTimeZoneRule17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7518AnnualTimeZoneRule17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @_ZZN6icu_7518AnnualTimeZoneRule16getStaticClassIDEvE7classID
 }
@@ -934,7 +934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7518AnnualTimeZoneRule7getRuleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZNK6icu_7518AnnualTimeZoneRule7getRuleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fDateTimeRule = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %fDateTimeRule, align 8
@@ -942,7 +942,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7518AnnualTimeZoneRule12getStartYearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK6icu_7518AnnualTimeZoneRule12getStartYearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fStartYear = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %fStartYear, align 8
@@ -950,7 +950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7518AnnualTimeZoneRule10getEndYearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK6icu_7518AnnualTimeZoneRule10getEndYearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fEndYear = getelementptr inbounds nuw i8, ptr %this, i64 92
   %0 = load i32, ptr %fEndYear, align 4
@@ -958,7 +958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %year, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule14getStartInYearEiiiRd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, i32 noundef %year, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %result) local_unnamed_addr #0 align 2 {
 entry:
   %fStartYear = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %fStartYear, align 8
@@ -1224,7 +1224,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule13getFirstStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result) unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule13getFirstStartEiiRd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %result) unnamed_addr #0 align 2 {
 entry:
   %fStartYear = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i32, ptr %fStartYear, align 8
@@ -1233,7 +1233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule13getFinalStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull align 8 dereferenceable(8) %result) unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7518AnnualTimeZoneRule13getFinalStartEiiRd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %result) unnamed_addr #0 align 2 {
 entry:
   %fEndYear = getelementptr inbounds nuw i8, ptr %this, i64 92
   %0 = load i32, ptr %fEndYear, align 4
@@ -1368,13 +1368,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7521TimeArrayTimeZoneRule17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7521TimeArrayTimeZoneRule17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret ptr @_ZZN6icu_7521TimeArrayTimeZoneRule16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521TimeArrayTimeZoneRuleC2ERKNS_13UnicodeStringEiiPKdiNS_12DateTimeRule12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings, ptr nocapture noundef readonly %startTimes, i32 noundef %numStartTimes, i32 noundef %timeRuleType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521TimeArrayTimeZoneRuleC2ERKNS_13UnicodeStringEiiPKdiNS_12DateTimeRule12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings, ptr noundef readonly captures(none) %startTimes, i32 noundef %numStartTimes, i32 noundef %timeRuleType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
@@ -1419,7 +1419,7 @@ lpad:                                             ; preds = %_ZN6icu_7512TimeZon
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7521TimeArrayTimeZoneRule14initStartTimesEPKdiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr nocapture noundef readonly %source, i32 noundef %size, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7521TimeArrayTimeZoneRule14initStartTimesEPKdiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef readonly captures(none) %source, i32 noundef %size, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 {
 entry:
   %fStartTimes = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %fStartTimes, align 8
@@ -1747,7 +1747,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7521TimeArrayTimeZoneRule11getTimeTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK6icu_7521TimeArrayTimeZoneRule11getTimeTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fTimeRuleType = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i32, ptr %fTimeRuleType, align 8
@@ -1755,7 +1755,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule14getStartTimeAtEiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %index, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) local_unnamed_addr #12 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule14getStartTimeAtEiRd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %this, i32 noundef %index, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result) local_unnamed_addr #12 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds nuw i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -1779,7 +1779,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7521TimeArrayTimeZoneRule15countStartTimesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK6icu_7521TimeArrayTimeZoneRule15countStartTimesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds nuw i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -1884,7 +1884,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule13getFirstStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #12 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule13getFirstStartEiiRd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result) unnamed_addr #12 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds nuw i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -1918,7 +1918,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK6icu_7521TimeArrayTimeZoneRule6getUTCEdii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %time, i32 noundef %raw, i32 noundef %dst) local_unnamed_addr #6 align 2 {
+define noundef double @_ZNK6icu_7521TimeArrayTimeZoneRule6getUTCEdii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %this, double noundef %time, i32 noundef %raw, i32 noundef %dst) local_unnamed_addr #6 align 2 {
 entry:
   %fTimeRuleType = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i32, ptr %fTimeRuleType, align 8
@@ -1934,7 +1934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule13getFinalStartEiiRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #12 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule13getFinalStartEiiRd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %this, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result) unnamed_addr #12 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds nuw i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -1971,7 +1971,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule12getNextStartEdiiaRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #13 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule12getNextStartEdiiaRd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %this, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result) unnamed_addr #13 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds nuw i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -2075,7 +2075,7 @@ for.end:                                          ; preds = %lor.lhs.false.us, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule16getPreviousStartEdiiaRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result) unnamed_addr #13 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521TimeArrayTimeZoneRule16getPreviousStartEdiiaRd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %this, double noundef %base, i32 noundef %prevRawOffset, i32 noundef %prevDSTSavings, i8 noundef signext %inclusive, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %result) unnamed_addr #13 align 2 {
 entry:
   %fNumStartTimes = getelementptr inbounds nuw i8, ptr %this, i64 84
   %0 = load i32, ptr %fNumStartTimes, align 4
@@ -2233,12 +2233,12 @@ return:                                           ; preds = %for.cond.us6, %for.
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 declare void @uprv_sortArray_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL12compareDatesPKvS0_S0_(ptr nocapture readnone %0, ptr nocapture noundef readonly %left, ptr nocapture noundef readonly %right) #6 {
+define internal noundef range(i32 -1, 2) i32 @_ZL12compareDatesPKvS0_S0_(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %left, ptr noundef readonly captures(none) %right) #6 {
 entry:
   %1 = load double, ptr %left, align 8
   %2 = load double, ptr %right, align 8
@@ -2254,7 +2254,7 @@ declare noundef ptr @_ZNK6icu_757UObject17getDynamicClassIDEv(ptr noundef nonnul
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #1
 

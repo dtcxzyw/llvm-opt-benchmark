@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c2c0bbea1f5027c2d464083878824656.1 = private unnamed_addr constant <{ ptr, [24 x i8] }> <{ ptr @anon.c2c0bbea1f5027c2d464083878824656.0, [24 x i8] zeroinitializer }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h20c11085d06fd80dE"(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 64)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h20c11085d06fd80dE"(ptr writeonly sret([64 x i8]) align 8 captures(none) initializes((0, 64)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [64 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -17,7 +17,7 @@ define void @"_ZN106_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17h7fabcdbdea71dc74E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17h7fabcdbdea71dc74E"(ptr writeonly sret([32 x i8]) align 8 captures(none) initializes((0, 32)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @"_ZN82_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u20$core..default..Default$GT$7default17h6209b7b88b8da691E"()
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..default..Default$GT$7default17h152c61d4c759494dE"()
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.c2c0bbea1f5027c2d464083878824656.1, i64 32, i1 false)
@@ -25,7 +25,7 @@ define void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h10315a808007af11E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 28)) %0, ptr align 8 %1, i32 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h10315a808007af11E"(ptr writeonly sret([32 x i8]) align 8 captures(none) initializes((0, 28)) %0, ptr align 8 %1, i32 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [4 x i8], align 4
   store i32 %2, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -55,7 +55,7 @@ define void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h85298a35ab270d0eE"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 56)) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h85298a35ab270d0eE"(ptr writeonly sret([56 x i8]) align 8 captures(none) initializes((0, 56)) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = tail call i64 @_ZN4core4hash11BuildHasher8hash_one17h0209e917b91b5403E(ptr nonnull align 1 %4, ptr align 8 %2)
   %6 = tail call ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17ha06e933c3df43cd2E"(ptr align 8 %1, i64 %5, ptr align 8 %2)
@@ -81,56 +81,56 @@ define void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h2c1fa1bc516bb281E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h2c1fa1bc516bb281E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i64 @_ZN4core4hash11BuildHasher8hash_one17h7bfe07843726ee46E(ptr align 1 %3, ptr align 8 %1)
   ret i64 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h6c5d1af4331c0a1dE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17h6c5d1af4331c0a1dE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i64 @_ZN4core4hash11BuildHasher8hash_one17h0209e917b91b5403E(ptr align 1 %3, ptr align 8 %1)
   ret i64 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17hd245dfe30a35c72aE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17hd245dfe30a35c72aE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i64 @_ZN4core4hash11BuildHasher8hash_one17h0209e917b91b5403E(ptr align 1 %3, ptr align 8 %1)
   ret i64 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17hea7ea3f56b62cfcfE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17hea7ea3f56b62cfcfE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i64 @_ZN4core4hash11BuildHasher8hash_one17h2a834584d8cd866bE(ptr align 1 %3, ptr align 4 %1)
   ret i64 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17hec913bcd7015e3a3E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define i64 @"_ZN9hashbrown3map11make_hasher28_$u7b$$u7b$closure$u7d$$u7d$17hec913bcd7015e3a3E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i64 @_ZN4core4hash11BuildHasher8hash_one17h0209e917b91b5403E(ptr align 1 %3, ptr align 8 %1)
   ret i64 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h4d4f2227975a4281E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h4d4f2227975a4281E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17ha0b57d104795f82eE"(ptr align 8 %3, ptr align 8 %1)
   ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h5e7baecaa2a1c5c4E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17h5e7baecaa2a1c5c4E"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8c355b1444e0b9afE"(ptr align 8 %3, ptr align 8 %1)
   ret i1 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hfc22ff89d806e7cbE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define zeroext i1 @"_ZN9hashbrown3map14equivalent_key28_$u7b$$u7b$closure$u7d$$u7d$17hfc22ff89d806e7cbE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17ha0b57d104795f82eE"(ptr align 8 %3, ptr align 8 %1)
   ret i1 %4
@@ -236,7 +236,7 @@ define align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h70458
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4c7fc8abf4b03dfeE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4c7fc8abf4b03dfeE"(ptr writeonly sret([24 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [48 x i8], align 8
   %6 = alloca [24 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -316,7 +316,7 @@ define noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h5c8262878df697f1E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h5c8262878df697f1E"(ptr writeonly sret([32 x i8]) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2, ptr align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [64 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -372,7 +372,7 @@ define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h5c8262878
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN99_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0b1fb258c423a69aE"(ptr sret([64 x i8]) align 8, ptr align 8) unnamed_addr #0
@@ -450,7 +450,7 @@ declare ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14insert_in_slot17hdccfc44
 declare void @"_ZN4core3ptr45drop_in_place$LT$proc_macro2..TokenStream$GT$17h42e110f8c7741f7dE"(ptr align 8) unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

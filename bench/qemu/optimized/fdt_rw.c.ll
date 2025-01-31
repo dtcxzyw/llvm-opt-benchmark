@@ -345,7 +345,7 @@ return:                                           ; preds = %if.end8.i, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_set_name(ptr noundef %fdt, i32 noundef %nodeoffset, ptr nocapture noundef readonly %name) local_unnamed_addr #0 {
+define dso_local i32 @fdt_set_name(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef readonly captures(none) %name) local_unnamed_addr #0 {
 entry:
   %oldlen = alloca i32, align 4
   %call1.i = tail call i32 @fdt_ro_probe_(ptr noundef %fdt) #9
@@ -430,7 +430,7 @@ if.end3:                                          ; preds = %if.end
   br i1 %tobool15.not, label %if.end17, label %return
 
 if.end17:                                         ; preds = %if.end3
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr align 1 %name, i64 %conv9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call1, ptr nonnull align 1 %name, i64 %conv9, i1 false)
   br label %return
 
 return:                                           ; preds = %if.end8.i, %if.end3.i, %entry, %if.end3, %if.end17, %if.then2
@@ -441,7 +441,7 @@ return:                                           ; preds = %if.end8.i, %if.end3
 declare ptr @fdt_get_name(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define internal fastcc range(i32 -4, 1) i32 @fdt_splice_struct_(ptr noundef %fdt, ptr noundef %p, i32 noundef %oldlen, i32 noundef %newlen) unnamed_addr #2 {
@@ -586,10 +586,10 @@ return:                                           ; preds = %if.end16.i, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_setprop_placeholder(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr nocapture noundef writeonly %prop_data) local_unnamed_addr #0 {
+define dso_local i32 @fdt_setprop_placeholder(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef writeonly captures(none) %prop_data) local_unnamed_addr #0 {
 entry:
   %oldlen.i = alloca i32, align 4
   %prop = alloca ptr, align 8
@@ -710,7 +710,7 @@ return:                                           ; preds = %if.end8.i, %if.end3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr nocapture noundef nonnull %prop) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @fdt_add_property_(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef nonnull captures(none) %prop) unnamed_addr #0 {
 entry:
   %call = tail call i32 @fdt_check_node_offset_(ptr noundef %fdt, i32 noundef %nodeoffset) #9
   %cmp = icmp slt i32 %call, 0
@@ -757,7 +757,7 @@ if.end:                                           ; preds = %entry
   %8 = load i8, ptr %arrayidx8.i25.i, align 1
   %conv9.i26.i = zext i8 %8 to i32
   %or10.i27.i = or disjoint i32 %or7.i24.i, %conv9.i26.i
-  %call4.i = tail call ptr @fdt_find_string_(ptr noundef %add.ptr.i, i32 noundef %or10.i27.i, ptr noundef %name) #9
+  %call4.i = tail call ptr @fdt_find_string_(ptr noundef %add.ptr.i, i32 noundef %or10.i27.i, ptr noundef nonnull %name) #9
   %tobool.not.i.not = icmp eq ptr %call4.i, null
   br i1 %tobool.not.i.not, label %if.end7.i, label %if.then5.i
 
@@ -859,7 +859,7 @@ if.end15.i:                                       ; preds = %if.end16.i.i.i
   %add.i.i = add i32 %or10.i32.i.i, %conv.i
   %rev.i.i.i.i = tail call noundef i32 @llvm.bswap.i32(i32 %add.i.i)
   store i32 %rev.i.i.i.i, ptr %size_dt_strings.i, align 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr11.i, ptr align 1 %name, i64 %idx.ext.i.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr11.i, ptr nonnull align 1 %name, i64 %idx.ext.i.i.i, i1 false)
   br label %fdt_find_add_string_.exit
 
 fdt_find_add_string_.exit:                        ; preds = %if.then5.i, %if.end15.i
@@ -942,7 +942,7 @@ return:                                           ; preds = %if.end16.i.i.i, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @fdt_setprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr nocapture noundef readonly %val, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local i32 @fdt_setprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr noundef readonly captures(none) %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %prop_data = alloca ptr, align 8
   %call = call i32 @fdt_setprop_placeholder(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, i32 noundef %len, ptr noundef nonnull %prop_data)
@@ -962,7 +962,7 @@ return:                                           ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483648, 1) i32 @fdt_appendprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr nocapture noundef readonly %val, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @fdt_appendprop(ptr noundef %fdt, i32 noundef %nodeoffset, ptr noundef %name, ptr noundef readonly captures(none) %val, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %prop = alloca ptr, align 8
   %oldlen = alloca i32, align 4
@@ -1227,7 +1227,7 @@ if.end7:                                          ; preds = %if.else
 
 do.body:                                          ; preds = %if.end7, %do.body
   %8 = load i32, ptr %nextoffset, align 4
-  %call13 = call i32 @fdt_next_tag(ptr noundef %fdt, i32 noundef %8, ptr noundef nonnull %nextoffset) #9
+  %call13 = call i32 @fdt_next_tag(ptr noundef nonnull %fdt, i32 noundef %8, ptr noundef nonnull %nextoffset) #9
   %9 = add i32 %call13, -3
   %10 = icmp ult i32 %9, 2
   br i1 %10, label %do.body, label %do.end, !llvm.loop !5
@@ -1260,7 +1260,7 @@ do.end:                                           ; preds = %do.body
   %and = and i64 %sub, -4
   %15 = trunc i64 %and to i32
   %conv20 = add i32 %15, 8
-  %call21 = call fastcc i32 @fdt_splice_struct_(ptr noundef %fdt, ptr noundef %add.ptr2.i.i, i32 noundef 0, i32 noundef %conv20)
+  %call21 = call fastcc i32 @fdt_splice_struct_(ptr noundef nonnull %fdt, ptr noundef %add.ptr2.i.i, i32 noundef 0, i32 noundef %conv20)
   %tobool.not = icmp eq i32 %call21, 0
   br i1 %tobool.not, label %if.end23, label %return
 
@@ -1286,14 +1286,14 @@ declare i32 @fdt_subnode_offset_namelen(ptr noundef, i32 noundef, ptr noundef, i
 declare i32 @fdt_next_tag(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @fdt_add_subnode(ptr noundef %fdt, i32 noundef %parentoffset, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %name) #10
   %conv = trunc i64 %call to i32
-  %call1 = tail call i32 @fdt_add_subnode_namelen(ptr noundef %fdt, i32 noundef %parentoffset, ptr noundef %name, i32 noundef %conv)
+  %call1 = tail call i32 @fdt_add_subnode_namelen(ptr noundef %fdt, i32 noundef %parentoffset, ptr noundef nonnull %name, i32 noundef %conv)
   ret i32 %call1
 }
 
@@ -1691,7 +1691,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @fdt_ro_probe_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 2) i32 @fdt_blocks_misordered_(ptr nocapture noundef readonly %fdt, i32 noundef %mem_rsv_size, i32 noundef %struct_size) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @fdt_blocks_misordered_(ptr noundef readonly captures(none) %fdt, i32 noundef %mem_rsv_size, i32 noundef %struct_size) unnamed_addr #6 {
 entry:
   %off_mem_rsvmap = getelementptr inbounds nuw i8, ptr %fdt, i64 16
   %0 = load i8, ptr %off_mem_rsvmap, align 1
@@ -1810,7 +1810,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 declare i32 @fdt_move(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -2147483648, 1) i32 @fdt_pack(ptr noundef %fdt) local_unnamed_addr #0 {
@@ -2043,10 +2043,10 @@ declare i64 @llvm.bswap.i64(i64) #7
 declare i32 @llvm.bswap.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

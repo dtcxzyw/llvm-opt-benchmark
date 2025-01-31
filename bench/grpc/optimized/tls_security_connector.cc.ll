@@ -255,7 +255,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector33CreateTlsChannelSecurityConnectorENS_13RefCountedPtrI24grpc_channel_credentialsEENS1_I28grpc_tls_credentials_optionsEENS1_I21grpc_call_credentialsEEPKcS9_P21tsi_ssl_session_cache(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 initializes((0, 8)) %agg.result, ptr noundef %channel_creds, ptr noundef %options, ptr noundef %request_metadata_creds, ptr noundef %target_name, ptr noundef %overridden_target_name, ptr noundef %ssl_session_cache) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector33CreateTlsChannelSecurityConnectorENS_13RefCountedPtrI24grpc_channel_credentialsEENS1_I28grpc_tls_credentials_optionsEENS1_I21grpc_call_credentialsEEPKcS9_P21tsi_ssl_session_cache(ptr noalias writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %channel_creds, ptr noundef %options, ptr noundef %request_metadata_creds, ptr noundef %target_name, ptr noundef %overridden_target_name, ptr noundef %ssl_session_cache) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %target_name.addr = alloca ptr, align 8
   %overridden_target_name.addr = alloca ptr, align 8
@@ -444,7 +444,7 @@ _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit38: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnectorC2ENS_13RefCountedPtrI24grpc_channel_credentialsEENS1_I28grpc_tls_credentials_optionsEENS1_I21grpc_call_credentialsEEPKcS9_P21tsi_ssl_session_cache(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef %channel_creds, ptr nocapture noundef %options, ptr nocapture noundef %request_metadata_creds, ptr noundef %target_name, ptr noundef %overridden_target_name, ptr noundef %ssl_session_cache) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnectorC2ENS_13RefCountedPtrI24grpc_channel_credentialsEENS1_I28grpc_tls_credentials_optionsEENS1_I21grpc_call_credentialsEEPKcS9_P21tsi_ssl_session_cache(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef captures(none) %channel_creds, ptr noundef captures(none) %options, ptr noundef captures(none) %request_metadata_creds, ptr noundef %target_name, ptr noundef %overridden_target_name, ptr noundef %ssl_session_cache) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::RefCountedPtr.127", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -697,7 +697,7 @@ if.end30:                                         ; preds = %if.then27, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %host, i8 0, i64 16, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %port, i8 0, i64 16, i1 false)
   %call.i.i45 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %target_name) #21
-  %call33 = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPS3_S4_(i64 %call.i.i45, ptr %target_name, ptr noundef nonnull %host, ptr noundef nonnull %port)
+  %call33 = invoke noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIcSt11char_traitsIcEEPS3_S4_(i64 %call.i.i45, ptr nonnull %target_name, ptr noundef nonnull %host, ptr noundef nonnull %port)
           to label %invoke.cont32 unwind label %lpad13
 
 invoke.cont32:                                    ; preds = %if.end30
@@ -1545,7 +1545,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector15add_handshakersERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture readnone %0, ptr noundef %handshake_mgr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector15add_handshakersERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr readnone captures(none) %0, ptr noundef %handshake_mgr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tsi_hs = alloca ptr, align 8
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.80", align 8
@@ -1672,7 +1672,7 @@ declare void @_ZN9grpc_core16HandshakeManager3AddENS_13RefCountedPtrINS_10Handsh
 declare void @_ZN9grpc_core24SecurityHandshakerCreateEP14tsi_handshakerP23grpc_security_connectorRKNS_11ChannelArgsE(ptr sret(%"class.grpc_core::RefCountedPtr.80") align 8, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector10check_peerE8tsi_peerP13grpc_endpointRKNS_11ChannelArgsEPNS_13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr %peer.coerce0, i64 %peer.coerce1, ptr nocapture readnone %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector10check_peerE8tsi_peerP13grpc_endpointRKNS_11ChannelArgsEPNS_13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr %peer.coerce0, i64 %peer.coerce1, ptr readnone captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef captures(none) %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %peer = alloca %struct.tsi_peer, align 8
   %on_peer_checked.addr = alloca ptr, align 8
@@ -1956,7 +1956,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt3mapIP12grpc_closurePN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequestESt4lessIS1_ESaISt4pairIKS1_S5_EEE7emplaceIJRS1_RS5_EEES8_ISt17_Rb_tree_iteratorISA_EbEDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2193,7 +2193,7 @@ ehcleanup:                                        ; preds = %if.then.i.i10, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector17cancel_check_peerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef readnone %on_peer_checked, ptr nocapture readnone %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector17cancel_check_peerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef readnone %on_peer_checked, ptr readnone captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %1 = load ptr, ptr %options_, align 8
@@ -2311,7 +2311,7 @@ if.end:                                           ; preds = %entry
   store i64 %call.i.i10, ptr %agg.tmp8, align 8
   %_M_str.i11 = getelementptr inbounds nuw i8, ptr %agg.tmp8, i64 8
   store ptr %call10, ptr %_M_str.i11, align 8
-  %call11 = tail call noundef i32 @_Z24grpc_ssl_cmp_target_nameSt17basic_string_viewIcSt11char_traitsIcEES2_S2_S2_(i64 %call.i.i, ptr %call2, i64 %call.i.i6, ptr %call5, i64 %call.i.i8, ptr %call7, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp8)
+  %call11 = tail call noundef i32 @_Z24grpc_ssl_cmp_target_nameSt17basic_string_viewIcSt11char_traitsIcEES2_S2_S2_(i64 %call.i.i, ptr nonnull %call2, i64 %call.i.i6, ptr nonnull %call5, i64 %call.i.i8, ptr nonnull %call7, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp8)
   br label %return
 
 return:                                           ; preds = %if.end, %entry
@@ -2324,7 +2324,7 @@ declare noundef i32 @_ZNK31grpc_channel_security_connector30channel_security_con
 declare noundef i32 @_Z24grpc_ssl_cmp_target_nameSt17basic_string_viewIcSt11char_traitsIcEES2_S2_S2_(i64, ptr, i64, ptr, i64, ptr, ptr noundef byval(%"class.std::basic_string_view") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias nocapture writeonly sret(%"class.grpc_core::ArenaPromise") align 16 initializes((0, 8), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i64 %host.coerce0, ptr %host.coerce1, ptr noundef %auth_context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias writeonly sret(%"class.grpc_core::ArenaPromise") align 16 captures(none) initializes((0, 8), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i64 %host.coerce0, ptr %host.coerce1, ptr noundef %auth_context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp6 = alloca %"class.std::basic_string_view", align 8
@@ -2345,7 +2345,7 @@ _ZN9grpc_core14promise_detail9ImmediateIN4absl12lts_202308026StatusEED2Ev.exit: 
   store i64 %call.i.i2, ptr %agg.tmp6, align 8
   %_M_str.i3 = getelementptr inbounds nuw i8, ptr %agg.tmp6, i64 8
   store ptr %call7, ptr %_M_str.i3, align 8
-  call void @_ZN9grpc_core16SslCheckCallHostESt17basic_string_viewIcSt11char_traitsIcEES3_S3_P17grpc_auth_context(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, i64 %host.coerce0, ptr %host.coerce1, i64 %call.i.i, ptr %call5, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp6, ptr noundef %auth_context)
+  call void @_ZN9grpc_core16SslCheckCallHostESt17basic_string_viewIcSt11char_traitsIcEES3_S3_P17grpc_auth_context(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %agg.tmp, i64 %host.coerce0, ptr %host.coerce1, i64 %call.i.i, ptr nonnull %call5, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp6, ptr noundef %auth_context)
   %2 = load i64, ptr %agg.tmp, align 8, !noalias !13
   br label %return
 
@@ -2361,7 +2361,7 @@ return:                                           ; preds = %entry, %_ZN9grpc_co
 declare void @_ZN9grpc_core16SslCheckCallHostESt17basic_string_viewIcSt11char_traitsIcEES3_S3_P17grpc_auth_context(ptr sret(%"class.absl::lts_20230802::Status") align 8, i64, ptr, i64, ptr, ptr noundef byval(%"class.std::basic_string_view") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcher21OnCertificatesChangedESt8optionalISt17basic_string_viewIcSt11char_traitsIcEEES2_ISt6vectorINS_14PemKeyCertPairESaIS9_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %root_certs, ptr noundef %key_cert_pairs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcher21OnCertificatesChangedESt8optionalISt17basic_string_viewIcSt11char_traitsIcEEES2_ISt6vectorINS_14PemKeyCertPairESaIS9_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly byval(%"class.std::optional") align 8 captures(none) %root_certs, ptr noundef %key_cert_pairs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %security_connector_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %security_connector_, align 8
@@ -2720,7 +2720,7 @@ ehcleanup:                                        ; preds = %lpad56, %lpad15, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcher7OnErrorEN4absl12lts_202308026StatusES4_(ptr nocapture nonnull readnone align 8 %this, ptr noundef %root_cert_error, ptr noundef %identity_cert_error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcher7OnErrorEN4absl12lts_202308026StatusES4_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %root_cert_error, ptr noundef %identity_cert_error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2776,7 +2776,7 @@ eh.resume:                                        ; preds = %lpad7, %lpad
 declare void @_ZN9grpc_core14StatusToStringB5cxx11ERKN4absl12lts_202308026StatusE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequestC2ENS_13RefCountedPtrIS0_EEP12grpc_closure8tsi_peerPKc(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 16), (112, 120)) %this, ptr nocapture noundef %security_connector, ptr noundef %on_peer_checked, ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %target_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequestC2ENS_13RefCountedPtrIS0_EEP12grpc_closure8tsi_peerPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(120) initializes((0, 16), (112, 120)) %this, ptr noundef captures(none) %security_connector, ptr noundef %on_peer_checked, ptr %peer.coerce0, i64 %peer.coerce1, ptr noundef %target_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %peer = alloca %struct.tsi_peer, align 8
   store ptr %peer.coerce0, ptr %peer, align 8
@@ -2824,7 +2824,7 @@ _ZN9grpc_core13RefCountedPtrINS_27TlsChannelSecurityConnectorEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_126PendingVerifierRequestInitEPKc8tsi_peerP42grpc_tls_custom_verification_check_request(ptr noundef %target_name, ptr nocapture readonly %peer.coerce0, i64 %peer.coerce1, ptr nocapture noundef nonnull initializes((0, 8)) %request) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_126PendingVerifierRequestInitEPKc8tsi_peerP42grpc_tls_custom_verification_check_request(ptr noundef %target_name, ptr readonly captures(none) %peer.coerce0, i64 %peer.coerce1, ptr noundef nonnull captures(none) initializes((0, 8)) %request) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %target_name, ptr %request, align 8
   %cmp2352.not = icmp eq i64 %peer.coerce1, 0
@@ -3548,7 +3548,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit245:              ; preds = %_ZNSt6vectorIPcSaIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequestD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequestD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %request_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr noundef %request_)
@@ -3584,7 +3584,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr nocapture noundef nonnull readonly %request) unnamed_addr #3 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr noundef nonnull readonly captures(none) %request) unnamed_addr #3 {
 entry:
   %peer_info = getelementptr inbounds nuw i8, ptr %request, i64 8
   %0 = load ptr, ptr %peer_info, align 8
@@ -3811,7 +3811,7 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   %call18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #21
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call18) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp22, i8 0, i64 24, i1 false)
-  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, i32 noundef 2, i64 %call.i.i, ptr %call18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19, ptr noundef nonnull %agg.tmp22)
+  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, i32 noundef 2, i64 %call.i.i, ptr nonnull %call18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19, ptr noundef nonnull %agg.tmp22)
           to label %invoke.cont24 unwind label %ehcleanup
 
 invoke.cont24:                                    ; preds = %invoke.cont17
@@ -4121,7 +4121,7 @@ cleanup.action4:                                  ; preds = %lpad.body.thread5, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4173,7 +4173,7 @@ _ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit: ; preds = %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_126ConvertToTsiPemKeyCertPairERKSt6vectorINS_14PemKeyCertPairESaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cert_pair_list) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZN9grpc_core12_GLOBAL__N_126ConvertToTsiPemKeyCertPairERKSt6vectorINS_14PemKeyCertPairESaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cert_pair_list) unnamed_addr #3 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %cert_pair_list, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -4329,7 +4329,7 @@ _ZNSt12__shared_ptrIN9grpc_core12experimental11CrlProviderELN9__gnu_cxx12_Lock_p
 declare void @_Z39grpc_tsi_ssl_pem_key_cert_pairs_destroyP25tsi_ssl_pem_key_cert_pairm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnector32CreateTlsServerSecurityConnectorENS_13RefCountedPtrI23grpc_server_credentialsEENS1_I28grpc_tls_credentials_optionsEE(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.98") align 8 initializes((0, 8)) %agg.result, ptr noundef %server_creds, ptr noundef %options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnector32CreateTlsServerSecurityConnectorENS_13RefCountedPtrI23grpc_server_credentialsEENS1_I28grpc_tls_credentials_optionsEE(ptr noalias writeonly sret(%"class.grpc_core::RefCountedPtr.98") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef %server_creds, ptr noundef %options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::RefCountedPtr.100", align 8
   %0 = load ptr, ptr %server_creds, align 8
@@ -4459,7 +4459,7 @@ _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit23: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnectorC2ENS_13RefCountedPtrI23grpc_server_credentialsEENS1_I28grpc_tls_credentials_optionsEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef %server_creds, ptr nocapture noundef %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnectorC2ENS_13RefCountedPtrI23grpc_server_credentialsEENS1_I28grpc_tls_credentials_optionsEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef captures(none) %server_creds, ptr noundef captures(none) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.grpc_core::RefCountedPtr.127", align 8
   %agg.tmp2 = alloca %"class.grpc_core::RefCountedPtr.99", align 8
@@ -5149,7 +5149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnector15add_handshakersERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture readnone %0, ptr noundef %handshake_mgr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnector15add_handshakersERKNS_11ChannelArgsEP16grpc_pollset_setPNS_16HandshakeManagerE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr readnone captures(none) %0, ptr noundef %handshake_mgr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tsi_hs = alloca ptr, align 8
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.80", align 8
@@ -5262,7 +5262,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit12:      ; preds = %ehcleanup
 declare noundef i32 @_Z51tsi_ssl_server_handshaker_factory_create_handshakerP33tsi_ssl_server_handshaker_factorymmPP14tsi_handshaker(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnector10check_peerE8tsi_peerP13grpc_endpointRKNS_11ChannelArgsEPNS_13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr %peer.coerce0, i64 %peer.coerce1, ptr nocapture readnone %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnector10check_peerE8tsi_peerP13grpc_endpointRKNS_11ChannelArgsEPNS_13RefCountedPtrI17grpc_auth_contextEEP12grpc_closure(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr %peer.coerce0, i64 %peer.coerce1, ptr readnone captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef captures(none) %auth_context, ptr noundef %on_peer_checked) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %peer = alloca %struct.tsi_peer, align 8
   %on_peer_checked.addr = alloca ptr, align 8
@@ -5778,7 +5778,7 @@ ehcleanup:                                        ; preds = %if.then.i.i10, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnector17cancel_check_peerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef readnone %on_peer_checked, ptr nocapture readnone %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnector17cancel_check_peerEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef readnone %on_peer_checked, ptr readnone captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %options_, align 8
@@ -5882,7 +5882,7 @@ entry:
 declare noundef i32 @_ZNK30grpc_server_security_connector29server_security_connector_cmpEPKS_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcher21OnCertificatesChangedESt8optionalISt17basic_string_viewIcSt11char_traitsIcEEES2_ISt6vectorINS_14PemKeyCertPairESaIS9_EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %root_certs, ptr noundef %key_cert_pairs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcher21OnCertificatesChangedESt8optionalISt17basic_string_viewIcSt11char_traitsIcEEES2_ISt6vectorINS_14PemKeyCertPairESaIS9_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly byval(%"class.std::optional") align 8 captures(none) %root_certs, ptr noundef %key_cert_pairs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %security_connector_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %security_connector_, align 8
@@ -6241,7 +6241,7 @@ ehcleanup:                                        ; preds = %lpad67, %lpad23, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcher7OnErrorEN4absl12lts_202308026StatusES4_(ptr nocapture nonnull readnone align 8 %this, ptr noundef %root_cert_error, ptr noundef %identity_cert_error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcher7OnErrorEN4absl12lts_202308026StatusES4_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %root_cert_error, ptr noundef %identity_cert_error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6295,7 +6295,7 @@ eh.resume:                                        ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnector28ServerPendingVerifierRequestC2ENS_13RefCountedPtrIS0_EEP12grpc_closure8tsi_peer(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 16), (112, 120)) %this, ptr nocapture noundef %security_connector, ptr noundef %on_peer_checked, ptr %peer.coerce0, i64 %peer.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnector28ServerPendingVerifierRequestC2ENS_13RefCountedPtrIS0_EEP12grpc_closure8tsi_peer(ptr noundef nonnull align 8 captures(none) dereferenceable(120) initializes((0, 16), (112, 120)) %this, ptr noundef captures(none) %security_connector, ptr noundef %on_peer_checked, ptr %peer.coerce0, i64 %peer.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %peer = alloca %struct.tsi_peer, align 8
   store ptr %peer.coerce0, ptr %peer, align 8
@@ -6343,7 +6343,7 @@ _ZN9grpc_core13RefCountedPtrINS_26TlsServerSecurityConnectorEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core26TlsServerSecurityConnector28ServerPendingVerifierRequestD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core26TlsServerSecurityConnector28ServerPendingVerifierRequestD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %request_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   invoke fastcc void @_ZN9grpc_core12_GLOBAL__N_129PendingVerifierRequestDestroyEP42grpc_tls_custom_verification_check_request(ptr noundef %request_)
@@ -6440,7 +6440,7 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   %call18 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9) #21
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call18) #21
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp22, i8 0, i64 24, i1 false)
-  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, i32 noundef 2, i64 %call.i.i, ptr %call18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19, ptr noundef nonnull %agg.tmp22)
+  invoke void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, i32 noundef 2, i64 %call.i.i, ptr nonnull %call18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp19, ptr noundef nonnull %agg.tmp22)
           to label %invoke.cont24 unwind label %ehcleanup
 
 invoke.cont24:                                    ; preds = %invoke.cont17
@@ -6745,7 +6745,7 @@ init.end:                                         ; preds = %init.check, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8_Rb_treeIP12grpc_closureSt4pairIKS1_PN9grpc_core27TlsChannelSecurityConnector29ChannelPendingVerifierRequestEESt10_Select1stIS8_ESt4lessIS1_ESaIS8_EE8_M_eraseEPSt13_Rb_tree_nodeIS8_E(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %__x) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6875,7 +6875,7 @@ if.end11:                                         ; preds = %if.else.thread, %if
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
@@ -6886,7 +6886,7 @@ declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #0
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
@@ -8091,10 +8091,10 @@ entry:
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18

@@ -377,7 +377,7 @@ define dso_local void @WalReceiverMain() local_unnamed_addr #3 {
   call void @llvm.assume(i1 %134)
   %135 = call i32 @errcode(i32 noundef 325) #15
   %136 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.8) #15
-  %137 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef %.lcssa169, ptr noundef nonnull %19) #15
+  %137 = call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.9, ptr noundef nonnull %.lcssa169, ptr noundef nonnull %19) #15
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 354, ptr noundef nonnull @__func__.WalReceiverMain) #15
   unreachable
 
@@ -1748,7 +1748,7 @@ declare void @load_file(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
@@ -1757,7 +1757,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare i64 @GetSystemIdentifier() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 
@@ -2614,7 +2614,7 @@ declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local
 declare void @set_ps_display_with_len(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare zeroext i1 @existsTimeLineHistory(i32 noundef) local_unnamed_addr #1
 
@@ -2715,7 +2715,7 @@ declare i32 @XLogFileInit(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree
-declare noundef i64 @pwrite(i32 noundef, ptr nocapture noundef readonly, i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 declare void @issue_xlog_fsync(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2743,10 +2743,10 @@ declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #14

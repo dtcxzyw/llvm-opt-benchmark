@@ -152,23 +152,23 @@ zfp_field_alloc.exit.thread:                      ; preds = %6, %8
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @zfp_field_free(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @zfp_field_free(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   tail call void @free(ptr noundef %0) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @zfp_field_pointer(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define ptr @zfp_field_pointer(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @zfp_field_begin(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define ptr @zfp_field_begin(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -267,13 +267,13 @@ zfp_type_size.exit:                               ; preds = %field_index_span.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @zfp_field_type(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @zfp_field_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65) i32 @zfp_field_precision(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 65) i32 @zfp_field_precision(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %switch.tableidx = add i32 %2, -1
   %3 = icmp ult i32 %switch.tableidx, 4
@@ -291,7 +291,7 @@ zfp_type_size.exit:                               ; preds = %1, %switch.lookup
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 5) i32 @zfp_field_dimensionality(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 5) i32 @zfp_field_dimensionality(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -322,7 +322,7 @@ define range(i32 0, 5) i32 @zfp_field_dimensionality(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @zfp_field_size(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
+define i64 @zfp_field_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %zfp_field_dimensionality.exit.thread, label %3
 
@@ -395,7 +395,7 @@ zfp_field_dimensionality.exit.thread:             ; preds = %3, %zfp_field_dimen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @zfp_field_size_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i64 @zfp_field_size_bytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -492,7 +492,7 @@ zfp_type_size.exit:                               ; preds = %field_index_span.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @zfp_field_blocks(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i64 @zfp_field_blocks(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 3
@@ -545,7 +545,7 @@ zfp_field_dimensionality.exit.thread15:           ; preds = %16, %1, %zfp_field_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @zfp_field_stride(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @zfp_field_stride(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %zfp_field_dimensionality.exit.thread, label %3
 
@@ -656,7 +656,7 @@ zfp_field_dimensionality.exit.thread:             ; preds = %3, %zfp_field_dimen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @zfp_field_is_contiguous(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @zfp_field_is_contiguous(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -748,7 +748,7 @@ field_index_span.exit:                            ; preds = %._crit_edge.i, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 -1, 4503621102206956) i64 @zfp_field_metadata(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i64 -1, 4503621102206956) i64 @zfp_field_metadata(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %.not.i = icmp eq i64 %3, 0
@@ -862,14 +862,14 @@ zfp_field_dimensionality.exit62:                  ; preds = %14, %1, %40, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_pointer(ptr nocapture noundef writeonly initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @zfp_field_set_pointer(ptr noundef writeonly captures(none) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 5) i32 @zfp_field_set_type(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 5) i32 @zfp_field_set_type(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.off = add i32 %1, -1
   %switch = icmp ult i32 %.off, 4
   br i1 %switch, label %3, label %4
@@ -884,7 +884,7 @@ define range(i32 0, 5) i32 @zfp_field_set_type(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_size_1d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1) local_unnamed_addr #7 {
+define void @zfp_field_set_size_1d(ptr noundef writeonly captures(none) initializes((8, 40)) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -893,7 +893,7 @@ define void @zfp_field_set_size_1d(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_size_2d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define void @zfp_field_set_size_2d(ptr noundef writeonly captures(none) initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -904,7 +904,7 @@ define void @zfp_field_set_size_2d(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_size_3d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
+define void @zfp_field_set_size_3d(ptr noundef writeonly captures(none) initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -917,7 +917,7 @@ define void @zfp_field_set_size_3d(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_size_4d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
+define void @zfp_field_set_size_4d(ptr noundef writeonly captures(none) initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -930,7 +930,7 @@ define void @zfp_field_set_size_4d(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_stride_1d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1) local_unnamed_addr #7 {
+define void @zfp_field_set_stride_1d(ptr noundef writeonly captures(none) initializes((40, 72)) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -939,7 +939,7 @@ define void @zfp_field_set_stride_1d(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_stride_2d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define void @zfp_field_set_stride_2d(ptr noundef writeonly captures(none) initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -950,7 +950,7 @@ define void @zfp_field_set_stride_2d(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_stride_3d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
+define void @zfp_field_set_stride_3d(ptr noundef writeonly captures(none) initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -963,7 +963,7 @@ define void @zfp_field_set_stride_3d(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_stride_4d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
+define void @zfp_field_set_stride_4d(ptr noundef writeonly captures(none) initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -976,7 +976,7 @@ define void @zfp_field_set_stride_4d(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @zfp_field_set_metadata(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @zfp_field_set_metadata(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
   %.not = icmp ult i64 %1, 4503599627370496
   br i1 %.not, label %3, label %49
 
@@ -1067,13 +1067,13 @@ default.unreachable47:                            ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_none(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4)) %0) local_unnamed_addr #7 {
+define void @zfp_config_none(ptr dead_on_unwind noalias writable writeonly sret(%struct.zfp_config) align 8 captures(none) initializes((0, 4)) %0) local_unnamed_addr #7 {
   store i32 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_rate(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 16)) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @zfp_config_rate(ptr dead_on_unwind noalias writable writeonly sret(%struct.zfp_config) align 8 captures(none) initializes((0, 4), (8, 16)) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   store i32 2, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   %4 = fneg double %1
@@ -1084,7 +1084,7 @@ define void @zfp_config_rate(ptr dead_on_unwind noalias nocapture writable write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_precision(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 12)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @zfp_config_precision(ptr dead_on_unwind noalias writable writeonly sret(%struct.zfp_config) align 8 captures(none) initializes((0, 4), (8, 12)) %0, i32 noundef %1) local_unnamed_addr #7 {
   store i32 3, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -1092,7 +1092,7 @@ define void @zfp_config_precision(ptr dead_on_unwind noalias nocapture writable 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_accuracy(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 16)) %0, double noundef %1) local_unnamed_addr #7 {
+define void @zfp_config_accuracy(ptr dead_on_unwind noalias writable writeonly sret(%struct.zfp_config) align 8 captures(none) initializes((0, 4), (8, 16)) %0, double noundef %1) local_unnamed_addr #7 {
   store i32 4, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
@@ -1100,13 +1100,13 @@ define void @zfp_config_accuracy(ptr dead_on_unwind noalias nocapture writable w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_reversible(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4)) %0) local_unnamed_addr #7 {
+define void @zfp_config_reversible(ptr dead_on_unwind noalias writable writeonly sret(%struct.zfp_config) align 8 captures(none) initializes((0, 4)) %0) local_unnamed_addr #7 {
   store i32 5, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_expert(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define void @zfp_config_expert(ptr dead_on_unwind noalias writable writeonly sret(%struct.zfp_config) align 8 captures(none) initializes((0, 4), (8, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
@@ -1146,7 +1146,7 @@ define noalias noundef ptr @zfp_stream_open(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @zfp_stream_close(ptr nocapture noundef %0) local_unnamed_addr #8 {
+define void @zfp_stream_close(ptr noundef captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1162,14 +1162,14 @@ define void @zfp_stream_close(ptr nocapture noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @zfp_stream_bit_stream(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define ptr @zfp_stream_bit_stream(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -1237,7 +1237,7 @@ define range(i32 0, 6) i32 @zfp_stream_compression_mode(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define double @zfp_stream_rate(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define double @zfp_stream_rate(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1294,7 +1294,7 @@ zfp_stream_compression_mode.exit.thread:          ; preds = %19, %24, %15, %2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65) i32 @zfp_stream_precision(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define range(i32 0, 65) i32 @zfp_stream_precision(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -1356,7 +1356,7 @@ zfp_stream_compression_mode.exit.thread:          ; preds = %30, %27, %23, %14, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define double @zfp_stream_accuracy(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define double @zfp_stream_accuracy(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -1425,7 +1425,7 @@ zfp_stream_compression_mode.exit.thread:          ; preds = %27, %30, %23, %14, 
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @zfp_stream_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i64 @zfp_stream_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -1570,7 +1570,7 @@ zfp_stream_compression_mode.exit.thread57:        ; preds = %34, %53, %45, %41, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zfp_stream_params(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #6 {
+define void @zfp_stream_params(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -1614,7 +1614,7 @@ define void @zfp_stream_params(ptr nocapture noundef readonly %0, ptr noundef wr
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @zfp_stream_compressed_size(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define i64 @zfp_stream_compressed_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @stream_size(ptr noundef %3) #19
@@ -1624,7 +1624,7 @@ define i64 @zfp_stream_compressed_size(ptr nocapture noundef readonly %0) local_
 declare i64 @stream_size(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 2305843009213693952) i64 @zfp_stream_maximum_size(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define range(i64 0, 2305843009213693952) i64 @zfp_stream_maximum_size(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = getelementptr i8, ptr %0, i64 12
   %.val = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val, -1075
@@ -1770,14 +1770,14 @@ zfp_field_precision.exit41:                       ; preds = %switch.lookup, %zfp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_stream_set_bit_stream(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @zfp_stream_set_bit_stream(ptr noundef writeonly captures(none) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_stream_set_reversible(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #7 {
+define void @zfp_stream_set_reversible(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 16658, ptr %2, align 4
@@ -1789,7 +1789,7 @@ define void @zfp_stream_set_reversible(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define double @zfp_stream_set_rate(ptr nocapture noundef writeonly initializes((0, 16)) %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define double @zfp_stream_set_rate(ptr noundef writeonly captures(none) initializes((0, 16)) %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = shl i32 %3, 1
   %7 = shl nuw i32 1, %6
   %8 = uitofp nneg i32 %7 to double
@@ -1844,7 +1844,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 declare double @llvm.floor.f64(double) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef range(i32 0, 65) i32 @zfp_stream_set_precision(ptr nocapture noundef writeonly initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define noundef range(i32 0, 65) i32 @zfp_stream_set_precision(ptr noundef writeonly captures(none) initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 16658, ptr %3, align 4
@@ -1859,7 +1859,7 @@ define noundef range(i32 0, 65) i32 @zfp_stream_set_precision(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define double @zfp_stream_set_accuracy(ptr nocapture noundef writeonly initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #9 {
+define double @zfp_stream_set_accuracy(ptr noundef writeonly captures(none) initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #9 {
   %3 = alloca i32, align 4
   store i32 -1074, ptr %3, align 4
   %4 = fcmp ogt double %1, 0.000000e+00
@@ -1895,10 +1895,10 @@ define double @zfp_stream_set_accuracy(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 6) i32 @zfp_stream_set_mode(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 6) i32 @zfp_stream_set_mode(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = icmp ult i64 %1, 4095
   br i1 %3, label %4, label %19
 
@@ -2008,7 +2008,7 @@ zfp_stream_compression_mode.exit:                 ; preds = %49, %41, %35, %59, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @zfp_stream_set_params(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @zfp_stream_set_params(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = icmp ule i32 %1, %2
   %7 = add i32 %3, -1
   %8 = icmp ult i32 %7, 64
@@ -2031,7 +2031,7 @@ define range(i32 0, 2) i32 @zfp_stream_set_params(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @zfp_stream_flush(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define i64 @zfp_stream_flush(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @stream_flush(ptr noundef %3) #19
@@ -2041,7 +2041,7 @@ define i64 @zfp_stream_flush(ptr nocapture noundef readonly %0) local_unnamed_ad
 declare i64 @stream_flush(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define i64 @zfp_stream_align(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define i64 @zfp_stream_align(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @stream_align(ptr noundef %3) #19
@@ -2051,7 +2051,7 @@ define i64 @zfp_stream_align(ptr nocapture noundef readonly %0) local_unnamed_ad
 declare i64 @stream_align(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define void @zfp_stream_rewind(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define void @zfp_stream_rewind(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @stream_rewind(ptr noundef %3) #19
@@ -2061,14 +2061,14 @@ define void @zfp_stream_rewind(ptr nocapture noundef readonly %0) local_unnamed_
 declare void @stream_rewind(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @zfp_stream_execution(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define i32 @zfp_stream_execution(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @zfp_stream_omp_threads(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define i32 @zfp_stream_omp_threads(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -2086,7 +2086,7 @@ define i32 @zfp_stream_omp_threads(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @zfp_stream_omp_chunk_size(ptr nocapture noundef readonly %0) local_unnamed_addr #15 {
+define i32 @zfp_stream_omp_chunk_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -2105,7 +2105,7 @@ define i32 @zfp_stream_omp_chunk_size(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, 2) i32 @zfp_stream_set_execution(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @zfp_stream_set_execution(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   switch i32 %1, label %22 [
     i32 0, label %3
     i32 1, label %10
@@ -2163,7 +2163,7 @@ define range(i32 0, 2) i32 @zfp_stream_set_execution(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_threads(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_threads(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 1
@@ -2195,7 +2195,7 @@ define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_threads(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_chunk_size(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_chunk_size(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 1
@@ -2228,7 +2228,7 @@ define noundef range(i32 0, 2) i32 @zfp_stream_set_omp_chunk_size(ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zfp_promote_int8_to_int32(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
+define void @zfp_promote_int8_to_int32(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = shl i32 %2, 1
   %5 = shl nuw i32 1, %4
   br label %6
@@ -2252,7 +2252,7 @@ define void @zfp_promote_int8_to_int32(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zfp_promote_uint8_to_int32(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
+define void @zfp_promote_uint8_to_int32(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = shl i32 %2, 1
   %5 = shl nuw i32 1, %4
   br label %6
@@ -2277,7 +2277,7 @@ define void @zfp_promote_uint8_to_int32(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zfp_promote_int16_to_int32(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
+define void @zfp_promote_int16_to_int32(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = shl i32 %2, 1
   %5 = shl nuw i32 1, %4
   br label %6
@@ -2301,7 +2301,7 @@ define void @zfp_promote_int16_to_int32(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zfp_promote_uint16_to_int32(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
+define void @zfp_promote_uint16_to_int32(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = shl i32 %2, 1
   %5 = shl nuw i32 1, %4
   br label %6
@@ -2326,7 +2326,7 @@ define void @zfp_promote_uint16_to_int32(ptr nocapture noundef writeonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zfp_demote_int32_to_int8(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
+define void @zfp_demote_int32_to_int8(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = shl i32 %2, 1
   %5 = shl nuw i32 1, %4
   br label %6
@@ -2352,7 +2352,7 @@ define void @zfp_demote_int32_to_int8(ptr nocapture noundef writeonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zfp_demote_int32_to_uint8(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
+define void @zfp_demote_int32_to_uint8(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = shl i32 %2, 1
   %5 = shl nuw i32 1, %4
   br label %6
@@ -2379,7 +2379,7 @@ define void @zfp_demote_int32_to_uint8(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zfp_demote_int32_to_int16(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
+define void @zfp_demote_int32_to_int16(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = shl i32 %2, 1
   %5 = shl nuw i32 1, %4
   br label %6
@@ -2405,7 +2405,7 @@ define void @zfp_demote_int32_to_int16(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @zfp_demote_int32_to_uint16(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #16 {
+define void @zfp_demote_int32_to_uint16(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #16 {
   %4 = shl i32 %2, 1
   %5 = shl nuw i32 1, %4
   br label %6
@@ -2515,7 +2515,7 @@ zfp_field_dimensionality.exit:                    ; preds = %zfp_field_stride.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_int32_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2549,7 +2549,7 @@ define internal void @compress_int32_1(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_int64_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2583,7 +2583,7 @@ define internal void @compress_int64_1(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_float_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2617,7 +2617,7 @@ define internal void @compress_float_1(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_double_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2651,7 +2651,7 @@ define internal void @compress_double_1(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_int32_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_int32_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2730,7 +2730,7 @@ define internal void @compress_strided_int32_2(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_int64_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_int64_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2809,7 +2809,7 @@ define internal void @compress_strided_int64_2(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_float_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_float_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2888,7 +2888,7 @@ define internal void @compress_strided_float_2(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_double_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_double_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2967,7 +2967,7 @@ define internal void @compress_strided_double_2(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_int32_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_int32_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3111,7 +3111,7 @@ define internal void @compress_strided_int32_3(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_int64_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_int64_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3255,7 +3255,7 @@ define internal void @compress_strided_int64_3(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_float_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_float_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3399,7 +3399,7 @@ define internal void @compress_strided_float_3(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_double_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_double_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3543,7 +3543,7 @@ define internal void @compress_strided_double_3(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_int32_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3774,7 +3774,7 @@ define internal void @compress_strided_int32_4(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_int64_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4005,7 +4005,7 @@ define internal void @compress_strided_int64_4(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_float_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4236,7 +4236,7 @@ define internal void @compress_strided_float_4(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_double_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4467,7 +4467,7 @@ define internal void @compress_strided_double_4(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_int32_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4504,7 +4504,7 @@ define internal void @compress_strided_int32_1(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_int64_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4541,7 +4541,7 @@ define internal void @compress_strided_int64_1(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_float_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4578,7 +4578,7 @@ define internal void @compress_strided_float_1(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_double_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4615,7 +4615,7 @@ define internal void @compress_strided_double_1(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_omp_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_omp_int32_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -4708,7 +4708,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_omp_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_omp_int64_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -4801,7 +4801,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_omp_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_omp_float_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -4894,7 +4894,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_omp_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_omp_double_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -4987,7 +4987,7 @@ chunk_count_omp.exit:                             ; preds = %31, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_int32_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_int32_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -5093,7 +5093,7 @@ chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_int64_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_int64_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -5199,7 +5199,7 @@ chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_float_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_float_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -5305,7 +5305,7 @@ chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_double_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_double_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -5411,7 +5411,7 @@ chunk_count_omp.exit:                             ; preds = %43, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_int32_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_int32_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -5533,7 +5533,7 @@ chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_int64_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_int64_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -5655,7 +5655,7 @@ chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_float_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_float_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -5777,7 +5777,7 @@ chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_double_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_double_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -5899,7 +5899,7 @@ chunk_count_omp.exit:                             ; preds = %55, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_int32_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_int32_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -6037,7 +6037,7 @@ chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_int64_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_int64_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -6175,7 +6175,7 @@ chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_float_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_float_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -6313,7 +6313,7 @@ chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_double_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_double_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -6451,7 +6451,7 @@ chunk_count_omp.exit:                             ; preds = %66, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_int32_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -6549,7 +6549,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_int64_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -6647,7 +6647,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_float_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -6745,7 +6745,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @compress_strided_omp_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @compress_strided_omp_double_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -6843,7 +6843,7 @@ chunk_count_omp.exit:                             ; preds = %34, %zfp_stream_omp
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 declare i64 @zfp_encode_block_int32_1(ptr noundef, ptr noundef) local_unnamed_addr #12
 
@@ -6918,7 +6918,7 @@ declare i64 @zfp_encode_block_strided_float_1(ptr noundef, ptr noundef, i64 noun
 declare i64 @zfp_encode_block_strided_double_1(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @compress_init_par(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) unnamed_addr #11 {
+define internal fastcc noalias noundef ptr @compress_init_par(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #11 {
   %5 = alloca %struct.zfp_field, align 8
   %6 = add i64 %3, %2
   %7 = shl i64 %6, 2
@@ -7078,7 +7078,7 @@ zfp_field_dimensionality.exit.thread:             ; preds = %60, %52, %4, %._cri
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_omp_int32_1.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #18 {
+define internal void @compress_omp_int32_1.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7) #18 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -7185,7 +7185,7 @@ declare void @__kmpc_push_num_threads(ptr, i32, i32) local_unnamed_addr #19
 declare !callback !5 void @__kmpc_fork_call(ptr, i32, ptr, ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compress_finish_par(ptr %.16.val, ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #11 {
+define internal fastcc void @compress_finish_par(ptr %.16.val, ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #11 {
   %3 = tail call ptr @stream_data(ptr noundef %.16.val) #19
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @stream_data(ptr noundef %4) #19
@@ -7264,7 +7264,7 @@ declare void @stream_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_a
 declare void @stream_wseek(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_omp_int64_1.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #18 {
+define internal void @compress_omp_int64_1.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7) #18 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -7356,7 +7356,7 @@ define internal void @compress_omp_int64_1.omp_outlined(ptr noalias nocapture no
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_omp_float_1.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #18 {
+define internal void @compress_omp_float_1.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7) #18 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -7448,7 +7448,7 @@ define internal void @compress_omp_float_1.omp_outlined(ptr noalias nocapture no
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_omp_double_1.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7) #18 {
+define internal void @compress_omp_double_1.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7) #18 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -7540,7 +7540,7 @@ define internal void @compress_omp_double_1.omp_outlined(ptr noalias nocapture n
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_int32_2.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11) #18 {
+define internal void @compress_strided_omp_int32_2.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11) #18 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -7647,7 +7647,7 @@ define internal void @compress_strided_omp_int32_2.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_int64_2.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11) #18 {
+define internal void @compress_strided_omp_int64_2.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11) #18 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -7754,7 +7754,7 @@ define internal void @compress_strided_omp_int64_2.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_float_2.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11) #18 {
+define internal void @compress_strided_omp_float_2.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11) #18 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -7861,7 +7861,7 @@ define internal void @compress_strided_omp_float_2.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_double_2.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11) #18 {
+define internal void @compress_strided_omp_double_2.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11) #18 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -7968,7 +7968,7 @@ define internal void @compress_strided_omp_double_2.omp_outlined(ptr noalias noc
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_int32_3.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14) #18 {
+define internal void @compress_strided_omp_int32_3.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %14) #18 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
@@ -8097,7 +8097,7 @@ define internal void @compress_strided_omp_int32_3.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_int64_3.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14) #18 {
+define internal void @compress_strided_omp_int64_3.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %14) #18 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
@@ -8226,7 +8226,7 @@ define internal void @compress_strided_omp_int64_3.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_float_3.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14) #18 {
+define internal void @compress_strided_omp_float_3.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %14) #18 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
@@ -8355,7 +8355,7 @@ define internal void @compress_strided_omp_float_3.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_double_3.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14) #18 {
+define internal void @compress_strided_omp_double_3.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %14) #18 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
@@ -8484,7 +8484,7 @@ define internal void @compress_strided_omp_double_3.omp_outlined(ptr noalias noc
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_int32_4.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %15, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %16, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %17) #18 {
+define internal void @compress_strided_omp_int32_4.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %14, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %15, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %16, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %17) #18 {
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
@@ -8629,7 +8629,7 @@ define internal void @compress_strided_omp_int32_4.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_int64_4.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %15, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %16, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %17) #18 {
+define internal void @compress_strided_omp_int64_4.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %14, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %15, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %16, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %17) #18 {
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
@@ -8774,7 +8774,7 @@ define internal void @compress_strided_omp_int64_4.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_float_4.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %15, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %16, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %17) #18 {
+define internal void @compress_strided_omp_float_4.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %14, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %15, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %16, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %17) #18 {
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
@@ -8919,7 +8919,7 @@ define internal void @compress_strided_omp_float_4.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_double_4.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %14, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %15, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %16, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %17) #18 {
+define internal void @compress_strided_omp_double_4.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %14, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %15, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %16, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %17) #18 {
   %19 = alloca i32, align 4
   %20 = alloca i32, align 4
   %21 = alloca i32, align 4
@@ -9064,7 +9064,7 @@ define internal void @compress_strided_omp_double_4.omp_outlined(ptr noalias noc
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_int32_1.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #18 {
+define internal void @compress_strided_omp_int32_1.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8) #18 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -9158,7 +9158,7 @@ define internal void @compress_strided_omp_int32_1.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_int64_1.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #18 {
+define internal void @compress_strided_omp_int64_1.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8) #18 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -9252,7 +9252,7 @@ define internal void @compress_strided_omp_int64_1.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_float_1.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #18 {
+define internal void @compress_strided_omp_float_1.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8) #18 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -9346,7 +9346,7 @@ define internal void @compress_strided_omp_float_1.omp_outlined(ptr noalias noca
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @compress_strided_omp_double_1.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8) #18 {
+define internal void @compress_strided_omp_double_1.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8) #18 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -9523,7 +9523,7 @@ zfp_field_dimensionality.exit:                    ; preds = %zfp_field_stride.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_int32_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9557,7 +9557,7 @@ define internal void @decompress_int32_1(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_int64_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9591,7 +9591,7 @@ define internal void @decompress_int64_1(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_float_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9625,7 +9625,7 @@ define internal void @decompress_float_1(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_double_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9659,7 +9659,7 @@ define internal void @decompress_double_1(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_int32_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_int32_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9738,7 +9738,7 @@ define internal void @decompress_strided_int32_2(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_int64_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_int64_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9817,7 +9817,7 @@ define internal void @decompress_strided_int64_2(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_float_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_float_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9896,7 +9896,7 @@ define internal void @decompress_strided_float_2(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_double_2(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_double_2(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9975,7 +9975,7 @@ define internal void @decompress_strided_double_2(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_int32_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_int32_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10119,7 +10119,7 @@ define internal void @decompress_strided_int32_3(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_int64_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_int64_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10263,7 +10263,7 @@ define internal void @decompress_strided_int64_3(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_float_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_float_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10407,7 +10407,7 @@ define internal void @decompress_strided_float_3(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_double_3(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_double_3(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10551,7 +10551,7 @@ define internal void @decompress_strided_double_3(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_int32_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10782,7 +10782,7 @@ define internal void @decompress_strided_int32_4(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_int64_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11013,7 +11013,7 @@ define internal void @decompress_strided_int64_4(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_float_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11244,7 +11244,7 @@ define internal void @decompress_strided_float_4(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_double_4(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11475,7 +11475,7 @@ define internal void @decompress_strided_double_4(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_int32_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_int32_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11512,7 +11512,7 @@ define internal void @decompress_strided_int32_1(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_int64_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_int64_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11549,7 +11549,7 @@ define internal void @decompress_strided_int64_1(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_float_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_float_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11586,7 +11586,7 @@ define internal void @decompress_strided_float_1(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decompress_strided_double_1(ptr noundef %0, ptr nocapture noundef readonly %1) #11 {
+define internal void @decompress_strided_double_1(ptr noundef %0, ptr noundef readonly captures(none) %1) #11 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -11695,7 +11695,7 @@ declare i64 @zfp_decode_block_strided_float_1(ptr noundef, ptr noundef, i64 noun
 declare i64 @zfp_decode_block_strided_double_1(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 149) i64 @zfp_write_header(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #11 {
+define range(i64 0, 149) i64 @zfp_write_header(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = and i32 %2, 2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %8, label %5
@@ -11758,7 +11758,7 @@ define range(i64 0, 149) i64 @zfp_write_header(ptr nocapture noundef readonly %0
 declare i64 @stream_write_bits(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 149) i64 @zfp_read_header(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #11 {
+define range(i64 0, 149) i64 @zfp_read_header(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #11 {
   %4 = and i32 %2, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %18, label %5
@@ -12004,7 +12004,7 @@ declare i32 @llvm.smax.i32(i32, i32) #21
 declare i64 @llvm.umin.i64(i64, i64) #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.hlparsetext = private unnamed_addr constant [12 x i8] c"hlparsetext\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parsetext(i32 noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @parsetext(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %struct.LexizeData, align 8
@@ -778,14 +778,14 @@ setCorrLex.exit:                                  ; preds = %.lr.ph.i162, %.lr.p
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 declare i64 @FunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hlparsetext(i32 noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @hlparsetext(i32 noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca %struct.LexizeData, align 8
@@ -974,7 +974,7 @@ addHLParsedLex.exit.thread:                       ; preds = %58, %addHLParsedLex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addHLParsedLex(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @addHLParsedLex(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %.not45 = icmp eq ptr %2, null
   br i1 %.not45, label %._crit_edge, label %.lr.ph47
 
@@ -1247,7 +1247,7 @@ hlfinditem.exit:                                  ; preds = %133, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @generateHeadline(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @generateHeadline(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @palloc(i64 noundef 128) #7
   %4 = getelementptr i8, ptr %3, i64 4
@@ -1459,14 +1459,14 @@ define dso_local noundef ptr @generateHeadline(ptr nocapture noundef readonly %0
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @lookup_ts_dictionary_cache(i32 noundef) local_unnamed_addr #1
 
 declare i64 @FunctionCall4Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @moveToWaste(ptr nocapture noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #4 {
+define internal fastcc void @moveToWaste(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1530,7 +1530,7 @@ RemoveHead.exit:                                  ; preds = %21, %23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @tsCompareString(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 

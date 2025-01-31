@@ -159,7 +159,7 @@ if.end29:                                         ; preds = %if.end29.sink.split
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8UCaseMapD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
+define void @_ZN8UCaseMapD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %isnull = icmp eq ptr %0, null
@@ -248,7 +248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ucasemap_getOptions_75(ptr nocapture noundef readonly %csm) local_unnamed_addr #4 {
+define i32 @ucasemap_getOptions_75(ptr noundef readonly captures(none) %csm) local_unnamed_addr #4 {
 entry:
   %options = getelementptr inbounds nuw i8, ptr %csm, i64 44
   %0 = load i32, ptr %options, align 4
@@ -262,7 +262,7 @@ declare i32 @uloc_getLanguage_75(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare i32 @ucase_getCaseLocale_75(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucasemap_setOptions_75(ptr nocapture noundef writeonly %csm, i32 noundef %options, ptr nocapture noundef readonly %pErrorCode) local_unnamed_addr #6 {
+define void @ucasemap_setOptions_75(ptr noundef writeonly captures(none) %csm, i32 noundef %options, ptr noundef readonly captures(none) %pErrorCode) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -971,7 +971,7 @@ while.end254:                                     ; preds = %if.end253, %_ZN12_G
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @ucase_getType_75(i32 noundef) local_unnamed_addr #5
 
@@ -1637,7 +1637,7 @@ _ZN6icu_7512ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKhii(ptr nocapture noundef readonly %s, i32 noundef %i, i32 noundef %length) local_unnamed_addr #0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7510GreekUpper23isFollowedByCasedLetterEPKhii(ptr noundef readonly captures(none) %s, i32 noundef %i, i32 noundef %length) local_unnamed_addr #0 {
 entry:
   br label %while.cond
 
@@ -2371,7 +2371,7 @@ declare void @_ZN6icu_7512ByteSinkUtil14appendTwoBytesEiRNS_8ByteSinkE(i32 nound
 declare i32 @ucase_toFullUpper_75(i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19ucasemap_mapUTF8_75ijPN6icu_7513BreakIteratorEPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeES7_S9_SB_(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %iter, ptr noundef %src, i32 noundef %srcLength, ptr nocapture noundef readonly %stringCaseMapper, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 {
+define void @_Z19ucasemap_mapUTF8_75ijPN6icu_7513BreakIteratorEPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeES7_S9_SB_(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %iter, ptr noundef %src, i32 noundef %srcLength, ptr noundef readonly captures(none) %stringCaseMapper, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -2430,7 +2430,7 @@ if.end21:                                         ; preds = %if.then18, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare void @_ZN6icu_755Edits5resetEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #2
@@ -2438,7 +2438,7 @@ declare void @_ZN6icu_755Edits5resetEv(ptr noundef nonnull align 8 dereferenceab
 declare noundef signext i8 @_ZNK6icu_755Edits11copyErrorToER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(232), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z19ucasemap_mapUTF8_75ijPN6icu_7513BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %iter, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr nocapture noundef readonly %stringCaseMapper, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z19ucasemap_mapUTF8_75ijPN6icu_7513BreakIteratorEPciPKciPFvijS1_PKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCodeESA_SC_(i32 noundef %caseLocale, i32 noundef %options, ptr noundef %iter, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef readonly captures(none) %stringCaseMapper, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %sink = alloca %"class.icu_75::CheckedArrayByteSink", align 8
   %0 = load i32, ptr %errorCode, align 4
@@ -2573,7 +2573,7 @@ declare i32 @u_terminateChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare void @_ZN6icu_7520CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucasemap_utf8ToLower_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
+define noundef i32 @ucasemap_utf8ToLower_75(ptr noundef readonly captures(none) %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
   %caseLocale = getelementptr inbounds nuw i8, ptr %csm, i64 40
   %0 = load i32, ptr %caseLocale, align 8
@@ -2584,7 +2584,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL28ucasemap_internalUTF8ToLowerijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr nocapture readnone %0, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) #0 {
+define internal void @_ZL28ucasemap_internalUTF8ToLowerijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr readnone captures(none) %0, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) #0 {
 entry:
   %csc = alloca %struct.UCaseContext, align 8
   %1 = getelementptr inbounds nuw i8, ptr %csc, i64 8
@@ -2597,7 +2597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucasemap_utf8ToUpper_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
+define noundef i32 @ucasemap_utf8ToUpper_75(ptr noundef readonly captures(none) %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
   %caseLocale = getelementptr inbounds nuw i8, ptr %csm, i64 40
   %0 = load i32, ptr %caseLocale, align 8
@@ -2608,7 +2608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL28ucasemap_internalUTF8ToUpperijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr nocapture readnone %0, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) #0 {
+define internal void @_ZL28ucasemap_internalUTF8ToUpperijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %caseLocale, i32 noundef %options, ptr readnone captures(none) %0, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) #0 {
 entry:
   %ascii.i = alloca i8, align 1
   %s.i = alloca ptr, align 8
@@ -3064,7 +3064,7 @@ if.end:                                           ; preds = %_ZN12_GLOBAL__N_17t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucasemap_utf8FoldCase_75(ptr nocapture noundef readonly %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
+define noundef i32 @ucasemap_utf8FoldCase_75(ptr noundef readonly captures(none) %csm, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull %pErrorCode) local_unnamed_addr #0 {
 entry:
   %options = getelementptr inbounds nuw i8, ptr %csm, i64 44
   %0 = load i32, ptr %options, align 4
@@ -3073,7 +3073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25ucasemap_internalUTF8FoldijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 %0, i32 noundef %options, ptr nocapture readnone %1, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) #0 {
+define internal void @_ZL25ucasemap_internalUTF8FoldijPN6icu_7513BreakIteratorEPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 %0, i32 noundef %options, ptr readnone captures(none) %1, ptr noundef %src, i32 noundef %srcLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) #0 {
 entry:
   tail call fastcc void @_ZN12_GLOBAL__N_17toLowerEijPKhP12UCaseContextiiRN6icu_758ByteSinkEPNS4_5EditsER10UErrorCode(i32 noundef -1, i32 noundef %options, ptr noundef %src, ptr noundef null, i32 noundef 0, i32 noundef %srcLength, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %edits, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret void
@@ -3311,10 +3311,10 @@ declare i32 @ucase_toFullFolding_75(i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

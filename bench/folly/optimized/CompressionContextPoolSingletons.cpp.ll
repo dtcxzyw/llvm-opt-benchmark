@@ -271,12 +271,12 @@ terminate.lpad:                                   ; preds = %entry
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE30cleanupTokenlessSharedDeferredERj(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4 align 2
@@ -294,7 +294,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold
 declare noundef i32 @_ZN5folly19shared_mutex_detail25getMaxDeferredReadersSlowERNS_14relaxed_atomicIjEE(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #7
@@ -323,7 +323,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5folly11compression8contexts17ZSTD_CCtx_DeleterclEP11ZSTD_CCtx_s(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly11compression8contexts17ZSTD_CCtx_DeleterclEP11ZSTD_CCtx_s(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke i64 @ZSTD_freeCCtx(ptr noundef %ctx)
           to label %invoke.cont unwind label %terminate.lpad
@@ -589,7 +589,7 @@ lpad18:                                           ; preds = %if.else.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5folly11compression8contexts18ZSTD_CCtx_ResetterclEP11ZSTD_CCtx_s(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly11compression8contexts18ZSTD_CCtx_ResetterclEP11ZSTD_CCtx_s(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke i64 @ZSTD_CCtx_reset(ptr noundef %ctx, i32 noundef 3)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1379,7 +1379,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5folly11compression8contexts17ZSTD_DCtx_DeleterclEP11ZSTD_DCtx_s(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly11compression8contexts17ZSTD_DCtx_DeleterclEP11ZSTD_DCtx_s(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke i64 @ZSTD_freeDCtx(ptr noundef %ctx)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1642,7 +1642,7 @@ lpad18:                                           ; preds = %if.else.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5folly11compression8contexts18ZSTD_DCtx_ResetterclEP11ZSTD_DCtx_s(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly11compression8contexts18ZSTD_DCtx_ResetterclEP11ZSTD_DCtx_s(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef %ctx) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke i64 @ZSTD_DCtx_reset(ptr noundef %ctx, i32 noundef 3)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1892,7 +1892,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI11ZSTD_DCtx_sN5folly11compression8contexts17Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noalias noundef ptr @_ZN5folly11compression8contexts12_GLOBAL__N_115huge_page_allocEPvm(ptr nocapture readnone %0, i64 noundef %size) #0 {
+define internal noalias noundef ptr @_ZN5folly11compression8contexts12_GLOBAL__N_115huge_page_allocEPvm(ptr readnone captures(none) %0, i64 noundef %size) #0 {
 entry:
   %cmp = icmp ult i64 %size, 65536
   br i1 %cmp, label %if.then, label %if.end
@@ -1921,7 +1921,7 @@ return:                                           ; preds = %cond.false.i, %cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5folly11compression8contexts12_GLOBAL__N_114huge_page_freeEPvS3_(ptr nocapture readnone %0, ptr noundef %address) #4 {
+define internal void @_ZN5folly11compression8contexts12_GLOBAL__N_114huge_page_freeEPvS3_(ptr readnone captures(none) %0, ptr noundef %address) #4 {
 entry:
   %cmp.not = icmp eq ptr %address, null
   br i1 %cmp.not, label %if.end2, label %if.then
@@ -2035,7 +2035,7 @@ return:                                           ; preds = %cleanup20, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nofree nounwind
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
@@ -2074,12 +2074,12 @@ declare extern_weak i32 @mallctlbymib(ptr noundef, i64 noundef, ptr noundef, ptr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 declare noundef zeroext i1 @_ZN5folly25JemallocHugePageAllocator14addressInArenaEPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK5folly11compression8contexts17ZSTD_CCtx_CreatorclEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK5folly11compression8contexts17ZSTD_CCtx_CreatorclEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke ptr @ZSTD_createCCtx_advanced(ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @_ZN5folly11compression8contexts12_GLOBAL__N_120huge_page_custom_memE)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2098,7 +2098,7 @@ terminate.lpad:                                   ; preds = %entry
 declare ptr @ZSTD_createCCtx_advanced(ptr noundef byval(%struct.ZSTD_customMem) align 8) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK5folly11compression8contexts17ZSTD_DCtx_CreatorclEv(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK5folly11compression8contexts17ZSTD_DCtx_CreatorclEv(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = invoke ptr @ZSTD_createDCtx_advanced(ptr noundef nonnull byval(%struct.ZSTD_customMem) align 8 @_ZN5folly11compression8contexts12_GLOBAL__N_120huge_page_custom_memE)
           to label %invoke.cont unwind label %terminate.lpad
@@ -2125,7 +2125,7 @@ declare i64 @ZSTD_CCtx_reset(ptr noundef, i32 noundef) local_unnamed_addr #9
 declare i64 @ZSTD_DCtx_reset(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11compression8contexts12getZSTD_CCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.45") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11compression8contexts12getZSTD_CCtxEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.45") align 8 captures(none) initializes((0, 16)) %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu.i.i.i.i = alloca i32, align 4
   %ref.tmp.i = alloca %"class.std::unique_ptr.7", align 8
@@ -2489,7 +2489,7 @@ declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZNSt11logic_errorC1EOS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11compression8contexts12getZSTD_DCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.57") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11compression8contexts12getZSTD_DCtxEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.57") align 8 captures(none) initializes((0, 16)) %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu.i.i.i.i = alloca i32, align 4
   %ref.tmp.i = alloca %"class.std::unique_ptr.36", align 8
@@ -2736,7 +2736,7 @@ ehcleanup32:                                      ; preds = %lpad16, %lpad5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11compression8contexts17getNULL_ZSTD_CCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.45") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11compression8contexts17getNULL_ZSTD_CCtxEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.45") align 8 captures(none) initializes((0, 16)) %agg.result) local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 ptrtoint (ptr @_ZN5folly11compression8contexts12_GLOBAL__N_124zstd_cctx_pool_singletonE to i64), ptr %agg.result, align 8, !tbaa !16, !alias.scope !121
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -2745,7 +2745,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11compression8contexts17getNULL_ZSTD_DCtxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.57") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11compression8contexts17getNULL_ZSTD_DCtxEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.57") align 8 captures(none) initializes((0, 16)) %agg.result) local_unnamed_addr #21 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 ptrtoint (ptr @_ZN5folly11compression8contexts12_GLOBAL__N_124zstd_dctx_pool_singletonE to i64), ptr %agg.result, align 8, !tbaa !16, !alias.scope !124
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8

@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.PKCS7_set_cipher = private unnamed_addr constant [17 x i8] c"PKCS7_set_cipher\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @PKCS7_ctrl(ptr nocapture noundef %p7, i32 noundef %cmd, i64 noundef %larg, ptr nocapture noundef readnone %parg) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @PKCS7_ctrl(ptr noundef captures(none) %p7, i32 noundef %cmd, i64 noundef %larg, ptr noundef readnone captures(none) %parg) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -130,7 +130,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS7_content_new(ptr nocapture noundef readonly %p7, i32 noundef %type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_content_new(ptr noundef readonly captures(none) %p7, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @PKCS7_new() #7
   %cmp = icmp eq ptr %call, null
@@ -158,7 +158,7 @@ return:                                           ; preds = %if.end3, %err
 declare ptr @PKCS7_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS7_set_type(ptr nocapture noundef %p7, i32 noundef %type) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_set_type(ptr noundef captures(none) %p7, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef %type) #7
   switch i32 %type, label %sw.default [
@@ -299,7 +299,7 @@ return:                                           ; preds = %if.end28, %if.end43
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS7_set_content(ptr nocapture noundef readonly %p7, ptr noundef %p7_data) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_set_content(ptr noundef readonly captures(none) %p7, ptr noundef %p7_data) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -363,7 +363,7 @@ declare ptr @PKCS7_ENCRYPT_new() local_unnamed_addr #1
 declare ptr @PKCS7_DIGEST_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS7_set0_type_other(ptr nocapture noundef writeonly initializes((24, 40)) %p7, i32 noundef %type, ptr noundef %other) local_unnamed_addr #0 {
+define noundef i32 @PKCS7_set0_type_other(ptr noundef writeonly captures(none) initializes((24, 40)) %p7, i32 noundef %type, ptr noundef %other) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef %type) #7
   %type1 = getelementptr inbounds nuw i8, ptr %p7, i64 24
@@ -510,7 +510,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PKCS7_add_certificate(ptr nocapture noundef readonly %p7, ptr noundef %x509) local_unnamed_addr #0 {
+define i32 @PKCS7_add_certificate(ptr noundef readonly captures(none) %p7, ptr noundef %x509) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -541,7 +541,7 @@ return:                                           ; preds = %sw.epilog, %sw.defa
 declare i32 @ossl_x509_add_cert_new(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS7_add_crl(ptr nocapture noundef readonly %p7, ptr noundef %crl) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_add_crl(ptr noundef readonly captures(none) %p7, ptr noundef %crl) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -1045,7 +1045,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i32 @ossl_x509_set0_libctx(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_pkcs7_set0_libctx(ptr nocapture noundef writeonly initializes((40, 48)) %p7, ptr noundef %ctx) local_unnamed_addr #4 {
+define void @ossl_pkcs7_set0_libctx(ptr noundef writeonly captures(none) initializes((40, 48)) %p7, ptr noundef %ctx) local_unnamed_addr #4 {
 entry:
   %ctx1 = getelementptr inbounds nuw i8, ptr %p7, i64 40
   store ptr %ctx, ptr %ctx1, align 8
@@ -1053,7 +1053,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_pkcs7_set1_propq(ptr nocapture noundef %p7, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pkcs7_set1_propq(ptr noundef captures(none) %p7, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %propq1 = getelementptr inbounds nuw i8, ptr %p7, i64 48
   %0 = load ptr, ptr %propq1, align 8
@@ -1088,7 +1088,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_pkcs7_ctx_propagate(ptr nocapture noundef readonly %from, ptr noundef initializes((40, 48)) %to) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_pkcs7_ctx_propagate(ptr noundef readonly captures(none) %from, ptr noundef initializes((40, 48)) %to) local_unnamed_addr #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %from, i64 40
   %0 = load ptr, ptr %ctx, align 8
@@ -1126,7 +1126,7 @@ return:                                           ; preds = %if.then7.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS7_set_digest(ptr nocapture noundef readonly %p7, ptr noundef %md) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_set_digest(ptr noundef readonly captures(none) %p7, ptr noundef %md) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -1178,7 +1178,7 @@ return:                                           ; preds = %if.end13, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PKCS7_SIGNER_INFO_get0_algs(ptr nocapture noundef readonly %si, ptr noundef writeonly %pk, ptr noundef writeonly %pdig, ptr noundef writeonly %psig) local_unnamed_addr #5 {
+define void @PKCS7_SIGNER_INFO_get0_algs(ptr noundef readonly captures(none) %si, ptr noundef writeonly %pk, ptr noundef writeonly %pdig, ptr noundef writeonly %psig) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %pk, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1214,7 +1214,7 @@ if.end6:                                          ; preds = %if.then5, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PKCS7_RECIP_INFO_get0_alg(ptr nocapture noundef readonly %ri, ptr noundef writeonly %penc) local_unnamed_addr #5 {
+define void @PKCS7_RECIP_INFO_get0_alg(ptr noundef readonly captures(none) %ri, ptr noundef writeonly %penc) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %penc, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -1393,7 +1393,7 @@ return:                                           ; preds = %if.then32, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS7_add_recipient_info(ptr nocapture noundef readonly %p7, ptr noundef %ri) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_add_recipient_info(ptr noundef readonly captures(none) %p7, ptr noundef %ri) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -1435,7 +1435,7 @@ declare ptr @X509_get0_pubkey(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS7_cert_from_signer_info(ptr nocapture noundef readonly %p7, ptr nocapture noundef readonly %si) local_unnamed_addr #0 {
+define ptr @PKCS7_cert_from_signer_info(ptr noundef readonly captures(none) %p7, ptr noundef readonly captures(none) %si) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -1515,7 +1515,7 @@ return:                                           ; preds = %if.end, %if.then, %
 declare i32 @EVP_CIPHER_get_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS7_stream(ptr nocapture noundef writeonly %boundary, ptr nocapture noundef readonly %p7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS7_stream(ptr noundef writeonly captures(none) %boundary, ptr noundef readonly captures(none) %p7) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %p7, i64 24
   %0 = load ptr, ptr %type, align 8
@@ -1604,10 +1604,10 @@ declare i32 @OBJ_find_sigid_by_algs(ptr noundef, i32 noundef, i32 noundef) local
 declare i32 @EVP_PKEY_get_id(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

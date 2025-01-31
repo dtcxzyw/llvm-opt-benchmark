@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.345ff4310605931766bb7faad853d7ab.9 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.345ff4310605931766bb7faad853d7ab.8, [16 x i8] c"S\00\00\00\00\00\00\00\CE\00\00\00B\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3std2io16append_to_string17h1941600c0aa1f631E(ptr nocapture writeonly sret({ i64, [1 x i64] }) align 8 %0, ptr align 8 %1, ptr align 4 %2, ptr nocapture readonly align 8 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3std2io16append_to_string17h1941600c0aa1f631E(ptr writeonly sret({ i64, [1 x i64] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 4 %2, ptr readonly align 8 captures(none) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [1 x i64] }, align 8
   %7 = alloca { ptr, i64 }, align 8
@@ -111,7 +111,7 @@ define void @_ZN3std2io16append_to_string17h1941600c0aa1f631E(ptr nocapture writ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3std2io19default_read_to_end16small_probe_read17hea6d948d50699aa2E(ptr nocapture writeonly sret({ i64, [1 x i64] }) align 8 %0, ptr align 4 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3std2io19default_read_to_end16small_probe_read17hea6d948d50699aa2E(ptr writeonly sret({ i64, [1 x i64] }) align 8 captures(none) %0, ptr align 4 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = alloca [32 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %5, i8 0, i64 32, i1 false)
@@ -198,7 +198,7 @@ define void @_ZN3std2io19default_read_to_end16small_probe_read17hea6d948d50699aa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr nocapture writeonly sret({ i64, [1 x i64] }) align 8 %0, ptr align 4 %1, ptr align 8 %2, i64 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN3std2io19default_read_to_end17ha6a2b98f2fd0f9afE(ptr writeonly sret({ i64, [1 x i64] }) align 8 captures(none) %0, ptr align 4 %1, ptr align 8 %2, i64 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca { { ptr, i64 }, i64, i64 }, align 8
@@ -477,7 +477,7 @@ define { i64, i64 } @"_ZN3std2io19default_read_to_end28_$u7b$$u7b$closure$u7d$$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h8e437b5a26392326E"(ptr nocapture writeonly sret({ i64, [1 x i64] }) align 8 %0, ptr align 4 %1, ptr nocapture readonly align 8 %2, ptr align 8 %3) unnamed_addr #2 {
+define void @"_ZN3std2io22default_read_to_string28_$u7b$$u7b$closure$u7d$$u7d$17h8e437b5a26392326E"(ptr writeonly sret({ i64, [1 x i64] }) align 8 captures(none) %0, ptr align 4 %1, ptr readonly align 8 captures(none) %2, ptr align 8 %3) unnamed_addr #2 {
   %5 = load i64, ptr %2, align 8, !range !4, !noundef !3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
@@ -492,7 +492,7 @@ declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #0
 declare void @_ZN4core3str8converts9from_utf817hca39c4a07e0467cbE(ptr sret({ i64, [2 x i64] }) align 8, ptr align 1, i64) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr35drop_in_place$LT$std..io..Guard$GT$17he605e47cc9fcb470E"(ptr align 8) unnamed_addr #0
@@ -507,7 +507,7 @@ declare void @"_ZN4core3ptr78drop_in_place$LT$core..result..Result$LT$usize$C$st
 declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN59_$LT$std..process..ChildStdout$u20$as$u20$std..io..Read$GT$4read17h35a508155fe00843E"(ptr sret({ i64, [1 x i64] }) align 8, ptr align 4, ptr align 1, i64) unnamed_addr #0

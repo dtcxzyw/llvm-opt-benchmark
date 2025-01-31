@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [10 x i8] c"constants\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_parse_keepstr(ptr nocapture noundef readonly %ls, ptr noundef %str, i64 noundef %len) local_unnamed_addr #0 {
+define hidden noundef ptr @lj_parse_keepstr(ptr noundef readonly captures(none) %ls, ptr noundef %str, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %L1 = getelementptr inbounds nuw i8, ptr %ls, i64 8
   %0 = load ptr, ptr %L1, align 8
@@ -69,7 +69,7 @@ declare hidden ptr @lj_tab_setstr(ptr noundef, ptr noundef, ptr noundef) local_u
 declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_parse_keepcdata(ptr nocapture noundef readonly %ls, ptr noundef initializes((0, 8)) %tv, ptr noundef %cd) local_unnamed_addr #0 {
+define hidden void @lj_parse_keepcdata(ptr noundef readonly captures(none) %ls, ptr noundef initializes((0, 8)) %tv, ptr noundef %cd) local_unnamed_addr #0 {
 entry:
   %L1 = getelementptr inbounds nuw i8, ptr %ls, i64 8
   %0 = load ptr, ptr %L1, align 8
@@ -95,7 +95,7 @@ entry:
   %chunkarg = getelementptr inbounds nuw i8, ptr %ls, i64 128
   %1 = load ptr, ptr %chunkarg, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %call3 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef %1, i64 noundef %call) #10
+  %call3 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %call) #10
   %chunkname = getelementptr inbounds nuw i8, ptr %ls, i64 120
   store ptr %call3, ptr %chunkname, align 8
   %top = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -214,12 +214,12 @@ if.end:                                           ; preds = %fs_init.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare hidden void @lj_state_growstack1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bcemit_INS(ptr nocapture noundef %fs, i32 noundef %ins) unnamed_addr #0 {
+define internal fastcc i32 @bcemit_INS(ptr noundef captures(none) %fs, i32 noundef %ins) unnamed_addr #0 {
 entry:
   %pc1 = getelementptr inbounds nuw i8, ptr %fs, i64 40
   %0 = load i32, ptr %pc1, align 8
@@ -1291,7 +1291,7 @@ jmp_patchins.exit.i.i.i270:                       ; preds = %while.end.i.i.i266
 
 bcemit_jmp.exit.i274:                             ; preds = %jmp_patchins.exit.i.i.i270, %if.else.i.i.i249, %if.end.i.i246
   %j.1.i.i275 = phi i32 [ %j.0.i.i247, %if.end.i.i246 ], [ %j.0.i.i247, %jmp_patchins.exit.i.i.i270 ], [ %82, %if.else.i.i.i249 ]
-  call fastcc void @jmp_patch(ptr noundef %66, i32 noundef %j.1.i.i275, i32 noundef %67)
+  call fastcc void @jmp_patch(ptr noundef nonnull %66, i32 noundef %j.1.i.i275, i32 noundef %67)
   %90 = load i32, ptr %tok, align 4
   %cmp.i.i19.i = icmp eq i32 %90, 262
   br i1 %cmp.i.i19.i, label %lex_match.exit.i281, label %if.then.i20.i
@@ -1314,7 +1314,7 @@ if.else.i22.i:                                    ; preds = %if.then.i20.i
 
 lex_match.exit.i281:                              ; preds = %bcemit_jmp.exit.i274
   call void @lj_lex_next(ptr noundef nonnull %ls) #10
-  call fastcc void @fscope_end(ptr noundef %66)
+  call fastcc void @fscope_end(ptr noundef nonnull %66)
   %93 = load i32, ptr %pc.i211, align 8
   store i32 %93, ptr %lasttarget.i212, align 4
   %cmp.i.i26.i = icmp eq i32 %70, -1
@@ -4648,7 +4648,7 @@ if.end48:                                         ; preds = %if.then, %if.then47
 declare hidden ptr @lj_tab_new(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jmp_patchval(ptr nocapture noundef readonly %fs, i32 noundef %list, i32 noundef %vtarget, i32 noundef %reg, i32 noundef %dtarget) unnamed_addr #0 {
+define internal fastcc void @jmp_patchval(ptr noundef readonly captures(none) %fs, i32 noundef %list, i32 noundef %vtarget, i32 noundef %reg, i32 noundef %dtarget) unnamed_addr #0 {
 entry:
   %cmp.not32 = icmp eq i32 %list, -1
   br i1 %cmp.not32, label %while.end, label %while.body.lr.ph
@@ -4773,7 +4773,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @err_limit(ptr nocapture noundef readonly %fs, i32 noundef range(i32 60, 67108865) %limit, ptr noundef %what) unnamed_addr #3 {
+define internal fastcc void @err_limit(ptr noundef readonly captures(none) %fs, i32 noundef range(i32 60, 67108865) %limit, ptr noundef %what) unnamed_addr #3 {
 entry:
   %linedefined = getelementptr inbounds nuw i8, ptr %fs, i64 68
   %0 = load i32, ptr %linedefined, align 4
@@ -5210,7 +5210,7 @@ gola_resolve.exit:                                ; preds = %for.inc.i39, %if.en
 declare hidden i32 @lj_lex_lookahead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bcemit_branch_t(ptr nocapture noundef %fs, ptr noundef nonnull %e) unnamed_addr #0 {
+define internal fastcc void @bcemit_branch_t(ptr noundef captures(none) %fs, ptr noundef nonnull %e) unnamed_addr #0 {
 entry:
   tail call fastcc void @expr_discharge(ptr noundef %fs, ptr noundef %e)
   %k = getelementptr inbounds nuw i8, ptr %e, i64 8
@@ -7146,7 +7146,7 @@ while.end:                                        ; preds = %land.rhs, %bcemit_b
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bcreg_reserve(ptr nocapture noundef %fs, i32 noundef %n) unnamed_addr #0 {
+define internal fastcc void @bcreg_reserve(ptr noundef captures(none) %fs, i32 noundef %n) unnamed_addr #0 {
 entry:
   %freereg.i = getelementptr inbounds nuw i8, ptr %fs, i64 52
   %0 = load i32, ptr %freereg.i, align 4
@@ -7178,7 +7178,7 @@ bcreg_bump.exit:                                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expr_table(ptr noundef %ls, ptr nocapture noundef nonnull initializes((0, 4), (8, 20)) %e) unnamed_addr #0 {
+define internal fastcc void @expr_table(ptr noundef %ls, ptr noundef nonnull captures(none) initializes((0, 4), (8, 20)) %e) unnamed_addr #0 {
 entry:
   %key.i.i.i141 = alloca %union.TValue, align 8
   %key.i = alloca %union.TValue, align 8
@@ -7885,7 +7885,7 @@ if.end226:                                        ; preds = %if.end206, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_body(ptr noundef %ls, ptr nocapture noundef nonnull writeonly %e, i32 noundef range(i32 0, 2) %needself, i32 noundef %line) unnamed_addr #0 {
+define internal fastcc void @parse_body(ptr noundef %ls, ptr noundef nonnull writeonly captures(none) %e, i32 noundef range(i32 0, 2) %needself, i32 noundef %line) unnamed_addr #0 {
 entry:
   %key.i = alloca %union.TValue, align 8
   %fs = alloca %struct.FuncState, align 8
@@ -8900,13 +8900,13 @@ for.end:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @expr_toanyreg(ptr nocapture noundef %fs, ptr noundef nonnull %e) unnamed_addr #0 {
+define internal fastcc i32 @expr_toanyreg(ptr noundef captures(none) %fs, ptr noundef nonnull %e) unnamed_addr #0 {
 entry:
   tail call fastcc void @expr_discharge(ptr noundef %fs, ptr noundef %e)
   %k = getelementptr inbounds nuw i8, ptr %e, i64 8
@@ -8989,7 +8989,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bcemit_store(ptr nocapture noundef %fs, ptr nocapture noundef nonnull readonly %var, ptr noundef nonnull %e) unnamed_addr #0 {
+define internal fastcc void @bcemit_store(ptr noundef captures(none) %fs, ptr noundef nonnull readonly captures(none) %var, ptr noundef nonnull %e) unnamed_addr #0 {
 entry:
   %key.i.i53 = alloca %union.TValue, align 8
   %key.i.i = alloca %union.TValue, align 8
@@ -9266,7 +9266,7 @@ return:                                           ; preds = %if.then.i.i72, %if.
 declare hidden void @lj_tab_reasize(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expr_discharge(ptr nocapture noundef %fs, ptr nocapture noundef nonnull %e) unnamed_addr #0 {
+define internal fastcc void @expr_discharge(ptr noundef captures(none) %fs, ptr noundef nonnull captures(none) %e) unnamed_addr #0 {
 entry:
   %key.i.i = alloca %union.TValue, align 8
   %k = getelementptr inbounds nuw i8, ptr %e, i64 8
@@ -9410,7 +9410,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expr_toreg(ptr nocapture noundef %fs, ptr noundef nonnull %e, i32 noundef %reg) unnamed_addr #0 {
+define internal fastcc void @expr_toreg(ptr noundef captures(none) %fs, ptr noundef nonnull %e, i32 noundef %reg) unnamed_addr #0 {
 entry:
   tail call fastcc void @expr_toreg_nobranch(ptr noundef %fs, ptr noundef %e, i32 noundef %reg)
   %k = getelementptr inbounds nuw i8, ptr %e, i64 8
@@ -9735,7 +9735,7 @@ if.end25:                                         ; preds = %if.end22, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expr_toreg_nobranch(ptr nocapture noundef %fs, ptr noundef nonnull %e, i32 noundef %reg) unnamed_addr #0 {
+define internal fastcc void @expr_toreg_nobranch(ptr noundef captures(none) %fs, ptr noundef nonnull %e, i32 noundef %reg) unnamed_addr #0 {
 entry:
   %key.i = alloca %union.TValue, align 8
   %key.i.i = alloca %union.TValue, align 8
@@ -9966,7 +9966,7 @@ return:                                           ; preds = %if.else73, %noins
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 65536) i32 @var_lookup_(ptr noundef %fs, ptr noundef %name, ptr nocapture noundef nonnull %e, i32 noundef range(i32 0, 2) %first) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 65536) i32 @var_lookup_(ptr noundef %fs, ptr noundef %name, ptr noundef nonnull captures(none) %e, i32 noundef range(i32 0, 2) %first) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %fs, null
   br i1 %tobool.not, label %if.else14, label %if.then
@@ -10218,7 +10218,7 @@ expr_index.exit:                                  ; preds = %if.then19.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_args(ptr noundef %ls, ptr nocapture noundef nonnull %e) unnamed_addr #0 {
+define internal fastcc void @parse_args(ptr noundef %ls, ptr noundef nonnull captures(none) %e) unnamed_addr #0 {
 entry:
   %args = alloca %struct.ExpDesc, align 8
   %0 = load ptr, ptr %ls, align 8
@@ -10493,7 +10493,7 @@ if.end50:                                         ; preds = %if.end42, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bcemit_branch(ptr nocapture noundef %fs, ptr noundef nonnull %e, i32 noundef range(i32 0, 2) %cond) unnamed_addr #0 {
+define internal fastcc i32 @bcemit_branch(ptr noundef captures(none) %fs, ptr noundef nonnull %e, i32 noundef range(i32 0, 2) %cond) unnamed_addr #0 {
 entry:
   %k = getelementptr inbounds nuw i8, ptr %e, i64 8
   %0 = load i32, ptr %k, align 8
@@ -10749,7 +10749,7 @@ return:                                           ; preds = %if.then.i.i69, %if.
 declare hidden double @lj_vm_foldarith(double noundef, double noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jmp_patch(ptr nocapture noundef %fs, i32 noundef %list, i32 noundef %target) unnamed_addr #0 {
+define internal fastcc void @jmp_patch(ptr noundef captures(none) %fs, i32 noundef %list, i32 noundef %target) unnamed_addr #0 {
 entry:
   %pc = getelementptr inbounds nuw i8, ptr %fs, i64 40
   %0 = load i32, ptr %pc, align 8
@@ -10904,7 +10904,7 @@ if.end:                                           ; preds = %if.end.i, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fscope_end(ptr nocapture noundef %fs) unnamed_addr #0 {
+define internal fastcc void @fscope_end(ptr noundef captures(none) %fs) unnamed_addr #0 {
 entry:
   %bl1 = getelementptr inbounds nuw i8, ptr %fs, i64 24
   %0 = load ptr, ptr %bl1, align 8
@@ -11125,7 +11125,7 @@ if.end27:                                         ; preds = %if.end27.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gola_fixup(ptr noundef %ls, ptr nocapture noundef readonly %bl) unnamed_addr #0 {
+define internal fastcc void @gola_fixup(ptr noundef %ls, ptr noundef readonly captures(none) %bl) unnamed_addr #0 {
 entry:
   %vstack = getelementptr inbounds nuw i8, ptr %ls, i64 144
   %0 = load ptr, ptr %vstack, align 8
@@ -11499,7 +11499,7 @@ for.end66:                                        ; preds = %for.inc64, %entry
 declare hidden ptr @lj_lex_token2str(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_adjust(ptr nocapture noundef readonly %ls, i32 noundef %nvars, i32 noundef %nexps, ptr noundef nonnull %e) unnamed_addr #0 {
+define internal fastcc void @assign_adjust(ptr noundef readonly captures(none) %ls, i32 noundef %nvars, i32 noundef %nexps, ptr noundef nonnull %e) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ls, align 8
   %sub = sub i32 %nvars, %nexps
@@ -11748,7 +11748,7 @@ if.end27:                                         ; preds = %if.then22, %if.end1
 declare hidden ptr @lj_tab_getstr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_assignment(ptr noundef %ls, ptr noundef nonnull %lh, i32 noundef %nvars) unnamed_addr #0 {
@@ -12047,13 +12047,13 @@ declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #7
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #7

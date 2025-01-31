@@ -549,7 +549,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_CompressionStats(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_MigrationStatus(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_MigrationStatus(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -924,7 +924,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_MigrationInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_MigrationCapability(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_MigrationCapability(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -1089,7 +1089,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_MultiFDCompression(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_MultiFDCompression(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -1101,7 +1101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_MigMode(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_MigMode(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -1430,7 +1430,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_BitmapMigrationNodeAlias(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_MigrationParameter(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_MigrationParameter(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2402,7 +2402,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_MigrationParameters(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_MIGRATION_arg_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_MIGRATION_arg_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -2423,7 +2423,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_COLOMessage(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_COLOMessage(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2435,7 +2435,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_COLOMode(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_COLOMode(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2447,7 +2447,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_FailoverStatus(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_FailoverStatus(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2459,7 +2459,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_COLO_EXIT_arg_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_COLO_EXIT_arg_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i4 = alloca i32, align 4
   %value.i = alloca i32, align 4
@@ -2489,7 +2489,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_COLOExitReason(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_COLOExitReason(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2501,7 +2501,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_migrate_continue_arg_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_migrate_continue_arg_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -2515,7 +2515,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_MigrationAddressType(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_MigrationAddressType(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -2661,7 +2661,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_MigrationExecCommand(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_q_obj_MigrationAddress_base_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_q_obj_MigrationAddress_base_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value.i)
@@ -2790,7 +2790,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_MigrationAddress(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_MigrationChannelType(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_MigrationChannelType(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -3216,7 +3216,7 @@ return:                                           ; preds = %out_obj.thread, %ou
 declare void @qapi_free_ReplicationStatus(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_COLOStatus_members(ptr noundef %v, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_COLOStatus_members(ptr noundef %v, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value.i9 = alloca i32, align 4
   %value.i7 = alloca i32, align 4
@@ -3432,7 +3432,7 @@ return:                                           ; preds = %out_obj.thread17, %
 declare void @qapi_free_DirtyRateVcpu(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DirtyRateStatus(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DirtyRateStatus(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -3444,7 +3444,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_DirtyRateMeasureMode(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_DirtyRateMeasureMode(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -3456,7 +3456,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @visit_type_TimeUnit(ptr noundef %v, ptr noundef %name, ptr nocapture noundef %obj, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local zeroext i1 @visit_type_TimeUnit(ptr noundef %v, ptr noundef %name, ptr noundef captures(none) %obj, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %value = alloca i32, align 4
   %0 = load i32, ptr %obj, align 4
@@ -4100,10 +4100,10 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

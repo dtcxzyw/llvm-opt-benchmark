@@ -71,7 +71,7 @@ define dso_local ptr @i915_request_slab_cache() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal ptr @i915_fence_get_driver_name(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal ptr @i915_fence_get_driver_name(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -282,7 +282,7 @@ define dso_local void @i915_request_notify_execute_cb_imm(ptr noundef %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @i915_request_active_engine(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef zeroext i1 @i915_request_active_engine(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load volatile ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -340,10 +340,10 @@ define dso_local noundef zeroext i1 @i915_request_active_engine(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_request_free_capture_list(ptr noundef %0) local_unnamed_addr #3 align 16 {
@@ -700,7 +700,7 @@ define dso_local void @i915_request_retire_upto(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @__i915_request_skip(ptr nocapture noundef %0) local_unnamed_addr #7 align 16 {
+define dso_local void @__i915_request_skip(ptr noundef captures(none) %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 460
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 464
@@ -2256,7 +2256,7 @@ define dso_local range(i32 -2147483648, 1) i32 @i915_request_await_dma_fence(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @i915_request_await_deps(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @i915_request_await_deps(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
@@ -2285,7 +2285,7 @@ define dso_local range(i32 -2147483648, 1) i32 @i915_request_await_deps(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @i915_request_await_object(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @i915_request_await_object(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 16 {
   %4 = alloca %struct.dma_resv_iter, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2318,7 +2318,7 @@ define dso_local range(i32 -2147483648, 1) i32 @i915_request_await_object(ptr no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dma_resv_iter_first(ptr noundef) local_unnamed_addr #5
@@ -3202,7 +3202,7 @@ declare dso_local void @intel_rps_boost(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @dma_fence_add_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @request_wait_wake(ptr nocapture readnone %0, ptr nocapture noundef %1) #3 align 16 {
+define internal void @request_wait_wake(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
@@ -3992,7 +3992,7 @@ declare dso_local i32 @wake_up_process(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @__SCT__tp_func_i915_request_wait_end(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @i915_sched_node_init(ptr noundef) local_unnamed_addr #5

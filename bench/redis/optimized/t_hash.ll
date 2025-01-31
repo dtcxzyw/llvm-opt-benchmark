@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [22 x i8] c"value is out of range\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashTypeTryConversion(ptr noundef %o, ptr nocapture noundef readonly %argv, i32 noundef %start, i32 noundef %end) local_unnamed_addr #0 {
+define dso_local void @hashTypeTryConversion(ptr noundef %o, ptr noundef readonly captures(none) %argv, i32 noundef %start, i32 noundef %end) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %0 = and i32 %bf.load, 240
@@ -227,7 +227,7 @@ declare i32 @dictExpand(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @lpSafeToAdd(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @hashTypeGetFromListpack(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @hashTypeGetFromListpack(ptr noundef readonly captures(none) %o, ptr noundef %field, ptr noundef writeonly captures(none) %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %0 = and i32 %bf.load, 240
@@ -328,7 +328,7 @@ declare ptr @lpNext(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @lpGetValue(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashTypeGetFromHashTable(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local ptr @hashTypeGetFromHashTable(ptr noundef readonly captures(none) %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %0 = and i32 %bf.load, 240
@@ -361,7 +361,7 @@ declare ptr @dictFind(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @hashTypeGetValue(ptr nocapture noundef readonly %o, ptr noundef %field, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @hashTypeGetValue(ptr noundef readonly captures(none) %o, ptr noundef %field, ptr noundef writeonly captures(none) %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -463,7 +463,7 @@ return:                                           ; preds = %if.then, %if.end15,
 declare void @_serverPanic(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashTypeGetValueObject(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local ptr @hashTypeGetValueObject(ptr noundef readonly captures(none) %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
@@ -498,7 +498,7 @@ declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @createStringObjectFromLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hashTypeGetValueLength(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hashTypeGetValueLength(ptr noundef readonly captures(none) %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
@@ -537,7 +537,7 @@ if.end:                                           ; preds = %cond.end, %entry
 declare i32 @sdigits10(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hashTypeExists(ptr nocapture noundef readonly %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hashTypeExists(ptr noundef readonly captures(none) %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
@@ -1012,7 +1012,7 @@ declare ptr @lpReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare ptr @lpAppend(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hashTypeLength(ptr nocapture noundef readonly %o) local_unnamed_addr #0 {
+define dso_local i64 @hashTypeLength(ptr noundef readonly captures(none) %o) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %o, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -1060,7 +1060,7 @@ declare void @dictSetKey(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @sdsfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hashTypeDelete(ptr nocapture noundef %o, ptr noundef %field) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hashTypeDelete(ptr noundef captures(none) %o, ptr noundef %field) local_unnamed_addr #0 {
 entry:
   %fptr = alloca ptr, align 8
   %bf.load = load i32, ptr %o, align 8
@@ -1236,7 +1236,7 @@ declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #1
 declare void @zfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @hashTypeNext(ptr nocapture noundef %hi) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @hashTypeNext(ptr noundef captures(none) %hi) local_unnamed_addr #0 {
 entry:
   %encoding = getelementptr inbounds nuw i8, ptr %hi, i64 8
   %0 = load i32, ptr %encoding, align 8
@@ -1326,7 +1326,7 @@ return:                                           ; preds = %if.then41, %if.end,
 declare ptr @dictNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashTypeCurrentFromListpack(ptr nocapture noundef readonly %hi, i32 noundef %what, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local void @hashTypeCurrentFromListpack(ptr noundef readonly captures(none) %hi, i32 noundef %what, ptr noundef writeonly captures(none) %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %encoding = getelementptr inbounds nuw i8, ptr %hi, i64 8
   %0 = load i32, ptr %encoding, align 8
@@ -1350,7 +1350,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashTypeCurrentFromHashTable(ptr nocapture noundef readonly %hi, i32 noundef %what) local_unnamed_addr #0 {
+define dso_local ptr @hashTypeCurrentFromHashTable(ptr noundef readonly captures(none) %hi, i32 noundef %what) local_unnamed_addr #0 {
 entry:
   %encoding = getelementptr inbounds nuw i8, ptr %hi, i64 8
   %0 = load i32, ptr %encoding, align 8
@@ -1385,7 +1385,7 @@ return:                                           ; preds = %if.else, %if.then
 declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashTypeCurrentObject(ptr nocapture noundef readonly %hi, i32 noundef %what, ptr nocapture noundef writeonly %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
+define dso_local void @hashTypeCurrentObject(ptr noundef readonly captures(none) %hi, i32 noundef %what, ptr noundef writeonly captures(none) %vstr, ptr noundef %vlen, ptr noundef %vll) local_unnamed_addr #0 {
 entry:
   %encoding = getelementptr inbounds nuw i8, ptr %hi, i64 8
   %0 = load i32, ptr %encoding, align 8
@@ -1489,7 +1489,7 @@ if.end6:                                          ; preds = %sdslen.exit, %hashT
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashTypeCurrentObjectNewSds(ptr nocapture noundef readonly %hi, i32 noundef %what) local_unnamed_addr #0 {
+define dso_local ptr @hashTypeCurrentObjectNewSds(ptr noundef readonly captures(none) %hi, i32 noundef %what) local_unnamed_addr #0 {
 entry:
   %vstr = alloca ptr, align 8
   %vlen = alloca i32, align 4
@@ -1885,12 +1885,12 @@ if.end36:                                         ; preds = %hashTypeReleaseIter
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @createObject(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashSdsFromListpackEntry(ptr nocapture noundef readonly %e) local_unnamed_addr #0 {
+define dso_local ptr @hashSdsFromListpackEntry(ptr noundef readonly captures(none) %e) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %e, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1915,7 +1915,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashReplyFromListpackEntry(ptr noundef %c, ptr nocapture noundef readonly %e) local_unnamed_addr #0 {
+define dso_local void @hashReplyFromListpackEntry(ptr noundef %c, ptr noundef readonly captures(none) %e) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %e, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1943,7 +1943,7 @@ declare void @addReplyBulkCBuffer(ptr noundef, ptr noundef, i64 noundef) local_u
 declare void @addReplyBulkLongLong(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashTypeRandomElement(ptr nocapture noundef readonly %hashobj, i64 noundef %hashsize, ptr noundef %key, ptr noundef %val) local_unnamed_addr #0 {
+define dso_local void @hashTypeRandomElement(ptr noundef readonly captures(none) %hashobj, i64 noundef %hashsize, ptr noundef %key, ptr noundef %val) local_unnamed_addr #0 {
 entry:
   %bf.load = load i32, ptr %hashobj, align 8
   %bf.lshr = lshr i32 %bf.load, 4
@@ -3143,7 +3143,7 @@ while.body.us.us:                                 ; preds = %while.body.lr.ph.sp
 
 while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %while.body.us
   %count.040.us = phi i32 [ %inc27.us, %while.body.us ], [ 0, %while.body.lr.ph.split.us ]
-  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 2)
+  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef nonnull %c, ptr noundef nonnull %call.i28, i32 noundef 2)
   %inc27.us = add nuw nsw i32 %count.040.us, 1
   %call17.us = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28)
   %cmp18.not.us = icmp eq i32 %call17.us, -1
@@ -3154,7 +3154,7 @@ while.body.lr.ph.split:                           ; preds = %while.body.lr.ph
 
 while.body.us41:                                  ; preds = %while.body.lr.ph.split, %while.body.us41
   %count.040.us42 = phi i32 [ %inc.us, %while.body.us41 ], [ 0, %while.body.lr.ph.split ]
-  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 1)
+  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef nonnull %c, ptr noundef nonnull %call.i28, i32 noundef 1)
   %inc.us = add nuw nsw i32 %count.040.us42, 1
   %call17.us45 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28)
   %cmp18.not.us46 = icmp eq i32 %call17.us45, -1
@@ -3162,8 +3162,8 @@ while.body.us41:                                  ; preds = %while.body.lr.ph.sp
 
 while.body:                                       ; preds = %while.body.lr.ph.split, %while.body
   %count.040 = phi i32 [ %inc27.reass, %while.body ], [ 0, %while.body.lr.ph.split ]
-  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 1)
-  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i28, i32 noundef 2)
+  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef nonnull %c, ptr noundef nonnull %call.i28, i32 noundef 1)
+  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef nonnull %c, ptr noundef nonnull %call.i28, i32 noundef 2)
   %inc27.reass = add i32 %count.040, 2
   %call17 = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i28)
   %cmp18.not = icmp eq i32 %call17, -1
@@ -3200,7 +3200,7 @@ cond.end43:                                       ; preds = %hashTypeReleaseIter
 declare void @addReplyMapLen(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr nocapture noundef readonly %hi, i32 noundef range(i32 1, 3) %what) unnamed_addr #0 {
+define internal fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef readonly captures(none) %hi, i32 noundef range(i32 1, 3) %what) unnamed_addr #0 {
 entry:
   %vlen = alloca i32, align 4
   %vll = alloca i64, align 8
@@ -3772,7 +3772,7 @@ while.body95.lr.ph:                               ; preds = %hashTypeInitIterato
   br i1 %tobool78.not, label %while.body95.us, label %while.body95
 
 while.body95.us:                                  ; preds = %while.body95.lr.ph, %while.body95.us
-  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef %c, ptr noundef nonnull %call.i165, i32 noundef 1)
+  tail call fastcc void @addHashIteratorCursorToReply(ptr noundef nonnull %c, ptr noundef nonnull %call.i165, i32 noundef 1)
   %call92.us = tail call i32 @hashTypeNext(ptr noundef nonnull %call.i165)
   %cmp93.not.us = icmp eq i32 %call92.us, -1
   br i1 %cmp93.not.us, label %while.end106, label %while.body95.us, !llvm.loop !15
@@ -3972,7 +3972,7 @@ while.body202.us:                                 ; preds = %while.body202.lr.ph
   %call199223.us = phi ptr [ %call199.us, %while.body202.us ], [ %call199221, %while.body202.lr.ph ]
   %call204.us = call ptr @dictGetKey(ptr noundef nonnull %call199223.us) #10
   %call206.us = call ptr @dictGetVal(ptr noundef nonnull %call199223.us) #10
-  call void @addReplyBulkSds(ptr noundef %c, ptr noundef %call204.us) #10
+  call void @addReplyBulkSds(ptr noundef nonnull %c, ptr noundef %call204.us) #10
   %call199.us = call ptr @dictNext(ptr noundef %call197) #10
   %cmp200.not.us = icmp eq ptr %call199.us, null
   br i1 %cmp200.not.us, label %while.end217, label %while.body202.us, !llvm.loop !18
@@ -4096,12 +4096,12 @@ if.end248.critedge:                               ; preds = %if.end238
 if.then.i208:                                     ; preds = %if.end248.critedge
   %56 = load i32, ptr %slen.i, align 8
   %conv.i210 = zext i32 %56 to i64
-  call void @addReplyBulkCBuffer(ptr noundef %c, ptr noundef nonnull %55, i64 noundef %conv.i210) #10
+  call void @addReplyBulkCBuffer(ptr noundef nonnull %c, ptr noundef nonnull %55, i64 noundef %conv.i210) #10
   br label %if.end248
 
 if.else.i212:                                     ; preds = %if.end248.critedge
   %57 = load i64, ptr %lval.i, align 8
-  call void @addReplyBulkLongLong(ptr noundef %c, i64 noundef %57) #10
+  call void @addReplyBulkLongLong(ptr noundef nonnull %c, i64 noundef %57) #10
   br label %if.end248
 
 if.end248:                                        ; preds = %if.else.i212, %if.then.i208, %if.else.i204, %if.then.i200
@@ -4119,7 +4119,7 @@ if.end250:                                        ; preds = %if.end34, %while.co
 declare void @lpRandomPairs(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %c, i32 noundef %count, ptr nocapture noundef readonly %keys, ptr noundef readonly %vals) unnamed_addr #0 {
+define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %c, i32 noundef %count, ptr noundef readonly captures(none) %keys, ptr noundef readonly %vals) unnamed_addr #0 {
 entry:
   %conv = zext i32 %count to i64
   %cmp24.not = icmp eq i32 %count, 0
@@ -4360,7 +4360,7 @@ return:                                           ; preds = %if.else.i, %if.then
 declare i32 @getRangeLongFromObjectOrReply(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4370,13 +4370,13 @@ declare void @addReplyNull(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #7

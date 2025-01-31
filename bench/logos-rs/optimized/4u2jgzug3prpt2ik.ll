@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define hidden zeroext i1 @_ZN13logos_codegen5graph5regex8is_ascii17h76b482f8b37957caE(ptr nocapture readonly align 8 %0, i1 zeroext %1) unnamed_addr #0 {
+define hidden zeroext i1 @_ZN13logos_codegen5graph5regex8is_ascii17h76b482f8b37957caE(ptr readonly align 8 captures(none) %0, i1 zeroext %1) unnamed_addr #0 {
   %3 = alloca [1 x i8], align 1
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -19,7 +19,7 @@ define hidden zeroext i1 @_ZN13logos_codegen5graph5regex8is_ascii17h76b482f8b379
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @_ZN13logos_codegen5graph5regex12is_one_ascii17h8523ea3a0f9f7067E(ptr nocapture readonly align 8 %0, i1 zeroext %1) unnamed_addr #1 {
+define hidden zeroext i1 @_ZN13logos_codegen5graph5regex12is_one_ascii17h8523ea3a0f9f7067E(ptr readonly align 8 captures(none) %0, i1 zeroext %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 1

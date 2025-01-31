@@ -1081,7 +1081,7 @@ define dso_local void @CheckpointerShmemInit() local_unnamed_addr #2 {
 declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #1
 
@@ -1299,7 +1299,7 @@ declare void @ConditionVariableSleep(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @ForwardSyncRequest(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.HASHCTL, align 8
   %4 = alloca i8, align 1
   %5 = load i8, ptr @IsUnderPostmaster, align 1
@@ -1517,7 +1517,7 @@ declare zeroext i1 @LWLockAcquire(ptr noundef, i32 noundef) local_unnamed_addr #
 declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @SetLatch(ptr noundef) local_unnamed_addr #1
 
@@ -1569,7 +1569,7 @@ declare i64 @GetLastImportantRecPtr() local_unnamed_addr #1
 declare i64 @RequestXLogSwitch(i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
@@ -1593,10 +1593,10 @@ declare i32 @llvm.smin.i32(i32, i32) #11
 declare i64 @llvm.smax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

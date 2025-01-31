@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [9 x i8] c"gs->itc1\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z16global_stat_initPK10t_inputrec(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @_Z16global_stat_initPK10t_inputrec(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 73, i64 noundef 1, i64 noundef 24)
   %3 = tail call noundef ptr @_Z6mk_binv()
   store ptr %3, ptr %2, align 8
@@ -60,7 +60,7 @@ declare void @_Z11destroy_binP5t_bin(ptr noundef) local_unnamed_addr #1
 declare void @_Z9save_freePKcS0_iPv(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_fS8_RK10t_inputrecP14gmx_ekindata_tP5t_vcmN3gmx8ArrayRefIfEEbilPNSG_18ObservablesReducerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %5, ptr noundef %6, ptr noundef readonly %7, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %8, i1 noundef zeroext %9, i32 noundef %10, i64 noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_fS8_RK10t_inputrecP14gmx_ekindata_tP5t_vcmN3gmx8ArrayRefIfEEbilPNSG_18ObservablesReducerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(856) %5, ptr noundef %6, ptr noundef readonly %7, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %8, i1 noundef zeroext %9, i32 noundef %10, i64 noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = alloca %"struct.std::array", align 4
   %15 = alloca %"struct.gmx::EnumerationArray.84", align 4
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 4

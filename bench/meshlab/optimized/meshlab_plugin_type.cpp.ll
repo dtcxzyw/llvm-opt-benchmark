@@ -108,7 +108,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -430,7 +430,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define void @_ZN17MeshLabPluginTypeC2EPK13MeshLabPlugin(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noundef readonly %1) unnamed_addr #12 align 2 {
+define void @_ZN17MeshLabPluginTypeC2EPK13MeshLabPlugin(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noundef readonly %1) unnamed_addr #12 align 2 {
   store i32 0, ptr %0, align 4
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.sink.split, label %4
@@ -504,7 +504,7 @@ define void @_ZN17MeshLabPluginTypeC2EPK13MeshLabPlugin(ptr nocapture noundef no
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK17MeshLabPluginType7isValidEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK17MeshLabPluginType7isValidEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = and i32 %2, 1
   %.not = icmp eq i32 %3, 0
@@ -512,7 +512,7 @@ define noundef zeroext i1 @_ZNK17MeshLabPluginType7isValidEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK17MeshLabPluginType16isDecoratePluginEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK17MeshLabPluginType16isDecoratePluginEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = and i32 %2, 2
   %4 = icmp ne i32 %3, 0
@@ -520,7 +520,7 @@ define noundef zeroext i1 @_ZNK17MeshLabPluginType16isDecoratePluginEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK17MeshLabPluginType12isEditPluginEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK17MeshLabPluginType12isEditPluginEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = and i32 %2, 4
   %4 = icmp ne i32 %3, 0
@@ -528,7 +528,7 @@ define noundef zeroext i1 @_ZNK17MeshLabPluginType12isEditPluginEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK17MeshLabPluginType14isFilterPluginEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK17MeshLabPluginType14isFilterPluginEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = and i32 %2, 8
   %4 = icmp ne i32 %3, 0
@@ -536,7 +536,7 @@ define noundef zeroext i1 @_ZNK17MeshLabPluginType14isFilterPluginEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK17MeshLabPluginType10isIOPluginEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK17MeshLabPluginType10isIOPluginEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = and i32 %2, 16
   %4 = icmp ne i32 %3, 0
@@ -544,7 +544,7 @@ define noundef zeroext i1 @_ZNK17MeshLabPluginType10isIOPluginEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK17MeshLabPluginType14isRenderPluginEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK17MeshLabPluginType14isRenderPluginEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = and i32 %2, 32
   %4 = icmp ne i32 %3, 0
@@ -552,7 +552,7 @@ define noundef zeroext i1 @_ZNK17MeshLabPluginType14isRenderPluginEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK17MeshLabPluginType20isMultipleTypePluginEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
+define noundef zeroext i1 @_ZNK17MeshLabPluginType20isMultipleTypePluginEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #14 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %7, label %4
@@ -568,7 +568,7 @@ define noundef zeroext i1 @_ZNK17MeshLabPluginType20isMultipleTypePluginEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17MeshLabPluginType16pluginTypeStringEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK17MeshLabPluginType16pluginTypeStringEv(ptr dead_on_unwind noalias writable writeonly sret(%class.QString) align 8 captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -2655,13 +2655,13 @@ __cxx_global_var_init.5.exit:                     ; preds = %_ZNSt4pairIKN3vcg8C
 declare i32 @llvm.ctpop.i32(i32) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

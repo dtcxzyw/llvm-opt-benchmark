@@ -618,7 +618,7 @@ return:                                           ; preds = %if.end5, %if.then4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_block_set_io_throttle(ptr nocapture noundef readonly %arg, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @qmp_block_set_io_throttle(ptr noundef readonly captures(none) %arg, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %cfg = alloca %struct.ThrottleConfig, align 8
   %0 = load ptr, ptr %arg, align 8

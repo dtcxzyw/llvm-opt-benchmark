@@ -6,12 +6,12 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN32pxrInternal_v0_24__pxrReserved__15HgiCapabilitiesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__15HgiCapabilitiesD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15HgiCapabilitiesD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15HgiCapabilitiesD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15HgiCapabilitiesD0Ev(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %0) unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15HgiCapabilitiesD0Ev(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(52) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.trap() #3
   unreachable
 }

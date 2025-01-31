@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.parse_char_lit.2 = private unnamed_addr constant [8 x i32] [i32 8, i32 9, i32 10, i32 10, i32 11, i32 11, i32 11, i32 11], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @parse_current_is_expr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @parse_current_is_expr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64
@@ -86,7 +86,7 @@ define dso_local zeroext i1 @parse_current_is_expr(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @parse_range(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.06.0.copyload = load i64, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -251,7 +251,7 @@ extend_span_with_token.exit:                      ; preds = %67, %68
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @expr_new_const_int(i64, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -664,7 +664,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
 
 183:                                              ; preds = %206, %177
   %.098.i = phi ptr [ %180, %177 ], [ %209, %206 ]
-  %184 = call fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef 5)
+  %184 = call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 5)
   %185 = icmp eq ptr %184, null
   br i1 %185, label %.critedge2.i104, label %186
 
@@ -711,7 +711,7 @@ parse_try_unwrap_chain.exit:                      ; preds = %70, %42, %13
   %210 = zext i32 %207 to i64
   %211 = getelementptr inbounds nuw ptr, ptr %209, i64 %210
   store ptr %184, ptr %211, align 8
-  %212 = call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
+  %212 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %212, label %183, label %213, !llvm.loop !9
 
 213:                                              ; preds = %206
@@ -863,7 +863,7 @@ extend_span_with_token.exit.i95:                  ; preds = %282, %281
 
 .preheader.i:                                     ; preds = %234, %320
   %.1.i101 = phi ptr [ %323, %320 ], [ null, %234 ]
-  %291 = call fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef 5)
+  %291 = call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 5)
   %292 = icmp eq ptr %291, null
   br i1 %292, label %.critedge6.i, label %293
 
@@ -926,7 +926,7 @@ extend_span_with_token.exit.i95:                  ; preds = %282, %281
   %324 = zext i32 %321 to i64
   %325 = getelementptr inbounds nuw ptr, ptr %323, i64 %324
   store ptr %291, ptr %325, align 8
-  %326 = call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
+  %326 = call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %326, label %.preheader.i, label %327, !llvm.loop !10
 
 327:                                              ; preds = %320
@@ -1393,7 +1393,7 @@ declare zeroext i1 @consume(ptr noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @advance(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -1611,7 +1611,7 @@ extend_span_with_token.exit:                      ; preds = %33, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @parse_param_path(ptr noundef %0, ptr noundef nonnull captures(none) initializes((0, 8)) %1) unnamed_addr #1 {
   store ptr null, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %4
@@ -2031,7 +2031,7 @@ define dso_local ptr @parse_ct_expression_list(ptr noundef %0, i1 noundef zeroex
 declare ptr @parse_var_decl(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define dso_local ptr @parse_initializer_list(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -2204,7 +2204,7 @@ extend_span_with_token.exit52:                    ; preds = %68, %69
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @read_int_suffix(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3) local_unnamed_addr #4 {
+define dso_local i32 @read_int_suffix(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i8 noundef signext %3) local_unnamed_addr #4 {
   %5 = or i8 %3, 32
   switch i8 %5, label %read_num_type.exit [
     i8 105, label %6
@@ -2297,7 +2297,7 @@ read_num_type.exit:                               ; preds = %43, %.lr.ph.i16, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_integer(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define dso_local ptr @parse_integer(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca %struct.Int, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -3408,7 +3408,7 @@ is_power_of_two.exit362:                          ; preds = %466
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare { i64, i64 } @i128_shl64(i64, i64, i64 noundef) local_unnamed_addr #3
 
@@ -3630,7 +3630,7 @@ declare ptr @parse_type_with_base(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @parse_optional_type(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_unary_expr(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_unary_expr(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 63, i64 %4) #8
@@ -3990,7 +3990,7 @@ extend_span_with_token.exit:                      ; preds = %38, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_grouping_expr(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_grouping_expr(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 32, i64 %4) #8
@@ -4317,7 +4317,7 @@ extend_span_with_token.exit:                      ; preds = %57, %58
 
 .outer:                                           ; preds = %.outer.preheader, %102
   %.063.ph = phi i32 [ %95, %102 ], [ -1, %.outer.preheader ]
-  %75 = call zeroext i1 @parse_attribute(ptr noundef %0, ptr noundef nonnull %6, i1 noundef zeroext true) #8
+  %75 = call zeroext i1 @parse_attribute(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext true) #8
   br i1 %75, label %.lr.ph, label %.outer._crit_edge
 
 .outer._crit_edge:                                ; preds = %.outer, %90
@@ -4356,7 +4356,7 @@ extend_span_with_token.exit:                      ; preds = %57, %58
 90:                                               ; preds = %82
   %91 = or disjoint i16 %83, 128
   store i16 %91, ptr %46, align 8
-  %92 = call zeroext i1 @parse_attribute(ptr noundef %0, ptr noundef nonnull %6, i1 noundef zeroext true) #8
+  %92 = call zeroext i1 @parse_attribute(ptr noundef nonnull %0, ptr noundef nonnull %6, i1 noundef zeroext true) #8
   br i1 %92, label %.lr.ph, label %.outer._crit_edge
 
 93:                                               ; preds = %78, %78
@@ -4683,7 +4683,7 @@ extend_span_with_token.exit:                      ; preds = %11, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_builtin(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_builtin(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 6, i64 %4) #8
@@ -4836,7 +4836,7 @@ extend_span_with_token.exit:                      ; preds = %30, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_expr_block(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_expr_block(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 28, i64 %4) #8
@@ -5184,7 +5184,7 @@ extend_span_with_token.exit:                      ; preds = %31, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_identifier_starting_expression(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_identifier_starting_expression(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = call zeroext i1 @parse_path_prefix(ptr noundef %0, ptr noundef nonnull %3) #8
   br i1 %4, label %7, label %5
@@ -5254,7 +5254,7 @@ parse_identifier.exit:                            ; preds = %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_identifier(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_identifier(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @kw_return, align 8
@@ -5287,7 +5287,7 @@ define internal ptr @parse_identifier(ptr noundef %0, ptr nocapture readnone %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_type_identifier(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_type_identifier(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call ptr @parse_optional_type(ptr noundef %0) #8
   %.not50.i = icmp eq ptr %3, null
   br i1 %.not50.i, label %.critedge2.i, label %4
@@ -5335,7 +5335,7 @@ parse_type_expression_with_path.exit:             ; preds = %7, %12, %14, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_ident(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_ident(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 68) #8
   br i1 %3, label %4, label %8
 
@@ -5363,7 +5363,7 @@ define internal ptr @parse_ct_ident(ptr noundef %0, ptr nocapture readnone %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_hash_ident(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_hash_ident(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 33, i64 %4) #8
@@ -5376,7 +5376,7 @@ define internal ptr @parse_hash_ident(ptr noundef %0, ptr nocapture readnone %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_string_literal(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_string_literal(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 14, i64 %4) #8
@@ -5459,7 +5459,7 @@ define internal ptr @parse_string_literal(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_char_lit(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_char_lit(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 14, i64 %4) #8
@@ -5500,7 +5500,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_double(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_double(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -5604,7 +5604,7 @@ define internal ptr @parse_double(ptr noundef %0, ptr nocapture readnone %1) #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_bytes_expr(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_bytes_expr(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 80
@@ -5972,7 +5972,7 @@ parse_base64.exit:                                ; preds = %133, %110, %124, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @parse_bool(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal noundef ptr @parse_bool(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 14, i64 %4) #8
@@ -6000,7 +6000,7 @@ define internal noundef ptr @parse_bool(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_lambda(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -6208,7 +6208,7 @@ define internal ptr @parse_lambda(ptr noundef %0, ptr nocapture readnone %1) #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @parse_null(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal noundef ptr @parse_null(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 14, i64 %4) #8
@@ -6231,7 +6231,7 @@ define internal noundef ptr @parse_null(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_call(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_call(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
@@ -6334,7 +6334,7 @@ extend_span_with_token.exit:                      ; preds = %41, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_and_or(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_and_or(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 15, i64 %4) #8
@@ -6362,7 +6362,7 @@ define internal ptr @parse_ct_and_or(ptr noundef %0, ptr nocapture readnone %1) 
 
 17:                                               ; preds = %49, %.critedge53
   %.048 = phi ptr [ null, %.critedge53 ], [ %52, %49 ]
-  %18 = tail call fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef 1)
+  %18 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 1)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %.critedge, label %20
 
@@ -6429,7 +6429,7 @@ define internal ptr @parse_ct_and_or(ptr noundef %0, ptr nocapture readnone %1) 
   %53 = zext i32 %50 to i64
   %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   store ptr %18, ptr %54, align 8
-  %55 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
+  %55 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %55, label %17, label %56
 
 56:                                               ; preds = %49
@@ -6486,7 +6486,7 @@ extend_span_with_token.exit:                      ; preds = %68, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_castable(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_castable(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 18, i64 %4) #8
@@ -6629,7 +6629,7 @@ extend_span_with_token.exit:                      ; preds = %55, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_defined(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 20, i64 %4) #8
@@ -6652,11 +6652,11 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
 
 13:                                               ; preds = %47, %.critedge47
   %.041 = phi ptr [ null, %.critedge47 ], [ %50, %47 ]
-  %14 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 26) #8
+  %14 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 26) #8
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call fastcc ptr @parse_precedence(ptr noundef %0, i32 noundef 1)
+  %16 = tail call fastcc ptr @parse_precedence(ptr noundef nonnull %0, i32 noundef 1)
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.critedge, label %18
 
@@ -6723,7 +6723,7 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
   %51 = zext i32 %48 to i64
   %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
   store ptr %16, ptr %52, align 8
-  %53 = tail call zeroext i1 @try_consume(ptr noundef %0, i32 noundef 8) #8
+  %53 = tail call zeroext i1 @try_consume(ptr noundef nonnull %0, i32 noundef 8) #8
   br i1 %53, label %13, label %54, !llvm.loop !30
 
 54:                                               ; preds = %47
@@ -6754,7 +6754,7 @@ define internal ptr @parse_ct_defined(ptr noundef %0, ptr nocapture readnone %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_embed(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_embed(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 26, i64 %4) #8
@@ -6867,7 +6867,7 @@ extend_span_with_token.exit:                      ; preds = %44, %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_eval(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_eval(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 21, i64 %4) #8
@@ -6955,7 +6955,7 @@ extend_span_with_token.exit:                      ; preds = %32, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_type_expr(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_type_expr(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 62, i64 %4) #8
@@ -7006,7 +7006,7 @@ define internal ptr @parse_type_expr(ptr noundef %0, ptr nocapture readnone %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_is_const(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_is_const(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 19, i64 %4) #8
@@ -7094,7 +7094,7 @@ extend_span_with_token.exit:                      ; preds = %32, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_sizeof(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 1, i64 %4) #8
@@ -7210,7 +7210,7 @@ extend_span_with_token.exit:                      ; preds = %53, %54
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_stringify(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_stringify(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.sroa.018.0.copyload = load i64, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -7330,7 +7330,7 @@ extend_span_with_token.exit:                      ; preds = %41, %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @parse_ct_arg(ptr noundef %0, ptr nocapture readnone %1) #1 {
+define internal ptr @parse_ct_arg(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = tail call ptr @expr_new(i32 noundef 16, i64 %4) #8
@@ -7615,7 +7615,7 @@ declare { double, i32 } @float_from_string(ptr noundef, ptr noundef) local_unnam
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @type_get_array(ptr noundef, i32 noundef) local_unnamed_addr #3
 

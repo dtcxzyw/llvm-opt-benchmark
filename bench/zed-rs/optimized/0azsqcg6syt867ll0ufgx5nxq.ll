@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haf662ca5e881217fE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((8, 16)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17haf662ca5e881217fE"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((8, 16)) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %9, label %5
@@ -88,7 +88,7 @@ define { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17h7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h3357771c23f7dd61E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, i64 %1, i1 zeroext %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h3357771c23f7dd61E"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 16)) %0, i64 %1, i1 zeroext %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %23, label %6
@@ -148,7 +148,7 @@ define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h3357771c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7c34516a856968aeE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, i64 %1, i1 zeroext %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h7c34516a856968aeE"(ptr writeonly sret([24 x i8]) align 8 captures(none) initializes((0, 16)) %0, i64 %1, i1 zeroext %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [0 x i8], align 1
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %23, label %6

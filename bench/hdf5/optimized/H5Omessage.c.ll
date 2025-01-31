@@ -235,7 +235,7 @@ define range(i32 -1, 1) i32 @H5O__msg_append_real(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__msg_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__msg_alloc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = load i32, ptr %2, align 8
   %9 = zext i32 %8 to i64
@@ -330,7 +330,7 @@ H5O_msg_is_shared.exit.thread:                    ; preds = %6, %H5O_msg_is_shar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__copy_mesg(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__copy_mesg(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds %struct.H5O_mesg_t, ptr %9, i64 %2
@@ -958,7 +958,7 @@ H5O_msg_free_real.exit:                           ; preds = %2, %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @H5O_msg_free_real(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @H5O_msg_free_real(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %22, label %3
 
@@ -1004,7 +1004,7 @@ H5O__msg_reset_real.exit:                         ; preds = %13, %9, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5O__msg_free_mesg(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noundef i32 @H5O__msg_free_mesg(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1134,7 +1134,7 @@ H5O__msg_count_real.exit.thread13:                ; preds = %16, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @H5O__msg_count_real(ptr nocapture noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #2 {
+define i32 @H5O__msg_count_real(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -1229,7 +1229,7 @@ H5O_msg_exists_oh.exit.thread14:                  ; preds = %19, %23, %11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @H5O_msg_exists_oh(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @H5O_msg_exists_oh(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -1408,7 +1408,7 @@ define range(i32 -1, 1) i32 @H5O_msg_remove_op(ptr noundef %0, i32 noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5O__msg_remove_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) #0 {
+define internal range(i32 -1, 2) i32 @H5O__msg_remove_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1470,7 +1470,7 @@ define internal range(i32 -1, 2) i32 @H5O__msg_remove_cb(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   store i32 0, ptr %6, align 4
@@ -1688,7 +1688,7 @@ define i32 @H5O__msg_iterate_real(ptr noundef %0, ptr noundef %1, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5O_msg_iterate(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @H5O_msg_iterate(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -1874,7 +1874,7 @@ declare i32 @H5F_get_low_bound(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @H5F_store_msg_crt_idx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5O_msg_size_oh(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define i64 @H5O_msg_size_oh(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = zext i32 %2 to i64
   %7 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
@@ -1957,7 +1957,7 @@ define range(i32 0, 2) i32 @H5O_msg_can_share_in_ohdr(i32 noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @H5O_msg_is_shared(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @H5O_msg_is_shared(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8
@@ -2014,13 +2014,13 @@ define range(i32 -1, 1) i32 @H5O_msg_set_share(i32 noundef %0, ptr noundef %1, p
 declare i32 @H5O_set_shared(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5O_msg_reset_share(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) local_unnamed_addr #4 {
+define noundef i32 @H5O_msg_reset_share(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 40)) %1) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5O_msg_get_crt_index(i32 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -2098,7 +2098,7 @@ define ptr @H5O_msg_decode(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5O__msg_copy_file(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define ptr @H5O__msg_copy_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr %10(ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #6
@@ -2144,7 +2144,7 @@ define range(i32 -1, 1) i32 @H5O_msg_delete(ptr noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__delete_mesg(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__delete_mesg(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
@@ -2270,7 +2270,7 @@ define range(i32 -1, 1) i32 @H5O__delete_mesg(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O_msg_flush(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O_msg_flush(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -2404,7 +2404,7 @@ define range(i32 -1, 1) i32 @H5O_msg_flush(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O__flush_msgs(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O__flush_msgs(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 336
   %4 = load i64, ptr %3, align 8
   %.not23 = icmp eq i64 %4, 0
@@ -2463,7 +2463,7 @@ define range(i32 -1, 1) i32 @H5O__flush_msgs(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5O_msg_get_flags(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5O_msg_get_flags(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw [26 x ptr], ptr @H5O_msg_class_g, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8

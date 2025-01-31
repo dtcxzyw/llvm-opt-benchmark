@@ -392,7 +392,7 @@ declare noundef ptr @_Z29tsi_peer_get_property_by_namePK8tsi_peerPKc(ptr noundef
 declare void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i32 noundef, i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -623,7 +623,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
@@ -666,7 +666,7 @@ return:                                           ; preds = %entry, %for.end
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core16SslCheckCallHostESt17basic_string_viewIcSt11char_traitsIcEES3_S3_P17grpc_auth_context(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %host.coerce0, ptr %host.coerce1, i64 %target_name.coerce0, ptr nocapture readonly %target_name.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %overridden_target_name, ptr noundef %auth_context) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16SslCheckCallHostESt17basic_string_viewIcSt11char_traitsIcEES3_S3_P17grpc_auth_context(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %host.coerce0, ptr %host.coerce1, i64 %target_name.coerce0, ptr readonly captures(none) %target_name.coerce1, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %overridden_target_name, ptr noundef %auth_context) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %allocated_name.i = alloca %"class.std::basic_string_view", align 8
   %ignored_port.i = alloca %"class.std::basic_string_view", align 8
@@ -891,7 +891,7 @@ if.end71:                                         ; preds = %if.end69, %if.then,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26grpc_shallow_peer_destructP8tsi_peer(ptr nocapture noundef readonly %peer) local_unnamed_addr #4 {
+define void @_Z26grpc_shallow_peer_destructP8tsi_peer(ptr noundef readonly captures(none) %peer) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %peer, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -954,7 +954,7 @@ declare noundef zeroext i1 @_ZN9grpc_core13SplitHostPortESt17basic_string_viewIc
 declare noundef i32 @_Z25tsi_ssl_peer_matches_namePK8tsi_peerSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_Z24grpc_ssl_cmp_target_nameSt17basic_string_viewIcSt11char_traitsIcEES2_S2_S2_(i64 %target_name.coerce0, ptr nocapture readonly %target_name.coerce1, i64 %other_target_name.coerce0, ptr nocapture readonly %other_target_name.coerce1, i64 %overridden_target_name.coerce0, ptr nocapture readonly %overridden_target_name.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %other_overridden_target_name) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z24grpc_ssl_cmp_target_nameSt17basic_string_viewIcSt11char_traitsIcEES2_S2_S2_(i64 %target_name.coerce0, ptr readonly captures(none) %target_name.coerce1, i64 %other_target_name.coerce0, ptr readonly captures(none) %other_target_name.coerce1, i64 %overridden_target_name.coerce0, ptr readonly captures(none) %overridden_target_name.coerce1, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %other_overridden_target_name) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
 entry:
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %other_target_name.coerce0, i64 %target_name.coerce0)
   %cmp.i2.i = icmp eq i64 %.sroa.speculated.i, 0
@@ -999,7 +999,7 @@ return:                                           ; preds = %_ZNSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z29grpc_ssl_peer_to_auth_contextPK8tsi_peerPKc(ptr noalias sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result, ptr nocapture noundef readonly %peer, ptr noundef %transport_security_type) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_Z29grpc_ssl_peer_to_auth_contextPK8tsi_peerPKc(ptr noalias sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result, ptr noundef readonly captures(none) %peer, ptr noundef %transport_security_type) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"struct.absl::lts_20230802::strings_internal::Splitter<absl::lts_20230802::ByChar, absl::lts_20230802::AllowEmpty, std::basic_string_view<char>>::ConvertToContainer", align 1
   %splits.i = alloca %"class.std::vector.5", align 8
@@ -1342,7 +1342,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond.preheader,
 declare void @grpc_auth_context_add_cstring_property(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @grpc_auth_context_add_property(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -1374,7 +1374,7 @@ declare void @grpc_auth_context_property_iterator(ptr sret(%struct.grpc_auth_pro
 declare ptr @grpc_auth_property_iterator_next(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z43grpc_ssl_tsi_client_handshaker_factory_initP25tsi_ssl_pem_key_cert_pairPKcb15tsi_tls_versionS3_P21tsi_ssl_session_cachePN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerES2_St10shared_ptrIN9grpc_core12experimental11CrlProviderEEPP33tsi_ssl_client_handshaker_factory(ptr noundef %pem_key_cert_pair, ptr noundef %pem_root_certs, i1 noundef zeroext %skip_server_certificate_verification, i32 noundef %min_tls_version, i32 noundef %max_tls_version, ptr noundef %ssl_session_cache, ptr noundef %tls_session_key_logger, ptr noundef %crl_directory, ptr nocapture noundef %crl_provider, ptr noundef %handshaker_factory) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_Z43grpc_ssl_tsi_client_handshaker_factory_initP25tsi_ssl_pem_key_cert_pairPKcb15tsi_tls_versionS3_P21tsi_ssl_session_cachePN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerES2_St10shared_ptrIN9grpc_core12experimental11CrlProviderEEPP33tsi_ssl_client_handshaker_factory(ptr noundef %pem_key_cert_pair, ptr noundef %pem_root_certs, i1 noundef zeroext %skip_server_certificate_verification, i32 noundef %min_tls_version, i32 noundef %max_tls_version, ptr noundef %ssl_session_cache, ptr noundef %tls_session_key_logger, ptr noundef %crl_directory, ptr noundef captures(none) %crl_provider, ptr noundef %handshaker_factory) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %options = alloca %struct.tsi_ssl_client_handshaker_options, align 8
   %frombool = zext i1 %skip_server_certificate_verification to i8
@@ -1794,7 +1794,7 @@ _ZNSt10shared_ptrIN9grpc_core12experimental11CrlProviderEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z43grpc_ssl_tsi_server_handshaker_factory_initP25tsi_ssl_pem_key_cert_pairmPKc40grpc_ssl_client_certificate_request_type15tsi_tls_versionS4_PN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerES2_bSt10shared_ptrIN9grpc_core12experimental11CrlProviderEEPP33tsi_ssl_server_handshaker_factory(ptr noundef %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs, ptr noundef %pem_root_certs, i32 noundef %client_certificate_request, i32 noundef %min_tls_version, i32 noundef %max_tls_version, ptr noundef %tls_session_key_logger, ptr noundef %crl_directory, i1 noundef zeroext %send_client_ca_list, ptr nocapture noundef %crl_provider, ptr noundef %handshaker_factory) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_Z43grpc_ssl_tsi_server_handshaker_factory_initP25tsi_ssl_pem_key_cert_pairmPKc40grpc_ssl_client_certificate_request_type15tsi_tls_versionS4_PN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerES2_bSt10shared_ptrIN9grpc_core12experimental11CrlProviderEEPP33tsi_ssl_server_handshaker_factory(ptr noundef %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs, ptr noundef %pem_root_certs, i32 noundef %client_certificate_request, i32 noundef %min_tls_version, i32 noundef %max_tls_version, ptr noundef %tls_session_key_logger, ptr noundef %crl_directory, i1 noundef zeroext %send_client_ca_list, ptr noundef captures(none) %crl_provider, ptr noundef %handshaker_factory) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %options = alloca %struct.tsi_ssl_server_handshaker_options, align 8
   %call.i = tail call noundef i64 @_Z29grpc_chttp2_num_alpn_versionsv()
@@ -2442,7 +2442,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 declare void @grpc_slice_from_copied_buffer(ptr sret(%struct.grpc_slice) align 8, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZN9grpc_core19LoadSystemRootCertsEv(ptr sret(%struct.grpc_slice) align 8) local_unnamed_addr #0
 
@@ -2521,7 +2521,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #14
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNK4absl12lts_2023080216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS8_SaIS8_EES8_Lb0EEclERKS9_(ptr noalias sret(%"class.std::vector.5") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull align 8 dereferenceable(18) %splitter) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2960,7 +2960,7 @@ if.end87:                                         ; preds = %for.body.i.i.i.i.i6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
@@ -3092,13 +3092,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

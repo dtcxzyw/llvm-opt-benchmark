@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { [2 x i64] }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @CRYPTO_xts128_encrypt(ptr nocapture noundef readonly %ctx, ptr nocapture noundef readonly %iv, ptr nocapture noundef readonly %inp, ptr nocapture noundef writeonly %out, i64 noundef %len, i32 noundef %enc) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @CRYPTO_xts128_encrypt(ptr noundef readonly captures(none) %ctx, ptr noundef readonly captures(none) %iv, ptr noundef readonly captures(none) %inp, ptr noundef writeonly captures(none) %out, i64 noundef %len, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %tweak = alloca %union.anon, align 8
   %scratch = alloca %union.anon, align 8
@@ -220,7 +220,7 @@ return:                                           ; preds = %while.body, %for.en
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #2

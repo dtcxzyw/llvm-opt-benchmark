@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.51 = private unnamed_addr constant [26 x i8] c"Output buffer not pinned!\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @imageio_init_source(ptr nocapture noundef readonly %0) #0 {
+define hidden void @imageio_init_source(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -445,7 +445,7 @@ GET_ARRAYS.exit84:                                ; preds = %161, %158, %GET_ARR
 declare ptr @JNU_GetEnv(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @RELEASE_ARRAYS(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @RELEASE_ARRAYS(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -489,7 +489,7 @@ unpinPixelBuffer.exit:                            ; preds = %unpinStreamBuffer.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @GET_ARRAYS(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @GET_ARRAYS(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -1053,7 +1053,7 @@ RELEASE_ARRAYS.exit95:                            ; preds = %119, %unpinStreamBu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden void @imageio_skip_input_data(ptr noundef %0, i64 noundef %1) #1 {
@@ -1495,7 +1495,7 @@ GET_ARRAYS.exit:                                  ; preds = %61, %58, %GET_ARRAY
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_initReaderIDs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_initReaderIDs(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %8 = load ptr, ptr %7, align 8
@@ -1721,12 +1721,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @jStdError(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @sun_jpeg_error_exit(ptr nocapture noundef readonly %0) #6 {
+define internal void @sun_jpeg_error_exit(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %3, i32 noundef 1) #16
@@ -2140,7 +2140,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_setSource(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((40, 48), (56, 60), (64, 72)) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) initializes((40, 48), (56, 60), (64, 72)) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca [200 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -2971,7 +2971,7 @@ declare i32 @jReadHeader(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @jAbrtDecompress(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_setOutColorSpace(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_setOutColorSpace(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %6, label %7
 
@@ -2991,7 +2991,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_setOutColorSpace(
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef readnone %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, i8 noundef zeroext %19) local_unnamed_addr #1 {
+define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readnone captures(none) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, i32 noundef %17, i32 noundef %18, i8 noundef zeroext %19) local_unnamed_addr #1 {
   %21 = alloca ptr, align 8
   %22 = alloca [4 x i32], align 16
   %23 = alloca [200 x i8], align 16
@@ -3100,7 +3100,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_readImage(p
   %70 = load ptr, ptr %0, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1560
   %72 = load ptr, ptr %71, align 8
-  call void %72(ptr noundef nonnull %0, ptr noundef %6, ptr noundef nonnull %59, i32 noundef 2) #13
+  call void %72(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef nonnull %59, i32 noundef 2) #13
   %73 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %32, i64 40
@@ -3679,7 +3679,7 @@ GET_ARRAYS.exit:                                  ; preds = %289, %287, %GET_ARR
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setPixelBuffer(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef nonnull %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setPixelBuffer(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8
@@ -3963,7 +3963,7 @@ declare void @jAbort(ptr noundef) local_unnamed_addr #2
 declare i32 @jFinDecompress(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_clearNativeReadAbortFlag(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_clearNativeReadAbortFlag(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -3982,7 +3982,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_clearNativeReadAb
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_abortRead(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_abortRead(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -4001,7 +4001,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_abortRead(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetLibraryState(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetLibraryState(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -4020,7 +4020,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetLibraryState
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetReader(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetReader(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -4075,7 +4075,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetReader(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @imageio_reset(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((40, 48), (56, 60), (64, 72), (96, 97)) %2) unnamed_addr #1 {
+define internal fastcc void @imageio_reset(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) initializes((40, 48), (56, 60), (64, 72), (96, 97)) %2) unnamed_addr #1 {
   %4 = alloca [200 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -4180,7 +4180,7 @@ resetImageIOData.exit:                            ; preds = %resetStreamBuffer.e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_disposeReader(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_disposeReader(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call fastcc ptr @destroyImageioData(ptr noundef %0, ptr noundef %4)
   %.not.i = icmp eq ptr %5, null
@@ -4202,7 +4202,7 @@ imageio_dispose.exit:                             ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @destroyImageioData(ptr noundef %0, ptr nocapture noundef initializes((40, 48), (56, 60), (64, 72)) %1) unnamed_addr #1 {
+define internal fastcc ptr @destroyImageioData(ptr noundef %0, ptr noundef captures(none) initializes((40, 48), (56, 60), (64, 72)) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1816
@@ -4471,7 +4471,7 @@ imageio_dispose.exit38:                           ; preds = %26
 declare void @jCreaCompress(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @imageio_init_destination(ptr nocapture noundef readonly %0) #1 {
+define internal void @imageio_init_destination(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4887,7 +4887,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_setDest(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeTables(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeTables(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca [200 x i8], align 16
   %8 = inttoptr i64 %2 to ptr
   %9 = icmp eq i64 %2, 0
@@ -5781,7 +5781,7 @@ define zeroext i8 @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_writeImage(
   br i1 %349, label %.preheader426.us, label %._crit_edge455, !llvm.loop !28
 
 ._crit_edge455:                                   ; preds = %._crit_edge450.split.us460, %._crit_edge450.split.us.us.us, %322
-  %350 = call i32 @jWrtScanlines(ptr noundef %112, ptr noundef nonnull %29, i32 noundef 1) #13
+  %350 = call i32 @jWrtScanlines(ptr noundef nonnull %112, ptr noundef nonnull %29, i32 noundef 1) #13
   %351 = add nuw nsw i32 %.0382463, %12
   %352 = load i8, ptr %296, align 8
   %353 = icmp eq i8 %352, 0
@@ -5899,7 +5899,7 @@ declare i32 @jWrtScanlines(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare void @jFinCompress(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_abortWrite(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_abortWrite(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -5918,7 +5918,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_abortWrite(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_resetWriter(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_resetWriter(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -5943,7 +5943,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_resetWriter(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_disposeWriter(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageWriter_disposeWriter(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call fastcc ptr @destroyImageioData(ptr noundef %0, ptr noundef %4)
   %.not.i = icmp eq ptr %5, null
@@ -5974,7 +5974,7 @@ declare ptr @jAlcQTable(ptr noundef) local_unnamed_addr #2
 declare ptr @jAlcHTable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setHuffTable(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 760
   %6 = load ptr, ptr %5, align 8
@@ -6076,16 +6076,16 @@ declare i32 @llvm.smin.i32(i32, i32) #10
 declare i32 @llvm.smax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

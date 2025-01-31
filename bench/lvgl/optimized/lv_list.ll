@@ -79,7 +79,7 @@ declare void @lv_label_set_long_mode(ptr noundef, i32 noundef) local_unnamed_add
 declare void @lv_obj_set_flex_grow(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_list_get_button_text(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @lv_list_get_button_text(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @lv_obj_get_child_count(ptr noundef %1) #2
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
@@ -114,7 +114,7 @@ declare zeroext i1 @lv_obj_check_type(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @lv_label_get_text(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_list_set_button_text(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @lv_list_set_button_text(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @lv_obj_get_child_count(ptr noundef %1) #2
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.loopexit, label %.critedge

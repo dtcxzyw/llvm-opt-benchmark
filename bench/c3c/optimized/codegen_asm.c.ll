@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.codegen_create_aarch64_arg = private unnamed_addr constant [27 x i8] c"codegen_create_aarch64_arg\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @codegen_create_asm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @codegen_create_asm(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   tail call void @scratch_buffer_clear() #3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -284,7 +284,7 @@ declare void @scratch_buffer_append(ptr noundef) local_unnamed_addr #1
 declare void @scratch_buffer_append_char(i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @codegen_create_x86att_arg(i32 noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i8

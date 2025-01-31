@@ -2598,7 +2598,7 @@ define internal ptr @data_type_string(i16 noundef zeroext %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare i32 @pmix_bfrops_base_pack_bool(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i16 noundef zeroext) #1
 
@@ -2807,7 +2807,7 @@ define internal i32 @pmix21_bfrop_pack_modex(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pmix21_bfrop_unpack_modex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i16 zeroext %4) #0 {
+define internal i32 @pmix21_bfrop_unpack_modex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i16 zeroext %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %7, 64
@@ -2870,7 +2870,7 @@ define internal i32 @pmix21_bfrop_unpack_modex(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal range(i32 -29, 1) i32 @pmix21_bfrop_copy_modex(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 zeroext %2) #3 {
+define internal range(i32 -29, 1) i32 @pmix21_bfrop_copy_modex(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i16 zeroext %2) #3 {
   %4 = tail call noalias dereferenceable_or_null(280) ptr @malloc(i64 noundef 280) #13
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -2904,7 +2904,7 @@ define internal range(i32 -29, 1) i32 @pmix21_bfrop_copy_modex(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @pmix21_bfrop_print_modex(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i16 zeroext %3) #4 {
+define internal noundef i32 @pmix21_bfrop_print_modex(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i16 zeroext %3) #4 {
   ret i32 0
 }
 
@@ -3030,7 +3030,7 @@ define internal i32 @pmix21_bfrop_pack_array(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pmix21_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i16 zeroext %4) #0 {
+define internal i32 @pmix21_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i16 zeroext %4) #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pmix_bfrops_base_framework, i64 76), align 4
   %or.cond = icmp ult i32 %7, 64
@@ -3079,7 +3079,7 @@ define internal i32 @pmix21_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, p
   %27 = getelementptr inbounds nuw %struct.pmix_info_array, ptr %2, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
   store i32 1, ptr %6, align 4
-  %28 = call i32 @pmix_bfrops_base_unpack_sizet(ptr noundef %0, ptr noundef %1, ptr noundef %27, ptr noundef nonnull %6, i16 noundef zeroext 4) #14
+  %28 = call i32 @pmix_bfrops_base_unpack_sizet(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %27, ptr noundef nonnull %6, i16 noundef zeroext 4) #14
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %29, label %._crit_edge
 
@@ -3110,7 +3110,7 @@ define internal i32 @pmix21_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @pmix21_bfrop_copy_array(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 zeroext %2) #3 {
+define internal noundef i32 @pmix21_bfrop_copy_array(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i16 zeroext %2) #3 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   store ptr %4, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
@@ -3126,7 +3126,7 @@ define internal noundef i32 @pmix21_bfrop_copy_array(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -32, 1) i32 @pmix21_bfrop_print_array(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i16 zeroext %3) #0 {
+define internal range(i32 -32, 1) i32 @pmix21_bfrop_print_array(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 zeroext %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -3198,7 +3198,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
@@ -3206,13 +3206,13 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
@@ -3221,7 +3221,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #12

@@ -187,7 +187,7 @@ define internal fastcc i32 @write_help_msg(i32 noundef %0, ptr noundef nonnull %
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = tail call i32 @pmix_fd_write(i32 noundef %0, i32 noundef %39, ptr noundef %9) #7
+  %42 = tail call i32 @pmix_fd_write(i32 noundef %0, i32 noundef %39, ptr noundef nonnull %9) #7
   br label %43
 
 43:                                               ; preds = %41, %38, %36, %31, %23
@@ -220,7 +220,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #2
 declare ptr @pmix_show_help_vstring(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -229,7 +229,7 @@ declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #3
 declare i32 @pmix_fd_write(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #6

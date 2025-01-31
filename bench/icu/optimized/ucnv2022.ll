@@ -65,7 +65,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL26CNS_11643_1992_Plane_7_STR = internal constant [5 x i8] c"\1B$+M\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef initializes((16, 24)) %cnv, ptr nocapture noundef readonly %pArgs, ptr noundef %errorCode) #0 {
+define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr noundef captures(none) initializes((16, 24)) %cnv, ptr noundef readonly captures(none) %pArgs, ptr noundef %errorCode) #0 {
 entry:
   %myLocale = alloca [7 x i8], align 1
   %stackPieces = alloca %struct.UConverterNamePieces, align 4
@@ -462,7 +462,7 @@ if.end219:                                        ; preds = %if.then7.i, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL13_ISO2022CloseP10UConverter(ptr nocapture noundef %converter) #0 {
+define internal void @_ZL13_ISO2022CloseP10UConverter(ptr noundef captures(none) %converter) #0 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %converter, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -505,7 +505,7 @@ if.end11:                                         ; preds = %for.end, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL13_ISO2022ResetP10UConverter21UConverterResetChoice(ptr nocapture noundef %converter, i32 noundef %choice) #1 {
+define internal void @_ZL13_ISO2022ResetP10UConverter21UConverterResetChoice(ptr noundef captures(none) %converter, i32 noundef %choice) #1 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %converter, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -616,7 +616,7 @@ if.end12:                                         ; preds = %if.then7, %if.then.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @_ZL15_ISO2022getNamePK10UConverter(ptr nocapture noundef readonly %cnv) #2 {
+define internal noundef ptr @_ZL15_ISO2022getNamePK10UConverter(ptr noundef readonly captures(none) %cnv) #2 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %cnv, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -825,7 +825,7 @@ return:                                           ; preds = %if.else55, %if.end8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL19_ISO_2022_SafeClonePK10UConverterPvPiP10UErrorCode(ptr nocapture noundef readonly %cnv, ptr noundef %stackBuffer, ptr nocapture noundef %pBufferSize, ptr noundef %status) #0 {
+define internal noundef ptr @_ZL19_ISO_2022_SafeClonePK10UConverterPvPiP10UErrorCode(ptr noundef readonly captures(none) %cnv, ptr noundef %stackBuffer, ptr noundef captures(none) %pBufferSize, ptr noundef %status) #0 {
 entry:
   %size = alloca i32, align 4
   %0 = load i32, ptr %status, align 4
@@ -890,7 +890,7 @@ return:                                           ; preds = %for.inc, %if.then8,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL23_ISO_2022_GetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr nocapture noundef readonly %cnv, ptr noundef %sa, i32 noundef %which, ptr noundef %pErrorCode) #0 {
+define internal void @_ZL23_ISO_2022_GetUnicodeSetPK10UConverterPK9USetAdder20UConverterUnicodeSetP10UErrorCode(ptr noundef readonly captures(none) %cnv, ptr noundef %sa, i32 noundef %which, ptr noundef %pErrorCode) #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1028,21 +1028,21 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @ucnv_loadSharedData_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare signext i8 @ucnv_canCreateConverter_75(ptr noundef, ptr noundef) local_unnamed_addr #7
 
@@ -1051,7 +1051,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #7
 declare ptr @ucnv_open_75(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL46UConverter_toUnicode_ISO_2022_JP_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef %err) #0 {
+define internal void @_ZL46UConverter_toUnicode_ISO_2022_JP_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef captures(none) %err) #0 {
 entry:
   %tempBuf = alloca [2 x i8], align 1
   %mySource = alloca ptr, align 8
@@ -1629,7 +1629,7 @@ return:                                           ; preds = %endloop, %if.then56
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL48UConverter_fromUnicode_ISO_2022_JP_OFFSETS_LOGICP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr noundef %err) #0 {
+define internal void @_ZL48UConverter_fromUnicode_ISO_2022_JP_OFFSETS_LOGICP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef %err) #0 {
 entry:
   %targetChars.i284 = alloca ptr, align 8
   %targetChars.i = alloca ptr, align 8
@@ -2557,7 +2557,7 @@ if.end430:                                        ; preds = %if.else352, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL16changeState_2022P10UConverterPPKcS2_11Variant2022P10UErrorCode(ptr nocapture noundef %_this, ptr nocapture noundef %source, ptr noundef readnone %sourceLimit, i32 noundef range(i32 1, 4) %var, ptr nocapture noundef %err) unnamed_addr #9 {
+define internal fastcc void @_ZL16changeState_2022P10UConverterPPKcS2_11Variant2022P10UErrorCode(ptr noundef captures(none) %_this, ptr noundef captures(none) %source, ptr noundef readnone %sourceLimit, i32 noundef range(i32 1, 4) %var, ptr noundef captures(none) %err) unnamed_addr #9 {
 entry:
   %extraInfo = getelementptr inbounds nuw i8, ptr %_this, i64 16
   %0 = load ptr, ptr %extraInfo, align 8
@@ -2888,7 +2888,7 @@ if.end189:                                        ; preds = %entry, %if.else145,
 declare i32 @ucnv_MBCSSimpleGetNextUChar_75(ptr noundef, ptr noundef, i32 noundef, i8 noundef signext) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai(ptr nocapture noundef readonly %sharedData, i32 noundef range(i32 -2147483648, 2090869760) %c, ptr noundef nonnull %value, i8 noundef signext %useFallback, i32 noundef range(i32 1, 3) %outputType) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL25MBCS_FROM_UCHAR32_ISO2022P20UConverterSharedDataiPjai(ptr noundef readonly captures(none) %sharedData, i32 noundef range(i32 -2147483648, 2090869760) %c, ptr noundef nonnull %value, i8 noundef signext %useFallback, i32 noundef range(i32 1, 3) %outputType) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %c, 65536
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -3011,7 +3011,7 @@ declare i32 @ucnv_extSimpleMatchFromU_75(ptr noundef, i32 noundef, ptr noundef, 
 declare void @ucnv_fromUWriteBytes_75(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL46UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr noundef %err) #0 {
+define internal void @_ZL46UConverter_toUnicode_ISO_2022_KR_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef %err) #0 {
 entry:
   %subArgs.i = alloca %struct.UConverterToUnicodeArgs, align 8
   %tempBuf = alloca [2 x i8], align 1
@@ -4036,7 +4036,7 @@ declare void @ucnv_MBCSToUnicodeWithOffsets_75(ptr noundef, ptr noundef) local_u
 declare void @ucnv_MBCSFromUnicodeWithOffsets_75(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL46UConverter_toUnicode_ISO_2022_CN_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr nocapture noundef %err) #0 {
+define internal void @_ZL46UConverter_toUnicode_ISO_2022_CN_OFFSETS_LOGICP23UConverterToUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef captures(none) %err) #0 {
 entry:
   %tempBuf = alloca [3 x i8], align 1
   %mySource = alloca ptr, align 8
@@ -4506,7 +4506,7 @@ return:                                           ; preds = %endloop, %if.then60
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL48UConverter_fromUnicode_ISO_2022_CN_OFFSETS_LOGICP25UConverterFromUnicodeArgsP10UErrorCode(ptr nocapture noundef %args, ptr noundef %err) #0 {
+define internal void @_ZL48UConverter_fromUnicode_ISO_2022_CN_OFFSETS_LOGICP25UConverterFromUnicodeArgsP10UErrorCode(ptr noundef captures(none) %args, ptr noundef %err) #0 {
 entry:
   %targetChars.i137 = alloca ptr, align 8
   %targetChars.i = alloca ptr, align 8
@@ -5131,10 +5131,10 @@ declare void @ucnv_incrementRefCount_75(ptr noundef) local_unnamed_addr #7
 declare void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_75(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #11

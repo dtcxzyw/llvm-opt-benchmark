@@ -55,7 +55,7 @@ define double @Ptngc_fix_t_to_d(i64 noundef %0, double noundef %1) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ptngc_d_to_i32x2(double noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 {
+define void @Ptngc_d_to_i32x2(double noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #1 {
   %4 = fcmp uge double %0, 0.000000e+00
   %5 = fneg double %0
   %.0 = select i1 %4, double %0, double %5

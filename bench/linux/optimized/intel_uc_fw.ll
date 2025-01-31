@@ -154,7 +154,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [42 x ptr] [ptr @__UNIQUE_ID_firmware565, ptr @__UNIQUE_ID_firmware566, ptr @__UNIQUE_ID_firmware567, ptr @__UNIQUE_ID_firmware568, ptr @__UNIQUE_ID_firmware569, ptr @__UNIQUE_ID_firmware570, ptr @__UNIQUE_ID_firmware571, ptr @__UNIQUE_ID_firmware572, ptr @__UNIQUE_ID_firmware573, ptr @__UNIQUE_ID_firmware574, ptr @__UNIQUE_ID_firmware575, ptr @__UNIQUE_ID_firmware576, ptr @__UNIQUE_ID_firmware577, ptr @__UNIQUE_ID_firmware578, ptr @__UNIQUE_ID_firmware579, ptr @__UNIQUE_ID_firmware580, ptr @__UNIQUE_ID_firmware581, ptr @__UNIQUE_ID_firmware582, ptr @__UNIQUE_ID_firmware583, ptr @__UNIQUE_ID_firmware584, ptr @__UNIQUE_ID_firmware585, ptr @__UNIQUE_ID_firmware586, ptr @__UNIQUE_ID_firmware587, ptr @__UNIQUE_ID_firmware588, ptr @__UNIQUE_ID_firmware589, ptr @__UNIQUE_ID_firmware590, ptr @__UNIQUE_ID_firmware591, ptr @__UNIQUE_ID_firmware592, ptr @__UNIQUE_ID_firmware593, ptr @__UNIQUE_ID_firmware594, ptr @__UNIQUE_ID_firmware595, ptr @__UNIQUE_ID_firmware596, ptr @__UNIQUE_ID_firmware597, ptr @__UNIQUE_ID_firmware598, ptr @__UNIQUE_ID_firmware599, ptr @__UNIQUE_ID_firmware600, ptr @__UNIQUE_ID_firmware601, ptr @__UNIQUE_ID_firmware602, ptr @__UNIQUE_ID_firmware603, ptr @__UNIQUE_ID_firmware604, ptr @__UNIQUE_ID_firmware605, ptr @io_mapping_unmap_atomic.__UNIQUE_ID___addressable___SCK__preempt_schedule519], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @intel_uc_fw_version_from_gsc_manifest(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_uc_fw_version_from_gsc_manifest(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i16, ptr %3, align 1
   %5 = zext i16 %4 to i32
@@ -178,13 +178,13 @@ define dso_local void @intel_uc_fw_version_from_gsc_manifest(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_uc_fw_init_early(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_uc_fw_init_early(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 align 16 {
   %4 = zext i1 %2 to i8
   switch i32 %1, label %11 [
     i32 0, label %5
@@ -727,7 +727,7 @@ __uc_fw_auto_select.exit:                         ; preds = %.thread5.i, %.loope
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -8, 1) i32 @intel_uc_check_file_version(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -8, 1) i32 @intel_uc_check_file_version(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #2 align 16 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %.thread12 [
     i32 0, label %4
@@ -1455,7 +1455,7 @@ __uc_fw_auto_select.exit:                         ; preds = %65
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @try_firmware_load(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @try_firmware_load(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %10 [
     i32 0, label %4
@@ -1544,7 +1544,7 @@ define internal fastcc i32 @try_firmware_load(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -1562,7 +1562,7 @@ declare dso_local void @release_firmware(ptr noundef) local_unnamed_addr #5
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_uc_fw_mark_load_failed(ptr nocapture noundef %0, i32 noundef returned %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef i32 @intel_uc_fw_mark_load_failed(ptr noundef captures(none) %0, i32 noundef returned %1) local_unnamed_addr #2 align 16 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %10 [
     i32 0, label %4
@@ -1625,7 +1625,7 @@ define dso_local noundef i32 @intel_uc_fw_mark_load_failed(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_uc_fw_upload(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local i32 @intel_uc_fw_upload(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = icmp sgt i32 %5, 6
@@ -2314,7 +2314,7 @@ define dso_local void @intel_uc_fw_resume_mapping(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_uc_fw_cleanup_fetch(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_uc_fw_cleanup_fetch(ptr noundef captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = icmp sgt i32 %3, 4
@@ -2350,7 +2350,7 @@ define dso_local void @intel_uc_fw_cleanup_fetch(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @intel_uc_fw_copy_rsa(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
+define dso_local i64 @intel_uc_fw_copy_rsa(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 704
@@ -2652,7 +2652,7 @@ declare dso_local zeroext i1 @i915_gem_object_has_struct_page(ptr noundef) local
 declare dso_local void @memcpy_fromio(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_uc_fw_dump(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_uc_fw_dump(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %6 [
     i32 0, label %7
@@ -2842,7 +2842,7 @@ declare dso_local i32 @intel_gsc_fw_get_binary_info(ptr noundef, ptr noundef, i6
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -71, 1) i32 @__check_ccs_header(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -71, 1) i32 @__check_ccs_header(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(none) %3) unnamed_addr #2 align 16 {
   %5 = icmp ult i64 %2, 128
   br i1 %5, label %6, label %24, !prof !49
 

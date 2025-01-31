@@ -50,7 +50,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.25 = private unnamed_addr constant [60 x i8] c"e1000x_link_negotiation_done Auto negotiation is completed\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @e1000x_rx_ready(ptr nocapture noundef readonly %d, ptr nocapture noundef readonly %mac) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @e1000x_rx_ready(ptr noundef readonly captures(none) %d, ptr noundef readonly captures(none) %mac) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %arrayidx = getelementptr i8, ptr %mac, i64 8
@@ -121,7 +121,7 @@ return:                                           ; preds = %entry, %trace_e1000
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @e1000x_is_vlan_packet(ptr nocapture noundef readonly %buf, i16 noundef zeroext %vet) local_unnamed_addr #0 {
+define dso_local zeroext i1 @e1000x_is_vlan_packet(ptr noundef readonly captures(none) %buf, i16 noundef zeroext %vet) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %h_proto = getelementptr inbounds nuw i8, ptr %buf, i64 12
@@ -170,7 +170,7 @@ trace_e1000x_vlan_is_vlan_pkt.exit:               ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @e1000x_rx_vlan_filter(ptr nocapture noundef readonly %mac, ptr nocapture noundef readonly %vhdr) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @e1000x_rx_vlan_filter(ptr noundef readonly captures(none) %mac, ptr noundef readonly captures(none) %vhdr) local_unnamed_addr #0 {
 entry:
   %_now.i.i5 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -276,7 +276,7 @@ return:                                           ; preds = %entry, %trace_e1000
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @e1000x_rx_group_filter(ptr noundef %mac, ptr nocapture noundef readonly %ehdr) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @e1000x_rx_group_filter(ptr noundef %mac, ptr noundef readonly captures(none) %ehdr) local_unnamed_addr #0 {
 entry:
   %_now.i.i67 = alloca %struct.timeval, align 8
   %_now.i.i41 = alloca %struct.timeval, align 8
@@ -535,7 +535,7 @@ return:                                           ; preds = %trace_e1000x_rx_flt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @e1000x_hw_rx_enabled(ptr nocapture noundef readonly %mac) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @e1000x_hw_rx_enabled(ptr noundef readonly captures(none) %mac) local_unnamed_addr #0 {
 entry:
   %_now.i.i4 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -632,7 +632,7 @@ return:                                           ; preds = %if.end, %trace_e100
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @e1000x_is_oversized(ptr nocapture noundef %mac, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @e1000x_is_oversized(ptr noundef captures(none) %mac, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cmp = icmp ugt i64 %size, 16380
@@ -714,7 +714,7 @@ return:                                           ; preds = %lor.lhs.false, %lan
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @e1000x_restart_autoneg(ptr nocapture noundef %mac, ptr nocapture noundef %phy, ptr noundef %timer) local_unnamed_addr #0 {
+define dso_local void @e1000x_restart_autoneg(ptr noundef captures(none) %mac, ptr noundef captures(none) %phy, ptr noundef %timer) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %arrayidx.i = getelementptr i8, ptr %mac, i64 8
@@ -773,7 +773,7 @@ trace_e1000x_link_negotiation_start.exit:         ; preds = %entry, %land.lhs.tr
 declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @e1000x_reset_mac_addr(ptr noundef %nic, ptr nocapture noundef writeonly initializes((21504, 21512)) %mac_regs, ptr noundef %mac_addr) local_unnamed_addr #0 {
+define dso_local void @e1000x_reset_mac_addr(ptr noundef %nic, ptr noundef writeonly captures(none) initializes((21504, 21512)) %mac_regs, ptr noundef %mac_addr) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %arrayidx = getelementptr i8, ptr %mac_regs, i64 21504
@@ -881,7 +881,7 @@ declare void @qemu_format_nic_info_str(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @qemu_get_queue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @e1000x_update_regs_on_autoneg_done(ptr nocapture noundef %mac, ptr nocapture noundef %phy) local_unnamed_addr #0 {
+define dso_local void @e1000x_update_regs_on_autoneg_done(ptr noundef captures(none) %mac, ptr noundef captures(none) %phy) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %arrayidx.i = getelementptr i8, ptr %mac, i64 8
@@ -934,7 +934,7 @@ trace_e1000x_link_negotiation_done.exit:          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @e1000x_core_prepare_eeprom(ptr nocapture noundef %eeprom, ptr nocapture noundef readonly %templ, i32 noundef %templ_size, i16 noundef zeroext %dev_id, ptr nocapture noundef readonly %macaddr) local_unnamed_addr #2 {
+define dso_local void @e1000x_core_prepare_eeprom(ptr noundef captures(none) %eeprom, ptr noundef readonly captures(none) %templ, i32 noundef %templ_size, i16 noundef zeroext %dev_id, ptr noundef readonly captures(none) %macaddr) local_unnamed_addr #2 {
 entry:
   %conv = zext i32 %templ_size to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %eeprom, ptr align 2 %templ, i64 %conv, i1 false)
@@ -983,7 +983,7 @@ for.end24:                                        ; preds = %for.body15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
 define dso_local range(i32 256, 16385) i32 @e1000x_rxbufsize(i32 noundef %rctl) local_unnamed_addr #4 {
@@ -1022,7 +1022,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @e1000x_update_rx_total_stats(ptr nocapture noundef %mac, i32 noundef %pkt_type, i64 noundef %pkt_size, i64 noundef %pkt_fcs_size) local_unnamed_addr #5 {
+define dso_local void @e1000x_update_rx_total_stats(ptr noundef captures(none) %mac, i32 noundef %pkt_type, i64 noundef %pkt_size, i64 noundef %pkt_fcs_size) local_unnamed_addr #5 {
 entry:
   %conv = trunc i64 %pkt_fcs_size to i32
   %cmp.i = icmp sgt i32 %conv, 1023
@@ -1190,7 +1190,7 @@ sw.epilog:                                        ; preds = %if.then.i29, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @e1000x_increase_size_stats(ptr nocapture noundef %mac, ptr nocapture noundef readonly %size_regs, i32 noundef %size) local_unnamed_addr #5 {
+define dso_local void @e1000x_increase_size_stats(ptr noundef captures(none) %mac, ptr noundef readonly captures(none) %size_regs, i32 noundef %size) local_unnamed_addr #5 {
 entry:
   %cmp = icmp sgt i32 %size, 1023
   br i1 %cmp, label %if.then, label %if.else
@@ -1303,7 +1303,7 @@ if.end24:                                         ; preds = %if.then.i43, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @e1000x_read_tx_ctx_descr(ptr nocapture noundef readonly %d, ptr nocapture noundef writeonly initializes((0, 13), (14, 19)) %props) local_unnamed_addr #5 {
+define dso_local void @e1000x_read_tx_ctx_descr(ptr noundef readonly captures(none) %d, ptr noundef writeonly captures(none) initializes((0, 13), (14, 19)) %props) local_unnamed_addr #5 {
 entry:
   %cmd_and_length = getelementptr inbounds nuw i8, ptr %d, i64 8
   %0 = load i32, ptr %cmd_and_length, align 4
@@ -1359,7 +1359,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @e1000x_timestamp(ptr nocapture noundef %mac, i64 noundef %timadj, i64 noundef %lo, i64 noundef %hi) local_unnamed_addr #0 {
+define dso_local void @e1000x_timestamp(ptr noundef captures(none) %mac, i64 noundef %timadj, i64 noundef %lo, i64 noundef %hi) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #11
   %arrayidx = getelementptr i8, ptr %mac, i64 46600
@@ -1388,7 +1388,7 @@ entry:
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @e1000x_set_timinca(ptr nocapture noundef %mac, ptr nocapture noundef %timadj, i32 noundef %val) local_unnamed_addr #0 {
+define dso_local void @e1000x_set_timinca(ptr noundef captures(none) %mac, ptr noundef captures(none) %timadj, i32 noundef %val) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #11
   %arrayidx = getelementptr i8, ptr %mac, i64 46600
@@ -1420,7 +1420,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1430,16 +1430,16 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare i16 @llvm.bswap.i16(i16) #7
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #9

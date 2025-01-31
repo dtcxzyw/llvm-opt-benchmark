@@ -492,7 +492,7 @@ pm_regexp_parse_group.exit.thread:                ; preds = %101, %96, %94, %104
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @pm_regexp_parse_quantifier(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
+define internal fastcc void @pm_regexp_parse_quantifier(ptr noundef nonnull captures(none) %0) unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %0, i64 16
@@ -611,7 +611,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @pm_regexp_parse_lbracket(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pm_regexp_parse_lbracket(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 2
@@ -787,7 +787,7 @@ pm_regexp_char_expect.exit:                       ; preds = %pm_regexp_char_expe
 declare i64 @pm_encoding_utf_8_char_width(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @pm_regexp_char_find(ptr nocapture noundef nonnull %0, i8 noundef zeroext range(i8 39, 63) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @pm_regexp_char_find(ptr noundef nonnull captures(none) %0, i8 noundef zeroext range(i8 39, 63) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 16
@@ -820,7 +820,7 @@ define internal fastcc noundef zeroext i1 @pm_regexp_char_find(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pm_regexp_parser_named_capture(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @pm_regexp_parser_named_capture(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.pm_string_t, align 8
   call void @pm_string_shared_init(ptr noundef nonnull %4, ptr noundef %1, ptr noundef %2) #5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -831,7 +831,7 @@ define internal fastcc void @pm_regexp_parser_named_capture(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @pm_memchr(ptr noundef, i32 noundef, i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
@@ -842,10 +842,10 @@ declare void @pm_string_list_append(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @pm_string_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -163,7 +163,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -217,7 +217,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z10bond_anglePKfS0_S0_PK5t_pbcPfS4_S4_PiS5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly initializes((0, 4)) %7, ptr nocapture noundef writeonly initializes((0, 4)) %8) local_unnamed_addr #4 {
+define noundef float @_Z10bond_anglePKfS0_S0_PK5t_pbcPfS4_S4_PiS5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7, ptr noundef writeonly captures(none) initializes((0, 4)) %8) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %13, label %10
 
@@ -323,7 +323,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #9
 declare float @acosf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef initializes((0, 12)) %8, ptr nocapture noundef initializes((0, 12)) %9, ptr nocapture noundef writeonly initializes((0, 4)) %10, ptr nocapture noundef writeonly initializes((0, 4)) %11, ptr nocapture noundef writeonly initializes((0, 4)) %12) local_unnamed_addr #4 {
+define noundef float @_Z9dih_anglePKfS0_S0_S0_PK5t_pbcPfS4_S4_S4_S4_PiS5_S5_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef captures(none) initializes((0, 12)) %8, ptr noundef captures(none) initializes((0, 12)) %9, ptr noundef writeonly captures(none) initializes((0, 4)) %10, ptr noundef writeonly captures(none) initializes((0, 4)) %11, ptr noundef writeonly captures(none) initializes((0, 4)) %12) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %18, label %14
 
@@ -496,7 +496,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #9
 declare float @atan2f(float noundef, float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z16make_dp_periodicPf(ptr nocapture noundef %0) local_unnamed_addr #10 {
+define void @_Z16make_dp_periodicPf(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = load float, ptr %0, align 4
   %3 = fpext float %2 to double
   %4 = fcmp ult double %3, 0x400921FB54442D18
@@ -518,7 +518,7 @@ define void @_Z16make_dp_periodicPf(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr nocapture noundef readnone %9, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %10, ptr nocapture noundef readnone %11, ptr nocapture noundef readnone %12, ptr nocapture noundef readnone %13, ptr nocapture noundef readnone %14) local_unnamed_addr #11 {
+define noundef float @_Z9cmap_dihsiPKiPK9t_iparamsPK10gmx_cmap_tPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef captures(none) %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr noundef readnone captures(none) %9, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %10, ptr noundef readnone captures(none) %11, ptr noundef readnone captures(none) %12, ptr noundef readnone captures(none) %13, ptr noundef readnone captures(none) %14) local_unnamed_addr #11 {
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
@@ -1261,10 +1261,10 @@ _ZN12_GLOBAL__N_121cmap_setup_grid_indexEiiPiS0_S0_.exit285: ; preds = %333, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_fPA3_fPK5t_pbcN3gmx11BasicVectorIfEESC_SC_SC_SC_SC_ffffiiiifii(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, <2 x float> %4, float %5, <2 x float> %6, float %7, <2 x float> %8, float %9, <2 x float> %10, float %11, <2 x float> %.0.val, float %.8.val, ptr noundef byval(%"class.gmx::BasicVector") align 8 %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, float noundef %21, i32 noundef %22, i32 noundef %23) unnamed_addr #11 {
+define internal fastcc void @_ZN12_GLOBAL__N_120accumulateCmapForcesEPA3_KfPA4_fPA3_fPK5t_pbcN3gmx11BasicVectorIfEESC_SC_SC_SC_SC_ffffiiiifii(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, <2 x float> %4, float %5, <2 x float> %6, float %7, <2 x float> %8, float %9, <2 x float> %10, float %11, <2 x float> %.0.val, float %.8.val, ptr noundef byval(%"class.gmx::BasicVector") align 8 %12, float noundef %13, float noundef %14, float noundef %15, float noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19, i32 noundef %20, float noundef %21, i32 noundef %22, i32 noundef %23) unnamed_addr #11 {
   %25 = alloca %"class.gmx::BasicVector", align 8
   %26 = alloca %"class.gmx::BasicVector", align 8
   %27 = alloca %"class.gmx::BasicVector", align 4
@@ -1483,7 +1483,7 @@ declare float @cosf(float noundef) local_unnamed_addr #9
 declare float @asinf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi18BondedKernelFlavor(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr noundef %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15) local_unnamed_addr #4 {
+define noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi18BondedKernelFlavor(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, float noundef %8, ptr noundef %9, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15) local_unnamed_addr #4 {
   %17 = alloca %"class.gmx::ArrayRef", align 8
   %18 = sext i32 %15 to i64
   %19 = getelementptr inbounds [4 x %"struct.std::array.43"], ptr @_ZN12_GLOBAL__N_137c_bondedInteractionFunctionsPerFlavorE, i64 0, i64 %18
@@ -1505,7 +1505,7 @@ define noundef float @_Z19calculateSimpleBondiiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
+define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [16 x float], align 32
@@ -1870,7 +1870,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor0EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
@@ -1993,7 +1993,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph.lr.ph, label %.outer._crit_edge
@@ -2153,7 +2153,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -2348,7 +2348,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture readnone %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #14 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_113unimplementedEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS5_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #14 personality ptr @__gxx_personality_v0 {
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator", align 1
   %17 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -2420,7 +2420,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %27, %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr noundef %13) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #4 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %.not.i = icmp eq ptr %6, null
@@ -2640,7 +2640,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca float, align 4
   %17 = alloca [3 x float], align 4
@@ -2762,7 +2762,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = fsub float 1.000000e+00, %7
   %.not.i = icmp eq ptr %6, null
@@ -2981,7 +2981,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
+define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -3607,7 +3607,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor0EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -3737,7 +3737,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -3907,7 +3907,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit61: ; preds = %49, %55
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -4087,7 +4087,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit88: ; preds = %54, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -4253,7 +4253,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit62: ; preds = %52, %57
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -4455,7 +4455,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit91: ; preds = %54, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
+define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -5137,7 +5137,7 @@ define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -5276,7 +5276,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -5403,7 +5403,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
+define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -5560,7 +5560,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor0EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #13 {
+define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EEENSt9enable_ifIXeqT_LS1_0EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #13 {
   %15 = alloca [8 x i32], align 32
   %16 = alloca [8 x i32], align 32
   %17 = alloca [8 x i32], align 32
@@ -5746,7 +5746,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor0EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -6003,7 +6003,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79: ; preds = %69, %79
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -6249,7 +6249,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit85: ; preds = %66, %77
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -6360,7 +6360,7 @@ _Z16make_dp_periodicPf.exit:                      ; preds = %67, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -6436,7 +6436,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -6570,7 +6570,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor0EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -6911,7 +6911,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %104
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -6982,7 +6982,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -7141,19 +7141,19 @@ declare noundef float @_Z9ta_disresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3
 declare noundef float @_Z6oriresiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS4_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, float noundef, ptr noundef, ptr noundef byval(%"class.gmx::ArrayRef") align 8, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext false)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -7313,7 +7313,7 @@ _Z16make_dp_periodicPf.exit:                      ; preds = %70, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -7444,7 +7444,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
@@ -7567,7 +7567,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph.lr.ph, label %.outer._crit_edge
@@ -7727,7 +7727,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -7922,7 +7922,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr noundef %13) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #4 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %.not.i = icmp eq ptr %6, null
@@ -8142,7 +8142,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca float, align 4
   %17 = alloca [3 x float], align 4
@@ -8264,7 +8264,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = fsub float 1.000000e+00, %7
   %.not.i = icmp eq ptr %6, null
@@ -8483,7 +8483,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -8630,7 +8630,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -8760,7 +8760,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -8930,7 +8930,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit61: ; preds = %49, %55
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -9110,7 +9110,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit88: ; preds = %54, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -9276,7 +9276,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit62: ; preds = %52, %57
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -9478,7 +9478,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit91: ; preds = %54, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -9720,7 +9720,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %87, %89
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -9859,7 +9859,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -9986,7 +9986,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -10100,7 +10100,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor1EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -10252,7 +10252,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -10509,7 +10509,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79: ; preds = %69, %79
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -10755,7 +10755,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit85: ; preds = %66, %77
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -10866,7 +10866,7 @@ _Z16make_dp_periodicPf.exit:                      ; preds = %67, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -10942,7 +10942,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -11076,7 +11076,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -11417,7 +11417,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %104
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -11488,7 +11488,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -11643,19 +11643,19 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor1EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext false)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -11815,7 +11815,7 @@ _Z16make_dp_periodicPf.exit:                      ; preds = %70, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -11957,7 +11957,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
@@ -12091,7 +12091,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph.lr.ph, label %.outer._crit_edge
@@ -12262,7 +12262,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -12473,7 +12473,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr noundef %13) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #4 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %.not.i = icmp eq ptr %6, null
@@ -12709,7 +12709,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca float, align 4
   %17 = alloca [3 x float], align 4
@@ -12842,7 +12842,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = fsub float 1.000000e+00, %7
   %.not.i = icmp eq ptr %6, null
@@ -13072,7 +13072,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -13288,7 +13288,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor2EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -13482,7 +13482,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -13707,7 +13707,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit66: ; preds = %55, %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -13952,7 +13952,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit93: ; preds = %66, %73
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -14166,7 +14166,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit67: ; preds = %55, %62
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -14423,7 +14423,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit96: ; preds = %60, %68
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -14744,7 +14744,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %99, %102
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -14952,7 +14952,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -15148,7 +15148,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -15279,7 +15279,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor2EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -15431,7 +15431,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor2EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -15751,7 +15751,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit97: ; preds = %165
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -16060,7 +16060,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit103: ; preds = %154
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -16171,7 +16171,7 @@ _Z16make_dp_periodicPf.exit:                      ; preds = %67, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -16247,7 +16247,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -16392,7 +16392,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -16744,7 +16744,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit114: ; preds = %93, %106
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -16815,7 +16815,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -16981,19 +16981,19 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor2EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext false)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -17153,7 +17153,7 @@ _Z16make_dp_periodicPf.exit:                      ; preds = %70, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15bondsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -17284,7 +17284,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18g96bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph, label %._crit_edge
@@ -17407,7 +17407,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111morse_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = icmp sgt i32 %0, 0
   br i1 %16, label %.lr.ph.lr.ph, label %.outer._crit_edge
@@ -17567,7 +17567,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111cubic_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %6, null
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
@@ -17762,7 +17762,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr noundef %13) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_110FENE_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr noundef %13) #4 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %.not.i = icmp eq ptr %6, null
@@ -17982,7 +17982,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19tab_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca float, align 4
   %17 = alloca [3 x float], align 4
@@ -18104,7 +18104,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115restraint_bondsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = fsub float 1.000000e+00, %7
   %.not.i = icmp eq ptr %6, null
@@ -18323,7 +18323,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -18470,7 +18470,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16anglesIL18BondedKernelFlavor3EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -18600,7 +18600,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19g96anglesIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_111restranglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -18770,7 +18770,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit61: ; preds = %49, %55
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_113linear_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -18950,7 +18950,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit88: ; preds = %54, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115cross_bond_bondIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -19116,7 +19116,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit62: ; preds = %52, %57
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_116cross_bond_angleIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -19318,7 +19318,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit91: ; preds = %54, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_112urey_bradleyIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -19560,7 +19560,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %87, %89
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -19699,7 +19699,7 @@ define internal noundef float @_ZN12_GLOBAL__N_114quartic_anglesIL18BondedKernel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca [3 x float], align 4
@@ -19826,7 +19826,7 @@ define internal noundef float @_ZN12_GLOBAL__N_110tab_anglesIL18BondedKernelFlav
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -19957,7 +19957,7 @@ define internal noundef float @_ZN12_GLOBAL__N_15pdihsIL18BondedKernelFlavor3EEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EEENSt9enable_ifIXooneT_LS1_0EntLi1EEfE4typeEiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefISA_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -20109,7 +20109,7 @@ define internal noundef float @_ZN12_GLOBAL__N_16rbdihsIL18BondedKernelFlavor3EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19restrdihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -20366,7 +20366,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit79: ; preds = %69, %79
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_17cbtdihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca float, align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -20612,7 +20612,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit85: ; preds = %66, %77
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_15idihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -20723,7 +20723,7 @@ _Z16make_dp_periodicPf.exit:                      ; preds = %67, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture noundef readonly %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr noundef readonly captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -20799,7 +20799,7 @@ define internal noundef float @_ZN12_GLOBAL__N_18tab_dihsIL18BondedKernelFlavor3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_18polarizeIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -20933,7 +20933,7 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef float @_ZN12_GLOBAL__N_19water_polIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 personality ptr @__gxx_personality_v0 {
   %15 = alloca [3 x float], align 4
   %16 = alloca [3 x float], align 4
   %17 = alloca [3 x float], align 4
@@ -21274,7 +21274,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit107: ; preds = %92, %104
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float %7, ptr nocapture readnone %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float %7, ptr readnone captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = icmp sgt i32 %0, 0
   br i1 %15, label %.lr.ph, label %._crit_edge
 
@@ -21345,7 +21345,7 @@ define internal noundef float @_ZN12_GLOBAL__N_19thole_polIL18BondedKernelFlavor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_115anharm_polarizeIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readonly byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca [3 x float], align 4
   %16 = load i64, ptr %9, align 8
   %17 = inttoptr i64 %16 to ptr
@@ -21500,19 +21500,19 @@ _ZN12_GLOBAL__N_116spreadBondForcesIL18BondedKernelFlavor3EEEvfPKfiiPA4_fiPA3_f.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext false)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_17angreszIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = tail call fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %6, float noundef %7, ptr noundef %8, i1 noundef zeroext true)
   ret float %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readnone byval(%"class.gmx::ArrayRef") align 8 %9, ptr nocapture readnone %10, ptr nocapture readnone %11, ptr nocapture readnone %12, ptr nocapture readnone %13) #4 {
+define internal noundef float @_ZN12_GLOBAL__N_16dihresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfN3gmx8ArrayRefIS7_EEP8t_fcdataP12t_disresdataP12t_oriresdataPi(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, ptr noundef readnone byval(%"class.gmx::ArrayRef") align 8 captures(none) %9, ptr readnone captures(none) %10, ptr readnone captures(none) %11, ptr readnone captures(none) %12, ptr readnone captures(none) %13) #4 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -21799,7 +21799,7 @@ declare noundef i32 @_Z6glatnrPKii(ptr noundef, i32 noundef) local_unnamed_addr 
 declare float @logf(float noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110bonded_tabEPKciPK13bondedtable_tffffPfS5_(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef nonnull writeonly captures(none) %8) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %12 = load float, ptr %11, align 4
@@ -21883,7 +21883,7 @@ declare <8 x float> @llvm.x86.avx.rcp.ps.256(<8 x float>) #15
 declare <8 x float> @llvm.x86.avx.min.ps.256(<8 x float>, <8 x float>) #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %7) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_113g96bond_angleEPKfS1_S1_PK5t_pbcPfS5_PiS6_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %7) unnamed_addr #4 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %12, label %9
 
@@ -21978,7 +21978,7 @@ _ZL9cos_anglePKfS0_.exit:                         ; preds = %51, %54
 declare void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef nonnull initializes((0, 32)) %6, ptr nocapture noundef nonnull initializes((0, 32)) %7, ptr nocapture noundef nonnull initializes((0, 32)) %8, ptr nocapture noundef nonnull initializes((0, 32)) %9, ptr nocapture noundef nonnull initializes((0, 32)) %10, ptr nocapture noundef nonnull initializes((0, 32)) %11, ptr nocapture noundef nonnull initializes((0, 32)) %12, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %13, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %14, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %15, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %16) unnamed_addr #17 {
+define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4_PS0_PN3gmx9SimdFloatES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef nonnull captures(none) initializes((0, 32)) %6, ptr noundef nonnull captures(none) initializes((0, 32)) %7, ptr noundef nonnull captures(none) initializes((0, 32)) %8, ptr noundef nonnull captures(none) initializes((0, 32)) %9, ptr noundef nonnull captures(none) initializes((0, 32)) %10, ptr noundef nonnull captures(none) initializes((0, 32)) %11, ptr noundef nonnull captures(none) initializes((0, 32)) %12, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %13, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %14, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %15, ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %16) unnamed_addr #17 {
   %18 = load i32, ptr %1, align 4
   %19 = mul nsw i32 %18, 3
   %20 = sext i32 %19 to i64
@@ -22458,7 +22458,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_114dih_angle_simdEPA3_KfPKiS4_S4_S4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, <8 x float> %4, <8 x float> %5, <8 x float> %6, <8 x float> %7, <8 x float> %8, <8 x float> %9, <8 x float> %10, <8 x float> %11, ptr nocapture noundef %12) unnamed_addr #17 {
+define internal x86_vectorcallcc void @_ZN12_GLOBAL__N_124do_dih_fup_noshiftf_simdEPKiS1_S1_S1_N3gmx9SimdFloatES3_S3_S3_S3_S3_S3_S3_PA4_f(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, <8 x float> %4, <8 x float> %5, <8 x float> %6, <8 x float> %7, <8 x float> %8, <8 x float> %9, <8 x float> %10, <8 x float> %11, ptr noundef captures(none) %12) unnamed_addr #17 {
   %14 = fmul <8 x float> %4, %6
   %15 = fmul <8 x float> %5, %9
   %16 = fadd <8 x float> %14, %15
@@ -22940,7 +22940,7 @@ define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor0EEviiiifPfS1_S1_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor0EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor0EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #4 {
   %8 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %11, label %9
@@ -23040,7 +23040,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
 declare float @cbrtf(float noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, float noundef %6, ptr nocapture noundef %7, i1 noundef zeroext %8) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor0EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, float noundef %6, ptr noundef captures(none) %7, i1 noundef zeroext %8) unnamed_addr #4 {
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x float], align 4
   %12 = icmp sgt i32 %0, 0
@@ -23466,7 +23466,7 @@ define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor1EEviiiifPfS1_S1_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor1EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor1EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #4 {
   %8 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %11, label %9
@@ -23563,7 +23563,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, float noundef %6, ptr nocapture noundef %7, i1 noundef zeroext %8) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor1EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, float noundef %6, ptr noundef captures(none) %7, i1 noundef zeroext %8) unnamed_addr #4 {
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x float], align 4
   %12 = icmp sgt i32 %0, 0
@@ -24049,7 +24049,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor2EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, float noundef %5, ptr nocapture noundef %6, float noundef %7) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor2EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, ptr noundef captures(none) %6, float noundef %7) unnamed_addr #4 {
   %9 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %13, label %10
@@ -24157,7 +24157,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr noundef %6, float noundef %7, ptr nocapture noundef %8, i1 noundef zeroext %9) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor2EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef %6, float noundef %7, ptr noundef captures(none) %8, i1 noundef zeroext %9) unnamed_addr #4 {
   %11 = alloca [3 x float], align 4
   %12 = alloca [3 x float], align 4
   %13 = alloca [3 x float], align 4
@@ -24656,7 +24656,7 @@ define linkonce_odr void @_Z10do_dih_fupIL18BondedKernelFlavor3EEviiiifPfS1_S1_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor3EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110do_1_tholeIL18BondedKernelFlavor3EEEfPKfS3_PfS4_PK5t_pbcfPA3_ff(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, float noundef %5, float noundef %6) unnamed_addr #4 {
   %8 = alloca [3 x float], align 4
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %11, label %9
@@ -24753,7 +24753,7 @@ _ZN12_GLOBAL__N_112pbc_rvec_subEPK5t_pbcPKfS4_Pf.exit: ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, float noundef %6, ptr nocapture noundef %7, i1 noundef zeroext %8) unnamed_addr #4 {
+define internal fastcc noundef float @_ZN12_GLOBAL__N_110low_angresIL18BondedKernelFlavor3EEEfiPKiPK9t_iparamsPA3_KfPA4_fPA3_fPK5t_pbcfPfb(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5, float noundef %6, ptr noundef captures(none) %7, i1 noundef zeroext %8) unnamed_addr #4 {
   %10 = alloca [3 x float], align 4
   %11 = alloca [3 x float], align 4
   %12 = icmp sgt i32 %0, 0
@@ -25203,10 +25203,10 @@ declare <8 x float> @llvm.fabs.v8f32(<8 x float>) #21
 declare float @llvm.sqrt.f32(float) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #21

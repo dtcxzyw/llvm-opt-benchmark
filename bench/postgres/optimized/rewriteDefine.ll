@@ -529,7 +529,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   br i1 %4, label %.split87, label %225
 
 .split87:                                         ; preds = %219
-  %220 = tail call fastcc i32 @InsertRule(ptr noundef %0, i32 noundef %3, i32 noundef %1, i1 noundef zeroext true, ptr noundef %2, ptr noundef null, i1 noundef zeroext %5)
+  %220 = tail call fastcc i32 @InsertRule(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %1, i1 noundef zeroext true, ptr noundef %2, ptr noundef null, i1 noundef zeroext %5)
   br label %221
 
 221:                                              ; preds = %.split87, %.split
@@ -814,10 +814,10 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 
@@ -1175,7 +1175,7 @@ define dso_local { i64, i32 } @RenameRewriteRule(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @RangeVarCallbackForRenameRule(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, ptr nocapture readnone %3) #0 {
+define internal void @RangeVarCallbackForRenameRule(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2, ptr readnone captures(none) %3) #0 {
   %5 = zext i32 %1 to i64
   %6 = tail call ptr @SearchSysCache1(i32 noundef 55, i64 noundef %5) #5
   %.not = icmp eq ptr %6, null

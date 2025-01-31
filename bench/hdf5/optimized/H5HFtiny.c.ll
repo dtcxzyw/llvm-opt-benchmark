@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [30 x i8] c"application's callback failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__tiny_init(ptr nocapture noundef initializes((688, 697)) %0) local_unnamed_addr #0 {
+define noundef i32 @H5HF__tiny_init(ptr noundef captures(none) initializes((688, 697)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
@@ -37,7 +37,7 @@ define noundef i32 @H5HF__tiny_init(ptr nocapture noundef initializes((688, 697)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__tiny_insert(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5HF__tiny_insert(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #1 {
   %5 = add i64 %1, -1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %7 = load i8, ptr %6, align 8
@@ -99,17 +99,17 @@ define range(i32 -1, 1) i32 @H5HF__tiny_insert(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @H5HF__hdr_dirty(ptr noundef) local_unnamed_addr #4
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__tiny_get_obj_len(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @H5HF__tiny_get_obj_len(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1
@@ -134,7 +134,7 @@ define noundef i32 @H5HF__tiny_get_obj_len(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__tiny_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5HF__tiny_read(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 696
   %.val = load i8, ptr %4, align 8
   %5 = trunc i8 %.val to i1
@@ -177,7 +177,7 @@ H5HF__tiny_op_real.exit:                          ; preds = %H5HF__tiny_get_obj_
 declare i32 @H5HF__op_read(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__tiny_op(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5HF__tiny_op(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 696
   %.val = load i8, ptr %5, align 8
   %6 = trunc i8 %.val to i1
@@ -218,7 +218,7 @@ H5HF__tiny_op_real.exit:                          ; preds = %H5HF__tiny_get_obj_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__tiny_remove(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5HF__tiny_remove(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1

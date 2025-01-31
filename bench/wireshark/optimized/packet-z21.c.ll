@@ -710,7 +710,7 @@ declare ptr @prefs_get_range_value(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @udp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_z21_header(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @check_z21_header(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #2
   %6 = icmp slt i32 %5, 4
   br i1 %6, label %17, label %7
@@ -738,14 +738,14 @@ define internal range(i32 0, 2) i32 @check_z21_header(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @get_z21_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_z21_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %1, i32 noundef %2, i32 noundef -2147483648) #2
   %6 = zext i16 %5 to i32
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_z21_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_z21_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

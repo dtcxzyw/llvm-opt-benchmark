@@ -513,7 +513,7 @@ terminate.lpad:                                   ; preds = %if.then.i, %2, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22grpc_shutdown_internalPv(ptr nocapture readnone %0) #3 personality ptr @__gxx_personality_v0 {
+define void @_Z22grpc_shutdown_internalPv(ptr readnone captures(none) %0) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %1 to i1
@@ -1097,7 +1097,7 @@ declare void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv() local_unnamed_addr #0
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_init.cc() #14 section ".text.startup" {

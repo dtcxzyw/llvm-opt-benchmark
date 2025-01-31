@@ -459,12 +459,12 @@ _ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit: ; pr
   %117 = load i32, ptr %3, align 4
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %3, align 4
-  br i1 %.not.i, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread28, label %119
+  br i1 %.not.i, label %_ZL11get_packagePK5Klass.exit.i, label %119
 
 119:                                              ; preds = %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit
   %120 = call fastcc noundef ptr @_ZL13get_cld_klassPK15ClassLoaderDatab(ptr noundef nonnull %18, i1 noundef zeroext %2)
   %.not.i23 = icmp eq ptr %120, null
-  br i1 %.not.i23, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread28, label %121
+  br i1 %.not.i23, label %_ZL11get_packagePK5Klass.exit.i, label %121
 
 121:                                              ; preds = %119
   br i1 %2, label %122, label %126
@@ -474,7 +474,7 @@ _ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit: ; pr
   %124 = load i64, ptr %123, align 8
   %125 = and i64 %124, 1024
   %.not = icmp eq i64 %125, 0
-  br i1 %.not, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread28, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread
+  br i1 %.not, label %_ZL11get_packagePK5Klass.exit.i, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread
 
 126:                                              ; preds = %121
   %127 = load i8, ptr @_ZL13_class_unload, align 1
@@ -486,17 +486,13 @@ _ZL22should_write_cld_klassPK5Klassb.exit:        ; preds = %126
   %130 = load i64, ptr %129, align 8
   %131 = and i64 %130, 4096
   %.not3.i = icmp eq i64 %131, 0
-  br i1 %.not3.i, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread28
+  br i1 %.not3.i, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread, label %_ZL11get_packagePK5Klass.exit.i
 
 _ZL22should_write_cld_klassPK5Klassb.exit.thread: ; preds = %126, %122, %_ZL22should_write_cld_klassPK5Klassb.exit
   call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef nonnull %0, ptr noundef nonnull %120, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  br label %_ZL22should_write_cld_klassPK5Klassb.exit.thread28
+  br label %_ZL11get_packagePK5Klass.exit.i
 
-_ZL22should_write_cld_klassPK5Klassb.exit.thread28: ; preds = %119, %122, %_ZL22should_write_cld_klassPK5Klassb.exit, %_ZL22should_write_cld_klassPK5Klassb.exit.thread, %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit
-  %.not.i.i24 = icmp eq ptr %1, null
-  br i1 %.not.i.i24, label %_ZL20get_module_cld_klassPK5Klassb.exit, label %_ZL11get_packagePK5Klass.exit.i
-
-_ZL11get_packagePK5Klass.exit.i:                  ; preds = %_ZL22should_write_cld_klassPK5Klassb.exit.thread28
+_ZL11get_packagePK5Klass.exit.i:                  ; preds = %119, %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit, %_ZL22should_write_cld_klassPK5Klassb.exit.thread, %_ZL22should_write_cld_klassPK5Klassb.exit, %122
   %132 = load ptr, ptr %1, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 144
   %134 = load ptr, ptr %133, align 8
@@ -515,8 +511,8 @@ _ZL10get_modulePK12PackageEntry.exit.i:           ; preds = %_ZL11get_packagePK5
   %140 = load ptr, ptr %139, align 8
   br label %_ZL20get_module_cld_klassPK5Klassb.exit
 
-_ZL20get_module_cld_klassPK5Klassb.exit:          ; preds = %_ZL22should_write_cld_klassPK5Klassb.exit.thread28, %_ZL11get_packagePK5Klass.exit.i, %_ZL10get_modulePK12PackageEntry.exit.i, %138
-  %141 = phi ptr [ %140, %138 ], [ null, %_ZL10get_modulePK12PackageEntry.exit.i ], [ null, %_ZL11get_packagePK5Klass.exit.i ], [ null, %_ZL22should_write_cld_klassPK5Klassb.exit.thread28 ]
+_ZL20get_module_cld_klassPK5Klassb.exit:          ; preds = %_ZL11get_packagePK5Klass.exit.i, %_ZL10get_modulePK12PackageEntry.exit.i, %138
+  %141 = phi ptr [ %140, %138 ], [ null, %_ZL10get_modulePK12PackageEntry.exit.i ], [ null, %_ZL11get_packagePK5Klass.exit.i ]
   %142 = call fastcc noundef ptr @_ZL13get_cld_klassPK15ClassLoaderDatab(ptr noundef %141, i1 noundef zeroext %2)
   %.not.i25 = icmp eq ptr %142, null
   br i1 %.not.i25, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29, label %143
@@ -598,7 +594,7 @@ _ZL14set_serializedI12PackageEntryEvPKT_.exit:    ; preds = %13, %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13write_packageP19JfrCheckpointWriterPK12PackageEntryb(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13write_packageP19JfrCheckpointWriterPK12PackageEntryb(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %class.JfrCheckpointFlush, align 8
   %5 = getelementptr i8, ptr %1, i64 32
   %.val = load i64, ptr %5, align 8
@@ -872,7 +868,7 @@ _ZL14set_serializedI11ModuleEntryEvPKT_.exit:     ; preds = %13, %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12write_moduleP19JfrCheckpointWriterPK11ModuleEntryb(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZL12write_moduleP19JfrCheckpointWriterPK11ModuleEntryb(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 72
   %.val = load i64, ptr %4, align 8
   %5 = lshr i64 %.val, 16
@@ -1028,7 +1024,7 @@ _ZL14set_serializedI15ClassLoaderDataEvPKT_.exit: ; preds = %13, %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL9write_cldP19JfrCheckpointWriterPK15ClassLoaderDatab(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZL9write_cldP19JfrCheckpointWriterPK15ClassLoaderDatab(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %class.JfrCheckpointFlush, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load ptr, ptr %5, align 8
@@ -1216,7 +1212,7 @@ _ZL14set_serializedI6MethodEvPKT_.exit:           ; preds = %13, %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12write_methodP19JfrCheckpointWriterPK6Methodb(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZL12write_methodP19JfrCheckpointWriterPK6Methodb(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %class.JfrCheckpointFlush, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -4008,7 +4004,7 @@ _ZN10JfrTraceId4loadEPK5Klass.exit:               ; preds = %4, %60, %53, %40, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %1) local_unnamed_addr #0 comdat align 2 {
@@ -4967,14 +4963,14 @@ _ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %_ZL7get_cldPK5Klass
   br label %_ZL14primitive_namePK5Klass.exit.i
 
 62:                                               ; preds = %52
-  br label %_ZL14primitive_namePK5Klass.exit.i
+  unreachable
 
-_ZL14primitive_namePK5Klass.exit.i:               ; preds = %62, %61, %60, %59, %58, %57, %56, %55, %52
-  %.0.i.i = phi ptr [ null, %62 ], [ @.str.15, %61 ], [ @.str.14, %60 ], [ @.str.13, %59 ], [ @.str.12, %58 ], [ @.str.11, %57 ], [ @.str.10, %56 ], [ @.str.9, %55 ], [ @.str.8, %52 ]
+_ZL14primitive_namePK5Klass.exit.i:               ; preds = %61, %60, %59, %58, %57, %56, %55, %52
+  %.0.i.i = phi ptr [ @.str.15, %61 ], [ @.str.14, %60 ], [ @.str.13, %59 ], [ @.str.12, %58 ], [ @.str.11, %57 ], [ @.str.10, %56 ], [ @.str.9, %55 ], [ @.str.8, %52 ]
   %63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #10
   %64 = trunc i64 %63 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %65 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef %.0.i.i, i32 noundef %64, ptr noundef nonnull align 4 dereferenceable(4) %5) #9
+  %65 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %.0.i.i, i32 noundef %64, ptr noundef nonnull align 4 dereferenceable(4) %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %_ZL16primitive_symbolPK5Klass.exit
 
@@ -5158,7 +5154,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #6
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
@@ -8194,7 +8190,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEclERKS7_(ptr nocapture noundef nonnull align 8 dereferenceable(53) %0, ptr nocapture %.0.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEclERKS7_(ptr noundef nonnull align 8 captures(none) dereferenceable(53) %0, ptr captures(none) %.0.val) unnamed_addr #0 align 2 {
   %.val = load ptr, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val2 = load i8, ptr %2, align 8
@@ -8474,10 +8470,10 @@ _ZL11do_artifactI5KlassEvPKT_.exit:               ; preds = %1, %13
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -144,7 +144,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_
 @_ZN19ContinuationWrapperC1EPK11RegisterMap = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN19ContinuationWrapperC2EPK11RegisterMap
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ContinuationWrapperC2EPK11RegisterMap(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ContinuationWrapperC2EPK11RegisterMap(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(33) initializes((0, 33)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4960
@@ -238,7 +238,7 @@ _ZNK17stackChunkOopDesc4contEv.exit7:             ; preds = %35, %44
 declare noundef ptr @_ZN12Continuation39get_continuation_entry_for_continuationEP10JavaThreadP7oopDesc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ContinuationWrapper10last_frameEv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19ContinuationWrapper10last_frameEv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.StackChunkFrameStream, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -583,7 +583,7 @@ _ZN5frameC2EPlS0_S0_PhP8CodeBlobPK15ImmutableOopMapb.exit: ; preds = %_ZN5frame5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK19ContinuationWrapper21find_chunk_by_addressEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK19ContinuationWrapper21find_chunk_by_addressEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not8 = icmp eq ptr %4, null
@@ -1491,13 +1491,13 @@ declare noundef ptr @_ZN7nmethod12orig_pc_addrEPK5frame(ptr noundef nonnull alig
 declare noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [3 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @aio_poll, ptr @.str.19, ptr @.str.20, i32 470, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_unref, ptr @.str.19, ptr @.str.21, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_activate, ptr @.str.19, ptr @.str.22, i32 179, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @blk_exp_find(ptr nocapture noundef readonly %id) local_unnamed_addr #0 {
+define dso_local ptr @blk_exp_find(ptr noundef readonly captures(none) %id) local_unnamed_addr #0 {
 entry:
   %exp.04 = load ptr, ptr @block_exports, align 8
   %tobool.not5 = icmp eq ptr %exp.04, null
@@ -75,7 +75,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @blk_exp_add(ptr noundef %export, ptr noundef %errp) local_unnamed_addr #2 {
@@ -131,7 +131,7 @@ for.inc.i:                                        ; preds = %for.body.i
   br i1 %tobool.not.i, label %if.end11, label %for.body.i, !llvm.loop !5
 
 if.then9:                                         ; preds = %for.body.i
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull @__func__.blk_exp_add, ptr noundef nonnull @.str.3, ptr noundef %4) #9
+  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 93, ptr noundef nonnull @__func__.blk_exp_add, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #9
   br label %return
 
 if.end11:                                         ; preds = %for.inc.i, %if.end5
@@ -396,7 +396,7 @@ declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #5
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @blk_set_dev_ops(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -405,7 +405,7 @@ declare void @blk_unref(ptr noundef) #3
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @blk_exp_ref(ptr nocapture noundef %exp) local_unnamed_addr #2 {
+define dso_local void @blk_exp_ref(ptr noundef captures(none) %exp) local_unnamed_addr #2 {
 entry:
   %refcount = getelementptr inbounds nuw i8, ptr %exp, i64 16
   %0 = load atomic i32, ptr %refcount monotonic, align 8
@@ -726,7 +726,7 @@ if.end5:                                          ; preds = %for.body.i
   br i1 %tobool6, label %if.end8, label %if.then7
 
 if.then7:                                         ; preds = %if.end5
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.qmp_block_export_del, ptr noundef nonnull @.str.15, ptr noundef %id) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 341, ptr noundef nonnull @__func__.qmp_block_export_del, ptr noundef nonnull @.str.15, ptr noundef nonnull %id) #9
   br label %cleanup
 
 if.end8:                                          ; preds = %if.end5
@@ -741,7 +741,7 @@ while.end:                                        ; preds = %if.end8
   br i1 %cmp16, label %if.then17, label %if.end19
 
 if.then17:                                        ; preds = %while.end
-  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 350, ptr noundef nonnull @__func__.qmp_block_export_del, ptr noundef nonnull @.str.16, ptr noundef %0) #9
+  call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %spec.select, ptr noundef nonnull @.str.1, i32 noundef 350, ptr noundef nonnull @__func__.qmp_block_export_del, ptr noundef nonnull @.str.16, ptr noundef nonnull %0) #9
   call void (ptr, ptr, ...) @error_append_hint(ptr noundef %spec.select, ptr noundef nonnull @.str.17) #9
   br label %cleanup
 
@@ -759,7 +759,7 @@ cleanup:                                          ; preds = %if.end19, %if.then1
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qmp_query_block_exports(ptr nocapture noundef readnone %errp) local_unnamed_addr #2 {
+define dso_local ptr @qmp_query_block_exports(ptr noundef readnone captures(none) %errp) local_unnamed_addr #2 {
 entry:
   %head = alloca ptr, align 8
   store ptr null, ptr %head, align 8

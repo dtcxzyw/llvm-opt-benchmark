@@ -4844,16 +4844,16 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @always_true_p(ptr nocapture readnone %cfg) #2 {
+define internal noundef zeroext i1 @always_true_p(ptr readnone captures(none) %cfg) #2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @decode_inst_opcode(ptr nocapture noundef %dec, i32 noundef %isa) #3 {
+define internal void @decode_inst_opcode(ptr noundef captures(none) %dec, i32 noundef %isa) #3 {
 entry:
   %inst1 = getelementptr inbounds nuw i8, ptr %dec, i64 16
   %0 = load i64, ptr %inst1, align 8
@@ -8467,7 +8467,7 @@ sw.epilog1655:                                    ; preds = %switch.lookup476, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadba_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadba_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadba = getelementptr inbounds nuw i8, ptr %cfg, i64 104
   %0 = load i8, ptr %ext_xtheadba, align 8
@@ -8478,7 +8478,7 @@ entry:
 declare void @decode_xtheadba(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadbb_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadbb_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadbb = getelementptr inbounds nuw i8, ptr %cfg, i64 105
   %0 = load i8, ptr %ext_xtheadbb, align 1
@@ -8489,7 +8489,7 @@ entry:
 declare void @decode_xtheadbb(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadbs_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadbs_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadbs = getelementptr inbounds nuw i8, ptr %cfg, i64 106
   %0 = load i8, ptr %ext_xtheadbs, align 2
@@ -8500,7 +8500,7 @@ entry:
 declare void @decode_xtheadbs(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadcmo_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadcmo_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadcmo = getelementptr inbounds nuw i8, ptr %cfg, i64 107
   %0 = load i8, ptr %ext_xtheadcmo, align 1
@@ -8511,7 +8511,7 @@ entry:
 declare void @decode_xtheadcmo(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadcondmov_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadcondmov_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadcondmov = getelementptr inbounds nuw i8, ptr %cfg, i64 108
   %0 = load i8, ptr %ext_xtheadcondmov, align 4
@@ -8522,7 +8522,7 @@ entry:
 declare void @decode_xtheadcondmov(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadfmemidx_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadfmemidx_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadfmemidx = getelementptr inbounds nuw i8, ptr %cfg, i64 109
   %0 = load i8, ptr %ext_xtheadfmemidx, align 1
@@ -8533,7 +8533,7 @@ entry:
 declare void @decode_xtheadfmemidx(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadfmv_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadfmv_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadfmv = getelementptr inbounds nuw i8, ptr %cfg, i64 110
   %0 = load i8, ptr %ext_xtheadfmv, align 2
@@ -8544,7 +8544,7 @@ entry:
 declare void @decode_xtheadfmv(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadmac_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadmac_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadmac = getelementptr inbounds nuw i8, ptr %cfg, i64 111
   %0 = load i8, ptr %ext_xtheadmac, align 1
@@ -8555,7 +8555,7 @@ entry:
 declare void @decode_xtheadmac(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadmemidx_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadmemidx_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadmemidx = getelementptr inbounds nuw i8, ptr %cfg, i64 112
   %0 = load i8, ptr %ext_xtheadmemidx, align 8
@@ -8566,7 +8566,7 @@ entry:
 declare void @decode_xtheadmemidx(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadmempair_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadmempair_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadmempair = getelementptr inbounds nuw i8, ptr %cfg, i64 113
   %0 = load i8, ptr %ext_xtheadmempair, align 1
@@ -8577,7 +8577,7 @@ entry:
 declare void @decode_xtheadmempair(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_xtheadsync_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_xtheadsync_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_xtheadsync = getelementptr inbounds nuw i8, ptr %cfg, i64 114
   %0 = load i8, ptr %ext_xtheadsync, align 2
@@ -8588,7 +8588,7 @@ entry:
 declare void @decode_xtheadsync(ptr noundef, i32 noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @has_XVentanaCondOps_p(ptr nocapture noundef readonly %cfg) #4 {
+define internal zeroext i1 @has_XVentanaCondOps_p(ptr noundef readonly captures(none) %cfg) #4 {
 entry:
   %ext_XVentanaCondOps = getelementptr inbounds nuw i8, ptr %cfg, i64 115
   %0 = load i8, ptr %ext_XVentanaCondOps, align 1
@@ -8629,28 +8629,28 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.35 = private unnamed_addr constant [9 x i8] c"section=\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @i2v_GENERAL_NAMES(ptr nocapture noundef readnone %method, ptr noundef %gens, ptr noundef %ret) #0 {
+define hidden ptr @i2v_GENERAL_NAMES(ptr noundef readnone captures(none) %method, ptr noundef %gens, ptr noundef %ret) #0 {
 entry:
   %call6 = tail call i64 @sk_num(ptr noundef %gens) #6
   %cmp7.not = icmp eq i64 %call6, 0
@@ -76,7 +76,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @v2i_subject_alt(ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr noundef %nval) #0 {
+define internal ptr @v2i_subject_alt(ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef %nval) #0 {
 entry:
   %call = tail call ptr @sk_new_null() #6
   %tobool.not = icmp eq ptr %call, null
@@ -163,7 +163,7 @@ return:                                           ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @v2i_issuer_alt(ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr noundef %nval) #0 {
+define internal ptr @v2i_issuer_alt(ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef %nval) #0 {
 entry:
   %call = tail call ptr @sk_new_null() #6
   %tobool.not = icmp eq ptr %call, null
@@ -324,7 +324,7 @@ declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @i2v_GENERAL_NAME(ptr nocapture readnone %method, ptr nocapture noundef readonly %gen, ptr noundef %ret) local_unnamed_addr #0 {
+define hidden ptr @i2v_GENERAL_NAME(ptr readnone captures(none) %method, ptr noundef readonly captures(none) %gen, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   %ret.addr = alloca ptr, align 8
   %oline = alloca [256 x i8], align 16
@@ -476,12 +476,12 @@ declare ptr @X509_NAME_oneline(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #2
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #2
 
 declare i32 @i2t_ASN1_OBJECT(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @GENERAL_NAME_print(ptr noundef %out, ptr nocapture noundef readonly %gen) local_unnamed_addr #0 {
+define hidden noundef i32 @GENERAL_NAME_print(ptr noundef %out, ptr noundef readonly captures(none) %gen) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %gen, align 8
   switch i32 %0, label %sw.epilog [
@@ -613,7 +613,7 @@ declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @i2a_ASN1_OBJECT(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @v2i_GENERAL_NAMES(ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr noundef %nval) local_unnamed_addr #0 {
+define hidden ptr @v2i_GENERAL_NAMES(ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef %nval) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @sk_new_null() #6
   %tobool.not = icmp eq ptr %call, null
@@ -654,7 +654,7 @@ return:                                           ; preds = %if.end6, %for.cond.
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @v2i_GENERAL_NAME(ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr nocapture noundef readonly %cnf) local_unnamed_addr #0 {
+define hidden ptr @v2i_GENERAL_NAME(ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef readonly captures(none) %cnf) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @v2i_GENERAL_NAME_ex(ptr noundef null, ptr noundef %method, ptr noundef %ctx, ptr noundef %cnf, i32 noundef 0)
   ret ptr %call
@@ -667,7 +667,7 @@ declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @GENERAL_NAME_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @v2i_GENERAL_NAME_ex(ptr noundef %out, ptr nocapture noundef readnone %method, ptr noundef %ctx, ptr nocapture noundef readonly %cnf, i32 noundef %is_nc) local_unnamed_addr #0 {
+define hidden ptr @v2i_GENERAL_NAME_ex(ptr noundef %out, ptr noundef readnone captures(none) %method, ptr noundef %ctx, ptr noundef readonly captures(none) %cnf, i32 noundef %is_nc) local_unnamed_addr #0 {
 entry:
   %name1 = getelementptr inbounds nuw i8, ptr %cnf, i64 8
   %0 = load ptr, ptr %name1, align 8
@@ -731,7 +731,7 @@ return:                                           ; preds = %if.end35, %if.else2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @a2i_GENERAL_NAME(ptr noundef %out, ptr nocapture readnone %method, ptr noundef %ctx, i32 noundef %gen_type, ptr noundef %value, i32 noundef %is_nc) local_unnamed_addr #0 {
+define hidden ptr @a2i_GENERAL_NAME(ptr noundef %out, ptr readnone captures(none) %method, ptr noundef %ctx, i32 noundef %gen_type, ptr noundef %value, i32 noundef %is_nc) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %value, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -943,12 +943,12 @@ declare ptr @ASN1_STRING_type_new(i32 noundef) local_unnamed_addr #1
 declare i32 @ASN1_STRING_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @name_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @X509_get_ext_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1106,10 +1106,10 @@ declare ptr @ASN1_generate_v3(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @X509_NAME_new() local_unnamed_addr #1
 

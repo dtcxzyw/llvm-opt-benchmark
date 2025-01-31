@@ -272,7 +272,7 @@ define hidden void @proto_register_acr122() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @duration_base(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @duration_base(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = mul i32 %1, 100
   %4 = udiv i32 %3, 1000
   %5 = urem i32 %3, 1000
@@ -281,7 +281,7 @@ define internal void @duration_base(ptr nocapture noundef writeonly %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @timeout_base(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @timeout_base(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   switch i32 %1, label %5 [
     i32 0, label %3
     i32 255, label %4
@@ -1023,7 +1023,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1064,7 +1064,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare ptr @rval_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

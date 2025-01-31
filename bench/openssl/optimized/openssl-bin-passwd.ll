@@ -327,7 +327,7 @@ land.rhs:                                         ; preds = %do.body116
 if.end127:                                        ; preds = %do.body116, %land.rhs, %if.then114
   %r.1.not = phi i1 [ false, %if.then114 ], [ %cmp119, %land.rhs ], [ %cmp119, %do.body116 ]
   %6 = load ptr, ptr @bio_out, align 8
-  %call128 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef %salt, ptr noundef %salt_malloc, ptr noundef %passwd.05153.ph, ptr noundef %6, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
+  %call128 = call fastcc i32 @do_passwd(i32 noundef %passed_salt.0, ptr noundef %salt, ptr noundef %salt_malloc, ptr noundef nonnull %passwd.05153.ph, ptr noundef %6, i32 noundef %quiet.0, i32 noundef %table.0, i32 noundef %reverse.0, i32 noundef %spec.store.select)
   %tobool129.not = icmp eq i32 %call128, 0
   %brmerge = or i1 %r.1.not, %tobool129.not
   br i1 %brmerge, label %end.loopexit57.split.loop.exit92, label %do.body104
@@ -378,7 +378,7 @@ declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_read_pw_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @do_passwd(i32 noundef range(i32 0, 2) %passed_salt, ptr nocapture noundef nonnull %salt_p, ptr nocapture noundef nonnull %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef range(i32 0, 2) %quiet, i32 noundef range(i32 0, 2) %table, i32 noundef range(i32 0, 2) %reverse, i32 noundef range(i32 0, 6) %mode) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @do_passwd(i32 noundef range(i32 0, 2) %passed_salt, ptr noundef nonnull captures(none) %salt_p, ptr noundef nonnull captures(none) %salt_malloc_p, ptr noundef %passwd, ptr noundef %out, i32 noundef range(i32 0, 2) %quiet, i32 noundef range(i32 0, 2) %table, i32 noundef range(i32 0, 2) %reverse, i32 noundef range(i32 0, 6) %mode) unnamed_addr #0 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %temp_buf.i = alloca [64 x i8], align 16
@@ -479,7 +479,7 @@ if.end45.thread:                                  ; preds = %if.end35
   %cmp36 = icmp eq i32 %mode, 1
   %cond = select i1 %cmp36, ptr @.str.27, ptr @.str.25
   %12 = load ptr, ptr %salt_p, align 8
-  %call44 = tail call fastcc ptr @md5crypt(ptr noundef %passwd, ptr noundef nonnull %cond, ptr noundef %12)
+  %call44 = tail call fastcc ptr @md5crypt(ptr noundef nonnull %passwd, ptr noundef nonnull %cond, ptr noundef %12)
   br label %if.end61
 
 if.end45:                                         ; preds = %if.end35
@@ -488,7 +488,7 @@ if.end45:                                         ; preds = %if.end35
 
 if.then48:                                        ; preds = %if.end45
   %13 = load ptr, ptr %salt_p, align 8
-  %call49 = tail call fastcc ptr @md5crypt(ptr noundef %passwd, ptr noundef nonnull @.str.53, ptr noundef %13)
+  %call49 = tail call fastcc ptr @md5crypt(ptr noundef nonnull %passwd, ptr noundef nonnull @.str.53, ptr noundef %13)
   br label %if.end61
 
 if.end50:                                         ; preds = %if.end45
@@ -551,7 +551,7 @@ if.end28.i:                                       ; preds = %if.else.i, %if.then
   %rounds_custom.0.i = phi i64 [ 3, %sw.epilog.i ], [ 20, %if.then14.i ], [ 20, %if.else.i ]
   %salt.addr.0.i = phi ptr [ %15, %sw.epilog.i ], [ %add.ptr15.i, %if.then14.i ], [ %add.ptr15.i, %if.else.i ]
   %call29.i = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %ascii_magic.i, ptr noundef nonnull %cond59, i64 noundef 2) #8
-  %call31.i = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %ascii_salt.i, ptr noundef %salt.addr.0.i, i64 noundef 17) #8
+  %call31.i = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %ascii_salt.i, ptr noundef nonnull %salt.addr.0.i, i64 noundef 17) #8
   %call33.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ascii_salt.i) #9
   store i8 0, ptr @shacrypt.out_buf, align 16
   %call34.i = call i64 @OPENSSL_strlcat(ptr noundef nonnull @shacrypt.out_buf, ptr noundef nonnull @ascii_dollar, i64 noundef 124) #8
@@ -583,7 +583,7 @@ lor.lhs.false.i:                                  ; preds = %if.end54.i
   br i1 %tobool59.not.i, label %err.i, label %lor.lhs.false60.i
 
 lor.lhs.false60.i:                                ; preds = %lor.lhs.false.i
-  %call61.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call55.i, ptr noundef %passwd, i64 noundef %call.i) #8
+  %call61.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call55.i, ptr noundef nonnull %passwd, i64 noundef %call.i) #8
   %tobool62.not.i = icmp eq i32 %call61.i, 0
   br i1 %tobool62.not.i, label %err.i, label %lor.lhs.false63.i
 
@@ -603,7 +603,7 @@ lor.lhs.false72.i:                                ; preds = %if.end68.i
   br i1 %tobool74.not.i, label %err.i, label %lor.lhs.false75.i
 
 lor.lhs.false75.i:                                ; preds = %lor.lhs.false72.i
-  %call76.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef %passwd, i64 noundef %call.i) #8
+  %call76.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef nonnull %passwd, i64 noundef %call.i) #8
   %tobool77.not.i = icmp eq i32 %call76.i, 0
   br i1 %tobool77.not.i, label %err.i, label %lor.lhs.false78.i
 
@@ -613,7 +613,7 @@ lor.lhs.false78.i:                                ; preds = %lor.lhs.false75.i
   br i1 %tobool81.not.i, label %err.i, label %lor.lhs.false82.i
 
 lor.lhs.false82.i:                                ; preds = %lor.lhs.false78.i
-  %call83.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef %passwd, i64 noundef %call.i) #8
+  %call83.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef nonnull %passwd, i64 noundef %call.i) #8
   %tobool84.not.i = icmp eq i32 %call83.i, 0
   br i1 %tobool84.not.i, label %err.i, label %lor.lhs.false85.i
 
@@ -628,7 +628,7 @@ for.cond.preheader.i:                             ; preds = %lor.lhs.false85.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
   %n.0191.i = phi i64 [ %sub.i, %for.inc.i ], [ %call.i, %for.cond.preheader.i ]
-  %call94.i = call i32 @EVP_DigestUpdate(ptr noundef %call55.i, ptr noundef nonnull %buf.i, i64 noundef %buf_size.0.i) #8
+  %call94.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call55.i, ptr noundef nonnull %buf.i, i64 noundef %buf_size.0.i) #8
   %tobool95.not.i = icmp eq i32 %call94.i, 0
   br i1 %tobool95.not.i, label %err.i, label %for.inc.i
 
@@ -639,7 +639,7 @@ for.inc.i:                                        ; preds = %for.body.i
 
 for.end.i:                                        ; preds = %for.inc.i, %for.cond.preheader.i
   %n.0.lcssa.i = phi i64 [ %call.i, %for.cond.preheader.i ], [ %sub.i, %for.inc.i ]
-  %call99.i = call i32 @EVP_DigestUpdate(ptr noundef %call55.i, ptr noundef nonnull %buf.i, i64 noundef %n.0.lcssa.i) #8
+  %call99.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call55.i, ptr noundef nonnull %buf.i, i64 noundef %n.0.lcssa.i) #8
   %tobool100.not.i = icmp eq i32 %call99.i, 0
   br i1 %tobool100.not.i, label %err.i, label %while.cond.preheader.i
 
@@ -658,17 +658,17 @@ while.body.i:                                     ; preds = %while.cond.preheade
   %tobool104.not.i = icmp eq i64 %and.i, 0
   %cond.i = select i1 %tobool104.not.i, ptr %passwd, ptr %buf.i
   %cond111.i = select i1 %tobool104.not.i, i64 %call.i, i64 %buf_size.0.i
-  %call112.i = call i32 @EVP_DigestUpdate(ptr noundef %call55.i, ptr noundef %cond.i, i64 noundef %cond111.i) #8
+  %call112.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call55.i, ptr noundef nonnull %cond.i, i64 noundef %cond111.i) #8
   %tobool113.not.i = icmp eq i32 %call112.i, 0
   br i1 %tobool113.not.i, label %err.i, label %while.cond.i
 
 while.end.i:                                      ; preds = %while.cond.i, %while.cond.preheader.i
-  %call117.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call55.i, ptr noundef nonnull %buf.i, ptr noundef null) #8
+  %call117.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call55.i, ptr noundef nonnull %buf.i, ptr noundef null) #8
   %tobool118.not.i = icmp eq i32 %call117.i, 0
   br i1 %tobool118.not.i, label %err.i, label %if.end120.i
 
 if.end120.i:                                      ; preds = %while.end.i
-  %call121.i = call i32 @EVP_DigestInit_ex(ptr noundef %call69.i, ptr noundef %sha.0.i, ptr noundef null) #8
+  %call121.i = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call69.i, ptr noundef %sha.0.i, ptr noundef null) #8
   %tobool122.not.i = icmp eq i32 %call121.i, 0
   br i1 %tobool122.not.i, label %err.i, label %for.cond125.preheader.i
 
@@ -682,12 +682,12 @@ for.cond125.i:                                    ; preds = %for.body128.i
 
 for.body128.i:                                    ; preds = %for.cond125.preheader.i, %for.cond125.i
   %n.2195.i = phi i64 [ %dec.i, %for.cond125.i ], [ %call.i, %for.cond125.preheader.i ]
-  %call129.i = call i32 @EVP_DigestUpdate(ptr noundef %call69.i, ptr noundef %passwd, i64 noundef %call.i) #8
+  %call129.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef nonnull %passwd, i64 noundef %call.i) #8
   %tobool130.not.i = icmp eq i32 %call129.i, 0
   br i1 %tobool130.not.i, label %err.i, label %for.cond125.i
 
 for.end134.i:                                     ; preds = %for.cond125.i, %for.cond125.preheader.i
-  %call136.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call69.i, ptr noundef nonnull %temp_buf.i, ptr noundef null) #8
+  %call136.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call69.i, ptr noundef nonnull %temp_buf.i, ptr noundef null) #8
   %tobool137.not.i = icmp eq i32 %call136.i, 0
   br i1 %tobool137.not.i, label %err.i, label %if.end139.i
 
@@ -712,7 +712,7 @@ for.end153.i:                                     ; preds = %for.body148.i, %for
   %n.3.lcssa.i = phi i64 [ %call.i, %for.cond145.preheader.i ], [ %sub151.i, %for.body148.i ]
   %cp.0.lcssa.i = phi ptr [ %call140.i, %for.cond145.preheader.i ], [ %add.ptr152.i, %for.body148.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %cp.0.lcssa.i, ptr nonnull align 16 %temp_buf.i, i64 %n.3.lcssa.i, i1 false)
-  %call155.i = call i32 @EVP_DigestInit_ex(ptr noundef %call69.i, ptr noundef %sha.0.i, ptr noundef null) #8
+  %call155.i = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call69.i, ptr noundef %sha.0.i, ptr noundef null) #8
   %tobool156.not.i = icmp eq i32 %call155.i, 0
   br i1 %tobool156.not.i, label %err.i, label %if.end158.i
 
@@ -729,12 +729,12 @@ for.cond163.i:                                    ; preds = %for.body166.i
 
 for.body166.i:                                    ; preds = %for.cond163.i, %if.end158.i
   %n.4201.i = phi i64 [ %add161.i, %if.end158.i ], [ %dec173.i, %for.cond163.i ]
-  %call168.i = call i32 @EVP_DigestUpdate(ptr noundef %call69.i, ptr noundef nonnull %ascii_salt.i, i64 noundef %call33.i) #8
+  %call168.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef nonnull %ascii_salt.i, i64 noundef %call33.i) #8
   %tobool169.not.i = icmp eq i32 %call168.i, 0
   br i1 %tobool169.not.i, label %err.i, label %for.cond163.i
 
 for.end174.i:                                     ; preds = %for.cond163.i
-  %call176.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call69.i, ptr noundef nonnull %temp_buf.i, ptr noundef null) #8
+  %call176.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call69.i, ptr noundef nonnull %temp_buf.i, ptr noundef null) #8
   %tobool177.not.i = icmp eq i32 %call176.i, 0
   br i1 %tobool177.not.i, label %err.i, label %if.end179.i
 
@@ -771,7 +771,7 @@ for.cond195.i:                                    ; preds = %if.end252.i
 
 for.body199.i:                                    ; preds = %for.cond195.i, %for.end193.i
   %n.6207.i = phi i64 [ 0, %for.end193.i ], [ %inc.i, %for.cond195.i ]
-  %call200.i = call i32 @EVP_DigestInit_ex(ptr noundef %call69.i, ptr noundef %sha.0.i, ptr noundef null) #8
+  %call200.i = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call69.i, ptr noundef %sha.0.i, ptr noundef null) #8
   %tobool201.not.i = icmp eq i32 %call200.i, 0
   br i1 %tobool201.not.i, label %err.i, label %if.end203.i
 
@@ -780,7 +780,7 @@ if.end203.i:                                      ; preds = %for.body199.i
   %tobool205.not.i = icmp eq i64 %and204.i, 0
   %cond210.i = select i1 %tobool205.not.i, ptr %buf.i, ptr %call140.i
   %cond216.i = select i1 %tobool205.not.i, i64 %buf_size.0.i, i64 %call.i
-  %call217.i = call i32 @EVP_DigestUpdate(ptr noundef %call69.i, ptr noundef nonnull %cond210.i, i64 noundef %cond216.i) #8
+  %call217.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef nonnull %cond210.i, i64 noundef %cond216.i) #8
   %tobool218.not.i = icmp eq i32 %call217.i, 0
   br i1 %tobool218.not.i, label %err.i, label %if.end220.i
 
@@ -790,7 +790,7 @@ if.end220.i:                                      ; preds = %if.end203.i
   br i1 %tobool221.not.i, label %if.end227.i, label %if.then222.i
 
 if.then222.i:                                     ; preds = %if.end220.i
-  %call223.i = call i32 @EVP_DigestUpdate(ptr noundef %call69.i, ptr noundef nonnull %call180.i, i64 noundef %call33.i) #8
+  %call223.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef nonnull %call180.i, i64 noundef %call33.i) #8
   %tobool224.not.i = icmp eq i32 %call223.i, 0
   br i1 %tobool224.not.i, label %err.i, label %if.end227.i
 
@@ -800,25 +800,25 @@ if.end227.i:                                      ; preds = %if.then222.i, %if.e
   br i1 %tobool229.not.i, label %if.end235.i, label %if.then230.i
 
 if.then230.i:                                     ; preds = %if.end227.i
-  %call231.i = call i32 @EVP_DigestUpdate(ptr noundef %call69.i, ptr noundef nonnull %call140.i, i64 noundef %call.i) #8
+  %call231.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef nonnull %call140.i, i64 noundef %call.i) #8
   %tobool232.not.i = icmp eq i32 %call231.i, 0
   br i1 %tobool232.not.i, label %err.i, label %if.end235.i
 
 if.end235.i:                                      ; preds = %if.then230.i, %if.end227.i
   %cond242.i = select i1 %tobool205.not.i, ptr %call140.i, ptr %buf.i
   %cond248.i = select i1 %tobool205.not.i, i64 %call.i, i64 %buf_size.0.i
-  %call249.i = call i32 @EVP_DigestUpdate(ptr noundef %call69.i, ptr noundef nonnull %cond242.i, i64 noundef %cond248.i) #8
+  %call249.i = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call69.i, ptr noundef nonnull %cond242.i, i64 noundef %cond248.i) #8
   %tobool250.not.i = icmp eq i32 %call249.i, 0
   br i1 %tobool250.not.i, label %err.i, label %if.end252.i
 
 if.end252.i:                                      ; preds = %if.end235.i
-  %call254.i = call i32 @EVP_DigestFinal_ex(ptr noundef %call69.i, ptr noundef nonnull %buf.i, ptr noundef null) #8
+  %call254.i = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call69.i, ptr noundef nonnull %buf.i, ptr noundef null) #8
   %tobool255.not.i = icmp eq i32 %call254.i, 0
   br i1 %tobool255.not.i, label %err.i, label %for.cond195.i
 
 for.end259.i:                                     ; preds = %for.cond195.i
-  call void @EVP_MD_CTX_free(ptr noundef %call69.i) #8
-  call void @EVP_MD_CTX_free(ptr noundef %call55.i) #8
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %call69.i) #8
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %call55.i) #8
   call void @CRYPTO_free(ptr noundef nonnull %call140.i, ptr noundef nonnull @.str.50, i32 noundef 701) #8
   call void @CRYPTO_free(ptr noundef nonnull %call180.i, ptr noundef nonnull @.str.50, i32 noundef 702) #8
   %call260.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @shacrypt.out_buf) #9
@@ -1866,7 +1866,7 @@ if.end61:                                         ; preds = %if.then48, %if.end4
   br i1 %or.cond5, label %if.else, label %if.then64
 
 if.then64:                                        ; preds = %if.end61
-  %call65 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.54, ptr noundef %passwd, ptr noundef %hash.2) #8
+  %call65 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.54, ptr noundef nonnull %passwd, ptr noundef %hash.2) #8
   br label %return
 
 if.else:                                          ; preds = %if.end61
@@ -1875,7 +1875,7 @@ if.else:                                          ; preds = %if.end61
   br i1 %or.cond6, label %if.then69, label %if.else71
 
 if.then69:                                        ; preds = %if.else
-  %call70 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.54, ptr noundef %hash.2, ptr noundef %passwd) #8
+  %call70 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.54, ptr noundef %hash.2, ptr noundef nonnull %passwd) #8
   br label %return
 
 if.else71:                                        ; preds = %if.else
@@ -1899,7 +1899,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef ptr @md5crypt(ptr noundef %passwd, ptr noundef %magic, ptr noundef %salt) unnamed_addr #0 {
@@ -1911,7 +1911,7 @@ entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %passwd) #9
   store i8 0, ptr @md5crypt.out_buf, align 16
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %magic) #9
-  %call2 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %ascii_magic, ptr noundef %magic, i64 noundef 5) #8
+  %call2 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %ascii_magic, ptr noundef nonnull %magic, i64 noundef 5) #8
   %call4 = call i64 @OPENSSL_strlcpy(ptr noundef nonnull %ascii_salt, ptr noundef %salt, i64 noundef 9) #8
   %call6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ascii_salt) #9
   %cmp.not = icmp eq i64 %call1, 0
@@ -1952,7 +1952,7 @@ lor.lhs.false:                                    ; preds = %if.end25
   br i1 %tobool.not, label %err, label %lor.lhs.false30
 
 lor.lhs.false30:                                  ; preds = %lor.lhs.false
-  %call31 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call26, ptr noundef %passwd, i64 noundef %call) #8
+  %call31 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call26, ptr noundef nonnull %passwd, i64 noundef %call) #8
   %tobool32.not = icmp eq i32 %call31, 0
   br i1 %tobool32.not, label %err, label %if.end34
 
@@ -1991,7 +1991,7 @@ lor.lhs.false56:                                  ; preds = %if.end53
   br i1 %tobool59.not, label %err, label %lor.lhs.false60
 
 lor.lhs.false60:                                  ; preds = %lor.lhs.false56
-  %call61 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call54, ptr noundef %passwd, i64 noundef %call) #8
+  %call61 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call54, ptr noundef nonnull %passwd, i64 noundef %call) #8
   %tobool62.not = icmp eq i32 %call61, 0
   br i1 %tobool62.not, label %err, label %lor.lhs.false63
 
@@ -2001,7 +2001,7 @@ lor.lhs.false63:                                  ; preds = %lor.lhs.false60
   br i1 %tobool66.not, label %err, label %lor.lhs.false67
 
 lor.lhs.false67:                                  ; preds = %lor.lhs.false63
-  %call68 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call54, ptr noundef %passwd, i64 noundef %call) #8
+  %call68 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call54, ptr noundef nonnull %passwd, i64 noundef %call) #8
   %tobool69.not = icmp eq i32 %call68, 0
   br i1 %tobool69.not, label %err, label %lor.lhs.false70
 
@@ -2018,7 +2018,7 @@ if.end75:                                         ; preds = %lor.lhs.false70
 
 for.body:                                         ; preds = %if.end75, %for.inc
   %conv7692 = phi i64 [ %conv76, %for.inc ], [ %conv7690, %if.end75 ]
-  %call80 = call i32 @EVP_DigestUpdate(ptr noundef %call26, ptr noundef nonnull %buf, i64 noundef 16) #8
+  %call80 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call26, ptr noundef nonnull %buf, i64 noundef 16) #8
   %tobool81.not = icmp eq i32 %call80, 0
   br i1 %tobool81.not, label %err, label %for.inc
 
@@ -2030,7 +2030,7 @@ for.inc:                                          ; preds = %for.body
 
 for.end:                                          ; preds = %for.inc, %if.end75
   %conv76.lcssa = phi i64 [ %conv7690, %if.end75 ], [ %conv76, %for.inc ]
-  %call88 = call i32 @EVP_DigestUpdate(ptr noundef %call26, ptr noundef nonnull %buf, i64 noundef %conv76.lcssa) #8
+  %call88 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call26, ptr noundef nonnull %buf, i64 noundef %conv76.lcssa) #8
   %tobool89.not = icmp eq i32 %call88, 0
   br i1 %tobool89.not, label %err, label %while.cond.preheader
 
@@ -2048,12 +2048,12 @@ while.body:                                       ; preds = %while.cond.preheade
   %and = and i32 %n.094, 1
   %tobool94.not = icmp eq i32 %and, 0
   %cond = select i1 %tobool94.not, ptr %passwd, ptr @.str.56
-  %call95 = call i32 @EVP_DigestUpdate(ptr noundef %call26, ptr noundef %cond, i64 noundef 1) #8
+  %call95 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call26, ptr noundef nonnull %cond, i64 noundef 1) #8
   %tobool96.not = icmp eq i32 %call95, 0
   br i1 %tobool96.not, label %err, label %while.cond
 
 while.end:                                        ; preds = %while.cond, %while.cond.preheader
-  %call100 = call i32 @EVP_DigestFinal_ex(ptr noundef %call26, ptr noundef nonnull %buf, ptr noundef null) #8
+  %call100 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call26, ptr noundef nonnull %buf, ptr noundef null) #8
   %tobool101.not = icmp eq i32 %call100, 0
   br i1 %tobool101.not, label %err, label %for.body107
 
@@ -2065,7 +2065,7 @@ for.cond104:                                      ; preds = %if.end162
 for.body107:                                      ; preds = %while.end, %for.cond104
   %i.195 = phi i32 [ %inc, %for.cond104 ], [ 0, %while.end ]
   %call108 = call ptr @EVP_md5() #8
-  %call109 = call i32 @EVP_DigestInit_ex(ptr noundef %call54, ptr noundef %call108, ptr noundef null) #8
+  %call109 = call i32 @EVP_DigestInit_ex(ptr noundef nonnull %call54, ptr noundef %call108, ptr noundef null) #8
   %tobool110.not = icmp eq i32 %call109, 0
   br i1 %tobool110.not, label %err, label %if.end112
 
@@ -2074,7 +2074,7 @@ if.end112:                                        ; preds = %for.body107
   %tobool114.not = icmp eq i32 %and113, 0
   %cond119 = select i1 %tobool114.not, ptr %buf, ptr %passwd
   %cond125 = select i1 %tobool114.not, i64 16, i64 %call
-  %call126 = call i32 @EVP_DigestUpdate(ptr noundef %call54, ptr noundef %cond119, i64 noundef %cond125) #8
+  %call126 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call54, ptr noundef nonnull %cond119, i64 noundef %cond125) #8
   %tobool127.not = icmp eq i32 %call126, 0
   br i1 %tobool127.not, label %err, label %if.end129
 
@@ -2085,7 +2085,7 @@ if.end129:                                        ; preds = %if.end112
   br i1 %tobool130.not, label %if.end137, label %if.then131
 
 if.then131:                                       ; preds = %if.end129
-  %call133 = call i32 @EVP_DigestUpdate(ptr noundef %call54, ptr noundef nonnull %ascii_salt, i64 noundef %call6) #8
+  %call133 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call54, ptr noundef nonnull %ascii_salt, i64 noundef %call6) #8
   %tobool134.not = icmp eq i32 %call133, 0
   br i1 %tobool134.not, label %err, label %if.end137
 
@@ -2095,25 +2095,25 @@ if.end137:                                        ; preds = %if.then131, %if.end
   br i1 %tobool139.not, label %if.end145, label %if.then140
 
 if.then140:                                       ; preds = %if.end137
-  %call141 = call i32 @EVP_DigestUpdate(ptr noundef %call54, ptr noundef %passwd, i64 noundef %call) #8
+  %call141 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call54, ptr noundef nonnull %passwd, i64 noundef %call) #8
   %tobool142.not = icmp eq i32 %call141, 0
   br i1 %tobool142.not, label %err, label %if.end145
 
 if.end145:                                        ; preds = %if.then140, %if.end137
   %cond152 = select i1 %tobool114.not, ptr %passwd, ptr %buf
   %cond158 = select i1 %tobool114.not, i64 %call, i64 16
-  %call159 = call i32 @EVP_DigestUpdate(ptr noundef %call54, ptr noundef %cond152, i64 noundef %cond158) #8
+  %call159 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %call54, ptr noundef nonnull %cond152, i64 noundef %cond158) #8
   %tobool160.not = icmp eq i32 %call159, 0
   br i1 %tobool160.not, label %err, label %if.end162
 
 if.end162:                                        ; preds = %if.end145
-  %call164 = call i32 @EVP_DigestFinal_ex(ptr noundef %call54, ptr noundef nonnull %buf, ptr noundef null) #8
+  %call164 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %call54, ptr noundef nonnull %buf, ptr noundef null) #8
   %tobool165.not = icmp eq i32 %call164, 0
   br i1 %tobool165.not, label %err, label %for.cond104
 
 for.end169:                                       ; preds = %for.cond104
-  call void @EVP_MD_CTX_free(ptr noundef %call54) #8
-  call void @EVP_MD_CTX_free(ptr noundef %call26) #8
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %call54) #8
+  call void @EVP_MD_CTX_free(ptr noundef nonnull %call26) #8
   br label %for.body173
 
 for.body173:                                      ; preds = %for.end169, %for.body173
@@ -2242,18 +2242,18 @@ declare ptr @EVP_sha256() local_unnamed_addr #1
 declare ptr @EVP_sha512() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6
@@ -2262,10 +2262,10 @@ declare i32 @llvm.umax.i32(i32, i32) #6
 declare i64 @llvm.umax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

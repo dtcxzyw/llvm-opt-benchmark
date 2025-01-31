@@ -224,7 +224,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9directionEvEETnD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @YGNodeStyleGetDirection(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @YGNodeStyleGetDirection(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %style_.i = getelementptr inbounds nuw i8, ptr %node, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
@@ -258,7 +258,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style13flexDirectionEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @YGNodeStyleGetFlexDirection(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @YGNodeStyleGetFlexDirection(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %style_.i = getelementptr inbounds nuw i8, ptr %node, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
@@ -293,7 +293,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style14justifyContentE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @YGNodeStyleGetJustifyContent(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 8) i32 @YGNodeStyleGetJustifyContent(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %style_.i = getelementptr inbounds nuw i8, ptr %node, i64 48
   %bf.load.i = load i8, ptr %style_.i, align 4
@@ -328,7 +328,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12alignContentEvE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @YGNodeStyleGetAlignContent(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 16) i32 @YGNodeStyleGetAlignContent(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %alignContent_.i = getelementptr inbounds nuw i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %alignContent_.i, align 1
@@ -362,7 +362,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style10alignItemsEvEET
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @YGNodeStyleGetAlignItems(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 16) i32 @YGNodeStyleGetAlignItems(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %alignItems_.i = getelementptr inbounds nuw i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %alignItems_.i, align 1
@@ -399,7 +399,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9alignSelfEvEETnD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 16) i32 @YGNodeStyleGetAlignSelf(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 16) i32 @YGNodeStyleGetAlignSelf(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %alignSelf_.i = getelementptr inbounds nuw i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %alignSelf_.i, align 1
@@ -436,7 +436,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12positionTypeEvE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @YGNodeStyleGetPositionType(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @YGNodeStyleGetPositionType(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %positionType_.i = getelementptr inbounds nuw i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %positionType_.i, align 1
@@ -473,7 +473,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8flexWrapEvEETnDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @YGNodeStyleGetFlexWrap(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @YGNodeStyleGetFlexWrap(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %flexWrap_.i = getelementptr inbounds nuw i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %flexWrap_.i, align 1
@@ -510,7 +510,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8overflowEvEETnDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @YGNodeStyleGetOverflow(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 4) i32 @YGNodeStyleGetOverflow(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %overflow_.i = getelementptr inbounds nuw i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %overflow_.i, align 1
@@ -547,7 +547,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style7displayEvEETnDaX
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @YGNodeStyleGetDisplay(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @YGNodeStyleGetDisplay(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %display_.i = getelementptr inbounds nuw i8, ptr %node, i64 49
   %bf.load.i = load i24, ptr %display_.i, align 1
@@ -581,7 +581,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style4flexEvEETnDaXadL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @YGNodeStyleGetFlex(ptr nocapture noundef readonly %nodeRef) local_unnamed_addr #2 {
+define float @YGNodeStyleGetFlex(ptr noundef readonly captures(none) %nodeRef) local_unnamed_addr #2 {
 entry:
   %flex_.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 52
   %retval.sroa.0.0.copyload.i = load float, ptr %flex_.i, align 4
@@ -614,7 +614,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8flexGrowEvEETnDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @YGNodeStyleGetFlexGrow(ptr nocapture noundef readonly %nodeRef) local_unnamed_addr #2 {
+define float @YGNodeStyleGetFlexGrow(ptr noundef readonly captures(none) %nodeRef) local_unnamed_addr #2 {
 entry:
   %flexGrow_.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 56
   %retval.sroa.0.0.copyload.i = load float, ptr %flexGrow_.i, align 4
@@ -647,7 +647,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style10flexShrinkEvEET
 }
 
 ; Function Attrs: mustprogress uwtable
-define float @YGNodeStyleGetFlexShrink(ptr nocapture noundef readonly %nodeRef) local_unnamed_addr #0 {
+define float @YGNodeStyleGetFlexShrink(ptr noundef readonly captures(none) %nodeRef) local_unnamed_addr #0 {
 entry:
   %flexShrink_.i = getelementptr inbounds nuw i8, ptr %nodeRef, i64 60
   %retval.sroa.0.0.copyload.i = load float, ptr %flexShrink_.i, align 4
@@ -769,7 +769,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9flexBasisEvEETnD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetFlexBasis(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetFlexBasis(ptr noundef readonly captures(none) %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %flexBasis_.i = getelementptr inbounds nuw i8, ptr %node, i64 64
   %retval.sroa.0.0.copyload.i = load i32, ptr %flexBasis_.i, align 4
@@ -909,7 +909,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style8positionENS2_4Ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetPosition(ptr nocapture noundef readonly %node, i32 noundef %edge) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetPosition(ptr noundef readonly captures(none) %node, i32 noundef %edge) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %position_.i = getelementptr inbounds nuw i8, ptr %node, i64 104
   %0 = and i32 %edge, 255
@@ -1068,7 +1068,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6marginENS2_4Edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetMargin(ptr nocapture noundef readonly %node, i32 noundef %edge) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetMargin(ptr noundef readonly captures(none) %node, i32 noundef %edge) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %margin_.i = getelementptr inbounds nuw i8, ptr %node, i64 68
   %0 = and i32 %edge, 255
@@ -1207,7 +1207,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style7paddingENS2_4Edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetPadding(ptr nocapture noundef readonly %node, i32 noundef %edge) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetPadding(ptr noundef readonly captures(none) %node, i32 noundef %edge) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %padding_.i = getelementptr inbounds nuw i8, ptr %node, i64 140
   %0 = and i32 %edge, 255
@@ -1301,7 +1301,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style6borderENS2_4Edge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @YGNodeStyleGetBorder(ptr nocapture noundef readonly %node, i32 noundef %edge) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define float @YGNodeStyleGetBorder(ptr noundef readonly captures(none) %node, i32 noundef %edge) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %border_.i = getelementptr inbounds nuw i8, ptr %node, i64 176
   %0 = and i32 %edge, 255
@@ -1382,7 +1382,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style3gapENS2_6GutterE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @YGNodeStyleGetGap(ptr nocapture noundef readonly %node, i32 noundef %gutter) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define float @YGNodeStyleGetGap(ptr noundef readonly captures(none) %node, i32 noundef %gutter) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %gap_.i = getelementptr inbounds nuw i8, ptr %node, i64 212
   %0 = and i32 %gutter, 255
@@ -1442,7 +1442,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style11aspectRatioEvEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @YGNodeStyleGetAspectRatio(ptr nocapture noundef readonly %node) local_unnamed_addr #2 {
+define float @YGNodeStyleGetAspectRatio(ptr noundef readonly captures(none) %node) local_unnamed_addr #2 {
 entry:
   %aspectRatio_.i = getelementptr inbounds nuw i8, ptr %node, i64 248
   %retval.sroa.0.0.copyload.i = load float, ptr %aspectRatio_.i, align 4
@@ -1552,7 +1552,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetWidth(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetWidth(ptr noundef readonly captures(none) %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %dimensions_.i = getelementptr inbounds nuw i8, ptr %node, i64 224
   %retval.sroa.0.0.copyload.i = load i32, ptr %dimensions_.i, align 4
@@ -1699,7 +1699,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style9dimensionENS2_9D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetHeight(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetHeight(ptr noundef readonly captures(none) %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 228
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4
@@ -1829,7 +1829,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetMinWidth(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetMinWidth(ptr noundef readonly captures(none) %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %minDimensions_.i = getelementptr inbounds nuw i8, ptr %node, i64 232
   %retval.sroa.0.0.copyload.i = load i32, ptr %minDimensions_.i, align 4
@@ -1959,7 +1959,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12minDimensionENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetMinHeight(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetMinHeight(ptr noundef readonly captures(none) %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 236
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4
@@ -2089,7 +2089,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetMaxWidth(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetMaxWidth(ptr noundef readonly captures(none) %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %maxDimensions_.i = getelementptr inbounds nuw i8, ptr %node, i64 240
   %retval.sroa.0.0.copyload.i = load i32, ptr %maxDimensions_.i, align 4
@@ -2219,7 +2219,7 @@ _ZN12_GLOBAL__N_111updateStyleITnDaXadL_ZNK8facebook4yoga5Style12maxDimensionENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @YGNodeStyleGetMaxHeight(ptr nocapture noundef readonly %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define i64 @YGNodeStyleGetMaxHeight(ptr noundef readonly captures(none) %node) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 244
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i.i.i, align 4
@@ -2266,7 +2266,7 @@ _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %entry, %sw.bb.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN8facebook4yoga13inexactEqualsENS0_12CompactValueES1_(i32 %a.coerce, i32 %b.coerce) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {

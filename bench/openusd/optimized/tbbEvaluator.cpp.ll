@@ -227,7 +227,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Osd12TbbEvaluator11EvalPatches
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd12TbbEvaluator11SynchronizeEPv(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd12TbbEvaluator11SynchronizeEPv(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 

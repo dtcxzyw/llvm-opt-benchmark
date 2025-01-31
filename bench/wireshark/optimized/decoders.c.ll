@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @preferences = external local_unnamed_addr global %struct._TSUM_PREFERENCES, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @decode_syn(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef initializes((92, 100), (112, 132), (232, 236)) %2) local_unnamed_addr #0 {
+define hidden noundef i32 @decode_syn(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef captures(none) initializes((92, 100), (112, 132), (232, 236)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0
@@ -48,7 +48,7 @@ define hidden noundef i32 @decode_syn(ptr nocapture noundef readnone %0, ptr noc
 declare void @add_detected_tcp_svc(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @decode_dcerpc(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef initializes((96, 100), (112, 120)) %2) local_unnamed_addr #0 {
+define hidden noundef i32 @decode_dcerpc(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((96, 100), (112, 120)) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca i64, align 8
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_of_interest, i64 384), align 16
@@ -160,7 +160,7 @@ declare i32 @is_dcerpc_req_pkt_type(i32 noundef) local_unnamed_addr #1
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @decode_smb(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef initializes((92, 100), (232, 236)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden i32 @decode_smb(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((92, 100), (232, 236)) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [16 x i32], align 16
   %6 = alloca i64, align 8
   %7 = alloca [16 x i64], align 16
@@ -258,7 +258,7 @@ define hidden i32 @decode_smb(ptr nocapture noundef readnone %0, ptr noundef %1,
 declare i32 @extract_ui64(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @decode_gtcp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((52, 56)) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @decode_gtcp(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((52, 56)) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [16 x i32], align 16
   %6 = alloca i64, align 8
@@ -456,7 +456,7 @@ declare i32 @extract_instance_count(ptr noundef, i32 noundef, ptr noundef) local
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @decode_dns(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((92, 96), (112, 120), (128, 132), (232, 236)) %2) local_unnamed_addr #0 {
+define hidden noundef i32 @decode_dns(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((92, 96), (112, 120), (128, 132), (232, 236)) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca i64, align 8
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @hf_of_interest, i64 448), align 16
@@ -487,7 +487,7 @@ define hidden noundef i32 @decode_dns(ptr nocapture noundef readnone %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @decode_gudp(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((52, 56)) %2) local_unnamed_addr #0 {
+define hidden noundef i32 @decode_gudp(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) initializes((52, 56)) %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 284
@@ -576,7 +576,7 @@ define hidden noundef i32 @decode_gudp(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #3

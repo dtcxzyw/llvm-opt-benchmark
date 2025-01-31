@@ -92,7 +92,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_kexec_core_sysctl_init463, ptr @__UNIQUE_ID___addressable_kexec_crash_loaded451, ptr @__func_stack_frame_non_standard___crash_kexec, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched151, ptr @crash_kexec], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local range(i32 0, 2) i32 @kexec_should_crash(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 2) i32 @kexec_should_crash(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load i8, ptr @crash_kexec_post_notifiers, align 1, !range !6, !noundef !7
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %20
@@ -133,7 +133,7 @@ define dso_local range(i32 0, 2) i32 @kexec_crash_loaded() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = load volatile i64, ptr @_totalram_pages, align 8
@@ -314,10 +314,10 @@ define dso_local range(i32 -99, 1) i32 @sanity_check_segment_list(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef ptr @do_kimage_alloc_init() local_unnamed_addr #2 align 16 {
@@ -363,7 +363,7 @@ define dso_local noundef ptr @do_kimage_alloc_init() local_unnamed_addr #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local noundef range(i32 0, 2) i32 @kimage_is_destination_range(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @kimage_is_destination_range(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
@@ -786,7 +786,7 @@ declare dso_local ptr @vmap(ptr noundef, i32 noundef, i64 noundef, i64) local_un
 declare dso_local void @crash_update_vmcoreinfo_safecopy(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @kimage_terminate(ptr nocapture noundef %0) local_unnamed_addr #7 align 16 {
+define dso_local void @kimage_terminate(ptr noundef captures(none) %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %3, align 8
@@ -1119,7 +1119,7 @@ declare dso_local void @machine_kexec_cleanup(ptr noundef) local_unnamed_addr #6
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @kimage_load_segment(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @kimage_load_segment(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
@@ -1538,7 +1538,7 @@ define dso_local void @__crash_kexec(ptr noundef readonly %0) #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @crash_save_vmcoreinfo() local_unnamed_addr #6
@@ -1747,7 +1747,7 @@ declare dso_local i32 @release_resource(ptr noundef) local_unnamed_addr #6
 declare dso_local i32 @insert_resource(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @crash_save_cpu(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local void @crash_save_cpu(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = alloca %struct.elf_prstatus, align 8
   call void @llvm.lifetime.start.p0(i64 336, ptr nonnull %3) #17
   %4 = icmp sgt i32 %1, -1
@@ -2252,7 +2252,7 @@ define internal fastcc ptr @kimage_alloc_page(ptr noundef %0, i32 noundef range(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @copy_page(ptr noundef, ptr noundef) local_unnamed_addr #6
@@ -2267,7 +2267,7 @@ declare dso_local void @__register_sysctl_init(ptr noundef, ptr noundef, ptr nou
 declare dso_local i32 @proc_dointvec_minmax(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @kexec_limit_handler(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 align 16 {
+define internal i32 @kexec_limit_handler(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #2 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.ctl_table, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

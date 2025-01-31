@@ -248,7 +248,7 @@ define dso_local void @intel_tv_init(ptr noundef %0) local_unnamed_addr #0 align
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @intel_bios_is_tv_present(ptr noundef) local_unnamed_addr #2
@@ -269,7 +269,7 @@ declare dso_local i32 @drm_connector_init(ptr noundef, ptr noundef, ptr noundef,
 declare dso_local i32 @drm_encoder_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_tv_compute_config(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
+define internal i32 @intel_tv_compute_config(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
@@ -561,7 +561,7 @@ define internal i32 @intel_tv_compute_config(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_tv_get_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal void @intel_tv_get_config(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca %struct.drm_display_mode, align 8
   %4 = alloca %struct.tv_mode, align 8
   %5 = load ptr, ptr %0, align 8
@@ -767,7 +767,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_tv_pre_enable(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal void @intel_tv_pre_enable(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -1224,7 +1224,7 @@ define internal void @intel_tv_pre_enable(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_enable_tv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @intel_enable_tv(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = load ptr, ptr %2, align 8
   tail call void @intel_crtc_wait_for_next_vblank(ptr noundef %6) #10
@@ -1240,7 +1240,7 @@ define internal void @intel_enable_tv(ptr nocapture readnone %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_disable_tv(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 align 16 {
+define internal void @intel_disable_tv(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 7368
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 7512
@@ -1254,7 +1254,7 @@ define internal void @intel_disable_tv(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_tv_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
+define internal zeroext i1 @intel_tv_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7368
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 7512
@@ -1274,7 +1274,7 @@ declare dso_local zeroext i1 @intel_connector_get_hw_state(ptr noundef) #2
 declare dso_local void @intel_connector_attach_encoder(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(2)
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -1323,7 +1323,7 @@ declare dso_local void @intel_encoder_destroy(ptr noundef) #2
 declare dso_local i32 @intel_dpll_crtc_compute_clock(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc void @intel_tv_mode_to_mode(ptr nocapture noundef writeonly initializes((0, 12), (14, 22), (24, 28)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #5 align 16 {
+define internal fastcc void @intel_tv_mode_to_mode(ptr noundef writeonly captures(none) initializes((0, 12), (14, 22), (24, 28)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %5 = load i8, ptr %4, align 2
   %6 = zext i8 %5 to i32
@@ -1453,10 +1453,10 @@ declare dso_local void @drm_mode_set_crtcinfo(ptr noundef, i32 noundef) local_un
 declare dso_local i32 @drm_mode_vrefresh(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @assert_transcoder(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -1890,7 +1890,7 @@ define internal i32 @intel_tv_detect(ptr noundef %0, ptr noundef %1, i1 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_tv_mode_valid(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @intel_tv_mode_valid(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1904
   %5 = load ptr, ptr %4, align 8
@@ -1933,7 +1933,7 @@ define internal i32 @intel_tv_mode_valid(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef i32 @intel_tv_atomic_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 align 16 {
+define internal noundef i32 @intel_tv_atomic_check(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40

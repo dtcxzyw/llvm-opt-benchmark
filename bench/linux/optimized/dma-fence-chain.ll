@@ -300,7 +300,7 @@ define internal fastcc ptr @dma_fence_chain_get_prev(ptr noundef nonnull %0) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @dma_fence_chain_find_seqno(ptr nocapture noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @dma_fence_chain_find_seqno(ptr noundef captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %.thread, label %4
 
@@ -391,12 +391,12 @@ define dso_local noundef range(i32 -22, 1) i32 @dma_fence_chain_find_seqno(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @dma_fence_chain_get_driver_name(ptr nocapture readnone %0) #1 align 16 {
+define internal noundef nonnull ptr @dma_fence_chain_get_driver_name(ptr readnone captures(none) %0) #1 align 16 {
   ret ptr @.str.1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @dma_fence_chain_get_timeline_name(ptr nocapture readnone %0) #1 align 16 {
+define internal noundef nonnull ptr @dma_fence_chain_get_timeline_name(ptr readnone captures(none) %0) #1 align 16 {
   ret ptr @.str.2
 }
 
@@ -985,7 +985,7 @@ define internal void @dma_fence_chain_irq_work(ptr noundef %0) #0 align 16 {
 declare dso_local zeroext i1 @irq_work_queue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @dma_fence_free(ptr noundef) local_unnamed_addr #2

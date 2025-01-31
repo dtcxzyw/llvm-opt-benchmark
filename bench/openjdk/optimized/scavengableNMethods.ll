@@ -72,7 +72,7 @@ define hidden noundef zeroext i1 @_ZN19ScavengableNMethods20has_scavengable_oops
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN19ScavengableNMethods18unregister_nmethodEP7nmethod(ptr nocapture noundef readnone %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN19ScavengableNMethods18unregister_nmethodEP7nmethod(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 63) #10
@@ -83,7 +83,7 @@ define hidden void @_ZN19ScavengableNMethods18unregister_nmethodEP7nmethod(ptr n
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN19ScavengableNMethods14verify_nmethodEP7nmethod(ptr nocapture noundef readnone %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19ScavengableNMethods14verify_nmethodEP7nmethod(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 align 2 {
   ret void
 }
 
@@ -208,7 +208,7 @@ _ZN19ScavengableNMethods14unlist_nmethodEP7nmethodS1_.exit: ; preds = %44, %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19ScavengableNMethods14unlist_nmethodEP7nmethodS1_(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19ScavengableNMethods14unlist_nmethodEP7nmethodS1_(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -361,7 +361,7 @@ define hidden void @_ZN19ScavengableNMethods11nmethods_doEP19NMethodToOopClosure
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodEN18HasScavengableOops6do_oopEPP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 {
+define internal void @_ZZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodEN18HasScavengableOops6do_oopEPP7oopDesc(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -389,7 +389,7 @@ define internal void @_ZZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define internal void @_ZZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodEN18HasScavengableOops6do_oopEP9narrowOop(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #2 align 2 {
+define internal void @_ZZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodEN18HasScavengableOops6do_oopEP9narrowOop(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 124) #10
@@ -399,10 +399,10 @@ define internal void @_ZZN19ScavengableNMethods20has_scavengable_oopsEP7nmethodE
 declare void @_ZN7nmethod7oops_doEP10OopClosureb(ptr noundef nonnull align 8 dereferenceable(214), ptr noundef, i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

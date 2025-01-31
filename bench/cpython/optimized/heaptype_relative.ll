@@ -293,7 +293,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @test_alignof_max_align_t(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #2 {
+define internal noundef nonnull ptr @test_alignof_max_align_t(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #2 {
 entry:
   ret ptr @_Py_NoneStruct
 }
@@ -313,10 +313,10 @@ declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 declare void @_Py_DecRef(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @var_heaptype_set_data_to_3s(ptr noundef %self, ptr noundef %defining_class, ptr nocapture readnone %args, i64 %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noundef ptr @var_heaptype_set_data_to_3s(ptr noundef %self, ptr noundef %defining_class, ptr readnone captures(none) %args, i64 %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %call = tail call ptr @PyObject_GetTypeData(ptr noundef %self, ptr noundef %defining_class) #7
   %tobool.not = icmp eq ptr %call, null
@@ -337,7 +337,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @var_heaptype_get_data(ptr noundef %self, ptr noundef %defining_class, ptr nocapture readnone %args, i64 %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @var_heaptype_get_data(ptr noundef %self, ptr noundef %defining_class, ptr readnone captures(none) %args, i64 %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %call = tail call ptr @PyObject_GetTypeData(ptr noundef %self, ptr noundef %defining_class) #7
   %tobool.not = icmp eq ptr %call, null
@@ -358,12 +358,12 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @heaptype_with_member_get_memb(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @heaptype_with_member_get_memb(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -461,7 +461,7 @@ heaptype_with_member_extract_and_check_memb.exit: ; preds = %if.then.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_memb_offset(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @get_memb_offset(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -511,7 +511,7 @@ heaptype_with_member_extract_and_check_memb.exit: ; preds = %if.end19.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @heaptype_with_member_get_memb_relative(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @heaptype_with_member_get_memb_relative(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %def = alloca %struct.PyMemberDef, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %def, ptr noundef nonnull align 8 dereferenceable(40) @__const.heaptype_with_member_set_memb_relative.def, i64 40, i1 false)
@@ -539,7 +539,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @PyMember_SetOne(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 

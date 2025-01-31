@@ -295,7 +295,7 @@ declare dso_local i32 @__clockevents_update_freq(ptr noundef, i32 noundef) local
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local range(i32 0, 2) i32 @tick_device_uses_broadcast(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr @tick_broadcast_device, align 8
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @tick_broadcast_lock) #11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -714,7 +714,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
 declare dso_local void @tick_setup_periodic(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @tick_set_periodic_handler(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local void @tick_set_periodic_handler(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = icmp eq i32 %1, 0
   %4 = select i1 %3, ptr @tick_handle_periodic, ptr @tick_handle_periodic_broadcast
   store ptr %4, ptr %0, align 64
@@ -1254,7 +1254,7 @@ define dso_local void @tick_broadcast_init() local_unnamed_addr #7 section ".ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tick_oneshot_wakeup_handler(ptr nocapture readnone %0) #2 align 16 {
+define internal void @tick_oneshot_wakeup_handler(ptr readnone captures(none) %0) #2 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @tick_cpu_device) #13, !srcloc !15
   %3 = inttoptr i64 %2 to ptr
   %4 = load ptr, ptr %3, align 8
@@ -1278,7 +1278,7 @@ define internal void @tick_oneshot_wakeup_handler(ptr nocapture readnone %0) #2 
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @err_broadcast(ptr nocapture readnone %0) #2 align 16 {
+define internal void @err_broadcast(ptr readnone captures(none) %0) #2 align 16 {
   %2 = load i1, ptr @err_broadcast.__already_done, align 1
   br i1 %2, label %5, label %3, !prof !5
 

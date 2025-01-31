@@ -332,7 +332,7 @@ invoke.cont6:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN25btHeightfieldTerrainShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
@@ -373,7 +373,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25btHeightfieldTerrainShape16clearAcceleratorEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((156, 164)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN25btHeightfieldTerrainShape16clearAcceleratorEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) initializes((156, 164)) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %m_data.i.i, align 8
@@ -463,7 +463,7 @@ _ZN25btHeightfieldTerrainShapedlEPv.exit:         ; preds = %_ZN25btHeightfieldT
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK25btHeightfieldTerrainShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %t, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #8 align 2 {
+define dso_local void @_ZNK25btHeightfieldTerrainShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %t, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %aabbMin, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #8 align 2 {
 entry:
   %m_localAabbMax = getelementptr inbounds nuw i8, ptr %this, i64 52
   %m_localAabbMin = getelementptr inbounds nuw i8, ptr %this, i64 36
@@ -570,7 +570,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef float @_ZNK25btHeightfieldTerrainShape22getRawHeightFieldValueEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, i32 noundef %x, i32 noundef %y) unnamed_addr #9 align 2 {
+define dso_local noundef float @_ZNK25btHeightfieldTerrainShape22getRawHeightFieldValueEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, i32 noundef %x, i32 noundef %y) unnamed_addr #9 align 2 {
 entry:
   %m_heightDataType = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i32, ptr %m_heightDataType, align 8
@@ -644,7 +644,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb17, %s
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x, i32 noundef %y, ptr nocapture noundef nonnull align 4 dereferenceable(16) %vertex) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK25btHeightfieldTerrainShape9getVertexEiiR9btVector3(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %x, i32 noundef %y, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %vertex) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 136
@@ -757,7 +757,7 @@ sw.epilog:                                        ; preds = %entry.sw.epilog_cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK25btHeightfieldTerrainShape17quantizeWithClampEPiRK9btVector3i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nocapture noundef writeonly initializes((0, 12)) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %point, i32 noundef %0) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK25btHeightfieldTerrainShape17quantizeWithClampEPiRK9btVector3i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef writeonly captures(none) initializes((0, 12)) %out, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %point, i32 noundef %0) local_unnamed_addr #10 align 2 {
 entry:
   %clampedPoint.sroa.0.0.copyload = load float, ptr %point, align 4
   %clampedPoint.sroa.6.0.point.sroa_idx = getelementptr inbounds nuw i8, ptr %point, i64 4
@@ -812,7 +812,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %callback, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #8 align 2 {
+define dso_local void @_ZNK25btHeightfieldTerrainShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %callback, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %aabbMin, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %aabbMax) unnamed_addr #8 align 2 {
 entry:
   %quantizedAabbMin = alloca [3 x i32], align 4
   %quantizedAabbMax = alloca [3 x i32], align 4
@@ -1928,14 +1928,14 @@ for.end276:                                       ; preds = %for.cond112.for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK25btHeightfieldTerrainShape21calculateLocalInertiaEfR9btVector3(ptr nocapture nonnull readnone align 8 %this, float %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #11 align 2 {
+define dso_local void @_ZNK25btHeightfieldTerrainShape21calculateLocalInertiaEfR9btVector3(ptr nonnull readnone align 8 captures(none) %this, float %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #11 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %inertia, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN25btHeightfieldTerrainShape15setLocalScalingERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((132, 148)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %scaling) unnamed_addr #10 align 2 {
+define dso_local void @_ZN25btHeightfieldTerrainShape15setLocalScalingERK9btVector3(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(208) initializes((132, 148)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %scaling) unnamed_addr #10 align 2 {
 entry:
   %m_localScaling = getelementptr inbounds nuw i8, ptr %this, i64 132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %scaling, i64 16, i1 false)
@@ -1950,7 +1950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTriangleCallbackRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %callback, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %raySource, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayTarget) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZNK25btHeightfieldTerrainShape14performRaycastEP18btTriangleCallbackRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %callback, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %raySource, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %rayTarget) local_unnamed_addr #8 align 2 {
 entry:
   %beginPos = alloca %class.btVector3, align 4
   %endPos = alloca %class.btVector3, align 4
@@ -3987,7 +3987,7 @@ declare float @llvm.floor.f32(float) #13
 declare float @llvm.ceil.f32(float) #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116GridRaycastStateE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %rs) unnamed_addr #8 align 2 {
+define internal fastcc void @_ZNK20ProcessVBoundsActionclERKN12_GLOBAL__N_116GridRaycastStateE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %rs) unnamed_addr #8 align 2 {
 entry:
   %enterPos = alloca %class.btVector3, align 8
   %exitPos = alloca %class.btVector3, align 8
@@ -4302,7 +4302,7 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #14

@@ -211,7 +211,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN4cvc58internal6theory11TheoryStateC2ERNS0_3EnvENS1_9ValuationE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(576), ptr) unnamed_addr #0
 
@@ -436,7 +436,7 @@ cond.end71:                                       ; preds = %if.else48, %land.lh
 declare noundef zeroext i1 @_ZNK4cvc58internal6theory9Valuation9needCheckEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal6theory11quantifiers16QuantifiersState17getInstRoundDepthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK4cvc58internal6theory11quantifiers16QuantifiersState17getInstRoundDepthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_data.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load i64, ptr %d_data.i, align 8
@@ -444,7 +444,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK4cvc58internal6theory11quantifiers16QuantifiersState13getInstRoundsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef i64 @_ZNK4cvc58internal6theory11quantifiers16QuantifiersState13getInstRoundsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_ierCounter = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load i64, ptr %d_ierCounter, align 8
@@ -452,7 +452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers16QuantifiersState24debugPrintEqualityEngineEPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %this, ptr nocapture noundef readnone %c) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers16QuantifiersState24debugPrintEqualityEngineEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(248) %this, ptr noundef readnone captures(none) %c) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 cleanup.done13:
   ret void
 }
@@ -491,7 +491,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4cvc58internal6theory11quantifiers16QuantifiersState12getLogicInfoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4cvc58internal6theory11quantifiers16QuantifiersState12getLogicInfoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_logicInfo = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %d_logicInfo, align 8
@@ -892,7 +892,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

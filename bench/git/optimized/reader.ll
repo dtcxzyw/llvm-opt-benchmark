@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.reftable_reader_refs_for_unindexed.empty = private unnamed_addr constant %struct.filtering_ref_iterator { i32 0, %struct.reftable_table zeroinitializer, %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, %struct.reftable_iterator zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @block_source_size(ptr nocapture noundef readonly %source) local_unnamed_addr #0 {
+define dso_local i64 @block_source_size(ptr noundef readonly captures(none) %source) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %source, align 8
   %1 = load ptr, ptr %0, align 8
@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @block_source_read_block(ptr nocapture noundef readonly %source, ptr noundef %dest, i64 noundef %off, i32 noundef %size) local_unnamed_addr #0 {
+define dso_local i32 @block_source_read_block(ptr noundef readonly captures(none) %source, ptr noundef %dest, i64 noundef %off, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %source, align 8
   %read_block = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -55,10 +55,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @block_source_close(ptr nocapture noundef %source) local_unnamed_addr #0 {
+define dso_local void @block_source_close(ptr noundef captures(none) %source) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %source, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -78,7 +78,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @reftable_reader_hash_id(ptr nocapture noundef readonly %r) local_unnamed_addr #2 {
+define dso_local i32 @reftable_reader_hash_id(ptr noundef readonly captures(none) %r) local_unnamed_addr #2 {
 entry:
   %hash_id = getelementptr inbounds nuw i8, ptr %r, i64 32
   %0 = load i32, ptr %hash_id, align 8
@@ -86,14 +86,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @reader_name(ptr nocapture noundef readonly %r) local_unnamed_addr #2 {
+define dso_local ptr @reader_name(ptr noundef readonly captures(none) %r) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %r, align 8
   ret ptr %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 1) i32 @init_reader(ptr nocapture noundef initializes((0, 136)) %r, ptr nocapture noundef readonly %source, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @init_reader(ptr noundef captures(none) initializes((0, 136)) %r, ptr noundef readonly captures(none) %source, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %footer = alloca %struct.reftable_block, align 8
   %header = alloca %struct.reftable_block, align 8
@@ -176,7 +176,7 @@ if.end.i:                                         ; preds = %if.end36
   %16 = load i32, ptr %version, align 4
   %call1.i = call i32 @header_size(i32 noundef %16) #11
   %conv.i = sext i32 %call1.i to i64
-  %bcmp53.i = call i32 @bcmp(ptr %14, ptr readonly %15, i64 %conv.i)
+  %bcmp53.i = call i32 @bcmp(ptr nonnull %14, ptr readonly %15, i64 %conv.i)
   %tobool3.not.i = icmp eq i32 %bcmp53.i, 0
   br i1 %tobool3.not.i, label %if.end5.i, label %done
 
@@ -583,7 +583,7 @@ done:                                             ; preds = %if.end79.i, %land.l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @header_size(i32 noundef) local_unnamed_addr #4
 
@@ -594,7 +594,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #4
 declare void @reftable_block_done(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reader_init_block_reader(ptr nocapture noundef readonly %r, ptr noundef %br, i64 noundef %next_off, i8 noundef zeroext %want_typ) local_unnamed_addr #0 {
+define dso_local i32 @reader_init_block_reader(ptr noundef readonly captures(none) %r, ptr noundef %br, i64 noundef %next_off, i8 noundef zeroext %want_typ) local_unnamed_addr #0 {
 entry:
   %block = alloca %struct.reftable_block, align 8
   %block_size = getelementptr inbounds nuw i8, ptr %r, i64 36
@@ -843,13 +843,13 @@ reader_start.exit.thread30.i.i:                   ; preds = %if.end2.i.i.i
   %call1.i.i.i.i = call ptr @reftable_malloc(i64 noundef 64) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %br.i.i.i.i, i64 64, i1 false)
   store ptr %r, ptr %index_iter.i.i, align 8
-  %call3.i.i.i.i = call zeroext i8 @block_reader_type(ptr noundef %call1.i.i.i.i) #11
+  %call3.i.i.i.i = call zeroext i8 @block_reader_type(ptr noundef nonnull %call1.i.i.i.i) #11
   %typ4.i.i.i.i = getelementptr inbounds nuw i8, ptr %index_iter.i.i, i64 8
   store i8 %call3.i.i.i.i, ptr %typ4.i.i.i.i, align 8
   %block_off.i.i.i.i = getelementptr inbounds nuw i8, ptr %index_iter.i.i, i64 16
   store i64 %2, ptr %block_off.i.i.i.i, align 8
   %bi.i.i.i.i = getelementptr inbounds nuw i8, ptr %index_iter.i.i, i64 24
-  call void @block_reader_start(ptr noundef %call1.i.i.i.i, ptr noundef nonnull %bi.i.i.i.i) #11
+  call void @block_reader_start(ptr noundef nonnull %call1.i.i.i.i, ptr noundef nonnull %bi.i.i.i.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %br.i.i.i.i)
   br label %if.end.i.i
 
@@ -909,10 +909,10 @@ if.end11.i.i:                                     ; preds = %if.end6.i.i
   %call1.i.i.i = call ptr @reftable_malloc(i64 noundef 64) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %br.i11.i.i, i64 64, i1 false)
   store ptr %r, ptr %next.i.i, align 8
-  %call3.i.i.i = call zeroext i8 @block_reader_type(ptr noundef %call1.i.i.i) #11
+  %call3.i.i.i = call zeroext i8 @block_reader_type(ptr noundef nonnull %call1.i.i.i) #11
   store i8 %call3.i.i.i, ptr %typ4.i.i.i, align 8
   store i64 %5, ptr %block_off.i.i.i, align 8
-  call void @block_reader_start(ptr noundef %call1.i.i.i, ptr noundef nonnull %bi.i13.i.i) #11
+  call void @block_reader_start(ptr noundef nonnull %call1.i.i.i, ptr noundef nonnull %bi.i13.i.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %br.i11.i.i)
   %call14.i.i = call i32 @block_iter_seek(ptr noundef nonnull %bi.i13.i.i, ptr noundef nonnull %last_key.i.i) #11
   %cmp15.i.i = icmp slt i32 %call14.i.i, 0
@@ -1026,13 +1026,13 @@ reader_start.exit.thread.i:                       ; preds = %reader_offsets_for.
   %call1.i.i16.i = call ptr @reftable_malloc(i64 noundef 64) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1.i.i16.i, ptr noundef nonnull align 8 dereferenceable(64) %br.i.i11.i, i64 64, i1 false)
   store ptr %r, ptr %ti.i, align 8
-  %call3.i.i17.i = call zeroext i8 @block_reader_type(ptr noundef %call1.i.i16.i) #11
+  %call3.i.i17.i = call zeroext i8 @block_reader_type(ptr noundef nonnull %call1.i.i16.i) #11
   %typ4.i.i18.i = getelementptr inbounds nuw i8, ptr %ti.i, i64 8
   store i8 %call3.i.i17.i, ptr %typ4.i.i18.i, align 8
   %block_off.i.i19.i = getelementptr inbounds nuw i8, ptr %ti.i, i64 16
   store i64 %17, ptr %block_off.i.i19.i, align 8
   %bi.i.i20.i = getelementptr inbounds nuw i8, ptr %ti.i, i64 24
-  call void @block_reader_start(ptr noundef %call1.i.i16.i, ptr noundef nonnull %bi.i.i20.i) #11
+  call void @block_reader_start(ptr noundef nonnull %call1.i.i16.i, ptr noundef nonnull %bi.i.i20.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %br.i.i11.i)
   br label %if.end7.i
 
@@ -1095,7 +1095,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @reader_close(ptr nocapture noundef %r) local_unnamed_addr #0 {
+define dso_local void @reader_close(ptr noundef captures(none) %r) local_unnamed_addr #0 {
 entry:
   %source = getelementptr inbounds nuw i8, ptr %r, i64 8
   %0 = load ptr, ptr %source, align 8
@@ -1119,10 +1119,10 @@ block_source_close.exit:                          ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 1) i32 @reftable_new_reader(ptr nocapture noundef writeonly %p, ptr nocapture noundef %src, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @reftable_new_reader(ptr noundef writeonly captures(none) %p, ptr noundef captures(none) %src, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @reftable_calloc(i64 noundef 136) #11
   %call1 = tail call i32 @init_reader(ptr noundef %call, ptr noundef %src, ptr noundef %name)
@@ -1294,13 +1294,13 @@ reader_start.exit.thread.i:                       ; preds = %if.end
   %call1.i.i.i = call ptr @reftable_malloc(i64 noundef 64) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call1.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %br.i.i.i, i64 64, i1 false)
   store ptr %r, ptr %call.i5, align 8
-  %call3.i.i.i = call zeroext i8 @block_reader_type(ptr noundef %call1.i.i.i) #11
+  %call3.i.i.i = call zeroext i8 @block_reader_type(ptr noundef nonnull %call1.i.i.i) #11
   %typ4.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 8
   store i8 %call3.i.i.i, ptr %typ4.i.i.i, align 8
   %block_off.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 16
   store i64 %10, ptr %block_off.i.i.i, align 8
   %bi.i.i.i = getelementptr inbounds nuw i8, ptr %call.i5, i64 24
-  call void @block_reader_start(ptr noundef %call1.i.i.i, ptr noundef nonnull %bi.i.i.i) #11
+  call void @block_reader_start(ptr noundef nonnull %call1.i.i.i, ptr noundef nonnull %bi.i.i.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %br.i.i.i)
   br label %if.end.i8
 
@@ -1337,7 +1337,7 @@ return:                                           ; preds = %if.end.i8, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @reftable_reader_max_update_index(ptr nocapture noundef readonly %r) local_unnamed_addr #2 {
+define dso_local i64 @reftable_reader_max_update_index(ptr noundef readonly captures(none) %r) local_unnamed_addr #2 {
 entry:
   %max_update_index = getelementptr inbounds nuw i8, ptr %r, i64 48
   %0 = load i64, ptr %max_update_index, align 8
@@ -1345,7 +1345,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @reftable_reader_min_update_index(ptr nocapture noundef readonly %r) local_unnamed_addr #2 {
+define dso_local i64 @reftable_reader_min_update_index(ptr noundef readonly captures(none) %r) local_unnamed_addr #2 {
 entry:
   %min_update_index = getelementptr inbounds nuw i8, ptr %r, i64 40
   %0 = load i64, ptr %min_update_index, align 8
@@ -1353,7 +1353,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @reftable_table_from_reader(ptr nocapture noundef writeonly initializes((0, 16)) %tab, ptr noundef %reader) local_unnamed_addr #6 {
+define dso_local void @reftable_table_from_reader(ptr noundef writeonly captures(none) initializes((0, 16)) %tab, ptr noundef %reader) local_unnamed_addr #6 {
 entry:
   store ptr @reader_vtable, ptr %tab, align 8
   %table_arg = getelementptr inbounds nuw i8, ptr %tab, i64 8
@@ -1513,7 +1513,7 @@ if.end4:                                          ; preds = %if.end.i
   %call11.i = call ptr @reftable_malloc(i64 noundef 64) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call11.i, ptr noundef nonnull align 8 dereferenceable(64) %br1.i, i64 64, i1 false)
   store i32 0, ptr %is_finished12.i, align 8
-  call void @block_reader_start(ptr noundef %call11.i, ptr noundef nonnull %bi13.i) #11
+  call void @block_reader_start(ptr noundef nonnull %call11.i, ptr noundef nonnull %bi13.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %br1.i)
   %5 = load ptr, ptr %br, align 8
   %call5 = call i32 @block_reader_first_key(ptr noundef %5, ptr noundef nonnull %got_key) #11
@@ -1687,7 +1687,7 @@ if.end19.critedge:                                ; preds = %if.end.i
   %call11.i = call ptr @reftable_malloc(i64 noundef 64) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %call11.i, ptr noundef nonnull align 8 dereferenceable(64) %br1.i, i64 64, i1 false)
   store i32 0, ptr %is_finished12.i, align 8
-  call void @block_reader_start(ptr noundef %call11.i, ptr noundef nonnull %bi13.i) #11
+  call void @block_reader_start(ptr noundef nonnull %call11.i, ptr noundef nonnull %bi13.i) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %br1.i)
   %12 = load ptr, ptr %br.i, align 8
   %tobool.not.i20 = icmp eq ptr %12, null
@@ -1799,7 +1799,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @reftable_reader_hash_id_void(ptr nocapture noundef readonly %tab) #2 {
+define internal i32 @reftable_reader_hash_id_void(ptr noundef readonly captures(none) %tab) #2 {
 entry:
   %hash_id.i = getelementptr inbounds nuw i8, ptr %tab, i64 32
   %0 = load i32, ptr %hash_id.i, align 8
@@ -1807,7 +1807,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @reftable_reader_min_update_index_void(ptr nocapture noundef readonly %tab) #2 {
+define internal i64 @reftable_reader_min_update_index_void(ptr noundef readonly captures(none) %tab) #2 {
 entry:
   %min_update_index.i = getelementptr inbounds nuw i8, ptr %tab, i64 40
   %0 = load i64, ptr %min_update_index.i, align 8
@@ -1815,7 +1815,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @reftable_reader_max_update_index_void(ptr nocapture noundef readonly %tab) #2 {
+define internal i64 @reftable_reader_max_update_index_void(ptr noundef readonly captures(none) %tab) #2 {
 entry:
   %max_update_index.i = getelementptr inbounds nuw i8, ptr %tab, i64 48
   %0 = load i64, ptr %max_update_index.i, align 8
@@ -1823,16 +1823,16 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_color16a_t = type { i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_blend_color_to_argb8888(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @lv_draw_sw_blend_color_to_argb8888(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.lv_color_mix_alpha_cache_t, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
@@ -607,12 +607,12 @@ lv_color_32_32_mix.exit221.us:                    ; preds = %230, %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @lv_color_to_u32(i24) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @lv_color_to_32(i24, i8 noundef zeroext) local_unnamed_addr #2
 
@@ -4207,7 +4207,7 @@ l8_image_blend.exit:                              ; preds = %._crit_edge.us200.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rgb888_image_blend(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 3, 5) %1) unnamed_addr #0 {
+define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 3, 5) %1) unnamed_addr #0 {
   %3 = alloca %struct.lv_color_mix_alpha_cache_t, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !37
@@ -5073,7 +5073,7 @@ declare i32 @llvm.smax.i32(i32, i32) #3
 declare i32 @llvm.umin.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

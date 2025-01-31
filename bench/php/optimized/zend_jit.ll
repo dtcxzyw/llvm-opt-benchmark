@@ -359,7 +359,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.zend_jit_incdec_obj.41 = private unnamed_addr constant [4 x ptr] [ptr @zend_jit_pre_inc_obj_helper, ptr @zend_jit_pre_dec_obj_helper, ptr @zend_jit_post_inc_obj_helper, ptr @zend_jit_post_dec_obj_helper], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_jit_duplicate_exit_point(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @zend_jit_duplicate_exit_point(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = icmp ugt i32 %6, 511
@@ -427,13 +427,13 @@ define hidden i32 @zend_jit_duplicate_exit_point(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: allocsize(1)
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_jit_snapshot_handler(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden ptr @zend_jit_snapshot_handler(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._ir_code_buffer, align 8
   %7 = alloca i64, align 8
@@ -1850,7 +1850,7 @@ define void @zend_jit_status(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @_zend_new_array_0() #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_jit_check_funcs(ptr nocapture noundef readonly %0, i1 zeroext %1) local_unnamed_addr #0 {
+define hidden void @zend_jit_check_funcs(ptr noundef readonly captures(none) %0, i1 zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2192,7 +2192,7 @@ zend_jit_op_array_analyze2.exit:                  ; preds = %87, %94, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_jit_hot_func(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zend_jit_hot_func(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -3217,12 +3217,12 @@ zend_jit_trace_is_bad_root.exit.thread:           ; preds = %381, %377, %zend_ji
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i32 @zend_jit_trace_execute(ptr noundef, ptr noundef, ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_dump_trace(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_jit_dump_trace(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %5 = load i8, ptr %4, align 1
@@ -3939,7 +3939,7 @@ define internal fastcc void @zend_jit_dump_trace(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_compile_root_trace(ptr noundef nonnull %0, ptr nocapture noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @zend_jit_compile_root_trace(ptr noundef nonnull %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [512 x %struct._zend_jit_trace_exit_info], align 16
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   call void @zend_shared_alloc_lock() #33
@@ -5771,7 +5771,7 @@ zend_jit_protect.exit:                            ; preds = %360, %363, %367
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @zend_jit_trace_exit(i32 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define hidden range(i32 -1, 2) i32 @zend_jit_trace_exit(i32 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 504), align 8
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
   %5 = load ptr, ptr %4, align 8
@@ -7049,7 +7049,7 @@ declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 declare ptr @zend_shared_alloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @zend_shared_alloc_register_xlat_entry(ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -19703,7 +19703,7 @@ thread-pre-split72:                               ; preds = %63
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #11
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define internal fastcc range(i32 -1, 1) i32 @zend_jit_parse_config_num(i64 noundef %0) unnamed_addr #12 {
@@ -19856,7 +19856,7 @@ declare i32 @zend_vm_kind() local_unnamed_addr #4
 declare void @execute_ex(ptr noundef) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @zend_get_user_opcode_handler(i8 noundef zeroext) local_unnamed_addr #4
 
@@ -20859,7 +20859,7 @@ declare void @add_assoc_long_ex(ptr noundef, ptr noundef, i64 noundef, i64 nound
 declare void @add_assoc_zval_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zend_jit_cleanup_func_info(ptr nocapture noundef %0) unnamed_addr #15 {
+define internal fastcc void @zend_jit_cleanup_func_info(ptr noundef captures(none) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i32, ptr @zend_func_info_rid, align 4
   %4 = sext i32 %3 to i64
@@ -50049,7 +50049,7 @@ zend_jit_free_ctx.exit:                           ; preds = %zend_jit_stack_chec
 }
 
 ; Function Attrs: cold nounwind uwtable
-define internal fastcc void @zend_jit_dump_exit_info(ptr nocapture noundef readonly %0) unnamed_addr #17 {
+define internal fastcc void @zend_jit_dump_exit_info(ptr noundef readonly captures(none) %0) unnamed_addr #17 {
   %2 = load ptr, ptr @stderr, align 8
   %3 = load i32, ptr %0, align 8
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.159, i32 noundef %3) #38
@@ -50453,7 +50453,7 @@ define internal fastcc void @zend_jit_dump_exit_info(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @zend_jit_trace_build_tssa(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct._zend_ssa_range, align 8
   %7 = alloca %struct._zend_ssa_range, align 8
   %8 = alloca %struct._zend_ssa_range, align 8
@@ -59355,7 +59355,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %15, %11, %jit_CONST
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_trace_deoptimization(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef writeonly %6, ptr nocapture noundef readonly %7, i8 noundef signext %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @zend_jit_trace_deoptimization(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef writeonly %6, ptr noundef readonly captures(none) %7, i8 noundef signext %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = icmp sgt i32 %4, 0
   br i1 %11, label %.lr.ph, label %._crit_edge._crit_edge
 
@@ -62410,7 +62410,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %1075, %1071, %1067,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_may_overflow(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #18 {
+define internal fastcc range(i32 0, 2) i32 @zend_may_overflow(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #18 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -64710,7 +64710,7 @@ define internal fastcc range(i32 0, 2) i32 @zend_may_overflow(ptr noundef readon
 declare zeroext i1 @zend_may_throw(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_trace_next_is_send_result(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2) unnamed_addr #19 {
+define internal fastcc noundef zeroext i1 @zend_jit_trace_next_is_send_result(ptr noundef readonly %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #19 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 2
@@ -64974,7 +64974,7 @@ zend_jit_store_var_if_necessary.exit:             ; preds = %12, %32, %35, %39, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_fetch_reference(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @zend_jit_fetch_reference(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct._ir_code_buffer, align 8
   %9 = load i64, ptr %4, align 8
@@ -65471,7 +65471,7 @@ jit_FREE_OP.exit27:                               ; preds = %jit_FREE_OP.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zend_jit_trace_cleanup_stack(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #20 {
+define internal fastcc void @zend_jit_trace_cleanup_stack(ptr noundef nonnull readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef readonly captures(none) %5) unnamed_addr #20 {
   %7 = load i32, ptr %3, align 4
   %8 = icmp sgt i32 %7, -1
   br i1 %8, label %9, label %.critedge
@@ -66328,7 +66328,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %173, %181
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_fetch_indirect_var(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @zend_jit_fetch_indirect_var(ptr noundef nonnull %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef nonnull captures(none) %3, ptr noundef nonnull captures(none) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca %struct._ir_code_buffer, align 8
   %9 = alloca i64, align 8
@@ -67426,7 +67426,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %142, %138, %jit_FRE
 declare zeroext i1 @zend_may_throw_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_incdec_obj(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12, i8 noundef zeroext %13) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_incdec_obj(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12, i8 noundef zeroext %13) unnamed_addr #0 {
   %15 = alloca i64, align 8
   %16 = alloca %struct._ir_code_buffer, align 8
   %17 = alloca i64, align 8
@@ -69804,7 +69804,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %96, %501, %706, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_obj_op(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, ptr noundef %14, i8 noundef zeroext %15) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_obj_op(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, ptr noundef %8, i1 noundef zeroext %9, ptr noundef %10, i1 noundef zeroext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, ptr noundef %14, i8 noundef zeroext %15) unnamed_addr #0 {
   %17 = alloca i64, align 8
   %18 = alloca %struct._ir_code_buffer, align 8
   %19 = alloca i64, align 8
@@ -71860,7 +71860,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %89, %513, %798, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_obj(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef range(i32 0, 2) %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_assign_obj(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef range(i32 0, 2) %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca %struct._ir_code_buffer, align 8
   %18 = alloca i64, align 8
@@ -74106,7 +74106,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %14, %10, %zend_jit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_guard_reference(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @zend_jit_guard_reference(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._ir_code_buffer, align 8
   %8 = load i64, ptr %2, align 8
@@ -76117,7 +76117,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %78, %74, %161, %166
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zend_jit_trace_send_type(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i8 noundef zeroext %2) unnamed_addr #20 {
+define internal fastcc void @zend_jit_trace_send_type(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i8 noundef zeroext %2) unnamed_addr #20 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -82077,7 +82077,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %171, %1338, %2009, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @zend_jit_may_skip_comparison(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @zend_jit_may_skip_comparison(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 1
@@ -84086,7 +84086,7 @@ zend_jit_cmp_slow.exit:                           ; preds = %445, %449
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_trace_update_condition_ranges(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_trace_update_condition_ranges(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %7 = load i8, ptr %6, align 1
   %8 = icmp eq i8 %7, 1
@@ -86206,7 +86206,7 @@ jit_set_Z_TYPE_INFO.exit173:                      ; preds = %238, %248
   %266 = load i16, ptr %265, align 2
   %267 = icmp eq i16 %266, 0
   tail call void @llvm.assume(i1 %267)
-  br label %273
+  br label %jit_CONST_FUNC.exit
 
 268:                                              ; preds = %251
   %269 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_check_constant to i64)) #33
@@ -86216,170 +86216,170 @@ jit_set_Z_TYPE_INFO.exit173:                      ; preds = %238, %248
   store i32 1601, ptr %272, align 8
   store i64 %271, ptr %253, align 8
   store i32 4, ptr %254, align 8
-  br label %273
+  br label %jit_CONST_FUNC.exit
 
-273:                                              ; preds = %268, %257
+jit_CONST_FUNC.exit:                              ; preds = %257, %268
   %.0.i.i174 = phi i32 [ %259, %257 ], [ %269, %268 ]
-  %274 = ptrtoint ptr %10 to i64
-  %275 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %50, i64 noundef %274) #33
-  %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
-  %277 = load i8, ptr %276, align 8
-  %278 = icmp eq i8 %277, 4
-  br i1 %278, label %279, label %287
+  %273 = ptrtoint ptr %10 to i64
+  %274 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %50, i64 noundef %273) #33
+  %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
+  %276 = load i8, ptr %275, align 8
+  %277 = icmp eq i8 %276, 4
+  br i1 %277, label %278, label %286
 
-279:                                              ; preds = %273
-  %280 = load i64, ptr %275, align 8
-  %281 = trunc i64 %280 to i32
-  %282 = load ptr, ptr %0, align 8
-  %sext.i177 = shl i64 %280, 32
-  %283 = ashr exact i64 %sext.i177, 28
-  %284 = getelementptr inbounds i8, ptr %282, i64 %283
-  %285 = load i16, ptr %284, align 8
-  %286 = icmp eq i16 %285, 1542
-  tail call void @llvm.assume(i1 %286)
+278:                                              ; preds = %jit_CONST_FUNC.exit
+  %279 = load i64, ptr %274, align 8
+  %280 = trunc i64 %279 to i32
+  %281 = load ptr, ptr %0, align 8
+  %sext.i177 = shl i64 %279, 32
+  %282 = ashr exact i64 %sext.i177, 28
+  %283 = getelementptr inbounds i8, ptr %281, i64 %282
+  %284 = load i16, ptr %283, align 8
+  %285 = icmp eq i16 %284, 1542
+  tail call void @llvm.assume(i1 %285)
   br label %jit_CONST_ADDR.exit178
 
-287:                                              ; preds = %273
-  %288 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %274) #33
-  %289 = sext i32 %288 to i64
-  store i64 %289, ptr %275, align 8
-  store i32 4, ptr %276, align 8
+286:                                              ; preds = %jit_CONST_FUNC.exit
+  %287 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %273) #33
+  %288 = sext i32 %287 to i64
+  store i64 %288, ptr %274, align 8
+  store i32 4, ptr %275, align 8
   br label %jit_CONST_ADDR.exit178
 
-jit_CONST_ADDR.exit178:                           ; preds = %279, %287
-  %.0.i176 = phi i32 [ %281, %279 ], [ %288, %287 ]
-  %290 = tail call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i174, i32 noundef %.0.i176) #33
-  %291 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 271, i32 noundef %290, i32 noundef -1) #33
-  br i1 %12, label %292, label %323
+jit_CONST_ADDR.exit178:                           ; preds = %278, %286
+  %.0.i176 = phi i32 [ %280, %278 ], [ %287, %286 ]
+  %289 = tail call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i174, i32 noundef %.0.i176) #33
+  %290 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 271, i32 noundef %289, i32 noundef -1) #33
+  br i1 %12, label %291, label %322
 
-292:                                              ; preds = %jit_CONST_ADDR.exit178
-  %293 = icmp eq i8 %2, 43
-  %294 = ptrtoint ptr %5 to i64
-  %295 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %50, i64 noundef %294) #33
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 8
-  %297 = load i8, ptr %296, align 8
-  %298 = icmp eq i8 %297, 4
-  br i1 %293, label %299, label %311
+291:                                              ; preds = %jit_CONST_ADDR.exit178
+  %292 = icmp eq i8 %2, 43
+  %293 = ptrtoint ptr %5 to i64
+  %294 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %50, i64 noundef %293) #33
+  %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
+  %296 = load i8, ptr %295, align 8
+  %297 = icmp eq i8 %296, 4
+  br i1 %292, label %298, label %310
 
-299:                                              ; preds = %292
-  br i1 %298, label %300, label %308
+298:                                              ; preds = %291
+  br i1 %297, label %299, label %307
 
-300:                                              ; preds = %299
-  %301 = load i64, ptr %295, align 8
-  %302 = trunc i64 %301 to i32
-  %303 = load ptr, ptr %0, align 8
-  %sext.i180 = shl i64 %301, 32
-  %304 = ashr exact i64 %sext.i180, 28
-  %305 = getelementptr inbounds i8, ptr %303, i64 %304
-  %306 = load i16, ptr %305, align 8
-  %307 = icmp eq i16 %306, 1542
-  tail call void @llvm.assume(i1 %307)
+299:                                              ; preds = %298
+  %300 = load i64, ptr %294, align 8
+  %301 = trunc i64 %300 to i32
+  %302 = load ptr, ptr %0, align 8
+  %sext.i180 = shl i64 %300, 32
+  %303 = ashr exact i64 %sext.i180, 28
+  %304 = getelementptr inbounds i8, ptr %302, i64 %303
+  %305 = load i16, ptr %304, align 8
+  %306 = icmp eq i16 %305, 1542
+  tail call void @llvm.assume(i1 %306)
   br label %jit_CONST_ADDR.exit181
 
-308:                                              ; preds = %299
-  %309 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %294) #33
-  %310 = sext i32 %309 to i64
-  store i64 %310, ptr %295, align 8
-  store i32 4, ptr %296, align 8
+307:                                              ; preds = %298
+  %308 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %293) #33
+  %309 = sext i32 %308 to i64
+  store i64 %309, ptr %294, align 8
+  store i32 4, ptr %295, align 8
   br label %jit_CONST_ADDR.exit181
 
-jit_CONST_ADDR.exit181:                           ; preds = %300, %308
-  %.0.i179 = phi i32 [ %302, %300 ], [ %309, %308 ]
-  tail call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %291, i32 noundef %.0.i179) #33
+jit_CONST_ADDR.exit181:                           ; preds = %299, %307
+  %.0.i179 = phi i32 [ %301, %299 ], [ %308, %307 ]
+  tail call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %290, i32 noundef %.0.i179) #33
   br label %.thread.sink.split
 
-311:                                              ; preds = %292
-  br i1 %298, label %312, label %320
+310:                                              ; preds = %291
+  br i1 %297, label %311, label %319
 
-312:                                              ; preds = %311
-  %313 = load i64, ptr %295, align 8
-  %314 = trunc i64 %313 to i32
-  %315 = load ptr, ptr %0, align 8
-  %sext.i183 = shl i64 %313, 32
-  %316 = ashr exact i64 %sext.i183, 28
-  %317 = getelementptr inbounds i8, ptr %315, i64 %316
-  %318 = load i16, ptr %317, align 8
-  %319 = icmp eq i16 %318, 1542
-  tail call void @llvm.assume(i1 %319)
+311:                                              ; preds = %310
+  %312 = load i64, ptr %294, align 8
+  %313 = trunc i64 %312 to i32
+  %314 = load ptr, ptr %0, align 8
+  %sext.i183 = shl i64 %312, 32
+  %315 = ashr exact i64 %sext.i183, 28
+  %316 = getelementptr inbounds i8, ptr %314, i64 %315
+  %317 = load i16, ptr %316, align 8
+  %318 = icmp eq i16 %317, 1542
+  tail call void @llvm.assume(i1 %318)
   br label %jit_CONST_ADDR.exit184
 
-320:                                              ; preds = %311
-  %321 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %294) #33
-  %322 = sext i32 %321 to i64
-  store i64 %322, ptr %295, align 8
-  store i32 4, ptr %296, align 8
+319:                                              ; preds = %310
+  %320 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %293) #33
+  %321 = sext i32 %320 to i64
+  store i64 %321, ptr %294, align 8
+  store i32 4, ptr %295, align 8
   br label %jit_CONST_ADDR.exit184
 
-jit_CONST_ADDR.exit184:                           ; preds = %312, %320
-  %.0.i182 = phi i32 [ %314, %312 ], [ %321, %320 ]
-  tail call void @_ir_GUARD_NOT(ptr noundef nonnull %0, i32 noundef %291, i32 noundef %.0.i182) #33
+jit_CONST_ADDR.exit184:                           ; preds = %311, %319
+  %.0.i182 = phi i32 [ %313, %311 ], [ %320, %319 ]
+  tail call void @_ir_GUARD_NOT(ptr noundef nonnull %0, i32 noundef %290, i32 noundef %.0.i182) #33
   br label %.thread.sink.split
 
-323:                                              ; preds = %jit_CONST_ADDR.exit178
-  br i1 %11, label %324, label %345
+322:                                              ; preds = %jit_CONST_ADDR.exit178
+  br i1 %11, label %323, label %344
 
-324:                                              ; preds = %323
-  %325 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0141)
-  %326 = tail call i32 @ir_fold1(ptr noundef nonnull %0, i32 noundef 1056, i32 noundef %291) #33
-  %327 = tail call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 2) #33
-  %328 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1048, i32 noundef %326, i32 noundef %327) #33
-  %329 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %50, i64 noundef 8) #33
-  %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
-  %331 = load i8, ptr %330, align 8
-  %332 = icmp eq i8 %331, 4
-  br i1 %332, label %333, label %341
+323:                                              ; preds = %322
+  %324 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef nonnull %0, i64 noundef %.0141)
+  %325 = tail call i32 @ir_fold1(ptr noundef nonnull %0, i32 noundef 1056, i32 noundef %290) #33
+  %326 = tail call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 2) #33
+  %327 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1048, i32 noundef %325, i32 noundef %326) #33
+  %328 = tail call ptr @zend_hash_index_lookup(ptr noundef nonnull %50, i64 noundef 8) #33
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
+  %330 = load i8, ptr %329, align 8
+  %331 = icmp eq i8 %330, 4
+  br i1 %331, label %332, label %340
 
-333:                                              ; preds = %324
-  %334 = load i64, ptr %329, align 8
-  %335 = trunc i64 %334 to i32
-  %336 = load ptr, ptr %0, align 8
-  %sext.i.i.i = shl i64 %334, 32
-  %337 = ashr exact i64 %sext.i.i.i, 28
-  %338 = getelementptr inbounds i8, ptr %336, i64 %337
-  %339 = load i16, ptr %338, align 8
-  %340 = icmp eq i16 %339, 1542
-  tail call void @llvm.assume(i1 %340)
+332:                                              ; preds = %323
+  %333 = load i64, ptr %328, align 8
+  %334 = trunc i64 %333 to i32
+  %335 = load ptr, ptr %0, align 8
+  %sext.i.i.i = shl i64 %333, 32
+  %336 = ashr exact i64 %sext.i.i.i, 28
+  %337 = getelementptr inbounds i8, ptr %335, i64 %336
+  %338 = load i16, ptr %337, align 8
+  %339 = icmp eq i16 %338, 1542
+  tail call void @llvm.assume(i1 %339)
   br label %jit_set_Z_TYPE_INFO_ref.exit
 
-341:                                              ; preds = %324
-  %342 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 8) #33
-  %343 = sext i32 %342 to i64
-  store i64 %343, ptr %329, align 8
-  store i32 4, ptr %330, align 8
+340:                                              ; preds = %323
+  %341 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 8) #33
+  %342 = sext i32 %341 to i64
+  store i64 %342, ptr %328, align 8
+  store i32 4, ptr %329, align 8
   br label %jit_set_Z_TYPE_INFO_ref.exit
 
-jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %333, %341
-  %.0.i.i.i = phi i32 [ %335, %333 ], [ %342, %341 ]
-  %344 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %325, i32 noundef %.0.i.i.i) #33
-  tail call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %344, i32 noundef %328) #33
+jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %332, %340
+  %.0.i.i.i = phi i32 [ %334, %332 ], [ %341, %340 ]
+  %343 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %324, i32 noundef %.0.i.i.i) #33
+  tail call void @_ir_STORE(ptr noundef nonnull %0, i32 noundef %343, i32 noundef %327) #33
   br label %.thread.sink.split
 
-345:                                              ; preds = %323
-  %346 = tail call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %291) #33
-  tail call void @_ir_IF_TRUE(ptr noundef nonnull %0, i32 noundef %346) #33
-  %347 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.0135) #33
-  tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %346) #33
-  %348 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.0) #33
-  br i1 %or.cond, label %.thread, label %351
+344:                                              ; preds = %322
+  %345 = tail call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %290) #33
+  tail call void @_ir_IF_TRUE(ptr noundef nonnull %0, i32 noundef %345) #33
+  %346 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.0135) #33
+  tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %345) #33
+  %347 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.0) #33
+  br i1 %or.cond, label %.thread, label %350
 
 .thread.sink.split:                               ; preds = %jit_CONST_ADDR.exit184, %jit_CONST_ADDR.exit181, %jit_set_Z_TYPE_INFO_ref.exit
-  %349 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.1138) #33
+  %348 = tail call i32 @_ir_END_LIST(ptr noundef nonnull %0, i32 noundef %.1138) #33
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %345
-  %.2188 = phi i32 [ %.1138, %345 ], [ %349, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %344
+  %.2188 = phi i32 [ %.1138, %344 ], [ %348, %.thread.sink.split ]
   %.not148 = icmp eq i32 %.2188, 0
-  br i1 %.not148, label %352, label %350
+  br i1 %.not148, label %351, label %349
 
-350:                                              ; preds = %.thread
+349:                                              ; preds = %.thread
   tail call void @_ir_MERGE_LIST(ptr noundef nonnull %0, i32 noundef %.2188) #33
-  br label %352
+  br label %351
 
-351:                                              ; preds = %345
-  tail call fastcc void @_zend_jit_merge_smart_branch_inputs(ptr noundef %0, i32 noundef %.0139, i32 noundef %.0140, i32 noundef %347, i32 noundef %348)
-  br label %352
+350:                                              ; preds = %344
+  tail call fastcc void @_zend_jit_merge_smart_branch_inputs(ptr noundef %0, i32 noundef %.0139, i32 noundef %.0140, i32 noundef %346, i32 noundef %347)
+  br label %351
 
-352:                                              ; preds = %.thread, %350, %351
+351:                                              ; preds = %.thread, %349, %350
   ret void
 }
 
@@ -87178,7 +87178,7 @@ jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %372, %380
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_handler(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_handler(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._ir_code_buffer, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 192
@@ -88052,7 +88052,7 @@ zend_jit_set_last_valid_opline.exit:              ; preds = %433, %zend_jit_trac
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_return(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_return(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = load i8, ptr %2, align 8
   %7 = icmp ne i8 %6, 4
   tail call void @llvm.assume(i1 %7)
@@ -88969,7 +88969,7 @@ define internal fastcc void @zend_jit_free_cv(ptr noundef nonnull %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_leave_func(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr nocapture noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
+define internal fastcc void @zend_jit_leave_func(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr noundef captures(none) %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #0 {
   %10 = zext i1 %4 to i8
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 2), align 2
   %12 = icmp eq i8 %11, 5
@@ -92109,7 +92109,7 @@ jit_set_Z_TYPE_INFO_ref.exit:                     ; preds = %147, %155
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_in_array(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @zend_jit_in_array(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i32, ptr %9, align 4
   %11 = sext i32 %10 to i64
@@ -92472,7 +92472,7 @@ jit_CONST_ADDR.exit76:                            ; preds = %178, %186
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dim_read(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i64 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i8 noundef zeroext %10) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dim_read(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i64 noundef %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, i64 noundef %9, i8 noundef zeroext %10) unnamed_addr #0 {
   %12 = alloca i64, align 8
   %13 = alloca %struct._ir_code_buffer, align 8
   %14 = alloca i64, align 8
@@ -95214,7 +95214,7 @@ jit_set_Z_TYPE_INFO.exit263:                      ; preds = %368, %377
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_obj(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef range(i32 0, 2) %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_obj(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i64 noundef %6, i1 noundef zeroext %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12, ptr noundef %13, i32 noundef range(i32 0, 2) %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca %struct._ir_code_buffer, align 8
   %18 = alloca i64, align 8
@@ -98101,7 +98101,7 @@ jit_CONST_FUNC.exit169:                           ; preds = %270, %281
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_recv(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_recv(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct._ir_code_buffer, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -98525,7 +98525,7 @@ jit_STUB_ADDR.exit:                               ; preds = %jit_FP.exit81, %218
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_recv_init(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @zend_jit_recv_init(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -98795,7 +98795,7 @@ jit_ADD_OFFSET.exit93:                            ; preds = %142, %150
   %155 = tail call i32 @_ir_CALL_2(ptr noundef nonnull %0, i32 noundef 10, i32 noundef %.0.i.i80, i32 noundef %100, i32 noundef %154) #33
   %156 = tail call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %155) #33
   tail call void @_ir_IF_TRUE_cold(ptr noundef nonnull %0, i32 noundef %156) #33
-  tail call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef nonnull %0, i64 noundef %15, i32 noundef -1073740802, i1 noundef zeroext true, ptr noundef %1)
+  tail call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef nonnull %0, i64 noundef %15, i32 noundef -1073740802, i1 noundef zeroext true, ptr noundef nonnull %1)
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %158 = load i32, ptr %157, align 4
   %.not.i = icmp eq i32 %158, 0
@@ -99895,7 +99895,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @zend_jit_may_delay_fetch_this(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @zend_jit_may_delay_fetch_this(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -100163,7 +100163,7 @@ define internal fastcc zeroext i1 @zend_jit_may_delay_fetch_this(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_this(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_this(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct._ir_code_buffer, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -100351,7 +100351,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %31, %27, %98, %99, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_switch(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_switch(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %struct._ir_code_buffer, align 8
   %8 = alloca i64, align 8
@@ -103017,7 +103017,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_fe_reset(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_jit_fe_reset(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -104599,7 +104599,7 @@ jit_ADD_OFFSET.exit523:                           ; preds = %732, %740
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_constant(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef readonly %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_constant(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(none) %3, i64 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
@@ -105837,7 +105837,7 @@ jit_CONST_ADDR.exit366:                           ; preds = %453, %461
   %.not293 = icmp eq i8 %471, 0
   %brmerge308 = or i1 %10, %.not293
   %472 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  br i1 %brmerge308, label %512, label %473
+  br i1 %brmerge308, label %511, label %473
 
 473:                                              ; preds = %468
   %474 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %472, i64 noundef ptrtoint (ptr @zend_jit_find_method_tmp_helper to i64)) #33
@@ -105860,7 +105860,7 @@ jit_CONST_ADDR.exit366:                           ; preds = %453, %461
   %487 = load i16, ptr %486, align 2
   %488 = icmp eq i16 %487, 0
   call void @llvm.assume(i1 %488)
-  br label %494
+  br label %jit_CONST_FUNC.exit369
 
 489:                                              ; preds = %473
   %490 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_find_method_tmp_helper to i64)) #33
@@ -105870,700 +105870,700 @@ jit_CONST_ADDR.exit366:                           ; preds = %453, %461
   store i32 1601, ptr %493, align 8
   store i64 %492, ptr %474, align 8
   store i32 4, ptr %475, align 8
-  br label %494
+  br label %jit_CONST_FUNC.exit369
 
-494:                                              ; preds = %489, %478
+jit_CONST_FUNC.exit369:                           ; preds = %478, %489
   %.0.i.i367 = phi i32 [ %480, %478 ], [ %490, %489 ]
-  %495 = ptrtoint ptr %34 to i64
-  %496 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %472, i64 noundef %495) #33
-  %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
-  %498 = load i8, ptr %497, align 8
-  %499 = icmp eq i8 %498, 4
-  br i1 %499, label %500, label %508
+  %494 = ptrtoint ptr %34 to i64
+  %495 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %472, i64 noundef %494) #33
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 8
+  %497 = load i8, ptr %496, align 8
+  %498 = icmp eq i8 %497, 4
+  br i1 %498, label %499, label %507
 
-500:                                              ; preds = %494
-  %501 = load i64, ptr %496, align 8
-  %502 = trunc i64 %501 to i32
-  %503 = load ptr, ptr %0, align 8
-  %sext.i371 = shl i64 %501, 32
-  %504 = ashr exact i64 %sext.i371, 28
-  %505 = getelementptr inbounds i8, ptr %503, i64 %504
-  %506 = load i16, ptr %505, align 8
-  %507 = icmp eq i16 %506, 1542
-  call void @llvm.assume(i1 %507)
+499:                                              ; preds = %jit_CONST_FUNC.exit369
+  %500 = load i64, ptr %495, align 8
+  %501 = trunc i64 %500 to i32
+  %502 = load ptr, ptr %0, align 8
+  %sext.i371 = shl i64 %500, 32
+  %503 = ashr exact i64 %sext.i371, 28
+  %504 = getelementptr inbounds i8, ptr %502, i64 %503
+  %505 = load i16, ptr %504, align 8
+  %506 = icmp eq i16 %505, 1542
+  call void @llvm.assume(i1 %506)
   br label %jit_CONST_ADDR.exit372
 
-508:                                              ; preds = %494
-  %509 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %495) #33
-  %510 = sext i32 %509 to i64
-  store i64 %510, ptr %496, align 8
-  store i32 4, ptr %497, align 8
+507:                                              ; preds = %jit_CONST_FUNC.exit369
+  %508 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %494) #33
+  %509 = sext i32 %508 to i64
+  store i64 %509, ptr %495, align 8
+  store i32 4, ptr %496, align 8
   br label %jit_CONST_ADDR.exit372
 
-jit_CONST_ADDR.exit372:                           ; preds = %500, %508
-  %.0.i370 = phi i32 [ %502, %500 ], [ %509, %508 ]
-  %511 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i367, i32 noundef %.1270, i32 noundef %.0.i370, i32 noundef %.0276) #33
-  br label %551
+jit_CONST_ADDR.exit372:                           ; preds = %499, %507
+  %.0.i370 = phi i32 [ %501, %499 ], [ %508, %507 ]
+  %510 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i367, i32 noundef %.1270, i32 noundef %.0.i370, i32 noundef %.0276) #33
+  br label %549
 
-512:                                              ; preds = %468
-  %513 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %472, i64 noundef ptrtoint (ptr @zend_jit_find_method_helper to i64)) #33
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 8
-  %515 = load i8, ptr %514, align 8
-  %516 = icmp eq i8 %515, 4
-  br i1 %516, label %517, label %528
+511:                                              ; preds = %468
+  %512 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %472, i64 noundef ptrtoint (ptr @zend_jit_find_method_helper to i64)) #33
+  %513 = getelementptr inbounds nuw i8, ptr %512, i64 8
+  %514 = load i8, ptr %513, align 8
+  %515 = icmp eq i8 %514, 4
+  br i1 %515, label %516, label %527
 
-517:                                              ; preds = %512
-  %518 = load i64, ptr %513, align 8
-  %519 = trunc i64 %518 to i32
-  %520 = load ptr, ptr %0, align 8
-  %sext.i.i374 = shl i64 %518, 32
-  %521 = ashr exact i64 %sext.i.i374, 28
-  %522 = getelementptr inbounds i8, ptr %520, i64 %521
-  %523 = load i16, ptr %522, align 8
-  %524 = icmp eq i16 %523, 1601
-  call void @llvm.assume(i1 %524)
-  %525 = getelementptr inbounds nuw i8, ptr %522, i64 2
-  %526 = load i16, ptr %525, align 2
-  %527 = icmp eq i16 %526, 0
-  call void @llvm.assume(i1 %527)
-  br label %533
+516:                                              ; preds = %511
+  %517 = load i64, ptr %512, align 8
+  %518 = trunc i64 %517 to i32
+  %519 = load ptr, ptr %0, align 8
+  %sext.i.i374 = shl i64 %517, 32
+  %520 = ashr exact i64 %sext.i.i374, 28
+  %521 = getelementptr inbounds i8, ptr %519, i64 %520
+  %522 = load i16, ptr %521, align 8
+  %523 = icmp eq i16 %522, 1601
+  call void @llvm.assume(i1 %523)
+  %524 = getelementptr inbounds nuw i8, ptr %521, i64 2
+  %525 = load i16, ptr %524, align 2
+  %526 = icmp eq i16 %525, 0
+  call void @llvm.assume(i1 %526)
+  br label %jit_CONST_FUNC.exit375
 
-528:                                              ; preds = %512
-  %529 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_find_method_helper to i64)) #33
-  %530 = load ptr, ptr %0, align 8
-  %531 = sext i32 %529 to i64
-  %532 = getelementptr inbounds %struct._ir_insn, ptr %530, i64 %531
-  store i32 1601, ptr %532, align 8
-  store i64 %531, ptr %513, align 8
-  store i32 4, ptr %514, align 8
-  br label %533
+527:                                              ; preds = %511
+  %528 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_find_method_helper to i64)) #33
+  %529 = load ptr, ptr %0, align 8
+  %530 = sext i32 %528 to i64
+  %531 = getelementptr inbounds %struct._ir_insn, ptr %529, i64 %530
+  store i32 1601, ptr %531, align 8
+  store i64 %530, ptr %512, align 8
+  store i32 4, ptr %513, align 8
+  br label %jit_CONST_FUNC.exit375
 
-533:                                              ; preds = %528, %517
-  %.0.i.i373 = phi i32 [ %519, %517 ], [ %529, %528 ]
-  %534 = ptrtoint ptr %34 to i64
-  %535 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %472, i64 noundef %534) #33
-  %536 = getelementptr inbounds nuw i8, ptr %535, i64 8
-  %537 = load i8, ptr %536, align 8
-  %538 = icmp eq i8 %537, 4
-  br i1 %538, label %539, label %547
+jit_CONST_FUNC.exit375:                           ; preds = %516, %527
+  %.0.i.i373 = phi i32 [ %518, %516 ], [ %528, %527 ]
+  %532 = ptrtoint ptr %34 to i64
+  %533 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %472, i64 noundef %532) #33
+  %534 = getelementptr inbounds nuw i8, ptr %533, i64 8
+  %535 = load i8, ptr %534, align 8
+  %536 = icmp eq i8 %535, 4
+  br i1 %536, label %537, label %545
 
-539:                                              ; preds = %533
-  %540 = load i64, ptr %535, align 8
-  %541 = trunc i64 %540 to i32
-  %542 = load ptr, ptr %0, align 8
-  %sext.i377 = shl i64 %540, 32
-  %543 = ashr exact i64 %sext.i377, 28
-  %544 = getelementptr inbounds i8, ptr %542, i64 %543
-  %545 = load i16, ptr %544, align 8
-  %546 = icmp eq i16 %545, 1542
-  call void @llvm.assume(i1 %546)
+537:                                              ; preds = %jit_CONST_FUNC.exit375
+  %538 = load i64, ptr %533, align 8
+  %539 = trunc i64 %538 to i32
+  %540 = load ptr, ptr %0, align 8
+  %sext.i377 = shl i64 %538, 32
+  %541 = ashr exact i64 %sext.i377, 28
+  %542 = getelementptr inbounds i8, ptr %540, i64 %541
+  %543 = load i16, ptr %542, align 8
+  %544 = icmp eq i16 %543, 1542
+  call void @llvm.assume(i1 %544)
   br label %jit_CONST_ADDR.exit378
 
-547:                                              ; preds = %533
-  %548 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %534) #33
-  %549 = sext i32 %548 to i64
-  store i64 %549, ptr %535, align 8
-  store i32 4, ptr %536, align 8
+545:                                              ; preds = %jit_CONST_FUNC.exit375
+  %546 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %532) #33
+  %547 = sext i32 %546 to i64
+  store i64 %547, ptr %533, align 8
+  store i32 4, ptr %534, align 8
   br label %jit_CONST_ADDR.exit378
 
-jit_CONST_ADDR.exit378:                           ; preds = %539, %547
-  %.0.i376 = phi i32 [ %541, %539 ], [ %548, %547 ]
-  %550 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i373, i32 noundef %.1270, i32 noundef %.0.i376, i32 noundef %.0276) #33
-  br label %551
+jit_CONST_ADDR.exit378:                           ; preds = %537, %545
+  %.0.i376 = phi i32 [ %539, %537 ], [ %546, %545 ]
+  %548 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i373, i32 noundef %.1270, i32 noundef %.0.i376, i32 noundef %.0276) #33
+  br label %549
 
-551:                                              ; preds = %jit_CONST_ADDR.exit378, %jit_CONST_ADDR.exit372
-  %.0273 = phi i32 [ %550, %jit_CONST_ADDR.exit378 ], [ %511, %jit_CONST_ADDR.exit372 ]
-  %552 = call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 4) #33
-  %553 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %552) #33
-  %554 = load i32, ptr %445, align 8
-  %.not294 = icmp eq i32 %554, 0
-  br i1 %.not294, label %555, label %572
+549:                                              ; preds = %jit_CONST_ADDR.exit378, %jit_CONST_ADDR.exit372
+  %.0273 = phi i32 [ %548, %jit_CONST_ADDR.exit378 ], [ %510, %jit_CONST_ADDR.exit372 ]
+  %550 = call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 4) #33
+  %551 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %550) #33
+  %552 = load i32, ptr %445, align 8
+  %.not294 = icmp eq i32 %552, 0
+  br i1 %.not294, label %553, label %570
 
-555:                                              ; preds = %551
-  %556 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %557 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %556, i64 noundef 16) #33
-  %558 = getelementptr inbounds nuw i8, ptr %557, i64 8
-  %559 = load i8, ptr %558, align 8
-  %560 = icmp eq i8 %559, 4
-  br i1 %560, label %561, label %569
+553:                                              ; preds = %549
+  %554 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %555 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %554, i64 noundef 16) #33
+  %556 = getelementptr inbounds nuw i8, ptr %555, i64 8
+  %557 = load i8, ptr %556, align 8
+  %558 = icmp eq i8 %557, 4
+  br i1 %558, label %559, label %567
 
-561:                                              ; preds = %555
-  %562 = load i64, ptr %557, align 8
-  %563 = trunc i64 %562 to i32
-  %564 = load ptr, ptr %0, align 8
-  %sext.i380 = shl i64 %562, 32
-  %565 = ashr exact i64 %sext.i380, 28
-  %566 = getelementptr inbounds i8, ptr %564, i64 %565
-  %567 = load i16, ptr %566, align 8
-  %568 = icmp eq i16 %567, 1542
-  call void @llvm.assume(i1 %568)
+559:                                              ; preds = %553
+  %560 = load i64, ptr %555, align 8
+  %561 = trunc i64 %560 to i32
+  %562 = load ptr, ptr %0, align 8
+  %sext.i380 = shl i64 %560, 32
+  %563 = ashr exact i64 %sext.i380, 28
+  %564 = getelementptr inbounds i8, ptr %562, i64 %563
+  %565 = load i16, ptr %564, align 8
+  %566 = icmp eq i16 %565, 1542
+  call void @llvm.assume(i1 %566)
   br label %jit_CONST_ADDR.exit381
 
-569:                                              ; preds = %555
-  %570 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 16) #33
-  %571 = sext i32 %570 to i64
-  store i64 %571, ptr %557, align 8
-  store i32 4, ptr %558, align 8
+567:                                              ; preds = %553
+  %568 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 16) #33
+  %569 = sext i32 %568 to i64
+  store i64 %569, ptr %555, align 8
+  store i32 4, ptr %556, align 8
   br label %jit_CONST_ADDR.exit381
 
-jit_CONST_ADDR.exit381:                           ; preds = %561, %569
-  %.0.i379 = phi i32 [ %563, %561 ], [ %570, %569 ]
+jit_CONST_ADDR.exit381:                           ; preds = %559, %567
+  %.0.i379 = phi i32 [ %561, %559 ], [ %568, %567 ]
   call void @_ir_AFREE(ptr noundef nonnull %0, i32 noundef %.0.i379) #33
-  br label %572
+  br label %570
 
-572:                                              ; preds = %jit_CONST_ADDR.exit381, %551
-  %573 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %574 = load i32, ptr %573, align 4
-  %.not.i382 = icmp eq i32 %574, 0
-  br i1 %.not.i382, label %575, label %jit_STUB_ADDR.exit384
+570:                                              ; preds = %jit_CONST_ADDR.exit381, %549
+  %571 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %572 = load i32, ptr %571, align 4
+  %.not.i382 = icmp eq i32 %572, 0
+  br i1 %.not.i382, label %573, label %jit_STUB_ADDR.exit384
 
-575:                                              ; preds = %572
-  %576 = load ptr, ptr @zend_jit_stub_handlers, align 16
-  %577 = ptrtoint ptr %576 to i64
-  %578 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %577) #33
-  store i32 %578, ptr %573, align 4
+573:                                              ; preds = %570
+  %574 = load ptr, ptr @zend_jit_stub_handlers, align 16
+  %575 = ptrtoint ptr %574 to i64
+  %576 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %575) #33
+  store i32 %576, ptr %571, align 4
   br label %jit_STUB_ADDR.exit384
 
-jit_STUB_ADDR.exit384:                            ; preds = %572, %575
-  %.0.i383 = phi i32 [ %578, %575 ], [ %574, %572 ]
+jit_STUB_ADDR.exit384:                            ; preds = %570, %573
+  %.0.i383 = phi i32 [ %576, %573 ], [ %572, %570 ]
   call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %.0273, i32 noundef %.0.i383) #33
-  %579 = call i32 @_ir_END(ptr noundef nonnull %0) #33
-  call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %579, i32 noundef %444) #33
-  %580 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0273, i32 noundef %.0272) #33
-  %581 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %553, i32 noundef %.1270) #33
+  %577 = call i32 @_ir_END(ptr noundef nonnull %0) #33
+  call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %577, i32 noundef %444) #33
+  %578 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0273, i32 noundef %.0272) #33
+  %579 = call i32 @_ir_PHI_2(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %551, i32 noundef %.1270) #33
   br label %zend_jit_deopt_rload.exit316
 
 zend_jit_deopt_rload.exit316:                     ; preds = %83, %78, %jit_STUB_ADDR.exit384
-  %.0271 = phi i32 [ %580, %jit_STUB_ADDR.exit384 ], [ %.0.i, %78 ], [ %.0.i, %83 ]
-  %.0269 = phi i32 [ %581, %jit_STUB_ADDR.exit384 ], [ %.014.i313, %78 ], [ %84, %83 ]
+  %.0271 = phi i32 [ %578, %jit_STUB_ADDR.exit384 ], [ %.0.i, %78 ], [ %.0.i, %83 ]
+  %.0269 = phi i32 [ %579, %jit_STUB_ADDR.exit384 ], [ %.014.i313, %78 ], [ %84, %83 ]
   %.not295 = icmp eq ptr %.0265, null
-  br i1 %.not295, label %598, label %582
+  br i1 %.not295, label %596, label %580
 
-582:                                              ; preds = %zend_jit_deopt_rload.exit316
-  %583 = load i8, ptr %.0265, align 8
-  switch i8 %583, label %zend_jit_may_be_modified.exit [
+580:                                              ; preds = %zend_jit_deopt_rload.exit316
+  %581 = load i8, ptr %.0265, align 8
+  switch i8 %581, label %zend_jit_may_be_modified.exit [
     i8 1, label %zend_jit_may_be_modified.exit.thread
-    i8 2, label %584
+    i8 2, label %582
   ]
 
-584:                                              ; preds = %582
-  %585 = getelementptr inbounds nuw i8, ptr %.0265, i64 4
-  %586 = load i32, ptr %585, align 4
-  %587 = and i32 %586, 1024
-  %.not.i385 = icmp eq i32 %587, 0
-  br i1 %.not.i385, label %588, label %zend_jit_may_be_modified.exit.thread
+582:                                              ; preds = %580
+  %583 = getelementptr inbounds nuw i8, ptr %.0265, i64 4
+  %584 = load i32, ptr %583, align 4
+  %585 = and i32 %584, 1024
+  %.not.i385 = icmp eq i32 %585, 0
+  br i1 %.not.i385, label %586, label %zend_jit_may_be_modified.exit.thread
 
-588:                                              ; preds = %584
-  %589 = getelementptr inbounds nuw i8, ptr %.0265, i64 152
+586:                                              ; preds = %582
+  %587 = getelementptr inbounds nuw i8, ptr %.0265, i64 152
+  %588 = load ptr, ptr %587, align 8
+  %589 = getelementptr inbounds nuw i8, ptr %3, i64 152
   %590 = load ptr, ptr %589, align 8
-  %591 = getelementptr inbounds nuw i8, ptr %3, i64 152
-  %592 = load ptr, ptr %591, align 8
-  %593 = icmp eq ptr %590, %592
-  br i1 %593, label %594, label %zend_jit_may_be_modified.exit
+  %591 = icmp eq ptr %588, %590
+  br i1 %591, label %592, label %zend_jit_may_be_modified.exit
 
-594:                                              ; preds = %588
-  %595 = getelementptr inbounds nuw i8, ptr %.0265, i64 16
-  %596 = load ptr, ptr %595, align 8
-  %.not8.i = icmp ne ptr %596, null
-  %597 = icmp ne ptr %11, null
-  %or.cond54 = and i1 %597, %.not8.i
-  br i1 %or.cond54, label %599, label %zend_jit_may_be_modified.exit.thread
+592:                                              ; preds = %586
+  %593 = getelementptr inbounds nuw i8, ptr %.0265, i64 16
+  %594 = load ptr, ptr %593, align 8
+  %.not8.i = icmp ne ptr %594, null
+  %595 = icmp ne ptr %11, null
+  %or.cond54 = and i1 %595, %.not8.i
+  br i1 %or.cond54, label %597, label %zend_jit_may_be_modified.exit.thread
 
-zend_jit_may_be_modified.exit:                    ; preds = %582, %588
+zend_jit_may_be_modified.exit:                    ; preds = %580, %586
   %.old.not = icmp eq ptr %11, null
-  br i1 %.old.not, label %zend_jit_may_be_modified.exit.thread, label %599
+  br i1 %.old.not, label %zend_jit_may_be_modified.exit.thread, label %597
 
-598:                                              ; preds = %zend_jit_deopt_rload.exit316
+596:                                              ; preds = %zend_jit_deopt_rload.exit316
   %.old1.not = icmp eq ptr %11, null
-  br i1 %.old1.not, label %.thread11, label %599
+  br i1 %.old1.not, label %.thread11, label %597
 
-599:                                              ; preds = %594, %zend_jit_may_be_modified.exit, %598
-  %600 = load i8, ptr %11, align 8
-  %601 = icmp eq i8 %600, 4
-  br i1 %601, label %602, label %759
+597:                                              ; preds = %592, %zend_jit_may_be_modified.exit, %596
+  %598 = load i8, ptr %11, align 8
+  %599 = icmp eq i8 %598, 4
+  br i1 %599, label %600, label %757
 
-602:                                              ; preds = %599
-  %603 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %604 = load ptr, ptr %603, align 8
-  %.not296 = icmp eq ptr %604, null
-  br i1 %.not296, label %759, label %605
+600:                                              ; preds = %597
+  %601 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %602 = load ptr, ptr %601, align 8
+  %.not296 = icmp eq ptr %602, null
+  br i1 %.not296, label %757, label %603
 
-605:                                              ; preds = %602
-  %606 = select i1 %.not295, i32 512, i32 1024
-  %607 = call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %1, i32 noundef %606)
-  %608 = load ptr, ptr @zend_jit_traces, align 8
-  %609 = getelementptr inbounds nuw i8, ptr %608, i64 16
-  %610 = load i32, ptr %609, align 8
-  %.not.i387 = icmp ult i32 %607, %610
-  br i1 %.not.i387, label %635, label %611
+603:                                              ; preds = %600
+  %604 = select i1 %.not295, i32 512, i32 1024
+  %605 = call fastcc i32 @zend_jit_trace_get_exit_point(ptr noundef %1, i32 noundef %604)
+  %606 = load ptr, ptr @zend_jit_traces, align 8
+  %607 = getelementptr inbounds nuw i8, ptr %606, i64 16
+  %608 = load i32, ptr %607, align 8
+  %.not.i387 = icmp ult i32 %605, %608
+  br i1 %.not.i387, label %633, label %609
 
-611:                                              ; preds = %605
-  %612 = icmp ugt i32 %607, 511
-  br i1 %612, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i388
+609:                                              ; preds = %603
+  %610 = icmp ugt i32 %605, 511
+  br i1 %610, label %zend_jit_trace_get_exit_addr.exit.thread, label %.preheader.i.i388
 
-.preheader.i.i388:                                ; preds = %611
-  %613 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %614 = getelementptr inbounds nuw i8, ptr %18, i64 16
+.preheader.i.i388:                                ; preds = %609
+  %611 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %612 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %.pre12.i.i389 = load ptr, ptr @dasm_ptr, align 8
-  br label %615
+  br label %613
 
-615:                                              ; preds = %625, %.preheader.i.i388
-  %616 = phi ptr [ %.pre12.i.i389, %.preheader.i.i388 ], [ %624, %625 ]
-  %617 = phi i32 [ %610, %.preheader.i.i388 ], [ %634, %625 ]
+613:                                              ; preds = %623, %.preheader.i.i388
+  %614 = phi ptr [ %.pre12.i.i389, %.preheader.i.i388 ], [ %622, %623 ]
+  %615 = phi i32 [ %608, %.preheader.i.i388 ], [ %632, %623 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
-  %618 = load ptr, ptr @dasm_buf, align 8
-  store ptr %618, ptr %18, align 8
-  %619 = load ptr, ptr @dasm_end, align 8
-  store ptr %619, ptr %613, align 8
-  %620 = load ptr, ptr %616, align 8
-  store ptr %620, ptr %614, align 8
-  %621 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zend_jit_stub_handlers, i64 176), align 16
-  %622 = call ptr @ir_emit_exitgroup(i32 noundef %617, i32 noundef 32, ptr noundef %621, ptr noundef nonnull %18, ptr noundef nonnull %17) #33
-  %623 = load ptr, ptr %614, align 8
-  %624 = load ptr, ptr @dasm_ptr, align 8
-  store ptr %623, ptr %624, align 8
+  %616 = load ptr, ptr @dasm_buf, align 8
+  store ptr %616, ptr %18, align 8
+  %617 = load ptr, ptr @dasm_end, align 8
+  store ptr %617, ptr %611, align 8
+  %618 = load ptr, ptr %614, align 8
+  store ptr %618, ptr %612, align 8
+  %619 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @zend_jit_stub_handlers, i64 176), align 16
+  %620 = call ptr @ir_emit_exitgroup(i32 noundef %615, i32 noundef 32, ptr noundef %619, ptr noundef nonnull %18, ptr noundef nonnull %17) #33
+  %621 = load ptr, ptr %612, align 8
+  %622 = load ptr, ptr @dasm_ptr, align 8
+  store ptr %621, ptr %622, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
-  %.not.i.i390 = icmp eq ptr %622, null
-  br i1 %.not.i.i390, label %zend_jit_trace_get_exit_addr.exit.thread, label %625
+  %.not.i.i390 = icmp eq ptr %620, null
+  br i1 %.not.i.i390, label %zend_jit_trace_get_exit_addr.exit.thread, label %623
 
-625:                                              ; preds = %615
-  %626 = load ptr, ptr @zend_jit_exit_groups, align 8
-  %627 = load ptr, ptr @zend_jit_traces, align 8
-  %628 = getelementptr inbounds nuw i8, ptr %627, i64 16
-  %629 = load i32, ptr %628, align 8
-  %630 = lshr i32 %629, 5
-  %631 = zext nneg i32 %630 to i64
-  %632 = getelementptr inbounds nuw ptr, ptr %626, i64 %631
-  store ptr %622, ptr %632, align 8
-  %633 = load i32, ptr %628, align 8
-  %634 = add i32 %633, 32
-  store i32 %634, ptr %628, align 8
-  %.not8.i.i391 = icmp ult i32 %607, %634
-  br i1 %.not8.i.i391, label %zend_jit_trace_get_exit_addr.exit393, label %615
+623:                                              ; preds = %613
+  %624 = load ptr, ptr @zend_jit_exit_groups, align 8
+  %625 = load ptr, ptr @zend_jit_traces, align 8
+  %626 = getelementptr inbounds nuw i8, ptr %625, i64 16
+  %627 = load i32, ptr %626, align 8
+  %628 = lshr i32 %627, 5
+  %629 = zext nneg i32 %628 to i64
+  %630 = getelementptr inbounds nuw ptr, ptr %624, i64 %629
+  store ptr %620, ptr %630, align 8
+  %631 = load i32, ptr %626, align 8
+  %632 = add i32 %631, 32
+  store i32 %632, ptr %626, align 8
+  %.not8.i.i391 = icmp ult i32 %605, %632
+  br i1 %.not8.i.i391, label %zend_jit_trace_get_exit_addr.exit393, label %613
 
-635:                                              ; preds = %605
-  %636 = load ptr, ptr @zend_jit_exit_groups, align 8
-  %637 = lshr i32 %607, 5
-  %638 = zext nneg i32 %637 to i64
-  %639 = getelementptr inbounds nuw ptr, ptr %636, i64 %638
-  %640 = load ptr, ptr %639, align 8
+633:                                              ; preds = %603
+  %634 = load ptr, ptr @zend_jit_exit_groups, align 8
+  %635 = lshr i32 %605, 5
+  %636 = zext nneg i32 %635 to i64
+  %637 = getelementptr inbounds nuw ptr, ptr %634, i64 %636
+  %638 = load ptr, ptr %637, align 8
   br label %zend_jit_trace_get_exit_addr.exit393
 
-zend_jit_trace_get_exit_addr.exit393:             ; preds = %625, %635
-  %.lcssa85.sink = phi ptr [ %640, %635 ], [ %622, %625 ]
-  %641 = shl i32 %607, 2
-  %642 = and i32 %641, 124
-  %643 = zext nneg i32 %642 to i64
-  %644 = getelementptr inbounds nuw i8, ptr %.lcssa85.sink, i64 %643
+zend_jit_trace_get_exit_addr.exit393:             ; preds = %623, %633
+  %.lcssa85.sink = phi ptr [ %638, %633 ], [ %620, %623 ]
+  %639 = shl i32 %605, 2
+  %640 = and i32 %639, 124
+  %641 = zext nneg i32 %640 to i64
+  %642 = getelementptr inbounds nuw i8, ptr %.lcssa85.sink, i64 %641
   %.not297 = icmp eq ptr %.lcssa85.sink, null
-  br i1 %.not297, label %zend_jit_trace_get_exit_addr.exit.thread, label %645
+  br i1 %.not297, label %zend_jit_trace_get_exit_addr.exit.thread, label %643
 
-645:                                              ; preds = %zend_jit_trace_get_exit_addr.exit393
-  %646 = getelementptr inbounds nuw i8, ptr %0, i64 768
+643:                                              ; preds = %zend_jit_trace_get_exit_addr.exit393
+  %644 = getelementptr inbounds nuw i8, ptr %0, i64 768
+  %645 = load ptr, ptr %644, align 8
+  %646 = getelementptr inbounds nuw i8, ptr %645, i64 72
   %647 = load ptr, ptr %646, align 8
-  %648 = getelementptr inbounds nuw i8, ptr %647, i64 72
-  %649 = load ptr, ptr %648, align 8
-  %650 = sext i32 %607 to i64
-  %651 = getelementptr inbounds %struct._zend_jit_trace_exit_info, ptr %649, i64 %650, i32 5
-  store i32 %.0271, ptr %651, align 4
-  %652 = load ptr, ptr %646, align 8
-  %653 = getelementptr inbounds nuw i8, ptr %652, i64 72
-  %654 = load ptr, ptr %653, align 8
-  %655 = getelementptr inbounds %struct._zend_jit_trace_exit_info, ptr %654, i64 %650, i32 6
-  store i32 %.0269, ptr %655, align 8
-  %656 = load ptr, ptr %603, align 8
-  %657 = load i8, ptr %656, align 8
-  %658 = icmp eq i8 %657, 2
-  br i1 %658, label %659, label %723
+  %648 = sext i32 %605 to i64
+  %649 = getelementptr inbounds %struct._zend_jit_trace_exit_info, ptr %647, i64 %648, i32 5
+  store i32 %.0271, ptr %649, align 4
+  %650 = load ptr, ptr %644, align 8
+  %651 = getelementptr inbounds nuw i8, ptr %650, i64 72
+  %652 = load ptr, ptr %651, align 8
+  %653 = getelementptr inbounds %struct._zend_jit_trace_exit_info, ptr %652, i64 %648, i32 6
+  store i32 %.0269, ptr %653, align 8
+  %654 = load ptr, ptr %601, align 8
+  %655 = load i8, ptr %654, align 8
+  %656 = icmp eq i8 %655, 2
+  br i1 %656, label %657, label %721
 
-659:                                              ; preds = %645
-  %660 = getelementptr inbounds nuw i8, ptr %656, i64 4
-  %661 = load i32, ptr %660, align 4
-  %662 = and i32 %661, 4194432
-  %or.cond309 = icmp eq i32 %662, 128
-  br i1 %or.cond309, label %663, label %666
+657:                                              ; preds = %643
+  %658 = getelementptr inbounds nuw i8, ptr %654, i64 4
+  %659 = load i32, ptr %658, align 4
+  %660 = and i32 %659, 4194432
+  %or.cond309 = icmp eq i32 %660, 128
+  br i1 %or.cond309, label %661, label %664
 
-663:                                              ; preds = %659
-  %664 = getelementptr inbounds nuw i8, ptr %656, i64 8
-  %665 = load ptr, ptr %664, align 8
-  %.not300 = icmp eq ptr %665, null
-  br i1 %.not300, label %666, label %723
+661:                                              ; preds = %657
+  %662 = getelementptr inbounds nuw i8, ptr %654, i64 8
+  %663 = load ptr, ptr %662, align 8
+  %.not300 = icmp eq ptr %663, null
+  br i1 %.not300, label %664, label %721
 
-666:                                              ; preds = %663, %659
-  %667 = getelementptr inbounds nuw i8, ptr %656, i64 88
-  %668 = load ptr, ptr %667, align 8
-  %669 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %670 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %669, i64 noundef 88) #33
-  %671 = getelementptr inbounds nuw i8, ptr %670, i64 8
-  %672 = load i8, ptr %671, align 8
-  %673 = icmp eq i8 %672, 4
-  br i1 %673, label %674, label %682
+664:                                              ; preds = %661, %657
+  %665 = getelementptr inbounds nuw i8, ptr %654, i64 88
+  %666 = load ptr, ptr %665, align 8
+  %667 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %668 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %667, i64 noundef 88) #33
+  %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
+  %670 = load i8, ptr %669, align 8
+  %671 = icmp eq i8 %670, 4
+  br i1 %671, label %672, label %680
 
-674:                                              ; preds = %666
-  %675 = load i64, ptr %670, align 8
-  %676 = trunc i64 %675 to i32
-  %677 = load ptr, ptr %0, align 8
-  %sext.i.i397 = shl i64 %675, 32
-  %678 = ashr exact i64 %sext.i.i397, 28
-  %679 = getelementptr inbounds i8, ptr %677, i64 %678
-  %680 = load i16, ptr %679, align 8
-  %681 = icmp eq i16 %680, 1542
-  call void @llvm.assume(i1 %681)
+672:                                              ; preds = %664
+  %673 = load i64, ptr %668, align 8
+  %674 = trunc i64 %673 to i32
+  %675 = load ptr, ptr %0, align 8
+  %sext.i.i397 = shl i64 %673, 32
+  %676 = ashr exact i64 %sext.i.i397, 28
+  %677 = getelementptr inbounds i8, ptr %675, i64 %676
+  %678 = load i16, ptr %677, align 8
+  %679 = icmp eq i16 %678, 1542
+  call void @llvm.assume(i1 %679)
   br label %jit_ADD_OFFSET.exit398
 
-682:                                              ; preds = %666
-  %683 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 88) #33
-  %684 = sext i32 %683 to i64
-  store i64 %684, ptr %670, align 8
-  store i32 4, ptr %671, align 8
+680:                                              ; preds = %664
+  %681 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 88) #33
+  %682 = sext i32 %681 to i64
+  store i64 %682, ptr %668, align 8
+  store i32 4, ptr %669, align 8
   br label %jit_ADD_OFFSET.exit398
 
-jit_ADD_OFFSET.exit398:                           ; preds = %674, %682
-  %.0.i.i395 = phi i32 [ %676, %674 ], [ %683, %682 ]
-  %685 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %.0271, i32 noundef %.0.i.i395) #33
-  %686 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %685) #33
-  %687 = ptrtoint ptr %668 to i64
-  %688 = icmp eq ptr %668, null
-  br i1 %688, label %705, label %689
+jit_ADD_OFFSET.exit398:                           ; preds = %672, %680
+  %.0.i.i395 = phi i32 [ %674, %672 ], [ %681, %680 ]
+  %683 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %.0271, i32 noundef %.0.i.i395) #33
+  %684 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %683) #33
+  %685 = ptrtoint ptr %666 to i64
+  %686 = icmp eq ptr %666, null
+  br i1 %686, label %703, label %687
 
-689:                                              ; preds = %jit_ADD_OFFSET.exit398
-  %690 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %669, i64 noundef %687) #33
-  %691 = getelementptr inbounds nuw i8, ptr %690, i64 8
-  %692 = load i8, ptr %691, align 8
-  %693 = icmp eq i8 %692, 4
-  br i1 %693, label %694, label %702
+687:                                              ; preds = %jit_ADD_OFFSET.exit398
+  %688 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %667, i64 noundef %685) #33
+  %689 = getelementptr inbounds nuw i8, ptr %688, i64 8
+  %690 = load i8, ptr %689, align 8
+  %691 = icmp eq i8 %690, 4
+  br i1 %691, label %692, label %700
 
-694:                                              ; preds = %689
-  %695 = load i64, ptr %690, align 8
-  %696 = trunc i64 %695 to i32
-  %697 = load ptr, ptr %0, align 8
-  %sext.i400 = shl i64 %695, 32
-  %698 = ashr exact i64 %sext.i400, 28
-  %699 = getelementptr inbounds i8, ptr %697, i64 %698
-  %700 = load i16, ptr %699, align 8
-  %701 = icmp eq i16 %700, 1542
-  call void @llvm.assume(i1 %701)
-  br label %705
+692:                                              ; preds = %687
+  %693 = load i64, ptr %688, align 8
+  %694 = trunc i64 %693 to i32
+  %695 = load ptr, ptr %0, align 8
+  %sext.i400 = shl i64 %693, 32
+  %696 = ashr exact i64 %sext.i400, 28
+  %697 = getelementptr inbounds i8, ptr %695, i64 %696
+  %698 = load i16, ptr %697, align 8
+  %699 = icmp eq i16 %698, 1542
+  call void @llvm.assume(i1 %699)
+  br label %703
 
-702:                                              ; preds = %689
-  %703 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %687) #33
-  %704 = sext i32 %703 to i64
-  store i64 %704, ptr %690, align 8
-  store i32 4, ptr %691, align 8
-  br label %705
+700:                                              ; preds = %687
+  %701 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %685) #33
+  %702 = sext i32 %701 to i64
+  store i64 %702, ptr %688, align 8
+  store i32 4, ptr %689, align 8
+  br label %703
 
-705:                                              ; preds = %702, %694, %jit_ADD_OFFSET.exit398
-  %.0.i399 = phi i32 [ -1, %jit_ADD_OFFSET.exit398 ], [ %696, %694 ], [ %703, %702 ]
-  %706 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %686, i32 noundef %.0.i399) #33
-  %707 = ptrtoint ptr %644 to i64
-  %708 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %669, i64 noundef %707) #33
-  %709 = getelementptr inbounds nuw i8, ptr %708, i64 8
-  %710 = load i8, ptr %709, align 8
-  %711 = icmp eq i8 %710, 4
-  br i1 %711, label %712, label %720
+703:                                              ; preds = %700, %692, %jit_ADD_OFFSET.exit398
+  %.0.i399 = phi i32 [ -1, %jit_ADD_OFFSET.exit398 ], [ %694, %692 ], [ %701, %700 ]
+  %704 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %684, i32 noundef %.0.i399) #33
+  %705 = ptrtoint ptr %642 to i64
+  %706 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %667, i64 noundef %705) #33
+  %707 = getelementptr inbounds nuw i8, ptr %706, i64 8
+  %708 = load i8, ptr %707, align 8
+  %709 = icmp eq i8 %708, 4
+  br i1 %709, label %710, label %718
 
-712:                                              ; preds = %705
-  %713 = load i64, ptr %708, align 8
-  %714 = trunc i64 %713 to i32
-  %715 = load ptr, ptr %0, align 8
-  %sext.i403 = shl i64 %713, 32
-  %716 = ashr exact i64 %sext.i403, 28
-  %717 = getelementptr inbounds i8, ptr %715, i64 %716
-  %718 = load i16, ptr %717, align 8
-  %719 = icmp eq i16 %718, 1542
-  call void @llvm.assume(i1 %719)
+710:                                              ; preds = %703
+  %711 = load i64, ptr %706, align 8
+  %712 = trunc i64 %711 to i32
+  %713 = load ptr, ptr %0, align 8
+  %sext.i403 = shl i64 %711, 32
+  %714 = ashr exact i64 %sext.i403, 28
+  %715 = getelementptr inbounds i8, ptr %713, i64 %714
+  %716 = load i16, ptr %715, align 8
+  %717 = icmp eq i16 %716, 1542
+  call void @llvm.assume(i1 %717)
   br label %jit_CONST_ADDR.exit404
 
-720:                                              ; preds = %705
-  %721 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %707) #33
-  %722 = sext i32 %721 to i64
-  store i64 %722, ptr %708, align 8
-  store i32 4, ptr %709, align 8
+718:                                              ; preds = %703
+  %719 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %705) #33
+  %720 = sext i32 %719 to i64
+  store i64 %720, ptr %706, align 8
+  store i32 4, ptr %707, align 8
   br label %jit_CONST_ADDR.exit404
 
-jit_CONST_ADDR.exit404:                           ; preds = %712, %720
-  %.0.i402 = phi i32 [ %714, %712 ], [ %721, %720 ]
-  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %706, i32 noundef %.0.i402) #33
+jit_CONST_ADDR.exit404:                           ; preds = %710, %718
+  %.0.i402 = phi i32 [ %712, %710 ], [ %719, %718 ]
+  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %704, i32 noundef %.0.i402) #33
   br label %zend_jit_may_be_modified.exit.thread
 
-723:                                              ; preds = %645, %663
-  %724 = ptrtoint ptr %656 to i64
-  %725 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %726 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %725, i64 noundef %724) #33
-  %727 = getelementptr inbounds nuw i8, ptr %726, i64 8
-  %728 = load i8, ptr %727, align 8
-  %729 = icmp eq i8 %728, 4
-  br i1 %729, label %730, label %738
+721:                                              ; preds = %643, %661
+  %722 = ptrtoint ptr %654 to i64
+  %723 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %724 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %723, i64 noundef %722) #33
+  %725 = getelementptr inbounds nuw i8, ptr %724, i64 8
+  %726 = load i8, ptr %725, align 8
+  %727 = icmp eq i8 %726, 4
+  br i1 %727, label %728, label %736
 
-730:                                              ; preds = %723
-  %731 = load i64, ptr %726, align 8
-  %732 = trunc i64 %731 to i32
-  %733 = load ptr, ptr %0, align 8
-  %sext.i406 = shl i64 %731, 32
-  %734 = ashr exact i64 %sext.i406, 28
-  %735 = getelementptr inbounds i8, ptr %733, i64 %734
-  %736 = load i16, ptr %735, align 8
-  %737 = icmp eq i16 %736, 1542
-  call void @llvm.assume(i1 %737)
-  br label %741
+728:                                              ; preds = %721
+  %729 = load i64, ptr %724, align 8
+  %730 = trunc i64 %729 to i32
+  %731 = load ptr, ptr %0, align 8
+  %sext.i406 = shl i64 %729, 32
+  %732 = ashr exact i64 %sext.i406, 28
+  %733 = getelementptr inbounds i8, ptr %731, i64 %732
+  %734 = load i16, ptr %733, align 8
+  %735 = icmp eq i16 %734, 1542
+  call void @llvm.assume(i1 %735)
+  br label %739
 
-738:                                              ; preds = %723
-  %739 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %724) #33
-  %740 = sext i32 %739 to i64
-  store i64 %740, ptr %726, align 8
-  store i32 4, ptr %727, align 8
-  br label %741
+736:                                              ; preds = %721
+  %737 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %722) #33
+  %738 = sext i32 %737 to i64
+  store i64 %738, ptr %724, align 8
+  store i32 4, ptr %725, align 8
+  br label %739
 
-741:                                              ; preds = %738, %730
-  %.0.i405 = phi i32 [ %732, %730 ], [ %739, %738 ]
-  %742 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %.0271, i32 noundef %.0.i405) #33
-  %743 = ptrtoint ptr %644 to i64
-  %744 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %725, i64 noundef %743) #33
-  %745 = getelementptr inbounds nuw i8, ptr %744, i64 8
-  %746 = load i8, ptr %745, align 8
-  %747 = icmp eq i8 %746, 4
-  br i1 %747, label %748, label %756
+739:                                              ; preds = %736, %728
+  %.0.i405 = phi i32 [ %730, %728 ], [ %737, %736 ]
+  %740 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 270, i32 noundef %.0271, i32 noundef %.0.i405) #33
+  %741 = ptrtoint ptr %642 to i64
+  %742 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %723, i64 noundef %741) #33
+  %743 = getelementptr inbounds nuw i8, ptr %742, i64 8
+  %744 = load i8, ptr %743, align 8
+  %745 = icmp eq i8 %744, 4
+  br i1 %745, label %746, label %754
 
-748:                                              ; preds = %741
-  %749 = load i64, ptr %744, align 8
-  %750 = trunc i64 %749 to i32
-  %751 = load ptr, ptr %0, align 8
-  %sext.i409 = shl i64 %749, 32
-  %752 = ashr exact i64 %sext.i409, 28
-  %753 = getelementptr inbounds i8, ptr %751, i64 %752
-  %754 = load i16, ptr %753, align 8
-  %755 = icmp eq i16 %754, 1542
-  call void @llvm.assume(i1 %755)
+746:                                              ; preds = %739
+  %747 = load i64, ptr %742, align 8
+  %748 = trunc i64 %747 to i32
+  %749 = load ptr, ptr %0, align 8
+  %sext.i409 = shl i64 %747, 32
+  %750 = ashr exact i64 %sext.i409, 28
+  %751 = getelementptr inbounds i8, ptr %749, i64 %750
+  %752 = load i16, ptr %751, align 8
+  %753 = icmp eq i16 %752, 1542
+  call void @llvm.assume(i1 %753)
   br label %jit_CONST_ADDR.exit410
 
-756:                                              ; preds = %741
-  %757 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %743) #33
-  %758 = sext i32 %757 to i64
-  store i64 %758, ptr %744, align 8
-  store i32 4, ptr %745, align 8
+754:                                              ; preds = %739
+  %755 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %741) #33
+  %756 = sext i32 %755 to i64
+  store i64 %756, ptr %742, align 8
+  store i32 4, ptr %743, align 8
   br label %jit_CONST_ADDR.exit410
 
-jit_CONST_ADDR.exit410:                           ; preds = %748, %756
-  %.0.i408 = phi i32 [ %750, %748 ], [ %757, %756 ]
-  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %742, i32 noundef %.0.i408) #33
+jit_CONST_ADDR.exit410:                           ; preds = %746, %754
+  %.0.i408 = phi i32 [ %748, %746 ], [ %755, %754 ]
+  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %740, i32 noundef %.0.i408) #33
   br label %zend_jit_may_be_modified.exit.thread
 
-759:                                              ; preds = %602, %599
+757:                                              ; preds = %600, %597
   br i1 %.not295, label %.thread11, label %zend_jit_may_be_modified.exit.thread
 
-.thread11:                                        ; preds = %598, %759
-  %760 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  %761 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %760, i64 noundef 4) #33
-  %762 = getelementptr inbounds nuw i8, ptr %761, i64 8
-  %763 = load i8, ptr %762, align 8
-  %764 = icmp eq i8 %763, 4
-  br i1 %764, label %765, label %773
+.thread11:                                        ; preds = %596, %757
+  %758 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  %759 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %758, i64 noundef 4) #33
+  %760 = getelementptr inbounds nuw i8, ptr %759, i64 8
+  %761 = load i8, ptr %760, align 8
+  %762 = icmp eq i8 %761, 4
+  br i1 %762, label %763, label %771
 
-765:                                              ; preds = %.thread11
-  %766 = load i64, ptr %761, align 8
-  %767 = trunc i64 %766 to i32
-  %768 = load ptr, ptr %0, align 8
-  %sext.i.i414 = shl i64 %766, 32
-  %769 = ashr exact i64 %sext.i.i414, 28
-  %770 = getelementptr inbounds i8, ptr %768, i64 %769
-  %771 = load i16, ptr %770, align 8
-  %772 = icmp eq i16 %771, 1542
-  call void @llvm.assume(i1 %772)
+763:                                              ; preds = %.thread11
+  %764 = load i64, ptr %759, align 8
+  %765 = trunc i64 %764 to i32
+  %766 = load ptr, ptr %0, align 8
+  %sext.i.i414 = shl i64 %764, 32
+  %767 = ashr exact i64 %sext.i.i414, 28
+  %768 = getelementptr inbounds i8, ptr %766, i64 %767
+  %769 = load i16, ptr %768, align 8
+  %770 = icmp eq i16 %769, 1542
+  call void @llvm.assume(i1 %770)
   br label %.thread16
 
-773:                                              ; preds = %.thread11
-  %774 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 4) #33
-  %775 = sext i32 %774 to i64
-  store i64 %775, ptr %761, align 8
-  store i32 4, ptr %762, align 8
+771:                                              ; preds = %.thread11
+  %772 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef 4) #33
+  %773 = sext i32 %772 to i64
+  store i64 %773, ptr %759, align 8
+  store i32 4, ptr %760, align 8
   br label %.thread16
 
-.thread16:                                        ; preds = %773, %765
-  %.0.i.i412 = phi i32 [ %767, %765 ], [ %774, %773 ]
-  %776 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %.0271, i32 noundef %.0.i.i412) #33
-  %777 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 4, i32 noundef %776) #33
-  %778 = call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 16) #33
-  %779 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1069, i32 noundef %777, i32 noundef %778) #33
-  %780 = call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %779) #33
-  call void @_ir_IF_TRUE_cold(ptr noundef nonnull %0, i32 noundef %780) #33
-  br label %784
+.thread16:                                        ; preds = %771, %763
+  %.0.i.i412 = phi i32 [ %765, %763 ], [ %772, %771 ]
+  %774 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %.0271, i32 noundef %.0.i.i412) #33
+  %775 = call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 4, i32 noundef %774) #33
+  %776 = call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef 16) #33
+  %777 = call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1069, i32 noundef %775, i32 noundef %776) #33
+  %778 = call i32 @_ir_IF(ptr noundef nonnull %0, i32 noundef %777) #33
+  call void @_ir_IF_TRUE_cold(ptr noundef nonnull %0, i32 noundef %778) #33
+  br label %782
 
-zend_jit_may_be_modified.exit.thread:             ; preds = %759, %594, %584, %582, %zend_jit_may_be_modified.exit, %jit_CONST_ADDR.exit410, %jit_CONST_ADDR.exit404
-  %.1266931 = phi ptr [ %.0265, %zend_jit_may_be_modified.exit ], [ %656, %jit_CONST_ADDR.exit410 ], [ %656, %jit_CONST_ADDR.exit404 ], [ %.0265, %582 ], [ %.0265, %584 ], [ %.0265, %594 ], [ %.0265, %759 ]
-  %781 = getelementptr inbounds nuw i8, ptr %.1266931, i64 4
-  %782 = load i32, ptr %781, align 4
-  %783 = and i32 %782, 16
-  %.not302 = icmp eq i32 %783, 0
-  br i1 %.not302, label %.thread33, label %784
+zend_jit_may_be_modified.exit.thread:             ; preds = %757, %592, %582, %580, %zend_jit_may_be_modified.exit, %jit_CONST_ADDR.exit410, %jit_CONST_ADDR.exit404
+  %.1266931 = phi ptr [ %.0265, %zend_jit_may_be_modified.exit ], [ %654, %jit_CONST_ADDR.exit410 ], [ %654, %jit_CONST_ADDR.exit404 ], [ %.0265, %580 ], [ %.0265, %582 ], [ %.0265, %592 ], [ %.0265, %757 ]
+  %779 = getelementptr inbounds nuw i8, ptr %.1266931, i64 4
+  %780 = load i32, ptr %779, align 4
+  %781 = and i32 %780, 16
+  %.not302 = icmp eq i32 %781, 0
+  br i1 %.not302, label %.thread33, label %782
 
-784:                                              ; preds = %.thread16, %zend_jit_may_be_modified.exit.thread
-  %.026725 = phi i32 [ %780, %.thread16 ], [ 0, %zend_jit_may_be_modified.exit.thread ]
+782:                                              ; preds = %.thread16, %zend_jit_may_be_modified.exit.thread
+  %.026725 = phi i32 [ %778, %.thread16 ], [ 0, %zend_jit_may_be_modified.exit.thread ]
   %.1266922 = phi ptr [ null, %.thread16 ], [ %.1266931, %zend_jit_may_be_modified.exit.thread ]
   %.not3011021 = phi i1 [ true, %.thread16 ], [ false, %zend_jit_may_be_modified.exit.thread ]
-  %785 = getelementptr inbounds nuw i8, ptr %1, i64 29
-  %786 = load i8, ptr %785, align 1
-  %787 = and i8 %786, 6
-  %.not303 = icmp eq i8 %787, 0
+  %783 = getelementptr inbounds nuw i8, ptr %1, i64 29
+  %784 = load i8, ptr %783, align 1
+  %785 = and i8 %784, 6
+  %.not303 = icmp eq i8 %785, 0
   %brmerge310 = or i1 %10, %.not303
-  %788 = getelementptr inbounds nuw i8, ptr %0, i64 808
-  br i1 %brmerge310, label %810, label %789
+  %786 = getelementptr inbounds nuw i8, ptr %0, i64 808
+  br i1 %brmerge310, label %808, label %787
 
-789:                                              ; preds = %784
-  %790 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %788, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame_tmp to i64)) #33
-  %791 = getelementptr inbounds nuw i8, ptr %790, i64 8
-  %792 = load i8, ptr %791, align 8
-  %793 = icmp eq i8 %792, 4
-  br i1 %793, label %794, label %805
+787:                                              ; preds = %782
+  %788 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %786, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame_tmp to i64)) #33
+  %789 = getelementptr inbounds nuw i8, ptr %788, i64 8
+  %790 = load i8, ptr %789, align 8
+  %791 = icmp eq i8 %790, 4
+  br i1 %791, label %792, label %803
 
-794:                                              ; preds = %789
-  %795 = load i64, ptr %790, align 8
-  %796 = trunc i64 %795 to i32
-  %797 = load ptr, ptr %0, align 8
-  %sext.i.i417 = shl i64 %795, 32
-  %798 = ashr exact i64 %sext.i.i417, 28
-  %799 = getelementptr inbounds i8, ptr %797, i64 %798
-  %800 = load i16, ptr %799, align 8
-  %801 = icmp eq i16 %800, 1601
-  call void @llvm.assume(i1 %801)
-  %802 = getelementptr inbounds nuw i8, ptr %799, i64 2
-  %803 = load i16, ptr %802, align 2
-  %804 = icmp eq i16 %803, 0
-  call void @llvm.assume(i1 %804)
+792:                                              ; preds = %787
+  %793 = load i64, ptr %788, align 8
+  %794 = trunc i64 %793 to i32
+  %795 = load ptr, ptr %0, align 8
+  %sext.i.i417 = shl i64 %793, 32
+  %796 = ashr exact i64 %sext.i.i417, 28
+  %797 = getelementptr inbounds i8, ptr %795, i64 %796
+  %798 = load i16, ptr %797, align 8
+  %799 = icmp eq i16 %798, 1601
+  call void @llvm.assume(i1 %799)
+  %800 = getelementptr inbounds nuw i8, ptr %797, i64 2
+  %801 = load i16, ptr %800, align 2
+  %802 = icmp eq i16 %801, 0
+  call void @llvm.assume(i1 %802)
   br label %jit_CONST_FUNC.exit418
 
-805:                                              ; preds = %789
-  %806 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame_tmp to i64)) #33
-  %807 = load ptr, ptr %0, align 8
-  %808 = sext i32 %806 to i64
-  %809 = getelementptr inbounds %struct._ir_insn, ptr %807, i64 %808
-  store i32 1601, ptr %809, align 8
-  store i64 %808, ptr %790, align 8
-  store i32 4, ptr %791, align 8
+803:                                              ; preds = %787
+  %804 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame_tmp to i64)) #33
+  %805 = load ptr, ptr %0, align 8
+  %806 = sext i32 %804 to i64
+  %807 = getelementptr inbounds %struct._ir_insn, ptr %805, i64 %806
+  store i32 1601, ptr %807, align 8
+  store i64 %806, ptr %788, align 8
+  store i32 4, ptr %789, align 8
   br label %jit_CONST_FUNC.exit418
 
-810:                                              ; preds = %784
-  %811 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %788, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame to i64)) #33
-  %812 = getelementptr inbounds nuw i8, ptr %811, i64 8
-  %813 = load i8, ptr %812, align 8
-  %814 = icmp eq i8 %813, 4
-  br i1 %814, label %815, label %826
+808:                                              ; preds = %782
+  %809 = call ptr @zend_hash_index_lookup(ptr noundef nonnull %786, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame to i64)) #33
+  %810 = getelementptr inbounds nuw i8, ptr %809, i64 8
+  %811 = load i8, ptr %810, align 8
+  %812 = icmp eq i8 %811, 4
+  br i1 %812, label %813, label %824
 
-815:                                              ; preds = %810
-  %816 = load i64, ptr %811, align 8
-  %817 = trunc i64 %816 to i32
-  %818 = load ptr, ptr %0, align 8
-  %sext.i.i420 = shl i64 %816, 32
-  %819 = ashr exact i64 %sext.i.i420, 28
-  %820 = getelementptr inbounds i8, ptr %818, i64 %819
-  %821 = load i16, ptr %820, align 8
-  %822 = icmp eq i16 %821, 1601
-  call void @llvm.assume(i1 %822)
-  %823 = getelementptr inbounds nuw i8, ptr %820, i64 2
-  %824 = load i16, ptr %823, align 2
-  %825 = icmp eq i16 %824, 0
-  call void @llvm.assume(i1 %825)
+813:                                              ; preds = %808
+  %814 = load i64, ptr %809, align 8
+  %815 = trunc i64 %814 to i32
+  %816 = load ptr, ptr %0, align 8
+  %sext.i.i420 = shl i64 %814, 32
+  %817 = ashr exact i64 %sext.i.i420, 28
+  %818 = getelementptr inbounds i8, ptr %816, i64 %817
+  %819 = load i16, ptr %818, align 8
+  %820 = icmp eq i16 %819, 1601
+  call void @llvm.assume(i1 %820)
+  %821 = getelementptr inbounds nuw i8, ptr %818, i64 2
+  %822 = load i16, ptr %821, align 2
+  %823 = icmp eq i16 %822, 0
+  call void @llvm.assume(i1 %823)
   br label %jit_CONST_FUNC.exit418
 
-826:                                              ; preds = %810
-  %827 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame to i64)) #33
-  %828 = load ptr, ptr %0, align 8
-  %829 = sext i32 %827 to i64
-  %830 = getelementptr inbounds %struct._ir_insn, ptr %828, i64 %829
-  store i32 1601, ptr %830, align 8
-  store i64 %829, ptr %811, align 8
-  store i32 4, ptr %812, align 8
+824:                                              ; preds = %808
+  %825 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef ptrtoint (ptr @zend_jit_push_static_metod_call_frame to i64)) #33
+  %826 = load ptr, ptr %0, align 8
+  %827 = sext i32 %825 to i64
+  %828 = getelementptr inbounds %struct._ir_insn, ptr %826, i64 %827
+  store i32 1601, ptr %828, align 8
+  store i64 %827, ptr %809, align 8
+  store i32 4, ptr %810, align 8
   br label %jit_CONST_FUNC.exit418
 
-jit_CONST_FUNC.exit418:                           ; preds = %826, %815, %805, %794
-  %.0.i.i419.sink = phi i32 [ %796, %794 ], [ %806, %805 ], [ %817, %815 ], [ %827, %826 ]
-  %831 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %832 = load i32, ptr %831, align 4
-  %833 = call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef %832) #33
-  %834 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i419.sink, i32 noundef %.0269, i32 noundef %.0271, i32 noundef %833) #33
-  %835 = load i8, ptr %785, align 1
-  %836 = and i8 %835, 6
-  %.not304 = icmp eq i8 %836, 0
+jit_CONST_FUNC.exit418:                           ; preds = %824, %813, %803, %792
+  %.0.i.i419.sink = phi i32 [ %794, %792 ], [ %804, %803 ], [ %815, %813 ], [ %825, %824 ]
+  %829 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %830 = load i32, ptr %829, align 4
+  %831 = call i32 @ir_const_u32(ptr noundef nonnull %0, i32 noundef %830) #33
+  %832 = call i32 @_ir_CALL_3(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %.0.i.i419.sink, i32 noundef %.0269, i32 noundef %.0271, i32 noundef %831) #33
+  %833 = load i8, ptr %783, align 1
+  %834 = and i8 %833, 6
+  %.not304 = icmp eq i8 %834, 0
   %brmerge311 = or i1 %10, %.not304
-  br i1 %brmerge311, label %844, label %837
+  br i1 %brmerge311, label %842, label %835
 
-837:                                              ; preds = %jit_CONST_FUNC.exit418
-  %838 = getelementptr inbounds nuw i8, ptr %0, i64 864
-  %839 = load i32, ptr %838, align 4
-  %.not.i422 = icmp eq i32 %839, 0
-  br i1 %.not.i422, label %840, label %jit_STUB_ADDR.exit424
+835:                                              ; preds = %jit_CONST_FUNC.exit418
+  %836 = getelementptr inbounds nuw i8, ptr %0, i64 864
+  %837 = load i32, ptr %836, align 4
+  %.not.i422 = icmp eq i32 %837, 0
+  br i1 %.not.i422, label %838, label %jit_STUB_ADDR.exit424
 
-840:                                              ; preds = %837
-  %841 = load ptr, ptr @zend_jit_stub_handlers, align 16
-  %842 = ptrtoint ptr %841 to i64
-  %843 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %842) #33
-  store i32 %843, ptr %838, align 4
+838:                                              ; preds = %835
+  %839 = load ptr, ptr @zend_jit_stub_handlers, align 16
+  %840 = ptrtoint ptr %839 to i64
+  %841 = call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %840) #33
+  store i32 %841, ptr %836, align 4
   br label %jit_STUB_ADDR.exit424
 
-jit_STUB_ADDR.exit424:                            ; preds = %837, %840
-  %.0.i423 = phi i32 [ %843, %840 ], [ %839, %837 ]
-  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %834, i32 noundef %.0.i423) #33
-  br label %844
+jit_STUB_ADDR.exit424:                            ; preds = %835, %838
+  %.0.i423 = phi i32 [ %841, %838 ], [ %837, %835 ]
+  call void @_ir_GUARD(ptr noundef nonnull %0, i32 noundef %832, i32 noundef %.0.i423) #33
+  br label %842
 
-844:                                              ; preds = %jit_STUB_ADDR.exit424, %jit_CONST_FUNC.exit418
-  call void @_ir_RSTORE(ptr noundef nonnull %0, i32 noundef 15, i32 noundef %834) #33
-  br i1 %.not3011021, label %848, label %..thread33_crit_edge
+842:                                              ; preds = %jit_STUB_ADDR.exit424, %jit_CONST_FUNC.exit418
+  call void @_ir_RSTORE(ptr noundef nonnull %0, i32 noundef 15, i32 noundef %832) #33
+  br i1 %.not3011021, label %846, label %..thread33_crit_edge
 
-..thread33_crit_edge:                             ; preds = %844
+..thread33_crit_edge:                             ; preds = %842
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.1266922, i64 4
   %.pre74 = load i32, ptr %.phi.trans.insert, align 4
   br label %.thread33
 
 .thread33:                                        ; preds = %..thread33_crit_edge, %zend_jit_may_be_modified.exit.thread
-  %845 = phi i32 [ %.pre74, %..thread33_crit_edge ], [ %782, %zend_jit_may_be_modified.exit.thread ]
+  %843 = phi i32 [ %.pre74, %..thread33_crit_edge ], [ %780, %zend_jit_may_be_modified.exit.thread ]
   %.126692337.ph = phi ptr [ %.1266922, %..thread33_crit_edge ], [ %.1266931, %zend_jit_may_be_modified.exit.thread ]
-  %846 = and i32 %845, 16
-  %847 = icmp eq i32 %846, 0
-  br i1 %847, label %.thread, label %.thread51
+  %844 = and i32 %843, 16
+  %845 = icmp eq i32 %844, 0
+  br i1 %845, label %.thread, label %.thread51
 
-848:                                              ; preds = %844
-  %849 = call i32 @_ir_END(ptr noundef nonnull %0) #33
+846:                                              ; preds = %842
+  %847 = call i32 @_ir_END(ptr noundef nonnull %0) #33
   call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %.026725) #33
-  %850 = call fastcc i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext %10, i32 noundef %12, i32 noundef %.0271, i32 noundef %.0269)
-  %.not305 = icmp eq i32 %850, 0
-  br i1 %.not305, label %zend_jit_trace_get_exit_addr.exit.thread, label %852
+  %848 = call fastcc i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef nonnull %1, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext %10, i32 noundef %12, i32 noundef %.0271, i32 noundef %.0269)
+  %.not305 = icmp eq i32 %848, 0
+  br i1 %.not305, label %zend_jit_trace_get_exit_addr.exit.thread, label %850
 
 .thread:                                          ; preds = %.thread33
-  %851 = call fastcc i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.126692337.ph, i1 noundef zeroext false, i1 noundef zeroext %10, i32 noundef %12, i32 noundef %.0271, i32 noundef %.0269)
-  %.not30578 = icmp eq i32 %851, 0
+  %849 = call fastcc i32 @zend_jit_push_call_frame(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.126692337.ph, i1 noundef zeroext false, i1 noundef zeroext %10, i32 noundef %12, i32 noundef %.0271, i32 noundef %.0269)
+  %.not30578 = icmp eq i32 %849, 0
   br i1 %.not30578, label %zend_jit_trace_get_exit_addr.exit.thread, label %.thread51
 
-852:                                              ; preds = %848
-  %853 = call i32 @_ir_END(ptr noundef nonnull %0) #33
-  call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %853, i32 noundef %849) #33
+850:                                              ; preds = %846
+  %851 = call i32 @_ir_END(ptr noundef nonnull %0) #33
+  call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %851, i32 noundef %847) #33
   br label %.thread51
 
-.thread51:                                        ; preds = %.thread, %.thread33, %852
-  %854 = getelementptr inbounds nuw i8, ptr %0, i64 689
-  store i8 0, ptr %854, align 1
-  %855 = getelementptr inbounds nuw i8, ptr %0, i64 680
-  store ptr null, ptr %855, align 8
-  %856 = getelementptr inbounds nuw i8, ptr %0, i64 690
-  store i8 1, ptr %856, align 2
-  %857 = call fastcc i32 @zend_jit_needs_call_chain(ptr noundef %.0264, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %1, i32 noundef %6, ptr noundef %11)
-  %.not306 = icmp eq i32 %857, 0
-  br i1 %.not306, label %859, label %858
+.thread51:                                        ; preds = %.thread, %.thread33, %850
+  %852 = getelementptr inbounds nuw i8, ptr %0, i64 689
+  store i8 0, ptr %852, align 1
+  %853 = getelementptr inbounds nuw i8, ptr %0, i64 680
+  store ptr null, ptr %853, align 8
+  %854 = getelementptr inbounds nuw i8, ptr %0, i64 690
+  store i8 1, ptr %854, align 2
+  %855 = call fastcc i32 @zend_jit_needs_call_chain(ptr noundef %.0264, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %1, i32 noundef %6, ptr noundef %11)
+  %.not306 = icmp eq i32 %855, 0
+  br i1 %.not306, label %857, label %856
 
-858:                                              ; preds = %.thread51
+856:                                              ; preds = %.thread51
   call fastcc void @zend_jit_save_call_chain(ptr noundef %0, i32 noundef %6)
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
-859:                                              ; preds = %.thread51
-  %860 = icmp sgt i32 %6, 0
-  call void @llvm.assume(i1 %860)
+857:                                              ; preds = %.thread51
+  %858 = icmp sgt i32 %6, 0
+  call void @llvm.assume(i1 %858)
   store i1 true, ptr @delayed_call_chain, align 1
-  %861 = getelementptr inbounds nuw i8, ptr %0, i64 692
-  store i32 %6, ptr %861, align 4
+  %859 = getelementptr inbounds nuw i8, ptr %0, i64 692
+  store i32 %6, ptr %859, align 4
   br label %zend_jit_trace_get_exit_addr.exit.thread
 
-zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %147, %615, %.thread, %611, %143, %859, %858, %848, %zend_jit_trace_get_exit_addr.exit393, %zend_jit_trace_get_exit_addr.exit
-  %.0 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %zend_jit_trace_get_exit_addr.exit393 ], [ 0, %848 ], [ 1, %858 ], [ 1, %859 ], [ 0, %143 ], [ 0, %611 ], [ 0, %.thread ], [ 0, %615 ], [ 0, %147 ]
+zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %147, %613, %.thread, %609, %143, %857, %856, %846, %zend_jit_trace_get_exit_addr.exit393, %zend_jit_trace_get_exit_addr.exit
+  %.0 = phi i32 [ 0, %zend_jit_trace_get_exit_addr.exit ], [ 0, %zend_jit_trace_get_exit_addr.exit393 ], [ 0, %846 ], [ 1, %856 ], [ 1, %857 ], [ 0, %143 ], [ 0, %609 ], [ 0, %.thread ], [ 0, %613 ], [ 0, %147 ]
   ret i32 %.0
 }
 
@@ -109873,7 +109873,7 @@ _zend_jit_fix_merges.exit:                        ; preds = %.loopexit101.i, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @zend_jit_trace_setup_ret_counter(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #19 {
+define internal fastcc void @zend_jit_trace_setup_ret_counter(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #19 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @jit_globals, i64 88), align 8
   %.not = icmp eq i64 %4, 0
@@ -110134,7 +110134,7 @@ zend_jit_build_cfg.exit:                          ; preds = %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_trace_add_phis(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @zend_jit_trace_add_phis(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
@@ -110431,7 +110431,7 @@ zend_bitset_intersection.exit:                    ; preds = %.lr.ph.i, %64
 declare i32 @zend_ssa_rename_op(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_copy_ssa_var_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #22 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_trace_copy_ssa_var_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) unnamed_addr #22 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %4 to i64
@@ -110715,7 +110715,7 @@ zend_jit_trace_is_false_loop.exit.thread:         ; preds = %30, %39, %zend_jit_
 declare i32 @zend_fetch_arg_info_type(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_trace_copy_ssa_var_range(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_trace_copy_ssa_var_range(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 0, -2147483648) %4) unnamed_addr #0 {
   %6 = alloca %struct._zend_ssa_range, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %8 = load ptr, ptr %7, align 8
@@ -110926,7 +110926,7 @@ zend_jit_trace_propagate_range.exit:              ; preds = %65, %72, %81
 declare i32 @zend_update_type_info(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = sext i32 %4 to i64
@@ -111130,7 +111130,7 @@ define internal fastcc void @zend_jit_trace_restrict_ssa_var_info(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #18 {
+define internal fastcc range(i32 0, 2) i32 @is_checked_guard(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #18 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %3 to i64
@@ -111871,7 +111871,7 @@ declare ptr @zend_hash_index_lookup(ptr noundef, i64 noundef) #4
 declare i32 @ir_unique_const_addr(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
+define internal fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %7 = load i8, ptr %6, align 4
   switch i8 %7, label %519 [
@@ -112815,7 +112815,7 @@ define internal fastcc zeroext i1 @zend_jit_opline_supports_reg(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @zend_jit_trace_use_var(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8) unnamed_addr #23 {
+define internal fastcc void @zend_jit_trace_use_var(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef nonnull readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8) unnamed_addr #23 {
   %10 = sext i32 %1 to i64
   %11 = getelementptr inbounds %struct._zend_jit_reg_var, ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4
@@ -112978,7 +112978,7 @@ switch.early.test:                                ; preds = %43
 declare void @zend_dump_var(ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @zend_ssa_is_last_use(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #24 {
+define internal fastcc zeroext i1 @zend_ssa_is_last_use(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #24 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
@@ -116620,7 +116620,7 @@ zend_jit_get_prop_not_accepting_double.exit.thread: ; preds = %32, %26, %19, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_post_inc_typed_ref(ptr noundef %0, ptr nocapture noundef initializes((0, 12)) %1) #0 {
+define internal void @zend_jit_post_inc_typed_ref(ptr noundef %0, ptr noundef captures(none) initializes((0, 12)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -116727,7 +116727,7 @@ zend_jit_get_prop_not_accepting_double.exit.thread: ; preds = %32, %zend_jit_get
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_post_dec_typed_ref(ptr noundef %0, ptr nocapture noundef initializes((0, 12)) %1) #0 {
+define internal void @zend_jit_post_dec_typed_ref(ptr noundef %0, ptr noundef captures(none) initializes((0, 12)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -116836,7 +116836,7 @@ zend_jit_get_prop_not_accepting_double.exit.thread: ; preds = %32, %zend_jit_get
 declare i32 @_ir_CALL_2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_pre_inc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #0 {
+define internal void @zend_jit_pre_inc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #0 {
   %3 = tail call i32 @increment_function(ptr noundef %0) #33
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -116861,7 +116861,7 @@ define internal void @zend_jit_pre_inc(ptr noundef %0, ptr nocapture noundef wri
 declare i32 @increment_function(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_pre_dec(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #0 {
+define internal void @zend_jit_pre_dec(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) #0 {
   %3 = tail call i32 @decrement_function(ptr noundef %0) #33
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -116888,7 +116888,7 @@ declare i32 @decrement_function(ptr noundef) #4
 declare void @zend_error_unchecked(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_throw_inc_ref_error(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @zend_jit_throw_inc_ref_error(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -116950,7 +116950,7 @@ declare void @zend_type_error(ptr noundef, ...) local_unnamed_addr #4
 declare i32 @zend_unmangle_property_name_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_jit_throw_dec_ref_error(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @zend_jit_throw_dec_ref_error(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -118840,7 +118840,7 @@ declare i32 @_ir_CALL_3(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 
 declare i32 @_ir_PHI_N(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_unref_helper(ptr nocapture noundef initializes((8, 12)) %0) #0 {
+define internal void @zend_jit_unref_helper(ptr noundef captures(none) initializes((8, 12)) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -121361,7 +121361,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fast_assign_concat_helper(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @zend_jit_fast_assign_concat_helper(ptr noundef captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
@@ -121465,7 +121465,7 @@ define internal void @zend_jit_fast_assign_concat_helper(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fast_concat_helper(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @zend_jit_fast_concat_helper(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
@@ -121519,7 +121519,7 @@ define internal void @zend_jit_fast_concat_helper(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fast_concat_tmp_helper(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @zend_jit_fast_concat_tmp_helper(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
@@ -121618,7 +121618,7 @@ declare void @zend_throw_error(ptr noundef, ptr noundef, ...) #4
 declare ptr @get_binary_op(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_assign_op_to_typed_ref_tmp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @zend_jit_assign_op_to_typed_ref_tmp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = call i32 %2(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %1) #33
@@ -121796,7 +121796,7 @@ jit_CONST_ADDR.exit15:                            ; preds = %33, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @zend_jit_prepare_array_update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
+define internal fastcc i64 @zend_jit_prepare_array_update(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca [24 x i8], align 16
   store i32 0, ptr %8, align 16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -122221,7 +122221,7 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) #4
 declare i32 @_ir_CALL(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dimension_address_inner(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 7) %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, i32 noundef %10, ptr noundef nonnull %11, ptr nocapture noundef %12, ptr nocapture noundef nonnull %13, ptr nocapture noundef %14) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @zend_jit_fetch_dimension_address_inner(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 7) %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, i32 noundef %10, ptr noundef nonnull %11, ptr noundef captures(none) %12, ptr noundef nonnull captures(none) %13, ptr noundef captures(none) %14) unnamed_addr #0 {
   %16 = alloca i64, align 8
   %17 = alloca %struct._ir_code_buffer, align 8
   %18 = alloca i64, align 8
@@ -125239,7 +125239,7 @@ zend_jit_trace_get_exit_addr.exit.thread:         ; preds = %55, %105, %101, %51
 declare i32 @_ir_CALL_4(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_assign_dim_op_helper(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal void @zend_jit_assign_dim_op_helper(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -125441,7 +125441,7 @@ define internal void @zend_jit_assign_dim_op_helper(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_jit_prepare_assign_dim_ref(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @zend_jit_prepare_assign_dim_ref(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -125486,7 +125486,7 @@ define internal ptr @zend_jit_prepare_assign_dim_ref(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_jit_zval_array_dup(ptr nocapture noundef initializes((8, 9), (10, 12)) %0) #0 {
+define internal ptr @zend_jit_zval_array_dup(ptr noundef captures(none) initializes((8, 9), (10, 12)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
@@ -125719,7 +125719,7 @@ define internal ptr @zend_jit_symtable_lookup_w(ptr noundef %0, ptr noundef %1) 
 declare ptr @zend_hash_lookup(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fetch_dim_r_helper(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal void @zend_jit_fetch_dim_r_helper(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
@@ -126568,7 +126568,7 @@ thread-pre-split:                                 ; preds = %37, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fetch_dim_is_helper(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal void @zend_jit_fetch_dim_is_helper(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
@@ -128241,7 +128241,7 @@ declare i64 @zval_get_long_func(ptr noundef, i1 noundef zeroext) local_unnamed_a
 declare zeroext i8 @_is_numeric_string_ex(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @zend_get_known_property_info(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readnone %4) unnamed_addr #0 {
+define internal fastcc ptr @zend_get_known_property_info(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef readnone %4) unnamed_addr #0 {
   br i1 %3, label %6, label %12
 
 6:                                                ; preds = %5
@@ -128877,7 +128877,7 @@ define internal void @zend_jit_dec_typed_prop(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_pre_inc_typed_prop(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal void @zend_jit_pre_inc_typed_prop(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 10
@@ -128912,7 +128912,7 @@ define internal void @zend_jit_pre_inc_typed_prop(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_pre_dec_typed_prop(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal void @zend_jit_pre_dec_typed_prop(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 10
@@ -130199,7 +130199,7 @@ declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #4
 declare void @zend_readonly_property_modification_error(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_zend_jit_throw_inc_prop_error(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @_zend_jit_throw_inc_prop_error(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -130253,7 +130253,7 @@ define internal fastcc void @_zend_jit_throw_inc_prop_error(ptr nocapture nounde
 declare zeroext i1 @zend_verify_property_type(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_zend_jit_throw_dec_prop_error(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @_zend_jit_throw_dec_prop_error(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -130603,7 +130603,7 @@ _zend_jit_assign_op_overloaded_property.exit:     ; preds = %64, %65, %70, %87, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_assign_to_typed_prop(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3) #0 {
+define internal void @zend_jit_assign_to_typed_prop(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
@@ -132663,7 +132663,7 @@ define internal ptr @zend_jit_assign_cv_to_typed_ref(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zend_jit_assign_const_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal noundef ptr @zend_jit_assign_const_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -132789,7 +132789,7 @@ define internal noundef ptr @zend_jit_assign_const_to_typed_ref2(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_jit_assign_tmp_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal ptr @zend_jit_assign_tmp_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -132906,7 +132906,7 @@ define internal ptr @zend_jit_assign_tmp_to_typed_ref2(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zend_jit_assign_var_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal noundef ptr @zend_jit_assign_var_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -133062,7 +133062,7 @@ define internal noundef ptr @zend_jit_assign_var_to_typed_ref2(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zend_jit_assign_cv_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal noundef ptr @zend_jit_assign_cv_to_typed_ref2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -133527,7 +133527,7 @@ declare i32 @ir_emit2(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_
 declare ptr @zend_assign_to_typed_ref(ptr noundef, ptr noundef, i8 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jit_ZVAL_COPY_CONST(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc void @jit_ZVAL_COPY_CONST(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp ugt i8 %7, 3
@@ -133958,7 +133958,7 @@ jit_set_Z_LVAL.exit111:                           ; preds = %33, %32, %21, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_assign_dim_helper(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
+define internal void @zend_jit_assign_dim_helper(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 8
   switch i8 %6, label %274 [
@@ -135088,7 +135088,7 @@ define internal noundef ptr @zend_jit_init_func_run_time_cache_helper(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zend_jit_find_func_helper(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef ptr @zend_jit_find_func_helper(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %4 = tail call ptr @zend_hash_find_known_hash(ptr noundef %3, ptr noundef %0) #33
   %5 = icmp eq ptr %4, null
@@ -135188,7 +135188,7 @@ _zend_jit_init_func_run_time_cache.exit:          ; preds = %55, %52, %19, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zend_jit_find_ns_func_helper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef ptr @zend_jit_find_ns_func_helper(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -137040,7 +137040,7 @@ define internal ptr @zend_jit_extend_stack_helper(i32 noundef %0, ptr noundef %1
 declare ptr @zend_vm_stack_extend(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_only_vars_by_reference(ptr nocapture noundef %0) #0 {
+define internal void @zend_jit_only_vars_by_reference(ptr noundef captures(none) %0) #0 {
   %2 = tail call noalias ptr @_emalloc_32() #33
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -137067,7 +137067,7 @@ declare zeroext i1 @zend_accel_in_shm(ptr noundef) local_unnamed_addr #4
 declare zeroext i1 @zend_jit_deprecated_helper(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @skip_valid_arguments(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 {
+define internal fastcc i32 @skip_valid_arguments(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load i32, ptr %4, align 8
   %.not66 = icmp eq i32 %5, 0
@@ -137351,7 +137351,7 @@ declare i32 @_ir_ALLOCA(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @zend_observer_fcall_end(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_vm_stack_free_args_helper(ptr nocapture noundef readonly %0) #0 {
+define internal void @zend_jit_vm_stack_free_args_helper(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 0
@@ -137819,7 +137819,7 @@ jit_CONST_ADDR.exit52:                            ; preds = %67, %75
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_cmp_long_long(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, i64 noundef %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc i32 @zend_jit_cmp_long_long(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, i64 noundef %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %16, label %12
 
@@ -138249,7 +138249,7 @@ jit_CONST_ADDR.exit124:                           ; preds = %181, %189
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_cmp_double_double(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @zend_jit_cmp_double_double(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext %5, i32 noundef %6, i32 noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = getelementptr i8, ptr %1, i64 28
   %.val = load i8, ptr %10, align 4
   switch i8 %.val, label %14 [
@@ -139078,7 +139078,7 @@ zend_jit_check_exception.exit:                    ; preds = %jit_EG_exception.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 3) i32 @zend_jit_jmp_frameless_helper(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal range(i32 1, 3) i32 @zend_jit_jmp_frameless_helper(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), align 8
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @zend_hash_find_known_hash(ptr noundef %3, ptr noundef %4) #33
@@ -139091,7 +139091,7 @@ define internal range(i32 1, 3) i32 @zend_jit_jmp_frameless_helper(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_may_avoid_refcounting(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #18 {
+define internal fastcc noundef zeroext i1 @zend_jit_may_avoid_refcounting(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #18 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i8, ptr %3, align 4
   switch i8 %4, label %48 [
@@ -139827,7 +139827,7 @@ jit_Z_TYPE_INFO_ref.exit:                         ; preds = %69, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_jit_fetch_dim_str_offset_r_helper(ptr nocapture noundef readonly %0, i64 noundef %1) #0 {
+define internal ptr @zend_jit_fetch_dim_str_offset_r_helper(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %.not = icmp ult i64 %1, %4
@@ -140005,7 +140005,7 @@ define internal ptr @zend_jit_fetch_dim_str_r_helper(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fetch_dim_str_is_helper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
+define internal void @zend_jit_fetch_dim_str_is_helper(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) #0 {
   br label %4
 
 4:                                                ; preds = %31, %3
@@ -140124,7 +140124,7 @@ define internal void @zend_jit_fetch_dim_str_is_helper(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fetch_dim_obj_r_helper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_jit_fetch_dim_obj_r_helper(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, 1
@@ -140278,7 +140278,7 @@ define internal void @zend_jit_fetch_dim_obj_r_helper(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fetch_dim_obj_is_helper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_jit_fetch_dim_obj_is_helper(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 4
   %6 = add i32 %5, 1
@@ -140441,7 +140441,7 @@ define internal void @zend_jit_invalid_array_access(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fetch_dim_obj_w_helper(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_jit_fetch_dim_obj_w_helper(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %128 [
@@ -140711,7 +140711,7 @@ define internal void @zend_jit_fetch_dim_obj_w_helper(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_fetch_dim_obj_rw_helper(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal void @zend_jit_fetch_dim_obj_rw_helper(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   switch i8 %5, label %128 [
@@ -140981,7 +140981,7 @@ define internal void @zend_jit_fetch_dim_obj_rw_helper(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @zend_jit_isset_dim_helper(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal i32 @zend_jit_isset_dim_helper(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 0
@@ -141494,7 +141494,7 @@ define internal void @zend_jit_fetch_obj_is_dynamic(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_check_array_promotion(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @zend_jit_check_array_promotion(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 488), align 8
@@ -141584,7 +141584,7 @@ define internal void @zend_jit_check_array_promotion(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_create_typed_ref(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal void @zend_jit_create_typed_ref(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 12)) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 10
@@ -142261,7 +142261,7 @@ declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unname
 declare void @zend_ref_add_type_source(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @zend_jit_fetch_global_helper(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef ptr @zend_jit_fetch_global_helper(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = ptrtoint ptr %3 to i64
   %5 = add i64 %4, -1
@@ -143129,7 +143129,7 @@ define internal ptr @zend_jit_push_static_metod_call_frame_tmp(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_jit_push_static_metod_call_frame(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
+define internal ptr @zend_jit_push_static_metod_call_frame(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = add i32 %2, 5
@@ -143194,7 +143194,7 @@ define internal ptr @zend_jit_push_static_metod_call_frame(ptr nocapture noundef
 declare void @zend_init_func_run_time_cache(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @zend_jit_rope_end(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal noalias noundef ptr @zend_jit_rope_end(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -143270,7 +143270,7 @@ define internal noalias noundef ptr @zend_jit_rope_end(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @zend_jit_find_ssa_var(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @zend_jit_find_ssa_var(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -144106,7 +144106,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #4
 declare void @ir_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #25
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @zend_reg_name(i8 noundef signext %0) unnamed_addr #0 {
@@ -144217,7 +144217,7 @@ declare void @zend_ssa_find_sccs(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @zend_ssa_inference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @zend_jit_compute_post_order(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc i32 @zend_jit_compute_post_order(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
   %5 = shl nsw i64 %4, 2
@@ -144699,7 +144699,7 @@ switch.edge205:                                   ; preds = %109, %109, %109, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_next_is_send_result(ptr nocapture noundef readonly %0) unnamed_addr #26 {
+define internal fastcc noundef zeroext i1 @zend_jit_next_is_send_result(ptr noundef readonly captures(none) %0) unnamed_addr #26 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 31
   %3 = load i8, ptr %2, align 1
   %4 = icmp eq i8 %3, 2
@@ -145416,7 +145416,7 @@ zend_jit_set_last_valid_opline.exit:              ; preds = %zend_jit_set_last_v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @zend_jit_may_be_in_reg(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @zend_jit_may_be_in_reg(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -146266,7 +146266,7 @@ declare i32 @ir_perf_jitdump_open() local_unnamed_addr #4
 declare dso_local void @__cpu_indicator_init() local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_jit_touch_vm_stack_data(ptr nocapture readnone %0) #0 {
+define internal void @zend_jit_touch_vm_stack_data(ptr readnone captures(none) %0) #0 {
   %2 = alloca %struct._zend_jit_unwind_arg, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = call i32 @_Unwind_Backtrace(ptr noundef nonnull @zend_jit_unwind_cb, ptr noundef nonnull %2) #33
@@ -146290,7 +146290,7 @@ define internal void @zend_jit_touch_vm_stack_data(ptr nocapture readnone %0) #0
 declare i32 @_Unwind_Backtrace(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 6) i32 @zend_jit_unwind_cb(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 0, 6) i32 @zend_jit_unwind_cb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = tail call i64 @_Unwind_GetCFA(ptr noundef %0) #33
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %1, align 8
@@ -148587,15 +148587,15 @@ jit_ADD_OFFSET.exit100:                           ; preds = %214, %222
 
 jit_FP.exit106:                                   ; preds = %240, %.preheader.i101, %.loopexit.sink.split.i105
   %245 = phi i32 [ %228, %.preheader.i101 ], [ %244, %.loopexit.sink.split.i105 ], [ %230, %240 ]
-  %246 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %245, i32 noundef %227) #33
+  %246 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %245, i32 noundef %227) #33
   %247 = sext i32 %246 to i64
   %248 = shl nsw i64 %247, 2
   %249 = or disjoint i64 %248, 3
-  tail call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef %0, i64 noundef %249, i32 noundef -1073739778, i1 noundef zeroext false, ptr noundef null)
-  %250 = tail call i32 @_ir_END(ptr noundef %0) #33
-  tail call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %208) #33
-  %251 = tail call i32 @_ir_END(ptr noundef %0) #33
-  tail call void @_ir_MERGE_2(ptr noundef %0, i32 noundef %250, i32 noundef %251) #33
+  tail call fastcc void @jit_ZVAL_PTR_DTOR(ptr noundef nonnull %0, i64 noundef %249, i32 noundef -1073739778, i1 noundef zeroext false, ptr noundef null)
+  %250 = tail call i32 @_ir_END(ptr noundef nonnull %0) #33
+  tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %208) #33
+  %251 = tail call i32 @_ir_END(ptr noundef nonnull %0) #33
+  tail call void @_ir_MERGE_2(ptr noundef nonnull %0, i32 noundef %250, i32 noundef %251) #33
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %253 = load i32, ptr %252, align 4
   %.not.i = icmp eq i32 %253, 0
@@ -149647,9 +149647,9 @@ zend_jit_check_timeout.exit:                      ; preds = %jit_CONST_ADDR.exit
 
 jit_FP.exit:                                      ; preds = %89, %.preheader.i, %.loopexit.sink.split.i
   %94 = phi i32 [ %77, %.preheader.i ], [ %93, %.loopexit.sink.split.i ], [ %79, %89 ]
-  %95 = tail call i32 @_ir_CALL_1(ptr noundef %0, i32 noundef 10, i32 noundef %75, i32 noundef %94) #33
-  %96 = tail call i32 @ir_const_i32(ptr noundef %0, i32 noundef 0) #33
-  %97 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 273, i32 noundef %95, i32 noundef %96) #33
+  %95 = tail call i32 @_ir_CALL_1(ptr noundef nonnull %0, i32 noundef 10, i32 noundef %75, i32 noundef %94) #33
+  %96 = tail call i32 @ir_const_i32(ptr noundef nonnull %0, i32 noundef 0) #33
+  %97 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 273, i32 noundef %95, i32 noundef %96) #33
   %98 = load i32, ptr %30, align 4
   %.not.i36 = icmp eq i32 %98, 0
   br i1 %.not.i36, label %99, label %jit_STUB_ADDR.exit38
@@ -151014,12 +151014,12 @@ jit_FP.exit88:                                    ; preds = %154, %162
   tail call void @llvm.assume(i1 %167)
   %168 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 14) #33
   store i32 %168, ptr %6, align 4
-  %169 = tail call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %168) #33
-  tail call void @_ir_RSTORE(ptr noundef %0, i32 noundef 15, i32 noundef %169) #33
-  %170 = tail call i32 @_ir_RLOAD(ptr noundef %0, i32 noundef 6, i32 noundef 15) #33
-  %171 = tail call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %170) #33
-  tail call void @_ir_IJMP(ptr noundef %0, i32 noundef %171) #33
-  tail call void @_ir_IF_FALSE(ptr noundef %0, i32 noundef %105) #33
+  %169 = tail call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %168) #33
+  tail call void @_ir_RSTORE(ptr noundef nonnull %0, i32 noundef 15, i32 noundef %169) #33
+  %170 = tail call i32 @_ir_RLOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef 15) #33
+  %171 = tail call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %170) #33
+  tail call void @_ir_IJMP(ptr noundef nonnull %0, i32 noundef %171) #33
+  tail call void @_ir_IF_FALSE(ptr noundef nonnull %0, i32 noundef %105) #33
   %172 = load i32, ptr %3, align 8
   %173 = icmp ne i32 %172, 0
   tail call void @llvm.assume(i1 %173)
@@ -151058,11 +151058,11 @@ jit_FP.exit88:                                    ; preds = %154, %162
 
 _zend_jit_orig_opline_handler.exit:               ; preds = %184, %.preheader.i.i, %.loopexit.sink.split.i.i
   %189 = phi i32 [ %172, %.preheader.i.i ], [ %188, %.loopexit.sink.split.i.i ], [ %174, %184 ]
-  %190 = tail call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %189) #33
-  %191 = tail call i32 @ir_fold2(ptr noundef %0, i32 noundef 1560, i32 noundef %79, i32 noundef %190) #33
-  %192 = tail call i32 @_ir_LOAD(ptr noundef %0, i32 noundef 6, i32 noundef %191) #33
-  tail call void @_ir_IJMP(ptr noundef %0, i32 noundef %192) #33
-  tail call void @_ir_IF_TRUE(ptr noundef %0, i32 noundef %149) #33
+  %190 = tail call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %189) #33
+  %191 = tail call i32 @ir_fold2(ptr noundef nonnull %0, i32 noundef 1560, i32 noundef %79, i32 noundef %190) #33
+  %192 = tail call i32 @_ir_LOAD(ptr noundef nonnull %0, i32 noundef 6, i32 noundef %191) #33
+  tail call void @_ir_IJMP(ptr noundef nonnull %0, i32 noundef %192) #33
+  tail call void @_ir_IF_TRUE(ptr noundef nonnull %0, i32 noundef %149) #33
   %193 = load ptr, ptr @zend_jit_halt_op, align 8
   %194 = load ptr, ptr %193, align 8, !nonnull !5, !noundef !5
   %195 = ptrtoint ptr %194 to i64
@@ -151089,7 +151089,7 @@ _zend_jit_orig_opline_handler.exit:               ; preds = %184, %.preheader.i.
   br label %jit_CONST_FUNC.exit92
 
 211:                                              ; preds = %_zend_jit_orig_opline_handler.exit
-  %212 = tail call i32 @ir_unique_const_addr(ptr noundef %0, i64 noundef %195) #33
+  %212 = tail call i32 @ir_unique_const_addr(ptr noundef nonnull %0, i64 noundef %195) #33
   %213 = load ptr, ptr %0, align 8
   %214 = sext i32 %212 to i64
   %215 = getelementptr inbounds %struct._ir_insn, ptr %213, i64 %214
@@ -151333,22 +151333,22 @@ zend_jit_restart_hot_trace_counters.exit:         ; preds = %27, %12, %33, %zend
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #28
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #28
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #29
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #29
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #28
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #29
@@ -151363,10 +151363,10 @@ declare i64 @llvm.ctpop.i64(i64) #29
 declare double @llvm.fabs.f64(double) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #29

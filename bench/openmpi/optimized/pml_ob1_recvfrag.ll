@@ -52,7 +52,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_comm_hash = external global %struct.opal_hash_table_t, align 8
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @ompi_pml_ob1_append_frag_to_ordered_list(ptr nocapture noundef %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define void @ompi_pml_ob1_append_frag_to_ordered_list(ptr noundef captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store volatile ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1130,7 +1130,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define ptr @ompi_pml_ob1_check_cantmatch_for_match(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define ptr @ompi_pml_ob1_check_cantmatch_for_match(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1242,7 +1242,7 @@ remove_head_from_ordered_list.exit:               ; preds = %18, %19, %48, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_frag_callback_match(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @mca_pml_ob1_recv_frag_callback_match(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
   %5 = alloca [16 x %struct.iovec], align 16
@@ -2209,7 +2209,7 @@ recv_request_pml_complete.exit:                   ; preds = %209, %opal_lifo_pus
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @append_frag_to_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4, ptr noundef %5) unnamed_addr #2 {
+define internal fastcc void @append_frag_to_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef %5) unnamed_addr #2 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %8, label %.loopexit
 
@@ -2779,10 +2779,10 @@ opal_free_list_wait_st.exit:                      ; preds = %107, %137, %opal_fr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @match_one(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 {
+define internal fastcc ptr @match_one(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 312
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 228
@@ -3163,7 +3163,7 @@ match_incomming.exit:                             ; preds = %.split.us.i, %.spli
 declare i32 @opal_convertor_unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_pml_ob1_recv_frag_match_proc(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %6, ptr noundef %7) unnamed_addr #2 {
+define internal fastcc void @mca_pml_ob1_recv_frag_match_proc(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef range(i32 0, 256) %6, ptr noundef %7) unnamed_addr #2 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %10 = load ptr, ptr %9, align 8
   %11 = trunc nuw i32 %6 to i8
@@ -3456,7 +3456,7 @@ opal_free_list_return.exit:                       ; preds = %opal_free_list_retu
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_merge_cant_match(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define noundef i32 @mca_pml_ob1_merge_cant_match(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr @mca_pml_ob1_matching_protection, align 1
@@ -3530,7 +3530,7 @@ remove_head_from_ordered_list.exit.thread:        ; preds = %remove_head_from_or
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_frag_callback_rndv(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @mca_pml_ob1_recv_frag_callback_rndv(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3866,7 +3866,7 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %34, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_frag_callback_rget(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @mca_pml_ob1_recv_frag_callback_rget(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3886,7 +3886,7 @@ define void @mca_pml_ob1_recv_frag_callback_rget(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_frag_callback_ack(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @mca_pml_ob1_recv_frag_callback_ack(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -4241,7 +4241,7 @@ lock_send_request.exit.i66:                       ; preds = %172, %169
   br i1 %176, label %.preheader.i, label %mca_pml_ob1_send_request_schedule.exit
 
 .preheader.i:                                     ; preds = %lock_send_request.exit.i66, %unlock_send_request.exit.i.i
-  %177 = tail call i32 @mca_pml_ob1_send_request_schedule_once(ptr noundef %11) #10
+  %177 = tail call i32 @mca_pml_ob1_send_request_schedule_once(ptr noundef nonnull %11) #10
   %cond.i.i = icmp eq i32 %177, -2
   br i1 %cond.i.i, label %mca_pml_ob1_send_request_schedule.exit, label %178
 
@@ -4725,7 +4725,7 @@ declare void @mca_pml_ob1_send_request_copy_in_out(ptr noundef, i64 noundef, i64
 declare ptr @mca_pml_ob1_get_dtoh_stream() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_frag_callback_frag(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @mca_pml_ob1_recv_frag_callback_frag(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4762,7 +4762,7 @@ declare void @mca_pml_ob1_recv_request_frag_copy_start(ptr noundef, ptr noundef,
 declare void @mca_pml_ob1_recv_request_progress_frag(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_frag_callback_put(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @mca_pml_ob1_recv_frag_callback_put(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4784,7 +4784,7 @@ define void @mca_pml_ob1_recv_frag_callback_put(ptr noundef %0, ptr nocapture no
 declare void @mca_pml_ob1_send_request_put(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_frag_callback_fin(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @mca_pml_ob1_recv_frag_callback_fin(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4808,7 +4808,7 @@ define void @mca_pml_ob1_recv_frag_callback_fin(ptr nocapture noundef readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_handle_cid(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define void @mca_pml_ob1_handle_cid(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 224
@@ -4865,7 +4865,7 @@ mca_pml_ob1_peer_lookup.exit:                     ; preds = %10, %17
 declare i32 @mca_pml_ob1_send_cid(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_recv_frag_callback_cid(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @mca_pml_ob1_recv_frag_callback_cid(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.ompi_comm_extended_cid_t, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [16 x %struct.mca_btl_base_segment_t], align 16
@@ -5005,7 +5005,7 @@ declare void @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef, ptr noundef, .
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #5
@@ -5025,13 +5025,13 @@ declare void @mca_pml_ob1_recv_request_progress_rget(ptr noundef, ptr noundef, p
 declare i32 @opal_hash_table_get_value_ptr(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }

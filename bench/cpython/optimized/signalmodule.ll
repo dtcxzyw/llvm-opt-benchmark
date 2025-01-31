@@ -1697,7 +1697,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_signal_module_traverse(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
+define internal i32 @_signal_module_traverse(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #1 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -1731,7 +1731,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_signal_module_clear(ptr nocapture noundef readonly %module) #1 {
+define internal noundef i32 @_signal_module_clear(ptr noundef readonly captures(none) %module) #1 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val = load ptr, ptr %0, align 8
@@ -1785,7 +1785,7 @@ do.end7:                                          ; preds = %do.body1, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_signal_module_free(ptr nocapture noundef readonly %module) #1 {
+define internal void @_signal_module_free(ptr noundef readonly captures(none) %module) #1 {
 entry:
   %0 = getelementptr i8, ptr %module, i64 32
   %module.val.i = load ptr, ptr %0, align 8
@@ -1839,7 +1839,7 @@ _signal_module_clear.exit:                        ; preds = %do.body1.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @signal_default_int_handler(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal noalias noundef ptr @signal_default_int_handler(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -1870,7 +1870,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_alarm(ptr nocapture readnone %module, ptr noundef %arg) #1 {
+define internal ptr @signal_alarm(ptr readnone captures(none) %module, ptr noundef %arg) #1 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #15
   %cmp = icmp eq i32 %call, -1
@@ -1894,7 +1894,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_setitimer(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal ptr @signal_setitimer(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %t.i1.i = alloca i64, align 8
   %t.i.i = alloca i64, align 8
@@ -2016,7 +2016,7 @@ exit:                                             ; preds = %land.lhs.true4, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_getitimer(ptr nocapture noundef readonly %module, ptr noundef %arg) #1 {
+define internal ptr @signal_getitimer(ptr noundef readonly captures(none) %module, ptr noundef %arg) #1 {
 entry:
   %old.i5 = alloca %struct.itimerval, align 8
   %old.i = alloca %struct.itimerval, align 8
@@ -2081,7 +2081,7 @@ exit:                                             ; preds = %signal_getitimer_im
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_signal(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal ptr @signal_signal(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -2138,7 +2138,7 @@ exit:                                             ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_raise_signal(ptr nocapture readnone %module, ptr noundef %arg) #1 {
+define internal ptr @signal_raise_signal(ptr readnone captures(none) %module, ptr noundef %arg) #1 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #15
   %cmp = icmp eq i32 %call, -1
@@ -2160,7 +2160,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_strsignal(ptr nocapture readnone %module, ptr noundef %arg) #1 {
+define internal ptr @signal_strsignal(ptr readnone captures(none) %module, ptr noundef %arg) #1 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #15
   %cmp = icmp eq i32 %call, -1
@@ -2211,7 +2211,7 @@ exit:                                             ; preds = %if.end10.i, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_getsignal(ptr nocapture readnone %module, ptr noundef %arg) #1 {
+define internal ptr @signal_getsignal(ptr readnone captures(none) %module, ptr noundef %arg) #1 {
 entry:
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #15
   %cmp = icmp eq i32 %call, -1
@@ -2263,7 +2263,7 @@ exit:                                             ; preds = %if.end.i.i.i, %if.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_set_wakeup_fd(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #1 {
+define internal ptr @signal_set_wakeup_fd(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #1 {
 entry:
   %status = alloca %struct.stat, align 8
   %warn_on_full_buffer = alloca i32, align 4
@@ -2333,7 +2333,7 @@ return:                                           ; preds = %if.end10, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @signal_siginterrupt(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal noundef ptr @signal_siginterrupt(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %act.i8 = alloca %struct.sigaction, align 8
   %act.i = alloca %struct.sigaction, align 8
@@ -2439,7 +2439,7 @@ exit:                                             ; preds = %signal_siginterrupt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @signal_pause(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal noundef ptr @signal_pause(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %call.i = tail call ptr @PyEval_SaveThread() #15
   %call1.i = tail call i32 @pause() #15
@@ -2503,7 +2503,7 @@ signal_pause_impl.exit:                           ; preds = %PyErr_CheckSignals.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @signal_pidfd_send_signal(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal noundef ptr @signal_pidfd_send_signal(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %0 = add i64 %nargs, -2
   %or.cond = icmp ult i64 %0, 3
@@ -2586,7 +2586,7 @@ exit:                                             ; preds = %if.then2.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @signal_pthread_kill(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal noundef ptr @signal_pthread_kill(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %or.cond = icmp eq i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -2637,7 +2637,7 @@ exit:                                             ; preds = %if.end7.split, %lan
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_pthread_sigmask(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal ptr @signal_pthread_sigmask(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %previous.i = alloca %struct.__sigset_t, align 8
   %mask5 = alloca %struct.__sigset_t, align 8
@@ -2749,7 +2749,7 @@ exit:                                             ; preds = %if.end8, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_sigpending(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @signal_sigpending(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %mask.i = alloca %struct.__sigset_t, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %mask.i)
@@ -2773,7 +2773,7 @@ signal_sigpending_impl.exit:                      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_sigwait(ptr nocapture readnone %module, ptr noundef %arg) #1 {
+define internal ptr @signal_sigwait(ptr readnone captures(none) %module, ptr noundef %arg) #1 {
 entry:
   %signum.i = alloca i32, align 4
   %sigset1 = alloca %struct.__sigset_t, align 8
@@ -2817,7 +2817,7 @@ exit:                                             ; preds = %entry, %signal_sigw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_sigwaitinfo(ptr nocapture noundef readonly %module, ptr noundef %arg) #1 {
+define internal ptr @signal_sigwaitinfo(ptr noundef readonly captures(none) %module, ptr noundef %arg) #1 {
 entry:
   %si.i = alloca %struct.siginfo_t, align 8
   %sigset1 = alloca %struct.__sigset_t, align 8
@@ -2927,7 +2927,7 @@ exit:                                             ; preds = %entry, %signal_sigw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_sigtimedwait(ptr nocapture noundef readonly %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #1 {
+define internal ptr @signal_sigtimedwait(ptr noundef readonly captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #1 {
 entry:
   %timeout.i = alloca i64, align 8
   %si.i = alloca %struct.siginfo_t, align 8
@@ -3079,7 +3079,7 @@ exit:                                             ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @signal_valid_signals(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @signal_valid_signals(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %mask.i = alloca %struct.__sigset_t, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %mask.i)
@@ -3121,12 +3121,12 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #2
 declare i32 @alarm(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i32 @setitimer(i32 noundef, ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @setitimer(i32 noundef, ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @itimer_retval(ptr nocapture noundef nonnull readonly %iv) unnamed_addr #1 {
+define internal fastcc ptr @itimer_retval(ptr noundef nonnull readonly captures(none) %iv) unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyTuple_New(i64 noundef 2) #15
   %cmp = icmp eq ptr %call, null
@@ -3210,10 +3210,10 @@ declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #2
 declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getitimer(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @getitimer(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @signal_signal_impl(ptr nocapture readonly %module.32.val, i32 noundef %signalnum, ptr noundef %handler) unnamed_addr #1 {
+define internal fastcc ptr @signal_signal_impl(ptr readonly captures(none) %module.32.val, i32 noundef %signalnum, ptr noundef %handler) unnamed_addr #1 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %1 = load ptr, ptr %0, align 8
@@ -3469,7 +3469,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @strsignal(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #2
 
@@ -3687,7 +3687,7 @@ declare i32 @sigwait(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @sigwaitinfo(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @fill_siginfo(ptr %state.24.val, ptr nocapture noundef nonnull readonly %si) unnamed_addr #1 {
+define internal fastcc ptr @fill_siginfo(ptr %state.24.val, ptr noundef nonnull readonly captures(none) %si) unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyStructSequence_New(ptr noundef %state.24.val) #15
   %tobool.not = icmp eq ptr %call, null
@@ -4217,16 +4217,16 @@ declare void @_Py_FatalErrorFunc(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { nofree norecurse nounwind memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

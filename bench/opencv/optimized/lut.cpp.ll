@@ -573,7 +573,7 @@ define linkonce_odr hidden void @_ZN2cv15LUTParallelBodyD2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #1
 
@@ -626,7 +626,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 declare void @_ZN2cv3MatC1ERKS0_RKNS_5RangeES5_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cvL8LUT8u_8uEPKhS1_Phiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cvL8LUT8u_8uEPKhS1_Phiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %5, 1
   %8 = mul nsw i32 %4, %3
   %9 = icmp sgt i32 %8, 0
@@ -693,7 +693,7 @@ _ZN2cvL6LUT8u_IhEEvPKhPKT_PS3_iii.exit:           ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cvL8LUT8u_8sEPKhPKaPaiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cvL8LUT8u_8sEPKhPKaPaiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %5, 1
   %8 = mul nsw i32 %4, %3
   %9 = icmp sgt i32 %8, 0
@@ -760,7 +760,7 @@ _ZN2cvL6LUT8u_IaEEvPKhPKT_PS3_iii.exit:           ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cvL9LUT8u_16uEPKhPKtPtiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cvL9LUT8u_16uEPKhPKtPtiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %5, 1
   %8 = mul nsw i32 %4, %3
   %9 = icmp sgt i32 %8, 0
@@ -827,7 +827,7 @@ _ZN2cvL6LUT8u_ItEEvPKhPKT_PS3_iii.exit:           ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cvL9LUT8u_16sEPKhPKsPsiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cvL9LUT8u_16sEPKhPKsPsiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %5, 1
   %8 = mul nsw i32 %4, %3
   %9 = icmp sgt i32 %8, 0
@@ -894,7 +894,7 @@ _ZN2cvL6LUT8u_IsEEvPKhPKT_PS3_iii.exit:           ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cvL9LUT8u_32sEPKhPKiPiiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cvL9LUT8u_32sEPKhPKiPiiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %5, 1
   %8 = mul nsw i32 %4, %3
   %9 = icmp sgt i32 %8, 0
@@ -961,7 +961,7 @@ _ZN2cvL6LUT8u_IiEEvPKhPKT_PS3_iii.exit:           ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cvL9LUT8u_32fEPKhPKfPfiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cvL9LUT8u_32fEPKhPKfPfiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %5, 1
   %8 = mul nsw i32 %4, %3
   %9 = icmp sgt i32 %8, 0
@@ -1028,7 +1028,7 @@ _ZN2cvL6LUT8u_IfEEvPKhPKT_PS3_iii.exit:           ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cvL9LUT8u_64fEPKhPKdPdiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cvL9LUT8u_64fEPKhPKdPdiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %5, 1
   %8 = mul nsw i32 %4, %3
   %9 = icmp sgt i32 %8, 0
@@ -1095,7 +1095,7 @@ _ZN2cvL6LUT8u_IdEEvPKhPKT_PS3_iii.exit:           ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN2cvL9LUT8u_16fEPKhPKNS_6hfloatEPS2_iii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
+define internal void @_ZN2cvL9LUT8u_16fEPKhPKNS_6hfloatEPS2_iii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #7 {
   %7 = icmp eq i32 %5, 1
   %8 = mul nsw i32 %4, %3
   %9 = icmp sgt i32 %8, 0
@@ -1176,10 +1176,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

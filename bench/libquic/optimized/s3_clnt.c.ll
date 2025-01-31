@@ -2031,7 +2031,7 @@ while.body:                                       ; preds = %while.cond
   br i1 %tobool59.not, label %if.then60, label %if.end62
 
 if.then60:                                        ; preds = %while.body
-  %call61 = call i32 @ssl3_send_alert(ptr noundef %ssl, i32 noundef 2, i32 noundef 50) #11
+  %call61 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef 50) #11
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 1375) #11
   br label %err
 
@@ -2052,7 +2052,7 @@ lor.lhs.false68:                                  ; preds = %if.end62
   br i1 %cmp71.not, label %if.end75, label %if.then73
 
 if.then73:                                        ; preds = %lor.lhs.false68, %if.end62
-  %call74 = call i32 @ssl3_send_alert(ptr noundef %ssl, i32 noundef 2, i32 noundef 50) #11
+  %call74 = call i32 @ssl3_send_alert(ptr noundef nonnull %ssl, i32 noundef 2, i32 noundef 50) #11
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 137, ptr noundef nonnull @.str, i32 noundef 1385) #11
   br label %err
 
@@ -3624,7 +3624,7 @@ declare ptr @ssl3_get_enc_method(i16 noundef zeroext) local_unnamed_addr #1
 declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @CBS_mem_equal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -3732,7 +3732,7 @@ declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ssl_cipher_requires_server_key_exchange(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @EVP_MD_CTX_init(ptr noundef) local_unnamed_addr #1
 
@@ -3781,7 +3781,7 @@ declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #1
 declare ptr @sk_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ca_dn_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @ca_dn_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -3808,7 +3808,7 @@ declare i32 @EVP_Digest(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr 
 declare ptr @EVP_sha256() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @BUF_strdup(ptr noundef) local_unnamed_addr #1
 
@@ -3938,7 +3938,7 @@ declare i32 @X509_NAME_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ssl_has_private_key(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
@@ -3947,10 +3947,10 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -218,10 +218,10 @@ define dso_local i32 @cn_netlink_send_mult(ptr noundef %0, i16 noundef zeroext %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @cn_cb_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -230,7 +230,7 @@ declare dso_local i32 @cn_cb_equal(ptr noundef, ptr noundef) local_unnamed_addr 
 declare dso_local i32 @netlink_has_listeners(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @netlink_broadcast_filtered(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -465,7 +465,7 @@ define internal void @cn_rx_skb(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -1, 1) i32 @cn_bind(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal noundef range(i32 -1, 1) i32 @cn_bind(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = sext i32 %1 to i64
@@ -489,7 +489,7 @@ define internal noundef range(i32 -1, 1) i32 @cn_bind(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cn_release(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define internal void @cn_release(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %11, label %4
 
@@ -520,7 +520,7 @@ declare dso_local void @netlink_kernel_release(ptr noundef) local_unnamed_addr #
 declare dso_local ptr @proc_create_single_data(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @cn_proc_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @cn_proc_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr @cdev.1, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.2) #4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56

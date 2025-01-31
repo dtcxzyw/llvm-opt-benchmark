@@ -232,7 +232,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @dealloc_guestfd(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @semihost_sys_read_gf(ptr noundef %cs, ptr noundef %complete, ptr nocapture noundef %gf, i64 noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @semihost_sys_read_gf(ptr noundef %cs, ptr noundef %complete, ptr noundef captures(none) %gf, i64 noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %len, i64 2147483647)
   %0 = load i32, ptr %gf, align 8
@@ -353,7 +353,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @semihost_sys_write_gf(ptr noundef %cs, ptr noundef %complete, ptr nocapture noundef readonly %gf, i64 noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local void @semihost_sys_write_gf(ptr noundef %cs, ptr noundef %complete, ptr noundef readonly captures(none) %gf, i64 noundef %buf, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %len, i64 2147483647)
   %0 = load i32, ptr %gf, align 8
@@ -600,7 +600,7 @@ sw.epilog:                                        ; preds = %sw.bb3, %sw.bb2, %h
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @semihost_sys_flen(ptr noundef %cs, ptr noundef %fstat_cb, ptr nocapture noundef readonly %flen_cb, i32 noundef %fd, i64 noundef %fstat_addr) local_unnamed_addr #0 {
+define dso_local void @semihost_sys_flen(ptr noundef %cs, ptr noundef %fstat_cb, ptr noundef readonly captures(none) %flen_cb, i32 noundef %fd, i64 noundef %fstat_addr) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca %struct.stat, align 8
   %call = tail call ptr @get_guestfd(i32 noundef %fd) #12
@@ -1550,7 +1550,7 @@ declare i32 @alloc_guestfd() local_unnamed_addr #1
 declare void @associate_guestfd(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #4
@@ -1558,15 +1558,15 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @qemu_semihosting_console_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @qemu_semihosting_console_write(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1577,7 +1577,7 @@ declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare i32 @isatty(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #8
@@ -1586,16 +1586,16 @@ declare i32 @llvm.bswap.i32(i32) #8
 declare i64 @llvm.bswap.i64(i64) #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat64(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i64 @g_get_real_time() local_unnamed_addr #1
 
@@ -1603,13 +1603,13 @@ declare i64 @g_get_real_time() local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

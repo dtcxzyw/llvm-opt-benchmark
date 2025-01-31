@@ -509,7 +509,7 @@ peel_committish.exit29.i:                         ; preds = %if.end.i26.i, %if.t
   %42 = load ptr, ptr %advance_name, align 8
   %call17.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #16
   %conv.i = trunc i64 %call17.i to i32
-  %call18.i = call i32 @repo_dwim_ref(ptr noundef %41, ptr noundef %42, i32 noundef %conv.i, ptr noundef nonnull %oid.i, ptr noundef nonnull %fullname.i, i32 noundef 0) #14
+  %call18.i = call i32 @repo_dwim_ref(ptr noundef %41, ptr noundef nonnull %42, i32 noundef %conv.i, ptr noundef nonnull %oid.i, ptr noundef nonnull %fullname.i, i32 noundef 0) #14
   %cmp19.i = icmp eq i32 %call18.i, 1
   br i1 %cmp19.i, label %if.then21.i, label %if.else22.i
 
@@ -880,7 +880,7 @@ if.end.i65:                                       ; preds = %mapped_commit.exit.
   %call4.i.i69 = call i32 @find_commit_subject(ptr noundef %call1.i.i67, ptr noundef nonnull %orig_message.i.i) #14
   %83 = load ptr, ptr %orig_message.i.i, align 8
   %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %83) #16
-  call void @strbuf_add(ptr noundef nonnull %msg.i.i, ptr noundef %83, i64 noundef %call.i.i.i) #14
+  call void @strbuf_add(ptr noundef nonnull %msg.i.i, ptr noundef nonnull %83, i64 noundef %call.i.i.i) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %len.i.i.i)
   %call.i4.i.i = call ptr @find_commit_header(ptr noundef %call1.i.i67, ptr noundef nonnull @.str.40, ptr noundef nonnull %len.i.i.i) #14
   %tobool.not.i.i21.i = icmp eq ptr %call.i4.i.i, null
@@ -1444,10 +1444,10 @@ if.end191:                                        ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -1500,12 +1500,12 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #3
 declare ptr @get_name_decoration(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @merge_finalize(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @release_revisions(ptr noundef) local_unnamed_addr #3
 
@@ -1520,7 +1520,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #8
 declare i32 @repo_dwim_ref(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @hashmap_iter_next(ptr noundef) local_unnamed_addr #3
 
@@ -1582,16 +1582,16 @@ declare i32 @strmap_contains(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @strmap_clear(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15ImageFileReader16memory_map_imageE = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @Java_jdk_internal_jimage_NativeImageBuffer_getNativeMap(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef ptr @Java_jdk_internal_jimage_NativeImageBuffer_getNativeMap(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1352
   %6 = load ptr, ptr %5, align 8

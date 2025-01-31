@@ -47,7 +47,7 @@ define dso_local noundef ptr @jinit_read_bmp(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @start_input_bmp(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @start_input_bmp(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca [14 x i8], align 2
   %4 = alloca [64 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1161,12 +1161,12 @@ read_byte.exit:                                   ; preds = %491, %496
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @finish_input_bmp(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal void @finish_input_bmp(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
@@ -1320,7 +1320,7 @@ define internal i32 @preload_image(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_8bit_row(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @get_8bit_row(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 100
@@ -1648,7 +1648,7 @@ define internal noundef i32 @get_8bit_row(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_24bit_row(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @get_24bit_row(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -1874,7 +1874,7 @@ define internal noundef i32 @get_24bit_row(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @get_32bit_row(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @get_32bit_row(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -2103,16 +2103,16 @@ define internal noundef i32 @get_32bit_row(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

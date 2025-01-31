@@ -169,10 +169,10 @@ define dso_local void @power_supply_changed(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -198,13 +198,13 @@ define dso_local i32 @power_supply_am_i_supplied(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @class_for_each_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @__power_supply_am_i_supplied(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal i32 @__power_supply_am_i_supplied(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca %union.power_supply_propval, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store i64 0, ptr %3, align 8
@@ -311,7 +311,7 @@ define dso_local i32 @power_supply_is_system_supplied() #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @__power_supply_is_system_supplied(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal i32 @__power_supply_is_system_supplied(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca %union.power_supply_propval, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   store i64 0, ptr %3, align 8
@@ -374,7 +374,7 @@ define dso_local i32 @power_supply_get_property_from_supplier(ptr noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @__power_supply_get_supplier_property(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @__power_supply_get_supplier_property(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -636,7 +636,7 @@ define dso_local ptr @power_supply_get_by_name(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @class_find_device(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, 2) i32 @power_supply_match_device_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define internal range(i32 0, 2) i32 @power_supply_match_device_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -661,7 +661,7 @@ define dso_local void @power_supply_put(ptr noundef %0) #0 align 16 {
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local i32 @power_supply_get_battery_info(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.fwnode_reference_args, align 8
   %4 = alloca ptr, align 8
   %5 = alloca [2 x i32], align 8
@@ -926,7 +926,7 @@ declare dso_local ptr @__dev_fwnode(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @fwnode_property_read_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
@@ -1099,7 +1099,7 @@ define dso_local zeroext i1 @power_supply_battery_info_has_prop(ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @power_supply_battery_info_get_prop(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #8 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @power_supply_battery_info_get_prop(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #8 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %39, label %5
 
@@ -1194,7 +1194,7 @@ define dso_local noundef range(i32 -22, 1) i32 @power_supply_battery_info_get_pr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @power_supply_temp2resist_simple(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #9 align 16 {
+define dso_local i32 @power_supply_temp2resist_simple(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #9 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.preheader, label %.thread
 
@@ -1263,7 +1263,7 @@ define dso_local i32 @power_supply_temp2resist_simple(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @power_supply_vbat2ri(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) #10 align 16 {
+define dso_local i32 @power_supply_vbat2ri(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) #10 align 16 {
   br i1 %2, label %4, label %8
 
 4:                                                ; preds = %3
@@ -1374,7 +1374,7 @@ define dso_local i32 @power_supply_vbat2ri(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @power_supply_get_maintenance_charging_setting(ptr nocapture noundef readonly %0, i32 noundef %1) #7 align 16 {
+define dso_local ptr @power_supply_get_maintenance_charging_setting(ptr noundef readonly captures(none) %0, i32 noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, %1
@@ -1393,7 +1393,7 @@ define dso_local ptr @power_supply_get_maintenance_charging_setting(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i32 @power_supply_ocv2cap_simple(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #9 align 16 {
+define dso_local i32 @power_supply_ocv2cap_simple(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #9 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.preheader, label %.thread
 
@@ -1462,7 +1462,7 @@ define dso_local i32 @power_supply_ocv2cap_simple(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local ptr @power_supply_find_ocv2cap_table(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #11 align 16 {
+define dso_local ptr @power_supply_find_ocv2cap_table(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #11 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1511,7 +1511,7 @@ define dso_local ptr @power_supply_find_ocv2cap_table(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local i32 @power_supply_batinfo_ocv2cap(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #10 align 16 {
+define dso_local i32 @power_supply_batinfo_ocv2cap(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #10 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1628,7 +1628,7 @@ define dso_local i32 @power_supply_batinfo_ocv2cap(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @power_supply_battery_bti_in_range(ptr nocapture noundef readonly %0, i32 noundef %1) #7 align 16 {
+define dso_local zeroext i1 @power_supply_battery_bti_in_range(ptr noundef readonly captures(none) %0, i32 noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 484
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 1
@@ -2202,7 +2202,7 @@ define dso_local ptr @devm_power_supply_register(ptr noundef %0, ptr noundef %1,
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_power_supply_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @devm_power_supply_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   tail call void @power_supply_unregister(ptr noundef %3)
   ret void
@@ -2319,7 +2319,7 @@ define internal fastcc i32 @device_init_wakeup(ptr noundef %0, i1 noundef zeroex
 declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @power_supply_get_drvdata(ptr nocapture noundef readonly %0) #7 align 16 {
+define dso_local ptr @power_supply_get_drvdata(ptr noundef readonly captures(none) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -2570,7 +2570,7 @@ declare dso_local void @device_del(ptr noundef) local_unnamed_addr #2
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @__power_supply_changed_work(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @__power_supply_changed_work(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2691,7 +2691,7 @@ declare dso_local i32 @thermal_zone_device_enable(ptr noundef) local_unnamed_add
 declare dso_local void @thermal_zone_device_unregister(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @power_supply_read_temp(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal i32 @power_supply_read_temp(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = alloca %union.power_supply_propval, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #17
   %4 = icmp eq ptr %0, null

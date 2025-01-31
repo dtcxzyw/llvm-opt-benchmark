@@ -1272,7 +1272,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @tzparse(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
@@ -1919,10 +1919,10 @@ increment_overflow_time.exit280.thread:           ; preds = %216, %213, %210
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @getoffset(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @getoffset(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, 45
   %5 = icmp eq i8 %3, 43
@@ -2068,7 +2068,7 @@ getsecs.exit.thread:                              ; preds = %.preheader.i.i, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @getrule(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #6 {
+define internal fastcc noundef ptr @getrule(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1
   switch i8 %3, label %96 [
     i8 74, label %4
@@ -2306,7 +2306,7 @@ getnum.exit40.thread:                             ; preds = %.preheader.i36, %.p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @transtime(i32 noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #7 {
+define internal fastcc i32 @transtime(i32 noundef %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef %2) unnamed_addr #7 {
   %4 = and i32 %0, 3
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %11
@@ -2446,17 +2446,17 @@ define internal fastcc i32 @transtime(i32 noundef %0, ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pg_localtime(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @pg_localtime(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %4 = tail call fastcc ptr @localsub(ptr noundef nonnull %3, ptr noundef %0)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @localsub(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc ptr @localsub(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = load i64, ptr %1, align 8
@@ -2677,7 +2677,7 @@ gmtsub.exit:                                      ; preds = %gmtload.exit.i, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @pg_gmtime(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @pg_gmtime(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @gmtsub.gmtptr, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %gmtload.exit.i
@@ -2711,7 +2711,7 @@ gmtsub.exit:                                      ; preds = %4, %gmtload.exit.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 2) i32 @pg_next_dst_boundary(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #9 {
+define dso_local range(i32 -1, 2) i32 @pg_next_dst_boundary(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #9 {
   %8 = alloca i64, align 8
   %9 = load i64, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 260
@@ -2982,7 +2982,7 @@ define dso_local range(i32 -1, 2) i32 @pg_next_dst_boundary(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @pg_interpret_timezone_abbrev(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #10 {
+define dso_local noundef zeroext i1 @pg_interpret_timezone_abbrev(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #10 {
   %6 = load i64, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 22376
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 268
@@ -3103,10 +3103,10 @@ define dso_local noundef zeroext i1 @pg_interpret_timezone_abbrev(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @pg_get_timezone_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @pg_get_timezone_offset(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load i32, ptr %3, align 8
   %5 = icmp slt i32 %4, 2
@@ -3167,18 +3167,18 @@ define dso_local zeroext i1 @pg_tz_acceptable(ptr noundef %0) local_unnamed_addr
 declare i32 @pg_open_tzfile(ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 declare i32 @close(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #14
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @timesub(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #15 {
+define internal fastcc noundef ptr @timesub(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #15 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %8, label %5
 

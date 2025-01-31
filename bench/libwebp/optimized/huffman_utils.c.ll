@@ -30,7 +30,7 @@ define hidden void @VP8LHtreeGroupsFree(ptr noundef %0) local_unnamed_addr #0 {
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [512 x i16], align 16
   %6 = tail call fastcc i32 @BuildHuffmanTable(ptr noundef null, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null)
   %7 = icmp eq i32 %6, 0
@@ -114,7 +114,7 @@ define hidden i32 @VP8LBuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc i32 @BuildHuffmanTable(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #2 {
   %6 = alloca [16 x i32], align 16
   %7 = alloca [16 x i32], align 16
   %8 = shl nuw i32 1, %1
@@ -702,7 +702,7 @@ define hidden void @VP8LHuffmanTablesDeallocate(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #4

@@ -484,7 +484,7 @@ declare i32 @opal_info_init(i32 noundef, ptr noundef, ptr noundef) local_unnamed
 declare zeroext i1 @opal_cmd_line_is_taken(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #2
 
@@ -519,7 +519,7 @@ declare void @opal_info_show_component_version(ptr noundef, ptr noundef, ptr nou
 declare void @ompi_info_close_components() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @opal_info_finalize() local_unnamed_addr #2
 

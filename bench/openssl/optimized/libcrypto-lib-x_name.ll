@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_NAME_set(ptr nocapture noundef %xn, ptr noundef %name) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_NAME_set(ptr noundef captures(none) %xn, ptr noundef %name) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %xn, align 8
   %cmp = icmp eq ptr %0, %name
@@ -317,7 +317,7 @@ declare ptr @ASN1_OBJECT_it() #2
 declare ptr @ASN1_PRINTABLE_it() #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @x509_name_ex_new(ptr nocapture noundef writeonly %val, ptr nocapture readnone %it) #1 {
+define internal range(i32 0, 2) i32 @x509_name_ex_new(ptr noundef writeonly captures(none) %val, ptr readnone captures(none) %it) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str.2, i32 noundef 92) #6
   %cmp = icmp eq ptr %call, null
@@ -359,7 +359,7 @@ return:                                           ; preds = %entry, %if.then9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @x509_name_ex_free(ptr noundef %pval, ptr nocapture readnone %it) #1 {
+define internal void @x509_name_ex_free(ptr noundef %pval, ptr readnone captures(none) %it) #1 {
 entry:
   %cmp = icmp eq ptr %pval, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -387,7 +387,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2) i32 @x509_name_ex_d2i(ptr nocapture noundef %val, ptr nocapture noundef %in, i64 noundef %len, ptr nocapture readnone %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) #1 {
+define internal range(i32 -2147483648, 2) i32 @x509_name_ex_d2i(ptr noundef captures(none) %val, ptr noundef captures(none) %in, i64 noundef %len, ptr readnone captures(none) %it, i32 noundef %tag, i32 noundef %aclass, i8 noundef signext %opt, ptr noundef %ctx) #1 {
 entry:
   %p = alloca ptr, align 8
   %intname = alloca %union.anon, align 8
@@ -518,7 +518,7 @@ return:                                           ; preds = %entry, %if.end49, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_name_ex_i2d(ptr nocapture noundef readonly %val, ptr noundef %out, ptr nocapture readnone %it, i32 %tag, i32 %aclass) #1 {
+define internal i32 @x509_name_ex_i2d(ptr noundef readonly captures(none) %val, ptr noundef %out, ptr readnone captures(none) %it, i32 %tag, i32 %aclass) #1 {
 entry:
   %intname.i = alloca %union.anon.1, align 8
   %p.i = alloca ptr, align 8
@@ -659,7 +659,7 @@ return:                                           ; preds = %x509_name_encode.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @x509_name_ex_print(ptr noundef %out, ptr nocapture noundef readonly %pval, i32 noundef %indent, ptr nocapture readnone %fname, ptr nocapture noundef readonly %pctx) #1 {
+define internal range(i32 0, 3) i32 @x509_name_ex_print(ptr noundef %out, ptr noundef readonly captures(none) %pval, i32 noundef %indent, ptr readnone captures(none) %fname, ptr noundef readonly captures(none) %pctx) #1 {
 entry:
   %0 = load ptr, ptr %pval, align 8
   %nm_flags = getelementptr inbounds nuw i8, ptr %pctx, i64 8
@@ -687,7 +687,7 @@ declare i32 @ASN1_item_ex_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
@@ -698,7 +698,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr nocapture noundef %a) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @x509_name_canon(ptr noundef captures(none) %a) unnamed_addr #1 {
 entry:
   %v.i34 = alloca ptr, align 8
   %v.i = alloca ptr, align 8
@@ -1069,10 +1069,10 @@ declare i32 @X509_NAME_print_ex(ptr noundef, ptr noundef, i32 noundef, i64 nound
 declare i64 @llvm.smin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

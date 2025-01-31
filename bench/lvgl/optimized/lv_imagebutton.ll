@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_imagebutton_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_imagebutton_constructor, ptr null, ptr @lv_imagebutton_event, ptr null, ptr @.str, i32 1073741823, i32 1073741823, i8 0, i8 31, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_imagebutton_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_imagebutton_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @lv_memset(ptr noundef nonnull %3, i8 noundef zeroext 0, i64 noundef 144) #6
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -28,7 +28,7 @@ define internal void @lv_imagebutton_constructor(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_imagebutton_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_imagebutton_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct._lv_draw_image_dsc_t, align 8
   %5 = alloca %struct.lv_area_t, align 4
@@ -440,14 +440,14 @@ define noundef ptr @lv_imagebutton_create(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_imagebutton_set_src(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -661,7 +661,7 @@ declare void @lv_obj_remove_state(ptr noundef, i16 noundef zeroext) local_unname
 declare void @lv_obj_add_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_imagebutton_get_src_left(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define ptr @lv_imagebutton_get_src_left(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %3, i64 0, i64 %4
@@ -670,7 +670,7 @@ define ptr @lv_imagebutton_get_src_left(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_imagebutton_get_src_middle(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define ptr @lv_imagebutton_get_src_middle(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %3, i64 0, i64 %4
@@ -679,7 +679,7 @@ define ptr @lv_imagebutton_get_src_middle(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_imagebutton_get_src_right(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
+define ptr @lv_imagebutton_get_src_right(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds nuw [6 x %struct._lv_imagebutton_src_info_t], ptr %3, i64 0, i64 %4
@@ -712,7 +712,7 @@ declare void @lv_draw_image(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @lv_obj_get_style_prop(ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #2
 

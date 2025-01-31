@@ -79,7 +79,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.48 = private unnamed_addr constant [39 x i8] c"vhostfd(s)= is not valid without vhost\00", align 1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local noundef i64 @tap_read_packet(i32 noundef %tapfd, ptr nocapture noundef %buf, i32 noundef %maxlen) local_unnamed_addr #0 {
+define dso_local noundef i64 @tap_read_packet(i32 noundef %tapfd, ptr noundef captures(none) %buf, i32 noundef %maxlen) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %maxlen to i64
   %call = tail call i64 @read(i32 noundef %tapfd, ptr noundef %buf, i64 noundef %conv) #15
@@ -87,10 +87,10 @@ entry:
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @tap_get_fd(ptr nocapture noundef readonly %nc) local_unnamed_addr #2 {
+define dso_local i32 @tap_get_fd(ptr noundef readonly captures(none) %nc) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -111,7 +111,7 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @net_init_bridge(ptr nocapture noundef readonly %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @net_init_bridge(ptr noundef readonly captures(none) %netdev, ptr noundef %name, ptr noundef %peer, ptr noundef %errp) local_unnamed_addr #2 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %netdev, i64 8
   %0 = load i32, ptr %type, align 8
@@ -264,7 +264,7 @@ if.end35:                                         ; preds = %if.then33, %if.then
   %br_buf.0 = phi ptr [ %call34, %if.then33 ], [ null, %if.then29 ]
   %tobool36.not = icmp eq ptr %br_buf.0, null
   %cond = select i1 %tobool36.not, ptr @.str.30, ptr %br_buf.0
-  %call37 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.28, ptr noundef %helper.addr.0, ptr noundef nonnull @.str.29, ptr noundef %call24, ptr noundef nonnull %cond) #15
+  %call37 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.28, ptr noundef nonnull %helper.addr.0, ptr noundef nonnull @.str.29, ptr noundef %call24, ptr noundef nonnull %cond) #15
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %args, i64 8
   store ptr @.str.31, ptr %args, align 16
   %incdec.ptr39 = getelementptr inbounds nuw i8, ptr %args, i64 16
@@ -287,7 +287,7 @@ if.else:                                          ; preds = %lor.lhs.false
   %incdec.ptr49 = getelementptr inbounds nuw i8, ptr %args, i64 32
   store ptr %call44, ptr %incdec.ptr48, align 8
   store ptr null, ptr %incdec.ptr49, align 16
-  %call52 = call i32 @execv(ptr noundef %helper.addr.0, ptr noundef nonnull %args) #15
+  %call52 = call i32 @execv(ptr noundef nonnull %helper.addr.0, ptr noundef nonnull %args) #15
   br label %if.end53
 
 if.end53:                                         ; preds = %if.else, %if.end35
@@ -1302,7 +1302,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @get_fds(ptr noundef %str, ptr nocapture noundef writeonly %fds) unnamed_addr #2 {
+define internal fastcc i32 @get_fds(ptr noundef %str, ptr noundef writeonly captures(none) %fds) unnamed_addr #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #18
   %add.ptr = getelementptr i8, ptr %str, i64 %call
@@ -1318,7 +1318,7 @@ while.body:                                       ; preds = %entry, %if.else10
 
 if.end.thread:                                    ; preds = %while.body
   %0 = trunc nuw nsw i64 %indvars.iv to i32
-  %call4 = tail call noalias ptr @g_strdup(ptr noundef %ptr.019) #15
+  %call4 = tail call noalias ptr @g_strdup(ptr noundef nonnull %ptr.019) #15
   %arrayidx = getelementptr ptr, ptr %fds, i64 %indvars.iv
   store ptr %call4, ptr %arrayidx, align 8
   %inc15 = add nuw nsw i32 %0, 1
@@ -1328,7 +1328,7 @@ if.else10:                                        ; preds = %while.body
   %sub.ptr.lhs.cast = ptrtoint ptr %call2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %ptr.019 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call5 = tail call noalias ptr @g_strndup(ptr noundef %ptr.019, i64 noundef %sub.ptr.sub) #15
+  %call5 = tail call noalias ptr @g_strndup(ptr noundef nonnull %ptr.019, i64 noundef %sub.ptr.sub) #15
   %arrayidx7 = getelementptr ptr, ptr %fds, i64 %indvars.iv
   store ptr %call5, ptr %arrayidx7, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1356,7 +1356,7 @@ declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr 
 declare i32 @tap_fd_get_ifname(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @tap_get_vhost_net(ptr nocapture noundef readonly %nc) local_unnamed_addr #2 {
+define dso_local ptr @tap_get_vhost_net(ptr noundef readonly captures(none) %nc) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -1465,7 +1465,7 @@ declare noalias ptr @g_strdup_printf(ptr noundef, ...) local_unnamed_addr #4
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #8
@@ -1478,7 +1478,7 @@ declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare i64 @recvmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare ptr @qemu_new_net_client(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -1487,7 +1487,7 @@ declare i32 @tap_probe_has_ufo(i32 noundef) local_unnamed_addr #4
 declare i32 @tap_probe_has_uso(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tap_set_offload(ptr nocapture noundef readonly %nc, i32 noundef %csum, i32 noundef %tso4, i32 noundef %tso6, i32 noundef %ecn, i32 noundef %ufo, i32 noundef %uso4, i32 noundef %uso6) #2 {
+define internal void @tap_set_offload(ptr noundef readonly captures(none) %nc, i32 noundef %csum, i32 noundef %tso4, i32 noundef %tso6, i32 noundef %ecn, i32 noundef %ufo, i32 noundef %uso4, i32 noundef %uso6) #2 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd, align 8
@@ -1507,7 +1507,7 @@ declare i32 @tap_probe_vnet_hdr_len(i32 noundef, i32 noundef) local_unnamed_addr
 declare void @tap_fd_set_vnet_hdr_len(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tap_exit_notify(ptr noundef %notifier, ptr nocapture readnone %data) #2 {
+define internal void @tap_exit_notify(ptr noundef %notifier, ptr readnone captures(none) %data) #2 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -1931,7 +1931,7 @@ tap_write_poll.exit:                              ; preds = %land.end.i.i5, %lan
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @tap_has_ufo(ptr nocapture noundef readonly %nc) #2 {
+define internal zeroext i1 @tap_has_ufo(ptr noundef readonly captures(none) %nc) #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -1950,7 +1950,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @tap_has_uso(ptr nocapture noundef readonly %nc) #2 {
+define internal zeroext i1 @tap_has_uso(ptr noundef readonly captures(none) %nc) #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -1969,7 +1969,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @tap_has_vnet_hdr(ptr nocapture noundef readonly %nc) #2 {
+define internal zeroext i1 @tap_has_vnet_hdr(ptr noundef readonly captures(none) %nc) #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -1988,7 +1988,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @tap_has_vnet_hdr_len(ptr nocapture noundef readonly %nc, i32 noundef %len) #2 {
+define internal zeroext i1 @tap_has_vnet_hdr_len(ptr noundef readonly captures(none) %nc, i32 noundef %len) #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -2008,7 +2008,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @tap_get_using_vnet_hdr(ptr nocapture noundef readonly %nc) #12 {
+define internal zeroext i1 @tap_get_using_vnet_hdr(ptr noundef readonly captures(none) %nc) #12 {
 entry:
   %using_vnet_hdr = getelementptr inbounds nuw i8, ptr %nc, i64 71166
   %0 = load i8, ptr %using_vnet_hdr, align 2
@@ -2017,7 +2017,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tap_using_vnet_hdr(ptr nocapture noundef %nc, i1 noundef zeroext %using_vnet_hdr) #2 {
+define internal void @tap_using_vnet_hdr(ptr noundef captures(none) %nc, i1 noundef zeroext %using_vnet_hdr) #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -2047,7 +2047,7 @@ if.end8:                                          ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal i32 @tap_get_vnet_hdr_len(ptr nocapture noundef readonly %nc) #12 {
+define internal i32 @tap_get_vnet_hdr_len(ptr noundef readonly captures(none) %nc) #12 {
 entry:
   %host_vnet_hdr_len = getelementptr inbounds nuw i8, ptr %nc, i64 71184
   %0 = load i32, ptr %host_vnet_hdr_len, align 8
@@ -2055,7 +2055,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tap_set_vnet_hdr_len(ptr nocapture noundef %nc, i32 noundef %len) #2 {
+define internal void @tap_set_vnet_hdr_len(ptr noundef captures(none) %nc, i32 noundef %len) #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -2087,7 +2087,7 @@ if.end13:                                         ; preds = %if.end, %if.end, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @tap_set_vnet_le(ptr nocapture noundef readonly %nc, i1 noundef zeroext %is_le) #2 {
+define internal i32 @tap_set_vnet_le(ptr noundef readonly captures(none) %nc, i1 noundef zeroext %is_le) #2 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd, align 8
@@ -2097,7 +2097,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @tap_set_vnet_be(ptr nocapture noundef readonly %nc, i1 noundef zeroext %is_be) #2 {
+define internal i32 @tap_set_vnet_be(ptr noundef readonly captures(none) %nc, i1 noundef zeroext %is_be) #2 {
 entry:
   %fd = getelementptr inbounds nuw i8, ptr %nc, i64 376
   %0 = load i32, ptr %fd, align 8
@@ -2107,7 +2107,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @tap_set_steering_ebpf(ptr nocapture noundef readonly %nc, i32 noundef %prog_fd) #2 {
+define internal zeroext i1 @tap_set_steering_ebpf(ptr noundef readonly captures(none) %nc, i32 noundef %prog_fd) #2 {
 entry:
   %0 = load ptr, ptr %nc, align 8
   %1 = load i32, ptr %0, align 8
@@ -2129,7 +2129,7 @@ if.end:                                           ; preds = %entry
 declare i64 @writev(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: allocsize(0,1)
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #6
@@ -2219,12 +2219,12 @@ declare void @error_report_err(ptr noundef) local_unnamed_addr #4
 declare void @tap_set_sndbuf(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @warn_report_err(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #1
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #1
 
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #4
 
@@ -2236,7 +2236,7 @@ declare ptr @vhost_net_init(ptr noundef) local_unnamed_addr #4
 declare void @qemu_del_net_client(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
@@ -2402,10 +2402,10 @@ entry:
 declare void @qemu_flush_queued_packets(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nofree nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

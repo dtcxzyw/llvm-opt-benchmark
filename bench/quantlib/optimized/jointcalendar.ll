@@ -124,7 +124,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib13JointCalendar4ImplEEE = comda
 @_ZN8QuantLib13JointCalendarC1ERKSt6vectorINS_8CalendarESaIS2_EENS_17JointCalendarRuleE = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN8QuantLib13JointCalendarC2ERKSt6vectorINS_8CalendarESaIS2_EENS_17JointCalendarRuleE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c2, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c2, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -284,15 +284,15 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_S4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c3, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_S4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c3, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -507,7 +507,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_S4_S4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c4, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendar4ImplC2ERKNS_8CalendarES4_S4_S4_NS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c4, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -777,7 +777,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib13JointCalendar4ImplC2ESt6vectorINS_8CalendarESaIS3_EENS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %cv, i32 noundef %r) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendar4ImplC2ESt6vectorINS_8CalendarESaIS3_EENS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(136) initializes((16, 20), (24, 32)) %this, ptr noundef captures(none) %cv, i32 noundef %r) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -818,7 +818,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib13JointCalendar4Impl4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib13JointCalendar4Impl4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1579,10 +1579,10 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib13JointCalendar4Impl9isWeekendENS_7WeekdayE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %w) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8QuantLib13JointCalendar4Impl9isWeekendENS_7WeekdayE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this, i32 noundef %w) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp30 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1976,7 +1976,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8QuantLib13JointCalendar4Impl13isBusinessDayERKNS_4DateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(8) %date) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK8QuantLib13JointCalendar4Impl13isBusinessDayERKNS_4DateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(8) %date) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp30 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2937,7 +2937,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i.body,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13JointCalendarC2ERKSt6vectorINS_8CalendarESaIS2_EENS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cv, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13JointCalendarC2ERKSt6vectorINS_8CalendarESaIS2_EENS_17JointCalendarRuleE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %cv, i32 noundef %r) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %agg.tmp = alloca %"class.std::vector", align 8
@@ -3566,7 +3566,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i, %if.th
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
@@ -3590,7 +3590,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

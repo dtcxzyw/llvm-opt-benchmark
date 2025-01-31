@@ -92,7 +92,7 @@ $_ZNSt16allocator_traitsISaIN3vcg3ply10PlyElementEEE7destroyIS2_EEvRS3_PT_ = com
 @_ZN3vcg3ply7PlyFileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3vcg3ply7PlyFileD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor11memtypesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor11memtypesizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
@@ -103,7 +103,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor11stotypesizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor11stotypesizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -114,7 +114,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor12memtype2sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor12memtype2sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -125,7 +125,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor12stotype2sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
+define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescriptor12stotype2sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
@@ -136,7 +136,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_ZNK3vcg3ply14PropDescrip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3vcg3ply14PropDescriptor11memtypenameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK3vcg3ply14PropDescriptor11memtypenameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
@@ -146,7 +146,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor11memtypenameEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3vcg3ply14PropDescriptor11stotypenameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK3vcg3ply14PropDescriptor11stotypenameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -156,7 +156,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor11stotypenameEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3vcg3ply14PropDescriptor12memtype2nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK3vcg3ply14PropDescriptor12memtype2nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -166,7 +166,7 @@ define noundef ptr @_ZNK3vcg3ply14PropDescriptor12memtype2nameEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3vcg3ply14PropDescriptor12stotype2nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %0) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK3vcg3ply14PropDescriptor12stotype2nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(108) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
@@ -435,7 +435,7 @@ _ZNSt12_Vector_baseIN3vcg3ply11PlyPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ;
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #6
@@ -479,7 +479,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3vcg3ply10PlyElement8FindPropEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN3vcg3ply10PlyElement8FindPropEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -508,7 +508,7 @@ define noundef ptr @_ZN3vcg3ply10PlyElement8FindPropEPKc(ptr nocapture noundef n
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 13) i32 @_ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9) local_unnamed_addr #3 align 2 {
+define noundef range(i32 0, 13) i32 @_ZN3vcg3ply10PlyElement9AddToReadEPKciimiiiim(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i64 noundef %9) local_unnamed_addr #3 align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -839,7 +839,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3vcg3ply7PlyFile7DestroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((112, 120)) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN3vcg3ply7PlyFile7DestroyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) initializes((112, 120)) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -882,7 +882,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4OpenEPKci(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile8OpenReadEPKc(ptr noundef nonnull align 8 dereferenceable(120) initializes((112, 120)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile8OpenReadEPKc(ptr noundef nonnull align 8 dereferenceable(120) initializes((112, 120)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [512 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1277,15 +1277,15 @@ _ZN3vcg3ply7PlyFile7DestroyEv.exit114:            ; preds = %171, %._crit_edge12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN3vcg3ply7PlyFile9OpenWriteEPKc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(120) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #13 align 2 {
+define noundef i32 @_ZN3vcg3ply7PlyFile9OpenWriteEPKc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(120) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #13 align 2 {
   ret i32 -1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
@@ -1293,18 +1293,18 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #16
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 comdat align 2 {
@@ -1331,10 +1331,10 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #17
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #17
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3ply10PlyElementC2EPKci(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1389,7 +1389,7 @@ define linkonce_odr void @_ZNSt6vectorIN3vcg3ply10PlyElementESaIS2_EE9push_backE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 9) i32 @_ZNK3vcg3ply7PlyFile8FindTypeEPKc(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #18 align 2 {
+define noundef range(i32 -1, 9) i32 @_ZNK3vcg3ply7PlyFile8FindTypeEPKc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %11
@@ -1426,7 +1426,7 @@ define noundef range(i32 -1, 9) i32 @_ZNK3vcg3ply7PlyFile8FindTypeEPKc(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3vcg3ply9ReadAsciiEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 %3) #2 {
+define noundef i32 @_ZN3vcg3ply9ReadAsciiEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca float, align 4
   %7 = alloca i32, align 4
@@ -1671,7 +1671,7 @@ _ZN3vcg3plyL11SkipScalarAEP8_IO_FILEi.exit44:     ; preds = %100, %103, %106
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN3vcg3ply7ReadBinEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #12 {
+define noundef i32 @_ZN3vcg3ply7ReadBinEP8_IO_FILEPKNS0_11PlyPropertyEPvi(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #12 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca [8 x i8], align 1
   %7 = alloca i32, align 4
@@ -2319,7 +2319,7 @@ _ZNSt15__new_allocatorIN3vcg3ply10PlyElementEE7destroyIS2_EEvPT_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3vcg3ply7PlyFile11FindElementEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN3vcg3ply7PlyFile11FindElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -2344,7 +2344,7 @@ define noundef ptr @_ZN3vcg3ply7PlyFile11FindElementEPKc(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile9AddToReadEPKcS3_iimiiiim(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile9AddToReadEPKcS3_iimiiiim(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i64 noundef %10) local_unnamed_addr #3 align 2 {
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -2380,7 +2380,7 @@ _ZN3vcg3ply7PlyFile11FindElementEPKc.exit:        ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3vcg3ply7PlyFile8ElemNameEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN3vcg3ply7PlyFile8ElemNameEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %17, label %4
 
@@ -2411,7 +2411,7 @@ define noundef ptr @_ZN3vcg3ply7PlyFile8ElemNameEi(ptr nocapture noundef nonnull
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %17, label %4
 
@@ -2439,7 +2439,7 @@ define noundef i32 @_ZNK3vcg3ply7PlyFile10ElemNumberEi(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef initializes((152, 156)) %1) local_unnamed_addr #19 align 2 {
+define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef initializes((152, 156)) %1) local_unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
@@ -3335,7 +3335,7 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_11PlyPropertyE(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL18cb_read_list_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL18cb_read_list_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = alloca i32, align 4
   %5 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %6 = add i32 %5, 1
@@ -3461,7 +3461,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %15, %17, %19, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL18cb_skip_list_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL18cb_skip_list_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = alloca float, align 4
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
@@ -3494,7 +3494,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL18cb_skip_list_asciiEP8_IO_FILEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL13cb_read_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL13cb_read_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -3508,7 +3508,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL13cb_read_asciiEP8_IO_FILEPvPNS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_int_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_int_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = alloca i32, align 4
   %5 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.31, ptr noundef nonnull %4)
   %6 = icmp ne i32 %5, -1
@@ -3516,7 +3516,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_int_asciiEP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL19cb_skip_float_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL19cb_skip_float_asciiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = alloca float, align 4
   %5 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %0, ptr noundef nonnull @.str.33, ptr noundef nonnull %4)
   %6 = icmp ne i32 %5, -1
@@ -3524,7 +3524,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL19cb_skip_float_asciiEP8_IO_FILE
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp eq i64 %5, 0
@@ -3631,7 +3631,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %7, %15, %16, %18, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -3745,7 +3745,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -3859,7 +3859,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -3971,7 +3971,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4085,7 +4085,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4199,7 +4199,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4313,7 +4313,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4427,7 +4427,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4553,7 +4553,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4679,7 +4679,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4806,7 +4806,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -4932,7 +4932,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5058,7 +5058,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5185,7 +5185,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5312,7 +5312,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5439,7 +5439,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5565,7 +5565,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -5692,7 +5692,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ininEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ininEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i16, align 2
@@ -5913,7 +5913,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit32:       ; preds = %98, %104
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6039,7 +6039,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6166,7 +6166,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6292,7 +6292,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_inflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6419,7 +6419,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_indoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_indoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6546,7 +6546,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6658,7 +6658,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6772,7 +6772,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6886,7 +6886,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -6998,7 +6998,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7112,7 +7112,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7226,7 +7226,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7340,7 +7340,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7454,7 +7454,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uschEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uschEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7580,7 +7580,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7706,7 +7706,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7833,7 +7833,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -7959,7 +7959,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ususEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_ususEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8085,7 +8085,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8212,7 +8212,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8339,7 +8339,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i16, align 2
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8466,7 +8466,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uichEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uichEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8592,7 +8592,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uishEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uishEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8719,7 +8719,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8845,7 +8845,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -8971,7 +8971,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9098,7 +9098,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9224,7 +9224,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9351,7 +9351,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9478,7 +9478,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_flflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_flflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca float, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9604,7 +9604,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca float, align 4
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9731,7 +9731,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %43, %47
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_doflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_doflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca double, align 8
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9846,7 +9846,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = alloca double, align 8
   %6 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9960,7 +9960,7 @@ _ZN3vcg3plyL8StoreIntEPvii.exit:                  ; preds = %8, %16, %17, %19, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -9980,7 +9980,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin1EP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -10000,7 +10000,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin2EP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -10020,7 +10020,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin4EP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca i8, align 1
   %6 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 1, ptr noundef %0)
@@ -10040,7 +10040,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin8EP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -10050,7 +10050,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10058,7 +10058,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chshEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10066,7 +10066,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chinEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10074,7 +10074,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chucEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10082,7 +10082,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chusEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10090,7 +10090,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chuiEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10098,7 +10098,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chflEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10106,7 +10106,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chdoEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10139,7 +10139,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10171,7 +10171,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10204,7 +10204,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10237,7 +10237,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10269,7 +10269,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10302,7 +10302,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10335,7 +10335,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_shdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10368,7 +10368,7 @@ _ZN3vcg3plyL10ReadShortBEP8_IO_FILEPsi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10401,7 +10401,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10434,7 +10434,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ininEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ininEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10466,7 +10466,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10499,7 +10499,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10532,7 +10532,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10564,7 +10564,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_inflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10597,7 +10597,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_indoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_indoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10630,7 +10630,7 @@ _ZN3vcg3plyL8ReadIntBEP8_IO_FILEPii.exit:         ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10649,7 +10649,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucchEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10669,7 +10669,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucshEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10689,7 +10689,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucinEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10708,7 +10708,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucucEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10728,7 +10728,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucusEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10748,7 +10748,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucuiEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10768,7 +10768,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucflEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -10788,7 +10788,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ucdoEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uschEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uschEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10821,7 +10821,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usshEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10853,7 +10853,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10886,7 +10886,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10919,7 +10919,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ususEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_ususEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10951,7 +10951,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -10984,7 +10984,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11017,7 +11017,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_usdoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i16, align 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11050,7 +11050,7 @@ _ZN3vcg3plyL11ReadUShortBEP8_IO_FILEPti.exit:     ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uichEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uichEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11083,7 +11083,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uishEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uishEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11116,7 +11116,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiinEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11148,7 +11148,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiucEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11181,7 +11181,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiusEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11214,7 +11214,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiuiEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11246,7 +11246,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uiflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11279,7 +11279,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_uidoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11312,7 +11312,7 @@ _ZN3vcg3plyL9ReadUIntBEP8_IO_FILEPji.exit:        ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_flflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_flflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca float, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11344,7 +11344,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_fldoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca float, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %6 = load i32, ptr %5, align 8
@@ -11377,7 +11377,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %3, %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_doflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_doflEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca double, align 8
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   %6 = and i64 %5, 4294967295
@@ -11398,7 +11398,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_doflEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_dodoEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca double, align 8
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %0)
   %6 = and i64 %5, 4294967295
@@ -11418,7 +11418,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_dodoEP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin1EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca [1 x i8], align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -11426,7 +11426,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin1EP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin2EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca [2 x i8], align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 2, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -11434,7 +11434,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin2EP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin4EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca [4 x i8], align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 4, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -11442,7 +11442,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin4EP8_IO_FILEPvPNS0_
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin8EP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 {
   %4 = alloca [8 x i8], align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 8, ptr noundef %0)
   %6 = icmp ne i64 %5, 0
@@ -11453,7 +11453,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_skip_bin8EP8_IO_FILEPvPNS0_
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -11877,10 +11877,10 @@ define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3vcg3ply7PlyFile7compileEPNS0_10PlyElementE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #21 align 2 {
+define void @_ZN3vcg3ply7PlyFile7compileEPNS0_10PlyElementE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #21 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -11901,7 +11901,7 @@ define void @_ZN3vcg3ply7PlyFile7compileEPNS0_10PlyElementE(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarBEP8_IO_FILEPviii(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #12 {
+define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarBEP8_IO_FILEPviii(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #12 {
   %6 = alloca i8, align 1
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
@@ -12375,7 +12375,7 @@ _ZN3vcg3plyL10ReadFloatBEP8_IO_FILEPfi.exit:      ; preds = %180, %183
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -12412,7 +12412,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((0, 1)) %2, i64 noundef %3) local_unnamed_addr #12 {
+define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef initializes((0, 1)) %2, i64 noundef %3) local_unnamed_addr #12 {
   %5 = alloca [255 x i8], align 16
   store i8 0, ptr %2, align 1
   br label %.backedge
@@ -12599,10 +12599,10 @@ define void @_ZN3vcg3ply22interpret_texture_nameEPKcS2_Pcm(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #23
@@ -12623,13 +12623,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #26
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

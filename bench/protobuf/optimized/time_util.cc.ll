@@ -78,7 +78,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf4util8TimeUtil8ToStringB5cxx11ERKNS0_9TimestampE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %timestamp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf4util8TimeUtil8ToStringB5cxx11ERKNS0_9TimestampE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %timestamp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i12.i.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i3.i.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
@@ -372,7 +372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf4util8TimeUtil8ToStringB5cxx11ERKNS0_8DurationE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf4util8TimeUtil8ToStringB5cxx11ERKNS0_8DurationE(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %duration) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %ref.tmp.i12.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i3.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
@@ -535,7 +535,7 @@ declare void @_ZN4absl12lts_202308029StrAppendEPNSt7__cxx1112basic_stringIcSt11c
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf4util8TimeUtil10FromStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_8DurationE(i64 %value.coerce0, ptr %value.coerce1, ptr nocapture noundef writeonly %duration) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf4util8TimeUtil10FromStringESt17basic_string_viewIcSt11char_traitsIcEEPNS0_8DurationE(i64 %value.coerce0, ptr %value.coerce1, ptr noundef writeonly captures(none) %duration) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i46 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i29 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -765,7 +765,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
@@ -925,7 +925,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil21DurationToNanosecondsERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN6google8protobuf4util8TimeUtil21DurationToNanosecondsERKNS0_8DurationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
@@ -938,7 +938,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil22DurationToMicrosecondsERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN6google8protobuf4util8TimeUtil22DurationToMicrosecondsERKNS0_8DurationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
@@ -958,7 +958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil17DurationToSecondsERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN6google8protobuf4util8TimeUtil17DurationToSecondsERKNS0_8DurationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
@@ -966,7 +966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil22DurationToMillisecondsERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN6google8protobuf4util8TimeUtil22DurationToMillisecondsERKNS0_8DurationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
@@ -986,7 +986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -153722867280912930, 153722867280912931) i64 @_ZN6google8protobuf4util8TimeUtil17DurationToMinutesERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -153722867280912930, 153722867280912931) i64 @_ZN6google8protobuf4util8TimeUtil17DurationToMinutesERKNS0_8DurationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1001,7 +1001,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -2562047788015215, 2562047788015217) i64 @_ZN6google8protobuf4util8TimeUtil15DurationToHoursERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
+define noundef range(i64 -2562047788015215, 2562047788015217) i64 @_ZN6google8protobuf4util8TimeUtil15DurationToHoursERKNS0_8DurationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %duration) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %duration, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1088,7 +1088,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil22TimestampToNanosecondsERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN6google8protobuf4util8TimeUtil22TimestampToNanosecondsERKNS0_9TimestampE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %timestamp, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1101,7 +1101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil23TimestampToMicrosecondsERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN6google8protobuf4util8TimeUtil23TimestampToMicrosecondsERKNS0_9TimestampE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %timestamp, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1121,7 +1121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil23TimestampToMillisecondsERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN6google8protobuf4util8TimeUtil23TimestampToMillisecondsERKNS0_9TimestampE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %timestamp, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1141,7 +1141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil18TimestampToSecondsERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN6google8protobuf4util8TimeUtil18TimestampToSecondsERKNS0_9TimestampE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %timestamp) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %timestamp, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1160,7 +1160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobuf4util8TimeUtil16TimestampToTimeTERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %value) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN6google8protobuf4util8TimeUtil16TimestampToTimeTERKNS0_9TimestampE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %value) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %value, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1168,7 +1168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf4util8TimeUtil18TimevalToTimestampERK7timeval(ptr noalias sret(%"class.google::protobuf::Timestamp") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf4util8TimeUtil18TimevalToTimestampERK7timeval(ptr noalias sret(%"class.google::protobuf::Timestamp") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %value, align 8
   %tv_usec = getelementptr inbounds nuw i8, ptr %value, i64 8
@@ -1204,7 +1204,7 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_9TimestampEEET_li.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN6google8protobuf4util8TimeUtil18TimestampToTimevalERKNS0_9TimestampE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %value) local_unnamed_addr #5 align 2 {
+define { i64, i64 } @_ZN6google8protobuf4util8TimeUtil18TimestampToTimevalERKNS0_9TimestampE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %value) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %value, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1224,7 +1224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf4util8TimeUtil17TimevalToDurationERK7timeval(ptr noalias sret(%"class.google::protobuf::Duration") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf4util8TimeUtil17TimevalToDurationERK7timeval(ptr noalias sret(%"class.google::protobuf::Duration") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %value, align 8
   %tv_usec = getelementptr inbounds nuw i8, ptr %value, i64 8
@@ -1278,7 +1278,7 @@ _ZN6google8protobuf4util12_GLOBAL__N_116CreateNormalizedINS0_8DurationEEET_li.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i64 } @_ZN6google8protobuf4util8TimeUtil17DurationToTimevalERKNS0_8DurationE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %value) local_unnamed_addr #5 align 2 {
+define { i64, i64 } @_ZN6google8protobuf4util8TimeUtil17DurationToTimevalERKNS0_8DurationE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %value) local_unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %value, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1303,7 +1303,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufpLERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufpLERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %d2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::Duration", align 8
   %0 = getelementptr inbounds nuw i8, ptr %d1, i64 16
@@ -1426,7 +1426,7 @@ _ZN6google8protobuf8DurationaSEOS1_.exit:         ; preds = %_ZN6google8protobuf
 declare void @_ZN6google8protobuf8DurationD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmIERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmIERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %d2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::Duration", align 8
   %0 = getelementptr inbounds nuw i8, ptr %d1, i64 16
@@ -1758,7 +1758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufrMERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d2) local_unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufrMERNS0_8DurationERKS1_(ptr noundef nonnull returned align 8 dereferenceable(32) %d1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %d2) local_unnamed_addr #6 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %d1, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1808,7 +1808,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN6google8protobufdvERKNS0_8DurationES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d2) local_unnamed_addr #5 {
+define noundef i64 @_ZN6google8protobufdvERKNS0_8DurationES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %d1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %d2) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %d1, i64 16
   %1 = load i64, ptr %0, align 8
@@ -1849,7 +1849,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufpLERNS0_9TimestampERKNS0_8DurationE(ptr noundef nonnull returned align 8 dereferenceable(32) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufpLERNS0_9TimestampERKNS0_8DurationE(ptr noundef nonnull returned align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %d) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::Timestamp", align 8
   %0 = getelementptr inbounds nuw i8, ptr %t, i64 16
@@ -1951,7 +1951,7 @@ _ZN6google8protobuf9TimestampaSEOS1_.exit:        ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmIERNS0_9TimestampERKNS0_8DurationE(ptr noundef nonnull returned align 8 dereferenceable(32) %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %d) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobufmIERNS0_9TimestampERKNS0_8DurationE(ptr noundef nonnull returned align 8 dereferenceable(32) %t, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %d) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::Timestamp", align 8
   %0 = getelementptr inbounds nuw i8, ptr %t, i64 16
@@ -2053,7 +2053,7 @@ _ZN6google8protobuf9TimestampaSEOS1_.exit:        ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobufmiERKNS0_9TimestampES3_(ptr noalias sret(%"class.google::protobuf::Duration") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %t1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobufmiERKNS0_9TimestampES3_(ptr noalias sret(%"class.google::protobuf::Duration") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %t1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %t2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %t1, i64 16
   %1 = load i64, ptr %0, align 8
@@ -2134,7 +2134,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZN6google8protobuf9Timestamp12InternalSwapEPS1_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2179,10 +2179,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14

@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @sweepgen.nextage = internal unnamed_addr constant [7 x i8] c"\01\03\03\04\04\05\06", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_barrier_(ptr nocapture noundef readonly %L, ptr nocapture noundef %o, ptr noundef %v) local_unnamed_addr #0 {
+define hidden void @luaC_barrier_(ptr noundef readonly captures(none) %L, ptr noundef captures(none) %o, ptr noundef %v) local_unnamed_addr #0 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 24
   %0 = load ptr, ptr %l_G, align 8
@@ -62,7 +62,7 @@ if.end26:                                         ; preds = %if.else, %if.then14
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @reallymarkobject(ptr nocapture noundef %g, ptr noundef %o) unnamed_addr #0 {
+define internal fastcc void @reallymarkobject(ptr noundef captures(none) %g, ptr noundef %o) unnamed_addr #0 {
 entry:
   br label %tailrecurse
 
@@ -173,7 +173,7 @@ sw.epilog:                                        ; preds = %tailrecurse, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_barrierback_(ptr nocapture noundef readonly %L, ptr noundef %o) local_unnamed_addr #1 {
+define hidden void @luaC_barrierback_(ptr noundef readonly captures(none) %L, ptr noundef %o) local_unnamed_addr #1 {
 entry:
   %marked = getelementptr inbounds nuw i8, ptr %o, i64 9
   %0 = load i8, ptr %marked, align 1
@@ -237,7 +237,7 @@ if.end:                                           ; preds = %getgclist.exit, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_fix(ptr nocapture noundef readonly %L, ptr noundef %o) local_unnamed_addr #1 {
+define hidden void @luaC_fix(ptr noundef readonly captures(none) %L, ptr noundef %o) local_unnamed_addr #1 {
 entry:
   %l_G = getelementptr inbounds nuw i8, ptr %L, i64 24
   %0 = load ptr, ptr %l_G, align 8
@@ -3380,7 +3380,7 @@ sweep2old.exit72:                                 ; preds = %if.end29.i57, %swee
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clearbyvalues(ptr nocapture noundef %g, ptr noundef %l, ptr noundef readnone %f) unnamed_addr #2 {
+define internal fastcc void @clearbyvalues(ptr noundef captures(none) %g, ptr noundef %l, ptr noundef readnone %f) unnamed_addr #2 {
 entry:
   %cmp.not43 = icmp eq ptr %l, %f
   br i1 %cmp.not43, label %for.end41, label %for.body
@@ -3528,7 +3528,7 @@ for.end41:                                        ; preds = %for.inc40, %entry
 declare hidden void @luaS_clearcache(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -2147483648, 4294967296) i64 @propagatemark(ptr nocapture noundef %g) unnamed_addr #2 {
+define internal fastcc range(i64 -2147483648, 4294967296) i64 @propagatemark(ptr noundef captures(none) %g) unnamed_addr #2 {
 entry:
   %gray = getelementptr inbounds nuw i8, ptr %g, i64 136
   %0 = load ptr, ptr %gray, align 8
@@ -4533,7 +4533,7 @@ return:                                           ; preds = %traverseCclosure.ex
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @traverseephemeron(ptr nocapture noundef %g, ptr noundef %h, i32 noundef range(i32 0, 2) %inv) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @traverseephemeron(ptr noundef captures(none) %g, ptr noundef %h, i32 noundef range(i32 0, 2) %inv) unnamed_addr #2 {
 entry:
   %call = tail call i32 @luaH_realasize(ptr noundef %h) #8
   %lsizenode = getelementptr inbounds nuw i8, ptr %h, i64 11
@@ -5098,7 +5098,7 @@ declare hidden ptr @luaT_gettmbyobj(ptr noundef, ptr noundef, i32 noundef) local
 declare hidden i32 @luaD_pcall(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @dothecall(ptr noundef %L, ptr nocapture readnone %ud) #2 {
+define internal void @dothecall(ptr noundef %L, ptr readnone captures(none) %ud) #2 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %L, i64 16
   %0 = load ptr, ptr %top, align 8
@@ -5115,7 +5115,7 @@ declare hidden void @luaD_callnoyield(ptr noundef, ptr noundef, i32 noundef) loc
 declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

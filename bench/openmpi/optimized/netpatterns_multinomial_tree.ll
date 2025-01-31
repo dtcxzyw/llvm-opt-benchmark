@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.netpatterns_tree_node_t = type { i32, i32, i32, i32, i32, i32, ptr }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %0, 2
   br i1 %4, label %.loopexit169, label %.preheader171
 
@@ -319,7 +319,7 @@ define range(i32 -1, 1) i32 @ompi_netpatterns_setup_multinomial_tree(i32 noundef
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3

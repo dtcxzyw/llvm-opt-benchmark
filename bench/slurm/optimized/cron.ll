@@ -71,7 +71,7 @@ define dso_local void @free_cron_entry(ptr noundef %0) local_unnamed_addr #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @valid_cron_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @valid_cron_entry(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @bit_size(ptr noundef %3) #6
@@ -275,7 +275,7 @@ declare i32 @bit_test(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @bit_fls(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @cronspec_from_cron_entry(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local ptr @cronspec_from_cron_entry(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
@@ -385,7 +385,7 @@ declare ptr @bit_fmt_full(ptr noundef) local_unnamed_addr #1
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @calc_next_cron_start(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @calc_next_cron_start(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.tm, align 8
   %4 = alloca i64, align 8
   %5 = tail call i64 @time(ptr noundef null) #6
@@ -952,7 +952,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   %20 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #8
   %21 = trunc i64 %20 to i32
   %22 = add i32 %21, 1
-  tail call void @packmem(ptr noundef %16, i32 noundef %22, ptr noundef %2) #6
+  tail call void @packmem(ptr noundef nonnull %16, i32 noundef %22, ptr noundef %2) #6
   call void @slurm_xfree(ptr noundef nonnull %4) #6
   br label %24
 
@@ -976,7 +976,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #8
   %33 = trunc i64 %32 to i32
   %34 = add i32 %33, 1
-  call void @packmem(ptr noundef %28, i32 noundef %34, ptr noundef %2) #6
+  call void @packmem(ptr noundef nonnull %28, i32 noundef %34, ptr noundef %2) #6
   call void @slurm_xfree(ptr noundef nonnull %5) #6
   br label %36
 
@@ -1000,7 +1000,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   %44 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #8
   %45 = trunc i64 %44 to i32
   %46 = add i32 %45, 1
-  call void @packmem(ptr noundef %40, i32 noundef %46, ptr noundef %2) #6
+  call void @packmem(ptr noundef nonnull %40, i32 noundef %46, ptr noundef %2) #6
   call void @slurm_xfree(ptr noundef nonnull %6) #6
   br label %48
 
@@ -1024,7 +1024,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   %56 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %52) #8
   %57 = trunc i64 %56 to i32
   %58 = add i32 %57, 1
-  call void @packmem(ptr noundef %52, i32 noundef %58, ptr noundef %2) #6
+  call void @packmem(ptr noundef nonnull %52, i32 noundef %58, ptr noundef %2) #6
   call void @slurm_xfree(ptr noundef nonnull %7) #6
   br label %60
 
@@ -1048,7 +1048,7 @@ define dso_local void @pack_cron_entry(ptr noundef readonly %0, i16 noundef zero
   %68 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #8
   %69 = trunc i64 %68 to i32
   %70 = add i32 %69, 1
-  call void @packmem(ptr noundef %64, i32 noundef %70, ptr noundef %2) #6
+  call void @packmem(ptr noundef nonnull %64, i32 noundef %70, ptr noundef %2) #6
   call void @slurm_xfree(ptr noundef nonnull %8) #6
   br label %72
 
@@ -1090,12 +1090,12 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @bit_fmt_hexmask(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unpack_cron_entry(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8

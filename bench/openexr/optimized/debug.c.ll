@@ -348,7 +348,7 @@ return:                                           ; preds = %cond.true116, %for.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
 define internal fastcc void @print_attr(ptr noundef readonly %a, i32 noundef %verbose) unnamed_addr #2 {

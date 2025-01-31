@@ -425,7 +425,7 @@ $_ZGVZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -510,7 +510,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -756,7 +756,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16IborCouponPricerC2ENS_6HandleINS_28OptionletVolatilityStructureEEEN5boost8optionalIbEE(ptr noundef nonnull align 8 dereferenceable(121) initializes((0, 8), (16, 32)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %v, i16 %useIndexedCoupon.coerce) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16IborCouponPricerC2ENS_6HandleINS_28OptionletVolatilityStructureEEEN5boost8optionalIbEE(ptr noundef nonnull align 8 dereferenceable(121) initializes((0, 8), (16, 32)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef captures(none) %v, i16 %useIndexedCoupon.coerce) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
@@ -1214,7 +1214,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16IborCouponPricer20initializeCachedDataERKNS_10IborCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(121) %this, ptr noundef nonnull align 8 dereferenceable(248) %coupon) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16IborCouponPricer20initializeCachedDataERKNS_10IborCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(121) %this, ptr noundef nonnull align 8 dereferenceable(248) %coupon) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp2 = alloca %"class.QuantLib::Calendar", align 8
@@ -1865,7 +1865,7 @@ unreachable:                                      ; preds = %invoke.cont120
 declare i64 @_ZNK8QuantLib8Calendar7advanceERKNS_4DateEiNS_8TimeUnitENS_21BusinessDayConventionEb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2273,7 +2273,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16IborCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull align 8 dereferenceable(121) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16IborCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr noundef nonnull align 8 captures(none) dereferenceable(121) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2713,7 +2713,7 @@ unreachable:                                      ; preds = %invoke.cont56, %inv
 declare noundef double @_ZNK8QuantLib6Coupon13accrualPeriodEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21BlackIborCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21BlackIborCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr noundef nonnull align 8 captures(none) dereferenceable(160) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Handle", align 8
   %paymentDate = alloca %"class.QuantLib::Date", align 8
@@ -5503,7 +5503,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15setCouponPricerERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_24FloatingRateCouponPricerEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %leg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pricer) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15setCouponPricerERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_24FloatingRateCouponPricerEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %leg, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %pricer) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %setter = alloca %"class.QuantLib::(anonymous namespace)::PricerSetter", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %setter) #29
@@ -5703,7 +5703,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 128)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((0, 128)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %this, align 8, !tbaa !35
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5779,7 +5779,7 @@ _ZN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16setCouponPricersERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKS0_INS2_INS_24FloatingRateCouponPricerEEESaISA_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %leg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pricers) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16setCouponPricersERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKS0_INS2_INS_24FloatingRateCouponPricerEEESaISA_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %leg, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %pricers) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6304,7 +6304,7 @@ unreachable:                                      ; preds = %invoke.cont54, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16setCouponPricersERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_24FloatingRateCouponPricerEEESC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %leg, ptr noundef nonnull align 8 dereferenceable(16) %p1, ptr noundef nonnull align 8 dereferenceable(16) %p2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16setCouponPricersERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_24FloatingRateCouponPricerEEESC_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %leg, ptr noundef nonnull align 8 dereferenceable(16) %p1, ptr noundef nonnull align 8 dereferenceable(16) %p2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %p = alloca %"class.std::vector.89", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %p) #29
@@ -6431,7 +6431,7 @@ lpad:                                             ; preds = %if.else.i13, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_129setCouponPricersFirstMatchingERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKS1_INS3_INS_24FloatingRateCouponPricerEEESaISB_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %leg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %p) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_129setCouponPricersFirstMatchingERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKS1_INS3_INS_24FloatingRateCouponPricerEEESaISB_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %leg, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %p) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %setter = alloca %"class.std::vector.147", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %setter) #29
@@ -6905,7 +6905,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16setCouponPricersERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_24FloatingRateCouponPricerEEESC_SC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %leg, ptr noundef nonnull align 8 dereferenceable(16) %p1, ptr noundef nonnull align 8 dereferenceable(16) %p2, ptr noundef nonnull align 8 dereferenceable(16) %p3) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16setCouponPricersERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_24FloatingRateCouponPricerEEESC_SC_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %leg, ptr noundef nonnull align 8 dereferenceable(16) %p1, ptr noundef nonnull align 8 dereferenceable(16) %p2, ptr noundef nonnull align 8 dereferenceable(16) %p3) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %p = alloca %"class.std::vector.89", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %p) #29
@@ -7068,7 +7068,7 @@ lpad:                                             ; preds = %if.else.i28, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16setCouponPricersERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_24FloatingRateCouponPricerEEESC_SC_SC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %leg, ptr noundef nonnull align 8 dereferenceable(16) %p1, ptr noundef nonnull align 8 dereferenceable(16) %p2, ptr noundef nonnull align 8 dereferenceable(16) %p3, ptr noundef nonnull align 8 dereferenceable(16) %p4) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16setCouponPricersERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS4_EERKNS2_INS_24FloatingRateCouponPricerEEESC_SC_SC_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %leg, ptr noundef nonnull align 8 dereferenceable(16) %p1, ptr noundef nonnull align 8 dereferenceable(16) %p2, ptr noundef nonnull align 8 dereferenceable(16) %p3, ptr noundef nonnull align 8 dereferenceable(16) %p4) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %p = alloca %"class.std::vector.89", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %p) #29
@@ -8511,13 +8511,13 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_8CashFlowE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #22 align 2 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_8CashFlowE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #22 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_6CouponE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #22 align 2 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_6CouponE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #22 align 2 {
 entry:
   ret void
 }
@@ -9469,7 +9469,7 @@ unreachable:                                      ; preds = %invoke.cont104, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_10IborCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(248) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_10IborCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(248) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iborCouponPricer = alloca %"class.boost::shared_ptr.136", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -9797,7 +9797,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_23CappedFlooredIborCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_23CappedFlooredIborCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iborCouponPricer = alloca %"class.boost::shared_ptr.136", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -10125,7 +10125,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_17DigitalIborCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_17DigitalIborCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iborCouponPricer = alloca %"class.boost::shared_ptr.136", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -10453,7 +10453,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_9CmsCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(192) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_9CmsCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(192) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmsCouponPricer = alloca %"class.boost::shared_ptr.138", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -10781,7 +10781,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_15CmsSpreadCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(192) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_15CmsSpreadCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(192) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmsSpreadCouponPricer = alloca %"class.boost::shared_ptr.140", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -11109,7 +11109,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22CappedFlooredCmsCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22CappedFlooredCmsCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmsCouponPricer = alloca %"class.boost::shared_ptr.138", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -11437,7 +11437,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_28CappedFlooredCmsSpreadCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_28CappedFlooredCmsSpreadCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmsSpreadCouponPricer = alloca %"class.boost::shared_ptr.140", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -11765,7 +11765,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16DigitalCmsCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16DigitalCmsCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmsCouponPricer = alloca %"class.boost::shared_ptr.138", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -12093,7 +12093,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22DigitalCmsSpreadCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22DigitalCmsSpreadCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmsSpreadCouponPricer = alloca %"class.boost::shared_ptr.140", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -12421,7 +12421,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_26RangeAccrualFloatersCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(280) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_26RangeAccrualFloatersCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(280) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rangeAccrualPricer = alloca %"class.boost::shared_ptr.144", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -12749,7 +12749,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16SubPeriodsCouponE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(264) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16SubPeriodsCouponE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(264) %c) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subPeriodsPricer = alloca %"class.boost::shared_ptr.146", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -13077,7 +13077,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-8, 120)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-8, 120)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13230,13 +13230,13 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_8CashFlowE(ptr nocapture readnone %this, ptr nocapture nonnull readnone align 8 %c) unnamed_addr #22 align 2 {
+define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_8CashFlowE(ptr readnone captures(none) %this, ptr nonnull readnone align 8 captures(none) %c) unnamed_addr #22 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-16, 112)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-16, 112)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13389,13 +13389,13 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_6CouponE(ptr nocapture readnone %this, ptr nocapture nonnull readnone align 8 %c) unnamed_addr #22 align 2 {
+define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_6CouponE(ptr readnone captures(none) %this, ptr nonnull readnone align 8 captures(none) %c) unnamed_addr #22 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn24_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-24, 104)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn24_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-24, 104)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13559,7 +13559,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn32_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-32, 96)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-32, 96)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13720,7 +13720,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-40, 88)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-40, 88)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13873,7 +13873,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_10IborCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(248) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_10IborCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(248) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_10IborCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(248) %c)
@@ -13881,7 +13881,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-48, 80)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-48, 80)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14034,7 +14034,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_9CmsCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(192) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_9CmsCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(192) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_9CmsCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(192) %c)
@@ -14042,7 +14042,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-56, 72)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-56, 72)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14195,7 +14195,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_15CmsSpreadCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(192) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_15CmsSpreadCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(192) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_15CmsSpreadCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(192) %c)
@@ -14203,7 +14203,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-64, 64)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-64, 64)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -64
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14356,7 +14356,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_23CappedFlooredIborCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_23CappedFlooredIborCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -64
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_23CappedFlooredIborCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(216) %c)
@@ -14364,7 +14364,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-72, 56)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-72, 56)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14517,7 +14517,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22CappedFlooredCmsCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22CappedFlooredCmsCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22CappedFlooredCmsCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(216) %c)
@@ -14525,7 +14525,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-80, 48)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-80, 48)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14678,7 +14678,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_28CappedFlooredCmsSpreadCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_28CappedFlooredCmsSpreadCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(216) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_28CappedFlooredCmsSpreadCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(216) %c)
@@ -14686,7 +14686,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-88, 40)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-88, 40)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14839,7 +14839,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_17DigitalIborCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_17DigitalIborCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_17DigitalIborCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(289) %c)
@@ -14847,7 +14847,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-96, 32)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-96, 32)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -96
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15000,7 +15000,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16DigitalCmsCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16DigitalCmsCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -96
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16DigitalCmsCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(289) %c)
@@ -15008,7 +15008,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-104, 24)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-104, 24)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15161,7 +15161,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22DigitalCmsSpreadCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22DigitalCmsSpreadCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(289) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_22DigitalCmsSpreadCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(289) %c)
@@ -15169,7 +15169,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-112, 16)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-112, 16)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15322,7 +15322,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_26RangeAccrualFloatersCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(280) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_26RangeAccrualFloatersCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(280) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_26RangeAccrualFloatersCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(280) %c)
@@ -15330,7 +15330,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-120, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr noundef captures(none) initializes((-120, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15483,7 +15483,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16SubPeriodsCouponE(ptr nocapture noundef readonly %this, ptr noundef nonnull align 8 dereferenceable(264) %c) unnamed_addr #15 align 2 {
+define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16SubPeriodsCouponE(ptr noundef readonly captures(none) %this, ptr noundef nonnull align 8 dereferenceable(264) %c) unnamed_addr #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN8QuantLib12_GLOBAL__N_112PricerSetter5visitERNS_16SubPeriodsCouponE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(264) %c)
@@ -15718,7 +15718,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN8QuantLib12_GLOBAL__N_112PricerSetterESaIS2_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !174
   %_M_finish = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -15961,7 +15961,7 @@ _ZN8QuantLib16IborCouponPricerD2Ev.exit:          ; preds = %_ZN8QuantLib6Handle
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #24
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -16134,7 +16134,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib24FloatingRateCouponPricerEEES
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #26
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #27

@@ -62,13 +62,13 @@ return:                                           ; preds = %land.lhs.true11, %l
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @git_setup_gettext() local_unnamed_addr #0 {
@@ -118,7 +118,7 @@ declare ptr @system_path(ptr noundef) local_unnamed_addr #4
 declare i32 @is_directory(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare ptr @bindtextdomain(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -169,7 +169,7 @@ entry:
 declare i32 @utf8_strwidth(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @is_encoding_utf8(ptr noundef) local_unnamed_addr #4
 
@@ -180,7 +180,7 @@ declare ptr @nl_langinfo(i32 noundef) local_unnamed_addr #2
 declare ptr @bind_textdomain_codeset(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @test_vsnprintf(ptr nocapture readnone %fmt, ...) unnamed_addr #6 {
+define internal noundef i32 @test_vsnprintf(ptr readnone captures(none) %fmt, ...) unnamed_addr #6 {
 entry:
   %buf = alloca [26 x i8], align 16
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -191,7 +191,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #8

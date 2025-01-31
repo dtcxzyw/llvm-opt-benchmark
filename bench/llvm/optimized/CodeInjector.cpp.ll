@@ -8,18 +8,18 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5clang12CodeInjectorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang12CodeInjectorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12CodeInjectorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12CodeInjectorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang12CodeInjectorE, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5clang12CodeInjectorD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang12CodeInjectorD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN5clang12CodeInjectorD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang12CodeInjectorD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.trap() #4
   unreachable
 }

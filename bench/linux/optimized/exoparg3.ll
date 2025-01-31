@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ex_opcode_3A_0T_0R(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ex_opcode_3A_0T_0R(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -75,7 +75,7 @@ define dso_local i32 @acpi_ex_opcode_3A_0T_0R(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_os_signal(i32 noundef, ptr noundef) local_unnamed_addr #2
@@ -84,7 +84,7 @@ declare dso_local i32 @acpi_os_signal(i32 noundef, ptr noundef) local_unnamed_ad
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -226,7 +226,7 @@ define dso_local i32 @acpi_ex_opcode_3A_1T_1R(ptr noundef %0) local_unnamed_addr
 declare dso_local ptr @acpi_ut_create_internal_object_dbg(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_ex_store(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

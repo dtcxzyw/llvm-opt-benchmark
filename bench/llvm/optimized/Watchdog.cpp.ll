@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm3sys8WatchdogD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3sys8WatchdogD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3sys8WatchdogC2Ej(ptr nocapture nonnull readnone align 1 %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3sys8WatchdogC2Ej(ptr nonnull readnone align 1 captures(none) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call i32 @alarm(i32 noundef %1) #2
   ret void
 }
@@ -16,7 +16,7 @@ define dso_local void @_ZN4llvm3sys8WatchdogC2Ej(ptr nocapture nonnull readnone 
 declare i32 @alarm(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3sys8WatchdogD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3sys8WatchdogD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = tail call i32 @alarm(i32 noundef 0) #2
   ret void
 }

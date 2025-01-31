@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_util_TimeZone_getSystemTimeZoneID(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Java_java_util_TimeZone_getSystemTimeZoneID(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %13, label %5
 
@@ -40,12 +40,12 @@ declare ptr @findJavaTZ_md(ptr noundef) local_unnamed_addr #1
 declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @JNU_ReleaseStringPlatformChars(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_util_TimeZone_getSystemGMTOffsetID(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_java_util_TimeZone_getSystemGMTOffsetID(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr (...) @getGMTOffsetID() #3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4

@@ -195,7 +195,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nasdaq_itch(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nasdaq_itch(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.108) #4
@@ -295,7 +295,7 @@ proto_item_set_generated.exit:                    ; preds = %29, %26, %18, %14
   %41 = load i32, ptr @hf_nasdaq_itch_millisecond, align 4
   %42 = tail call ptr @wmem_packet_scope() #4
   %43 = tail call ptr @tvb_get_string_enc(ptr noundef %42, ptr noundef %0, i32 noundef 1, i32 noundef 3, i32 noundef 0) #4
-  %44 = tail call i64 @strtoul(ptr nocapture noundef %43, ptr noundef null, i32 noundef 10) #4
+  %44 = tail call i64 @strtoul(ptr noundef captures(none) %43, ptr noundef null, i32 noundef 10) #4
   %45 = trunc i64 %44 to i32
   %46 = tail call ptr @wmem_packet_scope() #4
   %47 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %46, ptr noundef nonnull @.str.114, i32 noundef %45) #4
@@ -442,7 +442,7 @@ proto_item_set_generated.exit:                    ; preds = %29, %26, %18, %14
   %.not.i192 = phi i32 [ 6, %49 ], [ 10, %127 ], [ 6, %33 ]
   %131 = tail call ptr @wmem_packet_scope() #4
   %132 = tail call ptr @tvb_get_string_enc(ptr noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 9, i32 noundef 0) #4
-  %133 = tail call i64 @strtoul(ptr nocapture noundef %132, ptr noundef null, i32 noundef 10) #4
+  %133 = tail call i64 @strtoul(ptr noundef captures(none) %132, ptr noundef null, i32 noundef 10) #4
   %134 = trunc i64 %133 to i32
   %135 = load i32, ptr @hf_nasdaq_itch_order_reference, align 4
   %136 = tail call ptr @proto_tree_add_uint(ptr noundef %.0175, i32 noundef %135, ptr noundef %0, i32 noundef %130, i32 noundef 9, i32 noundef %134) #4
@@ -452,7 +452,7 @@ proto_item_set_generated.exit:                    ; preds = %29, %26, %18, %14
   %139 = load i32, ptr @hf_nasdaq_itch_canceled, align 4
   %140 = tail call ptr @wmem_packet_scope() #4
   %141 = tail call ptr @tvb_get_string_enc(ptr noundef %140, ptr noundef %0, i32 noundef %138, i32 noundef %.not.i192, i32 noundef 0) #4
-  %142 = tail call i64 @strtoul(ptr nocapture noundef %141, ptr noundef null, i32 noundef 10) #4
+  %142 = tail call i64 @strtoul(ptr noundef captures(none) %141, ptr noundef null, i32 noundef 10) #4
   %143 = trunc i64 %142 to i32
   %144 = tail call ptr @proto_tree_add_uint(ptr noundef %.0175, i32 noundef %139, ptr noundef %0, i32 noundef %138, i32 noundef %.not.i192, i32 noundef %143) #4
   %145 = load ptr, ptr %5, align 8
@@ -463,7 +463,7 @@ proto_item_set_generated.exit:                    ; preds = %29, %26, %18, %14
   %147 = phi i32 [ 1, %33 ], [ %54, %49 ]
   %148 = tail call ptr @wmem_packet_scope() #4
   %149 = tail call ptr @tvb_get_string_enc(ptr noundef %148, ptr noundef %0, i32 noundef %147, i32 noundef 9, i32 noundef 0) #4
-  %150 = tail call i64 @strtoul(ptr nocapture noundef %149, ptr noundef null, i32 noundef 10) #4
+  %150 = tail call i64 @strtoul(ptr noundef captures(none) %149, ptr noundef null, i32 noundef 10) #4
   %151 = trunc i64 %150 to i32
   %152 = load i32, ptr @hf_nasdaq_itch_order_reference, align 4
   %153 = tail call ptr @proto_tree_add_uint(ptr noundef %.0175, i32 noundef %152, ptr noundef %0, i32 noundef %147, i32 noundef 9, i32 noundef %151) #4
@@ -487,7 +487,7 @@ proto_item_set_generated.exit:                    ; preds = %29, %26, %18, %14
   %162 = load i32, ptr @hf_nasdaq_itch_shares, align 4
   %163 = tail call ptr @wmem_packet_scope() #4
   %164 = tail call ptr @tvb_get_string_enc(ptr noundef %163, ptr noundef %0, i32 noundef %161, i32 noundef 6, i32 noundef 0) #4
-  %165 = tail call i64 @strtoul(ptr nocapture noundef %164, ptr noundef null, i32 noundef 10) #4
+  %165 = tail call i64 @strtoul(ptr noundef captures(none) %164, ptr noundef null, i32 noundef 10) #4
   %166 = trunc i64 %165 to i32
   %167 = tail call ptr @proto_tree_add_uint(ptr noundef %.0175, i32 noundef %162, ptr noundef %0, i32 noundef %161, i32 noundef 6, i32 noundef %166) #4
   %168 = load ptr, ptr %5, align 8
@@ -580,7 +580,7 @@ define internal fastcc noundef i32 @time_stamp(ptr noundef %0, ptr noundef %1, i
 6:                                                ; preds = %5
   %7 = tail call ptr @wmem_packet_scope() #4
   %8 = tail call ptr @tvb_get_string_enc(ptr noundef %7, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #4
-  %9 = tail call i64 @strtoul(ptr nocapture noundef %8, ptr noundef null, i32 noundef 10) #4
+  %9 = tail call i64 @strtoul(ptr noundef captures(none) %8, ptr noundef null, i32 noundef 10) #4
   %10 = trunc i64 %9 to i32
   switch i32 %4, label %25 [
     i32 3, label %11
@@ -626,10 +626,10 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @order(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @order(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call ptr @wmem_packet_scope() #4
   %7 = tail call ptr @tvb_get_string_enc(ptr noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 9, i32 noundef 0) #4
-  %8 = tail call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #4
+  %8 = tail call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #4
   %9 = trunc i64 %8 to i32
   %10 = load i32, ptr @hf_nasdaq_itch_order_reference, align 4
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 9, i32 noundef %9) #4
@@ -649,7 +649,7 @@ define internal fastcc noundef i32 @order(ptr noundef %0, ptr nocapture noundef 
   %22 = select i1 %.not.i, i32 6, i32 10
   %23 = tail call ptr @wmem_packet_scope() #4
   %24 = tail call ptr @tvb_get_string_enc(ptr noundef %23, ptr noundef %0, i32 noundef %20, i32 noundef %22, i32 noundef 0) #4
-  %25 = tail call i64 @strtoul(ptr nocapture noundef %24, ptr noundef null, i32 noundef 10) #4
+  %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 10) #4
   %26 = trunc i64 %25 to i32
   %27 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %20, i32 noundef %22, i32 noundef %26) #4
   %28 = load ptr, ptr %12, align 8
@@ -678,10 +678,10 @@ define internal fastcc noundef i32 @order(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @executed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @executed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = tail call ptr @wmem_packet_scope() #4
   %7 = tail call ptr @tvb_get_string_enc(ptr noundef %6, ptr noundef %0, i32 noundef %3, i32 noundef 9, i32 noundef 0) #4
-  %8 = tail call i64 @strtoul(ptr nocapture noundef %7, ptr noundef null, i32 noundef 10) #4
+  %8 = tail call i64 @strtoul(ptr noundef captures(none) %7, ptr noundef null, i32 noundef 10) #4
   %9 = trunc i64 %8 to i32
   %10 = load i32, ptr @hf_nasdaq_itch_order_reference, align 4
   %11 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef %3, i32 noundef 9, i32 noundef %9) #4
@@ -694,7 +694,7 @@ define internal fastcc noundef i32 @executed(ptr noundef %0, ptr nocapture nound
   %16 = select i1 %.not.i, i32 6, i32 10
   %17 = tail call ptr @wmem_packet_scope() #4
   %18 = tail call ptr @tvb_get_string_enc(ptr noundef %17, ptr noundef %0, i32 noundef %14, i32 noundef %16, i32 noundef 0) #4
-  %19 = tail call i64 @strtoul(ptr nocapture noundef %18, ptr noundef null, i32 noundef 10) #4
+  %19 = tail call i64 @strtoul(ptr noundef captures(none) %18, ptr noundef null, i32 noundef 10) #4
   %20 = trunc i64 %19 to i32
   %21 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %15, ptr noundef %0, i32 noundef %14, i32 noundef %16, i32 noundef %20) #4
   %22 = load ptr, ptr %12, align 8
@@ -711,7 +711,7 @@ declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 nound
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 

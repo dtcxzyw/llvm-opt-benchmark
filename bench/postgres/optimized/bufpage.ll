@@ -84,7 +84,7 @@ define dso_local void @PageInit(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @PageIsVerifiedExtended(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
@@ -223,7 +223,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @pgstat_report_checksum_failure() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i16 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local zeroext i16 @PageAddItemExtended(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i16 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i16, ptr %6, align 4
   %8 = icmp ult i16 %7, 24
@@ -421,13 +421,13 @@ define dso_local zeroext i16 @PageAddItemExtended(ptr nocapture noundef %0, ptr 
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PageGetTempPage(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @PageGetTempPage(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 18
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, -256
@@ -439,7 +439,7 @@ define dso_local ptr @PageGetTempPage(ptr nocapture noundef readonly %0) local_u
 declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PageGetTempPageCopy(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @PageGetTempPageCopy(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 18
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, -256
@@ -450,7 +450,7 @@ define dso_local ptr @PageGetTempPageCopy(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PageGetTempPageCopySpecial(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @PageGetTempPageCopySpecial(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 18
   %.val = load i16, ptr %2, align 2
   %3 = and i16 %.val, -256
@@ -517,7 +517,7 @@ PageInit.exit:                                    ; preds = %PageInit.exit.sink.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageRestoreTempPage(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define dso_local void @PageRestoreTempPage(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 18
   %.val = load i16, ptr %3, align 2
   %4 = and i16 %.val, -256
@@ -530,7 +530,7 @@ define dso_local void @PageRestoreTempPage(ptr noundef %0, ptr nocapture noundef
 declare void @pfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define dso_local void @PageRepairFragmentation(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca [291 x %struct.itemIdCompactData], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
@@ -725,7 +725,7 @@ define dso_local void @PageRepairFragmentation(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #6 {
+define internal fastcc void @compactify_tuples(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) unnamed_addr #6 {
   %5 = alloca %union.PGAlignedBlock, align 8
   br i1 %3, label %6, label %64
 
@@ -1003,7 +1003,7 @@ define internal fastcc void @compactify_tuples(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @PageTruncateLinePointerArray(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define dso_local void @PageTruncateLinePointerArray(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 12
   %.val = load i16, ptr %2, align 4
   %3 = icmp ult i16 %.val, 25
@@ -1091,7 +1091,7 @@ define dso_local void @PageTruncateLinePointerArray(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -1106,7 +1106,7 @@ define dso_local range(i64 0, 65532) i64 @PageGetFreeSpace(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @PageGetFreeSpaceForMultipleTuples(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @PageGetFreeSpaceForMultipleTuples(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
@@ -1123,7 +1123,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @PageGetFreeSpaceForMult
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -1137,7 +1137,7 @@ define dso_local range(i64 0, 65536) i64 @PageGetExactFreeSpace(ptr nocapture no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr nocapture noundef readonly %0) local_unnamed_addr #8 {
+define dso_local range(i64 0, 65532) i64 @PageGetHeapFreeSpace(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 14
   %3 = load i16, ptr %2, align 2
   %4 = zext i16 %3 to i32
@@ -1372,7 +1372,7 @@ define dso_local void @PageIndexTupleDelete(ptr noundef %0, i16 noundef zeroext 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [408 x %struct.itemIdCompactData], align 16
   %5 = alloca [408 x %struct.ItemIdData], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1584,7 +1584,7 @@ define dso_local void @PageIndexMultiDelete(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local void @PageIndexTupleDeleteNoCompact(ptr noundef captures(none) %0, i16 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i16, ptr %3, align 4
   %5 = icmp ult i16 %4, 24
@@ -1760,7 +1760,7 @@ define dso_local void @PageIndexTupleDeleteNoCompact(ptr nocapture noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef captures(none) %0, i16 noundef zeroext %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i16, ptr %5, align 4
   %7 = icmp ult i16 %6, 24
@@ -1954,7 +1954,7 @@ define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly %0, i32 noundef %
 13:                                               ; preds = %10, %7
   %14 = phi ptr [ %12, %10 ], [ %8, %7 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8192) %14, ptr noundef nonnull align 1 dereferenceable(8192) %0, i64 8192, i1 false)
-  %15 = tail call zeroext i16 @pg_checksum_page(ptr noundef %14, i32 noundef %1) #11
+  %15 = tail call zeroext i16 @pg_checksum_page(ptr noundef nonnull %14, i32 noundef %1) #11
   %16 = load ptr, ptr @PageSetChecksumCopy.pageCopy, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i16 %15, ptr %17, align 4

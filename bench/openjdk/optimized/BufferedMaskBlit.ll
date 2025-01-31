@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mul8table = external local_unnamed_addr global [256 x [256 x i8]], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #0 {
+define i32 @Java_sun_java2d_pipe_BufferedMaskBlit_enqueueTile(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4, i64 noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15, i32 noundef %16) local_unnamed_addr #0 {
   %18 = alloca %struct.SurfaceDataRasInfo, align 8
   %19 = inttoptr i64 %5 to ptr
   %20 = icmp eq i64 %5, 0

@@ -547,7 +547,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal i32 @dissect_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   ret i32 %5
 }
@@ -583,7 +583,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.config_block, align 8
   %7 = alloca %struct.config_block, align 8
@@ -1311,7 +1311,7 @@ proto_item_set_generated.exit.i:                  ; preds = %393, %390, %.crited
   br i1 %.not103.i, label %439, label %437
 
 437:                                              ; preds = %.lr.ph120.i
-  %438 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %435, ptr noundef nonnull @ei_synphasor_data_error) #6
+  %438 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %435, ptr noundef nonnull @ei_synphasor_data_error) #6
   br label %439
 
 439:                                              ; preds = %437, %.lr.ph120.i
@@ -1323,7 +1323,7 @@ proto_item_set_generated.exit.i:                  ; preds = %393, %390, %.crited
   br i1 %.not104.i, label %446, label %444
 
 444:                                              ; preds = %439
-  %445 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %441, ptr noundef nonnull @ei_synphasor_pmu_not_sync) #6
+  %445 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %441, ptr noundef nonnull @ei_synphasor_pmu_not_sync) #6
   br label %446
 
 446:                                              ; preds = %444, %439
@@ -2532,7 +2532,7 @@ declare float @llvm.fabs.f32(float) #3
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @get_pdu_length(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_pdu_length(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #6
   %7 = zext i16 %6 to i32
@@ -2543,10 +2543,10 @@ define internal range(i32 0, 65536) i32 @get_pdu_length(ptr nocapture readnone %
 declare double @llvm.sqrt.f64(double) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

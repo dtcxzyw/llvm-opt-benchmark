@@ -72,7 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 @dissect_file_record.catch_spec.39 = internal constant [1 x %struct.except_id_t] [%struct.except_id_t { i64 1, i64 0 }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @register_file_record_end_routine(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @register_file_record_end_routine(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @g_slist_append(ptr noundef %4, ptr noundef %1) #4
@@ -109,7 +109,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_file_record(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_file_record(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -831,7 +831,7 @@ declare void @tap_queue_packet(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @call_file_record_end_routine(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @call_file_record_end_routine(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   tail call void %0() #4
   ret void
 }

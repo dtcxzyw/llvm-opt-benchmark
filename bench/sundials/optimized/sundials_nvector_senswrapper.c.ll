@@ -400,7 +400,7 @@ define noalias noundef ptr @N_VCloneEmpty_SensWrapper(ptr noundef readonly %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VDestroy_SensWrapper(ptr nocapture noundef %0) #0 {
+define void @N_VDestroy_SensWrapper(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %4 = load i32, ptr %3, align 4
@@ -457,7 +457,7 @@ define void @N_VDestroy_SensWrapper(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VLinearSum_SensWrapper(double noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) #0 {
+define void @N_VLinearSum_SensWrapper(double noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
@@ -492,7 +492,7 @@ define void @N_VLinearSum_SensWrapper(double noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VConst_SensWrapper(double noundef %0, ptr nocapture noundef readonly %1) #0 {
+define void @N_VConst_SensWrapper(double noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -519,7 +519,7 @@ define void @N_VConst_SensWrapper(double noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VProd_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define void @N_VProd_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -554,7 +554,7 @@ define void @N_VProd_SensWrapper(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VDiv_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define void @N_VDiv_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -589,7 +589,7 @@ define void @N_VDiv_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VScale_SensWrapper(double noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define void @N_VScale_SensWrapper(double noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -620,7 +620,7 @@ define void @N_VScale_SensWrapper(double noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VAbs_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define void @N_VAbs_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -651,7 +651,7 @@ define void @N_VAbs_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VInv_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define void @N_VInv_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -682,7 +682,7 @@ define void @N_VInv_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VAddConst_SensWrapper(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef readonly %2) #0 {
+define void @N_VAddConst_SensWrapper(ptr noundef readonly captures(none) %0, double noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -713,7 +713,7 @@ define void @N_VAddConst_SensWrapper(ptr nocapture noundef readonly %0, double n
 }
 
 ; Function Attrs: nounwind uwtable
-define double @N_VDotProd_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define double @N_VDotProd_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -747,7 +747,7 @@ define double @N_VDotProd_SensWrapper(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define double @N_VMaxNorm_SensWrapper(ptr nocapture noundef readonly %0) #0 {
+define double @N_VMaxNorm_SensWrapper(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -778,7 +778,7 @@ define double @N_VMaxNorm_SensWrapper(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define double @N_VWrmsNormMask_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define double @N_VWrmsNormMask_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -817,7 +817,7 @@ define double @N_VWrmsNormMask_SensWrapper(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define double @N_VWrmsNorm_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define double @N_VWrmsNorm_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -852,7 +852,7 @@ define double @N_VWrmsNorm_SensWrapper(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define double @N_VMin_SensWrapper(ptr nocapture noundef readonly %0) #0 {
+define double @N_VMin_SensWrapper(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -887,7 +887,7 @@ define double @N_VMin_SensWrapper(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define double @N_VWL2Norm_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define double @N_VWL2Norm_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -922,7 +922,7 @@ define double @N_VWL2Norm_SensWrapper(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define double @N_VL1Norm_SensWrapper(ptr nocapture noundef readonly %0) #0 {
+define double @N_VL1Norm_SensWrapper(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
@@ -953,7 +953,7 @@ define double @N_VL1Norm_SensWrapper(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VCompare_SensWrapper(double noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define void @N_VCompare_SensWrapper(double noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -984,7 +984,7 @@ define void @N_VCompare_SensWrapper(double noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @N_VInvTest_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define range(i32 0, 2) i32 @N_VInvTest_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
@@ -1019,7 +1019,7 @@ define range(i32 0, 2) i32 @N_VInvTest_SensWrapper(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @N_VConstrMask_SensWrapper(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define range(i32 0, 2) i32 @N_VConstrMask_SensWrapper(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
@@ -1054,7 +1054,7 @@ define range(i32 0, 2) i32 @N_VConstrMask_SensWrapper(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define double @N_VMinQuotient_SensWrapper(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define double @N_VMinQuotient_SensWrapper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1101,7 +1101,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @N_VFreeEmpty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define ptr @N_VNew_SensWrapper(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {

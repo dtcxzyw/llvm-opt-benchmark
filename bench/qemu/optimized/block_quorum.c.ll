@@ -120,7 +120,7 @@ declare i32 @qcrypto_hash_supports(i32 noundef) local_unnamed_addr #1
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @quorum_recurse_can_replace(ptr nocapture noundef readonly %bs, ptr noundef readonly %to_replace) #2 {
+define internal zeroext i1 @quorum_recurse_can_replace(ptr noundef readonly captures(none) %bs, ptr noundef readonly %to_replace) #2 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -437,7 +437,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @quorum_gather_child_options(ptr nocapture noundef readonly %bs, ptr noundef %target, i1 zeroext %backing_overridden) #0 {
+define internal void @quorum_gather_child_options(ptr noundef readonly captures(none) %bs, ptr noundef %target, i1 zeroext %backing_overridden) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -479,7 +479,7 @@ for.end:                                          ; preds = %qobject_ref_impl.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @quorum_dirname(ptr nocapture readnone %bs, ptr noundef %errp) #0 {
+define internal noalias noundef ptr @quorum_dirname(ptr readnone captures(none) %bs, ptr noundef %errp) #0 {
 entry:
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.6, i32 noundef 1196, ptr noundef nonnull @__func__.quorum_dirname, ptr noundef nonnull @.str.23) #17
   ret ptr null
@@ -727,7 +727,7 @@ return:                                           ; preds = %quorum_refresh_flag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @quorum_child_perm(ptr nocapture noundef readonly %bs, ptr nocapture readnone %c, i32 %role, ptr nocapture readnone %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr nocapture noundef writeonly initializes((0, 8)) %nperm, ptr nocapture noundef writeonly initializes((0, 8)) %nshared) #3 {
+define internal void @quorum_child_perm(ptr noundef readonly captures(none) %bs, ptr readnone captures(none) %c, i32 %role, ptr readnone captures(none) %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef writeonly captures(none) initializes((0, 8)) %nperm, ptr noundef writeonly captures(none) initializes((0, 8)) %nshared) #3 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -936,7 +936,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 1, 3) i32 @quorum_co_block_status(ptr nocapture noundef readonly %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %count, ptr nocapture noundef writeonly %pnum, ptr nocapture readnone %map, ptr nocapture readnone %file) #0 {
+define internal range(i32 1, 3) i32 @quorum_co_block_status(ptr noundef readonly captures(none) %bs, i1 noundef zeroext %want_zero, i64 noundef %offset, i64 noundef %count, ptr noundef writeonly captures(none) %pnum, ptr readnone captures(none) %map, ptr readnone captures(none) %file) #0 {
 entry:
   %bytes = alloca i64, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -1008,7 +1008,7 @@ for.end:                                          ; preds = %for.inc, %entry, %q
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @quorum_co_flush(ptr nocapture noundef readonly %bs) #0 {
+define internal i32 @quorum_co_flush(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %error_votes = alloca %struct.QuorumVotes, align 8
   %result_value = alloca %union.QuorumVoteValue, align 8
@@ -1241,7 +1241,7 @@ quorum_free_vote_list.exit:                       ; preds = %for.end.i, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @quorum_co_getlength(ptr nocapture noundef readonly %bs) #0 {
+define internal i64 @quorum_co_getlength(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1306,7 +1306,7 @@ declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroe
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: noreturn nounwind
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
@@ -1336,10 +1336,10 @@ declare ptr @bdrv_attach_child(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @quorum_aio_get(ptr noundef %bs, ptr noundef %qiov, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
@@ -1530,7 +1530,7 @@ while.end47:                                      ; preds = %while.body46, %whil
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @read_fifo_child(ptr nocapture noundef %acb) #0 {
+define internal i32 @read_fifo_child(ptr noundef captures(none) %acb) #0 {
 entry:
   %0 = load ptr, ptr %acb, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1605,7 +1605,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @quorum_sha256_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #9 {
+define internal zeroext i1 @quorum_sha256_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #9 {
 entry:
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %a, ptr noundef nonnull dereferenceable(32) %b, i64 32)
   %tobool.not = icmp eq i32 %bcmp, 0
@@ -1613,7 +1613,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare ptr @qemu_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1624,7 +1624,7 @@ declare void @qemu_iovec_clone(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @read_quorum_children_entry(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @read_quorum_children_entry(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2413,7 +2413,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #10
 declare void @qapi_event_send_quorum_report_bad(i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @quorum_has_too_much_io_failed(ptr nocapture noundef %acb) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @quorum_has_too_much_io_failed(ptr noundef captures(none) %acb) unnamed_addr #0 {
 entry:
   %error_votes.i = alloca %struct.QuorumVotes, align 8
   %result_value.i = alloca %union.QuorumVoteValue, align 8
@@ -2762,7 +2762,7 @@ for.end37:                                        ; preds = %for.inc34, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @quorum_64bits_compare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #11 {
+define internal zeroext i1 @quorum_64bits_compare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #11 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = load i64, ptr %b, align 8
@@ -2773,7 +2773,7 @@ entry:
 declare i64 @qemu_iovec_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #12
@@ -2785,7 +2785,7 @@ declare ptr @bdrv_get_device_or_node_name(ptr noundef) local_unnamed_addr #1
 declare void @qapi_event_send_quorum_failure(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @quorum_rewrite_entry(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @quorum_rewrite_entry(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2827,7 +2827,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @bdrv_co_pwritev(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @write_quorum_entry(ptr nocapture noundef readonly %opaque) #0 {
+define internal void @write_quorum_entry(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2966,19 +2966,19 @@ declare i64 @llvm.smax.i64(i64, i64) #13
 declare i64 @llvm.smin.i64(i64, i64) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

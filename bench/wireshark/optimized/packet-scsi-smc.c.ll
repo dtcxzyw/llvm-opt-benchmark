@@ -239,7 +239,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.152 = private unnamed_addr constant [22 x i8] c"Data transfer element\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_smc_movemedium(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #0 {
+define hidden void @dissect_smc_movemedium(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #0 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -276,7 +276,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #0 {
+define hidden void @dissect_smc_readelementstatus(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %9
 
@@ -663,7 +663,7 @@ declare void @dissect_spc_testunitready(ptr noundef, ptr noundef, ptr noundef, i
 declare void @dissect_spc_requestsense(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_initialize_element_status(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #0 {
+define internal void @dissect_smc_initialize_element_status(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #0 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -693,7 +693,7 @@ declare void @dissect_spc_release6(ptr noundef, ptr noundef, ptr noundef, i32 no
 declare void @dissect_spc_modesense6(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_openclose_importexport_element(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #0 {
+define internal void @dissect_smc_openclose_importexport_element(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #0 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -723,7 +723,7 @@ declare void @dissect_spc_senddiagnostic(ptr noundef, ptr noundef, ptr noundef, 
 declare void @dissect_spc_preventallowmediaremoval(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_position_to_element(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #0 {
+define internal void @dissect_smc_position_to_element(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #0 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -753,7 +753,7 @@ define internal void @dissect_smc_position_to_element(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_initialize_element_status_with_range(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #0 {
+define internal void @dissect_smc_initialize_element_status_with_range(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #0 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10
@@ -804,7 +804,7 @@ declare void @dissect_spc_reportluns(ptr noundef, ptr noundef, ptr noundef, i32 
 declare void @dissect_spc_mgmt_protocol_in(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_smc_exchangemedium(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr nocapture readnone %7) #0 {
+define internal void @dissect_smc_exchangemedium(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 %6, ptr readnone captures(none) %7) #0 {
   %9 = icmp ne ptr %2, null
   %10 = icmp ne i32 %4, 0
   %or.cond = and i1 %9, %10

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Cut_TruthComputeOld.uTruth1 = internal global [8 x i32] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define void @Cut_TruthNCanonicize(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Cut_TruthNCanonicize(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -64,7 +64,7 @@ define void @Cut_TruthNCanonicize(ptr nocapture noundef %0) local_unnamed_addr #
 declare i32 @Extra_TruthCanonFastN(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Cut_TruthComputeOld(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Cut_TruthComputeOld(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %0, align 8
   %7 = lshr i32 %6, 24
   %8 = and i32 %7, 15
@@ -244,7 +244,7 @@ Cut_TruthPhase.exit53:                            ; preds = %43, %45, %.loopexit
 declare void @Extra_TruthExpand(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Cut_TruthCompute(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Cut_TruthCompute(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq i32 %4, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8

@@ -68,12 +68,12 @@ entry:
   %flags = getelementptr inbounds nuw i8, ptr %ids, i64 152
   store i32 1, ptr %flags, align 8
   tail call void @diff_setup_done(ptr noundef nonnull %diffopts) #6
-  tail call void @hashmap_init(ptr noundef %ids, ptr noundef nonnull @patch_id_neq, ptr noundef nonnull %diffopts, i64 noundef 256) #6
+  tail call void @hashmap_init(ptr noundef nonnull %ids, ptr noundef nonnull @patch_id_neq, ptr noundef nonnull %diffopts, i64 noundef 256) #6
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @repo_diff_setup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -82,7 +82,7 @@ declare void @diff_setup_done(ptr noundef) local_unnamed_addr #1
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @patch_id_neq(ptr noundef %cmpfn_data, ptr noundef %eptr, ptr noundef %entry_or_key, ptr nocapture readnone %keydata) #0 {
+define internal range(i32 -1, 2) i32 @patch_id_neq(ptr noundef %cmpfn_data, ptr noundef %eptr, ptr noundef %entry_or_key, ptr readnone captures(none) %keydata) #0 {
 entry:
   %patch_id = getelementptr inbounds nuw i8, ptr %eptr, i64 16
   %call.i = tail call ptr @null_oid() #6
@@ -424,7 +424,7 @@ return:                                           ; preds = %patch_id_defined.ex
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @hashmap_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -435,13 +435,13 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #1
 declare ptr @null_oid() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

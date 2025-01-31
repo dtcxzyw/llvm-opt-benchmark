@@ -834,7 +834,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN48ProxyInvocationTests_TestArgumentForwarding_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN48ProxyInvocationTests_TestArgumentForwarding_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -1790,7 +1790,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN35ProxyInvocationTests_TestThrow_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN35ProxyInvocationTests_TestThrow_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %class.anon.14, align 8
   %4 = alloca %"class.pro::proxy.15", align 8
@@ -2167,7 +2167,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN55ProxyInvocationTests_TestMultipleDispatches_Unique_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN55ProxyInvocationTests_TestMultipleDispatches_Unique_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy.111", align 8
   %3 = alloca %"class.std::__cxx11::list", align 8
   %4 = alloca [3 x i32], align 4
@@ -2618,7 +2618,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec8IterableIiEEED2EvQaantL_ZNS_5proxy20HasTrivia
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN59ProxyInvocationTests_TestMultipleDispatches_Duplicated_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN59ProxyInvocationTests_TestMultipleDispatches_Duplicated_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy.111", align 8
   %3 = alloca %"class.std::__cxx11::list", align 8
   %4 = alloca [3 x i32], align 4
@@ -3069,7 +3069,7 @@ _ZN3pro5proxyIZN59ProxyInvocationTests_TestMultipleDispatches_Duplicated_Test8Te
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN49ProxyInvocationTests_TestRecursiveDefinition_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN49ProxyInvocationTests_TestRecursiveDefinition_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy.111", align 8
   %3 = alloca %"class.pro::proxy.111", align 8
   %4 = alloca %"class.std::__cxx11::list", align 8
@@ -3977,7 +3977,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN38ProxyInvocationTests_TestAccessor_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN38ProxyInvocationTests_TestAccessor_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy.111", align 8
   %3 = alloca %"class.pro::proxy.111", align 8
   %4 = alloca %"class.std::__cxx11::list", align 8
@@ -4885,7 +4885,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec9ContainerIiEEED2EvQaantL_ZNS_5proxy20HasTrivi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::vector.43", align 8
@@ -6235,7 +6235,7 @@ _ZNSt6vectorISt10type_indexSaIS0_EED2Ev.exit249:  ; preds = %_ZN3pro5proxyIZN48P
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN38ProxyInvocationTests_TestNoexcept_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN38ProxyInvocationTests_TestNoexcept_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.43", align 8
   %3 = alloca %"class.pro::proxy.53", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -6793,7 +6793,7 @@ _ZNSt6vectorISt10type_indexSaIS0_EED2Ev.exit102:  ; preds = %_ZN3pro5proxyIN12_G
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN45ProxyInvocationTests_TestFunctionPointer_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN45ProxyInvocationTests_TestFunctionPointer_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pro::proxy.58", align 8
   %3 = alloca %"class.std::vector.43", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
@@ -7088,7 +7088,7 @@ _ZN3pro5proxyIZN45ProxyInvocationTests_TestFunctionPointer_Test8TestBodyEvE10Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_114GetTypeIndicesIJidEEESt6vectorISt10type_indexSaIS2_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.43") align 8 initializes((0, 24)) %0) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_114GetTypeIndicesIJidEEESt6vectorISt10type_indexSaIS2_EEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.43") align 8 captures(none) initializes((0, 24)) %0) #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr %2, ptr %0, align 8
@@ -7104,7 +7104,7 @@ define internal void @_ZN12_GLOBAL__N_114GetTypeIndicesIJidEEESt6vectorISt10type
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN51ProxyInvocationTests_TestMemberDispatchDefault_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN51ProxyInvocationTests_TestMemberDispatchDefault_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.62", align 8
   %3 = alloca [3 x %"class.std::__cxx11::basic_string"], align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -8036,7 +8036,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN49ProxyInvocationTests_TestFreeDispatchDefault_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN49ProxyInvocationTests_TestFreeDispatchDefault_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEEclIJEEEDcDpOT_QrqTNS_7details15dispatch_traitsINSB_13facade_traitsIT_E16default_dispatchEE16matched_overloadIDpTL0__EEE.exit:
   %1 = alloca i32, align 4
   %2 = alloca %"class.pro::proxy.77", align 8
@@ -8388,7 +8388,7 @@ _ZN3pro5proxyIN12_GLOBAL__N_14spec12WeakCallableIJFvvEEEEED2EvQaantL_ZNS_5proxy2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN46ProxyInvocationTests_TestObserverDispatch_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN46ProxyInvocationTests_TestObserverDispatch_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIiED2Ev.exit:
   %1 = alloca i32, align 4
   %2 = alloca %"class.pro::proxy.82", align 8
@@ -9894,7 +9894,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #10
 declare void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
@@ -9903,7 +9903,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
@@ -10093,7 +10093,7 @@ define linkonce_odr dso_local void @_ZN3pro7details30destruction_default_dispatc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN55ProxyInvocationTests_TestMultipleDispatches_Unique_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvRiEEE4__FTEvJS8_EEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) #13 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN55ProxyInvocationTests_TestMultipleDispatches_Unique_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvRiEEE4__FTEvJS8_EEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %.val = load ptr, ptr %3, align 8
   %.val2 = load i32, ptr %1, align 4
@@ -10135,7 +10135,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN59ProxyInvocationTests_TestMultipleDispatches_Duplicated_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvRiEEE4__FTEvJS8_EEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) #13 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN59ProxyInvocationTests_TestMultipleDispatches_Duplicated_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvRiEEE4__FTEvJS8_EEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %.val = load ptr, ptr %3, align 8
   %.val2 = load i32, ptr %1, align 4
@@ -10174,7 +10174,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN49ProxyInvocationTests_TestRecursiveDefinition_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvRiEEE4__FTEvJS8_EEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) #13 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN49ProxyInvocationTests_TestRecursiveDefinition_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvRiEEE4__FTEvJS8_EEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %.val = load ptr, ptr %3, align 8
   %.val2 = load i32, ptr %1, align 4
@@ -10213,7 +10213,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN38ProxyInvocationTests_TestAccessor_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvRiEEE4__FTEvJS8_EEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) #13 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN38ProxyInvocationTests_TestAccessor_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvRiEEE4__FTEvJS8_EEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) #13 {
   %3 = load ptr, ptr %0, align 8
   %.val = load ptr, ptr %3, align 8
   %.val2 = load i32, ptr %1, align 4
@@ -10481,7 +10481,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @"_ZN3pro7details25invocation_dispatcher_refIPZN48ProxyInvocationTests_TestArgumentForwarding_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEEEEE4__FTEiJSD_SG_EEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #6 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @"_ZN3pro7details25invocation_dispatcher_refIPZN48ProxyInvocationTests_TestArgumentForwarding_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIiSaIiEEEEE4__FTEiJSD_SG_EEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #6 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -10608,7 +10608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit.i.i.i.i.i.i: ;
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8) local_unnamed_addr #0
 
@@ -11016,7 +11016,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN35ProxyInvocationTests_TestThrow_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvvEEE4__FTEvJEEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0) #16 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refIPZN35ProxyInvocationTests_TestThrow_Test8TestBodyEvE3$_0N12_GLOBAL__N_14spec4CallIJFvvEEE4__FTEvJEEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0) #16 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @__cxa_allocate_exception(i64 16) #27
   %4 = load ptr, ptr %2, align 8
@@ -11051,7 +11051,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #17
 declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3pro7details25invocation_dispatcher_refIPNSt7__cxx114listIiSaIiEEEN12_GLOBAL__N_14spec7ForEachIiE4__FTEvJNS_5proxyINS8_8CallableIJFvRiEEEEEEEEET1_PKSt4byteDpT2_(ptr nocapture noundef readonly %0, ptr noundef %1) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details25invocation_dispatcher_refIPNSt7__cxx114listIiSaIiEEEN12_GLOBAL__N_14spec7ForEachIiE4__FTEvJNS_5proxyINS8_8CallableIJFvRiEEEEEEEEET1_PKSt4byteDpT2_(ptr noundef readonly captures(none) %0, ptr noundef %1) #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pro::proxy.111", align 8
   %4 = alloca %"class.pro::proxy.111", align 8
   %5 = alloca %"struct.std::ranges::in_fun_result", align 8
@@ -11209,7 +11209,7 @@ _ZN3pro7details15invoke_dispatchIN12_GLOBAL__N_14spec7ForEachIiE4__FTEvJRNSt7__c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef i64 @_ZN3pro7details25invocation_dispatcher_refIPNSt7__cxx114listIiSaIiEEEN12_GLOBAL__N_14spec7GetSize4__FTEmJEEET1_PKSt4byteDpT2_(ptr nocapture noundef readonly %0) #18 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZN3pro7details25invocation_dispatcher_refIPNSt7__cxx114listIiSaIiEEEN12_GLOBAL__N_14spec7GetSize4__FTEmJEEET1_PKSt4byteDpT2_(ptr noundef readonly captures(none) %0) #18 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 16
   %.val = load i64, ptr %3, align 8
@@ -11335,7 +11335,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3pro7details25invocation_dispatcher_refIPNSt7__cxx114listIiSaIiEEEN12_GLOBAL__N_14spec6AppendIiE4__FTENS_5proxyINS8_9ContainerIiEEEEJiEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.34") align 8 initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details25invocation_dispatcher_refIPNSt7__cxx114listIiSaIiEEEN12_GLOBAL__N_14spec6AppendIiE4__FTENS_5proxyINS8_9ContainerIiEEEEJiEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.pro::proxy.34") align 8 captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
@@ -11355,7 +11355,7 @@ define internal void @_ZN3pro7details25invocation_dispatcher_refIPNSt7__cxx114li
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJiEEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, i32 %1) #3 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJiEEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, i32 %1) #3 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29, !noalias !340
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11382,7 +11382,7 @@ define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJdEEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, double %1) #3 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJdEEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, double %1) #3 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29, !noalias !343
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11409,7 +11409,7 @@ define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJSC_EEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJSC_EEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29, !noalias !346
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11436,7 +11436,7 @@ define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJSE_EEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJSE_EEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29, !noalias !349
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -11463,7 +11463,7 @@ define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJSL_iEEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 %2) #3 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN48ProxyInvocationTests_TestOverloadResolution_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJFviEFvdEFvPKcEFvPcEFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEE4__FTEvJSL_iEEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 %2) #3 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29, !noalias !352
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -11606,7 +11606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN7testing8internal16ContainerPrinter10PrintValueISt6vectorISt10type_indexSaIS4_EEvEEvRKT_PSo(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 {
@@ -11656,7 +11656,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal16ContainerPrinter10Prin
 declare void @_ZN7testing8internal20PrintBytesInObjectToEPKhmPSo(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN38ProxyInvocationTests_TestNoexcept_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJDoFviEFvdEEE4__FTEvJiEEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, i32 %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN38ProxyInvocationTests_TestNoexcept_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJDoFviEFvdEEE4__FTEvJiEEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, i32 %1) #6 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %4 unwind label %14
@@ -11693,7 +11693,7 @@ define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN38ProxyInvocationTests_TestNoexcept_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJDoFviEFvdEEE4__FTEvJdEEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0, double %1) #6 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN38ProxyInvocationTests_TestNoexcept_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec4CallIJDoFviEFvdEEE4__FTEvJdEEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0, double %1) #6 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
           to label %4 unwind label %14
@@ -11730,14 +11730,14 @@ define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3pro7details25invocation_dispatcher_refIPFSt6vectorISt10type_indexSaIS3_EEvEN12_GLOBAL__N_14spec4CallIJS6_EE4__FTES5_JEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.43") align 8 %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @_ZN3pro7details25invocation_dispatcher_refIPFSt6vectorISt10type_indexSaIS3_EEvEN12_GLOBAL__N_14spec4CallIJS6_EE4__FTES5_JEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.43") align 8 %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load ptr, ptr %1, align 8
   tail call void %3(ptr dead_on_unwind writable sret(%"class.std::vector.43") align 8 %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3pro7details25invocation_dispatcher_refIPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEN12_GLOBAL__N_14spec6WeakAt4__FTES8_JiEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 {
+define internal void @_ZN3pro7details25invocation_dispatcher_refIPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEN12_GLOBAL__N_14spec6WeakAt4__FTES8_JiEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %4 = load ptr, ptr %1, align 8
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -11942,7 +11942,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_14spec6WeakAt4__FVENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiEEET0_PKSt4byteDpT1_(ptr dead_on_unwind noalias nocapture readnone sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture readnone %1, i32 %2) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_14spec6WeakAt4__FVENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJiEEET0_PKSt4byteDpT1_(ptr dead_on_unwind noalias readnone sret(%"class.std::__cxx11::basic_string") align 8 captures(none) %0, ptr readnone captures(none) %1, i32 %2) #16 personality ptr @__gxx_personality_v0 {
   %4 = tail call ptr @__cxa_allocate_exception(i64 16) #27
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.61)
           to label %5 unwind label %6
@@ -12073,7 +12073,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN49ProxyInvocationTests_TestFreeDispatchDefault_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec8WeakCallIJFvvEEE4__FTEvJEEET1_PKSt4byteDpT2_"(ptr nocapture noundef readonly %0) #19 {
+define internal void @"_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrIZN49ProxyInvocationTests_TestFreeDispatchDefault_Test8TestBodyEvE3$_0EEN12_GLOBAL__N_14spec8WeakCallIJFvvEEE4__FTEvJEEET1_PKSt4byteDpT2_"(ptr noundef readonly captures(none) %0) #19 {
   %.val = load ptr, ptr %0, align 8
   store i32 1, ptr %.val, align 4
   ret void
@@ -12089,7 +12089,7 @@ define linkonce_odr dso_local void @_ZN3pro7details26copying_default_dispatcherI
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_14spec8WeakCallIJFvvEEE4__FVEvJEEET0_PKSt4byteDpT1_(ptr nocapture readnone %0) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_14spec8WeakCallIJFvvEEE4__FVEvJEEET0_PKSt4byteDpT1_(ptr readnone captures(none) %0) #16 personality ptr @__gxx_personality_v0 {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #27
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull @.str.61)
           to label %3 unwind label %4
@@ -12365,7 +12365,7 @@ define linkonce_odr dso_local void @_ZN3pro7details25invocation_dispatcher_refIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZN3pro7details25invocation_dispatcher_ptrISt10shared_ptrIiEN12_GLOBAL__N_14spec7GetWeakINS5_16SharedStringableEE4__FTENS_5proxyINS5_4WeakIS7_EEEEJEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.85") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) #20 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details25invocation_dispatcher_ptrISt10shared_ptrIiEN12_GLOBAL__N_14spec7GetWeakINS5_16SharedStringableEE4__FTENS_5proxyINS5_4WeakIS7_EEEEJEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.pro::proxy.85") align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) #20 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %3, align 8
@@ -12641,7 +12641,7 @@ _ZSt10destroy_atIN3pro7details11inplace_ptrISt8weak_ptrIiEEEEvPT_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrISt8weak_ptrIiEEEN12_GLOBAL__N_14spec4LockINS7_16SharedStringableEE4__FTENS_5proxyIS9_EEJEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.82") align 8 %0, ptr nocapture noundef readonly %1) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details25invocation_dispatcher_refINS0_11inplace_ptrISt8weak_ptrIiEEEN12_GLOBAL__N_14spec4LockINS7_16SharedStringableEE4__FTENS_5proxyIS9_EEJEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias writable writeonly sret(%"class.pro::proxy.82") align 8 captures(none) %0, ptr noundef readonly captures(none) %1) #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !442)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
@@ -12883,7 +12883,7 @@ define linkonce_odr dso_local void @_ZN3pro7details25invocation_dispatcher_refIP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_14spec7GetWeakINS3_16SharedStringableEE4__FVENS_5proxyINS3_4WeakIS5_EEEEJEEET0_PKSt4byteDpT1_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.85") align 8 initializes((0, 24)) %0, ptr nocapture readnone %1) #21 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_14spec7GetWeakINS3_16SharedStringableEE4__FVENS_5proxyINS3_4WeakIS5_EEEEJEEET0_PKSt4byteDpT1_(ptr dead_on_unwind noalias writable writeonly sret(%"class.pro::proxy.85") align 8 captures(none) initializes((0, 24)) %0, ptr readnone captures(none) %1) #21 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !475
   ret void
 }
@@ -14159,13 +14159,13 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #25
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #26
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #26
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -94,7 +94,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_sbitmap_fini
 @llvm.compiler.used = appending global [22 x ptr] [ptr @__UNIQUE_ID___addressable___sbitmap_queue_get329, ptr @__UNIQUE_ID___addressable_sbitmap_add_wait_queue341, ptr @__UNIQUE_ID___addressable_sbitmap_any_bit_set306, ptr @__UNIQUE_ID___addressable_sbitmap_bitmap_show313, ptr @__UNIQUE_ID___addressable_sbitmap_del_wait_queue342, ptr @__UNIQUE_ID___addressable_sbitmap_finish_wait344, ptr @__UNIQUE_ID___addressable_sbitmap_get301, ptr @__UNIQUE_ID___addressable_sbitmap_get_shallow305, ptr @__UNIQUE_ID___addressable_sbitmap_init_node294, ptr @__UNIQUE_ID___addressable_sbitmap_prepare_to_wait343, ptr @__UNIQUE_ID___addressable_sbitmap_queue_clear338, ptr @__UNIQUE_ID___addressable_sbitmap_queue_get_shallow334, ptr @__UNIQUE_ID___addressable_sbitmap_queue_init_node321, ptr @__UNIQUE_ID___addressable_sbitmap_queue_min_shallow_depth335, ptr @__UNIQUE_ID___addressable_sbitmap_queue_recalculate_wake_batch327, ptr @__UNIQUE_ID___addressable_sbitmap_queue_resize328, ptr @__UNIQUE_ID___addressable_sbitmap_queue_show340, ptr @__UNIQUE_ID___addressable_sbitmap_queue_wake_all339, ptr @__UNIQUE_ID___addressable_sbitmap_queue_wake_up337, ptr @__UNIQUE_ID___addressable_sbitmap_resize295, ptr @__UNIQUE_ID___addressable_sbitmap_show308, ptr @__UNIQUE_ID___addressable_sbitmap_weight307], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) #0 align 16 {
   %8 = zext i1 %5 to i8
   %9 = icmp slt i32 %2, 0
   br i1 %9, label %10, label %.loopexit
@@ -211,7 +211,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sbitmap_init_node(ptr nocapture 
 declare dso_local void @free_percpu(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sbitmap_resize(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local void @sbitmap_resize(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -410,7 +410,7 @@ define dso_local i32 @sbitmap_get_shallow(ptr noundef %0, i64 noundef %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @sbitmap_any_bit_set(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local zeroext i1 @sbitmap_any_bit_set(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -462,7 +462,7 @@ define dso_local zeroext i1 @sbitmap_any_bit_set(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sbitmap_weight(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i32 @sbitmap_weight(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -553,7 +553,7 @@ define dso_local i32 @sbitmap_weight(ptr nocapture noundef readonly %0) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sbitmap_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @sbitmap_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load i32, ptr %0, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.1, i32 noundef %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -702,7 +702,7 @@ sbitmap_weight.exit:                              ; preds = %54, %2, %36
 declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sbitmap_bitmap_show(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @sbitmap_bitmap_show(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -1045,7 +1045,7 @@ define dso_local i32 @__sbitmap_queue_get(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
+define dso_local i64 @__sbitmap_queue_get_batch(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4, !range !8, !noundef !9
   %6 = icmp eq i8 %5, 0
@@ -1364,7 +1364,7 @@ define dso_local void @sbitmap_queue_wake_up(ptr noundef %0, i32 noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @sbitmap_queue_clear_batch(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %6, label %.thread
 
@@ -1715,7 +1715,7 @@ declare dso_local i32 @__get_random_u32_below(i32 noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @kvmalloc_node(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sbitmap_find_bit(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sbitmap_find_bit(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef range(i32 0, -2147483648) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0

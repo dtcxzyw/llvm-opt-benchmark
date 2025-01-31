@@ -155,7 +155,7 @@ define hidden void @_Z18check_ThreadShadowv() local_unnamed_addr #0 {
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ThreadShadow21set_pending_exceptionEP7oopDescPKci(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((8, 28)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12ThreadShadow21set_pending_exceptionEP7oopDescPKci(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((8, 28)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -166,7 +166,7 @@ define hidden void @_ZN12ThreadShadow21set_pending_exceptionEP7oopDescPKci(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((16, 28)) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.LogStream, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -240,7 +240,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ThreadShadow32clear_pending_nonasync_exceptionEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN12ThreadShadow32clear_pending_nonasync_exceptionEv(ptr noundef nonnull align 8 captures(none) dereferenceable(28) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -1748,7 +1748,7 @@ _ZL15print_oom_countP12outputStreamPKci.exit6:    ; preds = %_ZL15print_oom_coun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ExceptionMarkC2EP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13ExceptionMarkC2EP10JavaThread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1768,7 +1768,7 @@ _ZN13ExceptionMark26check_no_pending_exceptionEv.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ExceptionMarkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN13ExceptionMarkC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %0, align 8
@@ -1790,7 +1790,7 @@ _ZN13ExceptionMark26check_no_pending_exceptionEv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ExceptionMarkD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN13ExceptionMarkD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1894,7 +1894,7 @@ define hidden void @_ZN10Exceptions17debug_check_abortEPKcS1_(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10Exceptions24debug_check_abort_helperE6HandlePKc(ptr readonly %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
@@ -2340,7 +2340,7 @@ define linkonce_odr hidden void @_ZN17LogStreamTemplateILN8LogLevel4typeE2ELN6Lo
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

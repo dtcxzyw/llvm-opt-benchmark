@@ -330,7 +330,7 @@ return:                                           ; preds = %if.then.i45, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @dsa_gen_settable_params(ptr nocapture readnone %genctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @dsa_gen_settable_params(ptr readnone captures(none) %genctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @dsa_gen_settable_params.settable
 }
@@ -543,7 +543,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dsa_load(ptr nocapture noundef %reference, i64 noundef %reference_sz) #0 {
+define internal ptr @dsa_load(ptr noundef captures(none) %reference, i64 noundef %reference_sz) #0 {
 entry:
   %call = tail call i32 @ossl_prov_is_running() #6
   %tobool = icmp ne i32 %call, 0
@@ -665,7 +665,7 @@ return:                                           ; preds = %if.end25, %dsa_key_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @dsa_gettable_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @dsa_gettable_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @dsa_params
 }
@@ -987,7 +987,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_export(ptr noundef %keydata, i32 noundef %selection, ptr nocapture noundef readonly %param_cb, ptr noundef %cbarg) #0 {
+define internal i32 @dsa_export(ptr noundef %keydata, i32 noundef %selection, ptr noundef readonly captures(none) %param_cb, ptr noundef %cbarg) #0 {
 entry:
   %priv.i = alloca ptr, align 8
   %pub.i = alloca ptr, align 8
@@ -1206,12 +1206,12 @@ declare void @BN_GENCB_free(ptr noundef) local_unnamed_addr #2
 declare ptr @BN_GENCB_get_arg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @OSSL_PARAM_construct_int(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @OSSL_PARAM_locate(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1266,10 +1266,10 @@ declare void @OSSL_PARAM_BLD_free(ptr noundef) local_unnamed_addr #2
 declare ptr @ossl_dsa_dup(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

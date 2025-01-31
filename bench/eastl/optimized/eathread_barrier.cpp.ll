@@ -12,14 +12,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN2EA6Thread7BarrierD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2EA6Thread7BarrierD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13EABarrierDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) initializes((0, 105)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN13EABarrierDataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(105) initializes((0, 105)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %this, i8 0, i64 105, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN2EA6Thread17BarrierParametersC2EibPKc(ptr noundef nonnull align 4 dereferenceable(21) initializes((0, 5)) %this, i32 noundef %height, i1 noundef zeroext %bIntraProcess, ptr noundef readonly %pName) unnamed_addr #2 align 2 {
@@ -45,7 +45,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA6Thread7BarrierC2EPKNS0_17BarrierParametersEb(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 105)) %this, ptr noundef readonly %pBarrierParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #4 align 2 {

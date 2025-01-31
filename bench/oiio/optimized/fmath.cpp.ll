@@ -26,7 +26,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_012convert_typeI4halffEEvPKT_PT0_mS5_S5_(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %dst, i64 noundef %n, float noundef %0, float noundef %1) local_unnamed_addr #3 {
+define void @_ZN18OpenImageIO_v2_6_012convert_typeI4halffEEvPKT_PT0_mS5_S5_(ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(none) %dst, i64 noundef %n, float noundef %0, float noundef %1) local_unnamed_addr #3 {
 entry:
   %h.i.i = alloca %"class.OpenImageIO_v2_6_0::simd::vint4", align 16
   %cmp7 = icmp ugt i64 %n, 3
@@ -98,7 +98,7 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_012convert_typeIf4halfEEvPKT_PT0_mS5_S5_(ptr nocapture noundef readonly %src, ptr nocapture noundef writeonly %dst, i64 noundef %n, i16 %.coerce, i16 %.coerce1) local_unnamed_addr #4 {
+define void @_ZN18OpenImageIO_v2_6_012convert_typeIf4halfEEvPKT_PT0_mS5_S5_(ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(none) %dst, i64 noundef %n, i16 %.coerce, i16 %.coerce1) local_unnamed_addr #4 {
 entry:
   %s = alloca %"class.OpenImageIO_v2_6_0::simd::vfloat4", align 16
   %cmp33 = icmp ugt i64 %n, 3
@@ -231,10 +231,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -190,7 +190,7 @@ lpad2:                                            ; preds = %if.then.i.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZNK11upolynomial12core_manager7factors2nmEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(136) ptr @_ZNK11upolynomial12core_manager7factors2nmEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_upm = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_upm, align 8
@@ -576,7 +576,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager5resetER7svectorI3mpzjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager5resetER7svectorI3mpzjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -663,7 +663,7 @@ _ZN11upolynomial12core_manager8set_sizeEjR7svectorI3mpzjE.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager7factors9push_backERK7svectorI3mpzjEj(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %p, i32 noundef %degree) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager7factors9push_backERK7svectorI3mpzjEj(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %p, i32 noundef %degree) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.svector.1, align 8
   store ptr null, ptr %ref.tmp, align 8
@@ -1020,7 +1020,7 @@ return:                                           ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager7factors14push_back_swapER7svectorI3mpzjEj(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %p, i32 noundef %degree) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager7factors14push_back_swapER7svectorI3mpzjEj(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %p, i32 noundef %degree) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.svector.1, align 8
   store ptr null, ptr %ref.tmp, align 8
@@ -1770,7 +1770,7 @@ return:                                           ; preds = %if.then.i.i.i, %whi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager3mulEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager3mulEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
 entry:
   %m_basic_tmp = getelementptr inbounds nuw i8, ptr %this, i64 144
   tail call void @_ZN11upolynomial12core_manager8mul_coreEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 8 dereferenceable(8) %m_basic_tmp)
@@ -1914,7 +1914,7 @@ _ZN13mpzzp_manager3setER3mpzRKS0_.exit:           ; preds = %_ZN11mpz_managerILb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11upolynomial12core_manager7factors10set_degreeEjj(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %i, i32 noundef %degree) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN11upolynomial12core_manager7factors10set_degreeEjj(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 noundef %i, i32 noundef %degree) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %idxprom.i = zext i32 %i to i64
@@ -1971,7 +1971,7 @@ _ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit20: ; preds = %_ZN11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11upolynomial12core_manager7factors11swap_factorEjR7svectorI3mpzjE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %i, ptr nocapture noundef nonnull align 8 dereferenceable(8) %p) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN11upolynomial12core_manager7factors11swap_factorEjR7svectorI3mpzjE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 noundef %i, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %p) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %idxprom.i = zext i32 %i to i64
@@ -2021,7 +2021,7 @@ _ZN11upolynomial12core_manager6degreeERK7svectorI3mpzjE.exit12: ; preds = %_ZN11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11upolynomial12core_manager7factors4swapERS1_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(48) %other) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager7factors4swapERS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(48) %other) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %other, align 8
@@ -2084,7 +2084,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11upolynomial12core_managerC2ER8reslimitR11mpz_managerILb0EE(ptr nocapture noundef nonnull align 8 dereferenceable(272) initializes((0, 17), (24, 28), (32, 44), (48, 60), (64, 72), (80, 84), (88, 100), (104, 116), (120, 132), (136, 272)) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(600) %m) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_managerC2ER8reslimitR11mpz_managerILb0EE(ptr noundef nonnull align 8 captures(none) dereferenceable(272) initializes((0, 17), (24, 28), (32, 44), (48, 60), (64, 72), (80, 84), (88, 100), (104, 116), (120, 132), (136, 272)) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(600) %m) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %lim, ptr %this, align 8
   %m_manager = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3494,7 +3494,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager10checkpointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager10checkpointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN8reslimit3incEv(ptr noundef nonnull align 8 dereferenceable(40) %0)
@@ -3595,7 +3595,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager4trimER7svectorI3mpzjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager4trimER7svectorI3mpzjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -3648,7 +3648,7 @@ _ZN6vectorI3mpzLb0EjE6shrinkEj.exit:              ; preds = %entry, %while.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager8set_sizeEjR7svectorI3mpzjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, i32 noundef %sz, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager8set_sizeEjR7svectorI3mpzjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %this, i32 noundef %sz, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -4441,7 +4441,7 @@ _ZN11upolynomial12core_manager8set_sizeEjR7svectorI3mpzjE.exit: ; preds = %_ZNK6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager3negEjPK3mpzR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz, ptr noundef %p, ptr nocapture noundef nonnull align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager3negEjPK3mpzR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz, ptr noundef %p, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
 entry:
   %m_basic_tmp = getelementptr inbounds nuw i8, ptr %this, i64 144
   tail call void @_ZN11upolynomial12core_manager8neg_coreEjPK3mpzR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(8) %m_basic_tmp)
@@ -4738,7 +4738,7 @@ _ZN11upolynomial12core_manager8set_sizeEjR7svectorI3mpzjE.exit: ; preds = %for.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager3addEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager3addEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
 entry:
   %m_basic_tmp = getelementptr inbounds nuw i8, ptr %this, i64 144
   tail call void @_ZN11upolynomial12core_manager8add_coreEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 8 dereferenceable(8) %m_basic_tmp)
@@ -5048,7 +5048,7 @@ _ZN11upolynomial12core_manager8set_sizeEjR7svectorI3mpzjE.exit: ; preds = %for.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager3subEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager3subEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
 entry:
   %m_basic_tmp = getelementptr inbounds nuw i8, ptr %this, i64 144
   tail call void @_ZN11upolynomial12core_manager8sub_coreEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 8 dereferenceable(8) %m_basic_tmp)
@@ -5879,7 +5879,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager9normalizeER7svectorI3mpzjE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %p) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager9normalizeER7svectorI3mpzjE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %p) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -5970,7 +5970,7 @@ for.end:                                          ; preds = %_ZN13mpzzp_manager3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager3mulER7svectorI3mpzjERKS2_(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager3mulER7svectorI3mpzjERKS2_(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %b, align 8
   %cmp.i.i = icmp eq i32 %0, 0
@@ -6106,7 +6106,7 @@ return:                                           ; preds = %_ZN13mpzzp_manager3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager12div_rem_coreEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %d, ptr noundef nonnull align 8 dereferenceable(8) %q, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager12div_rem_coreEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %d, ptr noundef nonnull align 8 dereferenceable(8) %q, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a_m = alloca %class._scoped_numeral, align 8
   store i32 0, ptr %d, align 4
@@ -6906,7 +6906,7 @@ return:                                           ; preds = %invoke.cont18, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager7div_remEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %d, ptr nocapture noundef nonnull align 8 dereferenceable(8) %q, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager7div_remEjPK3mpzjS3_RjR7svectorIS1_jES7_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %d, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %q, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
 entry:
   %m_div_tmp1 = getelementptr inbounds nuw i8, ptr %this, i64 152
   %m_div_tmp2 = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -6923,7 +6923,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager3divEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %q) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager3divEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %q) local_unnamed_addr #3 align 2 {
 entry:
   %d = alloca i32, align 4
   %m_div_tmp1 = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -7018,7 +7018,7 @@ _ZN11upolynomial12core_manager5resetER7svectorI3mpzjE.exit: ; preds = %entry, %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager3remEjPK3mpzjS3_RjR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %d, ptr noundef nonnull align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager3remEjPK3mpzjS3_RjR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %d, ptr noundef nonnull align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a_m = alloca %class._scoped_numeral, align 8
   store i32 0, ptr %d, align 4
@@ -7730,7 +7730,7 @@ return:                                           ; preds = %cleanup, %if.end4, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11upolynomial12core_manager9exact_divEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11upolynomial12core_manager9exact_divEjPK3mpzjS3_R7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %sz2, 0
   br i1 %cmp, label %return, label %if.end
@@ -8269,7 +8269,7 @@ return:                                           ; preds = %if.then.i.i.i.i155,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager19flip_sign_if_lm_negER7svectorI3mpzjE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial12core_manager19flip_sign_if_lm_negER7svectorI3mpzjE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -8319,7 +8319,7 @@ if.end9:                                          ; preds = %_ZN13mpzzp_manager3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager18CRA_combine_imagesERK7svectorI3mpzjERKS2_RS3_RS2_(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %C1, ptr noundef nonnull align 8 dereferenceable(16) %b1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %C2, ptr noundef nonnull align 8 dereferenceable(16) %b2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager18CRA_combine_imagesERK7svectorI3mpzjERKS2_RS3_RS2_(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %C1, ptr noundef nonnull align 8 dereferenceable(16) %b1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %C2, ptr noundef nonnull align 8 dereferenceable(16) %b2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inv1 = alloca %class._scoped_numeral, align 8
   %inv2 = alloca %class._scoped_numeral, align 8
@@ -12283,7 +12283,7 @@ _ZN13mpzzp_manager11p_normalizeER3mpz.exit6:      ; preds = %_ZN13mpzzp_manager1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial12core_manager7ext_gcdEjPK3mpzjS3_R7svectorIS1_jES6_S6_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %szA, ptr noundef %A, i32 noundef %szB, ptr noundef %B, ptr noundef nonnull align 8 dereferenceable(8) %U, ptr nocapture noundef nonnull align 8 dereferenceable(8) %V, ptr noundef nonnull align 8 dereferenceable(8) %D) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial12core_manager7ext_gcdEjPK3mpzjS3_R7svectorIS1_jES6_S6_(ptr noundef nonnull align 8 dereferenceable(272) %this, i32 noundef %szA, ptr noundef %A, i32 noundef %szB, ptr noundef %B, ptr noundef nonnull align 8 dereferenceable(8) %U, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %V, ptr noundef nonnull align 8 dereferenceable(8) %D) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont19:
   %d.i = alloca i32, align 4
   %lc.i = alloca %class.mpz, align 8
@@ -13579,7 +13579,7 @@ if.end26:                                         ; preds = %if.end23, %if.else5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11upolynomial12core_manager2eqEjPK3mpzjS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11upolynomial12core_manager2eqEjPK3mpzjS3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(272) %this, i32 noundef %sz1, ptr noundef %p1, i32 noundef %sz2, ptr noundef %p2) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not = icmp eq i32 %sz1, %sz2
   br i1 %cmp.not, label %for.cond.preheader, label %return
@@ -13633,7 +13633,7 @@ return:                                           ; preds = %_ZN13mpzzp_manager2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial20upolynomial_sequence4pushEjP3mpz(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sz, ptr nocapture noundef %p) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial20upolynomial_sequence4pushEjP3mpz(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %sz, ptr noundef captures(none) %p) local_unnamed_addr #3 align 2 {
 entry:
   %m_begins = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %this, align 8
@@ -13985,7 +13985,7 @@ for.end:                                          ; preds = %_ZN13mpzzp_manager3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11upolynomial21scoped_numeral_vectorC2ERNS_7managerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(312) %m) unnamed_addr #11 align 2 {
+define hidden void @_ZN11upolynomial21scoped_numeral_vectorC2ERNS_7managerE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(312) %m) unnamed_addr #11 align 2 {
 entry:
   %m_manager.i = getelementptr inbounds nuw i8, ptr %m, i64 8
   store ptr null, ptr %this, align 8
@@ -13995,7 +13995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11upolynomial27scoped_upolynomial_sequenceD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial27scoped_upolynomial_sequenceD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_manager = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_manager, align 8
@@ -14067,7 +14067,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial7manager5resetERNS_20upolynomial_sequenceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seq) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial7manager5resetERNS_20upolynomial_sequenceE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seq) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %seq, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, null
@@ -15153,7 +15153,7 @@ return:                                           ; preds = %_ZN15_scoped_numera
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial7manager20remove_one_half_rootEjPK3mpzR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %sz, ptr noundef %p, ptr nocapture noundef nonnull align 8 dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial7manager20remove_one_half_rootEjPK3mpzR7svectorIS1_jE(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %sz, ptr noundef %p, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %buffer) local_unnamed_addr #3 align 2 {
 entry:
   %two_x_1 = alloca [2 x %class.mpz], align 16
   store i32 -1, ptr %two_x_1, align 16
@@ -15172,7 +15172,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN11upolynomial7manager7sign_ofERK3mpz(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN11upolynomial7manager7sign_ofERK3mpz(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %c) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %c, align 8
   %cmp.i.i = icmp eq i32 %0, 0
@@ -15183,7 +15183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN11upolynomial7manager12sign_changesEjPK3mpz(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, i32 noundef %sz, ptr nocapture noundef readonly %p) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZN11upolynomial7manager12sign_changesEjPK3mpz(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, i32 noundef %sz, ptr noundef readonly captures(none) %p) local_unnamed_addr #4 align 2 {
 entry:
   %cmp7.not = icmp eq i32 %sz, 0
   br i1 %cmp7.not, label %for.end, label %for.body.preheader
@@ -15224,7 +15224,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN11upolynomial7manager15descartes_boundEjPK3mpz(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, i32 noundef %sz, ptr nocapture noundef readonly %p) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZN11upolynomial7manager15descartes_boundEjPK3mpz(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, i32 noundef %sz, ptr noundef readonly captures(none) %p) local_unnamed_addr #4 align 2 {
 entry:
   %cmp7.not.i = icmp eq i32 %sz, 0
   br i1 %cmp7.not.i, label %_ZN11upolynomial7manager12sign_changesEjPK3mpz.exit, label %for.body.preheader.i
@@ -17274,7 +17274,7 @@ for.end:                                          ; preds = %_ZN13mpzzp_manager5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN11upolynomial7manager9p_1_div_xEjP3mpz(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, i32 noundef %sz, ptr nocapture noundef %p) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN11upolynomial7manager9p_1_div_xEjP3mpz(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, i32 noundef %sz, ptr noundef captures(none) %p) local_unnamed_addr #12 align 2 {
 entry:
   %cmp = icmp ult i32 %sz, 2
   br i1 %cmp, label %while.end, label %if.end
@@ -18161,7 +18161,7 @@ return:                                           ; preds = %invoke.cont37, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN11upolynomial7manager17eval_sign_at_zeroEjPK3mpz(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, i32 noundef %sz, ptr nocapture noundef readonly %p) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN11upolynomial7manager17eval_sign_at_zeroEjPK3mpz(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, i32 noundef %sz, ptr noundef readonly captures(none) %p) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq i32 %sz, 0
   br i1 %cmp, label %return, label %if.end
@@ -18180,7 +18180,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN11upolynomial7manager21eval_sign_at_plus_infEjPK3mpz(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, i32 noundef %sz, ptr nocapture noundef readonly %p) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN11upolynomial7manager21eval_sign_at_plus_infEjPK3mpz(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, i32 noundef %sz, ptr noundef readonly captures(none) %p) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq i32 %sz, 0
   br i1 %cmp, label %return, label %if.end
@@ -18202,7 +18202,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, i32 noundef %sz, ptr nocapture noundef readonly %p) local_unnamed_addr #4 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN11upolynomial7manager22eval_sign_at_minus_infEjPK3mpz(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, i32 noundef %sz, ptr noundef readonly captures(none) %p) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp eq i32 %sz, 0
   br i1 %cmp, label %return, label %if.end
@@ -18233,7 +18233,7 @@ return:                                           ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11upolynomial7manager28sign_variations_at_minus_infERKNS_20upolynomial_sequenceE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seq) local_unnamed_addr #13 align 2 {
+define hidden noundef i32 @_ZN11upolynomial7manager28sign_variations_at_minus_infERKNS_20upolynomial_sequenceE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seq) local_unnamed_addr #13 align 2 {
 entry:
   %m_szs.i.i = getelementptr inbounds nuw i8, ptr %seq, i64 16
   %0 = load ptr, ptr %m_szs.i.i, align 8
@@ -18308,7 +18308,7 @@ _ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE1EEEjRKNS_20upo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11upolynomial7manager27sign_variations_at_plus_infERKNS_20upolynomial_sequenceE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seq) local_unnamed_addr #13 align 2 {
+define hidden noundef i32 @_ZN11upolynomial7manager27sign_variations_at_plus_infERKNS_20upolynomial_sequenceE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seq) local_unnamed_addr #13 align 2 {
 entry:
   %m_szs.i.i = getelementptr inbounds nuw i8, ptr %seq, i64 16
   %0 = load ptr, ptr %m_szs.i.i, align 8
@@ -18372,7 +18372,7 @@ _ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE0EEEjRKNS_20upo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11upolynomial7manager23sign_variations_at_zeroERKNS_20upolynomial_sequenceE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seq) local_unnamed_addr #13 align 2 {
+define hidden noundef i32 @_ZN11upolynomial7manager23sign_variations_at_zeroERKNS_20upolynomial_sequenceE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seq) local_unnamed_addr #13 align 2 {
 entry:
   %m_szs.i.i = getelementptr inbounds nuw i8, ptr %seq, i64 16
   %0 = load ptr, ptr %m_szs.i.i, align 8
@@ -18433,7 +18433,7 @@ _ZN11upolynomial7manager23sign_variations_at_coreILNS0_8locationE2EEEjRKNS_20upo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN11upolynomial7manager18sign_variations_atERKNS_20upolynomial_sequenceERK4mpbq(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seq, ptr noundef nonnull align 8 dereferenceable(20) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN11upolynomial7manager18sign_variations_atERKNS_20upolynomial_sequenceERK4mpbq(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seq, ptr noundef nonnull align 8 dereferenceable(20) %b) local_unnamed_addr #3 align 2 {
 entry:
   %m_szs.i.i = getelementptr inbounds nuw i8, ptr %seq, i64 16
   %0 = load ptr, ptr %m_szs.i.i, align 8
@@ -19054,7 +19054,7 @@ ehcleanup:                                        ; preds = %lpad26, %lpad12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN11upolynomial7manager31knuth_positive_root_upper_boundEjPK3mpz(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, i32 noundef %sz, ptr noundef %p) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN11upolynomial7manager31knuth_positive_root_upper_boundEjPK3mpz(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, i32 noundef %sz, ptr noundef %p) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %sz, 0
   br i1 %cmp, label %return, label %if.end
@@ -19341,7 +19341,7 @@ _ZSt7reverseIP3mpzEvT_S2_.exit46:                 ; preds = %while.body.i.i18, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial7manager13pop_top_frameER7svectorI3mpzjERS1_INS0_9drs_frameEjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %p_stack, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %frame_stack) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial7manager13pop_top_frameER7svectorI3mpzjERS1_INS0_9drs_frameEjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %p_stack, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %frame_stack) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %frame_stack, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -19776,7 +19776,7 @@ _ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE9push_backEOS2_.exit132: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial7manager22add_isolating_intervalERK7svectorINS0_9drs_frameEjER12mpbq_managerRS1_I4mpbqjESA_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %frame_stack, ptr noundef nonnull align 8 dereferenceable(208) %bqm, ptr noundef nonnull align 8 dereferenceable(8) %lowers, ptr noundef nonnull align 8 dereferenceable(8) %uppers) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial7manager22add_isolating_intervalERK7svectorINS0_9drs_frameEjER12mpbq_managerRS1_I4mpbqjESA_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %frame_stack, ptr noundef nonnull align 8 dereferenceable(208) %bqm, ptr noundef nonnull align 8 dereferenceable(8) %lowers, ptr noundef nonnull align 8 dereferenceable(8) %uppers) local_unnamed_addr #3 align 2 {
 entry:
   %l = alloca %class.mpbq, align 8
   %u = alloca %class.mpbq, align 8
@@ -20102,7 +20102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial7manager8add_rootERK7svectorINS0_9drs_frameEjER12mpbq_managerRS1_I4mpbqjE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %frame_stack, ptr noundef nonnull align 8 dereferenceable(208) %bqm, ptr noundef nonnull align 8 dereferenceable(8) %roots) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial7manager8add_rootERK7svectorINS0_9drs_frameEjER12mpbq_managerRS1_I4mpbqjE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %frame_stack, ptr noundef nonnull align 8 dereferenceable(208) %bqm, ptr noundef nonnull align 8 dereferenceable(8) %roots) local_unnamed_addr #3 align 2 {
 entry:
   %u = alloca %class.mpbq, align 8
   %ref.tmp = alloca %class.mpz, align 8
@@ -21595,7 +21595,7 @@ lpad:                                             ; preds = %_ZNK6vectorI3mpzLb0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial25ss_add_isolating_intervalER12mpbq_managerRK4mpbqS4_R7svectorIS2_jES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %m, ptr noundef nonnull align 8 dereferenceable(20) %lower, ptr noundef nonnull align 8 dereferenceable(20) %upper, ptr noundef nonnull align 8 dereferenceable(8) %lowers, ptr noundef nonnull align 8 dereferenceable(8) %uppers) local_unnamed_addr #3 {
+define hidden void @_ZN11upolynomial25ss_add_isolating_intervalER12mpbq_managerRK4mpbqS4_R7svectorIS2_jES7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %m, ptr noundef nonnull align 8 dereferenceable(20) %lower, ptr noundef nonnull align 8 dereferenceable(20) %upper, ptr noundef nonnull align 8 dereferenceable(8) %lowers, ptr noundef nonnull align 8 dereferenceable(8) %uppers) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %lowers, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -23366,7 +23366,7 @@ lpad:                                             ; preds = %invoke.cont9, %_ZNK
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare void @_ZN12mpbq_manager3addERK4mpbqS2_RS0_(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #0
 
@@ -25826,7 +25826,7 @@ declare void @_ZN12mpbq_manager12refine_upperERK3mpqR4mpbqS4_(ptr noundef nonnul
 declare void @_ZN12mpbq_manager12refine_lowerERK3mpqR4mpbqS4_(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11upolynomial7manager23normalize_interval_coreEjPK3mpziR12mpbq_managerR4mpbqS7_(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %sz, ptr noundef %p, i32 noundef %sign_a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %m, ptr noundef nonnull align 8 dereferenceable(20) %a, ptr noundef nonnull align 8 dereferenceable(20) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11upolynomial7manager23normalize_interval_coreEjPK3mpziR12mpbq_managerR4mpbqS7_(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %sz, ptr noundef %p, i32 noundef %sign_a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %m, ptr noundef nonnull align 8 dereferenceable(20) %a, ptr noundef nonnull align 8 dereferenceable(20) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %a, align 8
   %cmp.i.i = icmp slt i32 %0, 0
@@ -25868,7 +25868,7 @@ return:                                           ; preds = %if.end7, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11upolynomial7manager18normalize_intervalEjPK3mpzR12mpbq_managerR4mpbqS7_(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %sz, ptr noundef %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %m, ptr noundef nonnull align 8 dereferenceable(20) %a, ptr noundef nonnull align 8 dereferenceable(20) %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11upolynomial7manager18normalize_intervalEjPK3mpzR12mpbq_managerR4mpbqS7_(ptr noundef nonnull align 8 dereferenceable(312) %this, i32 noundef %sz, ptr noundef %p, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %m, ptr noundef nonnull align 8 dereferenceable(20) %a, ptr noundef nonnull align 8 dereferenceable(20) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %a, align 8
   %cmp.i.i.i = icmp slt i32 %0, 0
@@ -26152,7 +26152,7 @@ lpad:                                             ; preds = %if.then.i2.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial7manager15factor_2_sqf_ppER7svectorI3mpzjERNS_12core_manager7factorsEj(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef %k) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11upolynomial7manager15factor_2_sqf_ppER7svectorI3mpzjERNS_12core_manager7factorsEj(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef %k) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
   %b2 = alloca %class._scoped_numeral, align 8
   %ac = alloca %class._scoped_numeral, align 8
@@ -26932,7 +26932,7 @@ return:                                           ; preds = %if.else4, %if.then3
 declare noundef zeroext i1 @_ZN11upolynomial18factor_square_freeERNS_12core_managerERK7svectorI3mpzjERNS0_7factorsEjRKN10polynomial13factor_paramsE(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11upolynomial7manager26flip_factor_sign_if_lm_negER7svectorI3mpzjERNS_12core_manager7factorsEj(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef %k) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11upolynomial7manager26flip_factor_sign_if_lm_negER7svectorI3mpzjERNS_12core_manager7factorsEj(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(48) %r, i32 noundef %k) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -28031,7 +28031,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11upolynomial7manager7displayERSoRKNS_20upolynomial_sequenceEPKc(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seq, ptr noundef %var_name) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK11upolynomial7manager7displayERSoRKNS_20upolynomial_sequenceEPKc(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull returned align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %seq, ptr noundef %var_name) local_unnamed_addr #3 align 2 {
 entry:
   %m_szs.i = getelementptr inbounds nuw i8, ptr %seq, i64 16
   %m_begins.i = getelementptr inbounds nuw i8, ptr %seq, i64 8
@@ -28281,7 +28281,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -29235,10 +29235,10 @@ declare i32 @llvm.umax.i32(i32, i32) #20
 declare i32 @llvm.umin.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #20

@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_scale_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_scale_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @lv_ll_init(ptr noundef nonnull %3, i32 noundef 72) #9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 108
@@ -53,7 +53,7 @@ define internal void @lv_scale_constructor(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_scale_destructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_scale_destructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !21
@@ -74,7 +74,7 @@ define internal void @lv_scale_destructor(ptr nocapture readnone %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_scale_event(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_scale_event(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call i32 @lv_obj_event_base(ptr noundef nonnull @lv_scale_class, ptr noundef %1) #9
   %.not = icmp eq i32 %3, 1
   br i1 %.not, label %4, label %27
@@ -154,14 +154,14 @@ define noundef ptr @lv_scale_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_scale_set_mode(ptr noundef initializes((96, 100)) %0, i32 noundef %1) local_unnamed_addr #0 {
@@ -405,7 +405,7 @@ declare ptr @lv_obj_add_event_cb(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare void @lv_line_set_points_mutable(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_image_needle_value(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_scale_set_image_needle_value(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load i32, ptr %4, align 8, !tbaa !3
   switch i32 %5, label %26 [
@@ -576,14 +576,14 @@ define void @lv_scale_section_set_style(ptr noundef writeonly %0, i32 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_scale_get_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_scale_get_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8, !tbaa !3
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 32768) i32 @lv_scale_get_total_tick_count(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 32768) i32 @lv_scale_get_total_tick_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i64, ptr %2, align 4
   %4 = trunc i64 %3 to i32
@@ -592,7 +592,7 @@ define range(i32 0, 32768) i32 @lv_scale_get_total_tick_count(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 32768) i32 @lv_scale_get_major_tick_every(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 32768) i32 @lv_scale_get_major_tick_every(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i64, ptr %2, align 4
   %4 = trunc i64 %3 to i32
@@ -602,7 +602,7 @@ define range(i32 0, 32768) i32 @lv_scale_get_major_tick_every(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_scale_get_label_show(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define zeroext i1 @lv_scale_get_label_show(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %3 = load i64, ptr %2, align 4
   %4 = and i64 %3, 1073741824
@@ -611,21 +611,21 @@ define zeroext i1 @lv_scale_get_label_show(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_scale_get_angle_range(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_scale_get_angle_range(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4, !tbaa !13
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_scale_get_range_min_value(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_scale_get_range_min_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %3 = load i32, ptr %2, align 4, !tbaa !15
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_scale_get_range_max_value(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define i32 @lv_scale_get_range_max_value(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8, !tbaa !16
   ret i32 %3
@@ -808,18 +808,18 @@ define internal fastcc void @scale_calculate_main_compensation(ptr noundef %0) u
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %.054, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !37
-  call fastcc void @scale_set_line_properties(ptr noundef %0, ptr noundef %2, ptr noundef %42, i32 noundef 131072)
+  call fastcc void @scale_set_line_properties(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %42, i32 noundef 131072)
   br label %.loopexit
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %.054, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !38
-  call fastcc void @scale_set_line_properties(ptr noundef %0, ptr noundef %3, ptr noundef %45, i32 noundef 327680)
+  call fastcc void @scale_set_line_properties(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %45, i32 noundef 327680)
   br label %.loopexit
 
 46:                                               ; preds = %36, %.lr.ph
-  call void @lv_obj_init_draw_line_dsc(ptr noundef %0, i32 noundef 131072, ptr noundef nonnull %2) #9
-  call void @lv_obj_init_draw_line_dsc(ptr noundef %0, i32 noundef 327680, ptr noundef nonnull %3) #9
+  call void @lv_obj_init_draw_line_dsc(ptr noundef nonnull %0, i32 noundef 131072, ptr noundef nonnull %2) #9
+  call void @lv_obj_init_draw_line_dsc(ptr noundef nonnull %0, i32 noundef 327680, ptr noundef nonnull %3) #9
   %47 = call ptr @lv_ll_get_prev(ptr noundef nonnull %18, ptr noundef nonnull %.054) #9
   %.not = icmp eq ptr %47, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !43
@@ -827,7 +827,7 @@ define internal fastcc void @scale_calculate_main_compensation(ptr noundef %0) u
 .loopexit:                                        ; preds = %46, %23, %40, %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  call fastcc void @scale_get_tick_points(ptr noundef %0, i32 noundef %.04055, i1 noundef zeroext %29, ptr noundef %4, ptr noundef %5)
+  call fastcc void @scale_get_tick_points(ptr noundef nonnull %0, i32 noundef %.04055, i1 noundef zeroext %29, ptr noundef %4, ptr noundef %5)
   %48 = load i32, ptr %19, align 4, !tbaa !44
   %49 = load i32, ptr %20, align 4, !tbaa !44
   %50 = load i64, ptr %6, align 4
@@ -905,13 +905,13 @@ scale_store_main_line_tick_width_compensation.exit: ; preds = %.loopexit, %56, %
 74:                                               ; preds = %73
   %75 = getelementptr inbounds nuw i8, ptr %.04357.i, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !37
-  call fastcc void @scale_set_line_properties(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %76, i32 noundef 131072)
+  call fastcc void @scale_set_line_properties(ptr noundef nonnull %0, ptr noundef nonnull %2, ptr noundef %76, i32 noundef 131072)
   br label %80
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %.04357.i, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !38
-  call fastcc void @scale_set_line_properties(ptr noundef %0, ptr noundef nonnull %3, ptr noundef %79, i32 noundef 327680)
+  call fastcc void @scale_set_line_properties(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef %79, i32 noundef 327680)
   br label %80
 
 80:                                               ; preds = %77, %74, %70, %67
@@ -1874,7 +1874,7 @@ scale_build_custom_label_text.exit.i:             ; preds = %148, %147, %146, %1
 224:                                              ; preds = %221, %216, %210
   %.1.i = phi i32 [ %217, %216 ], [ %spec.select.i, %221 ], [ %215, %210 ]
   call void @lv_point_transform(ptr noundef nonnull %8, i32 noundef %197, i32 noundef 256, i32 noundef 256, ptr noundef nonnull %7, i1 noundef zeroext false) #9
-  call fastcc void @scale_get_label_coords(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %8, ptr noundef %4)
+  call fastcc void @scale_get_label_coords(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef %8, ptr noundef %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #9
@@ -1960,7 +1960,7 @@ declare void @lv_draw_line_dsc_init(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_init_draw_line_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scale_set_line_properties(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((64, 67), (68, 72), (80, 81)) %1, ptr noundef %2, i32 noundef range(i32 0, 327681) %3) unnamed_addr #0 {
+define internal fastcc void @scale_set_line_properties(ptr noundef %0, ptr noundef nonnull writeonly captures(none) initializes((64, 67), (68, 72), (80, 81)) %1, ptr noundef %2, i32 noundef range(i32 0, 327681) %3) unnamed_addr #0 {
   %5 = alloca %union.lv_style_value_t, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %35, label %6
@@ -2380,7 +2380,7 @@ define internal fastcc void @scale_get_tick_points(ptr noundef %0, i32 noundef r
 declare i32 @lv_style_get_prop(ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #2
 
@@ -2405,7 +2405,7 @@ declare void @lv_draw_arc_dsc_init(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_init_draw_arc_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scale_get_center(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #0 {
+define internal fastcc void @scale_get_center(ptr noundef %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #0 {
   %4 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 18) #9
   %5 = ptrtoint ptr %4 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32
@@ -2462,12 +2462,12 @@ declare void @lv_draw_label_dsc_init(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_init_draw_label_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare i32 @lv_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scale_get_label_coords(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc void @scale_get_label_coords(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.lv_point_t, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48

@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_null = external global %struct.ompi_predefined_request_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_barrier_intra_doublering(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_barrier_intra_doublering(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 16
@@ -91,7 +91,7 @@ define i32 @ompi_coll_base_barrier_intra_doublering(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_barrier_intra_recursivedoubling(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_barrier_intra_recursivedoubling(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.ompi_status_public_t, align 8
   %5 = alloca ptr, align 8
@@ -303,7 +303,7 @@ ompi_coll_base_sendrecv_zero.exit77:              ; preds = %64
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_barrier_intra_bruck(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_barrier_intra_bruck(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.ompi_status_public_t, align 8
   %5 = getelementptr i8, ptr %0, i64 248
@@ -404,7 +404,7 @@ ompi_coll_base_sendrecv_zero.exit.thread:         ; preds = %ompi_request_cancel
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_barrier_intra_two_procs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_barrier_intra_two_procs(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.ompi_status_public_t, align 8
   %5 = getelementptr i8, ptr %0, i64 248
@@ -492,7 +492,7 @@ ompi_coll_base_sendrecv_zero.exit:                ; preds = %16, %19, %ompi_requ
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_barrier_intra_basic_linear(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 16
@@ -665,7 +665,7 @@ ompi_coll_base_free_reqs.exit:                    ; preds = %60, %.loopexit
 declare ptr @ompi_coll_base_comm_get_reqs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_barrier_intra_tree(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_barrier_intra_tree(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 248
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 16
@@ -766,10 +766,10 @@ opal_next_poweroftwo_inclusive.exit:              ; preds = %6
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

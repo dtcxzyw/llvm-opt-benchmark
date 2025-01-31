@@ -168,7 +168,7 @@ define weak_odr hidden noundef ptr @_ZTWN7rocksdb12perf_contextE() local_unnamed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb11PerfContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(817) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11PerfContextD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(817) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %level_to_perf_context.i = getelementptr inbounds nuw i8, ptr %this, i64 808
   %0 = load ptr, ptr %level_to_perf_context.i, align 8
@@ -229,7 +229,7 @@ _ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv.exit: ; preds = %entry, %de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv(ptr nocapture noundef nonnull align 8 dereferenceable(817) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11PerfContext24ClearPerLevelPerfContextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(817) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %level_to_perf_context = getelementptr inbounds nuw i8, ptr %this, i64 808
   %0 = load ptr, ptr %level_to_perf_context, align 8
@@ -837,10 +837,10 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define void @_ZN7rocksdb11PerfContext5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(817) initializes((0, 808)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN7rocksdb11PerfContext5ResetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(817) initializes((0, 808)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %per_level_perf_context_enabled = getelementptr inbounds nuw i8, ptr %this, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(808) %this, i8 0, i64 808, i1 false)
@@ -874,7 +874,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb18PerfContextByLevel5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb18PerfContextByLevel5ResetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %this) local_unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %this, i8 0, i64 56, i1 false)
   ret void
@@ -3736,7 +3736,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11PerfContext25EnablePerLevelPerfContextEv(ptr nocapture noundef nonnull align 8 dereferenceable(817) initializes((816, 817)) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11PerfContext25EnablePerLevelPerfContextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(817) initializes((816, 817)) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %level_to_perf_context = getelementptr inbounds nuw i8, ptr %this, i64 808
   %0 = load ptr, ptr %level_to_perf_context, align 8
@@ -3763,7 +3763,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb11PerfContext26DisablePerLevelPerfContextEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(817) initializes((816, 817)) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb11PerfContext26DisablePerLevelPerfContextEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(817) initializes((816, 817)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %per_level_perf_context_enabled = getelementptr inbounds nuw i8, ptr %this, i64 816
   store i8 0, ptr %per_level_perf_context_enabled, align 8
@@ -4147,7 +4147,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #14

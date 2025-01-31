@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [20 x i8] c"Unknown type %s: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @filetxt_jobcomp_process_get_jobs(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @filetxt_jobcomp_process_get_jobs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [4096 x i8], align 16
   %3 = tail call ptr @list_create(ptr noundef nonnull @jobcomp_destroy_job) #7
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 488), align 8
@@ -323,7 +323,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not112.i, label %131, label %135
 
 131:                                              ; preds = %128
-  %132 = call i32 @atoi(ptr noundef %130) #10
+  %132 = call i32 @atoi(ptr noundef nonnull %130) #10
   store i32 %132, ptr %89, align 8
   %133 = load ptr, ptr %129, align 8
   %134 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11, ptr noundef %133) #7
@@ -352,7 +352,7 @@ _open_log_file.exit.backedge:                     ; preds = %50, %65, %293, %40,
   br i1 %.not115.i, label %146, label %150
 
 146:                                              ; preds = %143
-  %147 = call i32 @atoi(ptr noundef %145) #10
+  %147 = call i32 @atoi(ptr noundef nonnull %145) #10
   store i32 %147, ptr %87, align 8
   %148 = load ptr, ptr %144, align 8
   %149 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.13, ptr noundef %148) #7
@@ -662,7 +662,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare void @jobcomp_destroy_job(ptr noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 
@@ -688,7 +688,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @list_count(ptr noundef) local_unnamed_addr #1
 
@@ -699,19 +699,19 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 

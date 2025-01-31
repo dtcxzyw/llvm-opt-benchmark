@@ -317,7 +317,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE14
 @switch.table._ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE1EE13store_at_initES2_lS2_.6 = private unnamed_addr constant [6 x ptr] [ptr @_ZN14AccessInternal19PostRuntimeDispatchIN19CardTableBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN17EpsilonBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN12G1BarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN20ShenandoahBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11XBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_, ptr @_ZN14AccessInternal19PostRuntimeDispatchIN11ZBarrierSet13AccessBarrierILm2383942ES1_EELNS_11BarrierTypeE1ELm2383942EE18oop_access_barrierEP7oopDesclS7_], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @WB_ParseCommandLine(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden noundef ptr @WB_ParseCommandLine(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i16 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %class.WeakPreserveExceptionMark, align 8
   %7 = alloca %class.DCmdParser, align 8
   %8 = alloca %class.CmdLine, align 8
@@ -766,7 +766,7 @@ _ZL14fill_in_parserP10DCmdParserP7oopDesc.exit:   ; preds = %138, %139, %154, %1
 
 ._crit_edge:                                      ; preds = %_ZL14fill_in_parserP10DCmdParserP7oopDesc.exit, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i.i
   %220 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %64) #9
-  call void @_ZN7CmdLineC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %64, i64 noundef %220, i1 noundef zeroext true) #8
+  call void @_ZN7CmdLineC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull %64, i64 noundef %220, i1 noundef zeroext true) #8
   call void @_ZN10DCmdParser5parseEP7CmdLinecP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %8, i8 noundef signext %65, ptr noundef %12) #8
   %221 = load ptr, ptr %32, align 8
   %.not75 = icmp eq ptr %221, null
@@ -853,7 +853,7 @@ _ZN14objArrayHandleC2EP6ThreadP15objArrayOopDesc.exit58: ; preds = %228, %_ZN10H
   %267 = getelementptr inbounds nuw ptr, ptr %266, i64 %indvars.iv85
   %268 = load ptr, ptr %267, align 8
   %269 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %268) #9
-  %270 = call noundef ptr @_ZN10DCmdParser18lookup_dcmd_optionEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %268, i64 noundef %269) #8
+  %270 = call noundef ptr @_ZN10DCmdParser18lookup_dcmd_optionEPKcm(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull %268, i64 noundef %269) #8
   %.not = icmp eq ptr %270, null
   br i1 %.not, label %271, label %274
 
@@ -980,7 +980,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN25WeakPreserveEx
 declare noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @_ZN7CmdLineC1EPKcmb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i1 noundef zeroext) unnamed_addr #1
 
@@ -2735,7 +2735,7 @@ declare noundef ptr @_ZN8WhiteBox14lookup_jstringEPKcP7oopDesc(ptr noundef, ptr 
 declare noundef zeroext i1 @_ZN8WhiteBox11lookup_boolEPKcP7oopDesc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @_ZN10DCmdParser17add_dcmd_argumentEP15GenDCmdArgument(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
@@ -4110,7 +4110,7 @@ declare void @_ZN15JavaFrameAnchor13make_walkableEv(ptr noundef nonnull align 8 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7

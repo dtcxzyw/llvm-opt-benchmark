@@ -83,7 +83,7 @@ return:                                           ; preds = %if.end3, %do.body14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_prepare_stop(ptr nocapture noundef %handle) local_unnamed_addr #1 {
+define noundef i32 @uv_prepare_stop(ptr noundef captures(none) %handle) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -181,7 +181,7 @@ while.end:                                        ; preds = %while.body, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @uv__prepare_close(ptr nocapture noundef %handle) local_unnamed_addr #1 {
+define hidden void @uv__prepare_close(ptr noundef captures(none) %handle) local_unnamed_addr #1 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags.i, align 8
@@ -301,7 +301,7 @@ return:                                           ; preds = %if.end3, %do.body14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_check_stop(ptr nocapture noundef %handle) local_unnamed_addr #1 {
+define noundef i32 @uv_check_stop(ptr noundef captures(none) %handle) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -399,7 +399,7 @@ while.end:                                        ; preds = %while.body, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @uv__check_close(ptr nocapture noundef %handle) local_unnamed_addr #1 {
+define hidden void @uv__check_close(ptr noundef captures(none) %handle) local_unnamed_addr #1 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags.i, align 8
@@ -519,7 +519,7 @@ return:                                           ; preds = %if.end3, %do.body14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_idle_stop(ptr nocapture noundef %handle) local_unnamed_addr #1 {
+define noundef i32 @uv_idle_stop(ptr noundef captures(none) %handle) local_unnamed_addr #1 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags, align 8
@@ -617,7 +617,7 @@ while.end:                                        ; preds = %while.body, %entry,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @uv__idle_close(ptr nocapture noundef %handle) local_unnamed_addr #1 {
+define hidden void @uv__idle_close(ptr noundef captures(none) %handle) local_unnamed_addr #1 {
 entry:
   %flags.i = getelementptr inbounds nuw i8, ptr %handle, i64 88
   %0 = load i32, ptr %flags.i, align 8

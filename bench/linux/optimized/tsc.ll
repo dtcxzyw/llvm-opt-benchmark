@@ -169,7 +169,7 @@ define internal i32 @tsc_early_khz_setup(ptr noundef %0) #0 section ".init.text"
 }
 
 ; Function Attrs: alwaysinline fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__cyc2ns_read(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @__cyc2ns_read(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %4
@@ -196,13 +196,13 @@ define dso_local void @__cyc2ns_read(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: alwaysinline fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cyc2ns_read_begin(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @cyc2ns_read_begin(ptr noundef writeonly captures(none) initializes((0, 16)) %0) local_unnamed_addr #1 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #20, !srcloc !15
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -391,7 +391,7 @@ define dso_local range(i32 0, 2) i32 @check_tsc_unstable() #8 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef i32 @notsc_setup(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define dso_local noundef i32 @notsc_setup(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   tail call void @mark_tsc_unstable(ptr noundef nonnull @.str)
   ret i32 1
 }
@@ -422,7 +422,7 @@ define dso_local void @mark_tsc_unstable(ptr noundef %0) #6 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @tsc_setup(ptr nocapture noundef readonly %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @tsc_setup(ptr noundef readonly captures(none) %0) #0 section ".init.text" align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(9) @.str.5) #20
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %5
@@ -1556,19 +1556,19 @@ declare dso_local i32 @kstrtouint(ptr noundef, i32 noundef, ptr noundef) local_u
 declare void @llvm.assume(i1 noundef) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @__SCT__pv_sched_clock() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @cpufreq_register_notifier(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @time_cpufreq_notifier(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #6 align 16 {
+define internal noundef i32 @time_cpufreq_notifier(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #6 align 16 {
   %4 = alloca i64, align 8
   %5 = load volatile i32, ptr @__num_online_cpus, align 4
   %6 = icmp ugt i32 %5, 1
@@ -1818,10 +1818,10 @@ declare dso_local void @sched_clock_idle_wakeup_event() local_unnamed_addr #9
 declare dso_local void @clocks_calc_mult_shift(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @read_tsc(ptr nocapture readnone %0) #6 align 16 {
+define internal i64 @read_tsc(ptr readnone captures(none) %0) #6 align 16 {
   %2 = tail call { i64, i64 } asm sideeffect "# ALT: oldinstr2\0A661:\0A\09rdtsc\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte (20*32+ 2)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ( 1*32+27)\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09lfence; rdtsc\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09rdtscp\0A6652:\0A.popsection\0A", "={ax},={dx},~{ecx},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !63
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
@@ -1831,7 +1831,7 @@ define internal i64 @read_tsc(ptr nocapture readnone %0) #6 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(readwrite, argmem: none)
-define internal noundef i32 @tsc_cs_enable(ptr nocapture readnone %0) #18 align 16 {
+define internal noundef i32 @tsc_cs_enable(ptr readnone captures(none) %0) #18 align 16 {
   %2 = load volatile i32, ptr @vclocks_used, align 4
   %3 = or i32 %2, 2
   store volatile i32 %3, ptr @vclocks_used, align 4
@@ -1839,13 +1839,13 @@ define internal noundef i32 @tsc_cs_enable(ptr nocapture readnone %0) #18 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tsc_resume(ptr nocapture readnone %0) #6 align 16 {
+define internal void @tsc_resume(ptr readnone captures(none) %0) #6 align 16 {
   tail call void @tsc_verify_tsc_adjust(i1 noundef zeroext true) #20
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tsc_cs_mark_unstable(ptr nocapture readnone %0) #6 align 16 {
+define internal void @tsc_cs_mark_unstable(ptr readnone captures(none) %0) #6 align 16 {
   %2 = load i1, ptr @tsc_unstable, align 4
   br i1 %2, label %9, label %3
 
@@ -1868,7 +1868,7 @@ define internal void @tsc_cs_mark_unstable(ptr nocapture readnone %0) #6 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tsc_cs_tick_stable(ptr nocapture readnone %0) #6 align 16 {
+define internal void @tsc_cs_tick_stable(ptr readnone captures(none) %0) #6 align 16 {
   %2 = load i1, ptr @tsc_unstable, align 4
   br i1 %2, label %7, label %3
 
@@ -1898,7 +1898,7 @@ declare dso_local i32 @clocksource_unregister(ptr noundef) local_unnamed_addr #9
 declare dso_local zeroext i1 @queue_delayed_work_on(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tsc_refine_calibration_work(ptr nocapture readnone %0) #6 align 16 {
+define internal void @tsc_refine_calibration_work(ptr readnone captures(none) %0) #6 align 16 {
   %2 = alloca i64, align 8
   %3 = load i1, ptr @tsc_unstable, align 4
   br i1 %3, label %210, label %4

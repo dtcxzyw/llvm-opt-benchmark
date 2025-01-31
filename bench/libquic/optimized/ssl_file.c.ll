@@ -74,7 +74,7 @@ if.else:                                          ; preds = %if.end25
   br label %if.end31
 
 if.end31:                                         ; preds = %if.else, %if.then28
-  %call7 = call ptr @PEM_read_bio_X509(ptr noundef %call2, ptr noundef nonnull %x, ptr noundef null, ptr noundef null) #3
+  %call7 = call ptr @PEM_read_bio_X509(ptr noundef nonnull %call2, ptr noundef nonnull %x, ptr noundef null, ptr noundef null) #3
   %cmp8 = icmp eq ptr %call7, null
   br i1 %cmp8, label %if.end33, label %if.end10
 
@@ -103,7 +103,7 @@ if.end37:                                         ; preds = %if.then36, %if.end3
 declare ptr @sk_new(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xname_cmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #0 {
+define internal i32 @xname_cmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load ptr, ptr %b, align 8
@@ -722,7 +722,7 @@ declare i32 @SSL_CTX_add0_chain_cert(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @ERR_peek_last_error() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SSL_CTX_set_default_passwd_cb(ptr nocapture noundef writeonly initializes((208, 216)) %ctx, ptr noundef %cb) local_unnamed_addr #2 {
+define hidden void @SSL_CTX_set_default_passwd_cb(ptr noundef writeonly captures(none) initializes((208, 216)) %ctx, ptr noundef %cb) local_unnamed_addr #2 {
 entry:
   %default_passwd_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 208
   store ptr %cb, ptr %default_passwd_callback, align 8
@@ -730,7 +730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SSL_CTX_set_default_passwd_cb_userdata(ptr nocapture noundef writeonly initializes((216, 224)) %ctx, ptr noundef %data) local_unnamed_addr #2 {
+define hidden void @SSL_CTX_set_default_passwd_cb_userdata(ptr noundef writeonly captures(none) initializes((216, 224)) %ctx, ptr noundef %data) local_unnamed_addr #2 {
 entry:
   %default_passwd_callback_userdata = getelementptr inbounds nuw i8, ptr %ctx, i64 216
   store ptr %data, ptr %default_passwd_callback_userdata, align 8

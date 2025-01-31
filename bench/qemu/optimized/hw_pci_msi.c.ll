@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.msi_write_config = private unnamed_addr constant [4 x i64] [i64 10, i64 14, i64 20, i64 24], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @msi_set_message(ptr nocapture noundef readonly %dev, i64 %msg.coerce0, i32 %msg.coerce1) local_unnamed_addr #0 {
+define dso_local void @msi_set_message(ptr noundef readonly captures(none) %dev, i64 %msg.coerce0, i32 %msg.coerce1) local_unnamed_addr #0 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @msi_enabled(ptr nocapture noundef readonly %dev) local_unnamed_addr #2 {
+define dso_local zeroext i1 @msi_enabled(ptr noundef readonly captures(none) %dev) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 1260
   %dev.val3 = load i32, ptr %0, align 4
@@ -227,7 +227,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare i32 @pci_add_capability(ptr noundef, i8 noundef zeroext, i8 noundef zeroext, i8 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal { i64, i32 } @msi_prepare_message(ptr nocapture noundef readonly %dev, i32 noundef %vector) #1 {
+define internal { i64, i32 } @msi_prepare_message(ptr noundef readonly captures(none) %dev, i32 noundef %vector) #1 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -321,7 +321,7 @@ do.end:                                           ; preds = %entry, %if.end
 declare void @pci_del_capability(ptr noundef, i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @msi_reset(ptr nocapture noundef readonly %dev) local_unnamed_addr #0 {
+define dso_local void @msi_reset(ptr noundef readonly captures(none) %dev) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %dev, i64 1260
   %dev.val24 = load i32, ptr %0, align 4
@@ -394,7 +394,7 @@ do.end:                                           ; preds = %if.then34, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @msi_is_masked(ptr nocapture noundef readonly %dev, i32 noundef %vector) local_unnamed_addr #1 {
+define dso_local zeroext i1 @msi_is_masked(ptr noundef readonly captures(none) %dev, i32 noundef %vector) local_unnamed_addr #1 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8
@@ -876,7 +876,7 @@ declare void @xen_evtchn_snoop_msi(ptr noundef, i1 noundef zeroext, i32 noundef,
 declare void @pci_device_deassert_intx(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 1, 129) i32 @msi_nr_vectors_allocated(ptr nocapture noundef readonly %dev) local_unnamed_addr #2 {
+define dso_local range(i32 1, 129) i32 @msi_nr_vectors_allocated(ptr noundef readonly captures(none) %dev) local_unnamed_addr #2 {
 entry:
   %config = getelementptr inbounds nuw i8, ptr %dev, i64 168
   %0 = load ptr, ptr %config, align 8

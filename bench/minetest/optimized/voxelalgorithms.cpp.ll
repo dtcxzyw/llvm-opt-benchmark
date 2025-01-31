@@ -59,7 +59,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN7voxalgo18step_rel_block_posEhRN3irr4core8vector3dIsEES4_(i8 noundef zeroext %dir, ptr nocapture noundef nonnull align 2 dereferenceable(6) %rel_pos, ptr nocapture noundef nonnull align 2 dereferenceable(6) %block_pos) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN7voxalgo18step_rel_block_posEhRN3irr4core8vector3dIsEES4_(i8 noundef zeroext %dir, ptr noundef nonnull align 2 captures(none) dereferenceable(6) %rel_pos, ptr noundef nonnull align 2 captures(none) dereferenceable(6) %block_pos) local_unnamed_addr #3 {
 entry:
   switch i8 %dir, label %return [
     i8 0, label %sw.bb
@@ -186,7 +186,7 @@ return:                                           ; preds = %if.else58, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7voxalgo14unspread_lightEP3MapPK14NodeDefManager9LightBankRNS_10LightQueueES7_RSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessISC_ESaISt4pairIKSC_SE_EEE(ptr noundef %map, ptr nocapture noundef readonly %nodemgr, i32 noundef %bank, ptr nocapture noundef nonnull align 8 dereferenceable(385) %from_nodes, ptr nocapture noundef nonnull align 8 dereferenceable(385) %light_sources, ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7voxalgo14unspread_lightEP3MapPK14NodeDefManager9LightBankRNS_10LightQueueES7_RSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessISC_ESaISt4pairIKSC_SE_EEE(ptr noundef %map, ptr noundef readonly captures(none) %nodemgr, i32 noundef %bank, ptr noundef nonnull align 8 captures(none) dereferenceable(385) %from_nodes, ptr noundef nonnull align 8 captures(none) dereferenceable(385) %light_sources, ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %max_light.i = getelementptr inbounds nuw i8, ptr %from_nodes, i64 384
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %nodemgr, i64 312
@@ -857,18 +857,18 @@ while.end:                                        ; preds = %while.body.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare noundef ptr @_ZN3Map20getBlockNoCreateNoExEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(144), i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7voxalgo12spread_lightEP3MapPK14NodeDefManager9LightBankRNS_10LightQueueERSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessISC_ESaISt4pairIKSC_SE_EEE(ptr noundef %map, ptr nocapture noundef readonly %nodemgr, i32 noundef %bank, ptr nocapture noundef nonnull align 8 dereferenceable(385) %light_sources, ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7voxalgo12spread_lightEP3MapPK14NodeDefManager9LightBankRNS_10LightQueueERSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessISC_ESaISt4pairIKSC_SE_EEE(ptr noundef %map, ptr noundef readonly captures(none) %nodemgr, i32 noundef %bank, ptr noundef nonnull align 8 captures(none) dereferenceable(385) %light_sources, ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.134", align 1
@@ -1382,7 +1382,7 @@ while.end:                                        ; preds = %while.body.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7voxalgo17is_sunlight_aboveEP3MapN3irr4core8vector3dIsEEPK14NodeDefManager(ptr noundef nonnull %map, i48 %pos.coerce, ptr nocapture noundef readonly %ndef) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN7voxalgo17is_sunlight_aboveEP3MapN3irr4core8vector3dIsEEPK14NodeDefManager(ptr noundef nonnull %map, i48 %pos.coerce, ptr noundef readonly captures(none) %ndef) local_unnamed_addr #4 {
 entry:
   %pos.sroa.3.0.extract.shift = lshr i48 %pos.coerce, 16
   %pos.sroa.3.0.extract.trunc = trunc i48 %pos.sroa.3.0.extract.shift to i16
@@ -1482,7 +1482,7 @@ if.end31:                                         ; preds = %if.else21, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7voxalgo21update_lighting_nodesEP3MapRKSt6vectorISt4pairIN3irr4core8vector3dIsEE7MapNodeESaIS9_EERSt3mapIS7_P8MapBlockSt4lessIS7_ESaIS3_IKS7_SG_EEE(ptr noundef %map, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %oldnodes, ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7voxalgo21update_lighting_nodesEP3MapRKSt6vectorISt4pairIN3irr4core8vector3dIsEE7MapNodeESaIS9_EERSt3mapIS7_P8MapBlockSt4lessIS7_ESaIS3_IKS7_SG_EEE(ptr noundef %map, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %oldnodes, ptr noundef nonnull align 8 dereferenceable(48) %modified_blocks) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %is_valid_position = alloca i8, align 1
   %disappearing_lights = alloca %"struct.voxalgo::LightQueue", align 8
@@ -3332,10 +3332,10 @@ _ZNSt6vectorIN7voxalgo13ChangingLightESaIS1_EED2Ev.exit.15: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #5
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7voxalgo24is_light_locally_correctEP3MapPK14NodeDefManager9LightBankN3irr4core8vector3dIsEE(ptr noundef nonnull %map, ptr nocapture noundef readonly %ndef, i32 noundef %bank, i48 %pos.coerce) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN7voxalgo24is_light_locally_correctEP3MapPK14NodeDefManager9LightBankN3irr4core8vector3dIsEE(ptr noundef nonnull %map, ptr noundef readonly captures(none) %ndef, i32 noundef %bank, i48 %pos.coerce) local_unnamed_addr #4 {
 entry:
   %is_valid_position = alloca i8, align 1
   %pos.sroa.0.0.extract.trunc = trunc i48 %pos.coerce to i16
@@ -4359,7 +4359,7 @@ ehcleanup215:                                     ; preds = %ehcleanup214, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN7voxalgo18fill_with_sunlightEP8MMVManipPK14NodeDefManagerN3irr4core8vector2dIsEEPA16_b(ptr nocapture noundef readonly %vm, ptr nocapture noundef readonly %ndef, i32 %offset.coerce, ptr nocapture noundef %light) local_unnamed_addr #8 {
+define dso_local void @_ZN7voxalgo18fill_with_sunlightEP8MMVManipPK14NodeDefManagerN3irr4core8vector2dIsEEPA16_b(ptr noundef readonly captures(none) %vm, ptr noundef readonly captures(none) %ndef, i32 %offset.coerce, ptr noundef captures(none) %light) local_unnamed_addr #8 {
 entry:
   %ignore = alloca %struct.MapNode, align 4
   %m_area = getelementptr inbounds nuw i8, ptr %vm, i64 8
@@ -4487,7 +4487,7 @@ cleanup:                                          ; preds = %if.end.i111, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7voxalgo23is_sunlight_above_blockEP3MapN3irr4core8vector3dIsEEPK14NodeDefManagerPA16_b(ptr noundef %map, i48 %pos.coerce, ptr nocapture noundef readonly %ndef, ptr nocapture noundef writeonly %light) local_unnamed_addr #4 {
+define dso_local void @_ZN7voxalgo23is_sunlight_above_blockEP3MapN3irr4core8vector3dIsEEPK14NodeDefManagerPA16_b(ptr noundef %map, i48 %pos.coerce, ptr noundef readonly captures(none) %ndef, ptr noundef writeonly captures(none) %light) local_unnamed_addr #4 {
 entry:
   %pos.sroa.3.0.extract.shift = lshr i48 %pos.coerce, 16
   %pos.sroa.3.0.extract.trunc = trunc i48 %pos.sroa.3.0.extract.shift to i16
@@ -4846,7 +4846,7 @@ if.end52:                                         ; preds = %for.cond29.preheade
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7voxalgo24propagate_block_sunlightEP3MapPK14NodeDefManagerPNS_23SunlightPropagationDataEPNS_10LightQueueES8_(ptr noundef nonnull %map, ptr nocapture noundef readonly %ndef, ptr nocapture noundef %data, ptr nocapture noundef %unlight, ptr nocapture noundef %relight) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN7voxalgo24propagate_block_sunlightEP3MapPK14NodeDefManagerPNS_23SunlightPropagationDataEPNS_10LightQueueES8_(ptr noundef nonnull %map, ptr noundef readonly captures(none) %ndef, ptr noundef captures(none) %data, ptr noundef captures(none) %unlight, ptr noundef captures(none) %relight) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %target_block = getelementptr inbounds nuw i8, ptr %data, i64 24
   %agg.tmp.sroa.0.0.copyload = load i48, ptr %target_block, align 8, !tbaa.struct !71
@@ -5275,7 +5275,7 @@ cleanup83:                                        ; preds = %for.end80.loopexit,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7voxalgo24finish_bulk_light_updateEP3MapN3irr4core8vector3dIsEES5_PNS_10LightQueueES7_PSt3mapIS5_P8MapBlockSt4lessIS5_ESaISt4pairIKS5_SA_EEE(ptr noundef %map, i48 %minblock.coerce, i48 %maxblock.coerce, ptr nocapture noundef nonnull %unlight, ptr nocapture noundef nonnull %relight, ptr noundef nonnull %modified_blocks) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7voxalgo24finish_bulk_light_updateEP3MapN3irr4core8vector3dIsEES5_PNS_10LightQueueES7_PSt3mapIS5_P8MapBlockSt4lessIS5_ESaISt4pairIKS5_SA_EEE(ptr noundef %map, i48 %minblock.coerce, i48 %maxblock.coerce, ptr noundef nonnull captures(none) %unlight, ptr noundef nonnull captures(none) %relight, ptr noundef nonnull %modified_blocks) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %minblock.sroa.2.0.extract.shift = lshr i48 %minblock.coerce, 16
   %minblock.sroa.3.0.extract.shift = lshr i48 %minblock.coerce, 32
@@ -6933,7 +6933,7 @@ ehcleanup308:                                     ; preds = %ehcleanup294, %lpad
 declare void @_ZN8MMVManip11blitBackAllEPSt3mapIN3irr4core8vector3dIsEEP8MapBlockSt4lessIS4_ESaISt4pairIKS4_S6_EEEb(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN7voxalgo18fill_with_sunlightEP8MapBlockPK14NodeDefManagerPA16_b(ptr nocapture noundef %block, ptr nocapture noundef readonly %ndef, ptr nocapture noundef %light) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7voxalgo18fill_with_sunlightEP8MapBlockPK14NodeDefManagerPA16_b(ptr noundef captures(none) %block, ptr noundef readonly captures(none) %ndef, ptr noundef captures(none) %light) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i = getelementptr inbounds nuw i8, ptr %block, i64 24
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %ndef, i64 312
@@ -7946,7 +7946,7 @@ ehcleanup183:                                     ; preds = %ehcleanup169, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7voxalgo17VoxelLineIteratorC2ERKN3irr4core8vector3dIfEES6_(ptr nocapture noundef nonnull align 4 dereferenceable(70) initializes((0, 68)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %start_position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %line_vector) unnamed_addr #9 align 2 {
+define dso_local void @_ZN7voxalgo17VoxelLineIteratorC2ERKN3irr4core8vector3dIfEES6_(ptr noundef nonnull align 4 captures(none) dereferenceable(70) initializes((0, 68)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %start_position, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %line_vector) unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %this, ptr noundef nonnull align 4 dereferenceable(12) %start_position, i64 12, i1 false), !tbaa.struct !252
   %m_line_vector = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -8163,7 +8163,7 @@ if.end175:                                        ; preds = %if.then149, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef signext i16 @_ZN7voxalgo17VoxelLineIterator8getIndexEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(70) %this, i48 %voxel.coerce) local_unnamed_addr #10 align 2 {
+define dso_local noundef signext i16 @_ZN7voxalgo17VoxelLineIterator8getIndexEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(70) %this, i48 %voxel.coerce) local_unnamed_addr #10 align 2 {
 entry:
   %voxel.sroa.0.0.extract.trunc = trunc i48 %voxel.coerce to i32
   %sext = shl i32 %voxel.sroa.0.0.extract.trunc, 16
@@ -8197,7 +8197,7 @@ entry:
 declare float @llvm.floor.f32(float) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7voxalgo17VoxelLineIterator4nextEv(ptr nocapture noundef nonnull align 4 dereferenceable(70) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN7voxalgo17VoxelLineIterator4nextEv(ptr noundef nonnull align 4 captures(none) dereferenceable(70) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_current_index = getelementptr inbounds nuw i8, ptr %this, i64 60
   %0 = load i16, ptr %m_current_index, align 4, !tbaa !273
@@ -8907,7 +8907,7 @@ entry:
 declare i8 @llvm.umax.i8(i8, i8) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #11

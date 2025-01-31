@@ -242,7 +242,7 @@ for.end80:                                        ; preds = %for.body75
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -251,7 +251,7 @@ declare i32 @ossl_statm_init(ptr noundef) local_unnamed_addr #1
 declare i32 @test_ptr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal i64 @fake_now(ptr nocapture readnone %arg) #3 {
+define internal i64 @fake_now(ptr readnone captures(none) %arg) #3 {
 entry:
   %retval.sroa.0.0.copyload = load i64, ptr @cur_time.0, align 8
   ret i64 %retval.sroa.0.0.copyload
@@ -268,7 +268,7 @@ declare ptr @ossl_quic_txpim_new() local_unnamed_addr #1
 declare i32 @ossl_quic_fifd_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal ptr @get_sstream_by_id(i64 noundef %stream_id, i32 %pn_space, ptr nocapture readnone %arg) #4 {
+define internal ptr @get_sstream_by_id(i64 noundef %stream_id, i32 %pn_space, ptr readnone captures(none) %arg) #4 {
 entry:
   %0 = and i64 %stream_id, -2
   %or.cond.i = icmp eq i64 %0, 42
@@ -292,7 +292,7 @@ sstream_expect.exit:                              ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define internal void @regen_frame(i64 noundef %frame_type, i64 noundef %stream_id, ptr nocapture readnone %pkt, ptr nocapture readnone %arg) #5 {
+define internal void @regen_frame(i64 noundef %frame_type, i64 noundef %stream_id, ptr readnone captures(none) %pkt, ptr readnone captures(none) %arg) #5 {
 entry:
   %0 = load i64, ptr @regen_count, align 8
   %arrayidx.i = getelementptr inbounds [16 x i64], ptr @regen_frame_type, i64 0, i64 %0
@@ -305,13 +305,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @confirm_frame(i64 %frame_type, i64 %stream_id, ptr nocapture readnone %pkt, ptr nocapture readnone %arg) #6 {
+define internal void @confirm_frame(i64 %frame_type, i64 %stream_id, ptr readnone captures(none) %pkt, ptr readnone captures(none) %arg) #6 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @sstream_updated(i64 %stream_id, ptr nocapture readnone %arg) #6 {
+define internal void @sstream_updated(i64 %stream_id, ptr readnone captures(none) %arg) #6 {
 entry:
   ret void
 }
@@ -826,7 +826,7 @@ declare void @ossl_statm_destroy(ptr noundef) local_unnamed_addr #1
 declare void @ossl_quic_sstream_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @ossl_quic_txpim_pkt_alloc(ptr noundef) local_unnamed_addr #1
 
@@ -853,7 +853,7 @@ declare i32 @ossl_quic_txpim_pkt_append_chunk(ptr noundef, ptr noundef) local_un
 declare ptr @ossl_quic_cfq_add_frame(ptr noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal void @cfq_free_cb_(ptr noundef readnone %buf, i64 noundef %buf_len, ptr nocapture readnone %arg) #8 {
+define internal void @cfq_free_cb_(ptr noundef readnone %buf, i64 noundef %buf_len, ptr readnone captures(none) %arg) #8 {
 entry:
   %cmp = icmp eq ptr %buf, @placeholder_data
   %cmp1 = icmp eq i64 %buf_len, 12

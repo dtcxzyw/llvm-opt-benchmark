@@ -310,7 +310,7 @@ define void @Cmd_Init(ptr noundef initializes((16, 48)) %0) local_unnamed_addr #
 declare ptr @st__init_table(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #2
 
 declare i32 @st__strhash(ptr noundef, i32 noundef) #1
 
@@ -319,7 +319,7 @@ declare void @Cmd_HistoryRead(ptr noundef) local_unnamed_addr #1
 declare void @Cmd_CommandAdd(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandTime(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandTime(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #17
   br label %4
 
@@ -385,7 +385,7 @@ define internal range(i32 0, 2) i32 @CmdCommandTime(ptr nocapture noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandSleep(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   tail call void (...) @Extra_UtilGetoptReset() #17
@@ -504,7 +504,7 @@ Abc_Clock.exit27:                                 ; preds = %45, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #17
   br label %4
 
@@ -601,7 +601,7 @@ define internal range(i32 0, 2) i32 @CmdCommandEcho(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @CmdCommandQuit(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -2, 2) i32 @CmdCommandQuit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #17
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.61) #17
   switch i32 %4, label %7 [
@@ -654,7 +654,7 @@ define internal range(i32 0, 2) i32 @CmdCommandAbcrc(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandHistory(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #17
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.65) #17
   %.not = icmp eq i32 %4, -1
@@ -801,7 +801,7 @@ define internal range(i32 0, 2) i32 @CmdCommandAlias(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandUnalias(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandUnalias(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   tail call void (...) @Extra_UtilGetoptReset() #17
@@ -1351,7 +1351,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSetVariable(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandUnsetVariable(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandUnsetVariable(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   tail call void (...) @Extra_UtilGetoptReset() #17
@@ -1612,7 +1612,7 @@ define internal range(i32 0, 2) i32 @CmdCommandRecall(ptr noundef %0, i32 nounde
 
 64:                                               ; preds = %.lr.ph
   %65 = tail call ptr @Abc_NtkDup(ptr noundef nonnull %.06079) #17
-  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef %0, ptr noundef %65) #17
+  tail call void @Abc_FrameSetCurrentNetwork(ptr noundef nonnull %0, ptr noundef %65) #17
   br label %76
 
 66:                                               ; preds = %18, %3
@@ -1660,7 +1660,7 @@ define internal range(i32 0, 2) i32 @CmdCommandEmpty(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandScrGenLinux(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [2000 x i8], align 16
   tail call void (...) @Extra_UtilGetoptReset() #17
   br label %.outer
@@ -1922,7 +1922,7 @@ sub_1165:                                         ; preds = %.tail159, %sub_1161
   br i1 %.not132, label %125, label %98
 
 98:                                               ; preds = %.tail163.thread
-  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.133, ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79, i32 noundef %.0103.lcssa, ptr noundef %82, ptr noundef nonnull %.0109.ph333) #17
+  %99 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.133, ptr noundef nonnull %76, ptr noundef nonnull %77, ptr noundef nonnull %78, ptr noundef nonnull %79, i32 noundef %.0103.lcssa, ptr noundef nonnull %82, ptr noundef nonnull %.0109.ph333) #17
   %100 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #19
   %101 = trunc i64 %100 to i32
   %102 = icmp sgt i32 %101, 0
@@ -1951,7 +1951,7 @@ sub_1165:                                         ; preds = %.tail159, %sub_1161
   br i1 %.not127, label %111, label %109
 
 109:                                              ; preds = %108
-  %110 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef %82, ptr noundef nonnull %.0105.ph344) #17
+  %110 = tail call ptr @Extra_FileNameGenericAppend(ptr noundef nonnull %82, ptr noundef nonnull %.0105.ph344) #17
   br label %111
 
 111:                                              ; preds = %108, %109
@@ -2212,7 +2212,7 @@ define internal range(i32 0, 2) i32 @CmdCommandSGen(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandSis(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandSis(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [1000 x i8], align 16
   %5 = alloca [100 x i8], align 16
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #17
@@ -2267,7 +2267,7 @@ sub_195:                                          ; preds = %.tail, %sub_1
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.153, ptr noundef %27) #17
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.153, ptr noundef nonnull %27) #17
   br label %91
 
 31:                                               ; preds = %26
@@ -2451,7 +2451,7 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandMvsis(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandMvsis(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [1000 x i8], align 16
   %5 = alloca [100 x i8], align 16
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #17
@@ -2506,7 +2506,7 @@ sub_195:                                          ; preds = %.tail, %sub_1
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.153, ptr noundef %27) #17
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.153, ptr noundef nonnull %27) #17
   br label %91
 
 31:                                               ; preds = %26
@@ -2690,7 +2690,7 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandCapo(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandCapo(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca [1000 x i8], align 16
   %5 = alloca [100 x i8], align 16
   %6 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #17
@@ -2745,7 +2745,7 @@ sub_1119:                                         ; preds = %.tail, %sub_1
   br i1 %.not, label %31, label %29
 
 29:                                               ; preds = %26
-  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.153, ptr noundef %27) #17
+  %30 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.153, ptr noundef nonnull %27) #17
   br label %107
 
 31:                                               ; preds = %26
@@ -2955,7 +2955,7 @@ Abc_NtkIsMappedLogic.exit.thread.thread:          ; preds = %Abc_NtkIsMappedLogi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #17
   br label %.outer
 
@@ -3075,7 +3075,7 @@ define internal range(i32 0, 2) i32 @CmdCommandStarter(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @CmdCommandAutoTuner(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @CmdCommandAutoTuner(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #17
   br label %.outer
 
@@ -3384,7 +3384,7 @@ declare void @st__free_table(ptr noundef) local_unnamed_addr #1
 declare void @CmdCommandAliasFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @CmdReturnFileNames(ptr noundef %0) local_unnamed_addr #0 {
@@ -3555,7 +3555,7 @@ declare i32 @scandir(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @alphasort(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @Gia_ManGnuplotShow(ptr noundef %0) local_unnamed_addr #0 {
@@ -3625,23 +3625,23 @@ define void @Gia_ManGnuplotShow(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @Abc_FrameGetGlobalFrame(...) local_unnamed_addr #1
 
 declare ptr @Cmd_FlagReadByName(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
@@ -3703,7 +3703,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   %23 = load ptr, ptr @stdout, align 8
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #19
   %25 = trunc i64 %24 to i32
-  %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef %22) #17
+  %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %22) #17
   call void @free(ptr noundef %22) #17
   br label %29
 
@@ -3720,7 +3720,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #1
 
@@ -3729,16 +3729,16 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @Abc_UtilsSource(ptr noundef) local_unnamed_addr #1
 
@@ -3757,15 +3757,15 @@ declare void @CmdCommandPrint(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare ptr @CmdFileOpen(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare void @clearerr(ptr nocapture noundef) local_unnamed_addr #5
+declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @CmdHistorySubstitution(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare void @Cmd_HistoryAddCommand(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -3784,7 +3784,7 @@ declare void @Abc_FrameDeleteAllNetworks(ptr noundef) local_unnamed_addr #1
 declare void @Abc_FrameRestart(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #1
 
@@ -3807,12 +3807,12 @@ declare void @Io_WriteBlif(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare i32 @Util_SignalSystem(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @Io_Read(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -3837,10 +3837,10 @@ declare void @llvm.va_start.p0(ptr) #11
 declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13
@@ -3849,22 +3849,22 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare ptr @strchr(ptr, i32) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

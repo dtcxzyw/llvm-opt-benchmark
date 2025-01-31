@@ -1079,7 +1079,7 @@ define dso_local noundef ptr @memtype_lookup(i64 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 0, 2) i32 @memtype_copy_nth_element(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @memtype_copy_nth_element(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr @memtype_rbroot, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.thread6, label %.preheader10
@@ -1157,7 +1157,7 @@ define dso_local noundef range(i32 0, 2) i32 @memtype_copy_nth_element(ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
@@ -1166,7 +1166,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local void @__rb_insert_augmented(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @interval_augment_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((-16, -8)) %1) #6 align 16 {
+define internal void @interval_augment_rotate(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((-16, -8)) %1) #6 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 -16
@@ -1211,7 +1211,7 @@ declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #5
 declare dso_local void @__rb_erase_color(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #8

@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ir_op_flags = external local_unnamed_addr constant [106 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @ir_gcm(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noundef i32 @ir_gcm(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct._ir_list, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
@@ -755,7 +755,7 @@ ir_gcm_schedule_rest.exit:                        ; preds = %256, %._crit_edge.i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 1, -2147483648) %2, ptr nocapture noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 1, -2147483648) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #1 {
   %5 = load ptr, ptr %0, align 8
   %6 = zext nneg i32 %2 to i64
   %7 = getelementptr inbounds nuw %struct._ir_insn, ptr %5, i64 %6
@@ -843,7 +843,7 @@ define internal fastcc range(i32 1, -2147483648) i32 @ir_gcm_schedule_early(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ir_gcm_schedule_late(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @ir_gcm_schedule_late(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i32, ptr %1, i64 %4
   %6 = load i32, ptr %5, align 4
@@ -2505,7 +2505,7 @@ declare void @ir_truncate(ptr noundef) local_unnamed_addr #4
 declare void @ir_init(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @ir_get_strl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -2521,7 +2521,7 @@ declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #6
 declare void @ir_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ir_build_prev_refs(ptr nocapture noundef initializes((240, 248)) %0) local_unnamed_addr #0 {
+define hidden void @ir_build_prev_refs(ptr noundef captures(none) initializes((240, 248)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
@@ -2599,7 +2599,7 @@ define hidden void @ir_build_prev_refs(ptr nocapture noundef initializes((240, 2
 declare i32 @ir_hashtab_find(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #8

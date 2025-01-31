@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_gds_shmem_get_job_tracker(ptr nocapture noundef readonly %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @pmix_gds_shmem_get_job_tracker(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %.05693 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_gds_shmem_component, i64 464), align 8
   %.not94 = icmp eq ptr %.05693, getelementptr inbounds nuw (i8, ptr @pmix_mca_gds_shmem_component, i64 344)
   br i1 %.not94, label %._crit_edge, label %.lr.ph
@@ -302,13 +302,13 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %94
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define ptr @pmix_gds_shmem_get_session_tracker(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
@@ -676,14 +676,14 @@ declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @pmix_gds_shmem_hostnames_eq(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define zeroext i1 @pmix_gds_shmem_hostnames_eq(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %1) #13
   %4 = icmp eq i32 %3, 0
   ret i1 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_gds_shmem_get_job_shmem_by_id(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define noundef i32 @pmix_gds_shmem_get_job_shmem_by_id(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   switch i32 %1, label %12 [
     i32 0, label %4
     i32 1, label %6
@@ -721,7 +721,7 @@ define noundef i32 @pmix_gds_shmem_get_job_shmem_by_id(ptr nocapture noundef rea
 declare void @abort() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_gds_shmem_set_status(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @pmix_gds_shmem_set_status(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   switch i32 %1, label %12 [
     i32 0, label %4
     i32 1, label %6
@@ -758,7 +758,7 @@ get_job_shmem_status_flagp.exit:                  ; preds = %4, %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_gds_shmem_clear_status(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @pmix_gds_shmem_clear_status(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   switch i32 %1, label %12 [
     i32 0, label %4
     i32 1, label %6
@@ -796,7 +796,7 @@ get_job_shmem_status_flagp.exit:                  ; preds = %4, %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_gds_shmem_clearall_status(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @pmix_gds_shmem_clearall_status(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   switch i32 %1, label %11 [
     i32 0, label %3
     i32 1, label %5
@@ -830,7 +830,7 @@ get_job_shmem_status_flagp.exit:                  ; preds = %3, %5, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @pmix_gds_shmem_has_status(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext i1 @pmix_gds_shmem_has_status(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   switch i32 %1, label %12 [
     i32 0, label %4
     i32 1, label %6
@@ -872,7 +872,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
@@ -884,13 +884,13 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #7
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

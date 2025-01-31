@@ -135,7 +135,7 @@ char_is_letter.exit.thread.i:                     ; preds = %char_is_letter.exit
   br i1 %29, label %.lr.ph39.i, label %filename_to_module_in_buffer.exit.thread, !llvm.loop !9
 
 filename_to_module_in_buffer.exit.thread20:       ; preds = %._crit_edge.i
-  tail call void (ptr, ptr, ...) @sema_error(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %8) #6
+  tail call void (ptr, ptr, ...) @sema_error(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #6
   br label %47
 
 filename_to_module_in_buffer.exit.thread:         ; preds = %char_is_letter.exit.thread.i, %19
@@ -194,7 +194,7 @@ declare void @sema_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @symtab_add(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @create_module_or_check_name(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
@@ -287,7 +287,7 @@ define internal fastcc noundef zeroext i1 @create_module_or_check_name(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @context_set_module(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @context_set_module(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @str_has_no_uppercase(ptr noundef %5) #6
@@ -314,7 +314,7 @@ declare zeroext i1 @str_has_no_uppercase(ptr noundef) local_unnamed_addr #1
 declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @unit_register_external_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define dso_local void @unit_register_external_symbol(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1388,7 +1388,7 @@ declare ptr @htable_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @sema_shadow_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @unit_add_import(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @unit_add_import(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call zeroext i1 @str_has_no_uppercase(ptr noundef %5) #6
@@ -1477,7 +1477,7 @@ define dso_local noundef zeroext i1 @unit_add_import(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @scratch_buffer_clear() local_unnamed_addr #1
 

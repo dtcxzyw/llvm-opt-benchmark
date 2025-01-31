@@ -23,7 +23,7 @@ entry:
 declare i32 @cpuinfo_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @xbzrle_encode_buffer_avx512(ptr nocapture noundef readonly %old_buf, ptr nocapture noundef readonly %new_buf, i32 noundef %slen, ptr noundef %dst, i32 noundef %dlen) #2 {
+define internal i32 @xbzrle_encode_buffer_avx512(ptr noundef readonly captures(none) %old_buf, ptr noundef readonly captures(none) %new_buf, i32 noundef %slen, ptr noundef %dst, i32 noundef %dlen) #2 {
 entry:
   %shr = ashr i32 %slen, 6
   %add = add nsw i32 %shr, 1
@@ -490,7 +490,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @xbzrle_decode_buffer(ptr noundef %src, i32 noundef %slen, ptr nocapture noundef writeonly %dst, i32 noundef %dlen) local_unnamed_addr #0 {
+define dso_local i32 @xbzrle_decode_buffer(ptr noundef %src, i32 noundef %slen, ptr noundef writeonly captures(none) %dst, i32 noundef %dlen) local_unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
   store i32 0, ptr %count, align 4
@@ -564,12 +564,12 @@ return:                                           ; preds = %while.body, %lor.lh
 declare i32 @uleb128_decode_small(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @uleb128_encode_small(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: read)
-declare <64 x i8> @llvm.masked.load.v64i8.p0(ptr nocapture, i32 immarg, <64 x i1>, <64 x i8>) #4
+declare <64 x i8> @llvm.masked.load.v64i8.p0(ptr captures(none), i32 immarg, <64 x i1>, <64 x i8>) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #5

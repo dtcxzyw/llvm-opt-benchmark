@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @zeroes = internal constant [8 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_1(ptr nocapture noundef writeonly %to, i32 noundef %to_len, ptr nocapture noundef readonly %from, i32 noundef %from_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_1(ptr noundef writeonly captures(none) %to, i32 noundef %to_len, ptr noundef readonly captures(none) %from, i32 noundef %from_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %to_len, 11
   br i1 %cmp, label %if.then, label %if.end
@@ -51,13 +51,13 @@ return:                                           ; preds = %if.end3, %if.then2,
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RSA_padding_check_PKCS1_type_1(ptr nocapture noundef writeonly %to, i32 noundef %to_len, ptr nocapture noundef readonly %from, i32 noundef %from_len) local_unnamed_addr #0 {
+define hidden i32 @RSA_padding_check_PKCS1_type_1(ptr noundef writeonly captures(none) %to, i32 noundef %to_len, ptr noundef readonly captures(none) %from, i32 noundef %from_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %from_len, 2
   br i1 %cmp, label %if.then, label %if.end
@@ -147,7 +147,7 @@ return:                                           ; preds = %if.end35, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_2(ptr noundef %to, i32 noundef %to_len, ptr nocapture noundef readonly %from, i32 noundef %from_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_type_2(ptr noundef %to, i32 noundef %to_len, ptr noundef readonly captures(none) %from, i32 noundef %from_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i32 %to_len, 11
   br i1 %cmp, label %if.then, label %if.end
@@ -218,7 +218,7 @@ return:                                           ; preds = %while.body, %if.end
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, -2147483648) i32 @RSA_padding_check_PKCS1_type_2(ptr nocapture noundef writeonly %to, i32 noundef %to_len, ptr nocapture noundef readonly %from, i32 noundef %from_len) local_unnamed_addr #0 {
+define hidden range(i32 -1, -2147483648) i32 @RSA_padding_check_PKCS1_type_2(ptr noundef writeonly captures(none) %to, i32 noundef %to_len, ptr noundef readonly captures(none) %from, i32 noundef %from_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %from_len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -307,7 +307,7 @@ return:                                           ; preds = %if.end28, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_padding_add_none(ptr nocapture noundef writeonly %to, i32 noundef %to_len, ptr nocapture noundef readonly %from, i32 noundef %from_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_padding_add_none(ptr noundef writeonly captures(none) %to, i32 noundef %to_len, ptr noundef readonly captures(none) %from, i32 noundef %from_len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i32 %from_len, %to_len
   br i1 %cmp, label %if.then, label %if.end
@@ -335,7 +335,7 @@ return:                                           ; preds = %if.end3, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef %to, i32 noundef %to_len, ptr nocapture noundef readonly %from, i32 noundef %from_len, ptr noundef %param, i32 noundef %param_len, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @RSA_padding_add_PKCS1_OAEP_mgf1(ptr noundef %to, i32 noundef %to_len, ptr noundef readonly captures(none) %from, i32 noundef %from_len, ptr noundef %param, i32 noundef %param_len, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
 entry:
   %seedmask = alloca [64 x i8], align 16
   %cmp = icmp eq ptr %md, null
@@ -577,10 +577,10 @@ err:                                              ; preds = %lor.lhs.false20, %l
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr nocapture noundef writeonly %to, i32 noundef %to_len, ptr noundef %from, i32 noundef %from_len, ptr noundef %param, i32 noundef %param_len, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
+define hidden i32 @RSA_padding_check_PKCS1_OAEP_mgf1(ptr noundef writeonly captures(none) %to, i32 noundef %to_len, ptr noundef %from, i32 noundef %from_len, ptr noundef %param, i32 noundef %param_len, ptr noundef %md, ptr noundef %mgf1md) local_unnamed_addr #0 {
 entry:
   %seed = alloca [64 x i8], align 16
   %phash = alloca [64 x i8], align 16
@@ -1171,7 +1171,7 @@ err:                                              ; preds = %if.end78, %if.end74
 declare i32 @BN_is_zero(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

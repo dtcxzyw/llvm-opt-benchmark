@@ -296,7 +296,7 @@ declare void @_ZN20LinearLeastSquareFitC1Ej(ptr noundef nonnull align 8 derefere
 declare void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK18AdaptiveSizePolicy25tenuring_threshold_changeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK18AdaptiveSizePolicy25tenuring_threshold_changeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 205
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -320,7 +320,7 @@ define hidden noundef zeroext i1 @_ZNK18AdaptiveSizePolicy25tenuring_threshold_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18AdaptiveSizePolicy22minor_collection_beginEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((160, 168)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18AdaptiveSizePolicy22minor_collection_beginEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((160, 168)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_minor_timerE) #10
   %2 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_minor_timerE) #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -335,7 +335,7 @@ declare void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceab
 declare noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18AdaptiveSizePolicy34update_minor_pause_young_estimatorEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18AdaptiveSizePolicy34update_minor_pause_young_estimatorEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = uitofp i64 %4 to double
@@ -457,7 +457,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEmj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEmj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = udiv i64 %1, 100
   %5 = zext i32 %2 to i64
   %6 = mul i64 %4, %5
@@ -465,7 +465,7 @@ define hidden noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEmj(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr @YoungGenerationSizeIncrement, align 4
   %4 = udiv i64 %1, 100
   %5 = zext i32 %3 to i64
@@ -474,7 +474,7 @@ define hidden noundef i64 @_ZN18AdaptiveSizePolicy14eden_incrementEm(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN18AdaptiveSizePolicy14eden_decrementEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef i64 @_ZN18AdaptiveSizePolicy14eden_decrementEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr @YoungGenerationSizeIncrement, align 4
   %4 = udiv i64 %1, 100
   %5 = zext i32 %3 to i64
@@ -485,7 +485,7 @@ define hidden noundef i64 @_ZN18AdaptiveSizePolicy14eden_decrementEm(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEmj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEmj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = udiv i64 %1, 100
   %5 = zext i32 %2 to i64
   %6 = mul i64 %4, %5
@@ -493,7 +493,7 @@ define hidden noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEmj(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr @TenuredGenerationSizeIncrement, align 4
   %4 = udiv i64 %1, 100
   %5 = zext i32 %3 to i64
@@ -502,7 +502,7 @@ define hidden noundef i64 @_ZN18AdaptiveSizePolicy15promo_incrementEm(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN18AdaptiveSizePolicy15promo_decrementEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(232) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef i64 @_ZN18AdaptiveSizePolicy15promo_decrementEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(232) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load i32, ptr @TenuredGenerationSizeIncrement, align 4
   %4 = udiv i64 %1, 100
   %5 = zext i32 %3 to i64
@@ -513,7 +513,7 @@ define hidden noundef i64 @_ZN18AdaptiveSizePolicy15promo_decrementEm(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK18AdaptiveSizePolicy19time_since_major_gcEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden noundef double @_ZNK18AdaptiveSizePolicy19time_since_major_gcEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #10
   %2 = tail call noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #10
   tail call void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN18AdaptiveSizePolicy12_major_timerE) #10
@@ -670,7 +670,7 @@ _ZNK18AdaptiveSizePolicy22decaying_major_gc_costEv.exit: ; preds = %26, %41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18AdaptiveSizePolicy33clear_generation_free_space_flagsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((188, 204), (208, 216)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN18AdaptiveSizePolicy33clear_generation_free_space_flagsEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((188, 204), (208, 216)) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i32 0, ptr %3, align 8
@@ -722,7 +722,7 @@ define hidden void @_ZN18AdaptiveSizePolicy23check_gc_overhead_limitEmmmbN7GCCau
 declare void @_ZN17GCOverheadChecker23check_gc_overhead_limitEP16GCOverheadTesterS1_bN7GCCause5CauseEP13SoftRefPolicy(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK18AdaptiveSizePolicy5printEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK18AdaptiveSizePolicy5printEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) unnamed_addr #0 align 2 {
   %2 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not36 = icmp eq ptr %2, null
   br i1 %.not36, label %46, label %3
@@ -835,7 +835,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18AdaptiveSizePolicy24print_tenuring_thresholdEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK18AdaptiveSizePolicy24print_tenuring_thresholdEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 206
   %4 = load i8, ptr %3, align 2
   %5 = trunc i8 %4 to i1
@@ -1028,7 +1028,7 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #8

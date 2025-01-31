@@ -52,7 +52,7 @@ define noundef nonnull ptr @pg_finfo_mic_to_sjis() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_sjis(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -259,7 +259,7 @@ euc_jp2sjis.exit:                                 ; preds = %.backedge.i, %1, %2
 declare void @check_encoding_conversion_args(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @sjis_to_euc_jp(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -553,7 +553,7 @@ sjis2euc_jp.exit:                                 ; preds = %.backedge.i, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @euc_jp_to_mic(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -677,7 +677,7 @@ euc_jp2mic.exit:                                  ; preds = %.backedge.i, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_jp(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @mic_to_euc_jp(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -811,7 +811,7 @@ mic2euc_jp.exit:                                  ; preds = %.backedge.i, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @sjis_to_mic(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
@@ -1105,7 +1105,7 @@ sjis2mic.exit:                                    ; preds = %.loopexit.i, %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define range(i64 -2147483648, 2147483648) i64 @mic_to_sjis(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8

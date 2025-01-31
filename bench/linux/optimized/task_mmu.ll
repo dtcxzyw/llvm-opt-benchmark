@@ -249,10 +249,10 @@ define dso_local void @task_mem(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @seq_put_decimal_ull_width(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
@@ -264,7 +264,7 @@ declare dso_local void @seq_puts(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare dso_local void @hugetlb_report_usage(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i64 0, -4095) i64 @task_vsize(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 16 {
+define dso_local range(i64 0, -4095) i64 @task_vsize(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load i64, ptr %2, align 64
   %4 = shl i64 %3, 12
@@ -272,7 +272,7 @@ define dso_local range(i64 0, -4095) i64 @task_vsize(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local i64 @task_statm(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #4 align 16 {
+define dso_local i64 @task_statm(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #4 align 16 {
   %6 = getelementptr i8, ptr %0, i64 832
   %7 = load volatile i64, ptr %6, align 8
   %8 = tail call i64 @llvm.smax.i64(i64 %7, i64 0)
@@ -458,7 +458,7 @@ define internal i32 @smaps_rollup_release(ptr noundef %0, ptr noundef %1) #0 ali
 declare dso_local i64 @noop_llseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 13) i64 @clear_refs_write(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i64 -2147483648, 13) i64 @clear_refs_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = alloca [13 x i8], align 1
   %6 = alloca i32, align 4
   %7 = alloca %struct.vma_iterator, align 8
@@ -630,7 +630,7 @@ define internal range(i64 -2147483648, 13) i64 @clear_refs_write(ptr nocapture n
 declare dso_local i64 @mem_lseek(ptr noundef, i64 noundef, i32 noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca %struct.pagemapread, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -847,7 +847,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @pagemap_read(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.pagemap_scan_private, align 8
   %5 = alloca %struct.mmu_notifier_range, align 8
   %6 = icmp eq i32 %1, -1067424240
@@ -1233,7 +1233,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @do_pagemap_cmd(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pagemap_open(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal i32 @pagemap_open(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = tail call ptr @proc_mem_open(ptr noundef %0, i32 noundef 1) #13
   %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
   br i1 %4, label %5, label %8
@@ -1254,7 +1254,7 @@ define internal i32 @pagemap_open(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pagemap_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef i32 @pagemap_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1310,7 +1310,7 @@ declare dso_local ptr @proc_mem_open(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local i32 @seq_release_private(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @m_start(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
+define internal ptr @m_start(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -1490,7 +1490,7 @@ define internal ptr @m_start(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @m_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @m_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1550,7 +1550,7 @@ define internal void @m_stop(ptr nocapture noundef readonly %0, ptr nocapture re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @m_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #0 align 16 {
+define internal ptr @m_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = load i64, ptr %2, align 8
   %5 = icmp eq i64 %4, -2
   br i1 %5, label %6, label %7
@@ -1618,7 +1618,7 @@ declare dso_local void @__mmap_lock_do_trace_start_locking(ptr noundef, i1 nound
 declare dso_local void @__mmap_lock_do_trace_acquire_returned(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @get_task_policy(ptr noundef) local_unnamed_addr #2
@@ -1975,7 +1975,7 @@ declare dso_local i64 @vma_kernel_pagesize(ptr noundef) local_unnamed_addr #2
 declare dso_local i64 @vma_mmu_pagesize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__show_smap(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__show_smap(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = lshr i64 %4, 10
   tail call void @seq_put_decimal_ull_width(ptr noundef %0, ptr noundef nonnull @.str.32, i64 noundef %5, i32 noundef 8) #13
@@ -2083,7 +2083,7 @@ declare dso_local i32 @walk_page_vma(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local i32 @walk_page_range(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @smaps_pte_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef i32 @smaps_pte_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2684,7 +2684,7 @@ define internal noundef i32 @smaps_pte_range(ptr noundef %0, i64 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @smaps_hugetlb_range(ptr noundef %0, i64 %1, i64 noundef %2, i64 %3, ptr nocapture noundef readonly %4) #0 align 16 {
+define internal noundef i32 @smaps_hugetlb_range(ptr noundef %0, i64 %1, i64 noundef %2, i64 %3, ptr noundef readonly captures(none) %4) #0 align 16 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -2962,7 +2962,7 @@ declare dso_local ptr @vm_normal_page(ptr noundef, i64 noundef, i64) local_unnam
 declare dso_local i32 @swp_swapcount(i64) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @smaps_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal noundef i32 @smaps_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2992,7 +2992,7 @@ define internal noundef i32 @smaps_pte_hole(i64 noundef %0, i64 noundef %1, i32 
 declare dso_local i64 @shmem_partial_swap_usage(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @smaps_page_accumulate(ptr nocapture noundef %0, ptr noundef nonnull %1, i64 noundef range(i64 0, 16777217) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
+define internal fastcc void @smaps_page_accumulate(ptr noundef captures(none) %0, ptr noundef nonnull %1, i64 noundef range(i64 0, 16777217) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = load i64, ptr %7, align 8
   %9 = add i64 %8, %2
@@ -3187,7 +3187,7 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #2
 declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @show_smaps_rollup(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @show_smaps_rollup(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca %struct.mem_size_stats, align 8
   %4 = alloca %struct.vma_iterator, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3604,7 +3604,7 @@ declare dso_local i32 @__mmu_notifier_invalidate_range_start(ptr noundef) local_
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @clear_refs_pte_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef i32 @clear_refs_pte_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -3739,7 +3739,7 @@ define internal noundef i32 @clear_refs_pte_range(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef range(i32 0, 2) i32 @clear_refs_test_walk(i64 %0, i64 %1, ptr nocapture noundef readonly %2) #10 align 16 {
+define internal noundef range(i32 0, 2) i32 @clear_refs_test_walk(i64 %0, i64 %1, ptr noundef readonly captures(none) %2) #10 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -3787,7 +3787,7 @@ declare dso_local void @__mmu_notifier_invalidate_range_end(ptr noundef) local_u
 declare dso_local zeroext i1 @file_ns_capable(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @pagemap_pmd_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i32 0, 2) i32 @pagemap_pmd_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -4143,7 +4143,7 @@ define internal range(i32 0, 2) i32 @pagemap_pmd_range(ptr noundef %0, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @pagemap_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define internal range(i32 0, 2) i32 @pagemap_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -4239,7 +4239,7 @@ define internal range(i32 0, 2) i32 @pagemap_pte_hole(i64 noundef %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
+define internal noundef range(i32 0, 2) i32 @pagemap_hugetlb_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) #0 align 16 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -4443,7 +4443,7 @@ declare dso_local ptr @find_vma(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -5208,7 +5208,7 @@ define internal range(i32 -28, 1) i32 @pagemap_scan_pmd_entry(ptr noundef %0, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef range(i32 -28, 1) i32 @pagemap_scan_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr nocapture noundef readonly %3) #11 align 16 {
+define internal noundef range(i32 -28, 1) i32 @pagemap_scan_pte_hole(i64 noundef %0, i64 noundef %1, i32 %2, ptr noundef readonly captures(none) %3) #11 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5328,7 +5328,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_pte_hole(i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #0 align 16 {
+define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr noundef %0, i64 %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -5894,7 +5894,7 @@ define internal noundef range(i32 -28, 1) i32 @pagemap_scan_hugetlb_entry(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal noundef range(i32 -1, 2) i32 @pagemap_scan_test_walk(i64 %0, i64 %1, ptr nocapture noundef readonly %2) #11 align 16 {
+define internal noundef range(i32 -1, 2) i32 @pagemap_scan_test_walk(i64 %0, i64 %1, ptr noundef readonly captures(none) %2) #11 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -6220,7 +6220,7 @@ declare dso_local ptr @__get_vma_policy(ptr noundef, i64 noundef, ptr noundef) l
 declare dso_local void @mpol_to_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gather_pte_stats(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef %3) #0 align 16 {
+define internal noundef i32 @gather_pte_stats(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -6297,7 +6297,7 @@ define internal noundef i32 @gather_pte_stats(ptr noundef %0, i64 noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gather_hugetlb_stats(ptr noundef %0, i64 %1, i64 %2, i64 %3, ptr nocapture noundef readonly %4) #0 align 16 {
+define internal noundef i32 @gather_hugetlb_stats(ptr noundef %0, i64 %1, i64 %2, i64 %3, ptr noundef readonly captures(none) %4) #0 align 16 {
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   %7 = load volatile i64, ptr %0, align 8
@@ -6329,7 +6329,7 @@ define internal noundef i32 @gather_hugetlb_stats(ptr noundef %0, i64 %1, i64 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gather_stats(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @gather_stats(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load volatile i32, ptr %4, align 4
   %6 = load volatile i64, ptr %0, align 8

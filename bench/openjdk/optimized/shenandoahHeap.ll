@@ -1232,7 +1232,7 @@ $_ZTV28ShenandoahObjectToOopClosureI30ShenandoahSTWUpdateRefsClosureE = comdat a
 @_ZN24ShenandoahRegionIteratorC1EP14ShenandoahHeap = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN24ShenandoahRegionIteratorC2EP14ShenandoahHeap
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure8do_klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
@@ -1959,7 +1959,7 @@ _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %.lr.ph162, %_ZN16Sh
 declare void @_ZN8Universe15check_alignmentEmmPKc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap21initialize_heuristicsEv(ptr nocapture noundef nonnull align 8 dereferenceable(2657) initializes((1648, 1656)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap21initialize_heuristicsEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2657) initializes((1648, 1656)) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.FormatBuffer.3, align 8
   %3 = alloca %class.FormatBuffer.3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1640
@@ -2087,7 +2087,7 @@ declare void @_ZN16SATBMarkQueueSet39set_buffer_enqueue_threshold_percentageEj(p
 declare void @_ZN27ShenandoahMonitoringSupportC1EP14ShenandoahHeap(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN14ShenandoahHeap11max_workersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -2104,7 +2104,7 @@ declare void @_ZN23ShenandoahControlThreadC1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN20ShenandoahInitLogger5printEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap15initialize_modeEv(ptr nocapture noundef nonnull align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap15initialize_modeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.FormatBuffer.3, align 8
   %3 = alloca %class.FormatBuffer.3, align 8
   %4 = load ptr, ptr @ShenandoahGCMode, align 8
@@ -2225,10 +2225,10 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12FormatBufferILm256EEC2EPKcz(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1, ...) unnamed_addr #1 comdat align 2 {
@@ -2406,7 +2406,7 @@ declare void @_ZN20ShenandoahBarrierSetC1EP14ShenandoahHeap(ptr noundef nonnull 
 declare void @_ZN13WorkerThreads18initialize_workersEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap17reset_mark_bitmapEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap17reset_mark_bitmapEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahResetBitmapTask, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2248
@@ -2866,7 +2866,7 @@ define hidden noundef i64 @_ZNK14ShenandoahHeap4usedEv(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK14ShenandoahHeap9availableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK14ShenandoahHeap9availableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -2878,7 +2878,7 @@ define hidden noundef i64 @_ZNK14ShenandoahHeap9availableEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZThn104_NK14ShenandoahHeap9availableEv(ptr nocapture noundef readonly %0) unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZThn104_NK14ShenandoahHeap9availableEv(ptr noundef readonly captures(none) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1552
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
@@ -2981,7 +2981,7 @@ define hidden noundef i64 @_ZNK14ShenandoahHeap8capacityEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK14ShenandoahHeap12max_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK14ShenandoahHeap12max_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
@@ -2990,7 +2990,7 @@ define hidden noundef i64 @_ZNK14ShenandoahHeap12max_capacityEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZThn104_NK14ShenandoahHeap12max_capacityEv(ptr nocapture noundef readonly %0) unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZThn104_NK14ShenandoahHeap12max_capacityEv(ptr noundef readonly captures(none) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
@@ -3020,21 +3020,21 @@ define hidden void @_ZN14ShenandoahHeap21set_soft_max_capacityEm(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK14ShenandoahHeap12min_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef i64 @_ZNK14ShenandoahHeap12min_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZNK14ShenandoahHeap16initial_capacityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef i64 @_ZNK14ShenandoahHeap16initial_capacityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK14ShenandoahHeap5is_inEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr noundef readnone %1) unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK14ShenandoahHeap5is_inEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef readnone %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeWordsE, align 8
@@ -3365,7 +3365,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 declare void @_ZN27ShenandoahMonitoringSupport19notify_heap_changedEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap26set_forced_counters_updateEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap26set_forced_counters_updateEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZN27ShenandoahMonitoringSupport26set_forced_counters_updateEb(ptr noundef nonnull align 8 dereferenceable(336) %4, i1 noundef zeroext %1) #26
@@ -3375,7 +3375,7 @@ define hidden void @_ZN14ShenandoahHeap26set_forced_counters_updateEb(ptr nocapt
 declare void @_ZN27ShenandoahMonitoringSupport26set_forced_counters_updateEb(ptr noundef nonnull align 8 dereferenceable(336), i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap28handle_force_counters_updateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap28handle_force_counters_updateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN27ShenandoahMonitoringSupport28handle_force_counters_updateEv(ptr noundef nonnull align 8 dereferenceable(336) %3) #26
@@ -3385,7 +3385,7 @@ define hidden void @_ZN14ShenandoahHeap28handle_force_counters_updateEv(ptr noca
 declare void @_ZN27ShenandoahMonitoringSupport28handle_force_counters_updateEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ShenandoahHeap24allocate_from_gclab_slowEP6Threadm(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14ShenandoahHeap24allocate_from_gclab_slowEP6Threadm(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.ShenandoahAllocRequest, align 8
   %5 = tail call noundef i64 @_ZN4PLAB8min_sizeEv() #26
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -3473,7 +3473,7 @@ declare noundef i64 @_ZN4PLAB8max_sizeEv() local_unnamed_addr #2
 declare void @_ZN4PLAB6retireEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ShenandoahHeap18allocate_new_gclabEmmPm(ptr noundef nonnull align 8 dereferenceable(2657) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14ShenandoahHeap18allocate_new_gclabEmmPm(ptr noundef nonnull align 8 dereferenceable(2657) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %class.ShenandoahAllocRequest, align 8
   store i64 %1, ptr %5, align 8, !alias.scope !24
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3491,7 +3491,7 @@ define hidden noundef ptr @_ZN14ShenandoahHeap18allocate_new_gclabEmmPm(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ShenandoahHeap17allocate_new_tlabEmmPm(ptr noundef nonnull align 8 dereferenceable(2657) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14ShenandoahHeap17allocate_new_tlabEmmPm(ptr noundef nonnull align 8 dereferenceable(2657) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) unnamed_addr #1 align 2 {
   %5 = alloca %class.ShenandoahAllocRequest, align 8
   store i64 %1, ptr %5, align 8, !alias.scope !27
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3995,7 +3995,7 @@ declare void @_ZN15ShenandoahPacer16unpace_for_allocElm(ptr noundef nonnull alig
 declare noundef ptr @_ZN17ShenandoahFreeSet8allocateER22ShenandoahAllocRequestRb(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(28), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ShenandoahHeap12mem_allocateEmPb(ptr noundef nonnull align 8 dereferenceable(2657) %0, i64 noundef %1, ptr nocapture readnone %2) unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14ShenandoahHeap12mem_allocateEmPb(ptr noundef nonnull align 8 dereferenceable(2657) %0, i64 noundef %1, ptr readnone captures(none) %2) unnamed_addr #1 align 2 {
   %4 = alloca %class.ShenandoahAllocRequest, align 8
   store i64 0, ptr %4, align 8, !alias.scope !31
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4081,7 +4081,7 @@ define hidden void @_ZN14ShenandoahHeap23evacuate_collection_setEb(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14ShenandoahHeap15evacuate_objectEP7oopDescP6Thread(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.ShenandoahAllocRequest, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -4443,7 +4443,7 @@ declare void @_ZN20ShenandoahHeapRegion10make_trashEv(ptr noundef nonnull align 
 declare void @_ZN23ShenandoahCollectionSet5clearEv(ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ShenandoahHeap21print_heap_regions_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ShenandoahHeap21print_heap_regions_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.64) #26
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.65) #26
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.66) #26
@@ -4479,7 +4479,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
 declare void @_ZNK20ShenandoahHeapRegion8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap25trash_humongous_region_atEP20ShenandoahHeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap25trash_humongous_region_atEP20ShenandoahHeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
@@ -4600,7 +4600,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
 declare void @_ZN20ShenandoahHeapRegion20make_trash_immediateEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap18labs_make_parsableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap18labs_make_parsableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahRetireGCLABClosure, align 8
   %3 = alloca %class.JavaThreadIteratorWithHandle, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahRetireGCLABClosure, i64 16), ptr %2, align 8
@@ -4680,7 +4680,7 @@ define linkonce_odr hidden void @_ZN28ShenandoahRetireGCLABClosure9do_threadEP6T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap12tlabs_retireEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2657) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap12tlabs_retireEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2657) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.ThreadLocalAllocStats, align 8
   %4 = alloca %class.JavaThreadIteratorWithHandle, align 8
   call void @_ZN21ThreadLocalAllocStatsC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #26
@@ -4844,19 +4844,19 @@ _ZN28ShenandoahRetireGCLABClosure9do_threadEP6Thread.exit: ; preds = %29, %32, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK14ShenandoahHeap21unsafe_max_tlab_allocEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #11 align 2 {
+define hidden noundef i64 @_ZNK14ShenandoahHeap21unsafe_max_tlab_allocEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1) unnamed_addr #11 align 2 {
   %3 = load i64, ptr @_ZN20ShenandoahHeapRegion16MaxTLABSizeBytesE, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK14ShenandoahHeap13max_tlab_sizeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 {
+define hidden noundef i64 @_ZNK14ShenandoahHeap13max_tlab_sizeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #11 align 2 {
   %2 = load i64, ptr @_ZN20ShenandoahHeapRegion16MaxTLABSizeWordsE, align 8
   ret i64 %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap7collectEN7GCCause5CauseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap7collectEN7GCCause5CauseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -4867,12 +4867,12 @@ define hidden void @_ZN14ShenandoahHeap7collectEN7GCCause5CauseE(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN14ShenandoahHeap18do_full_collectionEb(ptr nocapture nonnull readnone align 8 %0, i1 zeroext %1) unnamed_addr #12 align 2 {
+define hidden void @_ZN14ShenandoahHeap18do_full_collectionEb(ptr nonnull readnone align 8 captures(none) %0, i1 zeroext %1) unnamed_addr #12 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14ShenandoahHeap11block_startEPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK14ShenandoahHeap11block_startEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %5 = load ptr, ptr %4, align 8
@@ -4905,7 +4905,7 @@ _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit.thread: ; preds = %2, %_ZN
 declare noundef ptr @_ZNK20ShenandoahHeapRegion11block_startEPKv(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZNK14ShenandoahHeap12block_is_objEPKP12HeapWordImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK14ShenandoahHeap12block_is_objEPKP12HeapWordImpl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
 _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit:
   %2 = ptrtoint ptr %1 to i64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -4929,7 +4929,7 @@ _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14ShenandoahHeap14print_locationEP12outputStreamPv(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK14ShenandoahHeap14print_locationEP12outputStreamPv(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN20BlockLocationPrinterI14ShenandoahHeapE14print_locationEP12outputStreamPv(ptr noundef %1, ptr noundef %2)
   ret i1 %4
 }
@@ -5076,7 +5076,7 @@ _ZN20BlockLocationPrinterI14ShenandoahHeapE16base_oop_or_nullEPv.exit.thread: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap18prepare_for_verifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap18prepare_for_verifyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) unnamed_addr #1 align 2 {
   %2 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %3 = icmp eq i32 %2, 2
   br i1 %3, label %4, label %8
@@ -5095,7 +5095,7 @@ define hidden void @_ZN14ShenandoahHeap18prepare_for_verifyEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ShenandoahHeap13gc_threads_doEP13ThreadClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ShenandoahHeap13gc_threads_doEP13ThreadClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZN25ShenandoahCollectorPolicy14is_at_shutdownEv(ptr noundef nonnull align 8 dereferenceable(528) %4) #26
@@ -5133,7 +5133,7 @@ define hidden void @_ZNK14ShenandoahHeap13gc_threads_doEP13ThreadClosure(ptr noc
 declare noundef zeroext i1 @_ZN25ShenandoahCollectorPolicy14is_at_shutdownEv(ptr noundef nonnull align 8 dereferenceable(528)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ShenandoahHeap18print_tracing_infoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ShenandoahHeap18print_tracing_infoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) unnamed_addr #1 align 2 {
   %2 = alloca %class.LogStream, align 8
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_146ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 64), align 8
   %.not = icmp eq ptr %3, null
@@ -5207,7 +5207,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap6verifyE12VerifyOption(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap6verifyE12VerifyOption(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
   %4 = icmp eq i32 %3, 2
   br i1 %4, label %5, label %_ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread
@@ -5258,7 +5258,7 @@ _ZN19ShenandoahSafepoint26is_at_shenandoah_safepointEv.exit.thread: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ShenandoahHeap8verifierEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14ShenandoahHeap8verifierEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = load i8, ptr @ShenandoahVerify, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %6, label %4
@@ -5278,7 +5278,7 @@ define hidden noundef ptr @_ZN14ShenandoahHeap8verifierEv(ptr nocapture noundef 
 declare void @_ZN18ShenandoahVerifier14verify_genericE12VerifyOption(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK14ShenandoahHeap13tlab_capacityEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr nocapture readnone %1) unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK14ShenandoahHeap13tlab_capacityEP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
@@ -5287,7 +5287,7 @@ define hidden noundef i64 @_ZNK14ShenandoahHeap13tlab_capacityEP6Thread(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN14ShenandoahHeap18ensure_parsabilityEb(ptr nocapture nonnull readnone align 8 %0, i1 zeroext %1) unnamed_addr #12 align 2 {
+define hidden void @_ZN14ShenandoahHeap18ensure_parsabilityEb(ptr nonnull readnone align 8 captures(none) %0, i1 zeroext %1) unnamed_addr #12 align 2 {
   ret void
 }
 
@@ -5591,7 +5591,7 @@ define hidden noundef zeroext i1 @_ZN14ShenandoahHeap32prepare_aux_bitmap_for_it
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap24scan_roots_for_iterationEP5StackIP7oopDescL8MEMFLAGS5EEP28ObjectIterateScanRootClosure(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap24scan_roots_for_iterationEP5StackIP7oopDescL8MEMFLAGS5EEP28ObjectIterateScanRootClosure(ptr noundef nonnull align 8 dereferenceable(2657) %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.ShenandoahHeapIterationRootScanner, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 408
@@ -5618,7 +5618,7 @@ define hidden void @_ZN14ShenandoahHeap24scan_roots_for_iterationEP5StackIP7oopD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap32reclaim_aux_bitmap_for_iterationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2425
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
@@ -5879,7 +5879,7 @@ _ZN20ShenandoahBarrierSet7enqueueEP7oopDesc.exit: ; preds = %39, %_ZNK14Shenando
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ShenandoahHeap19heap_region_iterateEP27ShenandoahHeapRegionClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ShenandoahHeap19heap_region_iterateEP27ShenandoahHeapRegionClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -5907,7 +5907,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %_ZNK14ShenandoahHea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ShenandoahHeap28parallel_heap_region_iterateEP27ShenandoahHeapRegionClosure(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.ShenandoahParallelHeapRegionTask, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %5 = load i64, ptr %4, align 8
@@ -5960,7 +5960,7 @@ _ZNK14ShenandoahHeap19heap_region_iterateEP27ShenandoahHeapRegionClosure.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap18rendezvous_threadsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap18rendezvous_threadsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahRendezvousClosure, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @.str.110, ptr %3, align 8
@@ -5977,7 +5977,7 @@ define linkonce_odr hidden void @_ZN27ShenandoahRendezvousClosureD2Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap13recycle_trashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap13recycle_trashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN17ShenandoahFreeSet13recycle_trashEv(ptr noundef nonnull align 8 dereferenceable(224) %3) #26
@@ -5987,7 +5987,7 @@ define hidden void @_ZN14ShenandoahHeap13recycle_trashEv(ptr nocapture noundef n
 declare void @_ZN17ShenandoahFreeSet13recycle_trashEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap10prepare_gcEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap10prepare_gcEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ShenandoahParallelHeapRegionTask, align 8
   %3 = alloca %class.ShenandoahResetBitmapTask, align 8
   %4 = alloca %class.ShenandoahResetUpdateRegionStateClosure, align 8
@@ -6198,7 +6198,7 @@ define hidden void @_ZN14ShenandoahHeap18do_class_unloadingEv(ptr noundef nonnul
 declare void @_ZN16ShenandoahUnload6unloadEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap13stw_weak_refsEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap13stw_weak_refsEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.ShenandoahTimingsTracker, align 8
   %4 = alloca %class.ShenandoahGCWorkerPhase, align 8
   %5 = select i1 %1, i32 248, i32 164
@@ -6505,7 +6505,7 @@ _ZN14ShenandoahHeap12set_gc_stateEjb.exit:        ; preds = %.preheader4, %13, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN14ShenandoahHeap6tracerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZN14ShenandoahHeap6tracerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1632
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 520
@@ -6514,7 +6514,7 @@ define hidden noundef ptr @_ZN14ShenandoahHeap6tracerEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK14ShenandoahHeap9tlab_usedEP6Thread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr nocapture readnone %1) unnamed_addr #9 align 2 {
+define hidden noundef i64 @_ZNK14ShenandoahHeap9tlab_usedEP6Thread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr readnone captures(none) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1656
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 160
@@ -6761,7 +6761,7 @@ declare void @_ZN9CodeCache14UnlinkingScopeC1EP17BoolObjectClosure(ptr noundef n
 declare noundef zeroext i1 @_ZN16SystemDictionary12do_unloadingEP7GCTimer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK14ShenandoahHeap8gc_timerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef ptr @_ZNK14ShenandoahHeap8gc_timerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2088
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -7110,7 +7110,7 @@ _ZN14ShenandoahHeap12set_gc_stateEjb.exit:        ; preds = %.preheader4, %13, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap16register_nmethodEP7nmethod(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap16register_nmethodEP7nmethod(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZN19ShenandoahCodeRoots16register_nmethodEP7nmethod(ptr noundef %1) #26
   ret void
 }
@@ -7118,7 +7118,7 @@ define hidden void @_ZN14ShenandoahHeap16register_nmethodEP7nmethod(ptr nocaptur
 declare void @_ZN19ShenandoahCodeRoots16register_nmethodEP7nmethod(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap18unregister_nmethodEP7nmethod(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap18unregister_nmethodEP7nmethod(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZN19ShenandoahCodeRoots18unregister_nmethodEP7nmethod(ptr noundef %1) #26
   ret void
 }
@@ -7126,7 +7126,7 @@ define hidden void @_ZN14ShenandoahHeap18unregister_nmethodEP7nmethod(ptr nocapt
 declare void @_ZN19ShenandoahCodeRoots18unregister_nmethodEP7nmethod(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap10pin_objectEP10JavaThreadP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr nocapture readnone %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap10pin_objectEP10JavaThreadP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr readnone captures(none) %1, ptr noundef %2) unnamed_addr #1 align 2 {
 _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit:
   %3 = ptrtoint ptr %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -7150,7 +7150,7 @@ _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit:
 declare void @_ZN20ShenandoahHeapRegion10record_pinEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap12unpin_objectEP10JavaThreadP7oopDesc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr nocapture readnone %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap12unpin_objectEP10JavaThreadP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr readnone captures(none) %1, ptr noundef %2) unnamed_addr #1 align 2 {
 _ZNK14ShenandoahHeap22heap_region_containingEPKv.exit:
   %3 = ptrtoint ptr %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 520
@@ -7503,7 +7503,7 @@ define hidden void @_ZNK14ShenandoahHeap17print_extended_onEP12outputStream(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @_ZN14ShenandoahHeap25is_bitmap_slice_committedEP20ShenandoahHeapRegionb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZN14ShenandoahHeap25is_bitmap_slice_committedEP20ShenandoahHeapRegionb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #14 align 2 {
   %4 = load i64, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2392
   %6 = load i64, ptr %5, align 8
@@ -7570,7 +7570,7 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %.lr.ph.split
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14ShenandoahHeap19commit_bitmap_sliceEP20ShenandoahHeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN14ShenandoahHeap19commit_bitmap_sliceEP20ShenandoahHeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2424
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -7643,7 +7643,7 @@ _ZN14ShenandoahHeap25is_bitmap_slice_committedEP20ShenandoahHeapRegionb.exit: ; 
 declare void @_ZN2os15pretouch_memoryEPvS0_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14ShenandoahHeap21uncommit_bitmap_sliceEP20ShenandoahHeapRegion(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN14ShenandoahHeap21uncommit_bitmap_sliceEP20ShenandoahHeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2424
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -7702,7 +7702,7 @@ _ZN14ShenandoahHeap25is_bitmap_slice_committedEP20ShenandoahHeapRegionb.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap27safepoint_synchronize_beginEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap27safepoint_synchronize_beginEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN17StackWatermarkSet27safepoint_synchronize_beginEv() #26
   tail call void @_ZN20SuspendibleThreadSet11synchronizeEv() #26
   ret void
@@ -7713,7 +7713,7 @@ declare void @_ZN17StackWatermarkSet27safepoint_synchronize_beginEv() local_unna
 declare void @_ZN20SuspendibleThreadSet11synchronizeEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap25safepoint_synchronize_endEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap25safepoint_synchronize_endEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN20SuspendibleThreadSet13desynchronizeEv() #26
   ret void
 }
@@ -7784,7 +7784,7 @@ declare void @_ZN20ShenandoahMemoryPoolC1EP14ShenandoahHeap(ptr noundef nonnull 
 declare void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2657) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap15memory_managersEv(ptr dead_on_unwind noalias writable writeonly sret(%class.GrowableArray) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2657) %1) unnamed_addr #1 align 2 {
 _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit5:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -7803,7 +7803,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.21) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap12memory_poolsEv(ptr dead_on_unwind noalias writable writeonly sret(%class.GrowableArray.21) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %1) unnamed_addr #1 align 2 {
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 1, i32 noundef 8) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -7821,7 +7821,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap12memory_usageEv(ptr dead_on_unwind noalias writable sret(%class.MemoryUsage) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap12memory_usageEv(ptr dead_on_unwind noalias writable sret(%class.MemoryUsage) align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1696
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -7860,7 +7860,7 @@ define hidden noundef zeroext i1 @_ZNK24ShenandoahRegionIterator8has_nextEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN14ShenandoahHeap18get_liveness_cacheEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZN14ShenandoahHeap18get_liveness_cacheEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2432
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -7870,7 +7870,7 @@ define hidden noundef ptr @_ZN14ShenandoahHeap18get_liveness_cacheEj(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ShenandoahHeap20flush_liveness_cacheEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2657) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ShenandoahHeap20flush_liveness_cacheEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2657) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2432
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -21790,7 +21790,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosure9narrowOopEEvPT_PT0_.
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop31ShenandoahConcUpdateRefsClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop31ShenandoahConcUpdateRefsClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -22224,7 +22224,7 @@ _ZN13Devirtualizer6do_oopI31ShenandoahConcUpdateRefsClosureP7oopDescEEvPT_PT0_.e
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc31ShenandoahConcUpdateRefsClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc31ShenandoahConcUpdateRefsClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -23107,8 +23107,8 @@ define linkonce_odr hidden void @_ZN21OopOopIterateDispatchI31ShenandoahConcUpda
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i.i, ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %6, i1 noundef zeroext false) #26
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
-  tail call void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_headerI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0)
+  tail call void @_ZN23InstanceStackChunkKlass22oop_oop_iterate_headerI9narrowOop31ShenandoahConcUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0)
   ret void
 }
 
@@ -23406,7 +23406,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass15oop_oop_iterateIP
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #26
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc31ShenandoahConcUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %8 = ptrtoint ptr %1 to i64
   %9 = sext i32 %7 to i64
@@ -26885,7 +26885,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosureP7oopDescEEvPT_PT0_.ex
 
 _ZN16InstanceRefKlass15oop_oop_iterateIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvS2_PT0_.exit: ; preds = %._crit_edge.i, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc30ShenandoahSTWUpdateRefsClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingIP7oopDesc30ShenandoahSTWUpdateRefsClosure14AlwaysContainsEEvS2_PT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %2, ptr noundef %1, ptr noundef nonnull %0, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -26986,7 +26986,7 @@ _ZN13Devirtualizer6do_oopI30ShenandoahSTWUpdateRefsClosure9narrowOopEEvPT_PT0_.e
 
 ._crit_edge32:                                    ; preds = %._crit_edge, %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop30ShenandoahSTWUpdateRefsClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
+  call void @_ZN16InstanceRefKlass30oop_oop_iterate_ref_processingI9narrowOop30ShenandoahSTWUpdateRefsClosure14AlwaysContainsEEvP7oopDescPT0_RT1_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   ret void
 }
@@ -28166,7 +28166,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass15oop_oop_iterateI9
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #26
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackI9narrowOop30ShenandoahSTWUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %8 = ptrtoint ptr %1 to i64
   %9 = sext i32 %7 to i64
@@ -28393,7 +28393,7 @@ define linkonce_odr hidden void @_ZN23InstanceStackChunkKlass15oop_oop_iterateIP
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i32, ptr %5, align 8
   tail call void @_ZN15ClassLoaderData7oops_doEP10OopClosureib(ptr noundef nonnull align 8 dereferenceable(160) %.val.i, ptr noundef nonnull align 8 dereferenceable(20) %2, i32 noundef %6, i1 noundef zeroext false) #26
-  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef %2)
+  tail call void @_ZN23InstanceStackChunkKlass21oop_oop_iterate_stackIP7oopDesc30ShenandoahSTWUpdateRefsClosureEEvP17stackChunkOopDescPT0_(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1, ptr noundef nonnull %2)
   %7 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk14_parent_offsetE, align 4
   %8 = ptrtoint ptr %1 to i64
   %9 = sext i32 %7 to i64
@@ -29500,10 +29500,10 @@ declare i32 @llvm.umax.i32(i32, i32) #22
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #25

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_null = external global %struct.ompi_predefined_request_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_coll_basic_neighbor_allgather(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7) local_unnamed_addr #0 {
+define i32 @mca_coll_basic_neighbor_allgather(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -358,7 +358,7 @@ mca_coll_basic_neighbor_allgather_cart.exit:      ; preds = %112, %134, %17, %26
   %176 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 64), align 8
   %177 = getelementptr inbounds nuw i32, ptr %.043.i, i64 %indvars.iv.i36
   %178 = load i32, ptr %177, align 4
-  %179 = call i32 %176(ptr noundef %.04469.i, i64 noundef %172, ptr noundef %5, i32 noundef %178, i32 noundef -10, ptr noundef %6, ptr noundef nonnull %.04170.i) #3
+  %179 = call i32 %176(ptr noundef %.04469.i, i64 noundef %172, ptr noundef %5, i32 noundef %178, i32 noundef -10, ptr noundef nonnull %6, ptr noundef nonnull %.04170.i) #3
   %.not.i37 = icmp eq i32 %179, 0
   br i1 %.not.i37, label %180, label %191
 
@@ -366,7 +366,7 @@ mca_coll_basic_neighbor_allgather_cart.exit:      ; preds = %112, %134, %17, %26
   %181 = getelementptr inbounds nuw i8, ptr %.04170.i, i64 8
   %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @mca_pml, i64 88), align 8
   %183 = load i32, ptr %177, align 4
-  %184 = call i32 %182(ptr noundef %0, i64 noundef %173, ptr noundef %2, i32 noundef %183, i32 noundef -10, i32 noundef 4, ptr noundef %6, ptr noundef nonnull %181) #3
+  %184 = call i32 %182(ptr noundef %0, i64 noundef %173, ptr noundef %2, i32 noundef %183, i32 noundef -10, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %181) #3
   %.not50.i = icmp eq i32 %184, 0
   br i1 %.not50.i, label %185, label %191
 
@@ -740,10 +740,10 @@ declare i32 @mca_topo_base_cart_shift(ptr noundef, i32 noundef, i32 noundef, ptr
 declare i32 @mca_topo_base_graph_neighbors_count(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

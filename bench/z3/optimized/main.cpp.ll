@@ -184,7 +184,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define hidden noundef i32 @main(i32 noundef %argc, ptr nocapture noundef readonly %argv) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @main(i32 noundef %argc, ptr noundef readonly captures(none) %argv) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %input_file = alloca %"class.std::__cxx11::basic_string", align 8
   invoke void @_ZN6memory10initializeEm(i64 noundef 0)
@@ -535,7 +535,7 @@ if.then103.i:                                     ; preds = %if.else100.tail.i
   br i1 %tobool104.not.i, label %if.then177.i.invoke, label %if.end106.i
 
 if.end106.i:                                      ; preds = %if.then103.i
-  %call107.i = call i64 @strtol(ptr nocapture noundef nonnull %opt_arg.0.i, ptr noundef null, i32 noundef 10) #13
+  %call107.i = call i64 @strtol(ptr noundef nonnull captures(none) %opt_arg.0.i, ptr noundef null, i32 noundef 10) #13
   %conv108.i = trunc i64 %call107.i to i32
   invoke void @_Z19set_verbosity_levelj(i32 noundef %conv108.i)
           to label %if.end268.i unwind label %lpad2.loopexit.split-lp.loopexit
@@ -573,7 +573,7 @@ if.then116.i:                                     ; preds = %if.else113.tail.i
   br i1 %tobool117.not.i, label %if.then177.i.invoke, label %if.end119.i
 
 if.end119.i:                                      ; preds = %if.then116.i
-  %call120.i = call i64 @strtol(ptr nocapture noundef nonnull %opt_arg.0.i, ptr noundef null, i32 noundef 10) #13
+  %call120.i = call i64 @strtol(ptr noundef nonnull captures(none) %opt_arg.0.i, ptr noundef null, i32 noundef 10) #13
   br label %if.end268.i
 
 if.else121.tail.i:                                ; preds = %sub_0118.i
@@ -1212,7 +1212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef i32 @_Z21read_smtlib2_commandsPKc(ptr noundef) local_unnamed_addr #0
 
@@ -1269,7 +1269,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare void @_ZN7gparams3setEPKcS1_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 declare void @_Z19set_verbosity_levelj(i32 noundef) local_unnamed_addr #0
 

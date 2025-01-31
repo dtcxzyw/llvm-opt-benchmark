@@ -179,7 +179,7 @@ if.end:                                           ; preds = %if.then, %while.end
 declare void @DES_ede3_cfb64_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ossl_cipher_hw_tdes_cfb1(ptr noundef %ctx, ptr nocapture noundef %out, ptr nocapture noundef readonly %in, i64 noundef %inl) #2 {
+define internal noundef i32 @ossl_cipher_hw_tdes_cfb1(ptr noundef %ctx, ptr noundef captures(none) %out, ptr noundef readonly captures(none) %in, i64 noundef %inl) #2 {
 entry:
   %c = alloca [1 x i8], align 1
   %d = alloca [1 x i8], align 1
@@ -313,7 +313,7 @@ declare i32 @ossl_cipher_hw_tdes_ecb(ptr noundef, ptr noundef, ptr noundef, i64 
 declare void @DES_set_key_unchecked(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @ossl_cipher_hw_tdes_cbc(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #1
 

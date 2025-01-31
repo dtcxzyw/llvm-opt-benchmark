@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qcrypto_ivgen_essiv = dso_local local_unnamed_addr global %struct.QCryptoIVGenDriver { ptr @qcrypto_ivgen_essiv_init, ptr @qcrypto_ivgen_essiv_calculate, ptr @qcrypto_ivgen_essiv_cleanup }, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_ivgen_essiv_init(ptr nocapture noundef %ivgen, ptr noundef %key, i64 noundef %nkey, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_ivgen_essiv_init(ptr noundef captures(none) %ivgen, ptr noundef %key, i64 noundef %nkey, ptr noundef %errp) #0 {
 entry:
   %salt = alloca ptr, align 8
   %nhash = alloca i64, align 8
@@ -63,7 +63,7 @@ return:                                           ; preds = %if.end18, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_ivgen_essiv_calculate(ptr nocapture noundef readonly %ivgen, i64 noundef %sector, ptr nocapture noundef writeonly %iv, i64 noundef %niv, ptr noundef %errp) #0 {
+define internal range(i32 -1, 1) i32 @qcrypto_ivgen_essiv_calculate(ptr noundef readonly captures(none) %ivgen, i64 noundef %sector, ptr noundef writeonly captures(none) %iv, i64 noundef %niv, ptr noundef %errp) #0 {
 entry:
   %sector.addr = alloca i64, align 8
   %private = getelementptr inbounds nuw i8, ptr %ivgen, i64 8
@@ -109,7 +109,7 @@ return:                                           ; preds = %if.end8, %if.then13
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qcrypto_ivgen_essiv_cleanup(ptr nocapture noundef readonly %ivgen) #0 {
+define internal void @qcrypto_ivgen_essiv_cleanup(ptr noundef readonly captures(none) %ivgen) #0 {
 entry:
   %private = getelementptr inbounds nuw i8, ptr %ivgen, i64 8
   %0 = load ptr, ptr %private, align 8
@@ -138,10 +138,10 @@ declare i64 @qcrypto_cipher_get_block_len(i32 noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @qcrypto_cipher_encrypt(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 

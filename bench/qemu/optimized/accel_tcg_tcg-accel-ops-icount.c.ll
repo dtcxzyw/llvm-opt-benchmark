@@ -73,7 +73,7 @@ icount_get_limit.exit:                            ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @icount_prepare_for_run(ptr nocapture noundef %cpu, i64 noundef %cpu_budget) local_unnamed_addr #0 {
+define dso_local void @icount_prepare_for_run(ptr noundef captures(none) %cpu, i64 noundef %cpu_budget) local_unnamed_addr #0 {
 entry:
   %icount_decr = getelementptr inbounds nuw i8, ptr %cpu, i64 10160
   %0 = load i16, ptr %icount_decr, align 16
@@ -218,7 +218,7 @@ declare i64 @llvm.umin.i64(i64, i64) #4
 declare i64 @llvm.smin.i64(i64, i64) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

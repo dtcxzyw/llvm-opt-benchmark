@@ -99,7 +99,7 @@ return:                                           ; preds = %do.end14, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @_serverLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -327,7 +327,7 @@ return:                                           ; preds = %entry, %connectionB
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 8) i32 @connectionIndexByType(ptr nocapture noundef readonly %typename) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 8) i32 @connectionIndexByType(ptr noundef readonly captures(none) %typename) local_unnamed_addr #0 {
 entry:
   br label %for.body
 

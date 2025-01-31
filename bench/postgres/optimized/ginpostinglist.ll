@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.BlockIdData = type { i16, i16 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @ginCompressPostingList(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @ginCompressPostingList(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca [7 x i8], align 1
   %6 = and i32 %2, -2
   %7 = sext i32 %6 to i64
@@ -159,7 +159,7 @@ encode_varbyte.exit43._crit_edge:                 ; preds = %62, %encode_varbyte
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @ginPostingListDecode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -387,7 +387,7 @@ declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef z
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local ptr @ginMergeItemPointers(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = add i32 %3, %1
   %7 = zext i32 %6 to i64
   %8 = mul nuw nsw i64 %7, 6

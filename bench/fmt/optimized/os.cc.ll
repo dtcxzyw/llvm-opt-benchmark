@@ -655,7 +655,7 @@ $_ZTIN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE = comdat any
 @_ZN3fmt3v107ostreamD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3fmt3v107ostreamD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3fmt3v1013buffered_fileD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v1013buffered_fileD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -677,7 +677,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -697,7 +697,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v1013buffered_fileC2ENS0_18basic_cstring_viewIcEES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr %filename.coerce, ptr nocapture readonly %mode.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v1013buffered_fileC2ENS0_18basic_cstring_viewIcEES3_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr %filename.coerce, ptr readonly captures(none) %mode.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca ptr, align 8
   br label %do.body
@@ -736,7 +736,7 @@ if.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -775,7 +775,7 @@ declare void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v1013buffered_file5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v1013buffered_file5closeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -832,7 +832,7 @@ _ZN3fmt3v1013vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, -1) i32 @_ZNK3fmt3v1013buffered_file10descriptorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, -1) i32 @_ZNK3fmt3v1013buffered_file10descriptorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call i32 @fileno(ptr noundef %0) #27
@@ -861,10 +861,10 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v104fileC2ENS0_18basic_cstring_viewIcEEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr %path.coerce, i32 noundef %oflag) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v104fileC2ENS0_18basic_cstring_viewIcEEi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, ptr %path.coerce, i32 noundef %oflag) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11 = alloca ptr, align 8
   br label %do.body
@@ -903,10 +903,10 @@ if.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #8
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3fmt3v104fileD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v104fileD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp.not = icmp eq i32 %0, -1
@@ -940,7 +940,7 @@ terminate.lpad:                                   ; preds = %land.lhs.true
 declare i32 @close(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v104file5closeEv(ptr nocapture noundef nonnull align 4 dereferenceable(4) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v104file5closeEv(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 4
   %cmp = icmp eq i32 %0, -1
@@ -974,7 +974,7 @@ if.end10:                                         ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK3fmt3v104file4sizeEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i64 @_ZNK3fmt3v104file4sizeEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file_stat = alloca %struct.stat, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %file_stat, i8 0, i64 144, i1 false)
@@ -1007,13 +1007,13 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v104file4readEPvm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef %buffer, i64 noundef %count) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v104file4readEPvm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef captures(none) %buffer, i64 noundef %count) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %do.body
 
@@ -1055,10 +1055,10 @@ if.end:                                           ; preds = %do.end
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v104file5writeEPKvm(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, ptr nocapture noundef readonly %buffer, i64 noundef %count) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v104file5writeEPKvm(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, ptr noundef readonly captures(none) %buffer, i64 noundef %count) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %do.body
 
@@ -1100,10 +1100,10 @@ if.end:                                           ; preds = %do.end
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v104file3dupEi(ptr noalias nocapture writeonly sret(%"class.fmt::v10::file") align 4 %agg.result, i32 noundef %fd) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v104file3dupEi(ptr noalias writeonly sret(%"class.fmt::v10::file") align 4 captures(none) %agg.result, i32 noundef %fd) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fd.addr = alloca i32, align 4
   store i32 %fd, ptr %fd.addr, align 4
@@ -1236,7 +1236,7 @@ _ZN3fmt3v1013vsystem_errorEiNS0_17basic_string_viewIcEENS0_17basic_format_argsIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3fmt3v104file4dup2EiRSt10error_code(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this, i32 noundef %fd, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %ec) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN3fmt3v104file4dup2EiRSt10error_code(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this, i32 noundef %fd, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %ec) local_unnamed_addr #0 align 2 {
 entry:
   br label %do.body
 
@@ -1267,10 +1267,10 @@ if.end:                                           ; preds = %do.body, %if.then
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V216generic_categoryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v104file4pipeERS1_S2_(ptr nocapture noundef nonnull align 4 dereferenceable(4) %read_end, ptr nocapture noundef nonnull align 4 dereferenceable(4) %write_end) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v104file4pipeERS1_S2_(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %read_end, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %write_end) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fds = alloca [2 x i32], align 8
   %ref.tmp5 = alloca %"class.fmt::v10::file", align 4
@@ -1460,7 +1460,7 @@ lpad11.body:                                      ; preds = %lpad.i.i23, %lpad11
 declare i32 @pipe(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v104file6fdopenEPKc(ptr noalias nocapture writeonly sret(%"class.fmt::v10::buffered_file") align 8 %agg.result, ptr nocapture noundef nonnull align 4 dereferenceable(4) %this, ptr nocapture noundef readonly %mode) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v104file6fdopenEPKc(ptr noalias writeonly sret(%"class.fmt::v10::buffered_file") align 8 captures(none) %agg.result, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %this, ptr noundef readonly captures(none) %mode) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 4
   %call = tail call noalias ptr @fdopen(i32 noundef %0, ptr noundef %mode) #27
@@ -1491,7 +1491,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZN3fmt3v1011getpagesizeEv() local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
@@ -1525,7 +1525,7 @@ if.end:                                           ; preds = %entry
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v106detail11file_buffer4growEm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN3fmt3v106detail11file_buffer4growEm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i64 %0) unnamed_addr #5 align 2 {
 entry:
   %size_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %size_.i, align 8
@@ -1549,7 +1549,7 @@ if.end:                                           ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v106detail11file_bufferC2ENS0_18basic_cstring_viewIcEERKNS1_14ostream_paramsE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 36)) %this, ptr %path.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %params) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v106detail11file_bufferC2ENS0_18basic_cstring_viewIcEERKNS1_14ostream_paramsE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 36)) %this, ptr %path.coerce, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %params) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i, i8 0, i64 24, i1 false)
@@ -1579,7 +1579,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3fmt3v106detail11file_bufferC2EOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) %other) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v106detail11file_bufferC2EOS2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 36)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(40) %other) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr_.i = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load ptr, ptr %ptr_.i, align 8
@@ -1604,7 +1604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3fmt3v106detail11file_bufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v106detail11file_bufferD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %size_.i.i, align 8
@@ -1674,7 +1674,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3fmt3v107ostreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN3fmt3v107ostreamD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3fmt3v106detail11file_bufferD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #27
   ret void
@@ -1845,7 +1845,7 @@ catch:                                            ; preds = %lpad6, %lpad
 
 try.cont:                                         ; preds = %catch
   %call.i7 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %message) #27
-  call void @_ZN3fmt3v106detail17format_error_codeERNS1_6bufferIcEEiNS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(32) %out, i32 noundef %error_code, ptr %message, i64 %call.i7) #27
+  call void @_ZN3fmt3v106detail17format_error_codeERNS1_6bufferIcEEiNS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(32) %out, i32 noundef %error_code, ptr nonnull %message, i64 %call.i7) #27
   br label %return
 
 return:                                           ; preds = %try.cont, %invoke.cont7
@@ -1866,10 +1866,10 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3fmt3v1019basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1964,7 +1964,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
@@ -27857,7 +27857,7 @@ for.body.i.i.i.i:                                 ; preds = %for.inc.i.i.i.i, %f
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i
   %.other.coerce1.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %call.i8.i.i.i.i, i64 %sub.ptr.sub)
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr %23, ptr nonnull %begin, i64 %.other.coerce1.i.i.i.i.i.i)
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull %23, ptr nonnull %begin, i64 %.other.coerce1.i.i.i.i.i.i)
   %cmp6.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i, 0
   %24 = icmp eq i64 %call.i8.i.i.i.i, %sub.ptr.sub
   %or.cond.i.i.i.i = and i1 %24, %cmp6.i.i.i.i.i.i
@@ -28530,7 +28530,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i.i.i, label %_ZN3fmt3v10eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i, 0
   %6 = icmp eq i64 %call.i8.i, %name.coerce1
   %or.cond.i = select i1 %cmp6.i.i.i, i1 %6, i1 false
@@ -37653,7 +37653,7 @@ _ZNSt20back_insert_iteratorIN3fmt3v106detail6bufferIcEEEaSEOc.exit26: ; preds = 
 declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN3fmt3v107vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr %fmt.coerce0, i64 %fmt.coerce1, i64 %args.coerce0, ptr %args.coerce1) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
@@ -37829,7 +37829,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare i64 @llvm.umax.i64(i64, i64) #22
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #23
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #22
@@ -37856,10 +37856,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #24
 declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #22

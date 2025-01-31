@@ -410,7 +410,7 @@ define ptr @slurmdb_report_user_top_usage(ptr noundef %0, ptr noundef %1, i1 nou
   br i1 %.not, label %195, label %196
 
 195:                                              ; preds = %194
-  call void @slurmdb_destroy_user_cond(ptr noundef %.0114) #5
+  call void @slurmdb_destroy_user_cond(ptr noundef nonnull %.0114) #5
   br label %196
 
 196:                                              ; preds = %194, %195
@@ -472,7 +472,7 @@ declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #2
 declare void @list_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @getpwnam(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef ptr @getpwnam(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -491,7 +491,7 @@ declare void @slurmdb_destroy_assoc_cond(ptr noundef) local_unnamed_addr #2
 declare void @slurmdb_destroy_user_cond(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

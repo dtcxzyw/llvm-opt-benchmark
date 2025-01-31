@@ -165,7 +165,7 @@ define noundef i32 @_ZN2cv3hal11normHammingEPKhS2_ii(ptr noundef %0, ptr noundef
 declare noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN2cv3hal10normL2Sqr_EPKfS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef float @_ZN2cv3hal10normL2Sqr_EPKfS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -195,7 +195,7 @@ define noundef float @_ZN2cv3hal10normL2Sqr_EPKfS2_i(ptr nocapture noundef reado
 declare float @llvm.fmuladd.f32(float, float, float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @_ZN2cv3hal7normL1_EPKfS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef float @_ZN2cv3hal7normL1_EPKfS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -223,7 +223,7 @@ define noundef float @_ZN2cv3hal7normL1_EPKfS2_i(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN2cv3hal7normL1_EPKhS2_i(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
+define noundef i32 @_ZN2cv3hal7normL1_EPKhS2_i(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1241,7 +1241,7 @@ declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dere
 declare noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL2_32fEPKfPKhPdii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL2_32fEPKfPKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load double, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader27.i
@@ -1322,7 +1322,7 @@ _ZN2cv7normL2_IfdEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 declare double @sqrt(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL1_32fEPKfPKhPdii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL1_32fEPKfPKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load double, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %18, label %.preheader25.i
@@ -1402,7 +1402,7 @@ _ZN2cv7normL1_IfdEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL11normInf_32fEPKfPKhPfii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL11normInf_32fEPKfPKhPfii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load float, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader29.i
@@ -1493,7 +1493,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() loca
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @_ZN2cv15NAryMatIteratorC1EPPKNS_3MatEPPhi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, i32 noundef) unnamed_addr #3
 
@@ -2639,7 +2639,7 @@ declare void @_ZN2cv6detail20check_failed_MatTypeEiiRKNS0_12CheckContextE(i32 no
 declare noundef zeroext i1 @_ZNK2cv11_InputArray8sameSizeERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL2_32fEPKfS1_PKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load double, ptr %3, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %22, label %.preheader33.i
@@ -2725,7 +2725,7 @@ _ZN2cv11normDiffL2_IfdEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL1_32fEPKfS1_PKhPdii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL1_32fEPKfS1_PKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load double, ptr %3, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %23, label %.preheader31.i
@@ -2813,7 +2813,7 @@ _ZN2cv11normDiffL1_IfdEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL15normDiffInf_32fEPKfS1_PKhPfii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL15normDiffInf_32fEPKfS1_PKhPfii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load float, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %22, label %.preheader35.i
@@ -2904,7 +2904,7 @@ _ZN2cv12normDiffInf_IffEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edg
 declare void @_ZN2cv11bitwise_xorERKNS_11_InputArrayES2_RKNS_12_OutputArrayES2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK2cv7HammingclEPKhS2_i(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZNK2cv7HammingclEPKhS2_i(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef i32 @_ZN2cv3hal11normHammingEPKhS2_i(ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
@@ -3262,7 +3262,7 @@ declare void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96)
 declare void @_ZNK2cv11_InputArray7getMat_Ei(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normInf_8uEPKhS1_Piii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normInf_8uEPKhS1_Piii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %16, label %.preheader33.i
@@ -3340,7 +3340,7 @@ _ZN2cv8normInf_IhiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normInf_8sEPKaPKhPiii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normInf_8sEPKaPKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader33.i
@@ -3420,7 +3420,7 @@ _ZN2cv8normInf_IaiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL11normInf_16uEPKtPKhPiii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL11normInf_16uEPKtPKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %16, label %.preheader33.i
@@ -3498,7 +3498,7 @@ _ZN2cv8normInf_ItiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL11normInf_16sEPKsPKhPiii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL11normInf_16sEPKsPKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader33.i
@@ -3578,7 +3578,7 @@ _ZN2cv8normInf_IsiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL11normInf_32sEPKiPKhPiii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL11normInf_32sEPKiPKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %16, label %.preheader33.i
@@ -3656,7 +3656,7 @@ _ZN2cv8normInf_IiiEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL11normInf_64fEPKdPKhPdii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL11normInf_64fEPKdPKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load double, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader29.i
@@ -3737,7 +3737,7 @@ _ZN2cv8normInf_IddEEiPKT_PKhPT0_ii.exit:          ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL9normL1_8uEPKhS1_Piii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL9normL1_8uEPKhS1_Piii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader25.i
@@ -3815,7 +3815,7 @@ _ZN2cv7normL1_IhiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL9normL1_8sEPKaPKhPiii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL9normL1_8sEPKaPKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %18, label %.preheader25.i
@@ -3895,7 +3895,7 @@ _ZN2cv7normL1_IaiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL1_16uEPKtPKhPiii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL1_16uEPKtPKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader25.i
@@ -3973,7 +3973,7 @@ _ZN2cv7normL1_ItiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL1_16sEPKsPKhPiii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL1_16sEPKsPKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %18, label %.preheader25.i
@@ -4053,7 +4053,7 @@ _ZN2cv7normL1_IsiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL1_32sEPKiPKhPdii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL1_32sEPKiPKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load double, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %18, label %.preheader25.i
@@ -4133,7 +4133,7 @@ _ZN2cv7normL1_IidEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL1_64fEPKdPKhPdii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL1_64fEPKdPKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load double, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader25.i
@@ -4211,7 +4211,7 @@ _ZN2cv7normL1_IddEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL9normL2_8uEPKhS1_Piii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL9normL2_8uEPKhS1_Piii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %18, label %.preheader27.i
@@ -4291,7 +4291,7 @@ _ZN2cv7normL2_IhiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL9normL2_8sEPKaPKhPiii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL9normL2_8sEPKaPKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load i32, ptr %2, align 4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %18, label %.preheader27.i
@@ -4371,7 +4371,7 @@ _ZN2cv7normL2_IaiEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL2_16uEPKtPKhPdii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL2_16uEPKtPKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load double, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader27.i
@@ -4449,7 +4449,7 @@ _ZN2cv7normL2_ItdEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL2_16sEPKsPKhPdii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL2_16sEPKsPKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load double, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader27.i
@@ -4527,7 +4527,7 @@ _ZN2cv7normL2_IsdEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL2_32sEPKiPKhPdii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL2_32sEPKiPKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load double, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %17, label %.preheader27.i
@@ -4605,7 +4605,7 @@ _ZN2cv7normL2_IidEEiPKT_PKhPT0_ii.exit:           ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL10normL2_64fEPKdPKhPdii(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #6 {
+define internal noundef i32 @_ZN2cvL10normL2_64fEPKdPKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #6 {
   %6 = load double, ptr %2, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %16, label %.preheader27.i
@@ -4698,7 +4698,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffInf_8uEPKhS1_S1_Piii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %23, label %.preheader39.i
@@ -4788,7 +4788,7 @@ _ZN2cv12normDiffInf_IhiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffInf_8sEPKaS1_PKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %23, label %.preheader39.i
@@ -4878,7 +4878,7 @@ _ZN2cv12normDiffInf_IaiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL15normDiffInf_16uEPKtS1_PKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %23, label %.preheader39.i
@@ -4968,7 +4968,7 @@ _ZN2cv12normDiffInf_ItiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL15normDiffInf_16sEPKsS1_PKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %23, label %.preheader39.i
@@ -5058,7 +5058,7 @@ _ZN2cv12normDiffInf_IsiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL15normDiffInf_32sEPKiS1_PKhPiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL15normDiffInf_32sEPKiS1_PKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %21, label %.preheader39.i
@@ -5144,7 +5144,7 @@ _ZN2cv12normDiffInf_IiiEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL15normDiffInf_64fEPKdS1_PKhPdii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL15normDiffInf_64fEPKdS1_PKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load double, ptr %3, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %22, label %.preheader35.i
@@ -5233,7 +5233,7 @@ _ZN2cv12normDiffInf_IddEEiPKT_S3_PKhPT0_ii.exit:  ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL13normDiffL1_8uEPKhS1_S1_Piii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL13normDiffL1_8uEPKhS1_S1_Piii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %24, label %.preheader31.i
@@ -5323,7 +5323,7 @@ _ZN2cv11normDiffL1_IhiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL13normDiffL1_8sEPKaS1_PKhPiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL13normDiffL1_8sEPKaS1_PKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %24, label %.preheader31.i
@@ -5413,7 +5413,7 @@ _ZN2cv11normDiffL1_IaiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL1_16uEPKtS1_PKhPiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL1_16uEPKtS1_PKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %24, label %.preheader31.i
@@ -5503,7 +5503,7 @@ _ZN2cv11normDiffL1_ItiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL1_16sEPKsS1_PKhPiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL1_16sEPKsS1_PKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %24, label %.preheader31.i
@@ -5593,7 +5593,7 @@ _ZN2cv11normDiffL1_IsiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL1_32sEPKiS1_PKhPdii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL1_32sEPKiS1_PKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load double, ptr %3, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %23, label %.preheader31.i
@@ -5681,7 +5681,7 @@ _ZN2cv11normDiffL1_IidEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL1_64fEPKdS1_PKhPdii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL1_64fEPKdS1_PKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load double, ptr %3, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %22, label %.preheader31.i
@@ -5767,7 +5767,7 @@ _ZN2cv11normDiffL1_IddEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL13normDiffL2_8uEPKhS1_S1_Piii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL13normDiffL2_8uEPKhS1_S1_Piii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %24, label %.preheader33.i
@@ -5857,7 +5857,7 @@ _ZN2cv11normDiffL2_IhiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL13normDiffL2_8sEPKaS1_PKhPiii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL13normDiffL2_8sEPKaS1_PKhPiii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %24, label %.preheader33.i
@@ -5947,7 +5947,7 @@ _ZN2cv11normDiffL2_IaiEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL2_16uEPKtS1_PKhPdii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL2_16uEPKtS1_PKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load double, ptr %3, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %24, label %.preheader33.i
@@ -6037,7 +6037,7 @@ _ZN2cv11normDiffL2_ItdEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL2_16sEPKsS1_PKhPdii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL2_16sEPKsS1_PKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load double, ptr %3, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %24, label %.preheader33.i
@@ -6127,7 +6127,7 @@ _ZN2cv11normDiffL2_IsdEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL2_32sEPKiS1_PKhPdii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL2_32sEPKiS1_PKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load double, ptr %3, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %22, label %.preheader33.i
@@ -6213,7 +6213,7 @@ _ZN2cv11normDiffL2_IidEEiPKT_S3_PKhPT0_ii.exit:   ; preds = %..loopexit_crit_edg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cvL14normDiffL2_64fEPKdS1_PKhPdii(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5) #6 {
+define internal noundef i32 @_ZN2cvL14normDiffL2_64fEPKdS1_PKhPdii(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) #6 {
   %7 = load double, ptr %3, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %21, label %.preheader33.i

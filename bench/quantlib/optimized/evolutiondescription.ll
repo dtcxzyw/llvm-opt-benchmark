@@ -53,7 +53,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib20EvolutionDescriptionC1ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib20EvolutionDescriptionC2ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20EvolutionDescriptionC2ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %evolutionTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %relevanceRates) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20EvolutionDescriptionC2ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rateTimes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %evolutionTimes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %relevanceRates) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp70 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -988,12 +988,12 @@ unreachable:                                      ; preds = %invoke.cont142, %in
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @_ZN8QuantLib36checkIncreasingTimesAndCalculateTausERKSt6vectorIdSaIdEERS2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
@@ -1154,14 +1154,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib20EvolutionDescription13numberOfRatesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #7 align 2 {
+define noundef i64 @_ZNK8QuantLib20EvolutionDescription13numberOfRatesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !7
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK8QuantLib20EvolutionDescription13numberOfStepsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK8QuantLib20EvolutionDescription13numberOfStepsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this) local_unnamed_addr #7 align 2 {
 entry:
   %evolutionTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1175,7 +1175,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18checkCompatibilityERKNS_20EvolutionDescriptionERKSt6vectorImSaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %evolution, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %numeraires) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18checkCompatibilityERKNS_20EvolutionDescriptionERKSt6vectorImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %evolution, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %numeraires) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1626,7 +1626,7 @@ unreachable:                                      ; preds = %invoke.cont83, %inv
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib6detaillsERSoRKNS0_14ordinal_holderE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN8QuantLib19isInTerminalMeasureERKNS_20EvolutionDescriptionERKSt6vectorImSaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %evolution, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %numeraires) local_unnamed_addr #8 {
+define noundef zeroext i1 @_ZN8QuantLib19isInTerminalMeasureERKNS_20EvolutionDescriptionERKSt6vectorImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %evolution, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %numeraires) local_unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %numeraires, align 8, !tbaa !3
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %numeraires, i64 8
@@ -1670,7 +1670,7 @@ _ZSt11min_elementIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEET_S8_S8_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib26isInMoneyMarketPlusMeasureERKNS_20EvolutionDescriptionERKSt6vectorImSaImEEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %evolution, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %numeraires, i64 noundef %offset) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8QuantLib26isInMoneyMarketPlusMeasureERKNS_20EvolutionDescriptionERKSt6vectorImSaImEEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %evolution, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %numeraires, i64 noundef %offset) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1915,14 +1915,14 @@ unreachable:                                      ; preds = %invoke.cont22
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8QuantLib22isInMoneyMarketMeasureERKNS_20EvolutionDescriptionERKSt6vectorImSaImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %evolution, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %numeraires) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN8QuantLib22isInMoneyMarketMeasureERKNS_20EvolutionDescriptionERKSt6vectorImSaImEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %evolution, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %numeraires) local_unnamed_addr #0 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN8QuantLib26isInMoneyMarketPlusMeasureERKNS_20EvolutionDescriptionERKSt6vectorImSaImEEm(ptr noundef nonnull align 8 dereferenceable(128) %evolution, ptr noundef nonnull align 8 dereferenceable(24) %numeraires, i64 noundef 0)
   ret i1 %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15terminalMeasureERKNS_20EvolutionDescriptionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.5") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %evolution) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15terminalMeasureERKNS_20EvolutionDescriptionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.5") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %evolution) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %evolutionTimes_.i = getelementptr inbounds nuw i8, ptr %evolution, i64 32
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %evolution, i64 40
@@ -1978,7 +1978,7 @@ invoke.cont:                                      ; preds = %for.body.i.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22moneyMarketPlusMeasureERKNS_20EvolutionDescriptionEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.5") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %ev, i64 noundef %offset) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22moneyMarketPlusMeasureERKNS_20EvolutionDescriptionEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.5") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %ev, i64 noundef %offset) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2249,7 +2249,7 @@ unreachable:                                      ; preds = %invoke.cont22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18moneyMarketMeasureERKNS_20EvolutionDescriptionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.5") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %evol) local_unnamed_addr #0 {
+define void @_ZN8QuantLib18moneyMarketMeasureERKNS_20EvolutionDescriptionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.5") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %evol) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8QuantLib22moneyMarketPlusMeasureERKNS_20EvolutionDescriptionEm(ptr dead_on_unwind writable sret(%"class.std::vector.5") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %evol, i64 noundef 0)
   ret void
@@ -2271,7 +2271,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
@@ -2280,7 +2280,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
@@ -2297,7 +2297,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
@@ -2306,7 +2306,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #19

@@ -36,7 +36,7 @@ define internal i32 @pnp_system_init() #0 section ".init.text" align 16 {
 declare dso_local i32 @pnp_register_driver(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @system_pnp_probe(ptr noundef %0, ptr nocapture readnone %1) #2 align 16 {
+define internal noundef i32 @system_pnp_probe(ptr noundef %0, ptr readnone captures(none) %1) #2 align 16 {
   %3 = tail call ptr @pnp_get_resource(ptr noundef %0, i64 noundef 256, i32 noundef 0) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit6, label %.preheader5
@@ -154,7 +154,7 @@ define internal fastcc void @reserve_range(ptr noundef %0, ptr noundef nonnull %
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @__request_region(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

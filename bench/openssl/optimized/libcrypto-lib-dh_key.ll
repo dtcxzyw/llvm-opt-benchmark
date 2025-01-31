@@ -263,10 +263,10 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 268435456) i32 @DH_compute_key_padded(ptr noundef %key, ptr noundef %pub_key, ptr noundef %dh) local_unnamed_addr #0 {
@@ -807,14 +807,14 @@ return:                                           ; preds = %if.end142, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dh_bn_mod_exp(ptr nocapture readnone %dh, ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %m, ptr noundef %ctx, ptr noundef %m_ctx) #0 {
+define internal i32 @dh_bn_mod_exp(ptr readnone captures(none) %dh, ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %m, ptr noundef %ctx, ptr noundef %m_ctx) #0 {
 entry:
   %call = tail call i32 @BN_mod_exp_mont(ptr noundef %r, ptr noundef %a, ptr noundef %p, ptr noundef %m, ptr noundef %ctx, ptr noundef %m_ctx) #8
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @dh_init(ptr nocapture noundef %dh) #7 {
+define internal noundef i32 @dh_init(ptr noundef captures(none) %dh) #7 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %dh, i64 128
   %0 = load i32, ptr %flags, align 8
@@ -828,7 +828,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dh_finish(ptr nocapture noundef readonly %dh) #0 {
+define internal noundef i32 @dh_finish(ptr noundef readonly captures(none) %dh) #0 {
 entry:
   %method_mont_p = getelementptr inbounds nuw i8, ptr %dh, i64 136
   %0 = load ptr, ptr %method_mont_p, align 8

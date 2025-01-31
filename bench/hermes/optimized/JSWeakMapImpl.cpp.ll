@@ -73,7 +73,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm17JSWeakMapImplBase13_markWeakImplEPNS0_6GCCellERNS0_15WeakRefAcceptorE(ptr nocapture noundef %cell, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) #0 align 2 {
+define hidden void @_ZN6hermes2vm17JSWeakMapImplBase13_markWeakImplEPNS0_6GCCellERNS0_15WeakRefAcceptorE(ptr noundef captures(none) %cell, ptr noundef nonnull align 8 dereferenceable(8) %acceptor) #0 align 2 {
 entry:
   %map_ = getelementptr inbounds nuw i8, ptr %cell, i64 24
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %cell, i64 32
@@ -343,7 +343,7 @@ _ZN6hermes2vm17JSWeakMapImplBaseC2ERNS0_7RuntimeENS0_6HandleINS0_8JSObjectEEENS4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr hidden noundef i32 @_ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE52EE11getCellKindEv() local_unnamed_addr #0 comdat align 2 {
@@ -491,7 +491,7 @@ declare void @_ZN6hermes2vm17JSObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7Buil
 declare void @_ZN6hermes2vm8Metadata7Builder8addFieldEPKcPKNS0_13GCPointerBaseE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm17JSWeakMapImplBase8setValueENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEENS2_INS0_11HermesValueEEE(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce, ptr nocapture readonly %value.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm17JSWeakMapImplBase8setValueENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEENS2_INS0_11HermesValueEEE(ptr readonly captures(none) %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce, ptr readonly captures(none) %value.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %i = alloca i32, align 4
   %mapKey39 = alloca %"struct.hermes::vm::detail::WeakRefKey", align 8
@@ -740,7 +740,7 @@ return:                                           ; preds = %if.end, %_ZN6hermes
 declare noundef i64 @_ZN6hermes2vm7Runtime23gcStableHashHermesValueENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes2vm17JSWeakMapImplBase24getFreeValueStorageIndexENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZN6hermes2vm17JSWeakMapImplBase24getFreeValueStorageIndexENS0_6HandleIS1_EERNS0_7RuntimeE(ptr readonly captures(none) %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %storageHandle = alloca %"class.hermes::vm::MutableHandle", align 8
@@ -1093,7 +1093,7 @@ return:                                           ; preds = %if.end13.i.i, %_ZN6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm17JSWeakMapImplBase11deleteValueENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes2vm17JSWeakMapImplBase11deleteValueENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr readonly captures(none) %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %weakRefMutex_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1288
@@ -1280,7 +1280,7 @@ cleanup:                                          ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE(ptr nocapture noundef nonnull align 8 dereferenceable(61) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture initializes((0, 12)) %it.coerce0, ptr nocapture readnone %it.coerce1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm17JSWeakMapImplBase14deleteInternalERNS0_7RuntimeEN4llvh16DenseMapIteratorINS0_6detail10WeakRefKeyEjNS6_11WeakRefInfoENS4_6detail12DenseMapPairIS7_jEELb0EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(61) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr captures(none) initializes((0, 12)) %it.coerce0, ptr readnone captures(none) %it.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %valueStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %agg.tmp.sroa.0.0.copyload.i.i = load i32, ptr %valueStorage_, align 8
@@ -1359,7 +1359,7 @@ _ZN6hermes2vm18SegmentedArrayBaseINS0_11HermesValueEE9setNonPtrILNS3_6InlineE0EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm17JSWeakMapImplBase16clearEntryDirectERNS0_7HadesGCERKNS0_6detail10WeakRefKeyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(61) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %gc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %key) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes2vm17JSWeakMapImplBase16clearEntryDirectERNS0_7HadesGCERKNS0_6detail10WeakRefKeyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(61) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %gc, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %key) local_unnamed_addr #3 align 2 {
 entry:
   %map_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %map_, align 8
@@ -1495,7 +1495,7 @@ return:                                           ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6hermes2vm17JSWeakMapImplBase14getValueDirectERNS0_7HadesGCERKNS0_6detail10WeakRefKeyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(61) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %gc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %key) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN6hermes2vm17JSWeakMapImplBase14getValueDirectERNS0_7HadesGCERKNS0_6detail10WeakRefKeyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(61) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %gc, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %key) local_unnamed_addr #4 align 2 {
 entry:
   %map_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %map_, align 8
@@ -1625,14 +1625,14 @@ return:                                           ; preds = %if.else.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN6hermes2vm17JSWeakMapImplBase18getValueStorageRefERNS0_7HadesGCE(ptr noundef nonnull readnone align 8 dereferenceable(61) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8152) %gc) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN6hermes2vm17JSWeakMapImplBase18getValueStorageRefERNS0_7HadesGCE(ptr noundef nonnull readnone align 8 dereferenceable(61) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8152) %gc) local_unnamed_addr #5 align 2 {
 entry:
   %valueStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %valueStorage_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes2vm17JSWeakMapImplBase8hasValueENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes2vm17JSWeakMapImplBase8hasValueENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr readonly captures(none) %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %key.coerce, align 8
@@ -1731,7 +1731,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i64 @_ZN6hermes2vm17JSWeakMapImplBase8getValueENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr nocapture readonly %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce) local_unnamed_addr #0 align 2 {
+define hidden i64 @_ZN6hermes2vm17JSWeakMapImplBase8getValueENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_8JSObjectEEE(ptr readonly captures(none) %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %key.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %heapStorage_.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %retval.sroa.0.0.copyload.i.i.i.i = load i64, ptr %key.coerce, align 8
@@ -1871,7 +1871,7 @@ return:                                           ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes2vm17JSWeakMapImplBase24debugFreeSlotsAndGetSizeERNS0_7RuntimeEPS1_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture noundef %self) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN6hermes2vm17JSWeakMapImplBase24debugFreeSlotsAndGetSizeERNS0_7RuntimeEPS1_(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef captures(none) %self) local_unnamed_addr #0 align 2 {
 entry:
   %hasFreeableSlots_ = getelementptr inbounds nuw i8, ptr %self, i64 60
   %0 = load i8, ptr %hasFreeableSlots_, align 4
@@ -1889,7 +1889,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm17JSWeakMapImplBase22findAndDeleteFreeSlotsERNS0_7RuntimeE(ptr nocapture noundef nonnull align 8 dereferenceable(61) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm17JSWeakMapImplBase22findAndDeleteFreeSlotsERNS0_7RuntimeE(ptr noundef nonnull align 8 captures(none) dereferenceable(61) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #0 align 2 {
 entry:
   %heapStorage_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   %weakRefMutex_.i = getelementptr inbounds nuw i8, ptr %runtime, i64 1288
@@ -2050,7 +2050,7 @@ for.end:                                          ; preds = %while.body.i6.i12.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden { ptr, ptr } @_ZN6hermes2vm17JSWeakMapImplBase10keys_beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(61) %this) local_unnamed_addr #4 align 2 {
+define hidden { ptr, ptr } @_ZN6hermes2vm17JSWeakMapImplBase10keys_beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(61) %this) local_unnamed_addr #4 align 2 {
 entry:
   %map_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %NumEntries.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -2086,7 +2086,7 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIN6hermes2vm6detail10WeakRefKeyEjNS4_11WeakRe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden { ptr, ptr } @_ZN6hermes2vm17JSWeakMapImplBase8keys_endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(61) %this) local_unnamed_addr #6 align 2 {
+define hidden { ptr, ptr } @_ZN6hermes2vm17JSWeakMapImplBase8keys_endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(61) %this) local_unnamed_addr #6 align 2 {
 entry:
   %map_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %map_, align 8
@@ -2100,7 +2100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK6hermes2vm6detail10WeakRefKey13getObjectInGCERNS0_7HadesGCE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8152) %gc) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZNK6hermes2vm6detail10WeakRefKey13getObjectInGCERNS0_7HadesGCE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8152) %gc) local_unnamed_addr #4 align 2 {
 entry:
   %pointerBase_.i = getelementptr inbounds nuw i8, ptr %gc, i64 40
   %0 = load ptr, ptr %pointerBase_.i, align 8
@@ -2217,7 +2217,7 @@ _ZN6hermes2vm13JSWeakMapImplILNS0_8CellKindE52EE21WeakMapOrSetBuildMetaEPKNS0_6G
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
@@ -2730,7 +2730,7 @@ declare noundef ptr @_ZN6hermes2vm7HadesGC9allocSlowEj(ptr noundef nonnull align
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

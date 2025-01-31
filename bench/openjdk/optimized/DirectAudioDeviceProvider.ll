@@ -33,7 +33,7 @@ define hidden noundef i32 @getDirectAudioDeviceDescription(i32 noundef %0, ptr n
 declare i32 @DAUDIO_GetDirectAudioDeviceDescription(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_com_sun_media_sound_DirectAudioDeviceProvider_nGetNumDevices(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i32 @Java_com_sun_media_sound_DirectAudioDeviceProvider_nGetNumDevices(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (...) @DAUDIO_GetDirectAudioDeviceCount() #3
   ret i32 %3
 }
@@ -41,7 +41,7 @@ define i32 @Java_com_sun_media_sound_DirectAudioDeviceProvider_nGetNumDevices(pt
 declare i32 @DAUDIO_GetDirectAudioDeviceCount(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_com_sun_media_sound_DirectAudioDeviceProvider_nNewDirectAudioDeviceInfo(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Java_com_sun_media_sound_DirectAudioDeviceProvider_nNewDirectAudioDeviceInfo(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tag_DirectAudioDeviceDescription, align 4
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
@@ -117,7 +117,7 @@ define ptr @Java_com_sun_media_sound_DirectAudioDeviceProvider_nNewDirectAudioDe
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

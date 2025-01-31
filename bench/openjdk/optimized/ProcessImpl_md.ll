@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [53 x i8] c"Failed to exec spawn helper: pid: %d, status: 0x%08x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_ProcessImpl_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_java_lang_ProcessImpl_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.sigaction, align 8
   %4 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #13
   %.not.i.i = icmp eq ptr %4, null
@@ -121,7 +121,7 @@ setSIGCHLDHandler.exit:                           ; preds = %29, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_java_lang_ProcessImpl_forkAndExec(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, i8 noundef zeroext %11) local_unnamed_addr #0 {
+define i32 @Java_java_lang_ProcessImpl_forkAndExec(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, i8 noundef zeroext %11) local_unnamed_addr #0 {
   %13 = alloca i32, align 4
   %14 = alloca [2 x i32], align 4
   %15 = alloca [2 x i32], align 4
@@ -605,7 +605,7 @@ xmalloc.exit.thread:                              ; preds = %7
   br label %22
 
 xmalloc.exit:                                     ; preds = %7
-  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull @.str.12, i32 noundef %1, ptr noundef %.0) #13
+  %12 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull @.str.12, i32 noundef %1, ptr noundef nonnull %.0) #13
   %13 = call ptr @JNU_NewStringPlatform(ptr noundef %0, ptr noundef nonnull %10) #13
   %.not26 = icmp eq ptr %13, null
   br i1 %.not26, label %21, label %14
@@ -1090,19 +1090,19 @@ define internal fastcc void @throwExitCause(ptr noundef %0, i32 noundef %1, i32 
 declare i32 @closeSafely(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #7
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare i32 @sigemptyset(ptr noundef) local_unnamed_addr #3
@@ -1120,7 +1120,7 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @getErrorString(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare ptr @JNU_NewStringPlatform(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1161,13 +1161,13 @@ declare i32 @magicNumber(...) local_unnamed_addr #2
 declare i64 @writeFully(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -23,7 +23,7 @@ define void @Init_utf_32le() local_unnamed_addr #0 {
 declare i32 @rb_enc_register(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -2147483648, 2147483643) i32 @utf32le_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 -2147483648, 2147483643) i32 @utf32le_mbc_enc_len(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #2 {
   %4 = icmp ult ptr %1, %0
   br i1 %4, label %23, label %5
 
@@ -61,7 +61,7 @@ define internal range(i32 -2147483648, 2147483643) i32 @utf32le_mbc_enc_len(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @utf32le_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 0, 2) i32 @utf32le_is_mbc_newline(ptr noundef readonly %0, ptr noundef readnone %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %5 = icmp ult ptr %4, %1
   br i1 %5, label %6, label %20
@@ -97,7 +97,7 @@ define internal range(i32 0, 2) i32 @utf32le_is_mbc_newline(ptr noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, -2147483648) i32 @utf32le_mbc_to_code(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal range(i32 0, -2147483648) i32 @utf32le_mbc_to_code(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   %4 = getelementptr i8, ptr %0, i64 2
   %5 = load i16, ptr %4, align 1
   %6 = zext i16 %5 to i32
@@ -114,12 +114,12 @@ define internal range(i32 0, -2147483648) i32 @utf32le_mbc_to_code(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @utf32le_code_to_mbclen(i32 %0, ptr nocapture readnone %1) #3 {
+define internal noundef i32 @utf32le_code_to_mbclen(i32 %0, ptr readnone captures(none) %1) #3 {
   ret i32 4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @utf32le_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture readnone %2) #4 {
+define internal noundef i32 @utf32le_code_to_mbc(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr readnone captures(none) %2) #4 {
   %4 = trunc i32 %0 to i8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %4, ptr %1, align 1
@@ -202,7 +202,7 @@ declare i32 @onigenc_unicode_is_code_ctype(i32 noundef, i32 noundef, ptr noundef
 declare i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal ptr @utf32le_left_adjust_char_head(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #3 {
+define internal ptr @utf32le_left_adjust_char_head(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #3 {
   %.not = icmp ugt ptr %1, %0
   br i1 %.not, label %5, label %12
 

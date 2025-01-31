@@ -57,7 +57,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @qnull_ = external global %struct.QNull, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noalias noundef ptr @json_token(i32 noundef %type, i32 noundef %x, i32 noundef %y, ptr nocapture noundef readonly %tokstr) local_unnamed_addr #0 {
+define dso_local noalias noundef ptr @json_token(i32 noundef %type, i32 noundef %x, i32 noundef %y, ptr noundef readonly captures(none) %tokstr) local_unnamed_addr #0 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %tokstr, i64 8
   %0 = load i64, ptr %len, align 8
@@ -81,7 +81,7 @@ entry:
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @json_parser_parse(ptr noundef %tokens, ptr noundef %ap, ptr noundef %errp) local_unnamed_addr #0 {
@@ -1305,7 +1305,7 @@ if.else47.i:                                      ; preds = %if.then26.i
 
 sw.bb50.i:                                        ; preds = %if.then26.i, %if.end22.i61, %if.end.i58
   %str51.i = getelementptr inbounds nuw i8, ptr %call.i.i56, i64 12
-  %call53.i = call double @strtod(ptr nocapture noundef nonnull %str51.i, ptr noundef null) #14
+  %call53.i = call double @strtod(ptr noundef nonnull captures(none) %str51.i, ptr noundef null) #14
   %call54.i = call ptr @qnum_from_double(double noundef %call53.i) #14
   br label %parse_literal.exit
 
@@ -1389,7 +1389,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parser_context_pop_token(ptr nocapture noundef nonnull %ctxt) unnamed_addr #0 {
+define internal fastcc ptr @parser_context_pop_token(ptr noundef nonnull captures(none) %ctxt) unnamed_addr #0 {
 entry:
   %current = getelementptr inbounds nuw i8, ptr %ctxt, i64 8
   %0 = load ptr, ptr %current, align 8
@@ -1404,7 +1404,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parse_error(ptr noundef nonnull %ctxt, ptr nocapture readnone %token, ptr nocapture noundef readonly %msg, ...) unnamed_addr #0 {
+define internal void @parse_error(ptr noundef nonnull %ctxt, ptr readnone captures(none) %token, ptr noundef readonly captures(none) %msg, ...) unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %message = alloca [1024 x i8], align 16
@@ -1426,7 +1426,7 @@ return:                                           ; preds = %entry, %if.end
 declare ptr @g_queue_peek_head(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -1556,7 +1556,7 @@ declare ptr @qlist_new() local_unnamed_addr #3
 declare void @qlist_append_obj(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @qbool_from_bool(i1 noundef zeroext) local_unnamed_addr #3
 
@@ -1573,7 +1573,7 @@ declare i32 @qemu_strtoi64(ptr noundef, ptr noundef, i32 noundef, ptr noundef) l
 declare i32 @qemu_strtou64(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #8
@@ -1604,13 +1604,13 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

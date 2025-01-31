@@ -1406,7 +1406,7 @@ declare void @ScaleSlope(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ScaleAddCols2_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #3 {
+define internal void @ScaleAddCols2_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #3 {
   %7 = alloca [2 x i32], align 4
   %8 = ashr i32 %3, 16
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
@@ -1466,7 +1466,7 @@ SumPixels.exit:                                   ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ScaleAddCols1_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #3 {
+define internal void @ScaleAddCols1_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #3 {
   %7 = ashr i32 %3, 16
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   %9 = mul nsw i32 %8, %1
@@ -1514,7 +1514,7 @@ SumPixels.exit:                                   ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ScaleAddCols0_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #3 {
+define internal void @ScaleAddCols0_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #3 {
   %7 = sdiv i32 65536, %1
   %8 = ashr i32 %2, 16
   %9 = sext i32 %8 to i64
@@ -1548,10 +1548,10 @@ define internal void @ScaleAddCols0_C(i32 noundef %0, i32 noundef %1, i32 nounde
 declare void @ScaleAddRow_C(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @ScaleRowUp2_Linear_Any_C(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1568,7 +1568,7 @@ declare void @ScaleFilterCols64_C(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare void @ScaleColsUp2_C(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ScaleAddCols2_16_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #3 {
+define internal void @ScaleAddCols2_16_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #3 {
   %7 = alloca [2 x i32], align 4
   %8 = ashr i32 %3, 16
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 1)
@@ -1627,7 +1627,7 @@ SumPixels_16.exit:                                ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ScaleAddCols1_16_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #3 {
+define internal void @ScaleAddCols1_16_C(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #3 {
   %7 = ashr i32 %3, 16
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 1)
   %9 = mul nsw i32 %8, %1
@@ -1698,10 +1698,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #6
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

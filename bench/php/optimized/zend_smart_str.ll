@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @smart_str_erealloc(ptr nocapture noundef initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @smart_str_erealloc(ptr noundef captures(none) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   %4 = add i64 %1, 4120
@@ -77,7 +77,7 @@ define void @smart_str_erealloc(ptr nocapture noundef initializes((8, 16)) %0, i
 declare ptr @_erealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @smart_str_realloc(ptr nocapture noundef initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @smart_str_realloc(ptr noundef captures(none) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   %4 = add i64 %1, 4120
@@ -116,7 +116,7 @@ define void @smart_str_realloc(ptr nocapture noundef initializes((8, 16)) %0, i6
 declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @smart_str_append_escaped(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @smart_str_append_escaped(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq i64 %2, 0
   br i1 %.not.i, label %zend_compute_escaped_string_len.exit, label %.lr.ph.i
 
@@ -306,7 +306,7 @@ smart_str_erealloc.exit:                          ; preds = %32, %20, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define void @smart_str_append_double(ptr nocapture noundef %0, double noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define void @smart_str_append_double(ptr noundef captures(none) %0, double noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca [1077 x i8], align 16
   %6 = tail call i32 @llvm.umax.i32(i32 %2, i32 1)
   %7 = call ptr @zend_gcvt(double noundef %1, i32 noundef %6, i8 noundef signext 46, i8 noundef signext 69, ptr noundef nonnull %5) #12
@@ -451,7 +451,7 @@ define void @smart_str_append_printf(ptr noundef %0, ptr noundef %1, ...) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_smart_string_alloc_persistent(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @_smart_string_alloc_persistent(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -501,7 +501,7 @@ declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #4
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @_smart_string_alloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @_smart_string_alloc(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -570,7 +570,7 @@ declare noalias ptr @_emalloc_large(i64 noundef) local_unnamed_addr #4
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @smart_str_append_escaped_truncated(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @smart_str_append_escaped_truncated(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8
@@ -638,7 +638,7 @@ smart_str_erealloc.exit:                          ; preds = %23, %17, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @smart_str_append_scalar(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @smart_str_append_scalar(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [32 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 8
@@ -1047,10 +1047,10 @@ smart_str_erealloc.exit195:                       ; preds = %197, %191, %185
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #7
@@ -1065,7 +1065,7 @@ declare i32 @llvm.umax.i32(i32, i32) #8
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

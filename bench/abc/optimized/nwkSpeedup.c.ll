@@ -127,7 +127,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ManSpeedupNode(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define void @Aig_ManSpeedupNode(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca [32 x ptr], align 16
   %7 = getelementptr i8, ptr %3, i64 4
   %.val113 = load i32, ptr %7, align 4
@@ -360,7 +360,7 @@ Aig_ObjChild0Copy.exit:                           ; preds = %.lr.ph155, %96
 
 Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit, %108
   %116 = phi ptr [ %115, %108 ], [ null, %Aig_ObjChild0Copy.exit ]
-  %117 = tail call ptr @Aig_And(ptr noundef %1, ptr noundef %104, ptr noundef %116) #12
+  %117 = tail call ptr @Aig_And(ptr noundef nonnull %1, ptr noundef %104, ptr noundef %116) #12
   %118 = getelementptr inbounds nuw i8, ptr %92, i64 40
   store ptr %117, ptr %118, align 8
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
@@ -433,7 +433,7 @@ Vec_PtrFree.exit137:                              ; preds = %._crit_edge, %133
   %152 = load ptr, ptr %151, align 8
   %153 = getelementptr inbounds [32 x ptr], ptr %6, i64 0, i64 %indvars.iv190
   %154 = load ptr, ptr %153, align 16
-  %155 = tail call ptr @Aig_Mux(ptr noundef %1, ptr noundef %149, ptr noundef %152, ptr noundef %154) #12
+  %155 = tail call ptr @Aig_Mux(ptr noundef nonnull %1, ptr noundef %149, ptr noundef %152, ptr noundef %154) #12
   store ptr %155, ptr %153, align 16
   %indvars.iv.next191 = add nsw i64 %indvars.iv190, %143
   %156 = icmp slt i64 %indvars.iv.next191, %136
@@ -505,7 +505,7 @@ declare ptr @Aig_Mux(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @Aig_ObjCheckTfi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Nwk_ManDelayTraceTCEdges(ptr nocapture noundef readonly %0, ptr noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Nwk_ManDelayTraceTCEdges(ptr noundef readonly captures(none) %0, ptr noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [32 x i32], align 16
   %6 = alloca [32 x float], align 16
   %.not = icmp eq i32 %3, 0
@@ -865,7 +865,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 .critedge2:                                       ; preds = %109, %.preheader386
   %.0236.lcssa = phi i32 [ 0, %.preheader386 ], [ %.3239, %109 ]
   %.0234.lcssa = phi i32 [ 0, %.preheader386 ], [ %.1235, %109 ]
-  %110 = tail call i32 @Nwk_ManGetTotalFanins(ptr noundef %0) #12
+  %110 = tail call i32 @Nwk_ManGetTotalFanins(ptr noundef nonnull %0) #12
   %.not269 = icmp eq i32 %.0236.lcssa, 0
   %111 = sitofp i32 %.0234.lcssa to double
   %112 = sitofp i32 %.0236.lcssa to double
@@ -875,7 +875,7 @@ define ptr @Nwk_ManSpeedup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 n
   br label %116
 
 116:                                              ; preds = %.critedge2, %.critedge
-  %117 = tail call ptr @Nwk_ManStrash(ptr noundef %0) #12
+  %117 = tail call ptr @Nwk_ManStrash(ptr noundef nonnull %0) #12
   %118 = getelementptr i8, ptr %117, i64 32
   %.val339 = load ptr, ptr %118, align 8
   %119 = getelementptr i8, ptr %.val339, i64 4
@@ -1426,7 +1426,7 @@ Vec_PtrPushUnique.exit364:                        ; preds = %278, %Vec_PtrPush.e
   br label %.thread
 
 .thread:                                          ; preds = %343, %363, %367, %353
-  tail call void @Aig_ManSpeedupNode(ptr poison, ptr noundef %117, ptr noundef nonnull %143, ptr noundef nonnull %131, ptr noundef nonnull %127)
+  tail call void @Aig_ManSpeedupNode(ptr nonnull poison, ptr noundef %117, ptr noundef nonnull %143, ptr noundef nonnull %131, ptr noundef nonnull %127)
   br label %.critedge11.thread
 
 .critedge11.thread:                               ; preds = %.preheader383, %173, %.thread, %145, %139, %340, %.critedge11, %.critedge8, %148
@@ -1579,20 +1579,20 @@ declare ptr @Tim_ManDup(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare float @Nwk_ManDelayTraceLut(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @Nwk_ManGetTotalFanins(ptr noundef) local_unnamed_addr #1
 
 declare ptr @Nwk_ManStrash(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_PtrPushUnique(ptr nocapture noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @Vec_PtrPushUnique(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -1688,7 +1688,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @Tim_ManStop(ptr noundef) local_unnamed_addr #1
 
@@ -1699,7 +1699,7 @@ declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #1
 declare i32 @Aig_ManChoiceLevel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7

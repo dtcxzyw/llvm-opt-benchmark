@@ -266,7 +266,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN6icu_7515MaybeStackArrayIcLi40EE17resetToStackArrayEv(ptr noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #0 comdat align 2 {
@@ -538,7 +538,7 @@ entry:
 declare void @_ZN6icu_7517CollationIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(389)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7522UIterCollationIterator9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7522UIterCollationIterator9getOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) unnamed_addr #1 align 2 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 392
   %0 = load ptr, ptr %iter, align 8
@@ -549,7 +549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522UIterCollationIterator14handleNextCE32ERiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %c, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7522UIterCollationIterator14handleNextCE32ERiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %c, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 392
   %1 = load ptr, ptr %iter, align 8
@@ -585,7 +585,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZN6icu_7522UIterCollationIterator23handleGetTrailSurrogateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) unnamed_addr #1 align 2 {
+define noundef zeroext i16 @_ZN6icu_7522UIterCollationIterator23handleGetTrailSurrogateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this) unnamed_addr #1 align 2 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 392
   %0 = load ptr, ptr %iter, align 8
@@ -611,7 +611,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522UIterCollationIterator13nextCodePointER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7522UIterCollationIterator13nextCodePointER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 392
   %1 = load ptr, ptr %iter, align 8
@@ -622,7 +622,7 @@ entry:
 declare i32 @uiter_next32_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522UIterCollationIterator17previousCodePointER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7522UIterCollationIterator17previousCodePointER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 392
   %1 = load ptr, ptr %iter, align 8
@@ -633,7 +633,7 @@ entry:
 declare i32 @uiter_previous32_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522UIterCollationIterator20forwardNumCodePointsEiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this, i32 noundef %num, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7522UIterCollationIterator20forwardNumCodePointsEiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, i32 noundef %num, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 392
   %cmp3 = icmp sgt i32 %num, 0
@@ -654,7 +654,7 @@ while.end:                                        ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522UIterCollationIterator21backwardNumCodePointsEiR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this, i32 noundef %num, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7522UIterCollationIterator21backwardNumCodePointsEiR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(400) %this, i32 noundef %num, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #1 align 2 {
 entry:
   %iter = getelementptr inbounds nuw i8, ptr %this, i64 392
   %cmp3 = icmp sgt i32 %num, 0
@@ -712,7 +712,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7525FCDUIterCollationIterator9getOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(488) %this) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7525FCDUIterCollationIterator9getOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(488) %this) unnamed_addr #1 align 2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load i32, ptr %state, align 8
@@ -753,7 +753,7 @@ return:                                           ; preds = %if.else, %if.else10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7525FCDUIterCollationIterator14handleNextCE32ERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7525FCDUIterCollationIterator14handleNextCE32ERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %this, i64 400
   %pos = getelementptr inbounds nuw i8, ptr %this, i64 408
@@ -1219,7 +1219,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525FCDUIterCollationIterator15switchToForwardEv(ptr nocapture noundef nonnull align 8 dereferenceable(488) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7525FCDUIterCollationIterator15switchToForwardEv(ptr noundef nonnull align 8 captures(none) dereferenceable(488) %this) local_unnamed_addr #1 align 2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load i32, ptr %state, align 8
@@ -1272,7 +1272,7 @@ if.end26:                                         ; preds = %if.end21, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i16 @_ZN6icu_7525FCDUIterCollationIterator23handleGetTrailSurrogateEv(ptr nocapture noundef nonnull align 8 dereferenceable(488) %this) unnamed_addr #1 align 2 {
+define noundef zeroext i16 @_ZN6icu_7525FCDUIterCollationIterator23handleGetTrailSurrogateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(488) %this) unnamed_addr #1 align 2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load i32, ptr %state, align 8
@@ -2063,7 +2063,7 @@ return:                                           ; preds = %entry, %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525FCDUIterCollationIterator16switchToBackwardEv(ptr nocapture noundef nonnull align 8 dereferenceable(488) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7525FCDUIterCollationIterator16switchToBackwardEv(ptr noundef nonnull align 8 captures(none) dereferenceable(488) %this) local_unnamed_addr #1 align 2 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %this, i64 400
   %0 = load i32, ptr %state, align 8

@@ -140,7 +140,7 @@ $_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_ = comdat any
 @_ZN4llvm3sys11ProcessInfoC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3sys11ProcessInfoC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm3sys14ExecuteAndWaitENS_9StringRefENS_8ArrayRefIS1_EESt8optionalIS3_ENS2_IS4_IS1_EEEjjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbPS4_INS0_17ProcessStatisticsEEPNS_9BitVectorE(ptr %0, i64 %1, ptr %2, i64 %3, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %4, ptr nocapture readonly %5, i64 %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef writeonly %10, ptr noundef %11, ptr nocapture noundef readnone %12) local_unnamed_addr #0 {
+define dso_local noundef i32 @_ZN4llvm3sys14ExecuteAndWaitENS_9StringRefENS_8ArrayRefIS1_EESt8optionalIS3_ENS2_IS4_IS1_EEEjjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbPS4_INS0_17ProcessStatisticsEEPNS_9BitVectorE(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef readonly byval(%"class.std::optional") align 8 captures(none) %4, ptr readonly captures(none) %5, i64 %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef writeonly %10, ptr noundef %11, ptr noundef readnone captures(none) %12) local_unnamed_addr #0 {
   %14 = alloca %"struct.llvm::sys::ProcessInfo", align 4
   call void @_ZN4llvm3sys11ProcessInfoC1Ev(ptr noundef nonnull align 4 dereferenceable(12) %14) #22
   %15 = call fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvm3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EESt8optionalIS5_ENS4_IS6_IS3_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9BitVectorEb(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef nonnull byval(%"class.std::optional") align 8 %4, ptr %5, i64 %6, i32 noundef %8, ptr noundef %9, i1 noundef zeroext false)
@@ -176,7 +176,7 @@ define dso_local noundef i32 @_ZN4llvm3sys14ExecuteAndWaitENS_9StringRefENS_8Arr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvm3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EESt8optionalIS5_ENS4_IS6_IS3_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9BitVectorEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %5, ptr nocapture readonly %.0.val, i64 %.8.val, i32 noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7ExecuteRN4llvm3sys11ProcessInfoENS_9StringRefENS_8ArrayRefIS3_EESt8optionalIS5_ENS4_IS6_IS3_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_9BitVectorEb(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef readonly byval(%"class.std::optional") align 8 captures(none) %5, ptr readonly captures(none) %.0.val, i64 %.8.val, i32 noundef %6, ptr noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca %"class.std::allocator", align 1
   %11 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %12 = alloca %"class.std::allocator", align 1
@@ -714,10 +714,10 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit100:             ; preds = %_ZNSt6vectorIPKcSaI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i32 } @_ZN4llvm3sys4WaitERKNS0_11ProcessInfoESt8optionalIjEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS4_INS0_17ProcessStatisticsEEb(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0, i64 %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @_ZN4llvm3sys4WaitERKNS0_11ProcessInfoESt8optionalIjEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS4_INS0_17ProcessStatisticsEEb(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0, i64 %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %"struct.llvm::sys::ProcessInfo", align 8
   %7 = alloca %struct.sigaction, align 8
   %8 = alloca %struct.sigaction, align 8
@@ -978,7 +978,7 @@ _ZNSt8optionalIN4llvm3sys17ProcessStatisticsEEaSIS2_EENSt9enable_ifIX7__and_vISt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i32 } @_ZN4llvm3sys13ExecuteNoWaitENS_9StringRefENS_8ArrayRefIS1_EESt8optionalIS3_ENS2_IS4_IS1_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbPNS_9BitVectorEb(ptr %0, i64 %1, ptr %2, i64 %3, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %4, ptr nocapture readonly %5, i64 %6, i32 noundef %7, ptr noundef %8, ptr noundef writeonly %9, ptr nocapture noundef readnone %10, i1 noundef zeroext %11) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @_ZN4llvm3sys13ExecuteNoWaitENS_9StringRefENS_8ArrayRefIS1_EESt8optionalIS3_ENS2_IS4_IS1_EEEjPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbPNS_9BitVectorEb(ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef readonly byval(%"class.std::optional") align 8 captures(none) %4, ptr readonly captures(none) %5, i64 %6, i32 noundef %7, ptr noundef %8, ptr noundef writeonly %9, ptr noundef readnone captures(none) %10, i1 noundef zeroext %11) local_unnamed_addr #0 {
   %13 = alloca %"struct.llvm::sys::ProcessInfo", align 8
   call void @_ZN4llvm3sys11ProcessInfoC1Ev(ptr noundef nonnull align 4 dereferenceable(12) %13) #22
   %14 = icmp eq ptr %9, null
@@ -1007,7 +1007,7 @@ define dso_local { i64, i32 } @_ZN4llvm3sys13ExecuteNoWaitENS_9StringRefENS_8Arr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3sys33commandLineFitsWithinSystemLimitsENS_9StringRefENS_8ArrayRefIPKcEE(ptr nocapture readnone %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm3sys33commandLineFitsWithinSystemLimitsENS_9StringRefENS_8ArrayRefIPKcEE(ptr readnone captures(none) %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::SmallVector", align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1149,7 +1149,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %7, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3sys33commandLineFitsWithinSystemLimitsENS_9StringRefENS_8ArrayRefIS1_EE(ptr nocapture readnone %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm3sys33commandLineFitsWithinSystemLimitsENS_9StringRefENS_8ArrayRefIS1_EE(ptr readnone captures(none) %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 {
   %5 = load atomic i8, ptr @_ZGVZN4llvm3sys33commandLineFitsWithinSystemLimitsENS_9StringRefENS_8ArrayRefIS1_EEE6ArgMax acquire, align 8
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %11, !prof !20
@@ -1337,7 +1337,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %52, %50, %20, %19, 
 declare noundef i64 @_ZNK4llvm9StringRef13find_first_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3sys11ProcessInfoC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 4), (8, 12)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm3sys11ProcessInfoC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 4), (8, 12)) %0) unnamed_addr #3 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 4
@@ -1557,7 +1557,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZN4llvm11SplitStringENS_9StringRefERNS_15SmallVectorImplIS0_EES0_(ptr, i64, ptr noundef nonnull align 8 dereferenceable(16), ptr, i64) local_unnamed_addr #2
 
@@ -1594,7 +1594,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal void @_ZL14TimeOutHandleri(i32 %0) #7 {
@@ -1817,7 +1817,7 @@ declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1829,10 +1829,10 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL28toNullTerminatedCStringArrayN4llvm8ArrayRefINS_9StringRefEEERNS_11StringSaverE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 24)) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds %"class.llvm::StringRef", ptr %1, i64 %2
   %.not23 = icmp eq i64 %2, 0
@@ -2041,7 +2041,7 @@ declare i32 @posix_spawn_file_actions_destroy(ptr noundef) local_unnamed_addr #4
 declare i32 @fork() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL10RedirectIOSt8optionalIN4llvm9StringRefEEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef readonly byval(%"class.std::optional.63") align 8 %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL10RedirectIOSt8optionalIN4llvm9StringRefEEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef readonly byval(%"class.std::optional.63") align 8 captures(none) %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -2279,7 +2279,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #16
@@ -2291,7 +2291,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare i32 @posix_spawn_file_actions_addopen(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #17
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #17
 
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
@@ -2482,7 +2482,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseImE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19
@@ -2494,10 +2494,10 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 declare void @llvm.assume(i1 noundef) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #19

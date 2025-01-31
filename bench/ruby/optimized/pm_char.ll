@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pm_number_table = internal unnamed_addr constant <{ [103 x i8], [153 x i8] }> <{ [103 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\FF\FF\FC\FC\FC\FC\FC\FC\F0\F0\00\00\00\00\00\00\00\C0\C0\C0\C0\C0\C0\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\AA\00\C0\C0\C0\C0\C0\C0", [153 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define hidden i64 @pm_strspn_whitespace(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden i64 @pm_strspn_whitespace(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i64 %1, 1
   br i1 %3, label %pm_strspn_char_kind.exit, label %.preheader.i
 
@@ -69,7 +69,7 @@ define hidden i64 @pm_strspn_whitespace_newlines(ptr noundef %0, i64 noundef %1,
 declare zeroext i1 @pm_newline_list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define hidden i64 @pm_strspn_inline_whitespace(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden i64 @pm_strspn_inline_whitespace(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i64 %1, 1
   br i1 %3, label %pm_strspn_char_kind.exit, label %.preheader.i
 
@@ -95,7 +95,7 @@ pm_strspn_char_kind.exit:                         ; preds = %.preheader.i, %10, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define hidden i64 @pm_strspn_regexp_option(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden i64 @pm_strspn_regexp_option(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i64 %1, 1
   br i1 %3, label %pm_strspn_char_kind.exit, label %.preheader.i
 
@@ -141,7 +141,7 @@ define hidden zeroext i1 @pm_char_is_inline_whitespace(i8 noundef zeroext %0) lo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden i64 @pm_strspn_binary_number(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define hidden i64 @pm_strspn_binary_number(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp slt i64 %1, 1
   br i1 %4, label %pm_strspn_number_kind_underscores.exit, label %.preheader.i
 
@@ -189,7 +189,7 @@ pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden i64 @pm_strspn_octal_number(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define hidden i64 @pm_strspn_octal_number(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp slt i64 %1, 1
   br i1 %4, label %pm_strspn_number_kind_underscores.exit, label %.preheader.i
 
@@ -237,7 +237,7 @@ pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define hidden i64 @pm_strspn_decimal_digit(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden i64 @pm_strspn_decimal_digit(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i64 %1, 1
   br i1 %3, label %pm_strspn_number_kind.exit, label %.preheader.i
 
@@ -263,7 +263,7 @@ pm_strspn_number_kind.exit:                       ; preds = %.preheader.i, %10, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden i64 @pm_strspn_decimal_number(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define hidden i64 @pm_strspn_decimal_number(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp slt i64 %1, 1
   br i1 %4, label %pm_strspn_number_kind_underscores.exit, label %.preheader.i
 
@@ -311,7 +311,7 @@ pm_strspn_number_kind_underscores.exit:           ; preds = %3, %.critedge.i, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define hidden i64 @pm_strspn_hexadecimal_digit(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden i64 @pm_strspn_hexadecimal_digit(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i64 %1, 1
   br i1 %3, label %pm_strspn_number_kind.exit, label %.preheader.i
 
@@ -337,7 +337,7 @@ pm_strspn_number_kind.exit:                       ; preds = %.preheader.i, %10, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define hidden i64 @pm_strspn_hexadecimal_number(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
+define hidden i64 @pm_strspn_hexadecimal_number(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = icmp slt i64 %1, 1
   br i1 %4, label %pm_strspn_number_kind_underscores.exit, label %.preheader.i
 

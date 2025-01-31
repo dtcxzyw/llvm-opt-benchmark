@@ -146,7 +146,7 @@ define internal ptr @sll_value(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sll_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal void @sll_prompt(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_sll, align 4
@@ -172,13 +172,13 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sll_v1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_sll_v1(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_sll_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 25)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sll_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_sll_v2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call fastcc i32 @dissect_sll_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 210)
   ret i32 %5
 }
@@ -192,7 +192,7 @@ declare void @register_capture_dissector_table(ptr noundef, ptr noundef) local_u
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sll_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @sll_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -206,7 +206,7 @@ define internal noundef i32 @sll_conversation_packet(ptr noundef initializes((24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sll_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @sll_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -336,7 +336,7 @@ define internal i32 @capture_sll2(ptr noundef %0, i32 %1, i32 noundef %2, ptr no
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @dissect_sll_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 25, 211) %3) unnamed_addr #0 {
@@ -504,7 +504,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_ll_address(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef range(i32 4, 12) %3, i32 noundef range(i32 1, 3) %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc void @add_ll_address(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef range(i32 4, 12) %3, i32 noundef range(i32 1, 3) %4, ptr noundef writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = add nuw nsw i32 %4, %3
   %9 = load i32, ptr @hf_sll_halen, align 4
@@ -706,7 +706,7 @@ declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @sll_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define internal nonnull ptr @sll_conv_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #4 {
   switch i32 %1, label %.thread8 [
     i32 0, label %.thread8.sink.split
     i32 2, label %.thread8.sink.split
@@ -729,7 +729,7 @@ define internal nonnull ptr @sll_conv_get_filter_type(ptr nocapture noundef read
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @sll_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define internal nonnull ptr @sll_endpoint_get_filter_type(ptr noundef readonly captures(none) %0, i32 noundef %1) #4 {
   switch i32 %1, label %.thread8 [
     i32 0, label %.thread8.sink.split
     i32 2, label %.thread8.sink.split
@@ -755,7 +755,7 @@ declare i32 @try_capture_dissector(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

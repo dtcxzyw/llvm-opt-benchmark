@@ -663,7 +663,7 @@ declare void @proto_register_field_array(i32 noundef, ptr noundef, i32 noundef) 
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_llap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_llap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca %struct.ddp_nodes, align 1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -737,7 +737,7 @@ define internal i32 @dissect_llap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 declare ptr @register_capture_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @capture_llap(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal noundef i32 @capture_llap(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #2 {
   ret i32 0
 }
 
@@ -746,7 +746,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #0
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ddp(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_ddp(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -917,7 +917,7 @@ proto_item_set_hidden.exit79:                     ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ddp_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal i32 @dissect_ddp_short(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 4) #8
@@ -1104,7 +1104,7 @@ proto_item_set_hidden.exit85:                     ; preds = %proto_item_set_hidd
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nbp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_nbp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1188,7 +1188,7 @@ define internal i32 @dissect_nbp(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_atp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_atp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
 ._crit_edge:
   %4 = alloca %struct.atp_asp_dsi_info, align 4
   %5 = alloca %struct.asp_request_key, align 4
@@ -1251,7 +1251,7 @@ define internal i32 @dissect_atp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %42 = call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 1) #8
   store i8 %.0155.lcssa, ptr %42, align 1
   %43 = load ptr, ptr @atp_request_hash, align 8
-  %44 = call ptr @wmem_map_insert(ptr noundef %43, ptr noundef %40, ptr noundef nonnull %42) #8
+  %44 = call ptr @wmem_map_insert(ptr noundef %43, ptr noundef nonnull %40, ptr noundef nonnull %42) #8
   br label %45
 
 45:                                               ; preds = %26, %38, %._crit_edge
@@ -1634,7 +1634,7 @@ define internal range(i32 0, 7) i32 @dissect_asp(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 265) i32 @dissect_pap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal range(i32 2, 265) i32 @dissect_pap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.374) #8
@@ -1744,7 +1744,7 @@ define internal range(i32 2, 265) i32 @dissect_pap(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ddp_zip(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_ddp_zip(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -2020,7 +2020,7 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rtmp_request(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_rtmp_request(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.234) #8
@@ -2049,7 +2049,7 @@ define internal i32 @dissect_rtmp_request(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_rtmp_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_rtmp_data(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.234) #8
@@ -2186,7 +2186,7 @@ declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @atalk_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #1 {
+define internal noundef i32 @atalk_to_str(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #1 {
   %4 = alloca %struct.atalk_ddp_addr, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -2203,12 +2203,12 @@ define internal noundef i32 @atalk_to_str(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @atalk_str_len(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @atalk_str_len(ptr readnone captures(none) %0) #2 {
   ret i32 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @atalk_col_filter_str(ptr nocapture readnone %0, i32 noundef %1) #2 {
+define internal noundef nonnull ptr @atalk_col_filter_str(ptr readnone captures(none) %0, i32 noundef %1) #2 {
   %.not = icmp eq i32 %1, 0
   %.str.17..str.21 = select i1 %.not, ptr @.str.17, ptr @.str.21
   ret ptr %.str.17..str.21
@@ -2282,7 +2282,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #0
 declare ptr @wmem_file_scope() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 65536) i32 @asp_hash(ptr nocapture noundef readonly %0) #3 {
+define internal range(i32 0, 65536) i32 @asp_hash(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 4
   %4 = zext i16 %3 to i32
@@ -2290,7 +2290,7 @@ define internal range(i32 0, 65536) i32 @asp_hash(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @asp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 0, 2) i32 @asp_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %3, %4
@@ -2380,7 +2380,7 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @wmem_map_lookup(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -2407,7 +2407,7 @@ declare i32 @try_conversation_dissector(ptr noundef, ptr noundef, i32 noundef, i
 declare i32 @conversation_pt_to_conversation_type(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_transaction(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #1 {
+define internal fastcc ptr @get_transaction(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #1 {
   %4 = alloca %struct.asp_request_key, align 4
   %5 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %1) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2444,7 +2444,7 @@ define internal fastcc ptr @get_transaction(ptr noundef %0, ptr noundef %1, ptr 
   %24 = call noalias ptr @wmem_alloc(ptr noundef %23, i64 noundef 1) #8
   store i8 %20, ptr %24, align 1
   %25 = load ptr, ptr @asp_request_hash, align 8
-  %26 = call ptr @wmem_map_insert(ptr noundef %25, ptr noundef %22, ptr noundef nonnull %24) #8
+  %26 = call ptr @wmem_map_insert(ptr noundef %25, ptr noundef nonnull %22, ptr noundef nonnull %24) #8
   br label %27
 
 27:                                               ; preds = %19, %17, %3
@@ -2463,7 +2463,7 @@ declare ptr @word_to_hex(ptr noundef, i16 noundef zeroext) local_unnamed_addr #0
 declare ptr @bytes_to_hexstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.ctlz.i8(i8, i1 immarg) #7

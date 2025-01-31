@@ -107,7 +107,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @module_traverse(ptr noundef %mod, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal noundef i32 @module_traverse(ptr noundef %mod, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #4
   %0 = load ptr, ptr %call.i, align 8
@@ -359,7 +359,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @queuesmod_list_all(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @queuesmod_list_all(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_globals, i64 8), align 8
   %call.i = tail call i32 @PyThread_acquire_lock(ptr noundef %0, i32 noundef 1) #4
@@ -882,7 +882,7 @@ return:                                           ; preds = %_queues_incref.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @queuesmod_release(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal noundef ptr @queuesmod_release(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %qidarg = alloca %struct.idarg_int64_converter_data, align 8
   %call = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull @.str.31, ptr noundef nonnull @queuesmod_release.kwlist, ptr noundef nonnull @qidarg_converter, ptr noundef nonnull %qidarg) #4
@@ -1483,10 +1483,10 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare ptr @PyThread_allocate_lock() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @PyThread_acquire_lock(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1515,7 +1515,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @qidarg_converter(ptr noundef %arg, ptr nocapture noundef %ptr) #0 {
+define internal range(i32 0, 2) i32 @qidarg_converter(ptr noundef %arg, ptr noundef captures(none) %ptr) #0 {
 entry:
   %0 = load ptr, ptr %ptr, align 8
   %cmp = icmp eq ptr %0, null
@@ -1531,7 +1531,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @idarg_int64_converter(ptr noundef %arg, ptr nocapture noundef %ptr) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @idarg_int64_converter(ptr noundef %arg, ptr noundef captures(none) %ptr) unnamed_addr #0 {
 entry:
   %overflow = alloca i32, align 4
   %0 = load ptr, ptr %ptr, align 8
@@ -1736,7 +1736,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_queueobj_shared(ptr nocapture noundef readonly %tstate, ptr noundef %queueobj, ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @_queueobj_shared(ptr noundef readonly captures(none) %tstate, ptr noundef %queueobj, ptr noundef %data) #0 {
 entry:
   %converted = alloca %struct.idarg_int64_converter_data, align 8
   %call = tail call ptr @PyObject_GetAttrString(ptr noundef %queueobj, ptr noundef nonnull @.str.39) #4
@@ -1876,7 +1876,7 @@ declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @_PyCrossInterpreterData_Init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_queueobj_from_xid(ptr nocapture noundef readonly %data) #0 {
+define internal ptr @_queueobj_from_xid(ptr noundef readonly captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %1 = load i64, ptr %0, align 8
@@ -2290,7 +2290,7 @@ declare i64 @PyInterpreterState_GetID(ptr noundef) local_unnamed_addr #1
 declare i32 @_PyCrossInterpreterData_UnregisterClass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @clear_module_state(ptr nocapture noundef %state) unnamed_addr #0 {
+define internal fastcc void @clear_module_state(ptr noundef captures(none) %state) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %state, align 8
   %cmp.not = icmp eq ptr %0, null

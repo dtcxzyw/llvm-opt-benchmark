@@ -268,7 +268,7 @@ $_ZTIN8QuantLib10Instrument7resultsE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -353,7 +353,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -591,7 +591,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7BMASwapC2ENS_4Swap4TypeEdNS_8ScheduleEddRKN5boost10shared_ptrINS_9IborIndexEEERKNS_10DayCounterES3_RKNS5_INS_8BMAIndexEEESC_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef %vtt, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %liborSchedule, double noundef %liborFraction, double noundef %liborSpread, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %liborIndex, ptr noundef nonnull align 8 dereferenceable(16) %liborDayCount, ptr nocapture noundef %bmaSchedule, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bmaIndex, ptr noundef nonnull align 8 dereferenceable(16) %bmaDayCount) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib7BMASwapC2ENS_4Swap4TypeEdNS_8ScheduleEddRKN5boost10shared_ptrINS_9IborIndexEEERKNS_10DayCounterES3_RKNS5_INS_8BMAIndexEEESC_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef %vtt, i32 noundef %type, double noundef %nominal, ptr noundef captures(none) %liborSchedule, double noundef %liborFraction, double noundef %liborSpread, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %liborIndex, ptr noundef nonnull align 8 dereferenceable(16) %liborDayCount, ptr noundef captures(none) %bmaSchedule, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bmaIndex, ptr noundef nonnull align 8 dereferenceable(16) %bmaDayCount) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.47", align 8
   %ref.tmp7 = alloca %"class.QuantLib::IborLeg", align 8
@@ -2860,7 +2860,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7BMASwapC1ENS_4Swap4TypeEdNS_8ScheduleEddRKN5boost10shared_ptrINS_9IborIndexEEERKNS_10DayCounterES3_RKNS5_INS_8BMAIndexEEESC_(ptr noundef nonnull align 8 dereferenceable(288) initializes((288, 296), (304, 308), (312, 320)) %this, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %liborSchedule, double noundef %liborFraction, double noundef %liborSpread, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %liborIndex, ptr noundef nonnull align 8 dereferenceable(16) %liborDayCount, ptr nocapture noundef %bmaSchedule, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bmaIndex, ptr noundef nonnull align 8 dereferenceable(16) %bmaDayCount) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib7BMASwapC1ENS_4Swap4TypeEdNS_8ScheduleEddRKN5boost10shared_ptrINS_9IborIndexEEERKNS_10DayCounterES3_RKNS5_INS_8BMAIndexEEESC_(ptr noundef nonnull align 8 dereferenceable(288) initializes((288, 296), (304, 308), (312, 320)) %this, i32 noundef %type, double noundef %nominal, ptr noundef captures(none) %liborSchedule, double noundef %liborFraction, double noundef %liborSpread, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %liborIndex, ptr noundef nonnull align 8 dereferenceable(16) %liborDayCount, ptr noundef captures(none) %bmaSchedule, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %bmaIndex, ptr noundef nonnull align 8 dereferenceable(16) %bmaDayCount) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.47", align 8
   %ref.tmp5 = alloca %"class.QuantLib::IborLeg", align 8
@@ -4170,7 +4170,7 @@ unreachable:                                      ; preds = %invoke.cont109
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib7BMASwap13liborFractionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
+define noundef double @_ZNK8QuantLib7BMASwap13liborFractionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
 entry:
   %liborFraction_ = getelementptr inbounds nuw i8, ptr %this, i64 272
   %0 = load double, ptr %liborFraction_, align 8, !tbaa !66
@@ -4178,7 +4178,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib7BMASwap11liborSpreadEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
+define noundef double @_ZNK8QuantLib7BMASwap11liborSpreadEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
 entry:
   %liborSpread_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load double, ptr %liborSpread_, align 8, !tbaa !67
@@ -4186,7 +4186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib7BMASwap7nominalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
+define noundef double @_ZNK8QuantLib7BMASwap7nominalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
 entry:
   %nominal_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load double, ptr %nominal_, align 8, !tbaa !65
@@ -4194,7 +4194,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK8QuantLib7BMASwap4typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZNK8QuantLib7BMASwap4typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
 entry:
   %type_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load i32, ptr %type_, align 8, !tbaa !44
@@ -4202,7 +4202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib7BMASwap8liborLegEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib7BMASwap8liborLegEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
 entry:
   %legs_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %legs_, align 8, !tbaa !118
@@ -4210,7 +4210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib7BMASwap6bmaLegEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib7BMASwap6bmaLegEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(288) %this) local_unnamed_addr #11 align 2 {
 entry:
   %legs_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %0 = load ptr, ptr %legs_, align 8, !tbaa !118
@@ -6486,7 +6486,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #18
@@ -6782,7 +6782,7 @@ declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #22
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #22
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -7255,7 +7255,7 @@ unreachable:                                      ; preds = %lpad.body
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #25
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #25
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

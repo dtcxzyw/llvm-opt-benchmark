@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_xts_init_key(ptr nocapture noundef %ctx, ptr noundef %key, ptr noundef readonly %iv, i32 noundef %enc) #1 {
+define internal noundef i32 @aes_xts_init_key(ptr noundef captures(none) %ctx, ptr noundef %key, ptr noundef readonly %iv, i32 noundef %enc) #1 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
@@ -76,7 +76,7 @@ return:                                           ; preds = %if.end20, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr nocapture noundef readonly %ctx, ptr noundef writeonly %out, ptr noundef readonly %in, i64 noundef %len) #1 {
+define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef readonly captures(none) %ctx, ptr noundef writeonly %out, ptr noundef readonly %in, i64 noundef %len) #1 {
 entry:
   %tweak.i = alloca %union.anon.0, align 8
   %scratch.i = alloca %union.anon.0, align 8
@@ -314,7 +314,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @aes_xts_ctrl(ptr nocapture noundef readonly %c, i32 noundef %type, i32 %arg, ptr nocapture noundef readonly %ptr) #2 {
+define internal range(i32 -1, 2) i32 @aes_xts_ctrl(ptr noundef readonly captures(none) %c, i32 noundef %type, i32 %arg, ptr noundef readonly captures(none) %ptr) #2 {
 entry:
   %cipher_data = getelementptr inbounds nuw i8, ptr %c, i64 16
   %0 = load ptr, ptr %cipher_data, align 8
@@ -376,19 +376,19 @@ declare i32 @AES_set_decrypt_key(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @AES_decrypt(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

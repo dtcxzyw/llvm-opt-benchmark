@@ -295,7 +295,7 @@ pa_can_start.exit.thread:                         ; preds = %14, %9, %1, %pa_lau
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @hash_create(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -740,7 +740,7 @@ declare void @die(i32 noundef) #2
 declare void @BackgroundWorkerUnblockSignals() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @dsm_attach(i32 noundef) local_unnamed_addr #2
 
@@ -968,7 +968,7 @@ declare void @appendBinaryStringInfo(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @pa_send_data(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @pa_send_data(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @debug_logical_replication_streaming, align 4
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %.loopexit, label %.preheader.outer
@@ -1038,7 +1038,7 @@ declare i64 @GetCurrentTimestamp() local_unnamed_addr #2
 declare zeroext i1 @TimestampDifferenceExceeds(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pa_switch_to_partial_serialize(ptr nocapture noundef initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @pa_switch_to_partial_serialize(ptr noundef captures(none) initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #10
   br i1 %3, label %4, label %10
 
@@ -1229,7 +1229,7 @@ define dso_local void @pa_reset_subtrans() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pa_stream_abort(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @pa_stream_abort(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1705,10 +1705,10 @@ declare void @logicalrep_pa_worker_stop(ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

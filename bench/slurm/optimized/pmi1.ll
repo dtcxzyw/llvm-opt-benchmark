@@ -330,7 +330,7 @@ declare void @slurm_log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
@@ -408,7 +408,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 declare i32 @usleep(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #1
 
@@ -419,7 +419,7 @@ declare i32 @slurm_xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @client_req_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_get_maxes(i32 noundef %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @_handle_get_maxes(i32 noundef %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @slurm_get_log_level() #8
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %7
@@ -446,7 +446,7 @@ define internal noundef i32 @_handle_get_maxes(i32 noundef %0, i32 %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_get_universe_size(i32 noundef %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @_handle_get_universe_size(i32 noundef %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @slurm_get_log_level() #8
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %7
@@ -474,7 +474,7 @@ define internal noundef i32 @_handle_get_universe_size(i32 noundef %0, i32 %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_get_appnum(i32 noundef %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @_handle_get_appnum(i32 noundef %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @slurm_get_log_level() #8
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %7
@@ -501,7 +501,7 @@ define internal noundef i32 @_handle_get_appnum(i32 noundef %0, i32 %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_handle_barrier_in(i32 %0, i32 noundef %1, ptr nocapture readnone %2) #0 {
+define internal i32 @_handle_barrier_in(i32 %0, i32 noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @slurm_get_log_level() #8
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %11
@@ -575,7 +575,7 @@ define internal i32 @_handle_barrier_in(i32 %0, i32 noundef %1, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_handle_finalize(i32 noundef %0, i32 noundef %1, ptr nocapture readnone %2) #0 {
+define internal i32 @_handle_finalize(i32 noundef %0, i32 noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @slurm_get_log_level() #8
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %7
@@ -605,7 +605,7 @@ define internal i32 @_handle_finalize(i32 noundef %0, i32 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_abort(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @_handle_abort(i32 %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @slurm_get_log_level() #8
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %7
@@ -631,7 +631,7 @@ define internal noundef i32 @_handle_abort(i32 %0, i32 %1, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_handle_get_my_kvsname(i32 noundef %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal i32 @_handle_get_my_kvsname(i32 noundef %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @slurm_get_log_level() #8
   %5 = icmp sgt i32 %4, 6
   br i1 %5, label %6, label %7
@@ -660,13 +660,13 @@ define internal i32 @_handle_get_my_kvsname(i32 noundef %0, i32 %1, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_create_kvs(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @_handle_create_kvs(i32 %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.50) #8
   ret i32 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_destroy_kvs(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @_handle_destroy_kvs(i32 %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.51) #8
   ret i32 -1
 }
@@ -766,7 +766,7 @@ define internal i32 @_handle_get(i32 noundef %0, i32 %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_handle_getbyidx(i32 %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @_handle_getbyidx(i32 %0, i32 %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 (ptr, ...) @slurm_error(ptr noundef nonnull @.str.62) #8
   ret i32 -1
 }
@@ -1118,7 +1118,7 @@ declare zeroext i1 @client_req_get_int(ptr noundef, ptr noundef, ptr noundef) lo
 declare ptr @spawn_req_new() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare i32 @spawn_req_send_to_srun(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1129,10 +1129,10 @@ declare void @spawn_req_free(ptr noundef) local_unnamed_addr #1
 declare i32 @spawn_psr_enqueue(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

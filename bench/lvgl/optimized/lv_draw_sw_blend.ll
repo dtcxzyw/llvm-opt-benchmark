@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._lv_draw_sw_blend_image_dsc_t = type { ptr, i32, i32, i32, ptr, i32, ptr, i32, i32, i8, i32, %struct.lv_area_t, %struct.lv_area_t }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_blend(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @lv_draw_sw_blend(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.lv_area_t, align 4
   %4 = alloca %struct._lv_draw_sw_blend_fill_dsc_t, align 8
   %5 = alloca %struct._lv_draw_sw_blend_image_dsc_t, align 8
@@ -387,7 +387,7 @@ define void @lv_draw_sw_blend(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -396,7 +396,7 @@ declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @lv_area_move(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -415,7 +415,7 @@ declare void @lv_draw_sw_blend_color_to_al88(ptr noundef) local_unnamed_addr #2
 declare void @lv_draw_sw_blend_color_to_i1(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare zeroext i8 @lv_color_format_get_bpp(i32 noundef) local_unnamed_addr #2
 

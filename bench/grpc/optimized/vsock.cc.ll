@@ -32,7 +32,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26grpc_resolve_vsock_addressSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z26grpc_resolve_vsock_addressSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias writeonly sret(%"class.absl::lts_20230802::StatusOr") align 8 captures(none) %agg.result, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %addr = alloca %struct.grpc_resolved_address, align 4
   %error = alloca %"class.absl::lts_20230802::Status", align 8
@@ -114,7 +114,7 @@ ehcleanup12:                                      ; preds = %do.end
 declare void @_ZN9grpc_core17VSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr sret(%"class.absl::lts_20230802::Status") align 8, i64, ptr, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -142,7 +142,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 0, 2) i32 @_Z13grpc_is_vsockPK21grpc_resolved_address(ptr nocapture noundef readonly %resolved_addr) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @_Z13grpc_is_vsockPK21grpc_resolved_address(ptr noundef readonly captures(none) %resolved_addr) local_unnamed_addr #6 {
 entry:
   %0 = load i16, ptr %resolved_addr, align 2
   %cmp = icmp eq i16 %0, 40

@@ -73,7 +73,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @order = dso_local local_unnamed_addr constant i32 4, align 4
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local void @ArHosekSkyModel_CookConfiguration(ptr nocapture noundef readonly %dataset, ptr nocapture noundef %config, double noundef %turbidity, double noundef %albedo, double noundef %solar_elevation) local_unnamed_addr #0 {
+define dso_local void @ArHosekSkyModel_CookConfiguration(ptr noundef readonly captures(none) %dataset, ptr noundef captures(none) %config, double noundef %turbidity, double noundef %albedo, double noundef %solar_elevation) local_unnamed_addr #0 {
 entry:
   %conv = fptosi double %turbidity to i32
   %conv1 = sitofp i32 %conv to double
@@ -286,7 +286,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #1
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local double @ArHosekSkyModel_CookRadianceConfiguration(ptr nocapture noundef readonly %dataset, double noundef %turbidity, double noundef %albedo, double noundef %solar_elevation) local_unnamed_addr #3 {
+define dso_local double @ArHosekSkyModel_CookRadianceConfiguration(ptr noundef readonly captures(none) %dataset, double noundef %turbidity, double noundef %albedo, double noundef %solar_elevation) local_unnamed_addr #3 {
 entry:
   %conv = fptosi double %turbidity to i32
   %conv1 = sitofp i32 %conv to double
@@ -446,7 +446,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local double @ArHosekSkyModel_GetRadianceInternal(ptr nocapture noundef readonly %configuration, double noundef %theta, double noundef %gamma) local_unnamed_addr #3 {
+define dso_local double @ArHosekSkyModel_GetRadianceInternal(ptr noundef readonly captures(none) %configuration, double noundef %theta, double noundef %gamma) local_unnamed_addr #3 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %configuration, i64 32
   %0 = load double, ptr %arrayidx, align 8
@@ -645,17 +645,17 @@ for.end42:                                        ; preds = %for.body32
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @arhosekskymodelstate_free(ptr nocapture noundef %state) local_unnamed_addr #7 {
+define dso_local void @arhosekskymodelstate_free(ptr noundef captures(none) %state) local_unnamed_addr #7 {
 entry:
   tail call void @free(ptr noundef %state) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local double @arhosekskymodel_radiance(ptr nocapture noundef readonly %state, double noundef %theta, double noundef %gamma, double noundef %wavelength) local_unnamed_addr #3 {
+define dso_local double @arhosekskymodel_radiance(ptr noundef readonly captures(none) %state, double noundef %theta, double noundef %gamma, double noundef %wavelength) local_unnamed_addr #3 {
 entry:
   %sub = fadd double %wavelength, -3.200000e+02
   %div = fdiv double %sub, 4.000000e+01
@@ -860,7 +860,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local double @arhosek_tristim_skymodel_radiance(ptr nocapture noundef readonly %state, double noundef %theta, double noundef %gamma, i32 noundef %channel) local_unnamed_addr #3 {
+define dso_local double @arhosek_tristim_skymodel_radiance(ptr noundef readonly captures(none) %state, double noundef %theta, double noundef %gamma, i32 noundef %channel) local_unnamed_addr #3 {
 entry:
   %idxprom = sext i32 %channel to i64
   %arrayidx = getelementptr inbounds [11 x [9 x double]], ptr %state, i64 0, i64 %idxprom
@@ -915,7 +915,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local double @arhosekskymodel_sr_internal(ptr nocapture noundef readonly %state, i32 noundef %turbidity, i32 noundef %wl, double noundef %elevation) local_unnamed_addr #9 {
+define dso_local double @arhosekskymodel_sr_internal(ptr noundef readonly captures(none) %state, i32 noundef %turbidity, i32 noundef %wl, double noundef %elevation) local_unnamed_addr #9 {
 entry:
   %mul = fmul double %elevation, 2.000000e+00
   %div = fdiv double %mul, 0x400921FB54442D18
@@ -961,7 +961,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local double @arhosekskymodel_solar_radiance_internal2(ptr nocapture noundef readonly %state, double noundef %wavelength, double noundef %elevation, double noundef %gamma) local_unnamed_addr #9 {
+define dso_local double @arhosekskymodel_solar_radiance_internal2(ptr noundef readonly captures(none) %state, double noundef %wavelength, double noundef %elevation, double noundef %gamma) local_unnamed_addr #9 {
 entry:
   %ldCoefficient = alloca [6 x double], align 16
   %solar_radius = getelementptr inbounds nuw i8, ptr %state, i64 888
@@ -1199,7 +1199,7 @@ return:                                           ; preds = %entry, %for.end
 declare double @sin(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local double @arhosekskymodel_solar_radiance(ptr nocapture noundef readonly %state, double noundef %theta, double noundef %gamma, double noundef %wavelength) local_unnamed_addr #9 {
+define dso_local double @arhosekskymodel_solar_radiance(ptr noundef readonly captures(none) %state, double noundef %theta, double noundef %gamma, double noundef %wavelength) local_unnamed_addr #9 {
 entry:
   %sub = fsub double 0x3FF921FB54442D18, %theta
   %call = tail call double @arhosekskymodel_solar_radiance_internal2(ptr noundef %state, double noundef %wavelength, double noundef %sub, double noundef %gamma)

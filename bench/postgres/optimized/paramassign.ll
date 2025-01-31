@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [38 x i8] c"unexpected type of subquery parameter\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @replace_outer_var(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @replace_outer_var(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %.not46.i = icmp eq i32 %4, 0
@@ -182,7 +182,7 @@ assign_param_for_var.exit:                        ; preds = %.split.i, %list_len
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @replace_outer_placeholdervar(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @replace_outer_placeholdervar(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %.not37.i = icmp eq i32 %4, 0
@@ -318,7 +318,7 @@ declare i32 @exprTypmod(ptr noundef) local_unnamed_addr #1
 declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @replace_outer_agg(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @replace_outer_agg(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 76
   %4 = load i32, ptr %3, align 4
   %.not28 = icmp eq i32 %4, 0
@@ -405,7 +405,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @replace_outer_grouping(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @replace_outer_grouping(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @exprType(ptr noundef %1) #4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8
@@ -480,7 +480,7 @@ list_length.exit:                                 ; preds = %._crit_edge, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @replace_nestloop_param_var(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @replace_nestloop_param_var(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -603,7 +603,7 @@ generate_new_exec_param.exit:                     ; preds = %._crit_edge, %48
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @generate_new_exec_param(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @generate_new_exec_param(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef ptr @palloc0(i64 noundef 28) #4
   store i32 8, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -643,7 +643,7 @@ list_length.exit:                                 ; preds = %4, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @replace_nestloop_param_placeholdervar(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @replace_nestloop_param_placeholdervar(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1015,7 +1015,7 @@ declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @bms_intersect(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @assign_special_exec_param(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @assign_special_exec_param(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96

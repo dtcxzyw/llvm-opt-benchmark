@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.(anonymous namespace)::LargestGaps" = type { i32, i32, [15 x i32], [15 x i64] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr nocapture noundef readonly %values, i32 noundef %length, i32 noundef %density, ptr nocapture noundef writeonly %ranges, i32 noundef %capacity) local_unnamed_addr #0 {
+define range(i32 -2147483646, -2147483647) i32 @uprv_makeDenseRanges(ptr noundef readonly captures(none) %values, i32 noundef %length, i32 noundef %density, ptr noundef writeonly captures(none) %ranges, i32 noundef %capacity) local_unnamed_addr #0 {
 entry:
   %gaps = alloca %"class.(anonymous namespace)::LargestGaps", align 8
   %cmp = icmp slt i32 %length, 3

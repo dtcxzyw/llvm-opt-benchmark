@@ -85,7 +85,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xa_destroy: 
 @llvm.compiler.used = appending global [37 x ptr] [ptr @__UNIQUE_ID___addressable___xa_alloc235, ptr @__UNIQUE_ID___addressable___xa_alloc_cyclic238, ptr @__UNIQUE_ID___addressable___xa_clear_mark240, ptr @__UNIQUE_ID___addressable___xa_cmpxchg223, ptr @__UNIQUE_ID___addressable___xa_erase215, ptr @__UNIQUE_ID___addressable___xa_insert226, ptr @__UNIQUE_ID___addressable___xa_set_mark239, ptr @__UNIQUE_ID___addressable___xa_store219, ptr @__UNIQUE_ID___addressable___xas_next210, ptr @__UNIQUE_ID___addressable___xas_prev209, ptr @__UNIQUE_ID___addressable_xa_clear_mark243, ptr @__UNIQUE_ID___addressable_xa_delete_node247, ptr @__UNIQUE_ID___addressable_xa_destroy249, ptr @__UNIQUE_ID___addressable_xa_erase216, ptr @__UNIQUE_ID___addressable_xa_extract246, ptr @__UNIQUE_ID___addressable_xa_find244, ptr @__UNIQUE_ID___addressable_xa_find_after245, ptr @__UNIQUE_ID___addressable_xa_get_mark241, ptr @__UNIQUE_ID___addressable_xa_get_order230, ptr @__UNIQUE_ID___addressable_xa_load214, ptr @__UNIQUE_ID___addressable_xa_set_mark242, ptr @__UNIQUE_ID___addressable_xa_store220, ptr @__UNIQUE_ID___addressable_xa_store_range229, ptr @__UNIQUE_ID___addressable_xas_clear_mark187, ptr @__UNIQUE_ID___addressable_xas_create_range180, ptr @__UNIQUE_ID___addressable_xas_find211, ptr @__UNIQUE_ID___addressable_xas_find_conflict213, ptr @__UNIQUE_ID___addressable_xas_find_marked212, ptr @__UNIQUE_ID___addressable_xas_get_mark185, ptr @__UNIQUE_ID___addressable_xas_init_marks188, ptr @__UNIQUE_ID___addressable_xas_load162, ptr @__UNIQUE_ID___addressable_xas_nomem165, ptr @__UNIQUE_ID___addressable_xas_pause208, ptr @__UNIQUE_ID___addressable_xas_set_mark186, ptr @__UNIQUE_ID___addressable_xas_split207, ptr @__UNIQUE_ID___addressable_xas_split_alloc194, ptr @__UNIQUE_ID___addressable_xas_store184], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @xas_load(ptr nocapture noundef %0) #0 align 16 {
+define dso_local ptr @xas_load(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -273,13 +273,13 @@ define dso_local ptr @xas_load(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xas_destroy(ptr nocapture noundef %0) local_unnamed_addr #2 align 16 {
+define dso_local void @xas_destroy(ptr noundef captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -303,7 +303,7 @@ define dso_local void @xas_destroy(ptr nocapture noundef %0) local_unnamed_addr 
 declare dso_local void @radix_tree_node_rcu_free(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @xas_nomem(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local noundef zeroext i1 @xas_nomem(ptr noundef captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, inttoptr (i64 -46 to ptr)
@@ -356,7 +356,7 @@ define dso_local noundef zeroext i1 @xas_nomem(ptr nocapture noundef %0, i32 nou
 declare dso_local noalias ptr @kmem_cache_alloc_lru(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xas_create_range(ptr nocapture noundef %0) #2 align 16 {
+define dso_local void @xas_create_range(ptr noundef captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -482,7 +482,7 @@ define dso_local void @xas_create_range(ptr nocapture noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @xas_create(ptr nocapture noundef %0, i1 noundef zeroext %1) unnamed_addr #2 align 16 {
+define internal fastcc ptr @xas_create(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -999,7 +999,7 @@ define internal fastcc ptr @xas_create(ptr nocapture noundef %0, i1 noundef zero
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xas_store(ptr nocapture noundef %0, ptr noundef %1) #2 align 16 {
+define dso_local ptr @xas_store(ptr noundef captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = ptrtoint ptr %1 to i64
@@ -1606,7 +1606,7 @@ xas_init_marks.exit:                              ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xas_init_marks(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local void @xas_init_marks(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 18
   br label %4
@@ -1735,7 +1735,7 @@ define dso_local void @xas_init_marks(ptr nocapture noundef readonly %0) #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @xas_get_mark(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define dso_local zeroext i1 @xas_get_mark(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -1775,7 +1775,7 @@ define dso_local zeroext i1 @xas_get_mark(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xas_set_mark(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define dso_local void @xas_set_mark(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -1831,7 +1831,7 @@ define dso_local void @xas_set_mark(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xas_clear_mark(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define dso_local void @xas_clear_mark(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 18
@@ -1893,7 +1893,7 @@ define dso_local void @xas_clear_mark(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xas_split_alloc(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
+define dso_local void @xas_split_alloc(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #2 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
@@ -2001,7 +2001,7 @@ define dso_local void @xas_split_alloc(ptr nocapture noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xas_split(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local void @xas_split(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = tail call ptr @xas_load(ptr noundef %0)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -2227,7 +2227,7 @@ define dso_local void @xas_split(ptr nocapture noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @xas_pause(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @xas_pause(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -2291,7 +2291,7 @@ define dso_local void @xas_pause(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @__xas_prev(ptr nocapture noundef %0) #0 align 16 {
+define dso_local ptr @__xas_prev(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -2407,7 +2407,7 @@ define dso_local ptr @__xas_prev(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @__xas_next(ptr nocapture noundef %0) #0 align 16 {
+define dso_local ptr @__xas_next(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -2523,7 +2523,7 @@ define dso_local ptr @__xas_next(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @xas_find(ptr nocapture noundef %0, i64 noundef %1) #0 align 16 {
+define dso_local ptr @xas_find(ptr noundef captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
@@ -2694,7 +2694,7 @@ define dso_local ptr @xas_find(ptr nocapture noundef %0, i64 noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xas_find_marked(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) #2 align 16 {
+define dso_local ptr @xas_find_marked(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -2950,7 +2950,7 @@ define dso_local ptr @xas_find_marked(ptr nocapture noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @xas_find_conflict(ptr nocapture noundef %0) #0 align 16 {
+define dso_local ptr @xas_find_conflict(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -3424,7 +3424,7 @@ xas_load.exit:                                    ; preds = %.split6.us.i, %60, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @__xa_erase(ptr noundef %0, i64 noundef %1) #2 align 16 {
@@ -3620,7 +3620,7 @@ define dso_local ptr @__xa_store(ptr noundef %0, i64 noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @__xas_nomem(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef zeroext i1 @__xas_nomem(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
@@ -4276,7 +4276,7 @@ define dso_local i32 @xa_get_order(ptr noundef %0, i64 noundef %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__xa_alloc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 %3, i32 noundef %4) #2 align 16 {
+define dso_local i32 @__xa_alloc(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 %3, i32 noundef %4) #2 align 16 {
   %6 = alloca %struct.xa_state, align 8
   %7 = lshr i64 %3, 32
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #8
@@ -4412,7 +4412,7 @@ define dso_local i32 @__xa_alloc(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__xa_alloc_cyclic(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i64 %3, ptr nocapture noundef %4, i32 noundef %5) #2 align 16 {
+define dso_local i32 @__xa_alloc_cyclic(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i64 %3, ptr noundef captures(none) %4, i32 noundef %5) #2 align 16 {
   %7 = lshr i64 %3, 32
   %8 = trunc nuw i64 %7 to i32
   %9 = load i32, ptr %4, align 4
@@ -4901,7 +4901,7 @@ define dso_local void @xa_clear_mark(ptr noundef %0, i64 noundef %1, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xa_find(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) #2 align 16 {
+define dso_local ptr @xa_find(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) #2 align 16 {
   %5 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -4965,7 +4965,7 @@ define dso_local ptr @xa_find(ptr noundef %0, ptr nocapture noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xa_find_after(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2, i32 noundef %3) #2 align 16 {
+define dso_local ptr @xa_find_after(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3) #2 align 16 {
   %5 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #8
   store ptr %0, ptr %5, align 8
@@ -5098,7 +5098,7 @@ define dso_local ptr @xa_find_after(ptr noundef %0, ptr nocapture noundef %1, i6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xa_extract(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #2 align 16 {
+define dso_local i32 @xa_extract(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) #2 align 16 {
   %7 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #8
   store ptr %0, ptr %7, align 8
@@ -5341,7 +5341,7 @@ define dso_local i32 @xa_extract(ptr noundef %0, ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xa_delete_node(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define dso_local void @xa_delete_node(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.xa_state, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16

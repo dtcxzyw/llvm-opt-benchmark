@@ -89,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 @cff_expert_encoding = internal unnamed_addr constant [256 x i16] [i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 1, i16 229, i16 230, i16 0, i16 231, i16 232, i16 233, i16 234, i16 235, i16 236, i16 237, i16 238, i16 13, i16 14, i16 15, i16 99, i16 239, i16 240, i16 241, i16 242, i16 243, i16 244, i16 245, i16 246, i16 247, i16 248, i16 27, i16 28, i16 249, i16 250, i16 251, i16 252, i16 0, i16 253, i16 254, i16 255, i16 256, i16 257, i16 0, i16 0, i16 0, i16 258, i16 0, i16 0, i16 259, i16 260, i16 261, i16 262, i16 0, i16 0, i16 263, i16 264, i16 265, i16 0, i16 266, i16 109, i16 110, i16 267, i16 268, i16 269, i16 0, i16 270, i16 271, i16 272, i16 273, i16 274, i16 275, i16 276, i16 277, i16 278, i16 279, i16 280, i16 281, i16 282, i16 283, i16 284, i16 285, i16 286, i16 287, i16 288, i16 289, i16 290, i16 291, i16 292, i16 293, i16 294, i16 295, i16 296, i16 297, i16 298, i16 299, i16 300, i16 301, i16 302, i16 303, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0, i16 304, i16 305, i16 306, i16 0, i16 0, i16 307, i16 308, i16 309, i16 310, i16 311, i16 0, i16 312, i16 0, i16 0, i16 312, i16 0, i16 0, i16 314, i16 315, i16 0, i16 0, i16 316, i16 317, i16 318, i16 0, i16 0, i16 0, i16 158, i16 155, i16 163, i16 319, i16 320, i16 321, i16 322, i16 323, i16 324, i16 325, i16 0, i16 0, i16 326, i16 150, i16 164, i16 169, i16 327, i16 328, i16 329, i16 330, i16 331, i16 332, i16 333, i16 334, i16 335, i16 336, i16 337, i16 338, i16 339, i16 340, i16 341, i16 342, i16 343, i16 344, i16 345, i16 346, i16 347, i16 348, i16 349, i16 350, i16 351, i16 352, i16 353, i16 354, i16 355, i16 356, i16 357, i16 358, i16 359, i16 360, i16 361, i16 362, i16 363, i16 364, i16 365, i16 366, i16 367, i16 368, i16 369, i16 370, i16 371, i16 372, i16 373, i16 374, i16 375, i16 376, i16 377, i16 378], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @cff_cmap_encoding_init(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @cff_cmap_encoding_init(ptr noundef captures(none) initializes((24, 32)) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1168
   %5 = load ptr, ptr %4, align 8
@@ -100,14 +100,14 @@ define internal noundef i32 @cff_cmap_encoding_init(ptr nocapture noundef initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cff_cmap_encoding_done(ptr nocapture noundef writeonly initializes((24, 32)) %0) #1 {
+define internal void @cff_cmap_encoding_done(ptr noundef writeonly captures(none) initializes((24, 32)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @cff_cmap_encoding_char_index(ptr nocapture noundef readonly %0, i32 noundef %1) #2 {
+define internal range(i32 0, 65536) i32 @cff_cmap_encoding_char_index(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = icmp ult i32 %1, 256
   br i1 %3, label %4, label %11
 
@@ -126,7 +126,7 @@ define internal range(i32 0, 65536) i32 @cff_cmap_encoding_char_index(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 65536) i32 @cff_cmap_encoding_char_next(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 {
+define internal range(i32 0, 65536) i32 @cff_cmap_encoding_char_next(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #3 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = zext i32 %3 to i64
@@ -159,7 +159,7 @@ define internal range(i32 0, 65536) i32 @cff_cmap_encoding_char_next(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_cmap_unicode_init(ptr noundef %0, ptr nocapture readnone %1) #4 {
+define internal i32 @cff_cmap_unicode_init(ptr noundef %0, ptr readnone captures(none) %1) #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %5 = load ptr, ptr %4, align 8
@@ -190,7 +190,7 @@ define internal i32 @cff_cmap_unicode_init(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cff_cmap_unicode_done(ptr nocapture noundef initializes((24, 28)) %0) #4 {
+define internal void @cff_cmap_unicode_done(ptr noundef captures(none) initializes((24, 28)) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -230,7 +230,7 @@ define internal i32 @cff_cmap_unicode_char_next(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @cff_driver_init(ptr nocapture noundef initializes((56, 61), (64, 100)) %0) #5 {
+define internal noundef i32 @cff_driver_init(ptr noundef captures(none) initializes((56, 61), (64, 100)) %0) #5 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -288,7 +288,7 @@ define internal noundef i32 @cff_driver_init(ptr nocapture noundef initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @cff_driver_done(ptr nocapture readnone %0) #6 {
+define internal void @cff_driver_done(ptr readnone captures(none) %0) #6 {
   ret void
 }
 
@@ -1551,7 +1551,7 @@ cff_done_blend.exit:                              ; preds = %112, %115
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_size_init(ptr nocapture noundef %0) #4 {
+define internal i32 @cff_size_init(ptr noundef captures(none) %0) #4 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.PS_PrivateRec_, align 8
   store i32 0, ptr %2, align 4
@@ -1672,7 +1672,7 @@ cff_size_get_globals_funcs.exit.thread:           ; preds = %38, %cff_size_get_g
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cff_size_done(ptr nocapture noundef readonly %0) #4 {
+define internal void @cff_size_done(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -1738,7 +1738,7 @@ cff_size_get_globals_funcs.exit.thread:           ; preds = %26, %18, %10, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cff_slot_init(ptr nocapture noundef readonly %0) #4 {
+define internal noundef i32 @cff_slot_init(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1168
@@ -1769,7 +1769,7 @@ define internal noundef i32 @cff_slot_init(ptr nocapture noundef readonly %0) #4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @cff_slot_done(ptr nocapture noundef readonly %0) #7 {
+define internal void @cff_slot_done(ptr noundef readonly captures(none) %0) #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2868,7 +2868,7 @@ cff_slot_load.exit:                               ; preds = %45, %cff_charset_ci
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cff_get_kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) #4 {
+define internal noundef i32 @cff_get_kerning(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 16)) %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -2888,7 +2888,7 @@ define internal noundef i32 @cff_get_kerning(ptr noundef %0, i32 noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_get_advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #4 {
+define internal i32 @cff_get_advances(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) #4 {
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
   %8 = alloca i16, align 2
@@ -3030,7 +3030,7 @@ define internal i32 @cff_get_advances(ptr noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_size_request(ptr nocapture noundef %0, ptr noundef %1) #4 {
+define internal i32 @cff_size_request(ptr noundef captures(none) %0, ptr noundef %1) #4 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3153,7 +3153,7 @@ cff_size_get_globals_funcs.exit.thread:           ; preds = %65, %31, %22, %28, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cff_size_select(ptr nocapture noundef initializes((88, 96)) %0, i64 noundef %1) #4 {
+define internal noundef i32 @cff_size_select(ptr noundef captures(none) initializes((88, 96)) %0, i64 noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -3244,7 +3244,7 @@ cff_size_get_globals_funcs.exit.thread:           ; preds = %47, %13, %2, %10, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @cff_sid_to_glyph_name(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
+define internal ptr @cff_sid_to_glyph_name(ptr noundef readonly captures(none) %0, i32 noundef %1) #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1312
@@ -3495,7 +3495,7 @@ define internal void @cff_metrics_adjust(ptr noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_ps_get_font_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal i32 @cff_ps_get_font_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #4 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %5 = load ptr, ptr %4, align 8
@@ -3757,7 +3757,7 @@ cff_index_get_sid_string.exit50:                  ; preds = %cff_index_get_sid_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_ps_get_font_extra(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 {
+define internal i32 @cff_ps_get_font_extra(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #4 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %5 = load ptr, ptr %4, align 8
@@ -3891,7 +3891,7 @@ cff_index_get_sid_string.exit.thread:             ; preds = %55, %cff_index_get_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @cff_ps_has_glyph_names(ptr nocapture noundef readonly %0) #9 {
+define internal range(i32 0, 2) i32 @cff_ps_has_glyph_names(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -3903,10 +3903,10 @@ define internal range(i32 0, 2) i32 @cff_ps_has_glyph_names(ptr nocapture nounde
 declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cff_get_ps_name(ptr noundef %0) #4 {
@@ -4144,7 +4144,7 @@ cff_index_get_string.exit.thread:                 ; preds = %34, %46, %cff_index
 declare hidden i32 @ft_mem_strcpyn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cff_get_cmap_info(ptr noundef %0, ptr noundef %1) #4 {
@@ -4181,7 +4181,7 @@ define internal i32 @cff_get_cmap_info(ptr noundef %0, ptr noundef %1) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 7) i32 @cff_get_ros(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #4 {
+define internal range(i32 0, 7) i32 @cff_get_ros(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -4318,7 +4318,7 @@ cff_index_get_sid_string.exit35:                  ; preds = %41, %47, %52, %58, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @cff_get_is_cid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 {
+define internal noundef i32 @cff_get_is_cid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %4 = load ptr, ptr %3, align 8
   store i8 0, ptr %1, align 1
@@ -4340,7 +4340,7 @@ define internal noundef i32 @cff_get_is_cid(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 7) i32 @cff_get_cid_from_glyph_index(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) #0 {
+define internal range(i32 0, 7) i32 @cff_get_cid_from_glyph_index(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1168
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4571,7 +4571,7 @@ cff_parser_init.exit:                             ; preds = %32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal zeroext i8 @cff_fd_select_get(ptr nocapture noundef %0, i32 noundef %1) #3 {
+define internal zeroext i8 @cff_fd_select_get(ptr noundef captures(none) %0, i32 noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4657,7 +4657,7 @@ define internal zeroext i8 @cff_fd_select_get(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext range(i8 0, 2) i8 @cff_blend_check_vector(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #12 {
+define internal zeroext range(i8 0, 2) i8 @cff_blend_check_vector(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #12 {
   %5 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %5, 0
   br i1 %.not, label %19, label %6
@@ -4696,7 +4696,7 @@ define internal zeroext range(i8 0, 2) i8 @cff_blend_check_vector(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_blend_build_vector(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) #4 {
+define internal i32 @cff_blend_build_vector(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) #4 {
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4921,7 +4921,7 @@ define internal i32 @cff_blend_build_vector(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare hidden i32 @FT_Stream_Seek(ptr noundef, i64 noundef) local_unnamed_addr #8
 
@@ -5252,7 +5252,7 @@ declare hidden void @FT_Stream_ExitFrame(ptr noundef) local_unnamed_addr #8
 declare hidden ptr @ft_mem_qrealloc(ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_parse_num(ptr nocapture noundef readonly %0, ptr %.0.val) unnamed_addr #4 {
+define internal fastcc range(i64 -140737488355328, 140737488355328) i64 @cff_parse_num(ptr noundef readonly captures(none) %0, ptr %.0.val) unnamed_addr #4 {
   %2 = load i8, ptr %.0.val, align 1
   switch i8 %2, label %25 [
     i8 30, label %3
@@ -5387,7 +5387,7 @@ cff_parse_integer.exit:                           ; preds = %81, %80, %73, %72, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 162) i32 @cff_parse_font_matrix(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 0, 162) i32 @cff_parse_font_matrix(ptr noundef readonly captures(none) %0) #4 {
   %2 = alloca [6 x i64], align 16
   %3 = alloca [6 x i64], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -5687,7 +5687,7 @@ cff_parse_fixed_dynamic.exit:                     ; preds = %23, %98, %104, %cff
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 162) i32 @cff_parse_font_bbox(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 0, 162) i32 @cff_parse_font_bbox(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5730,7 +5730,7 @@ define internal range(i32 0, 162) i32 @cff_parse_font_bbox(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 162) i32 @cff_parse_private_dict(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 0, 162) i32 @cff_parse_private_dict(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5767,7 +5767,7 @@ define internal range(i32 0, 162) i32 @cff_parse_private_dict(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 162) i32 @cff_parse_multiple_master(ptr nocapture noundef %0) #4 {
+define internal range(i32 0, 162) i32 @cff_parse_multiple_master(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5812,7 +5812,7 @@ define internal range(i32 0, 162) i32 @cff_parse_multiple_master(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 162) i32 @cff_parse_cid_ros(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 0, 162) i32 @cff_parse_cid_ros(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5848,7 +5848,7 @@ define internal range(i32 0, 162) i32 @cff_parse_cid_ros(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @cff_parse_maxstack(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 0, 4) i32 @cff_parse_maxstack(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -5869,7 +5869,7 @@ define internal range(i32 0, 4) i32 @cff_parse_maxstack(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 161) i32 @cff_parse_vsindex(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 0, 161) i32 @cff_parse_vsindex(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5903,7 +5903,7 @@ define internal range(i32 0, 161) i32 @cff_parse_vsindex(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_parse_blend(ptr nocapture noundef %0) #4 {
+define internal i32 @cff_parse_blend(ptr noundef captures(none) %0) #4 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -6711,7 +6711,7 @@ declare i64 @FT_DivFix(i64 noundef, i64 noundef) local_unnamed_addr #8
 declare i64 @FT_RoundFix(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @do_fixed(ptr nocapture noundef readonly %0, ptr %.0.val, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 {
+define internal fastcc i64 @do_fixed(ptr noundef readonly captures(none) %0, ptr %.0.val, i64 noundef range(i64 0, 4) %1) unnamed_addr #4 {
   %3 = load i8, ptr %.0.val, align 1
   switch i8 %3, label %40 [
     i8 30, label %4
@@ -6904,7 +6904,7 @@ cff_parse_integer.exit:                           ; preds = %45, %48, %57, %60, 
 declare i64 @FT_MulDiv(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cff_get_glyph_data(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #4 {
+define internal i32 @cff_get_glyph_data(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) #4 {
   %5 = alloca %struct.FT_Data_, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %7 = load ptr, ptr %6, align 8
@@ -6940,7 +6940,7 @@ define internal i32 @cff_get_glyph_data(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cff_free_glyph_data(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #4 {
+define internal void @cff_free_glyph_data(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #4 {
   %4 = alloca %struct.FT_Data_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = load ptr, ptr %5, align 8
@@ -6990,7 +6990,7 @@ declare void @FT_Outline_Get_CBox(ptr noundef, ptr noundef) local_unnamed_addr #
 declare hidden void @ft_synthesize_vertical_metrics(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_index_access_element(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc i32 @cff_index_access_element(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #4 {
   %5 = alloca [4 x i8], align 1
   %6 = alloca [4 x i8], align 1
   %.not = icmp eq ptr %0, null
@@ -7226,7 +7226,7 @@ cff_index_read_offset.exit88:                     ; preds = %.lr.ph.i83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @cff_index_read_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
+define internal fastcc i64 @cff_index_read_offset(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #4 {
   %3 = alloca [4 x i8], align 1
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7272,7 +7272,7 @@ declare hidden void @FT_Stream_ReleaseFrame(ptr noundef, ptr noundef) local_unna
 declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @cff_make_private_dict(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 224)) %1) unnamed_addr #14 {
+define internal fastcc void @cff_make_private_dict(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 224)) %1) unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %1, i8 0, i64 224, i1 false)
   %4 = load i8, ptr %3, align 8
@@ -7479,7 +7479,7 @@ declare hidden i32 @FT_Request_Metrics(ptr noundef, ptr noundef) local_unnamed_a
 declare hidden ptr @FT_Get_Module_Interface(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((0, 5056)) %3, ptr nocapture noundef readonly %4, i8 noundef zeroext range(i8 0, 2) %5, i8 noundef zeroext range(i8 0, 2) %6) unnamed_addr #4 {
+define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((0, 5056)) %3, ptr noundef readonly captures(none) %4, i8 noundef zeroext range(i8 0, 2) %5, i8 noundef zeroext range(i8 0, 2) %6) unnamed_addr #4 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.CFF_IndexRec_, align 8
   %10 = alloca %struct.CFF_IndexRec_, align 8
@@ -7825,7 +7825,7 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %169 = getelementptr inbounds nuw [256 x ptr], ptr %159, i64 0, i64 %indvars.iv201
   %170 = load ptr, ptr %169, align 8
   %171 = trunc nuw i64 %indvars.iv201 to i32
-  %172 = call fastcc i32 @cff_subfont_load(ptr noundef %170, ptr noundef nonnull %10, i32 noundef %171, ptr noundef %1, i64 noundef %14, i32 noundef %160, ptr noundef nonnull %3, ptr noundef %4)
+  %172 = call fastcc i32 @cff_subfont_load(ptr noundef %170, ptr noundef nonnull %10, i32 noundef %171, ptr noundef nonnull %1, i64 noundef %14, i32 noundef %160, ptr noundef nonnull %3, ptr noundef %4)
   store i32 %172, ptr %8, align 4
   %.not185 = icmp eq i32 %172, 0
   br i1 %.not185, label %164, label %.loopexit
@@ -7846,7 +7846,7 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %178 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   %179 = load i64, ptr %178, align 8
   %180 = add i64 %179, %14
-  %181 = call fastcc i32 @CFF_Load_FD_Select(ptr noundef nonnull %175, i32 noundef %177, ptr noundef %1, i64 noundef %180)
+  %181 = call fastcc i32 @CFF_Load_FD_Select(ptr noundef nonnull %175, i32 noundef %177, ptr noundef nonnull %1, i64 noundef %180)
   store i32 %181, ptr %8, align 4
   br label %.loopexit
 
@@ -7899,7 +7899,7 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %205 = getelementptr inbounds nuw i8, ptr %3, i64 1296
   %206 = getelementptr inbounds nuw i8, ptr %3, i64 1816
   %207 = load i64, ptr %206, align 8
-  %208 = call fastcc i32 @cff_charset_load(ptr noundef nonnull %205, i32 noundef %198, ptr noundef %1, i64 noundef %14, i64 noundef %207, i8 noundef zeroext %204)
+  %208 = call fastcc i32 @cff_charset_load(ptr noundef nonnull %205, i32 noundef %198, ptr noundef nonnull %1, i64 noundef %14, i64 noundef %207, i8 noundef zeroext %204)
   store i32 %208, ptr %8, align 4
   %.not189 = icmp eq i32 %208, 0
   br i1 %.not189, label %209, label %221
@@ -7914,7 +7914,7 @@ define internal fastcc i32 @cff_font_load(ptr noundef %0, ptr noundef %1, i32 no
   %214 = load i32, ptr %192, align 4
   %215 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %216 = load i64, ptr %215, align 8
-  %217 = call fastcc i32 @cff_encoding_load(ptr noundef nonnull %213, ptr noundef nonnull %205, i32 noundef %214, ptr noundef %1, i64 noundef %14, i64 noundef %216)
+  %217 = call fastcc i32 @cff_encoding_load(ptr noundef nonnull %213, ptr noundef nonnull %205, i32 noundef %214, ptr noundef nonnull %1, i64 noundef %14, i64 noundef %216)
   store i32 %217, ptr %8, align 4
   %.not190 = icmp eq i32 %217, 0
   br i1 %.not190, label %218, label %221
@@ -8009,7 +8009,7 @@ cff_index_forget_element.exit:                    ; preds = %24, %20, %8, %2
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @remove_subset_prefix(ptr nocapture noundef nonnull %0) unnamed_addr #15 {
+define internal fastcc void @remove_subset_prefix(ptr noundef nonnull captures(none) %0) unnamed_addr #15 {
   %2 = load i8, ptr %0, align 1
   %3 = add i8 %2, -65
   %or.cond45 = icmp ult i8 %3, 26
@@ -8160,7 +8160,7 @@ define internal fastcc void @remove_style(ptr noundef %0, ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 declare hidden i32 @FT_CMap_New(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
@@ -8296,7 +8296,7 @@ thread-pre-split.thread:                          ; preds = %19, %.thread, %thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_index_get_pointers(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #4 {
+define internal fastcc i32 @cff_index_get_pointers(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
@@ -8450,7 +8450,7 @@ define internal fastcc i32 @cff_index_get_pointers(ptr nocapture noundef %0, ptr
   br i1 %91, label %.lr.ph80.i, label %.loopexit.i, !llvm.loop !50
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %.lr.ph74.i, %.lr.ph77.i, %.lr.ph80.i, %.preheader.i, %.preheader64.i, %.preheader66.i, %.preheader68.i
-  call void @FT_Stream_ExitFrame(ptr noundef %13) #19
+  call void @FT_Stream_ExitFrame(ptr noundef nonnull %13) #19
   %.pr.pre.i = load i32, ptr %5, align 4
   %92 = icmp eq i32 %.pr.pre.i, 0
   br i1 %92, label %cff_index_load_offsets.exit.thread, label %cff_index_load_offsets.exit
@@ -8647,7 +8647,7 @@ cff_index_load_offsets.exit:                      ; preds = %18, %27, %35, %.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_subfont_load(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef range(i32 4096, 16385) %5, ptr noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #4 {
+define internal fastcc i32 @cff_subfont_load(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef range(i32 4096, 16385) %5, ptr noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #4 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.CFF_ParserRec_, align 8
   %11 = alloca ptr, align 8
@@ -8906,7 +8906,7 @@ cff_index_forget_element.exit:                    ; preds = %cff_index_forget_el
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
+define internal fastcc i32 @cff_vstore_load(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -8972,7 +8972,7 @@ define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %30 = call i32 @FT_Stream_ReadULong(ptr noundef %1, ptr noundef nonnull %5) #19
+  %30 = call i32 @FT_Stream_ReadULong(ptr noundef nonnull %1, ptr noundef nonnull %5) #19
   %31 = zext i32 %30 to i64
   %32 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv
   store i64 %31, ptr %32, align 8
@@ -8983,13 +8983,13 @@ define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr nounde
 ._crit_edge:                                      ; preds = %29, %.preheader126
   %34 = and i64 %14, 4294967295
   %35 = add nuw nsw i64 %34, %20
-  %36 = call i32 @FT_Stream_Seek(ptr noundef %1, i64 noundef %35) #19
+  %36 = call i32 @FT_Stream_Seek(ptr noundef nonnull %1, i64 noundef %35) #19
   store i32 %36, ptr %5, align 4
   %.not103 = icmp eq i32 %36, 0
   br i1 %.not103, label %37, label %.loopexit
 
 37:                                               ; preds = %._crit_edge
-  %38 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %1, ptr noundef nonnull %5) #19
+  %38 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %5) #19
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %38, ptr %39, align 8
   %40 = load i32, ptr %5, align 4
@@ -8997,7 +8997,7 @@ define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr nounde
   br i1 %.not104, label %41, label %.loopexit
 
 41:                                               ; preds = %37
-  %42 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %1, ptr noundef nonnull %5) #19
+  %42 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %5) #19
   %43 = load i32, ptr %5, align 4
   %.not105 = icmp eq i32 %43, 0
   br i1 %.not105, label %44, label %.loopexit
@@ -9046,20 +9046,20 @@ define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr nounde
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %71 ], [ 0, %56 ]
   %60 = load ptr, ptr %52, align 8
   %61 = getelementptr inbounds nuw %struct.CFF_AxisCoords_, ptr %60, i64 %indvars.iv152
-  %62 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %1, ptr noundef nonnull %5) #19
+  %62 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %5) #19
   %63 = load i32, ptr %5, align 4
   %.not114 = icmp eq i32 %63, 0
   br i1 %.not114, label %64, label %.loopexit
 
 64:                                               ; preds = %.lr.ph131
-  %65 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %1, ptr noundef nonnull %5) #19
+  %65 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %5) #19
   %66 = sext i16 %65 to i64
   %67 = load i32, ptr %5, align 4
   %.not115 = icmp eq i32 %67, 0
   br i1 %.not115, label %68, label %.loopexit
 
 68:                                               ; preds = %64
-  %69 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %1, ptr noundef nonnull %5) #19
+  %69 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %5) #19
   %70 = load i32, ptr %5, align 4
   %.not116 = icmp eq i32 %70, 0
   br i1 %.not116, label %71, label %.loopexit
@@ -9118,19 +9118,19 @@ define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr nounde
   %93 = getelementptr inbounds nuw i64, ptr %27, i64 %indvars.iv163
   %94 = load i64, ptr %93, align 8
   %95 = add i64 %94, %34
-  %96 = call i32 @FT_Stream_Seek(ptr noundef %1, i64 noundef %95) #19
+  %96 = call i32 @FT_Stream_Seek(ptr noundef nonnull %1, i64 noundef %95) #19
   store i32 %96, ptr %5, align 4
   %.not108 = icmp eq i32 %96, 0
   br i1 %.not108, label %97, label %.loopexit
 
 97:                                               ; preds = %.lr.ph141
-  %98 = call i32 @FT_Stream_Skip(ptr noundef %1, i64 noundef 4) #19
+  %98 = call i32 @FT_Stream_Skip(ptr noundef nonnull %1, i64 noundef 4) #19
   store i32 %98, ptr %5, align 4
   %.not109 = icmp eq i32 %98, 0
   br i1 %.not109, label %99, label %.loopexit
 
 99:                                               ; preds = %97
-  %100 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %1, ptr noundef nonnull %5) #19
+  %100 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %5) #19
   %101 = zext i16 %100 to i32
   store i32 %101, ptr %92, align 8
   %102 = load i32, ptr %5, align 4
@@ -9163,7 +9163,7 @@ define internal fastcc i32 @cff_vstore_load(ptr nocapture noundef %0, ptr nounde
 
 .lr.ph138:                                        ; preds = %108, %112
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %112 ], [ 0, %108 ]
-  %116 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %1, ptr noundef nonnull %5) #19
+  %116 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %1, ptr noundef nonnull %5) #19
   %117 = zext i16 %116 to i32
   %118 = load ptr, ptr %106, align 8
   %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv160
@@ -9285,7 +9285,7 @@ define internal fastcc void @cff_index_done(ptr noundef nonnull %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_charset_load(ptr nocapture noundef initializes((8, 16)) %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #4 {
+define internal fastcc i32 @cff_charset_load(ptr noundef captures(none) initializes((8, 16)) %0, i32 noundef range(i32 1, 0) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #4 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -9344,7 +9344,7 @@ define internal fastcc i32 @cff_charset_load(ptr nocapture noundef initializes((
 
 .lr.ph104:                                        ; preds = %.preheader, %.lr.ph104
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.lr.ph104 ], [ 1, %.preheader ]
-  %33 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef %2) #19
+  %33 = call zeroext i16 @FT_Stream_GetUShort(ptr noundef nonnull %2) #19
   %34 = load ptr, ptr %23, align 8
   %35 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv105
   store i16 %33, ptr %35, align 2
@@ -9353,7 +9353,7 @@ define internal fastcc i32 @cff_charset_load(ptr nocapture noundef initializes((
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph104, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %.lr.ph104, %.preheader
-  call void @FT_Stream_ExitFrame(ptr noundef %2) #19
+  call void @FT_Stream_ExitFrame(ptr noundef nonnull %2) #19
   br label %.loopexit97
 
 36:                                               ; preds = %25, %25
@@ -9371,7 +9371,7 @@ define internal fastcc i32 @cff_charset_load(ptr nocapture noundef initializes((
 
 .lr.ph102:                                        ; preds = %36, %.loopexit
   %.177101 = phi i32 [ %.2.lcssa, %.loopexit ], [ 1, %36 ]
-  %40 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %2, ptr noundef nonnull %8) #19
+  %40 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %2, ptr noundef nonnull %8) #19
   %41 = load i32, ptr %8, align 4
   %.not90 = icmp eq i32 %41, 0
   br i1 %.not90, label %42, label %.thread
@@ -9382,14 +9382,14 @@ define internal fastcc i32 @cff_charset_load(ptr nocapture noundef initializes((
   br i1 %44, label %45, label %49
 
 45:                                               ; preds = %42
-  %46 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef %2, ptr noundef nonnull %8) #19
+  %46 = call zeroext i16 @FT_Stream_ReadUShort(ptr noundef nonnull %2, ptr noundef nonnull %8) #19
   %47 = zext i16 %46 to i32
   %48 = load i32, ptr %8, align 4
   %.not92 = icmp eq i32 %48, 0
   br i1 %.not92, label %53, label %.thread
 
 49:                                               ; preds = %42
-  %50 = call zeroext i8 @FT_Stream_ReadByte(ptr noundef %2, ptr noundef nonnull %8) #19
+  %50 = call zeroext i8 @FT_Stream_ReadByte(ptr noundef nonnull %2, ptr noundef nonnull %8) #19
   %51 = zext i8 %50 to i32
   %52 = load i32, ptr %8, align 4
   %.not91 = icmp eq i32 %52, 0
@@ -9597,7 +9597,7 @@ thread-pre-split:                                 ; preds = %.loopexit97
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cff_encoding_load(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #4 {
+define internal fastcc i32 @cff_encoding_load(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #4 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -10009,7 +10009,7 @@ cff_charset_cid_to_gindex.exit.thread:            ; preds = %151, %148, %cff_cha
 declare hidden i32 @FT_Stream_ReadULong(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cff_vstore_done(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @cff_vstore_done(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -10085,10 +10085,10 @@ declare hidden zeroext i16 @FT_Stream_GetUShort(ptr noundef) local_unnamed_addr 
 declare hidden ptr @ft_mem_strdup(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cff_subfont_done(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
@@ -10144,7 +10144,7 @@ cff_index_done.exit:                              ; preds = %3, %12
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #17
@@ -10156,10 +10156,10 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #17
 declare i64 @llvm.umin.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #17

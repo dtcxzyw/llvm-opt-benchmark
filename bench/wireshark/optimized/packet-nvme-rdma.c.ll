@@ -124,7 +124,7 @@ define hidden void @proto_register_nvme_rdma() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_rdma_cm_qid(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @add_rdma_cm_qid(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, ptr @.str.64, ptr @.str.63
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.62, i32 noundef %1, ptr noundef nonnull %3) #5
@@ -132,7 +132,7 @@ define internal void @add_rdma_cm_qid(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @add_zero_base(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @add_zero_base(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = add i32 %1, 1
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.65, i32 noundef %3) #5
   ret void
@@ -169,7 +169,7 @@ define hidden void @proto_reg_handoff_nvme_rdma() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_nvme_ib_cm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_nvme_ib_cm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -263,7 +263,7 @@ dissect_rdma_cm_packet.exit:                      ; preds = %20, %17, %14, %4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_nvme_ib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_nvme_ib(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.keyed_data_req, align 8
   %6 = alloca %struct.keyed_data_req, align 8
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
@@ -992,7 +992,7 @@ declare ptr @find_dissector_add_dependency(ptr noundef, i32 noundef) local_unnam
 declare i32 @dissector_handle_get_protocol_index(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1063,10 +1063,10 @@ declare void @dissect_nvmeof_fabric_cqe(ptr noundef, ptr noundef, ptr noundef, p
 declare void @dissect_nvme_cqe(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

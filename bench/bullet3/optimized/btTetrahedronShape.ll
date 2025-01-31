@@ -62,7 +62,7 @@ declare void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull al
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btBU_Simplex1to4, i64 16), ptr %this, align 8
@@ -86,7 +86,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN16btBU_Simplex1to49addVertexERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt) local_unnamed_addr #0 align 2 {
 entry:
   %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 120
   %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btBU_Simplex1to4, i64 16), ptr %this, align 8
@@ -135,7 +135,7 @@ lpad:                                             ; preds = %invoke.cont2, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_S2_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_S2_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btBU_Simplex1to4, i64 16), ptr %this, align 8
@@ -179,7 +179,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pt3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16btBU_Simplex1to4, i64 16), ptr %this, align 8
@@ -242,12 +242,12 @@ entry:
 declare void @_ZNK34btPolyhedralConvexAabbCachingShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(113), ptr noundef nonnull align 4 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN34btPolyhedralConvexAabbCachingShape15recalcLocalAabbEv(ptr noundef nonnull align 8 dereferenceable(113)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK16btBU_Simplex1to414getNumVerticesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZNK16btBU_Simplex1to414getNumVerticesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this) unnamed_addr #3 align 2 {
 entry:
   %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_numVertices, align 4
@@ -255,7 +255,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 7) i32 @_ZNK16btBU_Simplex1to411getNumEdgesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 7) i32 @_ZNK16btBU_Simplex1to411getNumEdgesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this) unnamed_addr #3 align 2 {
 entry:
   %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_numVertices, align 4
@@ -275,7 +275,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK16btBU_Simplex1to47getEdgeEiR9btVector3S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %pa, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %pb) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK16btBU_Simplex1to47getEdgeEiR9btVector3S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, i32 noundef %i, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %pa, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) %pb) unnamed_addr #4 align 2 {
 entry:
   %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_numVertices, align 4
@@ -372,7 +372,7 @@ sw.epilog52:                                      ; preds = %sw.epilog52.sink.sp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK16btBU_Simplex1to49getVertexEiR9btVector3(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %i, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %vtx) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK16btBU_Simplex1to49getVertexEiR9btVector3(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this, i32 noundef %i, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 16)) %vtx) unnamed_addr #4 align 2 {
 entry:
   %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 120
   %idxprom = sext i32 %i to i64
@@ -382,7 +382,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 5) i32 @_ZNK16btBU_Simplex1to412getNumPlanesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 5) i32 @_ZNK16btBU_Simplex1to412getNumPlanesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this) unnamed_addr #3 align 2 {
 entry:
   %m_numVertices = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %m_numVertices, align 4
@@ -394,19 +394,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK16btBU_Simplex1to48getPlaneER9btVector3S1_i(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %0, ptr nocapture nonnull readnone align 4 %1, i32 %2) unnamed_addr #5 align 2 {
+define dso_local void @_ZNK16btBU_Simplex1to48getPlaneER9btVector3S1_i(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %0, ptr nonnull readnone align 4 captures(none) %1, i32 %2) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK16btBU_Simplex1to48getIndexEi(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #5 align 2 {
+define dso_local noundef i32 @_ZNK16btBU_Simplex1to48getIndexEi(ptr nonnull readnone align 8 captures(none) %this, i32 %0) unnamed_addr #5 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK16btBU_Simplex1to48isInsideERK9btVector3f(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %0, float %1) unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK16btBU_Simplex1to48isInsideERK9btVector3f(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %0, float %1) unnamed_addr #5 align 2 {
 entry:
   ret i1 false
 }

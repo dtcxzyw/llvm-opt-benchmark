@@ -392,7 +392,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang12Lan
 declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 42) i32 @_ZN5clang12LangStandard11getLangKindEN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 42) i32 @_ZN5clang12LangStandard11getLangKindEN4llvm9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #3 align 2 {
   switch i64 %1, label %_ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E4CaseENS_13StringLiteralES3_.exit610 [
     i64 3, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 12, label %_ZN4llvmeqENS_9StringRefES0_.exit.i15
@@ -828,7 +828,7 @@ _ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E4CaseENS_13StringLiteralES
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 36, 42) i32 @_ZN5clang12LangStandard15getHLSLLangKindEN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 36, 42) i32 @_ZN5clang12LangStandard15getHLSLLangKindEN4llvm9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #3 align 2 {
   %.not.i.i = icmp eq i64 %1, 4
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E4CaseENS_13StringLiteralES3_.exit34
 
@@ -864,7 +864,7 @@ _ZN4llvm12StringSwitchIN5clang12LangStandard4KindES3_E4CaseENS_13StringLiteralES
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN5clang12LangStandard22getLangStandardForNameEN4llvm9StringRefE(ptr nocapture readonly %0, i64 %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN5clang12LangStandard22getLangStandardForNameEN4llvm9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #3 align 2 {
 switch.lookup:
   %2 = tail call noundef i32 @_ZN5clang12LangStandard11getLangKindEN4llvm9StringRefE(ptr %0, i64 %1)
   %3 = zext nneg i32 %2 to i64
@@ -874,7 +874,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 3, 40) i32 @_ZN5clang26getDefaultLanguageStandardENS_8LanguageERKN4llvm6TripleE(i8 noundef zeroext %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #4 {
+define dso_local noundef range(i32 3, 40) i32 @_ZN5clang26getDefaultLanguageStandardENS_8LanguageERKN4llvm6TripleE(i8 noundef zeroext %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #4 {
   switch i8 %0, label %18 [
     i8 13, label %17
     i8 11, label %16
@@ -931,7 +931,7 @@ _ZNK4llvm6Triple5isPS4Ev.exit.thread:             ; preds = %_ZNK4llvm6Triple5is
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -828,7 +828,7 @@ define dso_local void @drm_gem_shmem_vunmap(ptr noundef %0, ptr noundef %1) #0 a
 declare dso_local void @vunmap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local range(i32 0, 2) i32 @drm_gem_shmem_madvise(ptr nocapture noundef %0, i32 noundef %1) #2 align 16 {
+define dso_local range(i32 0, 2) i32 @drm_gem_shmem_madvise(ptr noundef captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1
@@ -1169,7 +1169,7 @@ define internal void @drm_gem_shmem_vm_close(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @drm_gem_shmem_fault(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal i32 @drm_gem_shmem_fault(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -1402,7 +1402,7 @@ declare dso_local i32 @dma_buf_mmap(ptr noundef, ptr noundef, i64 noundef) local
 declare dso_local i64 @vm_get_page_prot(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_gem_shmem_print_info(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @drm_gem_shmem_print_info(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1428,7 +1428,7 @@ define dso_local void @drm_gem_shmem_print_info(ptr nocapture noundef readonly %
 declare dso_local void @drm_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_gem_shmem_get_sg_table(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local ptr @drm_gem_shmem_get_sg_table(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1677,7 +1677,7 @@ drm_gem_shmem_get_sg_table.exit:                  ; preds = %.thread, %85
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_gem_shmem_prime_import_sg_table(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @drm_gem_shmem_prime_import_sg_table(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 4095
@@ -1728,7 +1728,7 @@ define internal void @drm_gem_shmem_object_free(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal void @drm_gem_shmem_object_print_info(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #4 align 16 {
+define internal void @drm_gem_shmem_object_print_info(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -1763,7 +1763,7 @@ define internal void @drm_gem_shmem_object_unpin(ptr noundef %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal ptr @drm_gem_shmem_object_get_sg_table(ptr nocapture noundef readonly %0) #4 align 16 {
+define internal ptr @drm_gem_shmem_object_get_sg_table(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

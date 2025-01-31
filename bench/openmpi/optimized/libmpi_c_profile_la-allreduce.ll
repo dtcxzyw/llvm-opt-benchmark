@@ -365,7 +365,7 @@ ompi_errcode_get_mpi_code.exit113:                ; preds = %144, %140, %.prehea
   %170 = load ptr, ptr %169, align 8
   %171 = getelementptr inbounds nuw i8, ptr %5, i64 304
   %172 = load i32, ptr %171, align 8
-  %173 = tail call i32 @ompi_errhandler_invoke(ptr noundef %170, ptr noundef %5, i32 noundef %172, i32 noundef %.0.i103, ptr noundef nonnull @FUNC_NAME) #5
+  %173 = tail call i32 @ompi_errhandler_invoke(ptr noundef %170, ptr noundef nonnull %5, i32 noundef %172, i32 noundef %.0.i103, ptr noundef nonnull @FUNC_NAME) #5
   br label %174
 
 174:                                              ; preds = %139, %ompi_comm_iface_coll_check.exit, %ompi_errcode_get_mpi_code.exit113, %ompi_errcode_get_mpi_code.exit96, %ompi_errcode_get_mpi_code.exit, %75, %69, %55, %ompi_comm_invalid.exit.thread
@@ -376,7 +376,7 @@ ompi_errcode_get_mpi_code.exit113:                ; preds = %144, %140, %.prehea
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3

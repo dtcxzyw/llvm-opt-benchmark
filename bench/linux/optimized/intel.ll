@@ -138,7 +138,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_handle_guest
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_handle_guest_split_lock469, ptr @__UNIQUE_ID___addressable_sld_mitigate_sysctl_init467, ptr @__cpu_dev_intel_cpu_dev, ptr @__setup_ring3mwait_disable, ptr @split_lock_warn.__UNIQUE_ID___addressable___SCK__preempt_schedule468], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @ring3mwait_disable(ptr nocapture readnone %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @ring3mwait_disable(ptr readnone captures(none) %0) #0 section ".init.text" align 16 {
   store i1 true, ptr @ring3mwait_disabled, align 1
   ret i32 1
 }
@@ -267,10 +267,10 @@ define internal fastcc void @split_lock_warn(i64 noundef %0) unnamed_addr #2 ali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
@@ -279,7 +279,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare dso_local i32 @force_sig_fault(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @handle_user_split_lock(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef zeroext i1 @handle_user_split_lock(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 262144
@@ -300,7 +300,7 @@ define dso_local noundef zeroext i1 @handle_user_split_lock(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @handle_bus_lock(ptr nocapture noundef readonly %0) local_unnamed_addr #2 align 16 {
+define dso_local void @handle_bus_lock(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 align 16 {
   %2 = load i32, ptr @sld_state, align 4
   switch i32 %2, label %21 [
     i32 2, label %19
@@ -954,7 +954,7 @@ thread-pre-split:                                 ; preds = %6, %10, %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @bsp_init_intel(ptr nocapture readnone %0) #6 align 16 {
+define internal void @bsp_init_intel(ptr readnone captures(none) %0) #6 align 16 {
   ret void
 }
 
@@ -1446,7 +1446,7 @@ define internal void @init_intel(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_detect_tlb(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @intel_detect_tlb(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca [4 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -1927,7 +1927,7 @@ define internal fastcc zeroext i1 @split_lock_verify_msr(i1 noundef zeroext %0) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__register_sysctl_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
@@ -1948,7 +1948,7 @@ declare i64 @llvm.read_register.i64(metadata) #8
 declare void @llvm.write_register.i64(metadata, i64) #9
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__split_lock_reenable_unlock(ptr nocapture readnone %0) #2 align 16 {
+define internal void @__split_lock_reenable_unlock(ptr readnone captures(none) %0) #2 align 16 {
   %2 = load i64, ptr @msr_test_ctrl_cache, align 8
   %3 = or i64 %2, 536870912
   %4 = trunc i64 %3 to i32
@@ -1974,7 +1974,7 @@ declare dso_local void @delayed_work_timer_fn(ptr noundef) #5
 declare dso_local void @up(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__split_lock_reenable(ptr nocapture readnone %0) #2 align 16 {
+define internal void @__split_lock_reenable(ptr readnone captures(none) %0) #2 align 16 {
   %2 = load i64, ptr @msr_test_ctrl_cache, align 8
   %3 = or i64 %2, 536870912
   %4 = trunc i64 %3 to i32
@@ -2058,13 +2058,13 @@ define internal fastcc void @__split_lock_setup() unnamed_addr #1 section ".init
 declare dso_local i32 @cmdline_find_option(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @splitlock_cpu_offline(i32 %0) #2 align 16 {

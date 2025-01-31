@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._hash_firstfreebit = private unnamed_addr constant [19 x i8] c"_hash_firstfreebit\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, -1) i32 @_hash_ovflblkno_to_bitno(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, -1) i32 @_hash_ovflblkno_to_bitno(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %.not20 = icmp eq i32 %4, 0
@@ -874,7 +874,7 @@ declare void @XLogRegisterBufData(i8 noundef zeroext, ptr noundef, i32 noundef) 
 declare i64 @XLogInsert(i8 noundef zeroext, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @_hash_freeovflpage(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6, i16 noundef zeroext %7, ptr noundef %8) local_unnamed_addr #0 {
+define dso_local i32 @_hash_freeovflpage(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, i16 noundef zeroext %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca %struct.xl_hash_squeeze_page, align 4
   tail call void @_hash_checkpage(ptr noundef %0, i32 noundef %2, i32 noundef 1) #6
@@ -1503,7 +1503,7 @@ declare void @_hash_pgaddmultitup(ptr noundef, i32 noundef, ptr noundef, ptr nou
 declare void @_hash_pageinit(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_hash_squeezebucket(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {

@@ -24,7 +24,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_sparse_keyma
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_sparse_keymap_entry_from_keycode316, ptr @__UNIQUE_ID___addressable_sparse_keymap_entry_from_scancode315, ptr @__UNIQUE_ID___addressable_sparse_keymap_report_entry318, ptr @__UNIQUE_ID___addressable_sparse_keymap_report_event319, ptr @__UNIQUE_ID___addressable_sparse_keymap_setup317, ptr @__UNIQUE_ID_author311, ptr @__UNIQUE_ID_description312, ptr @__UNIQUE_ID_file313, ptr @__UNIQUE_ID_license314], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef ptr @sparse_keymap_entry_from_scancode(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef ptr @sparse_keymap_entry_from_scancode(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -50,13 +50,13 @@ define dso_local noundef ptr @sparse_keymap_entry_from_scancode(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef ptr @sparse_keymap_entry_from_keycode(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef ptr @sparse_keymap_entry_from_keycode(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   br label %5
@@ -226,7 +226,7 @@ define dso_local i32 @sparse_keymap_setup(ptr noundef %0, ptr noundef %1, ptr no
 declare dso_local ptr @devm_kmemdup(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
@@ -363,7 +363,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_getkeycode(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) #2 align 16 {
+define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %6 = load ptr, ptr %5, align 8
@@ -494,7 +494,7 @@ define internal noundef range(i32 -22, 1) i32 @sparse_keymap_setkeycode(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sparse_keymap_report_entry(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) #2 align 16 {
+define dso_local void @sparse_keymap_report_entry(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3) #2 align 16 {
   %5 = load i32, ptr %1, align 4
   switch i32 %5, label %30 [
     i32 1, label %6

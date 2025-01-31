@@ -146,7 +146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @newreno_reset(ptr nocapture noundef initializes((32, 44), (56, 100), (104, 116)) %cc) #1 {
+define internal void @newreno_reset(ptr noundef captures(none) initializes((32, 44), (56, 100), (104, 116)) %cc) #1 {
 entry:
   %k_loss_reduction_factor_num = getelementptr inbounds nuw i8, ptr %cc, i64 32
   store i32 1, ptr %k_loss_reduction_factor_num, align 8
@@ -176,7 +176,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @newreno_set_input_params(ptr nocapture noundef %cc, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @newreno_set_input_params(ptr noundef captures(none) %cc, ptr noundef %params) #0 {
 entry:
   %value = alloca i64, align 8
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #7
@@ -290,7 +290,7 @@ return:                                           ; preds = %if.end26.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @newreno_bind_diagnostic(ptr nocapture noundef %cc, ptr noundef %params) #0 {
+define internal range(i32 0, 2) i32 @newreno_bind_diagnostic(ptr noundef captures(none) %cc, ptr noundef %params) #0 {
 entry:
   %call.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #7
   %cmp.i = icmp eq ptr %call.i, null
@@ -531,7 +531,7 @@ return:                                           ; preds = %if.end.i52, %lor.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @newreno_unbind_diagnostic(ptr nocapture noundef writeonly %cc, ptr noundef %params) #0 {
+define internal noundef i32 @newreno_unbind_diagnostic(ptr noundef writeonly captures(none) %cc, ptr noundef %params) #0 {
 entry:
   %call.i = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %params, ptr noundef nonnull @.str.1) #7
   %cmp.not.i = icmp eq ptr %call.i, null
@@ -587,7 +587,7 @@ unbind_diag.exit24:                               ; preds = %unbind_diag.exit20,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @newreno_get_tx_allowance(ptr nocapture noundef readonly %cc) #2 {
+define internal i64 @newreno_get_tx_allowance(ptr noundef readonly captures(none) %cc) #2 {
 entry:
   %bytes_in_flight = getelementptr inbounds nuw i8, ptr %cc, i64 56
   %0 = load i64, ptr %bytes_in_flight, align 8
@@ -598,7 +598,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 -1, 1) i64 @newreno_get_wakeup_deadline(ptr nocapture noundef readonly %cc) #2 {
+define internal range(i64 -1, 1) i64 @newreno_get_wakeup_deadline(ptr noundef readonly captures(none) %cc) #2 {
 entry:
   %bytes_in_flight.i = getelementptr inbounds nuw i8, ptr %cc, i64 56
   %0 = load i64, ptr %bytes_in_flight.i, align 8
@@ -610,7 +610,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @newreno_on_data_sent(ptr nocapture noundef %cc, i64 noundef %num_bytes) #3 {
+define internal noundef i32 @newreno_on_data_sent(ptr noundef captures(none) %cc, i64 noundef %num_bytes) #3 {
 entry:
   %bytes_in_flight = getelementptr inbounds nuw i8, ptr %cc, i64 56
   %0 = load i64, ptr %bytes_in_flight, align 8
@@ -693,7 +693,7 @@ newreno_update_diag.exit:                         ; preds = %if.end13.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @newreno_on_data_acked(ptr nocapture noundef %cc, ptr nocapture noundef readonly %info) #3 {
+define internal noundef i32 @newreno_on_data_acked(ptr noundef captures(none) %cc, ptr noundef readonly captures(none) %info) #3 {
 entry:
   %tx_size = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load i64, ptr %tx_size, align 8
@@ -839,7 +839,7 @@ newreno_update_diag.exit:                         ; preds = %if.end13.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @newreno_on_data_lost(ptr nocapture noundef %cc, ptr nocapture noundef readonly %info) #3 {
+define internal range(i32 0, 2) i32 @newreno_on_data_lost(ptr noundef captures(none) %cc, ptr noundef readonly captures(none) %info) #3 {
 entry:
   %tx_size = getelementptr inbounds nuw i8, ptr %info, i64 8
   %0 = load i64, ptr %tx_size, align 8
@@ -960,14 +960,14 @@ return:                                           ; preds = %if.end26.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @newreno_on_data_lost_finished(ptr nocapture noundef %cc, i32 noundef %flags) #0 {
+define internal noundef i32 @newreno_on_data_lost_finished(ptr noundef captures(none) %cc, i32 noundef %flags) #0 {
 entry:
   tail call fastcc void @newreno_flush(ptr noundef %cc, i32 noundef %flags)
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @newreno_on_data_invalidated(ptr nocapture noundef %cc, i64 noundef %num_bytes) #3 {
+define internal noundef i32 @newreno_on_data_invalidated(ptr noundef captures(none) %cc, i64 noundef %num_bytes) #3 {
 entry:
   %bytes_in_flight = getelementptr inbounds nuw i8, ptr %cc, i64 56
   %0 = load i64, ptr %bytes_in_flight, align 8
@@ -1050,7 +1050,7 @@ newreno_update_diag.exit:                         ; preds = %if.end13.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @newreno_on_ecn(ptr nocapture noundef initializes((80, 88), (96, 100), (104, 112)) %cc, ptr nocapture noundef readonly %info) #0 {
+define internal noundef i32 @newreno_on_ecn(ptr noundef captures(none) initializes((80, 88), (96, 100), (104, 112)) %cc, ptr noundef readonly captures(none) %info) #0 {
 entry:
   %processing_loss = getelementptr inbounds nuw i8, ptr %cc, i64 96
   store i32 1, ptr %processing_loss, align 8
@@ -1072,7 +1072,7 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @newreno_flush(ptr nocapture noundef %nr, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc void @newreno_flush(ptr noundef captures(none) %nr, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %processing_loss = getelementptr inbounds nuw i8, ptr %nr, i64 96
   %0 = load i32, ptr %processing_loss, align 8

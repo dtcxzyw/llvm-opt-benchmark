@@ -561,7 +561,7 @@ list_length.exit.thread:                          ; preds = %3, %list_length.exi
   %116 = load ptr, ptr %113, align 8
   %117 = getelementptr %union.ListCell, ptr %116, i64 %indvars.iv.i86
   %118 = load ptr, ptr %117, align 8
-  call void @markVarForSelectPriv(ptr noundef %0, ptr noundef %118) #9
+  call void @markVarForSelectPriv(ptr noundef nonnull %0, ptr noundef %118) #9
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
   %119 = load i32, ptr %112, align 4
   %120 = sext i32 %119 to i64
@@ -1346,7 +1346,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @updateTargetListEntry(ptr noundef %0, ptr nocapture noundef initializes((16, 18), (24, 32)) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local void @updateTargetListEntry(ptr noundef %0, ptr noundef captures(none) initializes((16, 18), (24, 32)) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %8, i32 noundef 17, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
@@ -1428,7 +1428,7 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 declare ptr @coerce_to_domain(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %.preheader
@@ -1881,7 +1881,7 @@ declare ptr @get_tle_by_resno(ptr noundef, i16 noundef signext) local_unnamed_ad
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @GetCTEForRTE(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2383,7 +2383,7 @@ ExpandSingleTable.exit:                           ; preds = %107, %85, %.lr.ph32
 declare ptr @refnameNamespaceItem(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @get_database_name(i32 noundef) local_unnamed_addr #1
 
@@ -2410,10 +2410,10 @@ declare ptr @list_truncate(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

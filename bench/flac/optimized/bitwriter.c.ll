@@ -16,7 +16,7 @@ entry:
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__bitwriter_delete(ptr nocapture noundef %bw) local_unnamed_addr #2 {
+define hidden void @FLAC__bitwriter_delete(ptr noundef captures(none) %bw) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %bw, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -32,7 +32,7 @@ FLAC__bitwriter_free.exit:                        ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden void @FLAC__bitwriter_free(ptr nocapture noundef initializes((16, 28)) %bw) local_unnamed_addr #2 {
+define hidden void @FLAC__bitwriter_free(ptr noundef captures(none) initializes((16, 28)) %bw) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %bw, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -54,10 +54,10 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_init(ptr nocapture noundef writeonly initializes((0, 8), (16, 28)) %bw) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_init(ptr noundef writeonly captures(none) initializes((0, 8), (16, 28)) %bw) local_unnamed_addr #4 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   store i32 0, ptr %bits, align 8
@@ -76,7 +76,7 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @FLAC__bitwriter_clear(ptr nocapture noundef writeonly initializes((20, 28)) %bw) local_unnamed_addr #6 {
+define hidden void @FLAC__bitwriter_clear(ptr noundef writeonly captures(none) initializes((20, 28)) %bw) local_unnamed_addr #6 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   store i32 0, ptr %bits, align 8
@@ -86,7 +86,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc16(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc16(ptr noundef captures(none) %bw, ptr noundef writeonly captures(none) %crc) local_unnamed_addr #7 {
 entry:
   %bits.i = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits.i, align 8
@@ -176,7 +176,7 @@ return:                                           ; preds = %if.end7.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_buffer(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %buffer, ptr nocapture noundef writeonly %bytes) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_buffer(ptr noundef captures(none) %bw, ptr noundef writeonly captures(none) %buffer, ptr noundef writeonly captures(none) %bytes) local_unnamed_addr #2 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
@@ -268,13 +268,13 @@ return:                                           ; preds = %if.end7.i, %if.end.
 declare zeroext i16 @FLAC__crc16(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define hidden void @FLAC__bitwriter_release_buffer(ptr nocapture noundef readnone %bw) local_unnamed_addr #9 {
+define hidden void @FLAC__bitwriter_release_buffer(ptr noundef readnone captures(none) %bw) local_unnamed_addr #9 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc8(ptr nocapture noundef %bw, ptr nocapture noundef writeonly %crc) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_get_write_crc8(ptr noundef captures(none) %bw, ptr noundef writeonly captures(none) %crc) local_unnamed_addr #7 {
 entry:
   %bits.i = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits.i, align 8
@@ -366,7 +366,7 @@ return:                                           ; preds = %if.end7.i.i, %if.en
 declare zeroext i8 @FLAC__crc8(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_is_byte_aligned(ptr nocapture noundef readonly %bw) local_unnamed_addr #10 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_is_byte_aligned(ptr noundef readonly captures(none) %bw) local_unnamed_addr #10 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
@@ -377,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define hidden i32 @FLAC__bitwriter_get_input_bits_unconsumed(ptr nocapture noundef readonly %bw) local_unnamed_addr #10 {
+define hidden i32 @FLAC__bitwriter_get_input_bits_unconsumed(ptr noundef readonly captures(none) %bw) local_unnamed_addr #10 {
 entry:
   %words = getelementptr inbounds nuw i8, ptr %bw, i64 20
   %0 = load i32, ptr %words, align 4
@@ -392,7 +392,7 @@ entry:
 declare i64 @llvm.bswap.i64(i64) #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_zeroes(ptr nocapture noundef %bw, i32 noundef %bits) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_zeroes(ptr noundef captures(none) %bw, i32 noundef %bits) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq i32 %bits, 0
   br i1 %cmp, label %return, label %if.end
@@ -789,7 +789,7 @@ return:                                           ; preds = %if.end11, %if.end5,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_byte_block(ptr noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_byte_block(ptr noundef %bw, ptr noundef readonly captures(none) %vals, i32 noundef %nvals) local_unnamed_addr #7 {
 entry:
   %capacity = getelementptr inbounds nuw i8, ptr %bw, i64 16
   %0 = load i32, ptr %capacity, align 8
@@ -893,7 +893,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_rice_signed_block(ptr nocapture noundef %bw, ptr nocapture noundef readonly %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_write_rice_signed_block(ptr noundef captures(none) %bw, ptr noundef readonly captures(none) %vals, i32 noundef %nvals, i32 noundef %parameter) local_unnamed_addr #7 {
 entry:
   %shl = shl nsw i32 -1, %parameter
   %sub = sub i32 31, %parameter
@@ -1656,7 +1656,7 @@ return:                                           ; preds = %if.then17, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr nocapture noundef %bw) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @FLAC__bitwriter_zero_pad_to_byte_boundary(ptr noundef captures(none) %bw) local_unnamed_addr #7 {
 entry:
   %bits = getelementptr inbounds nuw i8, ptr %bw, i64 24
   %0 = load i32, ptr %bits, align 8
@@ -1675,7 +1675,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #13

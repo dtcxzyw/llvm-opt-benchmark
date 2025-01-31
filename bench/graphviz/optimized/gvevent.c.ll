@@ -45,12 +45,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [13 x i8] c"Agedgeinfo_t\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @quit_cb(ptr nocapture readnone %0) #0 {
+define internal noundef i32 @quit_cb(ptr readnone captures(none) %0) #0 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @left_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
+define internal noundef i32 @left_cb(ptr noundef captures(none) initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -66,7 +66,7 @@ define internal noundef i32 @left_cb(ptr nocapture noundef initializes((656, 658
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @right_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
+define internal noundef i32 @right_cb(ptr noundef captures(none) initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -82,7 +82,7 @@ define internal noundef i32 @right_cb(ptr nocapture noundef initializes((656, 65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @up_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
+define internal noundef i32 @up_cb(ptr noundef captures(none) initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -98,7 +98,7 @@ define internal noundef i32 @up_cb(ptr nocapture noundef initializes((656, 658))
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @down_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
+define internal noundef i32 @down_cb(ptr noundef captures(none) initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -114,7 +114,7 @@ define internal noundef i32 @down_cb(ptr nocapture noundef initializes((656, 658
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @zoom_in_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
+define internal noundef i32 @zoom_in_cb(ptr noundef captures(none) initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -127,7 +127,7 @@ define internal noundef i32 @zoom_in_cb(ptr nocapture noundef initializes((656, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @zoom_out_cb(ptr nocapture noundef initializes((656, 658)) %0) #1 {
+define internal noundef i32 @zoom_out_cb(ptr noundef captures(none) initializes((656, 658)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 472
@@ -140,7 +140,7 @@ define internal noundef i32 @zoom_out_cb(ptr nocapture noundef initializes((656,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @toggle_fit_cb(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @toggle_fit_cb(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -666,7 +666,7 @@ gvevent_select_current_obj.exit:                  ; preds = %40, %45, %47, %76, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @gvevent_button_release(ptr nocapture noundef writeonly initializes((658, 659), (661, 662)) %0, i32 %1, double %2, double %3) #3 {
+define internal void @gvevent_button_release(ptr noundef writeonly captures(none) initializes((658, 659), (661, 662)) %0, i32 %1, double %2, double %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 658
   store i8 0, ptr %5, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 661
@@ -675,7 +675,7 @@ define internal void @gvevent_button_release(ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gvevent_motion(ptr nocapture noundef %0, double %1, double %2) #2 {
+define internal void @gvevent_motion(ptr noundef captures(none) %0, double %1, double %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %5 = load double, ptr %4, align 8
   %6 = fsub double %1, %5
@@ -753,7 +753,7 @@ define internal void @gvevent_motion(ptr nocapture noundef %0, double %1, double
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gvevent_read(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) #2 {
+define internal void @gvevent_read(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #2 {
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %8
@@ -833,7 +833,7 @@ define internal void @gvevent_read(ptr nocapture noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gvevent_layout(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal void @gvevent_layout(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %5 = load ptr, ptr %4, align 8
@@ -842,7 +842,7 @@ define internal void @gvevent_layout(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gvevent_render(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal void @gvevent_render(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 288
   %6 = load ptr, ptr %5, align 8
@@ -969,7 +969,7 @@ declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_un
 declare ptr @strdup_and_subst_obj(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gvevent_find_current_obj(ptr nocapture noundef %0, double %1, double %2) unnamed_addr #2 {
+define internal fastcc void @gvevent_find_current_obj(ptr noundef captures(none) %0, double %1, double %2) unnamed_addr #2 {
   %4 = alloca %struct.boxf, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %6 = load i32, ptr %5, align 8
@@ -1209,7 +1209,7 @@ declare zeroext i1 @overlap_node(ptr noundef, ptr noundef byval(%struct.boxf) al
 declare ptr @agprvnode(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly %0, ptr nocapture noundef readonly byval(%struct.boxf) align 8 %1) unnamed_addr #5 {
+define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly %0, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 236
@@ -1275,12 +1275,12 @@ define internal fastcc ptr @gvevent_find_cluster(ptr noundef readonly %0, ptr no
 declare i32 @agobjkind(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @agraphof(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #8
@@ -1288,10 +1288,10 @@ declare double @llvm.fabs.f64(double) #8
 declare ptr @agread(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @graph_cleanup(ptr noundef) local_unnamed_addr #4
 
@@ -1304,13 +1304,13 @@ declare i32 @gvLayout(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @gvRenderFilename(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

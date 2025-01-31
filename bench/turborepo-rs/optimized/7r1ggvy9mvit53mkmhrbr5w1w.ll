@@ -190,7 +190,7 @@ _RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQ
   store ptr %7, ptr %72, align 8, !noalias !19
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 1, ptr %73, align 8, !noalias !19
-  call void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.dd4a4cc85c4b54152f949afa2eb23aea.13.llvm.17971349766402577642, i32 noundef 6, ptr noalias noundef readonly align 8 null, i64 undef), !noalias !19
+  call void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, i64 noundef 4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) @anon.dd4a4cc85c4b54152f949afa2eb23aea.13.llvm.17971349766402577642, i32 noundef 6, ptr noalias noundef readonly align 8 null, i64 undef), !noalias !19
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !19
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !19
   %.pre = load i32, ptr %9, align 4, !range !22, !noalias !19
@@ -659,13 +659,13 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultuINtNtCslmLCWD9els8_8arrayvec6erro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser3new(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1776 x i8]) align 8 dereferenceable(1776) %0, i16 noundef %1, i16 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser3new(ptr dead_on_unwind noalias noundef writable writeonly sret([1776 x i8]) align 8 captures(none) dereferenceable(1776) %0, i16 noundef %1, i16 noundef %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [344 x i8], align 8
   %6 = alloca [1432 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 1432, ptr nonnull %6)
-  call void @_RNvMs_CscmPyG4XWoQZ_3vteNtB4_6Parser3new(ptr noalias nocapture noundef nonnull sret([1432 x i8]) align 8 dereferenceable(1432) %6)
+  call void @_RNvMs_CscmPyG4XWoQZ_3vteNtB4_6Parser3new(ptr noalias noundef nonnull sret([1432 x i8]) align 8 captures(none) dereferenceable(1432) %6)
   call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %5)
-  invoke void @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen3new(ptr noalias nocapture noundef nonnull sret([344 x i8]) align 8 dereferenceable(344) %5, i16 noundef %1, i16 noundef %2, i64 noundef %3)
+  invoke void @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen3new(ptr noalias noundef nonnull sret([344 x i8]) align 8 captures(none) dereferenceable(344) %5, i16 noundef %1, i16 noundef %2, i64 noundef %3)
           to label %10 unwind label %7
 
 7:                                                ; preds = %4
@@ -827,7 +827,7 @@ define noundef nonnull align 8 dereferenceable(344) ptr @_RNvMNtCs8mTrBI1stz4_15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser13entire_screen(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 18)) %0, ptr noalias noundef readonly align 8 dereferenceable(1776) %1) unnamed_addr #1 {
+define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser13entire_screen(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 18)) %0, ptr noalias noundef readonly align 8 dereferenceable(1776) %1) unnamed_addr #1 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
@@ -845,15 +845,15 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser13entire_s
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3), !noalias !120
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
-  call void @_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE4iterB19_(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10), !noalias !122
+  call void @_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE4iterB19_(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %10), !noalias !122
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 48
   %12 = load ptr, ptr %11, align 8, !alias.scope !123, !noalias !122, !nonnull !4, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 56
   %14 = load i64, ptr %13, align 8, !alias.scope !123, !noalias !122, !noundef !4
   %15 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %12, i64 %14
-  call void @_RINvYINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator5chainINtNtNtB1T_5slice4iter4IterB13_EEB17_.llvm.18144538392194903364(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %12, ptr noundef nonnull %15), !noalias !102
+  call void @_RINvYINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator5chainINtNtNtB1T_5slice4iter4IterB13_EEB17_.llvm.18144538392194903364(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull %12, ptr noundef nonnull %15), !noalias !102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !120
-  %16 = call noundef i64 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEINtNtNtBb_5slice4iter4IterB20_EENtNtNtB9_6traits8iterator8Iterator4foldjNCINvNvXs_NtB7_9enumerateINtB42_9EnumeratepEB3e_4fold9enumerateRB20_jNCNvMNtB24_4gridNtB54_4Grid18size_with_contents0E0EB24_(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, i64 noundef 0, i64 noundef 0), !noalias !102
+  %16 = call noundef i64 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEINtNtNtBb_5slice4iter4IterB20_EENtNtNtB9_6traits8iterator8Iterator4foldjNCINvNvXs_NtB7_9enumerateINtB42_9EnumeratepEB3e_4fold9enumerateRB20_jNCNvMNtB24_4gridNtB54_4Grid18size_with_contents0E0EB24_(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, i64 noundef 0, i64 noundef 0), !noalias !102
   %17 = add i64 %16, 1
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !115
   store ptr %1, ptr %0, align 8, !alias.scope !102, !noalias !105
@@ -865,13 +865,13 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser13entire_s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1006parserNtB4_6ParserNtNtCs1LoaDTb72WA_4core7default7Default7default(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1776 x i8]) align 8 dereferenceable(1776) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_RNvXs_NtCs8mTrBI1stz4_15turborepo_vt1006parserNtB4_6ParserNtNtCs1LoaDTb72WA_4core7default7Default7default(ptr dead_on_unwind noalias noundef writable writeonly sret([1776 x i8]) align 8 captures(none) dereferenceable(1776) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [344 x i8], align 8
   %3 = alloca [1432 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 1432, ptr nonnull %3), !noalias !124
-  call void @_RNvMs_CscmPyG4XWoQZ_3vteNtB4_6Parser3new(ptr noalias nocapture noundef nonnull sret([1432 x i8]) align 8 dereferenceable(1432) %3), !noalias !124
+  call void @_RNvMs_CscmPyG4XWoQZ_3vteNtB4_6Parser3new(ptr noalias noundef nonnull sret([1432 x i8]) align 8 captures(none) dereferenceable(1432) %3), !noalias !124
   call void @llvm.lifetime.start.p0(i64 344, ptr nonnull %2), !noalias !124
-  invoke void @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen3new(ptr noalias nocapture noundef nonnull sret([344 x i8]) align 8 dereferenceable(344) %2, i16 noundef 24, i16 noundef 80, i64 noundef 0)
+  invoke void @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen3new(ptr noalias noundef nonnull sret([344 x i8]) align 8 captures(none) dereferenceable(344) %2, i16 noundef 24, i16 noundef 80, i64 noundef 0)
           to label %_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser3new.exit unwind label %4, !noalias !124
 
 4:                                                ; preds = %1
@@ -908,12 +908,12 @@ define { i64, ptr } @_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1006parserNtB5_6Parse
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noalias noundef ptr @_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1006parserNtB5_6ParserNtNtCsapf13pIxsjn_3std2io5Write5flush(ptr noalias nocapture noundef readnone align 8 dereferenceable(1776) %0) unnamed_addr #2 {
+define noalias noundef ptr @_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1006parserNtB5_6ParserNtNtCsapf13pIxsjn_3std2io5Write5flush(ptr noalias noundef readnone align 8 captures(none) dereferenceable(1776) %0) unnamed_addr #2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform12osc_dispatch(ptr noalias noundef align 8 dereferenceable(344), ptr noalias noundef nonnull readonly align 8, i64 noundef, i1 noundef zeroext) unnamed_addr #1
@@ -952,28 +952,28 @@ declare void @_ZN4core5slice5index24slice_end_index_len_fail17h48e61fa034112f42E
 declare void @_ZN4core5slice5index22slice_index_order_fail17he7bd9d37c658caa8E(i64 noundef, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_RNvMs_CscmPyG4XWoQZ_3vteNtB4_6Parser3new(ptr dead_on_unwind noalias nocapture noundef writable sret([1432 x i8]) align 8 dereferenceable(1432)) unnamed_addr #1
+declare void @_RNvMs_CscmPyG4XWoQZ_3vteNtB4_6Parser3new(ptr dead_on_unwind noalias noundef writable sret([1432 x i8]) align 8 captures(none) dereferenceable(1432)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen3new(ptr dead_on_unwind noalias nocapture noundef writable sret([344 x i8]) align 8 dereferenceable(344), i16 noundef, i16 noundef, i64 noundef) unnamed_addr #1
+declare hidden void @_RNvMs0_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen3new(ptr dead_on_unwind noalias noundef writable sret([344 x i8]) align 8 captures(none) dereferenceable(344), i16 noundef, i16 noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: cold noreturn nounwind nonlazybind uwtable
 declare void @_ZN4core9panicking16panic_in_cleanup17h1bb225b6f4388944E() unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef i64 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEINtNtNtBb_5slice4iter4IterB20_EENtNtNtB9_6traits8iterator8Iterator4foldjNCINvNvXs_NtB7_9enumerateINtB42_9EnumeratepEB3e_4fold9enumerateRB20_jNCNvMNtB24_4gridNtB54_4Grid18size_with_contents0E0EB24_(ptr noalias nocapture noundef align 8 dereferenceable(48), i64 noundef, i64 noundef) unnamed_addr #1
+declare noundef i64 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEINtNtNtBb_5slice4iter4IterB20_EENtNtNtB9_6traits8iterator8Iterator4foldjNCINvNvXs_NtB7_9enumerateINtB42_9EnumeratepEB3e_4fold9enumerateRB20_jNCNvMNtB24_4gridNtB54_4Grid18size_with_contents0E0EB24_(ptr noalias noundef align 8 captures(none) dereferenceable(48), i64 noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE4iterB19_(ptr dead_on_unwind noalias nocapture noundef writable sret([32 x i8]) align 8 dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #1
+declare void @_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE4iterB19_(ptr dead_on_unwind noalias noundef writable sret([32 x i8]) align 8 captures(none) dereferenceable(32), ptr noalias noundef readonly align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @_RINvYINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator5chainINtNtNtB1T_5slice4iter4IterB13_EEB17_.llvm.18144538392194903364(ptr dead_on_unwind noalias nocapture noundef writable sret([48 x i8]) align 8 dereferenceable(48), ptr noalias nocapture noundef align 8 dereferenceable(32), ptr noundef nonnull, ptr noundef) unnamed_addr #0
+declare hidden void @_RINvYINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator5chainINtNtNtB1T_5slice4iter4IterB13_EEB17_.llvm.18144538392194903364(ptr dead_on_unwind noalias noundef writable sret([48 x i8]) align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 captures(none) dereferenceable(32), ptr noundef nonnull, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_RINvMCsjDgxGcjZqad_9utf8parseNtB3_6Parser14perform_actionINtCscmPyG4XWoQZ_3vte14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15turborepo_vt1007perform13WrappedScreenEEB1y_(ptr noalias noundef align 4 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(16), i8 noundef, i8 noundef) unnamed_addr #1
@@ -1003,7 +1003,7 @@ declare hidden void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Scree
 declare noundef zeroext i1 @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17had20a7ed3c94869aE"(ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias nocapture noundef align 8 dereferenceable(48), i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(48), i32 noundef, ptr noalias noundef readonly align 8, i64) unnamed_addr #1
+declare void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef align 8 captures(none) dereferenceable(48), i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(48), i32 noundef, ptr noalias noundef readonly align 8, i64) unnamed_addr #1
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform7execute(ptr noalias noundef align 8 dereferenceable(344), i8 noundef) unnamed_addr #1

@@ -558,7 +558,7 @@ if.then228:                                       ; preds = %if.then225
   %sub.ptr.lhs.cast = ptrtoint ptr %call226 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %git_dir.0 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
-  %call229 = call ptr @xstrndup(ptr noundef %git_dir.0, i64 noundef %sub.ptr.sub) #13
+  %call229 = call ptr @xstrndup(ptr noundef nonnull %git_dir.0, i64 noundef %sub.ptr.sub) #13
   %call230 = call ptr @real_pathdup(ptr noundef %call229, i32 noundef 1) #13
   store ptr %call230, ptr @git_work_tree_cfg, align 8
   call void @free(ptr noundef %call229) #13
@@ -619,7 +619,7 @@ do.end261:                                        ; preds = %if.end251, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @shared_callback(ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) #0 {
+define internal noundef i32 @shared_callback(ptr noundef readonly captures(none) %opt, ptr noundef %arg, i32 noundef %unset) #0 {
 entry:
   %tobool.not = icmp eq i32 %unset, 0
   br i1 %tobool.not, label %do.end, label %if.then
@@ -645,7 +645,7 @@ cond.end:                                         ; preds = %do.end, %cond.true
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -693,7 +693,7 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: noreturn
 declare void @usage(ptr noundef) local_unnamed_addr #3
@@ -704,17 +704,17 @@ declare ptr @xgetcwd() local_unnamed_addr #2
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @hash_algo_by_name(ptr noundef) local_unnamed_addr #2
 
 declare i32 @ref_storage_format_by_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare ptr @read_gitfile_gently(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -734,7 +734,7 @@ declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @set_git_work_tree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 declare ptr @get_git_work_tree() local_unnamed_addr #2
 
@@ -751,10 +751,10 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #4
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #12

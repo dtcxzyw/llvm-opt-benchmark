@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.34161b2a689b304ee0cbfdce161c7f35.25 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.34161b2a689b304ee0cbfdce161c7f35.14, [16 x i8] c"\1C\00\00\00\00\00\00\00\B6\00\00\00\14\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN13grep_searcher5lines8LineIter3new17he61c50442f90dc05E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { i64, i64, i8, [7 x i8] } }) align 8 dereferenceable(40) initializes((0, 33)) %0, i8 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
+define void @_ZN13grep_searcher5lines8LineIter3new17he61c50442f90dc05E(ptr noalias noundef writeonly sret({ { ptr, i64 }, { i64, i64, i8, [7 x i8] } }) align 8 captures(none) dereferenceable(40) initializes((0, 33)) %0, i8 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   store ptr %2, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %3, ptr %5, align 8
@@ -29,7 +29,7 @@ define void @_ZN13grep_searcher5lines8LineIter3new17he61c50442f90dc05E(ptr noali
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @"_ZN89_$LT$grep_searcher..lines..LineIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0574c052e9c902aeE"(ptr noalias nocapture noundef align 8 dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define { ptr, i64 } @"_ZN89_$LT$grep_searcher..lines..LineIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0574c052e9c902aeE"(ptr noalias noundef align 8 captures(none) dereferenceable(40) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -108,7 +108,7 @@ _ZN13grep_searcher5lines8LineStep10next_match17h964aa5be10e959e0E.exit.thread: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN13grep_searcher5lines8LineStep3new17hdb5a1d01c47ec370E(ptr noalias nocapture noundef writeonly sret({ i64, i64, i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 17)) %0, i8 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define void @_ZN13grep_searcher5lines8LineStep3new17hdb5a1d01c47ec370E(ptr noalias noundef writeonly sret({ i64, i64, i8, [7 x i8] }) align 8 captures(none) dereferenceable(24) initializes((0, 17)) %0, i8 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %1, ptr %5, align 8
   store i64 %2, ptr %0, align 8
@@ -118,7 +118,7 @@ define void @_ZN13grep_searcher5lines8LineStep3new17hdb5a1d01c47ec370E(ptr noali
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN13grep_searcher5lines8LineStep4next17h5031afe872b723c7E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN13grep_searcher5lines8LineStep4next17h5031afe872b723c7E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

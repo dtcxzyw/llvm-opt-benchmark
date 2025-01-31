@@ -39,13 +39,13 @@ define dso_local ptr @task_cls_state(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef nonnull ptr @cgrp_css_alloc(ptr nocapture readnone %0) #2 align 16 {
+define internal noundef nonnull ptr @cgrp_css_alloc(ptr readnone captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 64), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(208) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 208) #8
   %4 = icmp eq ptr %3, null
@@ -54,7 +54,7 @@ define internal noundef nonnull ptr @cgrp_css_alloc(ptr nocapture readnone %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @cgrp_css_online(ptr nocapture noundef %0) #3 align 16 {
+define internal noundef i32 @cgrp_css_online(ptr noundef captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -143,13 +143,13 @@ declare dso_local ptr @cgroup_taskset_first(ptr noundef, ptr noundef) local_unna
 declare dso_local ptr @cgroup_taskset_next(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @iterate_fd(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @update_classid_sock(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
+define internal noundef i32 @update_classid_sock(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) #2 align 16 {
   %4 = tail call ptr @sock_from_file(ptr noundef %1) #9
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -193,7 +193,7 @@ declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #5 sect
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i64 0, 4294967296) i64 @read_classid(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #7 align 16 {
+define internal range(i64 0, 4294967296) i64 @read_classid(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -201,7 +201,7 @@ define internal range(i64 0, 4294967296) i64 @read_classid(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @write_classid(ptr noundef initializes((200, 204)) %0, ptr nocapture readnone %1, i64 noundef %2) #2 align 16 {
+define internal noundef i32 @write_classid(ptr noundef initializes((200, 204)) %0, ptr readnone captures(none) %1, i64 noundef %2) #2 align 16 {
   %4 = alloca %struct.update_classid_context, align 8
   %5 = alloca %struct.css_task_iter, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9

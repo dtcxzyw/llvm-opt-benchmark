@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hash_algos = external local_unnamed_addr constant [3 x %struct.git_hash_algo], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @oid_array_append(ptr nocapture noundef %array, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
+define dso_local void @oid_array_append(ptr noundef captures(none) %array, ptr noundef readonly captures(none) %oid) local_unnamed_addr #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %array, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -66,7 +66,7 @@ do.end:                                           ; preds = %entry.do.end_crit_e
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @oid_array_sort(ptr nocapture noundef %array) local_unnamed_addr #2 {
+define dso_local void @oid_array_sort(ptr noundef captures(none) %array) local_unnamed_addr #2 {
 entry:
   %sorted = getelementptr inbounds nuw i8, ptr %array, i64 24
   %0 = load i32, ptr %sorted, align 8
@@ -93,7 +93,7 @@ return:                                           ; preds = %entry, %sane_qsort.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @void_hashcmp(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #3 {
+define internal i32 @void_hashcmp(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #3 {
 entry:
   %algo.i = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load i32, ptr %algo.i, align 4
@@ -122,7 +122,7 @@ oidcmp.exit:                                      ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @oid_array_lookup(ptr nocapture noundef %array, ptr noundef %oid) local_unnamed_addr #0 {
+define dso_local i32 @oid_array_lookup(ptr noundef captures(none) %array, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %sorted.i = getelementptr inbounds nuw i8, ptr %array, i64 24
   %0 = load i32, ptr %sorted.i, align 8
@@ -162,7 +162,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @oid_array_clear(ptr nocapture noundef initializes((8, 28)) %array) local_unnamed_addr #5 {
+define dso_local void @oid_array_clear(ptr noundef captures(none) initializes((8, 28)) %array) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %array, align 8
   tail call void @free(ptr noundef %0) #15
@@ -171,10 +171,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @oid_array_for_each(ptr nocapture noundef readonly %array, ptr nocapture noundef readonly %fn, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local i32 @oid_array_for_each(ptr noundef readonly captures(none) %array, ptr noundef readonly captures(none) %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %nr = getelementptr inbounds nuw i8, ptr %array, i64 8
   %0 = load i64, ptr %nr, align 8
@@ -201,7 +201,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @oid_array_for_each_unique(ptr nocapture noundef %array, ptr nocapture noundef readonly %fn, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local i32 @oid_array_for_each_unique(ptr noundef captures(none) %array, ptr noundef readonly captures(none) %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %sorted.i = getelementptr inbounds nuw i8, ptr %array, i64 24
   %0 = load i32, ptr %sorted.i, align 8
@@ -290,7 +290,7 @@ return:                                           ; preds = %for.body, %oid_arra
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @oid_array_filter(ptr nocapture noundef %array, ptr nocapture noundef readonly %want, ptr noundef %cb_data) local_unnamed_addr #0 {
+define dso_local void @oid_array_filter(ptr noundef captures(none) %array, ptr noundef readonly captures(none) %want, ptr noundef %cb_data) local_unnamed_addr #0 {
 entry:
   %nr1 = getelementptr inbounds nuw i8, ptr %array, i64 8
   %0 = load i64, ptr %nr1, align 8
@@ -339,22 +339,22 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @die(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

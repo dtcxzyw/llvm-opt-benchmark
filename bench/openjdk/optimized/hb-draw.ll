@@ -22,7 +22,7 @@ $_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_
 @_hb_NullPool = external local_unnamed_addr constant [80 x i64], align 16
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_draw_funcs_set_move_to_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_draw_funcs_set_move_to_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -142,12 +142,12 @@ _ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL19hb_draw_move_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, float %3, float %4, ptr nocapture readnone %5) #1 {
+define internal void @_ZL19hb_draw_move_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, float %3, float %4, ptr readnone captures(none) %5) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_draw_funcs_set_line_to_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_draw_funcs_set_line_to_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -271,12 +271,12 @@ _ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL19hb_draw_line_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, float %3, float %4, ptr nocapture readnone %5) #1 {
+define internal void @_ZL19hb_draw_line_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, float %3, float %4, ptr readnone captures(none) %5) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_draw_funcs_set_quadratic_to_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_draw_funcs_set_quadratic_to_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -400,7 +400,7 @@ _ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL24hb_draw_quadratic_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture readnone %7) #0 {
+define internal void @_ZL24hb_draw_quadratic_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffffS1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr readnone captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %10 = load float, ptr %9, align 4
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -432,7 +432,7 @@ _ZN15hb_draw_funcs_t13emit_cubic_toEPvR15hb_draw_state_tffffff.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_draw_funcs_set_cubic_to_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_draw_funcs_set_cubic_to_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -556,12 +556,12 @@ _ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL20hb_draw_cubic_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr nocapture readnone %9) #1 {
+define internal void @_ZL20hb_draw_cubic_to_nilP15hb_draw_funcs_tPvP15hb_draw_state_tffffffS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, float %3, float %4, float %5, float %6, float %7, float %8, ptr readnone captures(none) %9) #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_draw_funcs_set_close_path_func(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @hb_draw_funcs_set_close_path_func(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -685,7 +685,7 @@ _ZL27_hb_draw_funcs_set_preambleP15hb_draw_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZL22hb_draw_close_path_nilP15hb_draw_funcs_tPvP15hb_draw_state_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #1 {
+define internal void @_ZL22hb_draw_close_path_nilP15hb_draw_funcs_tPvP15hb_draw_state_tS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #1 {
   ret void
 }
 
@@ -712,7 +712,7 @@ define hidden nonnull ptr @hb_draw_funcs_create() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef nonnull ptr @hb_draw_funcs_get_empty() local_unnamed_addr #1 {
@@ -907,7 +907,7 @@ _ZL17hb_object_destroyI15hb_draw_funcs_tEbPT_.exit.thread: ; preds = %1, %5, %2,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden range(i32 0, 2) i32 @hb_draw_funcs_set_user_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -1019,7 +1019,7 @@ _ZL23hb_object_get_user_dataIK15hb_draw_funcs_tEPvPT_P18hb_user_data_key_t.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_draw_funcs_make_immutable(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define hidden void @hb_draw_funcs_make_immutable(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -1034,7 +1034,7 @@ define hidden void @hb_draw_funcs_make_immutable(ptr nocapture noundef %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @hb_draw_funcs_is_immutable(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @hb_draw_funcs_is_immutable(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load atomic i32, ptr %2 monotonic, align 4
   %.not.i = icmp eq i32 %3, 0
@@ -1350,7 +1350,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare float @llvm.fmuladd.f32(float, float, float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN17hb_lockable_set_tIN20hb_user_data_array_t19hb_user_data_item_tE10hb_mutex_tE4finiERS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 comdat align 2 {
@@ -1661,7 +1661,7 @@ _ZN20hb_user_data_array_t19hb_user_data_item_t4finiEv.exit: ; preds = %19, %17, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -1163,7 +1163,7 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @weakref_hash(ptr nocapture noundef %self) #1 {
+define internal i64 @weakref_hash(ptr noundef captures(none) %self) #1 {
 entry:
   %hash = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load i64, ptr %hash, align 8
@@ -1226,7 +1226,7 @@ return:                                           ; preds = %entry, %Py_DECREF.e
 declare ptr @PyVectorcall_Call(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gc_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #1 {
+define internal i32 @gc_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #1 {
 entry:
   %wr_callback = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %wr_callback, align 8
@@ -1422,7 +1422,7 @@ return:                                           ; preds = %lor.lhs.false11, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @weakref___init__(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwargs) #1 {
+define internal range(i32 -1, 1) i32 @weakref___init__(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #1 {
 entry:
   %tmp = alloca ptr, align 8
   %cmp = icmp eq ptr %kwargs, null
@@ -1447,7 +1447,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @weakref___new__(ptr noundef %type, ptr noundef %args, ptr nocapture readnone %kwargs) #1 {
+define internal ptr @weakref___new__(ptr noundef %type, ptr noundef %args, ptr readnone captures(none) %kwargs) #1 {
 entry:
   %ob = alloca ptr, align 8
   %callback = alloca ptr, align 8
@@ -1970,7 +1970,7 @@ return:                                           ; preds = %proxy_check_ref.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @proxy_setattr(ptr nocapture noundef readonly %proxy, ptr noundef %name, ptr noundef %value) #1 {
+define internal i32 @proxy_setattr(ptr noundef readonly captures(none) %proxy, ptr noundef %name, ptr noundef %value) #1 {
 entry:
   %0 = getelementptr i8, ptr %proxy, i64 16
   %proxy.val = load ptr, ptr %0, align 8
@@ -2150,7 +2150,7 @@ return:                                           ; preds = %proxy_check_ref.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @proxy_iter(ptr nocapture noundef readonly %proxy) #1 {
+define internal ptr @proxy_iter(ptr noundef readonly captures(none) %proxy) #1 {
 entry:
   %0 = getelementptr i8, ptr %proxy, i64 16
   %proxy.val = load ptr, ptr %0, align 8
@@ -2200,7 +2200,7 @@ return:                                           ; preds = %proxy_check_ref.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @proxy_iternext(ptr nocapture noundef readonly %proxy) #1 {
+define internal ptr @proxy_iternext(ptr noundef readonly captures(none) %proxy) #1 {
 entry:
   %0 = getelementptr i8, ptr %proxy, i64 16
   %proxy.val = load ptr, ptr %0, align 8
@@ -3003,7 +3003,7 @@ return:                                           ; preds = %if.else, %if.then11
 declare i32 @PyCallable_Check(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyWeakref_GetRef(ptr noundef readonly %ref, ptr nocapture noundef writeonly initializes((0, 8)) %pobj) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @PyWeakref_GetRef(ptr noundef readonly %ref, ptr noundef writeonly captures(none) initializes((0, 8)) %pobj) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ref, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3496,7 +3496,7 @@ declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @weakref_vectorcall(ptr nocapture noundef readonly %self, ptr nocapture readnone %args, i64 noundef %nargsf, ptr noundef %kwnames) #1 {
+define internal ptr @weakref_vectorcall(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %args, i64 noundef %nargsf, ptr noundef %kwnames) #1 {
 entry:
   %cmp = icmp eq ptr %kwnames, null
   br i1 %cmp, label %if.end, label %lor.lhs.false
@@ -4609,7 +4609,7 @@ return:                                           ; preds = %proxy_check_ref.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @proxy_bool(ptr nocapture noundef readonly %proxy) #1 {
+define internal i32 @proxy_bool(ptr noundef readonly captures(none) %proxy) #1 {
 entry:
   %0 = getelementptr i8, ptr %proxy, i64 16
   %proxy.val = load ptr, ptr %0, align 8
@@ -7804,7 +7804,7 @@ declare ptr @PyNumber_MatrixMultiply(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @PyNumber_InPlaceMatrixMultiply(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @proxy_length(ptr nocapture noundef readonly %proxy) #1 {
+define internal i64 @proxy_length(ptr noundef readonly captures(none) %proxy) #1 {
 entry:
   %0 = getelementptr i8, ptr %proxy, i64 16
   %proxy.val = load ptr, ptr %0, align 8
@@ -7854,7 +7854,7 @@ return:                                           ; preds = %proxy_check_ref.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @proxy_contains(ptr nocapture noundef readonly %proxy, ptr noundef %value) #1 {
+define internal i32 @proxy_contains(ptr noundef readonly captures(none) %proxy, ptr noundef %value) #1 {
 entry:
   %0 = getelementptr i8, ptr %proxy, i64 16
   %proxy.val = load ptr, ptr %0, align 8
@@ -8038,7 +8038,7 @@ return:                                           ; preds = %proxy_check_ref.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @proxy_setitem(ptr nocapture noundef readonly %proxy, ptr noundef %key, ptr noundef %value) #1 {
+define internal i32 @proxy_setitem(ptr noundef readonly captures(none) %proxy, ptr noundef %key, ptr noundef %value) #1 {
 entry:
   %0 = getelementptr i8, ptr %proxy, i64 16
   %proxy.val = load ptr, ptr %0, align 8
@@ -8118,7 +8118,7 @@ declare i32 @PyIter_Check(ptr noundef) local_unnamed_addr #2
 declare ptr @PyIter_Next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @proxy_bytes(ptr noundef %proxy, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @proxy_bytes(ptr noundef %proxy, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %0 = getelementptr i8, ptr %proxy, i64 8
@@ -8191,7 +8191,7 @@ return:                                           ; preds = %proxy_check_ref.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @proxy_reversed(ptr noundef %proxy, ptr nocapture readnone %_unused_ignored) #1 {
+define internal ptr @proxy_reversed(ptr noundef %proxy, ptr readnone captures(none) %_unused_ignored) #1 {
 entry:
   %self.addr.i = alloca ptr, align 8
   %0 = getelementptr i8, ptr %proxy, i64 8
@@ -8283,16 +8283,16 @@ declare ptr @PyObject_CallOneArg(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @PyErr_WriteUnraisable(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

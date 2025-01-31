@@ -85,7 +85,7 @@ define internal noundef zeroext i8 @superclass(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef zeroext i8 @setValues(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @getEnv() #2
   %5 = tail call ptr @inStream_readClassRef(ptr noundef %4, ptr noundef %0) #2

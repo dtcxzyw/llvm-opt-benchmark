@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [59 x i8] c"failed to re-find parent of a page in index \22%s\22, block %u\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @gisthandler(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @gisthandler(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noundef ptr @palloc0(i64 noundef 216) #8
   store i32 422, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -146,7 +146,7 @@ define dso_local void @gistbuildempty(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @gistinsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 %5, i1 zeroext %6, ptr nocapture noundef %7) #0 {
+define dso_local noundef zeroext i1 @gistinsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 %5, i1 zeroext %6, ptr noundef captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
@@ -172,7 +172,7 @@ define dso_local noundef zeroext i1 @gistinsert(ptr noundef %0, ptr noundef %1, 
   store ptr %21, ptr @CurrentMemoryContext, align 8
   %22 = tail call ptr @gistFormTuple(ptr noundef nonnull %.0, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true) #8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %22, ptr noundef nonnull align 2 dereferenceable(6) %3, i64 6, i1 false)
-  tail call void @gistdoinsert(ptr noundef %0, ptr noundef %22, i64 noundef 0, ptr noundef nonnull %.0, ptr noundef %4, i1 noundef zeroext false)
+  tail call void @gistdoinsert(ptr noundef %0, ptr noundef nonnull %22, i64 noundef 0, ptr noundef nonnull %.0, ptr noundef %4, i1 noundef zeroext false)
   store ptr %.pre, ptr @CurrentMemoryContext, align 8
   %23 = load ptr, ptr %20, align 8
   tail call void @MemoryContextReset(ptr noundef %23) #8
@@ -344,7 +344,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
 
 74:                                               ; preds = %72
   %75 = getelementptr [32 x %struct.FmgrInfo], ptr %34, i64 0, i64 %indvars.iv
-  %76 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %62, i16 noundef zeroext 4) #8
+  %76 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 4) #8
   tail call void @fmgr_info_copy(ptr noundef %75, ptr noundef %76, ptr noundef %13) #8
   br label %79
 
@@ -356,21 +356,21 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
 
 79:                                               ; preds = %77, %74
   %80 = getelementptr [32 x %struct.FmgrInfo], ptr %36, i64 0, i64 %indvars.iv
-  %81 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %62, i16 noundef zeroext 5) #8
+  %81 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 5) #8
   tail call void @fmgr_info_copy(ptr noundef %80, ptr noundef %81, ptr noundef %13) #8
   %82 = getelementptr [32 x %struct.FmgrInfo], ptr %37, i64 0, i64 %indvars.iv
-  %83 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %62, i16 noundef zeroext 6) #8
+  %83 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 6) #8
   tail call void @fmgr_info_copy(ptr noundef %82, ptr noundef %83, ptr noundef %13) #8
   %84 = getelementptr [32 x %struct.FmgrInfo], ptr %38, i64 0, i64 %indvars.iv
-  %85 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %62, i16 noundef zeroext 7) #8
+  %85 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 7) #8
   tail call void @fmgr_info_copy(ptr noundef %84, ptr noundef %85, ptr noundef %13) #8
-  %86 = tail call i32 @index_getprocid(ptr noundef %0, i16 noundef signext %62, i16 noundef zeroext 8) #8
+  %86 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 8) #8
   %.not121 = icmp eq i32 %86, 0
   br i1 %.not121, label %90, label %87
 
 87:                                               ; preds = %79
   %88 = getelementptr [32 x %struct.FmgrInfo], ptr %39, i64 0, i64 %indvars.iv
-  %89 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %62, i16 noundef zeroext 8) #8
+  %89 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 8) #8
   tail call void @fmgr_info_copy(ptr noundef %88, ptr noundef %89, ptr noundef %13) #8
   br label %92
 
@@ -381,13 +381,13 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
   br label %92
 
 92:                                               ; preds = %90, %87
-  %93 = tail call i32 @index_getprocid(ptr noundef %0, i16 noundef signext %62, i16 noundef zeroext 9) #8
+  %93 = tail call i32 @index_getprocid(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 9) #8
   %.not123 = icmp eq i32 %93, 0
   br i1 %.not123, label %97, label %94
 
 94:                                               ; preds = %92
   %95 = getelementptr [32 x %struct.FmgrInfo], ptr %41, i64 0, i64 %indvars.iv
-  %96 = tail call ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %62, i16 noundef zeroext 9) #8
+  %96 = tail call ptr @index_getprocinfo(ptr noundef nonnull %0, i16 noundef signext %62, i16 noundef zeroext 9) #8
   tail call void @fmgr_info_copy(ptr noundef %95, ptr noundef %96, ptr noundef %13) #8
   br label %99
 
@@ -450,7 +450,7 @@ define dso_local noundef ptr @initGISTstate(ptr noundef %0) local_unnamed_addr #
 declare ptr @gistFormTuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @gistdoinsert(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
@@ -1173,7 +1173,7 @@ gistinserttuple.exit121:                          ; preds = %371, %379
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @gistplacetopage(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i16 noundef zeroext %6, ptr noundef writeonly %7, i32 noundef %8, ptr nocapture noundef %9, i1 noundef zeroext %10, ptr noundef %11, i1 noundef zeroext %12) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @gistplacetopage(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i16 noundef zeroext %6, ptr noundef writeonly %7, i32 noundef %8, ptr noundef captures(none) %9, i1 noundef zeroext %10, ptr noundef %11, i1 noundef zeroext %12) local_unnamed_addr #0 {
   %14 = alloca [408 x i16], align 16
   %15 = alloca i32, align 4
   %16 = alloca %struct.SplitPageLayout, align 8
@@ -2160,7 +2160,7 @@ declare zeroext i1 @gistnospace(ptr noundef, ptr noundef, i32 noundef, i16 nound
 declare ptr @gistextractpage(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @gistjoinvector(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2361,7 +2361,7 @@ declare void @gistfillbuffer(ptr noundef, ptr noundef, i32 noundef, i16 noundef 
 declare i64 @gistXLogUpdate(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @LockBuffer(i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2402,7 +2402,7 @@ declare ptr @index_getprocinfo(ptr noundef, i16 noundef signext, i16 noundef zer
 declare i32 @index_getprocid(ptr noundef, i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @freeGISTstate(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @freeGISTstate(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @MemoryContextDelete(ptr noundef %2) #8
   ret void
@@ -2411,7 +2411,7 @@ define dso_local void @freeGISTstate(ptr nocapture noundef readonly %0) local_un
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gistfinishsplit(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @gistfinishsplit(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [2 x ptr], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -2494,7 +2494,7 @@ list_length.exit:                                 ; preds = %5
 declare ptr @CopyIndexTuple(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gistFindCorrectParent(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @gistFindCorrectParent(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 26
   br label %tailrecurse
@@ -2909,7 +2909,7 @@ declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #1
 declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @gistinserttuples(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 3) %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @gistinserttuples(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 3) %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2981,10 +2981,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #6
 declare i16 @llvm.umax.i16(i16, i16) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

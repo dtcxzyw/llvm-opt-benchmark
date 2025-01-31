@@ -51,12 +51,12 @@ define void @lv_draw_deinit() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 declare void @lv_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @lv_draw_create_unit(i64 noundef %0) local_unnamed_addr #1 {
@@ -73,7 +73,7 @@ define noundef ptr @lv_draw_create_unit(i64 noundef %0) local_unnamed_addr #1 {
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_draw_add_task(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define ptr @lv_draw_add_task(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call ptr @lv_malloc_zeroed(i64 noundef 96) #10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
@@ -108,7 +108,7 @@ define ptr @lv_draw_add_task(ptr nocapture noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define void @lv_draw_finalize_task_creation(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
@@ -533,7 +533,7 @@ define i32 @lv_draw_get_unit_count() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_draw_get_next_available_task(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
+define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %struct.lv_area_t, align 4
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 544), align 8, !tbaa !24
   %6 = icmp ult i32 %5, 2
@@ -710,7 +710,7 @@ define i32 @lv_draw_get_dependent_count(ptr noundef %0) local_unnamed_addr #1 {
 declare zeroext i1 @lv_area_is_on(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define nonnull ptr @lv_draw_layer_create(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @lv_malloc_zeroed(i64 noundef 104) #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %.preheader, label %5
@@ -767,7 +767,7 @@ lv_draw_layer_init.exit:                          ; preds = %20, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_layer_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 {
+define void @lv_draw_layer_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
 
@@ -883,7 +883,7 @@ declare zeroext i1 @lv_color_format_has_alpha(i32 noundef) local_unnamed_addr #3
 declare void @lv_draw_buf_clear(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_draw_layer_go_to_xy(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @lv_draw_layer_go_to_xy(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !57
   %5 = tail call ptr @lv_draw_buf_goto_xy(ptr noundef %4, i32 noundef %1, i32 noundef %2) #10
   ret ptr %5
@@ -892,21 +892,21 @@ define ptr @lv_draw_layer_go_to_xy(ptr nocapture noundef readonly %0, i32 nounde
 declare ptr @lv_draw_buf_goto_xy(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_draw_task_get_type(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define i32 @lv_draw_task_get_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !50
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_draw_task_get_draw_dsc(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define ptr @lv_draw_task_get_draw_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !34
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_draw_task_get_area(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #8 {
+define void @lv_draw_task_get_area(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !25
   ret void

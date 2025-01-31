@@ -792,7 +792,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers10BvInverterC1ERKNS0_7Options
 declare void @_ZN4cvc58internal6theory11quantifiers11TermDbSygusC1ERNS0_3EnvERNS2_16QuantifiersStateEPNS2_13OracleCheckerE(ptr noundef nonnull align 8 dereferenceable(1040), ptr noundef nonnull align 8 dereferenceable(576), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrIN4cvc58internal6theory11quantifiers10BvInverterESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -889,7 +889,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry10finishInitEPNS2_15FirstOrderModelEPNS2_27QuantifiersInferenceManagerE(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((200, 208)) %this, ptr noundef %fm, ptr noundef %qim) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry10finishInitEPNS2_15FirstOrderModelEPNS2_27QuantifiersInferenceManagerE(ptr noundef nonnull align 8 captures(none) dereferenceable(208) initializes((200, 208)) %this, ptr noundef %fm, ptr noundef %qim) local_unnamed_addr #3 align 2 {
 entry:
   %d_qmodel = getelementptr inbounds nuw i8, ptr %this, i64 200
   store ptr %fm, ptr %d_qmodel, align 8
@@ -1364,7 +1364,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers6TermDb7addTermENS0_12NodeTem
 declare void @_ZN4cvc58internal6theory11quantifiers15SygusEvalUnfold16registerEvalTermENS0_12NodeTemplateILb1EEE(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry14getTermForTypeENS0_8TypeNodeE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef nonnull %tn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry14getTermForTypeENS0_8TypeNodeE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull %tn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   %agg.tmp4 = alloca %"class.cvc5::internal::TypeNode", align 8
@@ -1552,7 +1552,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 declare void @_ZN4cvc58internal6theory11quantifiers6TermDb23getOrMakeTypeGroundTermENS0_8TypeNodeEb(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(1072), ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry15getTermsForPoolENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(24) %terms) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry15getTermsForPoolENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(24) %terms) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptn = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
@@ -2138,7 +2138,7 @@ declare void @_ZNK4cvc58internal6theory11quantifiers6TermDb17getTypeGroundTermEN
 declare void @_ZN4cvc58internal6theory11quantifiers9TermPools15getTermsForPoolENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry11declarePoolENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %p, ptr noundef nonnull align 8 dereferenceable(24) %initValue) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry11declarePoolENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef readonly captures(none) %p, ptr noundef nonnull align 8 dereferenceable(24) %initValue) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %d_termPools = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2214,7 +2214,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
 declare void @_ZN4cvc58internal6theory11quantifiers9TermPools12registerPoolENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry20processInstantiationENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %q, ptr noundef nonnull align 8 dereferenceable(24) %terms, i1 noundef zeroext %success) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry20processInstantiationENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef readonly captures(none) %q, ptr noundef nonnull align 8 dereferenceable(24) %terms, i1 noundef zeroext %success) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %d_termPools = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2290,7 +2290,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
 declare void @_ZN4cvc58internal6theory11quantifiers9TermPools20processInstantiationENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EEb(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry20processSkolemizationENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %q, ptr noundef nonnull align 8 dereferenceable(24) %skolems) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12TermRegistry20processSkolemizationENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef readonly captures(none) %q, ptr noundef nonnull align 8 dereferenceable(24) %skolems) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %d_termPools = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -2366,7 +2366,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
 declare void @_ZN4cvc58internal6theory11quantifiers9TermPools20processSkolemizationENS0_12NodeTemplateILb1EEERKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry15getTermDatabaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry15getTermDatabaseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_termDb = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %d_termDb, align 8
@@ -2374,7 +2374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry20getTermDatabaseSygusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry20getTermDatabaseSygusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_sygusTdb = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load ptr, ptr %d_sygusTdb, align 8
@@ -2382,7 +2382,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry16getOracleCheckerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry16getOracleCheckerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_ochecker = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load ptr, ptr %d_ochecker, align 8
@@ -2390,7 +2390,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry18getEntailmentCheckEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry18getEntailmentCheckEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_echeck = getelementptr inbounds nuw i8, ptr %this, i64 152
   %0 = load ptr, ptr %d_echeck, align 8
@@ -2398,7 +2398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry18getTermEnumerationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry18getTermEnumerationEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_termEnum = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %d_termEnum, align 8
@@ -2406,7 +2406,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry12getTermPoolsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry12getTermPoolsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_termPools = getelementptr inbounds nuw i8, ptr %this, i64 136
   %0 = load ptr, ptr %d_termPools, align 8
@@ -2414,7 +2414,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry15getVtsTermCacheEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry15getVtsTermCacheEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_vtsCache = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %d_vtsCache, align 8
@@ -2422,7 +2422,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry13getBvInverterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry13getBvInverterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_bvInvert = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %d_bvInvert, align 8
@@ -2430,7 +2430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry23getInstEvaluatorManagerEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry23getInstEvaluatorManagerEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_ievalMan = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %d_ievalMan, align 8
@@ -2438,7 +2438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers12TermRegistry12getEvaluatorENS0_12NodeTemplateILb1EEENS2_5ieval17TermEvaluatorModeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %q, i32 noundef %tev) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers12TermRegistry12getEvaluatorENS0_12NodeTemplateILb1EEENS2_5ieval17TermEvaluatorModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef readonly captures(none) %q, i32 noundef %tev) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %d_ievalMan = getelementptr inbounds nuw i8, ptr %this, i64 184
@@ -2514,7 +2514,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
 declare noundef ptr @_ZN4cvc58internal6theory11quantifiers5ieval20InstEvaluatorManager12getEvaluatorENS0_12NodeTemplateILb1EEENS3_17TermEvaluatorModeE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry8getModelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry8getModelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_qmodel = getelementptr inbounds nuw i8, ptr %this, i64 200
   %0 = load ptr, ptr %d_qmodel, align 8
@@ -2783,7 +2783,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #11 comdat {
@@ -5376,7 +5376,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5638,10 +5638,10 @@ declare i64 @llvm.umax.i64(i64, i64) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

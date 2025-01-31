@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19btContactConstraintC2EP20btPersistentManifoldR11btRigidBodyS3_(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr nocapture noundef readonly %contactManifold, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB) unnamed_addr #1 align 2 {
+define dso_local void @_ZN19btContactConstraintC2EP20btPersistentManifoldR11btRigidBodyS3_(ptr noundef nonnull align 8 dereferenceable(952) %this, ptr noundef readonly captures(none) %contactManifold, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef 8, ptr noundef nonnull align 8 dereferenceable(744) %rbA, ptr noundef nonnull align 8 dereferenceable(744) %rbB)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV19btContactConstraint, i64 16), ptr %this, align 8
@@ -63,17 +63,17 @@ entry:
 declare void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef nonnull align 8 dereferenceable(744), ptr noundef nonnull align 8 dereferenceable(744)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN19btContactConstraintD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(952) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN19btContactConstraintD2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(952) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN19btContactConstraintD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN19btContactConstraintD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.trap() #12
   unreachable
@@ -83,7 +83,7 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN19btContactConstraint18setContactManifoldEP20btPersistentManifold(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(952) initializes((72, 952)) %this, ptr nocapture noundef readonly %contactManifold) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN19btContactConstraint18setContactManifoldEP20btPersistentManifold(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(952) initializes((72, 952)) %this, ptr noundef readonly captures(none) %contactManifold) local_unnamed_addr #7 align 2 {
 entry:
   %m_contactManifold = getelementptr inbounds nuw i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(880) %m_contactManifold, ptr noundef nonnull align 8 dereferenceable(880) %contactManifold, i64 880, i1 false)
@@ -91,25 +91,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN19btContactConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %info) unnamed_addr #8 align 2 {
+define dso_local void @_ZN19btContactConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %info) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN19btContactConstraint8getInfo2EPN17btTypedConstraint17btConstraintInfo2E(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %info) unnamed_addr #8 align 2 {
+define dso_local void @_ZN19btContactConstraint8getInfo2EPN17btTypedConstraint17btConstraintInfo2E(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %info) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN19btContactConstraint13buildJacobianEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN19btContactConstraint13buildJacobianEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_Z22resolveSingleCollisionP11btRigidBodyP17btCollisionObjectRK9btVector3S5_RK19btContactSolverInfof(ptr noundef %body1, ptr noundef %colObj2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %contactPositionWorld, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %contactNormalOnB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %solverInfo, float noundef %distance) local_unnamed_addr #9 {
+define dso_local noundef float @_Z22resolveSingleCollisionP11btRigidBodyP17btCollisionObjectRK9btVector3S5_RK19btContactSolverInfof(ptr noundef %body1, ptr noundef %colObj2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %contactPositionWorld, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %contactNormalOnB, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %solverInfo, float noundef %distance) local_unnamed_addr #9 {
 entry:
   %rel_pos1 = alloca %class.btVector3, align 8
   %rel_pos2 = alloca %class.btVector3, align 8
@@ -510,7 +510,7 @@ if.end7:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %body1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pos1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %body2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pos2, float noundef %distance, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %impulse, float noundef %timeStep) local_unnamed_addr #10 {
+define dso_local void @_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %body1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pos1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(744) %body2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %pos2, float noundef %distance, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %normal, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %impulse, float noundef %timeStep) local_unnamed_addr #10 {
 entry:
   %0 = load float, ptr %normal, align 4
   %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %normal, i64 4

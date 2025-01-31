@@ -240,7 +240,7 @@ slot_getallattrs.exit:                            ; preds = %printtup_prepare_in
   %99 = tail call ptr @OutputFunctionCall(ptr noundef nonnull %97, i64 noundef %80) #10
   %100 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %99) #12
   %101 = trunc i64 %100 to i32
-  tail call void @pq_sendcountedtext(ptr noundef nonnull %5, ptr noundef %99, i32 noundef %101, i1 noundef zeroext false) #10
+  tail call void @pq_sendcountedtext(ptr noundef nonnull %5, ptr noundef nonnull %99, i32 noundef %101, i1 noundef zeroext false) #10
   br label %117
 
 102:                                              ; preds = %91
@@ -305,7 +305,7 @@ define internal void @printtup_startup(ptr noundef %0, i32 %1, ptr noundef %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @printtup_shutdown(ptr nocapture noundef initializes((56, 64)) %0) #0 {
+define internal void @printtup_shutdown(ptr noundef captures(none) initializes((56, 64)) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -351,7 +351,7 @@ define internal void @printtup_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SetRemoteDestReceiverParams(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @SetRemoteDestReceiverParams(ptr noundef writeonly captures(none) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void
@@ -474,9 +474,9 @@ select.unfold:                                    ; preds = %.lr.ph
   %61 = getelementptr i8, ptr %58, i64 %60
   %62 = add i32 %57, 1
   %63 = sext i32 %62 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr align 1 %54, i64 %63, i1 false), !noalias !20
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr nonnull align 1 %54, i64 %63, i1 false), !noalias !20
   %64 = add i32 %59, %62
-  call void @pfree(ptr noundef %54) #10, !noalias !20
+  call void @pfree(ptr noundef nonnull %54) #10, !noalias !20
   br label %pq_writestring.exit
 
 .critedge.i:                                      ; preds = %50
@@ -557,7 +557,7 @@ declare i32 @getBaseTypeAndTypmod(i32 noundef, ptr noundef) local_unnamed_addr #
 declare void @pq_endmessage_reuse(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @debugStartup(ptr nocapture noundef readnone %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @debugStartup(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %2, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -596,7 +596,7 @@ define dso_local void @debugStartup(ptr nocapture noundef readnone %0, i32 nound
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @debugtup(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @debugtup(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -682,12 +682,12 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @FetchPortalTargetList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @pg_server_to_client(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
@@ -731,7 +731,7 @@ declare void @llvm.assume(i1 noundef) #7
 declare void @llvm.experimental.noalias.scope.decl(metadata) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

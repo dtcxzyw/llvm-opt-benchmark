@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN14TaskTerminatorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14TaskTerminatorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14TaskTerminator12DelayContextC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14TaskTerminator12DelayContextC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -30,7 +30,7 @@ define hidden void @_ZN14TaskTerminator12DelayContextC2Ev(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14TaskTerminator12DelayContext27reset_hard_spin_informationEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((4, 12)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14TaskTerminator12DelayContext27reset_hard_spin_informationEv(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(12) initializes((4, 12)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = load i64, ptr @WorkStealingHardSpins, align 8
@@ -43,7 +43,7 @@ define hidden void @_ZN14TaskTerminator12DelayContext27reset_hard_spin_informati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK14TaskTerminator12DelayContext11needs_sleepEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK14TaskTerminator12DelayContext11needs_sleepEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #1 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
   %4 = load i64, ptr @WorkStealingYieldsBeforeSleep, align 8
@@ -52,7 +52,7 @@ define hidden noundef zeroext i1 @_ZNK14TaskTerminator12DelayContext11needs_slee
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14TaskTerminator12DelayContext7do_stepEv(ptr nocapture noundef nonnull align 4 dereferenceable(12) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14TaskTerminator12DelayContext7do_stepEv(ptr noundef nonnull align 4 captures(none) dereferenceable(12) %0) local_unnamed_addr #2 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = add i32 %2, 1
   store i32 %3, ptr %0, align 4
@@ -167,7 +167,7 @@ _ZN14TaskTerminator15reset_for_reuseEv.exit:      ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator(ptr nocapture noundef nonnull readnone align 8 dereferenceable(384) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN14TaskTerminator16exit_terminationEmP20TerminatorTerminator(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(384) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %4, label %9
 
@@ -187,7 +187,7 @@ define hidden noundef zeroext i1 @_ZN14TaskTerminator16exit_terminationEmP20Term
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZNK14TaskTerminator18tasks_in_queue_setEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZNK14TaskTerminator18tasks_in_queue_setEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

@@ -68,13 +68,13 @@ define dso_local ptr @i915_gem_prime_export(ptr noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @drm_gem_dmabuf_export(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -174,7 +174,7 @@ declare dso_local void @dma_buf_detach(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local void @dma_buf_put(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i915_gem_dmabuf_attach(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @i915_gem_dmabuf_attach(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca %struct.i915_gem_ww_ctx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -327,7 +327,7 @@ select.unfold:                                    ; preds = %.thread8, %69
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915_gem_dmabuf_detach(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @i915_gem_dmabuf_detach(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 672
@@ -336,7 +336,7 @@ define internal void @i915_gem_dmabuf_detach(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @i915_gem_map_dma_buf(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal ptr @i915_gem_map_dma_buf(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -425,7 +425,7 @@ declare dso_local void @drm_gem_unmap_dma_buf(ptr noundef, ptr noundef, i32 noun
 declare dso_local void @drm_gem_dmabuf_release(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i915_gem_begin_cpu_access(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal i32 @i915_gem_begin_cpu_access(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = alloca %struct.i915_gem_ww_ctx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -562,7 +562,7 @@ define internal i32 @i915_gem_begin_cpu_access(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i915_gem_end_cpu_access(ptr nocapture noundef readonly %0, i32 %1) #0 align 16 {
+define internal i32 @i915_gem_end_cpu_access(ptr noundef readonly captures(none) %0, i32 %1) #0 align 16 {
   %3 = alloca %struct.i915_gem_ww_ctx, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -698,7 +698,7 @@ define internal i32 @i915_gem_end_cpu_access(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i915_gem_dmabuf_mmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @i915_gem_dmabuf_mmap(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
@@ -751,7 +751,7 @@ define internal i32 @i915_gem_dmabuf_mmap(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @i915_gem_dmabuf_vmap(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define internal i32 @i915_gem_dmabuf_vmap(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @i915_gem_object_pin_map(ptr noundef %4, i32 noundef 0) #6
@@ -775,7 +775,7 @@ define internal i32 @i915_gem_dmabuf_vmap(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915_gem_dmabuf_vunmap(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @i915_gem_dmabuf_vunmap(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 216
@@ -904,7 +904,7 @@ define internal i32 @i915_gem_object_get_pages_dmabuf(ptr noundef %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915_gem_object_put_pages_dmabuf(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @i915_gem_object_put_pages_dmabuf(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   tail call void @dma_buf_unmap_attachment(ptr noundef %4, ptr noundef %1, i32 noundef 0) #6

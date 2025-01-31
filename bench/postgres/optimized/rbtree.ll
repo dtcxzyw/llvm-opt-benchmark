@@ -32,7 +32,7 @@ define dso_local noundef ptr @rbt_create(i64 noundef %0, ptr noundef %1, ptr nou
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @rbt_find(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @rbt_find(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.01113 = load ptr, ptr %0, align 8
   %.not14 = icmp eq ptr %.01113, @sentinel
@@ -64,7 +64,7 @@ define dso_local noundef ptr @rbt_find(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @rbt_find_great(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @rbt_find_great(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.01618 = load ptr, ptr %0, align 8
   %.not19 = icmp eq ptr %.01618, @sentinel
   br i1 %.not19, label %._crit_edge, label %.lr.ph
@@ -112,7 +112,7 @@ define dso_local ptr @rbt_find_great(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @rbt_find_less(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local ptr @rbt_find_less(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %.01618 = load ptr, ptr %0, align 8
   %.not19 = icmp eq ptr %.01618, @sentinel
   br i1 %.not19, label %._crit_edge, label %.lr.ph
@@ -160,7 +160,7 @@ define dso_local ptr @rbt_find_less(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @rbt_leftmost(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @rbt_leftmost(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.not11 = icmp eq ptr %2, @sentinel
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -180,7 +180,7 @@ define dso_local ptr @rbt_leftmost(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @rbt_insert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @rbt_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %.04147 = load ptr, ptr %0, align 8
   %.not48 = icmp eq ptr %.04147, @sentinel
   br i1 %.not48, label %._crit_edge, label %.lr.ph
@@ -608,7 +608,7 @@ rbt_insert_fixup.exit:                            ; preds = %rbt_rotate_right.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rbt_delete(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @rbt_delete(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %1, @sentinel
   %or.cond.i = or i1 %3, %4
@@ -1188,7 +1188,7 @@ rbt_delete_node.exit:                             ; preds = %2, %226, %229
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rbt_begin_iterate(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8), (16, 25)) %2) local_unnamed_addr #0 {
+define dso_local void @rbt_begin_iterate(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8), (16, 25)) %2) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr null, ptr %4, align 8
@@ -1220,7 +1220,7 @@ define dso_local void @rbt_begin_iterate(ptr noundef %0, i32 noundef %1, ptr noc
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @rbt_left_right_iterator(ptr nocapture noundef %0) #3 {
+define internal ptr @rbt_left_right_iterator(ptr noundef captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1278,7 +1278,7 @@ define internal ptr @rbt_left_right_iterator(ptr nocapture noundef %0) #3 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @rbt_right_left_iterator(ptr nocapture noundef %0) #3 {
+define internal ptr @rbt_right_left_iterator(ptr noundef captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1361,7 +1361,7 @@ define dso_local ptr @rbt_iterate(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #6

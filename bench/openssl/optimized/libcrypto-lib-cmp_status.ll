@@ -272,7 +272,7 @@ if.end10:                                         ; preds = %lor.lhs.false6
   br i1 %or.cond1, label %if.then16, label %if.end54
 
 if.then16:                                        ; preds = %if.end10
-  %call17 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.10) #3
+  %call17 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %add.ptr, i64 noundef %sub, ptr noundef nonnull @.str.10) #3
   %cmp18 = icmp slt i32 %call17, 0
   br i1 %cmp18, label %return, label %lor.lhs.false20
 

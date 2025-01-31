@@ -1197,7 +1197,7 @@ $_ZGVZN5arrow8internal10ParseValueINS_10DoubleTypeEEENSt9enable_ifIXsr22is_param
 @switch.table._ZN5arrow7compute8internal15GetNumericCastsEv.325 = private unnamed_addr constant [8 x ptr] [ptr @_ZN5arrow7compute8internal11CastFunctorINS_14Decimal256TypeENS_9UInt8TypeEvE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, ptr @_ZN5arrow7compute8internal11CastFunctorINS_14Decimal256TypeENS_8Int8TypeEvE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, ptr @_ZN5arrow7compute8internal11CastFunctorINS_14Decimal256TypeENS_10UInt16TypeEvE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, ptr @_ZN5arrow7compute8internal11CastFunctorINS_14Decimal256TypeENS_9Int16TypeEvE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, ptr @_ZN5arrow7compute8internal11CastFunctorINS_14Decimal256TypeENS_10UInt32TypeEvE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, ptr @_ZN5arrow7compute8internal11CastFunctorINS_14Decimal256TypeENS_9Int32TypeEvE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, ptr @_ZN5arrow7compute8internal11CastFunctorINS_14Decimal256TypeENS_10UInt64TypeEvE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE, ptr @_ZN5arrow7compute8internal11CastFunctorINS_14Decimal256TypeENS_9Int64TypeEvE4ExecEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE], align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal20CastIntegerToIntegerEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal20CastIntegerToIntegerEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.arrow::Status", align 8
   %state_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
@@ -1403,7 +1403,7 @@ if.end:                                           ; preds = %_ZN5arrow6Status11D
 declare void @_ZN5arrow7compute8internal24CastNumberToNumberUnsafeENS_4Type4typeES3_RKNS_9ArraySpanEPS4_(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(128), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal22CastFloatingToFloatingEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, ptr noundef %out) #0 {
+define void @_ZN5arrow7compute8internal22CastFloatingToFloatingEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %batch, ptr noundef %out) #0 {
 entry:
   %_M_index.i.i.i = getelementptr inbounds nuw i8, ptr %out, i64 128
   %1 = load i8, ptr %_M_index.i.i.i, align 8
@@ -1649,7 +1649,7 @@ return:                                           ; preds = %while.end10, %sw.bb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal21CastFloatingToIntegerEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal21CastFloatingToIntegerEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.arrow::Status", align 8
   %values.i = getelementptr inbounds nuw i8, ptr %batch, i64 8
@@ -3707,7 +3707,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal21CastIntegerToFloatingEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef readonly %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal21CastIntegerToFloatingEPNS0_13KernelContextERKNS0_8ExecSpanEPNS0_10ExecResultE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %ctx, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %batch, ptr noundef %out) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.arrow::Status", align 8
   %state_.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
@@ -62464,7 +62464,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZN5arrow7compute5match10SameTypeIdENS_4Type4typeE(ptr sret(%"class.std::shared_ptr.49") align 8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @_ZN5arrow7compute8internal24ResolveOutputFromOptionsEPNS0_13KernelContextERKSt6vectorINS_10TypeHolderESaIS5_EE(ptr sret(%"class.arrow::Result") align 8, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) #1
 
@@ -63010,7 +63010,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
@@ -63132,7 +63132,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 declare void @_ZN5arrow7compute8internal12CastFunctionC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4Type4typeE(ptr noundef nonnull align 8 dereferenceable(244), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_14Decimal128TypeENS_9FloatTypeENS1_13RealToDecimalEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %functor, ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(128) %arg0, ptr noundef %out) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -83854,7 +83854,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -133370,10 +133370,10 @@ declare i64 @llvm.fshr.i64(i64, i64, i64) #16
 declare i64 @llvm.smin.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #16

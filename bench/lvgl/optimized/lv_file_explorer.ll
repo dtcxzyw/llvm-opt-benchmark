@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [7 x i8] c"\EF\81\AE %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_file_explorer_constructor(ptr nocapture readnone %0, ptr noundef initializes((128, 176), (312, 316)) %1) #0 {
+define internal void @lv_file_explorer_constructor(ptr readnone captures(none) %0, ptr noundef initializes((128, 176), (312, 316)) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 0, ptr %4, align 8, !tbaa !3
@@ -310,17 +310,17 @@ define noundef ptr @lv_file_explorer_create(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_file_explorer_set_quick_access_path(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @lv_file_explorer_set_quick_access_path(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %16, label %5
 
@@ -361,7 +361,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #2
 declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_file_explorer_set_sort(ptr nocapture noundef initializes((312, 316)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_file_explorer_set_sort(ptr noundef captures(none) initializes((312, 316)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %1, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -388,7 +388,7 @@ file_explorer_sort.exit:                          ; preds = %2, %8, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_selected_file_name(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_selected_file_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !24
   ret ptr %3
@@ -401,49 +401,49 @@ define nonnull ptr @lv_file_explorer_get_current_path(ptr noundef readnone %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_file_table(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_file_table(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !19
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_header(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_header(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_path_label(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_path_label(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_quick_access_area(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_quick_access_area(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !13
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_places_list(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_places_list(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_file_explorer_get_device_list(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_file_explorer_get_device_list(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_file_explorer_get_sort(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_file_explorer_get_sort(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load i32, ptr %2, align 8, !tbaa !3
   ret i32 %3
@@ -1527,7 +1527,7 @@ define internal fastcc void @exch_table_item(ptr noundef %0, i16 noundef signext
 declare i64 @llvm.smin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

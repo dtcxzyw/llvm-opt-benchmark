@@ -26,7 +26,7 @@ $_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_ = comdat any
 @_ZTVSt17bad_function_call = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly20ExecutorWithPriority6createENS_8Executor9KeepAliveIS1_EEa(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Executor::KeepAlive") align 8 %agg.result, ptr nocapture noundef readonly %executor, i8 noundef signext %priority) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly20ExecutorWithPriority6createENS_8Executor9KeepAliveIS1_EEa(ptr dead_on_unwind noalias writable writeonly sret(%"class.folly::Executor::KeepAlive") align 8 captures(none) %agg.result, ptr noundef readonly captures(none) %executor, i8 noundef signext %priority) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %executor, align 8, !tbaa !7
   %and.i.i = and i64 %0, -4
@@ -165,12 +165,12 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit17:     ; preds = %if.then5.i.i14, %lp
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
@@ -179,7 +179,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0ED1Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0ED1Ev"(ptr noundef nonnull align 8 captures(none) dereferenceable(25) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @"_ZTVN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0EE", i64 72), ptr %this, align 8, !tbaa !12
   %executor_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -236,7 +236,7 @@ if.then5.i.i.i.i:                                 ; preds = %if.then.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0E3addENS_8FunctionIFvvEEE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, ptr noundef %func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0E3addENS_8FunctionIFvvEEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %this, ptr noundef %func) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Function", align 16
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -306,7 +306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0E16keepAliveAcquireEv"(ptr nocapture noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZN5folly6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS_8Executor9KeepAliveIS3_EEaE3$_0E16keepAliveAcquireEv"(ptr noundef nonnull align 8 captures(none) dereferenceable(25) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keepAliveCounter_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = atomicrmw add ptr %keepAliveCounter_, i64 1 monotonic, align 8

@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbi__start_write_callbacks(ptr nocapture noundef writeonly initializes((0, 16)) %s, ptr noundef %c, ptr noundef %context) local_unnamed_addr #1 {
+define void @stbi__start_write_callbacks(ptr noundef writeonly captures(none) initializes((0, 16)) %s, ptr noundef %c, ptr noundef %context) local_unnamed_addr #1 {
 entry:
   store ptr %c, ptr %s, align 8
   %context1 = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -60,7 +60,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @stbi__stdio_write(ptr nocapture noundef %context, ptr nocapture noundef %data, i32 noundef %size) #2 {
+define void @stbi__stdio_write(ptr noundef captures(none) %context, ptr noundef captures(none) %data, i32 noundef %size) #2 {
 entry:
   %conv = sext i32 %size to i64
   %call = tail call i64 @fwrite(ptr noundef %data, i64 noundef 1, i64 noundef %conv, ptr noundef %context)
@@ -68,20 +68,20 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @stbiw__fopen(ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %mode) local_unnamed_addr #2 {
+define noalias noundef ptr @stbiw__fopen(ptr noundef readonly captures(none) %filename, ptr noundef readonly captures(none) %mode) local_unnamed_addr #2 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef %mode)
   ret ptr %call
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @stbi__start_write_file(ptr nocapture noundef writeonly initializes((0, 16)) %s, ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__start_write_file(ptr noundef writeonly captures(none) initializes((0, 16)) %s, ptr noundef readonly captures(none) %filename) local_unnamed_addr #2 {
 entry:
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str)
   store ptr @stbi__stdio_write, ptr %s, align 8
@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @stbi__end_write_file(ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
+define void @stbi__end_write_file(ptr noundef readonly captures(none) %s) local_unnamed_addr #2 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %s, i64 8
   %0 = load ptr, ptr %context, align 8
@@ -102,10 +102,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @stbiw__writefv(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %fmt, ptr nocapture noundef %v) local_unnamed_addr #4 {
+define void @stbiw__writefv(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %fmt, ptr noundef captures(none) %v) local_unnamed_addr #4 {
 entry:
   %x = alloca i8, align 1
   %b = alloca [2 x i8], align 1
@@ -244,7 +244,7 @@ while.end:                                        ; preds = %sw.epilog, %while.b
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbiw__writef(ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #4 {
+define void @stbiw__writef(ptr noundef readonly captures(none) %s, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #4 {
 entry:
   %v = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %v)
@@ -275,7 +275,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbiw__putc(ptr nocapture noundef readonly %s, i8 noundef zeroext %c) local_unnamed_addr #4 {
+define void @stbiw__putc(ptr noundef readonly captures(none) %s, i8 noundef zeroext %c) local_unnamed_addr #4 {
 entry:
   %c.addr = alloca i8, align 1
   store i8 %c, ptr %c.addr, align 1
@@ -353,7 +353,7 @@ if.end:                                           ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbiw__write_pixel(ptr noundef %s, i32 noundef %rgb_dir, i32 noundef %comp, i32 noundef %write_alpha, i32 noundef %expand_mono, ptr nocapture noundef readonly %d) local_unnamed_addr #4 {
+define void @stbiw__write_pixel(ptr noundef %s, i32 noundef %rgb_dir, i32 noundef %comp, i32 noundef %write_alpha, i32 noundef %expand_mono, ptr noundef readonly captures(none) %d) local_unnamed_addr #4 {
 entry:
   %px = alloca [3 x i8], align 1
   %cmp = icmp slt i32 %write_alpha, 0
@@ -611,10 +611,10 @@ if.end47:                                         ; preds = %stbiw__write1.exit9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @stbiw__write_pixels(ptr noundef %s, i32 noundef %rgb_dir, i32 noundef %vdir, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr nocapture noundef readonly %data, i32 noundef %write_alpha, i32 noundef %scanline_pad, i32 noundef %expand_mono) local_unnamed_addr #4 {
+define void @stbiw__write_pixels(ptr noundef %s, i32 noundef %rgb_dir, i32 noundef %vdir, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(none) %data, i32 noundef %write_alpha, i32 noundef %scanline_pad, i32 noundef %expand_mono) local_unnamed_addr #4 {
 entry:
   %zero = alloca i32, align 4
   store i32 0, ptr %zero, align 4
@@ -706,7 +706,7 @@ for.end14:                                        ; preds = %stbiw__write_flush.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbiw__outfile(ptr noundef %s, i32 noundef %rgb_dir, i32 noundef %vdir, i32 noundef %x, i32 noundef %y, i32 noundef %comp, i32 noundef %expand_mono, ptr nocapture noundef readonly %data, i32 noundef %alpha, i32 noundef %pad, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbiw__outfile(ptr noundef %s, i32 noundef %rgb_dir, i32 noundef %vdir, i32 noundef %x, i32 noundef %y, i32 noundef %comp, i32 noundef %expand_mono, ptr noundef readonly captures(none) %data, i32 noundef %alpha, i32 noundef %pad, ptr noundef readonly captures(none) %fmt, ...) local_unnamed_addr #4 {
 entry:
   %v = alloca [1 x %struct.__va_list_tag], align 16
   %0 = or i32 %y, %x
@@ -726,7 +726,7 @@ return:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_bmp_core(ptr noundef %s, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr nocapture noundef readonly %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_bmp_core(ptr noundef %s, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(none) %data) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq i32 %comp, 4
   br i1 %cmp.not, label %if.else, label %if.then
@@ -753,7 +753,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_bmp_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr nocapture noundef readonly %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_bmp_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(none) %data) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -766,10 +766,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_bmp(ptr nocapture noundef readonly %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr nocapture noundef readonly %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_bmp(ptr noundef readonly captures(none) %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(none) %data) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -793,7 +793,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef %s, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr nocapture noundef readonly %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_tga_core(ptr noundef %s, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(none) %data) local_unnamed_addr #4 {
 entry:
   %cmp = icmp eq i32 %comp, 2
   %cmp1 = icmp eq i32 %comp, 4
@@ -1216,7 +1216,7 @@ return:                                           ; preds = %if.then.i, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_tga_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr nocapture noundef readonly %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_tga_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(none) %data) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -1229,7 +1229,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_tga(ptr nocapture noundef readonly %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr nocapture noundef readonly %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_tga(ptr noundef readonly captures(none) %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(none) %data) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -1253,7 +1253,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbiw__linear_to_rgbe(ptr nocapture noundef writeonly initializes((0, 4)) %rgbe, ptr nocapture noundef readonly %linear) local_unnamed_addr #7 {
+define void @stbiw__linear_to_rgbe(ptr noundef writeonly captures(none) initializes((0, 4)) %rgbe, ptr noundef readonly captures(none) %linear) local_unnamed_addr #7 {
 entry:
   %exponent = alloca i32, align 4
   %0 = load float, ptr %linear, align 4
@@ -1307,10 +1307,10 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @stbiw__write_run_data(ptr nocapture noundef readonly %s, i32 noundef %length, i8 noundef zeroext %databyte) local_unnamed_addr #4 {
+define void @stbiw__write_run_data(ptr noundef readonly captures(none) %s, i32 noundef %length, i8 noundef zeroext %databyte) local_unnamed_addr #4 {
 entry:
   %databyte.addr = alloca i8, align 1
   %lengthbyte = alloca i8, align 1
@@ -1329,7 +1329,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbiw__write_dump_data(ptr nocapture noundef readonly %s, i32 noundef %length, ptr noundef %data) local_unnamed_addr #4 {
+define void @stbiw__write_dump_data(ptr noundef readonly captures(none) %s, i32 noundef %length, ptr noundef %data) local_unnamed_addr #4 {
 entry:
   %lengthbyte = alloca i8, align 1
   %conv = trunc i32 %length to i8
@@ -1345,7 +1345,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbiw__write_hdr_scanline(ptr nocapture noundef readonly %s, i32 noundef %width, i32 noundef %ncomp, ptr noundef %scratch, ptr nocapture noundef readonly %scanline) local_unnamed_addr #4 {
+define void @stbiw__write_hdr_scanline(ptr noundef readonly captures(none) %s, i32 noundef %width, i32 noundef %ncomp, ptr noundef %scratch, ptr noundef readonly captures(none) %scanline) local_unnamed_addr #4 {
 entry:
   %databyte.addr.i = alloca i8, align 1
   %lengthbyte.i127 = alloca i8, align 1
@@ -1718,7 +1718,7 @@ if.end175:                                        ; preds = %while.cond.for.inc1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_hdr_core(ptr nocapture noundef readonly %s, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_hdr_core(ptr noundef readonly captures(none) %s, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly %data) local_unnamed_addr #4 {
 entry:
   %buffer = alloca [128 x i8], align 16
   %header = alloca [66 x i8], align 16
@@ -1773,10 +1773,10 @@ return:                                           ; preds = %entry, %for.end
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi_write_hdr_to_func(ptr noundef %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data) local_unnamed_addr #4 {
@@ -1792,7 +1792,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_hdr(ptr nocapture noundef readonly %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_hdr(ptr noundef readonly captures(none) %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -1815,7 +1815,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @stbiw__sbgrowf(ptr nocapture noundef %arr, i32 noundef %increment, i32 noundef %itemsize) local_unnamed_addr #11 {
+define ptr @stbiw__sbgrowf(ptr noundef captures(none) %arr, i32 noundef %increment, i32 noundef %itemsize) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %arr, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1865,10 +1865,10 @@ if.end17:                                         ; preds = %if.end, %cond.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbiw__zlib_flushf(ptr noundef %data, ptr nocapture noundef %bitbuffer, ptr nocapture noundef %bitcount) local_unnamed_addr #4 {
+define ptr @stbiw__zlib_flushf(ptr noundef %data, ptr noundef captures(none) %bitbuffer, ptr noundef captures(none) %bitcount) local_unnamed_addr #4 {
 entry:
   %.pr = load i32, ptr %bitcount, align 4
   %cmp6 = icmp sgt i32 %.pr, 7
@@ -1965,7 +1965,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @stbiw__zlib_countm(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %limit) local_unnamed_addr #14 {
+define i32 @stbiw__zlib_countm(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, i32 noundef %limit) local_unnamed_addr #14 {
 entry:
   %invariant.smin = tail call i32 @llvm.smin.i32(i32 %limit, i32 258)
   %0 = icmp sgt i32 %limit, 0
@@ -1999,7 +1999,7 @@ for.end:                                          ; preds = %for.inc, %for.end.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @stbiw__zhash(ptr nocapture noundef readonly %data) local_unnamed_addr #15 {
+define i32 @stbiw__zhash(ptr noundef readonly captures(none) %data) local_unnamed_addr #15 {
 entry:
   %0 = load i16, ptr %data, align 1
   %1 = zext i16 %0 to i32
@@ -2024,7 +2024,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_zlib_compress(ptr noundef %data, i32 noundef %data_len, ptr nocapture noundef writeonly %out_len, i32 noundef %quality) local_unnamed_addr #4 {
+define ptr @stbi_zlib_compress(ptr noundef %data, i32 noundef %data_len, ptr noundef writeonly captures(none) %out_len, i32 noundef %quality) local_unnamed_addr #4 {
 entry:
   %call = tail call noalias dereferenceable_or_null(131072) ptr @malloc(i64 noundef 131072) #27
   %cmp = icmp eq ptr %call, null
@@ -3710,10 +3710,10 @@ return:                                           ; preds = %entry, %cond.end648
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @stbiw__crc32(ptr nocapture noundef readonly %buffer, i32 noundef %len) local_unnamed_addr #14 {
+define i32 @stbiw__crc32(ptr noundef readonly captures(none) %buffer, i32 noundef %len) local_unnamed_addr #14 {
 entry:
   %cmp5 = icmp sgt i32 %len, 0
   br i1 %cmp5, label %for.body.preheader, label %for.end
@@ -3749,7 +3749,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbiw__wpcrc(ptr nocapture noundef %data, i32 noundef %len) local_unnamed_addr #16 {
+define void @stbiw__wpcrc(ptr noundef captures(none) %data, i32 noundef %len) local_unnamed_addr #16 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %idx.ext = sext i32 %len to i64
@@ -3835,7 +3835,7 @@ entry:
 declare i32 @llvm.abs.i32(i32, i1 immarg) #18
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbiw__encode_png_line(ptr nocapture noundef readonly %pixels, i32 noundef %stride_bytes, i32 noundef %width, i32 noundef %height, i32 noundef %y, i32 noundef %n, i32 noundef %filter_type, ptr nocapture noundef writeonly %line_buffer) local_unnamed_addr #19 {
+define void @stbiw__encode_png_line(ptr noundef readonly captures(none) %pixels, i32 noundef %stride_bytes, i32 noundef %width, i32 noundef %height, i32 noundef %y, i32 noundef %n, i32 noundef %filter_type, ptr noundef writeonly captures(none) %line_buffer) local_unnamed_addr #19 {
 entry:
   %cmp.not = icmp eq i32 %y, 0
   %cond = select i1 %cmp.not, ptr @__const.stbiw__encode_png_line.firstmap, ptr @__const.stbiw__encode_png_line.mapping
@@ -4129,7 +4129,7 @@ sw.epilog207:                                     ; preds = %for.body190, %for.b
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_write_png_to_mem(ptr nocapture noundef readonly %pixels, i32 noundef %stride_bytes, i32 noundef %x, i32 noundef %y, i32 noundef %n, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #4 {
+define noundef ptr @stbi_write_png_to_mem(ptr noundef readonly captures(none) %pixels, i32 noundef %stride_bytes, i32 noundef %x, i32 noundef %y, i32 noundef %n, ptr noundef writeonly captures(none) %out_len) local_unnamed_addr #4 {
 entry:
   %zlen = alloca i32, align 4
   %0 = load i32, ptr @stbi_write_force_png_filter, align 4
@@ -4513,7 +4513,7 @@ return:                                           ; preds = %if.end63, %for.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_png(ptr nocapture noundef readonly %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr nocapture noundef readonly %data, i32 noundef %stride_bytes) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_png(ptr noundef readonly captures(none) %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(none) %data, i32 noundef %stride_bytes) local_unnamed_addr #4 {
 entry:
   %len = alloca i32, align 4
   %call = call ptr @stbi_write_png_to_mem(ptr noundef %data, i32 noundef %stride_bytes, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef nonnull %len)
@@ -4543,7 +4543,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_png_to_func(ptr nocapture noundef readonly %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr nocapture noundef readonly %data, i32 noundef %stride_bytes) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_png_to_func(ptr noundef readonly captures(none) %func, ptr noundef %context, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef readonly captures(none) %data, i32 noundef %stride_bytes) local_unnamed_addr #4 {
 entry:
   %len = alloca i32, align 4
   %call = call ptr @stbi_write_png_to_mem(ptr noundef %data, i32 noundef %stride_bytes, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef nonnull %len)
@@ -4562,7 +4562,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbiw__jpg_writeBits(ptr nocapture noundef readonly %s, ptr nocapture noundef %bitBufP, ptr nocapture noundef %bitCntP, ptr nocapture noundef readonly %bs) local_unnamed_addr #4 {
+define void @stbiw__jpg_writeBits(ptr noundef readonly captures(none) %s, ptr noundef captures(none) %bitBufP, ptr noundef captures(none) %bitCntP, ptr noundef readonly captures(none) %bs) local_unnamed_addr #4 {
 entry:
   %c.addr.i13 = alloca i8, align 1
   %c.addr.i = alloca i8, align 1
@@ -4623,7 +4623,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbiw__jpg_DCT(ptr nocapture noundef %d0p, ptr nocapture noundef %d1p, ptr nocapture noundef %d2p, ptr nocapture noundef %d3p, ptr nocapture noundef %d4p, ptr nocapture noundef %d5p, ptr nocapture noundef %d6p, ptr nocapture noundef %d7p) local_unnamed_addr #20 {
+define void @stbiw__jpg_DCT(ptr noundef captures(none) %d0p, ptr noundef captures(none) %d1p, ptr noundef captures(none) %d2p, ptr noundef captures(none) %d3p, ptr noundef captures(none) %d4p, ptr noundef captures(none) %d5p, ptr noundef captures(none) %d6p, ptr noundef captures(none) %d7p) local_unnamed_addr #20 {
 entry:
   %0 = load float, ptr %d0p, align 4
   %1 = load float, ptr %d1p, align 4
@@ -4680,7 +4680,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbiw__jpg_calcBits(i32 noundef %val, ptr nocapture noundef writeonly initializes((0, 4)) %bits) local_unnamed_addr #1 {
+define void @stbiw__jpg_calcBits(i32 noundef %val, ptr noundef writeonly captures(none) initializes((0, 4)) %bits) local_unnamed_addr #1 {
 entry:
   %cond = tail call i32 @llvm.abs.i32(i32 %val, i1 true)
   %tobool.not11 = icmp samesign ult i32 %cond, 2
@@ -4702,7 +4702,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbiw__jpg_processDU(ptr nocapture noundef readonly %s, ptr nocapture noundef %bitBuf, ptr nocapture noundef %bitCnt, ptr nocapture noundef %CDU, i32 noundef %du_stride, ptr nocapture noundef readonly %fdtbl, i32 noundef %DC, ptr nocapture noundef readonly %HTDC, ptr nocapture noundef readonly %HTAC) local_unnamed_addr #4 {
+define i32 @stbiw__jpg_processDU(ptr noundef readonly captures(none) %s, ptr noundef captures(none) %bitBuf, ptr noundef captures(none) %bitCnt, ptr noundef captures(none) %CDU, i32 noundef %du_stride, ptr noundef readonly captures(none) %fdtbl, i32 noundef %DC, ptr noundef readonly captures(none) %HTDC, ptr noundef readonly captures(none) %HTAC) local_unnamed_addr #4 {
 entry:
   %c.addr.i13.i300 = alloca i8, align 1
   %c.addr.i.i301 = alloca i8, align 1
@@ -5420,7 +5420,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr nocapture noundef readonly %s, i32 noundef %width, i32 noundef %height, i32 noundef %comp, ptr noundef readonly %data, i32 noundef %quality) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_jpg_core(ptr noundef readonly captures(none) %s, i32 noundef %width, i32 noundef %height, i32 noundef %comp, ptr noundef readonly %data, i32 noundef %quality) local_unnamed_addr #4 {
 entry:
   %c.addr.i195 = alloca i8, align 1
   %c.addr.i193 = alloca i8, align 1
@@ -6090,7 +6090,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_write_jpg(ptr nocapture noundef readonly %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data, i32 noundef %quality) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @stbi_write_jpg(ptr noundef readonly captures(none) %filename, i32 noundef %x, i32 noundef %y, i32 noundef %comp, ptr noundef %data, i32 noundef %quality) local_unnamed_addr #4 {
 entry:
   %s = alloca %struct.stbi__write_context, align 8
   %0 = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -6119,7 +6119,7 @@ declare void @llvm.va_start.p0(ptr) #21
 declare void @llvm.va_end.p0(ptr) #21
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #23
@@ -6131,10 +6131,10 @@ declare i32 @llvm.smax.i32(i32, i32) #23
 declare i8 @llvm.abs.i8(i8, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #25

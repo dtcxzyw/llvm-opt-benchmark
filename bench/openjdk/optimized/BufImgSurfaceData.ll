@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [36 x i8] c"Could not initialize inverse tables\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_awt_image_BufImgSurfaceData_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_awt_image_BufImgSurfaceData_initIDs(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1808
   %7 = load ptr, ptr %6, align 8
@@ -525,7 +525,7 @@ BufImg_SetupICM.exit:                             ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @BufImg_GetRasInfo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #0 {
+define internal void @BufImg_GetRasInfo(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 3
@@ -665,7 +665,7 @@ define internal void @BufImg_GetRasInfo(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @BufImg_Release(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @BufImg_Release(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -704,7 +704,7 @@ define internal void @BufImg_Release(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @BufImg_Dispose(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @BufImg_Dispose(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1816
   %5 = load ptr, ptr %4, align 8
@@ -748,7 +748,7 @@ declare void @SurfaceData_IntersectBounds(ptr noundef, ptr noundef) local_unname
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @initCubemap(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -759,7 +759,7 @@ declare void @initDitherTables(ptr noundef) local_unnamed_addr #1
 declare void @Disposer_AddRecord(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @BufImg_Dispose_ICMColorData(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define internal void @BufImg_Dispose_ICMColorData(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %1 to ptr
   tail call void @freeICMColorData(ptr noundef %3) #6
   ret void
@@ -768,13 +768,13 @@ define internal void @BufImg_Dispose_ICMColorData(ptr nocapture readnone %0, i64
 declare void @freeICMColorData(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

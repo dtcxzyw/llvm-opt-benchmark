@@ -298,7 +298,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.200 = private unnamed_addr constant [10 x i8] c"fragments\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 256) i32 @process_netbios_name(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 256) i32 @process_netbios_name(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   br label %6
@@ -687,7 +687,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_netbios(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [61 x i8], align 16
@@ -1091,7 +1091,7 @@ dissect_netbios_payload.exit127:                  ; preds = %181, %184
 declare ptr @register_capture_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @capture_netbios(ptr nocapture readnone %0, i32 %1, i32 %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @capture_netbios(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef %3, ptr readnone captures(none) %4) #1 {
   %6 = load i32, ptr @proto_netbios, align 4
   tail call void @capture_dissector_increment_count(ptr noundef %3, i32 noundef %6) #6
   ret i32 1
@@ -1159,7 +1159,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_add_group_name(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_add_group_name(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = load i32, ptr @hf_netb_resp_corrl, align 4
   %6 = add i32 %2, 10
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #6
@@ -1169,7 +1169,7 @@ define internal noundef i32 @dissect_netb_add_group_name(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_add_name(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_add_name(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = load i32, ptr @hf_netb_resp_corrl, align 4
   %6 = add i32 %2, 10
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #6
@@ -1179,7 +1179,7 @@ define internal noundef i32 @dissect_netb_add_name(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_name_in_conflict(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_name_in_conflict(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 12
   tail call void @netbios_add_name(ptr noundef nonnull @.str.141, ptr noundef %0, i32 noundef %5, ptr noundef %3)
   %6 = add i32 %2, 28
@@ -1188,7 +1188,7 @@ define internal noundef i32 @dissect_netb_name_in_conflict(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_status_query(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_status_query(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 5
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #6
   switch i8 %6, label %13 [
@@ -1234,12 +1234,12 @@ define internal noundef i32 @dissect_netb_unknown(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dissect_netb_terminate_trace(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture readnone %3) #3 {
+define internal noundef i32 @dissect_netb_terminate_trace(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, ptr readnone captures(none) %3) #3 {
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_datagram(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_datagram(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 12
   tail call void @netbios_add_name(ptr noundef nonnull @.str.189, ptr noundef %0, i32 noundef %5, ptr noundef %3)
   %6 = add i32 %2, 28
@@ -1262,7 +1262,7 @@ define internal noundef i32 @dissect_netb_datagram(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_datagram_bcast(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_datagram_bcast(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 28
   %6 = tail call i32 @tvb_memeql(ptr noundef %0, i32 noundef %5, ptr noundef nonnull @zeroes, i64 noundef 10) #6
   %7 = icmp eq i32 %6, 0
@@ -1283,7 +1283,7 @@ define internal noundef i32 @dissect_netb_datagram_bcast(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_name_query(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_name_query(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 6
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #6
   %7 = icmp eq i8 %6, 0
@@ -1319,7 +1319,7 @@ define internal noundef i32 @dissect_netb_name_query(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_add_name_resp(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_add_name_resp(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = load i32, ptr @hf_netb_status, align 4
   %6 = add i32 %2, 5
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 1, i32 noundef -2147483648) #6
@@ -1337,7 +1337,7 @@ define internal noundef i32 @dissect_netb_add_name_resp(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_name_resp(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_name_resp(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 6
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #6
   switch i8 %6, label %13 [
@@ -1388,7 +1388,7 @@ define internal noundef i32 @dissect_netb_name_resp(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_status_resp(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_status_resp(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 5
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #6
   %7 = load i32, ptr @hf_netb_call_name_type, align 4
@@ -1431,7 +1431,7 @@ define internal noundef i32 @dissect_netb_status_resp(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_data_ack(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_data_ack(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = load i32, ptr @hf_netb_xmit_corrl, align 4
   %6 = add i32 %2, 8
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #6
@@ -1449,7 +1449,7 @@ define internal noundef i32 @dissect_netb_data_ack(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @dissect_netb_data_first_middle(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 65536) i32 @dissect_netb_data_first_middle(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 5
   %6 = load i32, ptr @hf_netb_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #6
@@ -1504,7 +1504,7 @@ nb_resync_indicator.exit:                         ; preds = %19, %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @dissect_netb_data_only_last(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 65536) i32 @dissect_netb_data_only_last(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 5
   %6 = load i32, ptr @hf_netb_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #6
@@ -1559,7 +1559,7 @@ nb_resync_indicator.exit:                         ; preds = %19, %21, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_session_confirm(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_session_confirm(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 5
   %6 = load i32, ptr @hf_netb_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #6
@@ -1592,7 +1592,7 @@ define internal noundef i32 @dissect_netb_session_confirm(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_session_end(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_session_end(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = load i32, ptr @hf_netb_termination_indicator, align 4
   %6 = add i32 %2, 6
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #6
@@ -1610,7 +1610,7 @@ define internal noundef i32 @dissect_netb_session_end(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_session_init(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_session_init(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 5
   %6 = load i32, ptr @hf_netb_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #6
@@ -1645,7 +1645,7 @@ define internal noundef i32 @dissect_netb_session_init(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_no_receive(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_no_receive(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 5
   %6 = load i32, ptr @hf_netbios_no_receive_flags, align 4
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %6, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef -2147483648) #6
@@ -1670,7 +1670,7 @@ define internal noundef i32 @dissect_netb_no_receive(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_receive_outstanding(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_receive_outstanding(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = load i32, ptr @hf_netb_num_data_bytes_accepted, align 4
   %6 = add i32 %2, 6
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #6
@@ -1688,7 +1688,7 @@ define internal noundef i32 @dissect_netb_receive_outstanding(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_receive_continue(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_receive_continue(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = load i32, ptr @hf_netb_xmit_corrl, align 4
   %6 = add i32 %2, 8
   %7 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef -2147483648) #6
@@ -1706,7 +1706,7 @@ define internal noundef i32 @dissect_netb_receive_continue(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_netb_session_alive(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) #1 {
+define internal noundef i32 @dissect_netb_session_alive(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) #1 {
   %5 = add i32 %2, 12
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %5) #6
   %7 = load i32, ptr @hf_netb_remote_ses_no, align 4
@@ -1732,10 +1732,10 @@ declare void @capture_dissector_increment_count(ptr noundef, i32 noundef) local_
 declare i8 @llvm.umin.i8(i8, i8) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

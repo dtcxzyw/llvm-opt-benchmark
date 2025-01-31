@@ -351,19 +351,19 @@ define void @lv_obj_init_draw_rect_dsc(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare zeroext i8 @lv_obj_get_style_opa_recursive(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare i32 @lv_image_src_get_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_init_draw_label_dsc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 12), (100, 101)) %2) local_unnamed_addr #0 {
+define void @lv_obj_init_draw_label_dsc(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 12), (100, 101)) %2) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !36
@@ -457,7 +457,7 @@ thread-pre-split:                                 ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_init_draw_image_dsc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 12), (100, 101)) %2) local_unnamed_addr #0 {
+define void @lv_obj_init_draw_image_dsc(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 12), (100, 101)) %2) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !48
@@ -544,7 +544,7 @@ declare i32 @lv_area_get_width(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_area_get_height(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_init_draw_line_dsc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 12), (80, 81)) %2) local_unnamed_addr #0 {
+define void @lv_obj_init_draw_line_dsc(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 12), (80, 81)) %2) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8, !tbaa !56
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !60
@@ -644,7 +644,7 @@ thread-pre-split:                                 ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_init_draw_arc_dsc(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 12), (52, 56)) %2) local_unnamed_addr #0 {
+define void @lv_obj_init_draw_arc_dsc(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 12), (52, 56)) %2) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8, !tbaa !65
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !67
@@ -842,7 +842,7 @@ lv_obj_get_ext_draw_size.exit:                    ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_obj_get_ext_draw_size(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @lv_obj_get_ext_draw_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %.not = icmp eq ptr %3, null
@@ -865,7 +865,7 @@ declare void @lv_obj_allocate_spec_attr(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @lv_obj_get_layer_type(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define range(i32 0, 4) i32 @lv_obj_get_layer_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %.not = icmp eq ptr %3, null

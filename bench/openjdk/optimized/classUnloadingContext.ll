@@ -81,7 +81,7 @@ define hidden void @_ZN21ClassUnloadingContextC2Ejbb(ptr noundef nonnull align 8
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ClassUnloadingContextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ClassUnloadingContextD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
@@ -206,7 +206,7 @@ define hidden void @_ZN21ClassUnloadingContext20classes_unloading_doEPFvP5KlassE
 declare void @_ZN15ClassLoaderData10classes_doEPFvP5KlassE(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ClassUnloadingContext25register_unlinked_nmethodEP7nmethod(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ClassUnloadingContext25register_unlinked_nmethodEP7nmethod(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -327,7 +327,7 @@ _ZN26GrowableArrayWithAllocatorIP7nmethod18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ClassUnloadingContext14purge_nmethodsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ClassUnloadingContext14purge_nmethodsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not25 = icmp eq i32 %3, 0
@@ -394,7 +394,7 @@ declare void @_ZN7nmethod5purgeEb(ptr noundef nonnull align 8 dereferenceable(21
 declare void @_ZN9CodeCache22maybe_restart_compilerEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ClassUnloadingContext13free_nmethodsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN21ClassUnloadingContext13free_nmethodsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp ugt i32 %3, 1
@@ -796,7 +796,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80EL
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef range(i32 -1, 2) i32 @"_ZZN21ClassUnloadingContext13free_nmethodsEvEN3$_08__invokeEPP7nmethodS3_"(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 align 2 {
+define internal noundef range(i32 -1, 2) i32 @"_ZZN21ClassUnloadingContext13free_nmethodsEvEN3$_08__invokeEPP7nmethodS3_"(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.val2 = load ptr, ptr %1, align 8
   %3 = icmp eq ptr %.val, %.val2
@@ -826,13 +826,13 @@ declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #3
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -102,19 +102,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7521RuleBasedNumberFormat17getDynamicClassIDEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7521RuleBasedNumberFormat17getDynamicClassIDEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret ptr @_ZZN6icu_7521RuleBasedNumberFormat16getStaticClassIDEvE7classID
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7516LocalizationInfoD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516LocalizationInfoD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7516LocalizationInfoD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7516LocalizationInfoD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #19
   unreachable
@@ -411,7 +411,7 @@ return:                                           ; preds = %_ZN6icu_75L5streqEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7513LocDataParser5parseEPDsi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %_data, i32 noundef %len) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6icu_7513LocDataParser5parseEPDsi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef %_data, i32 noundef %len) local_unnamed_addr #3 align 2 {
 entry:
   %ec = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %ec, align 8
@@ -479,7 +479,7 @@ return:                                           ; preds = %if.then, %if.then3,
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7513LocDataParser7doParseEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7513LocDataParser7doParseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %array = alloca %"class.icu_75::VArray", align 8
   %requiredLength = alloca i32, align 4
@@ -1013,7 +1013,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513LocDataParser10parseErrorEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture readnone %0) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7513LocDataParser10parseErrorEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr readnone captures(none) %0) local_unnamed_addr #3 align 2 {
 entry:
   %1 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %1, null
@@ -1114,7 +1114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7513LocDataParser9nextArrayERi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %requiredLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6icu_7513LocDataParser9nextArrayERi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %requiredLength) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %array = alloca %"class.icu_75::VArray", align 8
   %ec = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1673,7 +1673,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6icu_7513LocDataParser10nextStringEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6icu_7513LocDataParser10nextStringEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
   %p.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %e.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1976,7 +1976,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #7
 declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522StringLocalizationInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522StringLocalizationInfoD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7522StringLocalizationInfoE, i64 16), ptr %this, align 8
   %data = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -2223,7 +2223,7 @@ declare void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormat4initERKNS_13UnicodeStringEPNS_16LocalizationInfoER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, ptr noundef %localizationInfos, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(72) initializes((0, 72)) %pErr, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521RuleBasedNumberFormat4initERKNS_13UnicodeStringEPNS_16LocalizationInfoER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %rules, ptr noundef %localizationInfos, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(72) initializes((0, 72)) %pErr, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %description = alloca %"class.icu_75::UnicodeString", align 8
   %name = alloca %"class.icu_75::UnicodeString", align 8
@@ -3041,7 +3041,7 @@ ehcleanup9:                                       ; preds = %lpad5, %lpad
 declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormatC2ERKNS_13UnicodeStringEPNS_16LocalizationInfoERKNS_6LocaleER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef %info, ptr noundef nonnull align 8 dereferenceable(217) %alocale, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(72) %perror, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521RuleBasedNumberFormatC2ERKNS_13UnicodeStringEPNS_16LocalizationInfoERKNS_6LocaleER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef %info, ptr noundef nonnull align 8 dereferenceable(217) %alocale, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(72) %perror, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7521RuleBasedNumberFormatE, i64 16), ptr %this, align 8
@@ -3099,7 +3099,7 @@ ehcleanup6:                                       ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormatC2ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(72) %perror, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521RuleBasedNumberFormatC2ERKNS_13UnicodeStringER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(72) %perror, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7521RuleBasedNumberFormatE, i64 16), ptr %this, align 8
@@ -3161,7 +3161,7 @@ ehcleanup7:                                       ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormatC2ERKNS_13UnicodeStringERKNS_6LocaleER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(72) %perror, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521RuleBasedNumberFormatC2ERKNS_13UnicodeStringERKNS_6LocaleER11UParseErrorR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %description, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(72) %perror, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7521RuleBasedNumberFormatE, i64 16), ptr %this, align 8
@@ -3644,7 +3644,7 @@ return:                                           ; preds = %entry, %cond.end27
 declare noundef nonnull align 8 dereferenceable(356) ptr @_ZN6icu_7512NumberFormataSERKS0_(ptr noundef nonnull align 8 dereferenceable(356), ptr noundef nonnull align 8 dereferenceable(356)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormat7disposeEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN6icu_7521RuleBasedNumberFormat7disposeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %this) local_unnamed_addr #3 align 2 {
 entry:
   %fRuleSets = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %fRuleSets, align 8
@@ -3818,7 +3818,7 @@ if.end48:                                         ; preds = %_ZN6icu_7516Localiz
 declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7521RuleBasedNumberFormat23getDecimalFormatSymbolsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7521RuleBasedNumberFormat23getDecimalFormatSymbolsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this) local_unnamed_addr #10 align 2 {
 entry:
   %decimalFormatSymbols = getelementptr inbounds nuw i8, ptr %this, i64 624
   %0 = load ptr, ptr %decimalFormatSymbols, align 8
@@ -4004,7 +4004,7 @@ declare noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZNK6icu_759NFRuleSeteqERKS0_(ptr noundef nonnull align 8 dereferenceable(163), ptr noundef nonnull align 8 dereferenceable(163)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7521RuleBasedNumberFormat8getRulesEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7521RuleBasedNumberFormat8getRulesEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -4044,7 +4044,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %for.cond.
 declare void @_ZNK6icu_759NFRuleSet11appendRulesERNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(163), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7521RuleBasedNumberFormat14getRuleSetNameEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this, i32 noundef %index) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7521RuleBasedNumberFormat14getRuleSetNameEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this, i32 noundef %index) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %localizations = getelementptr inbounds nuw i8, ptr %this, i64 664
@@ -4140,7 +4140,7 @@ eh.resume:                                        ; preds = %lpad8, %lpad
 declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7521RuleBasedNumberFormat23getNumberOfRuleSetNamesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK6icu_7521RuleBasedNumberFormat23getNumberOfRuleSetNamesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this) unnamed_addr #3 align 2 {
 entry:
   %localizations = getelementptr inbounds nuw i8, ptr %this, i64 664
   %0 = load ptr, ptr %localizations, align 8
@@ -4185,7 +4185,7 @@ if.end11:                                         ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7521RuleBasedNumberFormat36getNumberOfRuleSetDisplayNameLocalesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK6icu_7521RuleBasedNumberFormat36getNumberOfRuleSetDisplayNameLocalesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this) unnamed_addr #3 align 2 {
 entry:
   %localizations = getelementptr inbounds nuw i8, ptr %this, i64 664
   %0 = load ptr, ptr %localizations, align 8
@@ -4205,7 +4205,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7521RuleBasedNumberFormat27getRuleSetDisplayNameLocaleEiR10UErrorCode(ptr noalias sret(%"class.icu_75::Locale") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this, i32 noundef %index, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7521RuleBasedNumberFormat27getRuleSetDisplayNameLocaleEiR10UErrorCode(ptr noalias sret(%"class.icu_75::Locale") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this, i32 noundef %index, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -4349,7 +4349,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7extractEiiPciNS0_10EInvariantE(p
 declare void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormat21getRuleSetDisplayNameEiRKNS_6LocaleE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(217) %localeParam) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521RuleBasedNumberFormat21getRuleSetDisplayNameEiRKNS_6LocaleE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this, i32 noundef %index, ptr noundef nonnull align 8 dereferenceable(217) %localeParam) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localeName = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -4618,7 +4618,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 declare noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7521RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK6icu_7521RuleBasedNumberFormat11findRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %0, 0
@@ -4888,7 +4888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521RuleBasedNumberFormat6formatElRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(752) %this, i64 noundef %number, ptr noundef nonnull returned align 8 dereferenceable(64) %toAppendTo, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521RuleBasedNumberFormat6formatElRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(752) %this, i64 noundef %number, ptr noundef nonnull returned align 8 dereferenceable(64) %toAppendTo, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   %status = alloca i32, align 4
   %defaultRuleSet = getelementptr inbounds nuw i8, ptr %this, i64 384
@@ -5004,7 +5004,7 @@ return:                                           ; preds = %cleanup, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521RuleBasedNumberFormat6formatEdRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(752) %this, double noundef %number, ptr noundef nonnull returned align 8 dereferenceable(64) %toAppendTo, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521RuleBasedNumberFormat6formatEdRNS_13UnicodeStringERNS_13FieldPositionE(ptr noundef nonnull align 8 dereferenceable(752) %this, double noundef %number, ptr noundef nonnull returned align 8 dereferenceable(64) %toAppendTo, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -5110,7 +5110,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521RuleBasedNumberFormat6formatElRKNS_13UnicodeStringERS1_RNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, i64 noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %ruleSetName, ptr noundef nonnull returned align 8 dereferenceable(64) %toAppendTo, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521RuleBasedNumberFormat6formatElRKNS_13UnicodeStringERS1_RNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, i64 noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %ruleSetName, ptr noundef nonnull returned align 8 dereferenceable(64) %toAppendTo, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %1, 0
@@ -5244,7 +5244,7 @@ _ZNK6icu_7513UnicodeString8pinIndexERi.exit:      ; preds = %entry._ZNK6icu_7513
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521RuleBasedNumberFormat6formatEdRKNS_13UnicodeStringERS1_RNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, double noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %ruleSetName, ptr noundef nonnull returned align 8 dereferenceable(64) %toAppendTo, ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7521RuleBasedNumberFormat6formatEdRKNS_13UnicodeStringERS1_RNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, double noundef %number, ptr noundef nonnull align 8 dereferenceable(64) %ruleSetName, ptr noundef nonnull returned align 8 dereferenceable(64) %toAppendTo, ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp sgt i32 %1, 0
@@ -5434,7 +5434,7 @@ declare signext i8 @u_islower_75(i32 noundef) local_unnamed_addr #4
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString7toTitleEPNS_13BreakIteratorERKNS_6LocaleEj(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 8 dereferenceable(217), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7521RuleBasedNumberFormat5parseERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(112) %result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %parsePosition) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7521RuleBasedNumberFormat5parseERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef nonnull align 8 dereferenceable(112) %result, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %parsePosition) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %workingText = alloca %"class.icu_75::UnicodeString", align 8
   %workingPos = alloca %"class.icu_75::ParsePosition", align 8
@@ -5668,7 +5668,7 @@ declare double @uprv_trunc_75(double noundef) local_unnamed_addr #4
 declare void @_ZN6icu_7511Formattable7setLongEi(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormat10setLenientEa(ptr nocapture noundef nonnull align 8 dereferenceable(752) initializes((652, 653)) %this, i8 noundef signext %enabled) unnamed_addr #6 align 2 {
+define void @_ZN6icu_7521RuleBasedNumberFormat10setLenientEa(ptr noundef nonnull align 8 captures(none) dereferenceable(752) initializes((652, 653)) %this, i8 noundef signext %enabled) unnamed_addr #6 align 2 {
 entry:
   %lenient = getelementptr inbounds nuw i8, ptr %this, i64 652
   store i8 %enabled, ptr %lenient, align 4
@@ -5695,7 +5695,7 @@ if.end:                                           ; preds = %delete.notnull, %la
 declare void @_ZN6icu_7517RuleBasedCollatorD1Ev(ptr noundef nonnull align 8 dereferenceable(272)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormat17setDefaultRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %ruleSetName, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521RuleBasedNumberFormat17setDefaultRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(64) %ruleSetName, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -5980,7 +5980,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad9, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormat18initDefaultRuleSetEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) initializes((384, 392)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521RuleBasedNumberFormat18initDefaultRuleSetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(752) initializes((384, 392)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %spellout = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -6264,7 +6264,7 @@ eh.resume:                                        ; preds = %ehcleanup48, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7521RuleBasedNumberFormat21getDefaultRuleSetNameEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7521RuleBasedNumberFormat21getDefaultRuleSetNameEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
@@ -6300,7 +6300,7 @@ nrvo.skipdtor:                                    ; preds = %if.then, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7521RuleBasedNumberFormat30initializeDecimalFormatSymbolsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -6593,7 +6593,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormat15stripWhitespaceERNS_13UnicodeStringE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %description) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521RuleBasedNumberFormat15stripWhitespaceERNS_13UnicodeStringE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(64) %description) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %result, align 8
@@ -6862,7 +6862,7 @@ if.end28:                                         ; preds = %land.lhs.true11, %l
 declare void @_ZN6icu_7512NumberFormat10setContextE15UDisplayContextR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(356), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormat29initCapitalizationContextInfoERKNS_6LocaleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(217) %thelocale) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521RuleBasedNumberFormat29initCapitalizationContextInfoERKNS_6LocaleE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(217) %thelocale) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::Locale", align 8
   %status = alloca i32, align 4
@@ -7079,7 +7079,7 @@ declare void @_ZN6icu_7520DecimalFormatSymbolsC1ERKNS_6LocaleER10UErrorCode(ptr 
 declare void @_ZN6icu_756NFRuleC1EPKNS_21RuleBasedNumberFormatERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7521RuleBasedNumberFormat22getDefaultInfinityRuleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7521RuleBasedNumberFormat22getDefaultInfinityRuleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this) local_unnamed_addr #10 align 2 {
 entry:
   %defaultInfinityRule = getelementptr inbounds nuw i8, ptr %this, i64 632
   %0 = load ptr, ptr %defaultInfinityRule, align 8
@@ -7087,7 +7087,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6icu_7521RuleBasedNumberFormat17getDefaultNaNRuleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7521RuleBasedNumberFormat17getDefaultNaNRuleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this) local_unnamed_addr #10 align 2 {
 entry:
   %defaultNaNRule = getelementptr inbounds nuw i8, ptr %this, i64 640
   %0 = load ptr, ptr %defaultNaNRule, align 8
@@ -7228,7 +7228,7 @@ if.end:                                           ; preds = %new.notnull, %if.th
 declare void @_ZN6icu_7512PluralFormatC1ERKNS_6LocaleE11UPluralTypeRKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(712), ptr noundef nonnull align 8 dereferenceable(217), i32 noundef, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7521RuleBasedNumberFormat15getRoundingModeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK6icu_7521RuleBasedNumberFormat15getRoundingModeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %this) unnamed_addr #10 align 2 {
 entry:
   %fRoundingMode = getelementptr inbounds nuw i8, ptr %this, i64 648
   %0 = load i32, ptr %fRoundingMode, align 8
@@ -7236,7 +7236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7521RuleBasedNumberFormat15setRoundingModeENS_12NumberFormat13ERoundingModeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(752) initializes((648, 652)) %this, i32 noundef %roundingMode) unnamed_addr #13 align 2 {
+define void @_ZN6icu_7521RuleBasedNumberFormat15setRoundingModeENS_12NumberFormat13ERoundingModeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(752) initializes((648, 652)) %this, i32 noundef %roundingMode) unnamed_addr #13 align 2 {
 entry:
   %fRoundingMode = getelementptr inbounds nuw i8, ptr %this, i64 648
   store i32 %roundingMode, ptr %fRoundingMode, align 8
@@ -7325,7 +7325,7 @@ declare ptr @ures_getNextString_75(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #4
 
@@ -7353,10 +7353,10 @@ declare i32 @llvm.smin.i32(i32, i32) #17
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -94,7 +94,7 @@ $_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_M_default_appendEm = comdat any
 @_ZN8QuantLib24OrthogonalizedBumpFinderC1ERKNS_18VegaBumpCollectionERKSt6vectorINS_32VolatilityBumpInstrumentJacobian8SwaptionESaIS6_EERKS4_INS5_3CapESaISB_EEdd = unnamed_addr alias void (ptr, ptr, ptr, ptr, double, double), ptr @_ZN8QuantLib24OrthogonalizedBumpFinderC2ERKNS_18VegaBumpCollectionERKSt6vectorINS_32VolatilityBumpInstrumentJacobian8SwaptionESaIS6_EERKS4_INS5_3CapESaISB_EEdd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -111,10 +111,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib32VolatilityBumpInstrumentJacobianC2ERKNS_18VegaBumpCollectionERKSt6vectorINS0_8SwaptionESaIS5_EERKS4_INS0_3CapESaISA_EE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(43) %bumps, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %swaptions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %caps) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib32VolatilityBumpInstrumentJacobianC2ERKNS_18VegaBumpCollectionERKSt6vectorINS0_8SwaptionESaIS5_EERKS4_INS0_3CapESaISA_EE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(43) %bumps, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %swaptions, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %caps) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.std::vector.27", align 8
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %bumps, i64 8
@@ -897,7 +897,7 @@ _ZNSt6vectorIN8QuantLib15VegaBumpClusterESaIS1_EED2Ev.exit: ; preds = %_ZN5boost
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian21derivativesVolatilityEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.27") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian21derivativesVolatilityEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.27") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2050,7 +2050,7 @@ _ZN5boost10shared_ptrIN8QuantLib11MarketModelEED2Ev.exit: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian14onePercentBumpEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.27") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian14onePercentBumpEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.27") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.std::vector.27", align 8
   call void @_ZNK8QuantLib32VolatilityBumpInstrumentJacobian21derivativesVolatilityEm(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.27") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %j)
@@ -3045,7 +3045,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib21Orthogon
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #11
@@ -3070,13 +3070,13 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
@@ -3827,7 +3827,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN8QuantLib6MatrixESaIS1_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {

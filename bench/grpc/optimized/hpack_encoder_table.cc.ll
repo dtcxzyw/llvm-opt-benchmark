@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [25 x i8] c"table_elems_ <= capacity\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN9grpc_core17HPackEncoderTable13AllocateIndexEm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %element_size) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN9grpc_core17HPackEncoderTable13AllocateIndexEm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i64 noundef %element_size) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %table_elems_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -192,7 +192,7 @@ return:                                           ; preds = %_ZN9grpc_core17HPac
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17HPackEncoderTable8EvictOneEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN9grpc_core17HPackEncoderTable8EvictOneEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %inc = add i32 %0, 1
@@ -249,7 +249,7 @@ do.end19:                                         ; preds = %do.end8
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9grpc_core17HPackEncoderTable10SetMaxSizeEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %max_table_size) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN9grpc_core17HPackEncoderTable10SetMaxSizeEj(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i32 noundef %max_table_size) local_unnamed_addr #0 align 2 {
 entry:
   %max_table_size_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %max_table_size_, align 4
@@ -351,7 +351,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17HPackEncoderTable7RebuildEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %capacity) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core17HPackEncoderTable7RebuildEj(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i32 noundef %capacity) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i = icmp eq i32 %capacity, 0
   br i1 %cmp.not.i.i.i.i, label %invoke.cont, label %if.then.i.i.i.i.i
@@ -471,7 +471,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5

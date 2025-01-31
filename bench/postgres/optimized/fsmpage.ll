@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @BufferBlocks = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @fsm_set_avail(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @fsm_set_avail(ptr noundef captures(none) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = add i32 %1, 4095
   %5 = getelementptr i8, ptr %0, i64 28
   %6 = sext i32 %4 to i64
@@ -110,7 +110,7 @@ fsm_rebuild_page.exit:                            ; preds = %50, %34, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @fsm_rebuild_page(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local zeroext i1 @fsm_rebuild_page(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 28
   br label %3
 
@@ -157,7 +157,7 @@ define dso_local zeroext i1 @fsm_rebuild_page(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i8 @fsm_get_avail(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define dso_local zeroext i8 @fsm_get_avail(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 28
   %4 = add i32 %1, 4095
   %5 = sext i32 %4 to i64
@@ -167,7 +167,7 @@ define dso_local zeroext i8 @fsm_get_avail(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i8 @fsm_get_max_avail(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define dso_local zeroext i8 @fsm_get_max_avail(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 28
   %3 = load i8, ptr %2, align 4
   ret i8 %3

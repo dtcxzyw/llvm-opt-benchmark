@@ -142,7 +142,7 @@ $_ZTIN3irr5scene29IDummyTransformationSceneNodeE = comdat any
 @_ZN3irr5video16IdentityMaterialE = external global %"class.irr::video::SMaterial", align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene29CDummyTransformationSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8), (40, 41), (48, 148)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene29CDummyTransformationSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8), (40, 41), (48, 148)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK3irr5scene29CDummyTransformationSceneNode25getRelativeTransformationEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::CMatrix4") align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #2 align 2 {
+define void @_ZNK3irr5scene29CDummyTransformationSceneNode25getRelativeTransformationEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.irr::core::CMatrix4") align 4 captures(none) initializes((0, 64)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this) unnamed_addr #2 align 2 {
 entry:
   %RelativeTransformationMatrix = getelementptr inbounds nuw i8, ptr %this, i64 224
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %RelativeTransformationMatrix, i64 64, i1 false), !tbaa.struct !46
@@ -521,16 +521,16 @@ if.end10:                                         ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull align 4 dereferenceable(12) ptr @_ZNK3irr5scene29CDummyTransformationSceneNode8getScaleEv(ptr noundef nonnull readnone align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 {
@@ -543,7 +543,7 @@ entry:
 declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene29CDummyTransformationSceneNode8setScaleERKNS_4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((136, 148)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %scale) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene29CDummyTransformationSceneNode8setScaleERKNS_4core8vector3dIfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(312) initializes((136, 148)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %scale) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.1, i32 noundef 0) #18
   %RelativeScale = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -560,7 +560,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene29CDummyTransformationSceneNode11setRotationERKNS_4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((124, 136)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %rotation) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene29CDummyTransformationSceneNode11setRotationERKNS_4core8vector3dIfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(312) initializes((124, 136)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %rotation) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.3, i32 noundef 0) #18
   %RelativeRotation = getelementptr inbounds nuw i8, ptr %this, i64 124
@@ -577,7 +577,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene29CDummyTransformationSceneNode11setPositionERKNS_4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((112, 124)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %newpos) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene29CDummyTransformationSceneNode11setPositionERKNS_4core8vector3dIfEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(312) initializes((112, 124)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %newpos) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull @.str.5, i32 noundef 0) #18
   %RelativeTranslation = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -2442,7 +2442,7 @@ declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull a
 declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #17

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib9quadraticC1Eddd = unnamed_addr alias void (ptr, double, double, double), ptr @_ZN8QuantLib9quadraticC2Eddd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib9quadraticC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, double noundef %a, double noundef %b, double noundef %c) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib9quadraticC2Eddd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, double noundef %a, double noundef %b, double noundef %c) unnamed_addr #0 align 2 {
 entry:
   store double %a, ptr %this, align 8, !tbaa !3
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib9quadratic12turningPointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib9quadratic12turningPointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %b_, align 8, !tbaa !8
@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib9quadratic19valueAtTurningPointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib9quadratic19valueAtTurningPointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
   %b_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %b_.i, align 8, !tbaa !8
@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib9quadraticclEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, double noundef %x) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib9quadraticclEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, double noundef %x) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load double, ptr %this, align 8, !tbaa !3
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -61,7 +61,7 @@ entry:
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib9quadratic12discriminantEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
+define noundef double @_ZNK8QuantLib9quadratic12discriminantEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %b_, align 8, !tbaa !8
@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib9quadratic5rootsERdS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %x, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %y) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib9quadratic5rootsERdS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %x, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %y) local_unnamed_addr #3 align 2 {
 entry:
   %b_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %b_.i, align 8, !tbaa !8

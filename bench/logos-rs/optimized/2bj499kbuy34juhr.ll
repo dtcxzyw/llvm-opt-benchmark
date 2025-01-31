@@ -16,13 +16,13 @@ define { i8, i8 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..functi
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { ptr, i64 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h8a715e4b72bda8e1E"(ptr align 1 %0, i64 %1, ptr nocapture readnone align 8 %2) unnamed_addr #1 {
+define { ptr, i64 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h8a715e4b72bda8e1E"(ptr align 1 %0, i64 %1, ptr readnone align 8 captures(none) %2) unnamed_addr #1 {
   %4 = tail call { ptr, i64 } @"_ZN84_$LT$beef..generic..Cow$LT$T$C$U$GT$$u20$as$u20$core..convert..From$LT$$RF$T$GT$$GT$4from17hb5d2a8d327610efcE"(ptr align 1 %0, i64 %1)
   ret { ptr, i64 } %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdac91e9a526946e1E"(i8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #1 {
+define { i8, i8 } @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17hdac91e9a526946e1E"(i8 %0, ptr readnone align 8 captures(none) %1) unnamed_addr #1 {
   %3 = tail call { i8, i8 } @"_ZN84_$LT$logos_codegen..graph..range..Range$u20$as$u20$core..convert..From$LT$u8$GT$$GT$4from17h795e78011ae8d3edE"(i8 %0)
   ret { i8, i8 } %3
 }

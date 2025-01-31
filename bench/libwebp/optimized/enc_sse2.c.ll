@@ -47,7 +47,7 @@ define hidden void @VP8EncDspInitSSE2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @CollectHistogram_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #1 {
+define internal void @CollectHistogram_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #1 {
   %6 = alloca [32 x i32], align 16
   %7 = alloca [16 x i16], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %6, i8 0, i64 128, i1 false)
@@ -210,7 +210,7 @@ define internal void @CollectHistogram_SSE2(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Intra16Preds_SSE2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) #2 {
+define internal void @Intra16Preds_SSE2(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #2 {
   %.not.i = icmp eq ptr %2, null
   %.not12.i = icmp eq ptr %1, null
   br i1 %.not.i, label %39, label %4
@@ -435,7 +435,7 @@ TrueMotion_SSE2.exit:                             ; preds = %80, %.preheader18.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @IntraChromaPreds_SSE2(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr noundef readonly %2) #3 {
+define internal void @IntraChromaPreds_SSE2(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %.not.i = icmp eq ptr %2, null
   %.not12.i = icmp eq ptr %1, null
@@ -901,7 +901,7 @@ TrueMotion_SSE2.exit109:                          ; preds = %197, %.preheader16.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @Intra4Preds_SSE2(ptr noundef writeonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal void @Intra4Preds_SSE2(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1) #2 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -1372,7 +1372,7 @@ VE4_SSE2.exit:                                    ; preds = %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @QuantizeBlock_SSE2(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, ptr nocapture noundef readonly %2) #4 {
+define internal range(i32 0, 2) i32 @QuantizeBlock_SSE2(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %5 = load <8 x i16>, ptr %0, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1463,7 +1463,7 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE2(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 64)) %1, ptr nocapture noundef readonly %2) #4 {
+define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %5 = load <8 x i16>, ptr %0, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1634,7 +1634,7 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE2(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE2(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, ptr nocapture noundef readonly %2) #4 {
+define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE2(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = load <8 x i16>, ptr %0, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load <8 x i16>, ptr %5, align 1
@@ -1719,7 +1719,7 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE2(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ITransform_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4), (32, 36), (64, 68), (96, 100)) %2, i32 noundef %3) #4 {
+define internal void @ITransform_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4), (32, 36), (64, 68), (96, 100)) %2, i32 noundef %3) #4 {
   %.not = icmp eq i32 %3, 0
   %.val = load <2 x i64>, ptr %1, align 1
   %5 = getelementptr i8, ptr %1, i64 16
@@ -1977,7 +1977,7 @@ define internal void @ITransform_SSE2(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @FTransform_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 32)) %2) #4 {
+define internal void @FTransform_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 32)) %2) #4 {
   %4 = load i64, ptr %0, align 1
   %5 = insertelement <2 x i64> poison, i64 %4, i64 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2092,7 +2092,7 @@ define internal void @FTransform_SSE2(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @FTransform2_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 64)) %2) #4 {
+define internal void @FTransform2_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 64)) %2) #4 {
   %4 = load i64, ptr %0, align 1
   %5 = insertelement <2 x i64> poison, i64 %4, i64 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2284,7 +2284,7 @@ define internal void @FTransform2_SSE2(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @FTransformWHT_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) #4 {
+define internal void @FTransformWHT_SSE2(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) #4 {
   %3 = load i64, ptr %0, align 1
   %4 = insertelement <2 x i64> poison, i64 %3, i64 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2420,7 +2420,7 @@ define internal void @FTransformWHT_SSE2(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @SSE16x16_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @SSE16x16_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -2474,7 +2474,7 @@ SSE_16xN_SSE2.exit:                               ; preds = %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @SSE16x8_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @SSE16x8_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -2528,7 +2528,7 @@ SSE_16xN_SSE2.exit:                               ; preds = %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @SSE8x8_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal i32 @SSE8x8_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   br label %3
 
 3:                                                ; preds = %2, %3
@@ -2582,7 +2582,7 @@ define internal i32 @SSE8x8_SSE2(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @SSE4x4_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal i32 @SSE4x4_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i64, ptr %0, align 1
   %4 = insertelement <2 x i64> poison, i64 %3, i64 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2645,7 +2645,7 @@ define internal i32 @SSE4x4_SSE2(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 67108864) i32 @Disto4x4_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #6 {
+define internal range(i32 0, 67108864) i32 @Disto4x4_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #6 {
   %.val = load <8 x i16>, ptr %2, align 1
   %4 = getelementptr i8, ptr %2, i64 16
   %.val3 = load <8 x i16>, ptr %4, align 1
@@ -2771,7 +2771,7 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_SSE2(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @Disto16x16_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #5 {
+define internal i32 @Disto16x16_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #5 {
   %.val.i = load <8 x i16>, ptr %2, align 1
   %4 = getelementptr i8, ptr %2, i64 16
   %.val3.i = load <8 x i16>, ptr %4, align 1
@@ -2922,7 +2922,7 @@ define internal i32 @Disto16x16_SSE2(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @Mean16x4_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #4 {
+define internal void @Mean16x4_SSE2(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) #4 {
   %3 = load <2 x i64>, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load <2 x i64>, ptr %4, align 1
@@ -2989,7 +2989,7 @@ define internal void @Mean16x4_SSE2(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare void @VP8SetHistogramData(ptr noundef, ptr noundef) local_unnamed_addr #8
 

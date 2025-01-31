@@ -200,7 +200,7 @@ define internal i32 @dissect_optommp_reassemble_tcp(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_optommp_reassemble_udp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readnone %3) #0 {
+define internal i32 @dissect_optommp_reassemble_udp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_optommp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %6
@@ -220,7 +220,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 8, 65552) i32 @get_optommp_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 8, 65552) i32 @get_optommp_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 3
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #2
   %.fr = freeze i8 %6
@@ -264,7 +264,7 @@ switch.lookup:                                    ; preds = %switch.early.test
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_optommp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_optommp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -636,7 +636,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_optommp_data_block(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @dissect_optommp_data_block(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = load i32, ptr %3, align 4
   %7 = zext i16 %4 to i32
   %8 = load i32, ptr @ett_data_block_q, align 4

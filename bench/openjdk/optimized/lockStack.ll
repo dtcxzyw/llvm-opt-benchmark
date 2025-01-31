@@ -48,7 +48,7 @@ $_ZN9LogPrefixILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN9LockStackC1EP10JavaThread = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN9LockStackC2EP10JavaThread
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN9LockStackC2EP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 4), (8, 80)) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9LockStackC2EP10JavaThread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(80) initializes((0, 4), (8, 80)) %0, ptr readnone captures(none) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr @_ZN9LockStack22lock_stack_base_offsetE, align 4
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -59,7 +59,7 @@ define hidden void @_ZN9LockStackC2EP10JavaThread(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden noundef i32 @_ZN9LockStack12start_offsetEv() local_unnamed_addr #2 align 2 {
@@ -75,7 +75,7 @@ define hidden noundef range(i32 -2147483584, -2147483648) i32 @_ZN9LockStack10en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9LockStack8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9LockStack8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr @_ZN9LockStack22lock_stack_base_offsetE, align 4
   %5 = sub i32 %3, %4

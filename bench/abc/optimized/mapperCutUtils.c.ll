@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [4 x i8] c" } \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Map_CutAlloc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @Map_CutAlloc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1776
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @Extra_MmFixedEntryFetch(ptr noundef %3) #10
@@ -38,10 +38,10 @@ define noundef ptr @Map_CutAlloc(ptr nocapture noundef readonly %0) local_unname
 declare ptr @Extra_MmFixedEntryFetch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @Map_CutFree(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Map_CutFree(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -58,7 +58,7 @@ define void @Map_CutFree(ptr nocapture noundef readonly %0, ptr noundef %1) loca
 declare void @Extra_MmFixedEntryRecycle(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Map_CutPrint(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @Map_CutPrint(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %5, i64 0, i64 %6
@@ -102,10 +102,10 @@ define void @Map_CutPrint(ptr nocapture noundef readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define float @Map_CutGetRootArea(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define float @Map_CutGetRootArea(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = sext i32 %1 to i64
   %.idx = mul nsw i64 %3, 40
   %4 = getelementptr i8, ptr %0, i64 96
@@ -117,7 +117,7 @@ define float @Map_CutGetRootArea(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
   %.idx = mul nsw i64 %4, 40
   %5 = getelementptr i8, ptr %0, i64 92
@@ -130,7 +130,7 @@ define range(i32 0, 2) i32 @Map_CutGetLeafPhase(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Map_NodeGetLeafPhase(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Map_NodeGetLeafPhase(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %5
@@ -170,7 +170,7 @@ define noundef ptr @Map_CutListAppend(ptr noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Map_CutListRecycle(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
+define void @Map_CutListRecycle(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -216,7 +216,7 @@ define i32 @Map_CutListCount(ptr noundef readonly %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

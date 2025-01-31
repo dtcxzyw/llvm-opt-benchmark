@@ -656,7 +656,7 @@ _ZN11Block_Array3mapEjP5Block.exit:               ; preds = %70, %76
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN6Tarjan4EVALEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN6Tarjan4EVALEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -848,7 +848,7 @@ define hidden void @_ZN6Tarjan8setdepthEj(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN11Block_Stack23most_frequent_successorEP5Block(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN11Block_Stack23most_frequent_successorEP5Block(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
 _ZNK5Block8get_nodeEj.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %3 = load i32, ptr %2, align 8
@@ -979,7 +979,7 @@ _ZNK5Block8get_nodeEj.exit22._crit_edge:          ; preds = %63, %_ZNK5Block8get
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Tarjan8COMPRESSEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6Tarjan8COMPRESSEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -1016,7 +1016,7 @@ define hidden void @_ZN6Tarjan8COMPRESSEv(ptr nocapture noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z26remove_single_entry_regionP7NTarjanRS0_RP4NodeR12PhaseIterGVN(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(2416) %3) local_unnamed_addr #0 {
+define hidden void @_Z26remove_single_entry_regionP7NTarjanRS0_RP4NodeR12PhaseIterGVN(ptr noundef writeonly captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(2416) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i32, ptr %6, align 8
@@ -1085,7 +1085,7 @@ define hidden void @_Z26remove_single_entry_regionP7NTarjanRS0_RP4NodeR12PhaseIt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14PhaseIdealLoop10DominatorsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14PhaseIdealLoop10DominatorsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(237) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.VectorSet, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -1861,12 +1861,12 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %433, %435
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @_ZN9VectorSetC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN7NTarjan3DFSEPS_R9VectorSetP14PhaseIdealLoopPj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN7NTarjan3DFSEPS_R9VectorSetP14PhaseIdealLoopPj(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 592
@@ -2120,7 +2120,7 @@ _ZN13GrowableArrayIP4NodeED2Ev.exit:              ; preds = %131
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN7NTarjan4EVALEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN7NTarjan4EVALEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2254,7 +2254,7 @@ define hidden void @_ZN7NTarjan4LINKEPS_S0_(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7NTarjan8setdepthEjPj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7NTarjan8setdepthEjPj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
   %5 = shl nuw nsw i64 %4, 3
   %6 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef %5, i32 noundef 0) #9
@@ -2315,7 +2315,7 @@ define hidden void @_ZN7NTarjan8setdepthEjPj(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7NTarjan8COMPRESSEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN7NTarjan8COMPRESSEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32

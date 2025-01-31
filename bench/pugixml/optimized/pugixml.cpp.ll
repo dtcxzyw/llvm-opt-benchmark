@@ -246,13 +246,13 @@ $_ZN4pugi15xpath_exceptionD0Ev = comdat any
 @_ZN4pugi11xpath_queryC1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4pugi11xpath_queryC2EOS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN4pugi10xml_writerD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZN4pugi10xml_writerD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN4pugi10xml_writerD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN4pugi10xml_writerD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #43
   unreachable
@@ -262,7 +262,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi15xml_writer_fileC2EPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %file_) unnamed_addr #3 align 2 {
+define void @_ZN4pugi15xml_writer_fileC2EPv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %file_) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi15xml_writer_fileE, i64 16), ptr %this, align 8
   %file = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -271,7 +271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN4pugi15xml_writer_file5writeEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef %data, i64 noundef %size) unnamed_addr #4 align 2 {
+define void @_ZN4pugi15xml_writer_file5writeEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef captures(none) %data, i64 noundef %size) unnamed_addr #4 align 2 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %file, align 8
@@ -280,10 +280,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi17xml_writer_streamC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) unnamed_addr #3 align 2 {
+define void @_ZN4pugi17xml_writer_streamC2ERSo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi17xml_writer_streamE, i64 16), ptr %this, align 8
   %narrow_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -294,7 +294,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi17xml_writer_streamC2ERSt13basic_ostreamIwSt11char_traitsIwEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) unnamed_addr #3 align 2 {
+define void @_ZN4pugi17xml_writer_streamC2ERSt13basic_ostreamIwSt11char_traitsIwEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi17xml_writer_streamE, i64 16), ptr %this, align 8
   %narrow_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -305,7 +305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi17xml_writer_stream5writeEPKvm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %data, i64 noundef %size) unnamed_addr #6 align 2 {
+define void @_ZN4pugi17xml_writer_stream5writeEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %data, i64 noundef %size) unnamed_addr #6 align 2 {
 entry:
   %narrow_stream = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %narrow_stream, align 8
@@ -332,7 +332,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt13basic_ostreamIwSt11char_traitsIwEE5writeEPKwl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi15xml_tree_walkerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #3 align 2 {
+define void @_ZN4pugi15xml_tree_walkerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi15xml_tree_walkerE, i64 16), ptr %this, align 8
   %_depth = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -341,20 +341,20 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN4pugi15xml_tree_walkerD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZN4pugi15xml_tree_walkerD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN4pugi15xml_tree_walkerD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN4pugi15xml_tree_walkerD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #43
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4pugi15xml_tree_walker5depthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK4pugi15xml_tree_walker5depthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_depth = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %_depth, align 8
@@ -362,33 +362,33 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN4pugi15xml_tree_walker5beginERNS_8xml_nodeE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4pugi15xml_tree_walker5beginERNS_8xml_nodeE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZN4pugi15xml_tree_walker3endERNS_8xml_nodeE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN4pugi15xml_tree_walker3endERNS_8xml_nodeE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi13xml_attributeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN4pugi13xml_attributeC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi13xml_attributeC2EPNS_20xml_attribute_structE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %attr) unnamed_addr #3 align 2 {
+define void @_ZN4pugi13xml_attributeC2EPNS_20xml_attribute_structE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef %attr) unnamed_addr #3 align 2 {
 entry:
   store ptr %attr, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4pugi13xml_attributecvPFvPPPS0_EEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK4pugi13xml_attributecvPFvPPPS0_EEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -397,13 +397,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4pugiL30unspecified_bool_xml_attributeEPPPNS_13xml_attributeE(ptr nocapture readnone %0) #0 {
+define internal void @_ZN4pugiL30unspecified_bool_xml_attributeEPPPNS_13xml_attributeE(ptr readnone captures(none) %0) #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi13xml_attributentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi13xml_attributentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -411,7 +411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi13xml_attributeeqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi13xml_attributeeqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -420,7 +420,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi13xml_attributeneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi13xml_attributeneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -429,7 +429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi13xml_attributeltERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi13xml_attributeltERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -438,7 +438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi13xml_attributegtERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi13xml_attributegtERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -447,7 +447,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi13xml_attributeleERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi13xml_attributeleERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -456,7 +456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi13xml_attributegeERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi13xml_attributegeERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -465,7 +465,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi13xml_attribute14next_attributeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi13xml_attribute14next_attributeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %0 = load ptr, ptr %this, align 8
@@ -488,7 +488,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi13xml_attribute18previous_attributeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi13xml_attribute18previous_attributeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %0 = load ptr, ptr %this, align 8
@@ -521,7 +521,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4pugi13xml_attribute9as_stringEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef readnone %def) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK4pugi13xml_attribute9as_stringEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -540,7 +540,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %def) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK4pugi13xml_attribute6as_intEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -562,7 +562,7 @@ return:                                           ; preds = %cond.true, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4pugi13xml_attribute7as_uintEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %def) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK4pugi13xml_attribute7as_uintEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -584,7 +584,7 @@ return:                                           ; preds = %cond.true, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef double @_ZNK4pugi13xml_attribute9as_doubleEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, double noundef %def) local_unnamed_addr #10 align 2 {
+define noundef double @_ZNK4pugi13xml_attribute9as_doubleEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, double noundef %def) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -597,7 +597,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call noundef double @strtod(ptr nocapture noundef nonnull readonly %1, ptr noundef null) #44
+  %call.i = tail call noundef double @strtod(ptr noundef nonnull readonly captures(none) %1, ptr noundef null) #44
   br label %return
 
 return:                                           ; preds = %cond.true, %if.end, %entry
@@ -606,7 +606,7 @@ return:                                           ; preds = %cond.true, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef float @_ZNK4pugi13xml_attribute8as_floatEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, float noundef %def) local_unnamed_addr #10 align 2 {
+define noundef float @_ZNK4pugi13xml_attribute8as_floatEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, float noundef %def) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -619,7 +619,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool4.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call double @strtod(ptr nocapture noundef nonnull readonly %1, ptr noundef null) #44
+  %call.i = tail call double @strtod(ptr noundef nonnull readonly captures(none) %1, ptr noundef null) #44
   %conv.i = fptrunc double %call.i to float
   br label %return
 
@@ -629,7 +629,7 @@ return:                                           ; preds = %cond.true, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4pugi13xml_attribute7as_boolEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %def) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK4pugi13xml_attribute7as_boolEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -660,7 +660,7 @@ return:                                           ; preds = %lor.rhs.i, %cond.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4pugi13xml_attribute8as_llongEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %def) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK4pugi13xml_attribute8as_llongEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -682,7 +682,7 @@ return:                                           ; preds = %cond.true, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4pugi13xml_attribute9as_ullongEy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %def) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK4pugi13xml_attribute9as_ullongEy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -704,7 +704,7 @@ return:                                           ; preds = %cond.true, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi13xml_attribute5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi13xml_attribute5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -712,7 +712,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZNK4pugi13xml_attribute4nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZNK4pugi13xml_attribute4nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -731,7 +731,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZNK4pugi13xml_attribute5valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZNK4pugi13xml_attribute5valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -750,7 +750,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 0, 461168601842738791) i64 @_ZNK4pugi13xml_attribute10hash_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef range(i64 0, 461168601842738791) i64 @_ZNK4pugi13xml_attribute10hash_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -759,14 +759,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4pugi13xml_attribute15internal_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK4pugi13xml_attribute15internal_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pugi13xml_attributeaSEPKc(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pugi13xml_attributeaSEPKc(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -775,7 +775,7 @@ entry:
 if.end.i:                                         ; preds = %entry
   %value.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %rhs) #45
-  %call4.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value.i, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef readonly %rhs, i64 noundef %call.i.i)
+  %call4.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value.i, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef nonnull readonly %rhs, i64 noundef %call.i.i)
   br label %_ZN4pugi13xml_attribute9set_valueEPKc.exit
 
 _ZN4pugi13xml_attribute9set_valueEPKc.exit:       ; preds = %entry, %if.end.i
@@ -783,7 +783,7 @@ _ZN4pugi13xml_attribute9set_valueEPKc.exit:       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -792,7 +792,7 @@ entry:
 if.end:                                           ; preds = %entry
   %value = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %rhs) #45
-  %call4 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef %rhs, i64 noundef %call.i)
+  %call4 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef nonnull %rhs, i64 noundef %call.i)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -845,7 +845,7 @@ _ZN4pugi13xml_attribute9set_valueEi.exit:         ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -930,7 +930,7 @@ _ZN4pugi13xml_attribute9set_valueEj.exit:         ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -1015,7 +1015,7 @@ _ZN4pugi13xml_attribute9set_valueEl.exit:         ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -1100,7 +1100,7 @@ _ZN4pugi13xml_attribute9set_valueEm.exit:         ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -1162,7 +1162,7 @@ _ZN4pugi13xml_attribute9set_valueEd.exit:         ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, double noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, double noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -1206,7 +1206,7 @@ _ZN4pugi13xml_attribute9set_valueEf.exit:         ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, float noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, float noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -1247,7 +1247,7 @@ _ZN4pugi13xml_attribute9set_valueEb.exit:         ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1310,7 +1310,7 @@ _ZN4pugi13xml_attribute9set_valueEx.exit:         ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -1395,7 +1395,7 @@ _ZN4pugi13xml_attribute9set_valueEy.exit:         ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -1436,7 +1436,7 @@ return:                                           ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute8set_nameEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute8set_nameEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1445,7 +1445,7 @@ entry:
 if.end:                                           ; preds = %entry
   %name = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %rhs) #45
-  %call4 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 32, ptr noundef %rhs, i64 noundef %call.i)
+  %call4 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 32, ptr noundef nonnull %rhs, i64 noundef %call.i)
   br label %return
 
 return:                                           ; preds = %entry, %if.end
@@ -1454,7 +1454,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr nocapture noundef nonnull align 8 dereferenceable(8) %dest, ptr nocapture noundef nonnull align 8 dereferenceable(8) %header, i64 noundef range(i64 16, 33) %header_mask, ptr nocapture noundef readonly %source, i64 noundef %source_length) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %dest, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %header, i64 noundef range(i64 16, 33) %header_mask, ptr noundef readonly captures(none) %source, i64 noundef %source_length) unnamed_addr #6 {
 entry:
   %cmp = icmp eq i64 %source_length, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -1775,7 +1775,7 @@ return:                                           ; preds = %if.then.i.i44, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute8set_nameEPKcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute8set_nameEPKcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1792,7 +1792,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEPKcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEPKcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1809,7 +1809,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEdi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, double noundef %rhs, i32 noundef %precision) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEdi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, double noundef %rhs, i32 noundef %precision) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -1831,7 +1831,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEfi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, float noundef %rhs, i32 noundef %precision) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi13xml_attribute9set_valueEfi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, float noundef %rhs, i32 noundef %precision) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %0 = load ptr, ptr %this, align 8
@@ -1854,21 +1854,21 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi8xml_nodeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN4pugi8xml_nodeC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi8xml_nodeC2EPNS_15xml_node_structE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %p) unnamed_addr #3 align 2 {
+define void @_ZN4pugi8xml_nodeC2EPNS_15xml_node_structE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   store ptr %p, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4pugi8xml_nodecvPFvPPPS0_EEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK4pugi8xml_nodecvPFvPPPS0_EEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1877,13 +1877,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4pugiL25unspecified_bool_xml_nodeEPPPNS_8xml_nodeE(ptr nocapture readnone %0) #0 {
+define internal void @_ZN4pugiL25unspecified_bool_xml_nodeEPPPNS_8xml_nodeE(ptr readnone captures(none) %0) #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_nodentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_nodentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1891,7 +1891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK4pugi8xml_node5beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZNK4pugi8xml_node5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node_iterator", align 8
   %0 = load ptr, ptr %this, align 8
@@ -1915,7 +1915,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK4pugi8xml_node3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZNK4pugi8xml_node3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node_iterator", align 8
   %0 = load ptr, ptr %this, align 8
@@ -1929,7 +1929,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK4pugi8xml_node16attributes_beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZNK4pugi8xml_node16attributes_beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute_iterator", align 8
   %0 = load ptr, ptr %this, align 8
@@ -1953,7 +1953,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK4pugi8xml_node14attributes_endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZNK4pugi8xml_node14attributes_endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute_iterator", align 8
   %0 = load ptr, ptr %this, align 8
@@ -1967,7 +1967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi8xml_node8childrenEv(ptr noalias nocapture writeonly sret(%"class.pugi::xml_object_range") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define void @_ZNK4pugi8xml_node8childrenEv(ptr noalias writeonly sret(%"class.pugi::xml_object_range") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i1 = alloca %"class.pugi::xml_node_iterator", align 8
   %retval.i = alloca %"class.pugi::xml_node_iterator", align 8
@@ -2006,7 +2006,7 @@ _ZNK4pugi8xml_node5beginEv.exit:                  ; preds = %entry, %cond.true.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi8xml_node8childrenEPKc(ptr noalias nocapture writeonly sret(%"class.pugi::xml_object_range.3") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %name_) local_unnamed_addr #6 align 2 {
+define void @_ZNK4pugi8xml_node8childrenEPKc(ptr noalias writeonly sret(%"class.pugi::xml_object_range.3") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %name_) local_unnamed_addr #6 align 2 {
 entry:
   %agg.tmp35 = alloca %"class.pugi::xml_named_node_iterator", align 8
   %retval.i = alloca %"class.pugi::xml_node", align 8
@@ -2068,7 +2068,7 @@ _ZNK4pugi8xml_node5childEPKc.exit:                ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node5childEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node5childEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2117,7 +2117,7 @@ return:                                           ; preds = %for.end, %if.then5,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi8xml_node10attributesEv(ptr noalias nocapture writeonly sret(%"class.pugi::xml_object_range.4") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define void @_ZNK4pugi8xml_node10attributesEv(ptr noalias writeonly sret(%"class.pugi::xml_object_range.4") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i1 = alloca %"class.pugi::xml_attribute_iterator", align 8
   %retval.i = alloca %"class.pugi::xml_attribute_iterator", align 8
@@ -2156,7 +2156,7 @@ _ZNK4pugi8xml_node16attributes_beginEv.exit:      ; preds = %entry, %cond.true.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_nodeeqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_nodeeqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -2165,7 +2165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_nodeneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_nodeneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -2174,7 +2174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_nodeltERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_nodeltERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -2183,7 +2183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_nodegtERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_nodegtERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -2192,7 +2192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_nodeleERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_nodeleERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -2201,7 +2201,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_nodegeERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_nodegeERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %r) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %r, align 8
@@ -2210,7 +2210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_node5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_node5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2218,7 +2218,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZNK4pugi8xml_node4nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZNK4pugi8xml_node4nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2237,7 +2237,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 16) i32 @_ZNK4pugi8xml_node4typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef range(i32 0, 16) i32 @_ZNK4pugi8xml_node4typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2255,7 +2255,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZNK4pugi8xml_node5valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZNK4pugi8xml_node5valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2274,7 +2274,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node9attributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2323,7 +2323,7 @@ return:                                           ; preds = %for.end, %if.then5,
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node12next_siblingEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node12next_siblingEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2372,7 +2372,7 @@ return:                                           ; preds = %for.end, %if.then5,
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node12next_siblingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node12next_siblingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2395,7 +2395,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node16previous_siblingEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node16previous_siblingEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2448,7 +2448,7 @@ return:                                           ; preds = %for.end, %if.then5,
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node9attributeEPKcRNS_13xml_attributeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_, ptr nocapture noundef nonnull align 8 dereferenceable(8) %hint_) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node9attributeEPKcRNS_13xml_attributeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %hint_) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %0 = load ptr, ptr %hint_, align 8
@@ -2534,7 +2534,7 @@ return:                                           ; preds = %for.end22, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node16previous_siblingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node16previous_siblingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2567,7 +2567,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node6parentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node6parentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2590,7 +2590,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node4rootEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node4rootEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2617,7 +2617,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node4textEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node4textEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_text", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2627,7 +2627,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4pugi8xml_node11child_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK4pugi8xml_node11child_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2676,7 +2676,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK4pugi8xml_node11child_valueEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZNK4pugi8xml_node11child_valueEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.pugi::xml_node", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
@@ -2769,7 +2769,7 @@ _ZNK4pugi8xml_node11child_valueEv.exit:           ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node15first_attributeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node15first_attributeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2792,7 +2792,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node14last_attributeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node14last_attributeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2825,7 +2825,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node11first_childEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node11first_childEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2848,7 +2848,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node10last_childEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node10last_childEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -2881,7 +2881,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node8set_nameEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node8set_nameEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2904,7 +2904,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 if.end:                                           ; preds = %cond.end
   %name = getelementptr inbounds nuw i8, ptr %0, i64 8
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %rhs) #45
-  %call9 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 32, ptr noundef %rhs, i64 noundef %call.i)
+  %call9 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 32, ptr noundef nonnull %rhs, i64 noundef %call.i)
   br label %return
 
 return:                                           ; preds = %cond.end, %if.end
@@ -2913,7 +2913,7 @@ return:                                           ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node8set_nameEPKcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node8set_nameEPKcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2944,7 +2944,7 @@ return:                                           ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node9set_valueEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node9set_valueEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2965,7 +2965,7 @@ cond.end:                                         ; preds = %entry
 if.end:                                           ; preds = %cond.end, %cond.end, %cond.end, %cond.end, %cond.end
   %value = getelementptr inbounds nuw i8, ptr %0, i64 16
   %call.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %rhs) #45
-  %call13 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef %rhs, i64 noundef %call.i)
+  %call13 = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef 16, ptr noundef nonnull %rhs, i64 noundef %call.i)
   br label %return
 
 return:                                           ; preds = %entry, %cond.end, %if.end
@@ -2974,7 +2974,7 @@ return:                                           ; preds = %entry, %cond.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node9set_valueEPKcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node9set_valueEPKcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3003,7 +3003,7 @@ return:                                           ; preds = %entry, %cond.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node16append_attributeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node16append_attributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %a = alloca %"class.pugi::xml_attribute", align 8
@@ -3115,7 +3115,7 @@ if.else.i:                                        ; preds = %if.end10
 _ZN4pugi13xml_attribute8set_nameEPKc.exit:        ; preds = %if.then.i, %if.else.i
   %name.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #45
-  %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 32, ptr noundef readonly %name_, i64 noundef %call.i.i)
+  %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 32, ptr noundef nonnull readonly %name_, i64 noundef %call.i.i)
   %16 = load i64, ptr %a, align 8
   store i64 %16, ptr %retval, align 8
   br label %return
@@ -3126,10 +3126,10 @@ return:                                           ; preds = %_ZN4pugi13xml_attri
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node17prepend_attributeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node17prepend_attributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %a = alloca %"class.pugi::xml_attribute", align 8
@@ -3241,7 +3241,7 @@ _ZN4pugi13xml_attribute8set_nameEPKc.exit:        ; preds = %if.then.i, %if.else
   store ptr %12, ptr %first_attribute.i, align 8
   %name.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #45
-  %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 32, ptr noundef readonly %name_, i64 noundef %call.i.i)
+  %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %12, i64 noundef 32, ptr noundef nonnull readonly %name_, i64 noundef %call.i.i)
   %16 = load i64, ptr %a, align 8
   store i64 %16, ptr %retval, align 8
   br label %return
@@ -3252,7 +3252,7 @@ return:                                           ; preds = %_ZN4pugi13xml_attri
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node22insert_attribute_afterEPKcRKNS_13xml_attributeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %attr) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node22insert_attribute_afterEPKcRKNS_13xml_attributeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %attr) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %a = alloca %"class.pugi::xml_attribute", align 8
@@ -3387,7 +3387,7 @@ _ZN4pugi13xml_attribute8set_nameEPKc.exit:        ; preds = %if.end15, %if.else.
   store ptr %13, ptr %next_attribute.i8, align 8
   %name.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #45
-  %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef readonly %name_, i64 noundef %call.i.i)
+  %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef nonnull readonly %name_, i64 noundef %call.i.i)
   %18 = load i64, ptr %a, align 8
   store i64 %18, ptr %retval, align 8
   br label %return
@@ -3398,7 +3398,7 @@ return:                                           ; preds = %_ZN4pugi13xml_attri
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node23insert_attribute_beforeEPKcRKNS_13xml_attributeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %attr) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node23insert_attribute_beforeEPKcRKNS_13xml_attributeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %attr) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %a = alloca %"class.pugi::xml_attribute", align 8
@@ -3536,7 +3536,7 @@ _ZN4pugi13xml_attribute8set_nameEPKc.exit:        ; preds = %if.then.i, %if.else
   store ptr %13, ptr %prev_attribute_c.i, align 8
   %name.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #45
-  %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef readonly %name_, i64 noundef %call.i.i)
+  %call4.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %13, i64 noundef 32, ptr noundef nonnull readonly %name_, i64 noundef %call.i.i)
   %18 = load i64, ptr %a, align 8
   store i64 %18, ptr %retval, align 8
   br label %return
@@ -3547,7 +3547,7 @@ return:                                           ; preds = %_ZN4pugi13xml_attri
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node11append_copyERKNS_13xml_attributeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %proto) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node11append_copyERKNS_13xml_attributeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %proto) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %a = alloca %"class.pugi::xml_attribute", align 8
@@ -3678,7 +3678,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_119node_copy_attributeEPNS_20xml_attribute_structES3_(ptr nocapture noundef %da, ptr nocapture noundef %sa) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_119node_copy_attributeEPNS_20xml_attribute_structES3_(ptr noundef captures(none) %da, ptr noundef captures(none) %sa) unnamed_addr #6 {
 entry:
   %0 = load i64, ptr %da, align 8
   %shr.i = lshr i64 %0, 8
@@ -3756,7 +3756,7 @@ _ZN4pugi4impl12_GLOBAL__N_116node_copy_stringIPcmEEvRT_RT0_mS3_S7_PNS1_13xml_all
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node12prepend_copyERKNS_13xml_attributeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %proto) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node12prepend_copyERKNS_13xml_attributeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %proto) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %a = alloca %"class.pugi::xml_attribute", align 8
@@ -3887,7 +3887,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node17insert_copy_afterERKNS_13xml_attributeES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %proto, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %attr) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node17insert_copy_afterERKNS_13xml_attributeES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %proto, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %attr) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %a = alloca %"class.pugi::xml_attribute", align 8
@@ -4041,7 +4041,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node18insert_copy_beforeERKNS_13xml_attributeES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %proto, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %attr) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node18insert_copy_beforeERKNS_13xml_attributeES3_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %proto, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %attr) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_attribute", align 8
   %a = alloca %"class.pugi::xml_attribute", align 8
@@ -4198,7 +4198,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node12append_childENS_13xml_node_typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %type_) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node12append_childENS_13xml_node_typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %type_) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %n = alloca %"class.pugi::xml_node", align 8
@@ -4350,7 +4350,7 @@ return:                                           ; preds = %if.end15, %if.then9
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node13prepend_childENS_13xml_node_typeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %type_) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node13prepend_childENS_13xml_node_typeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %type_) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %n = alloca %"class.pugi::xml_node", align 8
@@ -4502,7 +4502,7 @@ return:                                           ; preds = %if.end15, %if.then9
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node19insert_child_beforeENS_13xml_node_typeERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %type_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node19insert_child_beforeENS_13xml_node_typeERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %type_, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %n = alloca %"class.pugi::xml_node", align 8
@@ -4671,7 +4671,7 @@ return:                                           ; preds = %if.end21, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node18insert_child_afterENS_13xml_node_typeERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %type_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node18insert_child_afterENS_13xml_node_typeERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %type_, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %n = alloca %"class.pugi::xml_node", align 8
@@ -4837,7 +4837,7 @@ return:                                           ; preds = %if.end21, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node12append_childEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node12append_childEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call ptr @_ZN4pugi8xml_node12append_childENS_13xml_node_typeE(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef 2)
   %tobool.not.i = icmp eq ptr %call, null
@@ -4860,7 +4860,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %entry
 if.end.i:                                         ; preds = %cond.end.i
   %name.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #45
-  %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef readonly %name_, i64 noundef %call.i.i)
+  %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef nonnull readonly %name_, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_node8set_nameEPKc.exit
 
 _ZN4pugi8xml_node8set_nameEPKc.exit:              ; preds = %cond.end.i, %if.end.i
@@ -4868,7 +4868,7 @@ _ZN4pugi8xml_node8set_nameEPKc.exit:              ; preds = %cond.end.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node13prepend_childEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node13prepend_childEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call ptr @_ZN4pugi8xml_node13prepend_childENS_13xml_node_typeE(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef 2)
   %tobool.not.i = icmp eq ptr %call, null
@@ -4891,7 +4891,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %entry
 if.end.i:                                         ; preds = %cond.end.i
   %name.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #45
-  %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef readonly %name_, i64 noundef %call.i.i)
+  %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef nonnull readonly %name_, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_node8set_nameEPKc.exit
 
 _ZN4pugi8xml_node8set_nameEPKc.exit:              ; preds = %cond.end.i, %if.end.i
@@ -4899,7 +4899,7 @@ _ZN4pugi8xml_node8set_nameEPKc.exit:              ; preds = %cond.end.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node18insert_child_afterEPKcRKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node18insert_child_afterEPKcRKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call ptr @_ZN4pugi8xml_node18insert_child_afterENS_13xml_node_typeERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %node)
   %tobool.not.i = icmp eq ptr %call, null
@@ -4922,7 +4922,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %entry
 if.end.i:                                         ; preds = %cond.end.i
   %name.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #45
-  %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef readonly %name_, i64 noundef %call.i.i)
+  %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef nonnull readonly %name_, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_node8set_nameEPKc.exit
 
 _ZN4pugi8xml_node8set_nameEPKc.exit:              ; preds = %cond.end.i, %if.end.i
@@ -4930,7 +4930,7 @@ _ZN4pugi8xml_node8set_nameEPKc.exit:              ; preds = %cond.end.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node19insert_child_beforeEPKcRKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node19insert_child_beforeEPKcRKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
 entry:
   %call = tail call ptr @_ZN4pugi8xml_node19insert_child_beforeENS_13xml_node_typeERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %node)
   %tobool.not.i = icmp eq ptr %call, null
@@ -4953,7 +4953,7 @@ cond.end.i:                                       ; preds = %cond.true.i, %entry
 if.end.i:                                         ; preds = %cond.end.i
   %name.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #45
-  %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef readonly %name_, i64 noundef %call.i.i)
+  %call9.i = tail call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %name.i, ptr noundef nonnull align 8 dereferenceable(8) %call, i64 noundef 32, ptr noundef nonnull readonly %name_, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_node8set_nameEPKc.exit
 
 _ZN4pugi8xml_node8set_nameEPKc.exit:              ; preds = %cond.end.i, %if.end.i
@@ -4961,7 +4961,7 @@ _ZN4pugi8xml_node8set_nameEPKc.exit:              ; preds = %cond.end.i, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node11append_copyERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %proto) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node11append_copyERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %proto) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %n = alloca %"class.pugi::xml_node", align 8
@@ -5249,7 +5249,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node12prepend_copyERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %proto) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node12prepend_copyERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %proto) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %n = alloca %"class.pugi::xml_node", align 8
@@ -5394,7 +5394,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node17insert_copy_afterERKS0_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %proto, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node17insert_copy_afterERKS0_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %proto, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %n = alloca %"class.pugi::xml_node", align 8
@@ -5553,7 +5553,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node18insert_copy_beforeERKS0_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %proto, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node18insert_copy_beforeERKS0_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %proto, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %n = alloca %"class.pugi::xml_node", align 8
@@ -5715,7 +5715,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node11append_moveERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %moved) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node11append_moveERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %moved) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i20.i = alloca %"class.pugi::xml_node", align 8
   %retval.i8.i = alloca %"class.pugi::xml_node", align 8
@@ -5895,7 +5895,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node12prepend_moveERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %moved) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node12prepend_moveERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %moved) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i20.i = alloca %"class.pugi::xml_node", align 8
   %retval.i8.i = alloca %"class.pugi::xml_node", align 8
@@ -6075,7 +6075,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node17insert_move_afterERKS0_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %moved, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node17insert_move_afterERKS0_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %moved, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i20.i = alloca %"class.pugi::xml_node", align 8
   %retval.i8.i = alloca %"class.pugi::xml_node", align 8
@@ -6277,7 +6277,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZN4pugi8xml_node18insert_move_beforeERKS0_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %moved, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
+define ptr @_ZN4pugi8xml_node18insert_move_beforeERKS0_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %moved, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i20.i = alloca %"class.pugi::xml_node", align 8
   %retval.i8.i = alloca %"class.pugi::xml_node", align 8
@@ -6482,7 +6482,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node16remove_attributeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node16remove_attributeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.pugi::xml_attribute", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
@@ -6596,7 +6596,7 @@ _ZN4pugi8xml_node16remove_attributeERKNS_13xml_attributeE.exit: ; preds = %_ZNK4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node16remove_attributeERKNS_13xml_attributeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %a) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node16remove_attributeERKNS_13xml_attributeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %a) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -6669,7 +6669,7 @@ return:                                           ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_117destroy_attributeEPNS_20xml_attribute_structERNS1_13xml_allocatorE(ptr noundef %a, ptr nocapture noundef nonnull align 8 dereferenceable(16) %alloc) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_117destroy_attributeEPNS_20xml_attribute_structERNS1_13xml_allocatorE(ptr noundef %a, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %alloc) unnamed_addr #6 {
 entry:
   %0 = load i64, ptr %a, align 8
   %and = and i64 %0, 32
@@ -6897,7 +6897,7 @@ _ZN4pugi4impl12_GLOBAL__N_113xml_allocator17deallocate_memoryEPvmPNS1_15xml_memo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node17remove_attributesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node17remove_attributesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp ne ptr %0, null
@@ -6937,7 +6937,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node12remove_childEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node12remove_childEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.pugi::xml_node", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
@@ -7044,7 +7044,7 @@ _ZN4pugi8xml_node12remove_childERKS0_.exit:       ; preds = %_ZNK4pugi8xml_node5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node12remove_childERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node12remove_childERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %n) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -7110,7 +7110,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112destroy_nodeEPNS_15xml_node_structERNS1_13xml_allocatorE(ptr noundef %n, ptr nocapture noundef nonnull align 8 dereferenceable(16) %alloc) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112destroy_nodeEPNS_15xml_node_structERNS1_13xml_allocatorE(ptr noundef %n, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %alloc) unnamed_addr #6 {
 entry:
   %0 = load i64, ptr %n, align 8
   %and = and i64 %0, 32
@@ -7366,7 +7366,7 @@ _ZN4pugi4impl12_GLOBAL__N_113xml_allocator17deallocate_memoryEPvmPNS1_15xml_memo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node15remove_childrenEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node15remove_childrenEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp ne ptr %0, null
@@ -7406,7 +7406,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi8xml_node13append_bufferEPKvmjNS_12xml_encodingE(ptr noalias sret(%"struct.pugi::xml_parse_result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi8xml_node13append_bufferEPKvmjNS_12xml_encodingE(ptr noalias sret(%"struct.pugi::xml_parse_result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -7554,7 +7554,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef %doc, ptr noundef %root, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext %is_mutable, i1 noundef zeroext %own, ptr nocapture noundef nonnull writeonly %out_buffer) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef %doc, ptr noundef %root, ptr noundef %contents, i64 noundef %size, i32 noundef %options, i32 noundef %encoding, i1 noundef zeroext %is_mutable, i1 noundef zeroext %own, ptr noundef nonnull writeonly captures(none) %out_buffer) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %result.i = alloca %"struct.pugi::xml_parse_result", align 8
   %tobool = icmp eq ptr %contents, null
@@ -10425,7 +10425,7 @@ if.then457.i.i:                                   ; preds = %land.lhs.true451.i.
   %add.ptr459.i.i = getelementptr inbounds i8, ptr %merged_pcdata.0.ph.i.i, i64 %call.i.i.i
   %call.i265.i.i = tail call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.select.i20.i) #45, !noalias !47
   %add.i.i66 = add i64 %call.i265.i.i, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %add.ptr459.i.i, ptr nonnull align 1 %spec.select.i20.i, i64 %add.i.i66, i1 false), !noalias !47
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %add.ptr459.i.i, ptr nonnull align 1 %spec.select.i20.i, i64 %add.i.i66, i1 false), !noalias !47
   %add.ptr461.i.i = getelementptr inbounds i8, ptr %add.ptr459.i.i, i64 %call.i265.i.i
   br label %if.end472.i.i
 
@@ -10667,7 +10667,7 @@ return:                                           ; preds = %if.then.i82, %clean
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node23find_child_by_attributeEPKcS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %name_, ptr nocapture noundef readonly %attr_name, ptr nocapture noundef readonly %attr_value) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node23find_child_by_attributeEPKcS2_S2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %name_, ptr noundef readonly captures(none) %attr_name, ptr noundef readonly captures(none) %attr_value) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -10749,7 +10749,7 @@ return:                                           ; preds = %for.end21, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node23find_child_by_attributeEPKcS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %attr_name, ptr nocapture noundef readonly %attr_value) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node23find_child_by_attributeEPKcS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %attr_name, ptr noundef readonly captures(none) %attr_value) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -10820,7 +10820,7 @@ return:                                           ; preds = %for.end15, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi8xml_node4pathB5cxx11Ec(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i8 noundef signext %delimiter) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pugi8xml_node4pathB5cxx11Ec(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i8 noundef signext %delimiter) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -10933,7 +10933,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_node21first_element_by_pathEPKcc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %path_, i8 noundef signext %delimiter) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_node21first_element_by_pathEPKcc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %path_, i8 noundef signext %delimiter) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.pugi::xml_node", align 8
   %retval = alloca %"class.pugi::xml_node", align 8
@@ -11106,7 +11106,7 @@ return:                                           ; preds = %if.then50, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(12) initializes((8, 12)) %walker) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_node8traverseERNS_15xml_tree_walkerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(12) initializes((8, 12)) %walker) local_unnamed_addr #6 align 2 {
 entry:
   %arg_begin = alloca %"class.pugi::xml_node", align 8
   %arg_for_each = alloca %"class.pugi::xml_node", align 8
@@ -11226,7 +11226,7 @@ return:                                           ; preds = %do.body, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 0, 288230376151711744) i64 @_ZNK4pugi8xml_node10hash_valueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef range(i64 0, 288230376151711744) i64 @_ZNK4pugi8xml_node10hash_valueEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -11235,14 +11235,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4pugi8xml_node15internal_objectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK4pugi8xml_node15internal_objectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi8xml_node5printERNS_10xml_writerEPKcjNS_12xml_encodingEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding, i32 noundef %depth) local_unnamed_addr #6 align 2 {
+define void @_ZNK4pugi8xml_node5printERNS_10xml_writerEPKcjNS_12xml_encodingEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding, i32 noundef %depth) local_unnamed_addr #6 align 2 {
 entry:
   %buffered_writer = alloca %"class.pugi::impl::(anonymous namespace)::xml_buffered_writer", align 8
   %0 = load ptr, ptr %this, align 8
@@ -11832,7 +11832,7 @@ if.end77:                                         ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi8xml_node5printERSoPKcjNS_12xml_encodingEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding, i32 noundef %depth) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pugi8xml_node5printERSoPKcjNS_12xml_encodingEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding, i32 noundef %depth) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffered_writer.i = alloca %"class.pugi::impl::(anonymous namespace)::xml_buffered_writer", align 8
   %writer = alloca %"class.pugi::xml_writer_stream", align 8
@@ -11883,7 +11883,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi8xml_node5printERSt13basic_ostreamIwSt11char_traitsIwEEPKcjj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef %indent, i32 noundef %flags, i32 noundef %depth) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pugi8xml_node5printERSt13basic_ostreamIwSt11char_traitsIwEEPKcjj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef %indent, i32 noundef %flags, i32 noundef %depth) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffered_writer.i = alloca %"class.pugi::impl::(anonymous namespace)::xml_buffered_writer", align 8
   %writer = alloca %"class.pugi::xml_writer_stream", align 8
@@ -11911,7 +11911,7 @@ invoke.cont:                                      ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4pugi8xml_node12offset_debugEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK4pugi8xml_node12offset_debugEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -11987,14 +11987,14 @@ return:                                           ; preds = %cond.true23, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi8xml_textC2EPNS_15xml_node_structE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %root) unnamed_addr #3 align 2 {
+define void @_ZN4pugi8xml_textC2EPNS_15xml_node_structE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef %root) unnamed_addr #3 align 2 {
 entry:
   store ptr %root, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4pugi8xml_text5_dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK4pugi8xml_text5_dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -12046,7 +12046,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pugi8xml_text9_data_newEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN4pugi8xml_text9_data_newEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp2 = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -12104,14 +12104,14 @@ return:                                           ; preds = %for.body.i, %land.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi8xml_textC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN4pugi8xml_textC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4pugi8xml_textcvPFvPPPS0_EEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK4pugi8xml_textcvPFvPPPS0_EEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12163,13 +12163,13 @@ _ZNK4pugi8xml_text5_dataEv.exit:                  ; preds = %for.body.i, %for.in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4pugiL25unspecified_bool_xml_textEPPPNS_8xml_textE(ptr nocapture readnone %0) #0 {
+define internal void @_ZN4pugiL25unspecified_bool_xml_textEPPPNS_8xml_textE(ptr readnone captures(none) %0) #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_textntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_textntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12221,7 +12221,7 @@ _ZNK4pugi8xml_text5_dataEv.exit:                  ; preds = %for.body.i, %for.in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_text5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_text5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12273,7 +12273,7 @@ _ZNK4pugi8xml_text5_dataEv.exit:                  ; preds = %for.body.i, %for.in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZNK4pugi8xml_text3getEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull ptr @_ZNK4pugi8xml_text3getEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12333,7 +12333,7 @@ return:                                           ; preds = %for.inc.i, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4pugi8xml_text9as_stringEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef readnone %def) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZNK4pugi8xml_text9as_stringEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readnone %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12393,7 +12393,7 @@ return:                                           ; preds = %for.inc.i, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4pugi8xml_text6as_intEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %def) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK4pugi8xml_text6as_intEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12456,7 +12456,7 @@ return:                                           ; preds = %for.inc.i, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK4pugi8xml_text7as_uintEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %def) local_unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK4pugi8xml_text7as_uintEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12519,7 +12519,7 @@ return:                                           ; preds = %for.inc.i, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef double @_ZNK4pugi8xml_text9as_doubleEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, double noundef %def) local_unnamed_addr #4 align 2 {
+define noundef double @_ZNK4pugi8xml_text9as_doubleEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, double noundef %def) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12573,7 +12573,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call noundef double @strtod(ptr nocapture noundef nonnull readonly %8, ptr noundef null) #44
+  %call.i = tail call noundef double @strtod(ptr noundef nonnull readonly captures(none) %8, ptr noundef null) #44
   br label %return
 
 return:                                           ; preds = %for.inc.i, %if.end9.i, %entry, %cond.true, %if.end
@@ -12582,7 +12582,7 @@ return:                                           ; preds = %for.inc.i, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef float @_ZNK4pugi8xml_text8as_floatEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, float noundef %def) local_unnamed_addr #4 align 2 {
+define noundef float @_ZNK4pugi8xml_text8as_floatEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, float noundef %def) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12636,7 +12636,7 @@ if.end:                                           ; preds = %for.body.i, %land.l
   br i1 %tobool3.not, label %return, label %cond.true
 
 cond.true:                                        ; preds = %if.end
-  %call.i = tail call double @strtod(ptr nocapture noundef nonnull readonly %8, ptr noundef null) #44
+  %call.i = tail call double @strtod(ptr noundef nonnull readonly captures(none) %8, ptr noundef null) #44
   %conv.i = fptrunc double %call.i to float
   br label %return
 
@@ -12646,7 +12646,7 @@ return:                                           ; preds = %for.inc.i, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK4pugi8xml_text7as_boolEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %def) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK4pugi8xml_text7as_boolEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12718,7 +12718,7 @@ return:                                           ; preds = %for.inc.i, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4pugi8xml_text8as_llongEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %def) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK4pugi8xml_text8as_llongEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12781,7 +12781,7 @@ return:                                           ; preds = %for.inc.i, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK4pugi8xml_text9as_ullongEy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %def) local_unnamed_addr #9 align 2 {
+define noundef i64 @_ZNK4pugi8xml_text9as_ullongEy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %def) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -12844,7 +12844,7 @@ return:                                           ; preds = %for.inc.i, %if.end9
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
@@ -12908,7 +12908,7 @@ cond.true:                                        ; preds = %_ZN4pugi8xml_text9_
   %retval.0.i6 = phi ptr [ %retval.0.i.ph, %_ZN4pugi8xml_text9_data_newEv.exit.thread ], [ %call3.i, %_ZN4pugi8xml_text9_data_newEv.exit ]
   %value = getelementptr inbounds nuw i8, ptr %retval.0.i6, i64 16
   %call.i = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %rhs) #45
-  %call3 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i6, i64 noundef 16, ptr noundef %rhs, i64 noundef %call.i)
+  %call3 = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i6, i64 noundef 16, ptr noundef nonnull %rhs, i64 noundef %call.i)
   br label %cond.end
 
 cond.end:                                         ; preds = %_ZN4pugi8xml_text9_data_newEv.exit, %cond.true
@@ -12917,7 +12917,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEPKcm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEPKcm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs, i64 noundef %size) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
@@ -12989,7 +12989,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13089,7 +13089,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i32 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13185,7 +13185,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13285,7 +13285,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13381,7 +13381,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, float noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, float noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13459,7 +13459,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEfi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, float noundef %rhs, i32 noundef %precision) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEfi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, float noundef %rhs, i32 noundef %precision) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13537,7 +13537,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, double noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, double noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13614,7 +13614,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEdi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, double noundef %rhs, i32 noundef %precision) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEdi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, double noundef %rhs, i32 noundef %precision) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13691,7 +13691,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i1 noundef zeroext %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i1 noundef zeroext %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i)
@@ -13765,7 +13765,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEx(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEx(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13865,7 +13865,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi8xml_text3setEy(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi8xml_text3setEy(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i64 noundef %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %buf.i = alloca [64 x i8], align 16
   %ref.tmp2.i = alloca %"class.pugi::xml_node", align 8
@@ -13961,7 +13961,7 @@ cond.end:                                         ; preds = %_ZN4pugi8xml_text9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pugi8xml_textaSEPKc(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %rhs) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN4pugi8xml_textaSEPKc(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %this, ptr noundef readonly captures(none) %rhs) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp2.i.i = alloca %"class.pugi::xml_node", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp2.i.i)
@@ -14025,7 +14025,7 @@ cond.true.i:                                      ; preds = %_ZN4pugi8xml_text9_
   %retval.0.i6.i = phi ptr [ %retval.0.i.ph.i, %_ZN4pugi8xml_text9_data_newEv.exit.thread.i ], [ %call3.i.i, %_ZN4pugi8xml_text9_data_newEv.exit.i ]
   %value.i = getelementptr inbounds nuw i8, ptr %retval.0.i6.i, i64 16
   %call.i.i = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %rhs) #45
-  %call3.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i6.i, i64 noundef 16, ptr noundef readonly %rhs, i64 noundef %call.i.i)
+  %call3.i = call fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_113strcpy_insituIPcmEEbRT_RT0_mPKcm(ptr noundef nonnull align 8 dereferenceable(8) %value.i, ptr noundef nonnull align 8 dereferenceable(8) %retval.0.i6.i, i64 noundef 16, ptr noundef nonnull readonly %rhs, i64 noundef %call.i.i)
   br label %_ZN4pugi8xml_text3setEPKc.exit
 
 _ZN4pugi8xml_text3setEPKc.exit:                   ; preds = %_ZN4pugi8xml_text9_data_newEv.exit.i, %cond.true.i
@@ -14162,7 +14162,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi8xml_text4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi8xml_text4dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -14226,7 +14226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi17xml_node_iteratorC2ERKNS_8xml_nodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) unnamed_addr #6 align 2 {
+define void @_ZN4pugi17xml_node_iteratorC2ERKNS_8xml_nodeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.pugi::xml_node", align 8
   %0 = load i64, ptr %node, align 8
@@ -14264,7 +14264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi17xml_node_iteratoreqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi17xml_node_iteratoreqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %rhs, align 8
@@ -14279,7 +14279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi17xml_node_iteratorneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi17xml_node_iteratorneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %rhs, align 8
@@ -14316,7 +14316,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define { ptr, ptr } @_ZN4pugi17xml_node_iteratorppEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #14 align 2 {
+define { ptr, ptr } @_ZN4pugi17xml_node_iteratorppEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #14 align 2 {
 entry:
   %retval.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %retval.sroa.2.0.this.addr.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -14399,7 +14399,7 @@ cond.end:                                         ; preds = %_ZNK4pugi8xml_node1
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZN4pugi17xml_node_iteratormmEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZN4pugi17xml_node_iteratormmEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i1.i = alloca %"class.pugi::xml_node", align 8
   %retval.i.i = alloca %"class.pugi::xml_node", align 8
@@ -14479,7 +14479,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4pugi22xml_attribute_iteratorC2ERKNS_13xml_attributeERKNS_8xml_nodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %attr, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %parent) unnamed_addr #15 align 2 {
+define void @_ZN4pugi22xml_attribute_iteratorC2ERKNS_13xml_attributeERKNS_8xml_nodeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %attr, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %parent) unnamed_addr #15 align 2 {
 entry:
   %0 = load i64, ptr %attr, align 8
   store i64 %0, ptr %this, align 8
@@ -14499,7 +14499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi22xml_attribute_iteratoreqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi22xml_attribute_iteratoreqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %rhs, align 8
@@ -14514,7 +14514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi22xml_attribute_iteratorneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi22xml_attribute_iteratorneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %rhs, align 8
@@ -14551,7 +14551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define { ptr, ptr } @_ZN4pugi22xml_attribute_iteratorppEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #14 align 2 {
+define { ptr, ptr } @_ZN4pugi22xml_attribute_iteratorppEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #14 align 2 {
 entry:
   %retval.sroa.0.0.copyload = load ptr, ptr %this, align 8
   %retval.sroa.2.0.this.addr.0.this1.sroa_idx = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -14634,7 +14634,7 @@ cond.end:                                         ; preds = %_ZNK4pugi8xml_node1
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZN4pugi22xml_attribute_iteratormmEi(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZN4pugi22xml_attribute_iteratormmEi(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i1.i = alloca %"class.pugi::xml_attribute", align 8
   %retval.i.i = alloca %"class.pugi::xml_attribute", align 8
@@ -14716,7 +14716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi23xml_named_node_iteratorC2ERKNS_8xml_nodeEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node, ptr noundef %name) unnamed_addr #6 align 2 {
+define void @_ZN4pugi23xml_named_node_iteratorC2ERKNS_8xml_nodeEPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node, ptr noundef %name) unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.pugi::xml_node", align 8
   %0 = load i64, ptr %node, align 8
@@ -14758,7 +14758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratoreqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rhs) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratoreqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %rhs, align 8
@@ -14773,7 +14773,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rhs) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi23xml_named_node_iteratorneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rhs) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %rhs, align 8
@@ -14854,7 +14854,7 @@ _ZNK4pugi8xml_node12next_siblingEPKc.exit:        ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi23xml_named_node_iteratorppEi(ptr noalias nocapture writeonly sret(%"class.pugi::xml_named_node_iterator") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0) local_unnamed_addr #6 align 2 {
+define void @_ZN4pugi23xml_named_node_iteratorppEi(ptr noalias writeonly sret(%"class.pugi::xml_named_node_iterator") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i32 noundef %0) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i.i = alloca %"class.pugi::xml_node", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
@@ -15071,7 +15071,7 @@ if.end19:                                         ; preds = %if.end19.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi23xml_named_node_iteratormmEi(ptr noalias nocapture writeonly sret(%"class.pugi::xml_named_node_iterator") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0) local_unnamed_addr #6 align 2 {
+define void @_ZN4pugi23xml_named_node_iteratormmEi(ptr noalias writeonly sret(%"class.pugi::xml_named_node_iterator") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %0) local_unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 24, i1 false)
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4pugi23xml_named_node_iteratormmEv(ptr noundef nonnull align 8 dereferenceable(24) %this)
@@ -15079,7 +15079,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi16xml_parse_resultC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %this) unnamed_addr #3 align 2 {
+define void @_ZN4pugi16xml_parse_resultC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 4), (8, 20)) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 4, ptr %this, align 8
   %offset = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -15090,7 +15090,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi16xml_parse_resultcvbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi16xml_parse_resultcvbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 0
@@ -15098,7 +15098,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK4pugi16xml_parse_result11descriptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK4pugi16xml_parse_result11descriptionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %1 = icmp ult i32 %0, 17
@@ -15168,7 +15168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pugi12xml_documentD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi12xml_documentD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_buffer.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_buffer.i, align 8
@@ -15262,7 +15262,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi12xml_document8_destroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN4pugi12xml_document8_destroyEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
 entry:
   %_buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_buffer, align 8
@@ -15341,7 +15341,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4pugi12xml_documentC2EOS0_(ptr noundef nonnull align 8 dereferenceable(208) initializes((8, 16), (24, 120)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(208) %rhs) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi12xml_documentC2EOS0_(ptr noundef nonnull align 8 dereferenceable(208) initializes((8, 16), (24, 120)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(208) %rhs) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_buffer = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_memory.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -15458,7 +15458,7 @@ _ZN4pugi12xml_document5_moveERS0_.exit:           ; preds = %for.body38.i, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4pugi12xml_document5_moveERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((8, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(208) %rhs) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi12xml_document5_moveERS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(208) initializes((8, 16)) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(208) %rhs) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %rhs, align 8
@@ -15863,7 +15863,7 @@ _ZN4pugi12xml_document8_destroyEv.exit:           ; preds = %for.body15.i, %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi12xml_document5resetERKS0_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %proto) local_unnamed_addr #6 align 2 {
+define void @_ZN4pugi12xml_document5resetERKS0_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %proto) local_unnamed_addr #6 align 2 {
 entry:
   %_buffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_buffer.i.i, align 8
@@ -16854,7 +16854,7 @@ _ZN4pugi12xml_document11load_bufferEPKvmjNS_12xml_encodingE.exit: ; preds = %for
   %prev_sibling_c.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 96
   store ptr %add.ptr.i1.i.i, ptr %prev_sibling_c.i.i.i, align 8, !noalias !138
   store ptr %11, ptr %_memory.i.i.i, align 8, !noalias !138
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i.i, ptr noundef nonnull %add.ptr.i1.i.i, ptr noundef %contents, i64 noundef %call.i, i32 noundef %options, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %_buffer.i.i.i)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_116load_buffer_implEPNS1_19xml_document_structEPNS_15xml_node_structEPvmjNS_12xml_encodingEbbPPc(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr.i1.i.i, ptr noundef nonnull %add.ptr.i1.i.i, ptr noundef nonnull %contents, i64 noundef %call.i, i32 noundef %options, i32 noundef 1, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %_buffer.i.i.i)
   ret void
 }
 
@@ -16952,7 +16952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi12xml_document9load_fileEPKcjNS_12xml_encodingE(ptr noalias sret(%"struct.pugi::xml_parse_result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %path_, i32 noundef %options, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi12xml_document9load_fileEPKcjNS_12xml_encodingE(ptr noalias sret(%"struct.pugi::xml_parse_result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef readonly captures(none) %path_, i32 noundef %options, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_buffer.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_buffer.i.i, align 8
@@ -17064,7 +17064,7 @@ _ZN4pugi4impl12_GLOBAL__N_112auto_deleterI8_IO_FILEED2Ev.exit7: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114load_file_implEPNS1_19xml_document_structEP8_IO_FILEjNS_12xml_encodingEPPc(ptr noalias align 8 %agg.result, ptr noundef %doc, ptr noundef %file, i32 noundef %options, i32 noundef %encoding, ptr nocapture noundef nonnull writeonly %out_buffer) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114load_file_implEPNS1_19xml_document_structEP8_IO_FILEjNS_12xml_encodingEPPc(ptr noalias align 8 %agg.result, ptr noundef %doc, ptr noundef %file, i32 noundef %options, i32 noundef %encoding, ptr noundef nonnull writeonly captures(none) %out_buffer) unnamed_addr #6 {
 entry:
   %st.i = alloca %struct.stat, align 8
   %tobool.not = icmp eq ptr %file, null
@@ -17266,7 +17266,7 @@ _ZN4pugi4impl12_GLOBAL__N_112auto_deleterI8_IO_FILEED2Ev.exit7: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_114open_file_wideEPKwS3_(ptr noundef %path, ptr nocapture noundef readonly %mode) unnamed_addr #6 {
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_114open_file_wideEPKwS3_(ptr noundef %path, ptr noundef readonly captures(none) %mode) unnamed_addr #6 {
 entry:
   %mode_ascii = alloca [4 x i8], align 4
   br label %while.cond.i.i
@@ -17601,7 +17601,7 @@ _ZN4pugi12xml_document5resetEv.exit:              ; preds = %for.body15.i.i, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi12xml_document4saveERNS_10xml_writerEPKcjNS_12xml_encodingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding) local_unnamed_addr #6 align 2 {
+define void @_ZNK4pugi12xml_document4saveERNS_10xml_writerEPKcjNS_12xml_encodingE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(8) %writer, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding) local_unnamed_addr #6 align 2 {
 entry:
   %buffered_writer = alloca %"class.pugi::impl::(anonymous namespace)::xml_buffered_writer", align 8
   %writer.i = getelementptr inbounds nuw i8, ptr %buffered_writer, i64 10240
@@ -17854,7 +17854,7 @@ if.end:                                           ; preds = %if.end7.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi12xml_document4saveERSoPKcjNS_12xml_encodingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pugi12xml_document4saveERSoPKcjNS_12xml_encodingE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %writer = alloca %"class.pugi::xml_writer_stream", align 8
   call void @_ZN4pugi17xml_writer_streamC1ERSo(ptr noundef nonnull align 8 dereferenceable(24) %writer, ptr noundef nonnull align 8 dereferenceable(8) %stream)
@@ -17863,7 +17863,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi12xml_document4saveERSt13basic_ostreamIwSt11char_traitsIwEEPKcj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef %indent, i32 noundef %flags) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pugi12xml_document4saveERSt13basic_ostreamIwSt11char_traitsIwEEPKcj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream, ptr noundef %indent, i32 noundef %flags) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %writer = alloca %"class.pugi::xml_writer_stream", align 8
   call void @_ZN4pugi17xml_writer_streamC1ERSt13basic_ostreamIwSt11char_traitsIwEE(ptr noundef nonnull align 8 dereferenceable(24) %writer, ptr noundef nonnull align 8 dereferenceable(8) %stream)
@@ -17872,7 +17872,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4pugi12xml_document9save_fileEPKcS2_jNS_12xml_encodingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %path_, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK4pugi12xml_document9save_fileEPKcS2_jNS_12xml_encodingE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef readonly captures(none) %path_, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %writer.i = alloca %"class.pugi::xml_writer_file", align 8
   %and = and i32 %flags, 32
@@ -17931,10 +17931,10 @@ if.then.i10:                                      ; preds = %if.end.i, %.noexc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4pugi12xml_document9save_fileEPKwPKcjNS_12xml_encodingE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef %path_, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK4pugi12xml_document9save_fileEPKwPKcjNS_12xml_encodingE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef %path_, ptr noundef %indent, i32 noundef %flags, i32 noundef %encoding) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %writer.i = alloca %"class.pugi::xml_writer_file", align 8
   %and = and i32 %flags, 32
@@ -17993,7 +17993,7 @@ if.then.i9:                                       ; preds = %if.end.i, %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi12xml_document16document_elementEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi12xml_document16document_elementEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %0 = load ptr, ptr %this, align 8
@@ -18050,7 +18050,7 @@ _ZN4pugi4impl12_GLOBAL__N_114strlength_wideEPKw.exit: ; preds = %while.cond.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112as_utf8_implB5cxx11EPKwm(ptr noalias align 8 %agg.result, ptr nocapture noundef readonly %str, i64 noundef %length) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112as_utf8_implB5cxx11EPKwm(ptr noalias align 8 %agg.result, ptr noundef readonly captures(none) %str, i64 noundef %length) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not9.i.i.i = icmp eq i64 %length, 0
   br i1 %tobool.not9.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_113as_utf8_beginEPKwm.exit, label %while.body.i.i.i
@@ -18201,7 +18201,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4size
 define void @_ZN4pugi7as_wideB5cxx11EPKc(ptr noalias sret(%"class.std::__cxx11::basic_string.8") align 8 %agg.result, ptr noundef %str) local_unnamed_addr #6 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #45
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_112as_wide_implB5cxx11EPKcm(ptr noalias align 8 %agg.result, ptr noundef %str, i64 noundef %call)
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_112as_wide_implB5cxx11EPKcm(ptr noalias align 8 %agg.result, ptr noundef nonnull %str, i64 noundef %call)
   ret void
 }
 
@@ -18363,7 +18363,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont1, %invo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4pugi7as_wideERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::__cxx11::basic_string.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %str) local_unnamed_addr #6 {
@@ -18406,7 +18406,7 @@ entry:
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4pugi15xpath_exceptionC2ERKNS_18xpath_parse_resultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %result_) unnamed_addr #15 align 2 {
+define void @_ZN4pugi15xpath_exceptionC2ERKNS_18xpath_parse_resultE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %result_) unnamed_addr #15 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4pugi15xpath_exceptionE, i64 16), ptr %this, align 8
   %_result = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -18415,7 +18415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4pugi15xpath_exception4whatEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK4pugi15xpath_exception4whatEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #8 align 2 {
 entry:
   %_result = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_result, align 8
@@ -18439,7 +18439,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi10xpath_nodeC2ERKNS_8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node_) unnamed_addr #6 align 2 {
+define void @_ZN4pugi10xpath_nodeC2ERKNS_8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node_) unnamed_addr #6 align 2 {
 entry:
   %0 = load i64, ptr %node_, align 8
   store i64 %0, ptr %this, align 8
@@ -18449,7 +18449,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi10xpath_nodeC2ERKNS_13xml_attributeERKNS_8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %attribute_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %parent_) unnamed_addr #6 align 2 {
+define void @_ZN4pugi10xpath_nodeC2ERKNS_13xml_attributeERKNS_8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %attribute_, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %parent_) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %attribute_, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -18472,7 +18472,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi10xpath_node4nodeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi10xpath_node4nodeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval = alloca %"class.pugi::xml_node", align 8
   %_attribute = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -18496,7 +18496,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @_ZNK4pugi10xpath_node9attributeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define ptr @_ZNK4pugi10xpath_node9attributeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_attribute = getelementptr inbounds nuw i8, ptr %this, i64 8
   %retval.sroa.0.0.copyload = load ptr, ptr %_attribute, align 8
@@ -18504,7 +18504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @_ZNK4pugi10xpath_node6parentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define ptr @_ZNK4pugi10xpath_node6parentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.pugi::xml_node", align 8
   %_attribute = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -18543,7 +18543,7 @@ cond.end:                                         ; preds = %_ZNK4pugi8xml_node6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4pugi10xpath_nodecvPFvPPPS0_EEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK4pugi10xpath_nodecvPFvPPPS0_EEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -18556,13 +18556,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4pugiL27unspecified_bool_xpath_nodeEPPPNS_10xpath_nodeE(ptr nocapture readnone %0) #0 {
+define internal void @_ZN4pugiL27unspecified_bool_xpath_nodeEPPPNS_10xpath_nodeE(ptr readnone captures(none) %0) #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi10xpath_nodentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi10xpath_nodentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -18574,7 +18574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi10xpath_nodeeqERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi10xpath_nodeeqERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %n, align 8
@@ -18589,7 +18589,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi10xpath_nodeneERKS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi10xpath_nodeneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %n, align 8
@@ -18789,7 +18789,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi14xpath_node_setC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %ns) unnamed_addr #6 align 2 {
+define void @_ZN4pugi14xpath_node_setC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %ns) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %arrayctor.cur.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19012,14 +19012,14 @@ terminate.lpad:                                   ; preds = %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4pugi14xpath_node_set4typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK4pugi14xpath_node_set4typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK4pugi14xpath_node_set4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef range(i64 -576460752303423488, 576460752303423488) i64 @_ZNK4pugi14xpath_node_set4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_end = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_end, align 8
@@ -19033,7 +19033,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi14xpath_node_set5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi14xpath_node_set5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_begin = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_begin, align 8
@@ -19044,7 +19044,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4pugi14xpath_node_setixEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %index) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4pugi14xpath_node_setixEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, i64 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
   %_begin = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_begin, align 8
@@ -19053,7 +19053,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4pugi14xpath_node_set5beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK4pugi14xpath_node_set5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_begin = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_begin, align 8
@@ -19061,7 +19061,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4pugi14xpath_node_set3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK4pugi14xpath_node_set3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %_end = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_end, align 8
@@ -19069,7 +19069,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi14xpath_node_set4sortEb(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i1 noundef zeroext %reverse) local_unnamed_addr #6 align 2 {
+define void @_ZN4pugi14xpath_node_set4sortEb(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i1 noundef zeroext %reverse) local_unnamed_addr #6 align 2 {
 entry:
   %temp.i.i.i = alloca %"class.pugi::xpath_node", align 8
   %_begin = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -19141,7 +19141,7 @@ _ZN4pugi4impl12_GLOBAL__N_110xpath_sortEPNS_10xpath_nodeES3_NS_14xpath_node_set6
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK4pugi14xpath_node_set5firstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZNK4pugi14xpath_node_set5firstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.pugi::xpath_node", align 8
   %_begin = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -19207,7 +19207,7 @@ _ZN4pugi4impl12_GLOBAL__N_111xpath_firstEPKNS_10xpath_nodeES4_NS_14xpath_node_se
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi18xpath_parse_resultC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #3 align 2 {
+define void @_ZN4pugi18xpath_parse_resultC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr @.str.28, ptr %this, align 8
   %offset = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19216,7 +19216,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi18xpath_parse_resultcvbEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi18xpath_parse_resultcvbEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp eq ptr %0, null
@@ -19224,7 +19224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK4pugi18xpath_parse_result11descriptionEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK4pugi18xpath_parse_result11descriptionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -19233,7 +19233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi14xpath_variableC2ENS_16xpath_value_typeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %this, i32 noundef %type_) unnamed_addr #3 align 2 {
+define void @_ZN4pugi14xpath_variableC2ENS_16xpath_value_typeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 4), (8, 16)) %this, i32 noundef %type_) unnamed_addr #3 align 2 {
 entry:
   store i32 %type_, ptr %this, align 8
   %_next = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -19274,14 +19274,14 @@ return:                                           ; preds = %entry, %sw.bb8, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK4pugi14xpath_variable4typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK4pugi14xpath_variable4typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi14xpath_variable11get_booleanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi14xpath_variable11get_booleanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 4
@@ -19299,7 +19299,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK4pugi14xpath_variable10get_numberEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK4pugi14xpath_variable10get_numberEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 2
@@ -19316,7 +19316,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @_ZNK4pugi14xpath_variable10get_stringEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZNK4pugi14xpath_variable10get_stringEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 3
@@ -19345,7 +19345,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN4pugi14xpath_variable3setEb(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #15 align 2 {
+define noundef zeroext i1 @_ZN4pugi14xpath_variable3setEb(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i1 noundef zeroext %value) local_unnamed_addr #15 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp.not = icmp eq i32 %0, 4
@@ -19362,7 +19362,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN4pugi14xpath_variable3setEd(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, double noundef %value) local_unnamed_addr #15 align 2 {
+define noundef zeroext i1 @_ZN4pugi14xpath_variable3setEd(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, double noundef %value) local_unnamed_addr #15 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp.not = icmp eq i32 %0, 2
@@ -19378,7 +19378,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi14xpath_variable3setEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %value) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi14xpath_variable3setEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(none) %value) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp.not = icmp eq i32 %0, 3
@@ -19393,7 +19393,7 @@ if.end:                                           ; preds = %entry
   br i1 %tobool.not, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2, ptr align 1 %value, i64 %add, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2, ptr nonnull align 1 %value, i64 %add, i1 false)
   %value5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %2 = load ptr, ptr %value5, align 8
   %tobool6.not = icmp eq ptr %2, null
@@ -19487,14 +19487,14 @@ return:                                           ; preds = %_ZN4pugi14xpath_nod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pugi18xpath_variable_setC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) initializes((0, 512)) %this) unnamed_addr #3 align 2 {
+define void @_ZN4pugi18xpath_variable_setC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(512) initializes((0, 512)) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %this, i8 0, i64 512, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pugi18xpath_variable_setD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi18xpath_variable_setD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %for.body
 
@@ -19620,7 +19620,7 @@ while.end:                                        ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi18xpath_variable_setC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(512) initializes((0, 512)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %rhs) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi18xpath_variable_setC2ERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(512) initializes((0, 512)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %rhs) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i = alloca %"class.pugi::xpath_variable_set", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %this, i8 0, i64 512, i1 false)
@@ -19673,7 +19673,7 @@ _ZN4pugi18xpath_variable_set7_assignERKS0_.exit:  ; preds = %invoke.cont.i, %for
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pugi18xpath_variable_set7_assignERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %rhs) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi18xpath_variable_set7_assignERKS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %rhs) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %"class.pugi::xpath_variable_set", align 8
   call void @_ZN4pugi18xpath_variable_setC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %temp)
@@ -19782,7 +19782,7 @@ return:                                           ; preds = %entry, %_ZN4pugi18x
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN4pugi18xpath_variable_setC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull align 8 dereferenceable(512) %rhs) unnamed_addr #24 align 2 {
+define void @_ZN4pugi18xpath_variable_setC2EOS0_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(512) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(512) %rhs) unnamed_addr #24 align 2 {
 entry:
   br label %for.body
 
@@ -19802,7 +19802,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(512) ptr @_ZN4pugi18xpath_variable_setaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull align 8 dereferenceable(512) %rhs) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(512) ptr @_ZN4pugi18xpath_variable_setaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(512) %rhs) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %for.body
 
@@ -19878,7 +19878,7 @@ terminate.lpad:                                   ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi18xpath_variable_set6_cloneEPNS_14xpath_variableEPS2_(ptr noundef readonly %var, ptr nocapture noundef writeonly %out_result) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi18xpath_variable_set6_cloneEPNS_14xpath_variableEPS2_(ptr noundef readonly %var, ptr noundef writeonly captures(none) %out_result) local_unnamed_addr #6 align 2 {
 entry:
   %tobool.not17 = icmp eq ptr %var, null
   br i1 %tobool.not17, label %return, label %while.body
@@ -20034,7 +20034,7 @@ if.end.i12.i:                                     ; preds = %sw.bb5.i12
   br i1 %tobool.not.i.i, label %return, label %if.end4.i.i
 
 if.end4.i.i:                                      ; preds = %if.end.i12.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i.i, ptr readonly align 1 %11, i64 %add.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i.i, ptr nonnull readonly align 1 %11, i64 %add.i.i, i1 false)
   %value5.i.i = getelementptr inbounds nuw i8, ptr %call1, i64 16
   %14 = load ptr, ptr %value5.i.i, align 8
   %tobool6.not.i.i = icmp eq ptr %14, null
@@ -20074,7 +20074,7 @@ return:                                           ; preds = %_ZNK4pugi14xpath_va
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN4pugi18xpath_variable_set5_swapERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull align 8 dereferenceable(512) %rhs) local_unnamed_addr #24 align 2 {
+define void @_ZN4pugi18xpath_variable_set5_swapERS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(512) %rhs) local_unnamed_addr #24 align 2 {
 entry:
   br label %for.body
 
@@ -20095,7 +20095,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4pugi18xpath_variable_set5_findEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #25 align 2 {
+define noundef ptr @_ZNK4pugi18xpath_variable_set5_findEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #25 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i = icmp eq i8 %0, 0
@@ -20154,7 +20154,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_118new_xpath_variableENS_16xpath_value_typeEPKc(i32 noundef %type, ptr nocapture noundef readonly %name) unnamed_addr #6 {
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_118new_xpath_variableENS_16xpath_value_typeEPKc(i32 noundef %type, ptr noundef readonly captures(none) %name) unnamed_addr #6 {
 entry:
   switch i32 %type, label %return [
     i32 1, label %sw.bb
@@ -20248,7 +20248,7 @@ return.sink.split:                                ; preds = %if.end3.i, %if.end3
   %name4.i35.sink = phi ptr [ %name4.i35, %if.end3.i32 ], [ %name4.i23, %if.end3.i21 ], [ %name4.i12, %if.end3.i10 ], [ %name4.i, %if.end3.i ]
   %retval.0.ph = phi ptr [ %call1.i30, %if.end3.i32 ], [ %call1.i19, %if.end3.i21 ], [ %call1.i8, %if.end3.i10 ], [ %call1.i, %if.end3.i ]
   %add5.i36 = add i64 %call.i.i26.sink, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %name4.i35.sink, ptr readonly align 1 %name, i64 %add5.i36, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %name4.i35.sink, ptr nonnull readonly align 1 %name, i64 %add5.i36, i1 false)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i28, %sw.bb5, %if.end.i17, %sw.bb3, %if.end.i6, %sw.bb1, %if.end.i, %sw.bb, %entry
@@ -20257,7 +20257,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name, i32 noundef %type) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN4pugi18xpath_variable_set3addEPKcNS_16xpath_value_typeE(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %this, ptr noundef readonly captures(none) %name, i32 noundef %type) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i = icmp eq i8 %0, 0
@@ -20333,7 +20333,7 @@ return:                                           ; preds = %for.end, %if.then7,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi18xpath_variable_set3setEPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name, i1 noundef zeroext %value) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi18xpath_variable_set3setEPKcb(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %this, ptr noundef readonly captures(none) %name, i1 noundef zeroext %value) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i.i = icmp eq i8 %0, 0
@@ -20446,7 +20446,7 @@ cond.end:                                         ; preds = %_ZNK4pugi14xpath_va
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi18xpath_variable_set3setEPKcd(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name, double noundef %value) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi18xpath_variable_set3setEPKcd(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %this, ptr noundef readonly captures(none) %name, double noundef %value) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i.i = icmp eq i8 %0, 0
@@ -20541,7 +20541,7 @@ cond.end:                                         ; preds = %if.end.i6.i, %for.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi18xpath_variable_set3setEPKcS2_(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name, ptr nocapture noundef readonly %value) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi18xpath_variable_set3setEPKcS2_(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %this, ptr noundef readonly captures(none) %name, ptr noundef readonly captures(none) %value) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i.i = icmp eq i8 %0, 0
@@ -20634,7 +20634,7 @@ if.end.i:                                         ; preds = %if.then.i, %cond.tr
   br i1 %tobool.not.i4, label %cond.end, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.end.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i, ptr readonly align 1 %value, i64 %add.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call2.i, ptr nonnull readonly align 1 %value, i64 %add.i, i1 false)
   %value5.i = getelementptr inbounds nuw i8, ptr %retval.0.i22, i64 16
   %11 = load ptr, ptr %value5.i, align 8
   %tobool6.not.i5 = icmp eq ptr %11, null
@@ -20655,7 +20655,7 @@ cond.end:                                         ; preds = %if.end.i17.i, %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4pugi18xpath_variable_set3setEPKcRKNS_14xpath_node_setE(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name, ptr noundef nonnull readonly align 8 dereferenceable(40) %value) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN4pugi18xpath_variable_set3setEPKcRKNS_14xpath_node_setE(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %this, ptr noundef readonly captures(none) %name, ptr noundef nonnull readonly align 8 dereferenceable(40) %value) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i.i = icmp eq i8 %0, 0
@@ -20824,7 +20824,7 @@ cond.end:                                         ; preds = %_ZNK4pugi14xpath_va
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN4pugi18xpath_variable_set3getEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #25 align 2 {
+define noundef ptr @_ZN4pugi18xpath_variable_set3getEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #25 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i.i = icmp eq i8 %0, 0
@@ -20883,7 +20883,7 @@ _ZNK4pugi18xpath_variable_set5_findEPKc.exit:     ; preds = %for.body.i, %for.in
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4pugi18xpath_variable_set3getEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr nocapture noundef readonly %name) local_unnamed_addr #25 align 2 {
+define noundef ptr @_ZNK4pugi18xpath_variable_set3getEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %this, ptr noundef readonly captures(none) %name) local_unnamed_addr #25 align 2 {
 entry:
   %0 = load i8, ptr %name, align 1
   %tobool.not13.i.i = icmp eq i8 %0, 0
@@ -21060,7 +21060,7 @@ invoke.cont21.invoke:                             ; preds = %if.end, %if.then16
   %8 = phi ptr [ %exception17, %if.then16 ], [ %exception18, %if.end ]
   %9 = phi ptr [ @_ZTISt9bad_alloc, %if.then16 ], [ @_ZTIN4pugi15xpath_exceptionE, %if.end ]
   %10 = phi ptr [ @_ZNSt9bad_allocD1Ev, %if.then16 ], [ @_ZN4pugi15xpath_exceptionD2Ev, %if.end ]
-  invoke void @__cxa_throw(ptr %8, ptr nonnull %9, ptr nonnull %10) #46
+  invoke void @__cxa_throw(ptr nonnull %8, ptr nonnull %9, ptr nonnull %10) #46
           to label %invoke.cont21.cont unwind label %lpad
 
 invoke.cont21.cont:                               ; preds = %invoke.cont21.invoke
@@ -21117,7 +21117,7 @@ _ZN4pugi4impl12_GLOBAL__N_112auto_deleterINS1_16xpath_query_implEED2Ev.exit20: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node8optimizeEPNS1_15xpath_allocatorE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %alloc) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node8optimizeEPNS1_15xpath_allocatorE(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull %alloc) unnamed_addr #6 align 2 {
 entry:
   %table.i.i = alloca [128 x i8], align 16
   %_left = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -21521,7 +21521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pugi11xpath_queryD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi11xpath_queryD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -21572,7 +21572,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pugi11xpath_queryC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %rhs) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pugi11xpath_queryC2EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %rhs) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.pugi::xpath_parse_result", align 8
   %_result = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -21671,7 +21671,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -128, 128) i32 @_ZNK4pugi11xpath_query11return_typeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -128, 128) i32 @_ZNK4pugi11xpath_query11return_typeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -21690,7 +21690,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK4pugi11xpath_query16evaluate_booleanERKNS_10xpath_nodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK4pugi11xpath_query16evaluate_booleanERKNS_10xpath_nodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
   %sd = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_stack_data", align 8
@@ -21811,7 +21811,7 @@ unreachable:                                      ; preds = %if.then4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node12eval_booleanERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node12eval_booleanERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i.i = alloca double, align 8
   %retval.i310 = alloca %"class.pugi::xml_attribute", align 8
@@ -22275,7 +22275,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i: ; preds =
   br i1 %cmp56.i.i, label %if.end.i417, label %invoke.cont112.i
 
 if.end.i417:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i
-  %call2.i = call double @strtod(ptr nocapture noundef readonly %ref.tmp106.val.i, ptr noundef null) #44
+  %call2.i = call double @strtod(ptr noundef readonly captures(none) %ref.tmp106.val.i, ptr noundef null) #44
   br label %invoke.cont112.i
 
 invoke.cont112.i:                                 ; preds = %if.end.i417, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i, %lor.lhs.false.i.i, %land.lhs.true.i.i, %while.end.i.i
@@ -22809,7 +22809,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i503: ; pred
   br i1 %cmp56.i.i504, label %if.end.i506, label %invoke.cont112.i148
 
 if.end.i506:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i503
-  %call2.i507 = call double @strtod(ptr nocapture noundef readonly %ref.tmp106.val.i145, ptr noundef null) #44
+  %call2.i507 = call double @strtod(ptr noundef readonly captures(none) %ref.tmp106.val.i145, ptr noundef null) #44
   br label %invoke.cont112.i148
 
 invoke.cont112.i148:                              ; preds = %if.end.i506, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i503, %lor.lhs.false.i.i515, %land.lhs.true.i.i513, %while.end.i.i479
@@ -23623,7 +23623,7 @@ return:                                           ; preds = %sw.bb3, %sw.bb, %la
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8289) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_116xpath_stack_dataD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8289) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = getelementptr inbounds nuw i8, ptr %this, i64 8224
   %result.val = load ptr, ptr %result, align 8
@@ -23683,7 +23683,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK4pugi11xpath_query15evaluate_numberERKNS_10xpath_nodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK4pugi11xpath_query15evaluate_numberERKNS_10xpath_nodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
   %sd = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_stack_data", align 8
@@ -23804,7 +23804,7 @@ unreachable:                                      ; preds = %if.then5
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_numberERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cr = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_allocator_capture", align 8
   %ref.tmp = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
@@ -24211,7 +24211,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i: ; preds =
   br i1 %cmp56.i.i, label %if.end.i, label %invoke.cont67
 
 if.end.i:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i
-  %call2.i = tail call double @strtod(ptr nocapture noundef readonly %ref.tmp60.val, ptr noundef null) #44
+  %call2.i = tail call double @strtod(ptr noundef readonly captures(none) %ref.tmp60.val, ptr noundef null) #44
   br label %invoke.cont67
 
 invoke.cont67:                                    ; preds = %if.end.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i, %lor.lhs.false.i.i, %land.lhs.true.i.i, %while.end.i.i
@@ -24378,7 +24378,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i151: ; pred
   br i1 %cmp56.i.i152, label %if.end.i154, label %invoke.cont90
 
 if.end.i154:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i151
-  %call2.i155 = call double @strtod(ptr nocapture noundef readonly %ref.tmp84.val, ptr noundef null) #44
+  %call2.i155 = call double @strtod(ptr noundef readonly captures(none) %ref.tmp84.val, ptr noundef null) #44
   br label %invoke.cont90
 
 invoke.cont90:                                    ; preds = %if.end.i154, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i151, %lor.lhs.false.i.i163, %land.lhs.true.i.i161, %while.end.i.i127
@@ -24579,7 +24579,7 @@ eh.resume:                                        ; preds = %lpad76, %lpad86, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi11xpath_query15evaluate_stringB5cxx11ERKNS_10xpath_nodeE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pugi11xpath_query15evaluate_stringB5cxx11ERKNS_10xpath_nodeE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
   %sd = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_stack_data", align 8
@@ -24738,7 +24738,7 @@ unreachable:                                      ; preds = %if.then4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11eval_stringERKNS1_13xpath_contextERKNS1_11xpath_stackE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v.i356 = alloca double, align 8
   %v.i352 = alloca double, align 8
@@ -25674,7 +25674,7 @@ if.end14.i.i.i:                                   ; preds = %call.i.i.i.noexc257
 
 cond.true.i:                                      ; preds = %if.end14.i.i.i, %if.then.i.i.i
   %retval.0.i.i.i = phi ptr [ %add.ptr.i.i.i, %if.then.i.i.i ], [ %97, %if.end14.i.i.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i, ptr readonly align 1 %s.val113, i64 %sub.ptr.sub.i, i1 false), !noalias !223
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i, ptr nonnull readonly align 1 %s.val113, i64 %sub.ptr.sub.i, i1 false), !noalias !223
   %arrayidx.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i.i, align 1, !noalias !223
   br label %cond.end
@@ -25785,7 +25785,7 @@ cond.true102:                                     ; preds = %_ZNK4pugi4impl12_GL
   %114 = load i64, ptr %_length_heap.i286, align 8
   %add.ptr99 = getelementptr inbounds i8, ptr %s78.val114, i64 %114
   %115 = load ptr, ptr %stack, align 8
-  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112xpath_string9from_heapEPKcS4_PNS1_15xpath_allocatorE(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr, ptr noundef %add.ptr99, ptr noundef %115)
+  invoke fastcc void @_ZN4pugi4impl12_GLOBAL__N_112xpath_string9from_heapEPKcS4_PNS1_15xpath_allocatorE(ptr noalias align 8 %agg.result, ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr99, ptr noundef %115)
           to label %cleanup unwind label %lpad80
 
 cleanup.sink.split:                               ; preds = %_ZNK4pugi4impl12_GLOBAL__N_112xpath_string6lengthEv.exit, %invoke.cont84
@@ -26161,7 +26161,7 @@ if.end14.i.i.i403:                                ; preds = %if.else.i.i.i398
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_string4dataEPNS1_15xpath_allocatorE.exit.thread699: ; preds = %if.then.i.i.i392, %if.end14.i.i.i403
   %retval.0.i.i.i395 = phi ptr [ %add.ptr.i.i.i393, %if.then.i.i.i392 ], [ %177, %if.end14.i.i.i403 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i395, ptr readonly align 1 %.pre.i, i64 %call.i.i386, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i395, ptr nonnull readonly align 1 %.pre.i, i64 %call.i.i386, i1 false)
   %arrayidx.i.i396 = getelementptr inbounds i8, ptr %retval.0.i.i.i395, i64 %call.i.i386
   store i8 0, ptr %arrayidx.i.i396, align 1
   store ptr %retval.0.i.i.i395, ptr %s247, align 8
@@ -26319,7 +26319,7 @@ if.end14.i.i.i445:                                ; preds = %if.else.i.i.i439
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_string4dataEPNS1_15xpath_allocatorE.exit451.thread705: ; preds = %if.then.i.i.i432, %if.end14.i.i.i445
   %retval.0.i.i.i435 = phi ptr [ %add.ptr.i.i.i433, %if.then.i.i.i432 ], [ %200, %if.end14.i.i.i445 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i435, ptr readonly align 1 %.pre.i424, i64 %call.i.i426, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i435, ptr nonnull readonly align 1 %.pre.i424, i64 %call.i.i426, i1 false)
   %arrayidx.i.i436 = getelementptr inbounds i8, ptr %retval.0.i.i.i435, i64 %call.i.i426
   store i8 0, ptr %arrayidx.i.i436, align 1
   store ptr %retval.0.i.i.i435, ptr %s258, align 8
@@ -26505,7 +26505,7 @@ if.end14.i.i.i517:                                ; preds = %call.i.i.i515.noexc
 
 invoke.cont287.thread711:                         ; preds = %if.then.i.i.i504, %if.end14.i.i.i517
   %retval.0.i.i.i507 = phi ptr [ %add.ptr.i.i.i505, %if.then.i.i.i504 ], [ %228, %if.end14.i.i.i517 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i507, ptr readonly align 1 %.pre.i496, i64 %call.i.i498, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i507, ptr nonnull readonly align 1 %.pre.i496, i64 %call.i.i498, i1 false)
   %arrayidx.i.i508 = getelementptr inbounds i8, ptr %retval.0.i.i.i507, i64 %call.i.i498
   store i8 0, ptr %arrayidx.i.i508, align 1
   store ptr %retval.0.i.i.i507, ptr %s276, align 8
@@ -26693,7 +26693,7 @@ if.end14.i.i.i588:                                ; preds = %if.else.i.i.i582
 
 _ZN4pugi4impl12_GLOBAL__N_112xpath_string4dataEPNS1_15xpath_allocatorE.exit594.thread717: ; preds = %if.then.i.i.i575, %if.end14.i.i.i588
   %retval.0.i.i.i578 = phi ptr [ %add.ptr.i.i.i576, %if.then.i.i.i575 ], [ %254, %if.end14.i.i.i588 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i578, ptr readonly align 1 %.pre.i567, i64 %call.i.i569, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %retval.0.i.i.i578, ptr nonnull readonly align 1 %.pre.i567, i64 %call.i.i569, i1 false)
   %arrayidx.i.i579 = getelementptr inbounds i8, ptr %retval.0.i.i.i578, i64 %call.i.i569
   store i8 0, ptr %arrayidx.i.i579, align 1
   store ptr %retval.0.i.i.i578, ptr %s305, align 8
@@ -26889,7 +26889,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK4pugi11xpath_query15evaluate_stringEPcmRKNS_10xpath_nodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %buffer, i64 noundef %capacity, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK4pugi11xpath_query15evaluate_stringEPcmRKNS_10xpath_nodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef writeonly captures(none) %buffer, i64 noundef %capacity, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
   %sd = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_stack_data", align 8
@@ -27049,7 +27049,7 @@ unreachable:                                      ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi11xpath_query17evaluate_node_setERKNS_10xpath_nodeE(ptr noalias sret(%"class.pugi::xpath_node_set") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pugi11xpath_query17evaluate_node_setERKNS_10xpath_nodeE(ptr noalias sret(%"class.pugi::xpath_node_set") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %res.i = alloca %"struct.pugi::xpath_parse_result", align 8
   %c = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
@@ -27075,7 +27075,7 @@ if.then1.i:                                       ; preds = %if.end.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then1.i
-  call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #46
+  call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #46
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -27214,7 +27214,7 @@ unreachable:                                      ; preds = %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node13eval_node_setERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i83 = alloca %"class.pugi::xml_node", align 8
   %retval.i71 = alloca %"class.pugi::xml_node", align 8
@@ -27633,7 +27633,7 @@ return:                                           ; preds = %_ZNK4pugi8xml_node4
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK4pugi11xpath_query13evaluate_nodeERKNS_10xpath_nodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define { ptr, ptr } @_ZNK4pugi11xpath_query13evaluate_nodeERKNS_10xpath_nodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %n) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i = alloca %"class.pugi::xpath_node", align 8
   %res.i = alloca %"struct.pugi::xpath_parse_result", align 8
@@ -27661,7 +27661,7 @@ if.then1.i:                                       ; preds = %if.end.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then1.i
-  call void @__cxa_throw(ptr %exception.i, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #46
+  call void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTIN4pugi15xpath_exceptionE, ptr nonnull @_ZN4pugi15xpath_exceptionD2Ev) #46
   unreachable
 
 common.resume:                                    ; preds = %lpad, %lpad.i
@@ -27859,7 +27859,7 @@ unreachable:                                      ; preds = %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, ptr } @_ZNK4pugi4impl12_GLOBAL__N_118xpath_node_set_raw5firstEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
+define internal fastcc { ptr, ptr } @_ZNK4pugi4impl12_GLOBAL__N_118xpath_node_set_raw5firstEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.pugi::xpath_node", align 8
   %_begin = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -27932,7 +27932,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK4pugi11xpath_querycvPFvPPPS0_EEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK4pugi11xpath_querycvPFvPPPS0_EEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -27941,13 +27941,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN4pugiL28unspecified_bool_xpath_queryEPPPNS_11xpath_queryE(ptr nocapture readnone %0) #0 {
+define internal void @_ZN4pugiL28unspecified_bool_xpath_queryEPPPNS_11xpath_queryE(ptr readnone captures(none) %0) #0 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK4pugi11xpath_queryntEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK4pugi11xpath_queryntEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -27979,7 +27979,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK4pugi8xml_node11select_nodeERKNS_11xpath_queryE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %query) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZNK4pugi8xml_node11select_nodeERKNS_11xpath_queryE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %query) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp = alloca %"class.pugi::xpath_node", align 8
   call void @_ZN4pugi10xpath_nodeC1ERKNS_8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %this)
@@ -28012,7 +28012,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pugi8xml_node12select_nodesERKNS_11xpath_queryE(ptr noalias sret(%"class.pugi::xpath_node_set") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %query) local_unnamed_addr #6 align 2 {
+define void @_ZNK4pugi8xml_node12select_nodesERKNS_11xpath_queryE(ptr noalias sret(%"class.pugi::xpath_node_set") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %query) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp = alloca %"class.pugi::xpath_node", align 8
   call void @_ZN4pugi10xpath_nodeC1ERKNS_8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %this)
@@ -28045,7 +28045,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK4pugi8xml_node18select_single_nodeERKNS_11xpath_queryE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %query) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZNK4pugi8xml_node18select_single_nodeERKNS_11xpath_queryE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %query) local_unnamed_addr #6 align 2 {
 entry:
   %ref.tmp = alloca %"class.pugi::xpath_node", align 8
   call void @_ZN4pugi10xpath_nodeC1ERKNS_8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %this)
@@ -28242,7 +28242,7 @@ return:                                           ; preds = %if.else87, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #26
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef i64 @_ZN4pugi4impl12_GLOBAL__N_117string_to_integerIyEET_PKcS3_S3_(ptr noundef nonnull %value, i64 noundef range(i64 -9223372036854775808, 1) %minv, i64 noundef range(i64 9223372036854775807, 0) %maxv) unnamed_addr #8 {
@@ -28406,10 +28406,10 @@ return:                                           ; preds = %if.else90, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118node_copy_contentsEPNS_15xml_node_structES3_PNS1_13xml_allocatorE(ptr nocapture noundef %dn, ptr nocapture noundef %sn, ptr noundef readnone %shared_alloc) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118node_copy_contentsEPNS_15xml_node_structES3_PNS1_13xml_allocatorE(ptr noundef captures(none) %dn, ptr noundef captures(none) %sn, ptr noundef readnone %shared_alloc) unnamed_addr #6 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %dn, i64 8
   %name1 = getelementptr inbounds nuw i8, ptr %sn, i64 8
@@ -28954,7 +28954,7 @@ return:                                           ; preds = %entry, %_ZN4pugi4im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_declaration_encodingEPKhmRS3_Rm(ptr noundef %data, i64 noundef range(i64 4, 0) %size, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_encoding, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %out_length) unnamed_addr #24 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_126parse_declaration_encodingEPKhmRS3_Rm(ptr noundef %data, i64 noundef range(i64 4, 0) %size, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %out_encoding, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %out_length) unnamed_addr #24 {
 entry:
   %cmp = icmp ult i64 %size, 6
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -29173,7 +29173,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal noundef ptr @_ZN4pugi4impl12_GLOBAL__N_122strconv_attribute_implINS1_9opt_falseEE12parse_simpleEPcc(ptr noundef %s, i8 noundef signext %end_quote) unnamed_addr #24 align 2 {
@@ -30427,7 +30427,7 @@ return:                                           ; preds = %if.else93, %do.end6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_114strconv_escapeEPcRNS1_3gapE(ptr noundef %s, ptr nocapture noundef nonnull align 8 dereferenceable(16) %g) unnamed_addr #18 {
+define internal fastcc noundef nonnull ptr @_ZN4pugi4impl12_GLOBAL__N_114strconv_escapeEPcRNS1_3gapE(ptr noundef %s, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %g) unnamed_addr #18 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %s, i64 1
   %0 = load i8, ptr %add.ptr, align 1
@@ -32223,7 +32223,7 @@ return:                                           ; preds = %for.end, %_ZN4pugi4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118node_output_simpleERNS1_19xml_buffered_writerEPNS_15xml_node_structEj(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr nocapture noundef readonly %node, i32 noundef %flags) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118node_output_simpleERNS1_19xml_buffered_writerEPNS_15xml_node_structEj(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef readonly captures(none) %node, i32 noundef %flags) unnamed_addr #6 {
 entry:
   %0 = load i64, ptr %node, align 8
   %1 = trunc i64 %0 to i32
@@ -33629,7 +33629,7 @@ if.end:                                           ; preds = %sw.epilog.i, %_ZN4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_122node_output_attributesERNS1_19xml_buffered_writerEPNS_15xml_node_structEPKcmjj(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr nocapture noundef readonly %node, ptr noundef %indent, i64 noundef %indent_length, i32 noundef %flags, i32 noundef %depth) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_122node_output_attributesERNS1_19xml_buffered_writerEPNS_15xml_node_structEPKcmjj(ptr noundef nonnull align 8 dereferenceable(10260) %writer, ptr noundef readonly captures(none) %node, ptr noundef %indent, i64 noundef %indent_length, i32 noundef %flags, i32 noundef %depth) unnamed_addr #6 {
 entry:
   %and = and i32 %flags, 512
   %tobool.not = icmp eq i32 %and, 0
@@ -34427,25 +34427,25 @@ while.end121:                                     ; preds = %if.end120, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #28
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #28
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #29
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #29
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #12
@@ -34635,7 +34635,7 @@ _ZN4pugi4impl12_GLOBAL__N_114insertion_sortINS_10xpath_nodeENS1_25document_order
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_125document_order_comparatorclERKNS_10xpath_nodeES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) unnamed_addr #6 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_125document_order_comparatorclERKNS_10xpath_nodeES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %rhs) unnamed_addr #6 align 2 {
 entry:
   %retval.i113 = alloca %"class.pugi::xml_attribute", align 8
   %retval.i71 = alloca %"class.pugi::xml_node", align 8
@@ -35059,7 +35059,7 @@ return:                                           ; preds = %for.body, %_ZNK4pug
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #27 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_111xpath_lexer4nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %this) unnamed_addr #27 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   br label %while.cond
@@ -36041,7 +36041,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i.i.i: ; pre
   br i1 %cmp56.i.i.i.i, label %if.end.i.i.i, label %_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i.i.i
-  %call2.i.i.i = tail call double @strtod(ptr nocapture noundef nonnull readonly %scratch.0.i82.i, ptr noundef null) #44
+  %call2.i.i.i = tail call double @strtod(ptr noundef nonnull readonly captures(none) %scratch.0.i82.i, ptr noundef null) #44
   br label %_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit.i.i
 
 _ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc.exit.i.i: ; preds = %if.end.i.i.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i.i.i, %lor.lhs.false.i.i.i.i, %land.lhs.true.i.i.i.i, %while.end.i.i.i.i
@@ -39182,7 +39182,7 @@ return:                                           ; preds = %if.end22, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tENS_16xpath_value_typeEPNS1_14xpath_ast_nodeES6_(ptr nocapture %this.0.val, i32 noundef range(i32 1, 0) %type, i32 noundef %rettype, ptr noundef %left, ptr noundef %right) unnamed_addr #6 align 2 {
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeENS1_10ast_type_tENS_16xpath_value_typeEPNS1_14xpath_ast_nodeES6_(ptr captures(none) %this.0.val, i32 noundef range(i32 1, 0) %type, i32 noundef %rettype, ptr noundef %left, ptr noundef %right) unnamed_addr #6 align 2 {
 entry:
   %_root_size.i.i = getelementptr inbounds nuw i8, ptr %this.0.val, i64 8
   %0 = load i64, ptr %_root_size.i.i, align 8
@@ -39250,7 +39250,7 @@ cond.end:                                         ; preds = %if.then10.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc(ptr nocapture noundef readonly %string) unnamed_addr #4 {
+define internal fastcc noundef double @_ZN4pugi4impl12_GLOBAL__N_124convert_string_to_numberEPKc(ptr noundef readonly captures(none) %string) unnamed_addr #4 {
 entry:
   br label %while.cond.i
 
@@ -39336,7 +39336,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit: ; preds = %
   br i1 %cmp56.i, label %if.end, label %return
 
 if.end:                                           ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit
-  %call2 = tail call double @strtod(ptr nocapture noundef %string, ptr noundef null) #44
+  %call2 = tail call double @strtod(ptr noundef captures(none) %string, ptr noundef null) #44
   br label %return
 
 return:                                           ; preds = %land.lhs.true.i, %lor.lhs.false.i, %while.end.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit, %if.end
@@ -40442,7 +40442,7 @@ return:                                           ; preds = %if.end.i170, %_ZN4p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc { i64, i32 } @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser11binary_op_t5parseERNS1_11xpath_lexerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %lexer) unnamed_addr #9 align 2 {
+define internal fastcc { i64, i32 } @_ZN4pugi4impl12_GLOBAL__N_112xpath_parser11binary_op_t5parseERNS1_11xpath_lexerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %lexer) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %lexer, i64 32
   %lexer.val = load i32, ptr %0, align 8
@@ -40604,7 +40604,7 @@ return:                                           ; preds = %entry, %_ZNK4pugi4i
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_114xpath_ast_node14is_posinv_exprEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #30 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK4pugi4impl12_GLOBAL__N_114xpath_ast_node14is_posinv_exprEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #30 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %switch.tableidx = add i8 %0, -16
@@ -40659,7 +40659,7 @@ return:                                           ; preds = %for.body, %for.cond
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11compare_relINS1_4lessEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_(ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11compare_relINS1_4lessEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_(ptr noundef readonly captures(none) %lhs, ptr noundef readonly captures(none) %rhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cr = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_allocator_capture", align 8
   %ls = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
@@ -40823,7 +40823,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i: ; preds =
   br i1 %cmp56.i.i, label %if.end.i, label %invoke.cont25
 
 if.end.i:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i
-  %call2.i = call double @strtod(ptr nocapture noundef readonly %ref.tmp19.val, ptr noundef null) #44
+  %call2.i = call double @strtod(ptr noundef readonly captures(none) %ref.tmp19.val, ptr noundef null) #44
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %if.end.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i, %lor.lhs.false.i.i, %land.lhs.true.i.i, %while.end.i.i
@@ -40936,7 +40936,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108: ; pred
   br i1 %cmp56.i.i109, label %if.end.i111, label %invoke.cont43
 
 if.end.i111:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108
-  %call2.i112 = call double @strtod(ptr nocapture noundef readonly %ref.tmp37.val, ptr noundef null) #44
+  %call2.i112 = call double @strtod(ptr noundef readonly captures(none) %ref.tmp37.val, ptr noundef null) #44
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.end.i111, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108, %lor.lhs.false.i.i120, %land.lhs.true.i.i118, %while.end.i.i84
@@ -41217,7 +41217,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192: ; pred
   br i1 %cmp56.i.i193, label %if.end.i195, label %invoke.cont87
 
 if.end.i195:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192
-  %call2.i196 = call double @strtod(ptr nocapture noundef readonly %ref.tmp81.val, ptr noundef null) #44
+  %call2.i196 = call double @strtod(ptr noundef readonly captures(none) %ref.tmp81.val, ptr noundef null) #44
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.end.i195, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192, %lor.lhs.false.i.i204, %land.lhs.true.i.i202, %while.end.i.i168
@@ -41427,7 +41427,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264: ; pred
   br i1 %cmp56.i.i265, label %if.end.i267, label %invoke.cont132
 
 if.end.i267:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264
-  %call2.i268 = call double @strtod(ptr nocapture noundef readonly %ref.tmp126.val, ptr noundef null) #44
+  %call2.i268 = call double @strtod(ptr noundef readonly captures(none) %ref.tmp126.val, ptr noundef null) #44
   br label %invoke.cont132
 
 invoke.cont132:                                   ; preds = %if.end.i267, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264, %lor.lhs.false.i.i276, %land.lhs.true.i.i274, %while.end.i.i240
@@ -41523,7 +41523,7 @@ eh.resume:                                        ; preds = %lpad110, %lpad128, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11compare_relINS1_10less_equalEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_(ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node11compare_relINS1_10less_equalEEEbPS2_S5_RKNS1_13xpath_contextERKNS1_11xpath_stackERKT_(ptr noundef readonly captures(none) %lhs, ptr noundef readonly captures(none) %rhs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cr = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_allocator_capture", align 8
   %ls = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
@@ -41687,7 +41687,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i: ; preds =
   br i1 %cmp56.i.i, label %if.end.i, label %invoke.cont25
 
 if.end.i:                                         ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i
-  %call2.i = call double @strtod(ptr nocapture noundef readonly %ref.tmp19.val, ptr noundef null) #44
+  %call2.i = call double @strtod(ptr noundef readonly captures(none) %ref.tmp19.val, ptr noundef null) #44
   br label %invoke.cont25
 
 invoke.cont25:                                    ; preds = %if.end.i, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i, %lor.lhs.false.i.i, %land.lhs.true.i.i, %while.end.i.i
@@ -41800,7 +41800,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108: ; pred
   br i1 %cmp56.i.i109, label %if.end.i111, label %invoke.cont43
 
 if.end.i111:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108
-  %call2.i112 = call double @strtod(ptr nocapture noundef readonly %ref.tmp37.val, ptr noundef null) #44
+  %call2.i112 = call double @strtod(ptr noundef readonly captures(none) %ref.tmp37.val, ptr noundef null) #44
   br label %invoke.cont43
 
 invoke.cont43:                                    ; preds = %if.end.i111, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i108, %lor.lhs.false.i.i120, %land.lhs.true.i.i118, %while.end.i.i84
@@ -42081,7 +42081,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192: ; pred
   br i1 %cmp56.i.i193, label %if.end.i195, label %invoke.cont87
 
 if.end.i195:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192
-  %call2.i196 = call double @strtod(ptr nocapture noundef readonly %ref.tmp81.val, ptr noundef null) #44
+  %call2.i196 = call double @strtod(ptr noundef readonly captures(none) %ref.tmp81.val, ptr noundef null) #44
   br label %invoke.cont87
 
 invoke.cont87:                                    ; preds = %if.end.i195, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i192, %lor.lhs.false.i.i204, %land.lhs.true.i.i202, %while.end.i.i168
@@ -42291,7 +42291,7 @@ _ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264: ; pred
   br i1 %cmp56.i.i265, label %if.end.i267, label %invoke.cont132
 
 if.end.i267:                                      ; preds = %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264
-  %call2.i268 = call double @strtod(ptr nocapture noundef readonly %ref.tmp126.val, ptr noundef null) #44
+  %call2.i268 = call double @strtod(ptr noundef readonly captures(none) %ref.tmp126.val, ptr noundef null) #44
   br label %invoke.cont132
 
 invoke.cont132:                                   ; preds = %if.end.i267, %_ZN4pugi4impl12_GLOBAL__N_129check_string_to_number_formatEPKc.exit.i264, %lor.lhs.false.i.i276, %land.lhs.true.i.i274, %while.end.i.i240
@@ -42387,7 +42387,7 @@ eh.resume:                                        ; preds = %lpad110, %lpad128, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_123xpath_allocator_captureD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_state = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -42426,7 +42426,7 @@ terminate.lpad:                                   ; preds = %while.body.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nocapture nonnull align 8 initializes((0, 9), (16, 24)) %agg.result, i64 %na.0.val, ptr readonly %na.8.val, ptr nocapture noundef %alloc) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112string_valueERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noalias nonnull align 8 captures(none) initializes((0, 9), (16, 24)) %agg.result, i64 %na.0.val, ptr readonly %na.8.val, ptr noundef captures(none) %alloc) unnamed_addr #6 {
 entry:
   %retval.i99 = alloca %"class.pugi::xml_node", align 8
   %retval.i94 = alloca %"class.pugi::xml_node", align 8
@@ -42651,7 +42651,7 @@ return:                                           ; preds = %if.end67, %return.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112xpath_string6appendERKS2_PNS1_15xpath_allocatorE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %o, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112xpath_string6appendERKS2_PNS1_15xpath_allocatorE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %o, ptr noundef captures(none) %alloc) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %o, align 8
   %1 = load i8, ptr %0, align 1
@@ -42842,7 +42842,7 @@ if.end32:                                         ; preds = %if.then12.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #31
@@ -42854,7 +42854,7 @@ declare double @llvm.floor.f64(double) #32
 declare double @llvm.ceil.f64(double) #32
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_113namespace_uriERKNS_10xpath_nodeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %node) unnamed_addr #6 {
+define internal fastcc noundef ptr @_ZN4pugi4impl12_GLOBAL__N_113namespace_uriERKNS_10xpath_nodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %node) unnamed_addr #6 {
 entry:
   %retval.i.i17 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i8 = alloca %"class.pugi::xml_node", align 8
@@ -42950,7 +42950,7 @@ cond.end:                                         ; preds = %_ZNK4pugi8xml_node6
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112xpath_string9from_heapEPKcS4_PNS1_15xpath_allocatorE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 9), (16, 24)) %agg.result, ptr noundef %begin, ptr noundef %end, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_112xpath_string9from_heapEPKcS4_PNS1_15xpath_allocatorE(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 9), (16, 24)) %agg.result, ptr noundef %begin, ptr noundef %end, ptr noundef captures(none) %alloc) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %begin, %end
   br i1 %cmp, label %return, label %if.end
@@ -43025,7 +43025,7 @@ return:                                           ; preds = %if.then10.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_124convert_number_to_stringEdPNS1_15xpath_allocatorE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, double noundef %value, ptr nocapture noundef %alloc) unnamed_addr #6 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_124convert_number_to_stringEdPNS1_15xpath_allocatorE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, double noundef %value, ptr noundef captures(none) %alloc) unnamed_addr #6 {
 entry:
   %v.i = alloca double, align 8
   %mantissa_buffer = alloca [32 x i8], align 16
@@ -43438,13 +43438,13 @@ return:                                           ; preds = %_ZNK4pugi4impl12_GL
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #33
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw6appendEPKNS_10xpath_nodeES5_PNS1_15xpath_allocatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %begin_, ptr noundef %end_, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw6appendEPKNS_10xpath_nodeES5_PNS1_15xpath_allocatorE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %begin_, ptr noundef %end_, ptr noundef captures(none) %alloc) unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %begin_, %end_
   br i1 %cmp, label %return, label %if.end
@@ -43588,7 +43588,7 @@ return:                                           ; preds = %if.then12.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw17remove_duplicatesEPNS1_15xpath_allocatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %alloc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw17remove_duplicatesEPNS1_15xpath_allocatorE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef %alloc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.pugi::xml_node", align 8
   %cr = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_allocator_capture", align 8
@@ -43892,7 +43892,7 @@ if.end37:                                         ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, i64 noundef range(i64 -576460752303423488, 576460752303423488) %first, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node15apply_predicateERNS1_18xpath_node_set_rawEmRKNS1_11xpath_stackEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, i64 noundef range(i64 -576460752303423488, 576460752303423488) %first, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
 entry:
   %c.i24 = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
   %c.i12 = alloca %"struct.pugi::impl::(anonymous namespace)::xpath_context", align 8
@@ -44090,7 +44090,7 @@ if.end16:                                         ; preds = %_ZN4pugi4impl12_GLO
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE0EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE0EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -44242,7 +44242,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE1EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE1EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -44394,7 +44394,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE2EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE2EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i2.i15 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i16 = alloca %"class.pugi::xml_node", align 8
@@ -44693,7 +44693,7 @@ if.end31:                                         ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE3EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE3EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i2.i15 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i16 = alloca %"class.pugi::xml_node", align 8
@@ -44986,7 +44986,7 @@ if.end28:                                         ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE4EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE4EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -45138,7 +45138,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE5EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE5EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -45290,7 +45290,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE6EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE6EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -45442,7 +45442,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE7EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE7EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i2.i17 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i18 = alloca %"class.pugi::xml_node", align 8
@@ -45746,7 +45746,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE9EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE9EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i12.i17 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i18 = alloca %"class.pugi::xml_node", align 8
@@ -46006,7 +46006,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE10EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE10EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i9.i17 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i18 = alloca %"class.pugi::xml_node", align 8
@@ -46274,7 +46274,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE11EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE11EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %retval.i2.i17 = alloca %"class.pugi::xml_node", align 8
   %retval.i.i18 = alloca %"class.pugi::xml_node", align 8
@@ -46590,7 +46590,7 @@ if.end32:                                         ; preds = %if.then31, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE12EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node7step_doINS1_12axis_to_typeILNS1_6axis_tE12EEEEENS1_18xpath_node_set_rawERKNS1_13xpath_contextERKNS1_11xpath_stackENS1_14nodeset_eval_tET_(ptr noalias nonnull align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %c, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %stack, i32 noundef range(i32 0, 3) %eval) unnamed_addr #6 align 2 {
 entry:
   %s = alloca %"class.pugi::impl::(anonymous namespace)::xpath_node_set_raw", align 8
   %_right = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -46703,7 +46703,7 @@ if.end26:                                         ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %node, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_118xpath_node_set_raw9push_backERKNS_10xpath_nodeEPNS1_15xpath_allocatorE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %node, ptr noundef captures(none) %alloc) unnamed_addr #6 align 2 {
 entry:
   %_end = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %_end, align 8
@@ -46837,7 +46837,7 @@ if.end:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE0EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %xn, ptr nocapture noundef %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE0EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %xn, ptr noundef captures(none) %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
 entry:
   %retval.i9 = alloca %"class.pugi::xml_node", align 8
   %retval.i = alloca %"class.pugi::xml_node", align 8
@@ -46956,7 +46956,7 @@ if.end29:                                         ; preds = %while.body.us.i, %w
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %this.3.val, ptr nocapture readonly %this.32.val, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, ptr noundef %n, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %this.3.val, ptr readonly captures(none) %this.32.val, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, ptr noundef %n, ptr noundef captures(none) %alloc) unnamed_addr #6 align 2 {
 entry:
   %ref.tmp = alloca %"class.pugi::xpath_node", align 8
   %ref.tmp5 = alloca %"class.pugi::xml_node", align 8
@@ -47116,7 +47116,7 @@ return:                                           ; preds = %land.rhs.i, %return
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %xn, ptr nocapture noundef %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE1EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %xn, ptr noundef captures(none) %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
 entry:
   %ref.tmp10.i = alloca %"class.pugi::xpath_node", align 8
   %ref.tmp11.i = alloca %"class.pugi::xml_attribute", align 8
@@ -47301,7 +47301,7 @@ if.end29:                                         ; preds = %while.body.us.i, %w
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_20xml_attribute_structEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %this.3.val, ptr nocapture readonly %this.32.val, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, ptr noundef %a, ptr noundef %parent, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_pushERNS1_18xpath_node_set_rawEPNS_20xml_attribute_structEPNS_15xml_node_structEPNS1_15xpath_allocatorE(i8 %this.3.val, ptr readonly captures(none) %this.32.val, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, ptr noundef %a, ptr noundef %parent, ptr noundef captures(none) %alloc) unnamed_addr #6 align 2 {
 entry:
   %ref.tmp = alloca %"class.pugi::xpath_node", align 8
   %ref.tmp5 = alloca %"class.pugi::xml_attribute", align 8
@@ -47455,7 +47455,7 @@ return:                                           ; preds = %land.rhs.i32, %retu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE4EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %xn, ptr nocapture noundef %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE4EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %xn, ptr noundef captures(none) %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
 entry:
   %retval.i2 = alloca %"class.pugi::xml_node", align 8
   %retval.i = alloca %"class.pugi::xml_node", align 8
@@ -47575,7 +47575,7 @@ if.end:                                           ; preds = %while.body11.us.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE5EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %xn, ptr nocapture noundef %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE5EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %xn, ptr noundef captures(none) %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
 entry:
   %ref.tmp10.i = alloca %"class.pugi::xpath_node", align 8
   %ref.tmp11.i = alloca %"class.pugi::xml_attribute", align 8
@@ -47764,7 +47764,7 @@ if.end29:                                         ; preds = %while.body19.us.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE6EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %xn, ptr nocapture noundef %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE6EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %xn, ptr noundef captures(none) %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
 entry:
   %retval.i9 = alloca %"class.pugi::xml_node", align 8
   %retval.i = alloca %"class.pugi::xml_node", align 8
@@ -47962,7 +47962,7 @@ if.end29:                                         ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE10EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, ptr noundef readonly %n, ptr nocapture noundef %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE10EEEEEvRNS1_18xpath_node_set_rawEPNS_15xml_node_structEPNS1_15xpath_allocatorEbT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, ptr noundef readonly %n, ptr noundef captures(none) %alloc, i1 noundef zeroext %once) unnamed_addr #6 align 2 {
 entry:
   br label %while.cond
 
@@ -48233,7 +48233,7 @@ while.end40:                                      ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE12EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %ns, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %xn, ptr nocapture noundef %alloc) unnamed_addr #6 align 2 {
+define internal fastcc void @_ZN4pugi4impl12_GLOBAL__N_114xpath_ast_node9step_fillINS1_12axis_to_typeILNS1_6axis_tE12EEEEEvRNS1_18xpath_node_set_rawERKNS_10xpath_nodeEPNS1_15xpath_allocatorEbT_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %ns, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %xn, ptr noundef captures(none) %alloc) unnamed_addr #6 align 2 {
 entry:
   %ref.tmp10.i = alloca %"class.pugi::xpath_node", align 8
   %ref.tmp11.i = alloca %"class.pugi::xml_attribute", align 8
@@ -48365,14 +48365,14 @@ entry:
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #36
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4pugi4impl12_GLOBAL__N_118default_deallocateEPv(ptr nocapture noundef %ptr) #37 {
+define internal void @_ZN4pugi4impl12_GLOBAL__N_118default_deallocateEPv(ptr noundef captures(none) %ptr) #37 {
 entry:
   tail call void @free(ptr noundef %ptr) #44
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #38
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #38
 
 declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #7
 
@@ -48437,10 +48437,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #40
 declare i32 @llvm.umin.i32(i32, i32) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #41
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #41
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #41
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #40

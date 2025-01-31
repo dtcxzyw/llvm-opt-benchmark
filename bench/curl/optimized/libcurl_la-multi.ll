@@ -549,7 +549,7 @@ return:                                           ; preds = %if.then14, %entry, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 12) i32 @Curl_update_timer(ptr noundef %multi) local_unnamed_addr #0 {
@@ -1775,7 +1775,7 @@ declare void @Curl_disconnect(ptr noundef, ptr noundef, i1 noundef zeroext) loca
 declare zeroext i1 @Curl_conncache_foreach(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @close_connect_only(ptr nocapture noundef readonly %data, ptr noundef %conn, ptr nocapture readnone %param) #0 {
+define internal range(i32 0, 2) i32 @close_connect_only(ptr noundef readonly captures(none) %data, ptr noundef %conn, ptr readnone captures(none) %param) #0 {
 entry:
   %lastconnect_id = getelementptr inbounds nuw i8, ptr %data, i64 3168
   %0 = load i64, ptr %lastconnect_id, align 8
@@ -1913,7 +1913,7 @@ declare void @Curl_llist_insert_next(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @Curl_conn_ev_data_attach(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef readonly %multi, ptr nocapture noundef %read_fd_set, ptr nocapture noundef %write_fd_set, ptr nocapture noundef readnone %exc_fd_set, ptr nocapture noundef writeonly %max_fd) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @curl_multi_fdset(ptr noundef readonly %multi, ptr noundef captures(none) %read_fd_set, ptr noundef captures(none) %write_fd_set, ptr noundef readnone captures(none) %exc_fd_set, ptr noundef writeonly captures(none) %max_fd) local_unnamed_addr #0 {
 entry:
   %ps = alloca %struct.easy_pollset, align 4
   %tobool.not = icmp eq ptr %multi, null
@@ -2096,14 +2096,14 @@ sw.epilog:                                        ; preds = %if.end, %if.end, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 13) i32 @curl_multi_wait(ptr noundef %multi, ptr nocapture noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @curl_multi_wait(ptr noundef %multi, ptr noundef captures(none) %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @multi_wait(ptr noundef %multi, ptr noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret, i1 noundef zeroext false, i1 noundef zeroext false)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %multi, ptr nocapture noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef writeonly %ret, i1 noundef zeroext %extrawait, i1 noundef zeroext %use_wakeup) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @multi_wait(ptr noundef %multi, ptr noundef captures(none) %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef writeonly %ret, i1 noundef zeroext %extrawait, i1 noundef zeroext %use_wakeup) unnamed_addr #0 {
 entry:
   %ps = alloca %struct.easy_pollset, align 4
   %a_few_on_stack = alloca [10 x %struct.pollfd], align 16
@@ -2504,7 +2504,7 @@ return:                                           ; preds = %if.then2.i.i, %cond
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 13) i32 @curl_multi_poll(ptr noundef %multi, ptr nocapture noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret) local_unnamed_addr #0 {
+define range(i32 0, 13) i32 @curl_multi_poll(ptr noundef %multi, ptr noundef captures(none) %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @multi_wait(ptr noundef %multi, ptr noundef %extra_fds, i32 noundef %extra_nfds, i32 noundef %timeout_ms, ptr noundef %ret, i1 noundef zeroext true, i1 noundef zeroext true)
   ret i32 %call
@@ -2555,13 +2555,13 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Curl_multi_connchanged(ptr nocapture noundef %multi) local_unnamed_addr #8 {
+define hidden void @Curl_multi_connchanged(ptr noundef captures(none) %multi) local_unnamed_addr #8 {
 entry:
   %recheckstate = getelementptr inbounds nuw i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %recheckstate, align 1
@@ -2634,7 +2634,7 @@ return:                                           ; preds = %if.end, %Curl_attac
 declare i32 @Curl_init_do(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_preconnect(ptr nocapture noundef %data) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_preconnect(ptr noundef captures(none) %data) local_unnamed_addr #0 {
 entry:
   %buffer = getelementptr inbounds nuw i8, ptr %data, i64 3224
   %0 = load ptr, ptr %buffer, align 8
@@ -2661,7 +2661,7 @@ return:                                           ; preds = %if.then, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 12) i32 @curl_multi_perform(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_perform(ptr noundef %multi, ptr noundef writeonly captures(none) %running_handles) local_unnamed_addr #0 {
 entry:
   %action.i27 = alloca %struct.sigaction, align 8
   %action.i = alloca %struct.sigaction, align 8
@@ -5195,7 +5195,7 @@ declare void @Curl_psl_destroy(ptr noundef) local_unnamed_addr #1
 declare void @Curl_free_multi_ssl_backend_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @curl_multi_info_read(ptr noundef %multi, ptr nocapture noundef writeonly initializes((0, 4)) %msgs_in_queue) local_unnamed_addr #0 {
+define ptr @curl_multi_info_read(ptr noundef %multi, ptr noundef writeonly captures(none) initializes((0, 4)) %msgs_in_queue) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %msgs_in_queue, align 4
   %tobool.not = icmp eq ptr %multi, null
@@ -5702,7 +5702,7 @@ return:                                           ; preds = %if.end, %entry, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 12) i32 @curl_multi_socket(ptr noundef %multi, i32 noundef %s, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_socket(ptr noundef %multi, i32 noundef %s, ptr noundef writeonly captures(none) %running_handles) local_unnamed_addr #0 {
 entry:
   %in_callback = getelementptr inbounds nuw i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %in_callback, align 1
@@ -5725,7 +5725,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 12) i32 @multi_socket(ptr noundef %multi, i1 noundef zeroext %checkall, i32 noundef %s, i32 noundef %ev_bitmask, ptr nocapture noundef writeonly %running_handles) unnamed_addr #0 {
+define internal fastcc range(i32 0, 12) i32 @multi_socket(ptr noundef %multi, i1 noundef zeroext %checkall, i32 noundef %s, i32 noundef %ev_bitmask, ptr noundef writeonly captures(none) %running_handles) unnamed_addr #0 {
 entry:
   %action.i43 = alloca %struct.sigaction, align 8
   %action.i = alloca %struct.sigaction, align 8
@@ -6024,7 +6024,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 12) i32 @curl_multi_socket_action(ptr noundef %multi, i32 noundef %s, i32 noundef %ev_bitmask, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_socket_action(ptr noundef %multi, i32 noundef %s, i32 noundef %ev_bitmask, ptr noundef writeonly captures(none) %running_handles) local_unnamed_addr #0 {
 entry:
   %in_callback = getelementptr inbounds nuw i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %in_callback, align 1
@@ -6047,7 +6047,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 12) i32 @curl_multi_socket_all(ptr noundef %multi, ptr nocapture noundef writeonly %running_handles) local_unnamed_addr #0 {
+define range(i32 0, 12) i32 @curl_multi_socket_all(ptr noundef %multi, ptr noundef writeonly captures(none) %running_handles) local_unnamed_addr #0 {
 entry:
   %in_callback = getelementptr inbounds nuw i8, ptr %multi, i64 457
   %bf.load = load i8, ptr %in_callback, align 1
@@ -6071,7 +6071,7 @@ if.then2.i:                                       ; preds = %if.end
 
 while.body.i:                                     ; preds = %if.then2.i, %while.body.i
   %data.068.i = phi ptr [ %data.0.i, %while.body.i ], [ %data.065.i, %if.then2.i ]
-  %call5.i = tail call fastcc i32 @singlesocket(ptr noundef %multi, ptr noundef nonnull %data.068.i)
+  %call5.i = tail call fastcc i32 @singlesocket(ptr noundef nonnull %multi, ptr noundef nonnull %data.068.i)
   %next.i = getelementptr inbounds nuw i8, ptr %data.068.i, i64 16
   %data.0.i = load ptr, ptr %next.i, align 8
   %tobool3.i = icmp ne ptr %data.0.i, null
@@ -6085,7 +6085,7 @@ multi_socket.exit:                                ; preds = %while.body.i, %if.t
   br i1 %cmp, label %if.then1, label %return
 
 if.then1:                                         ; preds = %multi_socket.exit
-  %call2 = tail call i32 @Curl_update_timer(ptr noundef %multi)
+  %call2 = tail call i32 @Curl_update_timer(ptr noundef nonnull %multi)
   br label %return
 
 return:                                           ; preds = %if.end, %multi_socket.exit, %if.then1, %entry
@@ -6094,7 +6094,7 @@ return:                                           ; preds = %if.end, %multi_sock
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @curl_multi_timeout(ptr noundef %multi, ptr nocapture noundef writeonly %timeout_ms) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @curl_multi_timeout(ptr noundef %multi, ptr noundef writeonly captures(none) %timeout_ms) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %multi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -6157,7 +6157,7 @@ return:                                           ; preds = %if.end, %entry, %la
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 
@@ -6260,7 +6260,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_multiuse_state(ptr nocapture noundef readonly %data, i32 noundef %bundlestate) local_unnamed_addr #0 {
+define hidden void @Curl_multiuse_state(ptr noundef readonly captures(none) %data, i32 noundef %bundlestate) local_unnamed_addr #0 {
 entry:
   %conn3 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn3, align 8
@@ -6358,7 +6358,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden zeroext i1 @Curl_is_in_callback(ptr nocapture noundef readonly %easy) local_unnamed_addr #12 {
+define hidden zeroext i1 @Curl_is_in_callback(ptr noundef readonly captures(none) %easy) local_unnamed_addr #12 {
 entry:
   %multi = getelementptr inbounds nuw i8, ptr %easy, i64 192
   %0 = load ptr, ptr %multi, align 8
@@ -6391,7 +6391,7 @@ lor.end:                                          ; preds = %lor.rhs, %land.rhs,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @Curl_multi_max_concurrent_streams(ptr nocapture noundef readonly %multi) local_unnamed_addr #4 {
+define hidden i32 @Curl_multi_max_concurrent_streams(ptr noundef readonly captures(none) %multi) local_unnamed_addr #4 {
 entry:
   %max_concurrent_streams = getelementptr inbounds nuw i8, ptr %multi, i64 448
   %0 = load i32, ptr %max_concurrent_streams, align 8
@@ -6399,7 +6399,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @curl_multi_get_handles(ptr nocapture noundef readonly %multi) local_unnamed_addr #0 {
+define ptr @curl_multi_get_handles(ptr noundef readonly captures(none) %multi) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_cmalloc, align 8
   %num_easy = getelementptr inbounds nuw i8, ptr %multi, i64 24
@@ -6457,7 +6457,7 @@ if.end6:                                          ; preds = %while.end, %entry
 declare void @Curl_hash_init(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, -1) i64 @hash_fd(ptr nocapture noundef readonly %key, i64 %key_length, i64 noundef %slots_num) #4 {
+define internal range(i64 0, -1) i64 @hash_fd(ptr noundef readonly captures(none) %key, i64 %key_length, i64 noundef %slots_num) #4 {
 entry:
   %0 = load i32, ptr %key, align 4
   %conv = sext i32 %0 to i64
@@ -6466,7 +6466,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @fd_key_compare(ptr nocapture noundef readonly %k1, i64 %k1_len, ptr nocapture noundef readonly %k2, i64 %k2_len) #4 {
+define internal range(i64 0, 2) i64 @fd_key_compare(ptr noundef readonly captures(none) %k1, i64 %k1_len, ptr noundef readonly captures(none) %k2, i64 %k2_len) #4 {
 entry:
   %0 = load i32, ptr %k1, align 4
   %1 = load i32, ptr %k2, align 4
@@ -6608,7 +6608,7 @@ declare void @Curl_pollset_add_socks(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @Curl_resolv_getsock(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @connecting_getsock(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly %socks) #13 {
+define internal range(i32 0, 2) i32 @connecting_getsock(ptr noundef readonly captures(none) %data, ptr noundef writeonly captures(none) %socks) #13 {
 entry:
   %conn1 = getelementptr inbounds nuw i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -6812,7 +6812,7 @@ declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @Curl_poll(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare i32 @Curl_wait_ms(i64 noundef) local_unnamed_addr #1
 
@@ -6822,7 +6822,7 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @Curl_posttransfer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @multi_handle_timeout(ptr noundef nonnull %data, ptr noundef nonnull %now, ptr nocapture noundef nonnull writeonly %stream_error, ptr nocapture noundef nonnull writeonly %result, i1 noundef zeroext %connect_timeout) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @multi_handle_timeout(ptr noundef nonnull %data, ptr noundef nonnull %now, ptr noundef nonnull writeonly captures(none) %stream_error, ptr noundef nonnull writeonly captures(none) %result, i1 noundef zeroext %connect_timeout) unnamed_addr #0 {
 entry:
   %call = tail call i64 @Curl_timeleft(ptr noundef nonnull %data, ptr noundef nonnull %now, i1 noundef zeroext %connect_timeout) #19
   %cmp = icmp slt i64 %call, 0
@@ -6939,10 +6939,10 @@ declare i64 @Curl_timeleft(ptr noundef, ptr noundef, i1 noundef zeroext) local_u
 declare i32 @Curl_mime_rewind(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) #14
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #14
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #14
 
 declare zeroext i1 @Curl_conn_is_connected(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -6951,7 +6951,7 @@ declare ptr @Curl_hash_add(ptr noundef, ptr noundef, i64 noundef, ptr noundef) l
 declare i32 @Curl_hash_delete(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, -1) i64 @trhash(ptr nocapture noundef readonly %key, i64 %key_length, i64 noundef %slots_num) #4 {
+define internal range(i64 0, -1) i64 @trhash(ptr noundef readonly captures(none) %key, i64 %key_length, i64 noundef %slots_num) #4 {
 entry:
   %0 = load ptr, ptr %key, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -6960,7 +6960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i64 0, 2) i64 @trhash_compare(ptr nocapture noundef readonly %k1, i64 %k1_len, ptr nocapture noundef readonly %k2, i64 %k2_len) #4 {
+define internal range(i64 0, 2) i64 @trhash_compare(ptr noundef readonly captures(none) %k1, i64 %k1_len, ptr noundef readonly captures(none) %k2, i64 %k2_len) #4 {
 entry:
   %0 = load ptr, ptr %k1, align 8
   %1 = load ptr, ptr %k2, align 8
@@ -6970,7 +6970,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @trhash_dtor(ptr nocapture readnone %nada) #15 {
+define internal void @trhash_dtor(ptr readnone captures(none) %nada) #15 {
 entry:
   ret void
 }
@@ -6990,10 +6990,10 @@ declare void @llvm.va_start.p0(ptr) #16
 declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

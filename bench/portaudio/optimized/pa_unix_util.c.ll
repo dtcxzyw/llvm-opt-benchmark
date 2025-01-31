@@ -36,7 +36,7 @@ define noalias noundef ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef %0)
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define void @PaUtil_FreeMemory(ptr noundef %0) local_unnamed_addr #2 {
@@ -52,7 +52,7 @@ define void @PaUtil_FreeMemory(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @PaUtil_CountCurrentlyAllocatedBlocks() local_unnamed_addr #4 {
@@ -100,18 +100,18 @@ define double @PaUtil_GetTime() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @PaUtil_InitializeThreading(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define noundef i32 @PaUtil_InitializeThreading(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @PaUtil_TerminateThreading(ptr nocapture noundef readnone %0) local_unnamed_addr #4 {
+define void @PaUtil_TerminateThreading(ptr noundef readnone captures(none) %0) local_unnamed_addr #4 {
   ret void
 }
 
@@ -125,7 +125,7 @@ define noundef i32 @PaUtil_StartThreading(ptr noundef %0, ptr noundef %1, ptr no
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PaUtil_CancelThreading(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define noundef i32 @PaUtil_CancelThreading(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
@@ -716,7 +716,7 @@ define i32 @PaUnixThread_NotifyParent(ptr noundef %0) local_unnamed_addr #5 {
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @PaUnixThread_StopRequested(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define i32 @PaUnixThread_StopRequested(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -744,10 +744,10 @@ declare ptr @__errno_location() local_unnamed_addr #12
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

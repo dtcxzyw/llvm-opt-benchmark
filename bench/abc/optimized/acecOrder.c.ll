@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [34 x i8] c"Recognizing (%d %d) => HA(%d %d)\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Gia_PolynFindOrder(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef ptr @Gia_PolynFindOrder(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
@@ -683,10 +683,10 @@ Vec_IntFree.exit:                                 ; preds = %.critedge4, %319
   %322 = tail call noalias dereferenceable_or_null(400) ptr @malloc(i64 noundef 400) #7
   %323 = getelementptr inbounds nuw i8, ptr %320, i64 8
   store ptr %322, ptr %323, align 8
-  tail call void @Gia_ManIncrementTravId(ptr noundef %0) #8
+  tail call void @Gia_ManIncrementTravId(ptr noundef nonnull %0) #8
   %.val223 = load ptr, ptr %277, align 8
   %.val175 = load i32, ptr %275, align 4
-  tail call void @Gia_ManCollectAnds(ptr noundef %0, ptr noundef %.val223, i32 noundef %.val175, ptr noundef nonnull %320, ptr noundef null) #8
+  tail call void @Gia_ManCollectAnds(ptr noundef nonnull %0, ptr noundef %.val223, i32 noundef %.val175, ptr noundef nonnull %320, ptr noundef null) #8
   %.val176280 = load i32, ptr %321, align 4
   %324 = icmp sgt i32 %.val176280, 0
   br i1 %324, label %.lr.ph282, label %.critedge6
@@ -834,7 +834,7 @@ Vec_IntFree.exit255:                              ; preds = %Vec_IntAppend.exit,
 declare ptr @Gia_PolynCollectLastXor(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
 
@@ -957,7 +957,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %indvars.iv104 = phi i64 [ 3, %52 ], [ %indvars.iv.next105, %56 ]
   %57 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv104
   %58 = load i32, ptr %57, align 4
-  tail call void @Gia_ManCollectAnds_rec(ptr noundef %0, i32 noundef %58, ptr noundef nonnull %18) #8
+  tail call void @Gia_ManCollectAnds_rec(ptr noundef nonnull %0, i32 noundef %58, ptr noundef nonnull %18) #8
   %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next105, 5
   br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !15
@@ -968,14 +968,14 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %.val79, i64 %60
   %62 = load i32, ptr %61, align 4
-  tail call void @Gia_ManCollectAnds_rec(ptr noundef %0, i32 noundef %62, ptr noundef nonnull %18) #8
+  tail call void @Gia_ManCollectAnds_rec(ptr noundef nonnull %0, i32 noundef %62, ptr noundef nonnull %18) #8
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = load i32, ptr %63, align 4
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %47, %.loopexit.loopexit118.critedge
   %.sink = phi i32 [ %64, %.loopexit.loopexit118.critedge ], [ %50, %47 ]
-  tail call void @Gia_ManCollectAnds_rec(ptr noundef %0, i32 noundef %.sink, ptr noundef nonnull %18) #8
+  tail call void @Gia_ManCollectAnds_rec(ptr noundef nonnull %0, i32 noundef %.sink, ptr noundef nonnull %18) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %56, %.loopexit.sink.split
@@ -1085,13 +1085,13 @@ declare void @Gia_ManCollectAnds_rec(ptr noundef, i32 noundef, ptr noundef) loca
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -134,10 +134,10 @@ define dso_local void @ext4_fc_init_inode(ptr noundef initializes((-120, -112)) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -457,7 +457,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ext4_fc_mark_ineligible(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ext4_fc_mark_ineligible(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 124
@@ -619,10 +619,10 @@ define dso_local void @__ext4_fc_track_unlink(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -95, 1) i32 @__track_dentry_update(ptr noundef %0, ptr nocapture readonly %.0.val, i32 %.8.val) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -95, 1) i32 @__track_dentry_update(ptr noundef %0, ptr readonly captures(none) %.0.val, i32 %.8.val) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -2216,7 +2216,7 @@ declare dso_local i32 @jbd2_fc_end_commit(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @jbd2_fc_end_commit_fallback(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ext4_fc_record_regions(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ext4_fc_record_regions(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq i32 %5, 0
@@ -2292,7 +2292,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ext4_fc_record_regions(ptr nocap
 declare dso_local ptr @krealloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @ext4_fc_replay_check_excluded(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local zeroext i1 @ext4_fc_replay_check_excluded(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 2160
@@ -2341,7 +2341,7 @@ define dso_local zeroext i1 @ext4_fc_replay_check_excluded(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ext4_fc_replay_cleanup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ext4_fc_replay_cleanup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
@@ -2358,7 +2358,7 @@ define dso_local void @ext4_fc_replay_cleanup(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @ext4_fc_init(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((1392, 1400)) %1) local_unnamed_addr #6 align 16 {
+define dso_local void @ext4_fc_init(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((1392, 1400)) %1) local_unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 1392
   store ptr @ext4_fc_replay, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -2379,7 +2379,7 @@ define dso_local void @ext4_fc_init(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define internal range(i32 -2147483648, 2) i32 @ext4_fc_replay(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = alloca %struct.ext4_iloc, align 8
   %7 = alloca %struct.ext4_map_blocks, align 8
   %8 = alloca %struct.dentry_info_args, align 8
@@ -4279,7 +4279,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #10
@@ -4321,7 +4321,7 @@ declare dso_local i32 @blkdev_issue_flush(ptr noundef) local_unnamed_addr #2
 declare dso_local void @blk_start_plug(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -125, 1) i32 @ext4_fc_write_inode_data(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -125, 1) i32 @ext4_fc_write_inode_data(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.ext4_map_blocks, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
   %4 = getelementptr i8, ptr %0, i64 -80
@@ -4469,7 +4469,7 @@ define internal fastcc noundef range(i32 -125, 1) i32 @ext4_fc_write_inode_data(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_fc_write_inode(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_fc_write_inode(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.ext4_iloc, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false), !annotation !7
@@ -4547,7 +4547,7 @@ define internal fastcc i32 @ext4_fc_write_inode(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -28, 1) i32 @ext4_fc_write_tail(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -28, 1) i32 @ext4_fc_write_tail(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.anon.21, align 8
   %4 = alloca i32, align 4
   store i32 %1, ptr %4, align 4
@@ -4693,7 +4693,7 @@ declare dso_local i32 @jbd2_submit_inode_data(ptr noundef, ptr noundef) local_un
 declare dso_local i32 @jbd2_wait_inode_data(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ext4_fc_reserve_space(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc ptr @ext4_fc_reserve_space(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.anon.21, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 872
@@ -5039,7 +5039,7 @@ declare dso_local void @ext4_mb_mark_bb(ptr noundef, i64 noundef, i32 noundef, i
 declare dso_local void @ext4_free_ext_path(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @ext4_fc_replay_link_internal(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @ext4_fc_replay_link_internal(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.qstr, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4

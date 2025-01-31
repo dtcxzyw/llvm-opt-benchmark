@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.14 = private unnamed_addr constant [16 x i8] c"chardev-ringbuf\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @hmp_info_chardev(ptr noundef %mon, ptr nocapture noundef readnone %qdict) local_unnamed_addr #0 {
+define dso_local void @hmp_info_chardev(ptr noundef %mon, ptr noundef readnone captures(none) %qdict) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qmp_query_chardev(ptr noundef null) #3
   %tobool.not5 = icmp eq ptr %call, null
@@ -259,7 +259,7 @@ entry:
 declare void @qmp_chardev_send_break(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @chardev_add_completion(ptr noundef %rs, i32 noundef %nb_args, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local void @chardev_add_completion(ptr noundef %rs, i32 noundef %nb_args, ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %nb_args, 2
   br i1 %cmp.not, label %if.end, label %return
@@ -277,7 +277,7 @@ while.body:                                       ; preds = %if.end, %if.end5
   %value = getelementptr inbounds nuw i8, ptr %list.08, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load ptr, ptr %0, align 8
-  %call2 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %str, i64 noundef %call) #4
+  %call2 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %str, i64 noundef %call) #4
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then4, label %if.end5
 
@@ -299,21 +299,21 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @readline_set_completion_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @qmp_query_chardev_backends(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 declare void @readline_add_completion(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @qapi_free_ChardevBackendInfoList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @chardev_remove_completion(ptr noundef %rs, i32 noundef %nb_args, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local void @chardev_remove_completion(ptr noundef %rs, i32 noundef %nb_args, ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %nb_args, 2
   br i1 %cmp.not, label %if.end, label %return
@@ -331,7 +331,7 @@ while.body:                                       ; preds = %if.end, %if.end6
   %value = getelementptr inbounds nuw i8, ptr %list.08, i64 8
   %0 = load ptr, ptr %value, align 8
   %1 = load ptr, ptr %0, align 8
-  %call2 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %str, i64 noundef %call) #4
+  %call2 = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull %str, i64 noundef %call) #4
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %if.then4, label %if.end6
 
@@ -353,7 +353,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ringbuf_write_completion(ptr noundef %rs, i32 noundef %nb_args, ptr nocapture noundef readonly %str) local_unnamed_addr #0 {
+define dso_local void @ringbuf_write_completion(ptr noundef %rs, i32 noundef %nb_args, ptr noundef readonly captures(none) %str) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i32 %nb_args, 2
   br i1 %cmp.not, label %if.end, label %return
@@ -371,7 +371,7 @@ while.body.i:                                     ; preds = %if.end, %if.end11.i
   %value.i = getelementptr inbounds nuw i8, ptr %list.010.i, i64 8
   %0 = load ptr, ptr %value.i, align 8
   %1 = load ptr, ptr %0, align 8
-  %call2.i = tail call i32 @strncmp(ptr noundef %1, ptr noundef readonly %str, i64 noundef %call.i) #4
+  %call2.i = tail call i32 @strncmp(ptr noundef %1, ptr noundef nonnull readonly %str, i64 noundef %call.i) #4
   %tobool3.not.i = icmp eq i32 %call2.i, 0
   br i1 %tobool3.not.i, label %if.then.i, label %if.end11.i
 

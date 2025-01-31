@@ -126,7 +126,7 @@ _ZNSt10unique_ptrIN8WasmEdge4LLVM4Data11DataContextESt14default_deleteIS3_EED2Ev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8WasmEdge4LLVM4DataC2EOS1_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 80)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #1 align 2 {
+define void @_ZN8WasmEdge4LLVM4DataC2EOS1_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 80)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(168) %1) unnamed_addr #1 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -175,7 +175,7 @@ define void @_ZN8WasmEdge4LLVM4DataC2EOS1_(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(168) ptr @_ZN8WasmEdge4LLVM4DataaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull align 8 dereferenceable(168) %1) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(168) ptr @_ZN8WasmEdge4LLVM4DataaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(168) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -184,7 +184,7 @@ define noundef nonnull align 8 dereferenceable(168) ptr @_ZN8WasmEdge4LLVM4Dataa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3

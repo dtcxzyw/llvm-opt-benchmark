@@ -555,7 +555,7 @@ declare void @_ZN12JVMCIRuntime18bootstrap_finishedEP10JavaThread(ptr noundef no
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simpleERK12methodHandle(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN13JVMCICompiler26force_comp_at_level_simpleERK12methodHandle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -679,7 +679,7 @@ declare noundef ptr @_ZN12HotSpotJVMCI7resolveE11JVMCIObject(ptr, i8) local_unna
 declare noundef ptr @_ZNK11ModuleEntry6moduleEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN13JVMCICompiler14compile_methodEP5ciEnvP8ciMethodibP12DirectiveSet(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, i1 zeroext %4, ptr nocapture readnone %5) unnamed_addr #4 align 2 {
+define hidden void @_ZN13JVMCICompiler14compile_methodEP5ciEnvP8ciMethodibP12DirectiveSet(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i32 %3, i1 zeroext %4, ptr readnone captures(none) %5) unnamed_addr #4 align 2 {
   %7 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %7, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 160) #12
@@ -690,7 +690,7 @@ define hidden void @_ZN13JVMCICompiler14compile_methodEP5ciEnvP8ciMethodibP12Dir
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JVMCICompiler24stopping_compiler_threadEP14CompilerThread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13JVMCICompiler24stopping_compiler_threadEP14CompilerThread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = load i8, ptr @UseJVMCINativeLibrary, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %9
@@ -716,7 +716,7 @@ declare noundef ptr @_ZN5JVMCI16compiler_runtimeEP10JavaThreadb(ptr noundef, i1 
 declare noundef zeroext i1 @_ZN12JVMCIRuntime13detach_threadEP10JavaThreadPKcb(ptr noundef nonnull align 8 dereferenceable(93), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JVMCICompiler14on_empty_queueEP12CompileQueueP14CompilerThread(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN13JVMCICompiler14on_empty_queueEP12CompileQueueP14CompilerThread(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = load i8, ptr @UseJVMCINativeLibrary, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %24
@@ -820,7 +820,7 @@ define hidden void @_ZNK13JVMCICompiler16CodeInstallStats8print_onEP12outputStre
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13JVMCICompiler22is_intrinsic_supportedERK12methodHandle(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN13JVMCICompiler22is_intrinsic_supportedERK12methodHandle(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = alloca %class.JVMCIEnv, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -845,7 +845,7 @@ declare void @_ZN8JVMCIEnvD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) 
 declare noundef double @_ZNK12elapsedTimer7secondsEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JVMCICompiler16CodeInstallStats10on_installEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13JVMCICompiler16CodeInstallStats10on_installEP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %3) #11, !srcloc !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -1814,7 +1814,7 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

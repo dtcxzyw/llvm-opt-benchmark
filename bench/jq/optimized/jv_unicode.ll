@@ -54,7 +54,7 @@ define noundef ptr @jvp_utf8_backtrack(ptr noundef readonly %0, ptr noundef read
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define ptr @jvp_utf8_next(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %51, label %5
 

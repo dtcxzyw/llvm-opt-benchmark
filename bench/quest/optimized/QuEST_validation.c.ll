@@ -123,7 +123,7 @@ define void @default_invalidQuESTInputError(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #2
@@ -194,7 +194,7 @@ define range(i32 0, 2) i32 @isComplexPairUnitary(double %0, double %1, double %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @isMatrix2Unitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @isMatrix2Unitary(ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.preheader38
 
@@ -251,7 +251,7 @@ define range(i32 0, 2) i32 @isMatrix2Unitary(ptr nocapture noundef readonly byva
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @isMatrix4Unitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrix4) align 8 %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @isMatrix4Unitary(ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   br label %.preheader38
 
@@ -311,7 +311,7 @@ define range(i32 0, 2) i32 @isMatrix4Unitary(ptr nocapture noundef readonly byva
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @isMatrixNUnitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @isMatrixNUnitary(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0) local_unnamed_addr #7 {
 .split:
   %1 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %1, 31
@@ -390,7 +390,7 @@ define range(i32 0, 2) i32 @isMatrixNUnitary(ptr nocapture noundef readonly byva
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader60.us.preheader, label %.loopexit
 
@@ -464,7 +464,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap2(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.preheader60.us.preheader, label %.loopexit
 
@@ -541,7 +541,7 @@ define range(i32 0, 2) i32 @isCompletelyPositiveMap4(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @isCompletelyPositiveMapN(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
 .split:
   %2 = load i32, ptr %0, align 8
   %3 = shl nuw i32 1, %2
@@ -641,7 +641,7 @@ define range(i32 0, 2) i32 @isValidPauliCode(i32 noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @areUniqueQubits(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @areUniqueQubits(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp sgt i32 %1, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -807,7 +807,7 @@ QuESTAssert.exit5:                                ; preds = %QuESTAssert.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateUnitarySubDiagOp(ptr nocapture noundef readonly byval(%struct.SubDiagonalOp) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validateUnitarySubDiagOp(ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 63
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -849,7 +849,7 @@ QuESTAssert.exit:                                 ; preds = %10, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateSubDiagOpTargets(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct.SubDiagonalOp) align 8 %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateSubDiagOpTargets(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly byval(%struct.SubDiagonalOp) align 8 captures(none) %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %2, %6
   br i1 %.not, label %QuESTAssert.exit, label %7
@@ -919,7 +919,7 @@ validateMultiTargets.exit:                        ; preds = %21, %validateNumTar
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiTargets(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateMultiTargets(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %5 = icmp slt i32 %2, 1
@@ -984,7 +984,7 @@ QuESTAssert.exit:                                 ; preds = %18, %validateNumTar
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateStateIndex(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateStateIndex(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = zext nneg i32 %5 to i64
@@ -1003,7 +1003,7 @@ QuESTAssert.exit:                                 ; preds = %3, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateAmpIndex(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateAmpIndex(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = zext nneg i32 %5 to i64
@@ -1022,7 +1022,7 @@ QuESTAssert.exit:                                 ; preds = %3, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateNumAmps(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateNumAmps(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %5 = zext nneg i32 %.sroa.3.0.copyload to i64
@@ -1062,7 +1062,7 @@ QuESTAssert.exit8:                                ; preds = %QuESTAssert.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateNumDensityAmps(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateNumDensityAmps(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %6 = zext nneg i32 %.sroa.3.0.copyload to i64
@@ -1116,7 +1116,7 @@ QuESTAssert.exit14:                               ; preds = %QuESTAssert.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateNumElems(ptr nocapture noundef readonly byval(%struct.DiagonalOp) align 8 %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateNumElems(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = load i32, ptr %0, align 8
   %6 = zext nneg i32 %5 to i64
   %7 = shl nuw i64 1, %6
@@ -1153,7 +1153,7 @@ QuESTAssert.exit14:                               ; preds = %QuESTAssert.exit12,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateTarget(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateTarget(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp slt i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -1170,7 +1170,7 @@ QuESTAssert.exit:                                 ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateControl(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateControl(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp slt i32 %1, 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -1187,7 +1187,7 @@ QuESTAssert.exit:                                 ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateControlTarget(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateControlTarget(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %5 = icmp slt i32 %2, 0
@@ -1222,7 +1222,7 @@ QuESTAssert.exit:                                 ; preds = %validateControl.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateUniqueTargets(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateUniqueTargets(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %5 = icmp slt i32 %1, 0
@@ -1257,7 +1257,7 @@ QuESTAssert.exit:                                 ; preds = %validateTarget.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateNumTargets(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateNumTargets(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp slt i32 %1, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -1274,7 +1274,7 @@ QuESTAssert.exit:                                 ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateNumControls(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateNumControls(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp slt i32 %1, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4
@@ -1291,7 +1291,7 @@ QuESTAssert.exit:                                 ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiControls(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateMultiControls(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %5 = icmp slt i32 %2, 1
@@ -1356,7 +1356,7 @@ QuESTAssert.exit:                                 ; preds = %18, %validateNumCon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiQubits(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateMultiQubits(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = icmp slt i32 %2, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
@@ -1424,7 +1424,7 @@ QuESTAssert.exit19:                               ; preds = %19, %QuESTAssert.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiControlsTarget(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateMultiControlsTarget(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %6 = icmp slt i32 %3, 0
@@ -1519,7 +1519,7 @@ QuESTAssert.exit:                                 ; preds = %.lr.ph, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiControlsMultiTargets(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define void @validateMultiControlsMultiTargets(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %7 = icmp slt i32 %2, 1
@@ -1648,7 +1648,7 @@ QuESTAssert.exit:                                 ; preds = %validateMultiTarget
 declare i64 @getQubitBitMask(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @validateControlState(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateControlState(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1677,7 +1677,7 @@ QuESTAssert.exit:                                 ; preds = %.lr.ph, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiQubitMatrixFitsInNode(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateMultiQubitMatrixFitsInNode(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = zext nneg i32 %1 to i64
@@ -1694,7 +1694,7 @@ QuESTAssert.exit:                                 ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateOneQubitUnitaryMatrix(ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validateOneQubitUnitaryMatrix(ptr noundef readonly byval(%struct.ComplexMatrix2) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.preheader38.i
 
@@ -1754,7 +1754,7 @@ QuESTAssert.exit:                                 ; preds = %31, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateTwoQubitUnitaryMatrix(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrix4) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateTwoQubitUnitaryMatrix(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrix4) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.not.i = icmp slt i64 %.sroa.3.0.copyload, 4
@@ -1827,7 +1827,7 @@ QuESTAssert.exit:                                 ; preds = %30, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMatrixInit(ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validateMatrixInit(ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1846,7 +1846,7 @@ QuESTAssert.exit:                                 ; preds = %2, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiQubitMatrix(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateMultiQubitMatrix(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1886,7 +1886,7 @@ QuESTAssert.exit:                                 ; preds = %validateMultiQubitM
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiQubitUnitaryMatrix(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.ComplexMatrixN) align 8 %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateMultiQubitUnitaryMatrix(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.ComplexMatrixN) align 8 captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %.sroa.04.0.copyload = load i32, ptr %1, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8
@@ -2015,7 +2015,7 @@ QuESTAssert.exit:                                 ; preds = %5, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateVector(ptr nocapture noundef readonly byval(%struct.Vector) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validateVector(ptr noundef readonly byval(%struct.Vector) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = tail call double @getVectorMagnitude(ptr noundef nonnull byval(%struct.Vector) align 8 %0) #13
   %4 = fcmp ule double %3, 1.000000e-13
   br i1 %4, label %5, label %QuESTAssert.exit
@@ -2031,7 +2031,7 @@ QuESTAssert.exit:                                 ; preds = %2, %5
 declare double @getVectorMagnitude(ptr noundef byval(%struct.Vector) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @validateStateVecQureg(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validateStateVecQureg(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %.not.not = icmp eq i32 %3, 0
   br i1 %.not.not, label %QuESTAssert.exit, label %4
@@ -2045,7 +2045,7 @@ QuESTAssert.exit:                                 ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateDensityMatrQureg(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validateDensityMatrQureg(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %.not.i = icmp eq i32 %3, 0
   br i1 %.not.i, label %4, label %QuESTAssert.exit
@@ -2085,7 +2085,7 @@ QuESTAssert.exit:                                 ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMatchingQuregDims(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateMatchingQuregDims(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2102,7 +2102,7 @@ QuESTAssert.exit:                                 ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMatchingQuregTypes(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateMatchingQuregTypes(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %0, align 8
   %5 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %4, %5
@@ -2117,7 +2117,7 @@ QuESTAssert.exit:                                 ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateSecondQuregStateVec(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validateSecondQuregStateVec(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %0, align 8
   %.not.not = icmp eq i32 %3, 0
   br i1 %.not.not, label %QuESTAssert.exit, label %4
@@ -2145,7 +2145,7 @@ define void @validateFileOpened(i32 noundef %0, ptr noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define void @validateProb(double noundef %0, ptr noundef %1) local_unnamed_addr #3 {
@@ -2375,7 +2375,7 @@ QuESTAssert.exit25:                               ; preds = %QuESTAssert.exit23,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validatePauliCodes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validatePauliCodes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2417,7 +2417,7 @@ QuESTAssert.exit:                                 ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateOneQubitKrausMapDimensions(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateOneQubitKrausMapDimensions(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = add i32 %2, -5
   %6 = icmp ult i32 %5, -4
   br i1 %6, label %7, label %QuESTAssert.exit
@@ -2441,7 +2441,7 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %QuESTAssert.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateOneQubitKrausMap(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateOneQubitKrausMap(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %5 = add i32 %2, -5
@@ -2537,7 +2537,7 @@ QuESTAssert.exit:                                 ; preds = %.split.us.us.i, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateTwoQubitKrausMapDimensions(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateTwoQubitKrausMapDimensions(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = add i32 %2, -17
   %6 = icmp ult i32 %5, -16
   br i1 %6, label %7, label %QuESTAssert.exit
@@ -2561,7 +2561,7 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %QuESTAssert.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateTwoQubitKrausMap(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateTwoQubitKrausMap(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %5 = add i32 %2, -17
@@ -2660,7 +2660,7 @@ QuESTAssert.exit:                                 ; preds = %.split.us.us.i, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiQubitKrausMapDimensions(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateMultiQubitKrausMapDimensions(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = shl nsw i32 %1, 1
   %7 = mul nsw i32 %6, %6
   %8 = icmp slt i32 %3, 1
@@ -2724,7 +2724,7 @@ validateMultiQubitMatrixFitsInNode.exit:          ; preds = %._crit_edge, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiQubitKrausMap(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateMultiQubitKrausMap(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %6 = shl nsw i32 %1, 1
@@ -2893,7 +2893,7 @@ QuESTAssert.exit:                                 ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validatePauliHamil(ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validatePauliHamil(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2938,7 +2938,7 @@ validatePauliCodes.exit:                          ; preds = %QuESTAssert.exit.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMatchingQuregPauliHamilDims(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateMatchingQuregPauliHamilDims(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2955,7 +2955,7 @@ QuESTAssert.exit:                                 ; preds = %3, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateHamilFileParams(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateHamilFileParams(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = icmp sgt i32 %0, 0
   %7 = icmp sgt i32 %1, 0
   %or.cond = and i1 %6, %7
@@ -2972,10 +2972,10 @@ define void @validateHamilFileParams(i32 noundef %0, i32 noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %6, label %9
 
@@ -2993,7 +2993,7 @@ define void @validateHamilFileCoeffParsed(i32 noundef %0, ptr nocapture noundef 
 declare void @destroyPauliHamil(ptr noundef byval(%struct.PauliHamil) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @validateHamilFilePauliParsed(i32 noundef %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateHamilFilePauliParsed(i32 noundef %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %6, label %9
 
@@ -3009,7 +3009,7 @@ define void @validateHamilFilePauliParsed(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateHamilFilePauliCode(i32 noundef %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateHamilFilePauliCode(i32 noundef %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %narrow.i = icmp ugt i32 %0, 3
   br i1 %narrow.i, label %6, label %9
 
@@ -3053,7 +3053,7 @@ QuESTAssert.exit7:                                ; preds = %QuESTAssert.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateDiagOpInit(ptr nocapture noundef readonly byval(%struct.DiagonalOp) align 8 %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @validateDiagOpInit(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3072,7 +3072,7 @@ QuESTAssert.exit:                                 ; preds = %2, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateDiagonalOp(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly byval(%struct.DiagonalOp) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateDiagonalOp(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3102,7 +3102,7 @@ QuESTAssert.exit:                                 ; preds = %validateDiagOpInit.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateDiagPauliHamil(ptr nocapture noundef readonly byval(%struct.DiagonalOp) align 8 %0, ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateDiagPauliHamil(ptr noundef readonly byval(%struct.DiagonalOp) align 8 captures(none) %0, ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
@@ -3148,7 +3148,7 @@ QuESTAssert.exit7:                                ; preds = %13, %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateDiagPauliHamilFromFile(ptr nocapture noundef readonly byval(%struct.PauliHamil) align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateDiagPauliHamilFromFile(ptr noundef readonly byval(%struct.PauliHamil) align 8 captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = icmp ult i32 %5, 64
@@ -3207,7 +3207,7 @@ QuESTAssert.exit19:                               ; preds = %17, %17, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateQubitSubregs(ptr nocapture noundef readonly byval(%struct.Qureg) align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validateQubitSubregs(ptr noundef readonly byval(%struct.Qureg) align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = add i32 %3, -101
   %7 = icmp ult i32 %6, -100
   br i1 %7, label %QuESTAssert.exit, label %.lr.ph42
@@ -3311,7 +3311,7 @@ QuESTAssert.exit33:                               ; preds = %34, %QuESTAssert.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #3 {
+define void @validatePhaseFuncTerms(i32 noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = alloca [32768 x i64], align 16
   %10 = icmp slt i32 %4, 1
   br i1 %10, label %QuESTAssert.exit61.sink.split, label %.lr.ph.preheader
@@ -3443,7 +3443,7 @@ QuESTAssert.exit61:                               ; preds = %40, %QuESTAssert.ex
 declare double @llvm.floor.f64(double) #5
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiVarPhaseFuncTerms(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #3 {
+define void @validateMultiVarPhaseFuncTerms(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = add i32 %1, -101
   %8 = icmp ult i32 %7, -100
   br i1 %8, label %QuESTAssert.exit, label %.lr.ph.preheader
@@ -3533,7 +3533,7 @@ QuESTAssert.exit40:                               ; preds = %.preheader, %QuESTA
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validatePhaseFuncOverrides(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define void @validatePhaseFuncOverrides(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = icmp slt i32 %3, 0
   br i1 %6, label %7, label %QuESTAssert.exit
 
@@ -3620,7 +3620,7 @@ QuESTAssert.exit38:                               ; preds = %.lr.ph47, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiVarPhaseFuncOverrides(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
+define void @validateMultiVarPhaseFuncOverrides(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #3 {
   %7 = icmp slt i32 %4, 0
   br i1 %7, label %8, label %QuESTAssert.exit
 
@@ -3887,7 +3887,7 @@ QuESTAssert.exit6:                                ; preds = %QuESTAssert.exit6.s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateMultiRegBitEncoding(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @validateMultiRegBitEncoding(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = icmp ugt i32 %2, 1
   br i1 %5, label %QuESTAssert.exit.thread, label %QuESTAssert.exit
 
@@ -3926,12 +3926,12 @@ QuESTAssert.exit10:                               ; preds = %.lr.ph, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @validateMemoryAllocationSize(i64 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #4 {
+define void @validateMemoryAllocationSize(i64 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #4 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateQuregAllocation(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateQuregAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0
@@ -3993,7 +3993,7 @@ define void @validateQuregAllocation(ptr nocapture noundef %0, ptr nocapture nou
 declare void @destroyQureg(ptr noundef byval(%struct.Qureg) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @validateQuregGPUAllocation(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateQuregGPUAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4029,7 +4029,7 @@ QuESTAssert.exit:                                 ; preds = %12, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define void @validateDiagonalOpAllocation(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateDiagonalOpAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4054,7 +4054,7 @@ QuESTAssert.exit:                                 ; preds = %6, %.thread
 declare void @destroyDiagonalOp(ptr noundef byval(%struct.DiagonalOp) align 8, ptr noundef byval(%struct.QuESTEnv) align 8) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @validateDiagonalOpGPUAllocation(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @validateDiagonalOpGPUAllocation(ptr noundef captures(none) %0, ptr noundef readonly byval(%struct.QuESTEnv) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4110,7 +4110,7 @@ QuESTAssert.exit:                                 ; preds = %2, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #9
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #10
@@ -4125,7 +4125,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
 declare i64 @llvm.smax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { cold nofree noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

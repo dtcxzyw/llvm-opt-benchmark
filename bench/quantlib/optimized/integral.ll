@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 @.str.3 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10IntegratorC2Edm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 16), (24, 32)) %this, double noundef %absoluteAccuracy, i64 noundef %maxEvaluations) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10IntegratorC2Edm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 16), (24, 32)) %this, double noundef %absoluteAccuracy, i64 noundef %maxEvaluations) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -240,7 +240,7 @@ unreachable:                                      ; preds = %invoke.cont23
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0 align 2
@@ -359,7 +359,7 @@ _ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -367,7 +367,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib10Integrator19setAbsoluteAccuracyEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 16)) %this, double noundef %accuracy) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib10Integrator19setAbsoluteAccuracyEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((8, 16)) %this, double noundef %accuracy) local_unnamed_addr #6 align 2 {
 entry:
   %absoluteAccuracy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store double %accuracy, ptr %absoluteAccuracy_, align 8, !tbaa !6
@@ -375,7 +375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib10Integrator17setMaxEvaluationsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 32)) %this, i64 noundef %maxEvaluations) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib10Integrator17setMaxEvaluationsEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((24, 32)) %this, i64 noundef %maxEvaluations) local_unnamed_addr #6 align 2 {
 entry:
   %maxEvaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %maxEvaluations, ptr %maxEvaluations_, align 8, !tbaa !11
@@ -383,7 +383,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib10Integrator16absoluteAccuracyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib10Integrator16absoluteAccuracyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
 entry:
   %absoluteAccuracy_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load double, ptr %absoluteAccuracy_, align 8, !tbaa !6
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib10Integrator14maxEvaluationsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
+define noundef i64 @_ZNK8QuantLib10Integrator14maxEvaluationsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
 entry:
   %maxEvaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %maxEvaluations_, align 8, !tbaa !11
@@ -399,7 +399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib10Integrator13absoluteErrorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
+define noundef double @_ZNK8QuantLib10Integrator13absoluteErrorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
 entry:
   %absoluteError_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %absoluteError_, align 8, !tbaa !30
@@ -407,7 +407,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK8QuantLib10Integrator16setAbsoluteErrorEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((16, 24)) %this, double noundef %error) local_unnamed_addr #6 align 2 {
+define void @_ZNK8QuantLib10Integrator16setAbsoluteErrorEd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((16, 24)) %this, double noundef %error) local_unnamed_addr #6 align 2 {
 entry:
   %absoluteError_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %error, ptr %absoluteError_, align 8, !tbaa !30
@@ -415,7 +415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib10Integrator19numberOfEvaluationsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
+define noundef i64 @_ZNK8QuantLib10Integrator19numberOfEvaluationsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
 entry:
   %evaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %evaluations_, align 8, !tbaa !31
@@ -423,7 +423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK8QuantLib10Integrator22setNumberOfEvaluationsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %this, i64 noundef %evaluations) local_unnamed_addr #6 align 2 {
+define void @_ZNK8QuantLib10Integrator22setNumberOfEvaluationsEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((32, 40)) %this, i64 noundef %evaluations) local_unnamed_addr #6 align 2 {
 entry:
   %evaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store i64 %evaluations, ptr %evaluations_, align 8, !tbaa !31
@@ -431,7 +431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8QuantLib10Integrator27increaseNumberOfEvaluationsEm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %increase) local_unnamed_addr #8 align 2 {
+define void @_ZNK8QuantLib10Integrator27increaseNumberOfEvaluationsEm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, i64 noundef %increase) local_unnamed_addr #8 align 2 {
 entry:
   %evaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %evaluations_, align 8, !tbaa !31
@@ -441,7 +441,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK8QuantLib10Integrator18integrationSuccessEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK8QuantLib10Integrator18integrationSuccessEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this) unnamed_addr #7 align 2 {
 entry:
   %evaluations_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %evaluations_, align 8, !tbaa !31
@@ -526,12 +526,12 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #2
 

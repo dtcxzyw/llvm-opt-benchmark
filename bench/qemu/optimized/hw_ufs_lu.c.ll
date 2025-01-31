@@ -56,7 +56,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [3 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @blk_unref, ptr @.str.24, ptr @.str.25, i32 46, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.24, ptr @.str.26, i32 81, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @blk_getlength, ptr @.str.27, ptr @.str.26, i32 81, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @ufs_init_wlu(ptr nocapture noundef writeonly initializes((160, 161), (448, 456)) %wlu, i8 noundef zeroext %wlun) local_unnamed_addr #0 {
+define dso_local void @ufs_init_wlu(ptr noundef writeonly captures(none) initializes((160, 161), (448, 456)) %wlu, i8 noundef zeroext %wlun) local_unnamed_addr #0 {
 entry:
   %lun = getelementptr inbounds nuw i8, ptr %wlu, i64 160
   store i8 %wlun, ptr %lun, align 8
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @ufs_emulate_scsi_cmd(ptr nocapture noundef readonly %lu, ptr noundef %req) #1 {
+define internal range(i32 0, 2) i32 @ufs_emulate_scsi_cmd(ptr noundef readonly captures(none) %lu, ptr noundef %req) #1 {
 entry:
   %outbuf = alloca [4096 x i8], align 16
   %sense_buf = alloca [18 x i8], align 16
@@ -305,14 +305,14 @@ entry:
 declare i32 @scsi_build_sense(ptr noundef, i24) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @scsi_build_sense_buf(ptr noundef, i64 noundef, i24, i1 noundef zeroext) local_unnamed_addr #2
 
 declare i32 @dma_buf_read(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #5
@@ -330,7 +330,7 @@ declare i16 @llvm.bswap.i16(i16) #5
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ufs_lu_class_init(ptr noundef %oc, ptr nocapture readnone %data) #1 {
+define internal void @ufs_lu_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #1 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.9, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -481,7 +481,7 @@ return:                                           ; preds = %if.then6.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ufs_lu_unrealize(ptr nocapture noundef %dev) #1 {
+define internal void @ufs_lu_unrealize(ptr noundef captures(none) %dev) #1 {
 entry:
   %scsi_dev = getelementptr inbounds nuw i8, ptr %dev, i64 352
   %0 = load ptr, ptr %scsi_dev, align 8
@@ -516,7 +516,7 @@ declare zeroext i1 @blk_supports_write_perm(ptr noundef) local_unnamed_addr #2
 declare i64 @blk_getlength(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 3) i32 @ufs_process_scsi_cmd(ptr nocapture noundef readonly %lu, ptr noundef %req) #1 {
+define internal range(i32 0, 3) i32 @ufs_process_scsi_cmd(ptr noundef readonly captures(none) %lu, ptr noundef %req) #1 {
 entry:
   %cdb = getelementptr inbounds nuw i8, ptr %req, i64 64
   %0 = load i8, ptr %cdb, align 4
@@ -655,7 +655,7 @@ ufs_build_scsi_response_upiu.exit:                ; preds = %if.end13.i, %ufs_bu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @ufs_get_sg_list(ptr nocapture noundef readonly %scsi_req) #7 {
+define internal ptr @ufs_get_sg_list(ptr noundef readonly captures(none) %scsi_req) #7 {
 entry:
   %hba_private = getelementptr inbounds nuw i8, ptr %scsi_req, i64 40
   %0 = load ptr, ptr %hba_private, align 8

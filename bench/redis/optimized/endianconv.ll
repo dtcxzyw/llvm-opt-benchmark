@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @memrev16(ptr nocapture noundef %p) local_unnamed_addr #0 {
+define dso_local void @memrev16(ptr noundef captures(none) %p) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %p, align 1
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %p, i64 1
@@ -15,7 +15,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @memrev32(ptr nocapture noundef %p) local_unnamed_addr #0 {
+define dso_local void @memrev32(ptr noundef captures(none) %p) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %p, align 1
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %p, i64 3
@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @memrev64(ptr nocapture noundef %p) local_unnamed_addr #0 {
+define dso_local void @memrev64(ptr noundef captures(none) %p) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %p, align 1
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %p, i64 7

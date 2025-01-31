@@ -185,7 +185,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib25BlackScholesMertonProcessEEE 
 @_ZN8QuantLib15Merton76ProcessC1ERKNS_6HandleINS_5QuoteEEERKNS1_INS_18YieldTermStructureEEES9_RKNS1_INS_21BlackVolTermStructureEEES3_S3_S3_RKN5boost10shared_ptrINS_19StochasticProcess1D14discretizationEEE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib15Merton76ProcessC2ERKNS_6HandleINS_5QuoteEEERKNS1_INS_18YieldTermStructureEEES9_RKNS1_INS_21BlackVolTermStructureEEES3_S3_S3_RKN5boost10shared_ptrINS_19StochasticProcess1D14discretizationEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -270,7 +270,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -342,7 +342,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15Merton76ProcessC2ERKNS_6HandleINS_5QuoteEEERKNS1_INS_18YieldTermStructureEEES9_RKNS1_INS_21BlackVolTermStructureEEES3_S3_S3_RKN5boost10shared_ptrINS_19StochasticProcess1D14discretizationEEE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(16) %stateVariable, ptr noundef nonnull align 8 dereferenceable(16) %dividendTS, ptr noundef nonnull align 8 dereferenceable(16) %riskFreeTS, ptr noundef nonnull align 8 dereferenceable(16) %blackVolTS, ptr nocapture noundef %jumpInt, ptr nocapture noundef %logJMean, ptr nocapture noundef %logJVol, ptr noundef nonnull align 8 dereferenceable(16) %disc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15Merton76ProcessC2ERKNS_6HandleINS_5QuoteEEERKNS1_INS_18YieldTermStructureEEES9_RKNS1_INS_21BlackVolTermStructureEEES3_S3_S3_RKN5boost10shared_ptrINS_19StochasticProcess1D14discretizationEEE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(16) %stateVariable, ptr noundef nonnull align 8 dereferenceable(16) %dividendTS, ptr noundef nonnull align 8 dereferenceable(16) %riskFreeTS, ptr noundef nonnull align 8 dereferenceable(16) %blackVolTS, ptr noundef captures(none) %jumpInt, ptr noundef captures(none) %logJMean, ptr noundef captures(none) %logJVol, ptr noundef nonnull align 8 dereferenceable(16) %disc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -1659,7 +1659,7 @@ _ZN5boost10shared_ptrIN8QuantLib19StochasticProcess1D14discretizationEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib15Merton76Process2x0Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib15Merton76Process2x0Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) unnamed_addr #6 align 2 {
 entry:
   %blackProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %blackProcess_, align 8, !tbaa !34
@@ -1681,7 +1681,7 @@ _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib15Merton76Process4timeERKNS_4DateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) unnamed_addr #6 align 2 {
+define noundef double @_ZNK8QuantLib15Merton76Process4timeERKNS_4DateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(8) %d) unnamed_addr #6 align 2 {
 entry:
   %blackProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %blackProcess_, align 8, !tbaa !34
@@ -1703,7 +1703,7 @@ _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process13stateVariableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process13stateVariableEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
 entry:
   %blackProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %blackProcess_, align 8, !tbaa !34
@@ -1724,7 +1724,7 @@ _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess13stateVariableEv(ptr noundef nonnull align 8 dereferenceable(250)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process13dividendYieldEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process13dividendYieldEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
 entry:
   %blackProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %blackProcess_, align 8, !tbaa !34
@@ -1745,7 +1745,7 @@ _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(250)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process12riskFreeRateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process12riskFreeRateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
 entry:
   %blackProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %blackProcess_, align 8, !tbaa !34
@@ -1766,7 +1766,7 @@ _ZNK5boost10shared_ptrIN8QuantLib30GeneralizedBlackScholesProcessEEptEv.exit: ; 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib30GeneralizedBlackScholesProcess12riskFreeRateEv(ptr noundef nonnull align 8 dereferenceable(250)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process15blackVolatilityEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib15Merton76Process15blackVolatilityEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) local_unnamed_addr #6 align 2 {
 entry:
   %blackProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   %0 = load ptr, ptr %blackProcess_, align 8, !tbaa !34
@@ -3212,7 +3212,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #15
@@ -3580,7 +3580,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

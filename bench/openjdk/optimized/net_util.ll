@@ -46,7 +46,7 @@ define i32 @reuseport_available() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 65539) i32 @JNI_OnLoad(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define range(i32 -3, 65539) i32 @JNI_OnLoad(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -504,7 +504,7 @@ define hidden i32 @getInetAddress_family(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define ptr @NET_SockaddrToInetAddress(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = load i16, ptr %1, align 4
   %5 = icmp eq i16 %4, 10
   br i1 %5, label %6, label %141
@@ -1032,7 +1032,7 @@ getInetAddress_addr.exit41:                       ; preds = %113, %114
 declare i32 @NET_IsEqual(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @NET_GetPortFromSockaddr(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 65536) i32 @NET_GetPortFromSockaddr(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   %4 = tail call zeroext i16 @ntohs(i16 noundef zeroext %3) #8
@@ -1041,7 +1041,7 @@ define range(i32 0, 65536) i32 @NET_GetPortFromSockaddr(ptr nocapture noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden zeroext i16 @in_cksum(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden zeroext i16 @in_cksum(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp sgt i32 %1, 1
   br i1 %3, label %.lr.ph, label %._crit_edge
 

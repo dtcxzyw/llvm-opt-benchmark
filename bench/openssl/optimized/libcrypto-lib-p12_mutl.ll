@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [19 x i8] c"LEGACY_GOST_PKCS12\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @PKCS12_mac_present(ptr nocapture noundef readonly %p12) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PKCS12_mac_present(ptr noundef readonly captures(none) %p12) local_unnamed_addr #0 {
 entry:
   %mac = getelementptr inbounds nuw i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac, align 8
@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PKCS12_get0_mac(ptr noundef %pmac, ptr noundef %pmacalg, ptr noundef writeonly %psalt, ptr noundef writeonly %piter, ptr nocapture noundef readonly %p12) local_unnamed_addr #1 {
+define void @PKCS12_get0_mac(ptr noundef %pmac, ptr noundef %pmacalg, ptr noundef writeonly %psalt, ptr noundef writeonly %piter, ptr noundef readonly captures(none) %p12) local_unnamed_addr #1 {
 entry:
   %mac = getelementptr inbounds nuw i8, ptr %p12, i64 8
   %0 = load ptr, ptr %mac, align 8
@@ -91,14 +91,14 @@ if.end21:                                         ; preds = %if.end21.sink.split
 declare void @X509_SIG_get0(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_gen_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_gen_mac(ptr noundef readonly captures(none) %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc i32 @pkcs12_gen_mac(ptr noundef %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @pkcs12_gen_mac(ptr noundef readonly captures(none) %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %mac, ptr noundef %maclen) unnamed_addr #1 {
 entry:
   %out.i = alloca [96 x i8], align 16
   %key = alloca [64 x i8], align 16
@@ -275,7 +275,7 @@ return:                                           ; preds = %if.end12, %err, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_verify_mac(ptr nocapture noundef readonly %p12, ptr noundef %pass, i32 noundef %passlen) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_verify_mac(ptr noundef readonly captures(none) %p12, ptr noundef %pass, i32 noundef %passlen) local_unnamed_addr #1 {
 entry:
   %mac = alloca [64 x i8], align 16
   %maclen = alloca i32, align 4
@@ -340,7 +340,7 @@ declare i32 @CRYPTO_memcmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_set_mac(ptr nocapture noundef %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %md_type) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_set_mac(ptr noundef captures(none) %p12, ptr noundef %pass, i32 noundef %passlen, ptr noundef %salt, i32 noundef %saltlen, i32 noundef %iter, ptr noundef %md_type) local_unnamed_addr #1 {
 entry:
   %mac = alloca [64 x i8], align 16
   %maclen = alloca i32, align 4
@@ -402,7 +402,7 @@ return:                                           ; preds = %if.end10, %if.then1
 declare ptr @EVP_sha256() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PKCS12_setup_mac(ptr nocapture noundef %p12, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %md_type) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @PKCS12_setup_mac(ptr noundef captures(none) %p12, i32 noundef %iter, ptr noundef readonly %salt, i32 noundef %saltlen, ptr noundef %md_type) local_unnamed_addr #1 {
 entry:
   %macalg = alloca ptr, align 8
   %mac = getelementptr inbounds nuw i8, ptr %p12, i64 8
@@ -537,7 +537,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @RAND_bytes_ex(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -588,10 +588,10 @@ declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 declare i32 @PKCS5_PBKDF2_HMAC(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

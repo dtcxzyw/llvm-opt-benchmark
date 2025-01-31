@@ -333,7 +333,7 @@ $_ZNK3CFF28cff_top_dict_op_serializer_tINS_19cff1_top_dict_val_tEE9serializeEP22
 @endchar_str = external hidden local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK2OT4cff120accelerator_subset_t9serializeEP22hb_serialize_context_tRNS_16cff1_subset_planE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef %c, ptr noundef nonnull align 8 dereferenceable(516) %plan) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK2OT4cff120accelerator_subset_t9serializeEP22hb_serialize_context_tRNS_16cff1_subset_planE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, ptr noundef %c, ptr noundef nonnull align 8 dereferenceable(516) %plan) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp274 = alloca %struct.hb_zip_iter_t, align 8
   %privSzr = alloca %struct.cff1_private_dict_op_serializer_t, align 1
@@ -2734,7 +2734,7 @@ return:                                           ; preds = %if.end, %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare hidden noundef zeroext i1 @_Z25hb_serialize_cff_fdselectP22hb_serialize_context_tjRKN3CFF8FDSelectEjjjRK11hb_vector_tINS1_11code_pair_tELb0EE(ptr noundef, i32 noundef, ptr noundef nonnull align 1 dereferenceable(6), i32 noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
@@ -4008,7 +4008,7 @@ return:                                           ; preds = %if.end20, %if.then3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK2OT4cff120accelerator_subset_t6subsetEP19hb_subset_context_t(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef readonly %c) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK2OT4cff120accelerator_subset_t6subsetEP19hb_subset_context_t(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef readonly captures(none) %c) local_unnamed_addr #0 align 2 {
 entry:
   %cff_plan = alloca %"struct.OT::cff1_subset_plan", align 8
   %values.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cff_plan, i64 8
@@ -5436,19 +5436,19 @@ return:                                           ; preds = %if.then, %_ZN11hb_v
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE13set_with_hashIRPS1_RjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %key, i32 noundef %hash, ptr noundef nonnull align 4 dereferenceable(4) %value, i1 noundef zeroext %overwrite) local_unnamed_addr #0 comdat align 2 {
@@ -10554,7 +10554,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZorI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN3CFF23cff1_font_dict_values_tEEZN2OT16cff1_subset_plan6createERKNS7_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS5_E_RK4$_11LPv0EEZNS8_6createESC_SE_EUlSF_E0_L24hb_function_sortedness_t0ELSK_0EE9hb_sink_tIR11hb_vector_tINS3_27cff1_font_dict_values_mod_tELb0EEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSW_6item_tEEE5valueEvE4typeELSK_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISW_Efp_EEEOSW_OS11_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr nocapture %rhs.0.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_map_iter_tI16hb_filter_iter_tI10hb_array_tIKN3CFF23cff1_font_dict_values_tEEZN2OT16cff1_subset_plan6createERKNS7_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS5_E_RK4$_11LPv0EEZNS8_6createESC_SE_EUlSF_E0_L24hb_function_sortedness_t0ELSK_0EE9hb_sink_tIR11hb_vector_tINS3_27cff1_font_dict_values_mod_tELb0EEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSW_6item_tEEE5valueEvE4typeELSK_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISW_Efp_EEEOSW_OS11_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %lhs, ptr captures(none) %rhs.0.val) unnamed_addr #0 {
 entry:
   %agg.tmp.sroa.2.0.lhs.sroa_idx = getelementptr inbounds nuw i8, ptr %lhs, i64 8
   %agg.tmp.sroa.2.0.copyload = load i32, ptr %agg.tmp.sroa.2.0.lhs.sroa_idx, align 8
@@ -10802,7 +10802,7 @@ if.end.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %while.body.lr.ph.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @"_ZorI10hb_array_tIKN3CFF23cff1_font_dict_values_tEE24hb_filter_iter_factory_tIZN2OT16cff1_subset_plan6createERKNS6_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS3_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSR_"(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 40)) %agg.result, ptr %lhs.0.val, i64 %lhs.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rhs) unnamed_addr #8 {
+define internal fastcc void @"_ZorI10hb_array_tIKN3CFF23cff1_font_dict_values_tEE24hb_filter_iter_factory_tIZN2OT16cff1_subset_plan6createERKNS6_4cff120accelerator_subset_tEP16hb_subset_plan_tEUlRS3_E_RK4$_11ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSL_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISL_Efp_EEEOSL_OSR_"(ptr noalias nonnull writeonly align 8 captures(none) initializes((0, 40)) %agg.result, ptr %lhs.0.val, i64 %lhs.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %rhs) unnamed_addr #8 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   %agg.tmp.sroa.0.0.copyload.i = load ptr, ptr %rhs, align 8, !noalias !105
@@ -26200,13 +26200,13 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10

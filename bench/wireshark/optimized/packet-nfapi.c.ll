@@ -3446,7 +3446,7 @@ define hidden void @proto_register_nfapi() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @nfapi_tag_vals_fn(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @nfapi_tag_vals_fn(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %or.cond.i = icmp ult i32 %1, 308
   br i1 %or.cond.i, label %3, label %6
 
@@ -3502,7 +3502,7 @@ look_up_tlv.exit.thread:                          ; preds = %look_up_tlv.exit, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @reference_signal_power_conversion_fn(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @reference_signal_power_conversion_fn(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to double
   %4 = tail call double @llvm.fmuladd.f64(double %3, double 2.500000e-01, double -6.375000e+01)
   %5 = zext i16 %1 to i32
@@ -3511,7 +3511,7 @@ define internal void @reference_signal_power_conversion_fn(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @power_offset_conversion_fn(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @power_offset_conversion_fn(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to double
   %4 = tail call double @llvm.fmuladd.f64(double %3, double 1.000000e-03, double -6.000000e+00)
   %5 = zext i16 %1 to i32
@@ -3520,7 +3520,7 @@ define internal void @power_offset_conversion_fn(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @laa_threshold_conversion_fn(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @laa_threshold_conversion_fn(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = zext i16 %1 to i32
   %4 = uitofp i16 %1 to double
   %5 = fmul double %4, -1.000000e+02
@@ -3531,7 +3531,7 @@ define internal void @laa_threshold_conversion_fn(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @sfn_sf_conversion_fn(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @sfn_sf_conversion_fn(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = zext i16 %1 to i32
   %4 = lshr i32 %3, 4
   %5 = and i32 %3, 15
@@ -3540,7 +3540,7 @@ define internal void @sfn_sf_conversion_fn(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @dl_rs_tx_pow_measment_conversion_fn(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @dl_rs_tx_pow_measment_conversion_fn(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to double
   %4 = fmul double %3, 1.000000e-01
   %5 = zext i16 %1 to i32
@@ -3549,7 +3549,7 @@ define internal void @dl_rs_tx_pow_measment_conversion_fn(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @max_transmit_power_2_conversion_fn(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @max_transmit_power_2_conversion_fn(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to double
   %4 = tail call double @llvm.fmuladd.f64(double %3, double 1.000000e-01, double -1.000000e+01)
   %5 = zext i16 %1 to i32
@@ -3558,7 +3558,7 @@ define internal void @max_transmit_power_2_conversion_fn(ptr nocapture noundef w
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @max_transmit_power_conversion_fn(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @max_transmit_power_conversion_fn(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to double
   %4 = fmul double %3, 1.000000e-01
   %5 = zext i16 %1 to i32
@@ -3567,7 +3567,7 @@ define internal void @max_transmit_power_conversion_fn(ptr nocapture noundef wri
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ul_cqi_conversion_fn(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @ul_cqi_conversion_fn(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to float
   %4 = fmul float %3, 5.000000e-01
   %5 = fpext float %4 to double
@@ -3578,7 +3578,7 @@ define internal void @ul_cqi_conversion_fn(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @rssi_conversion_fn(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1) #1 {
+define internal void @rssi_conversion_fn(ptr noundef writeonly captures(none) %0, i16 noundef zeroext %1) #1 {
   %3 = uitofp i16 %1 to double
   %4 = fmul double %3, 1.000000e-01
   %5 = zext i16 %1 to i32
@@ -3587,7 +3587,7 @@ define internal void @rssi_conversion_fn(ptr nocapture noundef writeonly %0, i16
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @neg_pow_conversion_fn(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1) #1 {
+define internal void @neg_pow_conversion_fn(ptr noundef writeonly captures(none) %0, i8 noundef zeroext %1) #1 {
   %3 = zext i8 %1 to i32
   %4 = sub nsw i32 0, %3
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.2638, i32 noundef %4, i32 noundef %3) #7
@@ -3611,7 +3611,7 @@ declare void @reassembly_table_register(ptr noundef, ptr noundef) local_unnamed_
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfapi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nfapi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
   %6 = icmp ult i32 %5, 4
   br i1 %6, label %30, label %7
@@ -3755,7 +3755,7 @@ define hidden void @proto_reg_handoff_nfapi() local_unnamed_addr #0 {
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -3838,7 +3838,7 @@ define internal i32 @dissect_nfapi_ul_p7(ptr noundef %0, ptr noundef %1, ptr nou
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -3924,7 +3924,7 @@ define internal i32 @dissect_nfapi_dl_p7(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_p45_header(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_p45_header(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @ett_nfapi_p4_p5_message_header, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2652) #7
   %7 = load i32, ptr @hf_nfapi_p4_p5_message_header_phy_id, align 4
@@ -3939,7 +3939,7 @@ define internal noundef i32 @dissect_p45_header(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p45_header_with_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_p45_header_with_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @ett_nfapi_p4_p5_message_header, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2652) #7
   %7 = load i32, ptr @hf_nfapi_p4_p5_message_header_phy_id, align 4
@@ -3961,7 +3961,7 @@ define internal i32 @dissect_p45_header_with_list(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_p45_header_with_error(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_p45_header_with_error(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @ett_nfapi_p4_p5_message_header, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2652) #7
   %7 = load i32, ptr @hf_nfapi_p4_p5_message_header_phy_id, align 4
@@ -3978,7 +3978,7 @@ define internal noundef i32 @dissect_p45_header_with_error(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_p45_header_with_p4_error(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_p45_header_with_p4_error(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @ett_nfapi_p4_p5_message_header, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2652) #7
   %7 = load i32, ptr @hf_nfapi_p4_p5_message_header_phy_id, align 4
@@ -3995,7 +3995,7 @@ define internal noundef i32 @dissect_p45_header_with_p4_error(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p45_header_with_error_and_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_p45_header_with_error_and_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @ett_nfapi_p4_p5_message_header, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2652) #7
   %7 = load i32, ptr @hf_nfapi_p4_p5_message_header_phy_id, align 4
@@ -4019,7 +4019,7 @@ define internal i32 @dissect_p45_header_with_error_and_list(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p45_header_with_p4_error_and_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_p45_header_with_p4_error_and_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @ett_nfapi_p4_p5_message_header, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2652) #7
   %7 = load i32, ptr @hf_nfapi_p4_p5_message_header_phy_id, align 4
@@ -4043,7 +4043,7 @@ define internal i32 @dissect_p45_header_with_p4_error_and_list(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p45_header_with_rat_type_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_p45_header_with_rat_type_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @ett_nfapi_p4_p5_message_header, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2652) #7
   %7 = load i32, ptr @hf_nfapi_p4_p5_message_header_phy_id, align 4
@@ -4067,7 +4067,7 @@ define internal i32 @dissect_p45_header_with_rat_type_list(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p45_config_request_msg_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_p45_config_request_msg_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @ett_nfapi_p4_p5_message_header, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2652) #7
   %7 = load i32, ptr @hf_nfapi_p4_p5_message_header_phy_id, align 4
@@ -4091,7 +4091,7 @@ define internal i32 @dissect_p45_config_request_msg_id(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_p45_param_response_msg_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_p45_param_response_msg_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @ett_nfapi_p4_p5_message_header, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.2652) #7
   %7 = load i32, ptr @hf_nfapi_p4_p5_message_header_phy_id, align 4
@@ -4117,7 +4117,7 @@ define internal i32 @dissect_p45_param_response_msg_id(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_p7_dl_node_sync_msg_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_p7_dl_node_sync_msg_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
   %5 = load i32, ptr @hf_nfapi_ul_node_sync_t1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #7
@@ -4129,7 +4129,7 @@ define internal noundef i32 @dissect_p7_dl_node_sync_msg_id(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_p7_ul_node_sync_msg_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_p7_ul_node_sync_msg_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
   %5 = load i32, ptr @hf_nfapi_dl_node_sync_t1, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #7
@@ -4139,7 +4139,7 @@ define internal noundef i32 @dissect_p7_ul_node_sync_msg_id(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_p7_timing_info_msg_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_p7_timing_info_msg_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_p7_header(ptr noundef %0, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
   %5 = load i32, ptr @hf_nfapi_timing_info_last_sfn_sf, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef 0) #7
@@ -4175,7 +4175,7 @@ define internal noundef i32 @dissect_p7_timing_info_msg_id(ptr noundef %0, ptr n
 declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal void @dissect_duplex_mode_value(ptr noundef %0, ptr noundef %1) #0 {
@@ -5905,63 +5905,63 @@ define internal void @dissect_phy_state_value(ptr noundef %0, ptr noundef %1) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_p7_vnf_address_ipv4_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_p7_vnf_address_ipv4_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_vnf_address_ipv4, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_p7_vnf_address_ipv6_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_p7_vnf_address_ipv6_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_vnf_address_ipv6, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 16, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_p7_vnf_port_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_p7_vnf_port_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_vnf_port, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_p7_pnf_address_ipv4_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_p7_pnf_address_ipv4_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_pnf_address_ipv4, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 4, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_p7_pnf_address_ipv6_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_p7_pnf_address_ipv6_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_pnf_address_ipv6, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 16, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_p7_pnf_port_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_p7_pnf_port_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_pnf_port, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_downlink_ues_per_subframe_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_downlink_ues_per_subframe_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_dl_ue_per_sf, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_uplink_ues_per_subframe_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_uplink_ues_per_subframe_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_ul_ue_per_sf, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_rf_bands_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_rf_bands_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_number_of_rf_bands, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -6064,14 +6064,14 @@ define internal void @dissect_maximum_transmit_power_value(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_earfcn_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_earfcn_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_earfcn, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_nmm_gsm_frequency_bands_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_nmm_gsm_frequency_bands_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_number_of_rf_bands, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -6105,7 +6105,7 @@ dissect_array_value.exit:                         ; preds = %2, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_nmm_umts_frequency_bands_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_nmm_umts_frequency_bands_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_number_of_rf_bands, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -6139,7 +6139,7 @@ dissect_array_value.exit:                         ; preds = %2, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_nmm_lte_frequency_bands_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_nmm_lte_frequency_bands_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_number_of_rf_bands, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -6538,7 +6538,7 @@ dissect_array_value.exit:                         ; preds = %2, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pnf_phy_rf_config_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_pnf_phy_rf_config_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_pnf_phy_number_phy, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -6612,21 +6612,21 @@ define internal void @dissect_received_interference_power_value(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_thermal_noise_power_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_thermal_noise_power_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_thermal_noise_power, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dl_rs_tx_power_measurement_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_dl_rs_tx_power_measurement_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_dl_rs_tx_power_measurement, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_received_interference_power_measurement_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_received_interference_power_measurement_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_number_of_resource_blocks, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -6660,7 +6660,7 @@ dissect_array_value.exit:                         ; preds = %2, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_thermal_noise_power_measurement_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_thermal_noise_power_measurement_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_thermal_noise_power_measurement, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   ret void
@@ -7623,7 +7623,7 @@ define internal void @dissect_dl_config_request_bch_pdu_rel8_value(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dl_config_request_mch_pdu_rel8_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_dl_config_request_mch_pdu_rel8_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_length, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   %5 = load i32, ptr @hf_nfapi_pdu_index, align 4
@@ -9807,7 +9807,7 @@ define internal void @dissect_hi_dci0_dci_ul_rel10_value(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_tx_request_body_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_tx_request_body_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_nfapi_number_pdus, align 4
@@ -11283,7 +11283,7 @@ dissect_array_value.exit:                         ; preds = %20, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_dl_config_request_dl_dci_pdu_rel13_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_dl_config_request_dl_dci_pdu_rel13_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_laa_end_partial_sf_flag, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_nfapi_laa_end_partial_sf_configuration, align 4
@@ -12944,7 +12944,7 @@ define internal void @dissect_srs_indication_rel11_value(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_tdd_channel_measurement_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_tdd_channel_measurement_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = load i32, ptr @hf_nfapi_number_prb_per_subband, align 4
@@ -13977,7 +13977,7 @@ dissect_array_value.exit:                         ; preds = %14, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_utran_rssi_request_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_utran_rssi_request_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_frequency_band_indicator, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef 0) #7
@@ -14071,7 +14071,7 @@ dissect_array_value.exit:                         ; preds = %2, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_rssi_indication_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_rssi_indication_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_number_of_rssi, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -14105,7 +14105,7 @@ dissect_array_value.exit:                         ; preds = %2, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lte_cell_search_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_lte_cell_search_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_earfcn, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0) #7
@@ -14147,7 +14147,7 @@ dissect_array_value.exit:                         ; preds = %2, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_utran_cell_search_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_utran_cell_search_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_uarfcn, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0) #7
@@ -14187,7 +14187,7 @@ dissect_array_value.exit:                         ; preds = %2, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_geran_cell_search_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_geran_cell_search_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_timeout, align 4
   %5 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %4, i32 noundef 4, i32 noundef 0) #7
@@ -14223,7 +14223,7 @@ dissect_array_value.exit:                         ; preds = %2, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lte_cell_search_indication_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_lte_cell_search_indication_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_number_of_lte_cells_found, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -14263,7 +14263,7 @@ dissect_array_value.exit:                         ; preds = %2, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_utran_cell_search_indication_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_utran_cell_search_indication_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_number_of_utran_cells_found, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -14303,7 +14303,7 @@ dissect_array_value.exit:                         ; preds = %2, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_geran_cell_search_indication_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_geran_cell_search_indication_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = load i32, ptr @hf_nfapi_number_of_geran_cells_found, align 4
   %5 = call ptr @ptvcursor_add_ret_uint(ptr noundef %0, i32 noundef %4, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %3) #7
@@ -14347,7 +14347,7 @@ dissect_array_value.exit:                         ; preds = %2, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pnf_cell_search_state_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_pnf_cell_search_state_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
   %4 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4) #7
@@ -14357,7 +14357,7 @@ define internal void @dissect_pnf_cell_search_state_value(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lte_broadcast_detect_request_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_lte_broadcast_detect_request_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_earfcn, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   %5 = load i32, ptr @hf_nfapi_pci, align 4
@@ -14368,7 +14368,7 @@ define internal void @dissect_lte_broadcast_detect_request_value(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_utran_broadcast_detect_request_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_utran_broadcast_detect_request_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_uarfcn, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   %5 = load i32, ptr @hf_nfapi_psc, align 4
@@ -14403,7 +14403,7 @@ define internal void @dissect_lte_broadcast_detect_indication_value(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_utran_broadcast_detect_indication_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_utran_broadcast_detect_indication_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_mib, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   %5 = load i32, ptr @hf_nfapi_sfn_offset, align 4
@@ -14412,7 +14412,7 @@ define internal void @dissect_utran_broadcast_detect_indication_value(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pnf_cell_broadcast_state_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_pnf_cell_broadcast_state_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
   %4 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4) #7
@@ -14469,7 +14469,7 @@ define internal void @dissect_lte_system_information_schedule_request_value(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lte_system_information_schedule_indication_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_lte_system_information_schedule_indication_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call ptr @ptvcursor_tvbuff(ptr noundef %0) #7
   %4 = tail call i32 @ptvcursor_current_offset(ptr noundef %0) #7
   %5 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4) #7
@@ -14594,7 +14594,7 @@ dissect_array_value.exit:                         ; preds = %23, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_utran_system_information_request_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_utran_system_information_request_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_uarfcn, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   %5 = load i32, ptr @hf_nfapi_psc, align 4
@@ -14605,7 +14605,7 @@ define internal void @dissect_utran_system_information_request_value(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_geran_system_information_request_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_geran_system_information_request_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_arfcn, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   %5 = load i32, ptr @hf_nfapi_bsic, align 4
@@ -14616,7 +14616,7 @@ define internal void @dissect_geran_system_information_request_value(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_lte_system_information_indication_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_lte_system_information_indication_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_sib_type, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #7
   %5 = load i32, ptr @hf_nfapi_sib, align 4
@@ -14625,14 +14625,14 @@ define internal void @dissect_lte_system_information_indication_value(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_utran_system_information_indication_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_utran_system_information_indication_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_sib, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_geran_system_information_indication_value(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @dissect_geran_system_information_indication_value(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load i32, ptr @hf_nfapi_si, align 4
   %4 = tail call ptr @ptvcursor_add(ptr noundef %0, i32 noundef %3, i32 noundef 2, i32 noundef 0) #7
   ret void
@@ -14720,10 +14720,10 @@ declare void @proto_tree_add_bitmask_list(ptr noundef, ptr noundef, i32 noundef,
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

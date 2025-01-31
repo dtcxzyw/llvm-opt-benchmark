@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @ExecSecLabelStmt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @ExecSecLabelStmt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ObjectAddress, align 8
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -227,7 +227,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare { i64, i32 } @get_object_address(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
@@ -238,7 +238,7 @@ declare i32 @GetUserId() local_unnamed_addr #2
 declare i32 @errdetail_relkind_not_supported(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SetSecurityLabel(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @SetSecurityLabel(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x %struct.ScanKeyData], align 16
   %5 = alloca [4 x i64], align 16
   %6 = alloca [4 x i8], align 4
@@ -455,7 +455,7 @@ SetSharedSecurityLabel.exit:                      ; preds = %.thread34.i, %56, %
 declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetSecurityLabel(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @GetSecurityLabel(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [3 x %struct.ScanKeyData], align 16
   %4 = alloca i8, align 1
   %5 = alloca [4 x %struct.ScanKeyData], align 16
@@ -689,7 +689,7 @@ declare void @systable_endscan(ptr noundef) local_unnamed_addr #2
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -732,7 +732,7 @@ define dso_local void @DeleteSharedSecurityLabel(i32 noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DeleteSecurityLabel(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @DeleteSecurityLabel(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [3 x %struct.ScanKeyData], align 16
   %3 = load i32, ptr %0, align 4
   %4 = tail call zeroext i1 @IsSharedRelation(i32 noundef %3) #8
@@ -821,10 +821,10 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

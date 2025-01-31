@@ -75,7 +75,7 @@ define internal void @via_rng_mod_exit() #0 section ".exit.text" align 16 {
 declare dso_local void @hwrng_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
@@ -84,10 +84,10 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local i32 @hwrng_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -19, 1) i32 @via_rng_init(ptr nocapture readnone %0) #4 align 16 {
+define internal noundef range(i32 -19, 1) i32 @via_rng_init(ptr readnone captures(none) %0) #4 align 16 {
   %2 = load i64, ptr @__per_cpu_offset, align 16
   %3 = add i64 %2, ptrtoint (ptr @cpu_info to i64)
   %4 = inttoptr i64 %3 to ptr
@@ -192,7 +192,7 @@ define internal noundef range(i32 -19, 1) i32 @via_rng_init(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @via_rng_data_present(ptr nocapture noundef writeonly %0, i32 noundef %1) #4 align 16 {
+define internal range(i32 0, 2) i32 @via_rng_data_present(ptr noundef writeonly captures(none) %0, i32 noundef %1) #4 align 16 {
   %3 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, i8 0, i64 16, i1 false), !annotation !8
@@ -233,7 +233,7 @@ define internal range(i32 0, 2) i32 @via_rng_data_present(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @via_rng_data_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #5 align 16 {
+define internal noundef i32 @via_rng_data_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -248,7 +248,7 @@ declare dso_local void @do_trace_read_msr(i32 noundef, i64 noundef, i32 noundef)
 declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #1

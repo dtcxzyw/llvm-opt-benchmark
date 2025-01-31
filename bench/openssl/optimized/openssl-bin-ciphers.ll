@@ -482,7 +482,7 @@ declare i64 @SSL_CTX_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) lo
 declare void @SSL_CTX_set_psk_client_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @dummy_psk(ptr nocapture readnone %ssl, ptr nocapture readnone %hint, ptr nocapture readnone %identity, i32 %max_identity_len, ptr nocapture readnone %psk, i32 %max_psk_len) #2 {
+define internal noundef i32 @dummy_psk(ptr readnone captures(none) %ssl, ptr readnone captures(none) %hint, ptr readnone captures(none) %identity, i32 %max_identity_len, ptr readnone captures(none) %psk, i32 %max_psk_len) #2 {
 entry:
   ret i32 0
 }

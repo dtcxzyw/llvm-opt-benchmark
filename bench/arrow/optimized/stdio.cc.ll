@@ -167,7 +167,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow2io12StdoutStreamC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io12StdoutStreamC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io8WritableE, i64 16), ptr %this, align 8
@@ -201,7 +201,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12StdoutStreamC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 44)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io12StdoutStreamC1Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 44)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -219,33 +219,33 @@ entry:
 declare void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12StdoutStream5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN5arrow2io12StdoutStream5CloseEv(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZTv0_n32_N5arrow2io12StdoutStream5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture readonly %this) unnamed_addr #4 align 2 {
+define void @_ZTv0_n32_N5arrow2io12StdoutStream5CloseEv(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr readonly captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !7
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK5arrow2io12StdoutStream6closedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK5arrow2io12StdoutStream6closedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io12StdoutStream6closedEv(ptr nocapture readonly %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io12StdoutStream6closedEv(ptr readonly captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow2io12StdoutStream4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
+define void @_ZNK5arrow2io12StdoutStream4TellEv(ptr noalias writeonly sret(%"class.arrow::Result") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #6 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %agg.result, align 8
@@ -256,7 +256,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZTv0_n56_NK5arrow2io12StdoutStream4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef readonly %this) unnamed_addr #7 align 2 {
+define void @_ZTv0_n56_NK5arrow2io12StdoutStream4TellEv(ptr noalias writeonly sret(%"class.arrow::Result") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef readonly captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -56
@@ -272,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io12StdoutStream5WriteEPKvl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %nbytes) unnamed_addr #8 align 2 {
+define void @_ZN5arrow2io12StdoutStream5WriteEPKvl(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef %data, i64 noundef %nbytes) unnamed_addr #8 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %pos_, align 8
@@ -286,7 +286,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow2io12StderrStreamC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io12StderrStreamC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow2io8WritableE, i64 16), ptr %this, align 8
@@ -318,7 +318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12StderrStreamC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 44)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io12StderrStreamC1Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 44)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -333,33 +333,33 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12StderrStream5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN5arrow2io12StderrStream5CloseEv(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZTv0_n32_N5arrow2io12StderrStream5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture readonly %this) unnamed_addr #4 align 2 {
+define void @_ZTv0_n32_N5arrow2io12StderrStream5CloseEv(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr readonly captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !21
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK5arrow2io12StderrStream6closedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK5arrow2io12StderrStream6closedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io12StderrStream6closedEv(ptr nocapture readonly %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io12StderrStream6closedEv(ptr readonly captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow2io12StderrStream4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
+define void @_ZNK5arrow2io12StderrStream4TellEv(ptr noalias writeonly sret(%"class.arrow::Result") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #6 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %agg.result, align 8
@@ -370,7 +370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZTv0_n56_NK5arrow2io12StderrStream4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef readonly %this) unnamed_addr #7 align 2 {
+define void @_ZTv0_n56_NK5arrow2io12StderrStream4TellEv(ptr noalias writeonly sret(%"class.arrow::Result") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef readonly captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -56
@@ -386,7 +386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io12StderrStream5WriteEPKvl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %data, i64 noundef %nbytes) unnamed_addr #8 align 2 {
+define void @_ZN5arrow2io12StderrStream5WriteEPKvl(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef %data, i64 noundef %nbytes) unnamed_addr #8 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %pos_, align 8
@@ -398,7 +398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow2io11StdinStreamC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io11StdinStreamC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -443,7 +443,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io11StdinStreamC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 44)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io11StdinStreamC1Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 44)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -458,33 +458,33 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io11StdinStream5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN5arrow2io11StdinStream5CloseEv(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !32
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZTv0_n32_N5arrow2io11StdinStream5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture readonly %this) unnamed_addr #4 align 2 {
+define void @_ZTv0_n32_N5arrow2io11StdinStream5CloseEv(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr readonly captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !35
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK5arrow2io11StdinStream6closedEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK5arrow2io11StdinStream6closedEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io11StdinStream6closedEv(ptr nocapture readonly %this) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZTv0_n64_NK5arrow2io11StdinStream6closedEv(ptr readonly captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow2io11StdinStream4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
+define void @_ZNK5arrow2io11StdinStream4TellEv(ptr noalias writeonly sret(%"class.arrow::Result") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) unnamed_addr #6 align 2 {
 entry:
   %pos_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %agg.result, align 8
@@ -495,7 +495,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZTv0_n56_NK5arrow2io11StdinStream4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef readonly %this) unnamed_addr #7 align 2 {
+define void @_ZTv0_n56_NK5arrow2io11StdinStream4TellEv(ptr noalias writeonly sret(%"class.arrow::Result") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef readonly captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -56
@@ -511,7 +511,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io11StdinStream4ReadElPv(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %nbytes, ptr noundef %out) unnamed_addr #8 align 2 {
+define void @_ZN5arrow2io11StdinStream4ReadElPv(ptr noalias writeonly sret(%"class.arrow::Result") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, i64 noundef %nbytes, ptr noundef %out) unnamed_addr #8 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin, ptr noundef %out, i64 noundef %nbytes)
   %call2 = tail call noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) @_ZSt3cin)
@@ -530,7 +530,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noun
 declare noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n32_N5arrow2io11StdinStream4ReadElPv(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef %this, i64 noundef %nbytes, ptr noundef %out) unnamed_addr #9 align 2 {
+define void @_ZTv0_n32_N5arrow2io11StdinStream4ReadElPv(ptr noalias writeonly sret(%"class.arrow::Result") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef captures(none) %this, i64 noundef %nbytes, ptr noundef %out) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -1521,7 +1521,7 @@ if.end:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #16
@@ -1914,7 +1914,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_stdio.cc() #9 section ".text.startup" {

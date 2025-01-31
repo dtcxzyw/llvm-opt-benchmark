@@ -64,7 +64,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_shash_free_s
 @llvm.compiler.used = appending global [22 x ptr] [ptr @__UNIQUE_ID___addressable_crypto_alloc_shash451, ptr @__UNIQUE_ID___addressable_crypto_clone_shash453, ptr @__UNIQUE_ID___addressable_crypto_grab_shash450, ptr @__UNIQUE_ID___addressable_crypto_has_shash452, ptr @__UNIQUE_ID___addressable_crypto_register_shash454, ptr @__UNIQUE_ID___addressable_crypto_register_shashes456, ptr @__UNIQUE_ID___addressable_crypto_shash_digest444, ptr @__UNIQUE_ID___addressable_crypto_shash_export446, ptr @__UNIQUE_ID___addressable_crypto_shash_final442, ptr @__UNIQUE_ID___addressable_crypto_shash_finup443, ptr @__UNIQUE_ID___addressable_crypto_shash_import447, ptr @__UNIQUE_ID___addressable_crypto_shash_setkey440, ptr @__UNIQUE_ID___addressable_crypto_shash_tfm_digest445, ptr @__UNIQUE_ID___addressable_crypto_shash_update441, ptr @__UNIQUE_ID___addressable_crypto_unregister_shash455, ptr @__UNIQUE_ID___addressable_crypto_unregister_shashes457, ptr @__UNIQUE_ID___addressable_shash_free_singlespawn_instance461, ptr @__UNIQUE_ID___addressable_shash_no_setkey439, ptr @__UNIQUE_ID___addressable_shash_register_instance460, ptr @__UNIQUE_ID_description464, ptr @__UNIQUE_ID_file462, ptr @__UNIQUE_ID_license463], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @shash_no_setkey(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2) #0 align 16 {
+define dso_local noundef i32 @shash_no_setkey(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2) #0 align 16 {
   ret i32 -38
 }
 
@@ -109,10 +109,10 @@ define dso_local i32 @crypto_shash_setkey(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_shash_update(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
@@ -204,7 +204,7 @@ define dso_local i32 @crypto_shash_tfm_digest(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_shash_export(ptr noundef %0, ptr noundef %1) #1 align 16 {
@@ -233,7 +233,7 @@ define dso_local i32 @crypto_shash_export(ptr noundef %0, ptr noundef %1) #1 ali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @crypto_shash_import(ptr noundef %0, ptr noundef %1) #1 align 16 {
@@ -343,7 +343,7 @@ define internal i32 @crypto_shash_init_tfm(ptr noundef initializes((-8, -4)) %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_shash_show(ptr noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define internal void @crypto_shash_show(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.1) #8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
@@ -487,7 +487,7 @@ define dso_local ptr @crypto_clone_shash(ptr noundef %0) #1 align 16 {
 declare dso_local ptr @crypto_clone_tfm(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @hash_prepare_alg(ptr nocapture noundef %0) local_unnamed_addr #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @hash_prepare_alg(ptr noundef captures(none) %0) local_unnamed_addr #6 align 16 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp ugt i32 %2, 64
   br i1 %3, label %12, label %4

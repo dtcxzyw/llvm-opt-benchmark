@@ -281,7 +281,7 @@ sub_02.i:                                         ; preds = %.lr.ph.i
 
 48:                                               ; preds = %41, %39
   %.1.i = phi ptr [ %42, %41 ], [ %.0237.i, %39 ]
-  %49 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.58, ptr noundef %27) #12
+  %49 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef nonnull %.1.i, ptr noundef nonnull @.str.58, ptr noundef nonnull %27) #12
   br label %.tail.thread.i
 
 .tail.thread.i:                                   ; preds = %48, %.tail1.i, %sub_02.i, %.tail.i, %sub_0.i
@@ -1297,7 +1297,7 @@ define internal fastcc void @check_is_install_user(ptr noundef %0) unnamed_addr 
 
 5:                                                ; preds = %1
   %6 = tail call ptr @PQgetvalue(ptr noundef %3, i32 noundef 0, i32 noundef 1) #12
-  %7 = tail call i64 @strtoul(ptr nocapture noundef %6, ptr noundef null, i32 noundef 10) #12
+  %7 = tail call i64 @strtoul(ptr noundef captures(none) %6, ptr noundef null, i32 noundef 10) #12
   %8 = and i64 %7, 4294967295
   %.not11 = icmp eq i64 %8, 10
   br i1 %.not11, label %11, label %9
@@ -1450,7 +1450,7 @@ define dso_local void @check_new_cluster() local_unnamed_addr #0 {
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %21 = load ptr, ptr %20, align 8
-  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.36, ptr noundef %19, ptr noundef %15, ptr noundef %21) #14
+  tail call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.36, ptr noundef %19, ptr noundef nonnull %15, ptr noundef %21) #14
   unreachable
 
 ._crit_edge.i:                                    ; preds = %12, %6
@@ -1565,7 +1565,7 @@ check_for_new_tablespace_dir.exit:                ; preds = %28, %25
   br i1 %.not22.i, label %65, label %64
 
 64:                                               ; preds = %61
-  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.140, ptr noundef %62) #14
+  call void (ptr, ...) @pg_fatal(ptr noundef nonnull @.str.140, ptr noundef nonnull %62) #14
   unreachable
 
 65:                                               ; preds = %61
@@ -1807,7 +1807,7 @@ declare void @get_control_data(ptr noundef, i1 noundef zeroext) local_unnamed_ad
 declare void @check_control_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @create_script_for_old_cluster_deletion(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
+define dso_local void @create_script_for_old_cluster_deletion(ptr noundef captures(none) initializes((0, 8)) %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16
@@ -1962,12 +1962,12 @@ declare void @canonicalize_path(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @path_is_prefix_of_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare void @pg_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 declare ptr @pg_strerror(i32 noundef) local_unnamed_addr #1
 
@@ -1981,18 +1981,18 @@ declare ptr @pg_strdup(ptr noundef) local_unnamed_addr #1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @connectToServer(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2001,7 +2001,7 @@ declare ptr @executeQueryOrDie(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare i32 @PQntuples(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2014,22 +2014,22 @@ declare i32 @PQfnumber(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @check_for_data_types_usage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare zeroext i1 @check_for_data_type_usage(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare i32 @count_old_cluster_logical_slots() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @count_old_cluster_subscriptions() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

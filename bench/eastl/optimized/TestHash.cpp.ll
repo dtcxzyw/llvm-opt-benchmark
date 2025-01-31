@@ -1405,7 +1405,7 @@ $_ZTI17CountingAllocator = comdat any
 @_ZN5eastl13hash_multimapI7Align32S1_NS_4hashIS1_EENS_8equal_toIS1_EENS_9allocatorELb0EEC1ESt16initializer_listINS_4pairIKS1_S1_EEEmRKS3_RKS5_RKS6_ = weak_odr dso_local unnamed_addr alias void (ptr, ptr, i64, i64, ptr, ptr, ptr), ptr @_ZN5eastl13hash_multimapI7Align32S1_NS_4hashIS1_EENS_8equal_toIS1_EENS_9allocatorELb0EEC2ESt16initializer_listINS_4pairIKS1_S1_EEEmRKS3_RKS5_RKS6_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZeqRK14HashtableValueS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %htv1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %htv2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZeqRK14HashtableValueS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %htv1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %htv2) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %htv1, align 8
   %1 = load i64, ptr %htv2, align 8
@@ -1582,7 +1582,7 @@ if.end:                                           ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local void @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EEC2EOSE_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(45) %x) unnamed_addr #1 comdat($_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EEC5EOSE_) align 2 {
@@ -4304,7 +4304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr dso_local noundef ptr @_ZN5eastl9hashtableIiNS_4pairIKiiEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb1ELb1ELb1EE14DoAllocateNodeEOS3_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(8) %value) local_unnamed_addr #1 comdat align 2 {
@@ -10215,7 +10215,7 @@ if.then.i.i.i.i:                                  ; preds = %for.inc.i.i.i.i.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %call.i6.i.i.i.i.i.i, ptr noundef nonnull align 32 dereferenceable(32) %first.addr.08, i64 32, i1 false), !noalias !264
   %mpNext.i15.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i.i, i64 32
   store ptr null, ptr %mpNext.i15.i.i.i.i, align 32, !noalias !264
-  call void @_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.320") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(4) %first.addr.08, i64 noundef %conv.i.i.i.i, i64 noundef %rem.i.i.i.i.i.i, ptr noundef %call.i6.i.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.320") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(4) %first.addr.08, i64 noundef %conv.i.i.i.i, i64 noundef %rem.i.i.i.i.i.i, ptr noundef nonnull %call.i6.i.i.i.i.i.i)
   br label %_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE6insertERKS1_.exit
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
@@ -11204,7 +11204,7 @@ if.then.i.i.i.i:                                  ; preds = %for.inc.i.i.i.i.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(64) %call.i6.i.i.i.i.i.i, ptr noundef nonnull align 32 dereferenceable(64) %first.addr.08, i64 64, i1 false), !noalias !290
   %mpNext.i15.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i.i, i64 64
   store ptr null, ptr %mpNext.i15.i.i.i.i, align 32, !noalias !290
-  call void @_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.56") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(64) %first.addr.08, i64 noundef %conv.i.i.i.i, i64 noundef %rem.i.i.i.i.i.i, ptr noundef %call.i6.i.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.56") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(64) %first.addr.08, i64 noundef %conv.i.i.i.i, i64 noundef %rem.i.i.i.i.i.i, ptr noundef nonnull %call.i6.i.i.i.i.i.i)
   br label %_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertERKS4_.exit
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
@@ -50015,7 +50015,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEE6Layout7SetSizeEm.exit: ; preds = %_ZN5e
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local { ptr, ptr } @_ZN5eastl9hashtableINS_12basic_stringIcNS_9allocatorEEES3_S2_NS_8use_selfIS3_EENS_8equal_toIS3_EENS_4hashIS3_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE7find_asIS3_EENS_18hashtable_iteratorIS3_Lb1ELb0EEERKT_(ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(24) %other) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -51267,7 +51267,7 @@ _ZN5eastl9hashtableIZ8TestHashvE3KeyNS_4pairIKS1_iEENS_9allocatorENS_9use_firstI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5eastl8hash_mapIZ8TestHashvE3KeyiZ8TestHashvE4HashNS_8equal_toIS1_EENS_9allocatorELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl8hash_mapIZ8TestHashvE3KeyiZ8TestHashvE4HashNS_8equal_toIS1_EENS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(45) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpBucketArray.i.i, align 8
@@ -51491,7 +51491,7 @@ _ZN5eastl6rbtreeINS_12basic_stringIc17CountingAllocatorEENS_4pairIKS3_S3_EENS_8e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5eastl8hash_mapINS_4pairIiPKcEEbNS_4hashIS4_EEZ8TestHashvE11name_equalsNS_9allocatorELb0EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl8hash_mapINS_4pairIiPKcEEbNS_4hashIS4_EEZ8TestHashvE11name_equalsNS_9allocatorELb0EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(45) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mpBucketArray.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpBucketArray.i.i, align 8
@@ -51547,7 +51547,7 @@ _ZN5eastl9hashtableINS_4pairIiPKcEENS1_IKS4_bEENS_9allocatorENS_9use_firstIS6_EE
 declare noundef ptr @_ZnammmPKcijS0_i(i64 noundef, i64 noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZN15CustomAllocator10deallocateEPvm(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -52103,7 +52103,7 @@ if.end11:                                         ; preds = %cond.false.i.i26, %
 declare noundef i32 @_ZN2EA4StdC9VsnprintfEPcmPKcP13__va_list_tag(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN5eastl12basic_stringIcNS_9allocatorEE12set_capacityEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %n) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -54595,7 +54595,7 @@ if.then.i.i.i:                                    ; preds = %for.inc.i.i.i.i, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %call.i6.i.i.i.i.i, ptr noundef nonnull align 32 dereferenceable(32) %first.sroa.0.010, i64 32, i1 false), !noalias !2068
   %mpNext.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i, i64 32
   store ptr null, ptr %mpNext.i15.i.i.i, align 32, !noalias !2068
-  call void @_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.320") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(4) %first.sroa.0.010, i64 noundef %conv.i.i.i3, i64 noundef %rem.i.i.i.i.i, ptr noundef %call.i6.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.320") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(4) %first.sroa.0.010, i64 noundef %conv.i.i.i3, i64 noundef %rem.i.i.i.i.i, ptr noundef nonnull %call.i6.i.i.i.i.i)
   br label %_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEET_RKS1_PNS_9enable_ifIXsrSK_5valueEvE4typeE.exit
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i
@@ -54760,7 +54760,7 @@ if.then.i.i.i:                                    ; preds = %for.inc.i.i.i.i, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(32) %call.i6.i.i.i.i.i, ptr noundef nonnull align 32 dereferenceable(32) %first.addr.011, i64 32, i1 false), !noalias !2079
   %mpNext.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i, i64 32
   store ptr null, ptr %mpNext.i15.i.i.i, align 32, !noalias !2079
-  call void @_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.320") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(4) %first.addr.011, i64 noundef %conv.i.i.i6, i64 noundef %rem.i.i.i.i.i, ptr noundef %call.i6.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.320") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(4) %first.addr.011, i64 noundef %conv.i.i.i6, i64 noundef %rem.i.i.i.i.i, ptr noundef nonnull %call.i6.i.i.i.i.i)
   br label %_ZN5eastl9hashtableI7Align32S1_NS_9allocatorENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEET_RKS1_PNS_9enable_ifIXsrSK_5valueEvE4typeE.exit
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i
@@ -55454,7 +55454,7 @@ if.then.i.i.i:                                    ; preds = %for.inc.i.i.i.i, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(64) %call.i6.i.i.i.i.i, ptr noundef nonnull align 32 dereferenceable(64) %first.sroa.0.010, i64 64, i1 false), !noalias !2099
   %mpNext.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i, i64 64
   store ptr null, ptr %mpNext.i15.i.i.i, align 32, !noalias !2099
-  call void @_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.56") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(64) %first.sroa.0.010, i64 noundef %conv.i.i.i3, i64 noundef %rem.i.i.i.i.i, ptr noundef %call.i6.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.56") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(64) %first.sroa.0.010, i64 noundef %conv.i.i.i3, i64 noundef %rem.i.i.i.i.i, ptr noundef nonnull %call.i6.i.i.i.i.i)
   br label %_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEET_RKS4_PNS_9enable_ifIXsrSM_5valueEvE4typeE.exit
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i
@@ -55619,7 +55619,7 @@ if.then.i.i.i:                                    ; preds = %for.inc.i.i.i.i, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 32 dereferenceable(64) %call.i6.i.i.i.i.i, ptr noundef nonnull align 32 dereferenceable(64) %first.addr.011, i64 64, i1 false), !noalias !2110
   %mpNext.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call.i6.i.i.i.i.i, i64 64
   store ptr null, ptr %mpNext.i15.i.i.i, align 32, !noalias !2110
-  call void @_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.56") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(64) %first.addr.011, i64 noundef %conv.i.i.i6, i64 noundef %rem.i.i.i.i.i, ptr noundef %call.i6.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.56") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 32 dereferenceable(64) %first.addr.011, i64 noundef %conv.i.i.i6, i64 noundef %rem.i.i.i.i.i, ptr noundef nonnull %call.i6.i.i.i.i.i)
   br label %_ZN5eastl9hashtableI7Align32NS_4pairIKS1_S1_EENS_9allocatorENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEET_RKS4_PNS_9enable_ifIXsrSM_5valueEvE4typeE.exit
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i
@@ -61402,7 +61402,7 @@ if.then.i.i.i:                                    ; preds = %for.inc.i.i.i.i, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %first.sroa.0.010, i64 16, i1 false), !noalias !2206
   %mpNext.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 16
   store ptr null, ptr %mpNext.i15.i.i.i, align 8, !noalias !2206
-  call void @_ZN5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.139") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(16) %first.sroa.0.010, i64 noundef %16, i64 noundef %rem.i.i.i.i.i, ptr noundef %call.i.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.139") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(16) %first.sroa.0.010, i64 noundef %16, i64 noundef %rem.i.i.i.i.i, ptr noundef nonnull %call.i.i.i.i.i.i)
   br label %_ZN5eastl9hashtableI14HashtableValueS1_NS_9allocatorENS_8use_selfIS1_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEET_RKS1_PNS_9enable_ifIXsrSI_5valueEvE4typeE.exit
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i
@@ -62414,7 +62414,7 @@ if.then.i.i.i:                                    ; preds = %for.inc.i.i.i.i, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %call.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.010, i64 24, i1 false), !noalias !2227
   %mpNext.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 24
   store ptr null, ptr %mpNext.i15.i.i.i, align 8, !noalias !2227
-  call void @_ZN5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.155") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.010, i64 noundef %16, i64 noundef %rem.i.i.i.i.i, ptr noundef %call.i.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.155") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(24) %first.sroa.0.010, i64 noundef %16, i64 noundef %rem.i.i.i.i.i, ptr noundef nonnull %call.i.i.i.i.i.i)
   br label %_ZN5eastl9hashtableImNS_4pairIKm14HashtableValueEENS_9allocatorENS_9use_firstIS4_EE23HashtableValuePredicate18HashtableValueHashNS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEET_RKS4_PNS_9enable_ifIXsrSK_5valueEvE4typeE.exit
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i
@@ -63818,7 +63818,7 @@ if.then.i.i.i.i:                                  ; preds = %for.inc.i.i.i.i.i, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %first.addr.08, i64 16, i1 false), !noalias !2259
   %mpNext.i15.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 16
   store ptr null, ptr %mpNext.i15.i.i.i.i, align 8, !noalias !2259
-  call void @_ZN5eastl9hashtableIiNS_4pairIKidEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.389") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(16) %first.addr.08, i64 noundef %conv.i.i.i.i, i64 noundef %rem.i.i.i.i.i.i, ptr noundef %call.i.i.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableIiNS_4pairIKidEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.389") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(16) %first.addr.08, i64 noundef %conv.i.i.i.i, i64 noundef %rem.i.i.i.i.i.i, ptr noundef nonnull %call.i.i.i.i.i.i.i)
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE6insertERKS3_.exit
 
 if.end.i.i.i.i:                                   ; preds = %for.body.i.i.i.i.i
@@ -64083,7 +64083,7 @@ if.then.i.i.i:                                    ; preds = %for.inc.i.i.i.i, %f
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %first.addr.011, i64 16, i1 false), !noalias !2272
   %mpNext.i15.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i, i64 16
   store ptr null, ptr %mpNext.i15.i.i.i, align 8, !noalias !2272
-  call void @_ZN5eastl9hashtableIiNS_4pairIKidEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.389") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(16) %first.addr.011, i64 noundef %conv.i.i.i6, i64 noundef %rem.i.i.i.i.i, ptr noundef %call.i.i.i.i.i.i)
+  call void @_ZN5eastl9hashtableIiNS_4pairIKidEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE(ptr nonnull sret(%"struct.eastl::pair.389") align 8 %tmp, ptr noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 8 dereferenceable(16) %first.addr.011, i64 noundef %conv.i.i.i6, i64 noundef %rem.i.i.i.i.i, ptr noundef nonnull %call.i.i.i.i.i.i)
   br label %_ZN5eastl9hashtableIiNS_4pairIKidEENS_9allocatorENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEET_RKS3_PNS_9enable_ifIXsrSL_5valueEvE4typeE.exit
 
 if.end.i.i.i:                                     ; preds = %for.body.i.i.i.i
@@ -64899,7 +64899,7 @@ return:                                           ; preds = %if.end, %_ZN5eastl6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #15
@@ -64914,13 +64914,13 @@ declare void @llvm.va_copy.p0(ptr, ptr) #15
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19

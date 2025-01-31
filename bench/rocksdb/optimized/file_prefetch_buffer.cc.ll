@@ -72,7 +72,7 @@ $_ZNSt17_Function_handlerIFvRKN7rocksdb13FSReadRequestEPvESt5_BindIFMNS0_18FileP
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer21CalculateOffsetAndLenEmmmjbRm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i64 noundef %alignment, i64 noundef %offset, i64 noundef %roundup_len, i32 noundef %index, i1 noundef zeroext %refit_tail, ptr nocapture noundef nonnull align 8 dereferenceable(8) %chunk_len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer21CalculateOffsetAndLenEmmmjbRm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i64 noundef %alignment, i64 noundef %offset, i64 noundef %roundup_len, i32 noundef %index, i1 noundef zeroext %refit_tail, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %chunk_len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %this, align 8
@@ -240,7 +240,7 @@ if.end50:                                         ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer4ReadERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmj(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef nonnull %reader, i64 noundef %read_len, i64 noundef %chunk_len, i64 noundef %start_offset, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer4ReadERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmj(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef nonnull %reader, i64 noundef %read_len, i64 noundef %chunk_len, i64 noundef %start_offset, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
@@ -636,7 +636,7 @@ ehcleanup:                                        ; preds = %if.then.i.i19, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer21PrefetchAsyncCallbackERKNS_13FSReadRequestEPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %req, ptr nocapture noundef readonly %cb_arg) #2 align 2 {
+define void @_ZN7rocksdb18FilePrefetchBuffer21PrefetchAsyncCallbackERKNS_13FSReadRequestEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %req, ptr noundef readonly captures(none) %cb_arg) #2 align 2 {
 entry:
   %status = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load i8, ptr %status, align 8
@@ -672,7 +672,7 @@ if.end30:                                         ; preds = %if.then, %if.end17,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN7rocksdb22RandomAccessFileReader9ReadAsyncERNS_13FSReadRequestERKNS_9IOOptionsESt8functionIFvRKS1_PvEES9_PS9_PS6_IFvS9_EEPSt10unique_ptrIA_cSt14default_deleteISH_EE(ptr sret(%"class.rocksdb::IOStatus") align 8, ptr noundef nonnull align 8 dereferenceable(202), ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(83), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -935,7 +935,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer19ReadAheadSizeTuningEbbmjmmmRmS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext %read_curr_block, i1 noundef zeroext %refit_tail, i64 noundef %prev_buf_end_offset, i32 noundef %index, i64 noundef %alignment, i64 noundef %length, i64 noundef %readahead_size, ptr nocapture noundef nonnull align 8 dereferenceable(8) %start_offset, ptr nocapture noundef nonnull align 8 dereferenceable(8) %end_offset, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %read_len, ptr nocapture noundef nonnull align 8 dereferenceable(8) %chunk_len) local_unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb18FilePrefetchBuffer19ReadAheadSizeTuningEbbmjmmmRmS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext %read_curr_block, i1 noundef zeroext %refit_tail, i64 noundef %prev_buf_end_offset, i32 noundef %index, i64 noundef %alignment, i64 noundef %length, i64 noundef %readahead_size, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %start_offset, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %end_offset, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %read_len, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %chunk_len) local_unnamed_addr #0 align 2 {
 entry:
   %__args.addr.i = alloca i8, align 1
   %updated_start_offset = alloca i64, align 8
@@ -1115,7 +1115,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer16CopyDataToBufferEjRmS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %src, ptr nocapture noundef nonnull align 8 dereferenceable(8) %offset, ptr nocapture noundef nonnull align 8 dereferenceable(8) %length) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb18FilePrefetchBuffer16CopyDataToBufferEjRmS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %src, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %offset, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %length) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %length, align 8
   %cmp = icmp eq i64 %0, 0
@@ -1189,7 +1189,7 @@ if.end38:                                         ; preds = %entry, %if.then34, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer15AbortIOIfNeededEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i64 noundef %offset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer15AbortIOIfNeededEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i64 noundef %offset) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca ptr, align 8
   %handles = alloca %"class.std::vector.52", align 8
@@ -1942,7 +1942,7 @@ if.end:                                           ; preds = %invoke.cont.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer11AbortAllIOsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer11AbortAllIOsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i44 = alloca ptr, align 8
   %__args.addr.i.i = alloca ptr, align 8
@@ -2350,7 +2350,7 @@ _ZNSt6vectorIPvSaIS0_EED2Ev.exit74:               ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer21UpdateBuffersIfNeededEmm(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb18FilePrefetchBuffer21UpdateBuffersIfNeededEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #2 align 2 {
 entry:
   %curr_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %curr_, align 8
@@ -2529,7 +2529,7 @@ if.end94:                                         ; preds = %if.end94.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer28PollAndUpdateBuffersIfNeededEmm(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer28PollAndUpdateBuffersIfNeededEmm(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca ptr, align 8
   %handles = alloca %"class.std::vector.52", align 8
@@ -2792,7 +2792,7 @@ if.end22:                                         ; preds = %_ZN7rocksdb18FilePr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer21HandleOverlappingDataERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmRbRmS7_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %length, i64 noundef %readahead_size, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %copy_to_third_buffer, ptr nocapture noundef nonnull align 8 dereferenceable(8) %tmp_offset, ptr nocapture noundef nonnull align 8 dereferenceable(8) %tmp_length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer21HandleOverlappingDataERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmRbRmS7_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %length, i64 noundef %readahead_size, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %copy_to_third_buffer, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %tmp_offset, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %tmp_length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %start_offset = alloca i64, align 8
   %read_len = alloca i64, align 8
@@ -3125,7 +3125,7 @@ nrvo.skipdtor:                                    ; preds = %land.lhs.true20, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer21PrefetchAsyncInternalERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmRb(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %length, i64 noundef %readahead_size, ptr nocapture noundef nonnull align 1 dereferenceable(1) %copy_to_third_buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer21PrefetchAsyncInternalERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmmRb(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %length, i64 noundef %readahead_size, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %copy_to_third_buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i404 = alloca ptr, align 8
   %__args.addr.i.i183 = alloca ptr, align 8
@@ -4473,7 +4473,7 @@ if.end4:                                          ; preds = %if.then.i3, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer16TryReadFromCacheERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusEb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr nocapture noundef writeonly %result, ptr noundef %status, i1 noundef zeroext %for_compaction) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer16TryReadFromCacheERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusEb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr noundef writeonly captures(none) %result, ptr noundef %status, i1 noundef zeroext %for_compaction) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer25TryReadFromCacheUntrackedERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusEb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr noundef %result, ptr noundef %status, i1 noundef zeroext %for_compaction)
   %usage_ = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -4506,7 +4506,7 @@ if.end7:                                          ; preds = %if.then, %if.end7.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer25TryReadFromCacheUntrackedERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusEb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr nocapture noundef writeonly %result, ptr noundef %status, i1 noundef zeroext %for_compaction) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer25TryReadFromCacheUntrackedERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusEb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr noundef writeonly captures(none) %result, ptr noundef %status, i1 noundef zeroext %for_compaction) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.4", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -4822,7 +4822,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer21TryReadFromCacheAsyncERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr nocapture noundef writeonly %result, ptr noundef %status) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer21TryReadFromCacheAsyncERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr noundef writeonly captures(none) %result, ptr noundef %status) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer30TryReadFromCacheAsyncUntrackedERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr noundef %result, ptr noundef %status)
   %usage_ = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -4855,7 +4855,7 @@ if.end5:                                          ; preds = %if.then, %if.end5.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer30TryReadFromCacheAsyncUntrackedERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr nocapture noundef writeonly %result, ptr noundef %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb18FilePrefetchBuffer30TryReadFromCacheAsyncUntrackedERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceEPNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr noundef writeonly captures(none) %result, ptr noundef %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.4", align 8
   %copy_to_third_buffer = alloca i8, align 1
@@ -5189,7 +5189,7 @@ return:                                           ; preds = %cleanup, %_ZNKSt14d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18FilePrefetchBuffer13PrefetchAsyncERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18FilePrefetchBuffer13PrefetchAsyncERKNS_9IOOptionsEPNS_22RandomAccessFileReaderEmmPNS_5SliceE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(83) %opts, ptr noundef %reader, i64 noundef %offset, i64 noundef %n, ptr noundef writeonly captures(none) %result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i112 = alloca ptr, align 8
   %__args.addr.i.i = alloca ptr, align 8
@@ -5845,10 +5845,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #11
@@ -5936,10 +5936,10 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #13

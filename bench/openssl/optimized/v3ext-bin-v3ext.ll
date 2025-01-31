@@ -660,7 +660,7 @@ for.body:                                         ; preds = %entry, %if.end43
   %0 = load ptr, ptr %arrayidx, align 16
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %conv = trunc i64 %call to i32
-  %call3 = call ptr @BIO_new_mem_buf(ptr noundef %0, i32 noundef %conv) #5
+  %call3 = call ptr @BIO_new_mem_buf(ptr noundef nonnull %0, i32 noundef %conv) #5
   %call4 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 374, ptr noundef nonnull @.str.92, ptr noundef %call3) #5
   %tobool.not = icmp eq i32 %call4, 0
   br i1 %tobool.not, label %return, label %if.end
@@ -699,7 +699,7 @@ if.then18:                                        ; preds = %if.else
   br i1 %tobool23.not, label %if.then24, label %if.end43
 
 if.then24:                                        ; preds = %if.then18
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 391, ptr noundef nonnull @.str.98, ptr noundef %0) #5
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 391, ptr noundef nonnull @.str.98, ptr noundef nonnull %0) #5
   br label %if.end43
 
 if.else28:                                        ; preds = %if.else
@@ -712,7 +712,7 @@ if.else28:                                        ; preds = %if.else
   br i1 %tobool34.not, label %if.then35, label %if.else39
 
 if.then35:                                        ; preds = %if.else28
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 399, ptr noundef nonnull @.str.98, ptr noundef %0) #5
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 399, ptr noundef nonnull @.str.98, ptr noundef nonnull %0) #5
   %call38 = call i32 @ERR_clear_last_mark() #5
   br label %if.end43
 
@@ -1118,7 +1118,7 @@ declare i32 @X509v3_addr_canonize(ptr noundef) local_unnamed_addr #2
 declare ptr @a2i_IPADDRESS(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @X509v3_addr_add_range(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1137,7 +1137,7 @@ declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @BIO_new_mem_buf(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @NCONF_new_ex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -1174,7 +1174,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @X509v3_addr_subset(ptr noundef, ptr noundef) local_unnamed_addr #2
 

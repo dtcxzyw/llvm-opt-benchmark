@@ -156,17 +156,17 @@ define internal range(i32 -2147483648, 1) i32 @ctnetlink_init() #0 section ".ini
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @ctnetlink_net_init(ptr nocapture readnone %0) #2 align 16 {
+define internal noundef i32 @ctnetlink_net_init(ptr readnone captures(none) %0) #2 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @ctnetlink_net_pre_exit(ptr nocapture readnone %0) #2 align 16 {
+define internal void @ctnetlink_net_pre_exit(ptr readnone captures(none) %0) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_new_expect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal i32 @ctnetlink_new_expect(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = alloca %struct.nf_conntrack_tuple, align 4
   %5 = alloca %struct.nf_conntrack_zone, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -281,7 +281,7 @@ define internal i32 @ctnetlink_new_expect(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal i32 @ctnetlink_get_expect(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.nf_conntrack_tuple, align 4
   %6 = alloca %struct.nf_conntrack_zone, align 4
@@ -578,7 +578,7 @@ nf_expect_get_id.exit:                            ; preds = %122, %128
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @ctnetlink_del_expect(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal range(i32 -2147483648, 1) i32 @ctnetlink_del_expect(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = alloca %struct.nf_conntrack_tuple, align 4
   %5 = alloca %struct.nf_conntrack_zone, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -722,7 +722,7 @@ define internal range(i32 -2147483648, 1) i32 @ctnetlink_del_expect(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_stat_exp_cpu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
+define internal i32 @ctnetlink_stat_exp_cpu(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = alloca %struct.netlink_dump_control, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -751,16 +751,16 @@ define internal i32 @ctnetlink_stat_exp_cpu(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @__nf_ct_expect_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #3 align 16 {
+define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #3 align 16 {
   %7 = alloca [3 x ptr], align 16
   %8 = alloca %struct.nf_conntrack_tuple, align 4
   %9 = alloca %struct.nf_conntrack_tuple, align 4
@@ -1052,10 +1052,10 @@ define internal fastcc i32 @ctnetlink_create_expect(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filter(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 40)) %1, i32 noundef range(i32 1, 15) %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef range(i32 1, 0) %5) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filter(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 40)) %1, i32 noundef range(i32 1, 15) %2, i8 noundef zeroext %3, ptr noundef %4, i32 noundef range(i32 1, 0) %5) unnamed_addr #3 align 16 {
   %7 = alloca [10 x ptr], align 16
   %8 = alloca %struct.in6_addr, align 8
   %9 = alloca %struct.in6_addr, align 8
@@ -1327,7 +1327,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_parse_tuple_filt
 declare dso_local i32 @__nla_parse(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @nla_memcpy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1447,7 +1447,7 @@ declare dso_local void @add_timer(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @timer_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr nocapture noundef %1) #3 align 16 {
+define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr noundef captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1619,7 +1619,7 @@ define internal i32 @ctnetlink_exp_dump_table(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ctnetlink_exp_done(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal noundef i32 @ctnetlink_exp_done(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -2090,7 +2090,7 @@ define internal fastcc i32 @ctnetlink_exp_fill_info(ptr noundef %0, i32 noundef 
 declare dso_local i32 @nfnetlink_unicast(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr nocapture noundef %1) #3 align 16 {
+define internal i32 @ctnetlink_exp_ct_dump_table(ptr noundef %0, ptr noundef captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 16
@@ -2524,7 +2524,7 @@ define internal fastcc range(i32 -90, 1) i32 @ctnetlink_dump_tuples_ip(ptr nound
 declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -2539,7 +2539,7 @@ declare dso_local void @nf_ct_unlink_expect_report(ptr noundef, i32 noundef, i32
 declare dso_local void @nf_ct_expect_iterate_net(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @expect_iter_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal zeroext i1 @expect_iter_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 176
@@ -2585,15 +2585,15 @@ define internal zeroext i1 @expect_iter_name(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef zeroext i1 @expect_iter_all(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define internal noundef zeroext i1 @expect_iter_all(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr nocapture noundef %1) #3 align 16 {
+define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr noundef captures(none) %1) #3 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -2764,7 +2764,7 @@ define internal i32 @ctnetlink_exp_stat_cpu_dump(ptr noundef %0, ptr nocapture n
 declare i16 @llvm.bswap.i16(i16) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal i32 @ctnetlink_new_conntrack(ptr readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = alloca [3 x ptr], align 16
   %5 = alloca %struct.nf_conntrack_tuple, align 4
   %6 = alloca %struct.nf_conntrack_tuple, align 4
@@ -3138,7 +3138,7 @@ define internal i32 @ctnetlink_new_conntrack(ptr nocapture readonly %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_get_conntrack(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #3 align 16 {
+define internal i32 @ctnetlink_get_conntrack(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #3 align 16 {
   %4 = alloca %struct.nf_conntrack_tuple, align 4
   %5 = alloca %struct.nf_conntrack_zone, align 4
   %6 = alloca %struct.netlink_dump_control, align 8
@@ -3297,7 +3297,7 @@ define internal i32 @ctnetlink_get_conntrack(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_del_conntrack(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 align 16 {
+define internal i32 @ctnetlink_del_conntrack(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 align 16 {
   %4 = alloca %struct.nf_ct_iter_data, align 8
   %5 = alloca %struct.nf_conntrack_tuple, align 4
   %6 = alloca %struct.nf_conntrack_zone, align 4
@@ -3509,7 +3509,7 @@ define internal i32 @ctnetlink_del_conntrack(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_stat_ct_cpu(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
+define internal i32 @ctnetlink_stat_ct_cpu(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = alloca %struct.netlink_dump_control, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -3538,7 +3538,7 @@ define internal i32 @ctnetlink_stat_ct_cpu(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_stat_ct(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
+define internal i32 @ctnetlink_stat_ct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call ptr @__alloc_skb(i32 noundef 3776, i32 noundef 3264, i32 noundef 0, i32 noundef -1) #16
@@ -3657,7 +3657,7 @@ define internal i32 @ctnetlink_stat_ct(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_get_ct_dying(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
+define internal i32 @ctnetlink_get_ct_dying(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = alloca %struct.netlink_dump_control, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -3688,7 +3688,7 @@ define internal i32 @ctnetlink_get_ct_dying(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_get_ct_unconfirmed(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2) #3 align 16 {
+define internal i32 @ctnetlink_get_ct_unconfirmed(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = alloca %struct.netlink_dump_control, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -3719,7 +3719,7 @@ define internal i32 @ctnetlink_get_ct_unconfirmed(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5) unnamed_addr #3 align 16 {
+define internal fastcc ptr @ctnetlink_create_conntrack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5) unnamed_addr #3 align 16 {
   %7 = alloca [4 x ptr], align 16
   %8 = alloca [3 x ptr], align 16
   %9 = alloca %struct.nf_conntrack_tuple, align 4
@@ -4038,7 +4038,7 @@ declare dso_local ptr @nf_conntrack_alloc(ptr noundef, ptr noundef, ptr noundef,
 declare dso_local ptr @nf_ct_helper_ext_add(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @ctnetlink_change_seq_adj(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 16 {
   %3 = alloca [4 x ptr], align 16
   %4 = alloca [4 x ptr], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -4307,7 +4307,7 @@ declare dso_local void @nf_ct_remove_expectations(ptr noundef) local_unnamed_add
 declare dso_local i32 @__nf_ct_change_timeout(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_start(ptr nocapture noundef %0) #3 align 16 {
+define internal i32 @ctnetlink_start(ptr noundef captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4362,7 +4362,7 @@ define internal i32 @ctnetlink_start(ptr nocapture noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef %1) #3 align 16 {
+define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr noundef captures(none) %1) #3 align 16 {
   %3 = alloca [8 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -4792,7 +4792,7 @@ define internal i32 @ctnetlink_dump_table(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ctnetlink_done(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal noundef i32 @ctnetlink_done(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -5218,7 +5218,7 @@ define internal fastcc i32 @ctnetlink_fill_info(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) unnamed_addr #3 align 16 {
+define internal fastcc ptr @ctnetlink_alloc_filter(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) unnamed_addr #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -5352,7 +5352,7 @@ define internal fastcc ptr @ctnetlink_alloc_filter(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #3 align 16 {
+define internal fastcc i32 @ctnetlink_parse_filter(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #3 align 16 {
   %3 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -5430,7 +5430,7 @@ declare dso_local zeroext i1 @nf_ct_delete(ptr noundef, i32 noundef, i32 noundef
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 0) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #12 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ctnetlink_filter_match_tuple(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 0) %2, i32 noundef range(i32 0, 256) %3) unnamed_addr #12 align 16 {
   %trunc = trunc nuw i32 %3 to i8
   switch i8 %trunc, label %35 [
     i8 2, label %5
@@ -5907,7 +5907,7 @@ declare i64 @llvm.bswap.i64(i64) #8
 declare dso_local i32 @nla_put_64bit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -1, 1) i32 @dump_ct_seq_adj(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 15, 17) %2) unnamed_addr #3 align 16 {
+define internal fastcc noundef range(i32 -1, 1) i32 @dump_ct_seq_adj(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 15, 17) %2) unnamed_addr #3 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -6042,7 +6042,7 @@ define internal noundef range(i32 0, 2) i32 @ctnetlink_flush_iterate(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture noundef %1) #3 align 16 {
+define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr noundef captures(none) %1) #3 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -6296,7 +6296,7 @@ define internal i32 @ctnetlink_ct_stat_cpu_dump(ptr noundef %0, ptr nocapture no
 declare dso_local i32 @nf_conntrack_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ctnetlink_dump_dying(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 align 16 {
+define internal i32 @ctnetlink_dump_dying(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %4 = load i8, ptr %3, align 4, !range !39, !noundef !40
   %5 = icmp eq i8 %4, 0
@@ -6339,7 +6339,7 @@ define internal i32 @ctnetlink_dump_dying(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ctnetlink_done_list(ptr nocapture noundef readonly %0) #3 align 16 {
+define internal noundef i32 @ctnetlink_done_list(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -6368,7 +6368,7 @@ define internal noundef i32 @ctnetlink_done_list(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @ctnetlink_dump_unconfirmed(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define internal noundef i32 @ctnetlink_dump_unconfirmed(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret i32 0
 }
 
@@ -6391,7 +6391,7 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

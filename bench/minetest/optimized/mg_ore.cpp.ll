@@ -120,7 +120,7 @@ entry:
 declare void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN10OreManager12placeAllOresEP6MapgenjN3irr4core8vector3dIsEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef readonly %mg, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZN10OreManager12placeAllOresEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef readonly captures(none) %mg, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %m_objects = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -225,13 +225,13 @@ cleanup:                                          ; preds = %_ZN3Ore8placeOreEP6
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i64 0, 2) i64 @_ZN3Ore8placeOreEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef readonly %mg, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i64 0, 2) i64 @_ZN3Ore8placeOreEP6MapgenjN3irr4core8vector3dIsEES5_(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef readonly captures(none) %mg, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %nmin.sroa.2.0.extract.shift = lshr i48 %nmin.coerce, 16
   %nmin.sroa.2.0.extract.trunc = trunc i48 %nmin.sroa.2.0.extract.shift to i16
@@ -287,10 +287,10 @@ return:                                           ; preds = %if.end31, %if.end, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10OreManager5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10OreManager5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_objects = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_objects, align 8, !tbaa !12
@@ -367,7 +367,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN3OreD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN3OreD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
@@ -377,7 +377,7 @@ entry:
 declare void @llvm.trap() #11
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZThn56_N3OreD0Ev(ptr nocapture readnone %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZThn56_N3OreD0Ev(ptr readnone captures(none) %this) unnamed_addr #12 align 2 {
 entry:
   tail call void @llvm.trap() #24
   unreachable
@@ -787,7 +787,7 @@ lpad.body:                                        ; preds = %if.then.i.i.i9.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10OreScatter8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef readonly %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10OreScatter8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef readonly captures(none) %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pr = alloca %class.PcgRandom, align 8
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i32
@@ -1238,7 +1238,7 @@ lpad.body:                                        ; preds = %if.then.i.i.i9.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8OreSheet8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr nocapture noundef readonly %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8OreSheet8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly captures(none) %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pr = alloca %class.PcgRandom, align 8
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
@@ -1901,7 +1901,7 @@ lpad.body:                                        ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7OrePuff8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef readonly %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7OrePuff8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef readonly captures(none) %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pr = alloca %class.PcgRandom, align 8
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
@@ -2445,7 +2445,7 @@ lpad.body:                                        ; preds = %if.then.i.i.i9.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7OreBlob8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef readonly %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7OreBlob8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef readonly captures(none) %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pr = alloca %class.PcgRandom, align 8
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i32
@@ -3040,7 +3040,7 @@ lpad.body:                                        ; preds = %if.then.i.i.i9.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7OreVein8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr nocapture noundef readonly %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7OreVein8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef readonly captures(none) %vm, i32 noundef %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pr = alloca %class.PcgRandom, align 8
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
@@ -3680,7 +3680,7 @@ lpad.body:                                        ; preds = %if.then.i.i.i9.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10OreStratum8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(338) %this, ptr nocapture noundef readonly %vm, i32 %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10OreStratum8generateEP8MMVManipijN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull align 8 dereferenceable(338) %this, ptr noundef readonly captures(none) %vm, i32 %mapseed, i32 noundef %blockseed, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly %biomemap) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pr = alloca %class.PcgRandom, align 8
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
@@ -4341,7 +4341,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4745,7 +4745,7 @@ declare float @llvm.sqrt.f32(float) #14
 declare float @llvm.ceil.f32(float) #14
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_mg_ore.cpp() #13 section ".text.startup" {

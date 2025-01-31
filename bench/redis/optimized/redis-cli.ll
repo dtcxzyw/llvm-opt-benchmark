@@ -857,7 +857,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.clusterManagerLog = private unnamed_addr constant [4 x ptr] [ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @helpEntryCompare(ptr nocapture noundef readonly %entry1, ptr nocapture noundef readonly %entry2) #0 {
+define dso_local i32 @helpEntryCompare(ptr noundef readonly captures(none) %entry1, ptr noundef readonly captures(none) %entry2) #0 {
 entry:
   %full = getelementptr inbounds nuw i8, ptr %entry1, i64 16
   %0 = load ptr, ptr %full, align 8
@@ -868,7 +868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cliInitGroupHelpEntries(ptr noundef %groups) local_unnamed_addr #2 {
@@ -946,12 +946,12 @@ declare ptr @hi_sdsempty() local_unnamed_addr #3
 declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cliInitCommandHelpEntries(ptr nocapture noundef readonly %commandTable, ptr noundef %groups) local_unnamed_addr #2 {
+define dso_local void @cliInitCommandHelpEntries(ptr noundef readonly captures(none) %commandTable, ptr noundef %groups) local_unnamed_addr #2 {
 entry:
   %elements = getelementptr inbounds nuw i8, ptr %commandTable, i64 48
   %0 = load i64, ptr %elements, align 8
@@ -985,7 +985,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @cliInitCommandHelpEntry(ptr noundef %cmdname, ptr noundef %subcommandname, ptr noundef initializes((0, 32), (48, 60), (64, 72), (80, 88)) %next, ptr nocapture noundef readonly %specs, ptr noundef %groups) unnamed_addr #2 {
+define internal fastcc nonnull ptr @cliInitCommandHelpEntry(ptr noundef %cmdname, ptr noundef %subcommandname, ptr noundef initializes((0, 32), (48, 60), (64, 72), (80, 88)) %next, ptr noundef readonly captures(none) %specs, ptr noundef %groups) unnamed_addr #2 {
 entry:
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %next, i64 88
   tail call fastcc void @cliFillInCommandHelpEntry(ptr noundef %next, ptr noundef %cmdname, ptr noundef %subcommandname)
@@ -1150,7 +1150,7 @@ for.end78:                                        ; preds = %for.inc76, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @cliLegacyInitCommandHelpEntries(ptr nocapture noundef readonly %commands, ptr noundef %groups, ptr noundef %version) local_unnamed_addr #2 {
+define dso_local i32 @cliLegacyInitCommandHelpEntries(ptr noundef readonly captures(none) %commands, ptr noundef %groups, ptr noundef %version) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @helpEntries, align 8
   %1 = load ptr, ptr %commands, align 8
@@ -1233,7 +1233,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @cliLegacyInitCommandHelpEntry(ptr noundef %cmdname, ptr noundef %subcommandname, ptr noundef initializes((0, 32), (48, 60), (64, 72), (80, 88)) %next, ptr nocapture noundef readonly %command, ptr noundef %groups, ptr noundef %version) unnamed_addr #2 {
+define internal fastcc nonnull ptr @cliLegacyInitCommandHelpEntry(ptr noundef %cmdname, ptr noundef %subcommandname, ptr noundef initializes((0, 32), (48, 60), (64, 72), (80, 88)) %next, ptr noundef readonly captures(none) %command, ptr noundef %groups, ptr noundef %version) unnamed_addr #2 {
 entry:
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %next, i64 88
   tail call fastcc void @cliFillInCommandHelpEntry(ptr noundef %next, ptr noundef %cmdname, ptr noundef %subcommandname)
@@ -1482,10 +1482,10 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @sdscatcolor(ptr noundef %o, ptr noundef %s, i64 noundef %len, ptr noundef readonly %color) local_unnamed_addr #2 {
@@ -1617,7 +1617,7 @@ if.else:                                          ; preds = %if.then27
 
 if.end40:                                         ; preds = %if.else, %if.then27, %land.lhs.true, %if.end22
   %color.1 = phi ptr [ %color.0, %land.lhs.true ], [ %color.0, %if.end22 ], [ @.str.8, %if.then27 ], [ %spec.select, %if.else ]
-  %call41 = tail call ptr @sdscatcolor(ptr noundef %o, ptr noundef %s, i64 noundef %len, ptr noundef %color.1)
+  %call41 = tail call ptr @sdscatcolor(ptr noundef %o, ptr noundef nonnull %s, i64 noundef %len, ptr noundef %color.1)
   ret ptr %call41
 }
 
@@ -1625,7 +1625,7 @@ if.end40:                                         ; preds = %if.else, %if.then27
 declare ptr @__ctype_b_loc() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @cliSetPreferences(ptr nocapture noundef readonly %argv, i32 noundef %argc, i32 noundef %interactive) local_unnamed_addr #11 {
+define dso_local void @cliSetPreferences(ptr noundef readonly captures(none) %argv, i32 noundef %argc, i32 noundef %interactive) local_unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %argv, align 8
   %call = tail call i32 @strcasecmp(ptr noundef %0, ptr noundef nonnull @.str.22) #33
@@ -1671,10 +1671,10 @@ if.end19:                                         ; preds = %if.then4, %if.else9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @cliLoadPreferences() local_unnamed_addr #2 {
@@ -1791,22 +1791,22 @@ return:                                           ; preds = %if.else.i, %land.lh
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #13
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @hi_sdssplitargs(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare void @hi_sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @hi_sdsfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandCreate(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandCreate(i32 noundef %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %buf.i = alloca [4 x i8], align 1
   %li.i211 = alloca %struct.listIter, align 8
@@ -1846,7 +1846,7 @@ if.end4.i:                                        ; preds = %if.then.i, %for.bod
 
 if.then:                                          ; preds = %if.end4.i
   %1 = load ptr, ptr @stderr, align 8
-  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.163, ptr noundef %0) #38
+  %call2 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str.163, ptr noundef nonnull %0) #38
   br label %return
 
 if.end:                                           ; preds = %if.end4.i
@@ -1876,7 +1876,7 @@ if.end:                                           ; preds = %if.end4.i
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i178, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call4 = tail call fastcc i32 @clusterManagerNodeConnect(ptr noundef %call.i178)
+  %call4 = tail call fastcc i32 @clusterManagerNodeConnect(ptr noundef nonnull %call.i178)
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %if.then6, label %if.end7
 
@@ -2609,7 +2609,7 @@ while.body.i212:                                  ; preds = %clusterManagerOptim
   %67 = load ptr, ptr %value.i213, align 8
   %call1.i214 = call fastcc ptr @clusterManagerNodeInfo(ptr noundef %67, i32 noundef 0)
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %call1.i214)
-  call void @hi_sdsfree(ptr noundef %call1.i214) #34
+  call void @hi_sdsfree(ptr noundef nonnull %call1.i214) #34
   %call.i215 = call ptr @listNext(ptr noundef nonnull %li.i211) #34
   %cmp.not.i216 = icmp eq ptr %call.i215, null
   br i1 %cmp.not.i216, label %clusterManagerShowNodes.exit, label %while.body.i212, !llvm.loop !28
@@ -2948,7 +2948,7 @@ return:                                           ; preds = %for.end421, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandCheck(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandCheck(i32 noundef %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %cmp.i = icmp eq i32 %argc, 1
   %0 = load ptr, ptr %argv, align 8
@@ -3010,7 +3010,7 @@ if.end:                                           ; preds = %if.end5.i
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -3030,7 +3030,7 @@ return:                                           ; preds = %if.end, %invalid_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandInfo(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandInfo(i32 noundef %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %cmp.i = icmp eq i32 %argc, 1
   %0 = load ptr, ptr %argv, align 8
@@ -3092,7 +3092,7 @@ if.end:                                           ; preds = %if.end5.i
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -3111,7 +3111,7 @@ return:                                           ; preds = %if.end, %invalid_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandFix(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandFix(i32 noundef %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 520), align 8
   %or = or i32 %0, 1
@@ -3121,7 +3121,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandReshard(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandReshard(i32 noundef %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %li.i115 = alloca %struct.listIter, align 8
   %li.i = alloca %struct.listIter, align 8
@@ -3190,7 +3190,7 @@ if.end:                                           ; preds = %if.end5.i
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -3569,7 +3569,7 @@ while.body239:                                    ; preds = %if.end232, %while.b
   %41 = load ptr, ptr %value241, align 8
   %call242 = call fastcc ptr @clusterManagerNodeInfo(ptr noundef %41, i32 noundef 4)
   %puts61 = call i32 @puts(ptr nonnull dereferenceable(1) %call242)
-  call void @hi_sdsfree(ptr noundef %call242) #34
+  call void @hi_sdsfree(ptr noundef nonnull %call242) #34
   %call236 = call ptr @listNext(ptr noundef nonnull %li) #34
   %cmp237.not = icmp eq ptr %call236, null
   br i1 %cmp237.not, label %while.end244, label %while.body239, !llvm.loop !39
@@ -3578,8 +3578,8 @@ while.end244:                                     ; preds = %while.body239, %if.
   %puts57 = call i32 @puts(ptr nonnull dereferenceable(1) @str.5)
   %call247 = call fastcc ptr @clusterManagerNodeInfo(ptr noundef nonnull %call.i63, i32 noundef 4)
   %puts58 = call i32 @puts(ptr nonnull dereferenceable(1) %call247)
-  call void @hi_sdsfree(ptr noundef %call247) #34
-  %call249 = call fastcc ptr @clusterManagerComputeReshardTable(ptr noundef %call93, i32 noundef %slots.0)
+  call void @hi_sdsfree(ptr noundef nonnull %call247) #34
+  %call249 = call fastcc ptr @clusterManagerComputeReshardTable(ptr noundef nonnull %call93, i32 noundef %slots.0)
   %puts59 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i)
   call void @listRewind(ptr noundef %call249, ptr noundef nonnull %li.i) #34
@@ -3664,7 +3664,7 @@ cleanup.thread:                                   ; preds = %if.then230, %if.els
 
 cleanup:                                          ; preds = %while.cond273, %if.then253, %lor.lhs.false265, %if.then281, %if.then284
   %result.0 = phi i32 [ 0, %if.then284 ], [ 0, %if.then281 ], [ 0, %lor.lhs.false265 ], [ 0, %if.then253 ], [ 1, %while.cond273 ]
-  call void @listRelease(ptr noundef %call93) #34
+  call void @listRelease(ptr noundef nonnull %call93) #34
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i115)
   %cmp.not.i116 = icmp eq ptr %call249, null
   br i1 %cmp.not.i116, label %clusterManagerReleaseReshardTable.exit, label %if.then.i117
@@ -3704,7 +3704,7 @@ return:                                           ; preds = %clusterNodeForResha
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandRebalance(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandRebalance(i32 noundef %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %li.i104 = alloca %struct.listIter, align 8
   %li.i97 = alloca %struct.listIter, align 8
@@ -3771,7 +3771,7 @@ if.end:                                           ; preds = %if.end5.i
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -3793,7 +3793,7 @@ for.body:                                         ; preds = %if.end5, %if.end17
   br i1 %cmp9, label %if.then10, label %if.end11
 
 if.then10:                                        ; preds = %for.body
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.380, ptr noundef %5)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.380, ptr noundef nonnull %5)
   br label %return
 
 if.end11:                                         ; preds = %for.body
@@ -3807,7 +3807,7 @@ if.end11:                                         ; preds = %for.body
 
 if.end.i:                                         ; preds = %if.end11
   %call.i95 = call ptr @hi_sdsempty() #34
-  %call1.i = call ptr @hi_sdscpy(ptr noundef %call.i95, ptr noundef %5) #34
+  %call1.i = call ptr @hi_sdscpy(ptr noundef %call.i95, ptr noundef nonnull %5) #34
   call void @hi_sdstolower(ptr noundef %call1.i) #34
   %7 = load ptr, ptr @cluster_manager.0, align 8
   call void @listRewind(ptr noundef %7, ptr noundef nonnull %li.i) #34
@@ -3826,7 +3826,7 @@ while.body.i:                                     ; preds = %if.end.i, %if.end10
 
 land.lhs.true.i:                                  ; preds = %while.body.i
   %strlen.i = call i64 @strlen(ptr nonnull dereferenceable(1) %call1.i)
-  %strncmp.i = call i32 @strncmp(ptr nonnull %9, ptr %call1.i, i64 %strlen.i)
+  %strncmp.i = call i32 @strncmp(ptr nonnull %9, ptr nonnull %call1.i, i64 %strlen.i)
   %cmp7.i = icmp eq i32 %strncmp.i, 0
   br i1 %cmp7.i, label %if.end17, label %if.end10.i
 
@@ -3841,11 +3841,11 @@ clusterManagerNodeByAbbreviatedName.exit.thread123: ; preds = %if.end.i, %if.end
 
 if.then16:                                        ; preds = %if.end11, %clusterManagerNodeByAbbreviatedName.exit.thread123
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.381, ptr noundef %5)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.381, ptr noundef nonnull %5)
   br label %return
 
 if.end17:                                         ; preds = %land.lhs.true.i
-  call void @hi_sdsfree(ptr noundef %call1.i) #34
+  call void @hi_sdsfree(ptr noundef nonnull %call1.i) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i)
   %conv = fptrunc double %call12 to float
   %weight = getelementptr inbounds nuw i8, ptr %8, i64 16512
@@ -4174,7 +4174,6 @@ if.then157:                                       ; preds = %while.body146
 
 cleanup.critedge.thread:                          ; preds = %if.then157
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.387)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i104)
   br label %if.then.i106
 
 if.end173:                                        ; preds = %if.then157
@@ -4257,11 +4256,10 @@ cleanup.critedge:                                 ; preds = %while.body189
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.389, ptr noundef %60)
   %61 = load ptr, ptr %err, align 8
   call void @zfree(ptr noundef %61) #34
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i104)
-  %cmp.not.i105 = icmp eq ptr %call165, null
-  br i1 %cmp.not.i105, label %clusterManagerReleaseReshardTable.exit116, label %if.then.i106
+  br label %if.then.i106
 
-if.then.i106:                                     ; preds = %cleanup.critedge.thread, %cleanup.critedge
+if.then.i106:                                     ; preds = %cleanup.critedge, %cleanup.critedge.thread
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i104)
   call void @listRewind(ptr noundef nonnull %call165, ptr noundef nonnull %li.i104) #34
   %call3.i107 = call ptr @listNext(ptr noundef nonnull %li.i104) #34
   %cmp1.not4.i108 = icmp eq ptr %call3.i107, null
@@ -4278,14 +4276,11 @@ while.body.i109:                                  ; preds = %if.then.i106, %whil
 
 while.end.i114:                                   ; preds = %while.body.i109, %if.then.i106
   call void @listRelease(ptr noundef nonnull %call165) #34
-  br label %clusterManagerReleaseReshardTable.exit116
-
-clusterManagerReleaseReshardTable.exit116:        ; preds = %cleanup.critedge, %while.end.i114
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %li.i104)
   br label %cleanup
 
-cleanup:                                          ; preds = %if.end203, %if.end140, %clusterManagerReleaseReshardTable.exit116, %while.end, %if.then96, %if.then49
-  %result.0 = phi i32 [ 1, %while.end ], [ 0, %if.then49 ], [ 1, %if.then96 ], [ 0, %clusterManagerReleaseReshardTable.exit116 ], [ 1, %if.end140 ], [ 1, %if.end203 ]
+cleanup:                                          ; preds = %if.end203, %if.end140, %while.end.i114, %while.end, %if.then96, %if.then49
+  %result.0 = phi i32 [ 1, %while.end ], [ 0, %if.then49 ], [ 1, %if.then96 ], [ 0, %while.end.i114 ], [ 1, %if.end140 ], [ 1, %if.end203 ]
   %cmp221.not = icmp eq ptr %call19, null
   br i1 %cmp221.not, label %if.end224, label %if.then223
 
@@ -4311,7 +4306,7 @@ return:                                           ; preds = %if.then10, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandAddNode(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandAddNode(i32 noundef %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %err = alloca ptr, align 8
@@ -4372,10 +4367,8 @@ parseClusterNodeAddress.exit.i71:                 ; preds = %if.end4.i.i68
   store i8 0, ptr %call5.i.i69, align 1
   %incdec.ptr.i.i72 = getelementptr inbounds nuw i8, ptr %call5.i.i69, i64 1
   %call8.i.i75 = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr.i.i72) #33
-  %tobool6.i76 = icmp ne ptr %2, null
-  %tobool7.i77 = icmp ne i32 %call8.i.i75, 0
-  %or.cond.i78 = select i1 %tobool6.i76, i1 %tobool7.i77, i1 false
-  br i1 %or.cond.i78, label %if.end4, label %invalid_args
+  %tobool7.i77.not = icmp eq i32 %call8.i.i75, 0
+  br i1 %tobool7.i77.not, label %invalid_args, label %if.end4
 
 if.end4:                                          ; preds = %parseClusterNodeAddress.exit.i71
   tail call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.327, ptr noundef nonnull %2, i32 noundef %call8.i.i75, ptr noundef nonnull %0, i32 noundef %call8.i.i)
@@ -4402,7 +4395,7 @@ if.end4:                                          ; preds = %parseClusterNodeAdd
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call6 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call6 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %if.end9
 
@@ -4824,7 +4817,7 @@ return:                                           ; preds = %if.then144, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandDeleteNode(i32 %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandDeleteNode(i32 %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %li = alloca %struct.listIter, align 8
@@ -4846,10 +4839,8 @@ parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 1
   %call8.i.i = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr.i.i) #33
-  %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %call8.i.i, 0
-  %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
-  br i1 %or.cond.i, label %if.end, label %invalid_args
+  %tobool7.i.not = icmp eq i32 %call8.i.i, 0
+  br i1 %tobool7.i.not, label %invalid_args, label %if.end
 
 if.end:                                           ; preds = %parseClusterNodeAddress.exit.i
   %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
@@ -4878,7 +4869,7 @@ if.end:                                           ; preds = %parseClusterNodeAdd
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -5096,10 +5087,8 @@ parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 1
   %call8.i.i = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr.i.i) #33
-  %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %call8.i.i, 0
-  %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
-  br i1 %or.cond.i, label %if.end, label %invalid_args
+  %tobool7.i.not = icmp eq i32 %call8.i.i, 0
+  br i1 %tobool7.i.not, label %invalid_args, label %if.end
 
 if.end:                                           ; preds = %parseClusterNodeAddress.exit.i
   %call.i = tail call noalias dereferenceable_or_null(16520) ptr @zmalloc(i64 noundef 16520) #36
@@ -5125,7 +5114,7 @@ if.end:                                           ; preds = %parseClusterNodeAdd
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -5150,7 +5139,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %call8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
   %arrayidx10 = getelementptr inbounds nuw i64, ptr %call6, i64 %indvars.iv
   store i64 %call8, ptr %arrayidx10, align 8
-  %call13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.420, ptr noundef %1)
+  %call13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.420, ptr noundef nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !55
@@ -5258,7 +5247,7 @@ return:                                           ; preds = %if.end, %invalid_ar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandSetTimeout(i32 %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandSetTimeout(i32 %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %li = alloca %struct.listIter, align 8
   %0 = load ptr, ptr %argv, align 8
@@ -5279,10 +5268,8 @@ parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 1
   %call8.i.i = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr.i.i) #33
-  %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %call8.i.i, 0
-  %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
-  br i1 %or.cond.i, label %if.end, label %invalid_args
+  %tobool7.i.not = icmp eq i32 %call8.i.i, 0
+  br i1 %tobool7.i.not, label %invalid_args, label %if.end
 
 if.end:                                           ; preds = %parseClusterNodeAddress.exit.i
   %arrayidx = getelementptr inbounds nuw i8, ptr %argv, i64 8
@@ -5320,7 +5307,7 @@ if.end4:                                          ; preds = %if.end
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call6 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call6 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool7.not = icmp eq i32 %call6, 0
   br i1 %tobool7.not, label %return, label %if.end9
 
@@ -5432,7 +5419,7 @@ return:                                           ; preds = %if.end4, %invalid_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandImport(i32 noundef %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandImport(i32 noundef %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %slots_map = alloca [16384 x ptr], align 16
   %li = alloca %struct.listIter, align 8
@@ -5523,7 +5510,7 @@ if.end6:                                          ; preds = %parseClusterNodeAdd
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call8 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call8 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %return, label %if.end11
 
@@ -5717,14 +5704,14 @@ if.end91:                                         ; preds = %if.then89, %if.end8
 
 while.cond92.loopexit:                            ; preds = %if.end177, %if.end136
   %cmp93.not = icmp eq i32 %cursor.1, 0
-  br i1 %cmp93.not, label %if.end184, label %while.body95, !llvm.loop !60
+  br i1 %cmp93.not, label %if.end187.thread155, label %while.body95, !llvm.loop !60
 
 while.body95:                                     ; preds = %if.end91, %while.cond92.loopexit
   %src_reply.1184 = phi ptr [ %call41, %if.end91 ], [ %call100, %while.cond92.loopexit ]
   %cursor.0183 = phi i32 [ -999, %if.end91 ], [ %cursor.1, %while.cond92.loopexit ]
   %spec.store.select = call i32 @llvm.smax.i32(i32 %cursor.0183, i32 0)
   call void @freeReplyObject(ptr noundef nonnull %src_reply.1184) #34
-  %call100 = call ptr (ptr, ptr, ...) @reconnectingRedisCommand(ptr noundef %call16, ptr noundef nonnull @.str.411, i32 noundef %spec.store.select, i32 noundef 1000)
+  %call100 = call ptr (ptr, ptr, ...) @reconnectingRedisCommand(ptr noundef nonnull %call16, ptr noundef nonnull @.str.411, i32 noundef %spec.store.select, i32 noundef 1000)
   %26 = load i32, ptr %call100, align 8
   %cmp104 = icmp eq i32 %26, 6
   br i1 %cmp104, label %land.lhs.true108, label %if.end114
@@ -5870,7 +5857,7 @@ clusterManagerKeyHashSlot.exit:                   ; preds = %if.then5.i, %if.the
   %call157 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.412, ptr noundef %38, ptr noundef %48, i32 noundef %49)
   %50 = load ptr, ptr %ip155, align 8
   %51 = load i32, ptr %port156, align 8
-  %call160 = call ptr (ptr, ptr, ...) @reconnectingRedisCommand(ptr noundef %call16, ptr noundef %cmdfmt.3, ptr noundef %50, i32 noundef %51, ptr noundef %38, i32 noundef 0, i32 noundef %25)
+  %call160 = call ptr (ptr, ptr, ...) @reconnectingRedisCommand(ptr noundef nonnull %call16, ptr noundef %cmdfmt.3, ptr noundef %50, i32 noundef %51, ptr noundef %38, i32 noundef 0, i32 noundef %25)
   %52 = load i32, ptr %call160, align 8
   %cmp164 = icmp eq i32 %52, 6
   br i1 %cmp164, label %land.lhs.true168, label %if.end177
@@ -5887,7 +5874,7 @@ if.then171:                                       ; preds = %land.lhs.true168
 
 if.end174:                                        ; preds = %land.lhs.true168, %if.then171
   call void @freeReplyObject(ptr noundef nonnull %call160) #34
-  br label %if.end184
+  br label %if.end187.thread155
 
 if.end177:                                        ; preds = %clusterManagerKeyHashSlot.exit
   call void @freeReplyObject(ptr noundef nonnull %call160) #34
@@ -5902,22 +5889,20 @@ cleanup:                                          ; preds = %if.end25, %land.lhs
   %cmdfmt.0 = phi ptr [ null, %land.lhs.true48 ], [ %cmdfmt.3, %land.lhs.true108 ], [ null, %if.end25 ]
   %reply_err.0 = load ptr, ptr %reply_err.0.in, align 8
   %tobool182.not = icmp eq ptr %reply_err.0, null
-  br i1 %tobool182.not, label %if.end184, label %if.then183
+  br i1 %tobool182.not, label %if.end187.thread155, label %if.then183
 
 if.then183:                                       ; preds = %cleanup
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.413, ptr noundef nonnull %2, i32 noundef %call8.i.i85, ptr noundef nonnull %reply_err.0)
-  br label %if.end184
+  br label %if.end187.thread155
 
-if.end184:                                        ; preds = %while.cond92.loopexit, %if.end174, %if.then183, %cleanup
+if.end187.thread155:                              ; preds = %while.cond92.loopexit, %cleanup, %if.then183, %if.end174
   %success.0135 = phi i32 [ 0, %if.then183 ], [ 0, %cleanup ], [ 0, %if.end174 ], [ 1, %while.cond92.loopexit ]
   %cmdfmt.0134 = phi ptr [ %cmdfmt.0, %if.then183 ], [ %cmdfmt.0, %cleanup ], [ %cmdfmt.3, %if.end174 ], [ %cmdfmt.3, %while.cond92.loopexit ]
   %src_reply.0133 = phi ptr [ %src_reply.0, %if.then183 ], [ %src_reply.0, %cleanup ], [ %call100, %if.end174 ], [ %call100, %while.cond92.loopexit ]
-  %tobool185.not = icmp eq ptr %call16, null
-  br i1 %tobool185.not, label %if.end190, label %if.end187.thread155
-
-if.end187.thread155:                              ; preds = %if.end184
   call void @redisFree(ptr noundef nonnull %call16) #34
-  br label %if.end190
+  call void @freeReplyObject(ptr noundef nonnull %src_reply.0133) #34
+  %tobool191.not = icmp eq ptr %cmdfmt.0134, null
+  br i1 %tobool191.not, label %return, label %if.then192
 
 if.end190.thread:                                 ; preds = %cliAuth.exit.thread125, %cliAuth.exit.thread, %if.then18
   tail call void @redisFree(ptr noundef nonnull %call16) #34
@@ -5929,12 +5914,7 @@ if.end190.thread166:                              ; preds = %if.end35
   tail call void @freeReplyObject(ptr noundef nonnull %call26) #34
   br label %return
 
-if.end190:                                        ; preds = %if.end184, %if.end187.thread155
-  call void @freeReplyObject(ptr noundef nonnull %src_reply.0133) #34
-  %tobool191.not = icmp eq ptr %cmdfmt.0134, null
-  br i1 %tobool191.not, label %return, label %if.then192
-
-if.then192:                                       ; preds = %if.end190
+if.then192:                                       ; preds = %if.end187.thread155
   call void @hi_sdsfree(ptr noundef nonnull %cmdfmt.0134) #34
   br label %return
 
@@ -5944,13 +5924,13 @@ invalid_args:                                     ; preds = %if.end4.i.i78, %par
   %fputs = tail call i32 @fputs(ptr nonnull %invalid_args_msg.0, ptr %54) #39
   br label %return
 
-return:                                           ; preds = %if.end190.thread166, %if.end190.thread, %if.end190, %if.then192, %if.end11, %if.end6, %invalid_args
-  %retval.0 = phi i32 [ 0, %invalid_args ], [ 0, %if.end6 ], [ 0, %if.end11 ], [ %success.0135, %if.then192 ], [ %success.0135, %if.end190 ], [ 0, %if.end190.thread ], [ 0, %if.end190.thread166 ]
+return:                                           ; preds = %if.end190.thread166, %if.end190.thread, %if.end187.thread155, %if.then192, %if.end11, %if.end6, %invalid_args
+  %retval.0 = phi i32 [ 0, %invalid_args ], [ 0, %if.end6 ], [ 0, %if.end11 ], [ %success.0135, %if.then192 ], [ %success.0135, %if.end187.thread155 ], [ 0, %if.end190.thread ], [ 0, %if.end190.thread166 ]
   ret i32 %retval.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @clusterManagerCommandBackup(i32 %argc, ptr nocapture noundef readonly %argv) #2 {
+define internal range(i32 0, 2) i32 @clusterManagerCommandBackup(i32 %argc, ptr noundef readonly captures(none) %argv) #2 {
 entry:
   %li.i.i = alloca %struct.listIter, align 8
   %li = alloca %struct.listIter, align 8
@@ -5972,10 +5952,8 @@ parseClusterNodeAddress.exit.i:                   ; preds = %if.end4.i.i
   store i8 0, ptr %call5.i.i, align 1
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i, i64 1
   %call8.i.i = tail call i32 @atoi(ptr noundef nonnull %incdec.ptr.i.i) #33
-  %tobool6.i = icmp ne ptr %0, null
-  %tobool7.i = icmp ne i32 %call8.i.i, 0
-  %or.cond.i = select i1 %tobool6.i, i1 %tobool7.i, i1 false
-  br i1 %or.cond.i, label %if.end, label %invalid_args
+  %tobool7.i.not = icmp eq i32 %call8.i.i, 0
+  br i1 %tobool7.i.not, label %invalid_args, label %if.end
 
 if.end:                                           ; preds = %parseClusterNodeAddress.exit.i
   %call.i = tail call noalias dereferenceable_or_null(16520) ptr @zmalloc(i64 noundef 16520) #36
@@ -6001,7 +5979,7 @@ if.end:                                           ; preds = %parseClusterNodeAdd
   store i32 0, ptr %balance.i, align 4
   %slots.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 84
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16388) %slots.i.i, i8 0, i64 16388, i1 false)
-  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef %call.i)
+  %call2 = tail call fastcc i32 @clusterManagerLoadInfoFromNode(ptr noundef nonnull %call.i)
   %tobool3.not = icmp eq i32 %call2, 0
   br i1 %tobool3.not, label %return, label %if.end5
 
@@ -6103,7 +6081,7 @@ if.then8.i.i:                                     ; preds = %if.end6.i.i
 
 if.end10.i.i:                                     ; preds = %if.then8.i.i, %if.end6.i.i
   %flags.1.i.i = phi ptr [ %flags.0.ph.i.i, %if.end6.i.i ], [ %call9.i.i, %if.then8.i.i ]
-  %call11.i.i = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %flags.1.i.i, ptr noundef nonnull @.str.223, ptr noundef %9) #34
+  %call11.i.i = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %flags.1.i.i, ptr noundef nonnull @.str.223, ptr noundef nonnull %9) #34
   br label %while.cond.outer.i.i, !llvm.loop !64
 
 clusterManagerNodeFlagString.exit.i:              ; preds = %while.cond.i.i, %if.end.i
@@ -6132,7 +6110,7 @@ while.end.i:                                      ; preds = %while.body.i, %clus
   %13 = load i32, ptr %slots_count.i, align 4
   %current_epoch.i25 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %14 = load i64, ptr %current_epoch.i25, align 8
-  %call9.i = call ptr (ptr, ptr, ...) @hi_sdscatprintf(ptr noundef %call.i22, ptr noundef nonnull @.str.447, ptr noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %replicate.0.i, ptr noundef %call6.i, i32 noundef %13, ptr noundef %retval.0.i.i, i64 noundef %14) #34
+  %call9.i = call ptr (ptr, ptr, ...) @hi_sdscatprintf(ptr noundef %call.i22, ptr noundef nonnull @.str.447, ptr noundef %10, ptr noundef %11, i32 noundef %12, ptr noundef %replicate.0.i, ptr noundef nonnull %call6.i, i32 noundef %13, ptr noundef %retval.0.i.i, i64 noundef %14) #34
   br i1 %cmp10.not.i, label %if.end13.i, label %if.then11.i
 
 if.then11.i:                                      ; preds = %while.end.i
@@ -6451,7 +6429,7 @@ clusterManagerNodeGetJSON.exit:                   ; preds = %if.end42.i, %land.l
   %json.3.i = phi ptr [ %json.4.i, %if.end80.i ], [ %json.1.i, %land.lhs.true44.i ], [ %json.1.i, %if.end42.i ]
   %call82.i = call ptr @hi_sdscat(ptr noundef %json.3.i, ptr noundef nonnull @.str.452) #34
   call void @hi_sdsfree(ptr noundef %replicate.0.i) #34
-  call void @hi_sdsfree(ptr noundef %call6.i) #34
+  call void @hi_sdsfree(ptr noundef nonnull %call6.i) #34
   call void @hi_sdsfree(ptr noundef %retval.0.i.i) #34
   %call17 = call ptr @hi_sdscat(ptr noundef %json.1, ptr noundef %call82.i) #34
   call void @hi_sdsfree(ptr noundef %call82.i) #34
@@ -6582,7 +6560,7 @@ return:                                           ; preds = %if.end46, %if.else4
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @clusterManagerCommandHelp(i32 %argc, ptr nocapture readnone %argv) #11 {
+define internal noundef i32 @clusterManagerCommandHelp(i32 %argc, ptr readnone captures(none) %argv) #11 {
 entry:
   %buf = alloca [255 x i8], align 16
   %0 = load ptr, ptr @stdout, align 8
@@ -6596,7 +6574,7 @@ for.body:                                         ; preds = %entry, %for.inc52
   %call1 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #33
   %conv = trunc i64 %call1 to i32
   %3 = load ptr, ptr @stdout, align 8
-  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.454, ptr noundef %2) #34
+  %call3 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.454, ptr noundef nonnull %2) #34
   %cmp539 = icmp slt i32 %conv, 15
   br i1 %cmp539, label %for.body7.preheader, label %for.end
 
@@ -6679,7 +6657,7 @@ for.body44:                                       ; preds = %while.end, %for.bod
 
 for.end48:                                        ; preds = %for.body44
   %11 = load ptr, ptr @stdout, align 8
-  %call49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.455, ptr noundef %p.1) #34
+  %call49 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.455, ptr noundef nonnull %p.1) #34
   br label %for.inc52
 
 for.inc52:                                        ; preds = %for.end, %for.end48, %while.end
@@ -6696,7 +6674,7 @@ for.end54:                                        ; preds = %for.inc52
   %call66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #33
   %conv67 = trunc i64 %call66 to i32
   %17 = load ptr, ptr @stdout, align 8
-  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.454, ptr noundef %16) #34
+  %call71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.454, ptr noundef nonnull %16) #34
   %cmp7344 = icmp slt i32 %conv67, 15
   br i1 %cmp7344, label %for.body75.preheader, label %for.end79
 
@@ -6723,7 +6701,7 @@ for.end79:                                        ; preds = %for.body75, %for.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @clusterManagerSlotCompare(ptr nocapture noundef readonly %slot1, ptr nocapture noundef readonly %slot2) #0 {
+define dso_local i32 @clusterManagerSlotCompare(ptr noundef readonly captures(none) %slot1, ptr noundef readonly captures(none) %slot2) #0 {
 entry:
   %0 = load ptr, ptr %slot1, align 8
   %1 = load ptr, ptr %slot2, align 8
@@ -6732,7 +6710,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @clusterManagerSlotCountCompareDesc(ptr nocapture noundef readonly %n1, ptr nocapture noundef readonly %n2) #14 {
+define dso_local i32 @clusterManagerSlotCountCompareDesc(ptr noundef readonly captures(none) %n1, ptr noundef readonly captures(none) %n2) #14 {
 entry:
   %0 = load ptr, ptr %n1, align 8
   %1 = load ptr, ptr %n2, align 8
@@ -6745,7 +6723,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @clusterManagerCompareNodeBalance(ptr nocapture noundef readonly %n1, ptr nocapture noundef readonly %n2) #14 {
+define dso_local i32 @clusterManagerCompareNodeBalance(ptr noundef readonly captures(none) %n1, ptr noundef readonly captures(none) %n2) #14 {
 entry:
   %0 = load ptr, ptr %n1, align 8
   %1 = load ptr, ptr %n2, align 8
@@ -6758,7 +6736,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @showLatencyDistSamples(ptr nocapture noundef %samples, i64 noundef %tot) local_unnamed_addr #11 {
+define dso_local void @showLatencyDistSamples(ptr noundef captures(none) %samples, i64 noundef %tot) local_unnamed_addr #11 {
 entry:
   %call = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63)
   %conv1 = sitofp i64 %tot to double
@@ -6801,7 +6779,7 @@ for.end:                                          ; preds = %for.cond
 declare double @llvm.ceil.f64(double) #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @showLatencyDistLegend() local_unnamed_addr #11 {
@@ -6870,7 +6848,7 @@ if.end6:                                          ; preds = %if.else, %if.then4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 declare ptr @redisCommand(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -6894,7 +6872,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @sendSync(ptr noundef %c, i32 noundef %send_sync, ptr nocapture noundef writeonly %out_eof, ptr noundef writeonly %out_full_mode) local_unnamed_addr #2 {
+define dso_local i64 @sendSync(ptr noundef %c, i32 noundef %send_sync, ptr noundef writeonly captures(none) %out_eof, ptr noundef writeonly %out_full_mode) local_unnamed_addr #2 {
 entry:
   %buf = alloca [4096 x i8], align 16
   %tobool.not = icmp eq ptr %out_full_mode, null
@@ -7060,7 +7038,7 @@ if.then103:                                       ; preds = %land.lhs.true97
   br label %return
 
 if.end106:                                        ; preds = %land.lhs.true97, %if.end91
-  %call109 = call i64 @strtoull(ptr nocapture noundef nonnull %add.ptr93, ptr noundef null, i32 noundef 10) #34
+  %call109 = call i64 @strtoull(ptr noundef nonnull captures(none) %add.ptr93, ptr noundef null, i32 noundef 10) #34
   br label %return
 
 return:                                           ; preds = %if.then86, %if.then88, %if.end106, %if.then103
@@ -7071,16 +7049,16 @@ return:                                           ; preds = %if.then86, %if.then
 declare i64 @cliWriteConn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #18
+declare i64 @strtoull(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @type_free(ptr nocapture readnone %d, ptr noundef %val) #2 {
+define dso_local void @type_free(ptr readnone captures(none) %d, ptr noundef %val) #2 {
 entry:
   %biggest_key = getelementptr inbounds nuw i8, ptr %val, i64 48
   %0 = load ptr, ptr %biggest_key, align 8
@@ -7101,7 +7079,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @zfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @bytesToHuman(ptr nocapture noundef writeonly %s, i64 noundef %size, i64 noundef %n) local_unnamed_addr #11 {
+define dso_local void @bytesToHuman(ptr noundef writeonly captures(none) %s, i64 noundef %size, i64 noundef %n) local_unnamed_addr #11 {
 entry:
   %cmp = icmp slt i64 %n, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -7157,7 +7135,7 @@ if.end23:                                         ; preds = %if.then4, %if.else1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @powerLawRand(i64 noundef %min, i64 noundef %max, double noundef %alpha) local_unnamed_addr #2 {
@@ -7192,7 +7170,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #19
 declare double @llvm.fmuladd.f64(double, double, double) #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @LRUTestGenKey(ptr nocapture noundef writeonly %buf, i64 noundef %buflen) local_unnamed_addr #2 {
+define dso_local void @LRUTestGenKey(ptr noundef writeonly captures(none) %buf, i64 noundef %buflen) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr getelementptr inbounds nuw (i8, ptr @config, i64 168), align 8
   %add.i = add i64 %0, 1
@@ -7626,7 +7604,7 @@ define internal fastcc ptr @getHintForInput(ptr noundef %charinput) unnamed_addr
 entry:
   %inputargc = alloca i32, align 4
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %charinput) #33
-  %call1 = call ptr @hi_sdssplitargs(ptr noundef %charinput, ptr noundef nonnull %inputargc) #34
+  %call1 = call ptr @hi_sdssplitargs(ptr noundef nonnull %charinput, ptr noundef nonnull %inputargc) #34
   %0 = and i64 %call, 4294967295
   %tobool.not = icmp eq i64 %0, 0
   br i1 %tobool.not, label %land.end, label %land.rhs
@@ -7787,7 +7765,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @readHintSuiteLine(ptr noundef %buf, i64 noundef %size, ptr nocapture noundef %fp) local_unnamed_addr #2 {
+define dso_local ptr @readHintSuiteLine(ptr noundef %buf, i64 noundef %size, ptr noundef captures(none) %fp) local_unnamed_addr #2 {
 entry:
   %conv = trunc i64 %size to i32
   br label %while.cond
@@ -8421,7 +8399,7 @@ if.then72.i:                                      ; preds = %if.else65.tail.i
   %idxprom74.i = sext i32 %inc73.i to i64
   %arrayidx75.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom74.i
   %49 = load ptr, ptr %arrayidx75.i, align 8
-  %call76.i = tail call i64 @strtoll(ptr nocapture noundef %49, ptr noundef null, i32 noundef 10) #34
+  %call76.i = tail call i64 @strtoll(ptr noundef captures(none) %49, ptr noundef null, i32 noundef 10) #34
   store i64 %call76.i, ptr getelementptr inbounds nuw (i8, ptr @config, i64 112), align 8
   br label %for.inc929.i
 
@@ -8680,7 +8658,7 @@ if.then237.i:                                     ; preds = %if.else230.i
   %idxprom239.i = sext i32 %inc238.i to i64
   %arrayidx240.i = getelementptr inbounds ptr, ptr %argv, i64 %idxprom239.i
   %80 = load ptr, ptr %arrayidx240.i, align 8
-  %call241.i = tail call i64 @strtoll(ptr nocapture noundef %80, ptr noundef null, i32 noundef 10) #34
+  %call241.i = tail call i64 @strtoll(ptr noundef captures(none) %80, ptr noundef null, i32 noundef 10) #34
   store i64 %call241.i, ptr getelementptr inbounds nuw (i8, ptr @config, i64 168), align 8
   br label %for.inc929.i
 
@@ -11148,10 +11126,10 @@ getLongInfoField.exit.i:                          ; preds = %for.body.i184
   %sub.ptr.sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i
   %add7.i.i.i = add i64 %sub.ptr.sub.i.i.i, 1
   %call8.i.i.i = call noalias ptr @zmalloc(i64 noundef %add7.i.i.i) #36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i.i, ptr align 1 %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i.i, ptr nonnull align 1 %add.ptr.i.i.i, i64 %sub.ptr.sub.i.i.i, i1 false)
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %call8.i.i.i, i64 %sub.ptr.sub.i.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1
-  %call1.i.i187 = call i64 @strtol(ptr nocapture noundef nonnull %call8.i.i.i, ptr noundef null, i32 noundef 10) #34
+  %call1.i.i187 = call i64 @strtol(ptr noundef nonnull captures(none) %call8.i.i.i, ptr noundef null, i32 noundef 10) #34
   %call1.i.fr.i = freeze i64 %call1.i.i187
   call void @zfree(ptr noundef nonnull %call8.i.i.i) #34
   %cmp16.i = icmp eq i64 %call1.i.fr.i, -9223372036854775808
@@ -11190,10 +11168,10 @@ getLongInfoField.exit47.i:                        ; preds = %for.end.i165
   %sub.ptr.sub.i.i41.i = sub i64 %sub.ptr.lhs.cast.i.i39.i, %sub.ptr.rhs.cast.i.i40.i
   %add7.i.i42.i = add i64 %sub.ptr.sub.i.i41.i, 1
   %call8.i.i43.i = call noalias ptr @zmalloc(i64 noundef %add7.i.i42.i) #36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i43.i, ptr align 1 %add.ptr.i.i32.i, i64 %sub.ptr.sub.i.i41.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i43.i, ptr nonnull align 1 %add.ptr.i.i32.i, i64 %sub.ptr.sub.i.i41.i, i1 false)
   %arrayidx.i.i44.i = getelementptr inbounds i8, ptr %call8.i.i43.i, i64 %sub.ptr.sub.i.i41.i
   store i8 0, ptr %arrayidx.i.i44.i, align 1
-  %call1.i45.i = call i64 @strtol(ptr nocapture noundef nonnull %call8.i.i43.i, ptr noundef null, i32 noundef 10) #34
+  %call1.i45.i = call i64 @strtol(ptr noundef nonnull captures(none) %call8.i.i43.i, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %call8.i.i43.i) #34
   %cmp.i48.i = icmp slt i64 %call1.i45.i, 0
   br i1 %cmp.i48.i, label %if.then.i52.i, label %if.end.i49.i
@@ -11264,10 +11242,10 @@ if.end.i55.i:                                     ; preds = %bytesToHuman.exit.i
   %sub.ptr.sub.i.i66.i = sub i64 %sub.ptr.lhs.cast.i.i64.i, %sub.ptr.rhs.cast.i.i65.i
   %add7.i.i67.i = add i64 %sub.ptr.sub.i.i66.i, 1
   %call8.i.i68.i = call noalias ptr @zmalloc(i64 noundef %add7.i.i67.i) #36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i68.i, ptr align 1 %add.ptr.i.i57.i, i64 %sub.ptr.sub.i.i66.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i68.i, ptr nonnull align 1 %add.ptr.i.i57.i, i64 %sub.ptr.sub.i.i66.i, i1 false)
   %arrayidx.i.i69.i = getelementptr inbounds i8, ptr %call8.i.i68.i, i64 %sub.ptr.sub.i.i66.i
   store i8 0, ptr %arrayidx.i.i69.i, align 1
-  %call1.i70.i = call i64 @strtol(ptr nocapture noundef nonnull %call8.i.i68.i, ptr noundef null, i32 noundef 10) #34
+  %call1.i70.i = call i64 @strtol(ptr noundef nonnull captures(none) %call8.i.i68.i, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %call8.i.i68.i) #34
   br label %getLongInfoField.exit72.i
 
@@ -11293,10 +11271,10 @@ if.end.i75.i:                                     ; preds = %getLongInfoField.ex
   %sub.ptr.sub.i.i86.i = sub i64 %sub.ptr.lhs.cast.i.i84.i, %sub.ptr.rhs.cast.i.i85.i
   %add7.i.i87.i = add i64 %sub.ptr.sub.i.i86.i, 1
   %call8.i.i88.i = call noalias ptr @zmalloc(i64 noundef %add7.i.i87.i) #36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i88.i, ptr align 1 %add.ptr.i.i77.i, i64 %sub.ptr.sub.i.i86.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i88.i, ptr nonnull align 1 %add.ptr.i.i77.i, i64 %sub.ptr.sub.i.i86.i, i1 false)
   %arrayidx.i.i89.i = getelementptr inbounds i8, ptr %call8.i.i88.i, i64 %sub.ptr.sub.i.i86.i
   store i8 0, ptr %arrayidx.i.i89.i, align 1
-  %call1.i90.i = call i64 @strtol(ptr nocapture noundef nonnull %call8.i.i88.i, ptr noundef null, i32 noundef 10) #34
+  %call1.i90.i = call i64 @strtol(ptr noundef nonnull captures(none) %call8.i.i88.i, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %call8.i.i88.i) #34
   br label %getLongInfoField.exit92.i
 
@@ -11322,10 +11300,10 @@ if.end.i95.i:                                     ; preds = %getLongInfoField.ex
   %sub.ptr.sub.i.i106.i = sub i64 %sub.ptr.lhs.cast.i.i104.i, %sub.ptr.rhs.cast.i.i105.i
   %add7.i.i107.i = add i64 %sub.ptr.sub.i.i106.i, 1
   %call8.i.i108.i = call noalias ptr @zmalloc(i64 noundef %add7.i.i107.i) #36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i108.i, ptr align 1 %add.ptr.i.i97.i, i64 %sub.ptr.sub.i.i106.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i108.i, ptr nonnull align 1 %add.ptr.i.i97.i, i64 %sub.ptr.sub.i.i106.i, i1 false)
   %arrayidx.i.i109.i = getelementptr inbounds i8, ptr %call8.i.i108.i, i64 %sub.ptr.sub.i.i106.i
   store i8 0, ptr %arrayidx.i.i109.i, align 1
-  %call1.i110.i = call i64 @strtol(ptr nocapture noundef nonnull %call8.i.i108.i, ptr noundef null, i32 noundef 10) #34
+  %call1.i110.i = call i64 @strtol(ptr noundef nonnull captures(none) %call8.i.i108.i, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %call8.i.i108.i) #34
   br label %getLongInfoField.exit112.i
 
@@ -11354,10 +11332,10 @@ if.end.i115.i:                                    ; preds = %getLongInfoField.ex
   %sub.ptr.sub.i.i126.i = sub i64 %sub.ptr.lhs.cast.i.i124.i, %sub.ptr.rhs.cast.i.i125.i
   %add7.i.i127.i = add i64 %sub.ptr.sub.i.i126.i, 1
   %call8.i.i128.i = call noalias ptr @zmalloc(i64 noundef %add7.i.i127.i) #36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i128.i, ptr align 1 %add.ptr.i.i117.i, i64 %sub.ptr.sub.i.i126.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i128.i, ptr nonnull align 1 %add.ptr.i.i117.i, i64 %sub.ptr.sub.i.i126.i, i1 false)
   %arrayidx.i.i129.i = getelementptr inbounds i8, ptr %call8.i.i128.i, i64 %sub.ptr.sub.i.i126.i
   store i8 0, ptr %arrayidx.i.i129.i, align 1
-  %call1.i130.i = call i64 @strtol(ptr nocapture noundef nonnull %call8.i.i128.i, ptr noundef null, i32 noundef 10) #34
+  %call1.i130.i = call i64 @strtol(ptr noundef nonnull captures(none) %call8.i.i128.i, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %call8.i.i128.i) #34
   br label %getLongInfoField.exit132.i
 
@@ -11383,10 +11361,10 @@ if.end.i135.i:                                    ; preds = %getLongInfoField.ex
   %sub.ptr.sub.i.i146.i = sub i64 %sub.ptr.lhs.cast.i.i144.i, %sub.ptr.rhs.cast.i.i145.i
   %add7.i.i147.i = add i64 %sub.ptr.sub.i.i146.i, 1
   %call8.i.i148.i = call noalias ptr @zmalloc(i64 noundef %add7.i.i147.i) #36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i148.i, ptr align 1 %add.ptr.i.i137.i, i64 %sub.ptr.sub.i.i146.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i148.i, ptr nonnull align 1 %add.ptr.i.i137.i, i64 %sub.ptr.sub.i.i146.i, i1 false)
   %arrayidx.i.i149.i = getelementptr inbounds i8, ptr %call8.i.i148.i, i64 %sub.ptr.sub.i.i146.i
   store i8 0, ptr %arrayidx.i.i149.i, align 1
-  %call1.i150.i = call i64 @strtol(ptr nocapture noundef nonnull %call8.i.i148.i, ptr noundef null, i32 noundef 10) #34
+  %call1.i150.i = call i64 @strtol(ptr noundef nonnull captures(none) %call8.i.i148.i, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %call8.i.i148.i) #34
   %.pre.i172 = load ptr, ptr %str24.i, align 8
   br label %getLongInfoField.exit152.i
@@ -11411,10 +11389,10 @@ if.end.i155.i:                                    ; preds = %getLongInfoField.ex
   %sub.ptr.sub.i.i166.i = sub i64 %sub.ptr.lhs.cast.i.i164.i, %sub.ptr.rhs.cast.i.i165.i
   %add7.i.i167.i = add i64 %sub.ptr.sub.i.i166.i, 1
   %call8.i.i168.i = call noalias ptr @zmalloc(i64 noundef %add7.i.i167.i) #36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i168.i, ptr align 1 %add.ptr.i.i157.i, i64 %sub.ptr.sub.i.i166.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i168.i, ptr nonnull align 1 %add.ptr.i.i157.i, i64 %sub.ptr.sub.i.i166.i, i1 false)
   %arrayidx.i.i169.i = getelementptr inbounds i8, ptr %call8.i.i168.i, i64 %sub.ptr.sub.i.i166.i
   store i8 0, ptr %arrayidx.i.i169.i, align 1
-  %call1.i170.i = call i64 @strtol(ptr nocapture noundef nonnull %call8.i.i168.i, ptr noundef null, i32 noundef 10) #34
+  %call1.i170.i = call i64 @strtol(ptr noundef nonnull captures(none) %call8.i.i168.i, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %call8.i.i168.i) #34
   %392 = shl i64 %call1.i170.i, 1
   %.pre210.i = load ptr, ptr %str24.i, align 8
@@ -11441,10 +11419,10 @@ if.end.i175.i:                                    ; preds = %getLongInfoField.ex
   %sub.ptr.sub.i.i186.i = sub i64 %sub.ptr.lhs.cast.i.i184.i, %sub.ptr.rhs.cast.i.i185.i
   %add7.i.i187.i = add i64 %sub.ptr.sub.i.i186.i, 1
   %call8.i.i188.i = call noalias ptr @zmalloc(i64 noundef %add7.i.i187.i) #36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i188.i, ptr align 1 %add.ptr.i.i177.i, i64 %sub.ptr.sub.i.i186.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i.i188.i, ptr nonnull align 1 %add.ptr.i.i177.i, i64 %sub.ptr.sub.i.i186.i, i1 false)
   %arrayidx.i.i189.i = getelementptr inbounds i8, ptr %call8.i.i188.i, i64 %sub.ptr.sub.i.i186.i
   store i8 0, ptr %arrayidx.i.i189.i, align 1
-  %call1.i190.i = call i64 @strtol(ptr nocapture noundef nonnull %call8.i.i188.i, ptr noundef null, i32 noundef 10) #34
+  %call1.i190.i = call i64 @strtol(ptr noundef nonnull captures(none) %call8.i.i188.i, ptr noundef null, i32 noundef 10) #34
   call void @zfree(ptr noundef nonnull %call8.i.i188.i) #34
   %394 = shl i64 %call1.i190.i, 2
   br label %getLongInfoField.exit192.i
@@ -11528,7 +11506,7 @@ if.then.i216:                                     ; preds = %for.body.i200
   %410 = load i64, ptr %len.i219, align 8
   %call15.i = tail call ptr @hi_sdscatrepr(ptr noundef %call5.i217, ptr noundef %409, i64 noundef %410) #34
   %puts10.i = tail call i32 @puts(ptr nonnull dereferenceable(1) %call15.i)
-  tail call void @hi_sdsfree(ptr noundef %call15.i) #34
+  tail call void @hi_sdsfree(ptr noundef nonnull %call15.i) #34
   br label %for.inc.i204
 
 if.else.i202:                                     ; preds = %for.body.i200
@@ -12131,7 +12109,7 @@ for.body.i339:                                    ; preds = %for.cond.i344, %for
 
 if.end16.i:                                       ; preds = %for.body.i339
   %arrayidx11.i341.le = getelementptr inbounds nuw ptr, ptr %call.i318, i64 %indvars.iv.i340
-  tail call void @hi_sdsfree(ptr noundef %478) #34
+  tail call void @hi_sdsfree(ptr noundef nonnull %478) #34
   %call19.i347 = tail call ptr @readArgFromStdin() #34
   store ptr %call19.i347, ptr %arrayidx11.i341.le, align 8
   br label %if.end28.i
@@ -12180,16 +12158,16 @@ return:                                           ; preds = %while.end.i331, %if
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nounwind
 declare i32 @isatty(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @init_genrand64(i64 noundef) local_unnamed_addr #3
 
@@ -13136,7 +13114,7 @@ if.else47.i:                                      ; preds = %if.end40.i
 if.then51.i:                                      ; preds = %if.else47.i
   %call.i.i = call noalias dereferenceable_or_null(56) ptr @zmalloc(i64 noundef 56) #36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %call.i.i, ptr noundef nonnull align 8 dereferenceable(56) @type_other, i64 56, i1 false)
-  %call1.i.i = call ptr @hi_sdsnew(ptr noundef %33) #34
+  %call1.i.i = call ptr @hi_sdsnew(ptr noundef nonnull %33) #34
   store ptr %call1.i.i, ptr %call.i.i, align 8
   %call4.i.i = call i32 @dictAdd(ptr noundef %call, ptr noundef %call1.i.i, ptr noundef nonnull %call.i.i) #34
   br label %if.end55.i
@@ -14706,7 +14684,7 @@ while.end:                                        ; preds = %if.then15, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cliFillInCommandHelpEntry(ptr nocapture noundef initializes((0, 32), (48, 60), (64, 72), (80, 88)) %help, ptr noundef %cmdname, ptr noundef %subcommandname) unnamed_addr #2 {
+define internal fastcc void @cliFillInCommandHelpEntry(ptr noundef captures(none) initializes((0, 32), (48, 60), (64, 72), (80, 88)) %help, ptr noundef %cmdname, ptr noundef %subcommandname) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %subcommandname, null
   %cond = select i1 %tobool.not, i32 1, i32 2
@@ -14780,7 +14758,7 @@ declare i32 @dictAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare noalias ptr @zcalloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cliMakeCommandDocArgs(ptr nocapture noundef readonly %arguments, ptr nocapture noundef %result) unnamed_addr #2 {
+define internal fastcc void @cliMakeCommandDocArgs(ptr noundef readonly captures(none) %arguments, ptr noundef captures(none) %result) unnamed_addr #2 {
 entry:
   %elements = getelementptr inbounds nuw i8, ptr %arguments, i64 48
   %0 = load i64, ptr %elements, align 8
@@ -15060,7 +15038,7 @@ declare void @hi_sdstoupper(ptr noundef) local_unnamed_addr #3
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @clearMatchedArgs(ptr nocapture noundef %args, i32 noundef %numargs) unnamed_addr #23 {
+define internal fastcc void @clearMatchedArgs(ptr noundef captures(none) %args, i32 noundef %numargs) unnamed_addr #23 {
 entry:
   %cmp.not15 = icmp eq i32 %numargs, 0
   br i1 %cmp.not15, label %for.end, label %for.body.preheader
@@ -15095,7 +15073,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @matchArgs(ptr nocapture noundef nonnull readonly %words, i32 noundef %numwords, ptr nocapture noundef %args, i32 noundef %numargs) unnamed_addr #11 {
+define internal fastcc i32 @matchArgs(ptr noundef nonnull readonly captures(none) %words, i32 noundef %numwords, ptr noundef captures(none) %args, i32 noundef %numargs) unnamed_addr #11 {
 entry:
   %cmp66 = icmp ne i32 %numwords, 0
   %cmp167 = icmp ne i32 %numargs, 0
@@ -15225,7 +15203,7 @@ return:                                           ; preds = %if.else, %if.end26,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @addHintForArguments(ptr noundef %hint, ptr nocapture noundef %args, i32 noundef %numargs, ptr noundef %separator) unnamed_addr #2 {
+define internal fastcc ptr @addHintForArguments(ptr noundef %hint, ptr noundef captures(none) %args, i32 noundef %numargs, ptr noundef %separator) unnamed_addr #2 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %hint, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -15671,7 +15649,7 @@ for.end64:                                        ; preds = %for.end.thread, %fo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @matchArg(ptr nocapture noundef nonnull readonly %nextword, i32 noundef %numwords, ptr nocapture noundef %arg) unnamed_addr #11 {
+define internal fastcc i32 @matchArg(ptr noundef nonnull readonly captures(none) %nextword, i32 noundef %numwords, ptr noundef captures(none) %arg) unnamed_addr #11 {
 entry:
   %token.i = getelementptr inbounds nuw i8, ptr %arg, i64 16
   %0 = load ptr, ptr %token.i, align 8
@@ -15831,7 +15809,7 @@ return:                                           ; preds = %matchArgOnce.exit, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc i32 @matchNoTokenArg(ptr nocapture noundef nonnull readonly %nextword, i32 noundef %numwords, ptr nocapture noundef %arg) unnamed_addr #11 {
+define internal fastcc i32 @matchNoTokenArg(ptr noundef nonnull readonly captures(none) %nextword, i32 noundef %numwords, ptr noundef captures(none) %arg) unnamed_addr #11 {
 entry:
   %value = alloca i64, align 8
   %value42 = alloca double, align 8
@@ -15985,10 +15963,10 @@ sw.epilog:                                        ; preds = %for.cond7, %for.inc
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @addHintForArgument(ptr noundef %hint, ptr nocapture noundef %arg) unnamed_addr #2 {
+define internal fastcc ptr @addHintForArgument(ptr noundef %hint, ptr noundef captures(none) %arg) unnamed_addr #2 {
 entry:
   %matched_all = getelementptr inbounds nuw i8, ptr %arg, i64 68
   %0 = load i32, ptr %matched_all, align 4
@@ -16240,10 +16218,10 @@ return:                                           ; preds = %addHintForRepeatedA
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc void @removeUnsupportedArgs(ptr nocapture noundef %args, ptr nocapture noundef %numargs, ptr noundef nonnull %version) unnamed_addr #24 {
+define internal fastcc void @removeUnsupportedArgs(ptr noundef captures(none) %args, ptr noundef captures(none) %numargs, ptr noundef nonnull %version) unnamed_addr #24 {
 entry:
   %0 = load i32, ptr %numargs, align 4
   %cmp.not2627 = icmp eq i32 %0, 0
@@ -16338,7 +16316,7 @@ while.end:                                        ; preds = %if.end, %for.end, %
 declare ptr @listCreate() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeConnect(ptr nocapture noundef %node) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeConnect(ptr noundef captures(none) %node) unnamed_addr #2 {
 entry:
   %err7 = alloca ptr, align 8
   %0 = load ptr, ptr %node, align 8
@@ -16634,7 +16612,7 @@ if.end44:                                         ; preds = %freeClusterManagerN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeLoadInfo(ptr nocapture noundef %node, i32 noundef range(i32 0, 2) %opts, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeLoadInfo(ptr noundef captures(none) %node, i32 noundef range(i32 0, 2) %opts, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %err) unnamed_addr #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %0 = load ptr, ptr %node, align 8
@@ -17089,12 +17067,12 @@ while.body192:                                    ; preds = %while.body192.lr.ph
 
 if.then195:                                       ; preds = %while.body192
   store i8 0, ptr %call193, align 1
-  %call196 = call ptr @hi_sdsnew(ptr noundef %flags.3157) #34
+  %call196 = call ptr @hi_sdsnew(ptr noundef nonnull %flags.3157) #34
   %add.ptr197 = getelementptr inbounds nuw i8, ptr %call193, i64 1
   br label %if.end202
 
 if.else198:                                       ; preds = %while.body192
-  %call199 = call ptr @hi_sdsnew(ptr noundef %flags.3157) #34
+  %call199 = call ptr @hi_sdsnew(ptr noundef nonnull %flags.3157) #34
   %idx.ext200 = and i64 %call188158, 2147483647
   %add.ptr201 = getelementptr inbounds nuw i8, ptr %flags.3157, i64 %idx.ext200
   br label %if.end202
@@ -17161,7 +17139,7 @@ if.end236:                                        ; preds = %if.then234, %if.the
 
 if.end243:                                        ; preds = %if.then213, %if.else223, %if.end236, %if.then227, %if.then220, %if.then206
   %45 = load ptr, ptr %flags_str, align 8
-  %call245 = call ptr @listAddNodeTail(ptr noundef %45, ptr noundef %flag.0) #34
+  %call245 = call ptr @listAddNodeTail(ptr noundef %45, ptr noundef nonnull %flag.0) #34
   %call188 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %flags.4) #33
   %conv189 = trunc i64 %call188 to i32
   %cmp190 = icmp sgt i32 %conv189, 0
@@ -17212,7 +17190,7 @@ if.end271:                                        ; preds = %entry, %if.then270
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @clusterManagerLog(i32 noundef range(i32 1, 5) %level, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #11 {
+define internal void @clusterManagerLog(i32 noundef range(i32 1, 5) %level, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #11 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 520), align 8
@@ -17244,7 +17222,7 @@ if.end15:                                         ; preds = %if.end15.critedge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeIsEmpty(ptr nocapture noundef readonly %node, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerNodeIsEmpty(ptr noundef readonly captures(none) %node, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %err) unnamed_addr #2 {
 entry:
   %node.val = load ptr, ptr %node, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %node.val, ptr noundef nonnull @.str.186) #34
@@ -17332,7 +17310,7 @@ declare ptr @listNext(ptr noundef) local_unnamed_addr #3
 declare i64 @lround(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerFlushNodeConfig(ptr nocapture noundef %node, ptr nocapture noundef nonnull %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerFlushNodeConfig(ptr noundef captures(none) %node, ptr noundef nonnull captures(none) %err) unnamed_addr #2 {
 entry:
   %_reply.i = alloca ptr, align 8
   %dirty = getelementptr inbounds nuw i8, ptr %node, i64 80
@@ -17871,11 +17849,11 @@ parseClusterNodeAddress.exit:                     ; preds = %if.end4.i
   br i1 %tobool34.not, label %if.else, label %if.then35
 
 if.then35:                                        ; preds = %parseClusterNodeAddress.exit
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.232, i32 noundef %node_bus_port.0, ptr noundef %call29)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.232, i32 noundef %node_bus_port.0, ptr noundef nonnull %call29)
   br label %if.end
 
 if.else:                                          ; preds = %if.end4.i, %parseClusterNodeAddress.exit
-  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.233, ptr noundef %call29)
+  call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.233, ptr noundef nonnull %call29)
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then35
@@ -18235,7 +18213,7 @@ while.body.i:                                     ; preds = %if.then2, %while.bo
   %7 = load ptr, ptr %value.i, align 8
   %call1.i = call fastcc ptr @clusterManagerNodeInfo(ptr noundef %7, i32 noundef 0)
   %puts.i = call i32 @puts(ptr nonnull dereferenceable(1) %call1.i)
-  call void @hi_sdsfree(ptr noundef %call1.i) #34
+  call void @hi_sdsfree(ptr noundef nonnull %call1.i) #34
   %call.i = call ptr @listNext(ptr noundef nonnull %li.i) #34
   %cmp.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.not.i, label %clusterManagerShowNodes.exit, label %while.body.i, !llvm.loop !28
@@ -20374,7 +20352,7 @@ while.end162:                                     ; preds = %while.body157, %if.
 if.then165:                                       ; preds = %while.end162
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %li.i173)
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 1, ptr noundef nonnull @.str.325, i32 noundef range(i32 -2147483648, 16384) %290)
-  %call.i174 = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot(ptr noundef %call126, i32 noundef range(i32 -2147483648, 16384) %290)
+  %call.i174 = call fastcc ptr @clusterManagerGetNodeWithMostKeysInSlot(ptr noundef nonnull %call126, i32 noundef range(i32 -2147483648, 16384) %290)
   %tobool.not.i175 = icmp eq ptr %call.i174, null
   br i1 %tobool.not.i175, label %if.then.i207, label %if.end.i176
 
@@ -20510,7 +20488,7 @@ clusterManagerFixMultipleSlotOwners.exit:         ; preds = %while.cond.backedge
 
 if.then168:                                       ; preds = %clusterManagerFixMultipleSlotOwners.exit, %clusterManagerFixMultipleSlotOwners.exit.thread
   call void (i32, ptr, ...) @clusterManagerLog(i32 noundef 3, ptr noundef nonnull @.str.257, i32 noundef %290)
-  call void @listRelease(ptr noundef %call126) #34
+  call void @listRelease(ptr noundef nonnull %call126) #34
   br label %for.end175
 
 if.end172:                                        ; preds = %clusterManagerFixMultipleSlotOwners.exit.thread235, %clusterManagerFixMultipleSlotOwners.exit, %while.end162, %while.end150
@@ -20548,7 +20526,7 @@ declare i32 @cliSecureConnection(ptr noundef, ptr noundef byval(%struct.cliSSLco
 declare i32 @anetKeepAlive(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerCheckRedisReply(ptr nocapture noundef readonly %n, ptr noundef readonly %r, ptr noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerCheckRedisReply(ptr noundef readonly captures(none) %n, ptr noundef readonly %r, ptr noundef writeonly %err) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %r, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -20595,7 +20573,7 @@ declare i64 @redis_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @listRelease(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @getLongInfoField(ptr noundef %info, ptr nocapture noundef readonly %field) unnamed_addr #2 {
+define internal fastcc i64 @getLongInfoField(ptr noundef %info, ptr noundef readonly captures(none) %field) unnamed_addr #2 {
 entry:
   %call.i = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %info, ptr noundef nonnull readonly dereferenceable(1) %field) #33
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -20616,10 +20594,10 @@ if.end:                                           ; preds = %entry
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %add7.i = add i64 %sub.ptr.sub.i, 1
   %call8.i = tail call noalias ptr @zmalloc(i64 noundef %add7.i) #36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i, ptr align 1 %add.ptr.i, i64 %sub.ptr.sub.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call8.i, ptr nonnull align 1 %add.ptr.i, i64 %sub.ptr.sub.i, i1 false)
   %arrayidx.i = getelementptr inbounds i8, ptr %call8.i, i64 %sub.ptr.sub.i
   store i8 0, ptr %arrayidx.i, align 1
-  %call1 = tail call i64 @strtol(ptr nocapture noundef nonnull %call8.i, ptr noundef null, i32 noundef 10) #34
+  %call1 = tail call i64 @strtol(ptr noundef nonnull captures(none) %call8.i, ptr noundef null, i32 noundef 10) #34
   tail call void @zfree(ptr noundef nonnull %call8.i) #34
   br label %return
 
@@ -20629,22 +20607,22 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #18
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @atoll(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #13
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #25
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @clusterManagerGetAntiAffinityScore(ptr nocapture noundef readonly %ipnodes, i32 noundef %ip_count, ptr noundef writeonly %offending, ptr noundef %offending_len) unnamed_addr #2 {
+define internal fastcc range(i32 0, -2147483648) i32 @clusterManagerGetAntiAffinityScore(ptr noundef readonly captures(none) %ipnodes, i32 noundef %ip_count, ptr noundef writeonly %offending, ptr noundef %offending_len) unnamed_addr #2 {
 entry:
   %li = alloca %struct.listIter, align 8
   %cmp.not = icmp eq ptr %offending, null
@@ -21030,7 +21008,7 @@ hi_sdslen.exit:                                   ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @dictSdsKeyCompare(ptr nocapture readnone %d, ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #26 {
+define internal range(i32 0, 2) i32 @dictSdsKeyCompare(ptr readnone captures(none) %d, ptr noundef readonly captures(none) %key1, ptr noundef readonly captures(none) %key2) #26 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %key1, i64 -1
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -21135,7 +21113,7 @@ return:                                           ; preds = %hi_sdslen.exit22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dictSdsDestructor(ptr nocapture readnone %d, ptr noundef %val) #2 {
+define internal void @dictSdsDestructor(ptr readnone captures(none) %d, ptr noundef %val) #2 {
 entry:
   tail call void @hi_sdsfree(ptr noundef %val) #34
   ret void
@@ -21144,7 +21122,7 @@ entry:
 declare i64 @dictGenHashFunction(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerNodeInfo(ptr nocapture noundef readonly %node, i32 noundef range(i32 0, 5) %indent) unnamed_addr #2 {
+define internal fastcc ptr @clusterManagerNodeInfo(ptr noundef readonly captures(none) %node, i32 noundef range(i32 0, 5) %indent) unnamed_addr #2 {
 entry:
   %li.i = alloca %struct.listIter, align 8
   %call = tail call ptr @hi_sdsempty() #34
@@ -21232,7 +21210,7 @@ if.then8.i:                                       ; preds = %if.end6.i
 
 if.end10.i:                                       ; preds = %if.then8.i, %if.end6.i
   %flags.1.i = phi ptr [ %flags.0.ph.i, %if.end6.i ], [ %call9.i, %if.then8.i ]
-  %call11.i = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %flags.1.i, ptr noundef nonnull @.str.223, ptr noundef %7) #34
+  %call11.i = call ptr (ptr, ptr, ...) @hi_sdscatfmt(ptr noundef %flags.1.i, ptr noundef nonnull @.str.223, ptr noundef nonnull %7) #34
   br label %while.cond.outer.i, !llvm.loop !64
 
 clusterManagerNodeFlagString.exit:                ; preds = %while.cond.i, %if.else
@@ -21279,7 +21257,7 @@ if.end29:                                         ; preds = %if.else23, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerNodeSlotsString(ptr nocapture noundef readonly %node) unnamed_addr #2 {
+define internal fastcc ptr @clusterManagerNodeSlotsString(ptr noundef readonly captures(none) %node) unnamed_addr #2 {
 entry:
   %call = tail call ptr @hi_sdsempty() #34
   %slots1 = getelementptr inbounds nuw i8, ptr %node, i64 84
@@ -21401,7 +21379,7 @@ if.end33:                                         ; preds = %if.then28, %if.else
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #27
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #27
 
 declare ptr @hi_sdsfromlonglong(i64 noundef) local_unnamed_addr #3
 
@@ -21611,7 +21589,7 @@ if.end90.i:                                       ; preds = %if.then88.i, %for.b
   %call93.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #33
   %sext.i = shl i64 %call93.i, 32
   %conv97.i = ashr exact i64 %sext.i, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %sp.1.i, ptr align 1 %7, i64 %conv97.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %sp.1.i, ptr nonnull align 1 %7, i64 %conv97.i, i1 false)
   %add.ptr99.i = getelementptr inbounds i8, ptr %sp.1.i, i64 %conv97.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i.pre-phi
@@ -21738,10 +21716,10 @@ return:                                           ; preds = %if.end3, %while.end
 declare i32 @hi_sdscmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #27
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: nounwind uwtable
-define internal void @dictListDestructor(ptr nocapture readnone %d, ptr noundef %val) #2 {
+define internal void @dictListDestructor(ptr readnone captures(none) %d, ptr noundef %val) #2 {
 entry:
   tail call void @listRelease(ptr noundef %val) #34
   ret void
@@ -21877,7 +21855,7 @@ while.end:                                        ; preds = %if.end22, %if.end4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlotOwner(ptr nocapture noundef readonly %owner, i32 noundef %slot, i32 noundef range(i32 0, 2) %do_clear) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlotOwner(ptr noundef readonly captures(none) %owner, i32 noundef %slot, i32 noundef range(i32 0, 2) %do_clear) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %owner, align 8
   %call.i = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %0, ptr noundef nonnull @.str.283) #34
@@ -22088,7 +22066,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerDelSlot(ptr nocapture noundef readonly %node, i32 noundef %slot) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerDelSlot(ptr noundef readonly captures(none) %node, i32 noundef %slot) unnamed_addr #2 {
 entry:
   %get_owner_err = alloca ptr, align 8
   %0 = load ptr, ptr %node, align 8
@@ -22160,7 +22138,7 @@ if.end22:                                         ; preds = %entry, %if.then21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlot(ptr nocapture noundef readonly %node1, ptr %node2.8.val, i32 noundef %slot, ptr noundef %status, ptr noundef writeonly %err) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @clusterManagerSetSlot(ptr noundef readonly captures(none) %node1, ptr %node2.8.val, i32 noundef %slot, ptr noundef %status, ptr noundef writeonly %err) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %node1, align 8
   %call = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %0, ptr noundef nonnull @.str.289, i32 noundef %slot, ptr noundef %status, ptr noundef %node2.8.val) #34
@@ -22746,7 +22724,7 @@ land.lhs.true37:                                  ; preds = %if.end33
   br i1 %tobool40.not, label %if.then41, label %return
 
 if.then41:                                        ; preds = %land.lhs.true37
-  call void @zfree(ptr noundef %80) #34
+  call void @zfree(ptr noundef nonnull %80) #34
   store ptr null, ptr %err, align 8
   br label %if.end47
 
@@ -22807,7 +22785,7 @@ return:                                           ; preds = %if.end57, %land.lhs
 declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerGetSlotOwner(ptr %n.0.val, i32 noundef %slot, ptr nocapture noundef nonnull writeonly %err) unnamed_addr #2 {
+define internal fastcc ptr @clusterManagerGetSlotOwner(ptr %n.0.val, i32 noundef %slot, ptr noundef nonnull writeonly captures(none) %err) unnamed_addr #2 {
 entry:
   %li = alloca %struct.listIter, align 8
   %call = tail call ptr (ptr, ptr, ...) @redisCommand(ptr noundef %n.0.val, ptr noundef nonnull @.str.288) #34
@@ -22943,7 +22921,7 @@ if.end52:                                         ; preds = %entry, %if.then51
 declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @clusterManagerMigrateKeysInReply(ptr nocapture noundef readonly %source, ptr nocapture noundef readonly %target, ptr nocapture noundef nonnull readonly %reply, i32 noundef range(i32 0, 2) %replace, i32 noundef %timeout, ptr noundef writeonly %dots) unnamed_addr #2 {
+define internal fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef readonly captures(none) %source, ptr noundef readonly captures(none) %target, ptr noundef nonnull readonly captures(none) %reply, i32 noundef range(i32 0, 2) %replace, i32 noundef %timeout, ptr noundef writeonly %dots) unnamed_addr #2 {
 entry:
   %portstr = alloca [255 x i8], align 16
   %timeoutstr = alloca [255 x i8], align 16
@@ -23185,7 +23163,7 @@ if.end:                                           ; preds = %if.then, %while.bod
 while.end:                                        ; preds = %if.end, %entry
   %call5 = call fastcc ptr @clusterManagerNodeSlotsString(ptr noundef nonnull %n)
   %puts = call i32 @puts(ptr nonnull dereferenceable(1) %call5)
-  call void @hi_sdsfree(ptr noundef %call5) #34
+  call void @hi_sdsfree(ptr noundef nonnull %call5) #34
   ret void
 }
 
@@ -23474,7 +23452,7 @@ for.end47:                                        ; preds = %for.inc45, %while.e
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #12
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
@@ -23582,7 +23560,7 @@ declare ptr @redisvCommand(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare zeroext i16 @crc16(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cliFormatReplyRaw(ptr nocapture noundef readonly %r) unnamed_addr #2 {
+define internal fastcc ptr @cliFormatReplyRaw(ptr noundef readonly captures(none) %r) unnamed_addr #2 {
 entry:
   %call = tail call ptr @hi_sdsempty() #34
   %0 = load i32, ptr %r, align 8
@@ -23645,7 +23623,7 @@ if.then10:                                        ; preds = %if.then
 if.else:                                          ; preds = %if.then
   %len12 = getelementptr inbounds nuw i8, ptr %r, i64 24
   %6 = load i64, ptr %len12, align 8
-  %call13 = tail call ptr @sdsCatColorizedLdbReply(ptr noundef %call, ptr noundef %5, i64 noundef %6)
+  %call13 = tail call ptr @sdsCatColorizedLdbReply(ptr noundef %call, ptr noundef nonnull %5, i64 noundef %6)
   br label %sw.epilog
 
 if.else14:                                        ; preds = %sw.bb4
@@ -23901,7 +23879,7 @@ if.else:                                          ; preds = %if.end
   %call.i = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 noundef 58) #33
   %tobool.not.i = icmp eq ptr %call.i, null
   %cond.i = select i1 %tobool.not.i, ptr @.str.432, ptr @.str.431
-  %call1.i = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %addr, i64 noundef 256, ptr noundef nonnull %cond.i, ptr noundef %2, i32 noundef %3) #34
+  %call1.i = call noundef i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %addr, i64 noundef 256, ptr noundef nonnull %cond.i, ptr noundef nonnull %2, i32 noundef %3) #34
   %call6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %addr) #33
   %call7 = call ptr @hi_sdscatlen(ptr noundef %call, ptr noundef nonnull %addr, i64 noundef %call6) #34
   br label %if.end8
@@ -23948,7 +23926,7 @@ return:                                           ; preds = %entry, %if.end20
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @cliLegacyInitHelp(ptr noundef %groups) unnamed_addr #2 {
@@ -24023,7 +24001,7 @@ cliGetServerVersion.exit:                         ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc range(i64 -2147483648, 2147483648) i64 @cliLegacyCountCommands(ptr nocapture noundef readonly %commands, ptr noundef %version) unnamed_addr #8 {
+define internal fastcc range(i64 -2147483648, 2147483648) i64 @cliLegacyCountCommands(ptr noundef readonly captures(none) %commands, ptr noundef %version) unnamed_addr #8 {
 entry:
   %0 = load ptr, ptr %commands, align 8
   %cmp.not14 = icmp eq ptr %0, null
@@ -24139,7 +24117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #18
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 declare void @parseRedisUri(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -24246,7 +24224,7 @@ entry:
   %call = tail call ptr @hi_sdsempty() #34
   %call1 = tail call ptr (ptr, ptr, ...) @hi_sdscatprintf(ptr noundef %call, ptr noundef nonnull @.str.237, ptr noundef nonnull @.str.569) #34
   %call2 = tail call ptr @redisGitSHA1() #34
-  %call3 = tail call i64 @strtoll(ptr nocapture noundef %call2, ptr noundef null, i32 noundef 16) #34
+  %call3 = tail call i64 @strtoll(ptr noundef captures(none) %call2, ptr noundef null, i32 noundef 16) #34
   %tobool.not = icmp eq i64 %call3, 0
   br i1 %tobool.not, label %if.end12, label %if.then
 
@@ -24254,7 +24232,7 @@ if.then:                                          ; preds = %entry
   %call4 = tail call ptr @redisGitSHA1() #34
   %call5 = tail call ptr (ptr, ptr, ...) @hi_sdscatprintf(ptr noundef %call1, ptr noundef nonnull @.str.570, ptr noundef %call4) #34
   %call6 = tail call ptr @redisGitDirty() #34
-  %call7 = tail call i64 @strtoll(ptr nocapture noundef %call6, ptr noundef null, i32 noundef 10) #34
+  %call7 = tail call i64 @strtoll(ptr noundef captures(none) %call6, ptr noundef null, i32 noundef 10) #34
   %tobool8.not = icmp eq i64 %call7, 0
   br i1 %tobool8.not, label %if.end, label %if.then9
 
@@ -24273,7 +24251,7 @@ if.end12:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 declare ptr @readArgFromStdin() local_unnamed_addr #3
 
@@ -24408,7 +24386,7 @@ return:                                           ; preds = %entry, %if.end8, %i
 declare ptr @redisSetPushCallback(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @cliPushHandler(ptr nocapture readnone %privdata, ptr noundef %reply) #2 {
+define internal void @cliPushHandler(ptr readnone captures(none) %privdata, ptr noundef %reply) #2 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @config, i64 288), align 8
   %cmp = icmp eq i32 %0, 0
@@ -24557,7 +24535,7 @@ hi_sdslen.exit:                                   ; preds = %if.end, %sw.bb.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cliFormatReply(ptr nocapture noundef readonly %reply, i32 noundef %mode, i32 noundef range(i32 0, 2) %verbatim) unnamed_addr #2 {
+define internal fastcc ptr @cliFormatReply(ptr noundef readonly captures(none) %reply, i32 noundef %mode, i32 noundef range(i32 0, 2) %verbatim) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %verbatim, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -24611,10 +24589,10 @@ if.end25:                                         ; preds = %if.then1, %if.then1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cliFormatReplyTTY(ptr nocapture noundef readonly %r, ptr noundef %prefix) unnamed_addr #2 {
+define internal fastcc ptr @cliFormatReplyTTY(ptr noundef readonly captures(none) %r, ptr noundef %prefix) unnamed_addr #2 {
 entry:
   %_prefixlen = alloca [16 x i8], align 16
   %_prefixfmt = alloca [16 x i8], align 16
@@ -24962,7 +24940,7 @@ sw.epilog:                                        ; preds = %for.end, %if.then35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cliFormatReplyCSV(ptr nocapture noundef readonly %r) unnamed_addr #2 {
+define internal fastcc ptr @cliFormatReplyCSV(ptr noundef readonly captures(none) %r) unnamed_addr #2 {
 entry:
   %call = tail call ptr @hi_sdsempty() #34
   %0 = load i32, ptr %r, align 8
@@ -24986,7 +24964,7 @@ sw.bb:                                            ; preds = %entry
   %str = getelementptr inbounds nuw i8, ptr %r, i64 32
   %1 = load ptr, ptr %str, align 8
   %call3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
-  %call4 = tail call ptr @hi_sdscatrepr(ptr noundef %call1, ptr noundef %1, i64 noundef %call3) #34
+  %call4 = tail call ptr @hi_sdscatrepr(ptr noundef %call1, ptr noundef nonnull %1, i64 noundef %call3) #34
   br label %sw.epilog
 
 sw.bb5:                                           ; preds = %entry
@@ -25120,7 +25098,7 @@ sw.epilog:                                        ; preds = %if.end, %sw.bb22, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @cliFormatReplyJson(ptr noundef %out, ptr nocapture noundef readonly %r, i32 noundef range(i32 3, 0) %mode) unnamed_addr #2 {
+define internal fastcc ptr @cliFormatReplyJson(ptr noundef %out, ptr noundef readonly captures(none) %r, i32 noundef range(i32 3, 0) %mode) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %r, align 8
   switch i32 %0, label %sw.default [
@@ -25144,7 +25122,7 @@ sw.bb:                                            ; preds = %entry
   %1 = load ptr, ptr %str, align 8
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #33
   %conv = trunc i64 %call2 to i32
-  %call3 = tail call fastcc ptr @jsonStringOutput(ptr noundef %call, ptr noundef %1, i32 noundef %conv, i32 noundef %mode)
+  %call3 = tail call fastcc ptr @jsonStringOutput(ptr noundef %call, ptr noundef nonnull %1, i32 noundef %conv, i32 noundef %mode)
   br label %sw.epilog
 
 sw.bb4:                                           ; preds = %entry
@@ -25460,7 +25438,7 @@ if.end15:                                         ; preds = %entry, %if.then3, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @cliReadReply(i32 noundef range(i32 0, 2) %output_raw_strings) unnamed_addr #2 {
@@ -25702,10 +25680,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #27
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #27
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #27
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #27
 
 ; Function Attrs: nounwind
 declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #7
@@ -25798,7 +25776,7 @@ land.lhs.true:                                    ; preds = %if.else
 
 if.then5:                                         ; preds = %land.lhs.true
   %5 = load ptr, ptr @stderr, align 8
-  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.418, ptr noundef %4) #38
+  %call7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.418, ptr noundef nonnull %4) #38
   tail call void @exit(i32 noundef 1) #40
   unreachable
 
@@ -25808,7 +25786,7 @@ if.end8:                                          ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @sendScan(ptr nocapture noundef nonnull %it) unnamed_addr #2 {
+define internal fastcc nonnull ptr @sendScan(ptr noundef nonnull captures(none) %it) unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @config, i64 232), align 8
   %tobool.not = icmp eq ptr %0, null
@@ -25917,7 +25895,7 @@ if.end21:                                         ; preds = %if.else14
   %20 = load ptr, ptr %19, align 8
   %str22 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %str22, align 8
-  %call23 = tail call i64 @strtoull(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #34
+  %call23 = tail call i64 @strtoull(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #34
   store i64 %call23, ptr %it, align 8
   ret ptr %reply.0
 }
@@ -25978,7 +25956,7 @@ if.end11:                                         ; preds = %for.body
   %call12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %add.ptr) #33
   %full = getelementptr inbounds nuw i8, ptr %arrayidx7, i64 16
   %8 = load ptr, ptr %full, align 8
-  %call16 = tail call i32 @strncasecmp(ptr noundef %add.ptr, ptr noundef %8, i64 noundef %call12) #33
+  %call16 = tail call i32 @strncasecmp(ptr noundef nonnull %add.ptr, ptr noundef %8, i64 noundef %call12) #33
   %cmp17 = icmp eq i32 %call16, 0
   br i1 %cmp17, label %if.then19, label %for.inc
 
@@ -26009,7 +25987,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 declare void @linenoiseSetHintsCallback(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hintsCallback(ptr noundef %buf, ptr nocapture noundef writeonly %color, ptr nocapture noundef writeonly %bold) #2 {
+define internal ptr @hintsCallback(ptr noundef %buf, ptr noundef writeonly captures(none) %color, ptr noundef writeonly captures(none) %bold) #2 {
 entry:
   %.b = load i1, ptr @pref.0, align 4
   br i1 %.b, label %if.end, label %return
@@ -27099,17 +27077,17 @@ declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #7
 declare i32 @atexit(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 declare ptr @getSdsArrayFromArgv(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 declare ptr @hi_sds_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #29
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #29
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #30
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #31
@@ -27124,7 +27102,7 @@ declare float @llvm.fabs.f32(float) #31
 declare i32 @llvm.smax.i32(i32, i32) #31
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #29
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #31
@@ -27136,10 +27114,10 @@ declare float @llvm.floor.f32(float) #31
 declare float @llvm.ceil.f32(float) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #32
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #32
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #31

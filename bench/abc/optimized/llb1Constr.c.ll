@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [19 x i8] c"There is no hints.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Llb_ManCountEntries(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @Llb_ManCountEntries(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val, 0
@@ -136,12 +136,12 @@ Aig_ManObj.exit:                                  ; preds = %23, %27
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @Aig_ObjPrint(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_ManDerefenceBdds(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Llb_ManDerefenceBdds(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 4
@@ -182,7 +182,7 @@ define void @Llb_ManDerefenceBdds(ptr nocapture noundef readonly %0, ptr noundef
 declare void @Cudd_RecursiveDeref(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Llb_ManComputeIndCase_rec(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define ptr @Llb_ManComputeIndCase_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %1, i64 36
   %.val26 = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %3, i64 8
@@ -237,7 +237,7 @@ declare ptr @Cudd_bddAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @Cudd_Ref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Llb_ManComputeIndCase(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define void @Llb_ManComputeIndCase(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val86 = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val86, i64 4
@@ -471,7 +471,7 @@ declare ptr @Cudd_bddIthVar(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @Cudd_bddLeq(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Llb_ManComputeBaseCase(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define noalias noundef ptr @Llb_ManComputeBaseCase(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val28 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val28, i64 8
@@ -587,7 +587,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Llb_ManConstructGlobalBdds(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noundef ptr @Llb_ManConstructGlobalBdds(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 136
   %.val57 = load i32, ptr %2, align 8
   %3 = tail call ptr @Cudd_Init(i32 noundef %.val57, i32 noundef 0, i32 noundef 256, i32 noundef 262144, i64 noundef 0) #8
@@ -778,7 +778,7 @@ Llb_ManCountEntries.exit:                         ; preds = %11
   br i1 %.not34, label %.lr.ph.i14.preheader, label %17
 
 17:                                               ; preds = %Llb_ManCountEntries.exit
-  tail call void @Llb_ManComputeIndCase(ptr noundef %0, ptr noundef %6, ptr noundef %7)
+  tail call void @Llb_ManComputeIndCase(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %7)
   br label %.lr.ph.i14.preheader
 
 .lr.ph.i14.preheader:                             ; preds = %Llb_ManCountEntries.exit, %17
@@ -888,19 +888,19 @@ Vec_IntFreeP.exit:                                ; preds = %1, %.thread.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

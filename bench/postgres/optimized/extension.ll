@@ -291,7 +291,7 @@ define dso_local i32 @get_extension_schema(i32 noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @CreateExtension(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @CreateExtension(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @check_valid_extension_name(ptr noundef %4)
@@ -468,7 +468,7 @@ define internal fastcc void @check_valid_extension_name(ptr noundef %0) unnamed_
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef %0) #13
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %0) #13
   %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.36) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 277, ptr noundef nonnull @__func__.check_valid_extension_name) #13
   unreachable
@@ -482,7 +482,7 @@ define internal fastcc void @check_valid_extension_name(ptr noundef %0) unnamed_
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef %0) #13
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.35, ptr noundef nonnull %0) #13
   %16 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.37) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 286, ptr noundef nonnull @__func__.check_valid_extension_name) #13
   unreachable
@@ -529,10 +529,10 @@ define internal fastcc void @check_valid_extension_name(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: noreturn
 declare void @errorConflictingDefElem(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -740,7 +740,7 @@ find_install_path.exit.thread127:                 ; preds = %get_ext_ver_info.ex
   %.1 = phi ptr [ %93, %find_install_path.exit.thread127 ], [ %.088, %23 ]
   %95 = tail call ptr @palloc(i64 noundef 72) #13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %95, ptr noundef nonnull readonly align 8 dereferenceable(72) %9, i64 72, i1 false)
-  tail call fastcc void @parse_extension_control_file(ptr noundef %95, ptr noundef %.1)
+  tail call fastcc void @parse_extension_control_file(ptr noundef nonnull %95, ptr noundef %.1)
   %.not105 = icmp eq ptr %1, null
   br i1 %.not105, label %96, label %.thread
 
@@ -940,7 +940,7 @@ get_required_extension.exit.us:                   ; preds = %167, %.lr.ph156.us
   %181 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %181)
   %182 = tail call i32 @errcode(i32 noundef 151388292) #13
-  %183 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.70, ptr noundef %152, ptr noundef %0) #13
+  %183 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.70, ptr noundef nonnull %152, ptr noundef %0) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1727, ptr noundef nonnull @__func__.get_required_extension) #13
   unreachable
 
@@ -990,7 +990,7 @@ get_required_extension.exit:                      ; preds = %.lr.ph156
   br label %205
 
 205:                                              ; preds = %204, %._crit_edge
-  tail call fastcc void @execute_extension_script(i32 noundef %.sroa.287.0.extract.trunc, ptr noundef nonnull %95, ptr noundef null, ptr noundef %.1, ptr noundef %.092.lcssa, ptr noundef %.0)
+  tail call fastcc void @execute_extension_script(i32 noundef %.sroa.287.0.extract.trunc, ptr noundef nonnull %95, ptr noundef null, ptr noundef %.1, ptr noundef %.092.lcssa, ptr noundef nonnull %.0)
   tail call fastcc void @ApplyExtensionUpdates(i32 noundef %.sroa.287.0.extract.trunc, ptr noundef nonnull %9, ptr noundef %.1, ptr noundef %.0123, ptr noundef %1, i1 noundef zeroext %3, i1 noundef zeroext %5)
   ret { i64, i32 } %201
 }
@@ -1120,7 +1120,7 @@ define dso_local { i64, i32 } @InsertExtensionTuple(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @GetNewOidWithIndex(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
@@ -1245,7 +1245,7 @@ define dso_local noundef i64 @pg_available_extensions(ptr noundef %0) local_unna
 
 34:                                               ; preds = %30
   %35 = call ptr @palloc0(i64 noundef 72) #13
-  %36 = call ptr @pstrdup(ptr noundef %31) #13
+  %36 = call ptr @pstrdup(ptr noundef nonnull %31) #13
   store ptr %36, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 48
   store i8 0, ptr %37, align 8
@@ -1325,7 +1325,7 @@ declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1396,7 +1396,7 @@ define dso_local noundef i64 @pg_available_extension_versions(ptr noundef %0) lo
 
 40:                                               ; preds = %36
   %41 = call ptr @palloc0(i64 noundef 72) #13
-  %42 = call ptr @pstrdup(ptr noundef %37) #13
+  %42 = call ptr @pstrdup(ptr noundef nonnull %37) #13
   store ptr %42, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 48
   store i8 0, ptr %43, align 8
@@ -1437,7 +1437,7 @@ define dso_local noundef i64 @pg_available_extension_versions(ptr noundef %0) lo
   %61 = load ptr, ptr %56, align 8
   %62 = call ptr @palloc(i64 noundef 72) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %62, ptr noundef nonnull readonly align 8 dereferenceable(72) %41, i64 72, i1 false)
-  call fastcc void @parse_extension_control_file(ptr noundef %62, ptr noundef %61)
+  call fastcc void @parse_extension_control_file(ptr noundef nonnull %62, ptr noundef %61)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i64 0, ptr %3, align 8
   %63 = load ptr, ptr %62, align 8
@@ -1808,7 +1808,7 @@ find_install_path.exit.i:                         ; preds = %find_update_path.ex
   %245 = load ptr, ptr %127, align 8
   %246 = call ptr @palloc(i64 noundef 72) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %246, ptr noundef nonnull readonly align 8 dereferenceable(72) %41, i64 72, i1 false)
-  call fastcc void @parse_extension_control_file(ptr noundef %246, ptr noundef %245)
+  call fastcc void @parse_extension_control_file(ptr noundef nonnull %246, ptr noundef %245)
   %247 = load ptr, ptr %127, align 8
   %248 = call ptr @cstring_to_text(ptr noundef %247) #13
   %249 = ptrtoint ptr %248 to i64
@@ -1913,7 +1913,7 @@ is_extension_control_filename.exit._crit_edge:    ; preds = %is_extension_contro
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @extension_file_exists(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @extension_file_exists(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %2)
   call void @get_share_path(ptr noundef nonnull @my_exec_path, ptr noundef nonnull %2) #13
@@ -2280,7 +2280,7 @@ find_update_path.exit:                            ; preds = %.lr.ph87.i, %get_ne
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_ext_ver_list(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @get_ext_ver_list(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #15
   %4 = tail call fastcc ptr @get_extension_script_directory(ptr noundef nonnull %0)
@@ -2377,7 +2377,7 @@ is_extension_script_filename.exit.backedge:       ; preds = %17, %20, %23, %55, 
 
 ._crit_edge.i:                                    ; preds = %38, %.lr.ph.i, %32
   %45 = tail call ptr @palloc(i64 noundef 32) #13
-  %46 = tail call ptr @pstrdup(ptr noundef %29) #13
+  %46 = tail call ptr @pstrdup(ptr noundef nonnull %29) #13
   store ptr %46, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store ptr null, ptr %47, align 8
@@ -2444,7 +2444,7 @@ is_extension_script_filename.exit.outer.backedge: ; preds = %get_ext_ver_info.ex
 
 ._crit_edge.i38:                                  ; preds = %64, %.lr.ph.i37, %58
   %71 = tail call ptr @palloc(i64 noundef 32) #13
-  %72 = tail call ptr @pstrdup(ptr noundef %29) #13
+  %72 = tail call ptr @pstrdup(ptr noundef nonnull %29) #13
   store ptr %72, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   store ptr null, ptr %73, align 8
@@ -2493,7 +2493,7 @@ get_ext_ver_info.exit45:                          ; preds = %65, %._crit_edge.i3
 
 ._crit_edge.i48:                                  ; preds = %84, %.lr.ph.i47, %get_ext_ver_info.exit45
   %91 = tail call ptr @palloc(i64 noundef 32) #13
-  %92 = tail call ptr @pstrdup(ptr noundef %56) #13
+  %92 = tail call ptr @pstrdup(ptr noundef nonnull %56) #13
   store ptr %92, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store ptr null, ptr %93, align 8
@@ -2734,7 +2734,7 @@ declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_add
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @pg_extension_config_dump(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @pg_extension_config_dump(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.ScanKeyData], align 16
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
@@ -3427,7 +3427,7 @@ declare i64 @changeDependencyFor(i32 noundef, i32 noundef, i32 noundef, i32 noun
 declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @ExecAlterExtensionStmt(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @ExecAlterExtensionStmt(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.ScanKeyData], align 16
   %4 = alloca i8, align 1
   %5 = load i8, ptr @creating_extension, align 1
@@ -3601,7 +3601,7 @@ define dso_local { i64, i32 } @ExecAlterExtensionStmt(ptr noundef %0, ptr nocapt
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %13, align 8
-  %93 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %.049, ptr noundef %92) #13
+  %93 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull %.049, ptr noundef %92) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 3100, ptr noundef nonnull @__func__.ExecAlterExtensionStmt) #13
   br label %94
 
@@ -3646,7 +3646,7 @@ define dso_local { i64, i32 } @ExecAlterExtensionStmt(ptr noundef %0, ptr nocapt
 
 ._crit_edge.i.i:                                  ; preds = %103, %.lr.ph.i.i, %96
   %110 = call ptr @palloc(i64 noundef 32) #13
-  %111 = call ptr @pstrdup(ptr noundef %42) #13
+  %111 = call ptr @pstrdup(ptr noundef nonnull %42) #13
   store ptr %111, ptr %110, align 8
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 8
   store ptr null, ptr %112, align 8
@@ -3695,7 +3695,7 @@ get_ext_ver_info.exit.i:                          ; preds = %104, %._crit_edge.i
 
 ._crit_edge.i12.i:                                ; preds = %123, %.lr.ph.i11.i, %get_ext_ver_info.exit.i
   %130 = call ptr @palloc(i64 noundef 32) #13
-  %131 = call ptr @pstrdup(ptr noundef %.049) #13
+  %131 = call ptr @pstrdup(ptr noundef nonnull %.049) #13
   store ptr %131, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store ptr null, ptr %132, align 8
@@ -3722,12 +3722,12 @@ get_ext_ver_info.exit19.i:                        ; preds = %124, %._crit_edge.i
   call void @llvm.assume(i1 %141)
   %142 = call i32 @errcode(i32 noundef 50856066) #13
   %143 = load ptr, ptr %49, align 8
-  %144 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.117, ptr noundef %143, ptr noundef %42, ptr noundef %.049) #13
+  %144 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.117, ptr noundef %143, ptr noundef nonnull %42, ptr noundef nonnull %.049) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1288, ptr noundef nonnull @__func__.identify_update_path) #13
   unreachable
 
 identify_update_path.exit:                        ; preds = %get_ext_ver_info.exit19.i
-  call fastcc void @ApplyExtensionUpdates(i32 noundef %30, ptr noundef nonnull %49, ptr noundef %42, ptr noundef nonnull %138, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
+  call fastcc void @ApplyExtensionUpdates(i32 noundef %30, ptr noundef nonnull %49, ptr noundef nonnull %42, ptr noundef nonnull %138, ptr noundef null, i1 noundef zeroext false, i1 noundef zeroext false)
   br label %145
 
 145:                                              ; preds = %identify_update_path.exit, %94
@@ -3755,7 +3755,7 @@ define internal fastcc void @check_valid_version_name(ptr noundef %0) unnamed_ad
   %6 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %6)
   %7 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.112, ptr noundef %0) #13
+  %8 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.112, ptr noundef nonnull %0) #13
   %9 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.113) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 324, ptr noundef nonnull @__func__.check_valid_version_name) #13
   unreachable
@@ -3769,7 +3769,7 @@ define internal fastcc void @check_valid_version_name(ptr noundef %0) unnamed_ad
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
   tail call void @llvm.assume(i1 %13)
   %14 = tail call i32 @errcode(i32 noundef 50856066) #13
-  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.112, ptr noundef %0) #13
+  %15 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.112, ptr noundef nonnull %0) #13
   %16 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.114) #13
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 333, ptr noundef nonnull @__func__.check_valid_version_name) #13
   unreachable
@@ -3816,7 +3816,7 @@ define internal fastcc void @check_valid_version_name(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca [1 x %struct.ScanKeyData], align 16
   %9 = alloca [1 x %struct.ScanKeyData], align 16
   %10 = alloca [1 x %struct.ScanKeyData], align 16
@@ -3851,7 +3851,7 @@ define internal fastcc void @ApplyExtensionUpdates(i32 noundef %0, ptr nocapture
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @palloc(i64 noundef 72) #13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %31, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 72, i1 false)
-  call fastcc void @parse_extension_control_file(ptr noundef %31, ptr noundef %30)
+  call fastcc void @parse_extension_control_file(ptr noundef nonnull %31, ptr noundef %30)
   %32 = call ptr @table_open(i32 noundef 3079, i32 noundef 3) #13
   call void @ScanKeyInit(ptr noundef nonnull %10, i16 noundef signext 1, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %18) #13
   %33 = call ptr @systable_beginscan(ptr noundef %32, i32 noundef 3080, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %10) #13
@@ -4056,7 +4056,7 @@ get_extension_schema.exit:                        ; preds = %get_required_extens
   br label %127
 
 127:                                              ; preds = %._crit_edge104, %126
-  call fastcc void @execute_extension_script(i32 noundef %0, ptr noundef %31, ptr noundef %.0109131, ptr noundef %30, ptr noundef %.066.lcssa, ptr noundef %47)
+  call fastcc void @execute_extension_script(i32 noundef %0, ptr noundef nonnull %31, ptr noundef %.0109131, ptr noundef %30, ptr noundef %.066.lcssa, ptr noundef %47)
   %indvars.iv.next119 = add nuw nsw i64 %indvars.iv118130, 1
   %128 = load i32, ptr %16, align 4
   %129 = sext i32 %128 to i64
@@ -4068,7 +4068,7 @@ get_extension_schema.exit:                        ; preds = %get_required_extens
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @ExecAlterExtensionContentsStmt(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @ExecAlterExtensionContentsStmt(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.ScanKeyData], align 16
   %4 = alloca i8, align 1
   %5 = alloca [8 x i64], align 16
@@ -4534,12 +4534,12 @@ declare i64 @deleteDependencyRecordsForClass(i32 noundef, i32 noundef, i32 nound
 declare void @removeExtObjInitPriv(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @first_dir_separator(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @get_namespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -4556,7 +4556,7 @@ declare ptr @lappend_oid(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @CreateComments(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @execute_extension_script(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @execute_extension_script(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.stat, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -5102,7 +5102,7 @@ read_extension_script_file.exit:                  ; preds = %read_whole_file.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_extension_script_directory(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @get_extension_script_directory(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5538,7 +5538,7 @@ declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 
 declare i64 @replace_text(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
@@ -5554,10 +5554,10 @@ declare zeroext i1 @pg_verify_mbstr(i32 noundef, ptr noundef, i32 noundef, i1 no
 declare ptr @pg_any_to_server(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @pg_parse_query(ptr noundef) local_unnamed_addr #1
 
@@ -5596,7 +5596,7 @@ declare void @PopActiveSnapshot() local_unnamed_addr #1
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5610,10 +5610,10 @@ declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, p
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

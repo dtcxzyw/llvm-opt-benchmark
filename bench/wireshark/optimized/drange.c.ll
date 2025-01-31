@@ -30,7 +30,7 @@ define hidden noalias noundef ptr @drange_node_new() local_unnamed_addr #0 {
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden noundef ptr @drange_node_from_str(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, 58
@@ -309,7 +309,7 @@ drange_str_to_gint32.exit.thread:                 ; preds = %19, %13, %94, %109,
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drange_node_set_start_offset(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @drange_node_set_start_offset(ptr noundef writeonly captures(none) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #3 {
   store i32 %1, ptr %0, align 4
   ret void
 }
@@ -321,7 +321,7 @@ define hidden void @drange_node_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drange_node_set_length(ptr nocapture noundef writeonly initializes((4, 8), (12, 16)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @drange_node_set_length(ptr noundef writeonly captures(none) initializes((4, 8), (12, 16)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -330,7 +330,7 @@ define hidden void @drange_node_set_length(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drange_node_set_end_offset(ptr nocapture noundef writeonly initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @drange_node_set_end_offset(ptr noundef writeonly captures(none) initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -339,7 +339,7 @@ define hidden void @drange_node_set_end_offset(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drange_node_set_to_the_end(ptr nocapture noundef writeonly initializes((12, 16)) %0) local_unnamed_addr #3 {
+define hidden void @drange_node_set_to_the_end(ptr noundef writeonly captures(none) initializes((12, 16)) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 3, ptr %2, align 4
   ret void
@@ -351,27 +351,27 @@ declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 nound
 declare void @g_free(ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @drange_node_get_start_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @drange_node_get_start_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @drange_node_get_length(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @drange_node_get_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @drange_node_get_end_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @drange_node_get_end_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @drange_node_get_ending(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @drange_node_get_ending(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -429,7 +429,7 @@ drange_append_drange_node.exit:                   ; preds = %.thread, %18, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @drange_append_drange_node(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @drange_append_drange_node(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %update_drange_with_node.exit, label %3
 
@@ -507,7 +507,7 @@ define hidden noundef ptr @drange_new_from_list(ptr noundef %0) local_unnamed_ad
 declare void @g_slist_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @drange_append_wrapper(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @drange_append_wrapper(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %drange_append_drange_node.exit, label %3
 
@@ -670,7 +670,7 @@ define hidden void @drange_node_free_list(ptr noundef %0) local_unnamed_addr #0 
 declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @drange_has_total_length(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden zeroext i1 @drange_has_total_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -678,28 +678,28 @@ define hidden zeroext i1 @drange_has_total_length(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @drange_get_total_length(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @drange_get_total_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @drange_get_min_start_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @drange_get_min_start_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @drange_get_max_start_offset(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @drange_get_max_start_offset(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @drange_prepend_drange_node(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @drange_prepend_drange_node(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %update_drange_with_node.exit, label %3
 
@@ -763,14 +763,14 @@ declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @drange_foreach_drange_node(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @drange_foreach_drange_node(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   tail call void @g_slist_foreach(ptr noundef %4, ptr noundef %1, ptr noundef %2) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @drange_node_tostr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden noalias ptr @drange_node_tostr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 4
@@ -810,7 +810,7 @@ define hidden noalias ptr @drange_node_tostr(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @drange_tostr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @drange_tostr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @g_string_new(ptr noundef nonnull @.str.4) #12
   %3 = load ptr, ptr %0, align 8
   %.not12 = icmp eq ptr %3, null
@@ -906,12 +906,12 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9

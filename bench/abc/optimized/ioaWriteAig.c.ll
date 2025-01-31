@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [45 x i8] c"AIG cannot be written because it has no POs.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define range(i32 -2147483647, -2147483648) i32 @Ioa_WriteAigerEncode(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Ioa_WriteAigerEncode(ptr noundef writeonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not11 = icmp ult i32 %2, 128
   br i1 %.not11, label %._crit_edge, label %.lr.ph.preheader
 
@@ -60,7 +60,7 @@ define range(i32 -2147483647, -2147483648) i32 @Ioa_WriteAigerEncode(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ioa_WriteAigerEncodeStr(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @Ioa_WriteAigerEncodeStr(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not14 = icmp ult i32 %1, 128
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -210,7 +210,7 @@ Vec_StrPush.exit13:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ioa_WriteAigerLiterals(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Ioa_WriteAigerLiterals(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 140
   %.val = load i32, ptr %2, align 4
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
@@ -443,7 +443,7 @@ Vec_IntPush.exit47:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ioa_WriteEncodeLiterals(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Ioa_WriteEncodeLiterals(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 4
   %.val = load i32, ptr %2, align 4
   %3 = shl nsw i32 %.val, 1
@@ -577,7 +577,7 @@ Vec_StrGrow.exit:                                 ; preds = %Ioa_WriteAigerEncod
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Ioa_WriteAigerIntoMemoryStr(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Ioa_WriteAigerIntoMemoryStr(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr i8, ptr %0, i64 48
   %.val139 = load ptr, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %.val139, i64 40
@@ -756,8 +756,8 @@ Vec_StrAlloc.exit:                                ; preds = %.critedge2, %45
   %80 = xor i32 %77, %79
   %81 = shl i32 %.val135, 1
   %82 = or disjoint i32 %80, %81
-  tail call fastcc void @Vec_StrPrintNum(ptr noundef %42, i32 noundef %82)
-  tail call fastcc void @Vec_StrPrintStr(ptr noundef %42, ptr noundef nonnull @.str.2)
+  tail call fastcc void @Vec_StrPrintNum(ptr noundef nonnull %42, i32 noundef %82)
+  tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %42, ptr noundef nonnull @.str.2)
   %indvars.iv.next179 = add nsw i64 %indvars.iv178, 1
   %83 = load ptr, ptr %61, align 8
   %84 = getelementptr i8, ptr %83, i64 4
@@ -794,8 +794,8 @@ Vec_StrAlloc.exit:                                ; preds = %.critedge2, %45
   %103 = xor i32 %100, %102
   %104 = shl i32 %.val133, 1
   %105 = or disjoint i32 %103, %104
-  tail call fastcc void @Vec_StrPrintNum(ptr noundef %42, i32 noundef %105)
-  tail call fastcc void @Vec_StrPrintStr(ptr noundef %42, ptr noundef nonnull @.str.2)
+  tail call fastcc void @Vec_StrPrintNum(ptr noundef nonnull %42, i32 noundef %105)
+  tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %42, ptr noundef nonnull @.str.2)
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %.val = load i32, ptr %57, align 4
   %.val112 = load i32, ptr %55, align 8
@@ -852,9 +852,9 @@ Vec_StrAlloc.exit:                                ; preds = %.critedge2, %45
   %spec.select = tail call i32 @llvm.smin.i32(i32 %130, i32 %139)
   %spec.select109 = tail call i32 @llvm.smax.i32(i32 %130, i32 %139)
   %140 = sub nsw i32 %121, %spec.select109
-  tail call void @Ioa_WriteAigerEncodeStr(ptr noundef %42, i32 noundef %140)
+  tail call void @Ioa_WriteAigerEncodeStr(ptr noundef nonnull %42, i32 noundef %140)
   %141 = sub nsw i32 %spec.select109, %spec.select
-  tail call void @Ioa_WriteAigerEncodeStr(ptr noundef %42, i32 noundef %141)
+  tail call void @Ioa_WriteAigerEncodeStr(ptr noundef nonnull %42, i32 noundef %141)
   %.pre189 = load ptr, ptr %8, align 8
   br label %.critedge6
 
@@ -868,12 +868,12 @@ Vec_StrAlloc.exit:                                ; preds = %.critedge2, %45
   br i1 %145, label %.lr.ph171, label %.critedge8, !llvm.loop !14
 
 .critedge8:                                       ; preds = %.critedge6, %.critedge6.preheader
-  tail call fastcc void @Vec_StrPrintStr(ptr noundef %42, ptr noundef nonnull @.str.3)
+  tail call fastcc void @Vec_StrPrintStr(ptr noundef nonnull %42, ptr noundef nonnull @.str.3)
   ret ptr %42
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @Vec_StrPrintStr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0
@@ -959,7 +959,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_StrPrintNum(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc void @Vec_StrPrintNum(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #1 {
   %3 = alloca [16 x i8], align 16
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %5, label %36
@@ -1204,7 +1204,7 @@ Vec_StrPush.exit30:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ioa_WriteAigerIntoMemory(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define ptr @Ioa_WriteAigerIntoMemory(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = tail call ptr @Ioa_WriteAigerIntoMemoryStr(ptr noundef %0)
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null
@@ -1291,7 +1291,7 @@ Vec_StrFree.exit:                                 ; preds = %2, %Vec_StrPush.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ioa_WriteAigerBufferTest(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @Ioa_WriteAigerBufferTest(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = getelementptr i8, ptr %0, i64 140
   %.val = load i32, ptr %6, align 4
@@ -1336,21 +1336,21 @@ define void @Ioa_WriteAigerBufferTest(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @Ioa_TimeStamp(...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define void @Ioa_WriteAiger(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
@@ -1797,16 +1797,16 @@ declare void @Aig_ManInvertConstraints(ptr noundef) local_unnamed_addr #4
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9

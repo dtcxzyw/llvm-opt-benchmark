@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i16 @core_bench_matrix(ptr nocapture noundef readonly %p, i16 noundef signext %seed, i16 noundef zeroext %crc) local_unnamed_addr #0 {
+define dso_local zeroext i16 @core_bench_matrix(ptr noundef readonly captures(none) %p, i16 noundef signext %seed, i16 noundef zeroext %crc) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %p, align 8
   %C2 = getelementptr inbounds nuw i8, ptr %p, i64 24
@@ -21,7 +21,7 @@ entry:
 declare zeroext i16 @crc16(i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local signext i16 @matrix_test(i32 noundef %N, ptr nocapture noundef %C, ptr nocapture noundef %A, ptr nocapture noundef readonly %B, i16 noundef signext %val) local_unnamed_addr #0 {
+define dso_local signext i16 @matrix_test(i32 noundef %N, ptr noundef captures(none) %C, ptr noundef captures(none) %A, ptr noundef readonly captures(none) %B, i16 noundef signext %val) local_unnamed_addr #0 {
 entry:
   %or = or i16 %val, -4096
   %cmp8.not.i = icmp eq i32 %N, 0
@@ -404,7 +404,7 @@ matrix_add_const.exit210:                         ; preds = %for.inc7.i207, %mat
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @matrix_add_const(i32 noundef %N, ptr nocapture noundef %A, i16 noundef signext %val) local_unnamed_addr #2 {
+define dso_local void @matrix_add_const(i32 noundef %N, ptr noundef captures(none) %A, i16 noundef signext %val) local_unnamed_addr #2 {
 entry:
   %cmp8.not = icmp eq i32 %N, 0
   br i1 %cmp8.not, label %for.end9, label %for.cond1.preheader.preheader
@@ -441,7 +441,7 @@ for.end9:                                         ; preds = %for.inc7, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @matrix_mul_const(i32 noundef %N, ptr nocapture noundef writeonly %C, ptr nocapture noundef readonly %A, i16 noundef signext %val) local_unnamed_addr #2 {
+define dso_local void @matrix_mul_const(i32 noundef %N, ptr noundef writeonly captures(none) %C, ptr noundef readonly captures(none) %A, i16 noundef signext %val) local_unnamed_addr #2 {
 entry:
   %cmp11.not = icmp eq i32 %N, 0
   br i1 %cmp11.not, label %for.end12, label %for.cond1.preheader.lr.ph
@@ -481,7 +481,7 @@ for.end12:                                        ; preds = %for.inc10, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local signext i16 @matrix_sum(i32 noundef %N, ptr nocapture noundef readonly %C, i16 noundef signext %clipval) local_unnamed_addr #3 {
+define dso_local signext i16 @matrix_sum(i32 noundef %N, ptr noundef readonly captures(none) %C, i16 noundef signext %clipval) local_unnamed_addr #3 {
 entry:
   %cmp16.not = icmp eq i32 %N, 0
   br i1 %cmp16.not, label %for.end17, label %for.cond1.preheader.lr.ph
@@ -531,7 +531,7 @@ for.end17:                                        ; preds = %for.inc15, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @matrix_mul_vect(i32 noundef %N, ptr nocapture noundef writeonly %C, ptr nocapture noundef readonly %A, ptr nocapture noundef readonly %B) local_unnamed_addr #2 {
+define dso_local void @matrix_mul_vect(i32 noundef %N, ptr noundef writeonly captures(none) %C, ptr noundef readonly captures(none) %A, ptr noundef readonly captures(none) %B) local_unnamed_addr #2 {
 entry:
   %cmp12.not = icmp eq i32 %N, 0
   br i1 %cmp12.not, label %for.end15, label %for.body.preheader
@@ -577,7 +577,7 @@ for.end15:                                        ; preds = %for.inc13, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @matrix_mul_matrix(i32 noundef %N, ptr nocapture noundef writeonly %C, ptr nocapture noundef readonly %A, ptr nocapture noundef readonly %B) local_unnamed_addr #2 {
+define dso_local void @matrix_mul_matrix(i32 noundef %N, ptr noundef writeonly captures(none) %C, ptr noundef readonly captures(none) %A, ptr noundef readonly captures(none) %B) local_unnamed_addr #2 {
 entry:
   %cmp21.not = icmp eq i32 %N, 0
   br i1 %cmp21.not, label %for.end27, label %for.cond1.preheader.preheader
@@ -637,7 +637,7 @@ for.end27:                                        ; preds = %for.inc25, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @matrix_mul_matrix_bitextract(i32 noundef %N, ptr nocapture noundef writeonly %C, ptr nocapture noundef readonly %A, ptr nocapture noundef readonly %B) local_unnamed_addr #2 {
+define dso_local void @matrix_mul_matrix_bitextract(i32 noundef %N, ptr noundef writeonly captures(none) %C, ptr noundef readonly captures(none) %A, ptr noundef readonly captures(none) %B) local_unnamed_addr #2 {
 entry:
   %cmp22.not = icmp eq i32 %N, 0
   br i1 %cmp22.not, label %for.end30, label %for.cond1.preheader.preheader
@@ -702,7 +702,7 @@ for.end30:                                        ; preds = %for.inc28, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define dso_local i32 @core_init_matrix(i32 noundef %blksize, ptr noundef %memblk, i32 noundef %seed, ptr nocapture noundef writeonly %p) local_unnamed_addr #4 {
+define dso_local i32 @core_init_matrix(i32 noundef %blksize, ptr noundef %memblk, i32 noundef %seed, ptr noundef writeonly captures(none) %p) local_unnamed_addr #4 {
 entry:
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %seed, i32 1)
   %cmp137.not = icmp eq i32 %blksize, 0

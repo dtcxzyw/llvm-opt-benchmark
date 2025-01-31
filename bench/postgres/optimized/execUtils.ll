@@ -78,7 +78,7 @@ define dso_local noundef ptr @CreateExecutorState() local_unnamed_addr #0 {
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @FreeExecutorState(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @FreeExecutorState(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %.not13 = icmp eq ptr %3, null
@@ -370,7 +370,7 @@ declare ptr @list_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReScanExprContext(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ReScanExprContext(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -466,7 +466,7 @@ define dso_local ptr @MakePerTupleExprContext(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAssignExprContext(ptr noundef %0, ptr nocapture noundef writeonly initializes((128, 136)) %1) local_unnamed_addr #0 {
+define dso_local void @ExecAssignExprContext(ptr noundef %0, ptr noundef writeonly captures(none) initializes((128, 136)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -512,14 +512,14 @@ define dso_local void @ExecAssignExprContext(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @ExecGetResultType(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @ExecGetResultType(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @ExecGetResultSlotOps(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 199
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -768,7 +768,7 @@ tlist_matches_tupdesc.exit.thread:                ; preds = %41, %46, %37, %33, 
 declare void @ExecInitResultSlot(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAssignScanType(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecAssignScanType(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %3, align 8
   tail call void @ExecSetSlotDescriptor(ptr noundef %4, ptr noundef %1) #9
@@ -790,7 +790,7 @@ define dso_local void @ExecCreateScanSlotFromOuterPlan(ptr noundef %0, ptr nound
 declare void @ExecInitScanTupleSlot(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @ExecRelationIsTargetRelation(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @ExecRelationIsTargetRelation(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -802,7 +802,7 @@ define dso_local zeroext i1 @ExecRelationIsTargetRelation(ptr nocapture noundef 
 declare zeroext i1 @list_member_int(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecOpenScanRelation(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @ExecOpenScanRelation(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = add i32 %1, -1
@@ -869,7 +869,7 @@ ExecGetRangeTableRelation.exit:                   ; preds = %3, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetRangeTableRelation(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetRangeTableRelation(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = add i32 %1, -1
@@ -923,7 +923,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecInitRangeTable(ptr nocapture noundef writeonly initializes((24, 36), (40, 64), (96, 104)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ExecInitRangeTable(ptr noundef writeonly captures(none) initializes((24, 36), (40, 64), (96, 104)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -957,7 +957,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @table_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecInitResultRelation(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @ExecInitResultRelation(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = add i32 %2, -1
@@ -1029,7 +1029,7 @@ declare void @InitResultRelInfo(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UpdateChangedParamSet(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @UpdateChangedParamSet(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -1075,7 +1075,7 @@ declare i32 @pg_mbstrlen_with_len(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @errposition(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RegisterExprContextCallback(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @RegisterExprContextCallback(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @MemoryContextAlloc(ptr noundef %5, i64 noundef 24) #9
@@ -1093,7 +1093,7 @@ define dso_local void @RegisterExprContextCallback(ptr nocapture noundef %0, ptr
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UnregisterExprContextCallback(ptr nocapture noundef %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @UnregisterExprContextCallback(ptr noundef captures(none) %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %.not10 = icmp eq ptr %5, null
@@ -1487,7 +1487,7 @@ define dso_local i32 @ExecCleanTargetListLength(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetTriggerOldSlot(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetTriggerOldSlot(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1518,7 +1518,7 @@ declare ptr @ExecInitExtraTupleSlot(ptr noundef, ptr noundef, ptr noundef) local
 declare ptr @table_slot_callbacks(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetTriggerNewSlot(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetTriggerNewSlot(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1545,7 +1545,7 @@ define dso_local ptr @ExecGetTriggerNewSlot(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetReturningSlot(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetReturningSlot(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1572,7 +1572,7 @@ define dso_local ptr @ExecGetReturningSlot(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetChildToRootMap(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetChildToRootMap(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1616,7 +1616,7 @@ define dso_local ptr @ExecGetChildToRootMap(ptr nocapture noundef %0) local_unna
 declare ptr @convert_tuples_by_name(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetRootToChildMap(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetRootToChildMap(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -1669,7 +1669,7 @@ declare ptr @build_attrmap_by_name_if_req(ptr noundef, ptr noundef, i1 noundef z
 declare ptr @convert_tuples_by_name_attrmap(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetInsertedCols(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetInsertedCols(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1766,7 +1766,7 @@ GetResultRTEPermissionInfo.exit.thread:           ; preds = %2, %GetResultRTEPer
 declare ptr @execute_attr_map_cols(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ExecGetUpdatedCols(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @ExecGetUpdatedCols(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1954,7 +1954,7 @@ ExecGetExtraUpdatedCols.exit:                     ; preds = %28, %36
 declare ptr @bms_union(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ExecGetResultRelCheckAsUser(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @ExecGetResultRelCheckAsUser(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -2024,7 +2024,7 @@ declare void @llvm.assume(i1 noundef) #6
 declare i64 @llvm.umax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

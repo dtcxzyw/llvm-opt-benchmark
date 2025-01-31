@@ -5957,7 +5957,7 @@ sljit_emit_simd_mov.exit151.i.i:                  ; preds = %2404, %2401, %add_j
 
 2406:                                             ; preds = %2406, %sljit_emit_simd_mov.exit151.i.i
   %.179.i.i = phi i32 [ 0, %sljit_emit_simd_mov.exit151.i.i ], [ %2407, %2406 ]
-  call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef %.val.i877, i32 noundef %.086.i.i, i32 noundef %.179.i.i, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3)
+  call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef nonnull %.val.i877, i32 noundef %.086.i.i, i32 noundef %.179.i.i, i32 noundef 0, i32 noundef 1, i32 noundef 2, i32 noundef 3)
   %2407 = add nuw nsw i32 %.179.i.i, 1
   %exitcond80.not.i.i = icmp eq i32 %2407, 4
   br i1 %exitcond80.not.i.i, label %2408, label %2406
@@ -12640,7 +12640,7 @@ define i32 @php_pcre2_jit_match(ptr noundef %0, ptr noundef %1, i64 noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_pcre2_jit_free_rodata_8(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_pcre2_jit_free_rodata_8(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -12663,7 +12663,7 @@ define hidden void @_pcre2_jit_free_rodata_8(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_pcre2_jit_free_8(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_pcre2_jit_free_8(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr i8, ptr %1, i64 8
   %5 = getelementptr i8, ptr %1, i64 16
@@ -12708,7 +12708,7 @@ _pcre2_jit_free_rodata_8.exit:                    ; preds = %.lr.ph.i, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_pcre2_jit_free_unused_memory(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @php_pcre2_jit_free_unused_memory(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @allocator_lock) #18
   %3 = load ptr, ptr @free_blocks, align 8
   %.not11.i = icmp eq ptr %3, null
@@ -12918,7 +12918,7 @@ define hidden noundef nonnull ptr @_pcre2_jit_get_target_8() local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_pcre2_jit_get_size_8(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden i64 @_pcre2_jit_get_size_8(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -12943,10 +12943,10 @@ declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 nounde
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @detect_early_fail(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, i32 noundef range(i32 0, 5) %3, i32 noundef %4) unnamed_addr #7 {
+define internal fastcc range(i32 0, -2147483648) i32 @detect_early_fail(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, i32 noundef range(i32 0, 5) %3, i32 noundef %4) unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %8 = zext i8 %7 to i64
@@ -13558,7 +13558,7 @@ thread-pre-split.backedge:                        ; preds = %207, %258, %210, %.
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc nonnull ptr @set_then_offsets(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 {
+define internal fastcc nonnull ptr @set_then_offsets(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 {
   br label %4
 
 4:                                                ; preds = %4, %3
@@ -13795,7 +13795,7 @@ bracketend.exit:                                  ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sljit_emit_op1(ptr nocapture noundef %0, i32 noundef range(i32 32, 39) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc void @sljit_emit_op1(ptr noundef captures(none) %0, i32 noundef range(i32 32, 39) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %8, label %.sink.split
@@ -13904,7 +13904,7 @@ default.unreachable135:                           ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sljit_emit_op2(ptr nocapture noundef %0, i32 noundef range(i32 32, 9344) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @sljit_emit_op2(ptr noundef captures(none) %0, i32 noundef range(i32 32, 9344) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7) unnamed_addr #0 {
   %9 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %10, label %emit_mul.exit
@@ -14465,7 +14465,7 @@ emit_mul.exit:                                    ; preds = %237, %235, %233, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sljit_emit_label(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc ptr @sljit_emit_label(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %59
@@ -16036,7 +16036,7 @@ sljit_emit_op1.exit302:                           ; preds = %153, %150, %142, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fast_forward_first_char(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @fast_forward_first_char(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -16094,7 +16094,7 @@ define internal fastcc void @fast_forward_first_char(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fast_forward_newline(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @fast_forward_newline(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = alloca [4 x i32], align 16
   %3 = alloca [4 x i32], align 16
   %4 = alloca ptr, align 8
@@ -17705,7 +17705,7 @@ sljit_emit_op1.exit210:                           ; preds = %emit_mov.exit407, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fast_forward_start_bits(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @fast_forward_start_bits(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -27689,7 +27689,7 @@ sljit_set_label.exit:                             ; preds = %.lr.ph.split, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @sljit_emit_jump(ptr nocapture noundef %0, i32 noundef range(i32 0, 38) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @sljit_emit_jump(ptr noundef captures(none) %0, i32 noundef range(i32 0, 38) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %59
@@ -27811,7 +27811,7 @@ set_jump.exit:                                    ; preds = %30, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @return_with_partial_match(ptr nocapture noundef nonnull readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @return_with_partial_match(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 0
@@ -34410,7 +34410,7 @@ sljit_emit_op1.exit74:                            ; preds = %sljit_set_label.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @flush_stubs(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @flush_stubs(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %.043 = load ptr, ptr %3, align 8
@@ -35513,7 +35513,7 @@ emit_cmp_binary.exit:                             ; preds = %360, %358, %356, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sljit_emit_op_dst(ptr nocapture noundef %0, i32 noundef range(i32 1, 143) %1) unnamed_addr #0 {
+define internal fastcc void @sljit_emit_op_dst(ptr noundef captures(none) %0, i32 noundef range(i32 1, 143) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %emit_fast_enter.exit
@@ -35651,7 +35651,7 @@ emit_fast_enter.exit:                             ; preds = %67, %70, %58, %57, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sljit_emit_icall(ptr nocapture noundef %0, i32 noundef range(i32 273, 4371) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @sljit_emit_icall(ptr noundef captures(none) %0, i32 noundef range(i32 273, 4371) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %74
@@ -35806,7 +35806,7 @@ call_with_args.exit:                              ; preds = %53, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @sljit_stack_resize(ptr nocapture noundef %0, ptr noundef %1) #0 {
+define internal noundef ptr @sljit_stack_resize(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ult ptr %1, %4
@@ -35866,7 +35866,7 @@ get_page_alignment.exit:                          ; preds = %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sljit_emit_op_src(ptr nocapture noundef %0, i32 noundef range(i32 1, 6) %1) unnamed_addr #0 {
+define internal fastcc void @sljit_emit_op_src(ptr noundef captures(none) %0, i32 noundef range(i32 1, 6) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %emit_fast_return.exit
@@ -37012,7 +37012,7 @@ sljit_set_label.exit137:                          ; preds = %sljit_emit_op2.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_wordboundary(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @check_wordboundary(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -38998,7 +38998,7 @@ sljit_emit_op_src.exit275:                        ; preds = %emit_mov.exit361, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_anynewline(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @check_anynewline(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %3, 0
@@ -39628,7 +39628,7 @@ sljit_emit_op_src.exit:                           ; preds = %210, %sljit_emit_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_hspace(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @check_hspace(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %3, 0
@@ -40886,7 +40886,7 @@ sljit_emit_op_src.exit:                           ; preds = %sljit_emit_op2u.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_vspace(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @check_vspace(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %3, 0
@@ -41924,7 +41924,7 @@ sljit_emit_op_src.exit:                           ; preds = %emit_mov.exit214, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_caselesscmp(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @do_caselesscmp(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %.val = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %.val, 0
@@ -42415,7 +42415,7 @@ sljit_emit_op_src.exit:                           ; preds = %emit_mov.exit183, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_reset_match(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 2, 131073) %1) unnamed_addr #0 {
+define internal fastcc void @do_reset_match(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 2, 131073) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp samesign ugt i32 %1, 2
   br i1 %4, label %5, label %sljit_set_label.exit94
@@ -44180,7 +44180,7 @@ sljit_emit_op_src.exit130:                        ; preds = %sljit_set_label.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_utfreadtype8(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @do_utfreadtype8(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %3, 0
@@ -48086,7 +48086,7 @@ sljit_emit_op_src.exit323:                        ; preds = %sljit_emit_op1.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_utfreadnewline_invalid(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @do_utfreadnewline_invalid(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %3, 0
@@ -52023,7 +52023,7 @@ sljit_emit_op_src.exit293:                        ; preds = %sljit_emit_op1.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_getucd(ptr nocapture %.0.val) unnamed_addr #0 {
+define internal fastcc void @do_getucd(ptr captures(none) %.0.val) unnamed_addr #0 {
   %1 = load i32, ptr %.0.val, align 8
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %2, label %sljit_emit_op_src.exit
@@ -52970,7 +52970,7 @@ sljit_emit_op_src.exit:                           ; preds = %emit_mov.exit, %21,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sljit_generate_code(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc ptr @sljit_generate_code(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %206
@@ -53427,7 +53427,7 @@ generate_put_label_code.exit:                     ; preds = %112, %125, %128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc ptr @next_opcode(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1) unnamed_addr #4 {
+define internal fastcc ptr @next_opcode(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #4 {
   %3 = load i8, ptr %1, align 1
   switch i8 %3, label %66 [
     i8 1, label %4
@@ -53690,7 +53690,7 @@ define internal fastcc ptr @next_opcode(ptr nocapture noundef nonnull readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ensure_buf(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @ensure_buf(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -53734,7 +53734,7 @@ define internal fastcc ptr @ensure_buf(ptr nocapture noundef %0, i64 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_mov(ptr nocapture noundef %0, i32 noundef %1, i64 noundef range(i64 -2147483648, 2147483664) %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @emit_mov(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef range(i64 -2147483648, 2147483664) %2, i32 noundef %3, i64 noundef %4) unnamed_addr #0 {
   %6 = icmp slt i32 %3, 127
   br i1 %6, label %7, label %12
 
@@ -54029,7 +54029,7 @@ emit_load_imm64.exit:                             ; preds = %92, %83, %41, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @emit_x86_instruction(ptr nocapture noundef %0, i64 noundef range(i64 1, 2162688) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @emit_x86_instruction(ptr noundef captures(none) %0, i64 noundef range(i64 1, 2162688) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = and i64 %1, 15
   %8 = add nuw nsw i64 %7, 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -54639,7 +54639,7 @@ ensure_buf.exit:                                  ; preds = %161
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @emit_load_imm64(ptr nocapture noundef %0, i32 noundef range(i32 -2147483648, 127) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @emit_load_imm64(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483648, 127) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -54706,10 +54706,10 @@ define internal fastcc range(i32 0, 3) i32 @emit_load_imm64(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sljit_get_local_base(ptr nocapture noundef %0, i32 noundef range(i32 1, 14) %1, i64 noundef range(i64 -2147483656, 4294967296) %2) unnamed_addr #0 {
+define internal fastcc void @sljit_get_local_base(ptr noundef captures(none) %0, i32 noundef range(i32 1, 14) %1, i64 noundef range(i64 -2147483656, 4294967296) %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %emit_lea_binary.exit
@@ -54807,7 +54807,7 @@ emit_lea_binary.exit:                             ; preds = %39, %37, %28, %41, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_lea_binary(ptr nocapture noundef %0, i32 noundef range(i32 1, 143) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i32 noundef %3, i64 noundef %4, i32 noundef range(i32 1, 143) %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @emit_lea_binary(ptr noundef captures(none) %0, i32 noundef range(i32 1, 143) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i32 noundef %3, i64 noundef %4, i32 noundef range(i32 1, 143) %5, i64 noundef %6) unnamed_addr #0 {
   %8 = icmp eq i32 %1, %3
   %9 = icmp eq i64 %2, %4
   %or.cond63 = and i1 %8, %9
@@ -54917,7 +54917,7 @@ emit_mov.exit:                                    ; preds = %40, %28, %38, %26, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_mov_byte(ptr nocapture noundef initializes((152, 156)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @emit_mov_byte(ptr noundef captures(none) initializes((152, 156)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %7, align 8
   %8 = icmp eq i32 %4, 127
@@ -55001,7 +55001,7 @@ emit_groupf.exit:                                 ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_mov_half(ptr nocapture noundef initializes((152, 156)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @emit_mov_half(ptr noundef captures(none) initializes((152, 156)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %7, align 8
   %8 = icmp eq i32 %4, 127
@@ -55085,7 +55085,7 @@ emit_groupf.exit:                                 ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_mov_int(ptr nocapture noundef initializes((152, 156)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @emit_mov_int(ptr noundef captures(none) initializes((152, 156)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef %2, i64 noundef range(i64 -2147483648, 2147483664) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store i32 0, ptr %7, align 8
   %8 = icmp eq i32 %4, 127
@@ -55269,7 +55269,7 @@ emit_do_imm32.exit:                               ; preds = %51, %42, %82, %86, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_cum_binary(ptr nocapture noundef %0, i32 noundef range(i32 84082944, 892547377) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @emit_cum_binary(ptr noundef captures(none) %0, i32 noundef range(i32 84082944, 892547377) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7) unnamed_addr #0 {
   %9 = lshr i32 %1, 24
   %10 = trunc nuw nsw i32 %9 to i8
   %11 = lshr i32 %1, 16
@@ -55899,7 +55899,7 @@ emit_mov.exit:                                    ; preds = %294
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_unary(ptr nocapture noundef %0, i8 noundef zeroext range(i8 16, 25) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @emit_unary(ptr noundef captures(none) %0, i8 noundef zeroext range(i8 16, 25) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5) unnamed_addr #0 {
   %7 = icmp eq i32 %2, %4
   %8 = icmp eq i64 %3, %5
   %or.cond = and i1 %7, %8
@@ -56044,7 +56044,7 @@ emit_mov.exit:                                    ; preds = %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_non_cum_binary(ptr nocapture noundef %0, i32 noundef range(i32 488315160, 757803305) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @emit_non_cum_binary(ptr noundef captures(none) %0, i32 noundef range(i32 488315160, 757803305) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i64 noundef %7) unnamed_addr #0 {
   %9 = lshr i32 %1, 24
   %10 = trunc nuw nsw i32 %9 to i8
   %11 = lshr i32 %1, 16
@@ -56477,7 +56477,7 @@ emit_mov.exit:                                    ; preds = %205
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_shift_with_flags(ptr nocapture noundef %0, i8 noundef zeroext range(i8 0, 57) %1, i32 noundef range(i32 0, 9344) %2, i32 noundef range(i32 1, 143) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 1, 143) %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @emit_shift_with_flags(ptr noundef captures(none) %0, i8 noundef zeroext range(i8 0, 57) %1, i32 noundef range(i32 0, 9344) %2, i32 noundef range(i32 1, 143) %3, i64 noundef range(i64 -2147483648, 2147483648) %4, i32 noundef %5, i64 noundef %6, i32 noundef range(i32 1, 143) %7, i64 noundef %8) unnamed_addr #0 {
   %10 = icmp eq i32 %7, 127
   br i1 %10, label %11, label %23
 
@@ -56592,7 +56592,7 @@ emit_cmp_binary.exit64:                           ; preds = %emit_cmp_binary.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @emit_byte(ptr nocapture noundef %0, i8 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 3) i32 @emit_byte(ptr noundef captures(none) %0, i8 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -56647,7 +56647,7 @@ define internal fastcc range(i32 0, 3) i32 @emit_byte(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @emit_shift(ptr nocapture noundef %0, i8 noundef zeroext range(i8 0, 57) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @emit_shift(ptr noundef captures(none) %0, i8 noundef zeroext range(i8 0, 57) %1, i32 noundef range(i32 1, 143) %2, i64 noundef range(i64 -2147483648, 2147483648) %3, i32 noundef %4, i64 noundef %5, i32 noundef range(i32 1, 143) %6, i64 noundef %7) unnamed_addr #0 {
   %9 = icmp eq i32 %6, 4
   %trunc = trunc nuw i32 %6 to i8
   switch i8 %trunc, label %116 [
@@ -57506,7 +57506,7 @@ get_cpu_features.exit39:                          ; preds = %113, %114
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_char(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
+define internal fastcc void @read_char(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 6) %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq i32 %7, 0
@@ -59041,7 +59041,7 @@ sljit_set_label.exit:                             ; preds = %sljit_set_label.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_newlinechar(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc void @check_newlinechar(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   switch i32 %1, label %231 [
     i32 1, label %6
@@ -59606,7 +59606,7 @@ add_jump.exit49:                                  ; preds = %sljit_emit_jump.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_jump(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @add_jump(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %.not.i = icmp eq i32 %4, 0
   br i1 %.not.i, label %5, label %sljit_alloc_memory.exit.thread
@@ -59663,7 +59663,7 @@ sljit_alloc_memory.exit.thread:                   ; preds = %20, %3, %sljit_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sljit_emit_op_flags(ptr nocapture noundef %0, i32 noundef range(i32 32, 640) %1, i32 noundef range(i32 1, 5) %2, i32 noundef range(i32 0, 6) %3) unnamed_addr #0 {
+define internal fastcc void @sljit_emit_op_flags(ptr noundef captures(none) %0, i32 noundef range(i32 32, 640) %1, i32 noundef range(i32 1, 5) %2, i32 noundef range(i32 0, 6) %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %switch.lookup, label %89
@@ -59827,7 +59827,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sljit_alloc_memory(ptr nocapture noundef %0, i32 noundef range(i32 16, 81) %1) unnamed_addr #0 {
+define internal fastcc ptr @sljit_alloc_memory(ptr noundef captures(none) %0, i32 noundef range(i32 16, 81) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %ensure_abuf.exit
@@ -61018,7 +61018,7 @@ is_char7_bitset.exit.thread:                      ; preds = %.split463.us, %char
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fast_forward_first_char2(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #0 {
+define internal fastcc void @fast_forward_first_char2(ptr noundef nonnull captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #0 {
   %5 = alloca [4 x i32], align 16
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -61718,7 +61718,7 @@ sljit_emit_op1.exit91:                            ; preds = %emit_mov.exit154, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sljit_emit_select(ptr nocapture noundef %0, i32 noundef range(i32 0, 5) %1, i32 noundef range(i32 1, 14) %2, i32 noundef range(i32 1, 128) %3, i64 noundef range(i64 -65537, 2147483648) %4, i32 noundef range(i32 1, 14) %5) unnamed_addr #0 {
+define internal fastcc void @sljit_emit_select(ptr noundef captures(none) %0, i32 noundef range(i32 0, 5) %1, i32 noundef range(i32 1, 14) %2, i32 noundef range(i32 1, 128) %3, i64 noundef range(i64 -65537, 2147483648) %4, i32 noundef range(i32 1, 14) %5) unnamed_addr #0 {
   %7 = alloca [4 x i32], align 16
   %8 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %8, 0
@@ -61911,7 +61911,7 @@ emit_groupf.exit:                                 ; preds = %switch.lookup1, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @char_has_othercase(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @char_has_othercase(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -62087,7 +62087,7 @@ define internal fastcc range(i32 0, 2) i32 @char_has_othercase(ptr nocapture nou
 declare i32 @_pcre2_ord2utf_8(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483520, -2147483648) i32 @char_othercase(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #10 {
+define internal fastcc range(i32 -2147483520, -2147483648) i32 @char_othercase(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -62138,7 +62138,7 @@ define internal fastcc range(i32 -2147483520, -2147483648) i32 @char_othercase(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fast_forward_char_pair_simd(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2147483647) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef range(i32 -2147483648, 2147483646) %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @fast_forward_char_pair_simd(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2147483647) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef range(i32 -2147483648, 2147483646) %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = load ptr, ptr %0, align 8
   %9 = sub nsw i32 %1, %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -63295,8 +63295,8 @@ sljit_emit_op2.exit338.preheader:                 ; preds = %505, %504, %sljit_s
 
 sljit_emit_op2.exit338:                           ; preds = %sljit_emit_op2.exit338.preheader, %sljit_emit_op2.exit338
   %.0791 = phi i32 [ %513, %sljit_emit_op2.exit338 ], [ 0, %sljit_emit_op2.exit338.preheader ]
-  tail call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef %8, i32 noundef %.0206703771, i32 noundef %.0791, i32 noundef 1, i32 noundef 3, i32 noundef 6, i32 noundef 4)
-  tail call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef %8, i32 noundef %.0205690766, i32 noundef %.0791, i32 noundef 0, i32 noundef 2, i32 noundef 5, i32 noundef 7)
+  tail call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef nonnull %8, i32 noundef %.0206703771, i32 noundef %.0791, i32 noundef 1, i32 noundef 3, i32 noundef 6, i32 noundef 4)
+  tail call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef nonnull %8, i32 noundef %.0205690766, i32 noundef %.0791, i32 noundef 0, i32 noundef 2, i32 noundef 5, i32 noundef 7)
   %513 = add nuw nsw i32 %.0791, 1
   %exitcond.not = icmp eq i32 %513, 4
   br i1 %exitcond.not, label %514, label %sljit_emit_op2.exit338
@@ -63652,8 +63652,8 @@ sljit_emit_simd_mov.exit381.preheader:            ; preds = %647, %sljit_emit_op
 
 sljit_emit_simd_mov.exit381:                      ; preds = %sljit_emit_simd_mov.exit381.preheader, %sljit_emit_simd_mov.exit381
   %.1792 = phi i32 [ %664, %sljit_emit_simd_mov.exit381 ], [ 0, %sljit_emit_simd_mov.exit381.preheader ]
-  tail call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef %8, i32 noundef %.0205690766, i32 noundef %.1792, i32 noundef 0, i32 noundef 2, i32 noundef 5, i32 noundef 4)
-  tail call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef %8, i32 noundef %.0206703771, i32 noundef %.1792, i32 noundef 1, i32 noundef 3, i32 noundef 6, i32 noundef 7)
+  tail call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef nonnull %8, i32 noundef %.0205690766, i32 noundef %.1792, i32 noundef 0, i32 noundef 2, i32 noundef 5, i32 noundef 4)
+  tail call fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef nonnull %8, i32 noundef %.0206703771, i32 noundef %.1792, i32 noundef 1, i32 noundef 3, i32 noundef 6, i32 noundef 7)
   %664 = add nuw nsw i32 %.1792, 1
   %exitcond793.not = icmp eq i32 %664, 4
   br i1 %exitcond793.not, label %665, label %sljit_emit_simd_mov.exit381
@@ -64309,7 +64309,7 @@ sljit_emit_op1.exit471:                           ; preds = %emit_mov.exit560, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sljit_emit_simd_lane_replicate(ptr nocapture noundef %0, i32 noundef range(i32 2, 7) %1, i32 noundef range(i32 2, 7) %2) unnamed_addr #0 {
+define internal fastcc void @sljit_emit_simd_lane_replicate(ptr noundef captures(none) %0, i32 noundef range(i32 2, 7) %1, i32 noundef range(i32 2, 7) %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %emit_vex_instruction.exit
@@ -64411,7 +64411,7 @@ emit_vex_instruction.exit:                        ; preds = %9, %emit_groupf.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fast_forward_char_pair_sse2_compare(ptr nocapture noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 -2147483648, 4) %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4, i32 noundef range(i32 0, 256) %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
+define internal fastcc void @fast_forward_char_pair_sse2_compare(ptr noundef captures(none) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 -2147483648, 4) %2, i32 noundef range(i32 0, 256) %3, i32 noundef range(i32 0, 256) %4, i32 noundef range(i32 0, 256) %5, i32 noundef range(i32 0, 256) %6) unnamed_addr #0 {
   %.not = icmp eq i32 %1, 2
   br i1 %.not, label %73, label %8
 
@@ -64822,7 +64822,7 @@ sljit_emit_op_custom.exit:                        ; preds = %193, %192, %167, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fast_forward_char_simd(ptr nocapture noundef nonnull %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #0 {
+define internal fastcc void @fast_forward_char_simd(ptr noundef nonnull captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i32 noundef range(i32 0, -2147483648) %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %.not = icmp eq i8 %1, %2
   br i1 %.not, label %11, label %6
@@ -66319,7 +66319,7 @@ sljit_set_label.exit241:                          ; preds = %661, %sljit_set_lab
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @move_back(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @move_back(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %6 = load i32, ptr %5, align 8
@@ -66749,7 +66749,7 @@ sljit_set_label.exit:                             ; preds = %179, %177, %182, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @optimize_class(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @optimize_class(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, i32 noundef range(i32 0, 2) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca [4 x i32], align 16
   %7 = alloca [3 x i16], align 2
   %8 = alloca [4 x i32], align 16
@@ -71009,7 +71009,7 @@ add_jump.exit:                                    ; preds = %sljit_emit_op2u.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @allocate_stack(ptr nocapture noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @allocate_stack(ptr noundef nonnull captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i32, ptr %3, align 8
   %.not.i = icmp eq i32 %4, 0
@@ -71086,7 +71086,7 @@ add_stub.exit:                                    ; preds = %sljit_emit_op2.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compile_iterator_matchingpath(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @compile_iterator_matchingpath(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
@@ -73678,7 +73678,7 @@ sljit_alloc_memory.exit.thread:                   ; preds = %45, %3, %sljit_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compile_ref_iterator_matchingpath(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @compile_ref_iterator_matchingpath(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %1, align 1
   %6 = add i8 %5, -113
@@ -75160,7 +75160,7 @@ sljit_alloc_memory.exit.thread:                   ; preds = %23, %3, %sljit_allo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compile_ref_matchingpath(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @compile_ref_matchingpath(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = load i8, ptr %1, align 1
@@ -78599,7 +78599,7 @@ sljit_emit_op1.exit465:                           ; preds = %emit_mov.exit700, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compile_dnref_search(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @compile_dnref_search(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %6 = load i8, ptr %5, align 1
@@ -78849,7 +78849,7 @@ set_jumps.exit:                                   ; preds = %sljit_set_label.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compile_assert_matchingpath(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc ptr @compile_assert_matchingpath(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.backtrack_common, align 8
   %7 = load ptr, ptr %0, align 8
@@ -82365,7 +82365,7 @@ switch.early.test470:                             ; preds = %sljit_set_label.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @count_match(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @count_match(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 8
   %.not.i = icmp eq i32 %3, 0
@@ -82591,7 +82591,7 @@ add_jump.exit:                                    ; preds = %sljit_emit_op2.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compile_bracket_matchingpath(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @compile_bracket_matchingpath(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8
   store i32 0, ptr %4, align 4
@@ -85942,7 +85942,7 @@ sljit_alloc_memory.exit.thread:                   ; preds = %989, %973, %22, %3,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, -2147483648) i32 @get_framesize(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #11 {
+define internal fastcc range(i32 -2, -2147483648) i32 @get_framesize(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %4) unnamed_addr #11 {
   store i32 0, ptr %4, align 4
   %6 = icmp eq ptr %2, null
   br i1 %6, label %.preheader, label %26
@@ -86196,7 +86196,7 @@ bracketend.exit:                                  ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_frame(ptr nocapture noundef nonnull readonly %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @init_frame(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = shl nsw i32 %3, 3
   %7 = icmp eq ptr %2, null
@@ -86773,7 +86773,7 @@ sljit_emit_op1.exit248:                           ; preds = %205, %emit_mov.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_partial(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc void @check_partial(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load i32, ptr %4, align 8
@@ -87147,7 +87147,7 @@ sljit_set_label.exit43:                           ; preds = %171, %169, %2, %slj
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @peek_char(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 3, 143) %2, i64 noundef range(i64 0, 9) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @peek_char(ptr noundef nonnull captures(none) %0, i32 noundef %1, i32 noundef range(i32 3, 143) %2, i64 noundef range(i64 0, 9) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = load i32, ptr %6, align 8
   %.not.i = icmp eq i32 %7, 0
@@ -87467,7 +87467,7 @@ sljit_set_label.exit:                             ; preds = %135, %add_jump.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @peek_char_back(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @peek_char_back(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 8
   %.not.i = icmp eq i32 %5, 0
@@ -87900,7 +87900,7 @@ sljit_set_label.exit:                             ; preds = %191, %add_jump.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @detect_partial_match(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @detect_partial_match(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load i32, ptr %4, align 8
@@ -88583,7 +88583,7 @@ add_jump.exit:                                    ; preds = %313, %add_jump.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_char7_type(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @read_char7_type(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 8
   %.not.i = icmp eq i32 %5, 0
@@ -88980,7 +88980,7 @@ sljit_set_label.exit:                             ; preds = %162, %sljit_emit_op
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_char8_type(ptr nocapture noundef nonnull %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @read_char8_type(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 8
   %.not.i = icmp eq i32 %5, 0
@@ -89926,7 +89926,7 @@ sljit_set_label.exit169:                          ; preds = %394, %392, %emit_mo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_str_end(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc void @check_str_end(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load i32, ptr %4, align 8
@@ -90690,7 +90690,7 @@ sljit_set_label.exit:                             ; preds = %28, %27, %21, %slji
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compile_xclass_matchingpath(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @compile_xclass_matchingpath(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8
   store ptr null, ptr %4, align 8
@@ -101394,7 +101394,7 @@ add_jump.exit:                                    ; preds = %sljit_set_label.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal ptr @do_extuni_utf_invalid(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #12 {
+define internal ptr @do_extuni_utf_invalid(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101663,7 +101663,7 @@ define internal ptr @do_extuni_utf_invalid(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal ptr @do_extuni_utf(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #12 {
+define internal ptr @do_extuni_utf(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -101998,7 +101998,7 @@ define internal ptr @do_extuni_utf(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal ptr @do_extuni_no_utf(ptr nocapture noundef readonly %0, ptr noundef readonly %1) #13 {
+define internal ptr @do_extuni_no_utf(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -102125,7 +102125,7 @@ define internal ptr @do_extuni_no_utf(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @char_get_othercase_bit(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1) unnamed_addr #12 {
+define internal fastcc i32 @char_get_othercase_bit(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #12 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 480
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -102344,7 +102344,7 @@ define internal fastcc i32 @char_get_othercase_bit(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @byte_sequence_compare(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @byte_sequence_compare(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly %2, ptr noundef nonnull captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %15, label %7
@@ -102882,7 +102882,7 @@ add_jump.exit:                                    ; preds = %sljit_alloc_memory.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @get_iterator_parameters(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((0, 1)) %2, ptr nocapture noundef nonnull initializes((0, 1)) %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %6) unnamed_addr #14 {
+define internal fastcc nonnull ptr @get_iterator_parameters(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) initializes((0, 1)) %2, ptr noundef nonnull captures(none) initializes((0, 1)) %3, ptr noundef nonnull captures(none) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %5, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %6) unnamed_addr #14 {
   %8 = load i8, ptr %1, align 1
   store i8 %8, ptr %2, align 1
   store i32 0, ptr %5, align 4
@@ -103154,7 +103154,7 @@ thread-pre-split:                                 ; preds = %7, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_partial_match(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
+define internal fastcc void @process_partial_match(ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i32, ptr %3, align 8
@@ -103292,7 +103292,7 @@ sljit_set_label.exit:                             ; preds = %sljit_alloc_memory.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @detect_partial_match_to(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @detect_partial_match_to(ptr noundef nonnull captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call fastcc ptr @sljit_emit_cmp(ptr noundef %3, i32 noundef 2, i32 noundef 2, i64 noundef 0, i32 noundef 13, i64 noundef 0)
   %.not.i = icmp eq ptr %4, null
@@ -103316,7 +103316,7 @@ sljit_set_label.exit:                             ; preds = %2, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @do_callout_jit(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @do_callout_jit(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -103407,7 +103407,7 @@ define internal i32 @do_callout_jit(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_stack(ptr nocapture %.0.val, i32 noundef %0) unnamed_addr #0 {
+define internal fastcc void @free_stack(ptr captures(none) %.0.val, i32 noundef %0) unnamed_addr #0 {
   %2 = load i32, ptr %.0.val, align 8
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %3, label %sljit_emit_op2.exit
@@ -103425,7 +103425,7 @@ sljit_emit_op2.exit:                              ; preds = %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @compile_reverse_matchingpath(ptr nocapture noundef nonnull %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @compile_reverse_matchingpath(ptr noundef nonnull captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %1, align 1
   %6 = icmp eq i8 %5, 125
@@ -104234,7 +104234,7 @@ sljit_alloc_memory.exit.thread:                   ; preds = %33, %16, %sljit_emi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_start_used_ptr(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc void @check_start_used_ptr(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load i32, ptr %3, align 8
@@ -104329,7 +104329,7 @@ sljit_set_label.exit:                             ; preds = %sljit_set_label.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @match_once_common(ptr nocapture noundef nonnull readonly %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @match_once_common(ptr noundef nonnull readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = icmp slt i32 %2, 0
   br i1 %8, label %9, label %51
@@ -104535,7 +104535,7 @@ sljit_emit_op1.exit70:                            ; preds = %77, %75, %emit_mov.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @match_script_run_common(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
+define internal fastcc void @match_script_run_common(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i32, ptr %4, align 8
   %.not.i = icmp eq i32 %5, 0
@@ -104682,7 +104682,7 @@ add_jump.exit:                                    ; preds = %sljit_emit_op1.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6) i32 @match_capture_common(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 1, 131071) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @match_capture_common(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 3) %1, i32 noundef range(i32 1, 131071) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load i32, ptr %6, align 8
@@ -104911,7 +104911,7 @@ sljit_emit_op1.exit76:                            ; preds = %emit_mov.exit82, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @sljit_emit_put_label(ptr nocapture noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @sljit_emit_put_label(ptr noundef captures(none) %0, i64 noundef range(i64 -2147483648, 2147483648) %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %83
@@ -105115,7 +105115,7 @@ define internal ptr @do_script_run(ptr noundef %0, ptr noundef %1) #0 {
 declare i32 @_pcre2_script_run_8(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @compile_assert_backtrackingpath(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @compile_assert_backtrackingpath(ptr noundef nonnull captures(none) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -110344,7 +110344,7 @@ sljit_set_label.exit1042:                         ; preds = %sljit_set_put_label
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sljit_emit_ijump(ptr nocapture noundef %0, i32 noundef range(i32 36, 39) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @sljit_emit_ijump(ptr noundef captures(none) %0, i32 noundef range(i32 36, 39) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %73
@@ -110530,7 +110530,7 @@ define internal i64 @do_search_mark(ptr noundef readonly %0, ptr noundef %1) #0 
 declare i32 @_pcre2_strcmp_8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_recurse_data(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef range(i32 0, 5) %3, i32 noundef range(i32 1, 3) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc void @copy_recurse_data(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef range(i32 0, 5) %3, i32 noundef range(i32 1, 3) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.delayed_mem_copy_status, align 8
   %8 = alloca [2 x i64], align 16
   %9 = alloca [3 x i64], align 16
@@ -112276,7 +112276,7 @@ declare i32 @madvise(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @generate_far_jump_code(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #14 {
+define internal fastcc nonnull ptr @generate_far_jump_code(ptr noundef captures(none) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 13
@@ -112355,7 +112355,7 @@ switch.lookup:                                    ; preds = %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #15
@@ -112364,7 +112364,7 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15
@@ -112376,10 +112376,10 @@ declare i32 @llvm.ctpop.i32(i32) #15
 declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #15

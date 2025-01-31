@@ -1185,7 +1185,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau11LintOptions11setDefaultsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau11LintOptions11setDefaultsEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #1 align 2 {
   store i64 -1, ptr %0, align 8
   ret void
 }
@@ -1199,7 +1199,7 @@ define dso_local noundef ptr @_ZN4Luau11LintWarning7getNameENS0_4CodeE(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 30) i32 @_ZN4Luau11LintWarning9parseNameEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef range(i32 0, 30) i32 @_ZN4Luau11LintWarning9parseNameEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -1225,10 +1225,10 @@ define dso_local noundef range(i32 0, 30) i32 @_ZN4Luau11LintWarning9parseNameEP
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZN4Luau11LintWarning9parseMaskERKSt6vectorINS_10HotCommentESaIS2_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef i64 @_ZN4Luau11LintWarning9parseMaskERKSt6vectorINS_10HotCommentESaIS2_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) local_unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8

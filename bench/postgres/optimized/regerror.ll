@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.43 = private unnamed_addr constant [5 x i8] c"oops\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i64 @pg_regerror(i32 noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [88 x i8], align 16
   switch i32 %0, label %.preheader [
     i32 101, label %.preheader37.preheader
@@ -149,7 +149,7 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone
 
 48:                                               ; preds = %44
   %49 = add i64 %3, -1
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr align 1 %.032, i64 %49, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2, ptr nonnull align 1 %.032, i64 %49, i1 false)
   %50 = getelementptr i8, ptr %2, i64 %49
   store i8 0, ptr %50, align 1
   br label %51
@@ -159,21 +159,21 @@ define dso_local i64 @pg_regerror(i32 noundef %0, ptr nocapture noundef readnone
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

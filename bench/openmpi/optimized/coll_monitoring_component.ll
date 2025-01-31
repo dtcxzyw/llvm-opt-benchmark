@@ -39,7 +39,7 @@ define internal i32 @mca_coll_monitoring_component_init(i1 zeroext %0, i1 zeroex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @mca_coll_monitoring_component_query(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #1 {
+define internal noundef ptr @mca_coll_monitoring_component_query(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_coll_monitoring_module_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #7
   %5 = load i32, ptr @opal_class_init_epoch, align 4
@@ -5196,12 +5196,12 @@ declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #2
 declare ptr @mca_common_monitoring_coll_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @mca_common_monitoring_coll_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

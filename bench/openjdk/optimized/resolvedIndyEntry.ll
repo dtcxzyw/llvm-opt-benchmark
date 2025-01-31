@@ -28,7 +28,7 @@ $_ZN9LogPrefixILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @switch.table._ZNK17ResolvedIndyEntry8print_onEP12outputStream = private unnamed_addr constant [10 x i8] c"\08\04\05\09\0A\0B\06\07\0C\0E", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17ResolvedIndyEntry30check_no_old_or_obsolete_entryEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17ResolvedIndyEntry30check_no_old_or_obsolete_entryEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -51,7 +51,7 @@ define hidden noundef zeroext i1 @_ZN17ResolvedIndyEntry30check_no_old_or_obsole
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN17ResolvedIndyEntry23remove_unshareable_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (12, 16)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17ResolvedIndyEntry23remove_unshareable_infoEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8), (12, 16)) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
@@ -63,7 +63,7 @@ define hidden void @_ZN17ResolvedIndyEntry23remove_unshareable_infoEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN17ResolvedIndyEntry17mark_and_relocateEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {

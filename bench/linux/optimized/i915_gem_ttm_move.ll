@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @i915_ttm_adjust_domains_after_move(ptr nocapture noundef initializes((646, 650)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_ttm_adjust_domains_after_move(ptr noundef captures(none) initializes((646, 650)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -56,10 +56,10 @@ define dso_local void @i915_ttm_adjust_domains_after_move(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @i915_ttm_adjust_gem_after_move(ptr noundef %0) local_unnamed_addr #2 align 16 {
@@ -183,7 +183,7 @@ declare dso_local i32 @i915_gem_object_unbind(ptr noundef, i64 noundef) local_un
 declare dso_local i32 @__i915_gem_object_put_pages(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_ttm_move(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #2 align 16 {
+define dso_local i32 @i915_ttm_move(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #2 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.i915_deps, align 8
   store ptr %3, ptr %6, align 8
@@ -466,7 +466,7 @@ declare dso_local i32 @ttm_tt_populate(ptr noundef, ptr noundef, ptr noundef) lo
 declare dso_local ptr @i915_ttm_resource_get_st(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @i915_deps_init(ptr noundef, i32 noundef) local_unnamed_addr #3
@@ -1474,7 +1474,7 @@ declare dso_local void @dma_fence_init(ptr noundef, ptr noundef, ptr noundef, i6
 declare dso_local i32 @dma_fence_add_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__memcpy_cb(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal void @__memcpy_cb(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -1508,12 +1508,12 @@ define internal void @__memcpy_cb(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @get_driver_name(ptr nocapture readnone %0) #8 align 16 {
+define internal noundef nonnull ptr @get_driver_name(ptr readnone captures(none) %0) #8 align 16 {
   ret ptr @.str.2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @get_timeline_name(ptr nocapture readnone %0) #8 align 16 {
+define internal noundef nonnull ptr @get_timeline_name(ptr readnone captures(none) %0) #8 align 16 {
   ret ptr @.str.3
 }
 

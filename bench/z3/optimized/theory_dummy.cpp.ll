@@ -223,7 +223,7 @@ entry:
 declare void @_ZN3smt6theoryC2ERNS_7contextEi(ptr noundef nonnull align 8 dereferenceable(53), ptr noundef nonnull align 8 dereferenceable(11616), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_atomEP3appb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture readnone %atom, i1 zeroext %gate_ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_atomEP3appb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr readnone captures(none) %atom, i1 zeroext %gate_ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_theory_exprs.i = getelementptr inbounds nuw i8, ptr %this, i64 53
   %0 = load i8, ptr %m_theory_exprs.i, align 1
@@ -280,7 +280,7 @@ _ZN3smt12theory_dummy17found_theory_exprEv.exit:  ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_termEP3app(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture readnone %term) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3smt12theory_dummy16internalize_termEP3app(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr readnone captures(none) %term) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_theory_exprs.i = getelementptr inbounds nuw i8, ptr %this, i64 53
   %0 = load i8, ptr %m_theory_exprs.i, align 1
@@ -337,7 +337,7 @@ _ZN3smt12theory_dummy17found_theory_exprEv.exit:  ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define hidden void @_ZN3smt12theory_dummy9new_eq_ehEii(ptr nocapture nonnull readnone align 8 %this, i32 %v1, i32 %v2) unnamed_addr #5 align 2 {
+define hidden void @_ZN3smt12theory_dummy9new_eq_ehEii(ptr nonnull readnone align 8 captures(none) %this, i32 %v1, i32 %v2) unnamed_addr #5 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 49, ptr noundef nonnull @.str.7)
   tail call void @exit(i32 noundef 114) #16
@@ -350,13 +350,13 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZNK3smt12theory_dummy10use_diseqsEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK3smt12theory_dummy10use_diseqsEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define hidden void @_ZN3smt12theory_dummy12new_diseq_ehEii(ptr nocapture nonnull readnone align 8 %this, i32 %v1, i32 %v2) unnamed_addr #5 align 2 {
+define hidden void @_ZN3smt12theory_dummy12new_diseq_ehEii(ptr nonnull readnone align 8 captures(none) %this, i32 %v1, i32 %v2) unnamed_addr #5 align 2 {
 entry:
   tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 57, ptr noundef nonnull @.str.7)
   tail call void @exit(i32 noundef 114) #16
@@ -375,7 +375,7 @@ entry:
 declare void @_ZN3smt6theory8reset_ehEv(ptr noundef nonnull align 8 dereferenceable(53)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 0, 3) i32 @_ZN3smt12theory_dummy14final_check_ehEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 3) i32 @_ZN3smt12theory_dummy14final_check_ehEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #8 align 2 {
 entry:
   %m_theory_exprs = getelementptr inbounds nuw i8, ptr %this, i64 53
   %0 = load i8, ptr %m_theory_exprs, align 1
@@ -385,7 +385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK3smt12theory_dummy8get_nameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK3smt12theory_dummy8get_nameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this) unnamed_addr #8 align 2 {
 entry:
   %m_name = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_name, align 8
@@ -893,7 +893,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 

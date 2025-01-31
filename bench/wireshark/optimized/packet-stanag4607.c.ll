@@ -527,7 +527,7 @@ define hidden void @proto_register_stanag4607() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_millisec(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_millisec(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fdiv double %3, 1.000000e+03
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.243, double noundef %4) #6
@@ -535,7 +535,7 @@ define internal void @prt_millisec(ptr nocapture noundef writeonly %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_sa32(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_sa32(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fmul double %3, 0x3E10000000000000
   %5 = fmul double %4, 4.500000e+01
@@ -551,7 +551,7 @@ define internal void @prt_sa32(ptr nocapture noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_ba32(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_ba32(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 0x3E10000000000000
   %5 = fmul double %4, 9.000000e+01
@@ -567,7 +567,7 @@ define internal void @prt_ba32(ptr nocapture noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_centimeters(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_centimeters(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fdiv double %3, 1.000000e+02
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.245, double noundef %4) #6
@@ -575,7 +575,7 @@ define internal void @prt_centimeters(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_ba16(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_ba16(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fmul double %3, 0x3F10000000000000
   %5 = fmul double %4, 9.000000e+01
@@ -584,7 +584,7 @@ define internal void @prt_ba16(ptr nocapture noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_speed(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_speed(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = uitofp i32 %1 to double
   %4 = fdiv double %3, 1.000000e+03
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.247, double noundef %4) #6
@@ -592,7 +592,7 @@ define internal void @prt_speed(ptr nocapture noundef writeonly %0, i32 noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_speed_deci(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_speed_deci(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fdiv double %3, 1.000000e+01
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.248, double noundef %4) #6
@@ -600,7 +600,7 @@ define internal void @prt_speed_deci(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_speed_centi(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_speed_centi(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fdiv double %3, 1.000000e+02
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.249, double noundef %4) #6
@@ -608,7 +608,7 @@ define internal void @prt_speed_centi(ptr nocapture noundef writeonly %0, i32 no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_sa16(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_sa16(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fmul double %3, 0x3F10000000000000
   %5 = fmul double %4, 9.000000e+01
@@ -617,7 +617,7 @@ define internal void @prt_sa16(ptr nocapture noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_kilo(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_kilo(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fmul double %3, 7.812500e-03
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.250, double noundef %4) #6
@@ -625,14 +625,14 @@ define internal void @prt_kilo(ptr nocapture noundef writeonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_meters(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_meters(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.251, double noundef %3) #6
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_decimeters(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_decimeters(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = sitofp i32 %1 to double
   %4 = fdiv double %3, 1.000000e+01
   %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.285, double noundef %4) #6
@@ -640,7 +640,7 @@ define internal void @prt_decimeters(ptr nocapture noundef writeonly %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_none16(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_none16(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp eq i32 %1, 65535
   br i1 %3, label %4, label %5
 
@@ -657,7 +657,7 @@ define internal void @prt_none16(ptr nocapture noundef writeonly %0, i32 noundef
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_none8(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_none8(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp eq i32 %1, 255
   br i1 %3, label %4, label %5
 
@@ -674,7 +674,7 @@ define internal void @prt_none8(ptr nocapture noundef writeonly %0, i32 noundef 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @prt_ba16_none(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @prt_ba16_none(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp ult i32 %1, 65537
   br i1 %3, label %4, label %5
 
@@ -706,7 +706,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_stanag4607(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_stanag4607(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.nstime_t, align 8
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   %7 = icmp ult i32 %6, 37
@@ -1362,7 +1362,7 @@ declare void @dissector_add_for_decode_as(ptr noundef, ptr noundef) local_unname
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #4
@@ -1401,7 +1401,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

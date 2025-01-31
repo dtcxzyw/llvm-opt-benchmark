@@ -651,7 +651,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dENS_7ustringERNS_10TextureOptENS_9Vec3ParamIfEES6_S6_S6_iPfS7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %filename, ptr noundef nonnull align 8 dereferenceable(104) %options, <2 x float> %P.coerce0, float %P.coerce1, <2 x float> %dPdx.coerce0, float %dPdx.coerce1, <2 x float> %dPdy.coerce0, float %dPdy.coerce1, <2 x float> %dPdz.coerce0, float %dPdz.coerce1, i32 noundef %nchannels, ptr noundef %result, ptr noundef %dresultds, ptr noundef %dresultdt, ptr noundef %dresultdr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dENS_7ustringERNS_10TextureOptENS_9Vec3ParamIfEES6_S6_S6_iPfS7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef readonly captures(none) %filename, ptr noundef nonnull align 8 dereferenceable(104) %options, <2 x float> %P.coerce0, float %P.coerce1, <2 x float> %dPdx.coerce0, float %dPdx.coerce1, <2 x float> %dPdy.coerce0, float %dPdy.coerce1, <2 x float> %dPdz.coerce0, float %dPdz.coerce1, i32 noundef %nchannels, ptr noundef %result, ptr noundef %dresultds, ptr noundef %dresultdt, ptr noundef %dresultdr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::ustring", align 8
   %m_imagecache = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -668,7 +668,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare noundef ptr @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl18get_perthread_infoEPNS0_23ImageCachePerThreadInfoE(ptr noundef nonnull align 64 dereferenceable(25280), ptr noundef) unnamed_addr #3
 
@@ -1039,7 +1039,7 @@ return:                                           ; preds = %_ZN18OpenImageIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl22texture3d_lookup_nomipERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiRKN9Imath_2_54Vec3IfEESC_SC_SC_PfSD_SD_SD_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, ptr noundef nonnull align 4 dereferenceable(12) %P, ptr nocapture noundef nonnull readnone align 4 dereferenceable(12) %0, ptr nocapture noundef nonnull readnone align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readnone align 4 dereferenceable(12) %2, ptr noundef %result, ptr noundef %dresultds, ptr noundef %dresultdt, ptr noundef %dresultdr) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl22texture3d_lookup_nomipERNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiiRKN9Imath_2_54Vec3IfEESC_SC_SC_PfSD_SD_SD_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, ptr noundef nonnull align 4 dereferenceable(12) %P, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(12) %0, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(12) %1, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(12) %2, ptr noundef %result, ptr noundef %dresultds, ptr noundef %dresultdt, ptr noundef %dresultdr) local_unnamed_addr #7 align 2 {
 entry:
   %cmp34 = icmp sgt i32 %nchannels_result, 0
   br i1 %cmp34, label %for.end, label %for.end.thread
@@ -1187,7 +1187,7 @@ entry:
   store i64 %1, ptr %arrayinit.element.i.i.i, align 16, !alias.scope !14, !noalias !11
   %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 24
   store i64 ptrtoint (ptr @_ZN3fmt2v86detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_custom_argIN18OpenImageIO_v2_6_07ustringENS0_9formatterIS9_cvEEEEvPvRNS0_26basic_format_parse_contextIcNS1_13error_handlerEEERS5_ to i64), ptr %ref.tmp5.i.sroa.2.0.arrayinit.element.i.sroa_idx.i.i, align 8, !alias.scope !14, !noalias !11
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 255, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 255, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -1211,7 +1211,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl18fill_gray_channelsERKNS_9ImageSpecEiPfS5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef nonnull align 8 dereferenceable(160), i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dENS_7ustringERNS_14TextureOptionsEPhiiNS_10VaryingRefIN9Imath_2_54Vec3IfEEEESA_SA_SA_iPfSB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %filename, ptr noundef nonnull align 8 dereferenceable(224) %options, ptr nocapture noundef readonly %runflags, i32 noundef %beginactive, i32 noundef %endactive, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 %P, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 %dPdx, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 %dPdy, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 %dPdz, i32 noundef %nchannels, ptr noundef %result, ptr noundef %dresultds, ptr noundef %dresultdt, ptr noundef %dresultdr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dENS_7ustringERNS_14TextureOptionsEPhiiNS_10VaryingRefIN9Imath_2_54Vec3IfEEEESA_SA_SA_iPfSB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef readonly captures(none) %filename, ptr noundef nonnull align 8 dereferenceable(224) %options, ptr noundef readonly captures(none) %runflags, i32 noundef %beginactive, i32 noundef %endactive, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 captures(none) %P, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 captures(none) %dPdx, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 captures(none) %dPdy, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 captures(none) %dPdz, i32 noundef %nchannels, ptr noundef %result, ptr noundef %dresultds, ptr noundef %dresultdt, ptr noundef %dresultdr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %opt.i = alloca %"class.OpenImageIO_v2_6_0::TextureOpt", align 8
   %agg.tmp.i.i = alloca %"class.OpenImageIO_v2_6_0::ustring", align 8
@@ -1310,7 +1310,7 @@ _ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dEPNS_13TextureSystem13Te
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_14TextureOptionsEPhiiNS_10VaryingRefIN9Imath_2_54Vec3IfEEEESE_SE_SE_iPfSF_SF_SF_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(224) %options, ptr nocapture noundef readonly %runflags, i32 noundef %beginactive, i32 noundef %endactive, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 %P, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 %dPdx, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 %dPdy, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 %dPdz, i32 noundef %nchannels, ptr noundef %result, ptr noundef %dresultds, ptr noundef %dresultdt, ptr noundef %dresultdr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_14TextureOptionsEPhiiNS_10VaryingRefIN9Imath_2_54Vec3IfEEEESE_SE_SE_iPfSF_SF_SF_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull align 8 dereferenceable(224) %options, ptr noundef readonly captures(none) %runflags, i32 noundef %beginactive, i32 noundef %endactive, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 captures(none) %P, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 captures(none) %dPdx, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 captures(none) %dPdy, ptr noundef readonly byval(%"class.OpenImageIO_v2_6_0::VaryingRef") align 8 captures(none) %dPdz, i32 noundef %nchannels, ptr noundef %result, ptr noundef %dresultds, ptr noundef %dresultdt, ptr noundef %dresultdr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %opt = alloca %"class.OpenImageIO_v2_6_0::TextureOpt", align 8
   %cmp56 = icmp slt i32 %beginactive, %endactive
@@ -1389,7 +1389,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare void @_ZN18OpenImageIO_v2_6_010TextureOptC1ERKNS_14TextureOptionsEi(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(224), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl22accum3d_sample_closestERKN9Imath_2_54Vec3IfEEiRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiifPfSD_SD_SD_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %P, i32 noundef %miplevel, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, float noundef %weight, ptr nocapture noundef %accum, ptr noundef writeonly %daccumds, ptr nocapture noundef writeonly %daccumdt, ptr nocapture noundef writeonly %daccumdr) #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl22accum3d_sample_closestERKN9Imath_2_54Vec3IfEEiRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiifPfSD_SD_SD_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %P, i32 noundef %miplevel, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, float noundef %weight, ptr noundef captures(none) %accum, ptr noundef writeonly %daccumds, ptr noundef writeonly captures(none) %daccumdt, ptr noundef writeonly captures(none) %daccumdr) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stex = alloca i32, align 4
   %ttex = alloca i32, align 4
@@ -1778,7 +1778,7 @@ return:                                           ; preds = %for.body223, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl23accum3d_sample_bilinearERKN9Imath_2_54Vec3IfEEiRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiifPfSD_SD_SD_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %P, i32 noundef %miplevel, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, float noundef %weight, ptr noundef %accum, ptr noundef %daccumds, ptr noundef %daccumdt, ptr noundef %daccumdr) #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl23accum3d_sample_bilinearERKN9Imath_2_54Vec3IfEEiRNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERNS_10TextureOptEiifPfSD_SD_SD_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %P, i32 noundef %miplevel, ptr noundef nonnull align 8 dereferenceable(360) %texturefile, ptr noundef %thread_info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %options, i32 noundef %nchannels_result, i32 noundef %actualchannels, float noundef %weight, ptr noundef %accum, ptr noundef %daccumds, ptr noundef %daccumdt, ptr noundef %daccumdr) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stex = alloca [2 x i32], align 4
   %ttex = alloca [2 x i32], align 4
@@ -3180,7 +3180,7 @@ entry:
   store i64 %0, ptr %ref.tmp.i, align 16, !noalias !35
   %1 = getelementptr inbounds nuw i8, ptr %ref.tmp.i, i64 8
   store i64 %call2.i.i.i.i, ptr %1, align 8, !noalias !35
-  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr %fmt, i64 %call.i2.i, i64 13, ptr nonnull %ref.tmp.i)
+  call void @_ZN3fmt2v87vformatB5cxx11ENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr nonnull %fmt, i64 %call.i2.i, i64 13, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i)
   %call.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #22
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -3535,7 +3535,7 @@ if.end:                                           ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_15TextureOptBatchEmPKfSA_SA_SA_iPfSB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr nocapture noundef nonnull readonly align 64 dereferenceable(512) %options, i64 noundef %mask, ptr nocapture noundef readonly %P, ptr nocapture noundef readonly %dPdx, ptr nocapture noundef readonly %dPdy, ptr nocapture noundef readonly %dPdz, i32 noundef %nchannels, ptr nocapture noundef writeonly %result, ptr noundef writeonly %dresultds, ptr nocapture noundef writeonly %dresultdt, ptr nocapture noundef writeonly %dresultdr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dEPNS_13TextureSystem13TextureHandleEPNS2_9PerthreadERNS_15TextureOptBatchEmPKfSA_SA_SA_iPfSB_SB_SB_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %texture_handle, ptr noundef %thread_info, ptr noundef nonnull readonly align 64 captures(none) dereferenceable(512) %options, i64 noundef %mask, ptr noundef readonly captures(none) %P, ptr noundef readonly captures(none) %dPdx, ptr noundef readonly captures(none) %dPdy, ptr noundef readonly captures(none) %dPdz, i32 noundef %nchannels, ptr noundef writeonly captures(none) %result, ptr noundef writeonly %dresultds, ptr noundef writeonly captures(none) %dresultdt, ptr noundef writeonly captures(none) %dresultdr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %opt = alloca %"class.OpenImageIO_v2_6_0::TextureOpt", align 8
   %interpmode.i = getelementptr inbounds nuw i8, ptr %opt, i64 28
@@ -3784,7 +3784,7 @@ for.end149:                                       ; preds = %for.inc147, %for.in
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dENS_7ustringERNS_15TextureOptBatchEmPKfS6_S6_S6_iPfS7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %filename, ptr nocapture noundef nonnull readonly align 64 dereferenceable(512) %options, i64 noundef %mask, ptr nocapture noundef readonly %P, ptr nocapture noundef readonly %dPdx, ptr nocapture noundef readonly %dPdy, ptr nocapture noundef readonly %dPdz, i32 noundef %nchannels, ptr nocapture noundef writeonly %result, ptr noundef %dresultds, ptr nocapture noundef writeonly %dresultdt, ptr nocapture noundef writeonly %dresultdr) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt17TextureSystemImpl9texture3dENS_7ustringERNS_15TextureOptBatchEmPKfS6_S6_S6_iPfS7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef readonly captures(none) %filename, ptr noundef nonnull readonly align 64 captures(none) dereferenceable(512) %options, i64 noundef %mask, ptr noundef readonly captures(none) %P, ptr noundef readonly captures(none) %dPdx, ptr noundef readonly captures(none) %dPdy, ptr noundef readonly captures(none) %dPdz, i32 noundef %nchannels, ptr noundef writeonly captures(none) %result, ptr noundef %dresultds, ptr noundef writeonly captures(none) %dresultdt, ptr noundef writeonly captures(none) %dresultdr) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.OpenImageIO_v2_6_0::ustring", align 8
   %m_imagecache.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -4663,7 +4663,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 declare void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
 
@@ -10208,7 +10208,7 @@ if.end32:                                         ; preds = %_ZN3fmt2v86detail8c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZN3fmt2v86detail9dragonbox10to_decimalIfEENS2_10decimal_fpIT_EES5_(float noundef %x) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
@@ -17955,7 +17955,7 @@ return:                                           ; preds = %if.end74, %if.end30
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE2ENS0_8appenderEcRZNS1_11write_bytesILS4_2EcS5_EET1_S7_NS0_17basic_string_viewIcEERKNS0_18basic_format_specsIT0_EEEUlS5_E_EESB_SB_RKNSA_IS7_EEmmOT2_(ptr %out.coerce, ptr noundef nonnull align 4 dereferenceable(16) %specs, i64 noundef %size, i64 noundef %width, ptr noundef nonnull align 8 dereferenceable(16) %f) local_unnamed_addr #7 comdat {
@@ -25656,7 +25656,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   br i1 %cmp.i.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %for.body.i.i
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %5, ptr %id.coerce0, i64 %.other.coerce1.i.i.i.i)
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %id.coerce0, i64 %.other.coerce1.i.i.i.i)
   %cmp6.i.i.i.i = icmp eq i32 %bcmp.i.i.i, 0
   %6 = icmp eq i64 %call.i8.i.i, %id.coerce1
   %or.cond.i.i = select i1 %cmp6.i.i.i.i, i1 %6, i1 false
@@ -26802,7 +26802,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   br i1 %cmp.i.i.i.i, label %_ZN3fmt2v8eqENS0_17basic_string_viewIcEES2_.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %for.body.i
-  %bcmp.i.i = tail call i32 @bcmp(ptr %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr nonnull %5, ptr %name.coerce0, i64 %.other.coerce1.i.i.i)
   %cmp6.i.i.i = icmp eq i32 %bcmp.i.i, 0
   %6 = icmp eq i64 %call.i8.i, %name.coerce1
   %or.cond.i = select i1 %cmp6.i.i.i, i1 %6, i1 false
@@ -34806,7 +34806,7 @@ if.then.i.i:                                      ; preds = %cond.true
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit
 
 _ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewINS0_13type_identityIT_E4typeEEERKNS0_18basic_format_specsIS7_EENS1_10locale_refE.exit: ; preds = %cond.true, %if.then.i.i
-  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
+  %call.i = call ptr @_ZN3fmt2v86detail5writeIcNS0_8appenderEEET0_S4_NS0_17basic_string_viewIT_EERKNS0_18basic_format_specsIS6_EE(ptr %out.coerce, ptr nonnull %s, i64 %call.i5, ptr noundef nonnull align 4 dereferenceable(16) %specs)
   br label %cond.end
 
 cond.false:                                       ; preds = %_ZN3fmt2v86detail23check_cstring_type_specINS1_13error_handlerEEEbNS0_17presentation_typeEOT_.exit
@@ -35352,7 +35352,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -36805,7 +36805,7 @@ declare i32 @llvm.ctpop.i32(i32) #18
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.usub.sat.i64(i64, i64) #18
@@ -36829,10 +36829,10 @@ declare i32 @llvm.smin.i32(i32, i32) #18
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #18

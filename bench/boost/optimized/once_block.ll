@@ -16,7 +16,7 @@ $__clang_call_terminate = comdat any
 @_ZN5boost3log11v2_mt_posix3aux9anonymousL15g_OnceBlockCondE = internal global %union.pthread_cond_t zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry16enter_once_blockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5boost3log11v2_mt_posix3aux17once_block_sentry16enter_once_blockEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN5boost3log11v2_mt_posix3aux9anonymousL16g_OnceBlockMutexE) #5
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = load volatile i8, ptr %3, align 1, !tbaa !8
@@ -82,7 +82,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix3aux17once_block_sentry6commitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost3log11v2_mt_posix3aux17once_block_sentry6commitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN5boost3log11v2_mt_posix3aux9anonymousL16g_OnceBlockMutexE) #5
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   store i8 2, ptr %3, align 1, !tbaa !8
@@ -95,7 +95,7 @@ define void @_ZN5boost3log11v2_mt_posix3aux17once_block_sentry6commitEv(ptr noca
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix3aux17once_block_sentry8rollbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost3log11v2_mt_posix3aux17once_block_sentry8rollbackEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_ZN5boost3log11v2_mt_posix3aux9anonymousL16g_OnceBlockMutexE) #5
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   store i8 0, ptr %3, align 1, !tbaa !8

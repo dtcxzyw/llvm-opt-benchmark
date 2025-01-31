@@ -3790,14 +3790,14 @@ define hidden void @proto_register_pfcp() local_unnamed_addr #0 {
 declare void @enterprises_base_custom(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca %struct.pfcp_info, align 8
   %6 = alloca %struct.pfcp_msg_hash_entry, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -4634,7 +4634,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pfcp_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @pfcp_stat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %6 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %40
@@ -4692,7 +4692,7 @@ define internal range(i32 0, 2) i32 @pfcp_stat_packet(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pfcp_stat_init(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @pfcp_stat_init(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr @pfcp_stat_msg_idx_hash, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -4754,14 +4754,14 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @pfcp_sn_hash(ptr nocapture noundef readonly %0) #3 {
+define internal i32 @pfcp_sn_hash(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @pfcp_sn_equal_matched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @pfcp_sn_equal_matched(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4804,7 +4804,7 @@ define internal range(i32 0, 2) i32 @pfcp_sn_equal_matched(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @pfcp_sn_equal_unmatched(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @pfcp_sn_equal_unmatched(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -5036,7 +5036,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_reserved(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_reserved(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = zext i16 %4 to i32
   %9 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_pfcp_ie_reserved, ptr noundef %0, i32 noundef 0, i32 noundef %8) #12
   ret void
@@ -5226,7 +5226,7 @@ define internal void @dissect_pfcp_remove_qer(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_cause(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture noundef writeonly %6) #0 {
+define internal void @dissect_pfcp_cause(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr noundef writeonly captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp2_cause, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -5248,7 +5248,7 @@ define internal void @dissect_pfcp_cause(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_source_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_source_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = load i32, ptr @hf_pfcp_spare_h1, align 4
@@ -5271,7 +5271,7 @@ define internal void @dissect_pfcp_source_interface(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_f_teid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_f_teid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_f_teid.pfcp_fteid_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -5353,14 +5353,14 @@ define internal void @dissect_pfcp_f_teid(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_network_instance(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_network_instance(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = zext i16 %4 to i32
   %9 = tail call fastcc i32 @decode_pfcp_network_instance(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0, i32 noundef %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_sdf_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_sdf_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_sdf_filter.pfcp_sdf_filter_flags, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -5468,7 +5468,7 @@ define internal void @dissect_pfcp_sdf_filter(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_application_id(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_application_id(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = zext i16 %4 to i32
   %10 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef %9) #12
@@ -5494,7 +5494,7 @@ define internal void @dissect_pfcp_application_id(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_gate_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_gate_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_gate_status.pfcp_gate_status_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -5508,7 +5508,7 @@ define internal void @dissect_pfcp_gate_status(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mbr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mbr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = zext i16 %4 to i32
   %.not = icmp eq i16 %4, 10
   %9 = lshr i32 %8, 1
@@ -5536,7 +5536,7 @@ define internal void @dissect_pfcp_mbr(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_gbr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_gbr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = zext i16 %4 to i32
   %.not = icmp eq i16 %4, 10
   %9 = lshr i32 %8, 1
@@ -5564,7 +5564,7 @@ define internal void @dissect_pfcp_gbr(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_qer_correlation_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_qer_correlation_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_qer_correlation_id, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -5582,7 +5582,7 @@ define internal void @dissect_pfcp_qer_correlation_id(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_precedence(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_precedence(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_precedence, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -5600,7 +5600,7 @@ define internal void @dissect_pfcp_precedence(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_transport_level_marking(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_transport_level_marking(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_pfcp_traffic_class, align 4
@@ -5643,7 +5643,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %21, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_volume_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_volume_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_volume_threshold.pfcp_volume_threshold_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -5699,7 +5699,7 @@ define internal void @dissect_pfcp_volume_threshold(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_time_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_time_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_time_threshold, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -5717,7 +5717,7 @@ define internal void @dissect_pfcp_time_threshold(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_monitoring_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_monitoring_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_monitoring_time, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -5737,7 +5737,7 @@ define internal void @dissect_pfcp_monitoring_time(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_subseq_volume_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_subseq_volume_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_subseq_volume_threshold.pfcp_subseq_volume_threshold_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -5793,7 +5793,7 @@ define internal void @dissect_pfcp_subseq_volume_threshold(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_subsequent_time_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_subsequent_time_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_subsequent_time_threshold, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -5811,7 +5811,7 @@ define internal void @dissect_pfcp_subsequent_time_threshold(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_inactivity_detection_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_inactivity_detection_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_inactivity_detection_time, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -5829,7 +5829,7 @@ define internal void @dissect_pfcp_inactivity_detection_time(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_reporting_triggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_reporting_triggers(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_reporting_triggers.pfcp_reporting_triggers_o5_flags, i32 noundef 0) #12
   %8 = icmp eq i16 %4, 1
   br i1 %8, label %14, label %9
@@ -5855,7 +5855,7 @@ define internal void @dissect_pfcp_reporting_triggers(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_redirect_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_redirect_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -5922,7 +5922,7 @@ define internal void @dissect_pfcp_redirect_information(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_report_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_report_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_report_type.pfcp_report_type_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -5936,7 +5936,7 @@ define internal void @dissect_pfcp_report_type(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_offending_ie(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_offending_ie(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_offending_ie, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -5947,7 +5947,7 @@ define internal void @dissect_pfcp_offending_ie(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_forwarding_policy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_forwarding_policy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_forwarding_policy_id_len, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -5969,7 +5969,7 @@ define internal void @dissect_pfcp_forwarding_policy(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_destination_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_destination_interface(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = load i32, ptr @hf_pfcp_spare_h1, align 4
@@ -5992,7 +5992,7 @@ decode_pfcp_destination_interface.exit:           ; preds = %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_up_function_features(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_up_function_features(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_up_function_features.pfcp_up_function_features_o5_flags, i32 noundef 0) #12
   %8 = icmp eq i16 %4, 1
   br i1 %8, label %27, label %9
@@ -6046,7 +6046,7 @@ define internal void @dissect_pfcp_up_function_features(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_apply_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_apply_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_apply_action.pfcp_apply_action_o5_flags, i32 noundef 0) #12
   %8 = icmp eq i16 %4, 1
   br i1 %8, label %13, label %9
@@ -6065,7 +6065,7 @@ define internal void @dissect_pfcp_apply_action(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dl_data_service_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dl_data_service_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_dl_data_service_inf.pfcp_dl_data_service_inf_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -6111,7 +6111,7 @@ define internal void @dissect_pfcp_dl_data_service_inf(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dl_data_notification_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dl_data_notification_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_dl_data_notification_delay, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -6130,7 +6130,7 @@ define internal void @dissect_pfcp_dl_data_notification_delay(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dl_buffering_dur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dl_buffering_dur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_pfcp_timer_unit, align 4
@@ -6202,7 +6202,7 @@ define internal void @dissect_pfcp_dl_buffering_dur(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dl_buffering_suggested_packet_count(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dl_buffering_suggested_packet_count(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_packet_count, align 4
   %10 = zext i16 %4 to i32
@@ -6213,7 +6213,7 @@ define internal void @dissect_pfcp_dl_buffering_suggested_packet_count(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfcpsmreq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfcpsmreq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pfcpsmreq_flags.pfcp_pfcpsmreq_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -6227,7 +6227,7 @@ define internal void @dissect_pfcp_pfcpsmreq_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfcpsrrsp_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfcpsrrsp_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pfcpsrrsp_flags.pfcp_pfcpsrrsp_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -6241,7 +6241,7 @@ define internal void @dissect_pfcp_pfcpsrrsp_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_sequence_number(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_sequence_number(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_sequence_number, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -6251,7 +6251,7 @@ define internal void @dissect_pfcp_sequence_number(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_metric(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_metric(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_metric, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -6261,7 +6261,7 @@ define internal void @dissect_pfcp_metric(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_timer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_timer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_pfcp_timer_unit, align 4
@@ -6363,7 +6363,7 @@ decode_pfcp_pdr_id.exit:                          ; preds = %7, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_f_seid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture noundef %6) #0 {
+define internal void @dissect_pfcp_f_seid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr noundef captures(none) %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_f_seid.pfcp_f_seid_flags, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -6688,7 +6688,7 @@ copy_address_wmem.exit91:                         ; preds = %.loopexit, %145
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_node_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_node_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   %9 = load i32, ptr @hf_pfcp_spare_h1, align 4
@@ -6743,7 +6743,7 @@ decode_pfcp_address.exit:                         ; preds = %7, %16, %22, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfd_contents(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfd_contents(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -6971,7 +6971,7 @@ define internal void @dissect_pfcp_pfd_contents(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_measurement_method(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_measurement_method(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_measurement_method.pfcp_measurement_method_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -6985,7 +6985,7 @@ define internal void @dissect_pfcp_measurement_method(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_usage_report_trigger(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_usage_report_trigger(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_usage_report_trigger.pfcp_usage_report_trigger_o5_flags, i32 noundef 0) #12
   %8 = icmp eq i16 %4, 1
   br i1 %8, label %14, label %9
@@ -7011,7 +7011,7 @@ define internal void @dissect_pfcp_usage_report_trigger(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_measurement_period(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_measurement_period(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_measurement_period, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -7029,7 +7029,7 @@ define internal void @dissect_pfcp_measurement_period(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_fq_csid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_fq_csid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_pfcp_fq_csid_node_id_type, align 4
@@ -7109,7 +7109,7 @@ define internal void @dissect_pfcp_fq_csid(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_volume_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_volume_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_volume_measurement.pfcp_volume_measurement_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -7207,7 +7207,7 @@ define internal void @dissect_pfcp_volume_measurement(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_duration_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_duration_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_duration_measurement, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -7225,7 +7225,7 @@ define internal void @dissect_pfcp_duration_measurement(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_time_of_first_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_time_of_first_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_time_of_first_packet, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -7245,7 +7245,7 @@ define internal void @dissect_pfcp_time_of_first_packet(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_time_of_last_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_time_of_last_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_time_of_last_packet, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -7265,7 +7265,7 @@ define internal void @dissect_pfcp_time_of_last_packet(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_quota_holding_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_quota_holding_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_quota_holding_time, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -7283,7 +7283,7 @@ define internal void @dissect_pfcp_quota_holding_time(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dropped_dl_traffic_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dropped_dl_traffic_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_dropped_dl_traffic_threshold.pfcp_dropped_dl_traffic_threshold_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -7325,7 +7325,7 @@ define internal void @dissect_pfcp_dropped_dl_traffic_threshold(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_volume_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_volume_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_volume_quota.pfcp_volume_quota_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -7381,7 +7381,7 @@ define internal void @dissect_pfcp_volume_quota(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_time_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_time_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_time_quota, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -7399,7 +7399,7 @@ define internal void @dissect_pfcp_time_quota(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_start_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_start_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_start_time, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -7419,7 +7419,7 @@ define internal void @dissect_pfcp_start_time(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_end_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_end_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_end_time, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -7512,7 +7512,7 @@ decode_pfcp_urr_id.exit:                          ; preds = %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_linked_urr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_linked_urr_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
   %9 = load i32, ptr @hf_pfcp_urr_id_flg, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
@@ -7534,7 +7534,7 @@ define internal void @dissect_pfcp_linked_urr_id(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_outer_header_creation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_outer_header_creation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @dissect_pfcp_outer_header_creation.outer_hdr_desc, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -7706,7 +7706,7 @@ decode_pfcp_bar_id.exit:                          ; preds = %7, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_cp_function_features(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_cp_function_features(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_cp_function_features.pfcp_cp_function_features_o5_flags, i32 noundef 0) #12
   %8 = icmp eq i16 %4, 1
   br i1 %8, label %13, label %9
@@ -7725,7 +7725,7 @@ define internal void @dissect_pfcp_cp_function_features(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_usage_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_usage_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_usage_information.pfcp_usage_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -7739,7 +7739,7 @@ define internal void @dissect_pfcp_usage_information(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_application_instance_id(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_application_instance_id(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = zext i16 %4 to i32
   %10 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef %9) #12
@@ -7765,7 +7765,7 @@ define internal void @dissect_pfcp_application_instance_id(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_flow_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_flow_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_spare_b7_b3, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
@@ -7791,7 +7791,7 @@ define internal void @dissect_pfcp_flow_inf(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ue_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ue_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_ue_ip_address.pfcp_ue_ip_address_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -7861,7 +7861,7 @@ define internal void @dissect_pfcp_ue_ip_address(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_packet_rate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_packet_rate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_packet_rate.pfcp_packet_rate_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -7955,7 +7955,7 @@ define internal void @dissect_pfcp_packet_rate(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_outer_hdr_rem(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_outer_hdr_rem(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_out_hdr_desc, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -7984,7 +7984,7 @@ define internal void @dissect_pfcp_outer_hdr_rem(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_recovery_time_stamp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_recovery_time_stamp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_recovery_time_stamp, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -8004,7 +8004,7 @@ define internal void @dissect_pfcp_recovery_time_stamp(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dl_flow_level_marking(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dl_flow_level_marking(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_dl_flow_level_marking.pfcp_dl_flow_level_marking_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -8048,7 +8048,7 @@ define internal void @dissect_pfcp_dl_flow_level_marking(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_header_enrichment(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_header_enrichment(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_spare_b7_b5, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
@@ -8082,7 +8082,7 @@ define internal void @dissect_pfcp_header_enrichment(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_measurement_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_measurement_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_measurement_info.pfcp_measurement_info_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -8096,7 +8096,7 @@ define internal void @dissect_pfcp_measurement_info(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_node_report_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_node_report_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_node_report_type.pfcp_node_report_type_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -8110,7 +8110,7 @@ define internal void @dissect_pfcp_node_report_type(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_remote_gtp_u_peer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_remote_gtp_u_peer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -8205,7 +8205,7 @@ define internal void @dissect_pfcp_remote_gtp_u_peer(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ur_seqn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ur_seqn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_ur_seqn, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -8215,7 +8215,7 @@ define internal void @dissect_pfcp_ur_seqn(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_act_predef_rules(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_act_predef_rules(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_predef_rules_name, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -8223,7 +8223,7 @@ define internal void @dissect_pfcp_act_predef_rules(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_deact_predef_rules(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_deact_predef_rules(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_predef_rules_name, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -8293,7 +8293,7 @@ decode_pfcp_qer_id.exit:                          ; preds = %7, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_oci_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_oci_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_oci_flags.pfcp_oci_flags_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -8307,7 +8307,7 @@ define internal void @dissect_pfcp_oci_flags(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfcp_assoc_rel_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfcp_assoc_rel_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pfcp_assoc_rel_req.pfcp_pfcp_assoc_rel_req_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -8321,7 +8321,7 @@ define internal void @dissect_pfcp_pfcp_assoc_rel_req(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_graceful_release_period(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_graceful_release_period(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_pfcp_timer_unit, align 4
@@ -8393,7 +8393,7 @@ define internal void @dissect_pfcp_graceful_release_period(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pdn_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pdn_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_pdn_type, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -8412,7 +8412,7 @@ define internal void @dissect_pfcp_pdn_type(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_failed_rule_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_failed_rule_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -8521,7 +8521,7 @@ define internal void @dissect_pfcp_failed_rule_id(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_time_quota_mechanism(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_time_quota_mechanism(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_time_quota_mechanism_bti_type, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -8542,7 +8542,7 @@ define internal void @dissect_pfcp_time_quota_mechanism(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_user_plane_ip_resource_infomation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_user_plane_ip_resource_infomation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
   %10 = alloca i32, align 4
@@ -8640,7 +8640,7 @@ define internal void @dissect_pfcp_user_plane_ip_resource_infomation(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_user_plane_inactivity_timer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_user_plane_inactivity_timer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_user_plane_inactivity_timer, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -8665,7 +8665,7 @@ define internal void @dissect_pfcp_user_plane_inactivity_timer(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_multiplier(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_multiplier(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_multiplier_value_digits, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #12
   %10 = load i32, ptr @hf_pfcp_multiplier_exponent, align 4
@@ -8674,7 +8674,7 @@ define internal void @dissect_pfcp_multiplier(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_aggregated_urr_id_ie(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_aggregated_urr_id_ie(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = tail call i32 @tvb_get_guint32(ptr noundef %0, i32 noundef 0, i32 noundef 0) #12
   %9 = load i32, ptr @hf_pfcp_urr_id_flg, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
@@ -8688,7 +8688,7 @@ define internal void @dissect_pfcp_aggregated_urr_id_ie(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_subsequent_volume_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_subsequent_volume_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_subsequent_volume_quota.pfcp_subsequent_volume_quota_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -8744,7 +8744,7 @@ define internal void @dissect_pfcp_subsequent_volume_quota(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_subsequent_time_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_subsequent_time_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_subsequent_time_quota, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -8762,7 +8762,7 @@ define internal void @dissect_pfcp_subsequent_time_quota(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_rqi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_rqi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_spare_b7_b1, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = load i32, ptr @hf_pfcp_rqi_flag, align 4
@@ -8779,7 +8779,7 @@ define internal void @dissect_pfcp_rqi(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_qfi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_qfi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_spare_b7_b6, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = load i32, ptr @hf_pfcp_qfi, align 4
@@ -8796,7 +8796,7 @@ define internal void @dissect_pfcp_qfi(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_query_urr_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_query_urr_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_query_urr_reference, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 4
@@ -8811,7 +8811,7 @@ define internal void @dissect_pfcp_query_urr_reference(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_additional_usage_reports_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_additional_usage_reports_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 2, ptr noundef nonnull @dissect_pfcp_additional_usage_reports_information.pfcp_additional_usage_reports_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 2
   br i1 %8, label %9, label %11
@@ -8825,7 +8825,7 @@ define internal void @dissect_pfcp_additional_usage_reports_information(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_traffic_endpoint_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_traffic_endpoint_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_traffic_endpoint_id, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 1
@@ -8840,7 +8840,7 @@ define internal void @dissect_pfcp_traffic_endpoint_id(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mac_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mac_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_mac_address.pfcp_mac_address_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -8910,7 +8910,7 @@ define internal void @dissect_pfcp_mac_address(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_c_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_c_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @decode_pfcp_c_tag.pfcp_c_tag_flags, i32 noundef 0) #12
   %8 = load i32, ptr @hf_pfcp_c_tag_cvid, align 4
   %9 = tail call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @decode_pfcp_c_tag.pfcp_c_tag_cvid_crumbs, ptr noundef null) #12
@@ -8930,7 +8930,7 @@ define internal void @dissect_pfcp_c_tag(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_s_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_s_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @decode_pfcp_s_tag.pfcp_s_tag_flags, i32 noundef 0) #12
   %8 = load i32, ptr @hf_pfcp_s_tag_svid, align 4
   %9 = tail call ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 8, ptr noundef nonnull @decode_pfcp_s_tag.pfcp_s_tag_svid_crumbs, ptr noundef null) #12
@@ -8950,7 +8950,7 @@ define internal void @dissect_pfcp_s_tag(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ethertype(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ethertype(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_ethertype, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 2
@@ -8965,7 +8965,7 @@ define internal void @dissect_pfcp_ethertype(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_proxying(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_proxying(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_proxying.pfcp_proxying_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = icmp ugt i16 %4, 1
@@ -8980,7 +8980,7 @@ define internal void @dissect_pfcp_proxying(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ethertype_filter_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ethertype_filter_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_ethertype_filter_id, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 4
@@ -8995,7 +8995,7 @@ define internal void @dissect_pfcp_ethertype_filter_id(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ethernet_filter_properties(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ethernet_filter_properties(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_ethernet_filter_properties.pfcp_ethernet_filter_properties_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = icmp ugt i16 %4, 1
@@ -9010,7 +9010,7 @@ define internal void @dissect_pfcp_ethernet_filter_properties(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_suggested_buffering_packets_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_suggested_buffering_packets_count(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_suggested_buffering_packets_count_packet_count, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9028,7 +9028,7 @@ define internal void @dissect_pfcp_suggested_buffering_packets_count(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_user_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_user_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -9180,7 +9180,7 @@ define internal void @dissect_pfcp_user_id(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ethernet_pdu_session_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ethernet_pdu_session_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_ethernet_pdu_session_information.pfcp_ethernet_pdu_session_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -9194,7 +9194,7 @@ define internal void @dissect_pfcp_ethernet_pdu_session_information(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mac_addresses_detected(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mac_addresses_detected(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -9278,7 +9278,7 @@ define internal void @dissect_pfcp_mac_addresses_detected(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mac_addresses_removed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mac_addresses_removed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -9362,7 +9362,7 @@ define internal void @dissect_pfcp_mac_addresses_removed(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ethernet_inactivity_timer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ethernet_inactivity_timer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_ethernet_inactivity_timer, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9378,7 +9378,7 @@ define internal void @dissect_pfcp_ethernet_inactivity_timer(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_event_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_event_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_event_quota, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9396,7 +9396,7 @@ define internal void @dissect_pfcp_event_quota(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_event_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_event_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_event_threshold, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9414,7 +9414,7 @@ define internal void @dissect_pfcp_event_threshold(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_subsequent_event_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_subsequent_event_quota(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_subsequent_event_quota, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9432,7 +9432,7 @@ define internal void @dissect_pfcp_subsequent_event_quota(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_subsequent_event_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_subsequent_event_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_subsequent_event_threshold, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9450,7 +9450,7 @@ define internal void @dissect_pfcp_subsequent_event_threshold(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_trace_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_trace_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -9511,7 +9511,7 @@ define internal void @dissect_pfcp_trace_information(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_framed_route(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_framed_route(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_framed_route, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 2) #12
@@ -9519,7 +9519,7 @@ define internal void @dissect_pfcp_framed_route(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_framed_routing(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_framed_routing(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_framed_routing, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -9527,7 +9527,7 @@ define internal void @dissect_pfcp_framed_routing(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_framed_ipv6_route(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_framed_ipv6_route(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_framed_ipv6_route, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 2) #12
@@ -9535,7 +9535,7 @@ define internal void @dissect_pfcp_framed_ipv6_route(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_time_stamp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_time_stamp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_time_stamp, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -9555,7 +9555,7 @@ define internal void @dissect_pfcp_time_stamp(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_averaging_window(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_averaging_window(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_averaging_window, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9573,7 +9573,7 @@ define internal void @dissect_pfcp_averaging_window(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_paging_policy_indicator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_paging_policy_indicator(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_paging_policy_indicator, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9591,7 +9591,7 @@ define internal void @dissect_pfcp_paging_policy_indicator(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_apn_dnn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_apn_dnn(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_apn_dnn, align 4
   %10 = zext i16 %4 to i32
@@ -9604,7 +9604,7 @@ define internal void @dissect_pfcp_apn_dnn(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_tgpp_interface_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_tgpp_interface_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_spare_h1, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
@@ -9625,7 +9625,7 @@ define internal void @dissect_pfcp_tgpp_interface_type(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfcpsrreq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfcpsrreq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pfcpsrreq_flags.pfcp_pfcpsrreq_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -9639,7 +9639,7 @@ define internal void @dissect_pfcp_pfcpsrreq_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfcpaureq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfcpaureq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pfcpaureq_flags.pfcp_pfcpaureq_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -9653,7 +9653,7 @@ define internal void @dissect_pfcp_pfcpaureq_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_activation_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_activation_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_activation_time, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -9673,7 +9673,7 @@ define internal void @dissect_pfcp_activation_time(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_deactivation_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_deactivation_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = load i32, ptr @hf_pfcp_deactivation_time, align 4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -9753,7 +9753,7 @@ decode_pfcp_mar_id.exit:                          ; preds = %7, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_steering_functionality(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_steering_functionality(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_steering_functionality, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9772,7 +9772,7 @@ define internal void @dissect_pfcp_steering_functionality(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_steering_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_steering_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_steering_mode, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9791,7 +9791,7 @@ define internal void @dissect_pfcp_steering_mode(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_weight(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_weight(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_weight, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9801,7 +9801,7 @@ define internal void @dissect_pfcp_weight(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_priority(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_priority(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_priority, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9820,7 +9820,7 @@ define internal void @dissect_pfcp_priority(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ue_ip_address_pool_identity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ue_ip_address_pool_identity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_ue_ip_address_pool_length, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -9842,7 +9842,7 @@ define internal void @dissect_pfcp_ue_ip_address_pool_identity(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_alternative_smf_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_alternative_smf_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_alternative_smf_ip_address.pfcp_alternative_smf_ip_address_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -9892,7 +9892,7 @@ define internal void @dissect_pfcp_alternative_smf_ip_address(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_packet_replication_and_detection_carry_on_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_packet_replication_and_detection_carry_on_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_packet_replication_and_detection_carry_on_information.pfcp_packet_replication_and_detection_carry_on_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -9906,7 +9906,7 @@ define internal void @dissect_pfcp_packet_replication_and_detection_carry_on_inf
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_smf_set_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_smf_set_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_spare, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = tail call fastcc i32 @decode_pfcp_fqdn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4)
@@ -9923,7 +9923,7 @@ define internal void @dissect_pfcp_smf_set_id(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_quota_validity_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_quota_validity_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.nstime_t, align 8
   %10 = load i32, ptr @hf_pfcp_validity_time_value, align 4
@@ -9968,7 +9968,7 @@ proto_item_set_generated.exit:                    ; preds = %7, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_number_of_reports(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_number_of_reports(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_number_of_reports, align 4
   %10 = zext i16 %4 to i32
@@ -9979,7 +9979,7 @@ define internal void @dissect_pfcp_number_of_reports(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfcpasrsp_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfcpasrsp_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pfcpasrsp_flags.pfcp_pfcpasrsp_flags_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -9993,7 +9993,7 @@ define internal void @dissect_pfcp_pfcpasrsp_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_cp_pfcp_entity_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_cp_pfcp_entity_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_cp_pfcp_entity_ip_address.pfcp_cp_pfcp_entity_ip_address_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -10043,7 +10043,7 @@ define internal void @dissect_pfcp_cp_pfcp_entity_ip_address(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfcpsereq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfcpsereq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pfcpsereq_flags.pfcp_pfcpsereq_flags_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -10057,7 +10057,7 @@ define internal void @dissect_pfcp_pfcpsereq_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ip_multicast_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ip_multicast_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_ip_multicast_address.pfcp_ip_multicast_address_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -10137,7 +10137,7 @@ define internal void @dissect_pfcp_ip_multicast_address(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_source_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_source_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_source_ip_address.pfcp_source_ip_address_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -10205,7 +10205,7 @@ define internal void @dissect_pfcp_source_ip_address(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_packet_rate_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_packet_rate_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_packet_rate_status.pfcp_packet_rate_status_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -10275,7 +10275,7 @@ define internal void @dissect_pfcp_packet_rate_status(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_create_bridge_router_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_create_bridge_router_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_create_bridge_router_info.pfcp_create_bridge_router_info_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -10289,7 +10289,7 @@ define internal void @dissect_pfcp_create_bridge_router_info(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_port_number(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_port_number(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_port_number, align 4
   %10 = zext i16 %4 to i32
@@ -10300,7 +10300,7 @@ define internal void @dissect_pfcp_port_number(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_nw_tt_port_number(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_nw_tt_port_number(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_nw_tt_port_number, align 4
   %10 = zext i16 %4 to i32
@@ -10311,7 +10311,7 @@ define internal void @dissect_pfcp_nw_tt_port_number(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_5gs_user_plane_node_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_5gs_user_plane_node_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_5gs_user_plane_node_id.pfcp_5gs_user_plane_node_id_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -10339,7 +10339,7 @@ define internal void @dissect_pfcp_5gs_user_plane_node_id(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_port_management_information_container(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_port_management_information_container(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_port_management_information, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -10347,7 +10347,7 @@ define internal void @dissect_pfcp_port_management_information_container(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_requested_clock_drift_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_requested_clock_drift_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_requested_clock_drift_control_information.pfcp_requested_clock_drift_control_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -10362,7 +10362,7 @@ define internal void @dissect_pfcp_requested_clock_drift_control_information(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_time_domain_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_time_domain_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_time_domain_number_value, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -10381,7 +10381,7 @@ define internal void @dissect_pfcp_time_domain_number(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_time_offset_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_time_offset_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_time_offset_threshold, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 8
@@ -10397,7 +10397,7 @@ define internal void @dissect_pfcp_time_offset_threshold(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_cumulative_rate_ratio_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_cumulative_rate_ratio_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_cumulative_rate_ratio_threshold, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 4
@@ -10413,7 +10413,7 @@ define internal void @dissect_pfcp_cumulative_rate_ratio_threshold(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_time_offset_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_time_offset_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_time_offset_measurement, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 8
@@ -10429,7 +10429,7 @@ define internal void @dissect_pfcp_time_offset_measurement(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_cumulative_rate_ratio_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_cumulative_rate_ratio_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_cumulative_rate_ratio_measurement, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 4
@@ -10505,7 +10505,7 @@ decode_pfcp_srr_id.exit:                          ; preds = %7, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_requested_access_availability_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_requested_access_availability_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_requested_access_availability_control_information.pfcp_requested_access_availability_control_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -10520,7 +10520,7 @@ define internal void @dissect_pfcp_requested_access_availability_control_informa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_access_availability_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_access_availability_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_availability_status, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = load i32, ptr @hf_pfcp_availability_type, align 4
@@ -10538,7 +10538,7 @@ define internal void @dissect_pfcp_access_availability_information(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mptcp_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mptcp_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_mptcp_control_information.pfcp_mptcp_control_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -10553,7 +10553,7 @@ define internal void @dissect_pfcp_mptcp_control_information(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_atsss_ll_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_atsss_ll_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_atsss_ll_control_information.pfcp_atsss_ll_control_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -10568,7 +10568,7 @@ define internal void @dissect_pfcp_atsss_ll_control_information(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pmf_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pmf_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pmf_control_information.pfcp_pmf_control_information_flags, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -10612,7 +10612,7 @@ define internal void @dissect_pfcp_pmf_control_information(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mptcp_address_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mptcp_address_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_mptcp_address_information.pfcp_mptcp_ip_address_information_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i32, ptr @hf_pfcp_mptcp_proxy_type, align 4
@@ -10666,7 +10666,7 @@ define internal void @dissect_pfcp_mptcp_address_information(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_link_specific_multipath_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_link_specific_multipath_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_link_specific_multipath_ip_address.pfcp_link_specific_multipath_ip_address_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -10736,7 +10736,7 @@ define internal void @dissect_pfcp_link_specific_multipath_ip_address(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pmf_address_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pmf_address_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pmf_address_information.pfcp_pmf_address_information_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -10806,7 +10806,7 @@ define internal void @dissect_pfcp_pmf_address_information(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_atsss_ll_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_atsss_ll_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_atsss_ll_information.pfcp_atsss_ll_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -10821,7 +10821,7 @@ define internal void @dissect_pfcp_atsss_ll_information(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_data_network_access_identifier(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_data_network_access_identifier(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_data_network_access_identifier, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -10829,7 +10829,7 @@ define internal void @dissect_pfcp_data_network_access_identifier(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_average_packet_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_average_packet_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_packet_delay_milliseconds, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 4
@@ -10845,7 +10845,7 @@ define internal void @dissect_pfcp_average_packet_delay(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_minimum_packet_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_minimum_packet_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_packet_delay_milliseconds, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 4
@@ -10861,7 +10861,7 @@ define internal void @dissect_pfcp_minimum_packet_delay(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_maximum_packet_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_maximum_packet_delay(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_packet_delay_milliseconds, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 4
@@ -10877,7 +10877,7 @@ define internal void @dissect_pfcp_maximum_packet_delay(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_qos_report_trigger(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_qos_report_trigger(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_qos_report_trigger.pfcp_qos_report_trigger_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -10892,7 +10892,7 @@ define internal void @dissect_pfcp_qos_report_trigger(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_gtp_u_path_interface_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_gtp_u_path_interface_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_gtp_u_path_interface_type.pfcp_gtp_u_path_interface_type_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -10907,7 +10907,7 @@ define internal void @dissect_pfcp_gtp_u_path_interface_type(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_requested_qos_monitoring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_requested_qos_monitoring(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_requested_qos_monitoring.pfcp_requested_qos_monitoring_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -10922,7 +10922,7 @@ define internal void @dissect_pfcp_requested_qos_monitoring(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_reporting_frequency(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_reporting_frequency(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_reporting_frequency.pfcp_reporting_frequency_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -10937,7 +10937,7 @@ define internal void @dissect_pfcp_reporting_frequency(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_packet_delay_thresholds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_packet_delay_thresholds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_packet_delay_thresholds.pfcp_packet_delay_thresholds_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -10993,7 +10993,7 @@ define internal void @dissect_pfcp_packet_delay_thresholds(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_minimum_wait_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_minimum_wait_time(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_minimum_wait_time_seconds, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 4
@@ -11009,7 +11009,7 @@ define internal void @dissect_pfcp_minimum_wait_time(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_qos_monitoring_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_qos_monitoring_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_qos_monitoring_measurement.pfcp_qos_monitoring_measurement_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -11121,7 +11121,7 @@ define internal void @dissect_pfcp_qos_monitoring_measurement(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mt_edt_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mt_edt_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_mt_edt_control_information.pfcp_mt_edt_control_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %12
@@ -11136,7 +11136,7 @@ define internal void @dissect_pfcp_mt_edt_control_information(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dl_data_packets_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dl_data_packets_size(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_dl_data_packets_size, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 2
@@ -11152,7 +11152,7 @@ define internal void @dissect_pfcp_dl_data_packets_size(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_qer_control_indications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_qer_control_indications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_qer_control_indications.pfcp_qer_control_indications_o5_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -11166,7 +11166,7 @@ define internal void @dissect_pfcp_qer_control_indications(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_nf_instance_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_nf_instance_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_nf_instance_id, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -11174,7 +11174,7 @@ define internal void @dissect_pfcp_nf_instance_id(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_s_nssai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_s_nssai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_s_nssai_sst, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = load i32, ptr @hf_pfcp_s_nssai_sd, align 4
@@ -11191,7 +11191,7 @@ define internal void @dissect_pfcp_s_nssai(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ip_version(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ip_version(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_ip_version.pfcp_ip_version_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -11205,7 +11205,7 @@ define internal void @dissect_pfcp_ip_version(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfcpasreq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfcpasreq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pfcpasreq_flags.pfcp_pfcpasreq_flags_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -11219,7 +11219,7 @@ define internal void @dissect_pfcp_pfcpasreq_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_data_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_data_status(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_data_status.pfcp_data_status_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -11233,7 +11233,7 @@ define internal void @dissect_pfcp_data_status(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_rds_configuration_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_rds_configuration_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_rds_configuration_information.pfcp_rds_configuration_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -11247,7 +11247,7 @@ define internal void @dissect_pfcp_rds_configuration_information(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_multipath_application_indication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_multipath_application_indication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_multipath_application_indication.pfcp_multipath_application_indication_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -11261,7 +11261,7 @@ define internal void @dissect_pfcp_multipath_application_indication(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_user_plane_node_management_information_container(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_user_plane_node_management_information_container(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_user_plane_node_management_information_container, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -11269,7 +11269,7 @@ define internal void @dissect_pfcp_user_plane_node_management_information_contai
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_number_of_ue_ip_addresses(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_number_of_ue_ip_addresses(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_number_of_ue_ip_addresses.pfcp_number_of_ue_ip_addresses_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -11311,7 +11311,7 @@ define internal void @dissect_pfcp_number_of_ue_ip_addresses(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_validity_timer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_validity_timer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_validity_timer, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -11329,7 +11329,7 @@ define internal void @dissect_pfcp_validity_timer(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_offending_ie_information(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_offending_ie_information(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_offending_ie, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -11344,7 +11344,7 @@ define internal void @dissect_pfcp_offending_ie_information(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_rattype(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_rattype(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_rattype, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -11363,7 +11363,7 @@ define internal void @dissect_pfcp_rattype(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_l2tp_user_authentication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_l2tp_user_authentication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_pfcp_l2tp_user_authentication_proxy_authen_type_value, align 4
@@ -11451,7 +11451,7 @@ define internal void @dissect_pfcp_l2tp_user_authentication(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_lns_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_lns_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = zext i16 %4 to i32
   switch i16 %4, label %12 [
     i16 4, label %.sink.split
@@ -11482,7 +11482,7 @@ define internal void @dissect_pfcp_lns_address(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_tunnel_preference(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_tunnel_preference(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_tunnel_preference_value, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -11490,7 +11490,7 @@ define internal void @dissect_pfcp_tunnel_preference(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_calling_number(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_calling_number(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_calling_number_value, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -11498,7 +11498,7 @@ define internal void @dissect_pfcp_calling_number(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_called_number(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_called_number(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_called_number_value, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -11506,7 +11506,7 @@ define internal void @dissect_pfcp_called_number(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_l2tp_session_indications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_l2tp_session_indications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_l2tp_session_indications.pfcp_l2tp_session_indications_o5_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -11520,7 +11520,7 @@ define internal void @dissect_pfcp_l2tp_session_indications(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dns_sever_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dns_sever_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_node_id_ipv4, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -11539,7 +11539,7 @@ define internal void @dissect_pfcp_dns_sever_address(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_nbns_sever_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_nbns_sever_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_node_id_ipv4, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -11558,7 +11558,7 @@ define internal void @dissect_pfcp_nbns_sever_address(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_maximum_receive_unit(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_maximum_receive_unit(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_maximum_receive_unit, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -11566,7 +11566,7 @@ define internal void @dissect_pfcp_maximum_receive_unit(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_thresholds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_thresholds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_thresholds.pfcp_thresholds_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -11608,7 +11608,7 @@ define internal void @dissect_pfcp_thresholds(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_steering_mode_indications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_steering_mode_indications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_steering_mode_indications.pfcp_l2tp_steering_mode_indications_o5_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -11622,7 +11622,7 @@ define internal void @dissect_pfcp_steering_mode_indications(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_group_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_group_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_group_id, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 2) #12
@@ -11630,7 +11630,7 @@ define internal void @dissect_pfcp_group_id(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_cp_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_cp_ip_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_cp_ip_address.pfcp_cp_ip_address_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -11680,7 +11680,7 @@ define internal void @dissect_pfcp_cp_ip_address(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ip_address_and_port_number_replacement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ip_address_and_port_number_replacement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_ip_address_and_port_number_replacement.pfcp_ip_address_and_port_number_replacement_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -11778,7 +11778,7 @@ define internal void @dissect_pfcp_ip_address_and_port_number_replacement(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dns_query_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dns_query_filter(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_dns_query_filter_pattern_len, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -11800,7 +11800,7 @@ define internal void @dissect_pfcp_dns_query_filter(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_event_notification_uri(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_event_notification_uri(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_event_notification_uri, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -11808,7 +11808,7 @@ define internal void @dissect_pfcp_event_notification_uri(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_notification_correlation_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_notification_correlation_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_notification_correlation_id, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -11818,7 +11818,7 @@ define internal void @dissect_pfcp_notification_correlation_id(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_reporting_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_reporting_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_reporting_flags.pfcp_reporting_flags_o5_flags, i32 noundef 0) #12
   %switch = icmp ult i16 %4, 2
   br i1 %switch, label %10, label %8
@@ -11832,7 +11832,7 @@ define internal void @dissect_pfcp_reporting_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_predefined_rules_name(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_predefined_rules_name(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_predef_rules_name, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -11840,7 +11840,7 @@ define internal void @dissect_pfcp_predefined_rules_name(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mbs_session_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mbs_session_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -11922,7 +11922,7 @@ define internal void @dissect_pfcp_mbs_session_identifier(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_multicast_transport_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_multicast_transport_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -12011,7 +12011,7 @@ define internal void @dissect_pfcp_multicast_transport_information(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mbsn4mbreq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mbsn4mbreq_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_mbsn4mbreq_flags.pfcp_mbsn4mbreq_flags_o5_flags, i32 noundef 0) #12
   %switch = icmp ult i16 %4, 2
   br i1 %switch, label %10, label %8
@@ -12025,7 +12025,7 @@ define internal void @dissect_pfcp_mbsn4mbreq_flags(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_local_ingress_tunnel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_local_ingress_tunnel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_local_ingress_tunnel.pfcp_local_ingress_tunnel_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -12075,7 +12075,7 @@ define internal void @dissect_pfcp_local_ingress_tunnel(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mbs_unicast_parameters_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mbs_unicast_parameters_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_mbs_unicast_parameters_id, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -12085,7 +12085,7 @@ define internal void @dissect_pfcp_mbs_unicast_parameters_id(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mbsn4resp_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mbsn4resp_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_mbsn4resp_flags.pfcp_mbsn4resp_flags_o5_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -12099,14 +12099,14 @@ define internal void @dissect_pfcp_mbsn4resp_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_tunnel_password(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_tunnel_password(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_tunnel_password_value, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 2) #12
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_area_session_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_area_session_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_area_session_id_value, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 2, ptr noundef nonnull %8) #12
@@ -12116,7 +12116,7 @@ define internal void @dissect_pfcp_area_session_id(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dscp_to_ppi_mapping_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dscp_to_ppi_mapping_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_dscp_to_ppi_mapping_info_ppi_value, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = zext i16 %4 to i32
@@ -12151,7 +12151,7 @@ define internal void @dissect_pfcp_dscp_to_ppi_mapping_information(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_pfcpsdrsp_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_pfcpsdrsp_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_pfcpsdrsp_flags.pfcp_pfcpsdrsp_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -12165,7 +12165,7 @@ define internal void @dissect_pfcp_pfcpsdrsp_flags(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_qer_indications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_qer_indications(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_qer_indications.pfcp_qer_indications_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -12179,7 +12179,7 @@ define internal void @dissect_pfcp_qer_indications(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_vendor_specific_node_report_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_vendor_specific_node_report_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_enterprise_id, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #12
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_vendor_specific_node_report_type.pfcp_vendor_specific_node_report_type_flags, i32 noundef 0) #12
@@ -12195,7 +12195,7 @@ define internal void @dissect_pfcp_vendor_specific_node_report_type(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_configured_time_domain(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_configured_time_domain(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_configured_time_domain.pfcp_configured_time_domain_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -12209,7 +12209,7 @@ define internal void @dissect_pfcp_configured_time_domain(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_metadata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_metadata(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_metadata, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -12222,7 +12222,7 @@ define internal void @dissect_pfcp_metadata(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_traffic_parameter_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_traffic_parameter_threshold(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_traffic_parameter_threshold.pfcp_traffic_parameter_threshold_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -12250,7 +12250,7 @@ define internal void @dissect_pfcp_traffic_parameter_threshold(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_dl_periodicity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_dl_periodicity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_spare_oct, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = load i32, ptr @hf_pfcp_dl_periodicity_value, align 4
@@ -12267,7 +12267,7 @@ define internal void @dissect_pfcp_dl_periodicity(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_n6_jitter_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_n6_jitter_measurement(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_n6_jitter_measurement.pfcp_n6_jitter_measurement_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i64, ptr %8, align 8
@@ -12299,7 +12299,7 @@ define internal void @dissect_pfcp_n6_jitter_measurement(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_traffic_parameter_measurement_indication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_traffic_parameter_measurement_indication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_traffic_parameter_measurement_indication.pfcp_traffic_parameter_measurement_indication_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -12313,7 +12313,7 @@ define internal void @dissect_pfcp_traffic_parameter_measurement_indication(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_ul_periodicity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_ul_periodicity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_spare_oct, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = load i32, ptr @hf_pfcp_ul_periodicity_value, align 4
@@ -12330,7 +12330,7 @@ define internal void @dissect_pfcp_ul_periodicity(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mpquic_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mpquic_control_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_mpquic_control_information.pfcp_mpquic_control_information_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -12344,7 +12344,7 @@ define internal void @dissect_pfcp_mpquic_control_information(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_mpquic_address_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_mpquic_address_information(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i64, align 8
   call void @proto_tree_add_bitmask_list_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_mpquic_address_information.pfcp_mpquic_address_information_flags, i32 noundef 0, ptr noundef nonnull %8) #12
   %9 = load i32, ptr @hf_pfcp_mpquic_address_information_type, align 4
@@ -12390,7 +12390,7 @@ define internal void @dissect_pfcp_mpquic_address_information(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_transport_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_transport_mode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_transport_mode_value, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 1
@@ -12405,7 +12405,7 @@ define internal void @dissect_pfcp_transport_mode(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_protocol_description(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_protocol_description(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_protocol_description.pfcp_protocol_description_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -12419,7 +12419,7 @@ define internal void @dissect_pfcp_protocol_description(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_reporting_suggestion_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_reporting_suggestion_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_pfcp_reporting_suggestion_info_reporting_urgency_value, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #12
@@ -12447,7 +12447,7 @@ define internal void @dissect_pfcp_reporting_suggestion_info(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_tl_container(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_tl_container(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_tl_container, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -12455,7 +12455,7 @@ define internal void @dissect_pfcp_tl_container(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_measurement_indication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_measurement_indication(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_measurement_indication.pfcp_measurement_indication_flags, i32 noundef 0) #12
   %8 = icmp ugt i16 %4, 1
   br i1 %8, label %9, label %11
@@ -12469,7 +12469,7 @@ define internal void @dissect_pfcp_measurement_indication(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_hplmn_s_nssai(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_hplmn_s_nssai(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_hplmn_s_nssai_sst, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = load i32, ptr @hf_pfcp_hplmn_s_nssai_sd, align 4
@@ -12478,7 +12478,7 @@ define internal void @dissect_pfcp_hplmn_s_nssai(ptr noundef %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_media_transport_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_media_transport_protocol(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_media_transport_protocol, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %10 = icmp ugt i16 %4, 1
@@ -12493,7 +12493,7 @@ define internal void @dissect_pfcp_media_transport_protocol(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_rtp_header_extension_type(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_rtp_header_extension_type(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_rtp_header_extension_type, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -12501,7 +12501,7 @@ define internal void @dissect_pfcp_rtp_header_extension_type(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_rtp_header_extension_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_rtp_header_extension_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_rtp_header_extension_id, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -12509,7 +12509,7 @@ define internal void @dissect_pfcp_rtp_header_extension_id(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_rtp_payload_type(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_rtp_payload_type(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_rtp_payload_type, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -12517,7 +12517,7 @@ define internal void @dissect_pfcp_rtp_payload_type(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_pfcp_rtp_payload_format(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, ptr nocapture readnone %6) #0 {
+define internal void @dissect_pfcp_rtp_payload_format(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, ptr readnone captures(none) %6) #0 {
   %8 = load i32, ptr @hf_pfcp_rtp_payload_format, align 4
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef 0) #12
@@ -12535,7 +12535,7 @@ declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare ptr @tvb_address_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @decode_pfcp_network_instance(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @decode_pfcp_network_instance(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = icmp sgt i32 %5, 0
   br i1 %8, label %9, label %26
@@ -12687,7 +12687,7 @@ declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @wmem_map_foreach_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @pfcp_frame_equal(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #5 {
+define internal range(i32 0, 2) i32 @pfcp_frame_equal(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #5 {
   %4 = ptrtoint ptr %2 to i64
   %5 = trunc i64 %4 to i32
   %6 = ptrtoint ptr %1 to i64
@@ -12710,7 +12710,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle_with_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_generic_ie_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal i32 @dissect_pfcp_generic_ie_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4) #0 {
   %6 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #12
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %8 = load i32, ptr %7, align 8
@@ -12766,7 +12766,7 @@ declare ptr @register_dissector_with_data(ptr noundef, ptr noundef, i32 noundef,
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 26) i32 @dissect_pfcp_enterprise_travelping_packet_measurement(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 26) i32 @dissect_pfcp_enterprise_travelping_packet_measurement(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr @hf_pfcp_enterprise_travelping_packet_measurement, align 4
   %7 = load i32, ptr @ett_pfcp_enterprise_travelping_packet_measurement, align 4
@@ -12815,7 +12815,7 @@ define internal range(i32 1, 26) i32 @dissect_pfcp_enterprise_travelping_packet_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_enterprise_travelping_build_id(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_enterprise_travelping_build_id(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef -1) #12
   %.not = icmp eq i32 %6, 0
@@ -12842,7 +12842,7 @@ define internal i32 @dissect_pfcp_enterprise_travelping_build_id(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_travelping_now(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_travelping_now(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_travelping_now, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -12855,7 +12855,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_travelping_now(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_travelping_start(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_travelping_start(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_travelping_now, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -12868,7 +12868,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_travelping_start(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_travelping_stop(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_travelping_stop(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_travelping_now, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -12881,7 +12881,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_travelping_stop(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_grouped_ie_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @dissect_pfcp_grouped_ie_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #12
   %6 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
   %7 = trunc i32 %6 to i16
@@ -12895,7 +12895,7 @@ define internal i32 @dissect_pfcp_grouped_ie_wrapper(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_enterprise_travelping_error_message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_enterprise_travelping_error_message(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef -1) #12
   %.not = icmp eq i32 %6, 0
@@ -12922,7 +12922,7 @@ define internal i32 @dissect_pfcp_enterprise_travelping_error_message(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_enterprise_travelping_file_name(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_enterprise_travelping_file_name(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef -1) #12
   %.not = icmp eq i32 %6, 0
@@ -12949,7 +12949,7 @@ define internal i32 @dissect_pfcp_enterprise_travelping_file_name(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_travelping_line_number(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_travelping_line_number(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_travelping_line_number, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -12960,7 +12960,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_travelping_line_number(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_enterprise_travelping_ipfix_policy(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_enterprise_travelping_ipfix_policy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef -1) #12
   %.not = icmp eq i32 %6, 0
@@ -12987,7 +12987,7 @@ define internal i32 @dissect_pfcp_enterprise_travelping_ipfix_policy(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_enterprise_travelping_trace_parent(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_enterprise_travelping_trace_parent(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef -1) #12
   %.not = icmp eq i32 %6, 0
@@ -13014,7 +13014,7 @@ define internal i32 @dissect_pfcp_enterprise_travelping_trace_parent(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_enterprise_travelping_trace_state(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_enterprise_travelping_trace_state(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef -1) #12
   %.not = icmp eq i32 %6, 0
@@ -13041,7 +13041,7 @@ define internal i32 @dissect_pfcp_enterprise_travelping_trace_state(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_up_function_features(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_up_function_features(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_spare_oct, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %7 = load i32, ptr @hf_pfcp_spare_oct, align 4
@@ -13053,7 +13053,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_up_function_features(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_enterprise_bbf_logical_port(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_enterprise_bbf_logical_port(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call i32 @tvb_ascii_isprint(ptr noundef %0, i32 noundef 0, i32 noundef -1) #12
   %.not = icmp eq i32 %6, 0
@@ -13080,7 +13080,7 @@ define internal i32 @dissect_pfcp_enterprise_bbf_logical_port(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_outer_header_creation(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_outer_header_creation(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_bbf_outer_hdr_desc, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13092,7 +13092,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_outer_header_creation(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_outer_header_removal(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_outer_header_removal(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_bbf_out_hdr_desc, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13104,7 +13104,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_outer_header_removal(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_pppoe_session_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_pppoe_session_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_bbf_pppoe_session_id, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13115,7 +13115,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_pppoe_session_id(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 4) i32 @dissect_pfcp_enterprise_bbf_ppp_protocol(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 1, 4) i32 @dissect_pfcp_enterprise_bbf_ppp_protocol(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr @hf_pfcp_bbf_ppp_protocol_flags, align 4
   %7 = load i32, ptr @ett_pfcp_bbf_ppp_protocol_flags, align 4
@@ -13136,7 +13136,7 @@ define internal range(i32 1, 4) i32 @dissect_pfcp_enterprise_bbf_ppp_protocol(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_verification_timers(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_verification_timers(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_bbf_verification_timer_interval, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #12
   %7 = load i32, ptr @hf_pfcp_bbf_verification_timer_count, align 4
@@ -13145,7 +13145,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_verification_timers(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_ppp_lcp_magic_number(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_ppp_lcp_magic_number(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_bbf_ppp_lcp_magic_number_tx, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %7 = load i32, ptr @hf_pfcp_bbf_ppp_lcp_magic_number_rx, align 4
@@ -13154,7 +13154,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_ppp_lcp_magic_number(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_mtu(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_mtu(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_bbf_mtu, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13165,7 +13165,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_mtu(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_l2tp_tunnel_endpoint(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_l2tp_tunnel_endpoint(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr @hf_pfcp_bbf_l2tp_endp_flags, align 4
   %7 = load i32, ptr @ett_pfcp_bbf_l2tp_endp_flags, align 4
@@ -13180,7 +13180,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_l2tp_tunnel_endpoint(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_l2tp_session_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_l2tp_session_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_bbf_l2tp_session_id, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13191,7 +13191,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_l2tp_session_id(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_l2tp_type(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_l2tp_type(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_bbf_l2tp_type_flags, align 4
   %6 = load i32, ptr @ett_pfcp_bbf_l2tp_type_flags, align 4
   %7 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @dissect_pfcp_enterprise_bbf_l2tp_type.pfcp_bbf_l2tp_type_flags, i32 noundef 0, i32 noundef 14) #12
@@ -13199,13 +13199,13 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_l2tp_type(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_multicast_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_multicast_flags(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_enterprise_bbf_multicast_flags.pfcp_bbf_multicast_flags, i32 noundef 0) #12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_multicast_query_parameters(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_multicast_query_parameters(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_bbf_multicast_query_param_robustness, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #12
   %7 = load i32, ptr @hf_pfcp_bbf_multicast_query_param_query_interval, align 4
@@ -13218,7 +13218,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_multicast_query_paramet
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_multicast_group_limit(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_multicast_group_limit(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_bbf_multicast_group_limit_max_joins, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13229,13 +13229,13 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_multicast_group_limit(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_apply_action(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_apply_action(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_enterprise_bbf_apply_action.pfcp_bbf_apply_action_flags, i32 noundef 0) #12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_nat_external_port_range(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_nat_external_port_range(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_pfcp_bbf_nat_external_port_range_start, align 4
@@ -13250,7 +13250,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_nat_external_port_range
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 9, 8) i32 @dissect_pfcp_enterprise_bbf_nat_port_forward(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 9, 8) i32 @dissect_pfcp_enterprise_bbf_nat_port_forward(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -13296,7 +13296,7 @@ define internal range(i32 9, 8) i32 @dissect_pfcp_enterprise_bbf_nat_port_forwar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_reporting_trigger(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_reporting_trigger(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_bbf_reporting_trigger, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13308,7 +13308,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_reporting_trigger(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_dynamic_nat_block_port_range(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_dynamic_nat_block_port_range(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i32, ptr @hf_pfcp_bbf_dynamic_nat_block_port_range_start_port, align 4
@@ -13323,7 +13323,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_dynamic_nat_block_port_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_enterprise_bbf_event_time_stamp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_enterprise_bbf_event_time_stamp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_bbf_event_time_stamp, align 4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -13338,7 +13338,7 @@ define internal noundef i32 @dissect_pfcp_enterprise_bbf_event_time_stamp(ptr no
 declare ptr @proto_tree_add_bitmask_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_sap_template(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_sap_template(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_sap_template, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13354,7 +13354,7 @@ define internal i32 @dissect_pfcp_nokia_sap_template(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_group_if_template(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_group_if_template(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_group_iface_template, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13370,7 +13370,7 @@ define internal i32 @dissect_pfcp_nokia_group_if_template(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_session_state_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_session_state_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_session_state_id, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 8, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13381,7 +13381,7 @@ define internal noundef i32 @dissect_pfcp_nokia_session_state_id(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_detailed_statistics(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_detailed_statistics(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -13513,7 +13513,7 @@ define internal i32 @dissect_pfcp_nokia_detailed_statistics(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_detailed_error(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_detailed_error(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_detailed_error, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13529,7 +13529,7 @@ define internal i32 @dissect_pfcp_nokia_detailed_error(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_qos_override(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_qos_override(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_qos_override, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13545,7 +13545,7 @@ define internal i32 @dissect_pfcp_nokia_qos_override(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_measurement_information(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_measurement_information(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_nokia_measurement_info, align 4
   %6 = load i32, ptr @ett_pfcp_nokia_measurement_info, align 4
   %7 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @dissect_pfcp_nokia_measurement_information.flags, i32 noundef 0, i32 noundef 6) #12
@@ -13553,7 +13553,7 @@ define internal noundef i32 @dissect_pfcp_nokia_measurement_information(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_pfpsmreq_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_pfpsmreq_flags(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_nokia_pfcpsmreq_flags, align 4
   %6 = load i32, ptr @ett_pfcp_nokia_pfcpsmreq_flags, align 4
   %7 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @dissect_pfcp_nokia_pfpsmreq_flags.flags, i32 noundef 0, i32 noundef 6) #12
@@ -13561,13 +13561,13 @@ define internal noundef i32 @dissect_pfcp_nokia_pfpsmreq_flags(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_up_function_features(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_up_function_features(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_pfcp_nokia_up_function_features.pfcp_nokia_up_function_features_flags, i32 noundef 0) #12
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_filter_override(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_filter_override(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_nokia_filter_override_type, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13603,7 +13603,7 @@ define internal i32 @dissect_pfcp_nokia_filter_override(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_intermediate_destination(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_intermediate_destination(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_intermediate_destination, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13619,7 +13619,7 @@ define internal i32 @dissect_pfcp_nokia_intermediate_destination(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_nat_isa_members(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_nat_isa_members(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_nokia_nat_isa_members, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13630,7 +13630,7 @@ define internal noundef i32 @dissect_pfcp_nokia_nat_isa_members(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_pfcphb_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_pfcphb_flags(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_nokia_pfcphb_flags, align 4
   %6 = load i32, ptr @ett_pfcp_nokia_pfcphb_flags, align 4
   %7 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %5, i32 noundef %6, ptr noundef nonnull @dissect_pfcp_nokia_pfcphb_flags.flags, i32 noundef 0, i32 noundef 6) #12
@@ -13638,7 +13638,7 @@ define internal noundef i32 @dissect_pfcp_nokia_pfcphb_flags(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_lcp_options(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_lcp_options(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_nokia_l2tp_lcp_request, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
@@ -13646,7 +13646,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_lcp_options(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_l2tp_auth_type(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_l2tp_auth_type(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_nokia_l2tp_auth_type, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13658,7 +13658,7 @@ define internal noundef i32 @dissect_pfcp_nokia_l2tp_auth_type(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_auth_name(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_auth_name(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_l2tp_auth_name, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13674,7 +13674,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_auth_name(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_l2tp_auth_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_l2tp_auth_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = load i32, ptr @hf_pfcp_nokia_l2tp_auth_id, align 4
   %7 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %6, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %5) #12
@@ -13685,7 +13685,7 @@ define internal noundef i32 @dissect_pfcp_nokia_l2tp_auth_id(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_auth_challenge(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_auth_challenge(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_nokia_l2tp_auth_challenge, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
@@ -13693,7 +13693,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_auth_challenge(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_auth_response(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_auth_response(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_nokia_l2tp_auth_response, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
@@ -13701,7 +13701,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_auth_response(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_endpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_endpoint(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
   %6 = icmp eq i32 %5, 4
   br i1 %6, label %7, label %14
@@ -13741,7 +13741,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_endpoint(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_client_auth_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_client_auth_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_l2tp_client_auth_id, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13757,7 +13757,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_client_auth_id(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_server_auth_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_server_auth_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_l2tp_server_auth_id, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13773,7 +13773,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_server_auth_id(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_password(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_password(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_l2tp_password, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13789,7 +13789,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_password(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_assignment_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_assignment_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_l2tp_assignment_id, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13805,7 +13805,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_assignment_id(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_private_group_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_private_group_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_l2tp_private_group_id, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13821,7 +13821,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_private_group_id(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_l2tp_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_l2tp_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
   %6 = load i32, ptr @hf_pfcp_nokia_l2tp_tunnel_params_flags, align 4
   %7 = load i32, ptr @ett_pfcp_nokia_l2tp_tunnel_params_flags, align 4
@@ -13830,7 +13830,7 @@ define internal i32 @dissect_pfcp_nokia_l2tp_parameters(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_l2tp_ids(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_l2tp_ids(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -13857,7 +13857,7 @@ define internal noundef i32 @dissect_pfcp_nokia_l2tp_ids(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_pfcp_nokia_snat_inside_ip(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_pfcp_nokia_snat_inside_ip(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_nokia_snat_inside_ipv4_address, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #12
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %2) #12
@@ -13869,7 +13869,7 @@ define internal noundef i32 @dissect_pfcp_nokia_snat_inside_ip(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_access_line_circuit_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_access_line_circuit_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_nokia_access_line_circuit_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
@@ -13877,7 +13877,7 @@ define internal i32 @dissect_pfcp_nokia_access_line_circuit_id(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_access_line_remote_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_access_line_remote_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @hf_pfcp_nokia_access_line_remote_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
@@ -13885,7 +13885,7 @@ define internal i32 @dissect_pfcp_nokia_access_line_remote_id(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_access_line_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_access_line_params(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #12
   %6 = load i32, ptr @hf_pfcp_nokia_access_line_params_flags, align 4
   %7 = load i32, ptr @ett_pfcp_nokia_access_line_params_flags, align 4
@@ -13894,7 +13894,7 @@ define internal i32 @dissect_pfcp_nokia_access_line_params(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_acct_session_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_acct_session_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_acct_session_id, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13910,7 +13910,7 @@ define internal i32 @dissect_pfcp_nokia_acct_session_id(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_pfcp_nokia_fsg_template(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_pfcp_nokia_fsg_template(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @hf_pfcp_nokia_fsg_template_name, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -13934,7 +13934,7 @@ declare i64 @tvb_get_ntoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_pfcp_flags_and_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_pfcp_flags_and_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = call ptr @proto_tree_add_bitmask_with_flags_ret_uint64(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %6, i32 noundef %7, ptr noundef %4, i32 noundef 0, i32 noundef 6, ptr noundef nonnull %9) #12
   %11 = load ptr, ptr %4, align 8
@@ -14028,7 +14028,7 @@ define internal i32 @pfcp_info_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @pfcp_info_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #7 {
+define internal range(i32 0, 2) i32 @pfcp_info_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %3, %4
@@ -14083,19 +14083,19 @@ declare void @add_srt_table_data(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare ptr @init_srt_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

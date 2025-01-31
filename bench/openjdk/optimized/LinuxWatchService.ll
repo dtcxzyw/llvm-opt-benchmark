@@ -9,12 +9,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"(I)V\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Java_sun_nio_fs_LinuxWatchService_eventSize(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @Java_sun_nio_fs_LinuxWatchService_eventSize(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret i32 16
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_fs_LinuxWatchService_eventOffsets(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define ptr @Java_sun_nio_fs_LinuxWatchService_eventOffsets(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca [5 x i32], align 16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1432
@@ -44,7 +44,7 @@ define ptr @Java_sun_nio_fs_LinuxWatchService_eventOffsets(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_LinuxWatchService_inotifyInit(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define i32 @Java_sun_nio_fs_LinuxWatchService_inotifyInit(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = tail call i32 @inotify_init() #5
   %4 = icmp eq i32 %3, -1
   br i1 %4, label %5, label %throwUnixException.exit
@@ -74,7 +74,7 @@ declare i32 @inotify_init() local_unnamed_addr #2
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_LinuxWatchService_inotifyAddWatch(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define i32 @Java_sun_nio_fs_LinuxWatchService_inotifyAddWatch(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = inttoptr i64 %3 to ptr
   %7 = tail call i32 @inotify_add_watch(i32 noundef %2, ptr noundef %6, i32 noundef %4) #5
   %8 = icmp eq i32 %7, -1
@@ -102,7 +102,7 @@ throwUnixException.exit:                          ; preds = %13, %9, %5
 declare i32 @inotify_add_watch(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_LinuxWatchService_inotifyRmWatch(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @Java_sun_nio_fs_LinuxWatchService_inotifyRmWatch(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @inotify_rm_watch(i32 noundef %2, i32 noundef %3) #5
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %throwUnixException.exit
@@ -129,7 +129,7 @@ throwUnixException.exit:                          ; preds = %11, %7, %4
 declare i32 @inotify_rm_watch(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_LinuxWatchService_configureBlocking(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
+define void @Java_sun_nio_fs_LinuxWatchService_configureBlocking(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %2, i32 noundef 3) #5
   %6 = icmp eq i8 %3, 0
   %7 = and i32 %5, 2048
@@ -162,7 +162,7 @@ define void @Java_sun_nio_fs_LinuxWatchService_configureBlocking(ptr nocapture n
 declare i32 @fcntl64(i32 noundef, i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_fs_LinuxWatchService_socketpair(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @Java_sun_nio_fs_LinuxWatchService_socketpair(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca [2 x i32], align 4
   %5 = alloca [2 x i32], align 4
   %6 = call i32 @socketpair(i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %4) #5
@@ -204,7 +204,7 @@ throwUnixException.exit:                          ; preds = %12, %8, %17
 declare i32 @socketpair(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_fs_LinuxWatchService_poll(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @Java_sun_nio_fs_LinuxWatchService_poll(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [2 x %struct.pollfd], align 16
   store i32 %2, ptr %5, align 16
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4

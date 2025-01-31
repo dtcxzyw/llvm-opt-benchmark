@@ -639,7 +639,7 @@ define hidden void @alcap_tree_from_bearer_key(ptr noundef %0, ptr noundef %1, p
 declare ptr @wmem_tree_lookup_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @alcap_leg_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @alcap_leg_tree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = load i32, ptr @ett_leg, align 4
   %7 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef %6, ptr noundef null, ptr noundef nonnull @.str.264) #4
@@ -934,14 +934,14 @@ define hidden void @proto_register_alcap() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noalias ptr @wmem_alloc0(ptr noundef %6, i64 noundef 48) #4
@@ -1332,7 +1332,7 @@ declare ptr @val_to_str_ext_const(i32 noundef, ptr noundef, ptr noundef) local_u
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_alcap_unknown, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %1, i32 noundef %3, i32 noundef %4, i32 noundef 0) #4
   %9 = tail call ptr @expert_add_info(ptr noundef %0, ptr noundef %8, ptr noundef nonnull @ei_alcap_undecoded) #4
@@ -1340,7 +1340,7 @@ define internal noalias noundef ptr @dissect_fields_unknown(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dissect_fields_cau(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) #0 {
+define internal ptr @dissect_fields_cau(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) #0 {
   %7 = icmp slt i32 %4, 2
   br i1 %7, label %8, label %10
 
@@ -1496,7 +1496,7 @@ define internal ptr @dissect_fields_ceid(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_desea(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_desea(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = icmp slt i32 %4, 2
   br i1 %7, label %8, label %10
 
@@ -1531,7 +1531,7 @@ define internal noalias noundef ptr @dissect_fields_desea(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_dnsea(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal noalias noundef ptr @dissect_fields_dnsea(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %8, label %10
 
@@ -1555,7 +1555,7 @@ define internal noalias noundef ptr @dissect_fields_dnsea(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_alc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_alc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 12
   br i1 %.not, label %9, label %7
 
@@ -1594,7 +1594,7 @@ define internal noalias noundef ptr @dissect_fields_alc(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_osaid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal noalias noundef ptr @dissect_fields_osaid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %9, label %7
 
@@ -1615,7 +1615,7 @@ define internal noalias noundef ptr @dissect_fields_osaid(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_sugr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal noalias noundef ptr @dissect_fields_sugr(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %9, label %7
 
@@ -1636,7 +1636,7 @@ define internal noalias noundef ptr @dissect_fields_sugr(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_sut(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_sut(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = icmp slt i32 %4, 2
   br i1 %7, label %8, label %10
 
@@ -1658,7 +1658,7 @@ define internal noalias noundef ptr @dissect_fields_sut(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_ssia(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_ssia(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 8
   br i1 %.not, label %9, label %7
 
@@ -1702,7 +1702,7 @@ define internal noalias noundef ptr @dissect_fields_ssia(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_ssim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_ssim(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 3
   br i1 %.not, label %9, label %7
 
@@ -1725,7 +1725,7 @@ define internal noalias noundef ptr @dissect_fields_ssim(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_ssisa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_ssisa(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 14
   br i1 %.not, label %9, label %7
 
@@ -1759,7 +1759,7 @@ define internal noalias noundef ptr @dissect_fields_ssisa(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_ssisu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_ssisu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 7
   br i1 %.not, label %9, label %7
 
@@ -1784,7 +1784,7 @@ define internal noalias noundef ptr @dissect_fields_ssisu(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_none(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_none(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %9, label %7
 
@@ -1797,7 +1797,7 @@ define internal noalias noundef ptr @dissect_fields_none(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_pt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_pt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 1
   br i1 %.not, label %9, label %7
 
@@ -1815,7 +1815,7 @@ define internal noalias noundef ptr @dissect_fields_pt(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_plc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_plc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 12
   br i1 %.not, label %9, label %7
 
@@ -1854,7 +1854,7 @@ define internal noalias noundef ptr @dissect_fields_plc(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_pssiae(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_pssiae(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 8
   br i1 %.not, label %9, label %7
 
@@ -1904,7 +1904,7 @@ define internal noalias noundef ptr @dissect_fields_pssiae(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_pssime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_pssime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 3
   br i1 %.not, label %9, label %7
 
@@ -1929,7 +1929,7 @@ define internal noalias noundef ptr @dissect_fields_pssime(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_suci(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_suci(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %9, label %7
 
@@ -1947,7 +1947,7 @@ define internal noalias noundef ptr @dissect_fields_suci(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_onsea(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal noalias noundef ptr @dissect_fields_onsea(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = icmp slt i32 %4, 1
   br i1 %7, label %8, label %10
 
@@ -1971,7 +1971,7 @@ define internal noalias noundef ptr @dissect_fields_onsea(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_ssiae(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_ssiae(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 8
   br i1 %.not, label %9, label %7
 
@@ -2021,7 +2021,7 @@ define internal noalias noundef ptr @dissect_fields_ssiae(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_ssime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_ssime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 3
   br i1 %.not, label %9, label %7
 
@@ -2046,7 +2046,7 @@ define internal noalias noundef ptr @dissect_fields_ssime(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_acc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_acc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 1
   br i1 %.not, label %9, label %7
 
@@ -2064,7 +2064,7 @@ define internal noalias noundef ptr @dissect_fields_acc(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_cp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_cp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 1
   br i1 %.not, label %9, label %7
 
@@ -2082,7 +2082,7 @@ define internal noalias noundef ptr @dissect_fields_cp(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_hc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_hc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 1
   br i1 %.not, label %9, label %7
 
@@ -2100,7 +2100,7 @@ define internal noalias noundef ptr @dissect_fields_hc(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_oesea(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_oesea(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = icmp slt i32 %4, 2
   br i1 %7, label %8, label %10
 
@@ -2135,7 +2135,7 @@ define internal noalias noundef ptr @dissect_fields_oesea(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_pfbw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_pfbw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 12
   br i1 %.not, label %9, label %7
 
@@ -2168,7 +2168,7 @@ define internal noalias noundef ptr @dissect_fields_pfbw(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_pvbws(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_pvbws(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 13
   br i1 %.not, label %9, label %7
 
@@ -2206,7 +2206,7 @@ define internal noalias noundef ptr @dissect_fields_pvbws(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_pvbwt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_pvbwt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 22
   br i1 %.not, label %9, label %7
 
@@ -2251,7 +2251,7 @@ define internal noalias noundef ptr @dissect_fields_pvbwt(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_fbw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_fbw(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 12
   br i1 %.not, label %9, label %7
 
@@ -2284,7 +2284,7 @@ define internal noalias noundef ptr @dissect_fields_fbw(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_vbws(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_vbws(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 13
   br i1 %.not, label %9, label %7
 
@@ -2322,7 +2322,7 @@ define internal noalias noundef ptr @dissect_fields_vbws(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @dissect_fields_vbwt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5) #0 {
+define internal noalias noundef ptr @dissect_fields_vbwt(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #0 {
   %.not = icmp eq i32 %4, 22
   br i1 %.not, label %9, label %7
 
@@ -2417,7 +2417,7 @@ declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_un
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -988,7 +988,7 @@ ReadReplicationSlot.exit:                         ; preds = %138, %152, %156, %1
   tail call void @llvm.assume(i1 %217)
   %218 = tail call i32 @errcode(i32 noundef 50856066) #16
   %219 = load ptr, ptr %216, align 8
-  %220 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef %219, ptr noundef %206) #16
+  %220 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.51, ptr noundef %219, ptr noundef nonnull %206) #16
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1164, ptr noundef nonnull @__func__.parseCreateReplSlotOptions) #16
   unreachable
 
@@ -1952,7 +1952,7 @@ declare void @PreventInTransactionBlock(i1 noundef zeroext, ptr noundef) local_u
 declare void @SendBaseBackup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @StartReplication(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @StartReplication(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca %struct.StringInfoData, align 8
@@ -2522,7 +2522,7 @@ define dso_local void @WalSndShmemInit() local_unnamed_addr #0 {
 declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #1
 
@@ -2953,7 +2953,7 @@ declare void @tuplestore_putvalues(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @set_ps_display_with_len(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -2976,7 +2976,7 @@ declare void @end_tup_output(ptr noundef) local_unnamed_addr #1
 declare ptr @SearchNamedReplicationSlot(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @GetWALInsertionTimeLine() local_unnamed_addr #1
 
@@ -3294,7 +3294,7 @@ WalSndWaitForWal.exit:                            ; preds = %5, %103
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @WalSndSegmentOpen(ptr nocapture noundef initializes((1208, 1212)) %0, i64 noundef %1, ptr nocapture noundef initializes((0, 4)) %2) #0 {
+define internal void @WalSndSegmentOpen(ptr noundef captures(none) initializes((1208, 1212)) %0, i64 noundef %1, ptr noundef captures(none) initializes((0, 4)) %2) #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = load i32, ptr @sendTimeLine, align 4
@@ -3365,7 +3365,7 @@ define internal void @WalSndSegmentOpen(ptr nocapture noundef initializes((1208,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @WalSndPrepareWrite(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2, i1 noundef zeroext %3) #0 {
+define internal void @WalSndPrepareWrite(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 %2, i1 noundef zeroext %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
   tail call void @resetStringInfo(ptr noundef %6) #16
@@ -3419,7 +3419,7 @@ define internal void @WalSndPrepareWrite(ptr nocapture noundef readonly %0, i64 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @WalSndWriteData(ptr nocapture noundef readonly %0, i64 %1, i32 %2, i1 zeroext %3) #0 {
+define internal void @WalSndWriteData(ptr noundef readonly captures(none) %0, i64 %1, i32 %2, i1 zeroext %3) #0 {
   tail call void @resetStringInfo(ptr noundef nonnull @tmpbuf) #16
   %5 = tail call i64 @GetCurrentTimestamp() #16
   tail call void @enlargeStringInfo(ptr noundef nonnull @tmpbuf, i32 noundef 8) #16
@@ -3494,7 +3494,7 @@ define internal void @WalSndWriteData(ptr nocapture noundef readonly %0, i64 %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @WalSndUpdateProgress(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2, i1 noundef zeroext %3) #0 {
+define internal void @WalSndUpdateProgress(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 %2, i1 noundef zeroext %3) #0 {
   %5 = tail call i64 @GetCurrentTimestamp() #16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %7 = load i8, ptr %6, align 4
@@ -3637,7 +3637,7 @@ declare void @FreeDecodingContext(ptr noundef) local_unnamed_addr #1
 declare void @ReplicationSlotPersist() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @defGetString(ptr noundef) local_unnamed_addr #1
 
@@ -5732,7 +5732,7 @@ declare i32 @OpenTransientFile(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 declare i32 @CloseTransientFile(i32 noundef) local_unnamed_addr #1
 
@@ -5788,10 +5788,10 @@ declare void @llvm.assume(i1 noundef) #12
 declare i64 @llvm.umax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15

@@ -259,7 +259,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZL27oop_from_narro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN10StackValue20resolve_monitor_lockEPK5frame8Location(ptr nocapture noundef readonly %0, i32 %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN10StackValue20resolve_monitor_lockEPK5frame8Location(ptr noundef readonly captures(none) %0, i32 %1) local_unnamed_addr #1 align 2 {
   %3 = lshr i32 %1, 6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8

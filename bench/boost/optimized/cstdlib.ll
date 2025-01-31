@@ -13,13 +13,13 @@ define noundef i32 @_ZN5boost6nowide6setenvEPKcS2_i(ptr noundef %0, ptr noundef 
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN5boost6nowide8unsetenvEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define noundef i32 @_ZN5boost6nowide8unsetenvEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call i32 @unsetenv(ptr noundef %0) #4
   ret i32 %2
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef i32 @_ZN5boost6nowide6putenvEPc(ptr noundef %0) local_unnamed_addr #0 {

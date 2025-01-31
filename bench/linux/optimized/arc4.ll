@@ -13,7 +13,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_arc4_crypt: 
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_arc4_crypt304, ptr @__UNIQUE_ID___addressable_arc4_setkey303, ptr @__UNIQUE_ID_file305, ptr @__UNIQUE_ID_license306], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef i32 @arc4_setkey(ptr nocapture noundef initializes((1024, 1032)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef i32 @arc4_setkey(ptr noundef captures(none) initializes((1024, 1032)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   store i32 1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1028
@@ -59,7 +59,7 @@ define dso_local noundef i32 @arc4_setkey(ptr nocapture noundef initializes((102
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @arc4_crypt(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
+define dso_local void @arc4_crypt(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 align 16 {
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %55, label %6
 

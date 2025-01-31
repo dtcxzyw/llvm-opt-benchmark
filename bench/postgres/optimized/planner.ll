@@ -81,7 +81,7 @@ define dso_local ptr @planner(ptr noundef %0, ptr noundef %1, i32 noundef %2, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @standard_planner(ptr noundef %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @standard_planner(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca double, align 8
   %6 = alloca i8, align 1
   %7 = tail call noundef ptr @palloc0(i64 noundef 136) #12
@@ -2017,7 +2017,7 @@ preprocess_expression.exit399:                    ; preds = %.lr.ph487, %661
 declare ptr @fetch_upper_rel(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_cheapest_fractional_path(ptr nocapture noundef readonly %0, double noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @get_cheapest_fractional_path(ptr noundef readonly captures(none) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = fcmp ugt double %1, 0.000000e+00
@@ -2102,7 +2102,7 @@ declare void @DestroyPartitionDirectory(ptr noundef) local_unnamed_addr #1
 declare ptr @bms_make_singleton(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @assign_special_exec_param(ptr noundef) local_unnamed_addr #1
 
@@ -6652,7 +6652,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @limit_needed(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @limit_needed(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -6701,7 +6701,7 @@ define dso_local noundef zeroext i1 @limit_needed(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @mark_partial_aggref(ptr nocapture noundef initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local void @mark_partial_aggref(ptr noundef captures(none) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   %4 = and i32 %1, 2
@@ -6738,7 +6738,7 @@ declare ptr @eval_const_expressions(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @fix_opfuncids(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @expression_planner_with_deps(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @expression_planner_with_deps(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PlannerGlobal, align 8
   %5 = alloca %struct.PlannerInfo, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, i8 0, i64 136, i1 false)
@@ -7089,7 +7089,7 @@ declare void @preprocess_minmax_aggregates(ptr noundef) local_unnamed_addr #1
 declare ptr @query_planner(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @standard_qp_callback(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @standard_qp_callback(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8113,7 +8113,7 @@ declare void @bms_free(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @bms_is_subset(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @BipartiteMatch(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8154,7 +8154,7 @@ declare ptr @list_concat_unique(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @common_prefix_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal range(i32 -1, 2) i32 @common_prefix_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8404,7 +8404,7 @@ declare void @get_agg_clause_costs(ptr noundef, i32 noundef, ptr noundef) local_
 declare zeroext i1 @grouping_is_hashable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @create_ordinary_grouping_paths(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
+define internal fastcc void @create_ordinary_grouping_paths(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef captures(none) %4, ptr noundef nonnull %5, ptr noundef nonnull writeonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -8730,7 +8730,7 @@ group_by_has_partkey.exit:                        ; preds = %.split.i, %47, %gro
 make_partial_grouping_target.exit.i:              ; preds = %177, %.lr.ph82.i.i, %157
   tail call void @list_free(ptr noundef %158) #12
   tail call void @list_free(ptr noundef %.2.i.i) #12
-  %181 = tail call ptr @set_pathtarget_cost_width(ptr noundef %0, ptr noundef %129) #12
+  %181 = tail call ptr @set_pathtarget_cost_width(ptr noundef nonnull %0, ptr noundef %129) #12
   %182 = getelementptr inbounds nuw i8, ptr %105, i64 32
   store ptr %181, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -8796,8 +8796,8 @@ make_partial_grouping_target.exit.i:              ; preds = %177, %.lr.ph82.i.i,
   br i1 %211, label %212, label %213
 
 212:                                              ; preds = %.loopexit.i
-  tail call void @get_agg_clause_costs(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %76) #12
-  tail call void @get_agg_clause_costs(ptr noundef %0, i32 noundef 9, ptr noundef nonnull %77) #12
+  tail call void @get_agg_clause_costs(ptr noundef nonnull %0, i32 noundef 6, ptr noundef nonnull %76) #12
+  tail call void @get_agg_clause_costs(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull %77) #12
   br label %213
 
 213:                                              ; preds = %212, %.loopexit.i
@@ -8812,7 +8812,7 @@ make_partial_grouping_target.exit.i:              ; preds = %177, %.lr.ph82.i.i,
   %217 = load double, ptr %216, align 8
   %218 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %219 = load ptr, ptr %218, align 8
-  %220 = tail call fastcc double @get_number_of_groups(ptr noundef %0, double noundef %217, ptr noundef %4, ptr noundef %219)
+  %220 = tail call fastcc double @get_number_of_groups(ptr noundef nonnull %0, double noundef %217, ptr noundef %4, ptr noundef %219)
   br label %221
 
 221:                                              ; preds = %215, %214
@@ -8824,7 +8824,7 @@ make_partial_grouping_target.exit.i:              ; preds = %177, %.lr.ph82.i.i,
   %224 = load double, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %226 = load ptr, ptr %225, align 8
-  %227 = tail call fastcc double @get_number_of_groups(ptr noundef %0, double noundef %224, ptr noundef %4, ptr noundef %226)
+  %227 = tail call fastcc double @get_number_of_groups(ptr noundef nonnull %0, double noundef %224, ptr noundef %4, ptr noundef %226)
   br label %228
 
 228:                                              ; preds = %222, %221
@@ -8851,7 +8851,7 @@ make_partial_grouping_target.exit.i:              ; preds = %177, %.lr.ph82.i.i,
   %237 = load ptr, ptr %232, align 8
   %238 = getelementptr %union.ListCell, ptr %237, i64 %indvars.iv296.i106
   %239 = load ptr, ptr %238, align 8
-  %240 = call ptr @get_useful_group_keys_orderings(ptr noundef %0, ptr noundef %239) #12
+  %240 = call ptr @get_useful_group_keys_orderings(ptr noundef nonnull %0, ptr noundef %239) #12
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   %.not237.i = icmp eq ptr %240, null
   br i1 %.not237.i, label %._crit_edge.i, label %.lr.ph279.i
@@ -8906,11 +8906,11 @@ make_ordered_path.exit.thread256.i:               ; preds = %.lr.ph
   br i1 %261, label %264, label %262
 
 262:                                              ; preds = %.thread.i.i, %259
-  %263 = call ptr @create_sort_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %239, ptr noundef %250, double noundef -1.000000e+00) #12
+  %263 = call ptr @create_sort_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %239, ptr noundef %250, double noundef -1.000000e+00) #12
   br label %make_ordered_path.exit.i
 
 264:                                              ; preds = %.thread.i.i
-  %265 = call ptr @create_incremental_sort_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %239, ptr noundef %250, i32 noundef %.pr.i.i, double noundef -1.000000e+00) #12
+  %265 = call ptr @create_incremental_sort_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %239, ptr noundef %250, i32 noundef %.pr.i.i, double noundef -1.000000e+00) #12
   br label %make_ordered_path.exit.i
 
 make_ordered_path.exit.thread.i:                  ; preds = %256, %255
@@ -8936,14 +8936,14 @@ make_ordered_path.exit.i:                         ; preds = %264, %262
   %273 = zext i1 %.not239.i to i32
   %274 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %275 = load ptr, ptr %274, align 8
-  %276 = call ptr @create_agg_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %.0.i258.i, ptr noundef %271, i32 noundef %273, i32 noundef 6, ptr noundef %275, ptr noundef null, ptr noundef nonnull %76, double noundef %.0211.i) #12
+  %276 = call ptr @create_agg_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %.0.i258.i, ptr noundef %271, i32 noundef %273, i32 noundef 6, ptr noundef %275, ptr noundef null, ptr noundef nonnull %76, double noundef %.0211.i) #12
   call void @add_path(ptr noundef %105, ptr noundef %276) #12
   br label %281
 
 277:                                              ; preds = %267
   %278 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %279 = load ptr, ptr %278, align 8
-  %280 = call ptr @create_group_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %.0.i258.i, ptr noundef %279, ptr noundef null, double noundef %.0211.i) #12
+  %280 = call ptr @create_group_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %.0.i258.i, ptr noundef %279, ptr noundef null, double noundef %.0211.i) #12
   call void @add_path(ptr noundef %105, ptr noundef %280) #12
   br label %281
 
@@ -8985,7 +8985,7 @@ make_ordered_path.exit.i:                         ; preds = %264, %262
   %297 = load ptr, ptr %292, align 8
   %298 = getelementptr %union.ListCell, ptr %297, i64 %indvars.iv302.i110
   %299 = load ptr, ptr %298, align 8
-  %300 = call ptr @get_useful_group_keys_orderings(ptr noundef %0, ptr noundef %299) #12
+  %300 = call ptr @get_useful_group_keys_orderings(ptr noundef nonnull %0, ptr noundef %299) #12
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 4
   %.not234.i = icmp eq ptr %300, null
   br i1 %.not234.i, label %._crit_edge288.i, label %.lr.ph287.i
@@ -9040,11 +9040,11 @@ make_ordered_path.exit248.thread268.i:            ; preds = %.lr.ph109
   br i1 %321, label %324, label %322
 
 322:                                              ; preds = %.thread.i245.i, %319
-  %323 = call ptr @create_sort_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %299, ptr noundef %310, double noundef -1.000000e+00) #12
+  %323 = call ptr @create_sort_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %299, ptr noundef %310, double noundef -1.000000e+00) #12
   br label %make_ordered_path.exit248.i
 
 324:                                              ; preds = %.thread.i245.i
-  %325 = call ptr @create_incremental_sort_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %299, ptr noundef %310, i32 noundef %.pr.i243.i, double noundef -1.000000e+00) #12
+  %325 = call ptr @create_incremental_sort_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %299, ptr noundef %310, i32 noundef %.pr.i243.i, double noundef -1.000000e+00) #12
   br label %make_ordered_path.exit248.i
 
 make_ordered_path.exit248.thread.i:               ; preds = %316, %315
@@ -9070,14 +9070,14 @@ make_ordered_path.exit248.i:                      ; preds = %324, %322
   %333 = zext i1 %.not236.i to i32
   %334 = getelementptr inbounds nuw i8, ptr %308, i64 16
   %335 = load ptr, ptr %334, align 8
-  %336 = call ptr @create_agg_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %.0.i244270.i, ptr noundef %331, i32 noundef %333, i32 noundef 6, ptr noundef %335, ptr noundef null, ptr noundef nonnull %76, double noundef %.0212.i) #12
+  %336 = call ptr @create_agg_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %.0.i244270.i, ptr noundef %331, i32 noundef %333, i32 noundef 6, ptr noundef %335, ptr noundef null, ptr noundef nonnull %76, double noundef %.0212.i) #12
   call void @add_partial_path(ptr noundef %105, ptr noundef %336) #12
   br label %341
 
 337:                                              ; preds = %327
   %338 = getelementptr inbounds nuw i8, ptr %308, i64 16
   %339 = load ptr, ptr %338, align 8
-  %340 = call ptr @create_group_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %.0.i244270.i, ptr noundef %339, ptr noundef null, double noundef %.0212.i) #12
+  %340 = call ptr @create_group_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %.0.i244270.i, ptr noundef %339, ptr noundef null, double noundef %.0212.i) #12
   call void @add_partial_path(ptr noundef %105, ptr noundef %340) #12
   br label %341
 
@@ -9103,7 +9103,7 @@ make_ordered_path.exit248.i:                      ; preds = %324, %322
   %349 = load ptr, ptr %182, align 8
   %350 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %351 = load ptr, ptr %350, align 8
-  %352 = call ptr @create_agg_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %.0210.i, ptr noundef %349, i32 noundef 2, i32 noundef 6, ptr noundef %351, ptr noundef null, ptr noundef nonnull %76, double noundef %.0211.i) #12
+  %352 = call ptr @create_agg_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %.0210.i, ptr noundef %349, i32 noundef 2, i32 noundef 6, ptr noundef %351, ptr noundef null, ptr noundef nonnull %76, double noundef %.0211.i) #12
   call void @add_path(ptr noundef %105, ptr noundef %352) #12
   br label %353
 
@@ -9115,7 +9115,7 @@ make_ordered_path.exit248.i:                      ; preds = %324, %322
   %355 = load ptr, ptr %182, align 8
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %357 = load ptr, ptr %356, align 8
-  %358 = call ptr @create_agg_path(ptr noundef %0, ptr noundef %105, ptr noundef nonnull %.0209.i, ptr noundef %355, i32 noundef 2, i32 noundef 6, ptr noundef %357, ptr noundef null, ptr noundef nonnull %76, double noundef %.0212.i) #12
+  %358 = call ptr @create_agg_path(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %.0209.i, ptr noundef %355, i32 noundef 2, i32 noundef 6, ptr noundef %357, ptr noundef null, ptr noundef nonnull %76, double noundef %.0212.i) #12
   call void @add_partial_path(ptr noundef %105, ptr noundef %358) #12
   br label %359
 
@@ -9131,7 +9131,7 @@ make_ordered_path.exit248.i:                      ; preds = %324, %322
   br i1 %.not233.i, label %create_partial_grouping_paths.exit, label %364
 
 364:                                              ; preds = %361
-  call void %363(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %105, ptr noundef nonnull %5) #12
+  call void %363(ptr noundef nonnull %0, i32 noundef 1, ptr noundef %1, ptr noundef nonnull %105, ptr noundef nonnull %5) #12
   br label %create_partial_grouping_paths.exit
 
 create_partial_grouping_paths.exit:               ; preds = %364, %361, %359, %99, %group_by_has_partkey.exit
@@ -9842,7 +9842,7 @@ define internal fastcc void @gather_grouping_paths(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @get_number_of_groups(ptr noundef %0, double noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc double @get_number_of_groups(ptr noundef %0, double noundef %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10055,7 +10055,7 @@ declare ptr @create_gather_merge_path(ptr noundef, ptr noundef, ptr noundef, ptr
 declare double @estimate_num_groups(ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef readonly %5, ptr noundef nonnull %6, double noundef %7) unnamed_addr #0 {
+define internal fastcc void @consider_groupingsets_paths(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull %6, double noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i64 @get_hash_memory_limit() #12
@@ -10388,7 +10388,7 @@ list_length.exit:                                 ; preds = %162
   %.2 = phi ptr [ %.0330.lcssa, %162 ], [ %173, %.sink.split ]
   %175 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %176 = load ptr, ptr %175, align 8
-  %177 = tail call ptr @create_groupingsets_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %176, i32 noundef %.0201, ptr noundef %.2, ptr noundef nonnull %6) #12
+  %177 = tail call ptr @create_groupingsets_path(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %176, i32 noundef %.0201, ptr noundef %.2, ptr noundef nonnull %6) #12
   br label %.loopexit.sink.split
 
 178:                                              ; preds = %8
@@ -10466,7 +10466,7 @@ list_length.exit256:                              ; preds = %list_length.exit254
 224:                                              ; preds = %.lr.ph352
   %225 = getelementptr inbounds nuw i8, ptr %220, i64 32
   %226 = load double, ptr %225, align 8
-  %227 = tail call double @estimate_hashagg_tablesize(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %6, double noundef %226) #12
+  %227 = tail call double @estimate_hashagg_tablesize(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %6, double noundef %226) #12
   %228 = fdiv double %227, %206
   %229 = tail call double @llvm.floor.f64(double %228)
   %230 = fcmp olt double %229, %214
@@ -10739,7 +10739,7 @@ remap_to_groupclause_idx.exit291:                 ; preds = %._crit_edge61.i280,
 361:                                              ; preds = %._crit_edge380
   %362 = getelementptr inbounds nuw i8, ptr %10, i64 160
   %363 = load ptr, ptr %362, align 8
-  %364 = tail call ptr @create_groupingsets_path(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %363, i32 noundef 3, ptr noundef nonnull %.5.lcssa, ptr noundef nonnull %6) #12
+  %364 = tail call ptr @create_groupingsets_path(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %363, i32 noundef 3, ptr noundef nonnull %.5.lcssa, ptr noundef nonnull %6) #12
   tail call void @add_path(ptr noundef %1, ptr noundef %364) #12
   br label %365
 
@@ -10789,7 +10789,7 @@ declare i32 @clamp_width_est(i64 noundef) local_unnamed_addr #1
 declare ptr @create_windowagg_path(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @create_final_distinct_paths(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef returned %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @create_final_distinct_paths(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef returned %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -11021,10 +11021,10 @@ declare i32 @llvm.smax.i32(i32, i32) #10
 declare i32 @llvm.umax.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -109,16 +109,16 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
   %indvars.iv133 = phi i64 [ %indvars.iv.next134, %.lr.ph123 ], [ 0, %._crit_edge120 ]
   %60 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv133
   %61 = load ptr, ptr %60, align 8
-  %62 = tail call ptr @Cudd_bddPermute(ptr noundef %0, ptr noundef %61, ptr noundef %7) #5
+  %62 = tail call ptr @Cudd_bddPermute(ptr noundef nonnull %0, ptr noundef %61, ptr noundef %7) #5
   store ptr %62, ptr %60, align 8
   tail call void @Cudd_Ref(ptr noundef %62) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %61) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %61) #5
   %63 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv133
   %64 = load ptr, ptr %63, align 8
-  %65 = tail call ptr @Cudd_bddPermute(ptr noundef %0, ptr noundef %64, ptr noundef %7) #5
+  %65 = tail call ptr @Cudd_bddPermute(ptr noundef nonnull %0, ptr noundef %64, ptr noundef %7) #5
   store ptr %65, ptr %63, align 8
   tail call void @Cudd_Ref(ptr noundef %65) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %64) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %64) #5
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %66 = load i16, ptr %13, align 8
   %67 = sext i16 %66 to i64
@@ -127,10 +127,10 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
 
 ._crit_edge124:                                   ; preds = %.lr.ph123, %._crit_edge120
   %69 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #5
-  %70 = tail call fastcc ptr @Extra_dsdRemap(ptr noundef %0, ptr noundef %57, ptr noundef %69, ptr noundef %8, ptr noundef %9, ptr noundef %11, ptr noundef %12)
+  %70 = tail call fastcc ptr @Extra_dsdRemap(ptr noundef nonnull %0, ptr noundef %57, ptr noundef %69, ptr noundef %8, ptr noundef %9, ptr noundef %11, ptr noundef %12)
   tail call void @Cudd_Ref(ptr noundef %70) #5
   tail call void @st__free_table(ptr noundef %69) #5
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %57) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %57) #5
   %71 = load i16, ptr %13, align 8
   %72 = icmp sgt i16 %71, 0
   br i1 %72, label %.lr.ph127, label %._crit_edge128
@@ -139,10 +139,10 @@ define noundef ptr @Dsd_TreeGetPrimeFunction(ptr noundef %0, ptr nocapture nound
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph127 ], [ 0, %._crit_edge124 ]
   %73 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv136
   %74 = load ptr, ptr %73, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %74) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %74) #5
   %75 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv136
   %76 = load ptr, ptr %75, align 8
-  tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %76) #5
+  tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %76) #5
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %77 = load i16, ptr %13, align 8
   %78 = sext i16 %77 to i64
@@ -471,7 +471,7 @@ Extra_bddNodePointedByCube.exit62:                ; preds = %tailrecurse.i56, %E
 declare void @st__free_table(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @Cudd_Deref(ptr noundef) local_unnamed_addr #2
 

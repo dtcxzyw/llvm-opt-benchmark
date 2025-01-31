@@ -276,7 +276,7 @@ entry:
 declare void @qbus_init(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @hda_codec_find(ptr nocapture noundef readonly %bus, i32 noundef %cad) local_unnamed_addr #0 {
+define dso_local ptr @hda_codec_find(ptr noundef readonly captures(none) %bus, i32 noundef %cad) local_unnamed_addr #0 {
 entry:
   %children = getelementptr inbounds nuw i8, ptr %bus, i64 80
   %kid.04 = load ptr, ptr %children, align 8
@@ -369,7 +369,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @intel_hda_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i7 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #10
@@ -578,7 +578,7 @@ declare void @memory_region_init_alias(ptr noundef, ptr noundef, ptr noundef, pt
 declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_response(ptr nocapture noundef readonly %dev, i1 noundef zeroext %solicited, i32 noundef %response) #0 {
+define internal void @intel_hda_response(ptr noundef readonly captures(none) %dev, i1 noundef zeroext %solicited, i32 noundef %response) #0 {
 entry:
   %val.addr.i.i52 = alloca i32, align 4
   %val.addr.i.i = alloca i32, align 4
@@ -791,7 +791,7 @@ if.end104:                                        ; preds = %if.else, %if.then99
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @intel_hda_xfer(ptr nocapture noundef readonly %dev, i32 noundef %stnr, i1 noundef zeroext %output, ptr noundef %buf, i32 noundef %len) #0 {
+define internal noundef zeroext i1 @intel_hda_xfer(ptr noundef readonly captures(none) %dev, i32 noundef %stnr, i1 noundef zeroext %output, ptr noundef %buf, i32 noundef %len) #0 {
 entry:
   %val.addr.i.i = alloca i32, align 4
   %parent_bus = getelementptr inbounds nuw i8, ptr %dev, i64 88
@@ -1372,10 +1372,10 @@ intel_hda_reg_write.exit:                         ; preds = %if.then5.i, %do.bod
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_set_g_ctl(ptr noundef %d, ptr nocapture readnone %reg, i32 %old) #0 {
+define internal void @intel_hda_set_g_ctl(ptr noundef %d, ptr readnone captures(none) %reg, i32 %old) #0 {
 entry:
   %g_ctl = getelementptr inbounds nuw i8, ptr %d, i64 2760
   %0 = load i32, ptr %g_ctl, align 8
@@ -1393,28 +1393,28 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_set_wake_en(ptr noundef %d, ptr nocapture readnone %reg, i32 %old) #0 {
+define internal void @intel_hda_set_wake_en(ptr noundef %d, ptr readnone captures(none) %reg, i32 %old) #0 {
 entry:
   tail call fastcc void @intel_hda_update_irq(ptr noundef %d)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_set_state_sts(ptr noundef %d, ptr nocapture readnone %reg, i32 %old) #0 {
+define internal void @intel_hda_set_state_sts(ptr noundef %d, ptr readnone captures(none) %reg, i32 %old) #0 {
 entry:
   tail call fastcc void @intel_hda_update_irq(ptr noundef %d)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_set_int_ctl(ptr noundef %d, ptr nocapture readnone %reg, i32 %old) #0 {
+define internal void @intel_hda_set_int_ctl(ptr noundef %d, ptr readnone captures(none) %reg, i32 %old) #0 {
 entry:
   tail call fastcc void @intel_hda_update_irq(ptr noundef %d)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_get_wall_clk(ptr nocapture noundef initializes((2780, 2784)) %d, ptr nocapture readnone %reg) #0 {
+define internal void @intel_hda_get_wall_clk(ptr noundef captures(none) initializes((2780, 2784)) %d, ptr readnone captures(none) %reg) #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %wall_base_ns = getelementptr inbounds nuw i8, ptr %d, i64 4136
@@ -1429,21 +1429,21 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_set_corb_wp(ptr noundef %d, ptr nocapture readnone %reg, i32 %old) #0 {
+define internal void @intel_hda_set_corb_wp(ptr noundef %d, ptr readnone captures(none) %reg, i32 %old) #0 {
 entry:
   tail call fastcc void @intel_hda_corb_run(ptr noundef %d)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_set_corb_ctl(ptr noundef %d, ptr nocapture readnone %reg, i32 %old) #0 {
+define internal void @intel_hda_set_corb_ctl(ptr noundef %d, ptr readnone captures(none) %reg, i32 %old) #0 {
 entry:
   tail call fastcc void @intel_hda_corb_run(ptr noundef %d)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @intel_hda_set_rirb_wp(ptr nocapture noundef %d, ptr nocapture readnone %reg, i32 %old) #4 {
+define internal void @intel_hda_set_rirb_wp(ptr noundef captures(none) %d, ptr readnone captures(none) %reg, i32 %old) #4 {
 entry:
   %rirb_wp = getelementptr inbounds nuw i8, ptr %d, i64 2820
   %0 = load i32, ptr %rirb_wp, align 4
@@ -1460,7 +1460,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_set_rirb_sts(ptr noundef %d, ptr nocapture readnone %reg, i32 noundef %old) #0 {
+define internal void @intel_hda_set_rirb_sts(ptr noundef %d, ptr readnone captures(none) %reg, i32 noundef %old) #0 {
 entry:
   tail call fastcc void @intel_hda_update_irq(ptr noundef %d)
   %and = and i32 %old, 1
@@ -1485,7 +1485,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_set_ics(ptr noundef %d, ptr nocapture readnone %reg, i32 %old) #0 {
+define internal void @intel_hda_set_ics(ptr noundef %d, ptr readnone captures(none) %reg, i32 %old) #0 {
 entry:
   %ics = getelementptr inbounds nuw i8, ptr %d, i64 2856
   %0 = load i32, ptr %ics, align 8
@@ -1502,7 +1502,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_set_st_ctl(ptr noundef %d, ptr nocapture noundef readonly %reg, i32 noundef %old) #0 {
+define internal void @intel_hda_set_st_ctl(ptr noundef %d, ptr noundef readonly captures(none) %reg, i32 noundef %old) #0 {
 entry:
   %stream = getelementptr inbounds nuw i8, ptr %reg, i64 32
   %0 = load i32, ptr %stream, align 8
@@ -1874,7 +1874,7 @@ return:                                           ; preds = %if.then37, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @intel_hda_send_command(ptr nocapture noundef readonly %d, i32 noundef %verb) unnamed_addr #0 {
+define internal fastcc void @intel_hda_send_command(ptr noundef readonly captures(none) %d, i32 noundef %verb) unnamed_addr #0 {
 entry:
   %and1 = and i32 %verb, 134217728
   %tobool.not = icmp eq i32 %and1, 0
@@ -1953,7 +1953,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @intel_hda_parse_bdl(ptr noundef %d, ptr nocapture noundef initializes((40, 44)) %st) unnamed_addr #0 {
+define internal fastcc void @intel_hda_parse_bdl(ptr noundef %d, ptr noundef captures(none) initializes((40, 44)) %st) unnamed_addr #0 {
 entry:
   %buf = alloca [16 x i8], align 16
   %bdlp_lbase = getelementptr inbounds nuw i8, ptr %st, i64 20
@@ -2098,7 +2098,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_class_init_ich6(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @intel_hda_class_init_ich6(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #10
@@ -2116,7 +2116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_class_init_ich9(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @intel_hda_class_init_ich9(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %call.i4 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #10
@@ -2134,7 +2134,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @hda_codec_device_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @hda_codec_device_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #10
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -2223,13 +2223,13 @@ declare void @qdev_prop_set_string(ptr noundef, ptr noundef, ptr noundef) local_
 declare zeroext i1 @qdev_realize_and_unref(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9

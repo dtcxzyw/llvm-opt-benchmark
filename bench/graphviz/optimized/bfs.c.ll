@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @bfs(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @bfs(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp sgt i32 %2, 0
   br i1 %5, label %._crit_edge.thread, label %._crit_edge
 
@@ -210,7 +210,7 @@ deQueue.exit:                                     ; preds = %.loopexit77, %.loop
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mkQueue(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @mkQueue(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = sext i32 %1 to i64
   %mul.ov.i = icmp slt i32 %1, 0
   br i1 %mul.ov.i, label %4, label %7
@@ -247,7 +247,7 @@ gv_calloc.exit:                                   ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @initQueue(ptr nocapture noundef initializes((12, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @initQueue(ptr noundef captures(none) initializes((12, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -258,7 +258,7 @@ define void @initQueue(ptr nocapture noundef initializes((12, 20)) %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @deQueue(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
+define noundef zeroext i1 @deQueue(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -281,7 +281,7 @@ define noundef zeroext i1 @deQueue(ptr nocapture noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @enQueue(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define noundef zeroext i1 @enQueue(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -303,17 +303,17 @@ define noundef zeroext i1 @enQueue(ptr nocapture noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @freeQueue(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define void @freeQueue(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #7 {
@@ -328,7 +328,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11

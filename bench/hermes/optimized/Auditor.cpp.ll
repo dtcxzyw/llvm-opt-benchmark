@@ -18,7 +18,7 @@ $_ZN6hermes7AuditorD0Ev = comdat any
 @.str = private unnamed_addr constant [8 x i8] c"Auditor\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes7Auditor13runOnFunctionEPNS_8FunctionE(ptr nocapture nonnull readnone align 8 %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes7Auditor13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
   %Next.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 88
   %BasicBlockList.i.i = getelementptr inbounds nuw i8, ptr %F, i64 80
@@ -72,7 +72,7 @@ _ZL21auditCallInstructionsPN6hermes8FunctionE.exit: ; preds = %for.inc40.i, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes13createAuditorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes13createAuditorEv(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes7AuditorESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #5, !noalias !4
   %kind.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8

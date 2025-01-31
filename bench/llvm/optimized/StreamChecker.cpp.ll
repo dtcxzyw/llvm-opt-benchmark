@@ -3740,7 +3740,7 @@ _ZNSt6vectorIN5clang4ento9CheckerFnIFvvEEESaIS4_EE9push_backEOS4_.exit: ; preds 
 declare noundef zeroext i1 @_ZNK5clang15AnalyzerOptions23getCheckerBooleanOptionEPKNS_4ento11CheckerBaseEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(488), ptr noundef, ptr, i64, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4ento27shouldRegisterStreamCheckerERKNS0_14CheckerManagerE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1552) %0) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN5clang4ento27shouldRegisterStreamCheckerERKNS0_14CheckerManagerE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1552) %0) local_unnamed_addr #3 {
   ret i1 true
 }
 
@@ -3816,7 +3816,7 @@ _ZN5clang4ento14CheckerManager10getCheckerIN12_GLOBAL__N_113StreamCheckerEEEPT_v
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4ento33shouldRegisterStreamTesterCheckerERKNS0_14CheckerManagerE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1552) %0) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_ZN5clang4ento33shouldRegisterStreamTesterCheckerERKNS0_14CheckerManagerE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1552) %0) local_unnamed_addr #3 {
   ret i1 true
 }
 
@@ -3837,7 +3837,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -3846,7 +3846,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12), i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -3967,7 +3967,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull ali
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #1
 
@@ -4080,10 +4080,10 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 declare noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #11
 
 declare i32 @_ZN5clang11ASTNodeKind11getFromNodeERKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
@@ -4184,7 +4184,7 @@ declare void @_ZNK5clang12ast_matchers8internal15DynTypedMatcher9dynCastToENS_11
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN5clang4ento14CheckerManager8destructIN12_GLOBAL__N_113StreamCheckerEEEvPv(ptr noundef %0) #2 align 2 {
@@ -4947,7 +4947,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit78: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_113FnDescriptionEEC2IS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS8_S9_EEEbE4typeELb1EEERKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(68) %2) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZNSt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_113FnDescriptionEEC2IS2_S4_TnNSt9enable_ifIXaaclsr5_PCCPE18_ConstructiblePairIT_T0_EEclsr5_PCCPE26_ImplicitlyConvertiblePairIS8_S9_EEEbE4typeELb1EEERKS2_RKS4_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %1, ptr noundef nonnull align 8 dereferenceable(68) %2) unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5048,7 +5048,7 @@ _ZN12_GLOBAL__N_113FnDescriptionC2ERKS0_.exit:    ; preds = %_ZNSt8functionIFvPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker10preFreopenEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker10preFreopenEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -5491,7 +5491,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit72: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker10preDefaultEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker10preDefaultEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -5621,7 +5621,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalFcloseEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalFcloseEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(936) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -5914,7 +5914,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit49: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker7preReadEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker7preReadEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -6927,7 +6927,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit160: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker8preWriteEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker8preWriteEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -9110,7 +9110,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit107: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalUngetcEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalUngetcEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(936) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -10132,7 +10132,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit184: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker8preFseekEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker8preFseekEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.std::unique_ptr.1386", align 8
@@ -10755,7 +10755,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit71: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker9evalFtellEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker9evalFtellEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -11097,7 +11097,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit63: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker9preFflushEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker9preFflushEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"struct.std::pair.1130", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -11201,7 +11201,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit27: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalFflushEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalFflushEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(936) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -11820,7 +11820,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit119: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalRewindEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalRewindEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"struct.(anonymous namespace)::StreamOperationEvaluator", align 8
@@ -11946,7 +11946,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit21: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker11evalFgetposEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker11evalFgetposEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -12457,7 +12457,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit62: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker12evalClearerrEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker12evalClearerrEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"struct.(anonymous namespace)::StreamOperationEvaluator", align 8
@@ -12589,7 +12589,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit21: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker14evalFeofFerrorEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextERKNS_16StreamErrorStateE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %4) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker14evalFeofFerrorEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextERKNS_16StreamErrorStateE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %4) #2 align 2 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %7 = alloca %"class.clang::ProgramPoint", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -12679,7 +12679,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
   %64 = trunc i8 %54 to i1
   %65 = select i1 %57, i1 %64, i1 false
   %or.cond = select i1 %63, i1 true, i1 %65
-  br i1 %or.cond, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit.thread, label %142
+  br i1 %or.cond, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit.thread, label %138
 
 _ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit.thread: ; preds = %42, %53
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i, label %66
@@ -12748,209 +12748,195 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i: ; preds =
   call void @_ZN5clang4ento17ConstraintManager6assumeEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.1109") align 8 %13, ptr noundef nonnull align 8 dereferenceable(56) %101, ptr noundef nonnull %10, ptr %.fca.0.extract.i, i8 %.fca.1.extract.i, i1 noundef zeroext true) #21
   %102 = load ptr, ptr %10, align 8, !noalias !180
   %.not.i.i.i.i = icmp eq ptr %102, null
-  br i1 %.not.i.i.i.i, label %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i.thread, label %103
+  br i1 %.not.i.i.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23, label %103
 
 103:                                              ; preds = %97
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %102) #21, !noalias !174
-  br label %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i.thread
-
-_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i.thread: ; preds = %103, %97
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !174
-  %104 = load ptr, ptr %13, align 8, !noalias !174
-  store ptr %95, ptr %13, align 8, !noalias !174
-  br label %106
+  br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23
 
 _ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit.i
   store ptr %95, ptr %13, align 8, !alias.scope !177, !noalias !174
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull align 8 dereferenceable(48) %95) #21, !noalias !180
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !174
-  %105 = load ptr, ptr %13, align 8, !noalias !174
-  store ptr %95, ptr %13, align 8, !noalias !174
-  %.not.i.i12.i = icmp eq ptr %95, null
-  br i1 %.not.i.i12.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23, label %106
-
-106:                                              ; preds = %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i.thread, %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i
-  %107 = phi ptr [ %104, %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i.thread ], [ %105, %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i ]
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %95) #21, !noalias !174
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23: ; preds = %106, %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i
-  %108 = phi ptr [ %105, %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i ], [ %107, %106 ]
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23: ; preds = %97, %103, %_ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !174
+  %104 = load ptr, ptr %13, align 8, !noalias !174
+  store ptr %95, ptr %13, align 8, !noalias !174
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %95) #21, !noalias !174
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  %.not.i.i24 = icmp eq ptr %108, null
-  br i1 %.not.i.i24, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25, label %109
+  %.not.i.i24 = icmp eq ptr %104, null
+  br i1 %.not.i.i24, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25, label %105
 
-109:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #21
+105:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %104) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23, %109
-  %110 = load ptr, ptr %43, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 15
-  %112 = load i8, ptr %111, align 1
-  %113 = trunc i8 %112 to i1
-  br i1 %113, label %114, label %.thread
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit23, %105
+  %106 = load ptr, ptr %43, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 15
+  %108 = load i8, ptr %107, align 1
+  %109 = trunc i8 %108 to i1
+  br i1 %109, label %110, label %.thread
 
-114:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25
-  %115 = load i8, ptr %4, align 1
-  %116 = trunc i8 %115 to i1
-  br i1 %116, label %.thread, label %117
+110:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25
+  %111 = load i8, ptr %4, align 1
+  %112 = trunc i8 %111 to i1
+  br i1 %112, label %.thread, label %113
 
-117:                                              ; preds = %114
-  %118 = load i8, ptr %49, align 1
-  %119 = trunc i8 %118 to i1
-  br i1 %119, label %120, label %.thread
+113:                                              ; preds = %110
+  %114 = load i8, ptr %49, align 1
+  %115 = trunc i8 %114 to i1
+  br i1 %115, label %116, label %.thread
 
-120:                                              ; preds = %117
-  %121 = load i8, ptr %50, align 1
-  %.fr = freeze i8 %121
-  %122 = trunc i8 %.fr to i1
-  %spec.select = select i1 %122, i64 72057594037927936, i64 0
+116:                                              ; preds = %113
+  %117 = load i8, ptr %50, align 1
+  %.fr = freeze i8 %117
+  %118 = trunc i8 %.fr to i1
+  %spec.select = select i1 %118, i64 72057594037927936, i64 0
   br label %.thread
 
-.thread:                                          ; preds = %114, %117, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25, %120
-  %123 = phi i64 [ %spec.select, %120 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25 ], [ 72057594037927936, %117 ], [ 72057594037927936, %114 ]
+.thread:                                          ; preds = %110, %113, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25, %116
+  %119 = phi i64 [ %spec.select, %116 ], [ 0, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit25 ], [ 72057594037927936, %113 ], [ 72057594037927936, %110 ]
   %.sroa.4.sroa.0.0.copyload.i128 = load i24, ptr %4, align 1
   %.sroa.4.8.insert.ext.i = zext i24 %.sroa.4.sroa.0.0.copyload.i128 to i64
   %.sroa.4.8.insert.shift.i = shl nuw nsw i64 %.sroa.4.8.insert.ext.i, 32
-  %.sroa.4.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %123
-  store i24 %.sroa.4.sroa.0.0.copyload.i128, ptr %35, align 8, !noalias !181
-  %124 = load ptr, ptr %34, align 8, !noalias !181
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19StreamMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %108, ptr noundef %124, ptr nonnull %1, i64 %.sroa.4.8.insert.insert.i)
-  %125 = load ptr, ptr %16, align 8
-  %.not.i = icmp eq ptr %125, null
-  br i1 %.not.i, label %126, label %129
+  %.sroa.4.8.insert.insert.i = or disjoint i64 %.sroa.4.8.insert.shift.i, %119
+  %120 = load ptr, ptr %34, align 8, !noalias !181
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19StreamMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %16, ptr noundef nonnull align 8 dereferenceable(48) %104, ptr noundef %120, ptr nonnull %1, i64 %.sroa.4.8.insert.insert.i)
+  %121 = load ptr, ptr %16, align 8
+  %.not.i = icmp eq ptr %121, null
+  br i1 %.not.i, label %122, label %125
 
-126:                                              ; preds = %.thread
-  %127 = load ptr, ptr %19, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 56
-  %.pr.i = load ptr, ptr %128, align 8
+122:                                              ; preds = %.thread
+  %123 = load ptr, ptr %19, align 8
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 56
+  %.pr.i = load ptr, ptr %124, align 8
   %.not.i.i.i27 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i27, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33, label %129
+  br i1 %.not.i.i.i27, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33, label %125
 
-129:                                              ; preds = %.thread, %126
-  %.sroa.0117.0 = phi ptr [ %.pr.i, %126 ], [ %125, %.thread ]
+125:                                              ; preds = %.thread, %122
+  %.sroa.0117.0 = phi ptr [ %.pr.i, %122 ], [ %121, %.thread ]
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0117.0) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
   %.pre.i78 = load ptr, ptr %19, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %.pre.i78, i64 56
-  %131 = load ptr, ptr %130, align 8
-  %.not = icmp eq ptr %.sroa.0117.0, %131
+  %126 = getelementptr inbounds nuw i8, ptr %.pre.i78, i64 56
+  %127 = load ptr, ptr %126, align 8
+  %.not = icmp eq ptr %.sroa.0117.0, %127
   br i1 %.not, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i: ; preds = %129
-  %132 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 1, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %133, i64 48, i1 false)
-  %134 = load ptr, ptr %75, align 8
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i: ; preds = %125
+  %128 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 1, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %129, i64 48, i1 false)
+  %130 = load ptr, ptr %75, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0117.0) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   store ptr %.sroa.0117.0, ptr %8, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0117.0) #21
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0117.0, i64 40
-  %136 = load i8, ptr %135, align 8
-  %137 = trunc i8 %136 to i1
-  %138 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %134, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %8, ptr noundef nonnull %.pre.i78, i1 noundef zeroext %137) #21
-  %139 = load ptr, ptr %8, align 8
-  %.not.i.i3.i22.i = icmp eq ptr %139, null
-  br i1 %.not.i.i3.i22.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i, label %140
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0117.0, i64 40
+  %132 = load i8, ptr %131, align 8
+  %133 = trunc i8 %132 to i1
+  %134 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %130, ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull %8, ptr noundef nonnull %.pre.i78, i1 noundef zeroext %133) #21
+  %135 = load ptr, ptr %8, align 8
+  %.not.i.i3.i22.i = icmp eq ptr %135, null
+  br i1 %.not.i.i3.i22.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i, label %136
 
-140:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %139) #21
+136:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %135) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i: ; preds = %140, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i: ; preds = %136, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0117.0) #21
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i, %129
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i, %125
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0117.0) #21
   %.pre = load ptr, ptr %16, align 8
   %.not.i.i28 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i28, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33, label %141
+  br i1 %.not.i.i28, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33, label %137
 
-141:                                              ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit
+137:                                              ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.pre) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33: ; preds = %126, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit, %141
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #21
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %108) #21
-  %.pre158 = load ptr, ptr %43, align 8
-  %.pre159 = load i8, ptr %4, align 1
-  %.pre160 = load i8, ptr %49, align 1
-  %.pre161 = load i8, ptr %50, align 1
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre158, i64 12
-  %.pre162 = load i8, ptr %.phi.trans.insert, align 1
-  %.phi.trans.insert163 = getelementptr inbounds nuw i8, ptr %.pre158, i64 13
-  %.pre164 = load i8, ptr %.phi.trans.insert163, align 1
-  %.phi.trans.insert165 = getelementptr inbounds nuw i8, ptr %.pre158, i64 14
-  %.pre166 = load i8, ptr %.phi.trans.insert165, align 1
-  %.pre168 = trunc i8 %.pre162 to i1
-  %.pre169 = trunc i8 %.pre164 to i1
-  %.pre171 = trunc i8 %.pre166 to i1
-  br label %142
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33: ; preds = %122, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit, %137
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %104) #21
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %104) #21
+  %.pre158 = load i8, ptr %4, align 1
+  %.pre159 = load i8, ptr %49, align 1
+  %.pre160 = load i8, ptr %50, align 1
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %106, i64 12
+  %.pre161 = load i8, ptr %.phi.trans.insert, align 1
+  %.phi.trans.insert162 = getelementptr inbounds nuw i8, ptr %106, i64 13
+  %.pre163 = load i8, ptr %.phi.trans.insert162, align 1
+  %.phi.trans.insert164 = getelementptr inbounds nuw i8, ptr %106, i64 14
+  %.pre165 = load i8, ptr %.phi.trans.insert164, align 1
+  %.pre167 = trunc i8 %.pre161 to i1
+  %.pre168 = trunc i8 %.pre163 to i1
+  %.pre170 = trunc i8 %.pre165 to i1
+  br label %138
 
-142:                                              ; preds = %53, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33
-  %.pre-phi172 = phi i1 [ %57, %53 ], [ %.pre171, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %.pre-phi170 = phi i1 [ %60, %53 ], [ %.pre169, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %.pre-phi = phi i1 [ %47, %53 ], [ %.pre168, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %143 = phi i8 [ %54, %53 ], [ %.pre161, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %144 = phi i8 [ %61, %53 ], [ %.pre160, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %145 = phi i8 [ %48, %53 ], [ %.pre159, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %146 = phi ptr [ %44, %53 ], [ %.pre158, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
-  %147 = and i8 %145, 1
+138:                                              ; preds = %53, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33
+  %.pre-phi171 = phi i1 [ %57, %53 ], [ %.pre170, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %.pre-phi169 = phi i1 [ %60, %53 ], [ %.pre168, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %.pre-phi = phi i1 [ %47, %53 ], [ %.pre167, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %139 = phi i8 [ %54, %53 ], [ %.pre160, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %140 = phi i8 [ %61, %53 ], [ %.pre159, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %141 = phi i8 [ %48, %53 ], [ %.pre158, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %142 = phi ptr [ %44, %53 ], [ %106, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit33 ]
+  %143 = and i8 %141, 1
+  %144 = xor i8 %143, 1
+  %145 = and i8 %140, 1
+  %146 = xor i8 %145, 1
+  %147 = and i8 %139, 1
   %148 = xor i8 %147, 1
-  %149 = and i8 %144, 1
-  %150 = xor i8 %149, 1
-  %151 = and i8 %143, 1
-  %152 = xor i8 %151, 1
-  %.sroa.096.0.extract.trunc = select i1 %.pre-phi, i8 %148, i8 0
-  %.sroa.4.0.extract.trunc = select i1 %.pre-phi170, i8 %150, i8 0
-  %.sroa.6.0.extract.trunc = select i1 %.pre-phi172, i8 %152, i8 0
+  %.sroa.096.0.extract.trunc = select i1 %.pre-phi, i8 %144, i8 0
+  %.sroa.4.0.extract.trunc = select i1 %.pre-phi169, i8 %146, i8 0
+  %.sroa.6.0.extract.trunc = select i1 %.pre-phi171, i8 %148, i8 0
   %.sroa.6.0.extract.trunc.fr = freeze i8 %.sroa.6.0.extract.trunc
-  %153 = trunc nuw i8 %.sroa.096.0.extract.trunc to i1
-  br i1 %153, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread, label %154
+  %149 = trunc nuw i8 %.sroa.096.0.extract.trunc to i1
+  br i1 %149, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread, label %150
 
-154:                                              ; preds = %142
-  %155 = trunc nuw i8 %.sroa.4.0.extract.trunc to i1
-  br i1 %155, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44
+150:                                              ; preds = %138
+  %151 = trunc nuw i8 %.sroa.4.0.extract.trunc to i1
+  br i1 %151, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44
 
-_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44: ; preds = %154
-  %156 = trunc nuw i8 %.sroa.6.0.extract.trunc.fr to i1
-  br i1 %156, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75
+_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44: ; preds = %150
+  %152 = trunc nuw i8 %.sroa.6.0.extract.trunc.fr to i1
+  br i1 %152, label %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75
 
-_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread: ; preds = %142, %154, %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44
-  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46, label %157
+_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread: ; preds = %138, %150, %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44
+  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46, label %153
 
-157:                                              ; preds = %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread
+153:                                              ; preds = %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %22) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46: ; preds = %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread, %157
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46: ; preds = %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44.thread, %153
   %.val16 = load ptr, ptr %19, align 8
-  %158 = getelementptr i8, ptr %.val16, i64 24
-  %.val16.val = load i64, ptr %158, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %160 = load ptr, ptr %159, align 8, !noalias !184
-  %161 = load ptr, ptr %14, align 8, !noalias !184
-  %162 = load ptr, ptr %27, align 8, !noalias !184
-  %163 = call i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %160, ptr noundef nonnull align 8 dereferenceable(23096) %162) #21, !noalias !184
-  %164 = and i64 %163, -16
+  %154 = getelementptr i8, ptr %.val16, i64 24
+  %.val16.val = load i64, ptr %154, align 8
+  %155 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %156 = load ptr, ptr %155, align 8, !noalias !184
+  %157 = load ptr, ptr %14, align 8, !noalias !184
+  %158 = load ptr, ptr %27, align 8, !noalias !184
+  %159 = call i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %156, ptr noundef nonnull align 8 dereferenceable(23096) %158) #21, !noalias !184
+  %160 = and i64 %159, -16
+  %161 = inttoptr i64 %160 to ptr
+  %162 = load ptr, ptr %161, align 16, !noalias !184
+  %163 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %163, align 8, !noalias !184
+  %164 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, -16
   %165 = inttoptr i64 %164 to ptr
   %166 = load ptr, ptr %165, align 16, !noalias !184
-  %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %167, align 8, !noalias !184
-  %168 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, -16
-  %169 = inttoptr i64 %168 to ptr
-  %170 = load ptr, ptr %169, align 16, !noalias !184
-  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  %172 = load i8, ptr %171, align 16, !noalias !184
-  switch i8 %172, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i.i [
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %168 = load i8, ptr %167, align 16, !noalias !184
+  switch i8 %168, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i.i [
     i8 43, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48
     i8 42, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48
     i8 41, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48
@@ -12960,50 +12946,50 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46: ; pre
   ]
 
 _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i.i: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46
-  %173 = load i32, ptr %171, align 16, !noalias !184
-  %174 = and i32 %173, 267911168
-  %175 = icmp eq i32 %174, 252182528
-  br i1 %175, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i.i
+  %169 = load i32, ptr %167, align 16, !noalias !184
+  %170 = and i32 %169, 267911168
+  %171 = icmp eq i32 %170, 252182528
+  br i1 %171, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48, label %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i.i
 
 _ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i.i: ; preds = %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i.i, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i.i
   %.sroa.3.0.i.i = phi i8 [ 6, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.thread15.i.i ], [ 2, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46 ], [ 2, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46 ], [ 2, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46 ], [ 2, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46 ], [ 2, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit46 ], [ 2, %_ZN5clang4ento3Loc9isLocTypeENS_8QualTypeE.exit.i.i ]
-  %176 = and i64 %.val16.val, -8
-  %177 = inttoptr i64 %176 to ptr
-  %178 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  %179 = call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %178, i64 noundef 0, i64 %163) #21, !noalias !184
-  call void @_ZNK5clang4ento12ProgramState8BindExprEPKNS_4StmtEPKNS_15LocationContextENS0_4SValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.1109") align 8 %17, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %160, ptr noundef %177, ptr nonnull %179, i8 %.sroa.3.0.i.i, i1 noundef zeroext true) #21
+  %172 = and i64 %.val16.val, -8
+  %173 = inttoptr i64 %172 to ptr
+  %174 = getelementptr inbounds nuw i8, ptr %157, i64 16
+  %175 = call noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144) %174, i64 noundef 0, i64 %159) #21, !noalias !184
+  call void @_ZNK5clang4ento12ProgramState8BindExprEPKNS_4StmtEPKNS_15LocationContextENS0_4SValEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::IntrusiveRefCntPtr.1109") align 8 %17, ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull %156, ptr noundef %173, ptr nonnull %175, i8 %.sroa.3.0.i.i, i1 noundef zeroext true) #21
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %22) #21
-  %180 = load ptr, ptr %17, align 8
-  %.not.i.i49 = icmp eq ptr %180, null
-  br i1 %.not.i.i49, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50, label %181
+  %176 = load ptr, ptr %17, align 8
+  %.not.i.i49 = icmp eq ptr %176, null
+  br i1 %.not.i.i49, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50, label %177
 
-181:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48
-  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %180) #21
+177:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48
+  call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %176) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48, %181
-  %182 = getelementptr inbounds nuw i8, ptr %146, i64 15
-  %183 = load i8, ptr %182, align 1
-  %184 = trunc i8 %183 to i1
-  %.not157 = xor i1 %184, true
-  %brmerge = or i1 %153, %.not157
-  %.mux = select i1 %184, i64 72057594037927936, i64 0
-  br i1 %brmerge, label %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51, label %185
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit48, %177
+  %178 = getelementptr inbounds nuw i8, ptr %142, i64 15
+  %179 = load i8, ptr %178, align 1
+  %180 = trunc i8 %179 to i1
+  %.not157 = xor i1 %180, true
+  %brmerge = or i1 %149, %.not157
+  %.mux = select i1 %180, i64 72057594037927936, i64 0
+  br i1 %brmerge, label %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51, label %181
 
-185:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50
-  %186 = trunc nuw i8 %.sroa.4.0.extract.trunc to i1
-  br i1 %186, label %187, label %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51
+181:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50
+  %182 = trunc nuw i8 %.sroa.4.0.extract.trunc to i1
+  br i1 %182, label %183, label %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51
 
-187:                                              ; preds = %185
-  %188 = trunc i8 %.sroa.6.0.extract.trunc.fr to i1
-  %189 = select i1 %188, i64 72057594037927936, i64 0
+183:                                              ; preds = %181
+  %184 = trunc i8 %.sroa.6.0.extract.trunc.fr to i1
+  %185 = select i1 %184, i64 72057594037927936, i64 0
   br label %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51
 
-_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50, %187, %185
-  %cond.fr144 = phi i64 [ %.mux, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50 ], [ 72057594037927936, %185 ], [ %189, %187 ]
+_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50, %183, %181
+  %cond.fr144 = phi i64 [ %.mux, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit50 ], [ 72057594037927936, %181 ], [ %185, %183 ]
   %.sroa.6.0.insert.ext = zext i8 %.sroa.6.0.extract.trunc.fr to i64
   %.sroa.6.0.insert.shift = shl nuw nsw i64 %.sroa.6.0.insert.ext, 16
   %.sroa.4.0.insert.ext = zext nneg i8 %.sroa.4.0.extract.trunc to i64
@@ -13013,79 +12999,79 @@ _ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51: ; preds = %_ZN4llvm18Intru
   %.sroa.096.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.insert, %.sroa.096.0.insert.ext
   %.sroa.4.8.insert.shift.i56 = shl nuw nsw i64 %.sroa.096.0.insert.insert, 32
   %.sroa.4.8.insert.insert.i57 = or disjoint i64 %cond.fr144, %.sroa.4.8.insert.shift.i56
-  %190 = load ptr, ptr %34, align 8, !noalias !187
-  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19StreamMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %180, ptr noundef %190, ptr nonnull %1, i64 %.sroa.4.8.insert.insert.i57)
-  %191 = load ptr, ptr %18, align 8
-  %.not.i62 = icmp eq ptr %191, null
-  br i1 %.not.i62, label %192, label %195
+  %186 = load ptr, ptr %34, align 8, !noalias !187
+  call fastcc void @_ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_19StreamMapEEEN4llvm18IntrusiveRefCntPtrIKS1_EENS0_17ProgramStateTraitIT_E8key_typeENSB_10value_typeE(ptr dead_on_unwind noalias nonnull writable align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %176, ptr noundef %186, ptr nonnull %1, i64 %.sroa.4.8.insert.insert.i57)
+  %187 = load ptr, ptr %18, align 8
+  %.not.i62 = icmp eq ptr %187, null
+  br i1 %.not.i62, label %188, label %191
 
-192:                                              ; preds = %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51
-  %193 = load ptr, ptr %19, align 8
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 56
-  %.pr.i67 = load ptr, ptr %194, align 8
+188:                                              ; preds = %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51
+  %189 = load ptr, ptr %19, align 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 56
+  %.pr.i67 = load ptr, ptr %190, align 8
   %.not.i.i.i68 = icmp eq ptr %.pr.i67, null
-  br i1 %.not.i.i.i68, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73, label %195
+  br i1 %.not.i.i.i68, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73, label %191
 
-195:                                              ; preds = %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51, %192
-  %.sroa.0120.0 = phi ptr [ %.pr.i67, %192 ], [ %191, %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51 ]
+191:                                              ; preds = %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51, %188
+  %.sroa.0120.0 = phi ptr [ %.pr.i67, %188 ], [ %187, %_ZNK12_GLOBAL__N_116StreamErrorState6isFEofEv.exit51 ]
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0120.0) #21
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %.pre.i83 = load ptr, ptr %19, align 8
-  %196 = getelementptr inbounds nuw i8, ptr %.pre.i83, i64 56
-  %197 = load ptr, ptr %196, align 8
-  %.not155 = icmp eq ptr %.sroa.0120.0, %197
+  %192 = getelementptr inbounds nuw i8, ptr %.pre.i83, i64 56
+  %193 = load ptr, ptr %192, align 8
+  %.not155 = icmp eq ptr %.sroa.0120.0, %193
   br i1 %.not155, label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i87
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i87: ; preds = %195
-  %198 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i8 1, ptr %198, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %199, i64 48, i1 false)
-  %200 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  %201 = load ptr, ptr %200, align 8
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i87: ; preds = %191
+  %194 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i8 1, ptr %194, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %195, i64 48, i1 false)
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %197 = load ptr, ptr %196, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0120.0) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.sroa.0120.0, ptr %6, align 8
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0120.0) #21
-  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0, i64 40
-  %203 = load i8, ptr %202, align 8
-  %204 = trunc i8 %203 to i1
-  %205 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %201, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %6, ptr noundef nonnull %.pre.i83, i1 noundef zeroext %204) #21
-  %206 = load ptr, ptr %6, align 8
-  %.not.i.i3.i22.i88 = icmp eq ptr %206, null
-  br i1 %.not.i.i3.i22.i88, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i89, label %207
+  %198 = getelementptr inbounds nuw i8, ptr %.sroa.0120.0, i64 40
+  %199 = load i8, ptr %198, align 8
+  %200 = trunc i8 %199 to i1
+  %201 = call noundef ptr @_ZN5clang4ento11NodeBuilder16generateNodeImplERKNS_12ProgramPointEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPNS0_12ExplodedNodeEb(ptr noundef nonnull align 8 dereferenceable(32) %197, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull %6, ptr noundef nonnull %.pre.i83, i1 noundef zeroext %200) #21
+  %202 = load ptr, ptr %6, align 8
+  %.not.i.i3.i22.i88 = icmp eq ptr %202, null
+  br i1 %.not.i.i3.i22.i88, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i89, label %203
 
-207:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i87
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %206) #21
+203:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i87
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %202) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i89
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i89: ; preds = %207, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i87
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i89: ; preds = %203, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit20.i87
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0120.0) #21
   br label %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69
 
-_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i89, %195
+_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24.i89, %191
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.sroa.0120.0) #21
-  %.pre167 = load ptr, ptr %18, align 8
-  %.not.i.i70 = icmp eq ptr %.pre167, null
-  br i1 %.not.i.i70, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73, label %208
+  %.pre166 = load ptr, ptr %18, align 8
+  %.not.i.i70 = icmp eq ptr %.pre166, null
+  br i1 %.not.i.i70, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73, label %204
 
-208:                                              ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.pre167) #21
+204:                                              ; preds = %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %.pre166) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73: ; preds = %192, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69, %208
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %180) #21
-  %209 = load ptr, ptr %17, align 8
-  %.not.i.i74 = icmp eq ptr %209, null
-  br i1 %.not.i.i74, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75, label %210
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73: ; preds = %188, %_ZN5clang4ento14CheckerContext13addTransitionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_15ProgramPointTagE.exit69, %204
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %176) #21
+  %205 = load ptr, ptr %17, align 8
+  %.not.i.i74 = icmp eq ptr %205, null
+  br i1 %.not.i.i74, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75, label %206
 
-210:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73
-  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %209) #21
+206:                                              ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73
+  call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %205) #21
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75: ; preds = %210, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73, %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75: ; preds = %206, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit73, %_ZNK12_GLOBAL__N_116StreamErrorStatecvbEv.exit44
   br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75.thread153
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75.thread153: ; preds = %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit75
@@ -13097,7 +13083,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit77: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalFilenoEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker10evalFilenoEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3) #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.clang::ProgramPoint", align 8
   %7 = alloca %"class.clang::ento::BlockCounter", align 8
@@ -13283,7 +13269,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit42: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_113FnDescriptionEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES3_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr %.0.val, i64 %.8.val) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_113FnDescriptionEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionES3_EE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr %.0.val, i64 %.8.val) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds %"struct.std::pair.1066", ptr %.0.val, i64 %.8.val
   %.idx.i = mul nsw i64 %.8.val, 136
@@ -13427,7 +13413,7 @@ _ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEN12_GLOBAL__N_113FnDescriptio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_113StreamChecker17evalSetFeofFerrorEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextERKNS_16StreamErrorStateEb(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(81) %3, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %4, i1 noundef zeroext %5) #2 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113StreamChecker17evalSetFeofFerrorEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextERKNS_16StreamErrorStateEb(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(81) %3, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %4, i1 noundef zeroext %5) #2 align 2 {
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %8 = alloca %"class.clang::ProgramPoint", align 8
   %9 = alloca %"class.clang::ento::SVal", align 8
@@ -13918,7 +13904,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_113StreamChecker20constructLeakNoteTagERN5clang4ento14CheckerContextEPKNS2_7SymExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #2 align 2 {
+define internal fastcc noundef nonnull ptr @_ZNK12_GLOBAL__N_113StreamChecker20constructLeakNoteTagERN5clang4ento14CheckerContextEPKNS2_7SymExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #2 align 2 {
 _ZNSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento18BugReporterContextERNS7_22PathSensitiveBugReportEEEC2IZNS7_14CheckerContext10getNoteTagEOS_IFS5_SB_EEbEUlS9_SB_E_vEEOT_.exit.i:
   %4 = alloca i8, align 1
   %5 = alloca %"class.std::function.1142", align 8
@@ -14013,7 +13999,7 @@ declare void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noun
 declare void @_ZN5clang4ento19ProgramStateManager6addGDMEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvS7_(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.1109") align 8, ptr noundef nonnull align 8 dereferenceable(288), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS9_EE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE16getCanonicalTreeEPNS_11ImutAVLTreeIS9_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
   %4 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
   %5 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
@@ -14362,7 +14348,7 @@ tailrecurse._crit_edge:                           ; preds = %.lr.ph, %tailrecurs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE10createNodeEPNS_11ImutAVLTreeIS9_EERKSt4pairIS6_S8_ESD_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE10createNodeEPNS_11ImutAVLTreeIS9_EERKSt4pairIS6_S8_ESD_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val7 = load i64, ptr %5, align 8
   %6 = and i64 %.val7, -2
@@ -14556,7 +14542,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS9_EERKSt4pairIS6_S8_ESD_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE11balanceTreeEPNS_11ImutAVLTreeIS9_EERKSt4pairIS6_S8_ESD_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3) unnamed_addr #2 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE9getHeightEPNS_11ImutAVLTreeIS9_EE.exit, label %5
 
@@ -14842,7 +14828,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento7SymExprE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_EixEOj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 %.0.val) unnamed_addr #2 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_EixEOj(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %0, i32 %.0.val) unnamed_addr #2 align 2 {
   %.val.i = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 16
   %.val4.i = load i32, ptr %2, align 8
@@ -15027,7 +15013,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE13computeDigestEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #2 align 2 {
+define internal fastcc noundef i32 @_ZN4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE13computeDigestEv(ptr noundef nonnull align 8 captures(none) dereferenceable(80) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.llvm::FoldingSetNodeID", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val4 = load i32, ptr %3, align 8
@@ -15213,7 +15199,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr noundef nonnull align 1 captures(none) dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -16185,7 +16171,7 @@ _ZN4llvm11SmallVectorIPvLj4EED2Ev.exit:           ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK12_GLOBAL__N_113StreamChecker30assumeNoAliasingWithStdStreamsEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS4_11DefinedSValERNS4_14CheckerContextEENK3$_0clES7_PKNS3_7VarDeclE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZZNK12_GLOBAL__N_113StreamChecker30assumeNoAliasingWithStdStreamsEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS4_11DefinedSValERNS4_14CheckerContextEENK3$_0clES7_PKNS3_7VarDeclE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull captures(none) %2, ptr noundef %3) unnamed_addr #2 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %7 = alloca %"class.clang::ento::SVal", align 8
@@ -16674,7 +16660,7 @@ _ZNSt14_Function_base13_Base_managerIZN5clang4ento14CheckerContext10getNoteTagEO
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker20constructLeakNoteTagERNS7_14CheckerContextEPKNS7_7SymExprERKS5_EUlS9_E_E9_M_invokeERKSt9_Any_dataS9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1016) %2) #2 align 2 {
+define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker20constructLeakNoteTagERNS7_14CheckerContextEPKNS7_7SymExprERKS5_EUlS9_E_E9_M_invokeERKSt9_Any_dataS9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1016) %2) #2 align 2 {
   %4 = alloca %"class.std::allocator.141", align 1
   %.val = load ptr, ptr %1, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4), !noalias !248
@@ -16711,7 +16697,7 @@ _ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker20constructLeakNoteTagERNS7_14CheckerContextEPKNS7_7SymExprERKS5_EUlS9_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker20constructLeakNoteTagERNS7_14CheckerContextEPKNS7_7SymExprERKS5_EUlS9_E_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZNK12_GLOBAL__N_113StreamChecker20constructLeakNoteTagERN5clang4ento14CheckerContextEPKNS4_7SymExprERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlRNS4_22PathSensitiveBugReportEE_E10_M_managerERSt9_Any_dataRKSM_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -16802,7 +16788,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_d
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_set_lengthEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEEMS1_KFvS6_SB_SD_EE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEEMS1_KFvS6_SB_SD_EE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
   %.val = load i64, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val5 = load i64, ptr %6, align 8
@@ -16831,7 +16817,7 @@ _ZSt10__invoke_rIvRMN12_GLOBAL__N_113StreamCheckerEKFvPKNS0_13FnDescriptionERKN5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEEMS1_KFvS6_SB_SD_EE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEEMS1_KFvS6_SB_SD_EE10_M_managerERSt9_Any_dataRKSI_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIMN12_GLOBAL__N_113StreamCheckerEKFvPKNS1_13FnDescriptionERKN5clang4ento9CallEventERNS7_14CheckerContextEEE10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -16860,7 +16846,7 @@ _ZNSt14_Function_base13_Base_managerIMN12_GLOBAL__N_113StreamCheckerEKFvPKNS1_13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_113StreamChecker19ensureStreamNonNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i8 %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5, ptr nocapture noundef nonnull %6) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_113StreamChecker19ensureStreamNonNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i8 %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #2 align 2 {
   %8 = alloca %"class.std::unique_ptr.1386", align 8
   %9 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -17017,7 +17003,7 @@ declare noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicVa
 declare { i64, i64 } @_ZNK5clang10ASTContext11getTypeInfoEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_113StreamChecker18ensureStreamOpenedEN5clang4ento4SValERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i8 %3, ptr noundef nonnull align 8 dereferenceable(81) %4, ptr nocapture noundef nonnull %5) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_113StreamChecker18ensureStreamOpenedEN5clang4ento4SValERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i8 %3, ptr noundef nonnull align 8 dereferenceable(81) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #2 align 2 {
   %7 = alloca %"class.std::unique_ptr.1386", align 8
   %8 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -17259,7 +17245,7 @@ _ZNSt10unique_ptrIN5clang4ento22PathSensitiveBugReportESt14default_deleteIS2_EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124StreamOperationEvaluator4InitEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS5_12ProgramStateEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) initializes((16, 24)) %0, i32 %.64.val, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #2 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_124StreamOperationEvaluator4InitEPKNS_13FnDescriptionERKN5clang4ento9CallEventERNS5_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS5_12ProgramStateEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(43) initializes((16, 24)) %0, i32 %.64.val, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #2 align 2 {
   %4 = alloca %"class.clang::ento::SVal", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -17365,7 +17351,7 @@ declare i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr nound
 declare noundef nonnull align 8 dereferenceable(13) ptr @_ZN5clang4ento17BasicValueFactory8getValueEmNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(144), i64 noundef, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_113StreamChecker33ensureNoFilePositionIndeterminateEN5clang4ento4SValERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i8 %3, ptr noundef nonnull align 8 dereferenceable(81) %4, ptr nocapture noundef nonnull %5) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_113StreamChecker33ensureNoFilePositionIndeterminateEN5clang4ento4SValERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i8 %3, ptr noundef nonnull align 8 dereferenceable(81) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #2 align 2 {
   %7 = alloca %"class.std::unique_ptr.1386", align 8
   %8 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -17680,7 +17666,7 @@ declare void @_ZN5clang4ento22PathSensitiveBugReport15markInterestingEPKNS0_7Sym
 declare i16 @_ZNK5clang4ento12ProgramState6isNullENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(48), ptr, i8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL36tryToInvalidateFReadBufferByElementsN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS2_14CheckerContextERKNS2_9CallEventENS2_6NonLocESB_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr %4, i8 %5, ptr %.0.val, i8 %.8.val) unnamed_addr #2 {
+define internal fastcc void @_ZL36tryToInvalidateFReadBufferByElementsN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS2_14CheckerContextERKNS2_9CallEventENS2_6NonLocESB_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr %4, i8 %5, ptr %.0.val, i8 %.8.val) unnamed_addr #2 {
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -18013,7 +17999,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit80: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10escapeArgsN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS2_14CheckerContextERKNS2_9CallEventENS_8ArrayRefIjEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr readonly %4, i64 %5) unnamed_addr #2 {
+define internal fastcc void @_ZL10escapeArgsN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS2_14CheckerContextERKNS2_9CallEventENS_8ArrayRefIjEE(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr readonly %4, i64 %5) unnamed_addr #2 {
   %7 = alloca %"class.clang::ento::BlockCounter", align 8
   %8 = alloca %"class.llvm::SmallVector.1454", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -18126,7 +18112,7 @@ _ZN4llvm11SmallVectorIN5clang4ento4SValELj3EED2Ev.exit: ; preds = %_ZN4llvm18Int
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124StreamOperationEvaluator13assumeBinOpNNEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_18BinaryOperatorKindENS4_6NonLocES9_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(43) %1, ptr nocapture noundef nonnull readonly %2, i32 noundef range(i32 10, 14) %3, ptr %4, i8 %5, ptr nocapture noundef readonly byval(%"class.clang::ento::NonLoc") align 8 %6) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124StreamOperationEvaluator13assumeBinOpNNEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEENS3_18BinaryOperatorKindENS4_6NonLocES9_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43) %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef range(i32 10, 14) %3, ptr %4, i8 %5, ptr noundef readonly byval(%"class.clang::ento::NonLoc") align 8 captures(none) %6) unnamed_addr #2 align 2 {
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %10 = load ptr, ptr %1, align 8
@@ -18211,7 +18197,7 @@ _ZNK5clang4ento12ProgramState6assumeENS0_20DefinedOrUnknownSValEb.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i24 0, 66048) i24 @_ZNK12_GLOBAL__N_116StreamErrorStateorERKS0_(ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %1) unnamed_addr #15 align 2 {
+define internal fastcc range(i24 0, 66048) i24 @_ZNK12_GLOBAL__N_116StreamErrorStateorERKS0_(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %1) unnamed_addr #15 align 2 {
   %3 = load i8, ptr %0, align 1
   %4 = trunc i8 %3 to i1
   %5 = load i8, ptr %1, align 1
@@ -18242,7 +18228,7 @@ define internal fastcc range(i24 0, 66048) i24 @_ZNK12_GLOBAL__N_116StreamErrorS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_124StreamOperationEvaluator17getFailureNoteTagEPKNS_13StreamCheckerERN5clang4ento14CheckerContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(43) %0, ptr noundef nonnull %1, ptr %.0.val) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_124StreamOperationEvaluator17getFailureNoteTagEPKNS_13StreamCheckerERN5clang4ento14CheckerContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43) %0, ptr noundef nonnull %1, ptr %.0.val) unnamed_addr #2 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::function.1142", align 8
   %5 = alloca i8, align 1
@@ -18410,7 +18396,7 @@ declare noundef ptr @_ZNK5clang4ento4SVal11getAsRegionEv(ptr noundef nonnull ali
 declare i64 @_ZNK5clang10ASTContext18getTypeSizeInCharsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26escapeByStartIndexAndCountN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS2_9CallEventEjPKNS2_9SubRegionENS1_8QualTypeEll(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3, ptr noundef %4, i64 %5, i64 noundef %6, i64 noundef range(i64 -9223372036854775808, 65) %7) unnamed_addr #2 {
+define internal fastcc void @_ZL26escapeByStartIndexAndCountN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS2_9CallEventEjPKNS2_9SubRegionENS1_8QualTypeEll(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %3, ptr noundef %4, i64 %5, i64 noundef %6, i64 noundef range(i64 -9223372036854775808, 65) %7) unnamed_addr #2 {
   %9 = alloca %"class.llvm::SmallVector.1454", align 8
   %10 = alloca %"class.clang::ento::RegionAndSymbolInvalidationTraits", align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -18645,7 +18631,7 @@ declare void @_ZN5clang4ento33RegionAndSymbolInvalidationTraits8setTraitEPKNS0_9
 declare void @_ZNK5clang4ento12ProgramState17invalidateRegionsEN4llvm8ArrayRefINS0_4SValEEEPKNS_4ExprEjPKNS_15LocationContextEbPNS2_8DenseSetIPKNS0_7SymExprENS2_12DenseMapInfoISF_vEEEEPKNS0_9CallEventEPNS0_33RegionAndSymbolInvalidationTraitsE(ptr dead_on_unwind writable sret(%"class.llvm::IntrusiveRefCntPtr.1109") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr, i64, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker22constructSetEofNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E9_M_invokeERKSt9_Any_dataS9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1016) %2) #2 align 2 {
+define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker22constructSetEofNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E9_M_invokeERKSt9_Any_dataS9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1016) %2) #2 align 2 {
   %4 = alloca %"class.std::allocator.141", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !noalias !290
@@ -18678,7 +18664,7 @@ _ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker22constructSetEofNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker22constructSetEofNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZNK12_GLOBAL__N_113StreamChecker22constructSetEofNoteTagERN5clang4ento14CheckerContextEPKNS4_7SymExprEEUlRNS4_22PathSensitiveBugReportEE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -18704,7 +18690,7 @@ _ZNSt14_Function_base13_Base_managerIZNK12_GLOBAL__N_113StreamChecker22construct
 declare void @_ZN5clang4ento22PathSensitiveBugReport18markNotInterestingEPKNS0_7SymExprE(ptr noundef nonnull align 8 dereferenceable(1016), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker24constructSetErrorNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E9_M_invokeERKSt9_Any_dataS9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1016) %2) #2 align 2 {
+define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker24constructSetErrorNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E9_M_invokeERKSt9_Any_dataS9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1016) %2) #2 align 2 {
   %4 = alloca %"class.std::allocator.141", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !noalias !293
@@ -18737,7 +18723,7 @@ _ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker24constructSetErrorNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker24constructSetErrorNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZNK12_GLOBAL__N_113StreamChecker24constructSetErrorNoteTagERN5clang4ento14CheckerContextEPKNS4_7SymExprEEUlRNS4_22PathSensitiveBugReportEE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -18761,7 +18747,7 @@ _ZNSt14_Function_base13_Base_managerIZNK12_GLOBAL__N_113StreamChecker24construct
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker29constructSetEofOrErrorNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E9_M_invokeERKSt9_Any_dataS9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1016) %2) #2 align 2 {
+define internal void @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker29constructSetEofOrErrorNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E9_M_invokeERKSt9_Any_dataS9_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1016) %2) #2 align 2 {
   %4 = alloca %"class.std::allocator.141", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %5 = load ptr, ptr %1, align 8, !noalias !296
@@ -18802,7 +18788,7 @@ _ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker29constructSetEofOrErrorNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento22PathSensitiveBugReportEEZNK12_GLOBAL__N_113StreamChecker29constructSetEofOrErrorNoteTagERNS7_14CheckerContextEPKNS7_7SymExprEEUlS9_E_E10_M_managerERSt9_Any_dataRKSK_St18_Manager_operation(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #14 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerIZNK12_GLOBAL__N_113StreamChecker29constructSetEofOrErrorNoteTagERN5clang4ento14CheckerContextEPKNS4_7SymExprEEUlRNS4_22PathSensitiveBugReportEE_E10_M_managerERSt9_Any_dataRKSE_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -18826,7 +18812,7 @@ _ZNSt14_Function_base13_Base_managerIZNK12_GLOBAL__N_113StreamChecker29construct
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.val5 = load ptr, ptr %1, align 8
   %.val6 = load ptr, ptr %2, align 8
@@ -18859,7 +18845,7 @@ _ZSt10__invoke_rIvRSt5_BindIFMN12_GLOBAL__N_113StreamCheckerEKFvPKNS1_13FnDescri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_bESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN12_GLOBAL__N_113StreamCheckerEKFvPKNS2_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEbESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESG_ILi4EEbEEE10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -19187,7 +19173,7 @@ declare { ptr, i8 } @_ZN5clang4ento11SValBuilder11makeZeroValENS_8QualTypeE(ptr 
 declare i64 @_ZNK5clang4ento9CallEvent13getResultTypeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_ESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_ESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.val5 = load i64, ptr %.val, align 8
   %6 = getelementptr i8, ptr %.val, i64 8
@@ -19217,7 +19203,7 @@ _ZSt10__invoke_rIvRSt5_BindIFMN12_GLOBAL__N_113StreamCheckerEKFvPKNS1_13FnDescri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_ESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_ESt12_PlaceholderILi1EESI_ILi2EESI_ILi3EESI_ILi4EEEEE10_M_managerERSt9_Any_dataRKSQ_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN12_GLOBAL__N_113StreamCheckerEKFvPKNS2_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt12_PlaceholderILi1EESG_ILi2EESG_ILi3EESG_ILi4EEEEE10_M_managerERSt9_Any_dataRKSO_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -19379,7 +19365,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124StreamOperationEvaluator23makeRetValAndAssumeDualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(43) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %3) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124StreamOperationEvaluator23makeRetValAndAssumeDualEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERNS4_14CheckerContextE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(43) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(81) %3) unnamed_addr #2 align 2 {
   %5 = alloca %"class.clang::ento::BlockCounter", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
@@ -19465,7 +19451,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit14: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_RKNS0_16StreamErrorStateEESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EESG_EEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_RKNS0_16StreamErrorStateEESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EESG_EEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.val5 = load ptr, ptr %1, align 8
   %.val6 = load ptr, ptr %2, align 8
@@ -19496,7 +19482,7 @@ _ZSt10__invoke_rIvRSt5_BindIFMN12_GLOBAL__N_113StreamCheckerEKFvPKNS1_13FnDescri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_RKNS0_16StreamErrorStateEESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EESG_EEE10_M_managerERSt9_Any_dataRKST_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_RKNS0_16StreamErrorStateEESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EESG_EEE10_M_managerERSt9_Any_dataRKST_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN12_GLOBAL__N_113StreamCheckerEKFvPKNS2_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextERKNS2_16StreamErrorStateEESt12_PlaceholderILi1EESJ_ILi2EESJ_ILi3EESJ_ILi4EESE_EEE10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -19534,7 +19520,7 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN12_GLOBAL__N_113StreamCheckerEK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_RKNS0_16StreamErrorStateEbESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EESG_bEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
+define internal void @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_RKNS0_16StreamErrorStateEbESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EESG_bEEE9_M_invokeERKSt9_Any_dataOS3_OS6_SB_SD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(81) %4) #2 align 2 {
   %.val = load ptr, ptr %0, align 8
   %.val5 = load ptr, ptr %1, align 8
   %.val6 = load ptr, ptr %2, align 8
@@ -19568,7 +19554,7 @@ _ZSt10__invoke_rIvRSt5_BindIFMN12_GLOBAL__N_113StreamCheckerEKFvPKNS1_13FnDescri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_RKNS0_16StreamErrorStateEbESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EESG_bEEE10_M_managerERSt9_Any_dataRKST_St18_Manager_operation(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
+define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFvPKN12_GLOBAL__N_113StreamCheckerEPKNS0_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextEESt5_BindIFMS1_KFvS6_SB_SD_RKNS0_16StreamErrorStateEbESt12_PlaceholderILi1EESL_ILi2EESL_ILi3EESL_ILi4EESG_bEEE10_M_managerERSt9_Any_dataRKST_St18_Manager_operation(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #2 align 2 {
   switch i32 %2, label %_ZNSt14_Function_base13_Base_managerISt5_BindIFMN12_GLOBAL__N_113StreamCheckerEKFvPKNS2_13FnDescriptionERKN5clang4ento9CallEventERNS8_14CheckerContextERKNS2_16StreamErrorStateEbESt12_PlaceholderILi1EESJ_ILi2EESJ_ILi3EESJ_ILi4EESE_bEEE10_M_managerERSt9_Any_dataRKSR_St18_Manager_operation.exit [
     i32 1, label %4
     i32 0, label %5
@@ -19606,7 +19592,7 @@ _ZNSt14_Function_base13_Base_managerISt5_BindIFMN12_GLOBAL__N_113StreamCheckerEK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_113FnDescriptionEED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5clang4ento18CallDescriptionMapIN12_GLOBAL__N_113FnDescriptionEED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -19729,7 +19715,7 @@ _ZNK12_GLOBAL__N_113StreamChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_113StreamChecker8lookupFnERKN5clang4ento9CallEventE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZNK12_GLOBAL__N_113StreamChecker8lookupFnERKN5clang4ento9CallEventE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -20784,7 +20770,7 @@ common.ret28:                                     ; preds = %3, %_ZN4llvm14ImutA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE16removeMinBindingEPNS_11ImutAVLTreeIS9_EERSD_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111StreamStateEEEE16removeMinBindingEPNS_11ImutAVLTreeIS9_EERSD_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %2) unnamed_addr #2 align 2 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val10 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %.val10, null
@@ -20918,7 +20904,7 @@ define linkonce_odr hidden void @_ZN5clang4ento24NoOwnershipChangeVisitor23maybe
 declare void @_ZN5clang4ento24NoOwnershipChangeVisitor26maybeEmitNoteForParametersERNS0_22PathSensitiveBugReportERKNS0_9CallEventEPKNS0_12ExplodedNodeE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.1706") align 8, ptr noundef nonnull align 8 dereferenceable(616), ptr noundef nonnull align 8 dereferenceable(1016), ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126NoStreamStateChangeVisitor29doesFnIntendToHandleOwnershipEPKN5clang4DeclERNS1_10ASTContextE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(23096) %2) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126NoStreamStateChangeVisitor29doesFnIntendToHandleOwnershipEPKN5clang4DeclERNS1_10ASTContextE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(23096) %2) unnamed_addr #2 align 2 {
   %4 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::Matcher.1778", align 8
   %6 = alloca %"class.clang::ASTNodeKind", align 4
@@ -21409,7 +21395,7 @@ _ZN4llvm11SmallVectorIN5clang12ast_matchers10BoundNodesELj1EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126NoStreamStateChangeVisitor23hasResourceStateChangedEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126NoStreamStateChangeVisitor23hasResourceStateChangedEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES7_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(616) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %6 = load ptr, ptr %5, align 8
@@ -21514,7 +21500,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19StreamMapEEENS0_17ProgramState
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126NoStreamStateChangeVisitor8emitNoteEPKN5clang4ento12ExplodedNodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.1706") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_126NoStreamStateChangeVisitor8emitNoteEPKN5clang4ento12ExplodedNodeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::shared_ptr.1706") align 8 captures(none) initializes((0, 16)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #2 align 2 {
 _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEED2Ev.exit:
   %3 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %4 = alloca %"class.clang::ProgramPoint", align 8
@@ -22720,7 +22706,7 @@ declare noundef zeroext i1 @_ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info(ptr 
 declare void @_ZN5clang4ento14CheckerManager25_registerForPointerEscapeENS0_9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES7_RKNS3_8DenseSetIPKNS0_7SymExprENS3_12DenseMapInfoISB_vEEEEPKNS0_9CallEventENS0_17PointerEscapeKindEPNS0_33RegionAndSymbolInvalidationTraitsEEEE(ptr noundef nonnull align 8 dereferenceable(1552), ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang4ento5check13PointerEscape19_checkPointerEscapeIN12_GLOBAL__N_113StreamCheckerEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvSA_RKNS6_8DenseSetIPKNS0_7SymExprENS6_12DenseMapInfoISF_vEEEEPKNS0_9CallEventENS0_17PointerEscapeKindEPNS0_33RegionAndSymbolInvalidationTraitsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr.1109") align 8 %0, ptr nocapture readnone %1, ptr nocapture noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) #2 align 2 {
+define internal void @_ZN5clang4ento5check13PointerEscape19_checkPointerEscapeIN12_GLOBAL__N_113StreamCheckerEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvSA_RKNS6_8DenseSetIPKNS0_7SymExprENS6_12DenseMapInfoISF_vEEEEPKNS0_9CallEventENS0_17PointerEscapeKindEPNS0_33RegionAndSymbolInvalidationTraitsE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr.1109") align 8 captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef %4, i32 noundef %5, ptr noundef %6) #2 align 2 {
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %9 = alloca %"class.llvm::DenseSet.1551", align 8
   %10 = alloca ptr, align 8
@@ -22925,7 +22911,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_113StreamChecker18checkPointerEscapeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS1_8DenseSetIPKNS4_7SymExprENS1_12DenseMapInfoISB_vEEEEPKNS4_9CallEventENS4_17PointerEscapeKindE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_113StreamChecker18checkPointerEscapeEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS1_8DenseSetIPKNS4_7SymExprENS1_12DenseMapInfoISB_vEEEEPKNS4_9CallEventENS4_17PointerEscapeKindE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #2 align 2 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr.1109", align 8
   %7 = icmp eq i32 %4, 1
   br i1 %7, label %8, label %_ZNK5clang4ento9CallEvent16isInSystemHeaderEv.exit.thread
@@ -23366,7 +23352,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento7SymExprENS_6detail13DenseSetE
 declare void @_ZN5clang4ento14CheckerManager16_registerForDeclENS0_9CheckerFnIFvPKNS_4DeclERNS0_15AnalysisManagerERNS0_11BugReporterEEEEPFbS5_E(ptr noundef nonnull align 8 dereferenceable(1552), ptr, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang4ento5check7ASTDeclINS_19TranslationUnitDeclEE10_checkDeclIN12_GLOBAL__N_113StreamCheckerEEEvPvPKNS_4DeclERNS0_15AnalysisManagerERNS0_11BugReporterE(ptr nocapture noundef initializes((904, 936)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr nocapture nonnull readnone align 8 %3) #2 align 2 {
+define internal void @_ZN5clang4ento5check7ASTDeclINS_19TranslationUnitDeclEE10_checkDeclIN12_GLOBAL__N_113StreamCheckerEEEvPvPKNS_4DeclERNS0_15AnalysisManagerERNS0_11BugReporterE(ptr noundef captures(none) initializes((904, 936)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr nonnull readnone align 8 captures(none) %3) #2 align 2 {
   %.sroa.023.i.i = alloca %"struct.std::_Optional_payload.894", align 4
   %.sroa.021.i.i = alloca %"struct.std::_Optional_payload.894", align 4
   %5 = tail call fastcc noundef ptr @_ZL28getGlobalStreamPointerByNamePKN5clang19TranslationUnitDeclEN4llvm9StringRefE(ptr noundef %1, ptr nonnull @.str.67, i64 5)
@@ -23826,7 +23812,7 @@ declare noundef ptr @_ZNK5clang10ASTContext20getBuiltinVaListDeclEv(ptr noundef 
 declare i64 @_ZN5clang4ento18tryExpandAsIntegerEN4llvm9StringRefERKNS_12PreprocessorE(ptr, i64, ptr noundef nonnull align 8 dereferenceable(3288)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #18
@@ -23835,10 +23821,10 @@ declare i32 @llvm.umax.i32(i32, i32) #18
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #18

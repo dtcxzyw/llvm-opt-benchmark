@@ -3127,7 +3127,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @dissect_gtpv2_tai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden noalias ptr @dissect_gtpv2_tai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr %3, align 4
   %8 = tail call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef 6, i32 noundef 1) #10
@@ -3157,7 +3157,7 @@ declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef,
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_uli(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = and i8 %9, 63
   %11 = zext nneg i8 %10 to i32
@@ -3555,7 +3555,7 @@ define internal fastcc i32 @dissect_3gpp_uli(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_pdn_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_pdn_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %.not = icmp eq i16 %4, 1
   br i1 %.not, label %12, label %9
 
@@ -3591,7 +3591,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_selec_mode(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_selec_mode(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = and i8 %9, 3
   %11 = load i32, ptr @hf_gtpv2_selec_mode, align 4
@@ -3603,7 +3603,7 @@ define hidden void @dissect_gtpv2_selec_mode(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_fq_csid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_fq_csid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = lshr i8 %9, 4
   %11 = and i8 %9, 15
@@ -3654,7 +3654,7 @@ define hidden void @dissect_gtpv2_fq_csid(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_mbms_session_duration(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_mbms_session_duration(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef 0, i32 noundef 17, i32 noundef 0) #10
   %10 = tail call i32 @tvb_get_bits32(ptr noundef %0, i32 noundef 17, i32 noundef 7, i32 noundef 0) #10
   %11 = icmp eq i32 %9, 0
@@ -3718,7 +3718,7 @@ declare i32 @tvb_get_bits32(ptr noundef, i32 noundef, i32 noundef, i32 noundef) 
 declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_mbms_service_area(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_mbms_service_area(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, 1
@@ -3756,7 +3756,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_mbms_time_to_data_xfer(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_mbms_time_to_data_xfer(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = zext i8 %9 to i32
   %11 = add nuw nsw i32 %10, 1
@@ -3780,7 +3780,7 @@ define hidden void @dissect_gtpv2_mbms_time_to_data_xfer(ptr noundef %0, ptr noc
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_arp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_arp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_arp_pci, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_arp_pl, align 4
@@ -3802,7 +3802,7 @@ define hidden void @dissect_gtpv2_arp(ptr noundef %0, ptr nocapture readnone %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_epc_timer(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_epc_timer(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %cond = icmp eq i8 %5, -79
   br i1 %cond, label %9, label %10
 
@@ -3819,7 +3819,7 @@ define hidden void @dissect_gtpv2_epc_timer(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_gtpv2_twan_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define hidden void @dissect_gtpv2_twan_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -4208,7 +4208,7 @@ define hidden void @proto_register_gtpv2() local_unnamed_addr #1 {
 declare void @enterprises_base_custom(ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @value_in_tenth_of_percent_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #2 {
+define internal void @value_in_tenth_of_percent_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #2 {
   %3 = uitofp i32 %1 to float
   %4 = fdiv float %3, 1.000000e+01
   %5 = fpext float %4 to double
@@ -4235,7 +4235,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gtpv2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_gtpv2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.gtpv2_msg_hash_entry, align 8
   %7 = alloca %struct.nstime_t, align 8
@@ -4864,7 +4864,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #0
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @gtpv2_stat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @gtpv2_stat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #1 {
   %6 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %7, label %40
@@ -4922,7 +4922,7 @@ define internal range(i32 0, 2) i32 @gtpv2_stat_packet(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @gtpv2_stat_init(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define internal void @gtpv2_stat_init(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = load ptr, ptr @gtpv2_stat_msg_idx_hash, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -4972,7 +4972,7 @@ declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @create_dissector_handle(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_diameter_3gpp_presence_reporting_area_elements_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_diameter_3gpp_presence_reporting_area_elements_list(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -5309,7 +5309,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare ptr @proto_tree_add_item_ret_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @dissect_e212_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef %9, i32 noundef 0) #10
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef %10) #10
@@ -5317,7 +5317,7 @@ define internal void @dissect_gtpv2_imsi(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_cause(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture noundef writeonly %7) #1 {
+define internal void @dissect_gtpv2_cause(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr noundef writeonly captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @g_gtp_session, align 4
   %.not = icmp eq i32 %10, 0
@@ -5354,7 +5354,7 @@ define internal void @dissect_gtpv2_cause(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_recovery(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_recovery(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_rec, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
@@ -5364,7 +5364,7 @@ define internal void @dissect_gtpv2_recovery(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_stn_sr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_stn_sr(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_stn_sr, align 4
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 0) #10
@@ -5376,7 +5376,7 @@ define internal void @dissect_gtpv2_stn_sr(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_src_tgt_trans_con(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_src_tgt_trans_con(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_len_trans_con, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_transparent_container, align 4
@@ -5401,7 +5401,7 @@ define internal void @dissect_gtpv2_src_tgt_trans_con(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_tgt_src_trans_con(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_tgt_src_trans_con(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_len_trans_con, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_transparent_container, align 4
@@ -5426,7 +5426,7 @@ define internal void @dissect_gtpv2_tgt_src_trans_con(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mm_con_eutran_srvcc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mm_con_eutran_srvcc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_eksi, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_cksrvcc, align 4
@@ -5491,7 +5491,7 @@ define internal void @dissect_gtpv2_mm_con_eutran_srvcc(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mm_con_utran_srvcc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mm_con_utran_srvcc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_ksi, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_utran_srvcc_ck_cs, align 4
@@ -5560,7 +5560,7 @@ define internal void @dissect_gtpv2_mm_con_utran_srvcc(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_srvcc_cause(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_srvcc_cause(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_srvcc_cause, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
@@ -5571,7 +5571,7 @@ define internal void @dissect_gtpv2_srvcc_cause(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_tgt_rnc_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_tgt_rnc_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
@@ -5614,7 +5614,7 @@ define internal void @dissect_gtpv2_tgt_rnc_id(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_tgt_global_cell_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_tgt_global_cell_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #10
@@ -5658,7 +5658,7 @@ define internal void @dissect_gtpv2_tgt_global_cell_id(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_teid_c(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_teid_c(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_teid_c, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = icmp ugt i16 %4, 4
@@ -5678,7 +5678,7 @@ define internal void @dissect_gtpv2_teid_c(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_sv_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_sv_flags(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_gtpv2_sv_flags.sv_flags, i32 noundef 0) #10
   %9 = icmp ugt i16 %4, 1
   br i1 %9, label %10, label %15
@@ -5695,7 +5695,7 @@ define internal void @dissect_gtpv2_sv_flags(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_sai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_sai(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 3, i32 noundef 1) #10
   %10 = load i32, ptr @hf_gtpv2_lac, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0) #10
@@ -5705,7 +5705,7 @@ define internal void @dissect_gtpv2_sai(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mm_ctx_for_cs_to_ps_srvcc(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mm_ctx_for_cs_to_ps_srvcc(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_ksi_ps, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_ck_ps, align 4
@@ -5720,7 +5720,7 @@ define internal void @dissect_gtpv2_mm_ctx_for_cs_to_ps_srvcc(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_apn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_apn(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   %10 = load i32, ptr @hf_gtpv2_apn, align 4
@@ -5741,7 +5741,7 @@ define internal void @dissect_gtpv2_apn(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ambr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ambr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_ambr_up, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_ambr_down, align 4
@@ -5750,7 +5750,7 @@ define internal void @dissect_gtpv2_ambr(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ebi(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ebi(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_spare_bits, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
@@ -5762,7 +5762,7 @@ define internal void @dissect_gtpv2_ebi(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ip_address(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ip_address(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   switch i16 %4, label %15 [
     i16 4, label %.sink.split
     i16 16, label %9
@@ -5789,7 +5789,7 @@ define internal void @dissect_gtpv2_ip_address(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mei(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mei(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @hf_gtpv2_mei, align 4
   %11 = zext i16 %4 to i32
@@ -5802,7 +5802,7 @@ define internal void @dissect_gtpv2_mei(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_msisdn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_msisdn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @dissect_e164_msisdn(ptr noundef %0, ptr noundef %2, i32 noundef 0, i32 noundef %9, i32 noundef 1) #10
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef %10) #10
@@ -5810,7 +5810,7 @@ define internal void @dissect_gtpv2_msisdn(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_gtpv2_ind.oct5_flags, i32 noundef 0) #10
   %9 = icmp eq i16 %4, 1
   br i1 %9, label %10, label %12
@@ -5873,7 +5873,7 @@ define internal void @dissect_gtpv2_ind(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_pco(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_pco(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   switch i8 %5, label %11 [
     i8 32, label %.sink.split
     i8 36, label %.sink.split
@@ -5905,7 +5905,7 @@ define internal void @dissect_gtpv2_pco(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_paa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_paa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_pdn_type, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
@@ -5994,7 +5994,7 @@ define internal void @dissect_gtpv2_paa(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_bearer_qos(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_bearer_qos(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_gtpv2_bearer_qos.bearer_qos_oct1_flags, i32 noundef 0) #10
   %9 = load i32, ptr @hf_gtpv2_bearer_qos_label_qci, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
@@ -6010,7 +6010,7 @@ define internal void @dissect_gtpv2_bearer_qos(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_flow_qos(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_flow_qos(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_flow_qos_label_qci, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_flow_qos_mbr_up, align 4
@@ -6025,7 +6025,7 @@ define internal void @dissect_gtpv2_flow_qos(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_rat_type(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_rat_type(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_rat_type, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
@@ -6036,28 +6036,28 @@ define internal void @dissect_gtpv2_rat_type(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_serv_net(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_serv_net(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 1) #10
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_bearer_tft(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_bearer_tft(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef %9, ptr noundef null, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_tad(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_tad(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call zeroext i16 @de_sm_tflow_temp(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef %9, ptr noundef null, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_f_teid(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
+define internal void @dissect_gtpv2_f_teid(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
   %9 = alloca i32, align 4
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_f_teid_v4, align 4
@@ -6244,7 +6244,7 @@ copy_address_wmem.exit81:                         ; preds = %98, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_tmsi(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_tmsi(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_tmsi, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_tmsi_bytes, align 4
@@ -6254,7 +6254,7 @@ define internal void @dissect_gtpv2_tmsi(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_g_cn_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_g_cn_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 1) #10
   %10 = load i32, ptr @hf_gtpv2_cn_id, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0) #10
@@ -6262,7 +6262,7 @@ define internal void @dissect_gtpv2_g_cn_id(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_s103pdf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_s103pdf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_hsgw_addr_f_len, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
@@ -6319,7 +6319,7 @@ define internal void @dissect_gtpv2_s103pdf(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_s1udf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_s1udf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_spare_bits, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_ebi, align 4
@@ -6356,14 +6356,14 @@ define internal void @dissect_gtpv2_s1udf(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_delay_value(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_delay_value(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_delay_value, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_bearer_ctx(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
+define internal void @dissect_gtpv2_bearer_ctx(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1671) #10
   %9 = load i32, ptr @ett_gtpv2_bearer_ctx, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %9) #10
@@ -6374,7 +6374,7 @@ define internal void @dissect_gtpv2_bearer_ctx(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_charging_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_charging_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_charging_id, align 4
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 0) #10
@@ -6382,7 +6382,7 @@ define internal void @dissect_gtpv2_charging_id(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_char_char(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_char_char(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_charging_characteristic, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #10
   %11 = icmp ugt i16 %4, 2
@@ -6400,7 +6400,7 @@ define internal void @dissect_gtpv2_char_char(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_tra_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_tra_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 1) #10
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 3) #10
   %11 = zext i16 %10 to i32
@@ -6540,7 +6540,7 @@ define internal void @dissect_gtpv2_tra_info(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_bearer_flag(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_bearer_flag(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_bearer_flag_ppc, align 4
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 0) #10
@@ -6550,14 +6550,14 @@ define internal void @dissect_gtpv2_bearer_flag(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_pti(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_pti(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_pti, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_drx_param(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_drx_param(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_drx_parameter, align 4
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 0) #10
@@ -6565,14 +6565,14 @@ define internal void @dissect_gtpv2_drx_param(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ue_net_capability(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ue_net_capability(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call zeroext i16 @de_emm_ue_net_cap(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef %9, ptr noundef null, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mm_context_gsm_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mm_context_gsm_t(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @ett_gtpv2_mm_context_flag, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.1677) #10
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
@@ -6646,7 +6646,7 @@ dissect_gtpv2_authentication_triplets.exit:       ; preds = %38, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mm_context_utms_cq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mm_context_utms_cq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @ett_gtpv2_mm_context_flag, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.1677) #10
   %11 = load i32, ptr @hf_gtpv2_mm_context_sm, align 4
@@ -6755,7 +6755,7 @@ define internal void @dissect_gtpv2_mm_context_utms_cq(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mm_context_gsm_cq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mm_context_gsm_cq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @ett_gtpv2_mm_context_flag, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.1677) #10
   %11 = load i32, ptr @hf_gtpv2_mm_context_sm, align 4
@@ -6862,7 +6862,7 @@ define internal void @dissect_gtpv2_mm_context_gsm_cq(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mm_context_utms_q(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mm_context_utms_q(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @ett_gtpv2_mm_context_flag, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.1677) #10
   %11 = load i32, ptr @hf_gtpv2_mm_context_sm, align 4
@@ -7001,7 +7001,7 @@ define internal void @dissect_gtpv2_mm_context_utms_q(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mm_context_eps_qq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mm_context_eps_qq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -7367,7 +7367,7 @@ proto_item_set_generated.exit278:                 ; preds = %82, %79, %78, %74
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mm_context_utms_qq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mm_context_utms_qq(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @ett_gtpv2_mm_context_flag, align 4
   %10 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef %9, ptr noundef null, ptr noundef nonnull @.str.1677) #10
   %11 = load i32, ptr @hf_gtpv2_mm_context_sm, align 4
@@ -7469,7 +7469,7 @@ define internal void @dissect_gtpv2_mm_context_utms_qq(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_PDN_conn(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
+define internal void @dissect_gtpv2_PDN_conn(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1671) #10
   %9 = load i32, ptr @ett_gtpv2_PDN_conn, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %9) #10
@@ -7480,7 +7480,7 @@ define internal void @dissect_gtpv2_PDN_conn(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_pdn_numbers(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_pdn_numbers(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = and i8 %9, 8
   %11 = load i32, ptr @hf_gtpv2_nsapi08, align 4
@@ -7505,7 +7505,7 @@ define internal void @dissect_gtpv2_pdn_numbers(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_p_tmsi(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_p_tmsi(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_p_tmsi, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = load i32, ptr @hf_3gpp_tmsi, align 4
@@ -7535,7 +7535,7 @@ proto_item_set_hidden.exit:                       ; preds = %8, %13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_p_tmsi_sig(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_p_tmsi_sig(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_p_tmsi_sig, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 3, i32 noundef 0) #10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -7546,7 +7546,7 @@ define internal void @dissect_gtpv2_p_tmsi_sig(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_hop_counter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_hop_counter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_hop_counter, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
@@ -7556,7 +7556,7 @@ define internal void @dissect_gtpv2_hop_counter(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ue_time_zone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ue_time_zone(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i16 @de_time_zone(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef 1, ptr noundef null, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_ue_time_zone_dst, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef 0) #10
@@ -7564,7 +7564,7 @@ define internal void @dissect_gtpv2_ue_time_zone(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_trace_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_trace_reference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 1) #10
   %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 3) #10
   %11 = zext i16 %10 to i32
@@ -7575,7 +7575,7 @@ define internal void @dissect_gtpv2_trace_reference(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_complete_request_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_complete_request_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_complete_req_msg_type, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = zext i16 %4 to i32
@@ -7587,7 +7587,7 @@ define internal void @dissect_complete_request_msg(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_guti(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_guti(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 1) #10
   %10 = load i32, ptr @hf_gtpv2_mme_grp_id, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef 2, i32 noundef 0) #10
@@ -7599,7 +7599,7 @@ define internal void @dissect_gtpv2_guti(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_F_container(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_F_container(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_gtpv2_container_type, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #10
@@ -7775,7 +7775,7 @@ define internal void @dissect_gtpv2_F_container(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_F_cause(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_F_cause(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr readnone captures(none) %7) #1 {
   switch i8 %5, label %29 [
     i8 -123, label %9
     i8 -122, label %19
@@ -7848,14 +7848,14 @@ dissect_gtpv2_s1ap_cause.exit:                    ; preds = %20, %10, %switch.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_sel_plmn_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_sel_plmn_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call ptr @dissect_e212_mcc_mnc_wmem_packet_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 0) #10
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.3, ptr noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_target_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_target_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -8034,7 +8034,7 @@ define internal void @dissect_gtpv2_target_id(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_pkt_flow_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_pkt_flow_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_spare_bits, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_ebi, align 4
@@ -8047,7 +8047,7 @@ define internal void @dissect_gtpv2_pkt_flow_id(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_rab_context(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_rab_context(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_spare_bits, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_nsapi, align 4
@@ -8064,7 +8064,7 @@ define internal void @dissect_gtpv2_rab_context(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_s_rnc_pdcp_ctx_info(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_s_rnc_pdcp_ctx_info(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_rrc_container, align 4
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 0) #10
@@ -8072,7 +8072,7 @@ define internal void @dissect_gtpv2_s_rnc_pdcp_ctx_info(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_udp_s_port_nr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_udp_s_port_nr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_upd_source_port_number, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #10
   %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 0) #10
@@ -8082,7 +8082,7 @@ define internal void @dissect_udp_s_port_nr(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_apn_rest(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_apn_rest(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_apn_rest, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
@@ -8104,7 +8104,7 @@ define internal void @dissect_gtpv2_apn_rest(ptr noundef %0, ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_source_ident(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_source_ident(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i16 @de_cell_id(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef 8, ptr noundef null, i32 noundef 0) #10
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 8) #10
   %11 = load i32, ptr @hf_gtpv2_source_type, align 4
@@ -8128,7 +8128,7 @@ define internal void @dissect_gtpv2_source_ident(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_bearer_control_mode(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_bearer_control_mode(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_bearer_control_mode, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
@@ -8139,7 +8139,7 @@ define internal void @dissect_gtpv2_bearer_control_mode(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_cng_rep_act(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_cng_rep_act(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_cng_rep_act, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
@@ -8150,21 +8150,21 @@ define internal void @dissect_gtpv2_cng_rep_act(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_channel_needed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_channel_needed(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call zeroext i16 @de_rr_chnl_needed(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef %9, ptr noundef null, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_emlpp_pri(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_emlpp_pri(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call zeroext i16 @be_emlpp_prio(ptr noundef %0, ptr noundef %2, ptr noundef %1, i32 noundef 0, i32 noundef %9, ptr noundef null, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_node_type(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_node_type(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_node_type, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
@@ -8175,7 +8175,7 @@ define internal void @dissect_gtpv2_node_type(ptr noundef %0, ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_fqdn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_fqdn(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -8201,7 +8201,7 @@ decode_gtpv2_fqdn.exit:                           ; preds = %8, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ti(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ti(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_ti, align 4
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 0) #10
@@ -8209,7 +8209,7 @@ define internal void @dissect_gtpv2_ti(ptr noundef %0, ptr nocapture readnone %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mbms_session_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mbms_session_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_mbms_session_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = icmp ugt i16 %4, 1
@@ -8227,7 +8227,7 @@ define internal void @dissect_gtpv2_mbms_session_id(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mbms_flow_id(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mbms_flow_id(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_mbms_flow_id, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #10
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -8249,7 +8249,7 @@ define internal void @dissect_gtpv2_mbms_flow_id(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mbms_ip_mc_dist(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mbms_ip_mc_dist(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_cteid, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_ip_addr_type, align 4
@@ -8334,7 +8334,7 @@ define internal void @dissect_gtpv2_mbms_ip_mc_dist(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mbms_dist_ack(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mbms_dist_ack(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_mbms_dist_indication, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = icmp ugt i16 %4, 1
@@ -8352,7 +8352,7 @@ define internal void @dissect_gtpv2_mbms_dist_ack(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_rfsp_index(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 noundef zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_rfsp_index(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 noundef zeroext %6, ptr readnone captures(none) %7) #1 {
   switch i8 %6, label %12 [
     i8 0, label %.sink.split
     i8 1, label %9
@@ -8372,7 +8372,7 @@ define internal void @dissect_gtpv2_rfsp_index(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_uci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_uci(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call i32 @dissect_e212_mcc_mnc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef 1) #10
   %10 = load i32, ptr @hf_gtpv2_uci_csg_id_spare, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 3, i32 noundef 1, i32 noundef 0) #10
@@ -8388,7 +8388,7 @@ define internal void @dissect_gtpv2_uci(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_csg_info_rep_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_csg_info_rep_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = icmp eq i16 %4, 0
   br i1 %9, label %10, label %12
 
@@ -8405,7 +8405,7 @@ define internal void @dissect_gtpv2_csg_info_rep_action(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_csg_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_csg_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_spare_bits, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 5, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_csg_id, align 4
@@ -8425,7 +8425,7 @@ define internal void @dissect_gtpv2_csg_id(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_cmi(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_cmi(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_spare_bits, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 7, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_cmi, align 4
@@ -8445,21 +8445,21 @@ define internal void @dissect_gtpv2_cmi(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_service_indicator(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_service_indicator(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_service_indicator, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_detach_type(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_detach_type(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_detach_type, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ldn(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ldn(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_ldn, align 4
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 0) #10
@@ -8467,7 +8467,7 @@ define internal void @dissect_gtpv2_ldn(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_node_features(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_node_features(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_gtpv2_node_features.features, i32 noundef 0) #10
   %9 = icmp ugt i16 %4, 1
   br i1 %9, label %10, label %15
@@ -8484,7 +8484,7 @@ define internal void @dissect_gtpv2_node_features(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_throttling(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_throttling(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_throttling_delay_unit, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_throttling_delay_value, align 4
@@ -8515,14 +8515,14 @@ define internal void @dissect_gtpv2_throttling(ptr noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_sig_prio_ind(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_sig_prio_ind(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_lapi, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_tmgi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_tmgi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call i64 @tvb_get_ntoh48(ptr noundef %0, i32 noundef 0) #10
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1710, i64 noundef %9) #10
   %10 = load i32, ptr @hf_gtpv2_mbms_service_id, align 4
@@ -8543,7 +8543,7 @@ define internal void @dissect_gtpv2_tmgi(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_add_mm_cont_for_srvcc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_add_mm_cont_for_srvcc(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_len_ms_classmark2, align 4
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
@@ -8615,7 +8615,7 @@ define internal void @dissect_gtpv2_add_mm_cont_for_srvcc(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_add_flags_for_srvcc(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_add_flags_for_srvcc(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_add_flags_for_srvcc_ics, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_vsrvcc_flag, align 4
@@ -8635,7 +8635,7 @@ define internal void @dissect_gtpv2_add_flags_for_srvcc(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mmbr(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mmbr(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #10
   %10 = load i32, ptr @hf_gtpv2_mmbr_ul, align 4
   %11 = icmp ugt i32 %9, 1000
@@ -8654,14 +8654,14 @@ define internal void @dissect_gtpv2_mmbr(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mdt_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mdt_config(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_apco(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_apco(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   switch i8 %5, label %11 [
     i8 32, label %.sink.split
     i8 36, label %.sink.split
@@ -8693,7 +8693,7 @@ define internal void @dissect_gtpv2_apco(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_abs_mbms_data_tf_time(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_abs_mbms_data_tf_time(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @hf_gtpv2_abs_time_mbms_data, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -8716,7 +8716,7 @@ define internal void @dissect_gtpv2_abs_mbms_data_tf_time(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_henb_info_report(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_henb_info_report(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_henb_info_report_fti, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = icmp ugt i16 %4, 1
@@ -8734,7 +8734,7 @@ define internal void @dissect_gtpv2_henb_info_report(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ip4cp(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ip4cp(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_ip4cp_subnet_prefix_len, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_ip4cp_ipv4, align 4
@@ -8754,7 +8754,7 @@ define internal void @dissect_gtpv2_ip4cp(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_change_report_flags(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_change_report_flags(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_change_report_flags_sncr, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_change_report_flags_tzcr, align 4
@@ -8774,7 +8774,7 @@ define internal void @dissect_gtpv2_change_report_flags(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_action_indication(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_action_indication(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_action_indication_val, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0) #10
   %11 = icmp ugt i16 %4, 1
@@ -8792,7 +8792,7 @@ define internal void @dissect_gtpv2_action_indication(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_uli_timestamp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_uli_timestamp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @hf_gtpv2_uli_timestamp, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -8804,14 +8804,14 @@ define internal void @dissect_gtpv2_uli_timestamp(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mbms_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mbms_flags(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ran_nas_cause(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ran_nas_cause(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   %10 = lshr i8 %9, 4
   %11 = load i32, ptr @hf_gtpv2_ran_nas_protocol_type, align 4
@@ -8871,21 +8871,21 @@ dissect_gtpv2_s1ap_cause.exit:                    ; preds = %13, %switch.lookup,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_cn_operator_selection_entity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_cn_operator_selection_entity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_trust_wlan_mode_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_trust_wlan_mode_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_node_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_node_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_gtpv2_node_number_len, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #10
@@ -8896,7 +8896,7 @@ define internal void @dissect_gtpv2_node_number(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_node_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_node_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_gtpv2_length_of_node_name, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #10
@@ -8927,7 +8927,7 @@ define internal void @dissect_gtpv2_node_identifier(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_pres_rep_area_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_pres_rep_area_action(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_gtpv2_pres_rep_area_action.flags, i32 noundef 0) #10
   %9 = zext i16 %4 to i32
   %10 = icmp eq i16 %4, 1
@@ -8950,7 +8950,7 @@ define internal void @dissect_gtpv2_pres_rep_area_action(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_pres_rep_area_information(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_pres_rep_area_information(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i64, align 8
   store i64 0, ptr %9, align 8
   %10 = load i32, ptr @hf_gtpv2_pres_rep_area_info_id, align 4
@@ -8997,7 +8997,7 @@ define internal void @dissect_gtpv2_pres_rep_area_information(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_twan_identifier_timestamp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_twan_identifier_timestamp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca ptr, align 8
   %10 = load i32, ptr @hf_gtpv2_twan_id_ts, align 4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
@@ -9009,7 +9009,7 @@ define internal void @dissect_gtpv2_twan_identifier_timestamp(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_overload_control_inf(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
+define internal void @dissect_gtpv2_overload_control_inf(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1671) #10
   %9 = load i32, ptr @ett_gtpv2_overload_control_information, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %9) #10
@@ -9020,7 +9020,7 @@ define internal void @dissect_gtpv2_overload_control_inf(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_load_control_inf(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
+define internal void @dissect_gtpv2_load_control_inf(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1671) #10
   %9 = load i32, ptr @ett_gtpv2_load_control_inf, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %9) #10
@@ -9031,7 +9031,7 @@ define internal void @dissect_gtpv2_load_control_inf(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_metric(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_metric(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_gtpv2_metric, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %9) #10
@@ -9052,7 +9052,7 @@ define internal void @dissect_gtpv2_metric(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_seq_no(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_seq_no(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_gtpv2_sequence_number, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #10
@@ -9062,7 +9062,7 @@ define internal void @dissect_gtpv2_seq_no(ptr noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_apn_and_relative_capacity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_apn_and_relative_capacity(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
@@ -9101,14 +9101,14 @@ define internal void @dissect_gtpv2_apn_and_relative_capacity(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_unknown(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_paging_and_service_inf(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_paging_and_service_inf(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_spare_bits, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_ebi, align 4
@@ -9138,7 +9138,7 @@ define internal void @dissect_gtpv2_paging_and_service_inf(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_integer_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_integer_number(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = icmp ult i16 %4, 5
   br i1 %10, label %11, label %33
@@ -9208,7 +9208,7 @@ define internal void @dissect_gtpv2_integer_number(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ms_ts(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ms_ts(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %cond = icmp eq i8 %5, 32
   br i1 %cond, label %9, label %13
 
@@ -9228,7 +9228,7 @@ define internal void @dissect_gtpv2_ms_ts(ptr noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mon_event_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mon_event_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = load i32, ptr @hf_gtpv2_mon_event_inf_srie, align 4
@@ -9279,7 +9279,7 @@ define internal void @dissect_gtpv2_mon_event_inf(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ciot_opt_support_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ciot_opt_support_ind(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_ciot_support_ind, align 4
   %10 = load i32, ptr @ett_gtpv2_ciot_support_ind, align 4
   %11 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @dissect_gtpv2_ciot_opt_support_ind.ciot_flags, i32 noundef 0, i32 noundef 1) #10
@@ -9295,7 +9295,7 @@ define internal void @dissect_gtpv2_ciot_opt_support_ind(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_scef_pdn_connection(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
+define internal void @dissect_gtpv2_scef_pdn_connection(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1671) #10
   %9 = load i32, ptr @ett_gtpv2_PDN_conn, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %9) #10
@@ -9306,7 +9306,7 @@ define internal void @dissect_gtpv2_scef_pdn_connection(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_header_comp_comf(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_header_comp_comf(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_rohc_profile_flags, align 4
   %10 = load i32, ptr @ett_gtpv2_rohc_profile_flags, align 4
   %11 = tail call ptr @proto_tree_add_bitmask_with_flags(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef %9, i32 noundef %10, ptr noundef nonnull @dissect_gtpv2_header_comp_comf.gtpv2_rohc_profile_flags_flags, i32 noundef 0, i32 noundef 6) #10
@@ -9318,7 +9318,7 @@ define internal void @dissect_gtpv2_header_comp_comf(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_serv_plmn_rate_control(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_serv_plmn_rate_control(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_uplink_rate_limit, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_downlink_rate_limit, align 4
@@ -9327,7 +9327,7 @@ define internal void @dissect_gtpv2_serv_plmn_rate_control(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_counter(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_counter(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_timestamp_value, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 2) #10
   %11 = load i32, ptr @hf_gtpv2_counter_value, align 4
@@ -9336,7 +9336,7 @@ define internal void @dissect_gtpv2_counter(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_mapped_ue_usage_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_mapped_ue_usage_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_mapped_ue_usage_type, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 2, i32 noundef 0) #10
   %11 = icmp ugt i16 %4, 2
@@ -9351,7 +9351,7 @@ define internal void @dissect_gtpv2_mapped_ue_usage_type(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_secondary_rat_usage_data_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_secondary_rat_usage_data_report(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
   %11 = alloca %struct._asn1_ctx_t, align 8
@@ -9408,7 +9408,7 @@ define internal void @dissect_gtpv2_secondary_rat_usage_data_report(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_up_func_slec_indic_flg(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_up_func_slec_indic_flg(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_spare_bits, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 7, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_dcnr, align 4
@@ -9417,7 +9417,7 @@ define internal void @dissect_gtpv2_up_func_slec_indic_flg(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_max_pkt_loss_rte(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_max_pkt_loss_rte(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #10
   tail call void @proto_tree_add_bitmask_list(ptr noundef %2, ptr noundef %0, i32 noundef 0, i32 noundef 1, ptr noundef nonnull @dissect_gtpv2_max_pkt_loss_rte.flags_oct1, i32 noundef 0) #10
   %10 = zext i8 %9 to i32
@@ -9446,7 +9446,7 @@ define internal void @dissect_gtpv2_max_pkt_loss_rte(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_apn_rte_cntrl_status(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_apn_rte_cntrl_status(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_nr_ul_pkts_all, align 4
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0) #10
   %11 = load i32, ptr @hf_gtpv2_nr_add_exception_rpts, align 4
@@ -9459,7 +9459,7 @@ define internal void @dissect_gtpv2_apn_rte_cntrl_status(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ext_trs_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ext_trs_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -9713,7 +9713,7 @@ define internal void @dissect_gtpv2_ext_trs_inf(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_mon_event_ext_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_mon_event_ext_inf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -9770,7 +9770,7 @@ define internal void @dissect_gtpv2_ie_mon_event_ext_inf(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_additional_rrm_policy_index(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_additional_rrm_policy_index(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef %3, i16 zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca i32, align 4
   %10 = load i32, ptr @hf_gtpv2_additional_rrm_policy_index, align 4
   %11 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %2, i32 noundef %10, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0, ptr noundef nonnull %9) #10
@@ -9780,49 +9780,49 @@ define internal void @dissect_gtpv2_ie_additional_rrm_policy_index(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_v2x_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_v2x_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_pc5_qos_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_pc5_qos_parameters(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_services_authorized(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_services_authorized(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_bit_rate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_bit_rate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_pc5_qos_flow(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_pc5_qos_flow(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_sgi_ptp_tunnel_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_sgi_ptp_tunnel_address(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_pgw_change_info(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
+define internal void @dissect_gtpv2_ie_pgw_change_info(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5, i8 zeroext %6, ptr noundef %7) #1 {
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1671) #10
   %9 = load i32, ptr @ett_gtpv2_PGW_change_info, align 4
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %3, i32 noundef %9) #10
@@ -9833,7 +9833,7 @@ define internal void @dissect_gtpv2_ie_pgw_change_info(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_pgw_set_fqdn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_pgw_set_fqdn(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr null, ptr %9, align 8
@@ -9859,7 +9859,7 @@ define internal void @dissect_gtpv2_ie_pgw_set_fqdn(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_group_id(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_group_id(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = load i32, ptr @hf_gtpv2_group_id, align 4
   %10 = zext i16 %4 to i32
   %11 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %0, i32 noundef 0, i32 noundef %10, i32 noundef 2) #10
@@ -9867,28 +9867,28 @@ define internal void @dissect_gtpv2_ie_group_id(ptr noundef %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_pscell_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_pscell_id(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_up_security_policy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_up_security_policy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_ie_alternative_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_ie_alternative_imsi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3, i16 noundef zeroext %4, i8 zeroext %5, i8 zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = zext i16 %4 to i32
   %10 = tail call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_gtpv2_ie_data_not_dissected, ptr noundef %0, i32 noundef 0, i32 noundef %9) #10
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_gtpv2_private_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 noundef zeroext %6, ptr nocapture readnone %7) #1 {
+define internal void @dissect_gtpv2_private_ext(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4, i8 zeroext %5, i8 noundef zeroext %6, ptr readnone captures(none) %7) #1 {
   %9 = alloca %struct._gtpv2_priv_ext_info, align 8
   store i8 %6, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -10224,7 +10224,7 @@ declare ptr @enterprises_lookup(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare i32 @dissector_try_uint_new(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @col_set_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -10241,7 +10241,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #0
 declare noalias ptr @wmem_map_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @gtpv2_sn_hash(ptr nocapture noundef readonly %0) #4 {
+define internal i32 @gtpv2_sn_hash(ptr noundef readonly captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
@@ -10371,7 +10371,7 @@ declare double @nstime_to_msec(ptr noundef) local_unnamed_addr #0
 declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @wmem_map_remove(ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -10412,13 +10412,13 @@ declare i32 @g_direct_equal(ptr noundef, ptr noundef) #7
 declare ptr @init_srt_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

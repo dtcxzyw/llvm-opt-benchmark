@@ -193,7 +193,7 @@ declare i32 @object_child_foreach(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @get_chardevs_root() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @chardev_options_parsed_cb(ptr noundef %child, ptr nocapture readnone %opaque) #0 {
+define internal noundef i32 @chardev_options_parsed_cb(ptr noundef %child, ptr readnone captures(none) %opaque) #0 {
 entry:
   %be_open = getelementptr inbounds nuw i8, ptr %child, i64 116
   %0 = load i32, ptr %be_open, align 4
@@ -318,7 +318,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @char_mux_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @char_mux_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #10
   %parse = getelementptr inbounds nuw i8, ptr %call.i, i64 104
@@ -341,7 +341,7 @@ entry:
 declare void @qemu_chr_fe_deinit(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_chr_parse_mux(ptr noundef %opts, ptr nocapture noundef writeonly %backend, ptr noundef %errp) #0 {
+define internal void @qemu_chr_parse_mux(ptr noundef %opts, ptr noundef writeonly captures(none) %backend, ptr noundef %errp) #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.5) #10
   %cmp = icmp eq ptr %call, null
@@ -367,7 +367,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_chr_open_mux(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly %be_opened, ptr noundef %errp) #0 {
+define internal void @qemu_chr_open_mux(ptr noundef %chr, ptr noundef readonly captures(none) %backend, ptr noundef writeonly captures(none) %be_opened, ptr noundef %errp) #0 {
 entry:
   %u = getelementptr inbounds nuw i8, ptr %backend, i64 8
   %0 = load ptr, ptr %u, align 8
@@ -625,12 +625,12 @@ declare zeroext i1 @qemu_chr_fe_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @qemu_chr_fe_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare i32 @qemu_chr_fe_write_all(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #3
 
@@ -1015,16 +1015,16 @@ declare i32 @blk_commit_all() local_unnamed_addr #3
 declare void @qemu_chr_be_event(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -10,10 +10,10 @@ target triple = "x86_64-pc-linux-gnu"
 declare noalias noundef ptr @malloc(i64 noundef) #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) #1
+declare void @free(ptr allocptr noundef captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_uint_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_uint_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = tail call i32 @llvm.ucmp.i32.i32(i32 %3, i32 %4)
@@ -21,7 +21,7 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_uint_cmp(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_long_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_long_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = tail call i32 @llvm.scmp.i32.i64(i64 %3, i64 %4)
@@ -29,7 +29,7 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_long_cmp(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_ulong_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_ulong_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i64, ptr %0, align 8
   %4 = load i64, ptr %1, align 8
   %5 = tail call i32 @llvm.ucmp.i32.i64(i64 %3, i64 %4)
@@ -47,7 +47,7 @@ define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_ptr_cmp(ptr noundef readnone 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_str_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @ompi_coll_libnbc_dict_str_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   br label %3
 
 3:                                                ; preds = %3, %2

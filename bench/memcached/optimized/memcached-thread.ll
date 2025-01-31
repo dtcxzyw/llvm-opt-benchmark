@@ -249,10 +249,10 @@ declare void @storage_compact_resume() local_unnamed_addr #2
 declare void @storage_write_resume() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @notify_worker_fd(ptr nocapture noundef readonly %t, i32 noundef %sfd, i32 noundef range(i32 1, 5) %mode) unnamed_addr #0 {
+define internal fastcc void @notify_worker_fd(ptr noundef readonly captures(none) %t, i32 noundef %sfd, i32 noundef range(i32 1, 5) %mode) unnamed_addr #0 {
 entry:
   %u.i = alloca i64, align 8
   %ev_queue = getelementptr inbounds nuw i8, ptr %t, i64 6872
@@ -742,7 +742,7 @@ return:                                           ; preds = %notify_worker.exit,
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @redispatch_conn(ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
+define dso_local void @redispatch_conn(ptr noundef readonly captures(none) %c) local_unnamed_addr #0 {
 entry:
   %thread = getelementptr inbounds nuw i8, ptr %c, i64 456
   %0 = load ptr, ptr %thread, align 8
@@ -753,7 +753,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @timeout_conn(ptr nocapture noundef readonly %c) local_unnamed_addr #0 {
+define dso_local void @timeout_conn(ptr noundef readonly captures(none) %c) local_unnamed_addr #0 {
 entry:
   %thread = getelementptr inbounds nuw i8, ptr %c, i64 456
   %0 = load ptr, ptr %thread, align 8
@@ -800,13 +800,13 @@ if.end13:                                         ; preds = %if.then8, %if.then1
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sidethread_conn_close(ptr nocapture noundef initializes((20, 24)) %c) local_unnamed_addr #0 {
+define dso_local void @sidethread_conn_close(ptr noundef captures(none) initializes((20, 24)) %c) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 32), align 8
   %cmp = icmp sgt i32 %0, 1
@@ -868,7 +868,7 @@ entry:
 declare ptr @do_item_get(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @item_get_locked(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i1 noundef zeroext %do_update, ptr nocapture noundef initializes((0, 4)) %hv) local_unnamed_addr #0 {
+define dso_local ptr @item_get_locked(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i1 noundef zeroext %do_update, ptr noundef captures(none) initializes((0, 4)) %hv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @hash, align 8
   %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #15
@@ -1146,7 +1146,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @threadlocal_stats_aggregate(ptr noundef initializes((0, 6448)) %stats) local_unnamed_addr #0 {
@@ -1464,7 +1464,7 @@ for.end289:                                       ; preds = %for.end266, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @slab_stats_aggregate(ptr nocapture noundef readonly %stats, ptr nocapture noundef writeonly initializes((0, 64)) %out) local_unnamed_addr #7 {
+define dso_local void @slab_stats_aggregate(ptr noundef readonly captures(none) %stats, ptr noundef writeonly captures(none) initializes((0, 64)) %out) local_unnamed_addr #7 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %out, i8 0, i64 64, i1 false)
   %slab_stats = getelementptr inbounds nuw i8, ptr %stats, i64 280
@@ -1876,7 +1876,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @worker_libevent(ptr nocapture noundef initializes((6912, 6928)) %arg) #0 {
+define internal noalias noundef ptr @worker_libevent(ptr noundef captures(none) initializes((6912, 6928)) %arg) #0 {
 entry:
   %call = tail call ptr @logger_create() #15
   %l = getelementptr inbounds nuw i8, ptr %arg, i64 6912
@@ -2191,7 +2191,7 @@ declare i32 @event_base_set(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @conn_new(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2231,13 +2231,13 @@ declare i32 @event_base_loop(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @event_base_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

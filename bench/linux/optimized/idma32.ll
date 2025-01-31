@@ -60,7 +60,7 @@ define dso_local i32 @idma32_dma_probe(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @idma32_initialize_chan_xbar(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @idma32_initialize_chan_xbar(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %4 = load ptr, ptr %3, align 8
@@ -194,7 +194,7 @@ define internal void @idma32_initialize_chan_xbar(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @idma32_initialize_chan_generic(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @idma32_initialize_chan_generic(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 209
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -222,7 +222,7 @@ define internal void @idma32_initialize_chan_generic(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @idma32_suspend_chan(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define internal void @idma32_suspend_chan(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -237,7 +237,7 @@ define internal void @idma32_suspend_chan(ptr nocapture noundef readonly %0, i1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @idma32_resume_chan(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 align 16 {
+define internal void @idma32_resume_chan(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -251,7 +251,7 @@ define internal void @idma32_resume_chan(ptr nocapture noundef readonly %0, i1 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 402653184, 406847488) i32 @idma32_prepare_ctllo(ptr nocapture noundef readonly %0) #1 align 16 {
+define internal range(i32 402653184, 406847488) i32 @idma32_prepare_ctllo(ptr noundef readonly captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 124
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %14 [
@@ -282,7 +282,7 @@ define internal range(i32 402653184, 406847488) i32 @idma32_prepare_ctllo(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define internal void @idma32_encode_maxburst(ptr nocapture readnone %0, ptr nocapture noundef %1) #2 align 16 {
+define internal void @idma32_encode_maxburst(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #2 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ugt i32 %3, 1
   br i1 %4, label %5, label %7
@@ -298,7 +298,7 @@ define internal void @idma32_encode_maxburst(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @idma32_bytes2block(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #3 align 16 {
+define internal i32 @idma32_bytes2block(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) #3 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64
@@ -309,14 +309,14 @@ define internal i32 @idma32_bytes2block(ptr nocapture noundef readonly %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal range(i64 0, 131072) i64 @idma32_block2bytes(ptr nocapture readnone %0, i32 noundef %1, i32 %2) #4 align 16 {
+define internal range(i64 0, 131072) i64 @idma32_block2bytes(ptr readnone captures(none) %0, i32 noundef %1, i32 %2) #4 align 16 {
   %4 = and i32 %1, 131071
   %5 = zext nneg i32 %4 to i64
   ret i64 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal void @idma32_set_device_name(ptr nocapture noundef writeonly %0, i32 noundef %1) #5 align 16 {
+define internal void @idma32_set_device_name(ptr noundef writeonly captures(none) %0, i32 noundef %1) #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 20, ptr noundef nonnull @.str, i32 noundef %1) #11
   ret void
@@ -372,7 +372,7 @@ declare dso_local i32 @do_dma_remove(ptr noundef) local_unnamed_addr #6
 declare dso_local noalias ptr @devm_kmalloc(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @do_dw_dma_off(ptr noundef) local_unnamed_addr #6

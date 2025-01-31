@@ -253,10 +253,8 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #3
 define noundef ptr @php_replace_controlchars(ptr noundef returned %0) local_unnamed_addr #4 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   %3 = getelementptr inbounds i8, ptr %0, i64 %2
-  %.not.i = icmp ne ptr %0, null
   %4 = icmp sgt i64 %2, 0
-  %or.cond.i = and i1 %.not.i, %4
-  br i1 %or.cond.i, label %.lr.ph.i, label %php_replace_controlchars_ex.exit
+  br i1 %4, label %.lr.ph.i, label %php_replace_controlchars_ex.exit
 
 .lr.ph.i:                                         ; preds = %1
   %5 = tail call ptr @__ctype_b_loc() #17
@@ -287,14 +285,14 @@ php_replace_controlchars_ex.exit:                 ; preds = %14, %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @php_url_parse(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #18
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
-  %4 = call noundef ptr @php_url_parse_ex2(ptr noundef %0, i64 noundef %3, ptr noundef nonnull %2)
+  %4 = call noundef ptr @php_url_parse_ex2(ptr noundef nonnull %0, i64 noundef %3, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   ret ptr %4
 }
@@ -307,7 +305,7 @@ define noundef ptr @php_url_parse_ex(ptr noundef %0, i64 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_url_parse_ex2(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define noundef ptr @php_url_parse_ex2(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = alloca [6 x i8], align 1
   %6 = alloca ptr, align 8
@@ -1279,13 +1277,13 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 declare i32 @zend_binary_strcasecmp(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_parse_url(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @zif_parse_url(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -2095,7 +2093,7 @@ define ptr @php_url_encode(ptr noundef readonly %0, i64 noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_urlencode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_urlencode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2156,7 +2154,7 @@ define hidden void @zif_urlencode(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_urldecode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_urldecode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2567,7 +2565,7 @@ define ptr @php_raw_url_encode(ptr noundef readonly %0, i64 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_rawurlencode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_rawurlencode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -2628,7 +2626,7 @@ define hidden void @zif_rawurlencode(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_rawurldecode(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zif_rawurldecode(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -3113,10 +3111,10 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #14
 declare zeroext i1 @zend_parse_arg_bool_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

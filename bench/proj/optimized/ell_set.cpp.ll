@@ -390,7 +390,7 @@ _ZL11ellps_ellpsP8PJconsts.exit:                  ; preds = %38, %_ZL13pj_find_e
 declare i32 @proj_errno_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef i32 @_ZL10ellps_sizeP8PJconsts(ptr noundef %0) unnamed_addr #0 {
@@ -695,7 +695,7 @@ define internal fastcc noundef i32 @_ZL11ellps_shapeP8PJconsts(ptr noundef %0) u
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge12.i
   %.014.i = phi ptr [ %15, %.critedge12.i ], [ %5, %.lr.ph.i.preheader ]
   %9 = getelementptr inbounds nuw i8, ptr %.014.i, i64 9
-  %10 = tail call i32 @strncmp(ptr noundef nonnull %9, ptr noundef readonly %7, i64 noundef %8) #14
+  %10 = tail call i32 @strncmp(ptr noundef nonnull %9, ptr noundef nonnull readonly %7, i64 noundef %8) #14
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %.critedge12.i
 
@@ -912,7 +912,7 @@ define internal fastcc noundef i32 @_ZL20ellps_spherificationP8PJconsts(ptr noun
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.critedge12.i
   %.014.i = phi ptr [ %14, %.critedge12.i ], [ %4, %.lr.ph.i.preheader ]
   %8 = getelementptr inbounds nuw i8, ptr %.014.i, i64 9
-  %9 = tail call i32 @strncmp(ptr noundef nonnull %8, ptr noundef readonly %6, i64 noundef %7) #14
+  %9 = tail call i32 @strncmp(ptr noundef nonnull %8, ptr noundef nonnull readonly %6, i64 noundef %7) #14
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %.critedge12.i
 
@@ -1140,7 +1140,7 @@ _ZL12pj_get_paramP8ARG_listPKc.exit.thread:       ; preds = %.loopexit, %1, %_ZL
 declare void @_Z14proj_log_traceP8PJconstsPKcz(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((168, 344)) %1) local_unnamed_addr #3 {
+define hidden void @_Z24pj_inherit_ellipsoid_defPK8PJconstsPS_(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((168, 344)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -1255,7 +1255,7 @@ declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) l
 declare i32 @proj_errno_set(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z10pj_ell_setP6pj_ctxP8ARG_listPdS3_(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z10pj_ell_setP6pj_ctxP8ARG_listPdS3_(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.PJconsts, align 8
   call void @_ZN8PJconstsC1Ev(ptr noundef nonnull align 8 dereferenceable(847) %5)
   store ptr %0, ptr %5, align 8
@@ -1434,7 +1434,7 @@ _ZNSt10shared_ptrIN5osgeo4proj4util10BaseObjectEED2Ev.exit: ; preds = %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef ptr @_Z10pj_mkparamPKc(ptr noundef) local_unnamed_addr #1
 
@@ -1443,7 +1443,7 @@ declare noundef ptr @_Z9pj_strdupPKc(ptr noundef) local_unnamed_addr #1
 declare ptr @proj_list_ellps() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef double @_Z7pj_atofPKc(ptr noundef) local_unnamed_addr #1
 
@@ -1456,7 +1456,7 @@ declare double @proj_dmstor(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare double @llvm.fabs.f64(double) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
@@ -1471,16 +1471,16 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZN5osgeo4proj9operation15GridDescriptionD1Ev(ptr noundef nonnull align 8 dereferenceable(131)) unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

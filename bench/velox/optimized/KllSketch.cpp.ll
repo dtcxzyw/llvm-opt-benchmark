@@ -144,7 +144,7 @@ if.then:                                          ; preds = %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN8facebook5velox9functions3kll6detail16sumSampleWeightsEhPKj(i8 noundef zeroext %numLevels, ptr nocapture noundef readonly %levels) local_unnamed_addr #5 {
+define noundef i64 @_ZN8facebook5velox9functions3kll6detail16sumSampleWeightsEhPKj(i8 noundef zeroext %numLevels, ptr noundef readonly captures(none) %levels) local_unnamed_addr #5 {
 entry:
   %cmp7.not = icmp eq i8 %numLevels, 0
   br i1 %cmp7.not, label %for.end, label %for.body.preheader

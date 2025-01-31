@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm8codeview8LineInfoC1Ejjb = unnamed_addr alias void (ptr, i32, i32, i1), ptr @_ZN4llvm8codeview8LineInfoC2Ejjb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview8LineInfoC2Ejjb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview8LineInfoC2Ejjb(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = and i32 %1, 16777215
   %6 = sub i32 %2, %1
   %7 = shl i32 %6, 24

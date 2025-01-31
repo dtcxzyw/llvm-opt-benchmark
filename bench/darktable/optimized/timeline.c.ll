@@ -79,7 +79,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #17
   ret ptr %2
 }
@@ -88,27 +88,27 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @expandable(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @expandable(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 1002
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @gui_update(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = alloca %struct.dt_datetime_t, align 4
   %4 = alloca %struct.dt_datetime_t, align 8
@@ -414,16 +414,16 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 4 %0, ptr nocapture noundef readonly byval(%struct.dt_datetime_t) align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #5 {
+define internal fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias nonnull writable writeonly align 4 captures(none) %0, ptr noundef readonly byval(%struct.dt_datetime_t) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #5 {
   %4 = alloca %struct.dt_datetime_t, align 8
   %5 = alloca %struct.dt_datetime_t, align 8
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %4) #17
@@ -827,7 +827,7 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca %struct.dt_datetime_t, align 4
   %5 = alloca ptr, align 8
   %6 = alloca %struct.dt_datetime_t, align 8
@@ -2715,7 +2715,7 @@ define internal noundef i32 @_lib_timeline_draw_callback(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef i32 @_lib_timeline_button_press_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca %struct.dt_datetime_t, align 4
   %5 = alloca %struct.dt_datetime_t, align 4
   %6 = alloca %struct.dt_datetime_t, align 8
@@ -2888,7 +2888,7 @@ define internal noundef i32 @_lib_timeline_button_press_callback(ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef i32 @_lib_timeline_button_release_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca %struct.dt_datetime_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
@@ -3041,7 +3041,7 @@ define internal noundef i32 @_lib_timeline_button_release_callback(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.dt_datetime_t, align 4
   %6 = alloca i32, align 4
@@ -3259,7 +3259,7 @@ define internal noundef range(i32 0, 2) i32 @_lib_timeline_scroll_callback(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #1 {
+define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #1 {
   %4 = alloca %struct.dt_datetime_t, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %6 = load ptr, ptr %5, align 8, !tbaa !6
@@ -3353,7 +3353,7 @@ define internal noundef i32 @_lib_timeline_motion_notify_callback(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_lib_timeline_mouse_leave_callback(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #1 {
+define internal noundef i32 @_lib_timeline_mouse_leave_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 220
@@ -3376,7 +3376,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #6
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @_lib_timeline_collection_changed(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture readnone %3, i32 %4, ptr noundef %5) #1 {
+define internal void @_lib_timeline_collection_changed(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr readnone captures(none) %3, i32 %4, ptr noundef %5) #1 {
   tail call void @dt_lib_gui_queue_update(ptr noundef %5) #17
   ret void
 }
@@ -3689,14 +3689,14 @@ define internal void @_block_free(ptr noundef %0) #1 {
 declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 declare ptr @dt_database_get(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #6
 
@@ -4409,7 +4409,7 @@ define internal fastcc void @_time_add(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @gtk_widget_get_allocation(ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -4442,7 +4442,7 @@ declare void @cairo_line_to(ptr noundef, double noundef, double noundef) local_u
 declare void @cairo_stroke(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 initializes((0, 28)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #12 {
+define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 initializes((0, 28)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #12 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !115
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %4, align 4, !tbaa !37, !alias.scope !115
@@ -4597,7 +4597,7 @@ define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @_time_format_for_ui(ptr nocapture noundef readonly byval(%struct.dt_datetime_t) align 8 %0, i32 noundef %1) unnamed_addr #1 {
+define internal fastcc noalias ptr @_time_format_for_ui(ptr noundef readonly byval(%struct.dt_datetime_t) align 8 captures(none) %0, i32 noundef %1) unnamed_addr #1 {
   switch i32 %1, label %112 [
     i32 0, label %3
     i32 1, label %6
@@ -4779,14 +4779,14 @@ declare float @llvm.sqrt.f32(float) #13
 declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @dt_conf_set_int(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 declare void @dt_collection_update_query(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_selection_collect(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
+define internal fastcc void @_selection_collect(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #1 {
   %3 = alloca [200 x i8], align 16
   %4 = alloca [200 x i8], align 16
   %5 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.31) #17
@@ -5056,7 +5056,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #6
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -5065,7 +5065,7 @@ declare void @dt_conf_set_string(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare i32 @dt_gui_get_scroll_unit_delta(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @_block_autoscroll(ptr nocapture noundef readonly %0) #1 {
+define internal noundef range(i32 0, 2) i32 @_block_autoscroll(ptr noundef readonly captures(none) %0) #1 {
   %2 = alloca %struct.dt_datetime_t, align 4
   %3 = alloca %struct.dt_datetime_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280

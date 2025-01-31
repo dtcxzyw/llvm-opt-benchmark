@@ -34,7 +34,7 @@ define noundef i32 @dt_module_mod_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define ptr @name(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 5) #7
   ret ptr %2
 }
@@ -43,22 +43,22 @@ define ptr @name(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @views(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @views(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 -536870913
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @container(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @container(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @expandable(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @expandable(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define noundef i32 @position(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 2001
 }
 
@@ -152,7 +152,7 @@ declare i64 @g_signal_connect_data(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_pref_show(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #1 {
+define internal noundef i32 @_pref_show(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #1 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !18
   tail call void @dt_view_filtering_show_pref_menu(ptr noundef %4, ptr noundef %0) #7
   ret i32 1
@@ -173,7 +173,7 @@ declare void @gtk_label_set_ellipsize(ptr noundef, i32 noundef) local_unnamed_ad
 declare i64 @gtk_label_get_type() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @_lib_filter_get_filter_box(ptr nocapture noundef readonly %0) #6 {
+define internal ptr @_lib_filter_get_filter_box(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = load ptr, ptr %3, align 8, !tbaa !14
@@ -181,7 +181,7 @@ define internal ptr @_lib_filter_get_filter_box(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @_lib_filter_get_sort_box(ptr nocapture noundef readonly %0) #6 {
+define internal ptr @_lib_filter_get_sort_box(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -190,7 +190,7 @@ define internal ptr @_lib_filter_get_sort_box(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal ptr @_lib_filter_get_count(ptr nocapture noundef readonly %0) #6 {
+define internal ptr @_lib_filter_get_count(ptr noundef readonly captures(none) %0) #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -199,7 +199,7 @@ define internal ptr @_lib_filter_get_count(ptr nocapture noundef readonly %0) #6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8, !tbaa !6
   tail call void @g_free(ptr noundef %3) #7

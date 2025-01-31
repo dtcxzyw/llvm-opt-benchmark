@@ -162,14 +162,14 @@ glib_autoptr_cleanup_QCryptoBlock.exit:           ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @qcrypto_block_headerlen_hdr_init_func(ptr nocapture readnone %block, i64 noundef %headerlen, ptr nocapture noundef writeonly initializes((0, 8)) %opaque, ptr nocapture readnone %errp) #3 {
+define internal noundef i32 @qcrypto_block_headerlen_hdr_init_func(ptr readnone captures(none) %block, i64 noundef %headerlen, ptr noundef writeonly captures(none) initializes((0, 8)) %opaque, ptr readnone captures(none) %errp) #3 {
 entry:
   store i64 %headerlen, ptr %opaque, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @qcrypto_block_headerlen_hdr_write_func(ptr nocapture readnone %block, i64 %offset, ptr nocapture readnone %buf, i64 %buflen, ptr nocapture readnone %opaque, ptr nocapture readnone %errp) #4 {
+define internal noundef i32 @qcrypto_block_headerlen_hdr_write_func(ptr readnone captures(none) %block, i64 %offset, ptr readnone captures(none) %buf, i64 %buflen, ptr readnone captures(none) %opaque, ptr readnone captures(none) %errp) #4 {
 entry:
   ret i32 0
 }
@@ -258,7 +258,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qcrypto_block_get_cipher(ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define dso_local ptr @qcrypto_block_get_cipher(ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %n_ciphers = getelementptr inbounds nuw i8, ptr %block, i64 32
   %0 = load i64, ptr %n_ciphers, align 8
@@ -288,7 +288,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @qcrypto_block_init_cipher(ptr nocapture noundef %block, i32 noundef %alg, i32 noundef %mode, ptr noundef %key, i64 noundef %nkey, i64 noundef %n_threads, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @qcrypto_block_init_cipher(ptr noundef captures(none) %block, i32 noundef %alg, i32 noundef %mode, ptr noundef %key, i64 noundef %nkey, i64 noundef %n_threads, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %ciphers = getelementptr inbounds nuw i8, ptr %block, i64 24
   %0 = load ptr, ptr %ciphers, align 8
@@ -382,7 +382,7 @@ return:                                           ; preds = %if.end11, %if.end, 
 declare ptr @qcrypto_cipher_new(i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qcrypto_block_free_cipher(ptr nocapture noundef %block) local_unnamed_addr #0 {
+define dso_local void @qcrypto_block_free_cipher(ptr noundef captures(none) %block) local_unnamed_addr #0 {
 entry:
   %ciphers = getelementptr inbounds nuw i8, ptr %block, i64 24
   %0 = load ptr, ptr %ciphers, align 8
@@ -433,7 +433,7 @@ return:                                           ; preds = %entry, %for.end
 declare void @qcrypto_cipher_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @qcrypto_block_get_ivgen(ptr nocapture noundef readonly %block) local_unnamed_addr #0 {
+define dso_local ptr @qcrypto_block_get_ivgen(ptr noundef readonly captures(none) %block) local_unnamed_addr #0 {
 entry:
   %n_ciphers = getelementptr inbounds nuw i8, ptr %block, i64 32
   %0 = load i64, ptr %n_ciphers, align 8
@@ -451,7 +451,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @qcrypto_block_get_kdf_hash(ptr nocapture noundef readonly %block) local_unnamed_addr #6 {
+define dso_local i32 @qcrypto_block_get_kdf_hash(ptr noundef readonly captures(none) %block) local_unnamed_addr #6 {
 entry:
   %kdfhash = getelementptr inbounds nuw i8, ptr %block, i64 104
   %0 = load i32, ptr %kdfhash, align 8
@@ -459,7 +459,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @qcrypto_block_get_payload_offset(ptr nocapture noundef readonly %block) local_unnamed_addr #6 {
+define dso_local i64 @qcrypto_block_get_payload_offset(ptr noundef readonly captures(none) %block) local_unnamed_addr #6 {
 entry:
   %payload_offset = getelementptr inbounds nuw i8, ptr %block, i64 120
   %0 = load i64, ptr %payload_offset, align 8
@@ -467,7 +467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @qcrypto_block_get_sector_size(ptr nocapture noundef readonly %block) local_unnamed_addr #6 {
+define dso_local i64 @qcrypto_block_get_sector_size(ptr noundef readonly captures(none) %block) local_unnamed_addr #6 {
 entry:
   %sector_size = getelementptr inbounds nuw i8, ptr %block, i64 128
   %0 = load i64, ptr %sector_size, align 8
@@ -995,7 +995,7 @@ declare i32 @qcrypto_cipher_setiv(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare i64 @llvm.umin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -490,7 +490,7 @@ declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_lru_remove_lru_item(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @lv_lru_remove_lru_item(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8, !tbaa !3
   %.not56 = icmp eq i64 %3, 0
@@ -599,7 +599,7 @@ lv_lru_remove_item.exit:                          ; preds = %22, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @lv_lru_get(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @lv_lru_get(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %65, label %5
 

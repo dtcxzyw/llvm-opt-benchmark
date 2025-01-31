@@ -128,7 +128,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @resourcemodule_traverse(ptr noundef %m, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @resourcemodule_traverse(ptr noundef %m, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #6
   %0 = load ptr, ptr %call.i, align 8
@@ -207,7 +207,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_getrlimit(ptr nocapture readnone %module, ptr noundef %arg) #0 {
+define internal ptr @resource_getrlimit(ptr readnone captures(none) %module, ptr noundef %arg) #0 {
 entry:
   %rl.i = alloca %struct.rlimit, align 8
   %call = tail call i32 @PyLong_AsInt(ptr noundef %arg) #6
@@ -262,7 +262,7 @@ exit:                                             ; preds = %resource_getrlimit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_prlimit(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @resource_prlimit(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %old_limit.i = alloca %struct.rlimit, align 8
   %new_limit.i = alloca %struct.rlimit, align 8
@@ -385,7 +385,7 @@ exit:                                             ; preds = %land.lhs.true15, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @resource_setrlimit(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @resource_setrlimit(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %cmp.not = icmp eq i64 %nargs, 2
   br i1 %cmp.not, label %if.end, label %if.then
@@ -423,7 +423,7 @@ exit:                                             ; preds = %if.end.split, %land
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @resource_getpagesize(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @resource_getpagesize(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @getpagesize() #7
   %cmp = icmp eq i32 %call.i, -1
@@ -603,7 +603,7 @@ declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 declare i32 @PySys_Audit(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @py2rlimit(ptr noundef %limits, ptr nocapture noundef nonnull writeonly %rl_out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @py2rlimit(ptr noundef %limits, ptr noundef nonnull writeonly captures(none) %rl_out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PySequence_Tuple(ptr noundef %limits) #6
   %tobool.not = icmp eq ptr %call, null
@@ -866,10 +866,10 @@ declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) loca
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

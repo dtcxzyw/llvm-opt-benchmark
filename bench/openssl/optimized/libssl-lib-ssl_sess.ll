@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [23 x i8] c"SSL SESSION PARAMETERS\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ssl_session_calculate_timeout(ptr nocapture noundef initializes((752, 760)) %ss) local_unnamed_addr #0 {
+define void @ssl_session_calculate_timeout(ptr noundef captures(none) initializes((752, 760)) %ss) local_unnamed_addr #0 {
 entry:
   %calc_timeout = getelementptr inbounds nuw i8, ptr %ss, i64 752
   %time = getelementptr inbounds nuw i8, ptr %ss, i64 744
@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define ptr @SSL_get_session(ptr noundef readonly %ssl) local_unnamed_addr #2 {
@@ -65,7 +65,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SSL_get1_session(ptr nocapture noundef readonly %ssl) local_unnamed_addr #3 {
+define ptr @SSL_get1_session(ptr noundef readonly captures(none) %ssl) local_unnamed_addr #3 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %ssl, i64 40
   %0 = load ptr, ptr %lock, align 8
@@ -112,7 +112,7 @@ return:                                           ; preds = %entry, %if.end4
 declare i32 @CRYPTO_THREAD_read_lock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_up_ref(ptr nocapture noundef %ss) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @SSL_SESSION_up_ref(ptr noundef captures(none) %ss) local_unnamed_addr #5 {
 entry:
   %references = getelementptr inbounds nuw i8, ptr %ss, i64 728
   %0 = atomicrmw add ptr %references, i32 1 monotonic, align 4
@@ -401,7 +401,7 @@ return:                                           ; preds = %if.end133, %if.then
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @ERR_new() local_unnamed_addr #4
 
@@ -522,7 +522,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_SESSION_get_compress_id(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define i32 @SSL_SESSION_get_compress_id(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %compress_meth = getelementptr inbounds nuw i8, ptr %s, i64 760
   %0 = load i32, ptr %compress_meth, align 8
@@ -659,7 +659,7 @@ return:                                           ; preds = %if.end44, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @def_generate_session_id(ptr noundef %ssl, ptr noundef %id, ptr nocapture noundef readonly %id_len) unnamed_addr #3 {
+define internal range(i32 0, 2) i32 @def_generate_session_id(ptr noundef %ssl, ptr noundef %id, ptr noundef readonly captures(none) %id_len) unnamed_addr #3 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %ssl, i64 8
   br label %do.body
@@ -1946,21 +1946,21 @@ return:                                           ; preds = %if.end6, %if.else, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_SESSION_get_protocol_version(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define i32 @SSL_SESSION_get_protocol_version(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %0 = load i32, ptr %s, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_SESSION_set_protocol_version(ptr nocapture noundef writeonly initializes((0, 4)) %s, i32 noundef %version) local_unnamed_addr #9 {
+define noundef i32 @SSL_SESSION_set_protocol_version(ptr noundef writeonly captures(none) initializes((0, 4)) %s, i32 noundef %version) local_unnamed_addr #9 {
 entry:
   store i32 %version, ptr %s, align 8
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_SESSION_get0_cipher(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define ptr @SSL_SESSION_get0_cipher(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %cipher = getelementptr inbounds nuw i8, ptr %s, i64 768
   %0 = load ptr, ptr %cipher, align 8
@@ -1968,7 +1968,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_SESSION_set_cipher(ptr nocapture noundef writeonly initializes((768, 776)) %s, ptr noundef %cipher) local_unnamed_addr #9 {
+define noundef i32 @SSL_SESSION_set_cipher(ptr noundef writeonly captures(none) initializes((768, 776)) %s, ptr noundef %cipher) local_unnamed_addr #9 {
 entry:
   %cipher1 = getelementptr inbounds nuw i8, ptr %s, i64 768
   store ptr %cipher, ptr %cipher1, align 8
@@ -1976,7 +1976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_SESSION_get0_hostname(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define ptr @SSL_SESSION_get0_hostname(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %ext = getelementptr inbounds nuw i8, ptr %s, i64 824
   %0 = load ptr, ptr %ext, align 8
@@ -1984,7 +1984,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_set1_hostname(ptr nocapture noundef %s, ptr noundef %hostname) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_SESSION_set1_hostname(ptr noundef captures(none) %s, ptr noundef %hostname) local_unnamed_addr #3 {
 entry:
   %ext = getelementptr inbounds nuw i8, ptr %s, i64 824
   %0 = load ptr, ptr %ext, align 8
@@ -2006,7 +2006,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_has_ticket(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_SESSION_has_ticket(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %ticklen = getelementptr inbounds nuw i8, ptr %s, i64 840
   %0 = load i64, ptr %ticklen, align 8
@@ -2016,7 +2016,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @SSL_SESSION_get_ticket_lifetime_hint(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define i64 @SSL_SESSION_get_ticket_lifetime_hint(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %tick_lifetime_hint = getelementptr inbounds nuw i8, ptr %s, i64 848
   %0 = load i64, ptr %tick_lifetime_hint, align 8
@@ -2024,7 +2024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_SESSION_get0_ticket(ptr nocapture noundef readonly %s, ptr noundef writeonly %tick, ptr nocapture noundef writeonly initializes((0, 8)) %len) local_unnamed_addr #0 {
+define void @SSL_SESSION_get0_ticket(ptr noundef readonly captures(none) %s, ptr noundef writeonly %tick, ptr noundef writeonly captures(none) initializes((0, 8)) %len) local_unnamed_addr #0 {
 entry:
   %ticklen = getelementptr inbounds nuw i8, ptr %s, i64 840
   %0 = load i64, ptr %ticklen, align 8
@@ -2043,7 +2043,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_SESSION_get_max_early_data(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define i32 @SSL_SESSION_get_max_early_data(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %max_early_data = getelementptr inbounds nuw i8, ptr %s, i64 860
   %0 = load i32, ptr %max_early_data, align 4
@@ -2051,7 +2051,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_SESSION_set_max_early_data(ptr nocapture noundef writeonly initializes((860, 864)) %s, i32 noundef %max_early_data) local_unnamed_addr #9 {
+define noundef i32 @SSL_SESSION_set_max_early_data(ptr noundef writeonly captures(none) initializes((860, 864)) %s, i32 noundef %max_early_data) local_unnamed_addr #9 {
 entry:
   %max_early_data1 = getelementptr inbounds nuw i8, ptr %s, i64 860
   store i32 %max_early_data, ptr %max_early_data1, align 4
@@ -2059,7 +2059,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_SESSION_get0_alpn_selected(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 8)) %alpn, ptr nocapture noundef writeonly initializes((0, 8)) %len) local_unnamed_addr #0 {
+define void @SSL_SESSION_get0_alpn_selected(ptr noundef readonly captures(none) %s, ptr noundef writeonly captures(none) initializes((0, 8)) %alpn, ptr noundef writeonly captures(none) initializes((0, 8)) %len) local_unnamed_addr #0 {
 entry:
   %alpn_selected = getelementptr inbounds nuw i8, ptr %s, i64 864
   %0 = load ptr, ptr %alpn_selected, align 8
@@ -2071,7 +2071,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_set1_alpn_selected(ptr nocapture noundef initializes((872, 880)) %s, ptr noundef %alpn, i64 noundef %len) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_SESSION_set1_alpn_selected(ptr noundef captures(none) initializes((872, 880)) %s, ptr noundef %alpn, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %alpn_selected = getelementptr inbounds nuw i8, ptr %s, i64 864
   %0 = load ptr, ptr %alpn_selected, align 8
@@ -2106,7 +2106,7 @@ return:                                           ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_SESSION_get0_peer(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define ptr @SSL_SESSION_get0_peer(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %peer = getelementptr inbounds nuw i8, ptr %s, i64 704
   %0 = load ptr, ptr %peer, align 8
@@ -2114,7 +2114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_SESSION_get0_peer_rpk(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define ptr @SSL_SESSION_get0_peer_rpk(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %peer_rpk = getelementptr inbounds nuw i8, ptr %s, i64 696
   %0 = load ptr, ptr %peer_rpk, align 8
@@ -2151,7 +2151,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_is_resumable(ptr nocapture noundef readonly %s) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_SESSION_is_resumable(ptr noundef readonly captures(none) %s) local_unnamed_addr #7 {
 entry:
   %not_resumable = getelementptr inbounds nuw i8, ptr %s, i64 688
   %0 = load i32, ptr %not_resumable, align 8
@@ -2480,7 +2480,7 @@ declare i32 @SSL_in_init(ptr noundef) local_unnamed_addr #4
 declare i32 @SSL_in_before(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_sess_set_new_cb(ptr nocapture noundef writeonly initializes((96, 104)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
+define void @SSL_CTX_sess_set_new_cb(ptr noundef writeonly captures(none) initializes((96, 104)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
 entry:
   %new_session_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   store ptr %cb, ptr %new_session_cb, align 8
@@ -2488,7 +2488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_sess_get_new_cb(ptr nocapture noundef readonly %ctx) local_unnamed_addr #7 {
+define ptr @SSL_CTX_sess_get_new_cb(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #7 {
 entry:
   %new_session_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   %0 = load ptr, ptr %new_session_cb, align 8
@@ -2496,7 +2496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_sess_set_remove_cb(ptr nocapture noundef writeonly initializes((104, 112)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
+define void @SSL_CTX_sess_set_remove_cb(ptr noundef writeonly captures(none) initializes((104, 112)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
 entry:
   %remove_session_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 104
   store ptr %cb, ptr %remove_session_cb, align 8
@@ -2504,7 +2504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_sess_get_remove_cb(ptr nocapture noundef readonly %ctx) local_unnamed_addr #7 {
+define ptr @SSL_CTX_sess_get_remove_cb(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #7 {
 entry:
   %remove_session_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 104
   %0 = load ptr, ptr %remove_session_cb, align 8
@@ -2512,7 +2512,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_sess_set_get_cb(ptr nocapture noundef writeonly initializes((112, 120)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
+define void @SSL_CTX_sess_set_get_cb(ptr noundef writeonly captures(none) initializes((112, 120)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
 entry:
   %get_session_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 112
   store ptr %cb, ptr %get_session_cb, align 8
@@ -2520,7 +2520,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_sess_get_get_cb(ptr nocapture noundef readonly %ctx) local_unnamed_addr #7 {
+define ptr @SSL_CTX_sess_get_get_cb(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #7 {
 entry:
   %get_session_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 112
   %0 = load ptr, ptr %get_session_cb, align 8
@@ -2528,7 +2528,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_info_callback(ptr nocapture noundef writeonly initializes((288, 296)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
+define void @SSL_CTX_set_info_callback(ptr noundef writeonly captures(none) initializes((288, 296)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
 entry:
   %info_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 288
   store ptr %cb, ptr %info_callback, align 8
@@ -2536,7 +2536,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_info_callback(ptr nocapture noundef readonly %ctx) local_unnamed_addr #7 {
+define ptr @SSL_CTX_get_info_callback(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #7 {
 entry:
   %info_callback = getelementptr inbounds nuw i8, ptr %ctx, i64 288
   %0 = load ptr, ptr %info_callback, align 8
@@ -2544,7 +2544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_client_cert_cb(ptr nocapture noundef writeonly initializes((200, 208)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
+define void @SSL_CTX_set_client_cert_cb(ptr noundef writeonly captures(none) initializes((200, 208)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
 entry:
   %client_cert_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   store ptr %cb, ptr %client_cert_cb, align 8
@@ -2552,7 +2552,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_client_cert_cb(ptr nocapture noundef readonly %ctx) local_unnamed_addr #7 {
+define ptr @SSL_CTX_get_client_cert_cb(ptr noundef readonly captures(none) %ctx) local_unnamed_addr #7 {
 entry:
   %client_cert_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 200
   %0 = load ptr, ptr %client_cert_cb, align 8
@@ -2560,7 +2560,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_cookie_generate_cb(ptr nocapture noundef writeonly initializes((208, 216)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
+define void @SSL_CTX_set_cookie_generate_cb(ptr noundef writeonly captures(none) initializes((208, 216)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
 entry:
   %app_gen_cookie_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 208
   store ptr %cb, ptr %app_gen_cookie_cb, align 8
@@ -2568,7 +2568,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_cookie_verify_cb(ptr nocapture noundef writeonly initializes((216, 224)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
+define void @SSL_CTX_set_cookie_verify_cb(ptr noundef writeonly captures(none) initializes((216, 224)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
 entry:
   %app_verify_cookie_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 216
   store ptr %cb, ptr %app_verify_cookie_cb, align 8
@@ -2576,7 +2576,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_set1_ticket_appdata(ptr nocapture noundef initializes((904, 912)) %ss, ptr noundef %data, i64 noundef %len) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_SESSION_set1_ticket_appdata(ptr noundef captures(none) initializes((904, 912)) %ss, ptr noundef %data, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   %ticket_appdata = getelementptr inbounds nuw i8, ptr %ss, i64 896
   %0 = load ptr, ptr %ticket_appdata, align 8
@@ -2608,7 +2608,7 @@ return:                                           ; preds = %if.end, %if.then6, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @SSL_SESSION_get0_ticket_appdata(ptr nocapture noundef readonly %ss, ptr nocapture noundef writeonly initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 8)) %len) local_unnamed_addr #0 {
+define noundef i32 @SSL_SESSION_get0_ticket_appdata(ptr noundef readonly captures(none) %ss, ptr noundef writeonly captures(none) initializes((0, 8)) %data, ptr noundef writeonly captures(none) initializes((0, 8)) %len) local_unnamed_addr #0 {
 entry:
   %ticket_appdata = getelementptr inbounds nuw i8, ptr %ss, i64 896
   %0 = load ptr, ptr %ticket_appdata, align 8
@@ -2620,7 +2620,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_stateless_cookie_generate_cb(ptr nocapture noundef writeonly initializes((224, 232)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
+define void @SSL_CTX_set_stateless_cookie_generate_cb(ptr noundef writeonly captures(none) initializes((224, 232)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
 entry:
   %gen_stateless_cookie_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 224
   store ptr %cb, ptr %gen_stateless_cookie_cb, align 8
@@ -2628,7 +2628,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_stateless_cookie_verify_cb(ptr nocapture noundef writeonly initializes((232, 240)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
+define void @SSL_CTX_set_stateless_cookie_verify_cb(ptr noundef writeonly captures(none) initializes((232, 240)) %ctx, ptr noundef %cb) local_unnamed_addr #9 {
 entry:
   %verify_stateless_cookie_cb = getelementptr inbounds nuw i8, ptr %ctx, i64 232
   store ptr %cb, ptr %verify_stateless_cookie_cb, align 8
@@ -2694,7 +2694,7 @@ declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @OPENSSL_sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #12

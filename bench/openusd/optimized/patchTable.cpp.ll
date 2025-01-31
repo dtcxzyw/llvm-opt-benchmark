@@ -128,7 +128,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13EvaluateBasisIfEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayDescriptorEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayDescriptorEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
@@ -155,7 +155,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable20EvaluateBasisVary
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable25GetVaryingPatchDescriptorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %1) local_unnamed_addr #5 align 2 {
+define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable25GetVaryingPatchDescriptorEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %0, align 4
@@ -187,7 +187,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable24EvaluateBasisFace
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22getPatchFVarPatchParamEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22getPatchFVarPatchParamEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
@@ -200,7 +200,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22getPatchFVarPatchParamEii(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable29GetFVarPatchDescriptorRegularEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable29GetFVarPatchDescriptorRegularEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
@@ -211,7 +211,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable29GetFVarPatchDescriptorRegu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable31GetFVarPatchDescriptorIrregularEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable31GetFVarPatchDescriptorIrregularEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
@@ -280,7 +280,7 @@ define weak_odr void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable24EvaluateBasisFace
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTableC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(273) initializes((0, 4), (8, 148), (152, 272)) %0, i32 noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTableC2Ei(ptr noundef nonnull align 8 captures(none) dereferenceable(273) initializes((0, 4), (8, 148), (152, 272)) %0, i32 noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1081,7 +1081,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4_EEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1885,7 +1885,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvT_S6_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
@@ -2381,7 +2381,7 @@ _ZSt8_DestroyIPN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelEEvT_S6_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTableD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTableD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2665,10 +2665,10 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable10PatchArray5printEv(ptr nou
 declare void @_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor5printEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18reservePatchArraysEi(ptr nocapture noundef nonnull align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18reservePatchArraysEi(ptr noundef nonnull align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = icmp slt i32 %1, 0
@@ -2733,7 +2733,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE7reserveEm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable23allocateVaryingVerticesENS1_15PatchDescriptorEi(ptr noundef nonnull align 8 dereferenceable(273) initializes((144, 148)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable23allocateVaryingVerticesENS1_15PatchDescriptorEi(ptr noundef nonnull align 8 dereferenceable(273) initializes((144, 148)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %1, align 4
   store i32 %5, ptr %4, align 8
@@ -3139,10 +3139,10 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable16FVarPatchChannelESaIS4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable30allocateFVarPatchChannelValuesENS1_15PatchDescriptorES3_ii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %7 = sext i32 %4 to i64
   %8 = load ptr, ptr %6, align 8
@@ -3359,7 +3359,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchParamESaIS3_EE13_M_deallocate
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable38setFVarPatchChannelLinearInterpolationENS0_3Sdc7Options23FVarLinearInterpolationEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable38setFVarPatchChannelLinearInterpolationENS0_3Sdc7Options23FVarLinearInterpolationEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #16 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
@@ -3369,7 +3369,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable38setFVarPatchChannelLinearIn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14pushPatchArrayENS1_15PatchDescriptorEiPiS4_S4_(ptr noundef nonnull align 8 dereferenceable(273) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14pushPatchArrayENS1_15PatchDescriptorEiPiS4_S4_(ptr noundef nonnull align 8 dereferenceable(273) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
   %7 = alloca %"struct.OpenSubdiv::v3_6_0::Far::PatchTable::PatchArray", align 4
   %8 = icmp sgt i32 %2, 0
   br i1 %8, label %9, label %45
@@ -3544,7 +3544,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable10PatchArrayESaIS4_EE13_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13getPatchIndexEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13getPatchIndexEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -3555,7 +3555,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13getPatchIndexEii(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Far10PatchTable19getSharpnessIndicesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Far10PatchTable19getSharpnessIndicesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
@@ -3569,7 +3569,7 @@ define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Far10PatchTable19getSharpness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18getSharpnessValuesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18getSharpnessValuesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
@@ -3583,7 +3583,7 @@ define noundef nonnull ptr @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18getSharpness
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchDescriptorERKNS2_11PatchHandleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchDescriptorERKNS2_11PatchHandleE(ptr dead_on_unwind noalias writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %2) local_unnamed_addr #4 align 2 {
   %4 = load i32, ptr %2, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = sext i32 %4 to i64
@@ -3595,7 +3595,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchDescriptorERKNS2_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable17GetNumPatchArraysEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable17GetNumPatchArraysEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -3609,7 +3609,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable17GetNumPatchArraysEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3619,7 +3619,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetNumPatchesEi(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetNumPatchesTotalEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetNumPatchesTotalEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -3633,7 +3633,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetNumPatchesTotalE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetNumControlVerticesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetNumControlVerticesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3658,7 +3658,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -2147483648, 2147483647) i32 @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14findPatchArrayENS1_15PatchDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 align 2 {
+define noundef range(i32 -2147483648, 2147483647) i32 @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14findPatchArrayENS1_15PatchDescriptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -3698,7 +3698,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN10OpenSubdiv6v3_6_03Fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable21getPatchArrayVerticesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable21getPatchArrayVerticesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3731,7 +3731,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetPatchArrayVerticesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable21GetPatchArrayVerticesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3764,7 +3764,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesERKNS2_11PatchHandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesERKNS2_11PatchHandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %3 to i64
@@ -3798,7 +3798,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -3830,7 +3830,7 @@ _ZN10OpenSubdiv6v3_6_03Far12getPatchSizeENS1_15PatchDescriptorE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetPatchParamERKNS2_11PatchHandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #6 align 2 {
+define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetPatchParamERKNS2_11PatchHandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -3842,7 +3842,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetPatchParamERKNS2_11Patch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetPatchParamEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetPatchParamEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -3858,7 +3858,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetPatchParamEii(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14getPatchParamsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14getPatchParamsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3877,7 +3877,7 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable14getPatchParamsEi(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable14GetPatchParamsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable14GetPatchParamsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -3896,7 +3896,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable14GetPatchParamsEi(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePatchSharpnessValueERKNS2_11PatchHandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #6 align 2 {
+define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePatchSharpnessValueERKNS2_11PatchHandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
@@ -3921,7 +3921,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePatchSharpnessValueEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePatchSharpnessValueEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -3950,7 +3950,7 @@ define noundef float @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable34GetSingleCreasePa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable17GetNumLocalPointsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable17GetNumLocalPointsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %.not1 = icmp eq ptr %3, null
@@ -3974,7 +3974,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable17GetNumLocalPointsEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable24GetNumLocalPointsVaryingEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable24GetNumLocalPointsVaryingEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %.not1 = icmp eq ptr %3, null
@@ -3998,7 +3998,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable24GetNumLocalPointsVa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetNumLocalPointsFaceVaryingEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetNumLocalPointsFaceVaryingEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = icmp sgt i32 %1, -1
   br i1 %3, label %4, label %29
 
@@ -4040,7 +4040,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetNumLocalPointsFa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable19GetPatchQuadOffsetsERKNS2_11PatchHandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable19GetPatchQuadOffsetsERKNS2_11PatchHandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #6 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %3 to i64
@@ -4060,7 +4060,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable19GetPatchQuadOffset
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable17IsFeatureAdaptiveEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
+define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable17IsFeatureAdaptiveEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -4069,7 +4069,7 @@ define noundef zeroext i1 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable17IsFeatureAda
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchVaryingVerticesERKNS2_11PatchHandleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #17 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchVaryingVerticesERKNS2_11PatchHandleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -4108,7 +4108,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchVaryingVerticesEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchVaryingVerticesEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -4151,7 +4151,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayVaryingVerticesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayVaryingVerticesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -4197,7 +4197,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetVaryingVerticesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetVaryingVerticesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -4216,7 +4216,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetVaryingVertices
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable28getPatchArrayVaryingVerticesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable28getPatchArrayVaryingVerticesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -4251,7 +4251,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable23populateVaryingVerticesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0) local_unnamed_addr #18 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Far10PatchTable23populateVaryingVerticesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0) local_unnamed_addr #18 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
   %switch.tableidx = add i32 %3, -1
@@ -4432,7 +4432,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable16GetPatchVerticesEii.exit: ; preds = %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetNumFVarChannelsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetNumFVarChannelsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -4446,7 +4446,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetNumFVarChannelsE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable33GetFVarChannelLinearInterpolationEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable33GetFVarChannelLinearInterpolationEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -4456,7 +4456,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable33GetFVarChannelLinea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetFVarPatchDescriptorEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetFVarPatchDescriptorEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor") align 4 captures(none) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
@@ -4467,7 +4467,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetFVarPatchDescriptorEi(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetFVarValuesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetFVarValuesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -4486,7 +4486,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable13GetFVarValuesEi(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetFVarValueStrideEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetFVarValueStrideEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -4496,7 +4496,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetFVarValueStrideE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable13getFVarValuesEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable13getFVarValuesEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -4515,7 +4515,7 @@ define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable13getFVarValuesEi(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = sext i32 %2 to i64
   %6 = load ptr, ptr %4, align 8
@@ -4570,7 +4570,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesERKNS2_11PatchHandleEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesERKNS2_11PatchHandleEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -4627,7 +4627,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetPatchFVarValuesEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
@@ -4688,7 +4688,7 @@ _ZNK10OpenSubdiv6v3_6_03Far10PatchTable18getPatchFVarValuesEii.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayFVarValuesEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayFVarValuesEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -4715,7 +4715,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable23GetPatchArrayFVarV
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetPatchFVarPatchParamERKNS2_11PatchHandleEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetPatchFVarPatchParamERKNS2_11PatchHandleEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -4730,7 +4730,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetPatchFVarPatchParamERKNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetPatchFVarPatchParamEiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetPatchFVarPatchParamEiii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
@@ -4749,7 +4749,7 @@ define i64 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable22GetPatchFVarPatchParamEiii(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayFVarPatchParamsEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayFVarPatchParamsEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8
@@ -4771,7 +4771,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable28GetPatchArrayFVarP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetFVarPatchParamsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetFVarPatchParamsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8
@@ -4790,7 +4790,7 @@ define { ptr, i32 } @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetFVarPatchParams
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18getFVarPatchParamsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define { ptr, i32 } @_ZN10OpenSubdiv6v3_6_03Far10PatchTable18getFVarPatchParamsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(273) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = sext i32 %1 to i64
   %5 = load ptr, ptr %3, align 8

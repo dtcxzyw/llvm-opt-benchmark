@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @CAST_S_table7 = external local_unnamed_addr constant [256 x i32], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @CAST_ecb_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef readonly %ks, i32 noundef %enc) local_unnamed_addr #0 {
+define hidden void @CAST_ecb_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) initializes((0, 8)) %out, ptr noundef readonly captures(none) %ks, i32 noundef %enc) local_unnamed_addr #0 {
 entry:
   %d = alloca [2 x i32], align 4
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %in, i64 1
@@ -101,7 +101,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @CAST_encrypt(ptr nocapture noundef %data, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define hidden void @CAST_encrypt(ptr noundef captures(none) %data, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %data, align 4
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %data, i64 4
@@ -570,7 +570,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @CAST_decrypt(ptr nocapture noundef %data, ptr nocapture noundef readonly %key) local_unnamed_addr #0 {
+define hidden void @CAST_decrypt(ptr noundef captures(none) %data, ptr noundef readonly captures(none) %key) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %data, align 4
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %data, i64 4
@@ -1039,7 +1039,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @CAST_cbc_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr nocapture noundef readonly %ks, ptr nocapture noundef %iv, i32 noundef %enc) local_unnamed_addr #1 {
+define hidden void @CAST_cbc_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %length, ptr noundef readonly captures(none) %ks, ptr noundef captures(none) %iv, i32 noundef %enc) local_unnamed_addr #1 {
 entry:
   %tin = alloca [2 x i32], align 4
   %tobool.not = icmp eq i32 %enc, 0
@@ -1585,7 +1585,7 @@ if.end491:                                        ; preds = %if.end460, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @CAST_set_key(ptr nocapture noundef writeonly %key, i64 noundef %len, ptr nocapture noundef readonly %data) local_unnamed_addr #2 {
+define hidden void @CAST_set_key(ptr noundef writeonly captures(none) %key, i64 noundef %len, ptr noundef readonly captures(none) %data) local_unnamed_addr #2 {
 entry:
   %x = alloca [16 x i32], align 16
   %k = alloca [32 x i32], align 16
@@ -2326,7 +2326,7 @@ for.end936:                                       ; preds = %for.body923
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @CAST_cfb64_encrypt(ptr nocapture noundef readonly %in, ptr nocapture noundef writeonly %out, i64 noundef %length, ptr nocapture noundef readonly %schedule, ptr nocapture noundef %ivec, ptr nocapture noundef %num, i32 noundef %enc) local_unnamed_addr #2 {
+define hidden void @CAST_cfb64_encrypt(ptr noundef readonly captures(none) %in, ptr noundef writeonly captures(none) %out, i64 noundef %length, ptr noundef readonly captures(none) %schedule, ptr noundef captures(none) %ivec, ptr noundef captures(none) %num, i32 noundef %enc) local_unnamed_addr #2 {
 entry:
   %ti = alloca [2 x i32], align 4
   %0 = load i32, ptr %num, align 4
@@ -2539,7 +2539,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #3
 declare i64 @llvm.umin.i64(i64, i64) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

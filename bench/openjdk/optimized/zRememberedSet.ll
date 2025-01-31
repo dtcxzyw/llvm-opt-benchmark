@@ -102,7 +102,7 @@ define hidden void @_ZN14ZRememberedSet4flipEv() local_unnamed_addr #0 align 2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14ZRememberedSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 17), (24, 41)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZRememberedSetC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 17), (24, 41)) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 5, ptr %2, align 8
@@ -114,7 +114,7 @@ define hidden void @_ZN14ZRememberedSetC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK14ZRememberedSet14is_initializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK14ZRememberedSet14is_initializedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = icmp ne i64 %3, 0
@@ -290,7 +290,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %29, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14ZRememberedSet25iterator_reverse_previousEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ZBitMap::ReverseIterator") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN14ZRememberedSet25iterator_reverse_previousEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.ZBitMap::ReverseIterator") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %4 = xor i32 %3, 1
   %5 = sext i32 %4 to i64
@@ -306,7 +306,7 @@ define hidden void @_ZN14ZRememberedSet25iterator_reverse_previousEv(ptr dead_on
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14ZRememberedSet24iterator_limited_currentEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.BitMap::Iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN14ZRememberedSet24iterator_limited_currentEmm(ptr dead_on_unwind noalias writable writeonly sret(%"class.BitMap::Iterator") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = lshr i64 %2, 3
   %6 = lshr i64 %3, 3
   %7 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
@@ -374,7 +374,7 @@ _ZN6BitMap8IteratorC2ERKS_mm.exit:                ; preds = %11, %32, %.loopexit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14ZRememberedSet25iterator_limited_previousEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.BitMap::Iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN14ZRememberedSet25iterator_limited_previousEmm(ptr dead_on_unwind noalias writable writeonly sret(%"class.BitMap::Iterator") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #6 align 2 {
   %5 = lshr i64 %2, 3
   %6 = lshr i64 %3, 3
   %7 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
@@ -443,7 +443,7 @@ _ZN6BitMap8IteratorC2ERKS_mm.exit:                ; preds = %12, %33, %.loopexit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN32ZRememberedSetContainingIterator8to_indexE15zaddress_unsafe(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN32ZRememberedSetContainingIterator8to_indexE15zaddress_unsafe(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load i64, ptr @ZAddressOffsetMask, align 8
   %5 = and i64 %4, %1
@@ -455,7 +455,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN32ZRememberedSet
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZN32ZRememberedSetContainingIterator7to_addrEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden noundef i64 @_ZN32ZRememberedSetContainingIterator7to_addrEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = shl i64 %1, 3
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -467,7 +467,7 @@ define hidden noundef i64 @_ZN32ZRememberedSetContainingIterator7to_addrEm(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN32ZRememberedSetContainingIteratorC2EP5ZPage(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN32ZRememberedSetContainingIteratorC2EP5ZPage(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
@@ -499,7 +499,7 @@ define hidden void @_ZN32ZRememberedSetContainingIteratorC2EP5ZPage(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN32ZRememberedSetContainingIterator4nextEP24ZRememberedSetContaining(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN32ZRememberedSetContainingIterator4nextEP24ZRememberedSetContaining(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -689,7 +689,7 @@ _ZN7ZBitMap15ReverseIterator4nextEPm.exit22.thread: ; preds = %75, %.loopexit45.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN38ZRememberedSetContainingInLiveIteratorC2EP5ZPage(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN38ZRememberedSetContainingInLiveIteratorC2EP5ZPage(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
@@ -725,7 +725,7 @@ define hidden void @_ZN38ZRememberedSetContainingInLiveIteratorC2EP5ZPage(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN38ZRememberedSetContainingInLiveIterator4nextEP24ZRememberedSetContaining(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN38ZRememberedSetContainingInLiveIterator4nextEP24ZRememberedSetContaining(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %struct.ZRememberedSetContaining, align 8
   %4 = call noundef zeroext i1 @_ZN32ZRememberedSetContainingIterator4nextEP24ZRememberedSetContaining(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %3)
   br i1 %4, label %.lr.ph, label %.loopexit
@@ -864,10 +864,10 @@ _ZN6ZUtils11object_sizeE8zaddress.exit:           ; preds = %34, %37, %44, %64
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK38ZRememberedSetContainingInLiveIterator16print_statisticsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK38ZRememberedSetContainingInLiveIterator16print_statisticsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1329,7 +1329,7 @@ declare void @_ZN13LogStreamImplI15LogTargetHandleED2Ev(ptr noundef nonnull alig
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

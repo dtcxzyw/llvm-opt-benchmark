@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.llvm_atomic_ordering = private unnamed_addr constant [7 x i32] [i32 0, i32 1, i32 2, i32 4, i32 5, i32 6, i32 7], align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_cond_br_raw(ptr nocapture noundef initializes((80, 88)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_cond_br_raw(ptr noundef captures(none) initializes((80, 88)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @LLVMBuildCondBr(ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4
@@ -33,7 +33,7 @@ declare ptr @LLVMBuildCondBr(ptr noundef, ptr noundef, ptr noundef, ptr noundef)
 declare void @LLVMClearInsertionPosition(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_cond_br(ptr nocapture noundef initializes((80, 88)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_cond_br(ptr noundef captures(none) initializes((80, 88)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16

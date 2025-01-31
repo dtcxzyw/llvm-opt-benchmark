@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.custom_ext_add = private unnamed_addr constant [15 x i8] c"custom_ext_add\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @custom_ext_find(ptr nocapture noundef readonly %exts, i32 noundef %role, i32 noundef %ext_type, ptr noundef writeonly %idx) local_unnamed_addr #0 {
+define noundef ptr @custom_ext_find(ptr noundef readonly captures(none) %exts, i32 noundef %role, i32 noundef %ext_type, ptr noundef writeonly %idx) local_unnamed_addr #0 {
 entry:
   %meths_count = getelementptr inbounds nuw i8, ptr %exts, i64 8
   %0 = load i64, ptr %meths_count, align 8
@@ -74,7 +74,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @custom_ext_init(ptr nocapture noundef readonly %exts) local_unnamed_addr #1 {
+define void @custom_ext_init(ptr noundef readonly captures(none) %exts) local_unnamed_addr #1 {
 entry:
   %meths_count = getelementptr inbounds nuw i8, ptr %exts, i64 8
   %0 = load i64, ptr %meths_count, align 8
@@ -451,7 +451,7 @@ declare i32 @WPACKET_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i32 @WPACKET_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @custom_exts_copy_flags(ptr nocapture noundef readonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #4 {
+define noundef i32 @custom_exts_copy_flags(ptr noundef readonly captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #4 {
 entry:
   %meths_count = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i64, ptr %meths_count, align 8
@@ -543,7 +543,7 @@ for.end:                                          ; preds = %for.inc, %for.body.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @custom_exts_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @custom_exts_copy(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #2 {
 entry:
   %meths_count = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i64, ptr %meths_count, align 8
@@ -675,7 +675,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @custom_ext_add_old_cb_wrap(ptr noundef %s, i32 noundef %ext_type, i32 %context, ptr noundef %out, ptr noundef %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr noundef %al, ptr nocapture noundef readonly %add_arg) #2 {
+define internal i32 @custom_ext_add_old_cb_wrap(ptr noundef %s, i32 noundef %ext_type, i32 %context, ptr noundef %out, ptr noundef %outlen, ptr readnone captures(none) %x, i64 %chainidx, ptr noundef %al, ptr noundef readonly captures(none) %add_arg) #2 {
 entry:
   %add_cb = getelementptr inbounds nuw i8, ptr %add_arg, i64 8
   %0 = load ptr, ptr %add_cb, align 8
@@ -693,7 +693,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define void @custom_exts_free(ptr nocapture noundef %exts) local_unnamed_addr #2 {
+define void @custom_exts_free(ptr noundef captures(none) %exts) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %exts, align 8
   %meths_count = getelementptr inbounds nuw i8, ptr %exts, i64 8
@@ -741,7 +741,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_has_client_custom_ext(ptr nocapture noundef readonly %ctx, i32 noundef %ext_type) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @SSL_CTX_has_client_custom_ext(ptr noundef readonly captures(none) %ctx, i32 noundef %ext_type) local_unnamed_addr #5 {
 entry:
   %cert = getelementptr inbounds nuw i8, ptr %ctx, i64 344
   %0 = load ptr, ptr %cert, align 8
@@ -956,7 +956,7 @@ return:                                           ; preds = %entry, %entry, %ent
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @SSL_CTX_add_client_custom_ext(ptr noundef %ctx, i32 noundef %ext_type, ptr noundef %add_cb, ptr noundef %free_cb, ptr noundef %add_arg, ptr noundef %parse_cb, ptr noundef %parse_arg) local_unnamed_addr #2 {
@@ -1038,7 +1038,7 @@ entry:
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @custom_ext_free_old_cb_wrap(ptr noundef %s, i32 noundef %ext_type, i32 %context, ptr noundef %out, ptr nocapture noundef readonly %add_arg) #2 {
+define internal void @custom_ext_free_old_cb_wrap(ptr noundef %s, i32 noundef %ext_type, i32 %context, ptr noundef %out, ptr noundef readonly captures(none) %add_arg) #2 {
 entry:
   %free_cb = getelementptr inbounds nuw i8, ptr %add_arg, i64 16
   %0 = load ptr, ptr %free_cb, align 8
@@ -1055,7 +1055,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @custom_ext_parse_old_cb_wrap(ptr noundef %s, i32 noundef %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr nocapture readnone %x, i64 %chainidx, ptr noundef %al, ptr nocapture noundef readonly %parse_arg) #2 {
+define internal i32 @custom_ext_parse_old_cb_wrap(ptr noundef %s, i32 noundef %ext_type, i32 %context, ptr noundef %in, i64 noundef %inlen, ptr readnone captures(none) %x, i64 %chainidx, ptr noundef %al, ptr noundef readonly captures(none) %parse_arg) #2 {
 entry:
   %parse_cb = getelementptr inbounds nuw i8, ptr %parse_arg, i64 8
   %0 = load ptr, ptr %parse_cb, align 8

@@ -268,7 +268,7 @@ define internal void @start_pass_phuff(ptr noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_DC_first(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -444,7 +444,7 @@ emit_symbol.exit:                                 ; preds = %61, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -825,7 +825,7 @@ emit_symbol.exit:                                 ; preds = %._crit_edge.i, %78,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_DC_refine(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_DC_refine(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -914,7 +914,7 @@ define internal noundef i32 @encode_mcu_DC_refine(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @encode_mcu_AC_refine(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal noundef i32 @encode_mcu_AC_refine(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [64 x i32], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %5 = load ptr, ptr %4, align 8
@@ -2196,7 +2196,7 @@ define internal void @finish_pass_gather_phuff(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @finish_pass_phuff(ptr nocapture noundef readonly %0) #0 {
+define internal void @finish_pass_phuff(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -2226,12 +2226,12 @@ define internal void @finish_pass_phuff(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @jMkCDerived(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_restart(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @emit_restart(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   tail call fastcc void @emit_eobrun(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
@@ -2373,7 +2373,7 @@ dump_buffer.exit18:                               ; preds = %41, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_bits(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @emit_bits(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %2, 0
@@ -2523,7 +2523,7 @@ dump_buffer.exit32:                               ; preds = %65, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_eobrun(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @emit_eobrun(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %.lr.ph [

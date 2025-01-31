@@ -145,7 +145,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ivshmem_common_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ivshmem_common_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #11
@@ -441,7 +441,7 @@ if.then18.i:                                      ; preds = %ivshmem_recv_msg.ex
   br label %ivshmem_recv_setup.exit
 
 if.end19.i:                                       ; preds = %ivshmem_recv_msg.exit65.i
-  call fastcc void @process_msg(ptr noundef %call.i, i64 noundef %retval.0.i60.i, i32 noundef %fd.3.i, ptr noundef %err.i)
+  call fastcc void @process_msg(ptr noundef nonnull %call.i, i64 noundef %retval.0.i60.i, i32 noundef %fd.3.i, ptr noundef %err.i)
   %22 = load ptr, ptr %err.i, align 8
   %tobool20.not.i = icmp eq ptr %22, null
   br i1 %tobool20.not.i, label %do.cond.i, label %if.then21.i
@@ -841,7 +841,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @qemu_chr_fe_set_handlers(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 1, 9) i32 @ivshmem_can_receive(ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 1, 9) i32 @ivshmem_can_receive(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %msg_buffered_bytes = getelementptr inbounds nuw i8, ptr %opaque, i64 3296
   %0 = load i32, ptr %msg_buffered_bytes, align 16
@@ -858,7 +858,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ivshmem_read(ptr noundef %opaque, ptr nocapture noundef readonly %buf, i32 noundef %size) #0 {
+define internal void @ivshmem_read(ptr noundef %opaque, ptr noundef readonly captures(none) %buf, i32 noundef %size) #0 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -915,7 +915,7 @@ declare void @vmstate_register_ram(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 0, 4294967296) i64 @ivshmem_io_read(ptr nocapture noundef %opaque, i64 noundef %addr, i32 %size) #3 {
+define internal range(i64 0, 4294967296) i64 @ivshmem_io_read(ptr noundef captures(none) %opaque, i64 noundef %addr, i32 %size) #3 {
 entry:
   switch i64 %addr, label %sw.epilog [
     i64 0, label %sw.bb
@@ -946,7 +946,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb3, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ivshmem_io_write(ptr nocapture noundef %opaque, i64 noundef %addr, i64 noundef %val, i32 %size) #0 {
+define internal void @ivshmem_io_write(ptr noundef captures(none) %opaque, i64 noundef %addr, i64 noundef %val, i32 %size) #0 {
 entry:
   %shr = lshr i64 %val, 16
   %0 = trunc i64 %val to i32
@@ -1282,7 +1282,7 @@ declare i32 @qemu_chr_fe_get_msgfd(ptr noundef) local_unnamed_addr #1
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #6
@@ -1412,7 +1412,7 @@ declare i32 @event_notifier_test_and_clear(ptr noundef) local_unnamed_addr #1
 declare void @msix_notify(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare i32 @kvm_irqchip_add_msi_route(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1582,7 +1582,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %iv
 
 if.then4:                                         ; preds = %for.body
   %6 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @ivshmem_vector_mask(ptr noundef %call.i, i32 noundef %6)
+  tail call void @ivshmem_vector_mask(ptr noundef nonnull %call.i, i32 noundef %6)
   %.pre = load ptr, ptr %msi_vectors, align 16
   br label %if.end5
 
@@ -1792,7 +1792,7 @@ declare void @kvm_irqchip_release_virq(ptr noundef, i32 noundef) local_unnamed_a
 declare void @msix_unset_vector_notifiers(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ivshmem_plain_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ivshmem_plain_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #11
@@ -1842,7 +1842,7 @@ declare zeroext i1 @host_memory_backend_is_mapped(ptr noundef) local_unnamed_add
 declare ptr @object_get_canonical_path_component(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @ivshmem_pre_load(ptr nocapture noundef readonly %opaque) #0 {
+define internal range(i32 -22, 1) i32 @ivshmem_pre_load(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %0 = getelementptr i8, ptr %opaque, i64 3300
   %opaque.val = load i32, ptr %0, align 4
@@ -1904,7 +1904,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ivshmem_doorbell_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @ivshmem_doorbell_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #11
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #11
@@ -1942,10 +1942,10 @@ declare zeroext i1 @qemu_chr_fe_backend_connected(ptr noundef) local_unnamed_add
 declare i32 @llvm.umin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

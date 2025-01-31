@@ -192,7 +192,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   store i64 7, ptr %agg.tmp3.i, align 8
   %13 = getelementptr inbounds nuw i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %13, align 8
-  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3620, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4222, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4423)
+  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr nonnull %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3620, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4222, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4423)
           to label %invoke.cont45 unwind label %lpad37
 
 invoke.cont45:                                    ; preds = %invoke.cont29
@@ -438,7 +438,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   store i64 7, ptr %agg.tmp3.i, align 8
   %13 = getelementptr inbounds nuw i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %13, align 8
-  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3423, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3725, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3926)
+  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr nonnull %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3423, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3725, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3926)
           to label %invoke.cont41 unwind label %lpad40
 
 invoke.cont41:                                    ; preds = %invoke.cont27
@@ -582,7 +582,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   store i64 7, ptr %agg.tmp3.i, align 8
   %15 = getelementptr inbounds nuw i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source19kErrorSourceRuntimeE, ptr %15, align 8
-  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3421, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3823, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4024)
+  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 %call.i.i, ptr nonnull %10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3421, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3823, i1 noundef zeroext %tobool, i32 noundef 1, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp4024)
           to label %invoke.cont42 unwind label %lpad41
 
 invoke.cont42:                                    ; preds = %invoke.cont27
@@ -656,7 +656,7 @@ entry:
   store i64 4, ptr %agg.tmp3.i, align 8
   %7 = getelementptr inbounds nuw i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %7, align 8
-  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp113, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp415, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp516)
+  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr nonnull %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp113, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp415, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp516)
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %entry
@@ -800,7 +800,7 @@ entry:
   store i64 4, ptr %agg.tmp3.i, align 8
   %7 = getelementptr inbounds nuw i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %7, align 8
-  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp115, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp317, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp418)
+  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr nonnull %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp115, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp317, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp418)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -864,7 +864,7 @@ entry:
   store i64 4, ptr %agg.tmp3.i, align 8
   %9 = getelementptr inbounds nuw i8, ptr %agg.tmp3.i, i64 8
   store ptr @_ZN8facebook5velox12error_source16kErrorSourceUserE, ptr %9, align 8
-  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp113, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp415, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp516)
+  invoke void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24) %exception, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 %call.i.i, ptr nonnull %4, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp113, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp3.i, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp415, i1 noundef zeroext %tobool, i32 noundef 0, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp516)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
@@ -884,7 +884,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_ZN8facebook5velox14VeloxExceptionC2EPKcmS3_St17basic_string_viewIcSt11char_traitsIcEES7_S7_S7_bNS1_4TypeES7_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef, ptr noundef, i64, ptr, ptr noundef byval(%"class.std::basic_string_view") align 8, ptr noundef byval(%"class.std::basic_string_view") align 8, ptr noundef byval(%"class.std::basic_string_view") align 8, i1 noundef zeroext, i32 noundef, ptr noundef byval(%"class.std::basic_string_view") align 8) unnamed_addr #1
 
@@ -1238,13 +1238,13 @@ _ZN8facebook5velox14VeloxUserErrorD2Ev.exit:      ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+avx,+avx2,+bmi2,+cmov,+crc32,+cx8,+f16c,+fma,+fxsr,+lzcnt,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87,+xsave" "tune-cpu"="generic" }

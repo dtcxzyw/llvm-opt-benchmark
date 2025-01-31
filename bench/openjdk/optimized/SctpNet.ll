@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [13 x i8] c"libsctp.so.1\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @JNI_OnLoad(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define noundef i32 @JNI_OnLoad(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret i32 65538
 }
 
@@ -125,7 +125,7 @@ define hidden range(i32 -5, 1) i32 @sctpHandleSocketError(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_init(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_init(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca [2 x i32], align 4
   %4 = call i32 @socketpair(i32 noundef 1, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3) #10
   %5 = icmp slt i32 %4, 0
@@ -158,7 +158,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare void @initInetAddressIDs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_sctp_SctpNet_socket0(ptr noundef %0, ptr nocapture noundef readnone %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
+define range(i32 -5, -2147483648) i32 @Java_sun_nio_ch_sctp_SctpNet_socket0(ptr noundef %0, ptr noundef readnone captures(none) %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = alloca %struct.sctp_event_subscribe, align 8
   %5 = tail call i32 (...) @ipv6_available() #10
   %.not = icmp eq i32 %5, 0
@@ -292,13 +292,13 @@ declare i32 @ipv6_available(...) local_unnamed_addr #3
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind
 declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_bindx(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_bindx(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i8 noundef zeroext %6, i8 noundef zeroext %7) local_unnamed_addr #1 {
   %9 = icmp slt i32 %5, 1
   br i1 %9, label %32, label %10
 
@@ -363,10 +363,10 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @NET_InetAddressToSockaddr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_listen0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_listen0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call i32 @listen(i32 noundef %2, i32 noundef %3) #10
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %7, label %11
@@ -385,7 +385,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_listen0(ptr noundef %0, ptr nocapture 
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 2) i32 @Java_sun_nio_ch_sctp_SctpNet_connect0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define range(i32 -5, 2) i32 @Java_sun_nio_ch_sctp_SctpNet_connect0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %union.SOCKETADDRESS, align 4
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
@@ -422,7 +422,7 @@ define range(i32 -5, 2) i32 @Java_sun_nio_ch_sctp_SctpNet_connect0(ptr noundef %
 declare i32 @connect(i32 noundef, ptr, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_close0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_close0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %8, label %4
 
@@ -440,7 +440,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_close0(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_preClose0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_preClose0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr @preCloseFD, align 4
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %10
@@ -573,7 +573,7 @@ initializeISA.exit.thread:                        ; preds = %21, %initializeISA.
 declare ptr @NET_SockaddrToInetAddress(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_ch_sctp_SctpNet_getLocalAddresses0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @Java_sun_nio_ch_sctp_SctpNet_getLocalAddresses0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = load ptr, ptr @nio_sctp_getladdrs, align 8
@@ -823,13 +823,13 @@ initializeISA.exit.thread:                        ; preds = %30, %initializeISA.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_ch_sctp_SctpNet_getRemoteAddresses0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @Java_sun_nio_ch_sctp_SctpNet_getRemoteAddresses0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @getRemoteAddresses(ptr noundef %0, i32 noundef %2, i32 noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 -1, 1) i32 @mapSocketOption(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define hidden range(i32 -1, 1) i32 @mapSocketOption(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   br label %5
 
 4:                                                ; preds = %5
@@ -859,7 +859,7 @@ define hidden range(i32 -1, 1) i32 @mapSocketOption(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_setIntOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_setIntOption0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.linger, align 4
   store i32 %4, ptr %6, align 4
@@ -916,7 +916,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setIntOption0(ptr noundef %0, ptr noca
 declare i32 @NET_SetSockOpt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_sctp_SctpNet_getIntOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @Java_sun_nio_ch_sctp_SctpNet_getIntOption0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.linger, align 8
   %7 = alloca i32, align 4
@@ -979,7 +979,7 @@ define i32 @Java_sun_nio_ch_sctp_SctpNet_getIntOption0(ptr noundef %0, ptr nocap
 declare i32 @NET_GetSockOpt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_nio_ch_sctp_SctpNet_getPrimAddrOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @Java_sun_nio_ch_sctp_SctpNet_getPrimAddrOption0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.sctp_setprim, align 4
   %6 = alloca i32, align 4
   store i32 132, ptr %6, align 4
@@ -1006,7 +1006,7 @@ define ptr @Java_sun_nio_ch_sctp_SctpNet_getPrimAddrOption0(ptr noundef %0, ptr 
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_setPrimAddrOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_setPrimAddrOption0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.sctp_setprim, align 4
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %8, ptr noundef null, i8 noundef zeroext 1) #10
@@ -1028,7 +1028,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setPrimAddrOption0(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_setPeerPrimAddrOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_setPeerPrimAddrOption0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i8 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = alloca %struct.sctp_setpeerprim, align 4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = call i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %4, i32 noundef %5, ptr noundef nonnull %9, ptr noundef null, i8 noundef zeroext %6) #10
@@ -1050,7 +1050,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setPeerPrimAddrOption0(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_getInitMsgOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_getInitMsgOption0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.sctp_initmsg, align 2
   %6 = alloca i32, align 4
   %7 = alloca [2 x i32], align 4
@@ -1083,7 +1083,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_getInitMsgOption0(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_setInitMsgOption0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_setInitMsgOption0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.sctp_initmsg, align 2
   %7 = trunc i32 %3 to i16
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -1107,7 +1107,7 @@ define void @Java_sun_nio_ch_sctp_SctpNet_setInitMsgOption0(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_nio_ch_sctp_SctpNet_shutdown0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @Java_sun_nio_ch_sctp_SctpNet_shutdown0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca [1 x %struct.msghdr], align 16
   %6 = alloca [1 x %struct.iovec], align 16
   %7 = alloca [48 x i8], align 16
@@ -1168,7 +1168,7 @@ declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #4
 declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_sun_nio_ch_sctp_SctpNet_branch0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @Java_sun_nio_ch_sctp_SctpNet_branch0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = load ptr, ptr @nio_sctp_peeloff, align 8
   %6 = tail call i32 %5(i32 noundef %2, i32 noundef %3) #10
   %7 = icmp slt i32 %6, 0

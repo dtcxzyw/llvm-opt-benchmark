@@ -34,7 +34,7 @@ define void @_Z11InitConsolev() local_unnamed_addr #2 {
 declare i32 @isatty(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define void @_Z19SetConsoleMsgStream12MESSAGE_TYPE(i32 noundef %0) local_unnamed_addr #5 {

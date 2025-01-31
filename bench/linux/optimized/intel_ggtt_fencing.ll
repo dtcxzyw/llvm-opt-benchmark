@@ -51,7 +51,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_vma_revoke_fence(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_vma_revoke_fence(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -92,13 +92,13 @@ define dso_local void @i915_vma_revoke_fence(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @intel_runtime_pm_get_if_active(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fence_write(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @fence_write(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 304
@@ -361,7 +361,7 @@ define internal fastcc void @fence_write(ptr nocapture noundef readonly %0) unna
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @__i915_vma_pin_fence(ptr noundef %0) local_unnamed_addr #0 align 16 {
@@ -897,7 +897,7 @@ define dso_local void @i915_unreserve_fence(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_ggtt_restore_fences(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_ggtt_restore_fences(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 828
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -923,7 +923,7 @@ define dso_local void @intel_ggtt_restore_fences(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [64 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %5 = load ptr, ptr %4, align 8
@@ -1071,13 +1071,13 @@ define dso_local void @i915_gem_object_do_bit_17_swizzle(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @set_page_dirty(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_object_save_bit_17_swizzle(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_object_save_bit_17_swizzle(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1534,7 +1534,7 @@ declare dso_local zeroext i1 @intel_vgpu_active(ptr noundef) local_unnamed_addr 
 declare dso_local void @__i915_active_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_ggtt_fini_fences(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_ggtt_fini_fences(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 828
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1569,7 +1569,7 @@ declare dso_local void @i915_active_fini(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_init_swizzling(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_init_swizzling(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8

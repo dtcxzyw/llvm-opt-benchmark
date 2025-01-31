@@ -89,7 +89,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_kernel_read_
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_kernel_read_file331, ptr @__UNIQUE_ID___addressable_kernel_read_file_from_fd334, ptr @__UNIQUE_ID___addressable_kernel_read_file_from_path332, ptr @__UNIQUE_ID___addressable_kernel_read_file_from_path_initns333], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 align 16 {
+define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 align 16 {
   %7 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   %8 = icmp eq i64 %1, 0
@@ -261,7 +261,7 @@ define dso_local i64 @kernel_read_file(ptr noundef %0, i64 noundef %1, ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @security_kernel_read_file(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
@@ -270,7 +270,7 @@ declare dso_local i32 @security_kernel_read_file(ptr noundef, i32 noundef, i1 no
 declare dso_local noalias ptr @vmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @kernel_read(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
@@ -282,7 +282,7 @@ declare dso_local i32 @security_kernel_post_read_file(ptr noundef, ptr noundef, 
 declare dso_local void @vfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @kernel_read_file_from_path(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local i64 @kernel_read_file_from_path(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %18, label %8
 
@@ -317,7 +317,7 @@ declare dso_local ptr @filp_open(ptr noundef, i32 noundef, i16 noundef zeroext) 
 declare dso_local void @fput(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @kernel_read_file_from_path_initns(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local i64 @kernel_read_file_from_path_initns(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
   %7 = alloca %struct.path, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
   %8 = icmp eq ptr %0, null
@@ -365,7 +365,7 @@ declare dso_local ptr @file_open_root(ptr noundef, ptr noundef, i32 noundef, i16
 declare dso_local void @path_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @kernel_read_file_from_fd(i32 noundef %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local i64 @kernel_read_file_from_fd(i32 noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef %4, i32 noundef %5) #0 align 16 {
   %7 = tail call i64 @__fdget(i32 noundef %0) #7
   %8 = and i64 %7, -4
   %9 = inttoptr i64 %8 to ptr
@@ -404,7 +404,7 @@ declare void @llvm.assume(i1 noundef) #4
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @path_get(ptr noundef) local_unnamed_addr #2

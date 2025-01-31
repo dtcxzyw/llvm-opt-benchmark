@@ -91,7 +91,7 @@ $_ZTIN3irr3gui14IGUIFontBitmapE = comdat any
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFontC2EPNS0_15IGUIEnvironmentERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 33), (48, 52), (56, 64)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFontC2EPNS0_15IGUIEnvironmentERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 33), (48, 52), (56, 64)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds nuw i8, ptr %vtt, i64 16
@@ -310,7 +310,7 @@ if.end34:                                         ; preds = %if.then28, %if.end2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFontD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFontD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -447,7 +447,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFont12setMaxHeightEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFont12setMaxHeightEv(ptr noundef nonnull align 8 captures(none) dereferenceable(160) %this) local_unnamed_addr #0 align 2 {
 entry:
   %SpriteBank = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %SpriteBank, align 8, !tbaa !41
@@ -544,13 +544,13 @@ return:                                           ; preds = %if.then8.epil, %for
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFont24pushTextureCreationFlagsERA3_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(3) initializes((0, 3)) %flags) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFont24pushTextureCreationFlagsERA3_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(3) initializes((0, 3)) %flags) local_unnamed_addr #0 align 2 {
 entry:
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %Driver, align 8, !tbaa !40
@@ -595,7 +595,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFont23popTextureCreationFlagsERA3_Kb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %flags) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFont23popTextureCreationFlagsERA3_Kb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(3) %flags) local_unnamed_addr #0 align 2 {
 entry:
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %Driver, align 8, !tbaa !40
@@ -1044,7 +1044,7 @@ return:                                           ; preds = %if.end, %entry
 declare void @_ZN3irr2os7Printer3logEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFont13readPositionsEPNS_5video6IImageERi(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %image, ptr nocapture noundef nonnull align 4 dereferenceable(4) %lowerRightPositions) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFont13readPositionsEPNS_5video6IImageERi(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef %image, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %lowerRightPositions) local_unnamed_addr #0 align 2 {
 entry:
   %colorTopLeft = alloca %"class.irr::video::SColor", align 4
   %colorBackGround = alloca %"class.irr::video::SColor", align 4
@@ -1581,7 +1581,7 @@ cleanup:                                          ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIwiSt4lessIwESaISt4pairIKwiEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %__k) local_unnamed_addr #0 comdat align 2 {
@@ -1662,7 +1662,7 @@ if.end:                                           ; preds = %if.then.i.i, %clean
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui8CGUIFont15setKerningWidthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((120, 124)) %this, i32 noundef %kerning) unnamed_addr #7 align 2 {
+define void @_ZN3irr3gui8CGUIFont15setKerningWidthEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((120, 124)) %this, i32 noundef %kerning) unnamed_addr #7 align 2 {
 entry:
   %GlobalKerningWidth = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i32 %kerning, ptr %GlobalKerningWidth, align 8, !tbaa !126
@@ -1778,7 +1778,7 @@ if.end9:                                          ; preds = %_ZNK3irr3gui8CGUIFo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui8CGUIFont16setKerningHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((124, 128)) %this, i32 noundef %kerning) unnamed_addr #7 align 2 {
+define void @_ZN3irr3gui8CGUIFont16setKerningHeightEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(160) initializes((124, 128)) %this, i32 noundef %kerning) unnamed_addr #7 align 2 {
 entry:
   %GlobalKerningHeight = getelementptr inbounds nuw i8, ptr %this, i64 124
   store i32 %kerning, ptr %GlobalKerningHeight, align 4, !tbaa !130
@@ -1786,7 +1786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui8CGUIFont16getKerningHeightEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #8 align 2 {
+define noundef i32 @_ZNK3irr3gui8CGUIFont16getKerningHeightEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #8 align 2 {
 entry:
   %GlobalKerningHeight = getelementptr inbounds nuw i8, ptr %this, i64 124
   %0 = load i32, ptr %GlobalKerningHeight, align 4, !tbaa !130
@@ -1794,7 +1794,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr3gui8CGUIFont19getSpriteNoFromCharEPKw(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef readonly %c) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui8CGUIFont19getSpriteNoFromCharEPKw(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly captures(none) %c) unnamed_addr #5 align 2 {
 entry:
   %0 = load i32, ptr %c, align 4, !tbaa !38
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -1973,7 +1973,7 @@ _ZN3irr4core6stringIwEaSIwEERS2_PKT_.exit:        ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @_ZNK3irr3gui8CGUIFont12getDimensionEPKw(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef readonly %text) unnamed_addr #5 align 2 {
+define i64 @_ZNK3irr3gui8CGUIFont12getDimensionEPKw(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly captures(none) %text) unnamed_addr #5 align 2 {
 entry:
   %MaxHeight = getelementptr inbounds nuw i8, ptr %this, i64 116
   %0 = load i32, ptr %MaxHeight, align 4, !tbaa !47
@@ -2128,7 +2128,7 @@ cleanup:                                          ; preds = %_ZNK3irr3gui8CGUIFo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUIFont4drawERKNS_4core6stringIwEERKNS2_4rectIiEENS_5video6SColorEbbPS9_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %text, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %position, i32 %color.coerce, i1 noundef zeroext %hcenter, i1 noundef zeroext %vcenter, ptr noundef %clip) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUIFont4drawERKNS_4core6stringIwEERKNS2_4rectIiEENS_5video6SColorEbbPS9_(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %text, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %position, i32 %color.coerce, i1 noundef zeroext %hcenter, i1 noundef zeroext %vcenter, ptr noundef %clip) unnamed_addr #0 align 2 {
 entry:
   %color = alloca %"class.irr::video::SColor", align 4
   %indices = alloca %"class.irr::core::array.34", align 8
@@ -2610,7 +2610,7 @@ cleanup.cont87:                                   ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK3irr3gui8CGUIFont19getCharacterFromPosEPKwi(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr nocapture noundef readonly %text, i32 noundef %pixel_x) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui8CGUIFont19getCharacterFromPosEPKwi(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef readonly captures(none) %text, i32 noundef %pixel_x) unnamed_addr #5 align 2 {
 entry:
   %Areas = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -2717,7 +2717,7 @@ cleanup8:                                         ; preds = %while.cond, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK3irr3gui8CGUIFont13getSpriteBankEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #8 align 2 {
+define noundef ptr @_ZNK3irr3gui8CGUIFont13getSpriteBankEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #8 align 2 {
 entry:
   %SpriteBank = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %SpriteBank, align 8, !tbaa !41
@@ -2822,7 +2822,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
 declare void @llvm.trap() #12
@@ -3452,12 +3452,12 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #17
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #17
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4findEwm(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef signext, i64 noundef) local_unnamed_addr #16

@@ -60,7 +60,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @input_linux_instance_init(ptr nocapture readnone %obj) #2 {
+define internal void @input_linux_instance_init(ptr readnone captures(none) %obj) #2 {
 entry:
   ret void
 }
@@ -111,7 +111,7 @@ if.end18:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @input_linux_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @input_linux_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.9, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #8
   %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -409,7 +409,7 @@ return:                                           ; preds = %err_close, %do.body
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @input_linux_get_evdev(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @input_linux_get_evdev(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
   %evdev = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -443,7 +443,7 @@ return:                                           ; preds = %if.end, %if.then
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @input_linux_get_grab_all(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @input_linux_get_grab_all(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
   %grab_all = getelementptr inbounds nuw i8, ptr %call.i, i64 55
@@ -453,7 +453,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @input_linux_set_grab_all(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @input_linux_set_grab_all(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
@@ -463,7 +463,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @input_linux_get_repeat(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @input_linux_get_repeat(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
   %repeat = getelementptr inbounds nuw i8, ptr %call.i, i64 52
@@ -473,7 +473,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @input_linux_set_repeat(ptr noundef %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #0 {
+define internal void @input_linux_set_repeat(ptr noundef %obj, i1 noundef zeroext %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %value to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
@@ -485,7 +485,7 @@ entry:
 declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @input_linux_get_grab_toggle(ptr noundef %obj, ptr nocapture readnone %errp) #0 {
+define internal i32 @input_linux_get_grab_toggle(ptr noundef %obj, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
   %grab_toggle = getelementptr inbounds nuw i8, ptr %call.i, i64 892
@@ -494,7 +494,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @input_linux_set_grab_toggle(ptr noundef %obj, i32 noundef %value, ptr nocapture readnone %errp) #0 {
+define internal void @input_linux_set_grab_toggle(ptr noundef %obj, i32 noundef %value, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, i32 noundef 35, ptr noundef nonnull @__func__.INPUT_LINUX) #8
   %grab_toggle = getelementptr inbounds nuw i8, ptr %call.i, i64 892
@@ -507,7 +507,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 declare void @error_setg_file_open_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -522,7 +522,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @input_linux_event(ptr noundef %opaque) #0 {
@@ -1005,10 +1005,10 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5

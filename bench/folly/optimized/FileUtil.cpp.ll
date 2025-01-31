@@ -33,7 +33,7 @@ $_ZNSt12system_errorC2EiRKNSt3_V214error_categoryERKNSt7__cxx1112basic_stringIcS
 @_ZTVSt12system_error = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i32 @_ZN5folly9openNoIntEPKcij(ptr nocapture noundef readonly %name, i32 noundef %flags, i32 noundef %mode) local_unnamed_addr #0 {
+define noundef i32 @_ZN5folly9openNoIntEPKcij(ptr noundef readonly captures(none) %name, i32 noundef %flags, i32 noundef %mode) local_unnamed_addr #0 {
 entry:
   br label %do.body.i
 
@@ -53,19 +53,19 @@ land.rhs.i:                                       ; preds = %do.body.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #4
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly10closeNoIntEi(i32 noundef %fd) local_unnamed_addr #5 {
@@ -295,7 +295,7 @@ _ZN5folly15fileutil_detail9wrapNoIntIPFiNS_13NetworkSocketEiEJS2_iEEElT_DpT0_.ex
 declare noundef i32 @_ZN5folly6netops8shutdownENS_13NetworkSocketEi(i32, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef %fd, ptr nocapture noundef %buf, i64 noundef %count) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef %fd, ptr noundef captures(none) %buf, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   br label %do.body.i
 
@@ -315,10 +315,10 @@ _ZN5folly15fileutil_detail9wrapNoIntIPFliPvmEJiS2_mEEElT_DpT0_.exit: ; preds = %
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i64 @_ZN5folly10preadNoIntEiPvml(i32 noundef %fd, ptr nocapture noundef %buf, i64 noundef %count, i64 noundef %offset) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly10preadNoIntEiPvml(i32 noundef %fd, ptr noundef captures(none) %buf, i64 noundef %count, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   br label %do.body.i
 
@@ -338,7 +338,7 @@ _ZN5folly15fileutil_detail9wrapNoIntIPFliPvmlEJiS2_mlEEElT_DpT0_.exit: ; preds =
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @pread(i32 noundef, ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5folly10readvNoIntEiPK5ioveci(i32 noundef %fd, ptr noundef %iov, i32 noundef %count) local_unnamed_addr #5 {
@@ -385,7 +385,7 @@ _ZN5folly15fileutil_detail9wrapNoIntIPFliPK5iovecilEJiS4_ilEEElT_DpT0_.exit: ; p
 declare i64 @preadv(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i64 @_ZN5folly10writeNoIntEiPKvm(i32 noundef %fd, ptr nocapture noundef readonly %buf, i64 noundef %count) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly10writeNoIntEiPKvm(i32 noundef %fd, ptr noundef readonly captures(none) %buf, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   br label %do.body.i
 
@@ -405,10 +405,10 @@ _ZN5folly15fileutil_detail9wrapNoIntIPFliPKvmEJiS3_mEEElT_DpT0_.exit: ; preds = 
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i64 @_ZN5folly11pwriteNoIntEiPKvml(i32 noundef %fd, ptr nocapture noundef readonly %buf, i64 noundef %count, i64 noundef %offset) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly11pwriteNoIntEiPKvml(i32 noundef %fd, ptr noundef readonly captures(none) %buf, i64 noundef %count, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   br label %do.body.i
 
@@ -428,7 +428,7 @@ _ZN5folly15fileutil_detail9wrapNoIntIPFliPKvmlEJiS3_mlEEElT_DpT0_.exit: ; preds 
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @pwrite(i32 noundef, ptr nocapture noundef readonly, i64 noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @pwrite(i32 noundef, ptr noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define noundef i64 @_ZN5folly11writevNoIntEiPK5ioveci(i32 noundef %fd, ptr noundef %iov, i32 noundef %count) local_unnamed_addr #5 {
@@ -475,7 +475,7 @@ _ZN5folly15fileutil_detail9wrapNoIntIPFliPK5iovecilEJiS4_ilEEElT_DpT0_.exit: ; p
 declare i64 @pwritev(i32 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i64 @_ZN5folly8readFullEiPvm(i32 noundef %fd, ptr nocapture noundef %buf, i64 noundef %count) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8readFullEiPvm(i32 noundef %fd, ptr noundef captures(none) %buf, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   br label %do.body.i
 
@@ -514,7 +514,7 @@ _ZN5folly15fileutil_detail8wrapFullIPFliPvmEJEEElT_iS2_mDpT0_.exit: ; preds = %d
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i64 @_ZN5folly9preadFullEiPvml(i32 noundef %fd, ptr nocapture noundef %buf, i64 noundef %count, i64 noundef %offset) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly9preadFullEiPvml(i32 noundef %fd, ptr noundef captures(none) %buf, i64 noundef %count, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   br label %do.body.i
 
@@ -556,7 +556,7 @@ _ZN5folly15fileutil_detail8wrapFullIPFliPvmlEJlEEElT_iS2_mDpT0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i64 @_ZN5folly9writeFullEiPKvm(i32 noundef %fd, ptr nocapture noundef readonly %buf, i64 noundef %count) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly9writeFullEiPKvm(i32 noundef %fd, ptr noundef readonly captures(none) %buf, i64 noundef %count) local_unnamed_addr #0 {
 entry:
   br label %do.body.i
 
@@ -595,7 +595,7 @@ _ZN5folly15fileutil_detail8wrapFullIPFliPKvmEJEEElT_iPvmDpT0_.exit: ; preds = %d
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define noundef i64 @_ZN5folly10pwriteFullEiPKvml(i32 noundef %fd, ptr nocapture noundef readonly %buf, i64 noundef %count, i64 noundef %offset) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly10pwriteFullEiPKvml(i32 noundef %fd, ptr noundef readonly captures(none) %buf, i64 noundef %count, i64 noundef %offset) local_unnamed_addr #0 {
 entry:
   br label %do.body.i
 
@@ -1546,10 +1546,10 @@ declare i32 @mkstemp(ptr noundef) local_unnamed_addr #6
 declare i32 @fchmod(i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_12_GLOBAL__N_126writeFileAtomicNoThrowImplENS_5RangeIPKcEEP5ioveciRKNS_22WriteFileAtomicOptionsEE3$_0Lb1EED2Ev"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_12_GLOBAL__N_126writeFileAtomicNoThrowImplENS_5RangeIPKcEEP5ioveciRKNS_22WriteFileAtomicOptionsEE3$_0Lb1EED2Ev"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i8, ptr %this, align 8, !tbaa !60, !range !69, !noundef !70
   %tobool.not = icmp eq i8 %0, 0
@@ -1597,7 +1597,7 @@ declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN5folly22writeFileAtomicNoThrowENS_5RangeIPKcEES3_RKNS_22WriteFileAtomicOptionsE(ptr %filename.coerce0, ptr %filename.coerce1, ptr %data.coerce0, ptr %data.coerce1, ptr noundef nonnull align 8 dereferenceable(40) %options) local_unnamed_addr #5 {
@@ -2042,7 +2042,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs, i64 noundef %call.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !56
   %2 = load ptr, ptr %call2.i, align 8, !tbaa !52
@@ -2452,7 +2452,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 

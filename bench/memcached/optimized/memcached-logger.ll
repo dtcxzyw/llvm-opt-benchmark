@@ -220,7 +220,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare ptr @bipbuf_new(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -311,12 +311,12 @@ declare ptr @bipbuf_request(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @bipbuf_push(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 0, 3) i32 @logger_add_watcher(ptr noundef %c, i32 noundef %sfd, i16 noundef zeroext %f) local_unnamed_addr #1 {
@@ -443,7 +443,7 @@ declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @logger_thread(ptr nocapture readnone %arg) #1 {
+define internal noundef ptr @logger_thread(ptr readnone captures(none) %arg) #1 {
 entry:
   %size.i = alloca i32, align 4
   %scratch.i = alloca [4096 x i8], align 16
@@ -756,7 +756,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 declare void @thread_setname(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare i32 @usleep(i32 noundef) local_unnamed_addr #5
 
@@ -1048,18 +1048,18 @@ declare ptr @bipbuf_peek_all(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare ptr @bipbuf_poll(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @logger_thread_close_watcher(ptr nocapture noundef nonnull %w) unnamed_addr #1 {
+define internal fastcc void @logger_thread_close_watcher(ptr noundef nonnull captures(none) %w) unnamed_addr #1 {
 entry:
   %id = getelementptr inbounds nuw i8, ptr %w, i64 12
   %0 = load i32, ptr %id, align 4
@@ -1119,7 +1119,7 @@ logger_set_flags.exit:                            ; preds = %for.body7.i, %for.c
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @sidethread_conn_close(ptr noundef) local_unnamed_addr #5
 
@@ -1132,7 +1132,7 @@ declare void @STATS_UNLOCK() local_unnamed_addr #5
 declare i32 @pthread_join(i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @_logger_log_text(ptr nocapture noundef %e, ptr nocapture noundef readonly %d, ptr nocapture readnone %entry1, ptr noundef %ap) #10 {
+define internal void @_logger_log_text(ptr noundef captures(none) %e, ptr noundef readonly captures(none) %d, ptr readnone captures(none) %entry1, ptr noundef %ap) #10 {
 entry:
   %0 = load i32, ptr %d, align 8
   %data = getelementptr inbounds nuw i8, ptr %e, i64 36
@@ -1156,7 +1156,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @_logger_parse_text(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #10 {
+define internal noundef i32 @_logger_parse_text(ptr noundef %e, ptr noundef writeonly captures(none) %scratch) #10 {
 entry:
   %tv = getelementptr inbounds nuw i8, ptr %e, i64 16
   %0 = load i64, ptr %tv, align 8
@@ -1171,7 +1171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_logger_log_evictions(ptr nocapture noundef writeonly initializes((32, 56)) %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture readnone %ap) #11 {
+define internal void @_logger_log_evictions(ptr noundef writeonly captures(none) initializes((32, 56)) %e, ptr readnone captures(none) %d, ptr noundef readonly captures(none) %entry1, ptr readnone captures(none) %ap) #11 {
 entry:
   %exptime = getelementptr inbounds nuw i8, ptr %entry1, i64 28
   %0 = load i32, ptr %exptime, align 4
@@ -1229,7 +1229,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_logger_parse_ee(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #1 {
+define internal noundef i32 @_logger_parse_ee(ptr noundef %e, ptr noundef writeonly captures(none) %scratch) #1 {
 entry:
   %keybuf = alloca [751 x i8], align 16
   %data = getelementptr inbounds nuw i8, ptr %e, i64 36
@@ -1266,7 +1266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_logger_log_item_get(ptr nocapture noundef writeonly initializes((32, 39), (40, 48)) %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #12 {
+define internal void @_logger_log_item_get(ptr noundef writeonly captures(none) initializes((32, 39), (40, 48)) %e, ptr readnone captures(none) %d, ptr readnone captures(none) %entry1, ptr noundef captures(none) %ap) #12 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1428,7 +1428,7 @@ vaarg.end55:                                      ; preds = %vaarg.in_mem51, %va
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_logger_parse_ige(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #1 {
+define internal noundef i32 @_logger_parse_ige(ptr noundef %e, ptr noundef writeonly captures(none) %scratch) #1 {
 entry:
   %keybuf = alloca [751 x i8], align 16
   %data = getelementptr inbounds nuw i8, ptr %e, i64 36
@@ -1463,7 +1463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_logger_log_item_store(ptr nocapture noundef writeonly initializes((32, 50), (52, 60)) %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #11 {
+define internal void @_logger_log_item_store(ptr noundef writeonly captures(none) initializes((32, 50), (52, 60)) %e, ptr readnone captures(none) %d, ptr readnone captures(none) %entry1, ptr noundef captures(none) %ap) #11 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1647,7 +1647,7 @@ if.end:                                           ; preds = %vaarg.end77, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_logger_parse_ise(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #1 {
+define internal noundef i32 @_logger_parse_ise(ptr noundef %e, ptr noundef writeonly captures(none) %scratch) #1 {
 entry:
   %keybuf = alloca [751 x i8], align 16
   %cmd1 = getelementptr inbounds nuw i8, ptr %e, i64 40
@@ -1697,7 +1697,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_logger_log_conn_event(ptr nocapture noundef writeonly initializes((32, 48)) %e, ptr nocapture readnone %d, ptr nocapture readnone %entry1, ptr nocapture noundef %ap) #12 {
+define internal void @_logger_log_conn_event(ptr noundef writeonly captures(none) initializes((32, 48)) %e, ptr readnone captures(none) %d, ptr readnone captures(none) %entry1, ptr noundef captures(none) %ap) #12 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -1827,7 +1827,7 @@ vaarg.end44:                                      ; preds = %vaarg.in_mem40, %va
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_logger_parse_cne(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #1 {
+define internal noundef i32 @_logger_parse_cne(ptr noundef %e, ptr noundef writeonly captures(none) %scratch) #1 {
 entry:
   %rip = alloca [64 x i8], align 16
   %addr = getelementptr inbounds nuw i8, ptr %e, i64 48
@@ -1882,7 +1882,7 @@ _logger_util_addr_endpoint.exit:                  ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_logger_parse_cce(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #1 {
+define internal noundef i32 @_logger_parse_cce(ptr noundef %e, ptr noundef writeonly captures(none) %scratch) #1 {
 entry:
   %rip = alloca [64 x i8], align 16
   %addr = getelementptr inbounds nuw i8, ptr %e, i64 48
@@ -1942,7 +1942,7 @@ _logger_util_addr_endpoint.exit:                  ; preds = %entry, %sw.bb.i, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_logger_log_item_deleted(ptr nocapture noundef writeonly initializes((32, 46)) %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #13 {
+define internal void @_logger_log_item_deleted(ptr noundef writeonly captures(none) initializes((32, 46)) %e, ptr readnone captures(none) %d, ptr noundef readonly captures(none) %entry1, ptr noundef captures(none) %ap) #13 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -2001,7 +2001,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_logger_parse_ide(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #1 {
+define internal noundef i32 @_logger_parse_ide(ptr noundef %e, ptr noundef writeonly captures(none) %scratch) #1 {
 entry:
   %keybuf = alloca [751 x i8], align 16
   %key = getelementptr inbounds nuw i8, ptr %e, i64 46
@@ -2043,7 +2043,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_logger_log_ext_write(ptr nocapture noundef writeonly initializes((32, 53)) %e, ptr nocapture readnone %d, ptr nocapture noundef readonly %entry1, ptr nocapture noundef %ap) #11 {
+define internal void @_logger_log_ext_write(ptr noundef writeonly captures(none) initializes((32, 53)) %e, ptr readnone captures(none) %d, ptr noundef readonly captures(none) %entry1, ptr noundef captures(none) %ap) #11 {
 entry:
   %gp_offset = load i32, ptr %ap, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
@@ -2123,7 +2123,7 @@ cond.end:                                         ; preds = %vaarg.end, %cond.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_logger_parse_extw(ptr noundef %e, ptr nocapture noundef writeonly %scratch) #1 {
+define internal noundef i32 @_logger_parse_extw(ptr noundef %e, ptr noundef writeonly captures(none) %scratch) #1 {
 entry:
   %keybuf = alloca [751 x i8], align 16
   %data = getelementptr inbounds nuw i8, ptr %e, i64 36
@@ -2158,10 +2158,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare zeroext i1 @uriencode(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
@@ -2184,10 +2184,10 @@ declare i32 @llvm.umin.i32(i32, i32) #16
 declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

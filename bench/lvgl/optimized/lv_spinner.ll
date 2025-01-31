@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_spinner_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_arc_class, ptr @lv_spinner_constructor, ptr null, ptr null, ptr null, ptr @.str, i32 0, i32 0, i8 0, i8 0, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_spinner_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_spinner_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 2) #3
   tail call void @lv_spinner_set_anim_params(ptr noundef %1, i32 noundef 1000, i32 noundef 200)
   ret void
@@ -27,14 +27,14 @@ define noundef ptr @lv_spinner_create(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_obj_class_create_obj(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define void @lv_spinner_set_anim_params(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {

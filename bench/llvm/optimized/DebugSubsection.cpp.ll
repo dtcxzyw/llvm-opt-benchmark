@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm8codeview15DebugSubsectionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm8codeview15DebugSubsectionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview18DebugSubsectionRefD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
@@ -27,12 +27,12 @@ define dso_local void @_ZN4llvm8codeview18DebugSubsectionRefD0Ev(ptr noundef non
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview15DebugSubsectionD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm8codeview15DebugSubsectionD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm8codeview15DebugSubsectionD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.trap() #7
   unreachable
 }

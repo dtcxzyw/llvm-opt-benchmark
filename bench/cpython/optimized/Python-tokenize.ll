@@ -925,7 +925,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tokenizemodule_traverse(ptr noundef %m, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @tokenizemodule_traverse(ptr noundef %m, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #4
   %0 = load ptr, ptr %call.i, align 8
@@ -1191,7 +1191,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @tokenizeriter_next(ptr nocapture noundef %it) #0 {
+define internal ptr @tokenizeriter_next(ptr noundef captures(none) %it) #0 {
 entry:
   %token = alloca %struct.token, align 8
   call void @_PyToken_Init(ptr noundef nonnull %token) #4
@@ -1732,7 +1732,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 

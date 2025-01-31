@@ -2379,7 +2379,7 @@ declare ptr @ARKodeButcherTable_Alloc(i32 noundef, i32 noundef) local_unnamed_ad
 declare void @arkProcessError(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @MRIStepCoupling_LoadTableByName(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @MRIStepCoupling_LoadTableByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(16) @.str.2, ptr noundef nonnull dereferenceable(1) %0) #18
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %1463, label %4
@@ -4218,7 +4218,7 @@ define noundef ptr @MRIStepCoupling_LoadTableByName(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
@@ -4766,7 +4766,7 @@ define noundef ptr @MRIStepCoupling_Copy(ptr noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @MRIStepCoupling_Space(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #6 {
+define void @MRIStepCoupling_Space(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #6 {
   store i64 0, ptr %1, align 8
   store i64 0, ptr %2, align 8
   %.not = icmp eq ptr %0, null
@@ -4829,10 +4829,10 @@ define void @MRIStepCoupling_Space(ptr noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
+define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -5103,10 +5103,10 @@ define void @MRIStepCoupling_Write(ptr noundef readonly %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 {
+define range(i32 -41, 4) i32 @mriStepCoupling_GetStageType(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %42, label %4
 
@@ -5342,13 +5342,13 @@ define range(i32 -22, 1) i32 @mriStepCoupling_GetStageMap(ptr noundef readonly %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14

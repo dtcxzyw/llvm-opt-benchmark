@@ -177,7 +177,7 @@ $_ZN5arrow13DecimalTraitsINS_15BasicDecimal256EE9kTypeNameE = comdat any
 @_ZN5arrow10Decimal256C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5arrow10Decimal256C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal128C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal128C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.arrow::Result", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -318,7 +318,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6ResultINS_10Decimal128EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1317,7 +1317,7 @@ _ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal128ENS0_24Decimal128R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow10Decimal12815ToIntegerStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow10Decimal12815ToIntegerStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abs = alloca %"class.arrow::Decimal128", align 8
   %ref.tmp = alloca %"struct.std::array", align 8
@@ -1602,14 +1602,14 @@ return:                                           ; preds = %while.end, %if.then
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK5arrow10Decimal128cvlEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZNK5arrow10Decimal128cvlEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow10Decimal1288ToStringB5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow10Decimal1288ToStringB5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abs.i = alloca %"class.arrow::Decimal128", align 8
   %ref.tmp.i = alloca %"struct.std::array", align 8
@@ -2071,7 +2071,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 define void @_ZN5arrow10Decimal12810FromStringEPKcPS0_PiS4_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #20
-  tail call void @_ZN5arrow10Decimal12810FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i64 %call.i.i, ptr %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale)
+  tail call void @_ZN5arrow10Decimal12810FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i64 %call.i.i, ptr nonnull %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale)
   ret void
 }
 
@@ -2326,12 +2326,12 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 define void @_ZN5arrow10Decimal12810FromStringEPKc(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #20
-  tail call void @_ZN5arrow10Decimal12810FromStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.arrow::Result") align 8 %agg.result, i64 %call.i.i, ptr %s)
+  tail call void @_ZN5arrow10Decimal12810FromStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.arrow::Result") align 8 %agg.result, i64 %call.i.i, ptr nonnull %s)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal12813FromBigEndianEPKhi(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef readonly %bytes, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal12813FromBigEndianEPKhi(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef readonly captures(none) %bytes, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result.i18 = alloca i64, align 8
   %result.i = alloca i64, align 8
@@ -2510,7 +2510,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow10Decimal12813ToArrowStatusENS_13DecimalStatusE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, i32 noundef %dstatus) local_unnamed_addr #0 align 2 {
+define void @_ZNK5arrow10Decimal12813ToArrowStatusENS_13DecimalStatusE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, i32 noundef %dstatus) local_unnamed_addr #0 align 2 {
 entry:
   %num_bits.addr.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
@@ -2549,7 +2549,7 @@ _ZN5arrow12_GLOBAL__N_113ToArrowStatusENS_13DecimalStatusEi.exit: ; preds = %sw.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrowlsERSoRKNS_10Decimal128E(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %decimal) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrowlsERSoRKNS_10Decimal128E(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %decimal) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %abs.i = alloca %"class.arrow::Decimal128", align 8
   %ref.tmp.i = alloca %"struct.std::array", align 8
@@ -2624,7 +2624,7 @@ lpad:                                             ; preds = %_ZNK5arrow10Decimal
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal256C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal256C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.arrow::Result.4", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
@@ -2845,7 +2845,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry, %_ZN5arrow6S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow10Decimal25615ToIntegerStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow10Decimal25615ToIntegerStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abs = alloca %"class.arrow::Decimal256", align 8
   %ref.tmp = alloca %"struct.std::array.3", align 8
@@ -3129,7 +3129,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow10Decimal2568ToStringB5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow10Decimal2568ToStringB5cxx11Ei(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abs.i = alloca %"class.arrow::Decimal256", align 8
   %ref.tmp.i = alloca %"struct.std::array.3", align 8
@@ -3437,7 +3437,7 @@ entry:
 define void @_ZN5arrow10Decimal25610FromStringEPKcPS0_PiS4_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #20
-  tail call void @_ZN5arrow10Decimal25610FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i64 %call.i.i, ptr %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale)
+  tail call void @_ZN5arrow10Decimal25610FromStringESt17basic_string_viewIcSt11char_traitsIcEEPS0_PiS6_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i64 %call.i.i, ptr nonnull %s, ptr noundef %out, ptr noundef %precision, ptr noundef %scale)
   ret void
 }
 
@@ -3692,12 +3692,12 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 define void @_ZN5arrow10Decimal25610FromStringEPKc(ptr noalias sret(%"class.arrow::Result.4") align 8 %agg.result, ptr noundef %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #20
-  tail call void @_ZN5arrow10Decimal25610FromStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.arrow::Result.4") align 8 %agg.result, i64 %call.i.i, ptr %s)
+  tail call void @_ZN5arrow10Decimal25610FromStringESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.arrow::Result.4") align 8 %agg.result, i64 %call.i.i, ptr nonnull %s)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10Decimal25613FromBigEndianEPKhi(ptr noalias sret(%"class.arrow::Result.4") align 8 %agg.result, ptr nocapture noundef readonly %bytes, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10Decimal25613FromBigEndianEPKhi(ptr noalias sret(%"class.arrow::Result.4") align 8 %agg.result, ptr noundef readonly captures(none) %bytes, i32 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result.i14 = alloca i64, align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3874,7 +3874,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow10Decimal25613ToArrowStatusENS_13DecimalStatusE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %this, i32 noundef %dstatus) local_unnamed_addr #0 align 2 {
+define void @_ZNK5arrow10Decimal25613ToArrowStatusENS_13DecimalStatusE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, i32 noundef %dstatus) local_unnamed_addr #0 align 2 {
 entry:
   %num_bits.addr.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
@@ -4451,7 +4451,7 @@ _ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_10Decimal256ENS0_24Decimal256R
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrowlsERSoRKNS_10Decimal256E(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %decimal) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrowlsERSoRKNS_10Decimal256E(ptr noundef nonnull returned align 8 dereferenceable(8) %os, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %decimal) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %abs.i = alloca %"class.arrow::Decimal256", align 8
   %ref.tmp.i = alloca %"struct.std::array.3", align 8
@@ -4545,7 +4545,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -4719,7 +4719,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
@@ -6463,7 +6463,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow4util13StringBuilderIJRA16_KcRdRA5_S2_RKPS2_RA14_S2_RiRA11_S2_SD_RA12_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(16) %args, ptr noundef nonnull align 8 dereferenceable(8) %args1, ptr noundef nonnull align 1 dereferenceable(5) %args3, ptr noundef nonnull align 8 dereferenceable(8) %args5, ptr noundef nonnull align 1 dereferenceable(14) %args7, ptr noundef nonnull align 4 dereferenceable(4) %args9, ptr noundef nonnull align 1 dereferenceable(11) %args11, ptr noundef nonnull align 4 dereferenceable(4) %args13, ptr noundef nonnull align 1 dereferenceable(12) %args15) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
@@ -6713,7 +6713,7 @@ return:                                           ; preds = %if.end23, %if.end20
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm(i64 %input.coerce0, ptr %input.coerce1, ptr nocapture noundef %out, i64 noundef %out_size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm(i64 %input.coerce0, ptr %input.coerce1, ptr noundef captures(none) %out, i64 noundef %out_size) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %chunk = alloca i64, align 8
   %ref.tmp7 = alloca %"class.arrow::util::ArrowLog", align 8
@@ -8287,7 +8287,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.arrow::Decimal256") align 8 %x, i32 noundef %bits) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr noalias nonnull align 8 %agg.result, ptr noundef readonly byval(%"class.arrow::Decimal256") align 8 captures(none) %x, i32 noundef %bits) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %array_le = alloca %"struct.std::array.3", align 8
   %shifted_le = alloca %"struct.std::array.3", align 8
@@ -9211,10 +9211,10 @@ declare double @llvm.fabs.f64(double) #17
 declare void @llvm.experimental.noalias.scope.decl(metadata) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

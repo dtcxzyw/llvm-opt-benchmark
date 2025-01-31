@@ -139,7 +139,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #3
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #1 {
+define internal ptr @libpqrcv_connect(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) #1 {
   %7 = alloca [6 x ptr], align 16
   %8 = alloca [6 x ptr], align 16
   %9 = zext i1 %2 to i8
@@ -384,7 +384,7 @@ define internal void @libpqrcv_check_conninfo(ptr noundef %0, i1 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @libpqrcv_get_conninfo(ptr nocapture noundef readonly %0) #1 {
+define internal ptr @libpqrcv_get_conninfo(ptr noundef readonly captures(none) %0) #1 {
   %2 = alloca %struct.PQExpBufferData, align 8
   call void @initPQExpBuffer(ptr noundef nonnull %2) #11
   %3 = load ptr, ptr %0, align 8
@@ -464,7 +464,7 @@ define internal ptr @libpqrcv_get_conninfo(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @libpqrcv_get_senderinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
+define internal void @libpqrcv_get_senderinfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #1 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = load ptr, ptr %0, align 8
@@ -503,7 +503,7 @@ define internal void @libpqrcv_get_senderinfo(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @libpqrcv_identify_system(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal ptr @libpqrcv_identify_system(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call fastcc ptr @libpqrcv_PQexec(ptr noundef %3, ptr noundef nonnull @.str.24)
   %5 = tail call i32 @PQresultStatus(ptr noundef %4) #11
@@ -635,14 +635,14 @@ define internal ptr @libpqrcv_get_dbname_from_conninfo(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @libpqrcv_server_version(ptr nocapture noundef readonly %0) #1 {
+define internal i32 @libpqrcv_server_version(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @PQserverVersion(ptr noundef %2) #11
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @libpqrcv_readtimelinehistoryfile(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #1 {
+define internal void @libpqrcv_readtimelinehistoryfile(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #1 {
   %6 = alloca [64 x i8], align 16
   %7 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %6, i64 noundef 64, ptr noundef nonnull @.str.28, i32 noundef %1) #11
   %8 = load ptr, ptr %0, align 8
@@ -703,7 +703,7 @@ define internal void @libpqrcv_readtimelinehistoryfile(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = alloca %struct.StringInfoData, align 8
   %4 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %4) #11
@@ -816,7 +816,7 @@ define internal noundef zeroext i1 @libpqrcv_startstreaming(ptr nocapture nounde
 
 58:                                               ; preds = %57, %.lr.ph26.i
   %59 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %56) #12
-  %60 = call ptr @PQescapeIdentifier(ptr noundef %47, ptr noundef %56, i64 noundef %59) #11
+  %60 = call ptr @PQescapeIdentifier(ptr noundef %47, ptr noundef nonnull %56, i64 noundef %59) #11
   %.not18.i = icmp eq ptr %60, null
   br i1 %.not18.i, label %stringlist_to_identifierstr.exit.thread, label %62
 
@@ -935,7 +935,7 @@ stringlist_to_identifierstr.exit:                 ; preds = %62, %44, %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @libpqrcv_endstreaming(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
+define internal void @libpqrcv_endstreaming(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i32 @PQputCopyEnd(ptr noundef %3, ptr noundef null) #11
   %5 = icmp slt i32 %4, 1
@@ -1059,7 +1059,7 @@ define internal void @libpqrcv_endstreaming(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, -2147483648) i32 @libpqrcv_receive(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
+define internal range(i32 -1, -2147483648) i32 @libpqrcv_receive(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @PQfreemem(ptr noundef %5) #11
@@ -1177,7 +1177,7 @@ define internal range(i32 -1, -2147483648) i32 @libpqrcv_receive(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @libpqrcv_send(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 {
+define internal void @libpqrcv_send(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call i32 @PQputCopyData(ptr noundef %4, ptr noundef %1, i32 noundef %2) #11
   %6 = icmp slt i32 %5, 1
@@ -1205,7 +1205,7 @@ define internal void @libpqrcv_send(ptr nocapture noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @libpqrcv_create_slot(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly %6) #1 {
+define internal ptr @libpqrcv_create_slot(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef writeonly %6) #1 {
   %8 = alloca %struct.StringInfoData, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = tail call i32 @PQserverVersion(ptr noundef %9) #11
@@ -1356,7 +1356,7 @@ switch.lookup:                                    ; preds = %.thread31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @libpqrcv_alter_slot(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) #1 {
+define internal void @libpqrcv_alter_slot(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) #1 {
   %4 = alloca %struct.StringInfoData, align 8
   call void @initStringInfo(ptr noundef nonnull %4) #11
   %5 = call ptr @quote_identifier(ptr noundef %1) #11
@@ -1388,14 +1388,14 @@ define internal void @libpqrcv_alter_slot(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @libpqrcv_get_backend_pid(ptr nocapture noundef readonly %0) #1 {
+define internal i32 @libpqrcv_get_backend_pid(ptr noundef readonly captures(none) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call i32 @PQbackendPID(ptr noundef %2) #11
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @libpqrcv_exec(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #1 {
+define internal ptr @libpqrcv_exec(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 {
   %5 = alloca [1664 x ptr], align 16
   %6 = tail call ptr @palloc0(i64 noundef 32) #11
   %7 = load i32, ptr @MyDatabaseId, align 4
@@ -1784,7 +1784,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
 declare void @PQfreemem(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @PQconninfoFree(ptr noundef) local_unnamed_addr #3
 
@@ -1802,12 +1802,12 @@ declare void @termPQExpBuffer(ptr noundef) local_unnamed_addr #3
 declare ptr @PQhost(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @PQport(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @PQnfields(ptr noundef) local_unnamed_addr #3
 
@@ -1826,7 +1826,7 @@ declare i32 @PQgetlength(ptr noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare ptr @palloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #3
 
@@ -1841,7 +1841,7 @@ declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unname
 declare ptr @PQescapeIdentifier(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @PQputCopyEnd(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1889,10 +1889,10 @@ declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -477,7 +477,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTPServerAcceptor10makeConfigERKNS_10HTTPServer8IPConfigERKNS_17HTTPServerOptionsE(ptr noalias nonnull sret(%"struct.proxygen::AcceptorConfiguration") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(232) %ipConfig, ptr nocapture noundef nonnull readonly align 16 dereferenceable(312) %opts) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTPServerAcceptor10makeConfigERKNS_10HTTPServer8IPConfigERKNS_17HTTPServerOptionsE(ptr noalias nonnull sret(%"struct.proxygen::AcceptorConfiguration") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(232) %ipConfig, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(312) %opts) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp20 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   tail call void @_ZN6wangle18ServerSocketConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(761) %agg.result)
@@ -905,7 +905,7 @@ ehcleanup:                                        ; preds = %lpad24, %lpad21, %l
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -1240,7 +1240,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTPServerAcceptor4makeERKNS_21AcceptorConfigurationERKNS_17HTTPServerOptionsERKSt10shared_ptrINS_16HTTPCodecFactoryEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(761) %conf, ptr noundef nonnull align 16 dereferenceable(312) %opts, ptr noundef nonnull align 8 dereferenceable(16) %codecFactory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTPServerAcceptor4makeERKNS_21AcceptorConfigurationERKNS_17HTTPServerOptionsERKSt10shared_ptrINS_16HTTPCodecFactoryEE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(761) %conf, ptr noundef nonnull align 16 dereferenceable(312) %opts, ptr noundef nonnull align 8 dereferenceable(16) %codecFactory) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp18 = alloca %"class.std::vector.94", align 8
   %handlerFactories1 = getelementptr inbounds nuw i8, ptr %opts, i64 8
@@ -1465,7 +1465,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTPServerAcceptorC2ERKNS_21AcceptorConfigurationERKSt10shared_ptrINS_16HTTPCodecFactoryEESt6vectorIPNS_21RequestHandlerFactoryESaISB_EERKNS_17HTTPServerOptionsE(ptr noundef nonnull align 8 dereferenceable(1992) %this, ptr noundef nonnull align 8 dereferenceable(761) %conf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %codecFactory, ptr nocapture noundef readonly %handlerFactories, ptr noundef nonnull align 16 dereferenceable(312) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTPServerAcceptorC2ERKNS_21AcceptorConfigurationERKSt10shared_ptrINS_16HTTPCodecFactoryEESt6vectorIPNS_21RequestHandlerFactoryESaISB_EERKNS_17HTTPServerOptionsE(ptr noundef nonnull align 8 dereferenceable(1992) %this, ptr noundef nonnull align 8 dereferenceable(761) %conf, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %codecFactory, ptr noundef readonly captures(none) %handlerFactories, ptr noundef nonnull align 16 dereferenceable(312) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.64", align 8
   %0 = load ptr, ptr %codecFactory, align 8
@@ -1753,7 +1753,7 @@ _ZNSt12__shared_ptrIN8proxygen16HTTPCodecFactoryELN9__gnu_cxx12_Lock_policyE2EED
 declare void @_ZN8proxygen19HTTPSessionAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(1928)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTPServerAcceptor21setCompletionCallbackESt8functionIFvvEE(ptr nocapture noundef nonnull align 8 dereferenceable(1992) %this, ptr noundef %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTPServerAcceptor21setCompletionCallbackESt8functionIFvvEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1992) %this, ptr noundef %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function.169", align 8
@@ -1928,7 +1928,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN8proxygen18HTTPServerAcceptor10newHandlerERNS_15HTTPTransactionEPNS_11HTTPMessageE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1992) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(912) %txn, ptr noundef %msg) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8proxygen18HTTPServerAcceptor10newHandlerERNS_15HTTPTransactionEPNS_11HTTPMessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1992) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(912) %txn, ptr noundef %msg) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %clientAddr = alloca %"class.folly::SocketAddress", align 8
   %vipAddr = alloca %"class.folly::SocketAddress", align 8
@@ -2390,7 +2390,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare void @_ZN8proxygen21RequestHandlerAdaptorC1EPNS_14RequestHandlerE(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTPServerAcceptor15onNewConnectionESt10unique_ptrIN5folly14AsyncTransportENS2_18DelayedDestruction10DestructorEEPKNS2_13SocketAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle19SecureTransportTypeERKNSI_13TransportInfoE(ptr noundef nonnull align 8 dereferenceable(1992) %this, ptr nocapture noundef %sock, ptr noundef %address, ptr noundef nonnull align 8 dereferenceable(32) %nextProtocolName, i32 noundef %secureTransportType, ptr noundef nonnull align 8 dereferenceable(744) %tinfo) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTPServerAcceptor15onNewConnectionESt10unique_ptrIN5folly14AsyncTransportENS2_18DelayedDestruction10DestructorEEPKNS2_13SocketAddressERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle19SecureTransportTypeERKNSI_13TransportInfoE(ptr noundef nonnull align 8 dereferenceable(1992) %this, ptr noundef captures(none) %sock, ptr noundef %address, ptr noundef nonnull align 8 dereferenceable(32) %nextProtocolName, i32 noundef %secureTransportType, ptr noundef nonnull align 8 dereferenceable(744) %tinfo) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %ref.tmp12 = alloca %"class.folly::basic_fbstring", align 8
@@ -4860,7 +4860,7 @@ invoke.cont2:                                     ; preds = %_ZNSt8__detail16_Ha
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6wangle16SSLContextConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6229,7 +6229,7 @@ _ZNSt12__shared_ptrIN5folly10SSLContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
 declare void @_ZN8proxygen18WheelTimerInstanceC1ENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEPN5folly9EventBaseE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt6vectorIN6wangle16SSLContextConfigESaIS1_EE20_M_allocate_and_copyIN9__gnu_cxx17__normal_iteratorIPKS1_S3_EEEEPS1_mT_SB_(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n, ptr %__first.coerce, ptr %__last.coerce) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8382,7 +8382,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -8410,10 +8410,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #20
 declare void @llvm.assume(i1 noundef) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

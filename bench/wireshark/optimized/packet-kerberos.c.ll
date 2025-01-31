@@ -1960,7 +1960,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1283 = private unnamed_addr constant [13 x i8] c"Continuation\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @kerberos_is_win2k_pkinit(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden i32 @kerberos_is_win2k_pkinit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2033,7 +2033,7 @@ define void @read_keytab_file_from_preferences() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
@@ -2253,7 +2253,7 @@ declare i32 @krb5_init_context(ptr noundef) local_unnamed_addr #2
 declare i32 @krb5_kt_resolve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @krb5_kt_start_seq_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2264,10 +2264,10 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @wmem_epan_scope() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @krb5_free_keytab_entry_contents(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2644,7 +2644,7 @@ kerberos_new_private_data.exit:                   ; preds = %8, %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
@@ -2902,7 +2902,7 @@ missing_encryption_key.exit:                      ; preds = %158, %136, %used_en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @decrypt_krb5_krb_cfx_dce_cb(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
@@ -3615,7 +3615,7 @@ define hidden i32 @kerberos_output_keytype() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 4, -2147483644) i32 @get_krb_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define hidden range(i32 4, -2147483644) i32 @get_krb_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #16
   %6 = and i32 %5, 2147483647
   %7 = add nuw i32 %6, 4
@@ -3673,7 +3673,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_kerberos_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_kerberos_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #16
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
@@ -3728,7 +3728,7 @@ declare void @prefs_register_filename_preference(ptr noundef, ptr noundef, ptr n
 declare i32 @wmem_register_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define internal noundef zeroext i1 @enc_key_list_cb(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #8 {
+define internal noundef zeroext i1 @enc_key_list_cb(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #8 {
   store ptr null, ptr @enc_key_list, align 8
   store i32 0, ptr @kerberos_longterm_ids, align 4
   ret i1 true
@@ -3752,7 +3752,7 @@ define internal i32 @enc_key_content_hash(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @enc_key_content_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #9 {
+define internal range(i32 0, 2) i32 @enc_key_content_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3836,7 +3836,7 @@ declare i32 @krb5_c_decrypt(ptr noundef, ptr noundef, i32 noundef, ptr noundef, 
 declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @decrypt_krb5_with_cb_try_key(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca %struct.krb5_keytab_entry_st, align 8
   %5 = alloca %struct._krb5_keyblock, align 8
   %6 = alloca %struct._krb5_keyblock, align 8
@@ -4147,7 +4147,7 @@ define internal void @decrypt_krb5_with_cb_try_key(ptr nocapture readnone %0, pt
 declare i32 @wmem_map_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @insert_longterm_keys_into_key_map_cb(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @insert_longterm_keys_into_key_map_cb(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = load ptr, ptr %2, align 8
   tail call fastcc void @kerberos_key_map_insert(ptr noundef %4, ptr noundef %1)
   ret void
@@ -4156,7 +4156,7 @@ define internal void @insert_longterm_keys_into_key_map_cb(ptr nocapture readnon
 declare i32 @krb5_c_fx_cf2_simple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_encryption_key(ptr noundef %0, ptr nocapture noundef initializes((104, 112)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc void @add_encryption_key(ptr noundef %0, ptr noundef captures(none) initializes((104, 112)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
   %12 = alloca %struct.insert_longterm_keys_into_key_map_state, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
@@ -4813,7 +4813,7 @@ define internal i32 @dissect_kerberos_CNameString(i1 noundef zeroext %0, ptr nou
 declare i32 @dissect_ber_restricted_string(i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @save_Authenticator_subkey(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readnone %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal void @save_Authenticator_subkey(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef readnone captures(none) %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -4958,7 +4958,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @save_encryption_key(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal void @save_encryption_key(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = alloca [256 x i8], align 16
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %10 = load ptr, ptr %9, align 8
@@ -5277,7 +5277,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 declare i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_krb5_AD_WIN2K_PAC(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_krb5_AD_WIN2K_PAC(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca [4 x i8], align 4
   %8 = alloca [4 x i8], align 4
   %9 = alloca i32, align 4
@@ -6739,7 +6739,7 @@ define internal i32 @dissect_kerberos_KERB_AD_RESTRICTION_ENTRY(i1 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_kerberos_AD_AP_OPTIONS(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((24, 32)) %3, ptr noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_kerberos_AD_AP_OPTIONS(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((24, 32)) %3, ptr noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_krb_ad_ap_options, align 4
   %8 = load i32, ptr @ett_krb_ad_ap_options, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @hf_krb_ad_ap_options_fields, i32 noundef -2147483648) #16
@@ -6750,7 +6750,7 @@ define internal noundef i32 @dissect_kerberos_AD_AP_OPTIONS(i1 zeroext %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_kerberos_AD_TARGET_PRINCIPAL(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_kerberos_AD_TARGET_PRINCIPAL(i1 zeroext %0, ptr noundef %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
   %8 = and i32 %7, 65535
   %9 = load i32, ptr @hf_krb_ad_target_principal, align 4
@@ -6765,7 +6765,7 @@ declare i32 @krb5_pac_get_buffer(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare void @krb5_free_data_contents(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @verify_krb5_pac_try_server_key(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @verify_krb5_pac_try_server_key(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca %struct._krb5_keyblock, align 8
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -6826,7 +6826,7 @@ define internal void @verify_krb5_pac_try_server_key(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @used_signing_key(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc void @used_signing_key(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -6894,7 +6894,7 @@ kerberos_key_list_append.exit:                    ; preds = %._crit_edge, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @missing_signing_key(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc void @missing_signing_key(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i32 noundef %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @wmem_alloc0(ptr noundef %12, i64 noundef 392) #16
@@ -6932,7 +6932,7 @@ kerberos_key_list_append.exit:                    ; preds = %10, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @verify_krb5_pac_try_kdc_key(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @verify_krb5_pac_try_kdc_key(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca %struct._krb5_keyblock, align 8
   %5 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -7025,7 +7025,7 @@ declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_krb_pac_midl_blob, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 16, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.858) #16
   %6 = load i32, ptr @hf_krb_midl_version, align 4
@@ -7261,7 +7261,7 @@ define internal i32 @dissect_kerberos_HostAddresses(i1 noundef zeroext %0, ptr n
 declare i32 @dissect_ber_bitstring(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @save_EncTicketPart_key(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal void @save_EncTicketPart_key(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, i32 noundef %6) #0 {
   tail call void @save_encryption_key(ptr poison, i32 poison, i32 poison, ptr noundef %3, ptr poison, i32 noundef %5, i32 noundef %6)
   ret void
 }
@@ -7316,7 +7316,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_kerberos_T_address(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_kerberos_T_address(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca i32, align 4
@@ -7852,7 +7852,7 @@ define internal i32 @dissect_kerberos_ETYPE_INFO2(i1 noundef zeroext %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_krb5_PW_SALT(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4, i32 %5) #0 {
+define internal i32 @dissect_krb5_PW_SALT(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef %4, i32 %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -8038,7 +8038,7 @@ define internal i32 @dissect_kerberos_PA_KERB_KEY_LIST_REP(i1 noundef zeroext %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_kerberos_PA_SUPPORTED_ENCTYPES(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((24, 32)) %3, ptr noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_kerberos_PA_SUPPORTED_ENCTYPES(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((24, 32)) %3, ptr noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_krb_pa_supported_enctypes, align 4
   %8 = load i32, ptr @ett_krb_pa_supported_enctypes, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @hf_krb_pa_supported_enctypes_fields, i32 noundef -2147483648) #16
@@ -8420,7 +8420,7 @@ define internal i32 @dissect_kerberos_KrbFastFinished(i1 noundef zeroext %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @save_KrbFastResponse_strengthen_key(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal void @save_KrbFastResponse_strengthen_key(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -9055,7 +9055,7 @@ dissect_kerberos_KrbFastReq.exit:                 ; preds = %75, %kerberos_new_p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @krb5_fast_key(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @krb5_fast_key(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct._krb5_keyblock, align 8
   %10 = alloca %struct._krb5_keyblock, align 8
   %11 = alloca ptr, align 8
@@ -10178,7 +10178,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @save_EncKDCRepPart_key(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal void @save_EncKDCRepPart_key(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, i32 noundef %6) #0 {
   tail call void @save_encryption_key(ptr poison, i32 poison, i32 poison, ptr noundef %3, ptr poison, i32 noundef %5, i32 noundef %6)
   ret void
 }
@@ -10254,7 +10254,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @save_EncAPRepPart_subkey(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal void @save_EncAPRepPart_subkey(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, i32 noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
@@ -10473,7 +10473,7 @@ kerberos_get_private_data.exit:                   ; preds = %6, %kerberos_new_pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @save_KrbCredInfo_key(ptr nocapture readnone %0, i32 %1, i32 %2, ptr nocapture noundef %3, ptr nocapture readnone %4, i32 noundef %5, i32 noundef %6) #0 {
+define internal void @save_KrbCredInfo_key(ptr readnone captures(none) %0, i32 %1, i32 %2, ptr noundef captures(none) %3, ptr readnone captures(none) %4, i32 noundef %5, i32 noundef %6) #0 {
   tail call void @save_encryption_key(ptr poison, i32 poison, i32 poison, ptr noundef %3, ptr poison, i32 noundef %5, i32 noundef %6)
   ret void
 }
@@ -10902,7 +10902,7 @@ declare ptr @except_pop() local_unnamed_addr #2
 declare void @wmem_list_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @kerberos_display_key(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @kerberos_display_key(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -11040,7 +11040,7 @@ declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_kerberos_tcp_pdu(ptr noundef %0, ptr noundef initializes((272, 276)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_kerberos_tcp_pdu(ptr noundef %0, ptr noundef initializes((272, 276)) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 1, ptr %5, align 8
   %6 = tail call fastcc i32 @dissect_kerberos_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null)
@@ -11061,7 +11061,7 @@ define internal i32 @dissect_kerberos_tcp_pdu(ptr noundef %0, ptr noundef initia
 declare i32 @wmem_strong_hash(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @wrap_dissect_gss_kerb(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal i32 @wrap_dissect_gss_kerb(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %1) #16
   %8 = tail call fastcc i32 @dissect_kerberos_common(ptr noundef %7, ptr noundef %2, ptr noundef %3, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null)
   %9 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %1) #16
@@ -11076,16 +11076,16 @@ declare ptr @wrap_dissect_gssapi_payload(ptr noundef, ptr noundef, ptr noundef, 
 declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

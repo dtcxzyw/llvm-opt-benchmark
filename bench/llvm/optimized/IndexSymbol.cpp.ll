@@ -1049,7 +1049,7 @@ _ZN5clang15hasSpecificAttrINS_12IBActionAttrEN4llvm11SmallVectorIPNS_4AttrELj4EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17checkForIBOutletsPKN5clang4DeclERt(ptr noundef %0, ptr nocapture noundef nonnull align 2 dereferenceable(2) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17checkForIBOutletsPKN5clang4DeclERt(ptr noundef %0, ptr noundef nonnull align 2 captures(none) dereferenceable(2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 256
@@ -1241,15 +1241,15 @@ declare noundef i32 @_ZNK5clang12FunctionDecl16getTemplatedKindEv(ptr noundef no
 declare noundef ptr @_ZNK5clang4Decl27getExternalSourceSymbolAttrEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i48 @_ZN5clang5index21getSymbolInfoForMacroERKNS_9MacroInfoE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(38) %0) local_unnamed_addr #3 {
+define dso_local noundef i48 @_ZN5clang5index21getSymbolInfoForMacroERKNS_9MacroInfoE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(38) %0) local_unnamed_addr #3 {
   ret i48 4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang5index35applyForEachSymbolRoleInterruptibleEjN4llvm12function_refIFbNS0_10SymbolRoleEEEE(i32 noundef %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang5index35applyForEachSymbolRoleInterruptibleEjN4llvm12function_refIFbNS0_10SymbolRoleEEEE(i32 noundef %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #0 {
   %4 = and i32 %0, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %7, label %5
@@ -2511,7 +2511,7 @@ _ZN5clang5index35applyForEachSymbolRoleInterruptibleEjN4llvm12function_refIFbNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang5index15printSymbolNameEPKNS_4DeclERKNS_11LangOptionsERN4llvm11raw_ostreamE(ptr noundef readonly %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang5index15printSymbolNameEPKNS_4DeclERKNS_11LangOptionsERN4llvm11raw_ostreamE(ptr noundef readonly %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.clang::PrintingPolicy", align 8
   %5 = alloca %"class.clang::DeclarationName", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2629,7 +2629,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5index26applyForEachSymbolPropertyEtN4llvm12function_refIFvNS0_14SymbolPropertyEEEE(i16 noundef zeroext %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang5index26applyForEachSymbolPropertyEtN4llvm12function_refIFvNS0_14SymbolPropertyEEEE(i16 noundef zeroext %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #0 {
   %4 = zext i16 %0 to i32
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -3185,13 +3185,13 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2086,7 +2086,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sslmodule_traverse(ptr noundef %m, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @sslmodule_traverse(ptr noundef %m, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #11
   %0 = load ptr, ptr %call.i, align 8
@@ -2795,7 +2795,7 @@ exit:                                             ; preds = %if.then20.i, %Py_DE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl_RAND_add(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal noundef ptr @_ssl_RAND_add(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %view = alloca %struct.Py_buffer, align 8
   %len = alloca i64, align 8
@@ -2917,7 +2917,7 @@ exit:                                             ; preds = %entry.split, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl_RAND_status(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl_RAND_status(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @RAND_status() #11
   %conv.i = sext i32 %call.i to i64
@@ -2926,7 +2926,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl_get_default_verify_paths(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl_get_default_verify_paths(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @X509_get_default_cert_file_env() #11
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -3250,7 +3250,7 @@ declare ptr @PyBytes_AsString(ptr noundef) local_unnamed_addr #1
 declare ptr @PEM_read_bio_X509(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_decode_certificate(ptr nocapture noundef readonly %state, ptr noundef %certificate) unnamed_addr #0 {
+define internal fastcc ptr @_decode_certificate(ptr noundef readonly captures(none) %state, ptr noundef %certificate) unnamed_addr #0 {
 entry:
   %buf = alloca [2048 x i8], align 16
   %call = tail call ptr @PyDict_New() #11
@@ -3717,7 +3717,7 @@ declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 declare ptr @PyDict_New() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_create_tuple_for_X509_NAME(ptr nocapture noundef readonly %state, ptr noundef %xname) unnamed_addr #0 {
+define internal fastcc ptr @_create_tuple_for_X509_NAME(ptr noundef readonly captures(none) %state, ptr noundef %xname) unnamed_addr #0 {
 entry:
   %valuebuf.i = alloca ptr, align 8
   %call = tail call i32 @X509_NAME_entry_count(ptr noundef %xname) #11
@@ -4040,7 +4040,7 @@ declare i32 @i2a_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_setSSLError(ptr nocapture noundef readonly %state, ptr noundef %errstr, i32 noundef range(i32 105, 5142) %lineno) unnamed_addr #0 {
+define internal fastcc void @_setSSLError(ptr noundef readonly captures(none) %state, ptr noundef %errstr, i32 noundef range(i32 105, 5142) %lineno) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %errstr, null
   br i1 %cmp, label %if.then, label %if.else.split
@@ -4075,7 +4075,7 @@ declare i32 @ASN1_TIME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @X509_get0_notAfter(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_peer_alt_names(ptr nocapture noundef readonly %state, ptr noundef %certificate) unnamed_addr #0 {
+define internal fastcc ptr @_get_peer_alt_names(ptr noundef readonly captures(none) %state, ptr noundef %certificate) unnamed_addr #0 {
 entry:
   %buf = alloca [2048 x i8], align 16
   %cmp = icmp eq ptr %certificate, null
@@ -4953,7 +4953,7 @@ declare ptr @X509_NAME_ENTRY_get_object(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_NAME_ENTRY_get_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_asn1obj2py(ptr nocapture noundef readonly %state, ptr noundef %name, i32 noundef range(i32 0, 2) %no_name) unnamed_addr #0 {
+define internal fastcc ptr @_asn1obj2py(ptr noundef readonly captures(none) %state, ptr noundef %name, i32 noundef range(i32 0, 2) %no_name) unnamed_addr #0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %call = call i32 @OBJ_obj2txt(ptr noundef nonnull %buf, i32 noundef 256, ptr noundef %name, i32 noundef %no_name) #11
@@ -5064,7 +5064,7 @@ declare void @PyMem_Free(ptr noundef) local_unnamed_addr #1
 declare i64 @ERR_peek_last_error() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fill_and_set_sslerror(ptr nocapture noundef readonly %state, ptr noundef readonly %sslsock, ptr noundef %type, i32 noundef %ssl_errno, ptr noundef %errstr, i32 noundef range(i32 105, 5142) %lineno, i64 noundef %errcode) unnamed_addr #0 {
+define internal fastcc void @fill_and_set_sslerror(ptr noundef readonly captures(none) %state, ptr noundef readonly %sslsock, ptr noundef %type, i32 noundef %ssl_errno, ptr noundef %errstr, i32 noundef range(i32 105, 5142) %lineno, i64 noundef %errcode) unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %errcode, 0
   br i1 %cmp.not, label %if.end28, label %if.then
@@ -5455,7 +5455,7 @@ declare void @CRL_DIST_POINTS_free(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -5571,7 +5571,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @PyObject_IsTrue(ptr noundef) local_unnamed_addr #1
 
@@ -6627,7 +6627,7 @@ declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @PyModule_AddType(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLContext(ptr noundef %type, ptr nocapture noundef readonly %args, ptr noundef %kwargs) #0 {
+define internal ptr @_ssl__SSLContext(ptr noundef %type, ptr noundef readonly captures(none) %args, ptr noundef %kwargs) #0 {
 entry:
   %call = tail call ptr @PyType_GetModuleByDef(ptr noundef %type, ptr noundef nonnull @_sslmodule_def) #11
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %call) #11
@@ -6738,7 +6738,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @context_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @context_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %set_sni_cb = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load ptr, ptr %set_sni_cb, align 8
@@ -6781,7 +6781,7 @@ return:                                           ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @context_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @context_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %set_sni_cb = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load ptr, ptr %set_sni_cb, align 8
@@ -7223,7 +7223,7 @@ exit:                                             ; preds = %if.end30, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl__SSLContext_set_ciphers(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal noundef ptr @_ssl__SSLContext_set_ciphers(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %cipherlist_length = alloca i64, align 8
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -7349,7 +7349,7 @@ if.end3:                                          ; preds = %if.then2, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_ssl__SSLContext_load_cert_chain(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %certfile_bytes.i = alloca ptr, align 8
   %keyfile_bytes.i = alloca ptr, align 8
@@ -7704,7 +7704,7 @@ exit:                                             ; preds = %cond.end9, %_ssl__S
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl__SSLContext_load_dh_params(ptr nocapture noundef readonly %self, ptr noundef %filepath) #0 {
+define internal noundef ptr @_ssl__SSLContext_load_dh_params(ptr noundef readonly captures(none) %self, ptr noundef %filepath) #0 {
 entry:
   %call = tail call ptr @_Py_fopen_obj(ptr noundef %filepath, ptr noundef nonnull @.str.113) #11
   %cmp = icmp eq ptr %call, null
@@ -7772,7 +7772,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLContext_load_verify_locations(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_ssl__SSLContext_load_verify_locations(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %cafile_bytes.i = alloca ptr, align 8
   %capath_bytes.i = alloca ptr, align 8
@@ -8073,7 +8073,7 @@ exit:                                             ; preds = %cond.end9, %_ssl__S
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLContext_session_stats(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLContext_session_stats(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyDict_New() #11
   %tobool.not.i = icmp eq ptr %call.i, null
@@ -8438,7 +8438,7 @@ _ssl__SSLContext_session_stats_impl.exit:         ; preds = %entry, %Py_DECREF.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl__SSLContext_set_default_verify_paths(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_ssl__SSLContext_set_default_verify_paths(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyEval_SaveThread() #11
   %ctx.i = getelementptr inbounds nuw i8, ptr %self, i64 16
@@ -8467,7 +8467,7 @@ _ssl__SSLContext_set_default_verify_paths_impl.exit: ; preds = %entry, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl__SSLContext_set_ecdh_curve(ptr nocapture noundef readonly %self, ptr noundef %name) #0 {
+define internal noundef ptr @_ssl__SSLContext_set_ecdh_curve(ptr noundef readonly captures(none) %self, ptr noundef %name) #0 {
 entry:
   %name_bytes = alloca ptr, align 8
   %nid = alloca i32, align 4
@@ -8531,7 +8531,7 @@ return:                                           ; preds = %if.end5, %entry, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLContext_cert_store_stats(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLContext_cert_store_stats(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -8584,7 +8584,7 @@ _ssl__SSLContext_cert_store_stats_impl.exit:      ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLContext_get_ca_certs(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_ssl__SSLContext_get_ca_certs(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %tobool.not = icmp eq ptr %kwnames, null
@@ -8771,7 +8771,7 @@ exit:                                             ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLContext_get_ciphers(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLContext_get_ciphers(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %alg_bits.i.i = alloca i32, align 4
   %buf.i.i = alloca [512 x i8], align 16
@@ -8929,7 +8929,7 @@ _ssl__SSLContext_get_ciphers_impl.exit:           ; preds = %exit.thread.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl__SSLContext_set_psk_client_callback(ptr nocapture noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_ssl__SSLContext_set_psk_client_callback(ptr noundef captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [1 x ptr], align 8
   %cmp = icmp eq ptr %kwnames, null
@@ -9026,7 +9026,7 @@ exit:                                             ; preds = %Py_XINCREF.exit.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl__SSLContext_set_psk_server_callback(ptr nocapture noundef %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal noundef ptr @_ssl__SSLContext_set_psk_server_callback(ptr noundef captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [2 x ptr], align 16
   %identity_hint_length = alloca i64, align 8
@@ -9191,7 +9191,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_Parse(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @newPySSLSocket(ptr noundef %sslctx, ptr noundef %sock, i32 noundef range(i32 0, -2147483648) %socket_type, ptr noundef %server_hostname, ptr noundef %owner, ptr noundef readonly %session, ptr nocapture noundef readonly %inbio, ptr nocapture noundef readonly %outbio) unnamed_addr #0 {
+define internal fastcc ptr @newPySSLSocket(ptr noundef %sslctx, ptr noundef %sock, i32 noundef range(i32 0, -2147483648) %socket_type, ptr noundef %server_hostname, ptr noundef %owner, ptr noundef readonly %session, ptr noundef readonly captures(none) %inbio, ptr noundef readonly captures(none) %outbio) unnamed_addr #0 {
 entry:
   %ctx1 = getelementptr inbounds nuw i8, ptr %sslctx, i64 16
   %0 = load ptr, ptr %ctx1, align 8
@@ -9655,7 +9655,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare ptr @PyEval_SaveThread() local_unnamed_addr #1
 
@@ -9698,7 +9698,7 @@ declare void @SSL_set_accept_state(ptr noundef) local_unnamed_addr #1
 declare ptr @PyWeakref_NewRef(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @PySSL_set_owner(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @PySSL_set_owner(ptr noundef captures(none) %self, ptr noundef %value, ptr readnone captures(none) %c) #0 {
 entry:
   %owner = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load ptr, ptr %owner, align 8
@@ -9731,7 +9731,7 @@ Py_XDECREF.exit:                                  ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @PySSL_set_session(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %value, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @PySSL_set_session(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %value, ptr readnone captures(none) %closure) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %ctx, align 8
@@ -9905,7 +9905,7 @@ declare i32 @SSL_CTX_set_alpn_protos(ptr noundef, ptr noundef, i32 noundef) loca
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @_selectALPN_cb(ptr nocapture readnone %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %client_protocols, i32 noundef %client_protocols_len, ptr nocapture noundef readonly %args) #0 {
+define internal range(i32 0, 4) i32 @_selectALPN_cb(ptr readnone captures(none) %s, ptr noundef %out, ptr noundef %outlen, ptr noundef %client_protocols, i32 noundef %client_protocols_len, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %alpn_protocols = getelementptr inbounds nuw i8, ptr %args, i64 24
   %0 = load ptr, ptr %alpn_protocols, align 8
@@ -9937,7 +9937,7 @@ declare i32 @PyErr_ExceptionMatches(ptr noundef) local_unnamed_addr #1
 declare i32 @PyCallable_Check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_pwinfo_set(ptr nocapture noundef %pw_info, ptr noundef %password, ptr noundef %bad_type_error) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_pwinfo_set(ptr noundef captures(none) %pw_info, ptr noundef %password, ptr noundef %bad_type_error) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %password, i64 8
   %password.val19 = load ptr, ptr %0, align 8
@@ -10076,7 +10076,7 @@ return:                                           ; preds = %if.else19, %if.then
 declare void @SSL_CTX_set_default_passwd_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_password_callback(ptr nocapture noundef writeonly %buf, i32 noundef %size, i32 %rwflag, ptr nocapture noundef %userdata) #0 {
+define internal i32 @_password_callback(ptr noundef writeonly captures(none) %buf, i32 noundef %size, i32 %rwflag, ptr noundef captures(none) %userdata) #0 {
 entry:
   %0 = load ptr, ptr %userdata, align 8
   tail call void @PyEval_RestoreThread(ptr noundef %0) #11
@@ -10182,7 +10182,7 @@ declare ptr @_Py_fopen_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PEM_read_DHparams(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @PyErr_SetFromErrnoWithFilenameObject(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -10193,7 +10193,7 @@ declare void @DH_free(ptr noundef) local_unnamed_addr #1
 declare ptr @PyUnicode_AsASCIIString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr nocapture noundef readonly %self, ptr noundef %data, i64 noundef %len, i32 noundef range(i32 1, 3) %filetype) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_add_ca_certs(ptr noundef readonly captures(none) %self, ptr noundef %data, i64 noundef %len, i32 noundef range(i32 1, 3) %filetype) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i64 %len, 1
   br i1 %cmp, label %if.then, label %if.else
@@ -10394,7 +10394,7 @@ declare i32 @X509_check_ca(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_OBJECT_get0_X509(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_certificate_to_der(ptr nocapture noundef readonly %state, ptr noundef %certificate) unnamed_addr #0 {
+define internal fastcc ptr @_certificate_to_der(ptr noundef readonly captures(none) %state, ptr noundef %certificate) unnamed_addr #0 {
 entry:
   %bytes_buf = alloca ptr, align 8
   store ptr null, ptr %bytes_buf, align 8
@@ -10453,7 +10453,7 @@ declare i32 @SSL_CIPHER_get_kx_nid(ptr noundef) local_unnamed_addr #1
 declare i32 @SSL_CIPHER_get_auth_nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @psk_client_callback(ptr noundef %s, ptr noundef %hint, ptr nocapture noundef writeonly %identity, i32 noundef %max_identity_len, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #0 {
+define internal i32 @psk_client_callback(ptr noundef %s, ptr noundef %hint, ptr noundef writeonly captures(none) %identity, i32 noundef %max_identity_len, ptr noundef writeonly captures(none) %psk, i32 noundef %max_psk_len) #0 {
 entry:
   %psk_ = alloca ptr, align 8
   %identity_ = alloca ptr, align 8
@@ -10651,7 +10651,7 @@ declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #1
 declare void @PyErr_WriteUnraisable(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @psk_server_callback(ptr noundef %s, ptr noundef %identity, ptr nocapture noundef writeonly %psk, i32 noundef %max_psk_len) #0 {
+define internal i32 @psk_server_callback(ptr noundef %s, ptr noundef %identity, ptr noundef writeonly captures(none) %psk, i32 noundef %max_psk_len) #0 {
 entry:
   %psk_ = alloca ptr, align 8
   %psk_len_ = alloca i64, align 8
@@ -10816,7 +10816,7 @@ declare void @SSL_CTX_set_psk_server_callback(ptr noundef, ptr noundef) local_un
 declare i32 @PyBytes_AsStringAndSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_check_hostname(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_check_hostname(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %check_hostname = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load i32, ptr %check_hostname, align 8
@@ -10826,7 +10826,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_check_hostname(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_check_hostname(ptr noundef captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %check_hostname = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.177, ptr noundef nonnull %check_hostname) #11
@@ -10864,7 +10864,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_host_flags(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_host_flags(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %hostflags = getelementptr inbounds nuw i8, ptr %self, i64 52
   %0 = load i32, ptr %hostflags, align 4
@@ -10874,7 +10874,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_host_flags(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_host_flags(ptr noundef captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %new_flags = alloca i32, align 4
   store i32 0, ptr %new_flags, align 4
@@ -10898,7 +10898,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_minimum_version(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_minimum_version(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -10913,14 +10913,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_minimum_version(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_minimum_version(ptr noundef readonly captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %call = tail call fastcc i32 @set_min_max_proto_version(ptr noundef %self, ptr noundef %arg, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_maximum_version(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_maximum_version(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -10935,14 +10935,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_maximum_version(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_maximum_version(ptr noundef readonly captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %call = tail call fastcc i32 @set_min_max_proto_version(ptr noundef %self, ptr noundef %arg, i32 noundef 1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @_PySSLContext_get_keylog_filename(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #7 {
+define internal ptr @_PySSLContext_get_keylog_filename(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #7 {
 entry:
   %keylog_filename = getelementptr inbounds nuw i8, ptr %self, i64 72
   %0 = load ptr, ptr %keylog_filename, align 8
@@ -10965,7 +10965,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_PySSLContext_set_keylog_filename(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @_PySSLContext_set_keylog_filename(ptr noundef captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -11066,7 +11066,7 @@ return:                                           ; preds = %if.end12, %if.end9,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @_PySSLContext_get_msg_callback(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #7 {
+define internal ptr @_PySSLContext_get_msg_callback(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #7 {
 entry:
   %msg_cb = getelementptr inbounds nuw i8, ptr %self, i64 64
   %0 = load ptr, ptr %msg_cb, align 8
@@ -11089,7 +11089,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_PySSLContext_set_msg_callback(ptr nocapture noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @_PySSLContext_set_msg_callback(ptr noundef captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %msg_cb = getelementptr inbounds nuw i8, ptr %self, i64 64
   %0 = load ptr, ptr %msg_cb, align 8
@@ -11159,7 +11159,7 @@ return:                                           ; preds = %if.then2, %_Py_NewR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @get_sni_callback(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #7 {
+define internal ptr @get_sni_callback(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #7 {
 entry:
   %set_sni_cb = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load ptr, ptr %set_sni_cb, align 8
@@ -11182,7 +11182,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_sni_callback(ptr noundef %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_sni_callback(ptr noundef %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %protocol = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load i32, ptr %protocol, align 8
@@ -11265,7 +11265,7 @@ return:                                           ; preds = %if.then5, %_Py_NewR
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_num_tickets(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_num_tickets(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -11275,7 +11275,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_num_tickets(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_num_tickets(ptr noundef readonly captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %num = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.180, ptr noundef nonnull %num) #11
@@ -11312,7 +11312,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_options(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_options(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -11322,7 +11322,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_options(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_options(ptr noundef readonly captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %new_opts_obj = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.200, ptr noundef nonnull @PyLong_Type, ptr noundef nonnull %new_opts_obj) #11
@@ -11382,7 +11382,7 @@ return:                                           ; preds = %if.end21, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_post_handshake_auth(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_post_handshake_auth(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %post_handshake_auth = getelementptr inbounds nuw i8, ptr %self, i64 60
   %0 = load i32, ptr %post_handshake_auth, align 4
@@ -11392,7 +11392,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_post_handshake_auth(ptr nocapture noundef writeonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_post_handshake_auth(ptr noundef writeonly captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %cmp = icmp eq ptr %arg, null
   br i1 %cmp, label %if.then, label %if.end
@@ -11418,7 +11418,7 @@ return:                                           ; preds = %if.end, %if.end3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_protocol(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_protocol(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %protocol = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load i32, ptr %protocol, align 8
@@ -11428,7 +11428,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_verify_flags(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_verify_flags(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -11439,7 +11439,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_verify_flags(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_verify_flags(ptr noundef readonly captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %new_flags = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.203, ptr noundef nonnull %new_flags) #11
@@ -11493,7 +11493,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_verify_mode(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_verify_mode(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -11535,7 +11535,7 @@ return:                                           ; preds = %sw.epilog, %sw.bb4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @set_verify_mode(ptr nocapture noundef readonly %self, ptr noundef %arg, ptr nocapture readnone %c) #0 {
+define internal range(i32 -1, 1) i32 @set_verify_mode(ptr noundef readonly captures(none) %self, ptr noundef %arg, ptr readnone captures(none) %c) #0 {
 entry:
   %n = alloca i32, align 4
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.205, ptr noundef nonnull %n) #11
@@ -11584,7 +11584,7 @@ return:                                           ; preds = %sw.epilog.i, %sw.de
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @get_security_level(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @get_security_level(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -11605,7 +11605,7 @@ declare ptr @PyLong_FromUnsignedLong(i64 noundef) local_unnamed_addr #1
 declare ptr @SSL_CTX_get0_param(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr nocapture noundef readonly %self, ptr noundef %arg, i32 noundef range(i32 0, 2) %what) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @set_min_max_proto_version(ptr noundef readonly captures(none) %self, ptr noundef %arg, i32 noundef range(i32 0, 2) %what) unnamed_addr #0 {
 entry:
   %v = alloca i64, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %arg, ptr noundef nonnull @.str.180, ptr noundef nonnull %v) #11
@@ -11809,7 +11809,7 @@ declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 declare void @SSL_CTX_set_msg_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_PySSL_msg_callback(i32 noundef %write_p, i32 noundef %version, i32 noundef %content_type, ptr noundef %buf, i64 noundef %len, ptr noundef %ssl, ptr nocapture readnone %arg) #0 {
+define internal void @_PySSL_msg_callback(i32 noundef %write_p, i32 noundef %version, i32 noundef %content_type, ptr noundef %buf, i64 noundef %len, ptr noundef %ssl, ptr readnone captures(none) %arg) #0 {
 entry:
   %call = tail call i32 @PyGILState_Ensure() #11
   %call1 = tail call ptr @SSL_get_ex_data(ptr noundef %ssl, i32 noundef 0) #11
@@ -11990,7 +11990,7 @@ declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_
 declare i64 @SSL_CTX_callback_ctrl(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @_servername_callback(ptr noundef %s, ptr nocapture noundef writeonly %al, ptr noundef %args) #0 {
+define internal range(i32 0, 3) i32 @_servername_callback(ptr noundef %s, ptr noundef writeonly captures(none) %al, ptr noundef %args) #0 {
 entry:
   %call = tail call ptr @SSL_get_servername(ptr noundef %s, i32 noundef 0) #11
   %call1 = tail call i32 @PyGILState_Ensure() #11
@@ -12630,7 +12630,7 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit38, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @PySSL_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @PySSL_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %exc = getelementptr inbounds nuw i8, ptr %self, i64 72
   %0 = load ptr, ptr %exc, align 8
@@ -12662,7 +12662,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PySSL_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @PySSL_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %exc = getelementptr inbounds nuw i8, ptr %self, i64 72
   %0 = load ptr, ptr %exc, align 8
@@ -12691,7 +12691,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_do_handshake(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_do_handshake(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %pollfd.i44.i = alloca %struct.pollfd, align 4
   %pollfd.i.i = alloca %struct.pollfd, align 4
@@ -13951,7 +13951,7 @@ if.end10:                                         ; preds = %if.then9, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_pending(ptr noundef initializes((64, 72)) %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_pending(ptr noundef initializes((64, 72)) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyEval_SaveThread() #11
   %ssl.i = getelementptr inbounds nuw i8, ptr %self, i64 24
@@ -13989,7 +13989,7 @@ _ssl__SSLSocket_pending_impl.exit:                ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_getpeercert(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_ssl__SSLSocket_getpeercert(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -14071,7 +14071,7 @@ exit:                                             ; preds = %if.end19.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_get_channel_binding(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_ssl__SSLSocket_get_channel_binding(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %buf.i = alloca [128 x i8], align 16
   %argsbuf = alloca [1 x ptr], align 8
@@ -14185,7 +14185,7 @@ exit:                                             ; preds = %if.end20, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_cipher(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_cipher(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 24
   %self.val = load ptr, ptr %0, align 8
@@ -14207,7 +14207,7 @@ _ssl__SSLSocket_cipher_impl.exit:                 ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_shared_ciphers(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_shared_ciphers(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ssl.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ssl.i, align 8
@@ -14297,7 +14297,7 @@ _ssl__SSLSocket_shared_ciphers_impl.exit:         ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_version(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_version(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ssl.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ssl.i, align 8
@@ -14317,7 +14317,7 @@ if.end3.i:                                        ; preds = %if.end.i
   br i1 %tobool7.not.i, label %_ssl__SSLSocket_version_impl.exit, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end3.i
-  %call10.i = tail call ptr @PyUnicode_FromString(ptr noundef %call5.i) #11
+  %call10.i = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %call5.i) #11
   br label %_ssl__SSLSocket_version_impl.exit
 
 _ssl__SSLSocket_version_impl.exit:                ; preds = %entry, %if.end.i, %if.end3.i, %if.end9.i
@@ -14326,7 +14326,7 @@ _ssl__SSLSocket_version_impl.exit:                ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_selected_alpn_protocol(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_selected_alpn_protocol(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %out.i = alloca ptr, align 8
   %outlen.i = alloca i32, align 4
@@ -14353,7 +14353,7 @@ _ssl__SSLSocket_selected_alpn_protocol_impl.exit: ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_compression(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_compression(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 24
   %self.val = load ptr, ptr %0, align 8
@@ -14386,7 +14386,7 @@ _ssl__SSLSocket_compression_impl.exit:            ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_shutdown(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_shutdown(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %pollfd.i49.i = alloca %struct.pollfd, align 4
   %pollfd.i.i = alloca %struct.pollfd, align 4
@@ -14739,7 +14739,7 @@ _ssl__SSLSocket_shutdown_impl.exit:               ; preds = %if.then3.i, %Py_XDE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_ssl__SSLSocket_verify_client_post_handshake(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_ssl__SSLSocket_verify_client_post_handshake(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ssl.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ssl.i, align 8
@@ -14768,7 +14768,7 @@ _ssl__SSLSocket_verify_client_post_handshake_impl.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_get_unverified_chain(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_get_unverified_chain(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ssl.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ssl.i, align 8
@@ -14883,7 +14883,7 @@ _ssl__SSLSocket_get_unverified_chain_impl.exit:   ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_get_verified_chain(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_get_verified_chain(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %ssl.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ssl.i, align 8
@@ -15122,7 +15122,7 @@ declare ptr @SSL_get1_peer_certificate(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_get_SSL_CTX(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @SSL_session_reused(ptr noundef) local_unnamed_addr #1
 
@@ -15239,7 +15239,7 @@ declare i32 @SSL_verify_client_post_handshake(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_get_peer_cert_chain(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_PySSL_CertificateFromX509Stack(ptr nocapture noundef readonly %state, ptr noundef nonnull %stack) unnamed_addr #0 {
+define internal fastcc ptr @_PySSL_CertificateFromX509Stack(ptr noundef readonly captures(none) %state, ptr noundef nonnull %stack) unnamed_addr #0 {
 entry:
   %call1 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %stack) #11
   %conv = sext i32 %call1 to i64
@@ -15308,7 +15308,7 @@ declare i32 @X509_up_ref(ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_get0_verified_chain(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @PySSL_get_context(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #7 {
+define internal noundef ptr @PySSL_get_context(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #7 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %ctx, align 8
@@ -15326,7 +15326,7 @@ _Py_NewRef.exit:                                  ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @PySSL_set_context(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @PySSL_set_context(ptr noundef captures(none) %self, ptr noundef %value, ptr readnone captures(none) %closure) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %ctx, align 8
@@ -15402,7 +15402,7 @@ return:                                           ; preds = %do.end, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PySSL_get_server_side(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @PySSL_get_server_side(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %socket_type = getelementptr inbounds nuw i8, ptr %self, i64 44
   %0 = load i32, ptr %socket_type, align 4
@@ -15413,7 +15413,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal ptr @PySSL_get_server_hostname(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #7 {
+define internal ptr @PySSL_get_server_hostname(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #7 {
 entry:
   %server_hostname = getelementptr inbounds nuw i8, ptr %self, i64 56
   %0 = load ptr, ptr %server_hostname, align 8
@@ -15436,7 +15436,7 @@ return:                                           ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal nonnull ptr @PySSL_get_owner(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #7 {
+define internal nonnull ptr @PySSL_get_owner(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #7 {
 entry:
   %owner = getelementptr inbounds nuw i8, ptr %self, i64 48
   %0 = load ptr, ptr %owner, align 8
@@ -15476,7 +15476,7 @@ return:                                           ; preds = %_PyWeakref_GET_REF.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PySSL_get_session(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @PySSL_get_session(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %ssl = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ssl, align 8
@@ -15535,7 +15535,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @PySSL_get_session_reused(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal nonnull ptr @PySSL_get_session_reused(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %ssl = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ssl, align 8
@@ -15680,7 +15680,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @memory_bio_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @memory_bio_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val3 = load ptr, ptr %0, align 8
@@ -15701,7 +15701,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl_MemoryBIO_read(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_ssl_MemoryBIO_read(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %result.i = alloca ptr, align 8
   %or.cond = icmp ult i64 %nargs, 2
@@ -15813,7 +15813,7 @@ exit:                                             ; preds = %land.lhs.true7, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl_MemoryBIO_write(ptr nocapture noundef readonly %self, ptr noundef %arg) #0 {
+define internal ptr @_ssl_MemoryBIO_write(ptr noundef readonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %b = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %b, i8 0, i64 80, i1 false)
@@ -15896,7 +15896,7 @@ if.end3:                                          ; preds = %if.then2, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @_ssl_MemoryBIO_write_eof(ptr nocapture noundef initializes((24, 28)) %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @_ssl_MemoryBIO_write_eof(ptr noundef captures(none) initializes((24, 28)) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %eof_written.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   store i32 1, ptr %eof_written.i, align 8
@@ -15921,7 +15921,7 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare void @BIO_clear_flags(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @memory_bio_get_pending(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @memory_bio_get_pending(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %bio = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %bio, align 8
@@ -15931,7 +15931,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @memory_bio_get_eof(ptr nocapture noundef readonly %self, ptr nocapture readnone %c) #0 {
+define internal ptr @memory_bio_get_eof(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %c) #0 {
 entry:
   %bio = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %bio, align 8
@@ -16097,7 +16097,7 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @PySSLSession_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @PySSLSession_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ctx, align 8
@@ -16129,7 +16129,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @PySSLSession_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @PySSLSession_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %ctx, align 8
@@ -16158,7 +16158,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @PySSLSession_get_has_ticket(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal nonnull ptr @PySSLSession_get_has_ticket(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %session = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %session, align 8
@@ -16169,7 +16169,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PySSLSession_get_session_id(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @PySSLSession_get_session_id(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %len = alloca i32, align 4
   %session = getelementptr inbounds nuw i8, ptr %self, i64 16
@@ -16182,7 +16182,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PySSLSession_get_ticket_lifetime_hint(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @PySSLSession_get_ticket_lifetime_hint(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %session = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %session, align 8
@@ -16192,7 +16192,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PySSLSession_get_time(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @PySSLSession_get_time(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %session = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %session, align 8
@@ -16202,7 +16202,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @PySSLSession_get_timeout(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @PySSLSession_get_timeout(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %session = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %session, align 8
@@ -16257,7 +16257,7 @@ Py_DECREF.exit:                                   ; preds = %entry, %if.then1.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @certificate_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @certificate_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %data.i.i = alloca ptr, align 8
   %0 = getelementptr i8, ptr %self, i64 8
@@ -16343,7 +16343,7 @@ return:                                           ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 0, -1) i64 @certificate_hash(ptr nocapture noundef %self) #0 {
+define internal range(i64 0, -1) i64 @certificate_hash(ptr noundef captures(none) %self) #0 {
 entry:
   %hash = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %hash, align 8
@@ -16364,7 +16364,7 @@ if.end6:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @certificate_richcompare(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other, i32 noundef %op) #0 {
+define internal nonnull ptr @certificate_richcompare(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other, i32 noundef %op) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -16409,7 +16409,7 @@ declare i64 @X509_subject_name_hash(ptr noundef) local_unnamed_addr #1
 declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl_Certificate_public_bytes(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_ssl_Certificate_public_bytes(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %data.i17.i = alloca ptr, align 8
   %data.i.i = alloca ptr, align 8
@@ -16580,7 +16580,7 @@ exit:                                             ; preds = %if.end21.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl_Certificate_get_info(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl_Certificate_get_info(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -16606,7 +16606,7 @@ declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #1
 declare ptr @PyErr_NewExceptionWithDoc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @SSLError_str(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @SSLError_str(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %strerror = getelementptr inbounds nuw i8, ptr %self, i64 80
   %0 = load ptr, ptr %strerror, align 8
@@ -16669,13 +16669,13 @@ declare void @PyThread_free_lock(ptr noundef) local_unnamed_addr #1
 declare i64 @llvm.smin.i64(i64, i64) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

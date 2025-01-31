@@ -92,7 +92,7 @@ declare ptr @lexbor_dobject_destroy(ptr noundef, i1 noundef zeroext) local_unnam
 declare ptr @lexbor_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_bst_entry_make(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @lexbor_bst_entry_make(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call ptr @lexbor_dobject_calloc(ptr noundef %3) #5
   %5 = icmp eq ptr %4, null
@@ -114,7 +114,7 @@ define hidden ptr @lexbor_bst_entry_make(ptr nocapture noundef %0, i64 noundef %
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_bst_insert(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden ptr @lexbor_bst_insert(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @lexbor_dobject_calloc(ptr noundef %5) #5
   %7 = icmp eq ptr %6, null
@@ -206,7 +206,7 @@ define hidden ptr @lexbor_bst_insert(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_bst_insert_not_exists(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_bst_insert_not_exists(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %9, label %.preheader
@@ -313,7 +313,7 @@ lexbor_bst_entry_make.exit35:                     ; preds = %40, %45
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lexbor_bst_search(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden ptr @lexbor_bst_search(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not11 = icmp eq ptr %1, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
@@ -338,7 +338,7 @@ define hidden ptr @lexbor_bst_search(ptr nocapture noundef readnone %0, ptr noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @lexbor_bst_search_close(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden ptr @lexbor_bst_search_close(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not15 = icmp eq ptr %1, null
   br i1 %.not15, label %._crit_edge, label %.lr.ph
 
@@ -365,7 +365,7 @@ define hidden ptr @lexbor_bst_search_close(ptr nocapture noundef readnone %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_bst_remove(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_bst_remove(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.015 = load ptr, ptr %1, align 8
   %.not16 = icmp eq ptr %.015, null
   br i1 %.not16, label %.loopexit, label %.lr.ph
@@ -395,7 +395,7 @@ define hidden ptr @lexbor_bst_remove(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define hidden ptr @lexbor_bst_remove_by_pointer(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, -1
@@ -612,7 +612,7 @@ define hidden ptr @lexbor_bst_remove_by_pointer(ptr nocapture noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lexbor_bst_remove_close(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden ptr @lexbor_bst_remove_close(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %.02438 = load ptr, ptr %1, align 8
   %.not39 = icmp eq ptr %.02438, null
   br i1 %.not39, label %._crit_edge.thread, label %.lr.ph
@@ -680,10 +680,10 @@ define hidden ptr @lexbor_bst_remove_close(ptr nocapture noundef %0, ptr nocaptu
 declare ptr @lexbor_dobject_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_bst_serialize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @lexbor_bst_serialize(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @lexbor_bst_serialize_entry(ptr noundef %5, ptr noundef %1, ptr noundef %2, i64 noundef 0)
@@ -795,7 +795,7 @@ define hidden void @lexbor_bst_serialize_entry(ptr noundef readonly %0, ptr noun
 declare i64 @lexbor_conv_int64_to_data(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

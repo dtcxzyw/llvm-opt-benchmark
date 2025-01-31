@@ -108,7 +108,7 @@ $_ZN7msdfgen26OverlappingContourCombinerINS_28MultiAndTrueDistanceSelectorEED2Ev
 @.str = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen11generateSDFERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_15GeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %config) local_unnamed_addr #0 {
+define dso_local void @_ZN7msdfgen11generateSDFERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_15GeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %config) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %config, align 1
   %tobool = trunc i8 %0 to i1
@@ -614,7 +614,7 @@ _ZN7msdfgen19ShapeDistanceFinderINS_21SimpleContourCombinerINS_20TrueDistanceSel
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen17generatePseudoSDFERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_15GeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %config) local_unnamed_addr #0 {
+define dso_local void @_ZN7msdfgen17generatePseudoSDFERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10ProjectionEdRKNS_15GeneratorConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, ptr noundef nonnull align 8 dereferenceable(32) %projection, double noundef %range, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %config) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %config, align 1
   %tobool = trunc i8 %0 to i1
@@ -2250,7 +2250,7 @@ _ZN7msdfgen17generatePseudoSDFERKNS_9BitmapRefIfLi1EEERKNS_5ShapeERKNS_10Project
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen12generateMSDFERKNS_9BitmapRefIfLi3EEERKNS_5ShapeEdRKNS_7Vector2ES9_RKNS_21ErrorCorrectionConfigEb(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %errorCorrectionConfig, i1 noundef zeroext %overlapSupport) local_unnamed_addr #0 {
+define dso_local void @_ZN7msdfgen12generateMSDFERKNS_9BitmapRefIfLi3EEERKNS_5ShapeEdRKNS_7Vector2ES9_RKNS_21ErrorCorrectionConfigEb(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %errorCorrectionConfig, i1 noundef zeroext %overlapSupport) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.msdfgen::Projection", align 8
   %ref.tmp1 = alloca %"struct.msdfgen::MSDFGeneratorConfig", align 8
@@ -2275,7 +2275,7 @@ _ZN7msdfgen12generateMSDFERKNS_9BitmapRefIfLi3EEERKNS_5ShapeERKNS_10ProjectionEd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen13generateMTSDFERKNS_9BitmapRefIfLi4EEERKNS_5ShapeEdRKNS_7Vector2ES9_RKNS_21ErrorCorrectionConfigEb(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %errorCorrectionConfig, i1 noundef zeroext %overlapSupport) local_unnamed_addr #0 {
+define dso_local void @_ZN7msdfgen13generateMTSDFERKNS_9BitmapRefIfLi4EEERKNS_5ShapeEdRKNS_7Vector2ES9_RKNS_21ErrorCorrectionConfigEb(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %errorCorrectionConfig, i1 noundef zeroext %overlapSupport) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.msdfgen::Projection", align 8
   %ref.tmp1 = alloca %"struct.msdfgen::MSDFGeneratorConfig", align 8
@@ -2300,7 +2300,7 @@ _ZN7msdfgen13generateMTSDFERKNS_9BitmapRefIfLi4EEERKNS_5ShapeERKNS_10ProjectionE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen18generateSDF_legacyERKNS_9BitmapRefIfLi1EEERKNS_5ShapeEdRKNS_7Vector2ES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, double noundef %range, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %scale, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %translate) local_unnamed_addr #0 {
+define dso_local void @_ZN7msdfgen18generateSDF_legacyERKNS_9BitmapRefIfLi1EEERKNS_5ShapeEdRKNS_7Vector2ES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %output, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %scale, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %translate) local_unnamed_addr #0 {
 entry:
   %dummy = alloca double, align 8
   %height = getelementptr inbounds nuw i8, ptr %output, i64 12
@@ -2446,12 +2446,12 @@ for.end49:                                        ; preds = %for.inc47, %for.bod
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare noundef ptr @_ZNK7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen24generatePseudoSDF_legacyERKNS_9BitmapRefIfLi1EEERKNS_5ShapeEdRKNS_7Vector2ES9_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %output, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %shape, double noundef %range, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %scale, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %translate) local_unnamed_addr #0 {
+define dso_local void @_ZN7msdfgen24generatePseudoSDF_legacyERKNS_9BitmapRefIfLi1EEERKNS_5ShapeEdRKNS_7Vector2ES9_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %output, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %scale, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %translate) local_unnamed_addr #0 {
 entry:
   %minDistance = alloca %"class.msdfgen::SignedDistance", align 8
   %param = alloca double, align 8
@@ -2617,7 +2617,7 @@ for.end57:                                        ; preds = %for.inc55, %for.bod
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen19generateMSDF_legacyERKNS_9BitmapRefIfLi3EEERKNS_5ShapeEdRKNS_7Vector2ES9_NS_21ErrorCorrectionConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr nocapture noundef byval(%"struct.msdfgen::ErrorCorrectionConfig") align 8 %errorCorrectionConfig) local_unnamed_addr #0 {
+define dso_local void @_ZN7msdfgen19generateMSDF_legacyERKNS_9BitmapRefIfLi3EEERKNS_5ShapeEdRKNS_7Vector2ES9_NS_21ErrorCorrectionConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr noundef byval(%"struct.msdfgen::ErrorCorrectionConfig") align 8 captures(none) %errorCorrectionConfig) local_unnamed_addr #0 {
 entry:
   %r = alloca %struct.anon, align 8
   %g = alloca %struct.anon, align 8
@@ -2926,7 +2926,7 @@ for.end140:                                       ; preds = %for.inc138, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen20generateMTSDF_legacyERKNS_9BitmapRefIfLi4EEERKNS_5ShapeEdRKNS_7Vector2ES9_NS_21ErrorCorrectionConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr nocapture noundef byval(%"struct.msdfgen::ErrorCorrectionConfig") align 8 %errorCorrectionConfig) local_unnamed_addr #0 {
+define dso_local void @_ZN7msdfgen20generateMTSDF_legacyERKNS_9BitmapRefIfLi4EEERKNS_5ShapeEdRKNS_7Vector2ES9_NS_21ErrorCorrectionConfigE(ptr noundef nonnull align 8 dereferenceable(16) %output, ptr noundef nonnull align 8 dereferenceable(25) %shape, double noundef %range, ptr noundef nonnull align 8 dereferenceable(16) %scale, ptr noundef nonnull align 8 dereferenceable(16) %translate, ptr noundef byval(%"struct.msdfgen::ErrorCorrectionConfig") align 8 captures(none) %errorCorrectionConfig) local_unnamed_addr #0 {
 entry:
   %r = alloca %struct.anon.8, align 8
   %g = alloca %struct.anon.8, align 8
@@ -3801,13 +3801,13 @@ declare noundef nonnull align 8 dereferenceable(160) ptr @_ZN7msdfgen21SimpleCon
 declare void @_ZNK7msdfgen21SimpleContourCombinerINS_28MultiAndTrueDistanceSelectorEE8distanceEv(ptr sret(%"struct.msdfgen::MultiAndTrueDistance") align 8, ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

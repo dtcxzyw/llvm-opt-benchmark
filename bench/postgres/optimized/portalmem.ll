@@ -92,7 +92,7 @@ define dso_local ptr @GetPortalByName(ptr noundef %0) local_unnamed_addr #0 {
 declare ptr @hash_search(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @PortalGetPrimaryStmt(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local ptr @PortalGetPrimaryStmt(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -440,7 +440,7 @@ GetPortalByName.exit.thread:                      ; preds = %2, %GetPortalByName
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @PortalDefineQuery(ptr nocapture noundef writeonly initializes((8, 16), (56, 68), (72, 76), (80, 104), (132, 136)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define dso_local void @PortalDefineQuery(ptr noundef writeonly captures(none) initializes((8, 16), (56, 68), (72, 76), (80, 104), (132, 136)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -461,7 +461,7 @@ define dso_local void @PortalDefineQuery(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PortalCreateHoldStore(ptr nocapture noundef initializes((176, 192)) %0) local_unnamed_addr #0 {
+define dso_local void @PortalCreateHoldStore(ptr noundef captures(none) initializes((176, 192)) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @TopPortalContext, align 8
   %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -483,7 +483,7 @@ define dso_local void @PortalCreateHoldStore(ptr nocapture noundef initializes((
 declare ptr @tuplestore_begin_heap(i1 noundef zeroext, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PinPortal(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @PinPortal(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -502,7 +502,7 @@ define dso_local void @PinPortal(ptr nocapture noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UnpinPortal(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @UnpinPortal(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -521,7 +521,7 @@ define dso_local void @UnpinPortal(ptr nocapture noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @MarkPortalActive(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @MarkPortalActive(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %3 = load i32, ptr %2, align 4
   %.not = icmp eq i32 %3, 2
@@ -1067,7 +1067,7 @@ define dso_local void @AtSubCommit_Portals(i32 noundef %0, i32 noundef %1, i32 n
 declare void @ResourceOwnerNewParent(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AtSubAbort_Portals(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define dso_local void @AtSubAbort_Portals(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.HASH_SEQ_STATUS, align 8
   %6 = load ptr, ptr @PortalHashTable, align 8
   call void @hash_seq_init(ptr noundef nonnull %5, ptr noundef %6) #7
@@ -1324,7 +1324,7 @@ define dso_local noundef i64 @pg_cursor(ptr noundef %0) local_unnamed_addr #0 {
 declare void @InitMaterializedSRF(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 

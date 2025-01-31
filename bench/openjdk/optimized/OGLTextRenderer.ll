@@ -166,7 +166,7 @@ declare void @OGLVertexCache_FlushVertexCache(...) #1
 declare void @OGLVertexCache_RestoreColorState(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLTR_DrawGlyphList(ptr nocapture readnone %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7, float noundef %8, float noundef %9, ptr noundef readonly %10, ptr noundef readonly %11) local_unnamed_addr #0 {
+define hidden void @OGLTR_DrawGlyphList(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i8 noundef zeroext %6, i32 noundef %7, float noundef %8, float noundef %9, ptr noundef readonly %10, ptr noundef readonly %11) local_unnamed_addr #0 {
   %13 = icmp eq ptr %1, null
   %14 = icmp eq ptr %2, null
   %or.cond = or i1 %13, %14
@@ -1129,7 +1129,7 @@ OGLTR_DisableGlyphModeState.exit:                 ; preds = %510, %OGLTR_DrawGra
 declare void @J2dTraceImpl(i32 noundef, i8 noundef zeroext, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_opengl_OGLTextRenderer_drawGlyphList(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define void @Java_sun_java2d_opengl_OGLTextRenderer_drawGlyphList(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i32 noundef %6, float noundef %7, float noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1776
   %14 = load ptr, ptr %13, align 8
@@ -1332,10 +1332,10 @@ declare zeroext i8 @OGLContext_InitBlitTileTexture(ptr noundef) local_unnamed_ad
 declare float @llvm.floor.f32(float) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #3

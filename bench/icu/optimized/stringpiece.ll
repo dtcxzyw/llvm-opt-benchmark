@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7511StringPieceC1ERKS0_ii = unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN6icu_7511StringPieceC2ERKS0_ii
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7511StringPieceC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr noundef %str) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7511StringPieceC2EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef %str) unnamed_addr #0 align 2 {
 entry:
   store ptr %str, ptr %this, align 8
   %cmp = icmp eq ptr %str, null
@@ -29,10 +29,10 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7511StringPieceC2ERKS0_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %x, i32 noundef %pos) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7511StringPieceC2ERKS0_i(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %x, i32 noundef %pos) unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp slt i32 %pos, 0
   %length_ = getelementptr inbounds nuw i8, ptr %x, i64 8
@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7511StringPieceC2ERKS0_ii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %x, i32 noundef %pos, i32 noundef %len) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7511StringPieceC2ERKS0_ii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %x, i32 noundef %pos, i32 noundef %len) unnamed_addr #2 align 2 {
 entry:
   %cmp = icmp slt i32 %pos, 0
   %length_ = getelementptr inbounds nuw i8, ptr %x, i64 8
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7511StringPiece3setEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr noundef %str) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7511StringPiece3setEPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((0, 12)) %this, ptr noundef %str) local_unnamed_addr #0 align 2 {
 entry:
   store ptr %str, ptr %this, align 8
   %cmp.not = icmp eq ptr %str, null
@@ -91,7 +91,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7511StringPiece4findES0_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture readonly %needle.coerce0, i32 %needle.coerce1, i32 noundef %offset) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN6icu_7511StringPiece4findES0_i(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr readonly captures(none) %needle.coerce0, i32 %needle.coerce1, i32 noundef %offset) local_unnamed_addr #3 align 2 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %length_.i, align 8
@@ -164,7 +164,7 @@ return:                                           ; preds = %if.then16.us, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 2) i32 @_ZN6icu_7511StringPiece7compareES0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %this, ptr nocapture readonly %other.coerce0, i32 %other.coerce1) local_unnamed_addr #3 align 2 {
+define noundef range(i32 -1, 2) i32 @_ZN6icu_7511StringPiece7compareES0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %this, ptr readonly captures(none) %other.coerce0, i32 %other.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %length_.i, align 8
@@ -211,7 +211,7 @@ return:                                           ; preds = %if.else, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_75eqERKNS_11StringPieceES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %x, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %y) local_unnamed_addr #4 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_75eqERKNS_11StringPieceES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %x, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %y) local_unnamed_addr #4 {
 entry:
   %length_.i = getelementptr inbounds nuw i8, ptr %x, i64 8
   %0 = load i32, ptr %length_.i, align 8
@@ -248,7 +248,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

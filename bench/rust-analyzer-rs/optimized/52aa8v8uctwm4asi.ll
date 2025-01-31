@@ -630,7 +630,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E.196" = private unnamed_addr constant [3 x ptr] [ptr @anon.347014ade22dd8316e82c560a89d6049.126, ptr @anon.347014ade22dd8316e82c560a89d6049.127, ptr @anon.347014ade22dd8316e82c560a89d6049.128], align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN101_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h3af8cc8467412485E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN101_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h3af8cc8467412485E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { { ptr, i64 }, ptr }, align 8
   %8 = alloca { { ptr, i64 }, ptr }, align 8
@@ -912,7 +912,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit79.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN101_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h2b9790bf9dcfd31eE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull readonly align 1 %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN101_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h2b9790bf9dcfd31eE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 1 captures(none) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8, !invariant.load !5, !nonnull !5
   tail call void %6(ptr noundef nonnull align 1 %1)
@@ -1014,12 +1014,12 @@ define internal fastcc void @"_ZN101_$LT$salsa..input..UnitInputStorage$LT$Q$GT$
   store ptr %2, ptr %7, align 8, !alias.scope !21, !noalias !24
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 1, ptr %8, align 8, !alias.scope !21, !noalias !24
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.15) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.15) #26
   unreachable
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN101_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h82d3c123c5aa2ad5E"(ptr nocapture noundef nonnull readnone align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN101_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h82d3c123c5aa2ad5E"(ptr noundef nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = alloca [1 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
@@ -1036,14 +1036,14 @@ define hidden noundef zeroext i1 @"_ZN101_$LT$salsa..input..UnitInputStorage$LT$
   store ptr %6, ptr %11, align 8, !alias.scope !27, !noalias !30
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 1, ptr %12, align 8, !alias.scope !27, !noalias !30
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret i1 %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h0e5226bbe2a1f876E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h0e5226bbe2a1f876E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1070,7 +1070,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h153decb68c28c2c8E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h153decb68c28c2c8E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1097,7 +1097,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h1f99f451d2848ff8E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h1f99f451d2848ff8E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1124,7 +1124,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h2a3f090af3959030E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h2a3f090af3959030E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1151,7 +1151,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h2c1954190494401cE"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h2c1954190494401cE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1178,7 +1178,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h2e98d519e1e5da04E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h2e98d519e1e5da04E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1205,7 +1205,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h35279d33c9058e21E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h35279d33c9058e21E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1232,7 +1232,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h39c87f28bdd038c8E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h39c87f28bdd038c8E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1259,7 +1259,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h3a4b74a315b61a1eE"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h3a4b74a315b61a1eE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1286,7 +1286,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h3f7e9d01bdb611c3E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h3f7e9d01bdb611c3E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1313,7 +1313,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h5c3324482e8db90dE"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h5c3324482e8db90dE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1340,7 +1340,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h78f6dd18561b28d0E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h78f6dd18561b28d0E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1367,7 +1367,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h842540fbe225b7fbE"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h842540fbe225b7fbE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1394,7 +1394,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hc86f8654cfd7002dE"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hc86f8654cfd7002dE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1421,7 +1421,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcdb0d2793900a7b6E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcdb0d2793900a7b6E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1448,7 +1448,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcdd82e25c1de3241E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcdd82e25c1de3241E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1475,7 +1475,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcfd1fe17ac60bbc0E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcfd1fe17ac60bbc0E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1502,7 +1502,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hdcbaf6e7967adbb9E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hdcbaf6e7967adbb9E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1529,7 +1529,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17he58f7f3c7a62fd9eE"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17he58f7f3c7a62fd9eE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1556,7 +1556,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17heae2cc0d07283441E"(ptr noundef nonnull align 8 %0, ptr nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17heae2cc0d07283441E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull readnone align 1 captures(none) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = tail call noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef %3), !range !14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -1583,7 +1583,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h08b4b14677a757aaE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h08b4b14677a757aaE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -1594,7 +1594,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h362aa57176de7d12E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h362aa57176de7d12E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -1662,7 +1662,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h0d182cca4fe1d74eE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h0d182cca4fe1d74eE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -1701,7 +1701,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   store ptr %24, ptr %29, align 8, !alias.scope !247, !noalias !250
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %25, ptr %30, align 8, !alias.scope !247, !noalias !250
-  %31 = call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h44fa8c532a91f813E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
+  %31 = call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h44fa8c532a91f813E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
   %32 = extractvalue { ptr, i32 } %31, 0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   br label %33
@@ -1770,7 +1770,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h1c16e2ca2f953109E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(20) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h1c16e2ca2f953109E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(20) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i32, i32 }, { i32, i32, i32 } }, align 4
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -1794,7 +1794,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   store i32 %15, ptr %17, align 4, !alias.scope !279, !noalias !282
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull readonly align 4 dereferenceable(12) %16, i64 12, i1 false), !alias.scope !292
-  %19 = call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h599b1200f36def19E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %3)
+  %19 = call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h599b1200f36def19E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %3)
   %20 = extractvalue { ptr, i32 } %19, 0
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %5)
   br label %21
@@ -1863,7 +1863,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h2ef02ce289ece2a3E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h2ef02ce289ece2a3E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -1874,7 +1874,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h0a096912a6feaa7bE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h0a096912a6feaa7bE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -1942,7 +1942,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h35283ce4afeb9d60E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h35283ce4afeb9d60E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -1953,7 +1953,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h09b784f5cb007fbbE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h09b784f5cb007fbbE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2021,7 +2021,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h36294e7842b138d8E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h36294e7842b138d8E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2032,7 +2032,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17haa0ef16913993a17E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17haa0ef16913993a17E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2100,7 +2100,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h3c29c03aee1cd2caE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h3c29c03aee1cd2caE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2111,7 +2111,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h18cdc295b00cb6a6E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h18cdc295b00cb6a6E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2179,7 +2179,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h442fe4b4fa731413E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h442fe4b4fa731413E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2190,7 +2190,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h8788aa00a569de4aE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h8788aa00a569de4aE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2258,7 +2258,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h4854fadac6f2e3c6E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h4854fadac6f2e3c6E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2269,7 +2269,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17ha1b4bbed320f5936E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17ha1b4bbed320f5936E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2337,7 +2337,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h4f29e9d58ebf2739E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(20) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h4f29e9d58ebf2739E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(20) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2348,7 +2348,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h1050cc6ed7abfbadE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h1050cc6ed7abfbadE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(20) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2416,7 +2416,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h6512a97b374b9016E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h6512a97b374b9016E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2427,7 +2427,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h5205dc85bc4f7233E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h5205dc85bc4f7233E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2495,7 +2495,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h72ec5c979a3158a5E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h72ec5c979a3158a5E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2506,7 +2506,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17hf81727495312104eE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17hf81727495312104eE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2574,7 +2574,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h769251459484a18bE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h769251459484a18bE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2585,7 +2585,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h24fd848c6379f6c7E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h24fd848c6379f6c7E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2653,7 +2653,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h9ffc558f4d799cceE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h9ffc558f4d799cceE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2664,7 +2664,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17he211ccb533faef79E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17he211ccb533faef79E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2732,7 +2732,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17ha5dc931d86c44693E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17ha5dc931d86c44693E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2743,7 +2743,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h97febb64751cc315E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h97febb64751cc315E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2811,7 +2811,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hd1c300809bf47e98E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hd1c300809bf47e98E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2822,7 +2822,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h49cb6d773134cfdcE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h49cb6d773134cfdcE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -2890,7 +2890,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hd2228e39f990c66aE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(12) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hd2228e39f990c66aE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(12) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { i32, [1 x i32] }, i32 }, align 4
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 88
@@ -2915,7 +2915,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   store i32 %15, ptr %18, align 4, !alias.scope !489, !noalias !492
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %17, ptr %19, align 4, !alias.scope !489, !noalias !492
-  %20 = call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17hf4ec55f8305507a0E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %3)
+  %20 = call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17hf4ec55f8305507a0E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %5, ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %3)
   %21 = extractvalue { ptr, i32 } %20, 0
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   br label %22
@@ -2984,7 +2984,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17heb4be499f503d8e5E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17heb4be499f503d8e5E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -2995,7 +2995,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h064fdb3a59aad468E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h064fdb3a59aad468E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(24) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -3063,7 +3063,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hee66b5a673343a9fE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hee66b5a673343a9fE"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -3074,7 +3074,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17ha035f49bbcab1c9cE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17ha035f49bbcab1c9cE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -3142,7 +3142,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hf7b8a74d14062d23E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hf7b8a74d14062d23E"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 dereferenceable(28) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
@@ -3153,7 +3153,7 @@ define hidden noundef range(i32 1, 0) i32 @"_ZN103_$LT$salsa..interned..Interned
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %4
-  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h129fd3afca3a4ef5E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
+  %12 = tail call { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h129fd3afca3a4ef5E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef nonnull readonly align 4 dereferenceable(28) %3)
   %13 = extractvalue { ptr, i32 } %12, 0
   br label %14
 
@@ -3341,7 +3341,7 @@ define hidden { ptr, i32 } @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h086069dd636e1a87E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h086069dd636e1a87E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -3368,7 +3368,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !551, !noalias !554
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !551, !noalias !554
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -3416,7 +3416,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h0dbce8e777a97a31E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h0dbce8e777a97a31E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -3443,7 +3443,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !571, !noalias !574
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !571, !noalias !574
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -3491,7 +3491,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h1352e928a2e69520E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h1352e928a2e69520E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -3518,7 +3518,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !591, !noalias !594
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !591, !noalias !594
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -3566,7 +3566,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h2f08dfa169555200E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h2f08dfa169555200E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -3593,7 +3593,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !611, !noalias !614
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !611, !noalias !614
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -3641,7 +3641,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h44f79f6321a6cea9E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h44f79f6321a6cea9E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -3668,7 +3668,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !631, !noalias !634
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !631, !noalias !634
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -3716,7 +3716,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h600de129484acc2cE"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h600de129484acc2cE"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -3743,7 +3743,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !651, !noalias !654
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !651, !noalias !654
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -3791,7 +3791,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h78faaf5e12bd90e4E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h78faaf5e12bd90e4E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -3818,7 +3818,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !671, !noalias !674
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !671, !noalias !674
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -3866,7 +3866,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h88ec08155eae4b1bE"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h88ec08155eae4b1bE"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -3893,7 +3893,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !691, !noalias !694
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !691, !noalias !694
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -3941,7 +3941,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h93322d60ed65767bE"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h93322d60ed65767bE"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -3968,7 +3968,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !711, !noalias !714
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !711, !noalias !714
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4016,7 +4016,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h934d92d498894501E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h934d92d498894501E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4043,7 +4043,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !731, !noalias !734
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !731, !noalias !734
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4091,7 +4091,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h9738b104c92a0be3E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h9738b104c92a0be3E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4118,7 +4118,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !751, !noalias !754
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !751, !noalias !754
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4166,7 +4166,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17ha046ef09d11ab05aE"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17ha046ef09d11ab05aE"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4193,7 +4193,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !771, !noalias !774
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !771, !noalias !774
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4241,7 +4241,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17ha726f2ea3705fc55E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17ha726f2ea3705fc55E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4268,7 +4268,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !791, !noalias !794
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !791, !noalias !794
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4316,7 +4316,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hb0b67124b841c656E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hb0b67124b841c656E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4343,7 +4343,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !811, !noalias !814
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !811, !noalias !814
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4391,7 +4391,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hc8302ca0ca68003dE"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hc8302ca0ca68003dE"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4418,7 +4418,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !831, !noalias !834
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !831, !noalias !834
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4466,7 +4466,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd4bba6d17725d47fE"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd4bba6d17725d47fE"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4493,7 +4493,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !851, !noalias !854
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !851, !noalias !854
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4541,7 +4541,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd5dd5a81d1ef54e9E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd5dd5a81d1ef54e9E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4568,7 +4568,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !871, !noalias !874
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !871, !noalias !874
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4616,7 +4616,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd793f03098d371c4E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd793f03098d371c4E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4643,7 +4643,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !891, !noalias !894
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !891, !noalias !894
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4691,7 +4691,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd8b13690c52c061dE"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd8b13690c52c061dE"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4718,7 +4718,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !911, !noalias !914
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !911, !noalias !914
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4766,7 +4766,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd985d61b225f89f7E"(ptr noundef nonnull align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr noalias nocapture readonly align 8 %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd985d61b225f89f7E"(ptr noundef nonnull align 8 %0, ptr nonnull readnone align 1 captures(none) %1, ptr noalias readonly align 8 captures(none) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [2 x { ptr, ptr }], align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca ptr, align 8
@@ -4793,7 +4793,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
   store ptr %6, ptr %17, align 8, !alias.scope !931, !noalias !934
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 2, ptr %18, align 8, !alias.scope !931, !noalias !934
-  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
+  %19 = invoke noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7)
           to label %27 unwind label %20
 
 20:                                               ; preds = %5
@@ -4841,7 +4841,7 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$salsa..interned..InternedStorage$L
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN106_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$Q$GT$$GT$3set17hf5e3ff72c61230d0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i1 noundef zeroext %3, i8 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN106_$LT$salsa..input..UnitInputStorage$LT$Q$GT$$u20$as$u20$salsa..plumbing..InputQueryStorageOps$LT$Q$GT$$GT$3set17hf5e3ff72c61230d0E"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 dereferenceable(56) %1, ptr noalias noundef nonnull readonly align 1 captures(none) %2, i1 noundef zeroext %3, i8 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
   %7 = alloca { { ptr, i64 }, ptr }, align 8
   %8 = alloca { { ptr, i64 }, ptr }, align 8
@@ -4992,7 +4992,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %67, align 8, !noalias !954
   %68 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i64 0, ptr %68, align 8, !noalias !954
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.109) #26, !noalias !956
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %18, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.109) #26, !noalias !956
   unreachable
 
 69:                                               ; preds = %.critedge.i
@@ -5078,7 +5078,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 100:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14), !noalias !954
   store ptr null, ptr %14, align 8, !noalias !954
-  invoke void @_ZN4core9panicking13assert_failed17h29b35d9517560473E(i8 noundef 0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %17, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.110) #26
+  invoke void @_ZN4core9panicking13assert_failed17h29b35d9517560473E(i8 noundef 0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %17, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.110) #26
           to label %63 unwind label %.loopexit.split-lp.i, !noalias !956
 
 101:                                              ; preds = %97
@@ -5383,107 +5383,107 @@ _ZN5salsa7runtime7Runtime25with_incremented_revision17h2c3f5b2530689285E.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h00721b87748cea2dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h00721b87748cea2dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h0841ed4322f3abbeE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h0841ed4322f3abbeE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h0aa8a66cf2ff4372E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h0aa8a66cf2ff4372E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h0b8ea4149f8300bfE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h0b8ea4149f8300bfE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h13408c76e26dee51E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h13408c76e26dee51E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h24b70b0b1a893984E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h24b70b0b1a893984E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h4a0a9bf0964314e9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h4a0a9bf0964314e9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h50caae971fd12ef4E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h50caae971fd12ef4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h66e59fc46511d71eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h66e59fc46511d71eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h7e175c1b6dcf668aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h7e175c1b6dcf668aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h7f89436a0ea83148E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h7f89436a0ea83148E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h8f0b2ab14266cdf9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h8f0b2ab14266cdf9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h9a5a27db55c0f623E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h9a5a27db55c0f623E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h9dd416f2a988112eE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17h9dd416f2a988112eE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17haafe7c59ae8efbc9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17haafe7c59ae8efbc9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17hac7e3c257069f78bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17hac7e3c257069f78bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17hb3288d17fbdfc367E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17hb3288d17fbdfc367E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17hb7e803cb906b812cE"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17hb7e803cb906b812cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17head15a41feb85b07E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17head15a41feb85b07E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17hf39a64f2c06c6d45E"(ptr noalias nocapture noundef nonnull readonly align 1 %0) unnamed_addr #3 {
+define hidden void @"_ZN109_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageMassOps$GT$5purge17hf39a64f2c06c6d45E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0) unnamed_addr #3 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h059b693fbfba8775E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h059b693fbfba8775E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5516,7 +5516,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h1173d3bc3335f4b4E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h1173d3bc3335f4b4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5549,7 +5549,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h170c4b91734be1b0E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h170c4b91734be1b0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5581,7 +5581,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h3650bcde8cb91f02E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h3650bcde8cb91f02E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5614,7 +5614,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h4a19fdb3ad14e9d4E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h4a19fdb3ad14e9d4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5647,7 +5647,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h4dfae102b149b832E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h4dfae102b149b832E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5680,7 +5680,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h62a355eb809b50c9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h62a355eb809b50c9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5713,7 +5713,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h80da79f58c776d6aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h80da79f58c776d6aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5746,7 +5746,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h80f8b9eeb0a978dbE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h80f8b9eeb0a978dbE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5779,7 +5779,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h92c7fd00eef9ada6E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h92c7fd00eef9ada6E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5812,7 +5812,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h943336030da2ae8cE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17h943336030da2ae8cE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5845,7 +5845,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17ha5f501806ad84c03E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17ha5f501806ad84c03E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5878,7 +5878,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hb238176c7679d1b6E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hb238176c7679d1b6E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5911,7 +5911,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hb56296c881a306d8E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hb56296c881a306d8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5944,7 +5944,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hb94ed0b7ffd6cf27E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hb94ed0b7ffd6cf27E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -5977,7 +5977,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcb5bdea3ad7465e0E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcb5bdea3ad7465e0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -6010,7 +6010,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcb76cd2c0b4ae4feE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hcb76cd2c0b4ae4feE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -6043,7 +6043,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hd04df74087ccf9d9E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hd04df74087ccf9d9E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -6076,7 +6076,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hf140f24f18954432E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hf140f24f18954432E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -6109,7 +6109,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hff859e06413341d4E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$19maybe_changed_after17hff859e06413341d4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -6142,7 +6142,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h10ef48dd486319a6E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h10ef48dd486319a6E"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1189, !noundef !5
@@ -6217,7 +6217,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h149d4f4a2cee3128E"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h149d4f4a2cee3128E"(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1210, !noundef !5
@@ -6336,7 +6336,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h191f73c4f063237eE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h191f73c4f063237eE"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1245, !noundef !5
@@ -6412,7 +6412,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h26ed91ff4d116ef3E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h26ed91ff4d116ef3E"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1266, !noundef !5
@@ -6488,7 +6488,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h3dfda1ff8911dbcaE"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h3dfda1ff8911dbcaE"(ptr noalias noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1287, !noundef !5
@@ -6564,7 +6564,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h5898adbce2cf2bddE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, { i32, i32, i32 } }) align 4 dereferenceable(20) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h5898adbce2cf2bddE"(ptr noalias noundef writeonly sret({ { i32, i32 }, { i32, i32, i32 } }) align 4 captures(none) dereferenceable(20) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca { i32, i32, i32 }, align 8
   %6 = alloca ptr, align 8
   %7 = load i32, ptr %4, align 4, !range !14, !alias.scope !1308, !noundef !5
@@ -6649,7 +6649,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h5b50d6a907a064d6E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h5b50d6a907a064d6E"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1338, !noundef !5
@@ -6725,7 +6725,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h6eb6ab482a5a5dcaE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h6eb6ab482a5a5dcaE"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1359, !noundef !5
@@ -6801,7 +6801,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h7538601e9e88ae4fE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h7538601e9e88ae4fE"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1380, !noundef !5
@@ -6877,7 +6877,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h87fb3af5eba59fefE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h87fb3af5eba59fefE"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1401, !noundef !5
@@ -6953,7 +6953,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h8e32e7fdc4ae7d2fE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h8e32e7fdc4ae7d2fE"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1422, !noundef !5
@@ -7029,7 +7029,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h9046834f6beff1efE"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h9046834f6beff1efE"(ptr noalias noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1443, !noundef !5
@@ -7105,7 +7105,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h9321e7972d4378dfE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h9321e7972d4378dfE"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1464, !noundef !5
@@ -7181,7 +7181,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h9b7f3ede666bb46cE"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17h9b7f3ede666bb46cE"(ptr noalias noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1485, !noundef !5
@@ -7257,7 +7257,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17ha4bcb85a0fe26533E"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, i32 }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17ha4bcb85a0fe26533E"(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = load i32, ptr %4, align 4, !range !14, !alias.scope !1506, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 112
@@ -7338,7 +7338,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hab1c61ce10b7e24fE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hab1c61ce10b7e24fE"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1528, !noundef !5
@@ -7414,7 +7414,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hc2d11d9dae4ea01aE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hc2d11d9dae4ea01aE"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, i32, i32 }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1549, !noundef !5
@@ -7490,7 +7490,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17he39cb907f9dbec64E"(ptr noalias nocapture noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32 }) align 4 dereferenceable(20) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17he39cb907f9dbec64E"(ptr noalias noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32 }) align 4 captures(none) dereferenceable(20) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i32, { { i32, i32 }, i32 }, i32 }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1570, !noundef !5
@@ -7566,7 +7566,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hfb0d89cadca8bf69E"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hfb0d89cadca8bf69E"(ptr noalias noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { i32, [3 x i32] }, { { i32, i32 }, i32 } }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1591, !noundef !5
@@ -7642,7 +7642,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hfcc17725b8781fadE"(ptr noalias nocapture noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$5fetch17hfcc17725b8781fadE"(ptr noalias noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }) align 4 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }, align 4
   %7 = alloca ptr, align 8
   %8 = load i32, ptr %4, align 4, !range !14, !alias.scope !1612, !noundef !5
@@ -7718,7 +7718,7 @@ define hidden void @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h0d04dd9b3dd8a4beE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h0d04dd9b3dd8a4beE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7730,7 +7730,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h0dd5a6115842ef62E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h0dd5a6115842ef62E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7742,7 +7742,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h0df5e185568d7da6E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h0df5e185568d7da6E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7754,7 +7754,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h320ab29bbc747dacE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h320ab29bbc747dacE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7766,7 +7766,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h33d56b707c7bb0e2E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h33d56b707c7bb0e2E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7778,7 +7778,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h3b242291f4df268aE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h3b242291f4df268aE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7790,7 +7790,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h41b0d11446cc7c74E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h41b0d11446cc7c74E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7802,7 +7802,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h4250a4da6485a72dE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h4250a4da6485a72dE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7814,7 +7814,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h42ddba95b102f9e4E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h42ddba95b102f9e4E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7826,7 +7826,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h43724a4e48535724E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h43724a4e48535724E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7838,7 +7838,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h5017fb1be3c54b1bE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h5017fb1be3c54b1bE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7850,7 +7850,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h6330a4220b2150c8E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h6330a4220b2150c8E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7862,7 +7862,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h6a30e8cbcf496ba0E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h6a30e8cbcf496ba0E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7874,7 +7874,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h8a685aa2d64c16e7E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h8a685aa2d64c16e7E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7886,7 +7886,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h91ad22bc7475d57fE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17h91ad22bc7475d57fE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7898,7 +7898,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hc26a5c613e751ad1E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hc26a5c613e751ad1E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7910,7 +7910,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hc30a04206b8845afE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hc30a04206b8845afE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7922,7 +7922,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hce7698968e358778E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hce7698968e358778E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7933,7 +7933,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd7e52f4a74e843afE"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hd7e52f4a74e843afE"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7945,7 +7945,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hf8757886b6d26752E"(ptr noalias nocapture noundef nonnull readonly align 1 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedStorage$LT$Q$C$IQ$GT$$u20$as$u20$salsa..plumbing..QueryStorageOps$LT$Q$GT$$GT$9fmt_index17hf8757886b6d26752E"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3, ptr noalias noundef align 8 dereferenceable(64) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
   %8 = tail call noundef align 8 dereferenceable(320) ptr %7(ptr noundef nonnull align 1 %1)
@@ -7957,7 +7957,7 @@ define hidden noundef zeroext i1 @"_ZN114_$LT$salsa..interned..LookupInternedSto
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E.llvm.2095514371065220994(ptr nocapture noundef nonnull align 8 %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define hidden noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E.llvm.2095514371065220994(ptr noundef nonnull align 8 captures(none) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = load atomic i64, ptr %0 monotonic, align 8
   %4 = and i64 %3, 8
   %5 = icmp eq i64 %4, 0
@@ -7983,12 +7983,12 @@ define hidden noundef zeroext i1 @_ZN11parking_lot10raw_rwlock9RawRwLock20try_lo
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17ha435f645a10bb844E(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 {
+define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_id17ha435f645a10bb844E(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret i128 3426443349915538793607707548065177458
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN3std10sys_common4once5futex4Once4call17h037abdfa3e42b81eE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std10sys_common4once5futex4Once4call17h037abdfa3e42b81eE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %.sroa.0.i.i = alloca [3 x i64], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -8049,7 +8049,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h037abdfa3e42b81eE
   store ptr %5, ptr %19, align 8, !alias.scope !1633, !noalias !1636
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %20, align 8, !alias.scope !1633, !noalias !1636
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 21:                                               ; preds = %.split
@@ -8072,7 +8072,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h037abdfa3e42b81eE
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 .split20.us:                                      ; preds = %21, %15
@@ -8103,7 +8103,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h037abdfa3e42b81eE
 
 .noexc10:                                         ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h760ad35ebf1664c5E.llvm.11603491536561601675"(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h760ad35ebf1664c5E.llvm.11603491536561601675"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
           to label %39 unwind label %37
 
 37:                                               ; preds = %.noexc10, %34, %33
@@ -8146,7 +8146,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h037abdfa3e42b81eE
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN3std10sys_common4once5futex4Once4call17h064aa7ca4116c136E(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std10sys_common4once5futex4Once4call17h064aa7ca4116c136E(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %.sroa.0.i.i = alloca [3 x i64], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -8207,7 +8207,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h064aa7ca4116c136E
   store ptr %5, ptr %19, align 8, !alias.scope !1639, !noalias !1642
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %20, align 8, !alias.scope !1639, !noalias !1642
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 21:                                               ; preds = %.split
@@ -8230,7 +8230,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h064aa7ca4116c136E
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 .split20.us:                                      ; preds = %21, %15
@@ -8261,7 +8261,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h064aa7ca4116c136E
 
 .noexc10:                                         ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17hb7ee22b20a91b2daE.llvm.11603491536561601675"(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17hb7ee22b20a91b2daE.llvm.11603491536561601675"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
           to label %39 unwind label %37
 
 37:                                               ; preds = %.noexc10, %34, %33
@@ -8304,7 +8304,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h064aa7ca4116c136E
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN3std10sys_common4once5futex4Once4call17h5fe907d45b3b663aE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std10sys_common4once5futex4Once4call17h5fe907d45b3b663aE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %.sroa.0.i.i = alloca [3 x i64], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -8365,7 +8365,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h5fe907d45b3b663aE
   store ptr %5, ptr %19, align 8, !alias.scope !1645, !noalias !1648
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %20, align 8, !alias.scope !1645, !noalias !1648
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 21:                                               ; preds = %.split
@@ -8388,7 +8388,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h5fe907d45b3b663aE
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 .split20.us:                                      ; preds = %21, %15
@@ -8419,7 +8419,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h5fe907d45b3b663aE
 
 .noexc10:                                         ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h9fee05d591480beeE.llvm.11603491536561601675"(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h9fee05d591480beeE.llvm.11603491536561601675"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
           to label %39 unwind label %37
 
 37:                                               ; preds = %.noexc10, %34, %33
@@ -8462,7 +8462,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h5fe907d45b3b663aE
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN3std10sys_common4once5futex4Once4call17h6fb54fce1783ded9E(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std10sys_common4once5futex4Once4call17h6fb54fce1783ded9E(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %.sroa.0.i.i = alloca [3 x i64], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -8523,7 +8523,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h6fb54fce1783ded9E
   store ptr %5, ptr %19, align 8, !alias.scope !1651, !noalias !1654
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %20, align 8, !alias.scope !1651, !noalias !1654
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 21:                                               ; preds = %.split
@@ -8546,7 +8546,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h6fb54fce1783ded9E
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 .split20.us:                                      ; preds = %21, %15
@@ -8577,7 +8577,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h6fb54fce1783ded9E
 
 .noexc10:                                         ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17he9312676ca796519E.llvm.11603491536561601675"(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17he9312676ca796519E.llvm.11603491536561601675"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
           to label %39 unwind label %37
 
 37:                                               ; preds = %.noexc10, %34, %33
@@ -8620,7 +8620,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h6fb54fce1783ded9E
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN3std10sys_common4once5futex4Once4call17h86efc8f9660c8fabE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std10sys_common4once5futex4Once4call17h86efc8f9660c8fabE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %.sroa.0.i.i = alloca [3 x i64], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -8681,7 +8681,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h86efc8f9660c8fabE
   store ptr %5, ptr %19, align 8, !alias.scope !1657, !noalias !1660
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %20, align 8, !alias.scope !1657, !noalias !1660
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 21:                                               ; preds = %.split
@@ -8704,7 +8704,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h86efc8f9660c8fabE
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 .split20.us:                                      ; preds = %21, %15
@@ -8735,7 +8735,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h86efc8f9660c8fabE
 
 .noexc10:                                         ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17he1316afc70a919faE.llvm.11603491536561601675"(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17he1316afc70a919faE.llvm.11603491536561601675"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
           to label %39 unwind label %37
 
 37:                                               ; preds = %.noexc10, %34, %33
@@ -8778,7 +8778,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17h86efc8f9660c8fabE
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha67f311278698a4dE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha67f311278698a4dE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %6 = alloca { i64, { i64, [1 x i64] } }, align 8
   %7 = alloca { { { { ptr, ptr, {} }, {} }, i64 }, {} }, align 8
@@ -8842,7 +8842,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha67f311278698a4dE
   store ptr %5, ptr %22, align 8, !alias.scope !1663, !noalias !1666
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 0, ptr %23, align 8, !alias.scope !1663, !noalias !1666
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 24:                                               ; preds = %.split
@@ -8865,7 +8865,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha67f311278698a4dE
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i64 0, ptr %30, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 .split18.us:                                      ; preds = %24, %18
@@ -8900,7 +8900,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha67f311278698a4dE
   %.sroa.5.0..sroa_idx6.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 0, ptr %.sroa.5.0..sroa_idx6.i.i.i.i, align 8, !noalias !1681
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6), !noalias !1677
-  invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8a44f9098005cf68E.llvm.15956212377945586164"(ptr noalias nocapture noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
+  invoke void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8a44f9098005cf68E.llvm.15956212377945586164"(ptr noalias noundef nonnull sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %7)
           to label %39 unwind label %42, !noalias !1669
 
 39:                                               ; preds = %37
@@ -8977,7 +8977,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17ha67f311278698a4dE
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc12c26879fea324aE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc12c26879fea324aE(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %.sroa.0.i.i = alloca [3 x i64], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -9038,7 +9038,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc12c26879fea324aE
   store ptr %5, ptr %19, align 8, !alias.scope !1682, !noalias !1685
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %20, align 8, !alias.scope !1682, !noalias !1685
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 21:                                               ; preds = %.split
@@ -9061,7 +9061,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc12c26879fea324aE
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 .split20.us:                                      ; preds = %21, %15
@@ -9092,7 +9092,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc12c26879fea324aE
 
 .noexc10:                                         ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h51cc6306c3cdfc58E.llvm.11603491536561601675"(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h51cc6306c3cdfc58E.llvm.11603491536561601675"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
           to label %39 unwind label %37
 
 37:                                               ; preds = %.noexc10, %34, %33
@@ -9135,7 +9135,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hc12c26879fea324aE
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd1d44bb86eed0f02E(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd1d44bb86eed0f02E(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %.sroa.0.i.i = alloca [3 x i64], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -9196,7 +9196,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd1d44bb86eed0f02E
   store ptr %5, ptr %19, align 8, !alias.scope !1688, !noalias !1691
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %20, align 8, !alias.scope !1688, !noalias !1691
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 21:                                               ; preds = %.split
@@ -9219,7 +9219,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd1d44bb86eed0f02E
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 .split20.us:                                      ; preds = %21, %15
@@ -9250,7 +9250,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd1d44bb86eed0f02E
 
 .noexc10:                                         ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17hcdf5ab2c7dd230eeE.llvm.11603491536561601675"(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17hcdf5ab2c7dd230eeE.llvm.11603491536561601675"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
           to label %39 unwind label %37
 
 37:                                               ; preds = %.noexc10, %34, %33
@@ -9293,7 +9293,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd1d44bb86eed0f02E
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd972c802144019b5E(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd972c802144019b5E(ptr noundef nonnull align 4 %0, i1 noundef zeroext %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 personality ptr @rust_eh_personality {
   %5 = alloca [0 x { ptr, ptr }], align 8
   %.sroa.0.i.i = alloca [3 x i64], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -9354,7 +9354,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd972c802144019b5E
   store ptr %5, ptr %19, align 8, !alias.scope !1694, !noalias !1697
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %20, align 8, !alias.scope !1694, !noalias !1697
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 21:                                               ; preds = %.split
@@ -9377,7 +9377,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd972c802144019b5E
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 0, ptr %27, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #26
   unreachable
 
 .split20.us:                                      ; preds = %21, %15
@@ -9408,7 +9408,7 @@ define hidden void @_ZN3std10sys_common4once5futex4Once4call17hd972c802144019b5E
 
 .noexc10:                                         ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i)
-  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h110e0ac4707b190aE.llvm.11603491536561601675"(ptr noalias nocapture noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
+  invoke void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h110e0ac4707b190aE.llvm.11603491536561601675"(ptr noalias noundef nonnull sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24) %.sroa.0.i.i, i64 noundef 0, i64 noundef %36)
           to label %39 unwind label %37
 
 37:                                               ; preds = %.noexc10, %34, %33
@@ -9499,7 +9499,7 @@ define internal noundef zeroext i1 @"_ZN41_$LT$bool$u20$as$u20$core..fmt..Debug$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h578b435ff0e93079E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h578b435ff0e93079E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !5, !align !1723, !noundef !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !1724
@@ -9510,7 +9510,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.2095514371065220994(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4) unnamed_addr #2 {
+define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.2095514371065220994(ptr noalias noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4) unnamed_addr #2 {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = icmp ult i64 %2, %4
   %8 = add i64 %4, 1
@@ -9529,7 +9529,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.20955
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %14, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.85.llvm.2095514371065220994) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.85.llvm.2095514371065220994) #26
   unreachable
 
 15:                                               ; preds = %5
@@ -9546,7 +9546,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h1e5a5db24f308d2dE.llvm.20955
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.2095514371065220994(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
+define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.2095514371065220994(ptr noalias noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #2 {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = icmp ugt i64 %2, 1
   br i1 %5, label %11, label %6
@@ -9574,7 +9574,7 @@ define hidden void @_ZN4core3fmt9Arguments9new_const17h11941afc58751b19E.llvm.20
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %14, align 8, !alias.scope !1728, !noalias !1731
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %15, align 8, !alias.scope !1728, !noalias !1731
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.73.llvm.2095514371065220994) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.73.llvm.2095514371065220994) #26
   unreachable
 }
 
@@ -9585,7 +9585,7 @@ define hidden noundef range(i8 0, -125) i8 @_ZN4core3ops8function6FnOnce9call_on
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr110drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$$GT$17h2641b310e82e4954E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr110drop_in_place$LT$tracing_core..field..DebugValue$LT$$RF$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$$GT$17h2641b310e82e4954E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
@@ -9852,7 +9852,7 @@ define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Opti
 
 "_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1c54d065f2812f66E.llvm.18266587286026290509.exit.i.i": ; preds = %6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !1784
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb804a52ca4c56235E.llvm.18266587286026290509"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb804a52ca4c56235E.llvm.18266587286026290509"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %0)
           to label %.noexc.i unwind label %23
 
 .noexc.i:                                         ; preds = %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h1c54d065f2812f66E.llvm.18266587286026290509.exit.i.i"
@@ -9922,17 +9922,17 @@ define internal fastcc void @"_ZN4core3ptr136drop_in_place$LT$core..option..Opti
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr149drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$span..ast_id..FileAstId$LT$syntax..ast..generated..nodes..ConstArg$GT$$GT$$GT$17he9a52ed32db1d89fE"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr149drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$span..ast_id..FileAstId$LT$syntax..ast..generated..nodes..ConstArg$GT$$GT$$GT$17he9a52ed32db1d89fE"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr150drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$span..ast_id..FileAstId$LT$syntax..ast..generated..nodes..BlockExpr$GT$$GT$$GT$17h750ee38df704554aE"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr150drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$span..ast_id..FileAstId$LT$syntax..ast..generated..nodes..BlockExpr$GT$$GT$$GT$17h750ee38df704554aE"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr173drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..BlockLoc$C$hir_def..BlockLoc$GT$$GT$$GT$17hf993ccdfa888a844E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr173drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..BlockLoc$C$hir_def..BlockLoc$GT$$GT$$GT$17hf993ccdfa888a844E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1806)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1806, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1806
@@ -9949,7 +9949,7 @@ define hidden void @"_ZN4core3ptr173drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..Macro2Loc$C$hir_def..Macro2Loc$GT$$GT$$GT$17hebf60850da88eda8E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1809)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1809, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1809
@@ -9966,7 +9966,7 @@ define hidden void @"_ZN4core3ptr175drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr181drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ProcMacroLoc$C$hir_def..ProcMacroLoc$GT$$GT$$GT$17h9e67209989f71ec5E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr181drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ProcMacroLoc$C$hir_def..ProcMacroLoc$GT$$GT$$GT$17h9e67209989f71ec5E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1812)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1812, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1812
@@ -9983,7 +9983,7 @@ define hidden void @"_ZN4core3ptr181drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr183drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ConstBlockLoc$C$hir_def..ConstBlockLoc$GT$$GT$$GT$17h206d8d7cd747b7caE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr183drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ConstBlockLoc$C$hir_def..ConstBlockLoc$GT$$GT$$GT$17h206d8d7cd747b7caE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1815)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1815, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1815
@@ -10000,7 +10000,7 @@ define hidden void @"_ZN4core3ptr183drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr183drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..MacroRulesLoc$C$hir_def..MacroRulesLoc$GT$$GT$$GT$17h182f02bca6f88789E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr183drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..MacroRulesLoc$C$hir_def..MacroRulesLoc$GT$$GT$$GT$17h182f02bca6f88789E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1818)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1818, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1818
@@ -10017,7 +10017,7 @@ define hidden void @"_ZN4core3ptr183drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr185drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..EnumVariantLoc$C$hir_def..EnumVariantLoc$GT$$GT$$GT$17he52d48915bc25865E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr185drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..EnumVariantLoc$C$hir_def..EnumVariantLoc$GT$$GT$$GT$17he52d48915bc25865E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1821)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1821, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1821
@@ -10034,7 +10034,7 @@ define hidden void @"_ZN4core3ptr185drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr185drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17hdc29ef037e1feadbE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr185drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..InTypeConstLoc$C$hir_def..InTypeConstLoc$GT$$GT$$GT$17hdc29ef037e1feadbE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1824)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1824, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1824
@@ -10051,7 +10051,7 @@ define hidden void @"_ZN4core3ptr185drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr233drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$GT$$GT$$GT$17hab904f423da071d8E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr233drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$GT$$GT$$GT$17hab904f423da071d8E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1827)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1827, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1827
@@ -10068,7 +10068,7 @@ define hidden void @"_ZN4core3ptr233drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$GT$$GT$$GT$17h1e329bd50247b8b5E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$GT$$GT$$GT$17h1e329bd50247b8b5E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1830)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1830, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1830
@@ -10085,7 +10085,7 @@ define hidden void @"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$GT$$GT$$GT$17h0e99e2e635a64673E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$GT$$GT$$GT$17h0e99e2e635a64673E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1833)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1833, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1833
@@ -10102,7 +10102,7 @@ define hidden void @"_ZN4core3ptr235drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr237drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$GT$$GT$$GT$17h4d061086a20c0385E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr237drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$GT$$GT$$GT$17h4d061086a20c0385E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1836)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1836, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1836
@@ -10119,7 +10119,7 @@ define hidden void @"_ZN4core3ptr237drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr237drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$GT$$GT$$GT$17hb41d389ae15f75e3E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr237drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$GT$$GT$$GT$17hb41d389ae15f75e3E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1839)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1839, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1839
@@ -10136,7 +10136,7 @@ define hidden void @"_ZN4core3ptr237drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr239drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$GT$$GT$$GT$17h23c63dc4f874ee67E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr239drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$GT$$GT$$GT$17h23c63dc4f874ee67E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1842)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1842, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1842
@@ -10153,7 +10153,7 @@ define hidden void @"_ZN4core3ptr239drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr247drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$GT$$GT$$GT$17haf6c770f878e5543E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr247drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$GT$$GT$$GT$17haf6c770f878e5543E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1845)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1845, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1845
@@ -10170,7 +10170,7 @@ define hidden void @"_ZN4core3ptr247drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr247drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$GT$$GT$$GT$17h82d23dc36a4ad342E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr247drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$GT$$GT$$GT$17h82d23dc36a4ad342E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1848)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1848, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1848
@@ -10187,7 +10187,7 @@ define hidden void @"_ZN4core3ptr247drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$GT$$GT$$GT$17ha668c637ce8f07b5E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$GT$$GT$$GT$17ha668c637ce8f07b5E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1851)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1851, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1851
@@ -10204,7 +10204,7 @@ define hidden void @"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$GT$$GT$$GT$17haf063395499ed67bE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$GT$$GT$$GT$17haf063395499ed67bE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1854)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1854, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1854
@@ -10221,7 +10221,7 @@ define hidden void @"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$GT$$GT$$GT$17hf5e60f2a0d083d8cE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$C$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$GT$$GT$$GT$17hf5e60f2a0d083d8cE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1857)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1857, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1857
@@ -10238,7 +10238,7 @@ define hidden void @"_ZN4core3ptr249drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr253drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$GT$$GT$$GT$17h5549bb005d5a7a07E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr253drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$GT$$GT$$GT$17h5549bb005d5a7a07E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1860)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1860, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1860
@@ -10255,7 +10255,7 @@ define hidden void @"_ZN4core3ptr253drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core3ptr255drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$GT$$GT$$GT$17h2e4e4bf69c042029E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #0 {
+define hidden void @"_ZN4core3ptr255drop_in_place$LT$lock_api..rwlock..RwLockReadGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$salsa..interned..InternTables$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$C$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$GT$$GT$$GT$17h2e4e4bf69c042029E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1863)
   %2 = load ptr, ptr %0, align 8, !alias.scope !1863, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8, !noalias !1863
@@ -10272,42 +10272,42 @@ define hidden void @"_ZN4core3ptr255drop_in_place$LT$lock_api..rwlock..RwLockRea
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr25drop_in_place$LT$bool$GT$17h65e97bb25411b178E"(ptr noalias nocapture readnone align 1 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr25drop_in_place$LT$bool$GT$17h65e97bb25411b178E"(ptr noalias readnone align 1 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17h2fb4f1f81ce1354fE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr27drop_in_place$LT$$RF$u8$GT$17h2fb4f1f81ce1354fE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$u32$GT$17h4611b0b246d3b936E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$u32$GT$17h4611b0b246d3b936E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr36drop_in_place$LT$hir_def..EnumId$GT$17hf6eadbec0548c053E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr36drop_in_place$LT$hir_def..EnumId$GT$17hf6eadbec0548c053E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr36drop_in_place$LT$span..HirFileId$GT$17hefc3da502e9be9bcE"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr36drop_in_place$LT$span..HirFileId$GT$17hefc3da502e9be9bcE"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr38drop_in_place$LT$hir_def..ModuleId$GT$17h9bceb47153687393E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr38drop_in_place$LT$hir_def..ModuleId$GT$17h9bceb47153687393E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr39drop_in_place$LT$$RF$hir_def..AdtId$GT$17h71aeb531eca4dea3E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr39drop_in_place$LT$$RF$hir_def..AdtId$GT$17h71aeb531eca4dea3E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr40drop_in_place$LT$$RF$hir_def..ImplId$GT$17hbe9e40418ed2fec1E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr40drop_in_place$LT$$RF$hir_def..ImplId$GT$17hbe9e40418ed2fec1E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
@@ -10365,92 +10365,92 @@ define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr41drop_in_place$LT$$RF$hir_def..BlockId$GT$17h1e3a45a40107bba7E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr41drop_in_place$LT$$RF$hir_def..BlockId$GT$17h1e3a45a40107bba7E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr41drop_in_place$LT$$RF$hir_def..ConstId$GT$17haa9d8de8cc5f3ccbE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr41drop_in_place$LT$$RF$hir_def..ConstId$GT$17haa9d8de8cc5f3ccbE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr41drop_in_place$LT$$RF$hir_def..TraitId$GT$17h59191e53fe3f51adE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr41drop_in_place$LT$$RF$hir_def..TraitId$GT$17h59191e53fe3f51adE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17h16afbc62950ba357E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr41drop_in_place$LT$core..fmt..Arguments$GT$17h16afbc62950ba357E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr41drop_in_place$LT$hir_def..TypeOwnerId$GT$17h108b6b49a0ed2564E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr41drop_in_place$LT$hir_def..TypeOwnerId$GT$17h108b6b49a0ed2564E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr42drop_in_place$LT$$RF$hir_def..ModuleId$GT$17hb3a0de3ae8b956c0E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr42drop_in_place$LT$$RF$hir_def..ModuleId$GT$17hb3a0de3ae8b956c0E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr42drop_in_place$LT$$RF$hir_def..StaticId$GT$17habfcce1a03249b8eE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr42drop_in_place$LT$$RF$hir_def..StaticId$GT$17habfcce1a03249b8eE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr43drop_in_place$LT$hir_def..DefWithBodyId$GT$17h82eef25020161f23E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr43drop_in_place$LT$hir_def..DefWithBodyId$GT$17h82eef25020161f23E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr43drop_in_place$LT$hir_def..MacroExpander$GT$17h119ab9c049790a2cE"(ptr noalias nocapture readnone align 1 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr43drop_in_place$LT$hir_def..MacroExpander$GT$17h119ab9c049790a2cE"(ptr noalias readnone align 1 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr44drop_in_place$LT$$RF$hir_def..FunctionId$GT$17h761a51030569af12E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr44drop_in_place$LT$$RF$hir_def..FunctionId$GT$17h761a51030569af12E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr45drop_in_place$LT$$RF$hir_def..TypeAliasId$GT$17hcf36de2b68fd7732E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr45drop_in_place$LT$$RF$hir_def..TypeAliasId$GT$17hcf36de2b68fd7732E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr45drop_in_place$LT$hir_def..ItemContainerId$GT$17hd0d249cb06665dddE"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr45drop_in_place$LT$hir_def..ItemContainerId$GT$17hd0d249cb06665dddE"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$hir_def..TraitAliasId$GT$17h25a7e2f95d59a9ceE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$hir_def..TraitAliasId$GT$17h25a7e2f95d59a9ceE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr47drop_in_place$LT$$RF$hir_def..EnumVariantId$GT$17hdc88857f92f34f4eE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr47drop_in_place$LT$$RF$hir_def..EnumVariantId$GT$17hdc88857f92f34f4eE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr47drop_in_place$LT$$RF$hir_def..ExternBlockId$GT$17hae97c4dbd30fb058E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr47drop_in_place$LT$$RF$hir_def..ExternBlockId$GT$17hae97c4dbd30fb058E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr47drop_in_place$LT$$RF$hir_def..InTypeConstId$GT$17h4782d5a4e01503eeE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr47drop_in_place$LT$$RF$hir_def..InTypeConstId$GT$17h4782d5a4e01503eeE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr47drop_in_place$LT$hir_def..CrateRootModuleId$GT$17had16859074619f51E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr47drop_in_place$LT$hir_def..CrateRootModuleId$GT$17had16859074619f51E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr47drop_in_place$LT$hir_def..item_tree..TreeId$GT$17hea82d0d4dfb74cc5E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr47drop_in_place$LT$hir_def..item_tree..TreeId$GT$17hea82d0d4dfb74cc5E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
@@ -10551,67 +10551,67 @@ common.resume:                                    ; preds = %6, %10
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr48drop_in_place$LT$hir_def..MacroRulesLocFlags$GT$17h706836ca516be41bE"(ptr noalias nocapture readnone align 1 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr48drop_in_place$LT$hir_def..MacroRulesLocFlags$GT$17h706836ca516be41bE"(ptr noalias readnone align 1 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr49drop_in_place$LT$$RF$parser..edition..Edition$GT$17h361c2f1065ee59d5E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr49drop_in_place$LT$$RF$parser..edition..Edition$GT$17h361c2f1065ee59d5E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr51drop_in_place$LT$$RF$salsa..intern_id..InternId$GT$17h4846b98ad5a99bf2E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr51drop_in_place$LT$$RF$salsa..intern_id..InternId$GT$17h4846b98ad5a99bf2E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr53drop_in_place$LT$$RF$hir_def.._..InternalBitFlags$GT$17h4519e310d6fd45ccE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr53drop_in_place$LT$$RF$hir_def.._..InternalBitFlags$GT$17h4519e310d6fd45ccE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr58drop_in_place$LT$hir_expand..proc_macro..ProcMacroKind$GT$17h0f36112f3bf9d50cE"(ptr noalias nocapture readnone align 1 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr58drop_in_place$LT$hir_expand..proc_macro..ProcMacroKind$GT$17h0f36112f3bf9d50cE"(ptr noalias readnone align 1 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr60drop_in_place$LT$$RF$hir_expand..proc_macro..ProcMacroId$GT$17hc45fe909472d7d90E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr60drop_in_place$LT$$RF$hir_expand..proc_macro..ProcMacroId$GT$17hc45fe909472d7d90E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..DefaultCallsite$GT$17hfcdc103af116dcfbE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr60drop_in_place$LT$tracing_core..callsite..DefaultCallsite$GT$17hfcdc103af116dcfbE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr64drop_in_place$LT$$RF$la_arena..Idx$LT$hir_def..hir..Expr$GT$$GT$17h7e8f57ad9b72c212E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr64drop_in_place$LT$$RF$la_arena..Idx$LT$hir_def..hir..Expr$GT$$GT$17h7e8f57ad9b72c212E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$hir_def..BlockId$GT$$GT$17h7c075f40ff4f1983E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr65drop_in_place$LT$core..option..Option$LT$hir_def..BlockId$GT$$GT$17h7c075f40ff4f1983E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr67drop_in_place$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$17hbf8f1351a4313578E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr67drop_in_place$LT$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$17hbf8f1351a4313578E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr68drop_in_place$LT$$RF$hir_expand..builtin_fn_macro..EagerExpander$GT$17hebef733bbc91a4bcE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr68drop_in_place$LT$$RF$hir_expand..builtin_fn_macro..EagerExpander$GT$17hebef733bbc91a4bcE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr68drop_in_place$LT$hir_expand..proc_macro..CustomProcMacroExpander$GT$17hb14799aeea867eb4E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr68drop_in_place$LT$hir_expand..proc_macro..CustomProcMacroExpander$GT$17hb14799aeea867eb4E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$core..option..Option$LT$hir_def..BlockId$GT$$GT$17hd307043098849acbE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr69drop_in_place$LT$$RF$core..option..Option$LT$hir_def..BlockId$GT$$GT$17hd307043098849acbE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
@@ -10647,112 +10647,112 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr71drop_in_place$LT$$RF$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$17hb126b140080f22faE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr71drop_in_place$LT$$RF$la_arena..Idx$LT$base_db..input..CrateData$GT$$GT$17hb126b140080f22faE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr74drop_in_place$LT$$RF$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$GT$17h7a720a38333bcac8E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr74drop_in_place$LT$$RF$la_arena..Idx$LT$hir_def..nameres..ModuleData$GT$$GT$17h7a720a38333bcac8E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$hir_expand..builtin_attr_macro..BuiltinAttrExpander$GT$17had206a8307c25d50E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$hir_expand..builtin_attr_macro..BuiltinAttrExpander$GT$17had206a8307c25d50E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$hir_expand..builtin_fn_macro..BuiltinFnLikeExpander$GT$17hea2d81e0fc3637d5E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr76drop_in_place$LT$$RF$hir_expand..builtin_fn_macro..BuiltinFnLikeExpander$GT$17hea2d81e0fc3637d5E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr80drop_in_place$LT$$RF$hir_expand..builtin_derive_macro..BuiltinDeriveExpander$GT$17h178ea6785bb32a86E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr80drop_in_place$LT$$RF$hir_expand..builtin_derive_macro..BuiltinDeriveExpander$GT$17h178ea6785bb32a86E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr85drop_in_place$LT$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Macro2$GT$$GT$17hd4cf3bba6f212ba1E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr85drop_in_place$LT$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Macro2$GT$$GT$17hd4cf3bba6f212ba1E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr86drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Use$GT$$GT$17haad6f687ecd847c0E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr86drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Use$GT$$GT$17haad6f687ecd847c0E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr86drop_in_place$LT$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Variant$GT$$GT$17h775e4338a2d05eebE"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr86drop_in_place$LT$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Variant$GT$$GT$17h775e4338a2d05eebE"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr87drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Enum$GT$$GT$17h330462fd8b0287c3E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr87drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Enum$GT$$GT$17h330462fd8b0287c3E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr87drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Impl$GT$$GT$17h2f90fb9627b3d707E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr87drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Impl$GT$$GT$17h2f90fb9627b3d707E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr87drop_in_place$LT$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Function$GT$$GT$17h5ae2769bf5747a0bE"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr87drop_in_place$LT$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Function$GT$$GT$17h5ae2769bf5747a0bE"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr88drop_in_place$LT$$RF$alloc..boxed..Box$LT$dyn$u20$hir_def..OpaqueInternableThing$GT$$GT$17h947d1448fa3f90f3E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr88drop_in_place$LT$$RF$alloc..boxed..Box$LT$dyn$u20$hir_def..OpaqueInternableThing$GT$$GT$17h947d1448fa3f90f3E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr88drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Const$GT$$GT$17h9d90fcd74fd72f5dE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr88drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Const$GT$$GT$17h9d90fcd74fd72f5dE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr88drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Trait$GT$$GT$17h76f4b91acdd61a72E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr88drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Trait$GT$$GT$17h76f4b91acdd61a72E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr88drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Union$GT$$GT$17h4f7140b3a232ac20E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr88drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Union$GT$$GT$17h4f7140b3a232ac20E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr89drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Static$GT$$GT$17h469a943d133a8973E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr89drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Static$GT$$GT$17h469a943d133a8973E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr89drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Struct$GT$$GT$17h4255338d6767e809E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr89drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Struct$GT$$GT$17h4255338d6767e809E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr89drop_in_place$LT$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..MacroRules$GT$$GT$17ha61e5ec8f0f16972E"(ptr noalias nocapture readnone align 4 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr89drop_in_place$LT$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..MacroRules$GT$$GT$17ha61e5ec8f0f16972E"(ptr noalias readnone align 4 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr91drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Function$GT$$GT$17h523ad5b4bf061a2cE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr91drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..Function$GT$$GT$17h523ad5b4bf061a2cE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr92drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..TypeAlias$GT$$GT$17h8457c2919ed9d926E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr92drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..TypeAlias$GT$$GT$17h8457c2919ed9d926E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr93drop_in_place$LT$$RF$hir_def..item_tree..FileItemTreeId$LT$hir_def..item_tree..Macro2$GT$$GT$17h002f364c1068c528E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr93drop_in_place$LT$$RF$hir_def..item_tree..FileItemTreeId$LT$hir_def..item_tree..Macro2$GT$$GT$17h002f364c1068c528E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr93drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..TraitAlias$GT$$GT$17hfef5168007d1153bE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr93drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..TraitAlias$GT$$GT$17hfef5168007d1153bE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
@@ -10775,17 +10775,17 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$triomphe..arc..Arc$LT$salsa.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr94drop_in_place$LT$$RF$hir_def..item_tree..FileItemTreeId$LT$hir_def..item_tree..Variant$GT$$GT$17h646bbe65e867b097E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr94drop_in_place$LT$$RF$hir_def..item_tree..FileItemTreeId$LT$hir_def..item_tree..Variant$GT$$GT$17h646bbe65e867b097E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr94drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..ExternBlock$GT$$GT$17h96c4124ac1a7a686E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr94drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..ExternBlock$GT$$GT$17h96c4124ac1a7a686E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr94drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..ExternCrate$GT$$GT$17ha25275c74bd01dcdE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr94drop_in_place$LT$$RF$hir_def..item_tree..ItemTreeId$LT$hir_def..item_tree..ExternCrate$GT$$GT$17ha25275c74bd01dcdE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
@@ -10808,22 +10808,22 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$triomphe..arc..Arc$LT$salsa.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr95drop_in_place$LT$$RF$hir_def..item_tree..FileItemTreeId$LT$hir_def..item_tree..Function$GT$$GT$17h9e248725fbadb631E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr95drop_in_place$LT$$RF$hir_def..item_tree..FileItemTreeId$LT$hir_def..item_tree..Function$GT$$GT$17h9e248725fbadb631E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr95drop_in_place$LT$$RF$span..ast_id..FileAstId$LT$syntax..ast..generated..nodes..ConstArg$GT$$GT$17h6700d549b149690fE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr95drop_in_place$LT$$RF$span..ast_id..FileAstId$LT$syntax..ast..generated..nodes..ConstArg$GT$$GT$17h6700d549b149690fE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr96drop_in_place$LT$$RF$span..ast_id..FileAstId$LT$syntax..ast..generated..nodes..BlockExpr$GT$$GT$17hd281bc03b4fa4c13E"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr96drop_in_place$LT$$RF$span..ast_id..FileAstId$LT$syntax..ast..generated..nodes..BlockExpr$GT$$GT$17hd281bc03b4fa4c13E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr97drop_in_place$LT$$RF$hir_def..item_tree..FileItemTreeId$LT$hir_def..item_tree..MacroRules$GT$$GT$17h86908767037b9cbcE"(ptr noalias nocapture readnone align 8 %0) unnamed_addr #5 {
+define internal void @"_ZN4core3ptr97drop_in_place$LT$$RF$hir_def..item_tree..FileItemTreeId$LT$hir_def..item_tree..MacroRules$GT$$GT$17h86908767037b9cbcE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #5 {
   ret void
 }
 
@@ -10918,7 +10918,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$triomphe..arc..Arc$LT$salsa.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5eb902dacba1d0c0E.llvm.2095514371065220994(ptr nocapture noundef readonly %0, i8 noundef %1) unnamed_addr #2 {
+define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5eb902dacba1d0c0E.llvm.2095514371065220994(ptr noundef readonly captures(none) %0, i8 noundef %1) unnamed_addr #2 {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   switch i8 %1, label %5 [
@@ -10947,7 +10947,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5eb902dacba1d0c0E
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 0, ptr %12, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.89) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.89) #26
   unreachable
 
 13:                                               ; preds = %2
@@ -10965,7 +10965,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5eb902dacba1d0c0E
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 0, ptr %19, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.92) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.92) #26
   unreachable
 
 20:                                               ; preds = %2
@@ -10978,7 +10978,7 @@ define hidden noundef i64 @_ZN4core4sync6atomic11atomic_load17h5eb902dacba1d0c0E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17ha164aea1feaca5b2E.llvm.2095514371065220994(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i8 noundef %3, i8 noundef %4) unnamed_addr #2 {
+define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17ha164aea1feaca5b2E.llvm.2095514371065220994(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i8 noundef %3, i8 noundef %4) unnamed_addr #2 {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   switch i8 %3, label %8 [
@@ -11118,7 +11118,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %50, align 8
   %51 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i64 0, ptr %51, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.99) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.99) #26
   unreachable
 
 52:                                               ; preds = %13, %12, %11, %10, %9
@@ -11132,7 +11132,7 @@ define hidden { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17
   store ptr @anon.347014ade22dd8316e82c560a89d6049.16.llvm.2095514371065220994, ptr %55, align 8
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i64 0, ptr %56, align 8
-  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.100) #26
+  call void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.347014ade22dd8316e82c560a89d6049.100) #26
   unreachable
 }
 
@@ -11142,7 +11142,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN51_$LT$T$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8ca1bfdf7ca75cffE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #8 {
+define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17h8ca1bfdf7ca75cffE"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #8 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1960)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1963)
   %3 = load i32, ptr %0, align 4, !alias.scope !1960, !noalias !1963, !noundef !5
@@ -11152,7 +11152,7 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @"_ZN54_$LT$span..HirFileId$u20$as$u20$core..clone..Clone$GT$5clone17habea9b59c2a0bf77E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0) unnamed_addr #9 {
+define hidden noundef i32 @"_ZN54_$LT$span..HirFileId$u20$as$u20$core..clone..Clone$GT$5clone17habea9b59c2a0bf77E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #9 {
   %2 = load i32, ptr %0, align 4, !noundef !5
   ret i32 %2
 }
@@ -11210,7 +11210,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h03d460d9b302
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -11228,7 +11228,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h03d460d9b302
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -11239,7 +11239,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h03d460d9b302
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !1965
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !1969
 
 43:                                               ; preds = %72
@@ -11308,7 +11308,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h03d460d9b302
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !1999
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !1965
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -11407,7 +11407,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h03d460d9b302
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -11531,7 +11531,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1b29c6c59f2c
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -11549,7 +11549,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1b29c6c59f2c
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -11560,7 +11560,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1b29c6c59f2c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2015
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2019
 
 43:                                               ; preds = %75
@@ -11635,7 +11635,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1b29c6c59f2c
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2054
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2015
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -11740,7 +11740,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1b29c6c59f2c
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -11870,7 +11870,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1bd050a0746a
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -11888,7 +11888,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1bd050a0746a
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -11899,7 +11899,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1bd050a0746a
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2080
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !2084
 
 43:                                               ; preds = %72
@@ -11968,7 +11968,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1bd050a0746a
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2114
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !2080
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -12067,7 +12067,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1bd050a0746a
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -12191,7 +12191,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1c9228d6efbb
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -12209,7 +12209,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1c9228d6efbb
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -12220,7 +12220,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1c9228d6efbb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2130
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2134
 
 43:                                               ; preds = %75
@@ -12295,7 +12295,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1c9228d6efbb
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2169
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2130
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -12400,7 +12400,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h1c9228d6efbb
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -12530,7 +12530,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h208d18fed2c4
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -12548,7 +12548,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h208d18fed2c4
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -12559,7 +12559,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h208d18fed2c4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2195
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !2199
 
 43:                                               ; preds = %72
@@ -12628,7 +12628,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h208d18fed2c4
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2229
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !2195
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -12727,7 +12727,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h208d18fed2c4
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -12851,7 +12851,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h26ff89f34e02
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -12869,7 +12869,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h26ff89f34e02
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -12880,7 +12880,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h26ff89f34e02
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2245
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !2249
 
 43:                                               ; preds = %72
@@ -12949,7 +12949,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h26ff89f34e02
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2279
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !2245
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -13048,7 +13048,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h26ff89f34e02
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -13172,7 +13172,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h280effd1a393
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -13190,7 +13190,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h280effd1a393
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -13201,7 +13201,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h280effd1a393
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2295
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2299
 
 43:                                               ; preds = %75
@@ -13276,7 +13276,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h280effd1a393
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2334
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2295
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -13381,7 +13381,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h280effd1a393
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -13511,7 +13511,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h2b7867abfaff
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -13529,7 +13529,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h2b7867abfaff
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -13540,7 +13540,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h2b7867abfaff
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2360
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2364
 
 43:                                               ; preds = %75
@@ -13615,7 +13615,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h2b7867abfaff
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2399
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2360
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -13720,7 +13720,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h2b7867abfaff
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -13850,7 +13850,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h30d0576ed1b7
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -13868,7 +13868,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h30d0576ed1b7
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -13879,7 +13879,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h30d0576ed1b7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2425
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2429
 
 43:                                               ; preds = %75
@@ -13954,7 +13954,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h30d0576ed1b7
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2464
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2425
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -14059,7 +14059,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h30d0576ed1b7
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -14189,7 +14189,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3203bb24c5c7
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -14207,7 +14207,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3203bb24c5c7
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -14218,7 +14218,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3203bb24c5c7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2490
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2494
 
 43:                                               ; preds = %75
@@ -14293,7 +14293,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3203bb24c5c7
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2529
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2490
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -14398,7 +14398,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h3203bb24c5c7
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -14528,7 +14528,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328532188327
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -14546,7 +14546,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328532188327
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -14557,7 +14557,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328532188327
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2555
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !2559
 
 43:                                               ; preds = %72
@@ -14626,7 +14626,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328532188327
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2589
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !2555
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -14725,7 +14725,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328532188327
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -14849,7 +14849,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328b8b107f95
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -14867,7 +14867,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328b8b107f95
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -14878,7 +14878,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328b8b107f95
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2605
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !2609
 
 43:                                               ; preds = %72
@@ -14947,7 +14947,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328b8b107f95
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2639
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !2605
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -15046,7 +15046,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h328b8b107f95
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -15170,7 +15170,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h32adee750414
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -15188,7 +15188,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h32adee750414
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -15199,7 +15199,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h32adee750414
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2655
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2659
 
 43:                                               ; preds = %75
@@ -15274,7 +15274,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h32adee750414
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2694
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2655
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -15379,7 +15379,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h32adee750414
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -15509,7 +15509,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h34b788be934e
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -15527,7 +15527,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h34b788be934e
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -15538,7 +15538,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h34b788be934e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2720
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2724
 
 43:                                               ; preds = %75
@@ -15613,7 +15613,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h34b788be934e
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2759
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2720
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -15718,7 +15718,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h34b788be934e
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -15848,7 +15848,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h35797b11c7e3
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -15866,7 +15866,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h35797b11c7e3
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -15877,7 +15877,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h35797b11c7e3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2785
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2789
 
 43:                                               ; preds = %75
@@ -15952,7 +15952,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h35797b11c7e3
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2824
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2785
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -16057,7 +16057,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h35797b11c7e3
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -16187,7 +16187,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h37c217bcd657
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -16205,7 +16205,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h37c217bcd657
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -16216,7 +16216,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h37c217bcd657
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2850
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !2854
 
 43:                                               ; preds = %72
@@ -16285,7 +16285,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h37c217bcd657
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2884
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !2850
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -16384,7 +16384,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h37c217bcd657
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -16508,7 +16508,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4337fbb591ad
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -16526,7 +16526,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4337fbb591ad
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -16537,7 +16537,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4337fbb591ad
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2900
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !2904
 
 43:                                               ; preds = %75
@@ -16612,7 +16612,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4337fbb591ad
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2939
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !2900
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -16717,7 +16717,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4337fbb591ad
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -16847,7 +16847,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4342a7e460a2
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -16865,7 +16865,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4342a7e460a2
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -16876,7 +16876,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4342a7e460a2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !2965
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !2969
 
 43:                                               ; preds = %72
@@ -16945,7 +16945,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4342a7e460a2
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !2999
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !2965
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -17044,7 +17044,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4342a7e460a2
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -17168,7 +17168,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4fa996fd06c4
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -17186,7 +17186,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4fa996fd06c4
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -17197,7 +17197,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4fa996fd06c4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3015
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !3019
 
 43:                                               ; preds = %75
@@ -17272,7 +17272,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4fa996fd06c4
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3054
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !3015
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -17377,7 +17377,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h4fa996fd06c4
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -17507,7 +17507,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5012ff8c2e4a
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -17525,7 +17525,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5012ff8c2e4a
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -17536,7 +17536,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5012ff8c2e4a
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3080
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !3084
 
 43:                                               ; preds = %75
@@ -17611,7 +17611,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5012ff8c2e4a
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3119
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !3080
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -17716,7 +17716,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5012ff8c2e4a
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -17846,7 +17846,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5281baa56379
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -17864,7 +17864,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5281baa56379
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -17875,7 +17875,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5281baa56379
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3145
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !3149
 
 43:                                               ; preds = %72
@@ -17944,7 +17944,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5281baa56379
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3179
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !3145
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -18043,7 +18043,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5281baa56379
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -18167,7 +18167,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h58c37152a8ea
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -18185,7 +18185,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h58c37152a8ea
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -18196,7 +18196,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h58c37152a8ea
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3195
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !3199
 
 43:                                               ; preds = %72
@@ -18265,7 +18265,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h58c37152a8ea
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3229
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !3195
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -18364,7 +18364,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h58c37152a8ea
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -18488,7 +18488,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5ad3c9e5fa0a
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -18506,7 +18506,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5ad3c9e5fa0a
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -18517,7 +18517,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5ad3c9e5fa0a
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3245
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !3249
 
 43:                                               ; preds = %72
@@ -18586,7 +18586,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5ad3c9e5fa0a
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3279
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !3245
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -18685,7 +18685,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5ad3c9e5fa0a
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -18809,7 +18809,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5b9ff65d055d
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -18827,7 +18827,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5b9ff65d055d
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -18838,7 +18838,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5b9ff65d055d
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3295
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !3299
 
 43:                                               ; preds = %72
@@ -18907,7 +18907,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5b9ff65d055d
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3329
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !3295
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -19006,7 +19006,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5b9ff65d055d
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -19130,7 +19130,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5d751a16e706
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -19148,7 +19148,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5d751a16e706
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -19159,7 +19159,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5d751a16e706
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3345
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !3349
 
 43:                                               ; preds = %75
@@ -19234,7 +19234,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5d751a16e706
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3384
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !3345
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -19339,7 +19339,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5d751a16e706
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -19469,7 +19469,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5df362a564fd
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -19487,7 +19487,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5df362a564fd
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -19498,7 +19498,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5df362a564fd
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3410
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !3414
 
 43:                                               ; preds = %75
@@ -19573,7 +19573,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5df362a564fd
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3449
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !3410
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -19678,7 +19678,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h5df362a564fd
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -19808,7 +19808,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60015f662fbc
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -19826,7 +19826,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60015f662fbc
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -19837,7 +19837,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60015f662fbc
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3475
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !3479
 
 43:                                               ; preds = %75
@@ -19912,7 +19912,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60015f662fbc
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3514
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !3475
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -20017,7 +20017,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60015f662fbc
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -20147,7 +20147,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60b3568e6ccb
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -20165,7 +20165,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60b3568e6ccb
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -20176,7 +20176,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60b3568e6ccb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3540
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !3544
 
 43:                                               ; preds = %75
@@ -20251,7 +20251,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60b3568e6ccb
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3579
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !3540
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -20356,7 +20356,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h60b3568e6ccb
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -20486,7 +20486,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h613cc727f7a6
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -20504,7 +20504,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h613cc727f7a6
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -20515,7 +20515,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h613cc727f7a6
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3605
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !3609
 
 43:                                               ; preds = %72
@@ -20584,7 +20584,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h613cc727f7a6
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3639
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !3605
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -20683,7 +20683,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h613cc727f7a6
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -20807,7 +20807,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h651174b843ee
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -20825,7 +20825,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h651174b843ee
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -20836,7 +20836,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h651174b843ee
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3655
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !3659
 
 43:                                               ; preds = %72
@@ -20905,7 +20905,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h651174b843ee
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3689
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !3655
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -21004,7 +21004,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h651174b843ee
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -21128,7 +21128,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6906964aa349
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -21146,7 +21146,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6906964aa349
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -21157,7 +21157,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6906964aa349
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3705
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !3709
 
 43:                                               ; preds = %72
@@ -21226,7 +21226,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6906964aa349
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3739
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !3705
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -21325,7 +21325,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6906964aa349
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -21449,7 +21449,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6a1af2613bc5
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -21467,7 +21467,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6a1af2613bc5
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -21478,7 +21478,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6a1af2613bc5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3755
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !3759
 
 43:                                               ; preds = %75
@@ -21553,7 +21553,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6a1af2613bc5
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3794
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !3755
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -21658,7 +21658,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6a1af2613bc5
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -21788,7 +21788,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6c38cc632d04
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -21806,7 +21806,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6c38cc632d04
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -21817,7 +21817,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6c38cc632d04
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3820
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !3824
 
 43:                                               ; preds = %75
@@ -21892,7 +21892,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6c38cc632d04
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3859
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !3820
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -21997,7 +21997,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6c38cc632d04
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -22127,7 +22127,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6cb47b53dfb4
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -22145,7 +22145,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6cb47b53dfb4
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -22156,7 +22156,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6cb47b53dfb4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3885
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !3889
 
 43:                                               ; preds = %75
@@ -22231,7 +22231,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6cb47b53dfb4
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3924
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !3885
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -22336,7 +22336,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6cb47b53dfb4
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -22466,7 +22466,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6ec52a12dd7a
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -22484,7 +22484,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6ec52a12dd7a
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -22495,7 +22495,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6ec52a12dd7a
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !3950
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !3954
 
 43:                                               ; preds = %72
@@ -22564,7 +22564,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6ec52a12dd7a
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !3984
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !3950
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -22663,7 +22663,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h6ec52a12dd7a
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -22787,7 +22787,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h718d9c7d5392
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -22805,7 +22805,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h718d9c7d5392
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -22816,7 +22816,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h718d9c7d5392
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4000
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4004
 
 43:                                               ; preds = %75
@@ -22891,7 +22891,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h718d9c7d5392
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4039
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4000
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -22996,7 +22996,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h718d9c7d5392
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -23126,7 +23126,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7586815bff23
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -23144,7 +23144,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7586815bff23
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -23155,7 +23155,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7586815bff23
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4065
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4069
 
 43:                                               ; preds = %75
@@ -23230,7 +23230,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7586815bff23
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4104
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4065
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -23335,7 +23335,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7586815bff23
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -23465,7 +23465,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h77a35bd05683
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -23483,7 +23483,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h77a35bd05683
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -23494,7 +23494,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h77a35bd05683
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4130
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !4134
 
 43:                                               ; preds = %72
@@ -23563,7 +23563,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h77a35bd05683
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4164
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !4130
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -23662,7 +23662,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h77a35bd05683
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -23786,7 +23786,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7e0fc5325753
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -23804,7 +23804,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7e0fc5325753
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -23815,7 +23815,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7e0fc5325753
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4180
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !4184
 
 43:                                               ; preds = %72
@@ -23884,7 +23884,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7e0fc5325753
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4214
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !4180
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -23983,7 +23983,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h7e0fc5325753
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -24107,7 +24107,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h82d02b0b7fd0
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -24125,7 +24125,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h82d02b0b7fd0
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -24136,7 +24136,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h82d02b0b7fd0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4230
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !4234
 
 43:                                               ; preds = %72
@@ -24205,7 +24205,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h82d02b0b7fd0
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4264
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !4230
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -24304,7 +24304,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h82d02b0b7fd0
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -24428,7 +24428,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h84eb344e94e7
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -24446,7 +24446,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h84eb344e94e7
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -24457,7 +24457,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h84eb344e94e7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4280
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !4284
 
 43:                                               ; preds = %72
@@ -24526,7 +24526,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h84eb344e94e7
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4314
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !4280
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -24625,7 +24625,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h84eb344e94e7
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -24749,7 +24749,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h86a80e03d0b2
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -24767,7 +24767,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h86a80e03d0b2
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -24778,7 +24778,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h86a80e03d0b2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4330
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4334
 
 43:                                               ; preds = %75
@@ -24853,7 +24853,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h86a80e03d0b2
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4369
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4330
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -24958,7 +24958,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h86a80e03d0b2
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -25088,7 +25088,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8a2a11e32ea3
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -25106,7 +25106,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8a2a11e32ea3
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -25117,7 +25117,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8a2a11e32ea3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4395
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4399
 
 43:                                               ; preds = %75
@@ -25192,7 +25192,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8a2a11e32ea3
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4434
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4395
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -25297,7 +25297,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h8a2a11e32ea3
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -25427,7 +25427,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h909d3bdf0d80
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -25445,7 +25445,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h909d3bdf0d80
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -25456,7 +25456,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h909d3bdf0d80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4460
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4464
 
 43:                                               ; preds = %75
@@ -25531,7 +25531,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h909d3bdf0d80
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4499
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4460
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -25636,7 +25636,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h909d3bdf0d80
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -25766,7 +25766,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h90d2f71ef02c
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -25784,7 +25784,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h90d2f71ef02c
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -25795,7 +25795,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h90d2f71ef02c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4525
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4529
 
 43:                                               ; preds = %75
@@ -25870,7 +25870,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h90d2f71ef02c
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4564
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4525
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -25975,7 +25975,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h90d2f71ef02c
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -26105,7 +26105,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95b67bd2a19e
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -26123,7 +26123,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95b67bd2a19e
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -26134,7 +26134,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95b67bd2a19e
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4590
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !4594
 
 43:                                               ; preds = %72
@@ -26203,7 +26203,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95b67bd2a19e
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4624
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !4590
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -26302,7 +26302,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95b67bd2a19e
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -26426,7 +26426,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95bebdacf432
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -26444,7 +26444,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95bebdacf432
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -26455,7 +26455,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95bebdacf432
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4640
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4644
 
 43:                                               ; preds = %75
@@ -26530,7 +26530,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95bebdacf432
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4679
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4640
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -26635,7 +26635,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h95bebdacf432
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -26765,7 +26765,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a9c8536bc25
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -26783,7 +26783,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a9c8536bc25
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -26794,7 +26794,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a9c8536bc25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4705
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4709
 
 43:                                               ; preds = %75
@@ -26869,7 +26869,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a9c8536bc25
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4744
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4705
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -26974,7 +26974,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9a9c8536bc25
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -27104,7 +27104,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9d4f6aa2568c
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -27122,7 +27122,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9d4f6aa2568c
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -27133,7 +27133,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9d4f6aa2568c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4770
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !4774
 
 43:                                               ; preds = %72
@@ -27202,7 +27202,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9d4f6aa2568c
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4804
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !4770
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -27301,7 +27301,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17h9d4f6aa2568c
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -27425,7 +27425,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha00d11c169ad
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -27443,7 +27443,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha00d11c169ad
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -27454,7 +27454,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha00d11c169ad
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4820
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4824
 
 43:                                               ; preds = %75
@@ -27529,7 +27529,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha00d11c169ad
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4859
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4820
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -27634,7 +27634,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha00d11c169ad
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -27764,7 +27764,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha05a4a2aafb5
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -27782,7 +27782,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha05a4a2aafb5
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -27793,7 +27793,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha05a4a2aafb5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4885
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !4889
 
 43:                                               ; preds = %72
@@ -27862,7 +27862,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha05a4a2aafb5
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4919
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !4885
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -27961,7 +27961,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17ha05a4a2aafb5
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -28085,7 +28085,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17had0a657bbd45
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -28103,7 +28103,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17had0a657bbd45
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -28114,7 +28114,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17had0a657bbd45
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4935
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !4939
 
 43:                                               ; preds = %72
@@ -28183,7 +28183,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17had0a657bbd45
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !4969
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !4935
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -28282,7 +28282,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17had0a657bbd45
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -28406,7 +28406,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb2ebcce7fa49
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -28424,7 +28424,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb2ebcce7fa49
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -28435,7 +28435,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb2ebcce7fa49
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !4985
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !4989
 
 43:                                               ; preds = %75
@@ -28510,7 +28510,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb2ebcce7fa49
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5024
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !4985
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -28615,7 +28615,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb2ebcce7fa49
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -28745,7 +28745,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb329ba92e616
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -28763,7 +28763,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb329ba92e616
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -28774,7 +28774,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb329ba92e616
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5050
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !5054
 
 43:                                               ; preds = %75
@@ -28849,7 +28849,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb329ba92e616
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5089
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !5050
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -28954,7 +28954,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb329ba92e616
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -29084,7 +29084,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3f473ee3be0
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -29102,7 +29102,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3f473ee3be0
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -29113,7 +29113,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3f473ee3be0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5115
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !5119
 
 43:                                               ; preds = %75
@@ -29188,7 +29188,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3f473ee3be0
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5154
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !5115
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -29293,7 +29293,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3f473ee3be0
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -29423,7 +29423,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3fcb3d1cc55
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -29441,7 +29441,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3fcb3d1cc55
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -29452,7 +29452,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3fcb3d1cc55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5180
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5184
 
 43:                                               ; preds = %72
@@ -29521,7 +29521,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3fcb3d1cc55
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5214
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5180
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -29620,7 +29620,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb3fcb3d1cc55
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -29744,7 +29744,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb58e986d3f9d
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -29762,7 +29762,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb58e986d3f9d
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -29773,7 +29773,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb58e986d3f9d
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5230
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5234
 
 43:                                               ; preds = %72
@@ -29842,7 +29842,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb58e986d3f9d
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5264
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5230
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -29941,7 +29941,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hb58e986d3f9d
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -30065,7 +30065,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbf3a046dd302
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -30083,7 +30083,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbf3a046dd302
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -30094,7 +30094,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbf3a046dd302
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5280
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5284
 
 43:                                               ; preds = %72
@@ -30163,7 +30163,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbf3a046dd302
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5314
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5280
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -30262,7 +30262,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hbf3a046dd302
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -30386,7 +30386,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc177c10d8a36
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -30404,7 +30404,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc177c10d8a36
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -30415,7 +30415,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc177c10d8a36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5330
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !5334
 
 43:                                               ; preds = %75
@@ -30490,7 +30490,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc177c10d8a36
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5369
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !5330
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -30595,7 +30595,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hc177c10d8a36
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -30725,7 +30725,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb77c4a7e034
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -30743,7 +30743,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb77c4a7e034
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -30754,7 +30754,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb77c4a7e034
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5395
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !5399
 
 43:                                               ; preds = %75
@@ -30829,7 +30829,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb77c4a7e034
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5434
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !5395
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -30934,7 +30934,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb77c4a7e034
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -31064,7 +31064,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb9979dbe71c
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -31082,7 +31082,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb9979dbe71c
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -31093,7 +31093,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb9979dbe71c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5460
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5464
 
 43:                                               ; preds = %72
@@ -31162,7 +31162,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb9979dbe71c
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5494
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5460
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -31261,7 +31261,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcb9979dbe71c
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -31385,7 +31385,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcc7ee5fa13c8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -31403,7 +31403,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcc7ee5fa13c8
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -31414,7 +31414,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcc7ee5fa13c8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5510
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5514
 
 43:                                               ; preds = %72
@@ -31483,7 +31483,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcc7ee5fa13c8
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5544
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5510
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -31582,7 +31582,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hcc7ee5fa13c8
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -31706,7 +31706,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hce6f218b69e7
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -31724,7 +31724,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hce6f218b69e7
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -31735,7 +31735,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hce6f218b69e7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5560
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5564
 
 43:                                               ; preds = %72
@@ -31804,7 +31804,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hce6f218b69e7
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5594
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5560
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -31903,7 +31903,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hce6f218b69e7
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -32027,7 +32027,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd3ee3b58121a
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -32045,7 +32045,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd3ee3b58121a
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -32056,7 +32056,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd3ee3b58121a
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5610
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5614
 
 43:                                               ; preds = %72
@@ -32125,7 +32125,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd3ee3b58121a
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5644
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5610
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -32224,7 +32224,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd3ee3b58121a
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -32348,7 +32348,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd4c23e695337
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -32366,7 +32366,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd4c23e695337
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -32377,7 +32377,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd4c23e695337
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5660
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5664
 
 43:                                               ; preds = %72
@@ -32446,7 +32446,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd4c23e695337
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5694
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5660
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -32545,7 +32545,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd4c23e695337
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -32669,7 +32669,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd59487972b2c
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -32687,7 +32687,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd59487972b2c
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -32698,7 +32698,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd59487972b2c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5710
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5714
 
 43:                                               ; preds = %72
@@ -32767,7 +32767,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd59487972b2c
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5744
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5710
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -32866,7 +32866,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd59487972b2c
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -32990,7 +32990,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd74defba74ce
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -33008,7 +33008,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd74defba74ce
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -33019,7 +33019,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd74defba74ce
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5760
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5764
 
 43:                                               ; preds = %72
@@ -33088,7 +33088,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd74defba74ce
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5794
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5760
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -33187,7 +33187,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hd74defba74ce
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -33311,7 +33311,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdc53e4b207e1
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -33329,7 +33329,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdc53e4b207e1
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -33340,7 +33340,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdc53e4b207e1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5810
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5814
 
 43:                                               ; preds = %72
@@ -33409,7 +33409,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdc53e4b207e1
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5844
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5810
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -33508,7 +33508,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdc53e4b207e1
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -33632,7 +33632,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdebeda864291
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -33650,7 +33650,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdebeda864291
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -33661,7 +33661,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdebeda864291
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5860
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !5864
 
 43:                                               ; preds = %75
@@ -33736,7 +33736,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdebeda864291
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5899
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !5860
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -33841,7 +33841,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdebeda864291
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -33971,7 +33971,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdf28458b9dd3
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -33989,7 +33989,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdf28458b9dd3
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -34000,7 +34000,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdf28458b9dd3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5925
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !5929
 
 43:                                               ; preds = %72
@@ -34069,7 +34069,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdf28458b9dd3
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !5959
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !5925
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -34168,7 +34168,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hdf28458b9dd3
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -34292,7 +34292,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17he2f3e8db6a42
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -34310,7 +34310,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17he2f3e8db6a42
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -34321,7 +34321,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17he2f3e8db6a42
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !5975
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !5979
 
 43:                                               ; preds = %75
@@ -34396,7 +34396,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17he2f3e8db6a42
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !6014
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !5975
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -34501,7 +34501,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17he2f3e8db6a42
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -34631,7 +34631,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb820260150c
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -34649,7 +34649,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb820260150c
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -34660,7 +34660,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb820260150c
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !6040
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !6044
 
 43:                                               ; preds = %75
@@ -34735,7 +34735,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb820260150c
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !6079
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !6040
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -34840,7 +34840,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17heb820260150c
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -34970,7 +34970,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hed006bb29beb
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %106
 
 33:                                               ; preds = %27
@@ -34988,7 +34988,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hed006bb29beb
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %106
 
 40:                                               ; preds = %38
@@ -34999,7 +34999,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hed006bb29beb
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !6105
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep18.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %88, !noalias !6109
 
 43:                                               ; preds = %72
@@ -35068,7 +35068,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hed006bb29beb
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc8.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !6139
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62)
           to label %.noexc9.i unwind label %.loopexit.i, !noalias !6105
 
 .noexc9.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -35167,7 +35167,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hed006bb29beb
   %95 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %95, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %98 unwind label %96
 
 96:                                               ; preds = %94
@@ -35291,7 +35291,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf9462b17eeaa
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 4
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %32 = load ptr, ptr %31, align 8, !invariant.load !5, !nonnull !5
-  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %14)
+  invoke void %32(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %14)
           to label %38 unwind label %112
 
 33:                                               ; preds = %27
@@ -35309,7 +35309,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf9462b17eeaa
 38:                                               ; preds = %28
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %14)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %39)
           to label %40 unwind label %112
 
 40:                                               ; preds = %38
@@ -35320,7 +35320,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf9462b17eeaa
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !6155
   %.sink.i.sroa.gep.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %.sink.i.sroa.gep19.i = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %13)
+  %42 = invoke noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef nonnull align 8 dereferenceable(96) %22, i32 noundef %41, i64 %3, i32 noundef %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %13)
           to label %45 unwind label %91, !noalias !6159
 
 43:                                               ; preds = %75
@@ -35395,7 +35395,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf9462b17eeaa
 
 "_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i": ; preds = %.noexc6.i
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7), !noalias !6194
-  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
+  invoke void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef nonnull sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %60, ptr noundef nonnull %65)
           to label %.noexc7.i unwind label %.loopexit.i, !noalias !6155
 
 .noexc7.i:                                        ; preds = %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12remove_entry17h6805e38abfd136c8E.llvm.15956212377945586164.exit.i.i"
@@ -35500,7 +35500,7 @@ define hidden void @_ZN5salsa7runtime7Runtime18block_on_or_unwind17hf9462b17eeaa
   %101 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %.sroa.5.0.copyload, ptr %101, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
-  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %12)
+  invoke void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8 %39, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %12)
           to label %104 unwind label %102
 
 102:                                              ; preds = %100
@@ -35578,21 +35578,21 @@ default.unreachable:                              ; preds = %104
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h075738e40677d3deE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h075738e40677d3deE.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h3a86b071e007a6baE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h3a86b071e007a6baE.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h3ad9700249aa5bc3E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h3ad9700249aa5bc3E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -35600,14 +35600,14 @@ define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h3f5486cca47bc79aE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h3f5486cca47bc79aE.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h431157f76fb9b092E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h431157f76fb9b092E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -35615,28 +35615,28 @@ define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h544c2e2c4ad69331E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h544c2e2c4ad69331E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h5b70f7622aa50fe5E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h5b70f7622aa50fe5E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h5bcec844712b7f29E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h5bcec844712b7f29E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h6fbcb314d6419668E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h6fbcb314d6419668E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -35644,7 +35644,7 @@ define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h834fe82579dc9b12E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h834fe82579dc9b12E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -35652,14 +35652,14 @@ define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h846b01b7b64fc3c4E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h846b01b7b64fc3c4E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h990ea95887362276E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h990ea95887362276E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -35667,7 +35667,7 @@ define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h99498d569f83daf5E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h99498d569f83daf5E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -35675,14 +35675,14 @@ define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h9cde8a8c343ece5aE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h9cde8a8c343ece5aE.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h9e74227d9e4343a8E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17h9e74227d9e4343a8E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -35690,14 +35690,14 @@ define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17ha845783a1b4f35f0E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17ha845783a1b4f35f0E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17hb7adc4ee6aed39beE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17hb7adc4ee6aed39beE.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(40) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -35705,14 +35705,14 @@ define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17hbd8355982962d450E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17hbd8355982962d450E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %spec.select = icmp ugt i32 %3, %1
   ret i1 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17hc73d680ac9112c80E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17hc73d680ac9112c80E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -35720,7 +35720,7 @@ define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_chan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17hd3f744c2393f8381E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
+define hidden noundef zeroext i1 @"_ZN5salsa8interned13Slot$LT$K$GT$19maybe_changed_after17hd3f744c2393f8381E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(36) %0, i32 noundef %1) unnamed_addr #10 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4, !noundef !5
   %spec.select = icmp ugt i32 %4, %1
@@ -39998,7 +39998,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h064fdb3a59aad468E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h064fdb3a59aad468E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -40026,7 +40026,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hbaacc46458c4661bE"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hbaacc46458c4661bE"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr131drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$GT$$GT$$GT$17h20325c4232564f23E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -40292,7 +40292,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h09b784f5cb007fbbE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h09b784f5cb007fbbE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -40320,7 +40320,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h3e57fc2bd5a83536E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h3e57fc2bd5a83536E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr125drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$GT$$GT$$GT$17h1e47b5d6c5027ae7E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -40586,7 +40586,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h0a096912a6feaa7bE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h0a096912a6feaa7bE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -40614,7 +40614,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hdff1eda3b82e1487E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hdff1eda3b82e1487E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr134drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$GT$$GT$$GT$17h9ff9c7eeafa040b3E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -40880,7 +40880,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h1050cc6ed7abfbadE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h1050cc6ed7abfbadE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [5 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -40908,7 +40908,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h9779ce5b5686671eE"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h9779ce5b5686671eE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr99drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..EnumVariantLoc$GT$$GT$$GT$17h959f963b3c09fa43E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -41174,7 +41174,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h129fd3afca3a4ef5E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h129fd3afca3a4ef5E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -41202,7 +41202,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h5f688f4f9940c917E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h5f688f4f9940c917E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr133drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$GT$$GT$$GT$17hc361ecc8ffb5f6efE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -41468,7 +41468,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h18cdc295b00cb6a6E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h18cdc295b00cb6a6E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -41496,7 +41496,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h6a4c053cb0b6c1a4E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h6a4c053cb0b6c1a4E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr124drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$GT$$GT$$GT$17h3d427c3088087ff7E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -41762,7 +41762,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h24fd848c6379f6c7E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h24fd848c6379f6c7E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -41790,7 +41790,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2d701dcc431457b6E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2d701dcc431457b6E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr130drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$GT$$GT$$GT$17hd9add5cb4384b68dE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -42056,7 +42056,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h362aa57176de7d12E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h362aa57176de7d12E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -42084,7 +42084,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hf5d1cd91af1687a6E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hf5d1cd91af1687a6E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr130drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$GT$$GT$$GT$17hea0e3f1bd86fbcd8E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -42350,7 +42350,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h44fa8c532a91f813E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef align 8 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h44fa8c532a91f813E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }, i32, [1 x i32] }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca { { i64 }, { { { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }, { i32, i16, i16 }, i32, [1 x i32] } }, align 8
@@ -42388,7 +42388,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9)
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h1b085f76cf3a0eeaE"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %26, ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %12)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h1b085f76cf3a0eeaE"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %9, ptr noalias noundef nonnull align 8 dereferenceable(32) %26, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %12)
           to label %32 unwind label %30
 
 .body:                                            ; preds = %69, %30, %.body39.thread, %.body39, %45
@@ -42767,7 +42767,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h49cb6d773134cfdcE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h49cb6d773134cfdcE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -42795,7 +42795,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hc1f612077c067065E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hc1f612077c067065E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr131drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$GT$$GT$$GT$17h37f20ac0a46d580fE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -43061,7 +43061,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h5205dc85bc4f7233E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h5205dc85bc4f7233E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -43089,7 +43089,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h09c1c488816955a7E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h09c1c488816955a7E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr126drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$GT$$GT$$GT$17h737744434c69e619E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -43355,7 +43355,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h599b1200f36def19E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h599b1200f36def19E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [5 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -43380,7 +43380,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h7240952470cec74bE"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(20) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h7240952470cec74bE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(20) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr93drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..BlockLoc$GT$$GT$$GT$17h4347f42926742aafE.llvm.2095514371065220994.exit": ; preds = %.body, %95, %58, %37, %24
@@ -43661,7 +43661,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h8788aa00a569de4aE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h8788aa00a569de4aE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -43689,7 +43689,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h66e8fb758cadd2acE"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h66e8fb758cadd2acE"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr123drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$GT$$GT$$GT$17h3a24199159290a9aE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -43955,7 +43955,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h97febb64751cc315E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17h97febb64751cc315E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -43983,7 +43983,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h95f382ea642fa861E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h95f382ea642fa861E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr131drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$GT$$GT$$GT$17hb02423303b426a91E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -44249,7 +44249,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17ha035f49bbcab1c9cE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17ha035f49bbcab1c9cE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -44277,7 +44277,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h6c0ff2bd9ad90b2cE"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h6c0ff2bd9ad90b2cE"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr94drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..Macro2Loc$GT$$GT$$GT$17h611af858708bc0c5E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -44543,7 +44543,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17ha1b4bbed320f5936E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17ha1b4bbed320f5936E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -44571,7 +44571,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h42cfa6405a9a8e49E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h42cfa6405a9a8e49E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr124drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$GT$$GT$$GT$17hd93ec23feed31bc3E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -44837,7 +44837,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17haa0ef16913993a17E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17haa0ef16913993a17E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [5 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -44865,7 +44865,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hef44937b0196bfd3E"(ptr noalias nocapture noundef nonnull sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hef44937b0196bfd3E"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr97drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ProcMacroLoc$GT$$GT$$GT$17ha79531e8580cc26aE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -45132,7 +45132,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17he211ccb533faef79E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17he211ccb533faef79E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -45160,7 +45160,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %9, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hada3d79934d689f6E"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(24) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hada3d79934d689f6E"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(24) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr125drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$GT$$GT$$GT$17hfd72d7e5a9ee8038E.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -45426,7 +45426,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17hf4ec55f8305507a0E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17hf4ec55f8305507a0E.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [4 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -45454,7 +45454,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %9, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h7d2c2eaae1aea554E"(ptr noalias nocapture noundef nonnull sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(12) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h7d2c2eaae1aea554E"(ptr noalias noundef nonnull sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr98drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..ConstBlockLoc$GT$$GT$$GT$17h80daaf758772e306E.llvm.2095514371065220994.exit": ; preds = %.body, %96, %58, %37, %24
@@ -45729,7 +45729,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17hf81727495312104eE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %3, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12intern_index17hf81727495312104eE.llvm.2095514371065220994"(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %3, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca ptr, align 8
   %7 = alloca { i64, [6 x i64] }, align 8
   %8 = alloca ptr, align 8
@@ -45757,7 +45757,7 @@ define hidden { ptr, i32 } @"_ZN5salsa8interned24InternedStorage$LT$Q$GT$12inter
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %9, ptr noundef nonnull align 4 dereferenceable(28) %3, i64 28, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2491bec0c9c4dbacE"(ptr noalias nocapture noundef nonnull sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias nocapture noundef nonnull align 4 dereferenceable(28) %9)
+  invoke void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2491bec0c9c4dbacE"(ptr noalias noundef nonnull sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56) %7, ptr noalias noundef nonnull align 8 dereferenceable(32) %20, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(28) %9)
           to label %26 unwind label %24
 
 "_ZN4core3ptr98drop_in_place$LT$triomphe..arc..Arc$LT$salsa..interned..Slot$LT$hir_def..MacroRulesLoc$GT$$GT$$GT$17h316da100c3292a3eE.llvm.2095514371065220994.exit": ; preds = %.body, %91, %58, %37, %24
@@ -47843,7 +47843,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17h19997ede6c8db329E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h0567ee7baf739c3dE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h0567ee7baf739c3dE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -47872,7 +47872,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h1b21d0f031a40cb7E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h1b21d0f031a40cb7E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -47901,7 +47901,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h3409b913b61644e5E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h3409b913b61644e5E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -47930,7 +47930,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h4b5c09446d9cdc90E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h4b5c09446d9cdc90E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -47959,7 +47959,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h5a4e79302ca41b78E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h5a4e79302ca41b78E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -47988,7 +47988,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h5cefaf2ec5316520E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h5cefaf2ec5316520E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48017,7 +48017,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h6239f58b01fffbe6E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h6239f58b01fffbe6E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48046,7 +48046,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h656a5beb9626c58bE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h656a5beb9626c58bE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48075,7 +48075,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h6d38b8ae15f2b0b1E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h6d38b8ae15f2b0b1E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48104,7 +48104,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h703ef2f0781ae34fE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h703ef2f0781ae34fE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48133,7 +48133,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h78b339f360334886E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h78b339f360334886E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48162,7 +48162,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h8adb6de3a0641b00E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h8adb6de3a0641b00E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48191,7 +48191,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h9193e193af181b27E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h9193e193af181b27E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48220,7 +48220,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h991397bdb5ad7491E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h991397bdb5ad7491E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48249,7 +48249,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h9ebfdc6f348a9575E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17h9ebfdc6f348a9575E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48278,7 +48278,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hbe5e56abb29828e6E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hbe5e56abb29828e6E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48307,7 +48307,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hc1d861eb454edec8E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hc1d861eb454edec8E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48336,7 +48336,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hd5d0543c9dcaf72cE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hd5d0543c9dcaf72cE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48365,7 +48365,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hde25315f6139132dE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hde25315f6139132dE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48394,7 +48394,7 @@ define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hec0ebca2e952b433E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN5salsa8interned25InternTables$LT$K$C$V$GT$14slot_for_index17hec0ebca2e952b433E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5salsa9intern_id8InternId8as_usize17hde4676f3a2d34852E(i32 noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !5
@@ -48456,7 +48456,7 @@ define internal noundef zeroext i1 @"_ZN66_$LT$salsa..durability..Durability$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @"_ZN66_$LT$salsa..runtime..RuntimeId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe06d1edf6f04865E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #9 {
+define hidden noundef zeroext i1 @"_ZN66_$LT$salsa..runtime..RuntimeId$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfe06d1edf6f04865E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(4) %1) unnamed_addr #9 {
   %3 = load i32, ptr %0, align 4, !noundef !5
   %4 = load i32, ptr %1, align 4, !noundef !5
   %5 = icmp eq i32 %3, %4
@@ -48804,7 +48804,7 @@ define hidden void @"_ZN69_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..ops.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E"(ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define internal noundef zeroext i1 @"_ZN74_$LT$hir_expand..proc_macro..ProcMacroKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h599aee314333b427E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %3 = zext nneg i8 %2 to i64
@@ -48843,7 +48843,7 @@ define internal noundef zeroext i1 @"_ZN84_$LT$hir_expand..proc_macro..CustomPro
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h013ed7a9d79e9235E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h013ed7a9d79e9235E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -48859,7 +48859,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04e23f3c564d8b4dE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h04e23f3c564d8b4dE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -48875,7 +48875,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0afc8c53db7d1a93E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0afc8c53db7d1a93E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -48891,7 +48891,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h208da433fabfbe02E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h208da433fabfbe02E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -48907,7 +48907,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h25ade8739171c0aaE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h25ade8739171c0aaE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -48923,7 +48923,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b8ffec895683913E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2b8ffec895683913E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -48939,7 +48939,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2e44045559e19e9fE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h2e44045559e19e9fE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -48955,7 +48955,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4d68fdf501eb7917E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h4d68fdf501eb7917E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -48971,7 +48971,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5ebe4635c8a1f8f8E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5ebe4635c8a1f8f8E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -48987,7 +48987,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h938ec06694aa2f88E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h938ec06694aa2f88E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49003,7 +49003,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h949e0cfd4d9461bdE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h949e0cfd4d9461bdE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49019,7 +49019,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h954d37365cbc9c1dE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h954d37365cbc9c1dE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49035,7 +49035,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa4f50a4dd7501a8E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haa4f50a4dd7501a8E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49051,7 +49051,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb698f068fc0dad61E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb698f068fc0dad61E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49067,7 +49067,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb704929db5ebc1fdE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb704929db5ebc1fdE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49083,7 +49083,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba7e77c04e5365e7E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hba7e77c04e5365e7E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49099,7 +49099,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbb5e5e48306dd12bE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbb5e5e48306dd12bE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49115,7 +49115,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd394450d46fd645dE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd394450d46fd645dE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49131,7 +49131,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd997464ed0a6f0a6E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd997464ed0a6f0a6E.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49147,7 +49147,7 @@ define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he8d1c11ae4e59acbE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #2 {
+define hidden void @"_ZN88_$LT$lock_api..rwlock..RwLockReadGuard$LT$R$C$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17he8d1c11ae4e59acbE.llvm.2095514371065220994"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   %3 = atomicrmw sub ptr %2, i64 16 release, align 8
   %4 = and i64 %3, -14
@@ -49185,7 +49185,7 @@ define internal noundef zeroext i1 @"_ZN89_$LT$hir_expand..files..InFileWrapper$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, i32 } @"_ZN91_$LT$hir_expand..files..InFileWrapper$LT$FileKind$C$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha15c8fd49aedf141E.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden { i32, i32 } @"_ZN91_$LT$hir_expand..files..InFileWrapper$LT$FileKind$C$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha15c8fd49aedf141E.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 4, !alias.scope !8932, !noundef !5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !alias.scope !8935, !noundef !5
@@ -49195,7 +49195,7 @@ define hidden { i32, i32 } @"_ZN91_$LT$hir_expand..files..InFileWrapper$LT$FileK
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden { i32, i32 } @"_ZN91_$LT$hir_expand..files..InFileWrapper$LT$FileKind$C$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haf8593bc3bdc971cE.llvm.2095514371065220994"(ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define hidden { i32, i32 } @"_ZN91_$LT$hir_expand..files..InFileWrapper$LT$FileKind$C$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17haf8593bc3bdc971cE.llvm.2095514371065220994"(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 4, !alias.scope !8938, !noundef !5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !alias.scope !8941, !noundef !5
@@ -49205,7 +49205,7 @@ define hidden { i32, i32 } @"_ZN91_$LT$hir_expand..files..InFileWrapper$LT$FileK
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$8metadata17h89e014fa0bc48910E"(ptr nocapture noundef nonnull readonly align 8 %0) unnamed_addr #11 {
+define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tracing_core..callsite..DefaultCallsite$u20$as$u20$tracing_core..callsite..Callsite$GT$8metadata17h89e014fa0bc48910E"(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #11 {
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !6, !noundef !5
   ret ptr %2
 }
@@ -50630,7 +50630,7 @@ define noundef i32 @_ZN7hir_def9lang_item14LangItemTarget15as_enum_variant17h394
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define { i32, i32 } @_ZN7hir_def9lang_item9LangItems6target17h84ae99765059c0ecE(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0, i8 noundef %1) unnamed_addr #12 personality ptr @rust_eh_personality {
+define { i32, i32 } @_ZN7hir_def9lang_item9LangItems6target17h84ae99765059c0ecE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0, i8 noundef %1) unnamed_addr #12 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8944)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8, !alias.scope !8944, !noundef !5
@@ -50760,7 +50760,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   store i64 0, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %22, ptr %24, align 8
-  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %21, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   %.pre = load i64, ptr %9, align 8, !range !1793, !alias.scope !8976, !noalias !8979
   %25 = icmp eq i64 %.pre, 2
@@ -51298,7 +51298,7 @@ select.unfold:                                    ; preds = %111, %128
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i32, i32 } @_ZN7hir_def9lang_item9LangItems15lang_item_query17h02ee4dbeda6dab59E(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { i32, i32 } @_ZN7hir_def9lang_item9LangItems15lang_item_query17h02ee4dbeda6dab59E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2, i8 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca { { i64, [3 x i64] }, ptr }, align 8
@@ -51343,7 +51343,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   store i64 0, ptr %21, align 8
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %20, ptr %22, align 8
-  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
+  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %8)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   %.pre = load i64, ptr %7, align 8, !range !1793, !alias.scope !9087, !noalias !9090
   %23 = icmp eq i64 %.pre, 2
@@ -51601,13 +51601,13 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread48, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef range(i8 0, -125) i8 @_ZN7hir_def9lang_item9lang_attr17h64789c5d20ff3828E(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef align 4 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define noundef range(i8 0, -125) i8 @_ZN7hir_def9lang_item9lang_attr17h64789c5d20ff3828E(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, ptr noalias noundef align 4 captures(none) dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, ptr, {} }, { { ptr, i64 } } }, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1168
   %7 = load ptr, ptr %6, align 8, !invariant.load !5, !nonnull !5
-  %8 = tail call noundef ptr %7(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %2)
+  %8 = tail call noundef ptr %7(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %2)
   store ptr %8, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !9151
   %9 = invoke { ptr, i64 } @"_ZN71_$LT$hir_expand..attrs..RawAttrs$u20$as$u20$core..ops..deref..Deref$GT$5deref17h27fef37d42fdfddaE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5)
@@ -51756,7 +51756,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   store i64 1, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %24, ptr %34, align 8
-  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
+  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %23, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
@@ -51814,7 +51814,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4)
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %49 = load i32, ptr %13, align 4, !noundef !5
-  invoke void @_ZN7base_db5input10CrateGraph15transitive_deps17h0eee8e4eee695259E(ptr noalias nocapture noundef nonnull sret({ { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }) align 8 dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48, i32 noundef %49)
+  invoke void @_ZN7base_db5input10CrateGraph15transitive_deps17h0eee8e4eee695259E(ptr noalias noundef nonnull sret({ { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %48, i32 noundef %49)
           to label %58 unwind label %50
 
 50:                                               ; preds = %58, %47
@@ -51840,7 +51840,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %1, ptr %60, align 8
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4)
-  %61 = invoke { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$A$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$A$GT$$GT$9from_iter17h273d1eb16dc3741dE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(80) %5)
+  %61 = invoke { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$A$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$A$GT$$GT$9from_iter17h273d1eb16dc3741dE"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(80) %5)
           to label %62 unwind label %50
 
 62:                                               ; preds = %58
@@ -51872,7 +51872,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %32,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN7hir_def9lang_item20crate_notable_traits17h30b8aa332c2d8a0cE(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden { ptr, i64 } @_ZN7hir_def9lang_item20crate_notable_traits17h30b8aa332c2d8a0cE(ptr noundef nonnull align 1 %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { ptr, ptr, {} }, { { ptr, i64 } } }, {} }, align 8
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { ptr, ptr, i64, ptr, {}, { {} } }, align 8
@@ -51962,7 +51962,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   store i64 1, ptr %40, align 8
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %31, ptr %41, align 8
-  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias nocapture noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
+  call void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias noundef nonnull sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(120) %30, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
@@ -52102,7 +52102,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %39,
   store ptr %.sroa.467.0.copyload, ptr %86, align 8, !alias.scope !9224, !noalias !9227
   %87 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %84, ptr %87, align 8, !alias.scope !9224, !noalias !9227
-  %88 = invoke { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$A$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$A$GT$$GT$9from_iter17h5f988198eee7d9e1E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %6)
+  %88 = invoke { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$A$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$A$GT$$GT$9from_iter17h5f988198eee7d9e1E"(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %6)
           to label %89 unwind label %.loopexit.split-lp
 
 89:                                               ; preds = %83
@@ -52126,7 +52126,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %39,
 
 96:                                               ; preds = %"_ZN4core3ptr71drop_in_place$LT$triomphe..arc..Arc$LT$hir_def..nameres..DefMap$GT$$GT$17h928662103fb3bc79E.exit40"
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !9229
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6c273b8cceb06e3E.llvm.18266587286026290509"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6c273b8cceb06e3E.llvm.18266587286026290509"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %10)
           to label %.noexc41 unwind label %106
 
 .noexc41:                                         ; preds = %96
@@ -52196,7 +52196,7 @@ _ZN7tracing4span4Span7entered17h75bf4b6a528220f6E.exit: ; preds = %.thread, %39,
   store i32 %.sroa.764.0.copyload, ptr %71, align 4, !alias.scope !9242
   store i32 10, ptr %7, align 4, !alias.scope !9242
   %121 = load ptr, ptr %72, align 8, !invariant.load !5, !nonnull !5
-  %122 = invoke noundef ptr %121(ptr noundef nonnull align 1 %0, ptr noalias nocapture noundef nonnull align 4 dereferenceable(16) %7)
+  %122 = invoke noundef ptr %121(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %7)
           to label %123 unwind label %.loopexit
 
 123:                                              ; preds = %120
@@ -52308,7 +52308,7 @@ define noundef range(i8 0, -125) i8 @_ZN7hir_def9lang_item8LangItem9from_name17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def9lang_item8LangItem4path17h96ca6bfe5adfe916E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, i32 noundef %4) unnamed_addr #0 {
+define void @_ZN7hir_def9lang_item8LangItem4path17h96ca6bfe5adfe916E(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = load i8, ptr %1, align 1, !range !8964, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 1184
   %8 = load ptr, ptr %7, align 8, !invariant.load !5, !nonnull !5
@@ -52334,7 +52334,7 @@ define void @_ZN7hir_def9lang_item8LangItem4path17h96ca6bfe5adfe916E(ptr noalias
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def9lang_item8LangItem11ty_rel_path17h0a41bfe9254cc839E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3, i32 noundef %4, ptr noalias nocapture noundef align 8 dereferenceable(24) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN7hir_def9lang_item8LangItem11ty_rel_path17h0a41bfe9254cc839E(ptr noalias noundef writeonly sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, ptr noalias noundef align 8 captures(none) dereferenceable(24) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = load i8, ptr %1, align 1, !range !8964, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 1184
   %9 = load ptr, ptr %8, align 8, !invariant.load !5, !nonnull !5
@@ -52405,7 +52405,7 @@ define void @_ZN7hir_def9lang_item8LangItem11ty_rel_path17h0a41bfe9254cc839E(ptr
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal noundef zeroext i1 @"_ZN75_$LT$hir_def..db..ExpandProcAttrMacrosQuery$u20$as$u20$core..fmt..Debug$GT$3fmt17h6700de58ea6ff68fE"(ptr noalias nocapture nonnull readonly align 1 %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
+define internal noundef zeroext i1 @"_ZN75_$LT$hir_def..db..ExpandProcAttrMacrosQuery$u20$as$u20$core..fmt..Debug$GT$3fmt17h6700de58ea6ff68fE"(ptr noalias nonnull readonly align 1 captures(none) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   %3 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.392, i64 noundef 25)
   ret i1 %3
 }
@@ -52520,7 +52520,7 @@ define internal { i32, i32 } @_ZN7hir_def9lang_item14LangItemTarget11EnumVariant
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7hir_def9lang_item8LangItem4name17h1bdb773e35dac229E(ptr noalias nocapture noundef writeonly sret({ { i8, [23 x i8] } }) align 8 dereferenceable(24) %0, i8 noundef %1) unnamed_addr #0 {
+define void @_ZN7hir_def9lang_item8LangItem4name17h1bdb773e35dac229E(ptr noalias noundef writeonly sret({ { i8, [23 x i8] } }) align 8 captures(none) dereferenceable(24) %0, i8 noundef %1) unnamed_addr #0 {
   %3 = alloca { i8, [23 x i8] }, align 8
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { i8, [23 x i8] }, align 8
@@ -52789,910 +52789,910 @@ define void @_ZN7hir_def9lang_item8LangItem4name17h1bdb773e35dac229E(ptr noalias
 
 134:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %131)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %131, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.412, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %131, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.412, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %131, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %131)
   br label %264
 
 135:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %130)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %130, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.413, i64 noundef 6)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %130, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.413, i64 noundef 6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %130, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %130)
   br label %264
 
 136:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %129)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %129, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.414, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %129, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.414, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %129, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %129)
   br label %264
 
 137:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %128)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %128, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.415, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %128, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.415, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %128, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %128)
   br label %264
 
 138:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %127)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %127, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.416, i64 noundef 4)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %127, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.416, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %127, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %127)
   br label %264
 
 139:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %126)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %126, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.417, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %126, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.417, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %126, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %126)
   br label %264
 
 140:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %125)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %125, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.418, i64 noundef 4)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %125, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.418, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %125, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %125)
   br label %264
 
 141:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %124)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %124, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.419, i64 noundef 17)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %124, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.419, i64 noundef 17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %124, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %124)
   br label %264
 
 142:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %123)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %123, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.420, i64 noundef 17)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %123, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.420, i64 noundef 17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %123, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %123)
   br label %264
 
 143:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %122)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %122, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.421, i64 noundef 13)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %122, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.421, i64 noundef 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %122)
   br label %264
 
 144:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %121)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %121, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.422, i64 noundef 13)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %121, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.422, i64 noundef 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %121, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %121)
   br label %264
 
 145:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %120)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %120, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.423, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %120, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.423, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %120, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %120)
   br label %264
 
 146:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %119)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %119, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.424, i64 noundef 6)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %119, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.424, i64 noundef 6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %119, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %119)
   br label %264
 
 147:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %118)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %118, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.425, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %118, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.425, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %118, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %118)
   br label %264
 
 148:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %117)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %117, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.426, i64 noundef 11)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %117, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.426, i64 noundef 11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %117)
   br label %264
 
 149:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %116)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %116, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.427, i64 noundef 4)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %116, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.427, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %116, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %116)
   br label %264
 
 150:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %115)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %115, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.428, i64 noundef 8)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %115, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.428, i64 noundef 8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %115, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %115)
   br label %264
 
 151:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %114)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %114, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.429, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %114, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.429, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %114, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %114)
   br label %264
 
 152:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %113)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %113, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.430, i64 noundef 17)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %113, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.430, i64 noundef 17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %113, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %113)
   br label %264
 
 153:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %112)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %112, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.431, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %112, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.431, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %112, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %112)
   br label %264
 
 154:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %111)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %111, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.432, i64 noundef 15)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %111, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.432, i64 noundef 15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %111, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %111)
   br label %264
 
 155:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %110)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %110, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.433, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %110, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.433, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %110, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %110)
   br label %264
 
 156:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %109)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %109, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.434, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %109, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.434, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %109, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %109)
   br label %264
 
 157:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %108)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %108, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.435, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %108, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.435, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %108, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %108)
   br label %264
 
 158:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %107)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %107, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.436, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %107, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.436, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %107)
   br label %264
 
 159:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %106)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %106, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.437, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %106, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.437, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %106)
   br label %264
 
 160:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %105)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %105, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.438, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %105, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.438, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %105, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %105)
   br label %264
 
 161:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %104)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %104, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.439, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %104, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.439, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %104, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %104)
   br label %264
 
 162:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %103)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %103, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.440, i64 noundef 6)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %103, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.440, i64 noundef 6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %103, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %103)
   br label %264
 
 163:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %102)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %102, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.441, i64 noundef 6)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %102, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.441, i64 noundef 6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %102, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %102)
   br label %264
 
 164:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %101)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %101, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.442, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %101, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.442, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %101, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %101)
   br label %264
 
 165:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %100)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.443, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %100, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.443, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %100, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %100)
   br label %264
 
 166:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %99)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %99, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.444, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %99, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.444, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %99)
   br label %264
 
 167:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %98)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %98, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.445, i64 noundef 10)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %98, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.445, i64 noundef 10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %98, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %98)
   br label %264
 
 168:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %97)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %97, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.446, i64 noundef 10)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %97, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.446, i64 noundef 10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %97, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %97)
   br label %264
 
 169:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %96)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %96, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.447, i64 noundef 10)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %96, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.447, i64 noundef 10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %96, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %96)
   br label %264
 
 170:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %95)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %95, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.448, i64 noundef 10)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %95, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.448, i64 noundef 10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %95, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %95)
   br label %264
 
 171:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %94)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %94, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.449, i64 noundef 10)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %94, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.449, i64 noundef 10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %94, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %94)
   br label %264
 
 172:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %93)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %93, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.450, i64 noundef 13)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %93, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.450, i64 noundef 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %93, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %93)
   br label %264
 
 173:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %92)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %92, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.451, i64 noundef 13)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %92, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.451, i64 noundef 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %92, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %92)
   br label %264
 
 174:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %91)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %91, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.452, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %91, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.452, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %91, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %91)
   br label %264
 
 175:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %90)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %90, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.453, i64 noundef 10)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %90, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.453, i64 noundef 10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %90, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %90)
   br label %264
 
 176:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %89)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %89, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.454, i64 noundef 10)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %89, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.454, i64 noundef 10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %89)
   br label %264
 
 177:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %88)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %88, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.455, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %88, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.455, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %88, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %88)
   br label %264
 
 178:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %87)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %87, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.456, i64 noundef 9)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %87, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.456, i64 noundef 9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %87, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %87)
   br label %264
 
 179:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %86)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %86, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.457, i64 noundef 11)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %86, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.457, i64 noundef 11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %86, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %86)
   br label %264
 
 180:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %85)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %85, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.458, i64 noundef 7)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %85, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.458, i64 noundef 7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %85, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %85)
   br label %264
 
 181:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %84)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %84, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.459, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %84, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.459, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %84)
   br label %264
 
 182:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %83)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %83, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.460, i64 noundef 9)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %83, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.460, i64 noundef 9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %83)
   br label %264
 
 183:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %82)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %82, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.461, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %82, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.461, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %82, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %82)
   br label %264
 
 184:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %81)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.462, i64 noundef 8)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %81, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.462, i64 noundef 8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %81, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %81)
   br label %264
 
 185:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %80)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %80, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.463, i64 noundef 2)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %80, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.463, i64 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %80, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %80)
   br label %264
 
 186:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %79)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %79, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.464, i64 noundef 6)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %79, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.464, i64 noundef 6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %79, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %79)
   br label %264
 
 187:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %78)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.465, i64 noundef 7)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %78, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.465, i64 noundef 7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %78, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %78)
   br label %264
 
 188:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %77)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.466, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %77, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.466, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %77, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %77)
   br label %264
 
 189:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %76)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %76, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.467, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %76, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.467, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %76, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %76)
   br label %264
 
 190:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %75, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.468, i64 noundef 15)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %75, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.468, i64 noundef 15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %75, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75)
   br label %264
 
 191:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %74, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.469, i64 noundef 9)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %74, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.469, i64 noundef 9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %74, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74)
   br label %264
 
 192:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %73)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.470, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %73, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.470, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %73)
   br label %264
 
 193:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %72)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.471, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %72, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.471, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %72)
   br label %264
 
 194:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %71)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %71, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.472, i64 noundef 2)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %71, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.472, i64 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %71, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71)
   br label %264
 
 195:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %70)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %70, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.473, i64 noundef 11)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %70, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.473, i64 noundef 11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %70, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %70)
   br label %264
 
 196:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %69)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %69, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.474, i64 noundef 6)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %69, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.474, i64 noundef 6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %69, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %69)
   br label %264
 
 197:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %68)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %68, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.475, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %68, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.475, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %68, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %68)
   br label %264
 
 198:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %67)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %67, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.476, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %67, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.476, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %67, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %67)
   br label %264
 
 199:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %66)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.477, i64 noundef 9)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %66, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.477, i64 noundef 9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %66, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %66)
   br label %264
 
 200:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %65)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %65, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.478, i64 noundef 13)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %65, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.478, i64 noundef 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65)
   br label %264
 
 201:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %64)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %64, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.479, i64 noundef 15)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %64, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.479, i64 noundef 15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %64, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %64)
   br label %264
 
 202:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %63)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %63, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.480, i64 noundef 18)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %63, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.480, i64 noundef 18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %63, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %63)
   br label %264
 
 203:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %62)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %62, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.481, i64 noundef 36)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %62, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.481, i64 noundef 36)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %62, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %62)
   br label %264
 
 204:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %61)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %61, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.482, i64 noundef 10)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %61, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.482, i64 noundef 10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %61, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %61)
   br label %264
 
 205:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %60)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %60, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.483, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %60, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.483, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %60, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %60)
   br label %264
 
 206:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %59)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %59, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.484, i64 noundef 10)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %59, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.484, i64 noundef 10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %59, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %59)
   br label %264
 
 207:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %58)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %58, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.485, i64 noundef 19)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %58, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.485, i64 noundef 19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %58, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %58)
   br label %264
 
 208:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %57)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.486, i64 noundef 11)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.486, i64 noundef 11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %57, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %57)
   br label %264
 
 209:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %56)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %56, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.487, i64 noundef 16)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %56, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.487, i64 noundef 16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %56, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %56)
   br label %264
 
 210:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %55)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %55, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.488, i64 noundef 15)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %55, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.488, i64 noundef 15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %55, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %55)
   br label %264
 
 211:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %54)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %54, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.489, i64 noundef 16)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %54, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.489, i64 noundef 16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %54, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %54)
   br label %264
 
 212:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %53)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %53, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.490, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %53, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.490, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %53)
   br label %264
 
 213:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %52)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.491, i64 noundef 18)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %52, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.491, i64 noundef 18)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %52)
   br label %264
 
 214:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %51)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %51, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.492, i64 noundef 17)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %51, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.492, i64 noundef 17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %51, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %51)
   br label %264
 
 215:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %50)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %50, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.493, i64 noundef 15)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %50, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.493, i64 noundef 15)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %50)
   br label %264
 
 216:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %49)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.494, i64 noundef 8)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %49, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.494, i64 noundef 8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %49, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
   br label %264
 
 217:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %48)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.495, i64 noundef 13)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %48, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.495, i64 noundef 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %48, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %48)
   br label %264
 
 218:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %47)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %47, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.496, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %47, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.496, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
   br label %264
 
 219:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %46)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.217, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %46, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.217, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %46, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %46)
   br label %264
 
 220:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %45)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.497, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %45, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.497, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %45)
   br label %264
 
 221:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %44)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %44, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.498, i64 noundef 17)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %44, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.498, i64 noundef 17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %44, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %44)
   br label %264
 
 222:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %43)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.499, i64 noundef 9)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %43, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.499, i64 noundef 9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %43, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43)
   br label %264
 
 223:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %42)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.500, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %42, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.500, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42)
   br label %264
 
 224:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %41)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.501, i64 noundef 13)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %41, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.501, i64 noundef 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41)
   br label %264
 
 225:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %40)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %40, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.502, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %40, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.502, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %40, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40)
   br label %264
 
 226:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %39, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.503, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %39, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.503, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39)
   br label %264
 
 227:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %38, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.504, i64 noundef 11)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %38, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.504, i64 noundef 11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
   br label %264
 
 228:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %37)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.505, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %37, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.505, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %37)
   br label %264
 
 229:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.506, i64 noundef 11)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %36, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.506, i64 noundef 11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36)
   br label %264
 
 230:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.507, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %35, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.507, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
   br label %264
 
 231:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.508, i64 noundef 13)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %34, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.508, i64 noundef 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
   br label %264
 
 232:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %33)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.509, i64 noundef 11)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %33, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.509, i64 noundef 11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %33, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %33)
   br label %264
 
 233:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.510, i64 noundef 6)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %32, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.510, i64 noundef 6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %32)
   br label %264
 
 234:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %31)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.511, i64 noundef 9)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %31, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.511, i64 noundef 9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %31)
   br label %264
 
 235:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %30)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.512, i64 noundef 12)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %30, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.512, i64 noundef 12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %30)
   br label %264
 
 236:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.513, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %29, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.513, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   br label %264
 
 237:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.514, i64 noundef 4)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %28, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.514, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
   br label %264
 
 238:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %27)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.515, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %27, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.515, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %27)
   br label %264
 
 239:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.516, i64 noundef 7)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %26, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.516, i64 noundef 7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   br label %264
 
 240:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %25)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.517, i64 noundef 8)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %25, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.517, i64 noundef 8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %25)
   br label %264
 
 241:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.518, i64 noundef 11)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.518, i64 noundef 11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24)
   br label %264
 
 242:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.519, i64 noundef 7)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %23, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.519, i64 noundef 7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %23, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
   br label %264
 
 243:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.520, i64 noundef 4)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %22, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.520, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   br label %264
 
 244:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %21)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.521, i64 noundef 6)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %21, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.521, i64 noundef 6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21)
   br label %264
 
 245:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.122, i64 noundef 4)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %20, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.122, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20)
   br label %264
 
 246:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.121, i64 noundef 4)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %19, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.121, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %19, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
   br label %264
 
 247:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.522, i64 noundef 2)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %18, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.522, i64 noundef 2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %18, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   br label %264
 
 248:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.523, i64 noundef 3)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.523, i64 noundef 3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   br label %264
 
 249:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %16)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.524, i64 noundef 8)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %16, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.524, i64 noundef 8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16)
   br label %264
 
 250:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %15)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.525, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.525, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %15)
   br label %264
 
 251:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %14)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.526, i64 noundef 11)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %14, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.526, i64 noundef 11)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
   br label %264
 
 252:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.527, i64 noundef 9)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %13, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.527, i64 noundef 9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %13)
   br label %264
 
 253:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.528, i64 noundef 4)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.528, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
   br label %264
 
 254:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.529, i64 noundef 13)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %11, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.529, i64 noundef 13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   br label %264
 
 255:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.530, i64 noundef 9)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %10, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.530, i64 noundef 9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
   br label %264
 
 256:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.531, i64 noundef 9)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %9, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.531, i64 noundef 9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %264
 
 257:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.532, i64 noundef 14)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.532, i64 noundef 14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8)
   br label %264
 
 258:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.533, i64 noundef 19)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.533, i64 noundef 19)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   br label %264
 
 259:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.534, i64 noundef 5)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %6, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.534, i64 noundef 5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %264
 
 260:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.535, i64 noundef 16)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %5, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.535, i64 noundef 16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   br label %264
 
 261:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.536, i64 noundef 7)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.536, i64 noundef 7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   br label %264
 
 262:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.537, i64 noundef 6)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.537, i64 noundef 6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   br label %264
 
 263:                                              ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %132)
-  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef nonnull sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %132, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.538, i64 noundef 4)
+  call void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef nonnull sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24) %132, ptr noalias noundef nonnull readonly align 1 @anon.347014ade22dd8316e82c560a89d6049.538, i64 noundef 4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %132, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %132)
   br label %264
@@ -54837,7 +54837,7 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$hir_def..AssocItemLoc$LT$N$GT$$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN106_$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hf3bd124260809b41E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #14 {
+define hidden void @"_ZN106_$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Function$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hf3bd124260809b41E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) initializes((0, 28)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
@@ -54849,7 +54849,7 @@ define hidden { ptr, i32 } @"_ZN106_$LT$hir_def..AssocItemLoc$LT$hir_def..item_t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN99_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17ha36c9cda3cc3a53dE.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN99_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Struct$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17ha36c9cda3cc3a53dE.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -54861,7 +54861,7 @@ define hidden { ptr, i32 } @"_ZN99_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..S
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN98_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hd1670e1213559139E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN98_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Union$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hd1670e1213559139E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -54883,7 +54883,7 @@ define internal noundef zeroext i1 @"_ZN52_$LT$hir_def..EnumId$u20$as$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN97_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h3870415d5033a3e5E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN97_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Enum$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h3870415d5033a3e5E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -54895,7 +54895,7 @@ define hidden { ptr, i32 } @"_ZN97_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..E
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h97d947ed37344918E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #14 {
+define hidden void @"_ZN103_$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Const$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h97d947ed37344918E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) initializes((0, 28)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
@@ -54907,7 +54907,7 @@ define hidden { ptr, i32 } @"_ZN103_$LT$hir_def..AssocItemLoc$LT$hir_def..item_t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h12880629d5768165E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #14 {
+define hidden void @"_ZN104_$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..Static$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h12880629d5768165E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) initializes((0, 28)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
@@ -54919,7 +54919,7 @@ define hidden { ptr, i32 } @"_ZN104_$LT$hir_def..AssocItemLoc$LT$hir_def..item_t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN98_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hd9291719e08998d3E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN98_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Trait$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hd9291719e08998d3E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -54931,7 +54931,7 @@ define hidden { ptr, i32 } @"_ZN98_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..T
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h76dac5ecabf767b8E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN103_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..TraitAlias$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h76dac5ecabf767b8E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -54943,7 +54943,7 @@ define hidden { ptr, i32 } @"_ZN103_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN107_$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17ha564b8f22fc58e0aE.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #14 {
+define hidden void @"_ZN107_$LT$hir_def..AssocItemLoc$LT$hir_def..item_tree..TypeAlias$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17ha564b8f22fc58e0aE.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) initializes((0, 28)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
@@ -54955,7 +54955,7 @@ define hidden { ptr, i32 } @"_ZN107_$LT$hir_def..AssocItemLoc$LT$hir_def..item_t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN97_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hfe7a91efce2c799aE.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN97_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Impl$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hfe7a91efce2c799aE.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -54967,7 +54967,7 @@ define hidden { ptr, i32 } @"_ZN97_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..I
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN96_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h581b7d5530689e61E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN96_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..Use$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h581b7d5530689e61E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -54979,7 +54979,7 @@ define hidden { ptr, i32 } @"_ZN96_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..U
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h4484589c6b771773E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN104_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternCrate$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h4484589c6b771773E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -54991,7 +54991,7 @@ define hidden { ptr, i32 } @"_ZN104_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17he192783ae341df12E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN104_$LT$hir_def..ItemLoc$LT$hir_def..item_tree..ExternBlock$GT$$u20$as$u20$salsa..interned..InternValue$GT$8into_key17he192783ae341df12E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -55015,13 +55015,13 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$hir_def..EnumVariantLoc$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN62_$LT$hir_def..EnumVariantLoc$u20$as$u20$core..clone..Clone$GT$5clone17h543316f622385843E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32 }) align 4 dereferenceable(20) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %1) unnamed_addr #14 {
+define hidden void @"_ZN62_$LT$hir_def..EnumVariantLoc$u20$as$u20$core..clone..Clone$GT$5clone17h543316f622385843E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32 }) align 4 captures(none) dereferenceable(20) initializes((0, 20)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN72_$LT$hir_def..EnumVariantLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hb126d3cf2447eba6E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32 }) align 4 dereferenceable(20) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %1) unnamed_addr #14 {
+define hidden void @"_ZN72_$LT$hir_def..EnumVariantLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hb126d3cf2447eba6E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32 }) align 4 captures(none) dereferenceable(20) initializes((0, 20)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) %1, i64 20, i1 false)
   ret void
 }
@@ -55047,13 +55047,13 @@ define hidden noundef zeroext i1 @"_ZN55_$LT$hir_def..Macro2Loc$u20$as$u20$core.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN57_$LT$hir_def..Macro2Loc$u20$as$u20$core..clone..Clone$GT$5clone17h230c1b2f34a46717E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #14 {
+define hidden void @"_ZN57_$LT$hir_def..Macro2Loc$u20$as$u20$core..clone..Clone$GT$5clone17h230c1b2f34a46717E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) initializes((0, 28)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN67_$LT$hir_def..Macro2Loc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h94d2ea00b9175633E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #14 {
+define hidden void @"_ZN67_$LT$hir_def..Macro2Loc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h94d2ea00b9175633E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) initializes((0, 28)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
@@ -55079,13 +55079,13 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$hir_def..MacroRulesLoc$u20$as$u20$c
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN61_$LT$hir_def..MacroRulesLoc$u20$as$u20$core..clone..Clone$GT$5clone17h06fdb35bccdc863fE.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #14 {
+define hidden void @"_ZN61_$LT$hir_def..MacroRulesLoc$u20$as$u20$core..clone..Clone$GT$5clone17h06fdb35bccdc863fE.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) initializes((0, 28)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN71_$LT$hir_def..MacroRulesLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hfa8e4d88b74cac31E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #14 {
+define hidden void @"_ZN71_$LT$hir_def..MacroRulesLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17hfa8e4d88b74cac31E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 }, { i8, [1 x i8] }, i8, i8 }) align 4 captures(none) dereferenceable(28) initializes((0, 28)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(28) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
@@ -55180,13 +55180,13 @@ define hidden noundef zeroext i1 @"_ZN58_$LT$hir_def..ProcMacroLoc$u20$as$u20$co
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN60_$LT$hir_def..ProcMacroLoc$u20$as$u20$core..clone..Clone$GT$5clone17hdaa77a07d578ed53E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN60_$LT$hir_def..ProcMacroLoc$u20$as$u20$core..clone..Clone$GT$5clone17hdaa77a07d578ed53E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN70_$LT$hir_def..ProcMacroLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17he9a942ba4b226b92E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #14 {
+define hidden void @"_ZN70_$LT$hir_def..ProcMacroLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17he9a942ba4b226b92E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ i32, { { i32, i32 }, i32 }, i32, i8, i8, [2 x i8] }) align 4 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(24) %1) unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -55209,7 +55209,7 @@ define hidden noundef zeroext i1 @"_ZN54_$LT$hir_def..BlockLoc$u20$as$u20$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN56_$LT$hir_def..BlockLoc$u20$as$u20$core..clone..Clone$GT$5clone17hecc221d435b71626E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, { i32, i32, i32 } }) align 4 dereferenceable(20) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %1) unnamed_addr #14 personality ptr @rust_eh_personality {
+define hidden void @"_ZN56_$LT$hir_def..BlockLoc$u20$as$u20$core..clone..Clone$GT$5clone17hecc221d435b71626E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32 }, { i32, i32, i32 } }) align 4 captures(none) dereferenceable(20) initializes((0, 20)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %1) unnamed_addr #14 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !9805, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !alias.scope !9810, !noundef !5
@@ -55223,7 +55223,7 @@ define hidden void @"_ZN56_$LT$hir_def..BlockLoc$u20$as$u20$core..clone..Clone$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN66_$LT$hir_def..BlockLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17haa1baa9a5b77bcb8E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, { i32, i32, i32 } }) align 4 dereferenceable(20) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %1) unnamed_addr #14 personality ptr @rust_eh_personality {
+define hidden void @"_ZN66_$LT$hir_def..BlockLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17haa1baa9a5b77bcb8E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, i32 }, { i32, i32, i32 } }) align 4 captures(none) dereferenceable(20) initializes((0, 20)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(20) %1) unnamed_addr #14 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !9813, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !alias.scope !9818, !noundef !5
@@ -55243,7 +55243,7 @@ define hidden { ptr, i32 } @"_ZN66_$LT$hir_def..BlockLoc$u20$as$u20$salsa..inter
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN71_$LT$hir_def..ConstBlockLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17ha1fcffdaf191e9acE.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, i32 }) align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #14 {
+define hidden void @"_ZN71_$LT$hir_def..ConstBlockLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17ha1fcffdaf191e9acE.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #14 {
   %3 = load i32, ptr %1, align 4, !range !494, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !noundef !5
@@ -55275,7 +55275,7 @@ define hidden noundef zeroext i1 @"_ZN59_$LT$hir_def..ConstBlockLoc$u20$as$u20$c
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN61_$LT$hir_def..ConstBlockLoc$u20$as$u20$core..clone..Clone$GT$5clone17h5da89f618e4e739fE.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, i32 }) align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %1) unnamed_addr #14 {
+define hidden void @"_ZN61_$LT$hir_def..ConstBlockLoc$u20$as$u20$core..clone..Clone$GT$5clone17h5da89f618e4e739fE.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, i32 }) align 4 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noalias noundef readonly align 4 captures(none) dereferenceable(12) %1) unnamed_addr #14 {
   %3 = load i32, ptr %1, align 4, !range !494, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4, !noundef !5
@@ -55479,7 +55479,7 @@ define internal noundef zeroext i1 @"_ZN57_$LT$hir_def..TypeOwnerId$u20$as$u20$c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN72_$LT$hir_def..InTypeConstLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h948845ab0be84353E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN72_$LT$hir_def..InTypeConstLoc$u20$as$u20$salsa..interned..InternValue$GT$8into_key17h948845ab0be84353E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !alias.scope !9823, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -55526,7 +55526,7 @@ define hidden noundef zeroext i1 @"_ZN60_$LT$hir_def..InTypeConstLoc$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN62_$LT$hir_def..InTypeConstLoc$u20$as$u20$core..clone..Clone$GT$5clone17h0023441d68310939E.llvm.2095514371065220994"(ptr noalias nocapture noundef writeonly sret({ { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN62_$LT$hir_def..InTypeConstLoc$u20$as$u20$core..clone..Clone$GT$5clone17h0023441d68310939E.llvm.2095514371065220994"(ptr noalias noundef writeonly sret({ { i32, [1 x i32] }, { { { { ptr, ptr } }, {} }, {} }, { i32, i32 } }) align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !alias.scope !9834, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -55624,7 +55624,7 @@ declare void @llvm.assume(i1 noundef) #15
 declare noundef zeroext i1 @_ZN7tracing15__macro_support12__is_enabled17hc13899c385d0edd3E(ptr noalias noundef readonly align 8 dereferenceable(120), i8 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
 declare void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr noalias noundef nonnull readonly align 1, i64 noundef, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #17
@@ -55648,13 +55648,13 @@ declare void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() unnamed
 declare void @_ZN5salsa7runtime7Runtime46report_query_read_and_unwind_if_cycle_resulted17heb92bd3f14a6330bE(ptr noundef nonnull align 8, i64, i8 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #17
+declare void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #17
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hfec873f408d12aebE"(ptr noalias noundef readonly align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias nocapture noundef align 8 dereferenceable(48)) unnamed_addr #0
+declare noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef align 8 dereferenceable(64), ptr noalias noundef align 8 captures(none) dereferenceable(48)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @"_ZN77_$LT$salsa..intern_id..InternId$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h232badef339ca4c2E"(i32 noundef) unnamed_addr #0
@@ -55753,7 +55753,7 @@ declare void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 nounde
 declare noalias noundef ptr @__rust_alloc(i64 noundef, i64 allocalign noundef) unnamed_addr #20
 
 ; Function Attrs: nonlazybind uwtable
-declare noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef align 8 dereferenceable(96), i32 noundef, i64, i32 noundef, ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare noundef nonnull ptr @_ZN5salsa7runtime16dependency_graph15DependencyGraph8add_edge17h88318d29a94b4ac9E(ptr noalias noundef align 8 dereferenceable(96), i32 noundef, i64, i32 noundef, ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN11parking_lot7condvar7Condvar19wait_until_internal17h8c2961f72c192d03E(ptr noundef nonnull align 8, ptr noundef nonnull align 1, i64, i32 noundef) unnamed_addr #0
@@ -55765,10 +55765,10 @@ declare noundef zeroext i1 @_ZN5salsa7runtime16dependency_graph15DependencyGraph
 declare void @_ZN5salsa7runtime7Runtime29unblock_cycle_and_maybe_throw17h5d7e0699042540f4E(ptr noundef nonnull align 8, ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(96), i64, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias nocapture noundef sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24), ptr noundef nonnull align 8) unnamed_addr #0
+declare void @_ZN5salsa7runtime11local_state10LocalState16take_query_stack17h0327723d8bef05c6E(ptr noalias noundef sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24), ptr noundef nonnull align 8) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8, ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #0
+declare void @_ZN5salsa7runtime11local_state10LocalState19restore_query_stack17hf8600edc2228453aE(ptr noundef nonnull align 8, ptr noalias noundef align 8 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: noreturn nonlazybind uwtable
 declare void @_ZN5salsa9Cancelled5throw17h8045a648c9eceb78E(i1 noundef zeroext) unnamed_addr #21
@@ -55783,7 +55783,7 @@ declare noundef zeroext i1 @_ZN5salsa7runtime7Runtime17permits_increment17h93d16
 declare noundef i32 @_ZN5salsa8revision14AtomicRevision20fetch_then_increment17hc700835bfc29cb0bE(ptr noundef nonnull align 4) unnamed_addr #0
 
 ; Function Attrs: cold noreturn nonlazybind uwtable
-declare hidden void @_ZN4core9panicking13assert_failed17h29b35d9517560473E(i8 noundef, ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias nocapture noundef align 8 dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #17
+declare hidden void @_ZN4core9panicking13assert_failed17h29b35d9517560473E(i8 noundef, ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef readonly align 4 dereferenceable(4), ptr noalias noundef align 8 captures(none) dereferenceable(48), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #17
 
 ; Function Attrs: nonlazybind uwtable
 declare noundef i32 @_ZN5salsa8revision8Revision4next17h0b22022c6aa3c044E(i32 noundef) unnamed_addr #0
@@ -55960,7 +55960,7 @@ declare void @_ZN11parking_lot10raw_rwlock9RawRwLock22unlock_upgradable_slow17h9
 declare i16 @llvm.cttz.i16(i16, i1 immarg) #19
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias nocapture noundef sret({ { i64, [3 x i64] }, ptr }) align 8 dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
+declare void @_ZN7tracing4span4Span3new17h7ad4b1c5228c1857E(ptr noalias noundef sret({ { i64, [3 x i64] }, ptr }) align 8 captures(none) dereferenceable(40), ptr noalias noundef readonly align 8 dereferenceable(120), ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @_ZN7hir_def9lang_item9LangItems17collect_lang_item17hbe76ba90d7cce38fE(ptr noalias noundef align 8 dereferenceable(32), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef, ptr noundef nonnull) unnamed_addr #0
@@ -55996,13 +55996,13 @@ declare noundef align 8 dereferenceable(208) ptr @"_ZN124_$LT$base_db..input..Cr
 declare hidden void @"_ZN87_$LT$tracing_core..field..DebugValue$LT$T$GT$$u20$as$u20$tracing_core..field..Value$GT$6record17h7ab5b272af674a24E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef readonly align 8 dereferenceable(40), ptr noundef nonnull align 1, ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare void @_ZN7base_db5input10CrateGraph15transitive_deps17h0eee8e4eee695259E(ptr noalias nocapture noundef sret({ { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }) align 8 dereferenceable(64), ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef) unnamed_addr #0
+declare void @_ZN7base_db5input10CrateGraph15transitive_deps17h0eee8e4eee695259E(ptr noalias noundef sret({ { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }) align 8 captures(none) dereferenceable(64), ptr noalias noundef readonly align 8 dereferenceable(24), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$A$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$A$GT$$GT$9from_iter17h273d1eb16dc3741dE"(ptr noalias nocapture noundef align 8 dereferenceable(80)) unnamed_addr #0
+declare hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$A$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$A$GT$$GT$9from_iter17h273d1eb16dc3741dE"(ptr noalias noundef align 8 captures(none) dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$A$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$A$GT$$GT$9from_iter17h5f988198eee7d9e1E"(ptr noalias nocapture noundef align 8 dereferenceable(32)) unnamed_addr #0
+declare hidden { ptr, i64 } @"_ZN121_$LT$triomphe..unique_arc..UniqueArc$LT$$u5b$A$u5d$$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$A$GT$$GT$9from_iter17h5f988198eee7d9e1E"(ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare { ptr, i64 } @_ZN10hir_expand4name4Name6as_str17h81dd38724a80c668E(ptr noalias noundef readonly align 8 dereferenceable(24)) unnamed_addr #0
@@ -56143,10 +56143,10 @@ declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$
 declare hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h1cba50e942bebeb9E"(ptr noalias noundef readonly align 8 dereferenceable(8), ptr noalias noundef align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf695149a62f3c618E.llvm.12542172245242916373"(ptr noundef nonnull, ptr noundef, ptr noalias noundef align 8 dereferenceable(32), i64 noundef) unnamed_addr #2
@@ -56176,7 +56176,7 @@ declare hidden noundef i64 @_ZN9hashbrown3raw13RawTableInner16find_insert_slot17
 declare hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hf77eae4703908af8E.llvm.3734958187512397983"(ptr noalias noundef readonly align 8 dereferenceable(32), i64 noundef, ptr noalias noundef readonly align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias nocapture noundef sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noundef nonnull) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$6remove17h7c8db682ea1ed762E.llvm.3734958187512397983"(ptr noalias noundef sret({ { i32, [1 x i32], { { { i64, ptr, {} }, i64 }, { i64, [1 x i64] } } }, i64 }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noundef nonnull) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN54_$LT$hir_def..ModuleId$u20$as$u20$core..hash..Hash$GT$4hash17hc9c99c9a89a15524E.llvm.14358968814291841630"(ptr noalias noundef readonly align 4 dereferenceable(12), ptr noalias noundef align 8 dereferenceable(8)) unnamed_addr #2
@@ -56311,7 +56311,7 @@ declare hidden void @"_ZN4core3ptr58drop_in_place$LT$$u5b$salsa..runtime..Active
 declare hidden void @"_ZN4core3ptr60drop_in_place$LT$alloc..vec..Vec$LT$hir_def..TraitId$GT$$GT$17h8d1021890d72d603E"(ptr noalias noundef align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6c273b8cceb06e3E.llvm.18266587286026290509"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17he6c273b8cceb06e3E.llvm.18266587286026290509"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hbbee18911096a997E"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
@@ -56320,7 +56320,7 @@ declare void @"_ZN87_$LT$std..sys_common..once..futex..CompletionGuard$u20$as$u2
 declare hidden void @"_ZN4core3ptr78drop_in_place$LT$alloc..raw_vec..RawVec$LT$salsa..runtime..ActiveQuery$GT$$GT$17h77ddb76488cd7007E.llvm.18266587286026290509"(ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb804a52ca4c56235E.llvm.18266587286026290509"(ptr noalias nocapture noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
+declare hidden void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb804a52ca4c56235E.llvm.18266587286026290509"(ptr noalias noundef sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN4core3ptr81drop_in_place$LT$triomphe..arc..ArcInner$LT$hir_def..lang_item..LangItems$GT$$GT$17h9437977dfdd9944bE"(ptr noalias noundef align 8 dereferenceable(40)) unnamed_addr #0
@@ -56341,73 +56341,73 @@ declare hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fo
 declare hidden { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h82d3c355e37a168dE.llvm.2681043041644741927(ptr noalias noundef align 8 dereferenceable(16), ptr noalias noundef align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-declare hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8a44f9098005cf68E.llvm.15956212377945586164"(ptr noalias nocapture noundef sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
+declare hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8a44f9098005cf68E.llvm.15956212377945586164"(ptr noalias noundef sret({ i64, { i64, [1 x i64] } }) align 8 captures(none) dereferenceable(24), ptr noalias noundef readonly align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h3695cc3fc4940ef1E"(ptr noalias noundef align 8 dereferenceable(32), i64 noundef, ptr noalias noundef nonnull readonly align 1) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h09c1c488816955a7E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h09c1c488816955a7E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h1b085f76cf3a0eeaE"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 8 dereferenceable(32)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h1b085f76cf3a0eeaE"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 8 captures(none) dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2491bec0c9c4dbacE"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(28)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2491bec0c9c4dbacE"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(28)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2d701dcc431457b6E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(28)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2d701dcc431457b6E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(28)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h3e57fc2bd5a83536E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h3e57fc2bd5a83536E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h42cfa6405a9a8e49E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h42cfa6405a9a8e49E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h5f688f4f9940c917E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(28)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h5f688f4f9940c917E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(28)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h66e8fb758cadd2acE"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h66e8fb758cadd2acE"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h6a4c053cb0b6c1a4E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h6a4c053cb0b6c1a4E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h6c0ff2bd9ad90b2cE"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(28)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h6c0ff2bd9ad90b2cE"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(28)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h7240952470cec74bE"(ptr noalias nocapture noundef sret({ i64, [5 x i64] }) align 8 dereferenceable(48), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(20)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h7240952470cec74bE"(ptr noalias noundef sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(20)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h7d2c2eaae1aea554E"(ptr noalias nocapture noundef sret({ i64, [4 x i64] }) align 8 dereferenceable(40), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(12)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h7d2c2eaae1aea554E"(ptr noalias noundef sret({ i64, [4 x i64] }) align 8 captures(none) dereferenceable(40), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(12)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h95f382ea642fa861E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(28)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h95f382ea642fa861E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(28)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h9779ce5b5686671eE"(ptr noalias nocapture noundef sret({ i64, [5 x i64] }) align 8 dereferenceable(48), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(20)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h9779ce5b5686671eE"(ptr noalias noundef sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(20)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hada3d79934d689f6E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hada3d79934d689f6E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hbaacc46458c4661bE"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hbaacc46458c4661bE"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hc1f612077c067065E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hc1f612077c067065E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hdff1eda3b82e1487E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(28)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hdff1eda3b82e1487E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(28)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hef44937b0196bfd3E"(ptr noalias nocapture noundef sret({ i64, [5 x i64] }) align 8 dereferenceable(48), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hef44937b0196bfd3E"(ptr noalias noundef sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hf5d1cd91af1687a6E"(ptr noalias nocapture noundef sret({ i64, [6 x i64] }) align 8 dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias nocapture noundef align 4 dereferenceable(24)) unnamed_addr #0
+declare hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17hf5d1cd91af1687a6E"(ptr noalias noundef sret({ i64, [6 x i64] }) align 8 captures(none) dereferenceable(56), ptr noalias noundef align 8 dereferenceable(32), ptr noalias noundef align 4 captures(none) dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias nocapture noundef sret({ i8, [23 x i8] }) align 8 dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
+declare hidden void @_ZN8smol_str4Repr3new17h1ab4dae2c8cc6a68E(ptr noalias noundef sret({ i8, [23 x i8] }) align 8 captures(none) dereferenceable(24), ptr noalias noundef nonnull readonly align 1, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden noundef zeroext i1 @"_ZN61_$LT$hir_def..TypeOwnerId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h846916159d4b1d0dE.llvm.8225647753450622592"(ptr noalias noundef readonly align 4 dereferenceable(8), ptr noalias noundef readonly align 4 dereferenceable(8)) unnamed_addr #2
@@ -56416,28 +56416,28 @@ declare hidden noundef zeroext i1 @"_ZN61_$LT$hir_def..TypeOwnerId$u20$as$u20$co
 declare noundef i64 @_ZN7dashmap20default_shard_amount17h3643e49c6ea168d1E() unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h51cc6306c3cdfc58E.llvm.11603491536561601675"(ptr noalias nocapture noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h51cc6306c3cdfc58E.llvm.11603491536561601675"(ptr noalias noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h110e0ac4707b190aE.llvm.11603491536561601675"(ptr noalias nocapture noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h110e0ac4707b190aE.llvm.11603491536561601675"(ptr noalias noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17he1316afc70a919faE.llvm.11603491536561601675"(ptr noalias nocapture noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17he1316afc70a919faE.llvm.11603491536561601675"(ptr noalias noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h760ad35ebf1664c5E.llvm.11603491536561601675"(ptr noalias nocapture noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h760ad35ebf1664c5E.llvm.11603491536561601675"(ptr noalias noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17hb7ee22b20a91b2daE.llvm.11603491536561601675"(ptr noalias nocapture noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17hb7ee22b20a91b2daE.llvm.11603491536561601675"(ptr noalias noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17hcdf5ab2c7dd230eeE.llvm.11603491536561601675"(ptr noalias nocapture noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17hcdf5ab2c7dd230eeE.llvm.11603491536561601675"(ptr noalias noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h9fee05d591480beeE.llvm.11603491536561601675"(ptr noalias nocapture noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17h9fee05d591480beeE.llvm.11603491536561601675"(ptr noalias noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
-declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17he9312676ca796519E.llvm.11603491536561601675"(ptr noalias nocapture noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
+declare hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_hasher_and_shard_amount17he9312676ca796519E.llvm.11603491536561601675"(ptr noalias noundef sret({ { { { { ptr, i64 } }, {} }, {} }, i64, { {} } }) align 8 captures(none) dereferenceable(24), i64 noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hc303513f4338b31dE.llvm.4137466392698404930"(ptr noalias noundef align 8 dereferenceable(16), i64 noundef, i64 noundef) unnamed_addr #0
@@ -56446,7 +56446,7 @@ declare hidden { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amort
 declare hidden void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.4137466392698404930(i64 noundef, i64) unnamed_addr #2
 
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #25

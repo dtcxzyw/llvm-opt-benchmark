@@ -914,7 +914,7 @@ opal_obj_new.exit.thread:                         ; preds = %ompi_comm_cid_compa
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_pml_ob1_del_comm(ptr nocapture noundef %0) #0 {
+define noundef i32 @mca_pml_ob1_del_comm(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1210,7 +1210,7 @@ declare i32 @opal_free_list_init(ptr noundef, i64 noundef, i64 noundef, ptr noun
 declare i32 @mca_pml_ob1_accelerator_init() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @ompi_comm_assert_subscribe(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1219,7 +1219,7 @@ declare i32 @mca_pml_ob1_comm_init_size(ptr noundef, i64 noundef) local_unnamed_
 declare i32 @opal_infosubscribe_subscribe(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal nonnull ptr @mca_pml_ob1_set_allow_overtake(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #0 {
+define internal nonnull ptr @mca_pml_ob1_set_allow_overtake(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 8
@@ -1363,7 +1363,7 @@ define void @mca_pml_ob1_dump_cant_match(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_pml_ob1_dump_hdr(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc void @mca_pml_ob1_dump_hdr(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca [128 x i8], align 16
   %3 = load i8, ptr %0, align 8
   switch i8 %3, label %81 [
@@ -1700,7 +1700,7 @@ thread-pre-split:                                 ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mca_pml_ob1_add_to_pending(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc void @mca_pml_ob1_add_to_pending(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %.sroa.22.i.i.i.i = alloca i64, align 8
@@ -1873,7 +1873,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_control_completion(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 %3) #0 {
+define internal void @mca_pml_ob1_control_completion(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i32 %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 2120), align 8
@@ -1916,10 +1916,10 @@ define internal void @mca_pml_ob1_control_completion(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @mca_pml_ob1_process_pending_packets(ptr nocapture readnone %0) local_unnamed_addr #0 {
+define void @mca_pml_ob1_process_pending_packets(ptr readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @mca_pml_ob1, i64 2120), align 8
   %4 = trunc i64 %3 to i32
@@ -2468,7 +2468,7 @@ mca_bml_base_btl_array_get_next.exit:             ; preds = %31, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_pml_ob1_send_fin(ptr nocapture noundef readnone %0, ptr noundef %1, i64 %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_send_fin(ptr noundef readnone captures(none) %0, ptr noundef %1, i64 %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mca_pml_ob1_fin_hdr_t, align 8
   %.not = icmp eq i32 %5, 0
   %8 = sext i32 %5 to i64
@@ -2486,7 +2486,7 @@ define range(i32 -2, 1) i32 @mca_pml_ob1_send_fin(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_pml_ob1_send_cid(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_send_cid(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.mca_pml_ob1_cid_hdr_t, align 8
   store i8 74, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -2525,7 +2525,7 @@ declare ptr @ompi_pmix_print_name(ptr noundef) local_unnamed_addr #1
 declare void @ompi_mpi_errors_are_fatal_comm_handler(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @mca_pml_ob1_com_btl_comp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @mca_pml_ob1_com_btl_comp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load float, ptr %4, align 4
@@ -2552,7 +2552,7 @@ declare void @ompi_rte_abort(i32 noundef, ptr noundef, ...) local_unnamed_addr #
 declare ptr @mca_pml_ob1_peer_create(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 declare i32 @opal_free_list_grow_st(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2565,10 +2565,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #8
 declare i32 @ompi_errhandler_proc_failed_internal(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

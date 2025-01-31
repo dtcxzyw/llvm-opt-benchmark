@@ -386,7 +386,7 @@ exit:                                             ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_HMAC_digest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_hashlib_HMAC_digest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -419,7 +419,7 @@ _hashlib_HMAC_digest_impl.exit:                   ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_HMAC_hexdigest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_hashlib_HMAC_hexdigest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -452,7 +452,7 @@ _hashlib_HMAC_hexdigest_impl.exit:                ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_HMAC_copy(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_hashlib_HMAC_copy(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @HMAC_CTX_new() #9
   %cmp.i = icmp eq ptr %call.i, null
@@ -650,7 +650,7 @@ return:                                           ; preds = %if.end28, %if.end5,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -828,10 +828,10 @@ declare ptr @_Py_strhex(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @_PyObject_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_hmac_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @_hashlib_hmac_get_digest_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -856,7 +856,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_hmac_get_block_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @_hashlib_hmac_get_block_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -881,7 +881,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_hmac_get_name(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @_hashlib_hmac_get_name(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -945,7 +945,7 @@ declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
 declare i32 @EVP_MD_get_block_size(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @hashlib_traverse(ptr noundef %m, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @hashlib_traverse(ptr noundef %m, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %m) #9
   %0 = load ptr, ptr %call.i, align 8
@@ -1354,7 +1354,7 @@ if.end56:                                         ; preds = %if.then55, %if.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_scrypt(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %argsbuf = alloca [7 x ptr], align 16
   %password = alloca %struct.Py_buffer, align 8
@@ -1710,7 +1710,7 @@ if.end110:                                        ; preds = %if.then109, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_get_fips_mode(ptr nocapture readnone %module, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_hashlib_get_fips_mode(ptr readnone captures(none) %module, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call i32 @EVP_default_properties_is_fips_enabled(ptr noundef null) #9
   %cmp = icmp eq i32 %call.i, -1
@@ -1732,7 +1732,7 @@ exit:                                             ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_hashlib_compare_digest(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_hashlib_compare_digest(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %view_a.i = alloca %struct.Py_buffer, align 8
   %view_b.i = alloca %struct.Py_buffer, align 8
@@ -3197,14 +3197,14 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pbkdf2_hmac_impl(ptr noundef %module, ptr noundef nonnull %hash_name, ptr nocapture noundef nonnull readonly %password, ptr nocapture noundef nonnull readonly %salt, i64 noundef %iterations, ptr noundef %dklen_obj) unnamed_addr #0 {
+define internal fastcc ptr @pbkdf2_hmac_impl(ptr noundef %module, ptr noundef nonnull %hash_name, ptr noundef nonnull readonly captures(none) %password, ptr noundef nonnull readonly captures(none) %salt, i64 noundef %iterations, ptr noundef %dklen_obj) unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @py_digest_by_name(ptr noundef %module, ptr noundef nonnull %hash_name, i32 noundef 3)
   %cmp = icmp eq ptr %call, null
@@ -3730,12 +3730,12 @@ declare ptr @_Py_hashtable_new_full(ptr noundef, ptr noundef, ptr noundef, ptr n
 define internal i64 @py_hashentry_t_hash_name(ptr noundef %key) #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #10
-  %call1 = tail call i64 @_Py_HashBytes(ptr noundef %key, i64 noundef %call) #9
+  %call1 = tail call i64 @_Py_HashBytes(ptr noundef nonnull %key, i64 noundef %call) #9
   ret i64 %call1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @py_hashentry_t_compare_name(ptr nocapture noundef readonly %key1, ptr nocapture noundef readonly %key2) #5 {
+define internal range(i32 0, 2) i32 @py_hashentry_t_compare_name(ptr noundef readonly captures(none) %key1, ptr noundef readonly captures(none) %key2) #5 {
 entry:
   %call = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %key1, ptr noundef nonnull dereferenceable(1) %key2) #10
   %cmp = icmp eq i32 %call, 0
@@ -3794,7 +3794,7 @@ declare void @_Py_hashtable_destroy(ptr noundef) local_unnamed_addr #1
 declare i64 @_Py_HashBytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @PyType_FromSpec(ptr noundef) local_unnamed_addr #1
 
@@ -4057,7 +4057,7 @@ return:                                           ; preds = %22, %if.end27, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @EVP_digest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @EVP_digest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -4137,7 +4137,7 @@ EVP_digest_impl.exit:                             ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @EVP_hexdigest(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @EVP_hexdigest(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %digest.i)
@@ -4217,7 +4217,7 @@ EVP_hexdigest_impl.exit:                          ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @EVP_copy(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @EVP_copy(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val.i = load ptr, ptr %0, align 8
@@ -4327,7 +4327,7 @@ declare i32 @EVP_DigestFinal(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare i32 @EVP_MD_CTX_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @EVP_get_digest_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @EVP_get_digest_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -4339,7 +4339,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @EVP_get_block_size(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @EVP_get_block_size(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -4351,7 +4351,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @EVP_get_name(ptr nocapture noundef readonly %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @EVP_get_name(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -4733,7 +4733,7 @@ return:                                           ; preds = %if.end16, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @EVPXOF_get_digest_size(ptr nocapture readnone %self, ptr nocapture readnone %closure) #0 {
+define internal ptr @EVPXOF_get_digest_size(ptr readnone captures(none) %self, ptr readnone captures(none) %closure) #0 {
 entry:
   %call = tail call ptr @PyLong_FromLong(i64 noundef 0) #9
   ret ptr %call
@@ -4744,7 +4744,7 @@ declare ptr @PyFrozenSet_New(ptr noundef) local_unnamed_addr #1
 declare void @EVP_MD_do_all_provided(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @_openssl_hash_name_mapper(ptr noundef %md, ptr nocapture noundef %arg) #0 {
+define internal void @_openssl_hash_name_mapper(ptr noundef %md, ptr noundef captures(none) %arg) #0 {
 entry:
   %cmp = icmp eq ptr %md, null
   br i1 %cmp, label %if.end10, label %lor.lhs.false
@@ -4832,7 +4832,7 @@ declare ptr @PyModule_GetDef(ptr noundef) local_unnamed_addr #1
 declare ptr @PyDict_New() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 declare ptr @PyObject_GetAttrString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4854,10 +4854,10 @@ declare void @llvm.va_end.p0(ptr) #6
 declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

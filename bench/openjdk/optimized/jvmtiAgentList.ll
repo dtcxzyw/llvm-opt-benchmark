@@ -14,7 +14,7 @@ $_ZN26GrowableArrayWithAllocatorIP10JvmtiAgent18GrowableArrayCHeapIS1_L8MEMFLAGS
 @_ZN14JvmtiAgentList8IteratorC1EPP10JvmtiAgentNS0_6FilterE = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK14JvmtiAgentList8Iterator6selectEP10JvmtiAgent(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK14JvmtiAgentList8Iterator6selectEP10JvmtiAgent(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %.not16 = icmp eq ptr %1, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -69,7 +69,7 @@ declare noundef zeroext i1 @_ZNK10JvmtiAgent8is_jplisEv(ptr noundef nonnull alig
 declare noundef ptr @_ZNK10JvmtiAgent4nextEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 captures(none) dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 16, i8 noundef zeroext 23) #10
   %6 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 16, i32 noundef 8, i8 noundef zeroext 23) #10
@@ -109,7 +109,7 @@ define hidden void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK14JvmtiAgentList8Iterator8has_nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK14JvmtiAgentList8Iterator8has_nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
   %4 = icmp ne i32 %3, 0
@@ -117,7 +117,7 @@ define hidden noundef zeroext i1 @_ZNK14JvmtiAgentList8Iterator8has_nextEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK14JvmtiAgentList8Iterator4nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZNK14JvmtiAgentList8Iterator4nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -131,7 +131,7 @@ define hidden noundef ptr @_ZNK14JvmtiAgentList8Iterator4nextEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN14JvmtiAgentList8Iterator4nextEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN14JvmtiAgentList8Iterator4nextEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -145,31 +145,31 @@ define hidden noundef ptr @_ZN14JvmtiAgentList8Iterator4nextEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList6agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList6agentsEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 captures(none) initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 3)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList11java_agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList11java_agentsEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 captures(none) initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList13native_agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList13native_agentsEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 captures(none) initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList11xrun_agentsEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList11xrun_agentsEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 captures(none) initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiAgentList3allEv(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiAgentList3allEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.JvmtiAgentList::Iterator") align 8 captures(none) initializes((0, 12)) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 4)
   ret void
 }
@@ -591,7 +591,7 @@ _ZN14JvmtiAgentList8IteratorD2Ev.exit:            ; preds = %._crit_edge, %18
 declare void @_ZN10JvmtiAgent6unloadEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14JvmtiAgentList20is_static_lib_loadedEPKc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14JvmtiAgentList20is_static_lib_loadedEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.JvmtiAgentList::Iterator", align 8
   call void @_ZN14JvmtiAgentList8IteratorC2EPP10JvmtiAgentNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull @_ZN14JvmtiAgentList5_listE, i32 noundef 3)
   %3 = load ptr, ptr %2, align 8
@@ -656,7 +656,7 @@ _ZN14JvmtiAgentList8IteratorD2Ev.exit:            ; preds = %._crit_edge, %25
 declare noundef zeroext i1 @_ZNK10JvmtiAgent13is_static_libEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare noundef ptr @_ZNK10JvmtiAgent4nameEv(ptr noundef nonnull align 8 dereferenceable(86)) local_unnamed_addr #1
 
@@ -948,13 +948,13 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.ctpop.i32(i32) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

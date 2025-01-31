@@ -323,7 +323,7 @@ define hidden void @proto_register_gmr1_rach() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @rach_gps_pos_lat_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @rach_gps_pos_lat_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = sitofp i32 %3 to float
   %5 = fdiv float %4, 0x40A6C16660000000
@@ -335,7 +335,7 @@ define internal void @rach_gps_pos_lat_fmt(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @rach_gps_pos_long_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @rach_gps_pos_long_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %4 = sitofp i32 %3 to float
   %5 = fdiv float %4, 0x40A6C16940000000
@@ -347,7 +347,7 @@ define internal void @rach_gps_pos_long_fmt(ptr nocapture noundef writeonly %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @rach_sp_hplmn_id_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @rach_sp_hplmn_id_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp eq i32 %1, 1048575
   br i1 %3, label %4, label %6
 
@@ -374,7 +374,7 @@ define internal void @rach_sp_hplmn_id_fmt(ptr nocapture noundef writeonly %0, i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @rach_dialed_num_grp1234_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @rach_dialed_num_grp1234_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp ult i32 %1, 1000
   br i1 %3, label %4, label %6
 
@@ -410,7 +410,7 @@ define internal void @rach_dialed_num_grp1234_fmt(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @rach_dialed_num_grp5_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @rach_dialed_num_grp5_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = add i32 %1, -1100
   %or.cond = icmp ult i32 %3, 100
   br i1 %or.cond, label %4, label %6
@@ -437,7 +437,7 @@ define internal void @rach_dialed_num_grp5_fmt(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @rach_gps_timestamp_fmt(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @rach_gps_timestamp_fmt(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = icmp eq i32 %1, 65535
   br i1 %3, label %4, label %6
 
@@ -462,7 +462,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gmr1_rach(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_gmr1_rach(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca [5 x i16], align 2
   %6 = alloca [32 x i8], align 16
   %7 = tail call i32 @tvb_reported_length(ptr noundef %0) #7
@@ -952,7 +952,7 @@ dissect_gmprs_rach_type2_kls2.exit:               ; preds = %306, %314
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4
@@ -1026,13 +1026,13 @@ declare ptr @proto_tree_add_int_format(ptr noundef, i32 noundef, ptr noundef, i3
 declare ptr @proto_tree_add_split_bits_item_ret_val(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

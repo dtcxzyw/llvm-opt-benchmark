@@ -93,7 +93,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.83 = private unnamed_addr constant [6 x i8] c"  %d\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteBlifLogic(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Io_WriteBlifLogic(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Abc_NtkToNetlist(ptr noundef %0) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %9
@@ -115,10 +115,10 @@ define void @Io_WriteBlifLogic(ptr noundef %0, ptr nocapture noundef readonly %1
 declare ptr @Abc_NtkToNetlist(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteBlif(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Io_WriteBlif(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.1)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %11
@@ -194,12 +194,12 @@ define void @Io_WriteBlif(ptr noundef %0, ptr nocapture noundef readonly %1, i32
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_NtkWrite(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @Io_NtkWrite(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %6, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.71, ptr noundef %.val) #10
@@ -221,10 +221,10 @@ define internal fastcc void @Io_NtkWrite(ptr nocapture noundef nonnull %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Io_NtkWriteConvertedBox(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Io_NtkWriteConvertedBox(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %6, label %4
 
@@ -333,7 +333,7 @@ define void @Io_NtkWriteConvertedBox(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_NtkWritePis(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Io_NtkWritePis(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader, label %.preheader49
 
@@ -462,7 +462,7 @@ define internal fastcc void @Io_NtkWritePis(ptr nocapture noundef %0, ptr nocapt
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Io_NtkWriteSubcktFanins(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @Io_NtkWriteSubcktFanins(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 48
   %.val32 = load ptr, ptr %3, align 8
@@ -523,7 +523,7 @@ define void @Io_NtkWriteSubcktFanins(ptr nocapture noundef %0, ptr nocapture nou
   %.1 = phi i32 [ 0, %30 ], [ %.02841, %27 ], [ 0, %15 ]
   %33 = trunc i64 %indvars.iv to i32
   %34 = add i32 %33, 97
-  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %34, ptr noundef %23) #10
+  %35 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %34, ptr noundef nonnull %23) #10
   %36 = add nsw i32 %.130, %26
   %37 = add nsw i32 %.1, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -570,10 +570,10 @@ define void @Io_NtkWriteSubcktFanins(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Io_NtkWriteNodeGate(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @Mio_GateReadName(ptr noundef %5) #10
@@ -681,10 +681,10 @@ declare ptr @Mio_GateReadTwin(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NtkFetchTwinNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Io_NtkWriteNodeSubckt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef i32 @Io_NtkWriteNodeSubckt(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 7, i64 1, ptr %0)
   tail call void @Io_NtkWriteSubcktFanins(ptr noundef %0, ptr noundef %1)
   %fputc = tail call i32 @fputc(i32 10, ptr %0)
@@ -692,7 +692,7 @@ define noundef i32 @Io_NtkWriteNodeSubckt(ptr nocapture noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteTimingInfo(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Io_WriteTimingInfo(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1116,7 +1116,7 @@ declare ptr @Abc_SopCreateFromIsop(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @Abc_SopComplement(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Io_NtkWriteNodeInt(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Io_NtkWriteNodeInt(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [2 x i64], align 16
@@ -1589,7 +1589,7 @@ declare i64 @If_Dec7Perform(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @If_Dec6Perform(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Io_NtkWriteNodeIntStruct(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i64], align 16
   %6 = alloca [1024 x i64], align 16
   %7 = alloca i64, align 8
@@ -1611,7 +1611,7 @@ define void @Io_NtkWriteNodeIntStruct(ptr nocapture noundef %0, ptr nocapture no
   br label %.lr.ph
 
 17:                                               ; preds = %4
-  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, ptr noundef %3)
+  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, ptr noundef nonnull %3)
   br label %282
 
 19:                                               ; preds = %.lr.ph
@@ -2136,7 +2136,7 @@ Kit_TruthIsConst1.exit205:                        ; preds = %select.unfold.i201,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @Abc_SopToTruthBig(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2149,7 +2149,7 @@ declare void @Kit_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @If_CluCheckExt3(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Io_NtkWriteModelIntStruct(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i64], align 16
   %6 = alloca [1024 x i64], align 16
   %7 = alloca i64, align 8
@@ -2192,7 +2192,7 @@ define void @Io_NtkWriteModelIntStruct(ptr nocapture noundef %0, ptr nocapture n
   br label %.lr.ph202
 
 26:                                               ; preds = %._crit_edge
-  %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, ptr noundef %3)
+  %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.51, ptr noundef nonnull %3)
   br label %228
 
 28:                                               ; preds = %.lr.ph202
@@ -2592,7 +2592,7 @@ Kit_TruthIsConst1.exit188:                        ; preds = %select.unfold.i184,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteBlifInt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Io_WriteBlifInt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.1)
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %10
@@ -2910,7 +2910,7 @@ Vec_IntFree.exit:                                 ; preds = %146, %148
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_NtkWritePos(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @Io_NtkWritePos(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader, label %.preheader49
 
@@ -3037,7 +3037,7 @@ define internal fastcc void @Io_NtkWritePos(ptr nocapture noundef nonnull %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteBlifSpecial(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Io_WriteBlifSpecial(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @Abc_NtkToSop(ptr noundef %0, i32 noundef -1, i32 noundef 1000000000) #10
   %6 = tail call ptr @Abc_NtkToNetlist(ptr noundef %0) #10
   %7 = icmp eq ptr %6, null
@@ -3064,7 +3064,7 @@ define void @Io_WriteBlifSpecial(ptr noundef %0, ptr nocapture noundef readonly 
 declare i32 @Abc_NtkToSop(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_NtkWriteOne(ptr nocapture noundef nonnull %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @Io_NtkWriteOne(ptr noundef nonnull captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = tail call i64 @fwrite(ptr nonnull @.str.61, i64 7, i64 1, ptr nonnull %0)
   tail call fastcc void @Io_NtkWritePis(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2)
   %fputc = tail call i32 @fputc(i32 10, ptr nonnull %0)
@@ -3434,7 +3434,7 @@ Abc_ObjIsBarBuf.exit.i:                           ; preds = %136
 180:                                              ; preds = %178, %175, %163
   %.125.i.i = phi i32 [ 0, %178 ], [ %.02432.i.i, %175 ], [ %.02432.i.i, %163 ]
   %.1.i.i = phi i32 [ 0, %178 ], [ %.02333.i.i, %175 ], [ 0, %163 ]
-  %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef %171) #10
+  %181 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.40, ptr noundef nonnull %171) #10
   %182 = add nsw i32 %.125.i.i, %174
   %183 = add nsw i32 %.1.i.i, 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -3514,7 +3514,7 @@ Io_NtkWriteNode.exit.thread:                      ; preds = %Io_NtkWriteNodeFani
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_NtkWriteSubckt(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Io_NtkWriteSubckt(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -3664,16 +3664,16 @@ declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8
@@ -3685,10 +3685,10 @@ declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

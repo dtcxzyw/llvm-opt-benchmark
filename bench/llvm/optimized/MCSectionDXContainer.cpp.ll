@@ -10,7 +10,7 @@ $_ZNK4llvm20MCSectionDXContainer12useCodeAlignEv = comdat any
 @_ZTVN4llvm20MCSectionDXContainerE = unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZNK4llvm20MCSectionDXContainer20printSwitchToSectionERKNS_9MCAsmInfoERKNS_6TripleERNS_11raw_ostreamEj, ptr @_ZNK4llvm20MCSectionDXContainer12useCodeAlignEv, ptr @_ZNK4llvm9MCSection21getVirtualSectionKindEv] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZNK4llvm20MCSectionDXContainer20printSwitchToSectionERKNS_9MCAsmInfoERKNS_6TripleERNS_11raw_ostreamEj(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 1 %1, ptr nocapture nonnull readnone align 1 %2, ptr nocapture nonnull readnone align 1 %3, i32 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm20MCSectionDXContainer20printSwitchToSectionERKNS_9MCAsmInfoERKNS_6TripleERNS_11raw_ostreamEj(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 1 captures(none) %1, ptr nonnull readnone align 1 captures(none) %2, ptr nonnull readnone align 1 captures(none) %3, i32 %4) unnamed_addr #0 align 2 {
   ret void
 }
 

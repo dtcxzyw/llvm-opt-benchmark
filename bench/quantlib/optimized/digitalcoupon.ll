@@ -334,7 +334,7 @@ $_ZGVZN8QuantLib9SingletonINS_8SettingsESt17integral_constantIbLb0EEE8instanceEv
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -419,7 +419,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -668,7 +668,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DigitalCouponC2ERKN5boost10shared_ptrINS_18FloatingRateCouponEEEdNS_8Position4TypeEbddS8_bdNS2_INS_18DigitalReplicationEEEb(ptr noundef nonnull align 8 dereferenceable(289) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying, double noundef %callStrike, i32 noundef %callPosition, i1 noundef zeroext %isCallATMIncluded, double noundef %callDigitalPayoff, double noundef %putStrike, i32 noundef %putPosition, i1 noundef zeroext %isPutATMIncluded, double noundef %putDigitalPayoff, ptr nocapture noundef %replication, i1 noundef zeroext %nakedOption) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DigitalCouponC2ERKN5boost10shared_ptrINS_18FloatingRateCouponEEEdNS_8Position4TypeEbddS8_bdNS2_INS_18DigitalReplicationEEEb(ptr noundef nonnull align 8 dereferenceable(289) %this, ptr noundef %vtt, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %underlying, double noundef %callStrike, i32 noundef %callPosition, i1 noundef zeroext %isCallATMIncluded, double noundef %callDigitalPayoff, double noundef %putStrike, i32 noundef %putPosition, i1 noundef zeroext %isPutATMIncluded, double noundef %putDigitalPayoff, ptr noundef captures(none) %replication, i1 noundef zeroext %nakedOption) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
@@ -3596,7 +3596,7 @@ _ZN5boost10shared_ptrIN8QuantLib17InterestRateIndexEED2Ev.exit: ; preds = %_ZN8Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DigitalCouponC1ERKN5boost10shared_ptrINS_18FloatingRateCouponEEEdNS_8Position4TypeEbddS8_bdNS2_INS_18DigitalReplicationEEEb(ptr noundef nonnull align 8 dereferenceable(289) initializes((296, 304), (312, 316), (320, 328)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying, double noundef %callStrike, i32 noundef %callPosition, i1 noundef zeroext %isCallATMIncluded, double noundef %callDigitalPayoff, double noundef %putStrike, i32 noundef %putPosition, i1 noundef zeroext %isPutATMIncluded, double noundef %putDigitalPayoff, ptr nocapture noundef %replication, i1 noundef zeroext %nakedOption) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DigitalCouponC1ERKN5boost10shared_ptrINS_18FloatingRateCouponEEEdNS_8Position4TypeEbddS8_bdNS2_INS_18DigitalReplicationEEEb(ptr noundef nonnull align 8 dereferenceable(289) initializes((296, 304), (312, 316), (320, 328)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %underlying, double noundef %callStrike, i32 noundef %callPosition, i1 noundef zeroext %isCallATMIncluded, double noundef %callDigitalPayoff, double noundef %putStrike, i32 noundef %putPosition, i1 noundef zeroext %isPutATMIncluded, double noundef %putDigitalPayoff, ptr noundef captures(none) %replication, i1 noundef zeroext %nakedOption) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
@@ -7393,7 +7393,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib13DigitalCoupon10callPayoffEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib13DigitalCoupon10callPayoffEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(289) %this) local_unnamed_addr #8 align 2 {
 entry:
   %hasCallStrike_ = getelementptr inbounds nuw i8, ptr %this, i64 281
   %0 = load i8, ptr %hasCallStrike_, align 1, !tbaa !71, !range !26, !noundef !27
@@ -7462,7 +7462,7 @@ if.end21:                                         ; preds = %if.then3, %if.then6
 declare double @llvm.fmuladd.f64(double, double, double) #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib13DigitalCoupon9putPayoffEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %this) local_unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib13DigitalCoupon9putPayoffEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(289) %this) local_unnamed_addr #8 align 2 {
 entry:
   %hasPutStrike_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load i8, ptr %hasPutStrike_, align 8, !tbaa !70, !range !26, !noundef !27
@@ -7548,7 +7548,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib13DigitalCoupon19convexityAdjustmentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %this) unnamed_addr #8 align 2 {
+define noundef double @_ZNK8QuantLib13DigitalCoupon19convexityAdjustmentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(289) %this) unnamed_addr #8 align 2 {
 entry:
   %underlying_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %underlying_, align 8, !tbaa !50
@@ -7570,7 +7570,7 @@ _ZNK5boost10shared_ptrIN8QuantLib18FloatingRateCouponEEptEv.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib13DigitalCoupon10callStrikeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %this) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK8QuantLib13DigitalCoupon10callStrikeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(289) %this) local_unnamed_addr #14 align 2 {
 entry:
   %hasCallStrike_.i = getelementptr inbounds nuw i8, ptr %this, i64 281
   %0 = load i8, ptr %hasCallStrike_.i, align 1, !tbaa !71, !range !26, !noundef !27
@@ -7582,7 +7582,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib13DigitalCoupon9putStrikeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %this) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK8QuantLib13DigitalCoupon9putStrikeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(289) %this) local_unnamed_addr #14 align 2 {
 entry:
   %hasPutStrike_.i = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load i8, ptr %hasPutStrike_.i, align 8, !tbaa !70, !range !26, !noundef !27
@@ -7594,7 +7594,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib13DigitalCoupon17callDigitalPayoffEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %this) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK8QuantLib13DigitalCoupon17callDigitalPayoffEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(289) %this) local_unnamed_addr #14 align 2 {
 entry:
   %isCallCashOrNothing_ = getelementptr inbounds nuw i8, ptr %this, i64 226
   %0 = load i8, ptr %isCallCashOrNothing_, align 2, !tbaa !68, !range !26, !noundef !27
@@ -7606,7 +7606,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef double @_ZNK8QuantLib13DigitalCoupon16putDigitalPayoffEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(289) %this) local_unnamed_addr #14 align 2 {
+define noundef double @_ZNK8QuantLib13DigitalCoupon16putDigitalPayoffEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(289) %this) local_unnamed_addr #14 align 2 {
 entry:
   %isPutCashOrNothing_ = getelementptr inbounds nuw i8, ptr %this, i64 227
   %0 = load i8, ptr %isPutCashOrNothing_, align 1, !tbaa !69, !range !26, !noundef !27
@@ -9015,7 +9015,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #19
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #19
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #20
@@ -9253,7 +9253,7 @@ if.end:                                           ; preds = %_ZNSt8_Rb_treeIN5bo
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #24
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #24
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -9496,7 +9496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #24
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #24
 
 declare void @_ZN8QuantLib8SettingsC1Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #6
 
@@ -9552,7 +9552,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #17
 declare void @llvm.assume(i1 noundef) #25
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #26
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #26
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

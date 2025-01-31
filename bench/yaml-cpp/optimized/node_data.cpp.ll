@@ -122,13 +122,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4YAML6detail9node_data12mark_definedEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 1)) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN4YAML6detail9node_data12mark_definedEv(ptr noundef nonnull align 8 captures(none) dereferenceable(176) initializes((0, 1)) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_type, align 8
@@ -145,7 +145,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4YAML6detail9node_data8set_markERKNS_4MarkE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((4, 16)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %mark) local_unnamed_addr #5 align 2 {
+define void @_ZN4YAML6detail9node_data8set_markERKNS_4MarkE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(176) initializes((4, 16)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %mark) local_unnamed_addr #5 align 2 {
 entry:
   %m_mark = getelementptr inbounds nuw i8, ptr %this, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %m_mark, ptr noundef nonnull align 4 dereferenceable(12) %mark, i64 12, i1 false)
@@ -242,7 +242,7 @@ sw.epilog:                                        ; preds = %if.end, %_ZN4YAML6d
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4YAML6detail9node_data14reset_sequenceEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((120, 128)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML6detail9node_data14reset_sequenceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(176) initializes((120, 128)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_sequence = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_sequence, align 8
@@ -308,7 +308,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML6detail9node_data9set_styleENS_12EmitterStyle5valueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((56, 60)) %this, i32 noundef %style) local_unnamed_addr #8 align 2 {
+define void @_ZN4YAML6detail9node_data9set_styleENS_12EmitterStyle5valueE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(176) initializes((56, 60)) %this, i32 noundef %style) local_unnamed_addr #8 align 2 {
 entry:
   %m_style = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i32 %style, ptr %m_style, align 8
@@ -316,7 +316,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML6detail9node_data8set_nullEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((0, 1), (16, 20)) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN4YAML6detail9node_data8set_nullEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(176) initializes((0, 1), (16, 20)) %this) local_unnamed_addr #8 align 2 {
 entry:
   store i8 1, ptr %this, align 8
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -442,7 +442,7 @@ return:                                           ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK4YAML6detail9node_data16compute_seq_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this) local_unnamed_addr #9 align 2 {
+define void @_ZNK4YAML6detail9node_data16compute_seq_sizeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_seqSize = getelementptr inbounds nuw i8, ptr %this, i64 120
   %m_sequence = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -526,7 +526,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK4YAML6detail9node_data5beginEv(ptr noalias nocapture writeonly sret(%"class.YAML::detail::node_iterator_base") align 8 initializes((0, 4), (8, 16), (24, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #9 align 2 {
+define void @_ZNK4YAML6detail9node_data5beginEv(ptr noalias writeonly sret(%"class.YAML::detail::node_iterator_base") align 8 captures(none) initializes((0, 4), (8, 16), (24, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool = trunc i8 %0 to i1
@@ -609,7 +609,7 @@ return:                                           ; preds = %sw.default, %_ZN4YA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4YAML6detail9node_data5beginEv(ptr noalias nocapture writeonly sret(%"class.YAML::detail::node_iterator_base.15") align 8 initializes((0, 4), (8, 16), (24, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN4YAML6detail9node_data5beginEv(ptr noalias writeonly sret(%"class.YAML::detail::node_iterator_base.15") align 8 captures(none) initializes((0, 4), (8, 16), (24, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool = trunc i8 %0 to i1
@@ -692,7 +692,7 @@ return:                                           ; preds = %sw.default, %_ZN4YA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4YAML6detail9node_data3endEv(ptr noalias nocapture writeonly sret(%"class.YAML::detail::node_iterator_base") align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
+define void @_ZNK4YAML6detail9node_data3endEv(ptr noalias writeonly sret(%"class.YAML::detail::node_iterator_base") align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool = trunc i8 %0 to i1
@@ -745,7 +745,7 @@ return:                                           ; preds = %sw.default, %sw.bb3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4YAML6detail9node_data3endEv(ptr noalias nocapture writeonly sret(%"class.YAML::detail::node_iterator_base.15") align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN4YAML6detail9node_data3endEv(ptr noalias writeonly sret(%"class.YAML::detail::node_iterator_base.15") align 8 captures(none) initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool = trunc i8 %0 to i1
@@ -798,7 +798,7 @@ return:                                           ; preds = %sw.default, %sw.bb3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML6detail9node_data9push_backERNS0_4nodeERKSt10shared_ptrINS0_13memory_holderEE(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(72) %node, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML6detail9node_data9push_backERNS0_4nodeERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(72) %node, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %m_type, align 8
@@ -996,7 +996,7 @@ declare void @_ZN4YAML11BadPushbackD1Ev(ptr noundef nonnull align 8 dereferencea
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML6detail9node_data6insertERNS0_4nodeES3_RKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(72) %key, ptr noundef nonnull align 8 dereferenceable(72) %value, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pMemory) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML6detail9node_data6insertERNS0_4nodeES3_RKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(72) %key, ptr noundef nonnull align 8 dereferenceable(72) %value, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %pMemory) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_type, align 8
@@ -1067,7 +1067,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb3.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML6detail9node_data14convert_to_mapERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pMemory) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML6detail9node_data14convert_to_mapERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %pMemory) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_type, align 8
@@ -1302,7 +1302,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK4YAML6detail9node_data3getERNS0_4nodeERKSt10shared_ptrINS0_13memory_holderEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %key, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #11 align 2 {
+define noundef ptr @_ZNK4YAML6detail9node_data3getERNS0_4nodeERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %key, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #11 align 2 {
 entry:
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %m_type, align 8
@@ -1344,7 +1344,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML6detail9node_data3getERNS0_4nodeERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(72) %key, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pMemory) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML6detail9node_data3getERNS0_4nodeERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(72) %key, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %pMemory) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i32, ptr %m_type, align 8
@@ -1451,7 +1451,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN4YAML6detail9node_data6removeERNS0_4nodeERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %key, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN4YAML6detail9node_data6removeERNS0_4nodeERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %key, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i32, ptr %m_type, align 8
@@ -1651,7 +1651,7 @@ return:                                           ; preds = %for.end.i.i.i, %"_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML6detail9node_data23convert_sequence_to_mapERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pMemory) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML6detail9node_data23convert_sequence_to_mapERKSt10shared_ptrINS0_13memory_holderEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %pMemory) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stream = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1992,16 +1992,16 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #16
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #19

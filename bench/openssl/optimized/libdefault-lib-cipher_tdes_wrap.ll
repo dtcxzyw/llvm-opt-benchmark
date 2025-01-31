@@ -15,7 +15,7 @@ declare i32 @ossl_tdes_einit(ptr noundef, ptr noundef, i64 noundef, ptr noundef,
 declare i32 @ossl_tdes_dinit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @tdes_wrap_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly initializes((0, 8)) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #1 {
+define internal range(i32 0, 2) i32 @tdes_wrap_cipher(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %icv.i.i = alloca [8 x i8], align 1
   %iv.i8.i = alloca [8 x i8], align 1
@@ -217,7 +217,7 @@ entry:
 declare void @ossl_tdes_freectx(ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @tdes_wrap_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly initializes((0, 8)) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #1 {
+define internal range(i32 0, 2) i32 @tdes_wrap_update(ptr noundef %vctx, ptr noundef %out, ptr noundef writeonly captures(none) initializes((0, 8)) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   store i64 0, ptr %outl, align 8
   %cmp = icmp eq i64 %inl, 0
@@ -273,7 +273,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @ossl_sha1(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -292,10 +292,10 @@ declare ptr @ossl_prov_cipher_hw_tdes_wrap_cbc() local_unnamed_addr #0
 declare i32 @ossl_cipher_generic_get_params(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

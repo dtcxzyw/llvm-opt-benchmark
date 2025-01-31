@@ -204,7 +204,7 @@ _warc_find_eoh.exit:                              ; preds = %._crit_edge.i.i
   br i1 %.not.i, label %_warc_find_eoh.exit.thread, label %58
 
 _warc_find_eoh.exit.thread:                       ; preds = %27, %23, %_warc_find_eoh.exit, %54
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.4) #16
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.4) #16
   br label %.loopexit
 
 58:                                               ; preds = %_warc_find_eoh.exit.thread261, %_warc_find_eoh.exit
@@ -217,7 +217,7 @@ _warc_find_eoh.exit.thread:                       ; preds = %27, %23, %_warc_fin
   br i1 %63, label %64, label %65
 
 64:                                               ; preds = %58
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.5) #16
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.5) #16
   br label %.loopexit
 
 65:                                               ; preds = %58
@@ -231,7 +231,7 @@ _warc_find_eoh.exit.thread:                       ; preds = %27, %23, %_warc_fin
   %.lhs.trunc = trunc nuw nsw i32 %69 to i16
   %70 = udiv i16 %.lhs.trunc, 100
   %.zext = zext nneg i16 %70 to i32
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef -1, ptr noundef nonnull @.str.6, i32 noundef %68, i32 noundef %.zext) #16
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull @.str.6, i32 noundef %68, i32 noundef %.zext) #16
   br label %.loopexit
 
 71:                                               ; preds = %65
@@ -422,7 +422,7 @@ _warc_rdlen.exit:                                 ; preds = %141
   br i1 %146, label %.loopexit293, label %147
 
 .loopexit293:                                     ; preds = %_warc_rdlen.exit, %_warc_rdlen.exit.thread
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.7) #16
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.7) #16
   br label %.loopexit
 
 147:                                              ; preds = %_warc_rdlen.exit
@@ -572,7 +572,7 @@ _warc_rdrtm.exit:                                 ; preds = %_warc_find_eol.exit
   br i1 %208, label %.loopexit295, label %209
 
 .loopexit295:                                     ; preds = %_warc_rdrtm.exit, %_warc_rdrtm.exit.thread
-  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 22, ptr noundef nonnull @.str.8) #16
+  call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 22, ptr noundef nonnull @.str.8) #16
   br label %.loopexit
 
 209:                                              ; preds = %_warc_rdrtm.exit
@@ -763,7 +763,7 @@ _warc_find_eol.exit.i178:                         ; preds = %.lr.ph.preheader.i.
 .thread:                                          ; preds = %244, %272, %.critedge.i171, %282, %252, %xmemmem.exit.thread24.i, %218, %.preheader.i.i154, %215, %_warc_find_eol.exit.i178, %xmemmem.exit.i180
   store i64 %143, ptr %9, align 8
   store i64 0, ptr %16, align 8
-  %284 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %61) #16
+  %284 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %61) #16
   br label %490
 
 285:                                              ; preds = %282, %280
@@ -1250,7 +1250,7 @@ _warc_rduri.exit.thread:                          ; preds = %314, %342, %377, %3
   %.not90 = phi i1 [ true, %407 ], [ true, %_warc_rduri.exit ], [ false, %_warc_rdmtm.exit ], [ false, %486 ], [ true, %xmemmem.exit.i220 ], [ true, %_warc_find_eol.exit.i218 ], [ true, %xmemmem.exit65.i ], [ true, %._crit_edge.i ], [ true, %397 ], [ true, %285 ], [ true, %.preheader.i.i193 ], [ true, %288 ], [ true, %xmemmem.exit.thread67.i ], [ true, %322 ], [ true, %.critedge.i209 ], [ true, %.preheader.i59.i ], [ true, %351 ], [ true, %384 ], [ true, %377 ], [ true, %342 ], [ true, %314 ]
   %.081 = phi i64 [ 0, %407 ], [ 0, %_warc_rduri.exit ], [ %.fr, %_warc_rdmtm.exit ], [ %206, %486 ], [ 0, %xmemmem.exit.i220 ], [ 0, %_warc_find_eol.exit.i218 ], [ 0, %xmemmem.exit65.i ], [ 0, %._crit_edge.i ], [ 0, %397 ], [ 0, %285 ], [ 0, %.preheader.i.i193 ], [ 0, %288 ], [ 0, %xmemmem.exit.thread67.i ], [ 0, %322 ], [ 0, %.critedge.i209 ], [ 0, %.preheader.i59.i ], [ 0, %351 ], [ 0, %384 ], [ 0, %377 ], [ 0, %342 ], [ 0, %314 ]
   %.sroa.10.0 = phi ptr [ null, %407 ], [ null, %_warc_rduri.exit ], [ %424, %_warc_rdmtm.exit ], [ %424, %486 ], [ null, %xmemmem.exit.i220 ], [ null, %_warc_find_eol.exit.i218 ], [ null, %xmemmem.exit65.i ], [ null, %._crit_edge.i ], [ null, %397 ], [ null, %285 ], [ null, %.preheader.i.i193 ], [ null, %288 ], [ null, %xmemmem.exit.thread67.i ], [ null, %322 ], [ null, %.critedge.i209 ], [ null, %.preheader.i59.i ], [ null, %351 ], [ null, %384 ], [ null, %377 ], [ null, %342 ], [ null, %314 ]
-  %487 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %61) #16
+  %487 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %61) #16
   switch i32 %.0.i142, label %490 [
     i32 3, label %488
     i32 5, label %488
@@ -1273,7 +1273,7 @@ _warc_rduri.exit.thread:                          ; preds = %314, %342, %377, %3
   %492 = load ptr, ptr %491, align 8
   %493 = load i64, ptr %492, align 8
   %494 = add i64 %493, 4
-  %495 = call i64 @__archive_read_consume(ptr noundef %0, i64 noundef %494) #16
+  %495 = call i64 @__archive_read_consume(ptr noundef nonnull %0, i64 noundef %494) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %492, i8 0, i64 16, i1 false)
   %496 = call ptr @__archive_read_ahead(ptr noundef nonnull %0, i64 noundef 12, ptr noundef nonnull %6) #16
   %497 = load i64, ptr %6, align 8
@@ -1286,7 +1286,7 @@ _warc_rduri.exit.thread:                          ; preds = %314, %342, %377, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_warc_read(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly %3) #0 {
+define internal i32 @_warc_read(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %7 = load ptr, ptr %6, align 8
@@ -1365,7 +1365,7 @@ define internal noundef i32 @_warc_skip(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_warc_cleanup(ptr nocapture noundef readonly %0) #0 {
+define internal noundef i32 @_warc_cleanup(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2072
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1390,14 +1390,14 @@ define internal noundef i32 @_warc_cleanup(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @archive_string_free(ptr noundef) local_unnamed_addr #1
 
 declare ptr @__archive_read_ahead(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1953600, 876901) i32 @_warc_rdver(ptr nocapture noundef nonnull readonly %0, i64 noundef %1) unnamed_addr #4 {
+define internal fastcc range(i32 -1953600, 876901) i32 @_warc_rdver(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = icmp ult i64 %1, 12
   br i1 %3, label %53, label %4
 
@@ -1497,10 +1497,10 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #5
 declare void @archive_string_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare i64 @__archive_read_consume(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1523,10 +1523,10 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #8
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @xstrpisotime(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
+define internal fastcc i64 @xstrpisotime(ptr noundef nonnull %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.tm, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
@@ -1781,10 +1781,10 @@ strtoi_lim.exit41:                                ; preds = %.lr.ph80, %69
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -2, 4096) i32 @strtoi_lim(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 1584) %2, i32 noundef range(i32 12, 4096) %3) unnamed_addr #11 {
+define internal fastcc range(i32 -2, 4096) i32 @strtoi_lim(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, i32 noundef range(i32 0, 1584) %2, i32 noundef range(i32 12, 4096) %3) unnamed_addr #11 {
   %5 = load i8, ptr %0, align 1
   %6 = add i8 %5, -48
   %or.cond2631 = icmp ult i8 %6, 10
@@ -1829,16 +1829,16 @@ define internal fastcc range(i32 -2, 4096) i32 @strtoi_lim(ptr noundef %0, ptr n
 declare i64 @timegm(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

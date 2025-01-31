@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_vu_gpio_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vu_gpio_config_notifier(ptr nocapture noundef readonly %dev) #0 {
+define internal noundef i32 @vu_gpio_config_notifier(ptr noundef readonly captures(none) %dev) #0 {
 entry:
   %0 = load ptr, ptr %dev, align 8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_USER_GPIO) #7
@@ -100,7 +100,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vu_gpio_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @vu_gpio_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.5, i32 noundef 85, ptr noundef nonnull @__func__.VIRTIO_DEVICE_CLASS) #7
@@ -284,7 +284,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @vu_gpio_get_features(ptr noundef %vdev, i64 noundef %features, ptr nocapture readnone %errp) #0 {
+define internal i64 @vu_gpio_get_features(ptr noundef %vdev, i64 noundef %features, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_USER_GPIO) #7
   %vhost_dev = getelementptr inbounds nuw i8, ptr %call.i, i64 592
@@ -293,7 +293,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vu_gpio_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 8)) %config) #0 {
+define internal void @vu_gpio_get_config(ptr noundef %vdev, ptr noundef writeonly captures(none) initializes((0, 8)) %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_USER_GPIO) #7
   %config1 = getelementptr inbounds nuw i8, ptr %call.i, i64 576
@@ -435,7 +435,7 @@ declare void @virtio_init(ptr noundef, i16 noundef zeroext, i64 noundef) local_u
 declare ptr @virtio_add_queue(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @vu_gpio_handle_output(ptr nocapture readnone %vdev, ptr nocapture readnone %vq) #2 {
+define internal void @vu_gpio_handle_output(ptr readnone captures(none) %vdev, ptr readnone captures(none) %vq) #2 {
 entry:
   ret void
 }
@@ -764,17 +764,17 @@ declare void @vhost_user_cleanup(ptr noundef) local_unnamed_addr #1
 declare i64 @vhost_get_features(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

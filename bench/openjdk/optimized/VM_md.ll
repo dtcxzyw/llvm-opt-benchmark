@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_getuid(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_getuid(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @getuid() #2
   %4 = zext i32 %3 to i64
   ret i64 %4
@@ -14,7 +14,7 @@ define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_getuid(ptr nocapt
 declare i32 @getuid() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_geteuid(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_geteuid(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @geteuid() #2
   %4 = zext i32 %3 to i64
   ret i64 %4
@@ -24,7 +24,7 @@ define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_geteuid(ptr nocap
 declare i32 @geteuid() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_getgid(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_getgid(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @getgid() #2
   %4 = zext i32 %3 to i64
   ret i64 %4
@@ -34,7 +34,7 @@ define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_getgid(ptr nocapt
 declare i32 @getgid() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_getegid(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define range(i64 0, 4294967296) i64 @Java_jdk_internal_misc_VM_getegid(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 @getegid() #2
   %4 = zext i32 %3 to i64
   ret i64 %4

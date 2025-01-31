@@ -50,10 +50,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @get_num_chunks(ptr nocapture noundef readonly %cf) local_unnamed_addr #4 {
+define dso_local i32 @get_num_chunks(ptr noundef readonly captures(none) %cf) local_unnamed_addr #4 {
 entry:
   %chunks_nr = getelementptr inbounds nuw i8, ptr %cf, i64 16
   %0 = load i64, ptr %chunks_nr, align 8
@@ -62,7 +62,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_chunk(ptr nocapture noundef %cf, i32 noundef %id, i64 noundef %size, ptr noundef %fn) local_unnamed_addr #0 {
+define dso_local void @add_chunk(ptr noundef captures(none) %cf, i32 noundef %id, i64 noundef %size, ptr noundef %fn) local_unnamed_addr #0 {
 entry:
   %chunks_nr = getelementptr inbounds nuw i8, ptr %cf, i64 16
   %0 = load i64, ptr %chunks_nr, align 8
@@ -122,7 +122,7 @@ do.end:                                           ; preds = %entry.do.end_crit_e
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @write_chunkfile(ptr nocapture noundef readonly %cf, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local i32 @write_chunkfile(ptr noundef readonly captures(none) %cf, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %data.addr.i46 = alloca i64, align 8
   %data.addr.i43 = alloca i32, align 4
@@ -260,7 +260,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare void @trace2_region_leave_fl(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @read_table_of_contents(ptr nocapture noundef %cf, ptr noundef %mfile, i64 noundef %mfile_size, i64 noundef %toc_offset, i32 noundef %toc_length, i32 noundef %expected_alignment) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @read_table_of_contents(ptr noundef captures(none) %cf, ptr noundef %mfile, i64 noundef %mfile_size, i64 noundef %toc_offset, i32 noundef %toc_length, i32 noundef %expected_alignment) local_unnamed_addr #0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %mfile, i64 %toc_offset
   %conv = sext i32 %toc_length to i64
@@ -578,7 +578,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @pair_chunk(ptr nocapture noundef readonly %cf, i32 noundef %chunk_id, ptr nocapture noundef writeonly %p, ptr nocapture noundef writeonly %size) local_unnamed_addr #6 {
+define dso_local range(i32 -2, 1) i32 @pair_chunk(ptr noundef readonly captures(none) %cf, i32 noundef %chunk_id, ptr noundef writeonly captures(none) %p, ptr noundef writeonly captures(none) %size) local_unnamed_addr #6 {
 entry:
   %chunks_nr.i = getelementptr inbounds nuw i8, ptr %cf, i64 16
   %0 = load i64, ptr %chunks_nr.i, align 8
@@ -617,7 +617,7 @@ read_chunk.exit:                                  ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @read_chunk(ptr nocapture noundef readonly %cf, i32 noundef %chunk_id, ptr nocapture noundef readonly %fn, ptr noundef %data) local_unnamed_addr #0 {
+define dso_local i32 @read_chunk(ptr noundef readonly captures(none) %cf, i32 noundef %chunk_id, ptr noundef readonly captures(none) %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %chunks_nr = getelementptr inbounds nuw i8, ptr %cf, i64 16
   %0 = load i64, ptr %chunks_nr, align 8
@@ -691,10 +691,10 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #7
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

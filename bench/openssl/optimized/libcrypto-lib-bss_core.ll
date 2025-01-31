@@ -19,7 +19,7 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @ossl_bio_core_globals_new(ptr nocapture noundef readnone %ctx) local_unnamed_addr #0 {
+define noalias ptr @ossl_bio_core_globals_new(ptr noundef readnone captures(none) %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 56, ptr noundef nonnull @.str, i32 noundef 32) #3
   ret ptr %call
@@ -83,7 +83,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 declare void @BIO_set_data(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_bio_init_core(ptr noundef %libctx, ptr nocapture noundef readonly %fns) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_bio_init_core(ptr noundef %libctx, ptr noundef readonly captures(none) %fns) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %libctx, i32 noundef 17) #3
   %cmp = icmp eq ptr %call.i, null

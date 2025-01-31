@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbi__start_mem(ptr nocapture noundef writeonly initializes((16, 24), (48, 52), (184, 188), (192, 224)) %s, ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #1 {
+define void @stbi__start_mem(ptr noundef writeonly captures(none) initializes((16, 24), (48, 52), (184, 188), (192, 224)) %s, ptr noundef %buffer, i32 noundef %len) local_unnamed_addr #1 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %s, i64 16
   store ptr null, ptr %io, align 8
@@ -195,7 +195,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbi__start_callbacks(ptr noundef initializes((16, 56), (184, 188)) %s, ptr nocapture noundef readonly %c, ptr noundef %user) local_unnamed_addr #2 {
+define void @stbi__start_callbacks(ptr noundef initializes((16, 56), (184, 188)) %s, ptr noundef readonly captures(none) %c, ptr noundef %user) local_unnamed_addr #2 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %s, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %io, ptr noundef nonnull align 8 dereferenceable(24) %c, i64 24, i1 false)
@@ -248,7 +248,7 @@ stbi__refill_buffer.exit:                         ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define void @stbi__refill_buffer(ptr noundef %s) local_unnamed_addr #2 {
@@ -297,7 +297,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @stbi__stdio_read(ptr nocapture noundef %user, ptr nocapture noundef %data, i32 noundef %size) #4 {
+define noundef i32 @stbi__stdio_read(ptr noundef captures(none) %user, ptr noundef captures(none) %data, i32 noundef %size) #4 {
 entry:
   %conv = sext i32 %size to i64
   %call = tail call i64 @fread(ptr noundef %data, i64 noundef 1, i64 noundef %conv, ptr noundef %user)
@@ -306,10 +306,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define void @stbi__stdio_skip(ptr nocapture noundef %user, i32 noundef %n) #4 {
+define void @stbi__stdio_skip(ptr noundef captures(none) %user, i32 noundef %n) #4 {
 entry:
   %conv = sext i32 %n to i64
   %call = tail call i32 @fseek(ptr noundef %user, i64 noundef %conv, i32 noundef 1)
@@ -326,16 +326,16 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @ungetc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @stbi__stdio_eof(ptr nocapture noundef %user) #4 {
+define range(i32 0, 2) i32 @stbi__stdio_eof(ptr noundef captures(none) %user) #4 {
 entry:
   %call = tail call i32 @feof(ptr noundef %user) #37
   %tobool.not = icmp eq i32 %call, 0
@@ -353,10 +353,10 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @stbi__start_file(ptr noundef initializes((16, 56), (184, 188)) %s, ptr noundef %f) local_unnamed_addr #2 {
@@ -412,7 +412,7 @@ stbi__start_callbacks.exit:                       ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbi__rewind(ptr nocapture noundef initializes((192, 208)) %s) local_unnamed_addr #7 {
+define void @stbi__rewind(ptr noundef captures(none) initializes((192, 208)) %s) local_unnamed_addr #7 {
 entry:
   %img_buffer_original = getelementptr inbounds nuw i8, ptr %s, i64 208
   %0 = load ptr, ptr %img_buffer_original, align 8
@@ -840,14 +840,14 @@ return:                                           ; preds = %entry, %if.end17, %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stbi_image_free(ptr nocapture noundef %retval_from_stbi_load) local_unnamed_addr #13 {
+define void @stbi_image_free(ptr noundef captures(none) %retval_from_stbi_load) local_unnamed_addr #13 {
 entry:
   tail call void @free(ptr noundef %retval_from_stbi_load) #37
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define void @stbi_set_flip_vertically_on_load(i32 noundef %flag_true_if_should_flip) local_unnamed_addr #10 {
@@ -867,7 +867,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__load_main(ptr noundef %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture noundef initializes((0, 12)) %ri, i32 noundef %bpc) local_unnamed_addr #2 {
+define ptr @stbi__load_main(ptr noundef %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp, ptr noundef captures(none) initializes((0, 12)) %ri, i32 noundef %bpc) local_unnamed_addr #2 {
 entry:
   %g.i = alloca %struct.stbi__gif, align 8
   %p.i = alloca %struct.stbi__png, align 8
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %if.end43, %if.then4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__png_test(ptr noundef %s) local_unnamed_addr #2 {
@@ -1231,7 +1231,7 @@ stbi__check_png_header.exit:                      ; preds = %for.cond.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__png_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture noundef %ri) local_unnamed_addr #2 {
+define ptr @stbi__png_load(ptr noundef %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef %comp, i32 noundef %req_comp, ptr noundef captures(none) %ri) local_unnamed_addr #2 {
 entry:
   %p = alloca %struct.stbi__png, align 8
   store ptr %s, ptr %p, align 8
@@ -1255,7 +1255,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__bmp_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__bmp_load(ptr noundef %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr readnone captures(none) %ri) local_unnamed_addr #2 {
 entry:
   %shift_table.i696 = alloca [9 x i32], align 16
   %shift_table.i683 = alloca [9 x i32], align 16
@@ -3076,7 +3076,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__gif_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture noundef readnone %ri) local_unnamed_addr #2 {
+define ptr @stbi__gif_load(ptr noundef %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef %comp, i32 noundef %req_comp, ptr noundef readnone captures(none) %ri) local_unnamed_addr #2 {
 entry:
   %g = alloca %struct.stbi__gif, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34928) %g, i8 0, i64 34928, i1 false)
@@ -3142,7 +3142,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__psd_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef %ri, i32 noundef %bpc) local_unnamed_addr #2 {
+define noundef ptr @stbi__psd_load(ptr noundef %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr noundef captures(none) %ri, i32 noundef %bpc) local_unnamed_addr #2 {
 entry:
   %call.i = tail call i32 @stbi__get16be(ptr noundef %s)
   %shl.i = shl nuw i32 %call.i, 16
@@ -3365,7 +3365,7 @@ for.body92.us:                                    ; preds = %for.cond89.preheade
   br i1 %exitcond197.not, label %for.inc107.us, label %for.body92.us, !llvm.loop !17
 
 if.else98.us:                                     ; preds = %for.body.us
-  %call99.us = tail call i32 @stbi__psd_decode_rle(ptr noundef %s, ptr noundef nonnull %add.ptr.us, i32 noundef %mul79.fr)
+  %call99.us = tail call i32 @stbi__psd_decode_rle(ptr noundef nonnull %s, ptr noundef nonnull %add.ptr.us, i32 noundef %mul79.fr)
   %tobool100.not.us = icmp eq i32 %call99.us, 0
   br i1 %tobool100.not.us, label %if.then101, label %for.inc107.us
 
@@ -3386,7 +3386,7 @@ for.body:                                         ; preds = %if.then81, %for.inc
 
 if.else98:                                        ; preds = %for.body
   %add.ptr = getelementptr inbounds nuw i8, ptr %out.0, i64 %indvars.iv
-  %call99 = tail call i32 @stbi__psd_decode_rle(ptr noundef %s, ptr noundef nonnull %add.ptr, i32 noundef %mul79.fr)
+  %call99 = tail call i32 @stbi__psd_decode_rle(ptr noundef nonnull %s, ptr noundef nonnull %add.ptr, i32 noundef %mul79.fr)
   %tobool100.not = icmp eq i32 %call99, 0
   br i1 %tobool100.not, label %if.then101, label %for.inc107
 
@@ -3459,7 +3459,7 @@ for.body167.preheader:                            ; preds = %if.then160
 for.body167:                                      ; preds = %for.body167.preheader, %for.body167
   %i.3182 = phi i32 [ %inc171, %for.body167 ], [ 0, %for.body167.preheader ]
   %q161.0181 = phi ptr [ %add.ptr172, %for.body167 ], [ %add.ptr163, %for.body167.preheader ]
-  %call168 = tail call i32 @stbi__get16be(ptr noundef %s)
+  %call168 = tail call i32 @stbi__get16be(ptr noundef nonnull %s)
   %conv169 = trunc nuw i32 %call168 to i16
   store i16 %conv169, ptr %q161.0181, align 2
   %inc171 = add nuw nsw i32 %i.3182, 1
@@ -3485,7 +3485,7 @@ for.cond181.preheader:                            ; preds = %if.else174
 for.body184:                                      ; preds = %for.cond181.preheader, %for.body184
   %i.4179 = phi i32 [ %inc188, %for.body184 ], [ 0, %for.cond181.preheader ]
   %p175.0178 = phi ptr [ %add.ptr189, %for.body184 ], [ %add.ptr177, %for.cond181.preheader ]
-  %call185 = tail call i32 @stbi__get16be(ptr noundef %s)
+  %call185 = tail call i32 @stbi__get16be(ptr noundef nonnull %s)
   %shr = lshr i32 %call185, 8
   %conv186 = trunc nuw i32 %shr to i8
   store i8 %conv186, ptr %p175.0178, align 1
@@ -3727,7 +3727,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__pic_load(ptr noundef %s, ptr nocapture noundef writeonly %px, ptr nocapture noundef writeonly %py, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__pic_load(ptr noundef %s, ptr noundef writeonly captures(none) %px, ptr noundef writeonly captures(none) %py, ptr noundef %comp, i32 noundef %req_comp, ptr readnone captures(none) %ri) local_unnamed_addr #2 {
 entry:
   %internal_comp = alloca i32, align 4
   %tobool.not = icmp eq ptr %comp, null
@@ -3971,7 +3971,7 @@ return:                                           ; preds = %stbi__decode_jpeg_h
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__jpeg_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__jpeg_load(ptr noundef %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef %comp, i32 noundef %req_comp, ptr readnone captures(none) %ri) local_unnamed_addr #2 {
 entry:
   %calloc = tail call dereferenceable_or_null(18568) ptr @calloc(i64 1, i64 18568)
   %tobool.not = icmp eq ptr %calloc, null
@@ -4149,7 +4149,7 @@ return:                                           ; preds = %stbi__get8.exit37, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__pnm_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture noundef initializes((0, 4)) %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__pnm_load(ptr noundef %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr noundef captures(none) initializes((0, 4)) %ri) local_unnamed_addr #2 {
 entry:
   %img_y = getelementptr inbounds nuw i8, ptr %s, i64 4
   %img_n = getelementptr inbounds nuw i8, ptr %s, i64 8
@@ -4549,7 +4549,7 @@ if.end:                                           ; preds = %stbi__get8.exit.i37
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__hdr_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__hdr_load(ptr noundef %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr readnone captures(none) %ri) local_unnamed_addr #2 {
 entry:
   %buffer = alloca [1024 x i8], align 16
   %token = alloca ptr, align 8
@@ -4644,7 +4644,7 @@ if.then38:                                        ; preds = %sub_1, %sub_0, %whi
 if.end42:                                         ; preds = %while.end.tail
   %add.ptr43 = getelementptr inbounds nuw i8, ptr %incdec.ptr217, i64 3
   store ptr %add.ptr43, ptr %token, align 8
-  %call44 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr43, ptr noundef null, i32 noundef 10) #37
+  %call44 = call i64 @strtol(ptr noundef nonnull captures(none) %add.ptr43, ptr noundef null, i32 noundef 10) #37
   %call44.fr = freeze i64 %call44
   %conv45 = trunc i64 %call44.fr to i32
   %cmp46 = icmp sgt i32 %conv32, 16777216
@@ -5872,7 +5872,7 @@ errorEnd:                                         ; preds = %if.end.i115, %switc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__tga_load(ptr noundef %s, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr nocapture readnone %ri) local_unnamed_addr #2 {
+define noundef ptr @stbi__tga_load(ptr noundef %s, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly %comp, i32 noundef %req_comp, ptr readnone captures(none) %ri) local_unnamed_addr #2 {
 entry:
   %raw_data = alloca [4 x i8], align 4
   %img_buffer.i = getelementptr inbounds nuw i8, ptr %s, i64 192
@@ -7035,7 +7035,7 @@ return:                                           ; preds = %if.end256, %if.then
 }
 
 ; Function Attrs: nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @stbi__convert_16_to_8(ptr nocapture noundef %orig, i32 noundef %w, i32 noundef %h, i32 noundef %channels) local_unnamed_addr #16 {
+define noalias noundef ptr @stbi__convert_16_to_8(ptr noundef captures(none) %orig, i32 noundef %w, i32 noundef %h, i32 noundef %channels) local_unnamed_addr #16 {
 entry:
   %mul = mul nsw i32 %h, %w
   %mul1 = mul nsw i32 %mul, %channels
@@ -7078,7 +7078,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @stbi__convert_8_to_16(ptr nocapture noundef %orig, i32 noundef %w, i32 noundef %h, i32 noundef %channels) local_unnamed_addr #16 {
+define noalias noundef ptr @stbi__convert_8_to_16(ptr noundef captures(none) %orig, i32 noundef %w, i32 noundef %h, i32 noundef %channels) local_unnamed_addr #16 {
 entry:
   %mul = mul nsw i32 %h, %w
   %mul1 = mul nsw i32 %mul, %channels
@@ -7122,7 +7122,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__vertical_flip(ptr nocapture noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef %bytes_per_pixel) local_unnamed_addr #17 {
+define void @stbi__vertical_flip(ptr noundef captures(none) %image, i32 noundef %w, i32 noundef %h, i32 noundef %bytes_per_pixel) local_unnamed_addr #17 {
 entry:
   %temp = alloca [2048 x i8], align 16
   %conv = sext i32 %w to i64
@@ -7174,7 +7174,7 @@ for.end:                                          ; preds = %while.cond.for.inc_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__vertical_flip_slices(ptr nocapture noundef %image, i32 noundef %w, i32 noundef %h, i32 noundef %z, i32 noundef %bytes_per_pixel) local_unnamed_addr #17 {
+define void @stbi__vertical_flip_slices(ptr noundef captures(none) %image, i32 noundef %w, i32 noundef %h, i32 noundef %z, i32 noundef %bytes_per_pixel) local_unnamed_addr #17 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %cmp6 = icmp sgt i32 %z, 0
@@ -7243,7 +7243,7 @@ for.end:                                          ; preds = %stbi__vertical_flip
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__load_and_postprocess_8bit(ptr noundef %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define ptr @stbi__load_and_postprocess_8bit(ptr noundef %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %ri = alloca %struct.stbi__result_info, align 4
@@ -7393,7 +7393,7 @@ return:                                           ; preds = %cond.true7, %cond.f
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__load_and_postprocess_16bit(ptr noundef %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define ptr @stbi__load_and_postprocess_16bit(ptr noundef %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %ri = alloca %struct.stbi__result_info, align 4
@@ -7545,7 +7545,7 @@ return:                                           ; preds = %cond.true7, %cond.f
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbi__float_postprocess(ptr noundef %result, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %y, ptr nocapture noundef readonly %comp, i32 noundef %req_comp) local_unnamed_addr #18 {
+define void @stbi__float_postprocess(ptr noundef %result, ptr noundef readonly captures(none) %x, ptr noundef readonly captures(none) %y, ptr noundef readonly captures(none) %comp, i32 noundef %req_comp) local_unnamed_addr #18 {
 entry:
   %temp.i = alloca [2048 x i8], align 16
   %0 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @stbi__vertically_flip_on_load_set)
@@ -7635,17 +7635,17 @@ if.end:                                           ; preds = %stbi__vertical_flip
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @stbi__fopen(ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %mode) local_unnamed_addr #4 {
+define noalias noundef ptr @stbi__fopen(ptr noundef readonly captures(none) %filename, ptr noundef readonly captures(none) %mode) local_unnamed_addr #4 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef %filename, ptr noundef %mode)
   ret ptr %call
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_load(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define ptr @stbi_load(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
@@ -7732,7 +7732,7 @@ return:                                           ; preds = %stbi_load_from_file
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_load_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define ptr @stbi_load_from_file(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7802,10 +7802,10 @@ if.end:                                           ; preds = %if.then, %stbi__sta
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_load_from_file_16(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define ptr @stbi_load_from_file_16(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7875,7 +7875,7 @@ if.end:                                           ; preds = %if.then, %stbi__sta
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_load_16(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define ptr @stbi_load_16(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
@@ -7962,7 +7962,7 @@ return:                                           ; preds = %stbi_load_from_file
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_load_16_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #2 {
+define ptr @stbi_load_16_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -7986,7 +7986,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_load_16_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #2 {
+define ptr @stbi_load_16_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %channels_in_file, i32 noundef %desired_channels) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -8041,7 +8041,7 @@ stbi__start_callbacks.exit:                       ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_load_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define ptr @stbi_load_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -8065,7 +8065,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi_load_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define ptr @stbi_load_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -8120,7 +8120,7 @@ stbi__start_callbacks.exit:                       ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_load_gif_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %delays, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr nocapture noundef %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_load_gif_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef %delays, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef captures(none) %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %temp.i.i = alloca [2048 x i8], align 16
   %s = alloca %struct.stbi__context, align 8
@@ -8228,7 +8228,7 @@ if.end:                                           ; preds = %stbi__vertical_flip
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__load_gif_main(ptr noundef %s, ptr noundef %delays, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi__load_gif_main(ptr noundef %s, ptr noundef %delays, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly captures(none) %z, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %g = alloca %struct.stbi__gif, align 8
   %call.i = tail call i32 @stbi__gif_test_raw(ptr noundef %s)
@@ -8441,7 +8441,7 @@ if.then66:                                        ; preds = %if.end55
   br label %do.cond
 
 do.cond:                                          ; preds = %if.then66, %if.end55
-  %call3 = call ptr @stbi__gif_load_next(ptr noundef %s, ptr noundef nonnull %g, ptr noundef %comp, i32 poison, ptr noundef %two_back.1)
+  %call3 = call ptr @stbi__gif_load_next(ptr noundef nonnull %s, ptr noundef nonnull %g, ptr noundef %comp, i32 poison, ptr noundef %two_back.1)
   %cmp = icmp eq ptr %call3, %s
   %tobool6.not53 = icmp eq ptr %call3, null
   %tobool6.not = or i1 %cmp, %tobool6.not53
@@ -8491,7 +8491,7 @@ return:                                           ; preds = %if.else82, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__loadf_main(ptr noundef %s, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi__loadf_main(ptr noundef %s, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %temp.i.i = alloca [2048 x i8], align 16
   %call = tail call i32 @stbi__hdr_test(ptr noundef %s)
@@ -8747,7 +8747,7 @@ return:                                           ; preds = %entry, %if.end49, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_loadf_from_memory(ptr noundef %buffer, i32 noundef %len, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -8771,7 +8771,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_loadf_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_loadf_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -8826,7 +8826,7 @@ stbi__start_callbacks.exit:                       ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_loadf(ptr nocapture noundef readonly %filename, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_loadf(ptr noundef readonly captures(none) %filename, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
@@ -8898,7 +8898,7 @@ return:                                           ; preds = %stbi_loadf_from_fil
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi_loadf_from_file(ptr noundef %f, ptr nocapture noundef %x, ptr nocapture noundef %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @stbi_loadf_from_file(ptr noundef %f, ptr noundef captures(none) %x, ptr noundef captures(none) %y, ptr noundef %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -8977,7 +8977,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_is_hdr(ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi_is_hdr(ptr noundef readonly captures(none) %filename) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
@@ -9103,10 +9103,10 @@ stbi__start_file.exit:                            ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_is_hdr_from_callbacks(ptr nocapture noundef readonly %clbk, ptr noundef %user) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi_is_hdr_from_callbacks(ptr noundef readonly captures(none) %clbk, ptr noundef %user) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -9261,7 +9261,7 @@ return:                                           ; preds = %if.end, %stbi__refi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__at_eof(ptr nocapture noundef readonly %s) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__at_eof(ptr noundef readonly captures(none) %s) local_unnamed_addr #2 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load ptr, ptr %io, align 8
@@ -9298,7 +9298,7 @@ return:                                           ; preds = %if.end, %if.then, %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbi__skip(ptr nocapture noundef %s, i32 noundef %n) local_unnamed_addr #2 {
+define void @stbi__skip(ptr noundef captures(none) %s, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %n, 0
   br i1 %cmp, label %return, label %if.end
@@ -9360,7 +9360,7 @@ return:                                           ; preds = %entry, %if.end14, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__getn(ptr nocapture noundef %s, ptr noundef %buffer, i32 noundef %n) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__getn(ptr noundef captures(none) %s, ptr noundef %buffer, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %io = getelementptr inbounds nuw i8, ptr %s, i64 16
   %0 = load ptr, ptr %io, align 8
@@ -10532,7 +10532,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #19
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__build_huffman(ptr nocapture noundef %h, ptr nocapture noundef readonly %count) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @stbi__build_huffman(ptr noundef captures(none) %h, ptr noundef readonly captures(none) %count) local_unnamed_addr #20 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %h, i64 1280
   br label %for.cond1.preheader
@@ -10692,7 +10692,7 @@ return:                                           ; preds = %for.inc90, %return.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__build_fast_ac(ptr nocapture noundef writeonly %fast_ac, ptr nocapture noundef readonly %h) local_unnamed_addr #17 {
+define void @stbi__build_fast_ac(ptr noundef writeonly captures(none) %fast_ac, ptr noundef readonly captures(none) %h) local_unnamed_addr #17 {
 entry:
   %values = getelementptr inbounds nuw i8, ptr %h, i64 1024
   %size = getelementptr inbounds nuw i8, ptr %h, i64 1280
@@ -10758,7 +10758,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbi__grow_buffer_unsafe(ptr nocapture noundef %j) local_unnamed_addr #2 {
+define void @stbi__grow_buffer_unsafe(ptr noundef captures(none) %j) local_unnamed_addr #2 {
 entry:
   %nomore = getelementptr inbounds nuw i8, ptr %j, i64 18476
   %code_bits = getelementptr inbounds nuw i8, ptr %j, i64 18468
@@ -11024,7 +11024,7 @@ do.end:                                           ; preds = %if.end15, %entry.sp
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 256) i32 @stbi__jpeg_huff_decode(ptr nocapture noundef %j, ptr nocapture noundef readonly %h) local_unnamed_addr #2 {
+define range(i32 -1, 256) i32 @stbi__jpeg_huff_decode(ptr noundef captures(none) %j, ptr noundef readonly captures(none) %h) local_unnamed_addr #2 {
 entry:
   %code_bits = getelementptr inbounds nuw i8, ptr %j, i64 18468
   %0 = load i32, ptr %code_bits, align 4
@@ -11125,7 +11125,7 @@ return:                                           ; preds = %if.end36, %if.end31
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__extend_receive(ptr nocapture noundef %j, i32 noundef %n) local_unnamed_addr #2 {
+define i32 @stbi__extend_receive(ptr noundef captures(none) %j, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %code_bits = getelementptr inbounds nuw i8, ptr %j, i64 18468
   %0 = load i32, ptr %code_bits, align 4
@@ -11168,7 +11168,7 @@ return:                                           ; preds = %if.end, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbi__jpeg_get_bits(ptr nocapture noundef %j, i32 noundef %n) local_unnamed_addr #2 {
+define i32 @stbi__jpeg_get_bits(ptr noundef captures(none) %j, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %code_bits = getelementptr inbounds nuw i8, ptr %j, i64 18468
   %0 = load i32, ptr %code_bits, align 4
@@ -11206,7 +11206,7 @@ return:                                           ; preds = %if.end, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483647) i32 @stbi__jpeg_get_bit(ptr nocapture noundef %j) local_unnamed_addr #2 {
+define range(i32 0, -2147483647) i32 @stbi__jpeg_get_bit(ptr noundef captures(none) %j) local_unnamed_addr #2 {
 entry:
   %code_bits = getelementptr inbounds nuw i8, ptr %j, i64 18468
   %0 = load i32, ptr %code_bits, align 4
@@ -11236,7 +11236,7 @@ return:                                           ; preds = %if.end, %if.end4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__jpeg_decode_block(ptr nocapture noundef %j, ptr nocapture noundef writeonly %data, ptr nocapture noundef readonly %hdc, ptr nocapture noundef readonly %hac, ptr nocapture noundef readonly %fac, i32 noundef %b, ptr nocapture noundef readonly %dequant) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__jpeg_decode_block(ptr noundef captures(none) %j, ptr noundef writeonly captures(none) %data, ptr noundef readonly captures(none) %hdc, ptr noundef readonly captures(none) %hac, ptr noundef readonly captures(none) %fac, i32 noundef %b, ptr noundef readonly captures(none) %dequant) local_unnamed_addr #2 {
 entry:
   %code_bits = getelementptr inbounds nuw i8, ptr %j, i64 18468
   %0 = load i32, ptr %code_bits, align 4
@@ -11645,7 +11645,7 @@ return:                                           ; preds = %do.cond, %if.then73
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__jpeg_decode_block_prog_dc(ptr nocapture noundef %j, ptr nocapture noundef %data, ptr nocapture noundef readonly %hdc, i32 noundef %b) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__jpeg_decode_block_prog_dc(ptr noundef captures(none) %j, ptr noundef captures(none) %data, ptr noundef readonly captures(none) %hdc, i32 noundef %b) local_unnamed_addr #2 {
 entry:
   %spec_end = getelementptr inbounds nuw i8, ptr %j, i64 18488
   %0 = load i32, ptr %spec_end, align 8
@@ -11917,7 +11917,7 @@ return:                                           ; preds = %if.end.i48, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__jpeg_decode_block_prog_ac(ptr nocapture noundef %j, ptr nocapture noundef %data, ptr nocapture noundef readonly %hac, ptr nocapture noundef readonly %fac) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__jpeg_decode_block_prog_ac(ptr noundef captures(none) %j, ptr noundef captures(none) %data, ptr noundef readonly captures(none) %hac, ptr noundef readonly captures(none) %fac) local_unnamed_addr #2 {
 entry:
   %spec_start = getelementptr inbounds nuw i8, ptr %j, i64 18484
   %0 = load i32, ptr %spec_start, align 4
@@ -12567,7 +12567,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__idct_block(ptr nocapture noundef writeonly %out, i32 noundef %out_stride, ptr nocapture noundef readonly %data) local_unnamed_addr #17 {
+define void @stbi__idct_block(ptr noundef writeonly captures(none) %out, i32 noundef %out_stride, ptr noundef readonly captures(none) %data) local_unnamed_addr #17 {
 entry:
   %val = alloca [64 x i32], align 16
   br label %for.body
@@ -12886,7 +12886,7 @@ for.end224:                                       ; preds = %for.body126
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbi__idct_simd(ptr nocapture noundef writeonly initializes((0, 8)) %out, i32 noundef %out_stride, ptr nocapture noundef readonly %data) #21 {
+define void @stbi__idct_simd(ptr noundef writeonly captures(none) initializes((0, 8)) %out, i32 noundef %out_stride, ptr noundef readonly captures(none) %data) #21 {
 entry:
   %0 = load <8 x i16>, ptr %data, align 16
   %add.ptr11 = getelementptr inbounds nuw i8, ptr %data, i64 16
@@ -13187,7 +13187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @stbi__get_marker(ptr nocapture noundef %j) local_unnamed_addr #2 {
+define zeroext i8 @stbi__get_marker(ptr noundef captures(none) %j) local_unnamed_addr #2 {
 entry:
   %marker = getelementptr inbounds nuw i8, ptr %j, i64 18472
   %0 = load i8, ptr %marker, align 8
@@ -13342,7 +13342,7 @@ return:                                           ; preds = %if.end.i11, %stbi__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbi__jpeg_reset(ptr nocapture noundef initializes((18104, 18108), (18200, 18204), (18296, 18300), (18392, 18396), (18464, 18473), (18476, 18480), (18500, 18504), (18540, 18544)) %j) local_unnamed_addr #7 {
+define void @stbi__jpeg_reset(ptr noundef captures(none) initializes((18104, 18108), (18200, 18204), (18296, 18300), (18392, 18396), (18464, 18473), (18476, 18480), (18500, 18504), (18540, 18544)) %j) local_unnamed_addr #7 {
 entry:
   %code_bits = getelementptr inbounds nuw i8, ptr %j, i64 18468
   store i32 0, ptr %code_bits, align 4
@@ -13999,7 +13999,7 @@ return:                                           ; preds = %for.inc428, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__jpeg_dequantize(ptr nocapture noundef %data, ptr nocapture noundef readonly %dequant) local_unnamed_addr #17 {
+define void @stbi__jpeg_dequantize(ptr noundef captures(none) %data, ptr noundef readonly captures(none) %dequant) local_unnamed_addr #17 {
 entry:
   br label %for.body
 
@@ -14020,7 +14020,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbi__jpeg_finish(ptr nocapture noundef readonly %z) local_unnamed_addr #2 {
+define void @stbi__jpeg_finish(ptr noundef readonly captures(none) %z) local_unnamed_addr #2 {
 entry:
   %progressive = getelementptr inbounds nuw i8, ptr %z, i64 18480
   %0 = load i32, ptr %progressive, align 8
@@ -14137,7 +14137,7 @@ if.end:                                           ; preds = %for.inc46, %for.con
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__process_marker(ptr nocapture noundef %z, i32 noundef %m) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__process_marker(ptr noundef captures(none) %z, i32 noundef %m) local_unnamed_addr #2 {
 entry:
   %sizes = alloca [16 x i32], align 16
   switch i32 %m, label %sw.epilog [
@@ -15026,7 +15026,7 @@ return:                                           ; preds = %if.else, %if.then87
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__process_scan_header(ptr nocapture noundef initializes((18516, 18520)) %z) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__process_scan_header(ptr noundef captures(none) initializes((18516, 18520)) %z) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %call = tail call i32 @stbi__get16be(ptr noundef %0)
@@ -15601,7 +15601,7 @@ return:                                           ; preds = %for.end, %for.inc, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @stbi__free_jpeg_components(ptr nocapture noundef %z, i32 noundef %ncomp, i32 noundef returned %why) local_unnamed_addr #2 {
+define noundef i32 @stbi__free_jpeg_components(ptr noundef captures(none) %z, i32 noundef %ncomp, i32 noundef returned %why) local_unnamed_addr #2 {
 entry:
   %cmp25 = icmp sgt i32 %ncomp, 0
   br i1 %cmp25, label %for.body.lr.ph, label %for.end
@@ -15659,7 +15659,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__process_frame_header(ptr nocapture noundef %z, i32 noundef %scan) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__process_frame_header(ptr noundef captures(none) %z, i32 noundef %scan) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %call = tail call i32 @stbi__get16be(ptr noundef %0)
@@ -16344,7 +16344,7 @@ return:                                           ; preds = %for.inc367, %for.en
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__decode_jpeg_header(ptr nocapture noundef initializes((18472, 18473), (18504, 18512)) %z, i32 noundef %scan) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__decode_jpeg_header(ptr noundef captures(none) initializes((18472, 18473), (18504, 18512)) %z, i32 noundef %scan) local_unnamed_addr #2 {
 entry:
   %jfif = getelementptr inbounds nuw i8, ptr %z, i64 18504
   store i32 0, ptr %jfif, align 8
@@ -16385,12 +16385,12 @@ while.cond.loopexit:                              ; preds = %if.end28, %if.end17
 
 while.body:                                       ; preds = %if.end6, %while.cond.loopexit
   %m.031 = phi i32 [ %m.0, %while.cond.loopexit ], [ %m.027, %if.end6 ]
-  %call15 = tail call i32 @stbi__process_marker(ptr noundef %z, i32 noundef %m.031)
+  %call15 = tail call i32 @stbi__process_marker(ptr noundef nonnull %z, i32 noundef %m.031)
   %tobool.not = icmp eq i32 %call15, 0
   br i1 %tobool.not, label %return, label %if.end17
 
 if.end17:                                         ; preds = %while.body
-  %call18 = tail call zeroext i8 @stbi__get_marker(ptr noundef %z)
+  %call18 = tail call zeroext i8 @stbi__get_marker(ptr noundef nonnull %z)
   %cmp2126 = icmp eq i8 %call18, -1
   br i1 %cmp2126, label %while.body23, label %while.cond.loopexit
 
@@ -16440,7 +16440,7 @@ while.end31:                                      ; preds = %while.cond.loopexit
   %conv33 = zext i1 %cmp32 to i32
   %progressive = getelementptr inbounds nuw i8, ptr %z, i64 18480
   store i32 %conv33, ptr %progressive, align 8
-  %call34 = tail call i32 @stbi__process_frame_header(ptr noundef %z, i32 noundef %scan)
+  %call34 = tail call i32 @stbi__process_frame_header(ptr noundef nonnull %z, i32 noundef %scan)
   br label %return
 
 return:                                           ; preds = %while.body, %while.end31, %if.end, %if.then26, %if.then
@@ -16449,7 +16449,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 1, 0) i8 @stbi__skip_jpeg_junk_at_end(ptr nocapture noundef readonly %j) local_unnamed_addr #2 {
+define zeroext range(i8 1, 0) i8 @stbi__skip_jpeg_junk_at_end(ptr noundef readonly captures(none) %j) local_unnamed_addr #2 {
 entry:
   br label %while.cond
 
@@ -16697,12 +16697,12 @@ while.cond:                                       ; preds = %while.cond.backedge
   ]
 
 if.then9:                                         ; preds = %while.cond
-  %call10 = tail call i32 @stbi__process_scan_header(ptr noundef %j)
+  %call10 = tail call i32 @stbi__process_scan_header(ptr noundef nonnull %j)
   %tobool11.not = icmp eq i32 %call10, 0
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.then9
-  %call14 = tail call i32 @stbi__parse_entropy_coded_data(ptr noundef %j)
+  %call14 = tail call i32 @stbi__parse_entropy_coded_data(ptr noundef nonnull %j)
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.end17
 
@@ -16739,12 +16739,12 @@ if.end45:                                         ; preds = %if.then37
 
 if.else54:                                        ; preds = %while.cond
   %m.1 = zext i8 %m.1.in to i32
-  %call55 = tail call i32 @stbi__process_marker(ptr noundef %j, i32 noundef %m.1)
+  %call55 = tail call i32 @stbi__process_marker(ptr noundef nonnull %j, i32 noundef %m.1)
   %tobool56.not = icmp eq i32 %call55, 0
   br i1 %tobool56.not, label %return, label %if.end62.sink.split
 
 if.end62.sink.split:                              ; preds = %if.else54, %if.end45, %if.end24
-  %call52 = tail call zeroext i8 @stbi__get_marker(ptr noundef %j)
+  %call52 = tail call zeroext i8 @stbi__get_marker(ptr noundef nonnull %j)
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end62.sink.split, %if.end24
@@ -16873,13 +16873,13 @@ return:                                           ; preds = %if.else54, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @resample_row_1(ptr nocapture readnone %out, ptr noundef readnone returned %in_near, ptr nocapture readnone %in_far, i32 %w, i32 %hs) #0 {
+define noundef ptr @resample_row_1(ptr readnone captures(none) %out, ptr noundef readnone returned %in_near, ptr readnone captures(none) %in_far, i32 %w, i32 %hs) #0 {
 entry:
   ret ptr %in_near
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 %hs) #17 {
+define noundef ptr @stbi__resample_row_v_2(ptr noundef returned writeonly %out, ptr noundef readonly captures(none) %in_near, ptr noundef readonly captures(none) %in_far, i32 noundef %w, i32 %hs) #17 {
 entry:
   %cmp6 = icmp sgt i32 %w, 0
   br i1 %cmp6, label %for.body.preheader, label %for.end
@@ -16912,7 +16912,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly initializes((0, 2)) %out, ptr nocapture noundef readonly %in_near, ptr nocapture readnone %in_far, i32 noundef %w, i32 %hs) #17 {
+define noundef ptr @stbi__resample_row_h_2(ptr noundef returned writeonly initializes((0, 2)) %out, ptr noundef readonly captures(none) %in_near, ptr readnone captures(none) %in_far, i32 noundef %w, i32 %hs) #17 {
 entry:
   %cmp = icmp eq i32 %w, 1
   %0 = load i8, ptr %in_near, align 1
@@ -17009,7 +17009,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly initializes((0, 1)) %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 noundef %hs) local_unnamed_addr #17 {
+define noundef ptr @stbi__resample_row_hv_2(ptr noundef returned writeonly initializes((0, 1)) %out, ptr noundef readonly captures(none) %in_near, ptr noundef readonly captures(none) %in_far, i32 noundef %w, i32 noundef %hs) local_unnamed_addr #17 {
 entry:
   %cmp = icmp eq i32 %w, 1
   %0 = load i8, ptr %in_near, align 1
@@ -17095,7 +17095,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture noundef readonly %in_far, i32 noundef %w, i32 %hs) #22 {
+define noundef ptr @stbi__resample_row_hv_2_simd(ptr noundef returned writeonly %out, ptr noundef readonly captures(none) %in_near, ptr noundef readonly captures(none) %in_far, i32 noundef %w, i32 %hs) #22 {
 entry:
   %cmp = icmp eq i32 %w, 1
   %0 = load i8, ptr %in_near, align 1
@@ -17270,7 +17270,7 @@ return:                                           ; preds = %for.end111, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @stbi__resample_row_generic(ptr noundef returned writeonly %out, ptr nocapture noundef readonly %in_near, ptr nocapture readnone %in_far, i32 noundef %w, i32 noundef %hs) #17 {
+define noundef ptr @stbi__resample_row_generic(ptr noundef returned writeonly %out, ptr noundef readonly captures(none) %in_near, ptr readnone captures(none) %in_far, i32 noundef %w, i32 noundef %hs) #17 {
 entry:
   %cmp10 = icmp sgt i32 %w, 0
   %cmp28 = icmp sgt i32 %hs, 0
@@ -17308,7 +17308,7 @@ for.end8:                                         ; preds = %for.cond1.for.inc6_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__YCbCr_to_RGB_row(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %y, ptr nocapture noundef readonly %pcb, ptr nocapture noundef readonly %pcr, i32 noundef %count, i32 noundef %step) local_unnamed_addr #17 {
+define void @stbi__YCbCr_to_RGB_row(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %y, ptr noundef readonly captures(none) %pcb, ptr noundef readonly captures(none) %pcr, i32 noundef %count, i32 noundef %step) local_unnamed_addr #17 {
 entry:
   %cmp24 = icmp sgt i32 %count, 0
   br i1 %cmp24, label %for.body.lr.ph, label %for.end
@@ -17372,7 +17372,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__YCbCr_to_RGB_simd(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %y, ptr nocapture noundef readonly %pcb, ptr nocapture noundef readonly %pcr, i32 noundef %count, i32 noundef %step) #22 {
+define void @stbi__YCbCr_to_RGB_simd(ptr noundef writeonly captures(none) %out, ptr noundef readonly captures(none) %y, ptr noundef readonly captures(none) %pcb, ptr noundef readonly captures(none) %pcr, i32 noundef %count, i32 noundef %step) #22 {
 entry:
   %cmp = icmp eq i32 %step, 4
   %cmp7111 = icmp sgt i32 %count, 7
@@ -17505,7 +17505,7 @@ for.end100:                                       ; preds = %for.body46, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbi__setup_jpeg(ptr nocapture noundef writeonly initializes((18544, 18568)) %j) local_unnamed_addr #1 {
+define void @stbi__setup_jpeg(ptr noundef writeonly captures(none) initializes((18544, 18568)) %j) local_unnamed_addr #1 {
 entry:
   %idct_block_kernel = getelementptr inbounds nuw i8, ptr %j, i64 18544
   %YCbCr_to_RGB_kernel = getelementptr inbounds nuw i8, ptr %j, i64 18552
@@ -17517,7 +17517,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbi__cleanup_jpeg(ptr nocapture noundef %j) local_unnamed_addr #2 {
+define void @stbi__cleanup_jpeg(ptr noundef captures(none) %j) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %j, align 8
   %img_n = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17592,7 +17592,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @load_jpeg_image(ptr noundef %z, ptr nocapture noundef writeonly %out_x, ptr nocapture noundef writeonly %out_y, ptr noundef writeonly %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
+define noundef ptr @load_jpeg_image(ptr noundef %z, ptr noundef writeonly captures(none) %out_x, ptr noundef writeonly captures(none) %out_y, ptr noundef writeonly %comp, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %coutput = alloca [4 x ptr], align 16
   %res_comp = alloca [4 x %struct.stbi__resample], align 16
@@ -18611,7 +18611,7 @@ return:                                           ; preds = %for.inc.i.i252, %fo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__jpeg_info_raw(ptr nocapture noundef initializes((18472, 18473), (18504, 18512)) %j, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__jpeg_info_raw(ptr noundef captures(none) initializes((18472, 18473), (18504, 18512)) %j, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @stbi__decode_jpeg_header(ptr noundef %j, i32 noundef 2)
   %tobool.not = icmp eq i32 %call, 0
@@ -18763,7 +18763,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr nocapture noundef initializes((0, 1024)) %z, ptr nocapture noundef readonly %sizelist, i32 noundef %num) local_unnamed_addr #20 {
+define range(i32 0, 2) i32 @stbi__zbuild_huffman(ptr noundef captures(none) initializes((0, 1024)) %z, ptr noundef readonly captures(none) %sizelist, i32 noundef %num) local_unnamed_addr #20 {
 entry:
   %next_code = alloca [16 x i32], align 16
   %sizes = alloca [17 x i32], align 16
@@ -18935,7 +18935,7 @@ return:                                           ; preds = %for.inc97, %return.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @stbi__zeof(ptr nocapture noundef readonly %z) local_unnamed_addr #23 {
+define range(i32 0, 2) i32 @stbi__zeof(ptr noundef readonly captures(none) %z) local_unnamed_addr #23 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %zbuffer_end = getelementptr inbounds nuw i8, ptr %z, i64 8
@@ -18946,7 +18946,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define zeroext i8 @stbi__zget8(ptr nocapture noundef %z) local_unnamed_addr #24 {
+define zeroext i8 @stbi__zget8(ptr noundef captures(none) %z) local_unnamed_addr #24 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %zbuffer_end.i = getelementptr inbounds nuw i8, ptr %z, i64 8
@@ -18966,7 +18966,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbi__fill_bits(ptr nocapture noundef %z) local_unnamed_addr #18 {
+define void @stbi__fill_bits(ptr noundef captures(none) %z) local_unnamed_addr #18 {
 entry:
   %code_buffer = getelementptr inbounds nuw i8, ptr %z, i64 24
   %num_bits = getelementptr inbounds nuw i8, ptr %z, i64 16
@@ -19015,7 +19015,7 @@ do.end:                                           ; preds = %stbi__zget8.exit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, -2147483648) i32 @stbi__zreceive(ptr nocapture noundef %z, i32 noundef %n) local_unnamed_addr #18 {
+define range(i32 0, -2147483648) i32 @stbi__zreceive(ptr noundef captures(none) %z, i32 noundef %n) local_unnamed_addr #18 {
 entry:
   %num_bits = getelementptr inbounds nuw i8, ptr %z, i64 16
   %0 = load i32, ptr %num_bits, align 8
@@ -19078,7 +19078,7 @@ if.end:                                           ; preds = %stbi__zget8.exit.i,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -1, 65536) i32 @stbi__zhuffman_decode_slowpath(ptr nocapture noundef %a, ptr nocapture noundef readonly %z) local_unnamed_addr #17 {
+define range(i32 -1, 65536) i32 @stbi__zhuffman_decode_slowpath(ptr noundef captures(none) %a, ptr noundef readonly captures(none) %z) local_unnamed_addr #17 {
 entry:
   %code_buffer = getelementptr inbounds nuw i8, ptr %a, i64 24
   %0 = load i32, ptr %code_buffer, align 8
@@ -19145,7 +19145,7 @@ return:                                           ; preds = %if.end13, %if.end3,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 65536) i32 @stbi__zhuffman_decode(ptr nocapture noundef %a, ptr nocapture noundef readonly %z) local_unnamed_addr #18 {
+define range(i32 -1, 65536) i32 @stbi__zhuffman_decode(ptr noundef captures(none) %a, ptr noundef readonly captures(none) %z) local_unnamed_addr #18 {
 entry:
   %num_bits = getelementptr inbounds nuw i8, ptr %a, i64 16
   %0 = load i32, ptr %num_bits, align 8
@@ -19293,7 +19293,7 @@ return:                                           ; preds = %if.end20.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__zexpand(ptr nocapture noundef initializes((32, 40)) %z, ptr noundef %zout, i32 noundef %n) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__zexpand(ptr noundef captures(none) initializes((32, 40)) %z, ptr noundef %zout, i32 noundef %n) local_unnamed_addr #2 {
 entry:
   %zout1 = getelementptr inbounds nuw i8, ptr %z, i64 32
   store ptr %zout, ptr %zout1, align 8
@@ -19375,10 +19375,10 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #25
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__parse_huffman_block(ptr nocapture noundef %a) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__parse_huffman_block(ptr noundef captures(none) %a) local_unnamed_addr #2 {
 entry:
   %zout1 = getelementptr inbounds nuw i8, ptr %a, i64 32
   %0 = load ptr, ptr %zout1, align 8
@@ -19731,7 +19731,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__compute_huffman_codes(ptr nocapture noundef %a) local_unnamed_addr #26 {
+define range(i32 0, 2) i32 @stbi__compute_huffman_codes(ptr noundef captures(none) %a) local_unnamed_addr #26 {
 entry:
   %z_codelength = alloca %struct.stbi__zhuffman, align 4
   %lencodes = alloca [455 x i8], align 16
@@ -20211,7 +20211,7 @@ return:                                           ; preds = %if.end77, %if.end72
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__parse_uncompressed_block(ptr nocapture noundef %a) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__parse_uncompressed_block(ptr noundef captures(none) %a) local_unnamed_addr #2 {
 entry:
   %header = alloca [4 x i8], align 1
   %num_bits = getelementptr inbounds nuw i8, ptr %a, i64 16
@@ -20478,7 +20478,7 @@ return:                                           ; preds = %if.then.i29, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbi__parse_zlib_header(ptr nocapture noundef %a) local_unnamed_addr #27 {
+define range(i32 0, 2) i32 @stbi__parse_zlib_header(ptr noundef captures(none) %a) local_unnamed_addr #27 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %zbuffer_end.i.i = getelementptr inbounds nuw i8, ptr %a, i64 8
@@ -20542,7 +20542,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__parse_zlib(ptr nocapture noundef %a, i32 noundef %parse_header) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__parse_zlib(ptr noundef captures(none) %a, i32 noundef %parse_header) local_unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq i32 %parse_header, 0
   br i1 %tobool.not, label %if.end3, label %if.then
@@ -20767,7 +20767,7 @@ return:                                           ; preds = %stbi__zreceive.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__do_zlib(ptr nocapture noundef initializes((32, 60)) %a, ptr noundef %obuf, i32 noundef %olen, i32 noundef %exp, i32 noundef %parse_header) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__do_zlib(ptr noundef captures(none) initializes((32, 60)) %a, ptr noundef %obuf, i32 noundef %olen, i32 noundef %exp, i32 noundef %parse_header) local_unnamed_addr #2 {
 entry:
   %zout_start = getelementptr inbounds nuw i8, ptr %a, i64 40
   store ptr %obuf, ptr %zout_start, align 8
@@ -21181,7 +21181,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__create_png_alpha_expand8(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i32 noundef %x, i32 noundef %img_n) local_unnamed_addr #17 {
+define void @stbi__create_png_alpha_expand8(ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src, i32 noundef %x, i32 noundef %img_n) local_unnamed_addr #17 {
 entry:
   %cmp = icmp eq i32 %img_n, 1
   %i.027 = add i32 %x, -1
@@ -21246,7 +21246,7 @@ if.end:                                           ; preds = %for.body11, %for.bo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__create_png_image_raw(ptr nocapture noundef initializes((24, 32)) %a, ptr nocapture noundef readonly %raw, i32 noundef %raw_len, i32 noundef %out_n, i32 noundef %x, i32 noundef %y, i32 noundef %depth, i32 noundef %color) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__create_png_image_raw(ptr noundef captures(none) initializes((24, 32)) %a, ptr noundef readonly captures(none) %raw, i32 noundef %raw_len, i32 noundef %out_n, i32 noundef %x, i32 noundef %y, i32 noundef %depth, i32 noundef %color) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %depth, 16
   %0 = load ptr, ptr %a, align 8
@@ -21942,7 +21942,7 @@ return:                                           ; preds = %for.end395, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__create_png_image(ptr nocapture noundef %a, ptr nocapture noundef readonly %image_data, i32 noundef %image_data_len, i32 noundef %out_n, i32 noundef %depth, i32 noundef %color, i32 noundef %interlaced) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__create_png_image(ptr noundef captures(none) %a, ptr noundef readonly captures(none) %image_data, i32 noundef %image_data_len, i32 noundef %out_n, i32 noundef %depth, i32 noundef %color, i32 noundef %interlaced) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %depth, 16
   %0 = zext i1 %cmp to i32
@@ -22122,7 +22122,7 @@ return:                                           ; preds = %for.end84, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stbi__compute_transparency(ptr nocapture noundef readonly %z, ptr nocapture noundef readonly %tc, i32 noundef %out_n) local_unnamed_addr #26 {
+define noundef i32 @stbi__compute_transparency(ptr noundef readonly captures(none) %z, ptr noundef readonly captures(none) %tc, i32 noundef %out_n) local_unnamed_addr #26 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %1 = load i32, ptr %0, align 8
@@ -22198,7 +22198,7 @@ if.end38:                                         ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @stbi__compute_transparency16(ptr nocapture noundef readonly %z, ptr nocapture noundef readonly %tc, i32 noundef %out_n) local_unnamed_addr #26 {
+define noundef i32 @stbi__compute_transparency16(ptr noundef readonly captures(none) %z, ptr noundef readonly captures(none) %tc, i32 noundef %out_n) local_unnamed_addr #26 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %1 = load i32, ptr %0, align 8
@@ -22274,7 +22274,7 @@ if.end38:                                         ; preds = %if.end, %for.body, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__expand_png_palette(ptr nocapture noundef %a, ptr nocapture noundef readonly %palette, i32 %len, i32 noundef %pal_img_n) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__expand_png_palette(ptr noundef captures(none) %a, ptr noundef readonly captures(none) %palette, i32 %len, i32 noundef %pal_img_n) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %1 = load i32, ptr %0, align 8
@@ -22434,7 +22434,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbi__de_iphone(ptr nocapture noundef readonly %z) local_unnamed_addr #26 {
+define void @stbi__de_iphone(ptr noundef readonly captures(none) %z) local_unnamed_addr #26 {
 entry:
   %0 = load ptr, ptr %z, align 8
   %1 = load i32, ptr %0, align 8
@@ -22561,7 +22561,7 @@ if.end66:                                         ; preds = %if.end, %for.body55
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__parse_png_file(ptr nocapture noundef initializes((8, 32)) %z, i32 noundef %scan, i32 noundef %req_comp) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__parse_png_file(ptr noundef captures(none) initializes((8, 32)) %z, i32 noundef %scan, i32 noundef %req_comp) local_unnamed_addr #2 {
 entry:
   %palette = alloca [1024 x i8], align 16
   %tc = alloca [3 x i8], align 1
@@ -23978,7 +23978,7 @@ return:                                           ; preds = %if.end293, %stbi__c
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__do_png(ptr nocapture noundef %p, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr noundef writeonly %n, i32 noundef %req_comp, ptr nocapture noundef %ri) local_unnamed_addr #2 {
+define ptr @stbi__do_png(ptr noundef captures(none) %p, ptr noundef writeonly captures(none) %x, ptr noundef writeonly captures(none) %y, ptr noundef writeonly %n, i32 noundef %req_comp, ptr noundef captures(none) %ri) local_unnamed_addr #2 {
 entry:
   %or.cond = icmp ugt i32 %req_comp, 4
   br i1 %or.cond, label %if.then, label %if.end
@@ -24093,7 +24093,7 @@ return:                                           ; preds = %if.end37, %if.end52
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__png_info_raw(ptr nocapture noundef initializes((8, 32)) %p, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__png_info_raw(ptr noundef captures(none) initializes((8, 32)) %p, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @stbi__parse_png_file(ptr noundef %p, i32 noundef 2, i32 noundef 0)
   %tobool.not = icmp eq i32 %call, 0
@@ -24489,7 +24489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @stbi__bmp_set_mask_defaults(ptr nocapture noundef %info, i32 noundef %compress) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbi__bmp_set_mask_defaults(ptr noundef captures(none) %info, i32 noundef %compress) local_unnamed_addr #7 {
 entry:
   switch i32 %compress, label %if.end18 [
     i32 3, label %return
@@ -24536,7 +24536,7 @@ return:                                           ; preds = %if.then4, %if.else1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__bmp_parse_header(ptr noundef %s, ptr nocapture noundef %info) local_unnamed_addr #2 {
+define noundef ptr @stbi__bmp_parse_header(ptr noundef %s, ptr noundef captures(none) %info) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds nuw i8, ptr %s, i64 192
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -24911,8 +24911,8 @@ if.end180:                                        ; preds = %if.then178, %if.end
 
 for.body:                                         ; preds = %if.end180, %for.body
   %i.0158 = phi i32 [ 0, %if.end180 ], [ %inc, %for.body ]
-  %call.i150 = tail call i32 @stbi__get16le(ptr noundef %s)
-  %call1.i151 = tail call i32 @stbi__get16le(ptr noundef %s)
+  %call.i150 = tail call i32 @stbi__get16le(ptr noundef nonnull %s)
+  %call1.i151 = tail call i32 @stbi__get16le(ptr noundef nonnull %s)
   %inc = add nuw nsw i32 %i.0158, 1
   %exitcond.not = icmp eq i32 %inc, 12
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !208
@@ -24922,10 +24922,10 @@ for.end:                                          ; preds = %for.body
   br i1 %cmp185, label %if.then187, label %return
 
 if.then187:                                       ; preds = %for.end
-  %call188 = tail call i32 @stbi__get32le(ptr noundef %s)
-  %call189 = tail call i32 @stbi__get32le(ptr noundef %s)
-  %call190 = tail call i32 @stbi__get32le(ptr noundef %s)
-  %call191 = tail call i32 @stbi__get32le(ptr noundef %s)
+  %call188 = tail call i32 @stbi__get32le(ptr noundef nonnull %s)
+  %call189 = tail call i32 @stbi__get32le(ptr noundef nonnull %s)
+  %call190 = tail call i32 @stbi__get32le(ptr noundef nonnull %s)
+  %call191 = tail call i32 @stbi__get32le(ptr noundef nonnull %s)
   br label %return
 
 return:                                           ; preds = %if.else11.i, %if.then7.i, %if.then4.i, %if.end56, %for.end, %if.then187, %if.then128, %if.end112, %if.then163, %if.else150, %if.then145, %if.then89, %if.then74, %if.then67, %if.then52, %if.then34, %if.then16, %if.then
@@ -25640,7 +25640,7 @@ return:                                           ; preds = %if.end84, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbi__tga_read_rgb16(ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 3)) %out) local_unnamed_addr #2 {
+define void @stbi__tga_read_rgb16(ptr noundef %s, ptr noundef writeonly captures(none) initializes((0, 3)) %out) local_unnamed_addr #2 {
 entry:
   %call = tail call i32 @stbi__get16le(ptr noundef %s)
   %0 = trunc nuw i32 %call to i16
@@ -25667,7 +25667,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__psd_decode_rle(ptr noundef %s, ptr nocapture noundef writeonly %p, i32 noundef %pixelCount) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__psd_decode_rle(ptr noundef %s, ptr noundef writeonly captures(none) %p, i32 noundef %pixelCount) local_unnamed_addr #2 {
 entry:
   %cmp104 = icmp sgt i32 %pixelCount, 0
   br i1 %cmp104, label %while.body.lr.ph, label %return
@@ -25912,7 +25912,7 @@ return:                                           ; preds = %if.then5, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__pic_is4(ptr noundef %s, ptr nocapture noundef readonly %str) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__pic_is4(ptr noundef %s, ptr noundef readonly captures(none) %str) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds nuw i8, ptr %s, i64 192
   %img_buffer_end.i = getelementptr inbounds nuw i8, ptr %s, i64 200
@@ -26343,7 +26343,7 @@ return:                                           ; preds = %for.inc, %if.then2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbi__copyval(i32 noundef %channel, ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src) local_unnamed_addr #17 {
+define void @stbi__copyval(i32 noundef %channel, ptr noundef writeonly captures(none) %dest, ptr noundef readonly captures(none) %src) local_unnamed_addr #17 {
 entry:
   br label %for.body
 
@@ -26372,7 +26372,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @stbi__pic_load_core(ptr noundef %s, i32 noundef %width, i32 noundef %height, ptr nocapture noundef writeonly %comp, ptr noundef writeonly %result) local_unnamed_addr #2 {
+define noundef ptr @stbi__pic_load_core(ptr noundef %s, i32 noundef %width, i32 noundef %height, ptr noundef writeonly captures(none) %comp, ptr noundef writeonly %result) local_unnamed_addr #2 {
 entry:
   %packets = alloca [10 x %struct.stbi__pic_packet], align 16
   %value = alloca [4 x i8], align 1
@@ -27873,7 +27873,7 @@ return:                                           ; preds = %stbi__get8.exit171,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbi__gif_parse_colortable(ptr noundef %s, ptr nocapture noundef writeonly %pal, i32 noundef %num_entries, i32 noundef %transp) local_unnamed_addr #2 {
+define void @stbi__gif_parse_colortable(ptr noundef %s, ptr noundef writeonly captures(none) %pal, i32 noundef %num_entries, i32 noundef %transp) local_unnamed_addr #2 {
 entry:
   %cmp78 = icmp sgt i32 %num_entries, 0
   br i1 %cmp78, label %for.body.lr.ph, label %for.end
@@ -28073,7 +28073,7 @@ for.end:                                          ; preds = %stbi__get8.exit77, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__gif_header(ptr noundef %s, ptr nocapture noundef %g, ptr noundef writeonly %comp, i32 noundef %is_info) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__gif_header(ptr noundef %s, ptr noundef captures(none) %g, ptr noundef writeonly %comp, i32 noundef %is_info) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds nuw i8, ptr %s, i64 192
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -28799,7 +28799,7 @@ return:                                           ; preds = %if.end11, %if.then4
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @stbi__out_gif_code(ptr nocapture noundef %g, i16 noundef zeroext %code) local_unnamed_addr #28 {
+define void @stbi__out_gif_code(ptr noundef captures(none) %g, i16 noundef zeroext %code) local_unnamed_addr #28 {
 entry:
   %codes = getelementptr inbounds nuw i8, ptr %g, i64 2100
   %idxprom = zext i16 %code to i64
@@ -28914,7 +28914,7 @@ if.end57:                                         ; preds = %while.body, %land.r
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @stbi__process_gif_raster(ptr noundef %s, ptr nocapture noundef %g) local_unnamed_addr #2 {
+define ptr @stbi__process_gif_raster(ptr noundef %s, ptr noundef captures(none) %g) local_unnamed_addr #2 {
 entry:
   %img_buffer.i = getelementptr inbounds nuw i8, ptr %s, i64 192
   %0 = load ptr, ptr %img_buffer.i, align 8
@@ -30301,7 +30301,7 @@ return:                                           ; preds = %stbi__get8.exit, %f
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr nocapture noundef readonly %g, ptr noundef %out, ptr noundef readonly %delays) local_unnamed_addr #29 {
+define noalias noundef ptr @stbi__load_gif_main_outofmem(ptr noundef readonly captures(none) %g, ptr noundef %out, ptr noundef readonly %delays) local_unnamed_addr #29 {
 entry:
   %out1 = getelementptr inbounds nuw i8, ptr %g, i64 8
   %0 = load ptr, ptr %out1, align 8
@@ -30396,7 +30396,7 @@ stbi__gif_info_raw.exit:                          ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi__hdr_test_core(ptr noundef %s, ptr nocapture noundef readonly %signature) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi__hdr_test_core(ptr noundef %s, ptr noundef readonly captures(none) %signature) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %signature, align 1
   %tobool.not7 = icmp eq i8 %0, 0
@@ -30784,7 +30784,7 @@ while.end16:                                      ; preds = %if.end.i25, %stbi__
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @stbi__hdr_convert(ptr nocapture noundef writeonly %output, ptr nocapture noundef readonly %input, i32 noundef %req_comp) local_unnamed_addr #30 {
+define void @stbi__hdr_convert(ptr noundef writeonly captures(none) %output, ptr noundef readonly captures(none) %input, i32 noundef %req_comp) local_unnamed_addr #30 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %input, i64 3
   %0 = load i8, ptr %arrayidx, align 1
@@ -30888,7 +30888,7 @@ if.end52:                                         ; preds = %if.then34, %if.end,
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #31
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #31
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #31
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @stbi__hdr_info(ptr noundef %s, ptr noundef writeonly %x, ptr noundef writeonly %y, ptr noundef writeonly %comp) local_unnamed_addr #2 {
@@ -31010,7 +31010,7 @@ if.then35:                                        ; preds = %while.cond, %sub_1,
 if.end36:                                         ; preds = %while.end.tail
   %add.ptr37 = getelementptr inbounds nuw i8, ptr %incdec.ptr31, i64 3
   store ptr %add.ptr37, ptr %token, align 8
-  %call38 = call i64 @strtol(ptr nocapture noundef nonnull %add.ptr37, ptr noundef null, i32 noundef 10) #37
+  %call38 = call i64 @strtol(ptr noundef nonnull captures(none) %add.ptr37, ptr noundef null, i32 noundef 10) #37
   br i1 %tobool.not, label %if.end36.cont24, label %if.end36.else26
 
 if.end36.else26:                                  ; preds = %if.end36
@@ -32181,7 +32181,7 @@ lor.end:                                          ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbi__pnm_skip_whitespace(ptr noundef %s, ptr nocapture noundef %c) local_unnamed_addr #2 {
+define void @stbi__pnm_skip_whitespace(ptr noundef %s, ptr noundef captures(none) %c) local_unnamed_addr #2 {
 entry:
   %read_from_callbacks.i26 = getelementptr inbounds nuw i8, ptr %s, i64 48
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -32419,7 +32419,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 214748365) i32 @stbi__pnm_getinteger(ptr noundef %s, ptr nocapture noundef %c) local_unnamed_addr #2 {
+define range(i32 -2147483648, 214748365) i32 @stbi__pnm_getinteger(ptr noundef %s, ptr noundef captures(none) %c) local_unnamed_addr #2 {
 entry:
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
   %eof.i = getelementptr inbounds nuw i8, ptr %s, i64 32
@@ -32862,7 +32862,7 @@ return:                                           ; preds = %stbi__png_is16.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_info(ptr nocapture noundef readonly %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi_info(ptr noundef readonly captures(none) %filename, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
   %s.i = alloca %struct.stbi__context, align 8
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
@@ -32993,7 +32993,7 @@ stbi__start_file.exit:                            ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_is_16_bit(ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi_is_16_bit(ptr noundef readonly captures(none) %filename) local_unnamed_addr #2 {
 entry:
   %call.i = tail call noalias noundef ptr @fopen(ptr noundef readonly %filename, ptr noundef nonnull @.str.2)
   %tobool.not = icmp eq ptr %call.i, null
@@ -33133,7 +33133,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi_info_from_callbacks(ptr noundef readonly captures(none) %c, ptr noundef %user, ptr noundef %x, ptr noundef %y, ptr noundef %comp) local_unnamed_addr #2 {
 entry:
   %s = alloca %struct.stbi__context, align 8
   %io.i = getelementptr inbounds nuw i8, ptr %s, i64 16
@@ -33249,7 +33249,7 @@ stbi__is_16_main.exit:                            ; preds = %stbi__png_is16.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr nocapture noundef readonly %c, ptr noundef %user) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @stbi_is_16_bit_from_callbacks(ptr noundef readonly captures(none) %c, ptr noundef %user) local_unnamed_addr #2 {
 entry:
   %p.i.i = alloca %struct.stbi__png, align 8
   %s = alloca %struct.stbi__context, align 8
@@ -33374,16 +33374,16 @@ declare i32 @llvm.umax.i32(i32, i32) #33
 declare i32 @llvm.umin.i32(i32, i32) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #34
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #34
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #34
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #35
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #36
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #33

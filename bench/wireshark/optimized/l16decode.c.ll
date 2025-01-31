@@ -18,7 +18,7 @@ define hidden void @codec_register_l16() local_unnamed_addr #0 {
 declare zeroext i1 @register_codec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @codec_l16_mono_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) #2 {
+define internal noalias noundef ptr @codec_l16_mono_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) #2 {
   store i32 44100, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4
@@ -26,17 +26,17 @@ define internal noalias noundef ptr @codec_l16_mono_init(ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @codec_l16_release(ptr nocapture readnone %0) #3 {
+define internal void @codec_l16_release(ptr readnone captures(none) %0) #3 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @codec_l16_get_channels(ptr nocapture readnone %0) #3 {
+define internal noundef i32 @codec_l16_get_channels(ptr readnone captures(none) %0) #3 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 1, 0) i32 @codec_l16_get_frequency(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 1, 0) i32 @codec_l16_get_frequency(ptr noundef readonly captures(none) %0) #4 {
   %2 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   %spec.select = select i1 %.not, i32 44100, i32 %2
@@ -44,7 +44,7 @@ define internal range(i32 1, 0) i32 @codec_l16_get_frequency(ptr nocapture nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal i64 @codec_l16_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #5 {
+define internal i64 @codec_l16_decode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #5 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %spec.select = tail call i32 @llvm.umax.i32(i32 %7, i32 1)
@@ -104,7 +104,7 @@ define internal i64 @codec_l16_decode(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @codec_l16_stereo_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) #2 {
+define internal noalias noundef ptr @codec_l16_stereo_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0) #2 {
   store i32 44100, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 2, ptr %2, align 4
@@ -112,7 +112,7 @@ define internal noalias noundef ptr @codec_l16_stereo_init(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noalias noundef ptr @codec_l16_init(ptr nocapture readnone %0) #3 {
+define internal noalias noundef ptr @codec_l16_init(ptr readnone captures(none) %0) #3 {
   ret ptr null
 }
 

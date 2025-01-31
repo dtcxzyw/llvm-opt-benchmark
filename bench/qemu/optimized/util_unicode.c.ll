@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.mod_utf8_encode = private unnamed_addr constant [45 x i8] c"ssize_t mod_utf8_encode(char *, size_t, int)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1114112) i32 @mod_utf8_codepoint(ptr noundef %s, i64 noundef %n, ptr nocapture noundef writeonly %end) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1114112) i32 @mod_utf8_codepoint(ptr noundef %s, i64 noundef %n, ptr noundef writeonly captures(none) %end) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %n, 0
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -132,7 +132,7 @@ return:                                           ; preds = %for.body27, %cond.e
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -1, 5) i64 @mod_utf8_encode(ptr nocapture noundef writeonly %buf, i64 noundef %bufsz, i32 noundef %codepoint) local_unnamed_addr #0 {
+define dso_local range(i64 -1, 5) i64 @mod_utf8_encode(ptr noundef writeonly captures(none) %buf, i64 noundef %bufsz, i32 noundef %codepoint) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %bufsz, 4
   br i1 %cmp, label %if.end, label %if.else

@@ -78,7 +78,7 @@ declare void @slurm_xfree(ptr noundef) local_unnamed_addr #5
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2051) i32 @job_submit(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 0, 2051) i32 @job_submit(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = load i64, ptr @last_reset, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %5, label %_get_config.exit
@@ -283,14 +283,14 @@ declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #5
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @job_modify(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define noundef i32 @job_modify(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   ret i32 0
 }
 
 declare ptr @slurm_xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @slurm_get_log_level() local_unnamed_addr #5
 

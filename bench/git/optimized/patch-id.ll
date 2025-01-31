@@ -272,7 +272,7 @@ if.then9.i.i:                                     ; preds = %if.then.i.i
   %21 = load ptr, ptr %hash_algo10.i.i, align 8
   %update_fn.i.i = getelementptr inbounds nuw i8, ptr %21, i64 56
   %22 = load ptr, ptr %update_fn.i.i, align 8
-  call void %22(ptr noundef nonnull %ctx.i.i, ptr noundef %15, i64 noundef %call6.i.i) #9
+  call void %22(ptr noundef nonnull %ctx.i.i, ptr noundef nonnull %15, i64 noundef %call6.i.i) #9
   br label %while.cond.backedge.i.i
 
 while.cond.backedge.i.i:                          ; preds = %if.then57.i.i, %if.then43.i.i, %if.then9.i.i, %if.then.i.i
@@ -624,7 +624,7 @@ generate_id_list.exit:                            ; preds = %flush_current_id.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare void @git_config(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -636,7 +636,7 @@ entry:
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %call1 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #9
+  %call1 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #9
   store i32 %call1, ptr %cb, align 4
   br label %return
 
@@ -646,13 +646,13 @@ if.end:                                           ; preds = %entry
   br i1 %tobool3.not, label %if.then4, label %if.end6
 
 if.then4:                                         ; preds = %if.end
-  %call5 = tail call i32 @git_config_bool(ptr noundef %var, ptr noundef %value) #9
+  %call5 = tail call i32 @git_config_bool(ptr noundef nonnull %var, ptr noundef %value) #9
   %verbatim = getelementptr inbounds nuw i8, ptr %cb, i64 4
   store i32 %call5, ptr %verbatim, align 4
   br label %return
 
 if.end6:                                          ; preds = %if.end
-  %call7 = tail call i32 @git_default_config(ptr noundef %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %cb) #9
+  %call7 = tail call i32 @git_default_config(ptr noundef nonnull %var, ptr noundef %value, ptr noundef %ctx, ptr noundef %cb) #9
   br label %return
 
 return:                                           ; preds = %if.end6, %if.then4, %if.then
@@ -663,17 +663,17 @@ return:                                           ; preds = %if.end6, %if.then4,
 declare i32 @parse_options(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare i32 @git_default_config(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @feof(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
@@ -682,25 +682,25 @@ declare i32 @strbuf_getwholeline(ptr noundef, ptr noundef, i32 noundef) local_un
 declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @flush_one_hunk(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @gitstrlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #2
 
@@ -708,10 +708,10 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #2
 declare ptr @strchr(ptr, i32) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

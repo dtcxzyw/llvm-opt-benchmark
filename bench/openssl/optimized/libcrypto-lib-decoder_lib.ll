@@ -191,12 +191,12 @@ declare ptr @BIO_f_readbuffer() local_unnamed_addr #1
 declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @ossl_pw_enable_passphrase_caching(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @decoder_process(ptr noundef %params, ptr nocapture noundef %arg) #0 {
+define internal i32 @decoder_process(ptr noundef %params, ptr noundef captures(none) %arg) #0 {
 entry:
   %new_data = alloca %struct.decoder_process_data_st, align 8
   %data_type = alloca ptr, align 8
@@ -833,7 +833,7 @@ declare void @OSSL_DECODER_free(ptr noundef) #1
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_decoder_instance_dup(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define ptr @ossl_decoder_instance_dup(ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 290) #6
   %cmp = icmp eq ptr %call, null
@@ -880,12 +880,12 @@ return:                                           ; preds = %if.end3, %entry, %e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @OSSL_PROVIDER_get0_provider_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_decoder_ctx_add_decoder_inst(ptr nocapture noundef %ctx, ptr noundef %di) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_decoder_ctx_add_decoder_inst(ptr noundef captures(none) %ctx, ptr noundef %di) local_unnamed_addr #0 {
 entry:
   %decoder_insts = getelementptr inbounds nuw i8, ptr %ctx, i64 24
   %0 = load ptr, ptr %decoder_insts, align 8
@@ -1003,7 +1003,7 @@ return:                                           ; preds = %if.end, %ossl_decod
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_DECODER_CTX_add_extra(ptr noundef %ctx, ptr noundef %libctx, ptr nocapture noundef readnone %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_DECODER_CTX_add_extra(ptr noundef %ctx, ptr noundef %libctx, ptr noundef readnone captures(none) %propq) local_unnamed_addr #0 {
 entry:
   %data = alloca %struct.collect_extra_decoder_data_st, align 8
   %cmp.not = icmp eq ptr %ctx, null
@@ -1558,7 +1558,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @OSSL_DECODER_INSTANCE_get_input_structure(ptr noundef readonly %decoder_inst, ptr nocapture noundef writeonly %was_set) local_unnamed_addr #5 {
+define ptr @OSSL_DECODER_INSTANCE_get_input_structure(ptr noundef readonly %decoder_inst, ptr noundef writeonly captures(none) %was_set) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %decoder_inst, null
   br i1 %cmp, label %return, label %if.end

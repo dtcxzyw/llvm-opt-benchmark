@@ -292,7 +292,7 @@ define hidden noundef i32 @zm_startup_file(i32 noundef %0, i32 noundef %1) local
 declare i32 @zend_register_list_destructors_ex(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @file_context_dtor(ptr nocapture noundef readonly %0) #1 {
+define internal void @file_context_dtor(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -328,7 +328,7 @@ file_globals_dtor.exit:                           ; preds = %2, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = trunc i64 %1 to i32
   %7 = and i32 %6, 3
   %8 = icmp eq i32 %7, 0
@@ -420,7 +420,7 @@ define void @php_flock_common(ptr noundef %0, i64 noundef %1, i32 noundef %2, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -437,7 +437,7 @@ declare i32 @_php_stream_set_option(ptr noundef, i32 noundef, i32 noundef, ptr n
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_flock(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_flock(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -836,12 +836,12 @@ thread-pre-split:                                 ; preds = %16
 
 128:                                              ; preds = %127
   %129 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0209325) #19
-  call void @zend_str_tolower(ptr noundef %.0209325, i64 noundef %129) #17
+  call void @zend_str_tolower(ptr noundef nonnull %.0209325, i64 noundef %129) #17
   %.not242 = icmp eq i32 %.0219322, 0
   %130 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0209325) #19
   %.str.9..0205326 = select i1 %.not242, ptr @.str.9, ptr %.0205326
-  call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef %.0209325, i64 noundef %130, ptr noundef %.str.9..0205326) #17
-  call void @_efree(ptr noundef %.0209325) #17
+  call void @add_assoc_string_ex(ptr noundef nonnull %1, ptr noundef nonnull %.0209325, i64 noundef %130, ptr noundef %.str.9..0205326) #17
+  call void @_efree(ptr noundef nonnull %.0209325) #17
   %.not243 = icmp eq ptr %.0205326, null
   br i1 %.not243, label %132, label %.sink.split
 
@@ -907,14 +907,14 @@ thread-pre-split:                                 ; preds = %16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare ptr @_php_stream_open_wrapper_ex(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @_zend_new_array_0() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = alloca [8193 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(8193) %2, i8 0, i64 8193, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1146,7 +1146,7 @@ define hidden range(i32 0, 9) i32 @php_next_meta_token(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
@@ -1155,12 +1155,12 @@ declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @zend_str_tolower(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @_php_stream_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_file_get_contents(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_file_get_contents(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca i64, align 8
@@ -1431,7 +1431,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare ptr @_php_stream_copy_to_mem(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_file_put_contents(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_file_put_contents(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [3 x i8], align 1
@@ -1948,7 +1948,7 @@ thread-pre-split:                                 ; preds = %18
 declare ptr @zend_fetch_resource2_ex(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 declare i32 @_php_stream_truncate_set_size(ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -2332,7 +2332,7 @@ declare void @add_index_stringl(ptr noundef, i64 noundef, ptr noundef, i64 nound
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_tempnam(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_tempnam(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2489,7 +2489,7 @@ declare i32 @php_open_temporary_fd_ex(ptr noundef, ptr noundef, ptr noundef, i32
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_tmpfile(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_tmpfile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2530,7 +2530,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 declare ptr @_php_stream_fopen_tmpfile(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_fopen(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_fopen(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
@@ -2691,7 +2691,7 @@ thread-pre-split:                                 ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zif_fclose(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_fclose(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -2757,7 +2757,7 @@ define void @zif_fclose(ptr noundef %0, ptr nocapture noundef writeonly %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_popen(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_popen(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2937,10 +2937,10 @@ thread-pre-split:                                 ; preds = %14
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @popen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 declare void @php_error_docref2(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -2950,7 +2950,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #11
 declare ptr @_php_stream_fopen_from_pipe(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_pclose(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_pclose(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -3003,7 +3003,7 @@ define hidden void @zif_pclose(ptr noundef %0, ptr nocapture noundef writeonly %
 declare void @zend_list_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zif_feof(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_feof(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -3056,7 +3056,7 @@ define void @zif_feof(ptr noundef %0, ptr nocapture noundef writeonly %1) local_
 declare zeroext i1 @_php_stream_eof(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zif_fgets(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_fgets(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 1024, ptr %3, align 8
@@ -3273,7 +3273,7 @@ define void @zif_fgets(ptr noundef %0, ptr nocapture noundef writeonly %1) local
 declare ptr @_php_stream_get_line(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zif_fgetc(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_fgetc(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -3434,7 +3434,7 @@ declare i32 @php_sscanf_internal(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare void @zend_wrong_param_count() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zif_fwrite(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_fwrite(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
@@ -3567,7 +3567,7 @@ thread-pre-split:                                 ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zif_fflush(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_fflush(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -3621,7 +3621,7 @@ define void @zif_fflush(ptr noundef %0, ptr nocapture noundef writeonly %1) loca
 declare i32 @_php_stream_flush(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zif_rewind(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_rewind(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -3673,7 +3673,7 @@ define void @zif_rewind(ptr noundef %0, ptr nocapture noundef writeonly %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zif_ftell(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_ftell(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -3729,7 +3729,7 @@ define void @zif_ftell(ptr noundef %0, ptr nocapture noundef writeonly %1) local
 declare i64 @_php_stream_tell(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zif_fseek(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_fseek(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   store i64 0, ptr %4, align 8
@@ -3848,7 +3848,7 @@ define noundef i32 @php_mkdir_ex(ptr noundef %0, i64 noundef %1, i32 noundef %2)
 declare i32 @php_check_open_basedir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #10
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @php_mkdir(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
@@ -3875,7 +3875,7 @@ php_mkdir_ex.exit:                                ; preds = %2, %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_mkdir(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_mkdir(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca i8, align 1
@@ -4028,7 +4028,7 @@ thread-pre-split:                                 ; preds = %16
 declare i32 @_php_stream_mkdir(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_rmdir(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_rmdir(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -4126,7 +4126,7 @@ thread-pre-split:                                 ; preds = %14
 declare i32 @_php_stream_rmdir(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_readfile(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_readfile(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   store i8 0, ptr %4, align 1
@@ -4265,7 +4265,7 @@ thread-pre-split:                                 ; preds = %15
 declare i64 @_php_stream_passthru(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_umask(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_umask(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -4342,7 +4342,7 @@ define hidden void @zif_umask(ptr noundef %0, ptr nocapture noundef writeonly %1
 declare i32 @umask(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @zif_fpassthru(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define void @zif_fpassthru(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -4387,7 +4387,7 @@ define void @zif_fpassthru(ptr noundef %0, ptr nocapture noundef writeonly %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_rename(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_rename(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -4574,7 +4574,7 @@ thread-pre-split209:                              ; preds = %31
 declare ptr @php_stream_locate_url_wrapper(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_unlink(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_unlink(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -4702,7 +4702,7 @@ thread-pre-split:                                 ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_fsync(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_fsync(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -4761,7 +4761,7 @@ define hidden void @zif_fsync(ptr noundef %0, ptr nocapture noundef writeonly %1
 declare i32 @_php_stream_sync(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_fdatasync(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_fdatasync(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -4818,7 +4818,7 @@ define hidden void @zif_fdatasync(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_ftruncate(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_ftruncate(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -4910,7 +4910,7 @@ define hidden void @zif_ftruncate(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_fstat(ptr noundef %0, ptr nocapture noundef initializes((8, 12)) %1) local_unnamed_addr #1 {
+define void @php_fstat(ptr noundef %0, ptr noundef captures(none) initializes((8, 12)) %1) local_unnamed_addr #1 {
   %3 = alloca %struct._php_stream_statbuf, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -5070,7 +5070,7 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 declare ptr @zend_hash_str_add_new(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_fstat(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define hidden void @zif_fstat(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %cond = icmp eq i32 %4, 1
@@ -5112,7 +5112,7 @@ define hidden void @zif_fstat(ptr noundef %0, ptr nocapture noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_copy(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_copy(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -5396,10 +5396,10 @@ declare i32 @_php_stream_stat_path(ptr noundef, i32 noundef, ptr noundef, ptr no
 declare ptr @expand_filepath(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @zif_fread(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define void @zif_fread(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -5511,7 +5511,7 @@ define void @zif_fread(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_a
 declare ptr @php_stream_read_to_str(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_fputcsv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_fputcsv(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -5751,7 +5751,7 @@ define hidden void @zif_fputcsv(ptr noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @php_fputcsv(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef signext %2, i8 noundef signext %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 {
+define i64 @php_fputcsv(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef signext %2, i8 noundef signext %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #1 {
   %7 = alloca %struct.smart_str, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   %8 = icmp eq i32 %4, -1
@@ -6224,7 +6224,7 @@ define i64 @php_fputcsv(ptr noundef %0, ptr nocapture noundef readonly %1, i8 no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_fgetcsv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_fgetcsv(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -7220,7 +7220,7 @@ declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #2
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_realpath(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_realpath(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca [4096 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -7322,7 +7322,7 @@ thread-pre-split:                                 ; preds = %14
 declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_fnmatch(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_fnmatch(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -7481,7 +7481,7 @@ thread-pre-split207:                              ; preds = %33
 declare i32 @fnmatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_sys_get_temp_dir(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define hidden void @zif_sys_get_temp_dir(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -7505,7 +7505,7 @@ define hidden void @zif_sys_get_temp_dir(ptr nocapture noundef readonly %0, ptr 
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %8, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr align 1 %7, i64 %8, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %15, ptr nonnull align 1 %7, i64 %8, i1 false)
   %16 = getelementptr inbounds [1 x i8], ptr %15, i64 0, i64 %8
   store i8 0, ptr %16, align 1
   store ptr %11, ptr %1, align 8
@@ -7550,7 +7550,7 @@ declare i32 @OnUpdateBool(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare void @zend_register_long_constant(ptr noundef, i64 noundef, i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 
 declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -7565,7 +7565,7 @@ declare zeroext i1 @zend_parse_arg_str_slow(ptr noundef, ptr noundef, i32 nounde
 declare void @smart_str_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

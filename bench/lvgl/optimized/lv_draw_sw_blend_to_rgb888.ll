@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_color16a_t = type { i8, i8 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_sw_blend_color_to_rgb888(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_draw_sw_blend_color_to_rgb888(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -3501,7 +3501,7 @@ rgb565_image_blend.exit:                          ; preds = %._crit_edge.us.i115
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rgb888_image_blend(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef range(i32 3, 5) %2) unnamed_addr #0 {
+define internal fastcc void @rgb888_image_blend(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef range(i32 3, 5) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !36
   %6 = zext i8 %1 to i32

@@ -31,7 +31,7 @@ $_ZN7UNICODE15as_quoted_asciiItEEvPKT_iPci = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, -19
   br i1 %4, label %5, label %43
@@ -167,7 +167,7 @@ _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %45, %51, %64, %74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN4UTF826is_supplementary_characterEPKh(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN4UTF826is_supplementary_characterEPKh(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = load i8, ptr %0, align 1
   %3 = icmp eq i8 %2, -19
   br i1 %3, label %4, label %26
@@ -210,7 +210,7 @@ define hidden noundef zeroext i1 @_ZN4UTF826is_supplementary_characterEPKh(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i32 65536, 1114112) i32 @_ZN4UTF827get_supplementary_characterEPKh(ptr nocapture noundef readonly %0) local_unnamed_addr #1 align 2 {
+define hidden noundef range(i32 65536, 1114112) i32 @_ZN4UTF827get_supplementary_characterEPKh(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 15
@@ -308,7 +308,7 @@ define weak_odr hidden noundef ptr @_ZN4UTF84nextItEEPcPKcPT_(ptr noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKciRbS2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKciRbS2_(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #3 align 2 {
   store i8 0, ptr %3, align 1
   store i8 1, ptr %2, align 1
   %5 = icmp sgt i32 %1, 0
@@ -352,7 +352,7 @@ define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKciRbS2_(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKcRbS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN4UTF814unicode_lengthEPKcRbS2_(ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %2) local_unnamed_addr #3 align 2 {
   store i8 0, ptr %2, align 1
   store i8 1, ptr %1, align 1
   %4 = load i8, ptr %0, align 1
@@ -851,7 +851,7 @@ _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %12, %18, %33, %43
 declare noundef i32 @_ZN2os16snprintf_checkedEPcmPKcz(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN4UTF85equalEPKaiS1_i(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN4UTF85equalEPKaiS1_i(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %.not = icmp eq i32 %1, %3
   br i1 %.not, label %.preheader, label %.loopexit
 
@@ -881,7 +881,7 @@ define hidden noundef zeroext i1 @_ZN4UTF85equalEPKaiS1_i(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = ashr i32 %1, 2
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -1075,7 +1075,7 @@ define hidden noundef zeroext i1 @_ZN7UNICODE9is_latin1Et(i16 noundef zeroext %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN7UNICODE9is_latin1EPKti(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN7UNICODE9is_latin1EPKti(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp slt i32 %1, 1
   br i1 %3, label %._crit_edge, label %.lr.ph.preheader
 
@@ -1116,7 +1116,7 @@ define hidden noundef range(i32 1, 3) i32 @_ZN7UNICODE9utf8_sizeEa(i8 noundef si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKtiPci(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef returned writeonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKtiPci(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef returned writeonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1194,7 +1194,7 @@ _ZL10utf8_writePht.exit:                          ; preds = %13, %16, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKaiPci(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef returned writeonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKaiPci(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef returned writeonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1242,7 +1242,7 @@ _ZL10utf8_writePht.exit:                          ; preds = %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN7UNICODE15convert_to_utf8EPKtiPc(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7UNICODE15convert_to_utf8EPKtiPc(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 align 2 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 

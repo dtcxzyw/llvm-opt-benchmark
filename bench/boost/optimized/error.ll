@@ -45,10 +45,10 @@ $_ZTSN5boost6system14error_categoryE = comdat any
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden { i32, ptr } @_ZNK5boost6system14error_category23default_error_conditionEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1) unnamed_addr #1 comdat align 2 {
@@ -58,7 +58,7 @@ define linkonce_odr hidden { i32, ptr } @_ZNK5boost6system14error_category23defa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail14error_cat_type4nameEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail14error_cat_type4nameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret ptr @.str
 }
 
@@ -120,7 +120,7 @@ define void @_ZNK5boost4urls7grammar6detail14error_cat_type7messageB5cxx11Ei(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail14error_cat_type7messageEiPcm(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr nocapture readnone %2, i64 %3) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail14error_cat_type7messageEiPcm(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2, i64 %3) unnamed_addr #2 align 2 {
   %switch.tableidx = add i32 %1, -2
   %5 = icmp ult i32 %switch.tableidx, 5
   br i1 %5, label %switch.lookup, label %7
@@ -148,7 +148,7 @@ define { i32, ptr } @_ZNK5boost4urls7grammar6detail14error_cat_type23default_err
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail18condition_cat_type4nameEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail18condition_cat_type4nameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
   ret ptr @.str
 }
 
@@ -210,7 +210,7 @@ define void @_ZNK5boost4urls7grammar6detail18condition_cat_type7messageB5cxx11Ei
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail18condition_cat_type7messageEiPcm(ptr nocapture nonnull readnone align 8 %0, i32 %1, ptr nocapture readnone %2, i64 %3) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZNK5boost4urls7grammar6detail18condition_cat_type7messageEiPcm(ptr nonnull readnone align 8 captures(none) %0, i32 %1, ptr readnone captures(none) %2, i64 %3) unnamed_addr #2 align 2 {
   ret ptr @.str.7
 }
 
@@ -332,13 +332,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5boost6system14error_category
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #8
 

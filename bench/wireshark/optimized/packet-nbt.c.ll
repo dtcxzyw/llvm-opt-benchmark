@@ -459,7 +459,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nbns(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nbns(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -703,7 +703,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #1
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_nbdgm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_nbdgm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1845,7 +1845,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull writeonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = tail call ptr @wmem_packet_scope() #8
@@ -1924,7 +1924,7 @@ define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 no
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.076) #9
   %44 = trunc i64 %43 to i32
   %45 = call ptr @get_ascii_string(ptr noundef %42, ptr noundef nonnull %.076, i32 noundef %44) #8
-  %46 = call i64 @g_strlcat(ptr noundef %3, ptr noundef %45, i64 noundef %37) #8
+  %46 = call i64 @g_strlcat(ptr noundef nonnull %3, ptr noundef %45, i64 noundef %37) #8
   %47 = trunc i64 %46 to i32
   %.not85 = icmp sgt i32 %4, %47
   br i1 %.not85, label %52, label %48
@@ -1932,7 +1932,7 @@ define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 no
 48:                                               ; preds = %41
   %49 = add i32 %4, -1
   %50 = sext i32 %49 to i64
-  %51 = call ptr @ws_utf8_truncate(ptr noundef %3, i64 noundef %50) #8
+  %51 = call ptr @ws_utf8_truncate(ptr noundef nonnull %3, i64 noundef %50) #8
   br label %52
 
 52:                                               ; preds = %33, %48, %41
@@ -1943,7 +1943,7 @@ define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 no
   %.075 = phi ptr [ %10, %31 ], [ @.str.256, %21 ], [ @.str.255, %18 ], [ @.str.255, %18 ], [ @.str.254, %16 ]
   store i32 -1, ptr %5, align 4
   %53 = sext i32 %4 to i64
-  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3, i64 noundef %53, ptr noundef nonnull @.str.259, ptr noundef %.075) #8
+  %54 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %3, i64 noundef %53, ptr noundef nonnull @.str.259, ptr noundef nonnull %.075) #8
   br label %55
 
 55:                                               ; preds = %.loopexit, %52
@@ -1953,12 +1953,12 @@ define internal fastcc i32 @get_nbns_name(ptr noundef %0, i32 noundef %1, i32 no
 declare i32 @get_dns_name(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @process_netbios_name(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @get_ascii_string(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2287,10 +2287,10 @@ declare ptr @except_pop() local_unnamed_addr #1
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

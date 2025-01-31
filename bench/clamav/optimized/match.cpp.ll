@@ -151,7 +151,7 @@ _ZL10mwcsicompcPKwS0_b.exit63:                    ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @_Z11GetFilePathPKwPwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 

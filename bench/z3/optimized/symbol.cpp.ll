@@ -177,7 +177,7 @@ _Z7deallocI22internal_symbol_tablesEvPT_.exit:    ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6symbolC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %d) unnamed_addr #3 align 2 {
+define hidden void @_ZN6symbolC2EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr noundef %d) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %d, null
   br i1 %cmp, label %if.end, label %if.else
@@ -202,7 +202,7 @@ entry:
   %0 = load ptr, ptr %tables, align 8
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %d) #17
   %conv = trunc i64 %call to i32
-  %call2 = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef %d, i32 noundef %conv, i32 noundef 251)
+  %call2 = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %d, i32 noundef %conv, i32 noundef 251)
   %1 = load i32, ptr %this, align 8
   %rem = urem i32 %call2, %1
   %idxprom = zext i32 %rem to i64
@@ -243,7 +243,7 @@ invoke.cont4.i:                                   ; preds = %if.then.i
   %conv.i = zext i32 %5 to i64
   store i64 %conv.i, ptr %call5.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %incdec.ptr.i, ptr align 1 %d, i64 %add.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %incdec.ptr.i, ptr nonnull align 1 %d, i64 %add.i, i1 false)
   %6 = load ptr, ptr %e.i, align 8
   %m_ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %incdec.ptr.i, ptr %m_ptr.i.i, align 8
@@ -286,7 +286,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6symbol3strB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6symbol3strB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %buffer = alloca %class.string_buffer, align 8
@@ -511,7 +511,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6symbol8containsEc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i8 noundef signext %ch) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK6symbol8containsEc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, i8 noundef signext %ch) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -534,7 +534,7 @@ return:                                           ; preds = %entry, %if.then
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK6symbol12display_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZNK6symbol12display_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -565,10 +565,10 @@ return:                                           ; preds = %while.body.preheade
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s2) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @_Z2ltRK6symbolS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %s2) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %s1, align 8
   %1 = load ptr, ptr %s2, align 8
@@ -617,12 +617,12 @@ return:                                           ; preds = %if.end14, %if.end11
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @_ZN6regionC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13ptr_hashtableIKc13str_hash_proc11str_eq_procED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -669,7 +669,7 @@ declare noundef i32 @_Z11string_hashPKcjj(ptr noundef, i32 noundef, i32 noundef)
 declare noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_system_errori(i32 noundef) local_unnamed_addr #11
@@ -700,7 +700,7 @@ if.end:                                           ; preds = %if.then, %entry
   %3 = load ptr, ptr %e, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #17
   %conv.i.i = trunc i64 %call.i.i to i32
-  %call2.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef %3, i32 noundef %conv.i.i, i32 noundef 17)
+  %call2.i.i = tail call noundef i32 @_Z11string_hashPKcjj(ptr noundef nonnull %3, i32 noundef %conv.i.i, i32 noundef 17)
   %4 = load i32, ptr %m_capacity, align 8
   %sub = add i32 %4, -1
   %and = and i32 %sub, %call2.i.i
@@ -1185,7 +1185,7 @@ invoke.cont:                                      ; preds = %while.end.loopexit.
   %6 = phi i64 [ %0, %entry.while.end_crit_edge.i ], [ %.pre5.i, %while.end.loopexit.i ]
   %7 = phi ptr [ %.pre.i, %entry.while.end_crit_edge.i ], [ %call.i.i1, %while.end.loopexit.i ]
   %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 %6
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr align 1 %call, i64 %call.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i, ptr nonnull align 1 %call, i64 %call.i, i1 false)
   %8 = load i64, ptr %m_pos.i, align 8
   %add4.i = add i64 %8, %call.i
   store i64 %add4.i, ptr %m_pos.i, align 8
@@ -1367,10 +1367,10 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #14

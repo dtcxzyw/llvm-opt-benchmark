@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @def_create(ptr nocapture noundef readonly %meth) #1 {
+define internal ptr @def_create(ptr noundef readonly captures(none) %meth) #1 {
 entry:
   %call = tail call noalias ptr @CRYPTO_malloc(i64 noundef 48, ptr noundef nonnull @.str.1, i32 noundef 115) #13
   %cmp.not = icmp eq ptr %call, null
@@ -769,18 +769,18 @@ if.end141:                                        ; preds = %eat_ws.exit252, %la
 
 if.end142:                                        ; preds = %eat_ws.exit252
   store i8 0, ptr %p.addr.0.lcssa.i237343, align 1
-  %call143 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef null, ptr noundef %section, ptr noundef nonnull %p.addr.0.lcssa.i223)
+  %call143 = call fastcc i32 @str_copy(ptr noundef nonnull %conf, ptr noundef null, ptr noundef %section, ptr noundef nonnull %p.addr.0.lcssa.i223)
   %tobool144.not = icmp eq i32 %call143, 0
   br i1 %tobool144.not, label %err, label %if.end146
 
 if.end146:                                        ; preds = %if.end142
   %73 = load ptr, ptr %section, align 8
-  %call147 = call ptr @_CONF_get_section(ptr noundef %conf, ptr noundef %73) #13
+  %call147 = call ptr @_CONF_get_section(ptr noundef nonnull %conf, ptr noundef %73) #13
   %cmp148 = icmp eq ptr %call147, null
   br i1 %cmp148, label %if.then150, label %if.end152
 
 if.then150:                                       ; preds = %if.end146
-  %call151 = call ptr @_CONF_new_section(ptr noundef %conf, ptr noundef %73) #13
+  %call151 = call ptr @_CONF_new_section(ptr noundef nonnull %conf, ptr noundef %73) #13
   br label %if.end152
 
 if.end152:                                        ; preds = %if.then150, %if.end146
@@ -806,7 +806,7 @@ if.then155:                                       ; preds = %if.end152
 
 if.else157:                                       ; preds = %while.body.i, %clear_comments.exit, %if.end121
   %p.addr.0.lcssa.i202330335338 = phi ptr [ %p.addr.018.i, %if.end121 ], [ %18, %clear_comments.exit ], [ %incdec.ptr.i203, %while.body.i ]
-  %call158 = call fastcc ptr @eat_alpha_numeric(ptr noundef %conf, ptr noundef nonnull %p.addr.0.lcssa.i202330335338)
+  %call158 = call fastcc ptr @eat_alpha_numeric(ptr noundef nonnull %conf, ptr noundef nonnull %p.addr.0.lcssa.i202330335338)
   %74 = load i8, ptr %call158, align 1
   %cmp161 = icmp eq i8 %74, 58
   br i1 %cmp161, label %land.lhs.true163, label %if.else171
@@ -820,7 +820,7 @@ land.lhs.true163:                                 ; preds = %if.else157
 if.then168:                                       ; preds = %land.lhs.true163
   store i8 0, ptr %call158, align 1
   %add.ptr169 = getelementptr inbounds nuw i8, ptr %call158, i64 2
-  %call170 = call fastcc ptr @eat_alpha_numeric(ptr noundef %conf, ptr noundef nonnull %add.ptr169)
+  %call170 = call fastcc ptr @eat_alpha_numeric(ptr noundef nonnull %conf, ptr noundef nonnull %add.ptr169)
   %.pre679 = load i8, ptr %call170, align 1
   br label %if.end172
 
@@ -908,7 +908,7 @@ while.body.i275:                                  ; preds = %is_keytype.exit.i26
 
 if.end192:                                        ; preds = %while.body.i275, %is_keytype.exit.i269, %if.then189, %if.then185
   %p.0 = phi ptr [ %p.addr.0.lcssa.i261, %if.then185 ], [ %incdec.ptr190, %if.then189 ], [ %p.addr.018.i270, %is_keytype.exit.i269 ], [ %incdec.ptr.i276, %while.body.i275 ]
-  call fastcc void @trim_ws(ptr noundef %conf, ptr noundef nonnull %p.0)
+  call fastcc void @trim_ws(ptr noundef nonnull %conf, ptr noundef nonnull %p.0)
   %call193 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %p.0, i32 noundef 58) #14
   %cmp194 = icmp eq ptr %call193, null
   %cmp197 = icmp eq ptr %call193, %p.0
@@ -929,7 +929,7 @@ if.then204:                                       ; preds = %lor.lhs.false199, %
 
 if.end205:                                        ; preds = %lor.lhs.false199
   store i8 0, ptr %call193, align 1
-  call fastcc void @trim_ws(ptr noundef %conf, ptr noundef nonnull %p.0)
+  call fastcc void @trim_ws(ptr noundef nonnull %conf, ptr noundef nonnull %p.0)
   %91 = load i8, ptr %arrayidx200, align 1
   %cmp.i17.i279 = icmp slt i8 %91, 0
   br i1 %cmp.i17.i279, label %eat_ws.exit291, label %is_keytype.exit.lr.ph.i280
@@ -1060,8 +1060,8 @@ while.body.i301:                                  ; preds = %is_keytype.exit.i29
 
 if.end267:                                        ; preds = %while.body.i301, %is_keytype.exit.i295, %if.then264, %if.end260
   %p.1 = phi ptr [ %p.addr.0.lcssa.i261, %if.end260 ], [ %incdec.ptr265, %if.then264 ], [ %p.addr.018.i296, %is_keytype.exit.i295 ], [ %incdec.ptr.i302, %while.body.i301 ]
-  call fastcc void @trim_ws(ptr noundef %conf, ptr noundef nonnull %p.1)
-  %call268 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef %include, ptr noundef nonnull %p.1)
+  call fastcc void @trim_ws(ptr noundef nonnull %conf, ptr noundef nonnull %p.1)
+  %call268 = call fastcc i32 @str_copy(ptr noundef nonnull %conf, ptr noundef %psection.0, ptr noundef %include, ptr noundef nonnull %p.1)
   %tobool269.not = icmp eq i32 %call268, 0
   br i1 %tobool269.not, label %err, label %if.end271
 
@@ -1224,13 +1224,13 @@ while.body.i320:                                  ; preds = %is_keytype.exit.i31
 
 eat_ws.exit323:                                   ; preds = %is_keytype.exit.i314, %while.body.i320, %if.end336
   %p.addr.0.lcssa.i319 = phi ptr [ %incdec.ptr337, %if.end336 ], [ %p.addr.018.i315, %is_keytype.exit.i314 ], [ %incdec.ptr.i321, %while.body.i320 ]
-  call fastcc void @trim_ws(ptr noundef %conf, ptr noundef nonnull %p.addr.0.lcssa.i319)
+  call fastcc void @trim_ws(ptr noundef nonnull %conf, ptr noundef nonnull %p.addr.0.lcssa.i319)
   %call339 = call noalias ptr @CRYPTO_malloc(i64 noundef 24, ptr noundef nonnull @.str.1, i32 noundef 534) #13
   %cmp340 = icmp eq ptr %call339, null
   br i1 %cmp340, label %err, label %if.end343
 
 if.end343:                                        ; preds = %eat_ws.exit323
-  %call344 = call noalias ptr @CRYPTO_strdup(ptr noundef %pname.0, ptr noundef nonnull @.str.1, i32 noundef 536) #13
+  %call344 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %pname.0, ptr noundef nonnull @.str.1, i32 noundef 536) #13
   %name = getelementptr inbounds nuw i8, ptr %call339, i64 8
   store ptr %call344, ptr %name, align 8
   %value = getelementptr inbounds nuw i8, ptr %call339, i64 16
@@ -1239,7 +1239,7 @@ if.end343:                                        ; preds = %eat_ws.exit323
   br i1 %cmp346, label %err, label %if.end349
 
 if.end349:                                        ; preds = %if.end343
-  %call351 = call fastcc i32 @str_copy(ptr noundef %conf, ptr noundef %psection.0, ptr noundef %value, ptr noundef nonnull %p.addr.0.lcssa.i319)
+  %call351 = call fastcc i32 @str_copy(ptr noundef nonnull %conf, ptr noundef %psection.0, ptr noundef %value, ptr noundef nonnull %p.addr.0.lcssa.i319)
   %tobool352.not = icmp eq i32 %call351, 0
   br i1 %tobool352.not, label %err, label %if.end354
 
@@ -1250,12 +1250,12 @@ if.end354:                                        ; preds = %if.end349
   br i1 %cmp356.not, label %if.end370, label %if.then358
 
 if.then358:                                       ; preds = %if.end354
-  %call359 = call ptr @_CONF_get_section(ptr noundef %conf, ptr noundef %psection.0) #13
+  %call359 = call ptr @_CONF_get_section(ptr noundef nonnull %conf, ptr noundef nonnull %psection.0) #13
   %cmp360 = icmp eq ptr %call359, null
   br i1 %cmp360, label %if.end364, label %if.end370
 
 if.end364:                                        ; preds = %if.then358
-  %call363 = call ptr @_CONF_new_section(ptr noundef %conf, ptr noundef %psection.0) #13
+  %call363 = call ptr @_CONF_new_section(ptr noundef nonnull %conf, ptr noundef nonnull %psection.0) #13
   %cmp365 = icmp eq ptr %call363, null
   br i1 %cmp365, label %if.then367, label %if.end370
 
@@ -1267,7 +1267,7 @@ if.then367:                                       ; preds = %if.end364
 
 if.end370:                                        ; preds = %if.then358, %if.end354, %if.end364
   %tv.1 = phi ptr [ %call363, %if.end364 ], [ %sv.0.ph, %if.end354 ], [ %call359, %if.then358 ]
-  %call371 = call i32 @_CONF_add_string(ptr noundef %conf, ptr noundef nonnull %tv.1, ptr noundef nonnull %call339) #13
+  %call371 = call i32 @_CONF_add_string(ptr noundef nonnull %conf, ptr noundef nonnull %tv.1, ptr noundef nonnull %call339) #13
   %cmp372 = icmp eq i32 %call371, 0
   br i1 %cmp372, label %if.then374, label %for.cond.backedge
 
@@ -1356,7 +1356,7 @@ return:                                           ; preds = %if.end406, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @def_dump(ptr nocapture noundef readonly %conf, ptr noundef %out) #1 {
+define internal noundef i32 @def_dump(ptr noundef readonly captures(none) %conf, ptr noundef %out) #1 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %conf, i64 16
   %0 = load ptr, ptr %data, align 8
@@ -1365,7 +1365,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @def_is_number(ptr nocapture noundef readonly %conf, i8 noundef signext %c) #3 {
+define internal range(i32 0, 2) i32 @def_is_number(ptr noundef readonly captures(none) %conf, i8 noundef signext %c) #3 {
 entry:
   %cmp.i = icmp slt i8 %c, 0
   br i1 %cmp.i, label %is_keytype.exit, label %if.end.i
@@ -1386,7 +1386,7 @@ is_keytype.exit:                                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -176, 80) i32 @def_to_int(ptr nocapture readnone %conf, i8 noundef signext %c) #0 {
+define internal range(i32 -176, 80) i32 @def_to_int(ptr readnone captures(none) %conf, i8 noundef signext %c) #0 {
 entry:
   %conv = sext i8 %c to i32
   %sub = add nsw i32 %conv, -48
@@ -1436,7 +1436,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @_CONF_free_data(ptr noundef) local_unnamed_addr #4
 
@@ -1459,16 +1459,16 @@ declare i64 @BUF_MEM_grow(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare i32 @BIO_gets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_next_file(ptr noundef %path, ptr noundef nonnull %dirctx) unnamed_addr #1 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #14
-  %call123 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %dirctx, ptr noundef %path) #13
+  %call123 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %dirctx, ptr noundef nonnull %path) #13
   %cmp.not24 = icmp eq ptr %call123, null
   br i1 %cmp.not24, label %while.end, label %while.body.lr.ph
 
@@ -1512,7 +1512,7 @@ if.end:                                           ; preds = %if.then
   br i1 %cmp17, label %if.then19, label %if.end22
 
 if.then19:                                        ; preds = %if.end
-  %call20 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %call14, ptr noundef %path, i64 noundef %add13) #13
+  %call20 = tail call i64 @OPENSSL_strlcpy(ptr noundef nonnull %call14, ptr noundef nonnull %path, i64 noundef %add13) #13
   %call21 = tail call i64 @OPENSSL_strlcat(ptr noundef nonnull %call14, ptr noundef nonnull @.str.9, i64 noundef %add13) #13
   br label %if.end22
 
@@ -1524,7 +1524,7 @@ if.end22:                                         ; preds = %if.then19, %if.end
   br i1 %cmp25.not, label %if.end29, label %return
 
 if.end29:                                         ; preds = %if.end22, %land.lhs.true8, %lor.lhs.false
-  %call1 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %dirctx, ptr noundef %path) #13
+  %call1 = tail call ptr @OPENSSL_DIR_read(ptr noundef nonnull %dirctx, ptr noundef nonnull %path) #13
   %cmp.not = icmp eq ptr %call1, null
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !10
 
@@ -1543,7 +1543,7 @@ declare void @BIO_vfree(ptr noundef) local_unnamed_addr #4
 declare ptr @OPENSSL_sk_pop(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @eat_alpha_numeric(ptr nocapture noundef readonly %conf, ptr noundef readonly %p) unnamed_addr #8 {
+define internal fastcc noundef ptr @eat_alpha_numeric(ptr noundef readonly captures(none) %conf, ptr noundef readonly %p) unnamed_addr #8 {
 entry:
   %flag_dollarid51 = getelementptr inbounds nuw i8, ptr %conf, i64 24
   %0 = load i8, ptr %p, align 1
@@ -1617,7 +1617,7 @@ if.end10:                                         ; preds = %lor.lhs.false.threa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef %conf, ptr noundef %section, ptr nocapture noundef nonnull %pto, ptr noundef %from) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @str_copy(ptr noundef %conf, ptr noundef %section, ptr noundef nonnull captures(none) %pto, ptr noundef %from) unnamed_addr #1 {
 entry:
   %call = tail call ptr @BUF_MEM_new() #13
   %cmp = icmp eq ptr %call, null
@@ -2080,10 +2080,10 @@ return:                                           ; preds = %entry, %err, %for.e
 declare ptr @_CONF_get_section(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @trim_ws(ptr nocapture noundef readonly %conf, ptr noundef %start) unnamed_addr #9 {
+define internal fastcc void @trim_ws(ptr noundef readonly captures(none) %conf, ptr noundef %start) unnamed_addr #9 {
 entry:
   %meth_data.i = getelementptr inbounds nuw i8, ptr %conf, i64 8
   br label %while.cond
@@ -2135,10 +2135,10 @@ while.end7:                                       ; preds = %land.rhs, %while.co
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parsebool(ptr noundef %pval, ptr nocapture noundef writeonly %flag) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parsebool(ptr noundef %pval, ptr noundef writeonly captures(none) %flag) unnamed_addr #1 {
 entry:
   %call = tail call i32 @OPENSSL_strcasecmp(ptr noundef %pval, ptr noundef nonnull @.str.16) #13
   %cmp = icmp eq i32 %call, 0
@@ -2182,7 +2182,7 @@ declare i64 @OPENSSL_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unname
 declare i64 @OPENSSL_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_include(ptr noundef %include, ptr noundef nonnull %dirctx, ptr nocapture noundef nonnull writeonly %dirpath) unnamed_addr #1 {
+define internal fastcc ptr @process_include(ptr noundef %include, ptr noundef nonnull %dirctx, ptr noundef nonnull writeonly captures(none) %dirpath) unnamed_addr #1 {
 entry:
   %st = alloca %struct.stat, align 8
   %call = call i32 @stat(ptr noundef %include, ptr noundef nonnull %st) #13
@@ -2268,13 +2268,13 @@ declare ptr @_CONF_get_string(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i64 @BUF_MEM_grow_clean(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal void @dump_value_doall_arg(ptr nocapture noundef readonly %a, ptr noundef %out) #1 {
+define internal void @dump_value_doall_arg(ptr noundef readonly captures(none) %a, ptr noundef %out) #1 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load ptr, ptr %name, align 8
@@ -2322,7 +2322,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -215,7 +215,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HQByteEventTracker26onByteEventWrittenToSocketERKNS_9ByteEventE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %event) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HQByteEventTracker26onByteEventWrittenToSocketERKNS_9ByteEventE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %event) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %ret = alloca %"class.folly::Expected", align 8
@@ -444,7 +444,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
@@ -690,7 +690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_120HQTransportByteEvent11onByteEventEN4quic10QuicSocket9ByteEventE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly byval(%"struct.quic::QuicSocket::ByteEvent") align 8 %byteEvent) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120HQTransportByteEvent11onByteEventEN4quic10QuicSocket9ByteEventE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef readonly byval(%"struct.quic::QuicSocket::ByteEvent") align 8 captures(none) %byteEvent) unnamed_addr #4 align 2 {
 entry:
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %txn_, align 8
@@ -722,7 +722,7 @@ delete.notnull:                                   ; preds = %entry, %sw.bb3, %sw
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120HQTransportByteEvent19onByteEventCanceledEN4quic10QuicSocket9ByteEventE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readnone byval(%"struct.quic::QuicSocket::ByteEvent") align 8 %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_120HQTransportByteEvent19onByteEventCanceledEN4quic10QuicSocket9ByteEventE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef readnone byval(%"struct.quic::QuicSocket::ByteEvent") align 8 captures(none) %0) unnamed_addr #7 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
@@ -819,7 +819,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEvent11onByteEventEN4quic10QuicSocket9ByteEventE(ptr noundef %this, ptr nocapture noundef readonly byval(%"struct.quic::QuicSocket::ByteEvent") align 8 %byteEvent) unnamed_addr #12 align 2 {
+define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEvent11onByteEventEN4quic10QuicSocket9ByteEventE(ptr noundef %this, ptr noundef readonly byval(%"struct.quic::QuicSocket::ByteEvent") align 8 captures(none) %byteEvent) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   %txn_.i = getelementptr inbounds i8, ptr %this, i64 -8
@@ -852,7 +852,7 @@ _ZN12_GLOBAL__N_120HQTransportByteEvent11onByteEventEN4quic10QuicSocket9ByteEven
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEvent19onByteEventCanceledEN4quic10QuicSocket9ByteEventE(ptr noundef %this, ptr nocapture noundef readonly byval(%"struct.quic::QuicSocket::ByteEvent") align 8 %0) unnamed_addr #12 align 2 {
+define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEvent19onByteEventCanceledEN4quic10QuicSocket9ByteEventE(ptr noundef %this, ptr noundef readonly byval(%"struct.quic::QuicSocket::ByteEvent") align 8 captures(none) %0) unnamed_addr #12 align 2 {
 entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 -72
   %vtable.i = load ptr, ptr %1, align 8
@@ -1249,10 +1249,10 @@ declare void @_ZN8proxygen15HTTPTransaction27onEgressTrackedByteEventAckERKNS_9B
 declare void @_ZN8proxygen16ByteEventTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_HQByteEventTracker.cpp() #12 section ".text.startup" {
@@ -1317,10 +1317,10 @@ __cxx_global_var_init.2.exit:                     ; preds = %__cxx_global_var_in
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

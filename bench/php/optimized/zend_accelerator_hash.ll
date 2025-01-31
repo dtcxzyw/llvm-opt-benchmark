@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @accel_globals = external local_unnamed_addr global %struct._zend_accel_globals, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @zend_accel_hash_clean(ptr nocapture noundef initializes((16, 20), (24, 28)) %0) local_unnamed_addr #0 {
+define hidden void @zend_accel_hash_clean(ptr noundef captures(none) initializes((16, 20), (24, 28)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -33,10 +33,10 @@ define hidden void @zend_accel_hash_clean(ptr nocapture noundef initializes((16,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_accel_hash_init(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden void @zend_accel_hash_init(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   br label %4
 
 3:                                                ; preds = %4
@@ -99,7 +99,7 @@ declare ptr @zend_shared_alloc(i64 noundef) local_unnamed_addr #3
 declare void @zend_accel_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 {
+define hidden ptr @zend_accel_hash_update(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #2 {
   br i1 %2, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %4
@@ -267,7 +267,7 @@ define hidden ptr @zend_accel_hash_update(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_accel_hash_find(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden ptr @zend_accel_hash_find(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -343,7 +343,7 @@ define hidden ptr @zend_accel_hash_find(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_accel_hash_find_entry(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden ptr @zend_accel_hash_find_entry(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -417,7 +417,7 @@ define hidden ptr @zend_accel_hash_find_entry(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @zend_accel_hash_unlink(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 -1, 1) i32 @zend_accel_hash_unlink(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0

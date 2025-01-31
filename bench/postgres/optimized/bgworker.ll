@@ -166,7 +166,7 @@ define dso_local void @BackgroundWorkerShmemInit() local_unnamed_addr #0 {
 declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @BackgroundWorkerStateChange(i1 noundef zeroext %0) local_unnamed_addr #0 {
@@ -422,7 +422,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReportBackgroundWorkerPID(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ReportBackgroundWorkerPID(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @BackgroundWorkerData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %4 = load i32, ptr %3, align 8
@@ -457,7 +457,7 @@ declare zeroext i1 @PostmasterMarkPIDForWorkerNotify(i32 noundef) local_unnamed_
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ForgetBackgroundWorker(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ForgetBackgroundWorker(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 -1504
   %4 = load ptr, ptr @BackgroundWorkerData, align 8
@@ -505,7 +505,7 @@ define dso_local void @ForgetBackgroundWorker(ptr nocapture noundef %0) local_un
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ReportBackgroundWorkerExit(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ReportBackgroundWorkerExit(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr @BackgroundWorkerData, align 8
   %4 = getelementptr i8, ptr %2, i64 -8
@@ -1243,7 +1243,7 @@ declare void @SendPostmasterSignal(i32 noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @BackgroundWorkerData, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i32, ptr %0, align 8
@@ -1294,7 +1294,7 @@ define dso_local range(i32 0, 3) i32 @GetBackgroundWorkerPid(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @WaitForBackgroundWorkerStartup(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %4
 
@@ -1372,7 +1372,7 @@ declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local
 declare void @ResetLatch(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 2, 4) i32 @WaitForBackgroundWorkerShutdown(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %3
 
@@ -1438,7 +1438,7 @@ GetBackgroundWorkerPid.exit.thread:               ; preds = %23, %GetBackgroundW
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @TerminateBackgroundWorker(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @TerminateBackgroundWorker(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @BackgroundWorkerData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load i32, ptr %0, align 8
@@ -1517,13 +1517,13 @@ define dso_local noundef ptr @GetBackgroundWorkerTypeByPid(i32 noundef %0) local
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @load_external_function(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
@@ -1541,7 +1541,7 @@ declare void @TablesyncWorkerMain(i64 noundef) #1
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

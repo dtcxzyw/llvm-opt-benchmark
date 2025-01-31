@@ -191,7 +191,7 @@ declare i32 @qio_net_listener_open_sync(ptr noundef, ptr noundef, i32 noundef, p
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @nbd_server_start_options(ptr nocapture noundef readonly %arg, ptr noundef %errp) local_unnamed_addr #3 {
+define dso_local void @nbd_server_start_options(ptr noundef readonly captures(none) %arg, ptr noundef %errp) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   %tls_creds = getelementptr inbounds nuw i8, ptr %arg, i64 8
@@ -327,7 +327,7 @@ declare ptr @bdrv_lookup_bs(ptr noundef, ptr noundef, ptr noundef) local_unnamed
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare ptr @bdrv_get_node_name(ptr noundef) local_unnamed_addr #4
 
@@ -438,7 +438,7 @@ declare ptr @object_ref(ptr noundef) local_unnamed_addr #4
 declare void @qio_net_listener_set_client_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nbd_accept(ptr nocapture readnone %listener, ptr noundef %cioc, ptr nocapture readnone %opaque) #3 {
+define internal void @nbd_accept(ptr readnone captures(none) %listener, ptr noundef %cioc, ptr readnone captures(none) %opaque) #3 {
 entry:
   %0 = load ptr, ptr @nbd_server, align 8
   %connections = getelementptr inbounds nuw i8, ptr %0, i64 28

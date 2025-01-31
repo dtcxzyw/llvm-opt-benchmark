@@ -45,12 +45,12 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [2 x i8] c"r\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @phar_dir_write(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2) #0 {
+define internal noundef i64 @phar_dir_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2) #0 {
   ret i64 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, 258) i64 @phar_dir_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #1 {
+define internal range(i64 -1, 258) i64 @phar_dir_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -77,7 +77,7 @@ define internal range(i64 -1, 258) i64 @phar_dir_read(ptr nocapture noundef read
   %19 = load i64, ptr %15, align 8
   %. = call i64 @llvm.umin.i64(i64 %19, i64 255)
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %20, i64 %., i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 8 %20, i64 %., i1 false)
   %21 = getelementptr inbounds nuw [256 x i8], ptr %1, i64 0, i64 %.
   store i8 0, ptr %21, align 1
   br label %22
@@ -88,7 +88,7 @@ define internal range(i64 -1, 258) i64 @phar_dir_read(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phar_dir_close(ptr nocapture noundef %0, i32 %1) #1 {
+define internal noundef i32 @phar_dir_close(ptr noundef captures(none) %0, i32 %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -105,12 +105,12 @@ define internal noundef i32 @phar_dir_close(ptr nocapture noundef %0, i32 %1) #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @phar_dir_flush(ptr nocapture readnone %0) #0 {
+define internal noundef i32 @phar_dir_flush(ptr readnone captures(none) %0) #0 {
   ret i32 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3) #1 {
+define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr noundef readonly captures(none) %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -164,7 +164,7 @@ define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4, ptr noundef %5) local_unnamed_addr #1 {
+define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
@@ -640,14 +640,14 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @_php_stream_opendir(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readnone %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #1 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -657,12 +657,12 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   %12 = alloca i64, align 8
   store ptr null, ptr %7, align 8
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %14 = call i32 @phar_split_fname(ptr noundef %1, i64 noundef %13, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef 2, i32 noundef 2) #10
+  %14 = call i32 @phar_split_fname(ptr noundef nonnull %1, i64 noundef %13, ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull %10, ptr noundef nonnull %12, i32 noundef 2, i32 noundef 2) #10
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %5
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.8, ptr noundef %1) #10
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.8, ptr noundef nonnull %1) #10
   br label %165
 
 17:                                               ; preds = %5
@@ -698,11 +698,11 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   br i1 %.not149, label %33, label %34
 
 33:                                               ; preds = %29, %27
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.9, ptr noundef %1) #10
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.9, ptr noundef nonnull %1) #10
   br label %165
 
 34:                                               ; preds = %29, %23
-  %35 = call ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.10, i32 noundef %3) #10
+  %35 = call ptr @phar_parse_url(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.10, i32 noundef %3) #10
   %36 = icmp eq ptr %35, null
   br i1 %36, label %165, label %37
 
@@ -725,7 +725,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 
 45:                                               ; preds = %42, %39, %37
   call void @php_url_free(ptr noundef nonnull %35) #10
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.11, ptr noundef %1) #10
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.11, ptr noundef nonnull %1) #10
   br label %165
 
 46:                                               ; preds = %42
@@ -742,7 +742,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 
 53:                                               ; preds = %50, %46
   call void @php_url_free(ptr noundef nonnull %35) #10
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.12, ptr noundef %1) #10
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.12, ptr noundef nonnull %1) #10
   br label %165
 
 54:                                               ; preds = %50
@@ -971,7 +971,7 @@ declare i32 @phar_split_fname(ptr noundef, i64 noundef, ptr noundef, ptr noundef
 declare ptr @phar_get_entry_info_dir(ptr noundef, ptr noundef, i64 noundef, i8 noundef signext, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @phar_flush(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -980,7 +980,7 @@ declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare void @phar_add_virtual_dirs(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -991,12 +991,12 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   %12 = alloca i64, align 8
   store ptr null, ptr %5, align 8
   %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %14 = call i32 @phar_split_fname(ptr noundef %1, i64 noundef %13, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef 2, i32 noundef 2) #10
+  %14 = call i32 @phar_split_fname(ptr noundef nonnull %1, i64 noundef %13, ptr noundef nonnull %7, ptr noundef nonnull %9, ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef 2, i32 noundef 2) #10
   %15 = icmp eq i32 %14, -1
   br i1 %15, label %16, label %17
 
 16:                                               ; preds = %4
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.18, ptr noundef %1) #10
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.18, ptr noundef nonnull %1) #10
   br label %186
 
 17:                                               ; preds = %4
@@ -1032,11 +1032,11 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br i1 %.not103, label %33, label %34
 
 33:                                               ; preds = %29, %27
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.19, ptr noundef %1) #10
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.19, ptr noundef nonnull %1) #10
   br label %186
 
 34:                                               ; preds = %29, %23
-  %35 = call ptr @phar_parse_url(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.10, i32 noundef %2) #10
+  %35 = call ptr @phar_parse_url(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.10, i32 noundef %2) #10
   %36 = icmp eq ptr %35, null
   br i1 %36, label %186, label %37
 
@@ -1059,7 +1059,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
 
 45:                                               ; preds = %42, %39, %37
   call void @php_url_free(ptr noundef nonnull %35) #10
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.11, ptr noundef %1) #10
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.11, ptr noundef nonnull %1) #10
   br label %186
 
 46:                                               ; preds = %42
@@ -1076,7 +1076,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
 
 53:                                               ; preds = %50, %46
   call void @php_url_free(ptr noundef nonnull %35) #10
-  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.12, ptr noundef %1) #10
+  call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.12, ptr noundef nonnull %1) #10
   br label %186
 
 54:                                               ; preds = %50
@@ -1320,7 +1320,7 @@ declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #2
 declare void @_efree_56(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare noalias ptr @_emalloc_56() local_unnamed_addr #2
 
@@ -1329,7 +1329,7 @@ declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef 
 declare ptr @_php_stream_alloc(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
@@ -1337,7 +1337,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @phar_compare_dir_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
+define internal range(i32 -1, 2) i32 @phar_compare_dir_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -1382,16 +1382,16 @@ declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #6
 declare noalias ptr @_emalloc_160() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

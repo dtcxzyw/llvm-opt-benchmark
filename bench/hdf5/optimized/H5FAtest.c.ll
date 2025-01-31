@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5FA__test_crt_dbg_context = private unnamed_addr constant [27 x i8] c"H5FA__test_crt_dbg_context\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @H5FA__test_crt_context(ptr nocapture readnone %0) #0 {
+define internal noalias ptr @H5FA__test_crt_context(ptr readnone captures(none) %0) #0 {
   %2 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5FA__test_ctx_t_reg_free_list) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %8
@@ -55,7 +55,7 @@ define internal noundef i32 @H5FA__test_fill(ptr noundef %0, i64 noundef %1) #0 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FA__test_encode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @H5FA__test_encode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
   %.not23 = icmp eq i64 %2, 0
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 
@@ -90,7 +90,7 @@ define internal noundef i32 @H5FA__test_encode(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FA__test_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @H5FA__test_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, ptr readnone captures(none) %3) #1 {
   %.not17 = icmp eq i64 %2, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -128,7 +128,7 @@ define internal noundef i32 @H5FA__test_decode(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5FA__test_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #2 {
+define internal noundef i32 @H5FA__test_debug(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) #2 {
   %6 = alloca [128 x i8], align 16
   %7 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 128, ptr noundef nonnull @.str.4, i64 noundef %3) #8
   %8 = load i64, ptr %4, align 8
@@ -137,7 +137,7 @@ define internal noundef i32 @H5FA__test_debug(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias ptr @H5FA__test_crt_dbg_context(ptr nocapture readnone %0, i64 %1) #0 {
+define internal noalias ptr @H5FA__test_crt_dbg_context(ptr readnone captures(none) %0, i64 %1) #0 {
   %3 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5FA__test_ctx_t_reg_free_list) #8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %9
@@ -157,7 +157,7 @@ define internal noalias ptr @H5FA__test_crt_dbg_context(ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5FA__get_cparam_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 9), (16, 24)) %1) local_unnamed_addr #3 {
+define noundef i32 @H5FA__get_cparam_test(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 9), (16, 24)) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 256
   %5 = load i8, ptr %4, align 8
@@ -172,7 +172,7 @@ define noundef i32 @H5FA__get_cparam_test(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @H5FA__cmp_cparam_test(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @H5FA__cmp_cparam_test(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -190,10 +190,10 @@ declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @H5VM_array_fill(ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i8(i8, i8) #7

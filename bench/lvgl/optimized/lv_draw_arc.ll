@@ -21,15 +21,15 @@ define void @lv_draw_arc_dsc_init(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i24 @lv_color_black() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_draw_task_get_arc_dsc(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @lv_draw_task_get_arc_dsc(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !17
   %4 = icmp eq i32 %3, 8
@@ -112,7 +112,7 @@ declare ptr @lv_memcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare void @lv_draw_finalize_task_creation(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, float noundef %3, float noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define void @lv_draw_arc_get_area(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, float noundef %3, float noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = zext i16 %2 to i32
   %10 = fptosi float %3 to i32
   %11 = fptosi float %4 to i32

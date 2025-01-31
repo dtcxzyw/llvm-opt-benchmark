@@ -149,7 +149,7 @@ if.then38:                                        ; preds = %if.end37
   br label %fail
 
 land.lhs.true:                                    ; preds = %if.end37
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %service, ptr align 1 %1, i64 %sub.ptr.sub, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %service, ptr nonnull align 1 %1, i64 %sub.ptr.sub, i1 false)
   %arrayidx41 = getelementptr inbounds nuw [65 x i8], ptr %service, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx41, align 1
   %verbose = getelementptr inbounds nuw i8, ptr %data, i64 2706
@@ -387,7 +387,7 @@ if.end120:                                        ; preds = %if.end115
   %call3.i82 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %date_hdr_key.i, i64 noundef 72, ptr noundef nonnull @.str.24, ptr noundef nonnull %provider1) #12
   call void @Curl_strntolower(ptr noundef nonnull %provider1, ptr noundef nonnull %provider1, i64 noundef 1) #12
   %call5.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %date_full_hdr.i, i64 noundef 90, ptr noundef nonnull @.str.25, ptr noundef nonnull %provider1, ptr noundef nonnull %timestamp) #12
-  %call6.i83 = call ptr @Curl_checkheaders(ptr noundef %data, ptr noundef nonnull @.str.26, i64 noundef 4) #12
+  %call6.i83 = call ptr @Curl_checkheaders(ptr noundef nonnull %data, ptr noundef nonnull @.str.26, i64 noundef 4) #12
   %tobool.not.i84 = icmp eq ptr %call6.i83, null
   br i1 %tobool.not.i84, label %if.else.i91, label %if.end35.i
 
@@ -415,7 +415,7 @@ if.else22.i:                                      ; preds = %if.else.i91
   br i1 %cmp24.i, label %make_headers.exit.thread, label %if.end26.i
 
 if.end26.i:                                       ; preds = %if.else22.i
-  %call28.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %full_host.i, i64 noundef 261, ptr noundef nonnull @.str.28, ptr noundef %1) #12
+  %call28.i = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %full_host.i, i64 noundef 261, ptr noundef nonnull @.str.28, ptr noundef nonnull %1) #12
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end26.i, %if.end.i95
@@ -495,7 +495,7 @@ for.end.i:                                        ; preds = %lor.rhs.i
 
 if.end79.i:                                       ; preds = %for.end.i
   %31 = load ptr, ptr @Curl_cstrdup, align 8
-  %call81.i = call ptr %31(ptr noundef %26) #12
+  %call81.i = call ptr %31(ptr noundef nonnull %26) #12
   %tobool82.not.i = icmp eq ptr %call81.i, null
   br i1 %tobool82.not.i, label %make_headers.exit.thread, label %if.end84.i
 
@@ -610,12 +610,12 @@ for.inc.i.i:                                      ; preds = %while.end40.i.i, %f
 
 trim_headers.exit.i:                              ; preds = %for.inc.i.i, %for.end92.i
   %call.i96.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %date_hdr_key.i) #13
-  %call1.i.i = call ptr @Curl_checkheaders(ptr noundef %data, ptr noundef nonnull %date_hdr_key.i, i64 noundef %call.i96.i) #12
+  %call1.i.i = call ptr @Curl_checkheaders(ptr noundef nonnull %data, ptr noundef nonnull %date_hdr_key.i, i64 noundef %call.i96.i) #12
   %tobool.not.i97.i = icmp eq ptr %call1.i.i, null
   br i1 %tobool.not.i97.i, label %find_date_hdr.exit.i, label %if.else104.i
 
 find_date_hdr.exit.i:                             ; preds = %trim_headers.exit.i
-  %call2.i.i = call ptr @Curl_checkheaders(ptr noundef %data, ptr noundef nonnull @.str.33, i64 noundef 4) #12
+  %call2.i.i = call ptr @Curl_checkheaders(ptr noundef nonnull %data, ptr noundef nonnull @.str.33, i64 noundef 4) #12
   %tobool95.not.i = icmp eq ptr %call2.i.i, null
   br i1 %tobool95.not.i, label %if.then96.i, label %if.else104.i
 
@@ -804,7 +804,7 @@ if.end137:                                        ; preds = %if.then130, %if.end
   store i8 0, ptr %arrayidx140, align 8
   %query = getelementptr inbounds nuw i8, ptr %data, i64 4688
   %55 = load ptr, ptr %query, align 8
-  %call142 = call fastcc i32 @canon_query(ptr noundef %data, ptr noundef %55, ptr noundef %canonical_query)
+  %call142 = call fastcc i32 @canon_query(ptr noundef nonnull %data, ptr noundef %55, ptr noundef %canonical_query)
   %tobool143.not = icmp eq i32 %call142, 0
   br i1 %tobool143.not, label %if.end145, label %fail
 
@@ -947,25 +947,25 @@ return:                                           ; preds = %entry, %fail
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare ptr @Curl_checkheaders(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -974,7 +974,7 @@ declare void @Curl_http_method(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #7
@@ -1226,24 +1226,24 @@ declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_un
 declare signext i8 @Curl_raw_toupper(i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @curl_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare ptr @Curl_slist_append_nodup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @Curl_dyn_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @compare_func(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) #9 {
+define internal i32 @compare_func(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) #9 {
 entry:
   %len = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i64, ptr %len, align 8
@@ -1271,7 +1271,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @Curl_dyn_addn(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare void @Curl_hexencode(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -1279,10 +1279,10 @@ declare void @Curl_hexencode(ptr noundef, i64 noundef, ptr noundef, i64 noundef)
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

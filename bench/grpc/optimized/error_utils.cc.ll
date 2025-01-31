@@ -619,7 +619,7 @@ eh.resume:                                        ; preds = %lpad10, %ehcleanup,
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull %error, i32 noundef range(i32 3, 8) %which) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL33recursively_find_error_with_fieldN4absl12lts_202308026StatusEN9grpc_core17StatusIntPropertyE(ptr noalias nonnull align 8 captures(none) %agg.result, ptr noundef nonnull captures(none) %error, i32 noundef range(i32 3, 8) %which) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %unused = alloca i64, align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -875,7 +875,7 @@ declare noundef zeroext i1 @_Z18grpc_error_get_strN4absl12lts_202308026StatusEN9
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25grpc_error_to_absl_statusN4absl12lts_202308026StatusE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef readonly %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z25grpc_error_to_absl_statusN4absl12lts_202308026StatusE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef readonly captures(none) %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %message = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1088,7 +1088,7 @@ declare void @_Z18grpc_error_set_intN4absl12lts_202308026StatusEN9grpc_core17Sta
 declare void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i32 noundef, i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1140,7 +1140,7 @@ _ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit: ; preds = %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z32grpc_error_has_clear_grpc_statusN4absl12lts_202308026StatusE(ptr nocapture noundef readonly %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z32grpc_error_has_clear_grpc_statusN4absl12lts_202308026StatusE(ptr noundef readonly captures(none) %error) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %unused = alloca i64, align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8

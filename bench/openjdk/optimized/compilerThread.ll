@@ -111,7 +111,7 @@ define hidden void @_ZN14CompilerThreadC2EP12CompileQueueP16CompilerCounters(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14CompilerThread12thread_entryEP10JavaThreadS1_(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 2 {
+define hidden void @_ZN14CompilerThread12thread_entryEP10JavaThreadS1_(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 2 {
   tail call void @_ZN13CompileBroker20compiler_thread_loopEv() #6
   ret void
 }
@@ -179,7 +179,7 @@ _ZN14CompilerThreadD2Ev.exit:                     ; preds = %6, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14CompilerThread12set_compilerEP16AbstractCompiler(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1880) initializes((1848, 1849), (1856, 1864)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN14CompilerThread12set_compilerEP16AbstractCompiler(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1880) initializes((1848, 1849), (1856, 1864)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %3
 
@@ -202,7 +202,7 @@ define hidden void @_ZN14CompilerThread12set_compilerEP16AbstractCompiler(ptr no
 declare void @_ZN13CompileBroker20compiler_thread_loopEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK14CompilerThread28is_hidden_from_external_viewEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1880) %0) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK14CompilerThread28is_hidden_from_external_viewEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1880) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1856
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -435,7 +435,7 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

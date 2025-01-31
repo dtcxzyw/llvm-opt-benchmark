@@ -167,7 +167,7 @@ define dso_local noundef range(i32 808530000, 1448434009) i32 @skl_format_to_fou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @icl_is_nv12_y_plane(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @icl_is_nv12_y_plane(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %4 = load i16, ptr %3, align 8
   %5 = icmp ugt i16 %4, 10
@@ -210,7 +210,7 @@ define dso_local noundef zeroext i8 @icl_hdr_plane_mask() local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @icl_is_hdr_plane(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @icl_is_hdr_plane(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2632
   %4 = load i16, ptr %3, align 8
   %5 = icmp ugt i16 %4, 10
@@ -220,7 +220,7 @@ define dso_local zeroext i1 @icl_is_hdr_plane(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @skl_calc_main_surface_offset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @skl_calc_main_surface_offset(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #2 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -338,10 +338,10 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_calc_main_surface_offset(ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @skl_main_to_aux_plane(ptr noundef, i32 noundef) local_unnamed_addr #4
@@ -840,7 +840,7 @@ declare dso_local ptr @intel_plane_alloc() local_unnamed_addr #4
 declare dso_local void @intel_fbc_add_plane(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal noundef range(i32 1, 21) i32 @icl_plane_min_width(ptr nocapture noundef readonly %0, i32 %1, i32 %2) #5 align 16 {
+define internal noundef range(i32 1, 21) i32 @icl_plane_min_width(ptr noundef readonly captures(none) %0, i32 %1, i32 %2) #5 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = load i32, ptr %5, align 4
@@ -894,7 +894,7 @@ define internal noundef range(i32 1, 21) i32 @icl_plane_min_width(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 4096, 5121) i32 @icl_hdr_plane_max_width(ptr nocapture noundef readonly %0, i32 %1, i32 %2) #2 align 16 {
+define internal range(i32 4096, 5121) i32 @icl_hdr_plane_max_width(ptr noundef readonly captures(none) %0, i32 %1, i32 %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -905,12 +905,12 @@ define internal range(i32 4096, 5121) i32 @icl_hdr_plane_max_width(ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @icl_sdr_plane_max_width(ptr nocapture readnone %0, i32 %1, i32 %2) #0 align 16 {
+define internal noundef i32 @icl_sdr_plane_max_width(ptr readnone captures(none) %0, i32 %1, i32 %2) #0 align 16 {
   ret i32 5120
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @icl_plane_max_height(ptr nocapture readnone %0, i32 %1, i32 %2) #0 align 16 {
+define internal noundef i32 @icl_plane_max_height(ptr readnone captures(none) %0, i32 %1, i32 %2) #0 align 16 {
   ret i32 4320
 }
 
@@ -923,7 +923,7 @@ define internal range(i32 0, -2147483648) i32 @icl_plane_min_cdclk(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 2048, 5121) i32 @glk_plane_max_width(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2) #2 align 16 {
+define internal range(i32 2048, 5121) i32 @glk_plane_max_width(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
@@ -967,7 +967,7 @@ define internal range(i32 2048, 5121) i32 @glk_plane_max_width(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @skl_plane_max_height(ptr nocapture readnone %0, i32 %1, i32 %2) #0 align 16 {
+define internal noundef i32 @skl_plane_max_height(ptr readnone captures(none) %0, i32 %1, i32 %2) #0 align 16 {
   ret i32 4096
 }
 
@@ -991,7 +991,7 @@ define internal range(i32 0, -2147483648) i32 @glk_plane_min_cdclk(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 2048, 5121) i32 @skl_plane_max_width(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2) #2 align 16 {
+define internal range(i32 2048, 5121) i32 @skl_plane_max_width(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 6
@@ -1055,7 +1055,7 @@ define internal i32 @skl_plane_min_cdclk(ptr noundef %0, ptr noundef %1) #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 131073) i32 @skl_plane_max_stride(ptr nocapture noundef readonly %0, i32 noundef %1, i64 %2, i32 noundef %3) #2 align 16 {
+define internal range(i32 0, 131073) i32 @skl_plane_max_stride(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 %2, i32 noundef %3) #2 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = tail call ptr @drm_format_info(i32 noundef %1) #11
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 6
@@ -1090,7 +1090,7 @@ define internal range(i32 0, 131073) i32 @skl_plane_max_stride(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal void @icl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %6 = load i32, ptr %5, align 4
@@ -4239,7 +4239,7 @@ icl_plane_disable_sel_fetch_arm.exit:             ; preds = %50, %88
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @skl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #2 align 16 {
+define internal void @skl_plane_update_noarm(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #2 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %6 = load i32, ptr %5, align 4
@@ -5264,7 +5264,7 @@ define internal void @skl_plane_disable_arm(ptr noundef %0, ptr noundef %1) #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @skl_plane_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
+define internal zeroext i1 @skl_plane_get_hw_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %5 = load i32, ptr %4, align 4
@@ -6262,7 +6262,7 @@ define internal i32 @skl_plane_check(ptr noundef %0, ptr noundef %1) #2 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @skl_plane_async_flip(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) #2 align 16 {
+define internal void @skl_plane_async_flip(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) #2 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1324
   %7 = load i32, ptr %6, align 4
@@ -6431,7 +6431,7 @@ define internal void @skl_plane_async_flip(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @skl_plane_enable_flip_done(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @skl_plane_enable_flip_done(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
@@ -6447,7 +6447,7 @@ define internal void @skl_plane_enable_flip_done(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @skl_plane_disable_flip_done(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @skl_plane_disable_flip_done(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %4 = load i32, ptr %3, align 8
@@ -6499,7 +6499,7 @@ declare dso_local void @intel_plane_helper_add(ptr noundef) local_unnamed_addr #
 declare dso_local void @intel_plane_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skl_get_initial_plane_config(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 16 {
+define dso_local void @skl_get_initial_plane_config(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1480
   %5 = load ptr, ptr %4, align 8
@@ -7059,7 +7059,7 @@ declare dso_local i32 @intel_plane_pixel_rate(ptr noundef, ptr noundef) local_un
 declare dso_local zeroext i1 @intel_fb_is_rc_ccs_cc_modifier(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @skl_plane_aux_dist(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @skl_plane_aux_dist(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -7143,7 +7143,7 @@ declare void @llvm.write_register.i64(metadata, i64) #7
 declare void @llvm.assume(i1 noundef) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @skl_surf_address(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @skl_surf_address(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #2 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -7277,7 +7277,7 @@ declare dso_local i32 @intel_atomic_plane_check_clipping(ptr noundef, ptr nounde
 declare dso_local i32 @intel_plane_check_src_coordinates(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @skl_plane_check_nv12_rotation(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @skl_plane_check_nv12_rotation(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -7325,7 +7325,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_plane_check_nv12_rotat
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @check_protection(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
+define internal fastcc void @check_protection(ptr noundef captures(none) %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -7368,7 +7368,7 @@ define internal fastcc void @check_protection(ptr nocapture noundef %0) unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, -1073741824) i32 @skl_plane_ctl(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, -1073741824) i32 @skl_plane_ctl(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -7717,7 +7717,7 @@ define internal fastcc range(i32 -2147483648, -1073741824) i32 @skl_plane_ctl(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 8192, 272629760) i32 @glk_plane_color_ctl(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 8192, 272629760) i32 @glk_plane_color_ctl(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184

@@ -64,7 +64,7 @@ declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 declare void @usb_legacy_register(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_wacom_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @usb_wacom_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #7
   %call.i10 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #7
@@ -94,7 +94,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_wacom_realize(ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @usb_wacom_realize(ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, i32 noundef 58, ptr noundef nonnull @__func__.USB_WACOM) #7
   tail call void @usb_desc_create_serial(ptr noundef %dev) #7
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @usb_wacom_handle_reset(ptr nocapture noundef writeonly initializes((5880, 5904), (5908, 5912)) %dev) #2 {
+define internal void @usb_wacom_handle_reset(ptr noundef writeonly captures(none) initializes((5880, 5904), (5908, 5912)) %dev) #2 {
 entry:
   %dx = getelementptr inbounds nuw i8, ptr %dev, i64 5880
   %mode = getelementptr inbounds nuw i8, ptr %dev, i64 5908
@@ -394,7 +394,7 @@ cleanup:                                          ; preds = %if.end22, %sw.defau
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_wacom_unrealize(ptr nocapture noundef %dev) #0 {
+define internal void @usb_wacom_unrealize(ptr noundef captures(none) %dev) #0 {
 entry:
   %mouse_grabbed = getelementptr inbounds nuw i8, ptr %dev, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
@@ -425,12 +425,12 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare i32 @usb_desc_handle_control(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @qemu_remove_mouse_event_handler(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 3, 5) i32 @usb_mouse_poll(ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 3)) %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 3, 5) i32 @usb_mouse_poll(ptr noundef %s, ptr noundef writeonly captures(none) initializes((0, 3)) %buf, i32 noundef %len) unnamed_addr #0 {
 entry:
   %mouse_grabbed = getelementptr inbounds nuw i8, ptr %s, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
@@ -490,7 +490,7 @@ if.end37:                                         ; preds = %if.then34, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 8) i32 @usb_wacom_poll(ptr noundef %s, ptr nocapture noundef writeonly %buf, i32 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 8) i32 @usb_wacom_poll(ptr noundef %s, ptr noundef writeonly captures(none) %buf, i32 noundef %len) unnamed_addr #0 {
 entry:
   %mouse_grabbed = getelementptr inbounds nuw i8, ptr %s, i64 5904
   %0 = load i32, ptr %mouse_grabbed, align 8
@@ -560,7 +560,7 @@ return:                                           ; preds = %if.end19, %if.end
 declare ptr @qemu_add_mouse_event_handler(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_mouse_event(ptr nocapture noundef initializes((5892, 5896), (5916, 5920)) %opaque, i32 noundef %dx1, i32 noundef %dy1, i32 noundef %dz1, i32 noundef %buttons_state) #0 {
+define internal void @usb_mouse_event(ptr noundef captures(none) initializes((5892, 5896), (5916, 5920)) %opaque, i32 noundef %dx1, i32 noundef %dy1, i32 noundef %dz1, i32 noundef %buttons_state) #0 {
 entry:
   %dx = getelementptr inbounds nuw i8, ptr %opaque, i64 5880
   %0 = load i32, ptr %dx, align 8
@@ -589,7 +589,7 @@ declare void @qemu_activate_mouse_event_handler(ptr noundef) local_unnamed_addr 
 declare void @usb_wakeup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_wacom_event(ptr nocapture noundef initializes((5892, 5904), (5916, 5920)) %opaque, i32 noundef %x, i32 noundef %y, i32 noundef %dz, i32 noundef %buttons_state) #0 {
+define internal void @usb_wacom_event(ptr noundef captures(none) initializes((5892, 5904), (5916, 5920)) %opaque, i32 noundef %x, i32 noundef %y, i32 noundef %dz, i32 noundef %buttons_state) #0 {
 entry:
   %mul = mul i32 %x, 5040
   %div = sdiv i32 %mul, 32767
@@ -627,7 +627,7 @@ declare i32 @llvm.smin.i32(i32, i32) #5
 declare i32 @llvm.smax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

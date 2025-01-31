@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @blake2b_IV = internal unnamed_addr constant [8 x i64] [i64 7640891576956012808, i64 -4942790177534073029, i64 4354685564936845355, i64 -6534734903238641935, i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_sodium_blake2b_init_param(ptr nocapture noundef initializes((0, 361)) %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
+define hidden noundef i32 @_sodium_blake2b_init_param(ptr noundef captures(none) initializes((0, 361)) %S, ptr noundef readonly captures(none) %P) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   %t.i = getelementptr inbounds nuw i8, ptr %S, i64 64
@@ -35,7 +35,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_init(ptr nocapture noundef %S, i8 noundef zeroext %outlen) local_unnamed_addr #1 {
+define hidden noundef i32 @_sodium_blake2b_init(ptr noundef captures(none) %S, i8 noundef zeroext %outlen) local_unnamed_addr #1 {
 entry:
   %P = alloca [1 x %struct.blake2b_param_], align 16
   %0 = add i8 %outlen, -65
@@ -82,10 +82,10 @@ _sodium_blake2b_init_param.exit:                  ; preds = %for.body.i
 declare void @sodium_misuse() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_init_salt_personal(ptr nocapture noundef %S, i8 noundef zeroext %outlen, ptr noundef readonly %salt, ptr noundef readonly %personal) local_unnamed_addr #1 {
+define hidden noundef i32 @_sodium_blake2b_init_salt_personal(ptr noundef captures(none) %S, i8 noundef zeroext %outlen, ptr noundef readonly %salt, ptr noundef readonly %personal) local_unnamed_addr #1 {
 entry:
   %P = alloca [1 x %struct.blake2b_param_], align 16
   %0 = add i8 %outlen, -65
@@ -267,10 +267,10 @@ if.end.i:                                         ; preds = %_sodium_blake2b_ini
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %S, ptr nocapture noundef readonly %in, i64 noundef %inlen) local_unnamed_addr #1 {
+define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %S, ptr noundef readonly captures(none) %in, i64 noundef %inlen) local_unnamed_addr #1 {
 entry:
   %cmp.not27 = icmp eq i64 %inlen, 0
   br i1 %cmp.not27, label %while.end, label %while.body.lr.ph
@@ -473,7 +473,7 @@ if.end.i:                                         ; preds = %_sodium_blake2b_ini
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden range(i32 -1, 1) i32 @_sodium_blake2b_final(ptr noundef %S, ptr nocapture noundef writeonly %out, i8 noundef zeroext %outlen) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @_sodium_blake2b_final(ptr noundef %S, ptr noundef writeonly captures(none) %out, i8 noundef zeroext %outlen) local_unnamed_addr #1 {
 entry:
   %buffer = alloca [64 x i8], align 16
   %0 = add i8 %outlen, -65
@@ -971,10 +971,10 @@ declare i32 @_sodium_blake2b_compress_ssse3(ptr noundef, ptr noundef) #5
 declare i32 @_sodium_blake2b_compress_ref(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

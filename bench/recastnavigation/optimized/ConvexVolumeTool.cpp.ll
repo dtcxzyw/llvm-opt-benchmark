@@ -34,7 +34,7 @@ $_ZN16ConvexVolumeTool4typeEv = comdat any
 @_ZN16ConvexVolumeToolC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN16ConvexVolumeToolC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16ConvexVolumeToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((0, 32), (176, 180), (228, 232)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16ConvexVolumeToolC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((0, 32), (176, 180), (228, 232)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV16ConvexVolumeTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -54,14 +54,14 @@ define dso_local void @_ZN16ConvexVolumeToolC2Ev(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16ConvexVolumeTool4initEP6Sample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool4initEP6Sample(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16ConvexVolumeTool5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((176, 180), (228, 232)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((176, 180), (228, 232)) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -192,7 +192,7 @@ declare void @_Z13imguiUnindentv() local_unnamed_addr #2
 declare noundef zeroext i1 @_Z11imguiButtonPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16ConvexVolumeTool11handleClickEPKfS1_b(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool11handleClickEPKfS1_b(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
   %5 = alloca [36 x float], align 16
   %6 = alloca [72 x float], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -578,22 +578,22 @@ declare noundef i32 @_Z12rcOffsetPolyPKfifPfi(ptr noundef, i32 noundef, float no
 declare void @_ZN9InputGeom15addConvexVolumeEPKfiffh(ptr noundef nonnull align 8 dereferenceable(50312), ptr noundef, i32 noundef, float noundef, float noundef, i8 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN16ConvexVolumeTool12handleToggleEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool12handleToggleEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN16ConvexVolumeTool10handleStepEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool10handleStepEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN16ConvexVolumeTool12handleUpdateEf(ptr nocapture nonnull readnone align 8 %0, float %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool12handleUpdateEf(ptr nonnull readnone align 8 captures(none) %0, float %1) unnamed_addr #3 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
@@ -755,7 +755,7 @@ define dso_local void @_ZN16ConvexVolumeTool12handleRenderEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16ConvexVolumeTool19handleRenderOverlayEPdS0_Pi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool19handleRenderOverlayEPdS0_Pi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176

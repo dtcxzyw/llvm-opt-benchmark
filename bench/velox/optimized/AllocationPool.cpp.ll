@@ -45,7 +45,7 @@ $_ZTVSt19bad_optional_access = comdat any
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_ZNK8facebook5velox6memory14AllocationPool7rangeAtEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
+define { ptr, ptr } @_ZNK8facebook5velox6memory14AllocationPool7rangeAtEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %this, i32 noundef %index) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::optional", align 8
   %conv = sext i32 %index to i64
@@ -135,7 +135,7 @@ declare void @_ZNK8facebook5velox6memory20ContiguousAllocation13hugePageRangeEv(
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox6memory14AllocationPool5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory14AllocationPool5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %allocations_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %allocations_, align 8
@@ -342,7 +342,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory14AllocationPool18growLastAllocationEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox6memory14AllocationPool18growLastAllocationEv(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) local_unnamed_addr #0 align 2 {
 entry:
   %bytesInRun_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i64, ptr %bytesInRun_, align 8
@@ -719,7 +719,7 @@ entry:
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt19bad_optional_accessD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 {

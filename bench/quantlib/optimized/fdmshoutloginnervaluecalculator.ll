@@ -62,7 +62,7 @@ $_ZTIN8QuantLib23FdmInnerValueCalculatorE = comdat any
 @_ZN8QuantLib31FdmShoutLogInnerValueCalculatorC1ENS_6HandleINS_21BlackVolTermStructureEEEN5boost10shared_ptrINS_26EscrowedDividendAdjustmentEEEdNS5_INS_18PlainVanillaPayoffEEENS5_INS_9FdmMesherEEEm = unnamed_addr alias void (ptr, ptr, ptr, double, ptr, ptr, i64), ptr @_ZN8QuantLib31FdmShoutLogInnerValueCalculatorC2ENS_6HandleINS_21BlackVolTermStructureEEEN5boost10shared_ptrINS_26EscrowedDividendAdjustmentEEEdNS5_INS_18PlainVanillaPayoffEEENS5_INS_9FdmMesherEEEm
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -79,7 +79,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #3 align 2
@@ -201,7 +201,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib31FdmShoutLogInnerValueCalculatorC2ENS_6HandleINS_21BlackVolTermStructureEEEN5boost10shared_ptrINS_26EscrowedDividendAdjustmentEEEdNS5_INS_18PlainVanillaPayoffEEENS5_INS_9FdmMesherEEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef %blackVolatility, ptr nocapture noundef %escrowedDividendAdj, double noundef %maturity, ptr nocapture noundef %payoff, ptr nocapture noundef %mesher, i64 noundef %direction) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib31FdmShoutLogInnerValueCalculatorC2ENS_6HandleINS_21BlackVolTermStructureEEEN5boost10shared_ptrINS_26EscrowedDividendAdjustmentEEEdNS5_INS_18PlainVanillaPayoffEEENS5_INS_9FdmMesherEEEm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 88)) %this, ptr noundef captures(none) %blackVolatility, ptr noundef captures(none) %escrowedDividendAdj, double noundef %maturity, ptr noundef captures(none) %payoff, ptr noundef captures(none) %mesher, i64 noundef %direction) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib31FdmShoutLogInnerValueCalculatorE, i64 16), ptr %this, align 8, !tbaa !14
   %blackVolatility_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1029,7 +1029,7 @@ entry:
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #14
@@ -1042,7 +1042,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #4
 
@@ -1050,7 +1050,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare void @llvm.assume(i1 noundef) #17
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

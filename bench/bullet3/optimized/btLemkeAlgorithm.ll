@@ -1159,7 +1159,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc12, %for.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN16btLemkeAlgorithm26GaussJordanEliminationStepER9btMatrixXIfEiiRK20btAlignedObjectArrayIiE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(140) %this, ptr nocapture noundef nonnull align 8 dereferenceable(88) %A, i32 noundef %pivotRowIndex, i32 noundef %pivotColumnIndex, ptr nocapture noundef nonnull readnone align 8 dereferenceable(25) %basis) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN16btLemkeAlgorithm26GaussJordanEliminationStepER9btMatrixXIfEiiRK20btAlignedObjectArrayIiE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(140) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %A, i32 noundef %pivotRowIndex, i32 noundef %pivotColumnIndex, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(25) %basis) local_unnamed_addr #3 align 2 {
 entry:
   %m_cols.i = getelementptr inbounds nuw i8, ptr %A, i64 4
   %0 = load i32, ptr %m_cols.i, align 4
@@ -1313,7 +1313,7 @@ for.end36:                                        ; preds = %for.inc34, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN16btLemkeAlgorithm24findLexicographicMinimumERK9btMatrixXIfERKiS5_Rb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %A, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %pivotColIndex, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %z0Row, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %isRayTermination) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN16btLemkeAlgorithm24findLexicographicMinimumERK9btMatrixXIfERKiS5_Rb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %A, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %pivotColIndex, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %z0Row, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %isRayTermination) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %activeRows = alloca %class.btAlignedObjectArray.4, align 8
   %activeRowsCopy = alloca %class.btAlignedObjectArray.4, align 8
@@ -2120,7 +2120,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit376, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(140) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %basis) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN16btLemkeAlgorithm10validBasisERK20btAlignedObjectArrayIiE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(140) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %basis) local_unnamed_addr #4 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %basis, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -2339,7 +2339,7 @@ _ZN20btAlignedObjectArrayIfED2Ev.exit:            ; preds = %entry, %if.then.i.i
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN16btLemkeAlgorithm11greaterZeroERK9btVectorXIfE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(140) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %vector) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN16btLemkeAlgorithm11greaterZeroERK9btVectorXIfE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(140) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %vector) local_unnamed_addr #4 align 2 {
 entry:
   %m_size.i.i.i = getelementptr inbounds nuw i8, ptr %vector, i64 4
   %0 = load i32, ptr %m_size.i.i.i, align 4
@@ -2625,13 +2625,13 @@ declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferencea
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind memory(readwrite, argmem: write, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

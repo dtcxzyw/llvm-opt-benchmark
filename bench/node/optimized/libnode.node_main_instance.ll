@@ -73,7 +73,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node16NodeMainInstanceC2EPKNS_12SnapshotDataEP9uv_loop_sPNS_20MultiIsolatePlatformERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESI_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 24)) %this, ptr noundef %snapshot_data, ptr noundef %event_loop, ptr noundef %platform, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exec_args) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node16NodeMainInstanceC2EPKNS_12SnapshotDataEP9uv_loop_sPNS_20MultiIsolatePlatformERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESI_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 24)) %this, ptr noundef %snapshot_data, ptr noundef %event_loop, ptr noundef %platform, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %exec_args) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.node::IsolateSettings", align 8
   %ref.tmp18 = alloca %"class.std::unique_ptr.18", align 8
@@ -255,7 +255,7 @@ declare noundef ptr @_ZN4node17CreateIsolateDataEPN2v87IsolateEP9uv_loop_sPNS_20
 declare void @_ZNK4node12SnapshotData17AsEmbedderWrapperEv(ptr sret(%"class.std::unique_ptr.18") align 8, ptr noundef nonnull align 8 dereferenceable(416)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node16NodeMainInstanceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node16NodeMainInstanceD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(96) %this) unnamed_addr #3 align 2 {
 entry:
   %isolate_params_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %isolate_params_, align 8
@@ -431,7 +431,7 @@ _ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeE
 declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node16NodeMainInstance21CreateMainEnvironmentEPNS_8ExitCodeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.76") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef writeonly initializes((0, 4)) %exit_code) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node16NodeMainInstance21CreateMainEnvironmentEPNS_8ExitCodeE(ptr noalias writeonly sret(%"class.std::unique_ptr.76") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef writeonly captures(none) initializes((0, 4)) %exit_code) local_unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %agg.tmp9 = alloca %"class.std::unique_ptr.367", align 8
@@ -619,7 +619,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node16NodeMainInstance3RunEPNS_8ExitCodeEPNS_11EnvironmentE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %exit_code, ptr noundef %env) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node16NodeMainInstance3RunEPNS_8ExitCodeEPNS_11EnvironmentE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(none) %exit_code, ptr noundef %env) local_unnamed_addr #3 align 2 {
 entry:
   %sea = alloca %"struct.node::sea::SeaResource", align 8
   %agg.tmp11 = alloca %"class.std::function.335", align 8
@@ -694,7 +694,7 @@ declare void @_ZN2v812HeapProfiler24StartTrackingHeapObjectsEb(ptr noundef nonnu
 declare noundef ptr @_ZN4node17CreateEnvironmentEPNS_11IsolateDataEN2v85LocalINS2_7ContextEEERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EESG_NS_16EnvironmentFlags5FlagsENS_8ThreadIdESt10unique_ptrINS_21InspectorParentHandleESt14default_deleteISL_EE(ptr noundef, ptr, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i64, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare noundef zeroext i1 @_ZN4node6crypto14InitCryptoOnceEPN2v87IsolateE(ptr noundef) local_unnamed_addr #0
 

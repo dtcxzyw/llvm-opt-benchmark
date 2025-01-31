@@ -29,7 +29,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 1 %hdr) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 1 %hdr) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7Imf_3_210CompressorE, i64 16), ptr %this, align 8
   %_header = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -38,13 +38,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN7Imf_3_210CompressorD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN7Imf_3_210CompressorD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN7Imf_3_210CompressorD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define void @_ZN7Imf_3_210CompressorD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.trap() #13
   unreachable
@@ -54,13 +54,13 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK7Imf_3_210Compressor6formatEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK7Imf_3_210Compressor6formatEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7Imf_3_210Compressor12compressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr noundef nonnull align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
+define noundef i32 @_ZN7Imf_3_210Compressor12compressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
   %y = getelementptr inbounds nuw i8, ptr %range, i64 4
   %0 = load i32, ptr %y, align 4
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7Imf_3_210Compressor14uncompressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr nocapture noundef readonly %range, ptr noundef nonnull align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
+define noundef i32 @_ZN7Imf_3_210Compressor14uncompressTileEPKciN9Imath_3_23BoxINS3_4Vec2IiEEEERS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %inPtr, i32 noundef %inSize, ptr noundef readonly captures(none) %range, ptr noundef nonnull align 8 dereferenceable(8) %outPtr) unnamed_addr #7 align 2 {
 entry:
   %y = getelementptr inbounds nuw i8, ptr %range, i64 4
   %0 = load i32, ptr %y, align 4

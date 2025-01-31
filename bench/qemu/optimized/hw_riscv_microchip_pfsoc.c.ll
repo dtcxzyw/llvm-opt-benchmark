@@ -199,7 +199,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @microchip_pfsoc_soc_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @microchip_pfsoc_soc_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.33, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #4
   %realize = getelementptr inbounds nuw i8, ptr %call.i, i64 144
@@ -652,7 +652,7 @@ declare zeroext i1 @sysbus_realize_and_unref(ptr noundef, ptr noundef) local_unn
 declare void @sysbus_mmio_map_overlap(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @microchip_icicle_kit_machine_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @microchip_icicle_kit_machine_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_CLASS) #4
   %desc = getelementptr inbounds nuw i8, ptr %call.i, i64 120

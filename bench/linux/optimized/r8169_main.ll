@@ -308,7 +308,7 @@ define dso_local range(i32 -2147483648, 1) i32 @rtl8168_led_mod_ctrl(ptr noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -317,10 +317,10 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 65536) i32 @rtl8168_get_led_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 65536) i32 @rtl8168_get_led_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
@@ -363,7 +363,7 @@ define dso_local range(i32 -2147483648, 65536) i32 @rtl8168_get_led_mode(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local void @r8169_get_led_name(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
+define dso_local void @r8169_get_led_name(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 align 16 {
   %5 = alloca [8 x i8], align 8
   %6 = alloca [8 x i8], align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -423,13 +423,13 @@ define dso_local void @r8169_get_led_name(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i8 @rtl8168d_efuse_read(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i8 @rtl8168d_efuse_read(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = shl i32 %1, 8
   %4 = and i32 %3, 261888
   %5 = load ptr, ptr %0, align 8
@@ -658,7 +658,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl_init_one(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal i32 @rtl_init_one(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = tail call ptr @devm_alloc_etherdev_mqs(ptr noundef nonnull %3, i32 noundef 6824, i32 noundef 1, i32 noundef 1) #19
   %5 = icmp eq ptr %4, null
@@ -1766,7 +1766,7 @@ define internal void @rtl_shutdown(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @devm_alloc_etherdev_mqs(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -1813,7 +1813,7 @@ define internal fastcc i32 @dma_set_mask_and_coherent(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_init_rxcfg(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_init_rxcfg(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i32, ptr %2, align 8
   switch i32 %3, label %19 [
@@ -2600,7 +2600,7 @@ declare dso_local void @netif_set_tso_max_segs(ptr noundef, i32 noundef) local_u
 declare dso_local void @netdev_sw_irq_coalesce_default_on(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtl8169_set_features(ptr nocapture noundef %0, i64 noundef %1) #0 align 16 {
+define internal noundef i32 @rtl8169_set_features(ptr noundef captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 68
@@ -2748,7 +2748,7 @@ declare dso_local i32 @register_netdev(ptr noundef) local_unnamed_addr #2
 declare dso_local void @netdev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8168_driver_start(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl8168_driver_start(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
@@ -4166,7 +4166,7 @@ __skb_put.exit:                                   ; preds = %232
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @rtl8169_features_check(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define internal i64 @rtl8169_features_check(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = alloca %struct.vlan_hdr, align 4
   %5 = getelementptr i8, ptr %1, i64 2304
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -4837,7 +4837,7 @@ define internal void @rtl8169_netpoll(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal i64 @rtl8169_fix_features(ptr nocapture noundef readonly %0, i64 noundef %1) #11 align 16 {
+define internal i64 @rtl8169_fix_features(ptr noundef readonly captures(none) %0, i64 noundef %1) #11 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 2047
@@ -5100,7 +5100,7 @@ declare dso_local void @__free_pages(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local ptr @__alloc_pages(i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_writephy(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define internal void @rtl_writephy(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %179 [
@@ -5453,7 +5453,7 @@ r8169_mdio_write.exit6:                           ; preds = %187, %196, %199
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -110, 268435456) i32 @rtl_readphy(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define internal range(i32 -110, 268435456) i32 @rtl_readphy(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %68 [
@@ -5692,7 +5692,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -110, 65536) i32 @r8169_mdio_read(ptr nocapture noundef readonly %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -110, 65536) i32 @r8169_mdio_read(ptr noundef readonly captures(none) %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = shl i32 %1, 16
   %4 = and i32 %3, 2031616
   %5 = load ptr, ptr %0, align 8
@@ -6348,7 +6348,7 @@ declare dso_local void @phy_attached_info(ptr noundef) local_unnamed_addr #2
 declare dso_local void @phy_print_status(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_reset_packet_filter(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_reset_packet_filter(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 116
   tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 61660, ptr elementtype(i32) %3) #19, !srcloc !15
@@ -7294,7 +7294,7 @@ declare dso_local void @napi_disable(ptr noundef) local_unnamed_addr #2
 declare dso_local void @synchronize_net() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_enable_rxdvgate(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_enable_rxdvgate(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 240
   %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #19, !srcloc !16
@@ -7808,7 +7808,7 @@ define internal fastcc void @rtl_jumbo_config(ptr noundef %0) unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8102e_1(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8102e_1(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 209
@@ -7842,7 +7842,7 @@ define internal void @rtl_hw_start_8102e_1(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8102e_3(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8102e_3(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 82
@@ -7890,7 +7890,7 @@ define internal void @rtl_hw_start_8102e_3(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8102e_2(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8102e_2(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 82
@@ -7906,7 +7906,7 @@ define internal void @rtl_hw_start_8102e_2(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168b(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168b(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 84
   %4 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3) #19, !srcloc !24
@@ -7918,7 +7918,7 @@ define internal void @rtl_hw_start_8168b(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8401(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8401(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @__rtl_ephy_init(ptr noundef %0, ptr noundef nonnull @rtl_hw_start_8401.e_info_8401, i32 noundef 4)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 84
@@ -7931,7 +7931,7 @@ define internal void @rtl_hw_start_8401(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168cp_1(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168cp_1(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   tail call fastcc void @__rtl_ephy_init(ptr noundef %0, ptr noundef nonnull @rtl_hw_start_8168cp_1.e_info_8168cp, i32 noundef 5)
   %2 = load ptr, ptr %0, align 8
@@ -7955,7 +7955,7 @@ define internal void @rtl_hw_start_8168cp_1(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168c_1(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168c_1(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 209
@@ -7982,7 +7982,7 @@ define internal void @rtl_hw_start_8168c_1(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168c_2(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168c_2(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   tail call fastcc void @__rtl_ephy_init(ptr noundef %0, ptr noundef nonnull @rtl_hw_start_8168c_2.e_info_8168c_2, i32 noundef 2)
   %2 = load ptr, ptr %0, align 8
@@ -8006,7 +8006,7 @@ define internal void @rtl_hw_start_8168c_2(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168c_4(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168c_4(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 82
@@ -8029,7 +8029,7 @@ define internal void @rtl_hw_start_8168c_4(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168cp_2(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168cp_2(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 84
@@ -8042,7 +8042,7 @@ define internal void @rtl_hw_start_8168cp_2(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168cp_3(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168cp_3(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 84
@@ -8058,7 +8058,7 @@ define internal void @rtl_hw_start_8168cp_3(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168d(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168d(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -8067,7 +8067,7 @@ define internal void @rtl_hw_start_8168d(ptr nocapture noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168d_4(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168d_4(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   tail call fastcc void @__rtl_ephy_init(ptr noundef %0, ptr noundef nonnull @rtl_hw_start_8168d_4.e_info_8168d_4, i32 noundef 4)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8077,7 +8077,7 @@ define internal void @rtl_hw_start_8168d_4(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8105e_1(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8105e_1(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 240
   %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #19, !srcloc !16
@@ -8118,7 +8118,7 @@ define internal void @rtl_hw_start_8105e_1(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8105e_2(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8105e_2(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 240
   %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #19, !srcloc !16
@@ -8622,7 +8622,7 @@ define internal void @rtl_hw_start_8168f_1(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8402(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8402(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 240
@@ -8850,7 +8850,7 @@ define internal void @rtl_hw_start_8411(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8106(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8106(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 240
   %4 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %3) #19, !srcloc !16
@@ -8960,14 +8960,14 @@ define internal void @rtl_hw_start_8106(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168g_1(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168g_1(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_hw_start_8168g(ptr noundef %0)
   tail call fastcc void @__rtl_ephy_init(ptr noundef %0, ptr noundef nonnull @rtl_hw_start_8168g_1.e_info_8168g_1, i32 noundef 4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl_hw_start_8168g_2(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @rtl_hw_start_8168g_2(ptr noundef readonly captures(none) %0) #0 align 16 {
   tail call fastcc void @rtl_hw_start_8168g(ptr noundef %0)
   tail call fastcc void @__rtl_ephy_init(ptr noundef %0, ptr noundef nonnull @rtl_hw_start_8168g_2.e_info_8168g_2, i32 noundef 9)
   ret void
@@ -10192,7 +10192,7 @@ define internal void @rtl_hw_start_8125b(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__rtl_ephy_init(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 2, 14) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__rtl_ephy_init(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 2, 14) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
@@ -10302,7 +10302,7 @@ define internal fastcc void @__rtl_ephy_init(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_set_aspm_entry_latency(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 39, 48) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_set_aspm_entry_latency(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 39, 48) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 912
@@ -10433,7 +10433,7 @@ declare dso_local void @netdev_printk(ptr noundef, ptr noundef, ptr noundef, ...
 declare dso_local i32 @pcie_capability_clear_and_set_word_locked(ptr noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_set_fifo_size(ptr nocapture noundef readonly %0, i16 noundef zeroext range(i16 0, 17) %1, i16 noundef zeroext range(i16 0, 17) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_set_fifo_size(ptr noundef readonly captures(none) %0, i16 noundef zeroext range(i16 0, 17) %1, i16 noundef zeroext range(i16 0, 17) %2) unnamed_addr #0 align 16 {
   %4 = zext nneg i16 %1 to i32
   %5 = shl nuw nsw i32 %4, 16
   %6 = or disjoint i32 %5, 2
@@ -10512,7 +10512,7 @@ define internal fastcc void @rtl_set_fifo_size(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8168_config_eee_mac(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl8168_config_eee_mac(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 31
@@ -10955,7 +10955,7 @@ define internal fastcc void @rtl_hw_start_8168f(ptr noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_hw_start_8168g(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_hw_start_8168g(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   tail call fastcc void @rtl_set_fifo_size(ptr noundef %0, i16 noundef zeroext 8, i16 noundef zeroext 16)
   tail call fastcc void @rtl8168g_set_pause_thresholds(ptr noundef %0, i8 noundef zeroext 56, i8 noundef zeroext 72)
   tail call fastcc void @rtl_set_aspm_entry_latency(ptr noundef %0, i8 noundef zeroext 39)
@@ -11244,7 +11244,7 @@ define internal fastcc void @rtl_hw_start_8168g(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8168g_set_pause_thresholds(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 47, 57) %1, i8 noundef zeroext range(i8 72, 96) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl8168g_set_pause_thresholds(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 47, 57) %1, i8 noundef zeroext range(i8 72, 96) %2) unnamed_addr #0 align 16 {
   %4 = zext nneg i8 %1 to i32
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %5, i64 112
@@ -11322,7 +11322,7 @@ define internal fastcc void @rtl8168g_set_pause_thresholds(ptr nocapture noundef
 declare dso_local i32 @phy_read_paged(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8168ep_stop_cmac(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl8168ep_stop_cmac(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 249
   %4 = tail call i8 asm sideeffect "movb $1,$0", "=q,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3) #19, !srcloc !24
@@ -11809,7 +11809,7 @@ declare dso_local i32 @pcie_set_readrq(ptr noundef, i32 noundef) local_unnamed_a
 declare dso_local i32 @phy_start_aneg(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8169_do_counters(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 9) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl8169_do_counters(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 9) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6752
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -12174,7 +12174,7 @@ declare dso_local void @phy_stop(ptr noundef) local_unnamed_addr #2
 declare dso_local void @pci_clear_master(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl8168_driver_stop(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl8168_driver_stop(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 436
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
@@ -12457,7 +12457,7 @@ _rtl_eri_read.exit7.thread:                       ; preds = %145, %148, %150, %_
 declare dso_local i32 @phy_speed_down(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @r8168dp_oob_notify(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 5, 7) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @r8168dp_oob_notify(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 5, 7) %1) unnamed_addr #0 align 16 {
   %3 = zext nneg i8 %1 to i32
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr i8, ptr %4, i64 112
@@ -12531,7 +12531,7 @@ define internal fastcc void @r8168dp_oob_notify(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @rtl8169_tx_map(ptr nocapture noundef %0, i32 %.0.val, i32 %.4.val, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 256) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @rtl8169_tx_map(ptr noundef captures(none) %0, i32 %.0.val, i32 %.4.val, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 256) %3, i1 noundef zeroext %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %7 = load ptr, ptr %6, align 8
   %8 = zext nneg i32 %3 to i64
@@ -12627,7 +12627,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @rtl8169_tx_map(ptr nocaptu
 declare i16 @llvm.bswap.i16(i16) #13
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @rtl_quirk_packet_padto(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @rtl_quirk_packet_padto(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.vlan_hdr, align 4
   %4 = alloca %struct.ipv6hdr, align 4
   %5 = alloca %struct.iphdr, align 4
@@ -12962,7 +12962,7 @@ declare dso_local i32 @crc32_le(i32 noundef, ptr noundef, i64 noundef) local_unn
 declare dso_local i32 @eth_mac_addr(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @rtl_rar_set(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @rtl_rar_set(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6736
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %3) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 6740
@@ -13206,7 +13206,7 @@ declare dso_local void @get_random_bytes(ptr noundef, i64 noundef) local_unnamed
 declare dso_local void @dev_addr_mod(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl8169_get_drvinfo(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @rtl8169_get_drvinfo(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 9112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -13241,12 +13241,12 @@ define internal void @rtl8169_get_drvinfo(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @rtl8169_get_regs_len(ptr nocapture readnone %0) #15 align 16 {
+define internal noundef i32 @rtl8169_get_regs_len(ptr readnone captures(none) %0) #15 align 16 {
   ret i32 256
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl8169_get_regs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2) #0 align 16 {
+define internal void @rtl8169_get_regs(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2304
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -13267,7 +13267,7 @@ define internal void @rtl8169_get_regs(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @rtl8169_get_wol(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 12)) %1) #16 align 16 {
+define internal void @rtl8169_get_wol(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((4, 12)) %1) #16 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 47, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 9096
@@ -13278,7 +13278,7 @@ define internal void @rtl8169_get_wol(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @rtl8169_set_wol(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @rtl8169_set_wol(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, -48
@@ -13304,7 +13304,7 @@ declare dso_local i32 @phy_ethtool_nway_reset(ptr noundef) #2
 declare dso_local i32 @ethtool_op_get_link(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl_get_coalesce(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 align 16 {
+define internal i32 @rtl_get_coalesce(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2304
   %6 = getelementptr i8, ptr %0, i64 2736
   %7 = load i32, ptr %6, align 8
@@ -13404,7 +13404,7 @@ define internal i32 @rtl_get_coalesce(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @rtl_set_coalesce(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @rtl_set_coalesce(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 2304
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 4
@@ -13577,7 +13577,7 @@ define internal range(i32 -2147483648, 1) i32 @rtl_set_coalesce(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @rtl8169_get_ringparam(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((4, 8), (16, 24), (32, 36)) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #17 align 16 {
+define internal void @rtl8169_get_ringparam(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((4, 8), (16, 24), (32, 36)) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #17 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 256, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -13590,7 +13590,7 @@ define internal void @rtl8169_get_ringparam(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl8169_get_pauseparam(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 16)) %1) #0 align 16 {
+define internal void @rtl8169_get_pauseparam(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((4, 16)) %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #19
@@ -13621,7 +13621,7 @@ define internal void @rtl8169_get_pauseparam(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -95, 1) i32 @rtl8169_set_pauseparam(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -95, 1) i32 @rtl8169_set_pauseparam(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp ugt i32 %4, 1500
@@ -13645,7 +13645,7 @@ define internal noundef range(i32 -95, 1) i32 @rtl8169_set_pauseparam(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @rtl8169_get_strings(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #16 align 16 {
+define internal void @rtl8169_get_strings(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #16 align 16 {
   %4 = icmp eq i32 %1, 1
   br i1 %4, label %5, label %6
 
@@ -13658,7 +13658,7 @@ define internal void @rtl8169_get_strings(ptr nocapture readnone %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rtl8169_get_ethtool_stats(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 align 16 {
+define internal void @rtl8169_get_ethtool_stats(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2304
   %5 = getelementptr i8, ptr %0, i64 9064
   %6 = load ptr, ptr %5, align 8
@@ -13781,7 +13781,7 @@ rtl8169_do_counters.exit:                         ; preds = %30, %43, %40, %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef range(i32 -95, 14) i32 @rtl8169_get_sset_count(ptr nocapture readnone %0, i32 noundef %1) #15 align 16 {
+define internal noundef range(i32 -95, 14) i32 @rtl8169_get_sset_count(ptr readnone captures(none) %0, i32 noundef %1) #15 align 16 {
   %3 = icmp eq i32 %1, 1
   %4 = select i1 %3, i32 13, i32 -95
   ret i32 %4
@@ -13791,7 +13791,7 @@ define internal noundef range(i32 -95, 14) i32 @rtl8169_get_sset_count(ptr nocap
 declare dso_local i32 @ethtool_op_get_ts_info(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl8169_get_eee(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @rtl8169_get_eee(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2736
   %4 = load i32, ptr %3, align 8
   %5 = freeze i32 %4
@@ -13816,7 +13816,7 @@ define internal i32 @rtl8169_get_eee(ptr nocapture noundef readonly %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl8169_set_eee(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
+define internal i32 @rtl8169_set_eee(ptr noundef captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2736
   %4 = load i32, ptr %3, align 8
   %5 = freeze i32 %4
@@ -14295,7 +14295,7 @@ declare dso_local void @netdev_warn(ptr noundef, ptr noundef, ...) local_unnamed
 declare dso_local void @dma_sync_single_for_cpu(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #18
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #18
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @dma_sync_single_for_device(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
@@ -14313,7 +14313,7 @@ declare dso_local ptr @__napi_alloc_skb(ptr noundef, i32 noundef, i32 noundef) l
 declare dso_local ptr @dmam_alloc_attrs(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -110, 268435456) i32 @r8169_mdio_read_reg(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define internal range(i32 -110, 268435456) i32 @r8169_mdio_read_reg(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %9, label %5
 
@@ -14329,7 +14329,7 @@ define internal range(i32 -110, 268435456) i32 @r8169_mdio_read_reg(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -19, 1) i32 @r8169_mdio_write_reg(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) #0 align 16 {
+define internal noundef range(i32 -19, 1) i32 @r8169_mdio_write_reg(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) #0 align 16 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %10, label %6
 
@@ -14373,7 +14373,7 @@ declare dso_local i32 @pci_wake_from_d3(ptr noundef, i1 noundef zeroext) local_u
 declare dso_local i32 @pci_set_power_state(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtl8169_suspend(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @rtl8169_suspend(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   tail call void @rtnl_lock() #19
@@ -14416,7 +14416,7 @@ define internal noundef i32 @rtl8169_suspend(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtl8169_resume(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @rtl8169_resume(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -14473,7 +14473,7 @@ define internal noundef i32 @rtl8169_resume(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtl8169_runtime_suspend(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @rtl8169_runtime_suspend(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 456
@@ -14513,7 +14513,7 @@ define internal noundef i32 @rtl8169_runtime_suspend(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rtl8169_runtime_resume(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @rtl8169_runtime_resume(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16

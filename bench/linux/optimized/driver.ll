@@ -368,7 +368,7 @@ define dso_local ptr @cpuidle_get_cpu_driver(ptr noundef readonly %0) #4 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cpuidle_driver_state_disabled(ptr nocapture noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local void @cpuidle_driver_state_disabled(ptr noundef captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @cpuidle_lock) #6
   tail call void @_raw_spin_lock(ptr noundef nonnull @cpuidle_driver_lock) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1072

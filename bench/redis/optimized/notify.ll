@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.17 = private unnamed_addr constant [12 x i8] c"__keyevent@\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -1, 32768) i32 @keyspaceEventsStringToFlags(ptr nocapture noundef readonly %classes) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 32768) i32 @keyspaceEventsStringToFlags(ptr noundef readonly captures(none) %classes) local_unnamed_addr #0 {
 entry:
   br label %while.cond
 
@@ -290,7 +290,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %event) #5
-  %call1 = tail call ptr @createStringObject(ptr noundef %event, i64 noundef %call) #4
+  %call1 = tail call ptr @createStringObject(ptr noundef nonnull %event, i64 noundef %call) #4
   %1 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 5152), align 8
   %and2 = and i32 %1, 1
   %tobool3.not = icmp eq i32 %and2, 0
@@ -355,7 +355,7 @@ declare void @moduleNotifyKeyspaceEvent(i32 noundef, ptr noundef, ptr noundef, i
 declare ptr @createStringObject(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #2
 

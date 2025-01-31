@@ -70,7 +70,7 @@ define hidden nonnull align 8 ptr @_ZN22cranelift_codegen_meta4cdsl12instruction
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionGroupBuilder4push17h482419b3eadaaf7bE(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionGroupBuilder4push17h482419b3eadaaf7bE(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -1104,7 +1104,7 @@ define hidden { ptr, i64 } @_ZN22cranelift_codegen_meta4cdsl12instructions18Inst
 }
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN101_$LT$cranelift_codegen_meta..cdsl..instructions..InstructionContent$u20$as$u20$core..fmt..Display$GT$3fmt17ha9febf30082554bbE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define zeroext i1 @"_ZN101_$LT$cranelift_codegen_meta..cdsl..instructions..InstructionContent$u20$as$u20$core..fmt..Display$GT$3fmt17ha9febf30082554bbE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -1247,7 +1247,7 @@ define zeroext i1 @"_ZN101_$LT$cranelift_codegen_meta..cdsl..instructions..Instr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder11operands_in17hf297499cbd99b3d7E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder11operands_in17hf297499cbd99b3d7E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load i64, ptr %5, align 8, !range !8, !noundef !3
@@ -1299,7 +1299,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder12operands_out17h34e4460c57634b93E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder12operands_out17h34e4460c57634b93E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %6 = load i64, ptr %5, align 8, !range !8, !noundef !3
@@ -1351,7 +1351,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder16terminates_block17h1dd82e1dc082675aE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((104, 105)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder16terminates_block17h1dd82e1dc082675aE(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) initializes((0, 120)) %0, ptr align 8 captures(none) initializes((104, 105)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store i8 1, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1359,7 +1359,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8branches17ha7227809a9fd53d0E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((104, 106)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8branches17ha7227809a9fd53d0E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) initializes((0, 120)) %0, ptr align 8 captures(none) initializes((104, 106)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 105
   store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -1369,7 +1369,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder4call17haf5d0799157f6d3cE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((106, 107)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder4call17haf5d0799157f6d3cE(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) initializes((0, 120)) %0, ptr align 8 captures(none) initializes((106, 107)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 106
   store i8 1, ptr %3, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1377,7 +1377,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder7returns17h3c32ad3bf6375420E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((104, 105), (107, 108)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder7returns17h3c32ad3bf6375420E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) initializes((0, 120)) %0, ptr align 8 captures(none) initializes((104, 105), (107, 108)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 107
   store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -1387,7 +1387,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8can_load17h12bddac82e206e73E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((108, 109)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8can_load17h12bddac82e206e73E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) initializes((0, 120)) %0, ptr align 8 captures(none) initializes((108, 109)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 108
   store i8 1, ptr %3, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1395,7 +1395,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder9can_store17h70c162cc43e9f92cE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((109, 110)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder9can_store17h70c162cc43e9f92cE(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) initializes((0, 120)) %0, ptr align 8 captures(none) initializes((109, 110)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 109
   store i8 1, ptr %3, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1403,7 +1403,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8can_trap17h8d77f2b02efd0538E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((110, 111)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8can_trap17h8d77f2b02efd0538E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) initializes((0, 120)) %0, ptr align 8 captures(none) initializes((110, 111)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 110
   store i8 1, ptr %3, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1411,7 +1411,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder18other_side_effects17h752264637e5b2441E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((111, 112)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder18other_side_effects17h752264637e5b2441E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) initializes((0, 120)) %0, ptr align 8 captures(none) initializes((111, 112)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 111
   store i8 1, ptr %3, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1419,7 +1419,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder23side_effects_idempotent17hc1fdada7dc18a111E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((112, 113)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder23side_effects_idempotent17hc1fdada7dc18a111E(ptr writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 captures(none) initializes((0, 120)) %0, ptr align 8 captures(none) initializes((112, 113)) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   store i8 1, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1427,7 +1427,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias nocapture nonnull writeonly align 8 %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2, i64 %3, ptr nonnull align 8 %4, i64 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_ctrl_typevar_candidate17h60a5f0ddfebbcfa8E(ptr noalias nonnull writeonly align 8 captures(none) %0, ptr nonnull align 8 %1, ptr nonnull align 8 %2, i64 %3, ptr nonnull align 8 %4, i64 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca { ptr, ptr, {} }, align 8
@@ -1768,7 +1768,7 @@ define internal fastcc void @_ZN22cranelift_codegen_meta4cdsl12instructions25is_
 declare i32 @rust_eh_personality(i32, i32, i64, ptr, ptr) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hff29d85a8da6fe3aE"(ptr align 8) unnamed_addr #1
@@ -1948,10 +1948,10 @@ declare zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h29d9f
 declare hidden zeroext i1 @"_ZN83_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u20$as$u20$core..fmt..Debug$GT$3fmt17h0ca2b4fe7e1ba6fbE"(ptr align 8, ptr align 8) unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

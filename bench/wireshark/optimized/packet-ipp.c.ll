@@ -434,7 +434,7 @@ define hidden void @proto_register_ipp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @ipp_fmt_version(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @ipp_fmt_version(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = lshr i32 %1, 8
   %4 = and i32 %3, 255
   %5 = and i32 %1, 255
@@ -1522,7 +1522,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
   %560 = add i32 %.5273.i.i, 5
   %561 = add i32 %560, %.4253.i.i
   %562 = add i32 %561, %.4.i150.i
-  %563 = call fastcc i32 @ipp_fmt_collection(ptr noundef %0, ptr noundef %1, i32 noundef %562, ptr noundef %6, i32 noundef 1024)
+  %563 = call fastcc i32 @ipp_fmt_collection(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %562, ptr noundef %6, i32 noundef 1024)
   %.not.i151.i = icmp eq ptr %.10.i.i, null
   %564 = call ptr @wmem_packet_scope() #8
   br i1 %.not.i151.i, label %567, label %565
@@ -1781,7 +1781,7 @@ add_integer_tree.exit.i:                          ; preds = %.critedge.i.i, %330
 
 716:                                              ; preds = %607
   %717 = add i32 %608, %175
-  %718 = call fastcc i32 @ipp_fmt_collection(ptr noundef %0, ptr noundef %1, i32 noundef %717, ptr noundef %5, i32 noundef 176)
+  %718 = call fastcc i32 @ipp_fmt_collection(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %717, ptr noundef %5, i32 noundef 176)
   %719 = sub i32 %718, %608
   %720 = load i32, ptr @ett_ipp_member, align 4
   %721 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.6186190.i, ptr noundef %0, i32 noundef %608, i32 noundef %719, i32 noundef %720, ptr noundef null, ptr noundef nonnull @.str.363, ptr noundef nonnull %5) #8
@@ -2012,7 +2012,7 @@ parse_attributes.exit:                            ; preds = %159, %830, %147
 
 833:                                              ; preds = %parse_attributes.exit
   %834 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.1126.i) #8
-  %835 = call i32 @call_data_dissector(ptr noundef %834, ptr noundef %1, ptr noundef %49) #8
+  %835 = call i32 @call_data_dissector(ptr noundef %834, ptr noundef nonnull %1, ptr noundef %49) #8
   br label %836
 
 836:                                              ; preds = %833, %parse_attributes.exit
@@ -2041,7 +2041,7 @@ declare void @ssl_dissector_add(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare void @dissector_add_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -2078,7 +2078,7 @@ declare i32 @g_direct_equal(ptr noundef, ptr noundef) #4
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @wmem_map_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2113,7 +2113,7 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #2
 declare ptr @proto_tree_add_subtree_format(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_integer_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, ptr nocapture noundef readonly %5, i32 noundef range(i32 0, 65536) %6, i8 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc void @add_integer_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 65536) %4, ptr noundef readonly captures(none) %5, i32 noundef range(i32 0, 65536) %6, i8 noundef zeroext %7) unnamed_addr #0 {
   %9 = add i32 %3, 3
   %10 = add nuw nsw i32 %4, 2
   %11 = add i32 %10, %9
@@ -2275,7 +2275,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare noalias ptr @wmem_strconcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @proto_tree_add_boolean_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
@@ -2432,7 +2432,7 @@ declare ptr @tvb_bytes_to_str(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
 
@@ -2447,10 +2447,10 @@ declare ptr @proto_tree_add_string_format(ptr noundef, i32 noundef, ptr noundef,
 declare void @proto_item_prepend_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

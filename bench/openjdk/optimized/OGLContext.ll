@@ -616,7 +616,7 @@ define hidden i32 @OGLContext_CreateBlitTexture(i32 noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i8 @OGLContext_InitBlitTileTexture(ptr nocapture noundef writeonly initializes((48, 52)) %0) local_unnamed_addr #0 {
+define hidden noundef zeroext i8 @OGLContext_InitBlitTileTexture(ptr noundef writeonly captures(none) initializes((48, 52)) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @OGLContext_CreateBlitTexture(i32 noundef 32856, i32 noundef 6408, i32 noundef 128, i32 noundef 128)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %2, ptr %3, align 8
@@ -650,7 +650,7 @@ define hidden void @OGLContext_DestroyContextResources(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsExtensionAvailable(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -678,7 +678,7 @@ define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsExtensionAvailable(ptr nou
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %9
-  %13 = tail call i32 @strncmp(ptr noundef %1, ptr noundef %.01822, i64 noundef %8) #9
+  %13 = tail call i32 @strncmp(ptr noundef nonnull %1, ptr noundef %.01822, i64 noundef %8) #9
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %._crit_edge, label %15
 
@@ -700,16 +700,16 @@ define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsExtensionAvailable(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLContext_GetExtensionInfo(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @OGLContext_GetExtensionInfo(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -978,7 +978,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden zeroext range(i8 0, 2) i8 @OGLContext_IsVersionSupported(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -1088,7 +1088,7 @@ define hidden noundef i32 @OGLContext_CreateFragmentProgram(ptr noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_sun_java2d_opengl_OGLContext_getOGLIdString(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_sun_java2d_opengl_OGLContext_getOGLIdString(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @j2d_glGetString, align 8
   %4 = tail call ptr %3(i32 noundef 7936) #8
   %5 = icmp eq ptr %4, null
@@ -1134,10 +1134,10 @@ declare zeroext i8 @OGLSD_InitFBObject(ptr noundef, ptr noundef, i32 noundef, i3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

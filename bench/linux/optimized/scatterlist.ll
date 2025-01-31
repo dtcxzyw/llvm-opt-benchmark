@@ -165,10 +165,10 @@ define dso_local i32 @sg_nents(ptr noundef readonly %0) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
 define dso_local i32 @sg_nents_for_len(ptr noundef readonly %0, i64 noundef %1) #1 align 16 {
@@ -271,7 +271,7 @@ define dso_local noundef ptr @sg_last(ptr noundef readonly %0, i32 noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @sg_init_table(ptr nocapture noundef %0, i32 noundef %1) #4 align 16 {
+define dso_local void @sg_init_table(ptr noundef captures(none) %0, i32 noundef %1) #4 align 16 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 5
   tail call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 %4, i1 false)
@@ -286,10 +286,10 @@ define dso_local void @sg_init_table(ptr nocapture noundef %0, i32 noundef %1) #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sg_init_one(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local void @sg_init_one(ptr noundef writeonly captures(none) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -327,7 +327,7 @@ define dso_local void @sg_init_one(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__sg_free_table(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) #3 align 16 {
+define dso_local void @__sg_free_table(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #3 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %34, label %8, !prof !12
@@ -382,7 +382,7 @@ define dso_local void @__sg_free_table(ptr nocapture noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sg_free_append_table(ptr nocapture noundef %0) #3 align 16 {
+define dso_local void @sg_free_append_table(ptr noundef captures(none) %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %20, label %4, !prof !12
@@ -434,7 +434,7 @@ define dso_local void @sg_free_append_table(ptr nocapture noundef %0) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sg_free_table(ptr nocapture noundef %0) #3 align 16 {
+define dso_local void @sg_free_table(ptr noundef captures(none) %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %20, label %4, !prof !12
@@ -486,7 +486,7 @@ define dso_local void @sg_free_table(ptr nocapture noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr nocapture noundef initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr noundef captures(none) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %.thread5, label %9
@@ -585,7 +585,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @sg_alloc_table(ptr nocapture noundef initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sg_alloc_table(ptr noundef captures(none) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.thread, label %5, !prof !20
@@ -692,7 +692,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sg_alloc_table(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sg_alloc_append_table_from_pages(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #3 align 16 {
+define dso_local i32 @sg_alloc_append_table_from_pages(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) #3 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = and i32 %5, -4096
@@ -1052,7 +1052,7 @@ define dso_local i32 @sg_alloc_append_table_from_pages(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sg_alloc_table_from_pages_segment(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #3 align 16 {
+define dso_local i32 @sg_alloc_table_from_pages_segment(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6) #3 align 16 {
   %8 = alloca %struct.sg_append_table, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
@@ -1122,7 +1122,7 @@ define dso_local i32 @sg_alloc_table_from_pages_segment(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @sgl_alloc_order(i64 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef writeonly %4) #3 align 16 {
@@ -1450,7 +1450,7 @@ define dso_local void @sgl_free(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @__sg_page_iter_start(ptr nocapture noundef writeonly initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #8 align 16 {
+define dso_local void @__sg_page_iter_start(ptr noundef writeonly captures(none) initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #8 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -1463,7 +1463,7 @@ define dso_local void @__sg_page_iter_start(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @__sg_page_iter_next(ptr nocapture noundef %0) #9 align 16 {
+define dso_local noundef zeroext i1 @__sg_page_iter_next(ptr noundef captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1540,7 +1540,7 @@ define dso_local noundef zeroext i1 @__sg_page_iter_next(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @__sg_page_iter_dma_next(ptr nocapture noundef %0) #9 align 16 {
+define dso_local noundef zeroext i1 @__sg_page_iter_dma_next(ptr noundef captures(none) %0) #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1617,7 +1617,7 @@ define dso_local noundef zeroext i1 @__sg_page_iter_dma_next(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sg_miter_start(ptr nocapture noundef writeonly initializes((0, 72)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local void @sg_miter_start(ptr noundef writeonly captures(none) initializes((0, 72)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #3 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
@@ -1640,7 +1640,7 @@ define dso_local void @sg_miter_start(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @sg_miter_skip(ptr nocapture noundef %0, i64 noundef %1) #3 align 16 {
+define dso_local noundef zeroext i1 @sg_miter_skip(ptr noundef captures(none) %0, i64 noundef %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1744,7 +1744,7 @@ sg_miter_stop.exit:                               ; preds = %9, %42
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sg_miter_stop(ptr nocapture noundef %0) #3 align 16 {
+define dso_local void @sg_miter_stop(ptr noundef captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1822,7 +1822,7 @@ define dso_local void @sg_miter_stop(ptr nocapture noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef zeroext i1 @sg_miter_get_next_page(ptr nocapture noundef %0) unnamed_addr #9 align 16 {
+define internal fastcc noundef zeroext i1 @sg_miter_get_next_page(ptr noundef captures(none) %0) unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -1928,7 +1928,7 @@ define internal fastcc noundef zeroext i1 @sg_miter_get_next_page(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @sg_miter_next(ptr nocapture noundef %0) #3 align 16 {
+define dso_local noundef zeroext i1 @sg_miter_next(ptr noundef captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2063,7 +2063,7 @@ sg_miter_stop.exit:                               ; preds = %8, %41
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %5) #3 align 16 {
   %7 = alloca %struct.sg_mapping_iter, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #16
   %8 = select i1 %5, i32 5, i32 3
@@ -2299,25 +2299,25 @@ define dso_local range(i64 0, 4294967296) i64 @sg_copy_buffer(ptr noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 4294967296) i64 @sg_copy_from_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_copy_from_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) #3 align 16 {
   %5 = tail call i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0, i1 noundef zeroext false), !range !57
   ret i64 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 4294967296) i64 @sg_copy_to_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_copy_to_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) #3 align 16 {
   %5 = tail call i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef 0, i1 noundef zeroext true), !range !57
   ret i64 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 4294967296) i64 @sg_pcopy_from_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_pcopy_from_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, i64 noundef %4) #3 align 16 {
   %6 = tail call i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext false), !range !57
   ret i64 %6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 0, 4294967296) i64 @sg_pcopy_to_buffer(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i64 noundef %4) #3 align 16 {
+define dso_local range(i64 0, 4294967296) i64 @sg_pcopy_to_buffer(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, i64 noundef %4) #3 align 16 {
   %6 = tail call i64 @sg_copy_buffer(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext true), !range !57
   ret i64 %6
 }
@@ -2534,7 +2534,7 @@ define dso_local range(i64 0, 4294967296) i64 @sg_zero_buffer(ptr noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #3 align 16 {
+define dso_local i64 @extract_iter_to_sg(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #3 align 16 {
   %6 = alloca %struct.xa_state, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8

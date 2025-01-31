@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [6 x i8] c"added\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_cf_def_get_host(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @Curl_cf_def_get_host(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -46,12 +46,12 @@ define dso_local void @Curl_cf_def_get_host(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @Curl_cf_def_adjust_pollset(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
+define dso_local void @Curl_cf_def_adjust_pollset(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @Curl_cf_def_data_pending(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @Curl_cf_def_data_pending(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -70,7 +70,7 @@ define dso_local zeroext i1 @Curl_cf_def_data_pending(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @Curl_cf_def_send(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i64 @Curl_cf_def_send(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -89,7 +89,7 @@ define dso_local i64 @Curl_cf_def_send(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @Curl_cf_def_recv(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i64 @Curl_cf_def_recv(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -108,7 +108,7 @@ define dso_local i64 @Curl_cf_def_recv(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @Curl_cf_def_conn_is_alive(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @Curl_cf_def_conn_is_alive(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -127,7 +127,7 @@ define dso_local zeroext i1 @Curl_cf_def_conn_is_alive(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cf_def_conn_keep_alive(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @Curl_cf_def_conn_keep_alive(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -146,7 +146,7 @@ define dso_local i32 @Curl_cf_def_conn_keep_alive(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cf_def_query(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @Curl_cf_def_query(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -165,7 +165,7 @@ define dso_local i32 @Curl_cf_def_query(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_conn_cf_discard_chain(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_conn_cf_discard_chain(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %4
@@ -193,7 +193,7 @@ define dso_local void @Curl_conn_cf_discard_chain(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_conn_cf_discard_all(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @Curl_conn_cf_discard_all(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %5
@@ -332,7 +332,7 @@ define dso_local i64 @Curl_conn_send(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_cf_create(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_cf_create(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @Curl_ccalloc, align 8
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 40) #11
   %.not = icmp eq ptr %5, null
@@ -391,7 +391,7 @@ define dso_local void @Curl_conn_cf_add(ptr noundef %0, ptr noundef %1, i32 noun
 declare void @Curl_trc_cf_infof(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Curl_conn_cf_insert_after(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local void @Curl_conn_cf_insert_after(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   store ptr %1, ptr %3, align 8
@@ -592,7 +592,7 @@ define dso_local i32 @Curl_conn_connect(ptr noundef %0, i32 noundef %1, i1 nound
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %.lr.ph.split.us.i.us.i.i
-  %38 = tail call i32 %35(ptr noundef nonnull %.01218.us.i.us.i.i, ptr noundef %0, i32 noundef 256, i32 noundef 0, ptr noundef null) #11
+  %38 = tail call i32 %35(ptr noundef nonnull %.01218.us.i.us.i.i, ptr noundef nonnull %0, i32 noundef 256, i32 noundef 0, ptr noundef null) #11
   br label %39
 
 39:                                               ; preds = %37, %.lr.ph.split.us.i.us.i.i
@@ -718,7 +718,7 @@ conn_report_connect_stats.exit31:                 ; preds = %.critedge, %84, %94
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_conn_ev_update_info(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @Curl_conn_ev_update_info(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 432
   br label %.split.us.i
 
@@ -758,7 +758,7 @@ cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.
 declare { i64, i32 } @Curl_now() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @Curl_conn_is_connected(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local zeroext i1 @Curl_conn_is_connected(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [2 x ptr], ptr %3, i64 0, i64 %4
@@ -779,7 +779,7 @@ define dso_local zeroext i1 @Curl_conn_is_connected(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @Curl_conn_is_ip_connected(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @Curl_conn_is_ip_connected(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 432
@@ -1103,7 +1103,7 @@ define dso_local void @Curl_conn_get_host(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @Curl_cf_def_cntrl(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture readnone %4) #1 {
+define dso_local noundef i32 @Curl_cf_def_cntrl(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3, ptr readnone captures(none) %4) #1 {
   ret i32 0
 }
 
@@ -1275,7 +1275,7 @@ Curl_conn_cf_cntrl.exit:                          ; preds = %Curl_conn_cf_cntrl.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_conn_ev_data_attach(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_conn_ev_data_attach(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %.split.us.i
 
@@ -1313,7 +1313,7 @@ cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_conn_ev_data_detach(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_conn_ev_data_detach(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   br label %.split.us.i
 
@@ -1559,7 +1559,7 @@ cf_cntrl_all.exit:                                ; preds = %Curl_conn_cf_cntrl.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @Curl_conn_is_alive(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @Curl_conn_is_alive(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1587,7 +1587,7 @@ define dso_local zeroext i1 @Curl_conn_is_alive(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_conn_keep_alive(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @Curl_conn_keep_alive(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %5 = sext i32 %2 to i64
   %6 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 %5
@@ -1608,7 +1608,7 @@ define dso_local i32 @Curl_conn_keep_alive(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concurrent(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concurrent(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 432
@@ -1638,7 +1638,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_pollset_reset(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #6 {
+define dso_local void @Curl_pollset_reset(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1, i8 -1, i64 20, i1 false)
@@ -1646,10 +1646,10 @@ define dso_local void @Curl_pollset_reset(ptr nocapture noundef readnone %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @Curl_pollset_change(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
+define dso_local void @Curl_pollset_change(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #8 {
   %6 = icmp sgt i32 %2, -1
   br i1 %6, label %.preheader, label %47
 
@@ -1741,10 +1741,10 @@ define dso_local void @Curl_pollset_change(ptr nocapture noundef readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @Curl_pollset_set(ptr nocapture noundef readnone %0, ptr nocapture noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #8 {
+define dso_local void @Curl_pollset_set(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #8 {
   %6 = zext i1 %3 to i32
   %7 = select i1 %4, i32 2, i32 0
   %8 = or disjoint i32 %7, %6
@@ -1842,7 +1842,7 @@ Curl_pollset_change.exit:                         ; preds = %5, %19, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @Curl_pollset_add_socks(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [5 x i32], align 16
   %5 = call i32 %2(ptr noundef %0, ptr noundef nonnull %4) #11
   %.not.i = icmp eq i32 %5, 0
@@ -2013,7 +2013,7 @@ ps_add.exit:                                      ; preds = %8, %14, %Curl_polls
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @Curl_pollset_check(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #8 {
+define dso_local void @Curl_pollset_check(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #8 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
@@ -2059,10 +2059,10 @@ define dso_local void @Curl_pollset_check(ptr nocapture noundef readnone %0, ptr
 declare void @Curl_pgrsTimeWas(ptr noundef, i32 noundef, i64, i32) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

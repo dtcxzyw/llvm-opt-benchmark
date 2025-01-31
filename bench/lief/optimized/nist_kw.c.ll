@@ -28,13 +28,13 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_nist_kw_init(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_nist_kw_init(ptr noundef writeonly captures(none) initializes((0, 96)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @mbedtls_nist_kw_setkey(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
@@ -87,7 +87,7 @@ define hidden void @mbedtls_nist_kw_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca [16 x i8], align 16
   %10 = alloca [16 x i8], align 16
@@ -243,15 +243,15 @@ calc_a_xor_t.exit:                                ; preds = %63
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @mbedtls_cipher_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(none) initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca [8 x i8], align 8
   %10 = alloca i8, align 1
@@ -410,7 +410,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 2, 18014398509481985) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) unnamed_addr #2 {
+define internal fastcc i32 @unwrap(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 2, 18014398509481985) %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16
@@ -781,13 +781,13 @@ mbedtls_nist_kw_setkey.exit96.thread:             ; preds = %86, %83, %80, %mbed
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7

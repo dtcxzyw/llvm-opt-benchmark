@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_f_to_c_table = external global %struct.opal_pointer_array_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_pml_ob1_isend_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_pml_ob1_isend_init(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 312
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 224
@@ -698,7 +698,7 @@ opal_free_list_wait_st.exit:                      ; preds = %107, %137, %opal_fr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_pml_ob1_isend(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define i32 @mca_pml_ob1_isend(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 312
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 224
@@ -1228,7 +1228,7 @@ opal_convertor_get_packed_size.exit175:           ; preds = %270, %opal_thread_a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef readonly %8) unnamed_addr #0 {
+define internal fastcc i32 @mca_pml_ob1_send_inline(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef signext %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull captures(none) %7, ptr noundef readonly captures(none) %8) unnamed_addr #0 {
   %10 = alloca %struct.mca_pml_ob1_match_hdr_t, align 4
   %11 = alloca %struct.opal_convertor_t, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 88
@@ -2645,7 +2645,7 @@ declare i64 @opal_convertor_compute_remote_size(ptr noundef) local_unnamed_addr 
 declare void @opal_class_initialize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @mca_pml_base_bsend_request_start(ptr noundef) local_unnamed_addr #2
 
@@ -2690,13 +2690,13 @@ declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #3
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #7

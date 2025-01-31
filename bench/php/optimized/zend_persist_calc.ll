@@ -1997,7 +1997,7 @@ declare ptr @accel_new_interned_string(ptr noundef) local_unnamed_addr #1
 declare void @llvm.assume(i1 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_zval_calc(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @zend_persist_zval_calc(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   switch i8 %3, label %.loopexit [
@@ -2635,7 +2635,7 @@ zend_hash_persist_calc.exit:                      ; preds = %zend_hash_persist_c
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_persist_warnings_calc(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @zend_persist_warnings_calc(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = shl nuw nsw i64 %3, 3
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @accel_globals, i64 376), align 8
@@ -4086,7 +4086,7 @@ declare zeroext i1 @zend_accel_in_shm(ptr noundef) local_unnamed_addr #1
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_ast_calc(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @zend_persist_ast_calc(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = load i16, ptr %0, align 8
   %3 = zext i16 %2 to i32
   %4 = and i16 %2, -2
@@ -4307,7 +4307,7 @@ define internal fastcc void @zend_persist_type_calc(ptr noundef %0) unnamed_addr
 declare i64 @zend_extensions_op_array_persist_calc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

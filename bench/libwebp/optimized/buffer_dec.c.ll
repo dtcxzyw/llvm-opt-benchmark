@@ -373,7 +373,7 @@ define range(i32 0, 2) i32 @WebPInitDecBufferInternal(ptr noundef writeonly %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define void @WebPFreeDecBuffer(ptr noundef %0) local_unnamed_addr #1 {
@@ -429,7 +429,7 @@ define hidden void @WebPCopyDecBuffer(ptr noundef readonly %0, ptr noundef write
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @WebPGrabDecBuffer(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
@@ -456,7 +456,7 @@ define hidden void @WebPGrabDecBuffer(ptr noundef %0, ptr noundef writeonly %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 12)) %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr noundef readonly captures(none) %0, ptr noundef captures(none) initializes((4, 12)) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -562,7 +562,7 @@ WebPIsAlphaMode.exit.thread:                      ; preds = %28, %28, %28, %28, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef readonly %0) unnamed_addr #6 {
+define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr noundef readonly captures(none) %0) unnamed_addr #6 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -699,7 +699,7 @@ define internal fastcc range(i32 0, 3) i32 @CheckDecBuffer(ptr nocapture noundef
 declare void @WebPCopyPlane(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @WebPAvoidSlowMemory(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @WebPAvoidSlowMemory(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 1

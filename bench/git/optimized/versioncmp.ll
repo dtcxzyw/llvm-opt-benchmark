@@ -155,7 +155,7 @@ for.body.preheader.i.i:                           ; preds = %for.body.i
 for.body.i.i:                                     ; preds = %for.inc.i.i, %for.body.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %15, %for.body.preheader.i.i ], [ %indvars.iv.next.i.i, %for.inc.i.i ]
   %add.ptr.i.i = getelementptr inbounds i8, ptr %s1, i64 %indvars.iv.i.i
-  %call.i.i = call i32 @starts_with(ptr noundef nonnull %add.ptr.i.i, ptr noundef %14) #3
+  %call.i.i = call i32 @starts_with(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull %14) #3
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
   br i1 %tobool.not.i.i, label %for.inc.i.i, label %if.then.i.i
 
@@ -188,7 +188,7 @@ for.body.preheader.i25.i:                         ; preds = %find_better_matchin
 for.body.i26.i:                                   ; preds = %for.inc.i33.i, %for.body.preheader.i25.i
   %indvars.iv.i27.i = phi i64 [ %19, %for.body.preheader.i25.i ], [ %indvars.iv.next.i34.i, %for.inc.i33.i ]
   %add.ptr.i28.i = getelementptr inbounds i8, ptr %s2, i64 %indvars.iv.i27.i
-  %call.i29.i = call i32 @starts_with(ptr noundef nonnull %add.ptr.i28.i, ptr noundef %14) #3
+  %call.i29.i = call i32 @starts_with(ptr noundef nonnull %add.ptr.i28.i, ptr noundef nonnull %14) #3
   %tobool.not.i30.i = icmp eq i32 %call.i29.i, 0
   br i1 %tobool.not.i30.i, label %for.inc.i33.i, label %if.then.i31.i
 
@@ -296,7 +296,7 @@ declare i32 @git_config_get_string_multi(ptr noundef, ptr noundef) local_unnamed
 declare void @warning(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #1
 

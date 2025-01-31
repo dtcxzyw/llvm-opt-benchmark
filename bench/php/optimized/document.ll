@@ -114,7 +114,7 @@ declare ptr @xmlGetIntSubset(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_implementation_read(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_implementation_read(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @php_dom_create_implementation(ptr noundef %1) #11
   ret i32 0
 }
@@ -153,7 +153,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_element_read(ptr nound
 declare ptr @xmlDocGetRootElement(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_document_encoding_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_encoding_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -200,10 +200,10 @@ define hidden range(i32 -1, 1) i32 @dom_document_encoding_read(ptr noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_document_encoding_write(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_encoding_write(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -260,7 +260,7 @@ declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #1
 declare void @zend_value_error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_document_standalone_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_standalone_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -320,7 +320,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_standalone_write(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_document_version_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_version_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -442,7 +442,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_version_write(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_strict_error_checking_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_strict_error_checking_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -458,7 +458,7 @@ define hidden noundef i32 @dom_document_strict_error_checking_read(ptr nocapture
 declare ptr @dom_get_doc_props_read_only(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_strict_error_checking_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_strict_error_checking_write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -482,7 +482,7 @@ declare ptr @dom_get_doc_props(ptr noundef) local_unnamed_addr #1
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_format_output_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_format_output_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -496,7 +496,7 @@ define hidden noundef i32 @dom_document_format_output_read(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_format_output_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_format_output_write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -516,7 +516,7 @@ define hidden noundef i32 @dom_document_format_output_write(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_validate_on_parse_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_validate_on_parse_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -530,7 +530,7 @@ define hidden noundef i32 @dom_document_validate_on_parse_read(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_validate_on_parse_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_validate_on_parse_write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -550,7 +550,7 @@ define hidden noundef i32 @dom_document_validate_on_parse_write(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_resolve_externals_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_resolve_externals_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -564,7 +564,7 @@ define hidden noundef i32 @dom_document_resolve_externals_read(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_resolve_externals_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_resolve_externals_write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -584,7 +584,7 @@ define hidden noundef i32 @dom_document_resolve_externals_write(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_preserve_whitespace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_preserve_whitespace_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -598,7 +598,7 @@ define hidden noundef i32 @dom_document_preserve_whitespace_read(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_preserve_whitespace_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_preserve_whitespace_write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -618,7 +618,7 @@ define hidden noundef i32 @dom_document_preserve_whitespace_write(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_recover_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_recover_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -632,7 +632,7 @@ define hidden noundef i32 @dom_document_recover_read(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_recover_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_recover_write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -652,7 +652,7 @@ define hidden noundef i32 @dom_document_recover_write(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_substitue_entities_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_substitue_entities_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -666,7 +666,7 @@ define hidden noundef i32 @dom_document_substitue_entities_read(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_substitue_entities_write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_substitue_entities_write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -686,7 +686,7 @@ define hidden noundef i32 @dom_document_substitue_entities_write(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @dom_document_document_uri_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @dom_document_document_uri_read(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @dom_object_get_node(ptr noundef %0) #11
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
@@ -808,14 +808,14 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_uri_write(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @dom_document_config_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #3 {
+define hidden noundef i32 @dom_document_config_read(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_createElement(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_createElement(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -905,7 +905,7 @@ declare i32 @dom_get_strict_error(ptr noundef) local_unnamed_addr #1
 declare ptr @xmlNewDocNode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_createDocumentFragment(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_createDocumentFragment(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -964,7 +964,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare ptr @xmlNewDocFragment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_createTextNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_createTextNode(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1024,7 +1024,7 @@ define hidden void @zim_DOM_Document_createTextNode(ptr nocapture noundef readon
 declare ptr @xmlNewDocText(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_createComment(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_createComment(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1084,7 +1084,7 @@ define hidden void @zim_DOM_Document_createComment(ptr nocapture noundef readonl
 declare ptr @xmlNewDocComment(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_createCDATASection(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_createCDATASection(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1146,7 +1146,7 @@ define hidden void @zim_DOM_Document_createCDATASection(ptr nocapture noundef re
 declare ptr @xmlNewCDataBlock(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_createProcessingInstruction(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_createProcessingInstruction(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1228,7 +1228,7 @@ define hidden void @zim_DOM_Document_createProcessingInstruction(ptr nocapture n
 declare ptr @xmlNewPI(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_createAttribute(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_createAttribute(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1303,7 +1303,7 @@ define hidden void @zim_DOM_Document_createAttribute(ptr nocapture noundef reado
 declare ptr @xmlNewDocProp(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_createEntityReference(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_createEntityReference(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1378,7 +1378,7 @@ define hidden void @zim_DOMDocument_createEntityReference(ptr nocapture noundef 
 declare ptr @xmlNewReference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_getElementsByTagName(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_getElementsByTagName(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1431,7 +1431,7 @@ declare void @php_dom_create_iterator(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @dom_namednode_iter(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_importNode(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_importNode(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
@@ -1599,7 +1599,7 @@ declare ptr @dom_get_ns(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loca
 declare void @xmlSetNs(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_createElementNS(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_createElementNS(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -1749,7 +1749,7 @@ declare i32 @dom_check_qname(ptr noundef, ptr noundef, ptr noundef, i32 noundef,
 declare void @xmlFreeNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_createAttributeNS(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_createAttributeNS(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -2044,7 +2044,7 @@ declare ptr @dom_get_ns_unchecked(ptr noundef, ptr noundef, ptr noundef) local_u
 declare void @xmlFreeProp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_getElementsByTagNameNS(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_getElementsByTagNameNS(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -2099,7 +2099,7 @@ define hidden void @zim_DOM_Document_getElementsByTagNameNS(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_getElementById(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_getElementById(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2170,7 +2170,7 @@ declare ptr @xmlGetID(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @php_dom_is_node_connected(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @php_dom_adopt_node(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @php_dom_adopt_node(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -2243,7 +2243,7 @@ define hidden noundef zeroext i1 @php_dom_adopt_node(ptr noundef %0, ptr nocaptu
 declare i32 @xmlDOMWrapAdoptNode(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_dom_transfer_document_ref(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @php_dom_transfer_document_ref(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2322,7 +2322,7 @@ define internal fastcc void @php_dom_transfer_document_ref(ptr nocapture noundef
 declare void @xmlUnlinkNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_adoptNode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_adoptNode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2484,7 +2484,7 @@ php_dom_adopt_node.exit:                          ; preds = %73
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_normalizeDocument(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_normalizeDocument(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2542,7 +2542,7 @@ define hidden void @zim_DOM_Document_normalizeDocument(ptr nocapture noundef rea
 declare void @dom_normalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument___construct(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument___construct(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -2685,7 +2685,7 @@ declare ptr @xmlURIEscapeStr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @xmlParseURIReference(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @tsrm_realpath(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2741,7 +2741,7 @@ define hidden ptr @dom_document_parser(ptr noundef readonly %0, i32 noundef %1, 
   br label %.thread
 
 38:                                               ; preds = %35
-  %39 = call ptr @_dom_get_valid_file_path(ptr noundef %2, ptr noundef nonnull %7, i32 poison)
+  %39 = call ptr @_dom_get_valid_file_path(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 poison)
   %.not92 = icmp eq ptr %39, null
   br i1 %.not92, label %.thread, label %40
 
@@ -2960,13 +2960,13 @@ declare void @xmlFreeDoc(ptr noundef) local_unnamed_addr #1
 declare void @xmlFreeParserCtxt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_load(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_load(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @dom_parse_document(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_parse_document(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @dom_parse_document(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3029,13 +3029,13 @@ define internal fastcc void @dom_parse_document(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_loadXML(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_loadXML(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @dom_parse_document(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_save(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_save(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -3145,7 +3145,7 @@ declare ptr @__xmlSaveNoEmptyTags() local_unnamed_addr #1
 declare i32 @xmlSaveFormatFileEnc(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_saveXML(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_saveXML(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %3, align 8
@@ -3371,7 +3371,7 @@ declare ptr @xmlBufferContent(ptr noundef) local_unnamed_addr #1
 declare i32 @xmlBufferLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_xinclude(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_xinclude(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3585,7 +3585,7 @@ define internal fastcc void @php_dom_remove_xinclude_nodes(ptr noundef %0) unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_validate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3667,13 +3667,13 @@ declare i32 @xmlValidateDocument(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @xmlFreeValidCtxt(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_schemaValidate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_schemaValidate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @_dom_document_schema_validate(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @_dom_document_schema_validate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -3764,7 +3764,7 @@ define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef
   br label %117
 
 58:                                               ; preds = %47
-  %59 = call ptr @_dom_get_valid_file_path(ptr noundef %45, ptr noundef nonnull %7, i32 poison)
+  %59 = call ptr @_dom_get_valid_file_path(ptr noundef nonnull %45, ptr noundef nonnull %7, i32 poison)
   %.not62 = icmp eq ptr %59, null
   br i1 %.not62, label %60, label %68
 
@@ -3881,19 +3881,19 @@ define internal fastcc void @_dom_document_schema_validate(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_schemaValidateSource(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_schemaValidateSource(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @_dom_document_schema_validate(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_relaxNGValidate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_relaxNGValidate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @_dom_document_relaxNG_validate(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @_dom_document_relaxNG_validate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca [4097 x i8], align 16
@@ -3961,7 +3961,7 @@ define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture nounde
   br label %81
 
 40:                                               ; preds = %35
-  %41 = call ptr @_dom_get_valid_file_path(ptr noundef %34, ptr noundef nonnull %6, i32 poison)
+  %41 = call ptr @_dom_get_valid_file_path(ptr noundef nonnull %34, ptr noundef nonnull %6, i32 poison)
   %.not40 = icmp eq ptr %41, null
   br i1 %.not40, label %42, label %44
 
@@ -4050,19 +4050,19 @@ define internal fastcc void @_dom_document_relaxNG_validate(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_relaxNGValidateSource(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_relaxNGValidateSource(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @_dom_document_relaxNG_validate(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_loadHTMLFile(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_loadHTMLFile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @dom_load_html(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @dom_load_html(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
@@ -4122,7 +4122,7 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
   br label %69
 
 32:                                               ; preds = %26
-  %33 = call ptr @htmlCreateFileParserCtxt(ptr noundef %27, ptr noundef null) #11
+  %33 = call ptr @htmlCreateFileParserCtxt(ptr noundef nonnull %27, ptr noundef null) #11
   br label %42
 
 34:                                               ; preds = %25
@@ -4205,13 +4205,13 @@ define internal fastcc void @dom_load_html(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_loadHTML(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_loadHTML(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   tail call fastcc void @dom_load_html(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_saveHTMLFile(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_saveHTMLFile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4294,7 +4294,7 @@ declare ptr @htmlGetMetaEncoding(ptr noundef) local_unnamed_addr #1
 declare i32 @htmlSaveFileFormat(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOMDocument_saveHTML(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOMDocument_saveHTML(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -4544,7 +4544,7 @@ declare i32 @xmlOutputBufferClose(ptr noundef) local_unnamed_addr #1
 declare void @htmlDocDumpMemoryFormat(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_registerNodeClass(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_registerNodeClass(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @dom_node_class_entry, align 8
@@ -4661,7 +4661,7 @@ declare void @dom_set_doc_classmap(ptr noundef, ptr noundef, ptr noundef) local_
 declare void @zend_argument_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_DOM_Document_replaceChildren(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden void @zim_DOM_Document_replaceChildren(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
@@ -4710,7 +4710,7 @@ define hidden void @zim_DOM_Document_replaceChildren(ptr nocapture noundef reado
 declare void @dom_parent_node_replace_children(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #8
@@ -4722,7 +4722,7 @@ declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #1
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_dom_finish_loading_document(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_dom_finish_loading_document(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((8, 12)) %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %40, label %4
 
@@ -4857,7 +4857,7 @@ declare zeroext i1 @instanceof_function_slow(ptr noundef, ptr noundef) local_unn
 declare i32 @llvm.scmp.i32.i64(i64, i64) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -23,7 +23,7 @@ define void @MPL_sockaddr_set_aftype(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @MPL_get_sockaddr(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 128)) %1) local_unnamed_addr #1 {
+define i32 @MPL_get_sockaddr(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 128)) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.addrinfo, align 8
   %4 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
@@ -70,18 +70,18 @@ define i32 @MPL_get_sockaddr(ptr noundef %0, ptr nocapture noundef writeonly ini
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @getaddrinfo(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @MPL_get_sockaddr_direct(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 128)) %1) local_unnamed_addr #6 {
+define noundef i32 @MPL_get_sockaddr_direct(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 128)) %1) local_unnamed_addr #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %3 = load i32, ptr @af_type, align 4
   switch i32 %3, label %16 [
@@ -127,7 +127,7 @@ define noundef i32 @MPL_get_sockaddr_direct(i32 noundef %0, ptr nocapture nounde
 declare i32 @htonl(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @MPL_get_sockaddr_iface(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 128)) %1) local_unnamed_addr #1 {
+define i32 @MPL_get_sockaddr_iface(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 128)) %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %1, i8 0, i64 128, i1 false)
   %4 = call i32 @getifaddrs(ptr noundef nonnull %3) #12
@@ -326,7 +326,7 @@ is_localhost.exit.thread:                         ; preds = %is_localhost.exit, 
 declare i32 @getifaddrs(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind
 declare void @freeifaddrs(ptr noundef) local_unnamed_addr #5
@@ -444,7 +444,7 @@ declare i32 @bind(i32 noundef, ptr, i32 noundef) local_unnamed_addr #5
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @MPL_listen_anyport(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
+define i32 @MPL_listen_anyport(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.sockaddr_storage, align 8
   %4 = alloca i32, align 4
   %5 = load i32, ptr @_use_loopback, align 4
@@ -530,7 +530,7 @@ declare i32 @getsockname(i32 noundef, ptr, ptr noundef) local_unnamed_addr #5
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define i32 @MPL_listen_portrange(i32 noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define i32 @MPL_listen_portrange(i32 noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
 MPL_get_sockaddr_direct.exit:
   %.not1319 = icmp sgt i32 %2, %3
   br i1 %.not1319, label %.thread, label %.lr.ph
@@ -568,7 +568,7 @@ MPL_get_sockaddr_direct.exit:
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @MPL_sockaddr_to_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #9 {
+define noundef i32 @MPL_sockaddr_to_str(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = load i16, ptr %0, align 8
   switch i16 %4, label %71 [
     i16 2, label %5
@@ -650,10 +650,10 @@ define noundef i32 @MPL_sockaddr_to_str(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @MPL_sockaddr_port(ptr nocapture noundef readonly %0) local_unnamed_addr #11 {
+define range(i32 0, 65536) i32 @MPL_sockaddr_port(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
   %2 = load i16, ptr %0, align 8
   switch i16 %2, label %7 [
     i16 2, label %.sink.split

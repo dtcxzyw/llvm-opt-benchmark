@@ -126,7 +126,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @module_traverse(ptr noundef %mod, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal noundef i32 @module_traverse(ptr noundef %mod, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #7
   %0 = getelementptr i8, ptr %call.i, i64 8
@@ -203,7 +203,7 @@ clear_module_state.exit:                          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interp_create(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal ptr @interp_create(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %isolated = alloca i32, align 4
   %config = alloca %struct.PyInterpreterConfig, align 4
@@ -292,7 +292,7 @@ return:                                           ; preds = %entry, %if.end21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @interp_destroy(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal noundef ptr @interp_destroy(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %id = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull @.str.18, ptr noundef nonnull @interp_destroy.kwlist, ptr noundef nonnull %id) #7
@@ -344,7 +344,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interp_list_all(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @interp_list_all(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyList_New(i64 noundef 0) #7
   %cmp = icmp eq ptr %call, null
@@ -431,7 +431,7 @@ return:                                           ; preds = %if.end10, %return.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interp_get_current(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @interp_get_current(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyInterpreterState_Get() #7
   %cmp = icmp eq ptr %call.i, null
@@ -457,14 +457,14 @@ return:                                           ; preds = %if.end4.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interp_get_main(ptr nocapture readnone %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @interp_get_main(ptr readnone captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyLong_FromLongLong(i64 noundef 0) #7
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interp_is_running(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal ptr @interp_is_running(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %id = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull @.str.24, ptr noundef nonnull @interp_is_running.kwlist, ptr noundef nonnull %id) #7
@@ -489,7 +489,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interp_exec(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal ptr @interp_exec(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %id = alloca ptr, align 8
   %code = alloca ptr, align 8
@@ -591,7 +591,7 @@ return:                                           ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interp_run_string(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal ptr @interp_run_string(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %id = alloca ptr, align 8
   %script = alloca ptr, align 8
@@ -698,7 +698,7 @@ return:                                           ; preds = %if.else7.i, %Py_DEC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @interp_run_func(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal ptr @interp_run_func(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %id = alloca ptr, align 8
   %func = alloca ptr, align 8
@@ -747,7 +747,7 @@ return:                                           ; preds = %Py_DECREF.exit, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @interp_set___main___attrs(ptr nocapture readnone %self, ptr noundef %args) #0 {
+define internal noundef ptr @interp_set___main___attrs(ptr readnone captures(none) %self, ptr noundef %args) #0 {
 entry:
   %id = alloca ptr, align 8
   %updates = alloca ptr, align 8
@@ -811,7 +811,7 @@ return:                                           ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @object_is_shareable(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal noundef ptr @object_is_shareable(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %obj = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull @.str.51, ptr noundef nonnull @object_is_shareable.kwlist, ptr noundef nonnull %obj) #7
@@ -834,7 +834,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @interp_incref(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal noundef ptr @interp_incref(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %id = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull @.str.52, ptr noundef nonnull @interp_incref.kwlist, ptr noundef nonnull %id) #7
@@ -862,7 +862,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @interp_decref(ptr nocapture readnone %self, ptr noundef %args, ptr noundef %kwds) #0 {
+define internal noundef ptr @interp_decref(ptr readnone captures(none) %self, ptr noundef %args, ptr noundef %kwds) #0 {
 entry:
   %id = alloca ptr, align 8
   %call = call i32 (ptr, ptr, ptr, ptr, ...) @PyArg_ParseTupleAndKeywords(ptr noundef %args, ptr noundef %kwds, ptr noundef nonnull @.str.52, ptr noundef nonnull @interp_decref.kwlist, ptr noundef nonnull %id) #7
@@ -1180,7 +1180,7 @@ return:                                           ; preds = %if.end15.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_interp_exec(ptr noundef %id_arg, ptr noundef %code_arg, ptr noundef %shared_arg, ptr nocapture noundef nonnull writeonly %p_excinfo) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_interp_exec(ptr noundef %id_arg, ptr noundef %code_arg, ptr noundef %shared_arg, ptr noundef nonnull writeonly captures(none) %p_excinfo) unnamed_addr #0 {
 entry:
   %session.i = alloca %struct.xi_session, align 8
   %len.i = alloca i64, align 8
@@ -1356,12 +1356,12 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyMarshal_WriteObjectToString(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @_PyXI_Enter(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1456,7 +1456,7 @@ declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @_PyCrossInterpreterData_RegisterClass(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_memoryview_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr noundef %data) #0 {
+define internal range(i32 -1, 1) i32 @_memoryview_shared(ptr noundef readonly captures(none) %tstate, ptr noundef %obj, ptr noundef %data) #0 {
 entry:
   %call = tail call ptr @PyMem_RawMalloc(i64 noundef 80) #7
   %cmp = icmp eq ptr %call, null
@@ -1524,7 +1524,7 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @xibufferview_getbuf(ptr noundef %self, ptr nocapture noundef writeonly initializes((0, 80)) %view, i32 %flags) #4 {
+define internal noundef i32 @xibufferview_getbuf(ptr noundef %self, ptr noundef writeonly captures(none) initializes((0, 80)) %view, i32 %flags) #4 {
 entry:
   %view1 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %view1, align 8
@@ -1539,7 +1539,7 @@ entry:
 declare i32 @_PyBuffer_ReleaseInInterpreterAndRawFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @PyMem_RawMalloc(i64 noundef) local_unnamed_addr #1
 
@@ -1550,7 +1550,7 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #1
 declare void @_PyCrossInterpreterData_Init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_memoryview_from_xid(ptr nocapture noundef readonly %data) #0 {
+define internal ptr @_memoryview_from_xid(ptr noundef readonly captures(none) %data) #0 {
 entry:
   %call.i.i.i = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str) #7
   %cmp.i5.i.i = icmp eq ptr %call.i.i.i, null
@@ -1642,10 +1642,10 @@ declare ptr @PyObject_Malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @PyObject_Init(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

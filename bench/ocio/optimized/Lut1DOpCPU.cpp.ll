@@ -4214,13 +4214,13 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -4359,7 +4359,7 @@ if.end35:                                         ; preds = %if.then31, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -4374,7 +4374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -4437,7 +4437,7 @@ declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev5OpCPU18hasDynamicPropertyE
 declare void @_ZNK19OpenColorIO_v2_4dev5OpCPU18getDynamicPropertyENS_19DynamicPropertyTypeE() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i104 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i105 = alloca %"class.std::shared_ptr.0", align 8
@@ -6386,7 +6386,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare noundef nonnull align 4 dereferenceable(90) ptr @_ZN19OpenColorIO_v2_4dev7CPUInfo8instanceEv() local_unnamed_addr #0
 
@@ -6397,7 +6397,7 @@ declare noundef ptr @_ZN19OpenColorIO_v2_4dev20AVXGetLut1DApplyFuncENS_8BitDepth
 declare noundef ptr @_ZN19OpenColorIO_v2_4dev21AVX2GetLut1DApplyFuncENS_8BitDepthES0_(i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -6583,7 +6583,7 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
@@ -6596,7 +6596,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #14
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -7262,10 +7262,10 @@ declare float @llvm.fmuladd.f32(float, float, float) #15
 declare noundef float @_ZN19OpenColorIO_v2_4dev13SanitizeFloatEf(float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -7327,7 +7327,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -7342,7 +7342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -7550,7 +7550,7 @@ if.end39:                                         ; preds = %if.then34, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -7612,7 +7612,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -7627,7 +7627,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -7684,7 +7684,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -7746,7 +7746,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -7761,7 +7761,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -7887,7 +7887,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -7949,7 +7949,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -8035,7 +8035,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -8230,7 +8230,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -8425,7 +8425,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -8864,7 +8864,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -9005,7 +9005,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -9278,7 +9278,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -9758,7 +9758,7 @@ if.end44:                                         ; preds = %_ZSt27__uninitializ
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef float @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112_GLOBAL__N_114FindLutInvHalfEPKffS3_fff(ptr noundef %start, float noundef %startOffset, ptr noundef %end, float noundef %flipSign, float noundef %scale, float noundef %val) unnamed_addr #18 personality ptr @__gxx_personality_v0 {
@@ -9901,7 +9901,7 @@ _ZNK9Imath_3_14halfcvfEv.exit44:                  ; preds = %if.then7.i.i42, %if
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -9963,7 +9963,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -10158,7 +10158,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -10417,7 +10417,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -10479,7 +10479,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -10541,7 +10541,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -10682,7 +10682,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -11017,7 +11017,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -11151,7 +11151,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -11166,7 +11166,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -11223,7 +11223,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -13172,7 +13172,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -13358,14 +13358,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -13933,7 +13933,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -13995,7 +13995,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -14010,7 +14010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -14218,7 +14218,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -14280,7 +14280,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -14295,7 +14295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -14352,7 +14352,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -14414,7 +14414,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -14429,7 +14429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -14555,7 +14555,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -14617,7 +14617,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -14703,7 +14703,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -14898,7 +14898,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -15093,7 +15093,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -15532,7 +15532,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -15673,7 +15673,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -15946,7 +15946,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -16324,7 +16324,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -16386,7 +16386,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -16581,7 +16581,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -16840,7 +16840,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -16902,7 +16902,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -16964,7 +16964,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -17105,7 +17105,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -17440,7 +17440,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -17574,7 +17574,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -17589,7 +17589,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -17646,7 +17646,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -19595,7 +19595,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -19781,14 +19781,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -20356,7 +20356,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -20418,7 +20418,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -20433,7 +20433,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -20641,7 +20641,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -20703,7 +20703,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -20718,7 +20718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -20775,7 +20775,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -20837,7 +20837,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -20852,7 +20852,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -20978,7 +20978,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -21040,7 +21040,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -21126,7 +21126,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -21321,7 +21321,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -21516,7 +21516,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -21955,7 +21955,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -22096,7 +22096,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -22369,7 +22369,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -22747,7 +22747,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -22809,7 +22809,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -23004,7 +23004,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -23263,7 +23263,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -23325,7 +23325,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -23387,7 +23387,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -23528,7 +23528,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -23863,7 +23863,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -23997,7 +23997,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -24012,7 +24012,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -24069,7 +24069,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -26018,7 +26018,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -26204,14 +26204,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -26779,7 +26779,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -26841,7 +26841,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -26856,7 +26856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -27064,7 +27064,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -27126,7 +27126,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -27141,7 +27141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -27198,7 +27198,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -27260,7 +27260,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -27275,7 +27275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -27401,7 +27401,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -27463,7 +27463,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -27549,7 +27549,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -27744,7 +27744,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -27939,7 +27939,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -28378,7 +28378,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -28519,7 +28519,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -28792,7 +28792,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -29170,7 +29170,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -29232,7 +29232,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -29427,7 +29427,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -29686,7 +29686,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -29748,7 +29748,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -29810,7 +29810,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -29951,7 +29951,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -30286,7 +30286,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -30420,7 +30420,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -30435,7 +30435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -30569,7 +30569,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -32518,7 +32518,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -32704,14 +32704,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -33279,7 +33279,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -33341,7 +33341,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -33356,7 +33356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -33872,7 +33872,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -33934,7 +33934,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -33949,7 +33949,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -34083,7 +34083,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -34145,7 +34145,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -34160,7 +34160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -34594,7 +34594,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -34656,7 +34656,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -34742,7 +34742,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -34937,7 +34937,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -35396,7 +35396,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -35835,7 +35835,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -35976,7 +35976,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp248 = icmp sgt i64 %numPixels, 0
   br i1 %cmp248, label %for.body.lr.ph, label %for.end
@@ -36513,7 +36513,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -36891,7 +36891,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -36953,7 +36953,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -37148,7 +37148,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -37671,7 +37671,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -37733,7 +37733,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -37795,7 +37795,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -37936,7 +37936,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -38535,7 +38535,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -38669,7 +38669,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -38684,7 +38684,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -38740,7 +38740,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -40689,7 +40689,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -40875,14 +40875,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -41450,7 +41450,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -41512,7 +41512,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -41527,7 +41527,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -41731,7 +41731,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -41793,7 +41793,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -41808,7 +41808,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -41864,7 +41864,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -41926,7 +41926,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -41941,7 +41941,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -42063,7 +42063,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -42125,7 +42125,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -42211,7 +42211,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -42406,7 +42406,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -42553,7 +42553,7 @@ for.end:                                          ; preds = %cond.end92, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -42992,7 +42992,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -43133,7 +43133,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp96 = icmp sgt i64 %numPixels, 0
   br i1 %cmp96, label %for.body.lr.ph, label %for.end
@@ -43358,7 +43358,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -43736,7 +43736,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -43798,7 +43798,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -43993,7 +43993,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -44204,7 +44204,7 @@ for.end:                                          ; preds = %cond.end115, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -44266,7 +44266,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE1ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -44328,7 +44328,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE1ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -44469,7 +44469,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE1ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -46592,7 +46592,7 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -46726,7 +46726,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -46741,7 +46741,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -46798,7 +46798,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -48747,7 +48747,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -48933,14 +48933,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -49508,7 +49508,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -49570,7 +49570,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -49585,7 +49585,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -49793,7 +49793,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -49855,7 +49855,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -49870,7 +49870,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -49927,7 +49927,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -49989,7 +49989,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -50004,7 +50004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -50130,7 +50130,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -50192,7 +50192,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -50278,7 +50278,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -50473,7 +50473,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -50668,7 +50668,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -51107,7 +51107,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -51248,7 +51248,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -51521,7 +51521,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -51899,7 +51899,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -51961,7 +51961,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -52156,7 +52156,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -52415,7 +52415,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -52477,7 +52477,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -52539,7 +52539,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -52680,7 +52680,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -53015,7 +53015,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -53149,7 +53149,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -53164,7 +53164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -53221,7 +53221,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -55170,7 +55170,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -55356,14 +55356,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -55931,7 +55931,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -55993,7 +55993,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -56008,7 +56008,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -56216,7 +56216,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -56278,7 +56278,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -56293,7 +56293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -56350,7 +56350,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -56412,7 +56412,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -56427,7 +56427,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -56553,7 +56553,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -56615,7 +56615,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -56701,7 +56701,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -56896,7 +56896,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -57091,7 +57091,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -57530,7 +57530,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -57671,7 +57671,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -57944,7 +57944,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -58322,7 +58322,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -58384,7 +58384,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -58579,7 +58579,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -58838,7 +58838,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -58900,7 +58900,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -58962,7 +58962,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -59103,7 +59103,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -59438,7 +59438,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -59572,7 +59572,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -59587,7 +59587,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -59644,7 +59644,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -61593,7 +61593,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -61779,14 +61779,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -62354,7 +62354,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -62416,7 +62416,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -62431,7 +62431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -62639,7 +62639,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -62701,7 +62701,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -62716,7 +62716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -62773,7 +62773,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -62835,7 +62835,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -62850,7 +62850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -62976,7 +62976,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -63038,7 +63038,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -63124,7 +63124,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -63319,7 +63319,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -63514,7 +63514,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -63953,7 +63953,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -64094,7 +64094,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -64367,7 +64367,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -64745,7 +64745,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -64807,7 +64807,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -65002,7 +65002,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -65261,7 +65261,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -65323,7 +65323,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -65385,7 +65385,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -65526,7 +65526,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -65861,7 +65861,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -65995,7 +65995,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -66010,7 +66010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -66067,7 +66067,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -68016,7 +68016,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -68202,14 +68202,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -68777,7 +68777,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -68839,7 +68839,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -68854,7 +68854,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -69062,7 +69062,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -69124,7 +69124,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -69139,7 +69139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -69196,7 +69196,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -69258,7 +69258,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -69273,7 +69273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -69399,7 +69399,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -69461,7 +69461,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -69547,7 +69547,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -69742,7 +69742,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -69937,7 +69937,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -70376,7 +70376,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -70517,7 +70517,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -70790,7 +70790,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -71168,7 +71168,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -71230,7 +71230,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -71425,7 +71425,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -71684,7 +71684,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -71746,7 +71746,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -71808,7 +71808,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -71949,7 +71949,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -72284,7 +72284,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -72418,7 +72418,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -72433,7 +72433,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -72567,7 +72567,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -74516,7 +74516,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -74702,14 +74702,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -75277,7 +75277,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -75339,7 +75339,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -75354,7 +75354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -75870,7 +75870,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -75932,7 +75932,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -75947,7 +75947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -76081,7 +76081,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -76143,7 +76143,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -76158,7 +76158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -76592,7 +76592,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -76654,7 +76654,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -76740,7 +76740,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -76935,7 +76935,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -77394,7 +77394,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -77833,7 +77833,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -77974,7 +77974,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp248 = icmp sgt i64 %numPixels, 0
   br i1 %cmp248, label %for.body.lr.ph, label %for.end
@@ -78511,7 +78511,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -78889,7 +78889,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -78951,7 +78951,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -79146,7 +79146,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -79669,7 +79669,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -79731,7 +79731,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -79793,7 +79793,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -79934,7 +79934,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -80533,7 +80533,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -80667,7 +80667,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -80682,7 +80682,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -80738,7 +80738,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -82687,7 +82687,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -82873,14 +82873,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -83448,7 +83448,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -83510,7 +83510,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -83525,7 +83525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -83729,7 +83729,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -83791,7 +83791,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -83806,7 +83806,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -83862,7 +83862,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -83924,7 +83924,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -83939,7 +83939,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -84061,7 +84061,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -84123,7 +84123,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -84209,7 +84209,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -84404,7 +84404,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -84551,7 +84551,7 @@ for.end:                                          ; preds = %cond.end92, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -84990,7 +84990,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -85131,7 +85131,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp96 = icmp sgt i64 %numPixels, 0
   br i1 %cmp96, label %for.body.lr.ph, label %for.end
@@ -85356,7 +85356,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -85734,7 +85734,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -85796,7 +85796,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -85991,7 +85991,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -86202,7 +86202,7 @@ for.end:                                          ; preds = %cond.end115, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -86264,7 +86264,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE2ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -86326,7 +86326,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE2ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -86467,7 +86467,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE2ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -88590,7 +88590,7 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -88724,7 +88724,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -88739,7 +88739,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -88796,7 +88796,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -90745,7 +90745,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -90931,14 +90931,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -91506,7 +91506,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -91568,7 +91568,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -91583,7 +91583,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -91791,7 +91791,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -91853,7 +91853,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -91868,7 +91868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -91925,7 +91925,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -91987,7 +91987,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -92002,7 +92002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -92128,7 +92128,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -92190,7 +92190,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -92276,7 +92276,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -92471,7 +92471,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -92666,7 +92666,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -93105,7 +93105,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -93246,7 +93246,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -93519,7 +93519,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -93897,7 +93897,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -93959,7 +93959,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -94154,7 +94154,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -94413,7 +94413,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -94475,7 +94475,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -94537,7 +94537,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -94678,7 +94678,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -95013,7 +95013,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -95147,7 +95147,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -95162,7 +95162,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -95219,7 +95219,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -97168,7 +97168,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -97354,14 +97354,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -97929,7 +97929,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -97991,7 +97991,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -98006,7 +98006,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -98214,7 +98214,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -98276,7 +98276,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -98291,7 +98291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -98348,7 +98348,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -98410,7 +98410,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -98425,7 +98425,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -98551,7 +98551,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -98613,7 +98613,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -98699,7 +98699,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -98894,7 +98894,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -99089,7 +99089,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -99528,7 +99528,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -99669,7 +99669,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -99942,7 +99942,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -100320,7 +100320,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -100382,7 +100382,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -100577,7 +100577,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -100836,7 +100836,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -100898,7 +100898,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -100960,7 +100960,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -101101,7 +101101,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -101436,7 +101436,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -101570,7 +101570,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -101585,7 +101585,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -101642,7 +101642,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -103591,7 +103591,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -103777,14 +103777,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -104352,7 +104352,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -104414,7 +104414,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -104429,7 +104429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -104637,7 +104637,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -104699,7 +104699,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -104714,7 +104714,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -104771,7 +104771,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -104833,7 +104833,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -104848,7 +104848,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -104974,7 +104974,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -105036,7 +105036,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -105122,7 +105122,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -105317,7 +105317,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -105512,7 +105512,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -105951,7 +105951,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -106092,7 +106092,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -106365,7 +106365,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -106743,7 +106743,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -106805,7 +106805,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -107000,7 +107000,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -107259,7 +107259,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -107321,7 +107321,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -107383,7 +107383,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -107524,7 +107524,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -107859,7 +107859,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -107993,7 +107993,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -108008,7 +108008,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -108065,7 +108065,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -110014,7 +110014,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -110200,14 +110200,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -110775,7 +110775,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -110837,7 +110837,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -110852,7 +110852,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -111060,7 +111060,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -111122,7 +111122,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -111137,7 +111137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -111194,7 +111194,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -111256,7 +111256,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -111271,7 +111271,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -111397,7 +111397,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -111459,7 +111459,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -111545,7 +111545,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -111740,7 +111740,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -111935,7 +111935,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -112374,7 +112374,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -112515,7 +112515,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -112788,7 +112788,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -113166,7 +113166,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -113228,7 +113228,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -113423,7 +113423,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -113682,7 +113682,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -113744,7 +113744,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -113806,7 +113806,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -113947,7 +113947,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -114282,7 +114282,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -114416,7 +114416,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -114431,7 +114431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -114565,7 +114565,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -116514,7 +116514,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -116700,14 +116700,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -117275,7 +117275,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -117337,7 +117337,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -117352,7 +117352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -117868,7 +117868,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -117930,7 +117930,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -117945,7 +117945,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -118079,7 +118079,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -118141,7 +118141,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -118156,7 +118156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -118590,7 +118590,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -118652,7 +118652,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -118738,7 +118738,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -118933,7 +118933,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -119392,7 +119392,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -119831,7 +119831,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -119972,7 +119972,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp248 = icmp sgt i64 %numPixels, 0
   br i1 %cmp248, label %for.body.lr.ph, label %for.end
@@ -120509,7 +120509,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -120887,7 +120887,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -120949,7 +120949,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -121144,7 +121144,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -121667,7 +121667,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -121729,7 +121729,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -121791,7 +121791,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -121932,7 +121932,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -122531,7 +122531,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -122665,7 +122665,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -122680,7 +122680,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -122736,7 +122736,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -124685,7 +124685,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -124871,14 +124871,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -125446,7 +125446,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -125508,7 +125508,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -125523,7 +125523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -125727,7 +125727,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -125789,7 +125789,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -125804,7 +125804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -125860,7 +125860,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -125922,7 +125922,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -125937,7 +125937,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -126059,7 +126059,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -126121,7 +126121,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -126207,7 +126207,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -126402,7 +126402,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -126549,7 +126549,7 @@ for.end:                                          ; preds = %cond.end92, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -126988,7 +126988,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -127129,7 +127129,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp96 = icmp sgt i64 %numPixels, 0
   br i1 %cmp96, label %for.body.lr.ph, label %for.end
@@ -127354,7 +127354,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -127732,7 +127732,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -127794,7 +127794,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -127989,7 +127989,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -128200,7 +128200,7 @@ for.end:                                          ; preds = %cond.end115, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -128262,7 +128262,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE3ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -128324,7 +128324,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE3ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -128465,7 +128465,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE3ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -130588,7 +130588,7 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -130722,7 +130722,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -130737,7 +130737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -130794,7 +130794,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -132743,7 +132743,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -132929,14 +132929,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -133504,7 +133504,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -133566,7 +133566,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -133581,7 +133581,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -133789,7 +133789,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -133851,7 +133851,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -133866,7 +133866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -133923,7 +133923,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -133985,7 +133985,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -134000,7 +134000,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -134126,7 +134126,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -134188,7 +134188,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -134274,7 +134274,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -134469,7 +134469,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -134664,7 +134664,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -135103,7 +135103,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -135244,7 +135244,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -135517,7 +135517,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -135895,7 +135895,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -135957,7 +135957,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -136152,7 +136152,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -136411,7 +136411,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -136473,7 +136473,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -136535,7 +136535,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -136676,7 +136676,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -137011,7 +137011,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -137145,7 +137145,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -137160,7 +137160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -137217,7 +137217,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -139166,7 +139166,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -139352,14 +139352,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -139927,7 +139927,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -139989,7 +139989,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -140004,7 +140004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -140212,7 +140212,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -140274,7 +140274,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -140289,7 +140289,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -140346,7 +140346,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -140408,7 +140408,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -140423,7 +140423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -140549,7 +140549,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -140611,7 +140611,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -140697,7 +140697,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -140892,7 +140892,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -141087,7 +141087,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -141526,7 +141526,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -141667,7 +141667,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -141940,7 +141940,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -142318,7 +142318,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -142380,7 +142380,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -142575,7 +142575,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -142834,7 +142834,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -142896,7 +142896,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -142958,7 +142958,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -143099,7 +143099,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -143434,7 +143434,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -143568,7 +143568,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -143583,7 +143583,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -143640,7 +143640,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -145589,7 +145589,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -145775,14 +145775,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -146350,7 +146350,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -146412,7 +146412,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -146427,7 +146427,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -146635,7 +146635,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -146697,7 +146697,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -146712,7 +146712,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -146769,7 +146769,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -146831,7 +146831,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -146846,7 +146846,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -146972,7 +146972,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -147034,7 +147034,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -147120,7 +147120,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -147315,7 +147315,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -147510,7 +147510,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -147949,7 +147949,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -148090,7 +148090,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -148363,7 +148363,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -148741,7 +148741,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -148803,7 +148803,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -148998,7 +148998,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -149257,7 +149257,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -149319,7 +149319,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -149381,7 +149381,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -149522,7 +149522,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -149857,7 +149857,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -149991,7 +149991,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -150006,7 +150006,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -150063,7 +150063,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -152012,7 +152012,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -152198,14 +152198,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -152773,7 +152773,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -152835,7 +152835,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -152850,7 +152850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -153058,7 +153058,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -153120,7 +153120,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -153135,7 +153135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -153192,7 +153192,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -153254,7 +153254,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -153269,7 +153269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -153395,7 +153395,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -153457,7 +153457,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -153543,7 +153543,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -153738,7 +153738,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -153933,7 +153933,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -154372,7 +154372,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -154513,7 +154513,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -154786,7 +154786,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -155164,7 +155164,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -155226,7 +155226,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -155421,7 +155421,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -155680,7 +155680,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -155742,7 +155742,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -155804,7 +155804,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -155945,7 +155945,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -156280,7 +156280,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -156414,7 +156414,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -156429,7 +156429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -156563,7 +156563,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -158512,7 +158512,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -158698,14 +158698,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -159273,7 +159273,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -159335,7 +159335,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -159350,7 +159350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -159866,7 +159866,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -159928,7 +159928,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -159943,7 +159943,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -160077,7 +160077,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -160139,7 +160139,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -160154,7 +160154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -160588,7 +160588,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -160650,7 +160650,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -160736,7 +160736,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -160931,7 +160931,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -161390,7 +161390,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -161829,7 +161829,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -161970,7 +161970,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp248 = icmp sgt i64 %numPixels, 0
   br i1 %cmp248, label %for.body.lr.ph, label %for.end
@@ -162507,7 +162507,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -162885,7 +162885,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -162947,7 +162947,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -163142,7 +163142,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -163665,7 +163665,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -163727,7 +163727,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -163789,7 +163789,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -163930,7 +163930,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -164529,7 +164529,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -164663,7 +164663,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -164678,7 +164678,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -164734,7 +164734,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -166683,7 +166683,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -166869,14 +166869,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -167444,7 +167444,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -167506,7 +167506,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -167521,7 +167521,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -167725,7 +167725,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -167787,7 +167787,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -167802,7 +167802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -167858,7 +167858,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -167920,7 +167920,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -167935,7 +167935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -168057,7 +168057,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -168119,7 +168119,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -168205,7 +168205,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -168400,7 +168400,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -168547,7 +168547,7 @@ for.end:                                          ; preds = %cond.end92, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -168986,7 +168986,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -169127,7 +169127,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp96 = icmp sgt i64 %numPixels, 0
   br i1 %cmp96, label %for.body.lr.ph, label %for.end
@@ -169352,7 +169352,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -169730,7 +169730,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -169792,7 +169792,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -169987,7 +169987,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -170198,7 +170198,7 @@ for.end:                                          ; preds = %cond.end115, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -170260,7 +170260,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE5ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -170322,7 +170322,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE5ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -170463,7 +170463,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE5ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -172586,7 +172586,7 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -172720,7 +172720,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -172735,7 +172735,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -172829,7 +172829,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -174778,7 +174778,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -174964,14 +174964,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -175539,7 +175539,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -175601,7 +175601,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -175616,7 +175616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -175972,7 +175972,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -176034,7 +176034,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -176049,7 +176049,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -176143,7 +176143,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -176205,7 +176205,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -176220,7 +176220,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -176494,7 +176494,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -176556,7 +176556,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -176642,7 +176642,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -176837,7 +176837,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -177180,7 +177180,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -177619,7 +177619,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -177760,7 +177760,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp189 = icmp sgt i64 %numPixels, 0
   br i1 %cmp189, label %for.body.lr.ph, label %for.end
@@ -178181,7 +178181,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -178559,7 +178559,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -178621,7 +178621,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -178816,7 +178816,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -179223,7 +179223,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -179285,7 +179285,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -179347,7 +179347,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -179488,7 +179488,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -179971,7 +179971,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -180105,7 +180105,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -180120,7 +180120,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -180214,7 +180214,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -182163,7 +182163,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -182349,14 +182349,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -182924,7 +182924,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -182986,7 +182986,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -183001,7 +183001,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -183357,7 +183357,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -183419,7 +183419,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -183434,7 +183434,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -183528,7 +183528,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -183590,7 +183590,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -183605,7 +183605,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -183879,7 +183879,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -183941,7 +183941,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -184027,7 +184027,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -184222,7 +184222,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -184565,7 +184565,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -185004,7 +185004,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -185145,7 +185145,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp189 = icmp sgt i64 %numPixels, 0
   br i1 %cmp189, label %for.body.lr.ph, label %for.end
@@ -185566,7 +185566,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -185944,7 +185944,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -186006,7 +186006,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -186201,7 +186201,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -186608,7 +186608,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -186670,7 +186670,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -186732,7 +186732,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -186873,7 +186873,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -187356,7 +187356,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -187490,7 +187490,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -187505,7 +187505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -187599,7 +187599,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -189548,7 +189548,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -189734,14 +189734,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -190309,7 +190309,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -190371,7 +190371,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -190386,7 +190386,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -190742,7 +190742,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -190804,7 +190804,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -190819,7 +190819,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -190913,7 +190913,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -190975,7 +190975,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -190990,7 +190990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -191264,7 +191264,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -191326,7 +191326,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -191412,7 +191412,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -191607,7 +191607,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -191950,7 +191950,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -192389,7 +192389,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -192530,7 +192530,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp189 = icmp sgt i64 %numPixels, 0
   br i1 %cmp189, label %for.body.lr.ph, label %for.end
@@ -192951,7 +192951,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -193329,7 +193329,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -193391,7 +193391,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -193586,7 +193586,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -193993,7 +193993,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -194055,7 +194055,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -194117,7 +194117,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -194258,7 +194258,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -194741,7 +194741,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -194875,7 +194875,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -194890,7 +194890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -194984,7 +194984,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -196933,7 +196933,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -197119,14 +197119,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -197694,7 +197694,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -197756,7 +197756,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -197771,7 +197771,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -198127,7 +198127,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -198189,7 +198189,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -198204,7 +198204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -198298,7 +198298,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -198360,7 +198360,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -198375,7 +198375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -198649,7 +198649,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -198711,7 +198711,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -198797,7 +198797,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -198992,7 +198992,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -199335,7 +199335,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -199774,7 +199774,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -199915,7 +199915,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp189 = icmp sgt i64 %numPixels, 0
   br i1 %cmp189, label %for.body.lr.ph, label %for.end
@@ -200336,7 +200336,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -200714,7 +200714,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -200776,7 +200776,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -200971,7 +200971,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -201378,7 +201378,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -201440,7 +201440,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -201502,7 +201502,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -201643,7 +201643,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -202126,7 +202126,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -202260,7 +202260,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -202275,7 +202275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -202446,7 +202446,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -204395,7 +204395,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -204581,14 +204581,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -205156,7 +205156,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -205218,7 +205218,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -205233,7 +205233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -205897,7 +205897,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -205959,7 +205959,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -205974,7 +205974,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -206145,7 +206145,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -206207,7 +206207,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -206222,7 +206222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -206804,7 +206804,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_14halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -206866,7 +206866,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -206952,7 +206952,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -207147,7 +207147,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -207754,7 +207754,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -208193,7 +208193,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -208334,7 +208334,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp318 = icmp sgt i64 %numPixels, 0
   br i1 %cmp318, label %for.body.lr.ph, label %for.end
@@ -209019,7 +209019,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -209397,7 +209397,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -209459,7 +209459,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -209654,7 +209654,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -210325,7 +210325,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -210387,7 +210387,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -210449,7 +210449,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -210590,7 +210590,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -211337,7 +211337,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -211471,7 +211471,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -211486,7 +211486,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -211579,7 +211579,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut.i116 = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp.i117 = alloca %"class.std::shared_ptr.0", align 8
@@ -213528,7 +213528,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -213714,14 +213714,14 @@ invoke.cont:                                      ; preds = %if.end12.sink.split
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newLut = alloca %"class.std::shared_ptr.0", align 8
   %newLutTmp = alloca %"class.std::shared_ptr.0", align 8
@@ -214289,7 +214289,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -214351,7 +214351,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -214366,7 +214366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -214718,7 +214718,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -214780,7 +214780,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -214795,7 +214795,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -214888,7 +214888,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -214950,7 +214950,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #25
   ret void
@@ -214965,7 +214965,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -215235,7 +215235,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -215297,7 +215297,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -215383,7 +215383,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -215578,7 +215578,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -215873,7 +215873,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -216312,7 +216312,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -216453,7 +216453,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp166 = icmp sgt i64 %numPixels, 0
   br i1 %cmp166, label %for.body.lr.ph, label %for.end
@@ -216826,7 +216826,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -217204,7 +217204,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -217266,7 +217266,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -217461,7 +217461,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -217820,7 +217820,7 @@ for.end:                                          ; preds = %_ZNK9Imath_3_14half
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -217882,7 +217882,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE7ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -217944,7 +217944,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE7ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -218085,7 +218085,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE7ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -220356,7 +220356,7 @@ return:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -220490,7 +220490,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -220593,7 +220593,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -220729,7 +220729,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_outBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %m_outBitDepth, align 4
@@ -221116,7 +221116,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -221169,7 +221169,7 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
@@ -221436,7 +221436,7 @@ _ZNK9Imath_3_14halfcvfEv.exit151:                 ; preds = %if.then7.i.i149, %i
 declare float @llvm.fabs.f32(float) #15
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR.i, align 8
@@ -221558,7 +221558,7 @@ if.end131:                                        ; preds = %for.body106, %_ZN19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -221620,7 +221620,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -221723,7 +221723,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -222004,7 +222004,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -222066,7 +222066,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -222169,7 +222169,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_1EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
 entry:
   %m_applyLutFunc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_applyLutFunc, align 8
@@ -222343,7 +222343,7 @@ declare float @llvm.floor.f32(float) #15
 declare float @llvm.ceil.f32(float) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -222405,7 +222405,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -222508,7 +222508,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8EL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -222736,7 +222736,7 @@ declare <4 x float> @llvm.x86.sse.max.ps(<4 x float>, <4 x float>) #20
 declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -222798,7 +222798,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -222884,7 +222884,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -223079,7 +223079,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -223270,7 +223270,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -223709,7 +223709,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -223850,7 +223850,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -224119,7 +224119,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -224497,7 +224497,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -224559,7 +224559,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -224754,7 +224754,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -225009,7 +225009,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -225071,7 +225071,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_1EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -225133,7 +225133,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_1EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -225274,7 +225274,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_1EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -225605,7 +225605,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -225739,7 +225739,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -225842,7 +225842,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -225978,7 +225978,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_outBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %m_outBitDepth, align 4
@@ -226365,7 +226365,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -226418,14 +226418,14 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR.i, align 8
@@ -226547,7 +226547,7 @@ if.end131:                                        ; preds = %for.body106, %_ZN19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -226609,7 +226609,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -226712,7 +226712,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -226993,7 +226993,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -227055,7 +227055,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -227158,7 +227158,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_2EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
 entry:
   %m_applyLutFunc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_applyLutFunc, align 8
@@ -227326,7 +227326,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -227388,7 +227388,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -227491,7 +227491,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8EL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -227710,7 +227710,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -227772,7 +227772,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -227858,7 +227858,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -228053,7 +228053,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -228244,7 +228244,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -228683,7 +228683,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -228824,7 +228824,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -229093,7 +229093,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -229471,7 +229471,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -229533,7 +229533,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -229728,7 +229728,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -229983,7 +229983,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -230045,7 +230045,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_2EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -230107,7 +230107,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_2EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -230248,7 +230248,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_2EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -230579,7 +230579,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -230713,7 +230713,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -230816,7 +230816,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -230952,7 +230952,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_outBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %m_outBitDepth, align 4
@@ -231339,7 +231339,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -231392,14 +231392,14 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR.i, align 8
@@ -231521,7 +231521,7 @@ if.end131:                                        ; preds = %for.body106, %_ZN19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -231583,7 +231583,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -231686,7 +231686,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -231967,7 +231967,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -232029,7 +232029,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -232132,7 +232132,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_3EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
 entry:
   %m_applyLutFunc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_applyLutFunc, align 8
@@ -232300,7 +232300,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -232362,7 +232362,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -232465,7 +232465,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8EL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -232684,7 +232684,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -232746,7 +232746,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -232832,7 +232832,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -233027,7 +233027,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -233218,7 +233218,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -233657,7 +233657,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -233798,7 +233798,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -234067,7 +234067,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -234445,7 +234445,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -234507,7 +234507,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -234702,7 +234702,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -234957,7 +234957,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -235019,7 +235019,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_3EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -235081,7 +235081,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_3EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -235222,7 +235222,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_3EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -235553,7 +235553,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -235687,7 +235687,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -235790,7 +235790,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -235926,7 +235926,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_outBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %m_outBitDepth, align 4
@@ -236313,7 +236313,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -236366,14 +236366,14 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR.i, align 8
@@ -236495,7 +236495,7 @@ if.end131:                                        ; preds = %for.body106, %_ZN19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -236557,7 +236557,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -236660,7 +236660,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -236941,7 +236941,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -237003,7 +237003,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -237106,7 +237106,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_5EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
 entry:
   %m_applyLutFunc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_applyLutFunc, align 8
@@ -237274,7 +237274,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -237336,7 +237336,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -237439,7 +237439,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8EL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -237658,7 +237658,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -237720,7 +237720,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -237806,7 +237806,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -238001,7 +238001,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -238192,7 +238192,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -238631,7 +238631,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -238772,7 +238772,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp119 = icmp sgt i64 %numPixels, 0
   br i1 %cmp119, label %for.body.lr.ph, label %for.end
@@ -239041,7 +239041,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -239419,7 +239419,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -239481,7 +239481,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -239676,7 +239676,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -239931,7 +239931,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -239993,7 +239993,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_5EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -240055,7 +240055,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_5EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -240196,7 +240196,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_5EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -240527,7 +240527,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -240661,7 +240661,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -240764,7 +240764,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -241164,7 +241164,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_outBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %m_outBitDepth, align 4
@@ -241551,7 +241551,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -241604,14 +241604,14 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR.i, align 8
@@ -241733,7 +241733,7 @@ if.end131:                                        ; preds = %for.body106, %_ZN19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -241795,7 +241795,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -241898,7 +241898,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -242443,7 +242443,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -242505,7 +242505,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -242608,7 +242608,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_7EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_applyLutFunc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_applyLutFunc, align 8
@@ -243040,7 +243040,7 @@ if.end:                                           ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -243102,7 +243102,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -243205,7 +243205,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8EL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -243688,7 +243688,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -243750,7 +243750,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -243836,7 +243836,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -244031,7 +244031,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -244486,7 +244486,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -244925,7 +244925,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -245066,7 +245066,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp248 = icmp sgt i64 %numPixels, 0
   br i1 %cmp248, label %for.body.lr.ph, label %for.end
@@ -245599,7 +245599,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -245977,7 +245977,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -246039,7 +246039,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -246234,7 +246234,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -246753,7 +246753,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -246815,7 +246815,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_7EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -246877,7 +246877,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_7EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -247018,7 +247018,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_7EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -247613,7 +247613,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -247747,7 +247747,7 @@ if.end31:                                         ; preds = %if.then27, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -247850,7 +247850,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_121Lut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_tmpLutR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR, align 8
@@ -247938,7 +247938,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EE6updateERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_outBitDepth = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %m_outBitDepth, align 4
@@ -248325,7 +248325,7 @@ sw.epilog:                                        ; preds = %entry, %_ZN19OpenCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -248378,14 +248378,14 @@ invoke.cont:                                      ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #29
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataItEEvRSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((8, 16)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_tmpLutR.i, align 8
@@ -248507,7 +248507,7 @@ if.end131:                                        ; preds = %for.body106, %_ZN19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -248569,7 +248569,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -248672,7 +248672,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_130Lut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -248905,7 +248905,7 @@ if.end38:                                         ; preds = %if.then33, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -248967,7 +248967,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -249070,7 +249070,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_8EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut1DRendererILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef %inImg, ptr noundef %outImg, i64 noundef %numPixels) unnamed_addr #3 align 2 {
 entry:
   %m_applyLutFunc = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load ptr, ptr %m_applyLutFunc, align 8
@@ -249190,7 +249190,7 @@ if.end:                                           ; preds = %for.body, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -249252,7 +249252,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -249355,7 +249355,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8EL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_122Lut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #19 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -249526,7 +249526,7 @@ for.end:                                          ; preds = %cond.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -249588,7 +249588,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EEC2ERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((0, 8), (16, 28), (32, 52), (56, 84), (88, 108), (112, 140), (144, 164), (168, 268)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %this, align 8
   %m_paramsR.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -249674,7 +249674,7 @@ lpad:                                             ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -249869,7 +249869,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %m_paramsR = getelementptr inbounds nuw i8, ptr %this, i64 16
   %flipSign = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -250012,7 +250012,7 @@ for.end:                                          ; preds = %cond.end89, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124InvLut1DRendererHalfCodeILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -250451,7 +250451,7 @@ for.end142:                                       ; preds = %for.body85, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -250592,7 +250592,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %cmp96 = icmp sgt i64 %numPixels, 0
   br i1 %cmp96, label %for.body.lr.ph, label %for.end
@@ -250813,7 +250813,7 @@ for.end:                                          ; preds = %_ZN19OpenColorIO_v2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EE10updateDataERSt10shared_ptrIKNS_11Lut1DOpDataEE(ptr noundef nonnull align 8 dereferenceable(268) initializes((184, 192)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -251191,7 +251191,7 @@ for.end:                                          ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -251253,7 +251253,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 200
@@ -251448,7 +251448,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8B
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_133InvLut1DRendererHalfCodeHueAdjustILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -251655,7 +251655,7 @@ for.end:                                          ; preds = %cond.end112, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -251717,7 +251717,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS0_8BitDepthE8ELS3_8EEESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -251779,7 +251779,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(268) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut1DRendererILNS_8BitDepthE8ELS2_8EEE, i64 16), ptr %this, align 8
   %m_tmpLutR.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -251920,7 +251920,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(268) %this, ptr nocapture noundef readonly %inImg, ptr nocapture noundef writeonly %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
+define internal void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_125InvLut1DRendererHueAdjustILNS_8BitDepthE8ELS2_8EE5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(268) %this, ptr noundef readonly captures(none) %inImg, ptr noundef writeonly captures(none) %outImg, i64 noundef %numPixels) unnamed_addr #11 align 2 {
 entry:
   %RGB = alloca [3 x float], align 4
   %RGB2 = alloca [3 x float], align 4
@@ -252215,10 +252215,10 @@ entry:
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24

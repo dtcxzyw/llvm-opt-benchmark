@@ -40,17 +40,17 @@ define void @PQinitOpenSSL(i32 noundef %0, i32 noundef %1) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pqsecure_initialize(ptr nocapture noundef readnone %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define noundef i32 @pqsecure_initialize(ptr noundef readnone captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @pqsecure_open_client(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef i32 @pqsecure_open_client(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @pqsecure_close(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define void @pqsecure_close(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret void
 }
 
@@ -110,13 +110,13 @@ declare void @libpq_append_conn_error(ptr noundef, ptr noundef, ...) local_unnam
 declare ptr @pg_strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i64 @pqsecure_write(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define i64 @pqsecure_write(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = tail call i64 @pqsecure_raw_write(ptr noundef %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @pqsecure_raw_write(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define i64 @pqsecure_raw_write(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [256 x i8], align 16
   %6 = alloca %struct.sigpipe_info, align 8
@@ -231,7 +231,7 @@ define i64 @pqsecure_raw_write(ptr nocapture noundef %0, ptr noundef %1, i64 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @pq_block_sigpipe(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @pq_block_sigpipe(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.__sigset_t, align 8
   %4 = alloca %struct.__sigset_t, align 8
   %5 = call i32 @sigemptyset(ptr noundef nonnull %3) #9
@@ -276,7 +276,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define void @pq_reset_sigpipe(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
@@ -312,22 +312,22 @@ define void @pq_reset_sigpipe(ptr noundef %0, i1 noundef zeroext %1, i1 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @PQgetssl(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noalias noundef ptr @PQgetssl(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @PQsslStruct(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define noalias noundef ptr @PQsslStruct(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @PQsslAttribute(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define noalias noundef ptr @PQsslAttribute(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @PQsslAttributeNames(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef nonnull ptr @PQsslAttributeNames(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret ptr @PQsslAttributeNames.result
 }
 
@@ -337,22 +337,22 @@ define noalias noundef ptr @PQgetSSLKeyPassHook_OpenSSL() local_unnamed_addr #1 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @PQsetSSLKeyPassHook_OpenSSL(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define void @PQsetSSLKeyPassHook_OpenSSL(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @PQdefaultSSLKeyPassHook_OpenSSL(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
+define noundef i32 @PQdefaultSSLKeyPassHook_OpenSSL(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #1 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @PQgetgssctx(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noalias noundef ptr @PQgetgssctx(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @PQgssEncInUse(ptr nocapture noundef readnone %0) local_unnamed_addr #1 {
+define noundef i32 @PQgssEncInUse(ptr noundef readnone captures(none) %0) local_unnamed_addr #1 {
   ret i32 0
 }
 

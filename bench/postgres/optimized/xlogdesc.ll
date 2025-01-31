@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.xlog_identify = private unnamed_addr constant [15 x ptr] [ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr @.str.30, ptr @.str.29, ptr null, ptr @.str.28, ptr @.str.31], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xlog_desc(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @xlog_desc(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 72

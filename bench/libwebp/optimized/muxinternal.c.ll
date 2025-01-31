@@ -14,13 +14,13 @@ define noundef i32 @WebPGetMuxVersion() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ChunkInit(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #1 {
+define hidden void @ChunkInit(ptr noundef writeonly captures(none) initializes((0, 32)) %0) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @ChunkRelease(ptr noundef %0) local_unnamed_addr #3 {
@@ -105,7 +105,7 @@ define hidden i32 @ChunkGetIdFromTag(i32 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i32 @ChunkGetTagFromFourCC(ptr nocapture noundef readonly %0) local_unnamed_addr #5 {
+define hidden i32 @ChunkGetTagFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load i8, ptr %0, align 1
   %3 = sext i8 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -127,7 +127,7 @@ define hidden i32 @ChunkGetTagFromFourCC(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @ChunkGetIndexFromFourCC(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define hidden i32 @ChunkGetIndexFromFourCC(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = load i8, ptr %0, align 1
   %3 = sext i8 %2 to i32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -315,10 +315,10 @@ WebPDataCopy.exit:                                ; preds = %22, %33
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 2) i32 @ChunkSetHead(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 -3, 2) i32 @ChunkSetHead(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %10
@@ -345,7 +345,7 @@ define hidden range(i32 -3, 2) i32 @ChunkSetHead(ptr nocapture noundef %0, ptr n
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 2) i32 @ChunkAppend(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 -3, 2) i32 @ChunkAppend(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -425,7 +425,7 @@ ChunkRelease.exit:                                ; preds = %1, %9
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ChunkListDelete(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden void @ChunkListDelete(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %.pr = load ptr, ptr %0, align 8
   %.not3 = icmp eq ptr %.pr, null
   br i1 %.not3, label %._crit_edge, label %.lr.ph
@@ -551,7 +551,7 @@ define hidden i64 @ChunkListDiskSize(ptr noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @MuxImageInit(ptr nocapture noundef writeonly initializes((0, 56)) %0) local_unnamed_addr #1 {
+define hidden void @MuxImageInit(ptr noundef writeonly captures(none) initializes((0, 56)) %0) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
@@ -762,7 +762,7 @@ ChunkGetIdFromTag.exit:                           ; preds = %.lr.ph, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -3, 2) i32 @MuxImagePush(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 -3, 2) i32 @MuxImagePush(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %.pr = load ptr, ptr %1, align 8
   %.not18 = icmp eq ptr %.pr, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -811,7 +811,7 @@ define hidden ptr @MuxImageDelete(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @MuxImageDeleteNth(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @MuxImageDeleteNth(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq i32 %1, 0
   %.pre.i = load ptr, ptr %0, align 8
   br i1 %3, label %4, label %MuxImageCount.exit.i
@@ -869,7 +869,7 @@ SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #11 {
+define hidden range(i32 0, 2) i32 @MuxImageGetNth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #11 {
   %4 = icmp eq i32 %1, 0
   %.pre.i = load ptr, ptr %0, align 8
   br i1 %4, label %5, label %MuxImageCount.exit.i
@@ -920,7 +920,7 @@ SearchImageToGetOrDelete.exit.thread:             ; preds = %.lr.ph, %MuxImageCo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @MuxImageDiskSize(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define hidden i64 @MuxImageDiskSize(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
@@ -996,7 +996,7 @@ ChunkListDiskSize.exit:                           ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @MuxImageEmit(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #10 {
+define hidden ptr @MuxImageEmit(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #10 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %72, label %4

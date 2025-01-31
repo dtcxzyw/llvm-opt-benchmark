@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.7 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.3bcc9f1aff4b79beb9a51ebb01bd29cd.5, [16 x i8] c"H\00\00\00\00\00\00\00\B2\00\00\00\16\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h510893570dd90690E"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h510893570dd90690E"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17h460123329a0366bcE"(ptr nonnull align 8 %1)
@@ -20,7 +20,7 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..func
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h53134bed12bc38ccE"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #0 {
+define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h53134bed12bc38ccE"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = tail call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hae7acd5dcd1e2233E"(ptr nonnull align 8 %1)
@@ -31,7 +31,7 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..func
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5alloc3str17join_generic_copy17h9f3d77e06f1fca71E(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %0, ptr align 8 %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN5alloc3str17join_generic_copy17h9f3d77e06f1fca71E(ptr writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) %0, ptr align 8 %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr, {} }, {} }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
@@ -503,7 +503,7 @@ define void @_ZN5alloc3str17join_generic_copy17h9f3d77e06f1fca71E(ptr nocapture 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5alloc3str17join_generic_copy17hda1adb059a037725E(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %0, ptr align 8 %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN5alloc3str17join_generic_copy17hda1adb059a037725E(ptr writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) %0, ptr align 8 %1, i64 %2, ptr align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, ptr, {} }, {} }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 } }, align 8
@@ -989,7 +989,7 @@ define { i64, i64 } @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { ptr, i64 } @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$17h5e136970c63e7ac5E"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #1 {
+define { ptr, i64 } @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$17h5e136970c63e7ac5E"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17h460123329a0366bcE"(ptr align 8 %1)
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -998,7 +998,7 @@ define { ptr, i64 } @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define { ptr, i64 } @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$17hb07085b8ac1948ceE"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #1 {
+define { ptr, i64 } @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$17hb07085b8ac1948ceE"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = tail call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hae7acd5dcd1e2233E"(ptr align 8 %1)
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -1021,7 +1021,7 @@ define { i64, i64 } @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2b723a002477c4a2E"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #1 {
+define i64 @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h2b723a002477c4a2E"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = tail call { ptr, i64 } @"_ZN5alloc3str83_$LT$impl$u20$core..borrow..Borrow$LT$str$GT$$u20$for$u20$alloc..string..String$GT$6borrow17h460123329a0366bcE"(ptr align 8 %1)
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -1031,7 +1031,7 @@ define i64 @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$28_$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define i64 @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he82cb6279896eafdE"(ptr nocapture readnone align 1 %0, ptr align 8 %1) unnamed_addr #1 {
+define i64 @"_ZN5alloc3str17join_generic_copy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17he82cb6279896eafdE"(ptr readnone align 1 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = tail call { ptr, i64 } @"_ZN55_$LT$$RF$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hae7acd5dcd1e2233E"(ptr align 8 %1)
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -1077,7 +1077,7 @@ declare void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h9a6
 declare void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17ha41c7ca627ea8344E"(ptr align 1, i64, ptr align 1, i64, ptr align 8) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nonlazybind uwtable
 declare void @"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hc8dd6569cd6dcdd3E"(ptr align 8) unnamed_addr #0
@@ -1104,10 +1104,10 @@ declare { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17hbf21c7e2
 declare void @llvm.assume(i1 noundef) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

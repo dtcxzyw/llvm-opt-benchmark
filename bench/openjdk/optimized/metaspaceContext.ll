@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9metaspace16MetaspaceContextD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN9metaspace16MetaspaceContextD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace16MetaspaceContextD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace16MetaspaceContextD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -61,7 +61,7 @@ declare void @_ZN9metaspace16VirtualSpaceListC1EPKcPNS_13CommitLimiterE(ptr noun
 declare void @_ZN9metaspace12ChunkManagerC1EPKcPNS_16VirtualSpaceListE(ptr noundef nonnull align 8 dereferenceable(376), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9metaspace16MetaspaceContext28create_nonexpandable_contextEPKc13ReservedSpacePNS_13CommitLimiterE(ptr noundef %0, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN9metaspace16MetaspaceContext28create_nonexpandable_contextEPKc13ReservedSpacePNS_13CommitLimiterE(ptr noundef %0, ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 1, i32 noundef 0) #2
   tail call void @_ZN9metaspace16VirtualSpaceListC1EPKc13ReservedSpacePNS_13CommitLimiterE(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %0, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %1, ptr noundef %2) #2
   %5 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 376, i8 noundef zeroext 24, i32 noundef 0) #2
@@ -78,7 +78,7 @@ define hidden noundef ptr @_ZN9metaspace16MetaspaceContext28create_nonexpandable
 declare void @_ZN9metaspace16VirtualSpaceListC1EPKc13ReservedSpacePNS_13CommitLimiterE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef byval(%class.ReservedSpace) align 8, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace16MetaspaceContext30initialize_class_space_contextE13ReservedSpace(ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace16MetaspaceContext30initialize_class_space_contextE13ReservedSpace(ptr noundef readonly byval(%class.ReservedSpace) align 8 captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN9metaspace13CommitLimiter13globalLimiterEv() #2
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 56, i8 noundef zeroext 1, i32 noundef 0) #2
   tail call void @_ZN9metaspace16VirtualSpaceListC1EPKc13ReservedSpacePNS_13CommitLimiterE(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str, ptr noundef nonnull byval(%class.ReservedSpace) align 8 %0, ptr noundef %2) #2
@@ -114,7 +114,7 @@ define hidden void @_ZN9metaspace16MetaspaceContext33initialize_nonclass_space_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9metaspace16MetaspaceContext8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK9metaspace16MetaspaceContext8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @_ZNK9metaspace16VirtualSpaceList8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef %1) #2

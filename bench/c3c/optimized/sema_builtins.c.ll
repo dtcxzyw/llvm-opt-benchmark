@@ -110,7 +110,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.builtin_expected_args = private unnamed_addr constant [22 x i8] c"builtin_expected_args\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_expr_analyse_builtin_call(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @sema_expr_analyse_builtin_call(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca [1 x i32], align 4
   %4 = alloca [2 x i32], align 4
   %5 = alloca [3 x i32], align 4
@@ -2861,7 +2861,7 @@ declare void @sema_error_at(i64, ptr noundef, ...) local_unnamed_addr #1
 declare zeroext i1 @sema_analyse_expr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_check_builtin_args(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull readonly %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_check_builtin_args(ptr noundef readonly captures(none) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 0, 4294967296) %2) unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.lr.ph
 
@@ -3273,7 +3273,7 @@ type_flatten.exit118:                             ; preds = %140
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_check_builtin_args_match(ptr nocapture noundef readonly %0, i64 noundef range(i64 2, 4) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_check_builtin_args_match(ptr noundef readonly captures(none) %0, i64 noundef range(i64 2, 4) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3337,7 +3337,7 @@ define internal fastcc noundef zeroext i1 @sema_check_builtin_args_match(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @type_flatten(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @type_flatten(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %16, %1
@@ -3379,7 +3379,7 @@ define internal fastcc noundef ptr @type_flatten(ptr nocapture noundef readonly 
 declare ptr @type_get_vector(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_expr_is_valid_mask_for_value(ptr nocapture noundef readonly %0, ptr nocapture readonly %.0.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_expr_is_valid_mask_for_value(ptr noundef readonly captures(none) %0, ptr readonly captures(none) %.0.val) unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %15, %1
@@ -3472,7 +3472,7 @@ declare ptr @type_to_error_string(ptr noundef) local_unnamed_addr #1
 declare ptr @type_get_ptr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_check_builtin_args_const(ptr nocapture noundef readonly %0, i64 noundef range(i64 2, 5) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_check_builtin_args_const(ptr noundef readonly captures(none) %0, i64 noundef range(i64 2, 5) %1) unnamed_addr #0 {
   br label %5
 
 3:                                                ; preds = %5
@@ -3552,7 +3552,7 @@ define internal fastcc noundef zeroext i1 @sema_check_alignment_expression(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @is_valid_atomicity(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @is_valid_atomicity(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 255

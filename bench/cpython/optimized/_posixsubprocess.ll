@@ -60,7 +60,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @subprocess_fork_exec(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @subprocess_fork_exec(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 23
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -271,7 +271,7 @@ declare ptr @PyErr_Occurred() local_unnamed_addr #1
 declare i64 @PyLong_AsLong(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @subprocess_fork_exec_impl(ptr noundef %process_args, ptr noundef %executable_list, i32 noundef range(i32 0, -2147483648) %close_fds, ptr nocapture noundef readonly %py_fds_to_keep, ptr noundef %cwd_obj, ptr noundef %env_list, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef range(i32 0, -2147483648) %restore_signals, i32 noundef range(i32 0, -2147483648) %call_setsid, i32 noundef %pgid_to_set, ptr noundef %gid_object, ptr noundef %extra_groups_packed, ptr noundef %uid_object, i32 noundef %child_umask, ptr noundef %preexec_fn, i32 noundef range(i32 0, -2147483648) %allow_vfork) unnamed_addr #0 {
+define internal fastcc ptr @subprocess_fork_exec_impl(ptr noundef %process_args, ptr noundef %executable_list, i32 noundef range(i32 0, -2147483648) %close_fds, ptr noundef readonly captures(none) %py_fds_to_keep, ptr noundef %cwd_obj, ptr noundef %env_list, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef range(i32 0, -2147483648) %restore_signals, i32 noundef range(i32 0, -2147483648) %call_setsid, i32 noundef %pgid_to_set, ptr noundef %gid_object, ptr noundef %extra_groups_packed, ptr noundef %uid_object, i32 noundef %child_umask, ptr noundef %preexec_fn, i32 noundef range(i32 0, -2147483648) %allow_vfork) unnamed_addr #0 {
 entry:
   %cwd_obj2 = alloca ptr, align 8
   %converted_arg = alloca ptr, align 8
@@ -1106,7 +1106,7 @@ declare i32 @_Py_Uid_Converter(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @convert_fds_to_keep_to_c(ptr nocapture noundef readonly %py_fds_to_keep, ptr nocapture noundef nonnull writeonly %c_fds_to_keep) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @convert_fds_to_keep_to_c(ptr noundef readonly captures(none) %py_fds_to_keep, ptr noundef nonnull writeonly captures(none) %c_fds_to_keep) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %py_fds_to_keep, i64 16
   %py_fds_to_keep.val = load i64, ptr %0, align 8
@@ -1161,7 +1161,7 @@ declare i32 @sigfillset(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_sigmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 0) i32 @do_fork_exec(ptr nocapture noundef nonnull readonly %exec_array, ptr noundef %argv, ptr noundef %envp, ptr noundef %cwd, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef range(i32 0, -2147483648) %close_fds, i32 noundef range(i32 0, -2147483648) %restore_signals, i32 noundef range(i32 0, -2147483648) %call_setsid, i32 noundef %pgid_to_set, i32 noundef %gid, i64 noundef %extra_group_size, ptr noundef %extra_groups, i32 noundef %uid, i32 noundef %child_umask, ptr noundef %child_sigmask, ptr nocapture noundef nonnull readonly %fds_to_keep, i64 noundef %fds_to_keep_len, ptr noundef %preexec_fn, ptr noundef %preexec_fn_args_tuple) unnamed_addr #0 {
+define internal fastcc range(i32 1, 0) i32 @do_fork_exec(ptr noundef nonnull readonly captures(none) %exec_array, ptr noundef %argv, ptr noundef %envp, ptr noundef %cwd, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef range(i32 0, -2147483648) %close_fds, i32 noundef range(i32 0, -2147483648) %restore_signals, i32 noundef range(i32 0, -2147483648) %call_setsid, i32 noundef %pgid_to_set, i32 noundef %gid, i64 noundef %extra_group_size, ptr noundef %extra_groups, i32 noundef %uid, i32 noundef %child_umask, ptr noundef %child_sigmask, ptr noundef nonnull readonly captures(none) %fds_to_keep, i64 noundef %fds_to_keep_len, ptr noundef %preexec_fn, ptr noundef %preexec_fn_args_tuple) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %child_sigmask, null
   br i1 %tobool.not, label %if.end8, label %if.then
@@ -1223,7 +1223,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare i32 @PyBytes_AsStringAndSize(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
@@ -1240,7 +1240,7 @@ declare i32 @fork() local_unnamed_addr #6
 declare void @PyOS_AfterFork_Child() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @child_exec(ptr nocapture noundef nonnull readonly %exec_array, ptr noundef %argv, ptr noundef %envp, ptr noundef %cwd, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef range(i32 0, -2147483648) %close_fds, i32 noundef range(i32 0, -2147483648) %restore_signals, i32 noundef range(i32 0, -2147483648) %call_setsid, i32 noundef %pgid_to_set, i32 noundef %gid, i64 noundef %extra_group_size, ptr noundef %extra_groups, i32 noundef %uid, i32 noundef %child_umask, ptr noundef %child_sigmask, ptr nocapture noundef nonnull readonly %fds_to_keep, i64 noundef %fds_to_keep_len, ptr noundef %preexec_fn, ptr noundef %preexec_fn_args_tuple) unnamed_addr #0 {
+define internal fastcc void @child_exec(ptr noundef nonnull readonly captures(none) %exec_array, ptr noundef %argv, ptr noundef %envp, ptr noundef %cwd, i32 noundef %p2cread, i32 noundef %p2cwrite, i32 noundef %c2pread, i32 noundef %c2pwrite, i32 noundef %errread, i32 noundef %errwrite, i32 noundef %errpipe_read, i32 noundef %errpipe_write, i32 noundef range(i32 0, -2147483648) %close_fds, i32 noundef range(i32 0, -2147483648) %restore_signals, i32 noundef range(i32 0, -2147483648) %call_setsid, i32 noundef %pgid_to_set, i32 noundef %gid, i64 noundef %extra_group_size, ptr noundef %extra_groups, i32 noundef %uid, i32 noundef %child_umask, ptr noundef %child_sigmask, ptr noundef nonnull readonly captures(none) %fds_to_keep, i64 noundef %fds_to_keep_len, ptr noundef %preexec_fn, ptr noundef %preexec_fn_args_tuple) unnamed_addr #0 {
 entry:
   %hex_errno = alloca [9 x i8], align 1
   %cmp4.i = icmp sgt i64 %fds_to_keep_len, 0
@@ -1670,7 +1670,7 @@ declare i32 @setreuid(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @PyObject_Call(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_close_open_fds(ptr nocapture noundef nonnull readonly %fds_to_keep, i64 noundef %fds_to_keep_len) unnamed_addr #0 {
+define internal fastcc void @_close_open_fds(ptr noundef nonnull readonly captures(none) %fds_to_keep, i64 noundef %fds_to_keep_len) unnamed_addr #0 {
 entry:
   %buffer.i = alloca [280 x i8], align 16
   %cmp316.i = icmp sgt i64 %fds_to_keep_len, 0
@@ -1933,10 +1933,10 @@ declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare i64 @_Py_write_noraise(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare i32 @sigismember(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -1956,10 +1956,10 @@ declare i32 @_Py_open_noraise(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

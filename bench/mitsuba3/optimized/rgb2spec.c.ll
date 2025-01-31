@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"SPEC\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @rgb2spec_load(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @rgb2spec_load(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [4 x i8], align 1
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %3, null
@@ -87,22 +87,22 @@ define noalias noundef ptr @rgb2spec_load(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @rgb2spec_free(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define void @rgb2spec_free(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #16
@@ -114,7 +114,7 @@ define void @rgb2spec_free(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @rgb2spec_fetch(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
+define void @rgb2spec_fetch(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 {
   %4 = alloca [3 x float], align 4
   %5 = load i32, ptr %0, align 8
   br label %6
@@ -337,7 +337,7 @@ rgb2spec_find_interval.exit:                      ; preds = %.lr.ph.i, %43
 declare float @llvm.sqrt.f32(float) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @rgb2spec_eval_precise(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #7 {
+define noundef float @rgb2spec_eval_precise(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #7 {
   %3 = load float, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
@@ -354,7 +354,7 @@ define noundef float @rgb2spec_eval_precise(ptr nocapture noundef readonly %0, f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef float @rgb2spec_eval_fast(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #8 {
+define noundef float @rgb2spec_eval_fast(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #8 {
   %3 = load float, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load float, ptr %4, align 4
@@ -372,7 +372,7 @@ define noundef float @rgb2spec_eval_fast(ptr nocapture noundef readonly %0, floa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef <4 x float> @rgb2spec_eval_sse(ptr nocapture noundef readonly %0, <4 x float> noundef %1) local_unnamed_addr #8 {
+define noundef <4 x float> @rgb2spec_eval_sse(ptr noundef readonly captures(none) %0, <4 x float> noundef %1) local_unnamed_addr #8 {
   %3 = load float, ptr %0, align 4
   %4 = insertelement <4 x float> poison, float %3, i64 0
   %5 = shufflevector <4 x float> %4, <4 x float> poison, <4 x i32> zeroinitializer
@@ -400,7 +400,7 @@ define noundef <8 x float> @rgb2spec_fma256(<8 x float> noundef %0, <8 x float> 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef <8 x float> @rgb2spec_eval_avx(ptr nocapture noundef readonly %0, <8 x float> noundef %1) local_unnamed_addr #10 {
+define noundef <8 x float> @rgb2spec_eval_avx(ptr noundef readonly captures(none) %0, <8 x float> noundef %1) local_unnamed_addr #10 {
   %3 = load float, ptr %0, align 4
   %4 = insertelement <8 x float> poison, float %3, i64 0
   %5 = shufflevector <8 x float> %4, <8 x float> poison, <8 x i32> zeroinitializer
@@ -422,7 +422,7 @@ define noundef <8 x float> @rgb2spec_eval_avx(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define <16 x float> @rgb2spec_eval_avx512(ptr nocapture noundef readonly %0, <16 x float> noundef %1) local_unnamed_addr #11 {
+define <16 x float> @rgb2spec_eval_avx512(ptr noundef readonly captures(none) %0, <16 x float> noundef %1) local_unnamed_addr #11 {
   %3 = load float, ptr %0, align 4
   %4 = insertelement <16 x float> poison, float %3, i64 0
   %5 = shufflevector <16 x float> %4, <16 x float> poison, <16 x i32> zeroinitializer
@@ -468,7 +468,7 @@ declare <16 x float> @llvm.fma.v16f32(<16 x float>, <16 x float>, <16 x float>) 
 declare <16 x float> @llvm.x86.avx512.rsqrt14.ps.512(<16 x float>, <16 x float>, i16) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

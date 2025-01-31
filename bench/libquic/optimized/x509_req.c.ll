@@ -308,7 +308,7 @@ return:                                           ; preds = %for.cond, %for.cond
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_REQ_get_attr_by_NID(ptr nocapture noundef readonly %req, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
+define hidden i32 @X509_REQ_get_attr_by_NID(ptr noundef readonly captures(none) %req, i32 noundef %nid, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %attributes = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -318,7 +318,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_REQ_get_attr(ptr nocapture noundef readonly %req, i32 noundef %loc) local_unnamed_addr #0 {
+define hidden ptr @X509_REQ_get_attr(ptr noundef readonly captures(none) %req, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %attributes = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -334,7 +334,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @ASN1_item_d2i(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr nocapture noundef readonly %req, ptr noundef %exts, i32 noundef %nid) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions_nid(ptr noundef readonly captures(none) %req, ptr noundef %exts, i32 noundef %nid) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ASN1_TYPE_new() #6
   %tobool.not = icmp eq ptr %call, null
@@ -431,14 +431,14 @@ declare void @X509_ATTRIBUTE_free(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions(ptr nocapture noundef readonly %req, ptr noundef %exts) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_add_extensions(ptr noundef readonly captures(none) %req, ptr noundef %exts) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @X509_REQ_add_extensions_nid(ptr noundef %req, ptr noundef %exts, i32 noundef 172)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_REQ_get_attr_count(ptr nocapture noundef readonly %req) local_unnamed_addr #0 {
+define hidden i32 @X509_REQ_get_attr_count(ptr noundef readonly captures(none) %req) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %attributes = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -452,7 +452,7 @@ declare i32 @X509at_get_attr_count(ptr noundef) local_unnamed_addr #1
 declare i32 @X509at_get_attr_by_NID(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_REQ_get_attr_by_OBJ(ptr nocapture noundef readonly %req, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
+define hidden i32 @X509_REQ_get_attr_by_OBJ(ptr noundef readonly captures(none) %req, ptr noundef %obj, i32 noundef %lastpos) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %attributes = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -466,7 +466,7 @@ declare i32 @X509at_get_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef) local
 declare ptr @X509at_get_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_REQ_delete_attr(ptr nocapture noundef readonly %req, i32 noundef %loc) local_unnamed_addr #0 {
+define hidden ptr @X509_REQ_delete_attr(ptr noundef readonly captures(none) %req, i32 noundef %loc) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %attributes = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -478,7 +478,7 @@ entry:
 declare ptr @X509at_delete_attr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr(ptr nocapture noundef readonly %req, ptr noundef %attr) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr(ptr noundef readonly captures(none) %req, ptr noundef %attr) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %attributes = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -491,7 +491,7 @@ entry:
 declare ptr @X509at_add1_attr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_OBJ(ptr nocapture noundef readonly %req, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_OBJ(ptr noundef readonly captures(none) %req, ptr noundef %obj, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %attributes = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -504,7 +504,7 @@ entry:
 declare ptr @X509at_add1_attr_by_OBJ(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_NID(ptr nocapture noundef readonly %req, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_NID(ptr noundef readonly captures(none) %req, i32 noundef %nid, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %attributes = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -517,7 +517,7 @@ entry:
 declare ptr @X509at_add1_attr_by_NID(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_txt(ptr nocapture noundef readonly %req, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_add1_attr_by_txt(ptr noundef readonly captures(none) %req, ptr noundef %attrname, i32 noundef %type, ptr noundef %bytes, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %req, align 8
   %attributes = getelementptr inbounds nuw i8, ptr %0, i64 48

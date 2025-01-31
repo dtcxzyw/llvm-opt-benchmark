@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Info_get_valuelen_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_info_get_valuelen_f
 
 ; Function Attrs: nounwind uwtable
-define void @ompi_info_get_valuelen_f(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 {
+define void @ompi_info_get_valuelen_f(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = call i32 @ompi_fortran_string_f2c(ptr noundef %1, i32 noundef %5, ptr noundef nonnull %7) #5
   %.not = icmp eq i32 %8, 0
@@ -135,7 +135,7 @@ declare ptr @PMPI_Info_f2c(i32 noundef) local_unnamed_addr #1
 declare i32 @PMPI_Info_get_valuelen(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #3

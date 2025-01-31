@@ -278,7 +278,7 @@ define hidden void @proto_register_rtls() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @rssi_base_custom(ptr nocapture noundef writeonly %0, i32 noundef %1) #1 {
+define internal void @rssi_base_custom(ptr noundef writeonly captures(none) %0, i32 noundef %1) #1 {
   %3 = add i32 %1, -256
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 240, ptr noundef nonnull @.str.147, i32 noundef %3) #4
   ret void
@@ -289,7 +289,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_rtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_rtls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #4
   %6 = icmp ult i32 %5, 16
   br i1 %6, label %23, label %7
@@ -337,7 +337,7 @@ define hidden void @proto_reg_handoff_rtls() local_unnamed_addr #0 {
 declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #2
 

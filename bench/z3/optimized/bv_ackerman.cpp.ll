@@ -123,7 +123,7 @@ lpad4:                                            ; preds = %entry, %invoke.cont
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2bv8ackerman7new_tmpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((40, 48)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2bv8ackerman7new_tmpEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(72) initializes((40, 48)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   %v1.i = getelementptr inbounds nuw i8, ptr %call, i64 16
@@ -678,7 +678,7 @@ if.end17:                                         ; preds = %if.end21.i, %lor.lh
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2bv8ackerman11update_glueERNS0_2vvE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %v) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2bv8ackerman11update_glueERNS0_2vvE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %v) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_bits = getelementptr inbounds nuw i8, ptr %0, i64 456
@@ -903,7 +903,7 @@ if.end70:                                         ; preds = %if.then66, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2bv8ackerman6add_ccEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2bv8ackerman6add_ccEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i32 noundef %v1, i32 noundef %v2) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_var2enode.i = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1322,7 +1322,7 @@ if.end11:                                         ; preds = %entry, %if.then10, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
@@ -1335,7 +1335,7 @@ declare void @_ZN2bv6solver15assert_ackermanEii(ptr noundef nonnull align 8 dere
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableI18default_hash_entryIPN2bv8ackerman2vvEENS2_7vv_hashENS2_5vv_eqEE24insert_if_not_there_coreEOS4_RPS5_(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %e, ptr noundef nonnull align 8 dereferenceable(8) %et) local_unnamed_addr #3 comdat align 2 {
@@ -1827,7 +1827,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2157,10 +2157,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #15

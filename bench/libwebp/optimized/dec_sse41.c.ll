@@ -12,7 +12,7 @@ define hidden void @VP8DspInitSSE41() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @HE16_SSE41(ptr nocapture noundef %0) #1 {
+define internal void @HE16_SSE41(ptr noundef captures(none) %0) #1 {
   br label %2
 
 2:                                                ; preds = %1, %2

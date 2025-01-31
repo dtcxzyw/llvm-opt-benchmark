@@ -590,7 +590,7 @@ declare noundef ptr @_ZN6Assimp13DefaultLogger3getEv() local_unnamed_addr #1
 declare void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #1
 
@@ -901,7 +901,7 @@ lpad4:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef signext range(i8 0, 2) i8 @_ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_EEERNS3_5LayerERNS3_9UVChannelEj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %list, ptr nocapture noundef nonnull readnone align 8 dereferenceable(341) %0, ptr noundef nonnull align 8 dereferenceable(112) %uv, i32 noundef %next) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef signext range(i8 0, 2) i8 @_ZN6Assimp11LWOImporter14FindUVChannelsERNSt7__cxx114listINS_3LWO7TextureESaIS4_EEERNS3_5LayerERNS3_9UVChannelEj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %list, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(341) %0, ptr noundef nonnull align 8 dereferenceable(112) %uv, i32 noundef %next) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__begin1.sroa.0.013 = load ptr, ptr %list, align 8
   %cmp.i.not14 = icmp eq ptr %__begin1.sroa.0.013, %list
@@ -979,7 +979,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter14FindUVChannelsERNS_3LWO7SurfaceERSt6vectorIjSaIjEERNS1_5LayerEPj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, ptr noundef nonnull readonly align 8 dereferenceable(328) %surf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sorted, ptr nocapture noundef nonnull readonly align 8 dereferenceable(341) %layer, ptr nocapture noundef %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter14FindUVChannelsERNS_3LWO7SurfaceERSt6vectorIjSaIjEERNS1_5LayerEPj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull readonly align 8 dereferenceable(328) %surf, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sorted, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(341) %layer, ptr noundef captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i71 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.Assimp::Formatter::basic_formatter", align 8
@@ -1767,7 +1767,7 @@ if.end113:                                        ; preds = %if.then110, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter14FindVCChannelsERKNS_3LWO7SurfaceERSt6vectorIjSaIjEERKNS1_5LayerEPj(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(328) %surf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sorted, ptr nocapture noundef nonnull readonly align 8 dereferenceable(341) %layer, ptr nocapture noundef %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter14FindVCChannelsERKNS_3LWO7SurfaceERSt6vectorIjSaIjEERKNS1_5LayerEPj(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, ptr noundef nonnull align 8 dereferenceable(328) %surf, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sorted, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(341) %layer, ptr noundef captures(none) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i37 = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.Assimp::Formatter::basic_formatter", align 8
@@ -2298,7 +2298,7 @@ lpad:                                             ; preds = %while.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter18LoadLWO2ProceduralEjRNS_3LWO7TextureE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((92, 93)) %tex) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11LWOImporter18LoadLWO2ProceduralEjRNS_3LWO7TextureE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, i32 noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) initializes((92, 93)) %tex) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.41)
@@ -2308,7 +2308,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter16LoadLWO2GradientEjRNS_3LWO7TextureE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(233) %this, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((92, 93)) %tex) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11LWOImporter16LoadLWO2GradientEjRNS_3LWO7TextureE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(233) %this, i32 noundef %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(152) initializes((92, 93)) %tex) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger5errorEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call, ptr noundef nonnull @.str.42)
@@ -2431,7 +2431,7 @@ while.end:                                        ; preds = %sw.epilog, %if.end
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter20LoadLWO2TextureBlockEPNS_3IFF14SubChunkHeaderEj(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr nocapture noundef readonly %head, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter20LoadLWO2TextureBlockEPNS_3IFF14SubChunkHeaderEj(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr noundef readonly captures(none) %head, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tex = alloca %"struct.Assimp::LWO::Texture", align 8
   %mSurfaces = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -2681,7 +2681,7 @@ ehcleanup:                                        ; preds = %lpad3.body, %lpad.b
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
@@ -2698,7 +2698,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11LWOImporter19LoadLWO2ShaderBlockEPNS_3IFF14SubChunkHeaderEj(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr nocapture readnone %0, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11LWOImporter19LoadLWO2ShaderBlockEPNS_3IFF14SubChunkHeaderEj(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr readnone captures(none) %0, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %shader = alloca %"struct.Assimp::LWO::Shader", align 8
   %mFileBuffer = getelementptr inbounds nuw i8, ptr %this, i64 168
@@ -6703,13 +6703,13 @@ lpad:                                             ; preds = %_ZN6Assimp9Formatte
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16

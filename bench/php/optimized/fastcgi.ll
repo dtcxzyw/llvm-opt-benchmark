@@ -67,7 +67,7 @@ define hidden void @fcgi_terminate() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @fcgi_request_set_keep(ptr nocapture noundef writeonly initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden void @fcgi_request_set_keep(ptr noundef writeonly captures(none) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -84,7 +84,7 @@ define weak hidden void @fcgi_log(i32 noundef %0, ptr noundef %1, ...) local_unn
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @fcgi_init() local_unnamed_addr #3 {
@@ -202,14 +202,14 @@ fcgi_setup_signals.exit:                          ; preds = %34, %43
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @fcgi_free_mgmt_var_cb(ptr nocapture noundef readonly %0) #6 {
+define hidden void @fcgi_free_mgmt_var_cb(ptr noundef readonly captures(none) %0) #6 {
   %2 = load ptr, ptr %0, align 8
   tail call void @free(ptr noundef %2) #32
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @fcgi_set_mgmt_var(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #3 {
+define hidden void @fcgi_set_mgmt_var(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = and i64 %1, -8
   %7 = add i64 %6, 32
@@ -316,7 +316,7 @@ define hidden void @fcgi_shutdown() local_unnamed_addr #3 {
 declare void @zend_hash_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, -2147483648) i32 @fcgi_listen(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
@@ -380,7 +380,7 @@ is_port_number.exit.thread:                       ; preds = %.loopexit106
   br label %33
 
 is_port_number.exit:                              ; preds = %12
-  %28 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef %0, i64 noundef %15) #32
+  %28 = call ptr @strncpy(ptr noundef nonnull %5, ptr noundef nonnull %0, i64 noundef %15) #32
   %29 = getelementptr inbounds [4096 x i8], ptr %5, i64 0, i64 %15
   store i8 0, ptr %29, align 1
   %.pre = load i8, ptr %5, align 16
@@ -467,7 +467,7 @@ is_port_number.exit:                              ; preds = %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %61, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %62, i1 false)
   %63 = trunc nuw i64 %57 to i32
   %64 = add nuw nsw i32 %63, 2
-  %65 = tail call i32 @unlink(ptr noundef %0) #32
+  %65 = tail call i32 @unlink(ptr noundef nonnull %0) #32
   br label %66
 
 66:                                               ; preds = %33, %55, %36, %60
@@ -506,7 +506,7 @@ is_port_number.exit:                              ; preds = %12
   br i1 %.not83102, label %86, label %88
 
 86:                                               ; preds = %85
-  %87 = call i32 @chmod(ptr noundef %0, i32 noundef 511) #32
+  %87 = call i32 @chmod(ptr noundef nonnull %0, i32 noundef 511) #32
   br label %130
 
 88:                                               ; preds = %85
@@ -655,13 +655,13 @@ fcgi_setup_signals.exit:                          ; preds = %133, %142
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #7
@@ -673,15 +673,15 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #7
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @php_network_gethostbyname(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
@@ -701,13 +701,13 @@ declare i32 @close(i32 noundef) local_unnamed_addr #5
 declare ptr @strerror(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @chmod(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #16
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #17
@@ -880,7 +880,7 @@ define internal void @fcgi_hook_dummy() #20 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @fcgi_destroy_request(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden void @fcgi_destroy_request(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   %3 = load ptr, ptr %2, align 8
   %.not12.i = icmp eq ptr %3, null
@@ -914,7 +914,7 @@ fcgi_hash_destroy.exit:                           ; preds = %.lr.ph17.i, %._crit
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden i32 @fcgi_read(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #21 {
+define hidden i32 @fcgi_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #21 {
   %4 = alloca %struct._fcgi_header, align 1
   %5 = alloca [255 x i8], align 16
   %6 = icmp sgt i32 %2, 0
@@ -1191,7 +1191,7 @@ safe_read.exit78:                                 ; preds = %117, %123, %121
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @fcgi_close(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden void @fcgi_close(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [8 x i8], align 1
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %29, label %5
@@ -1309,7 +1309,7 @@ declare i32 @shutdown(i32 noundef, i32 noundef) local_unnamed_addr #8
 declare i64 @recv(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @fcgi_is_closed(ptr nocapture noundef readonly %0) local_unnamed_addr #22 {
+define hidden range(i32 0, 2) i32 @fcgi_is_closed(ptr noundef readonly captures(none) %0) local_unnamed_addr #22 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.lobit = lshr i32 %3, 31
@@ -2643,7 +2643,7 @@ safe_write.exit.thread:                           ; preds = %71, %safe_write.exi
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 -1, -2147483648) i32 @fcgi_write(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #21 {
+define hidden range(i32 -1, -2147483648) i32 @fcgi_write(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #21 {
   %5 = icmp slt i32 %3, 1
   br i1 %5, label %.loopexit, label %6
 
@@ -3154,7 +3154,7 @@ define hidden range(i32 0, 2) i32 @fcgi_has_env(ptr noundef readonly %0) local_u
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @fcgi_getenv(ptr noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #23 {
+define hidden ptr @fcgi_getenv(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #23 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %fcgi_hash_get.exit, label %4
 
@@ -3231,7 +3231,7 @@ fcgi_hash_get.exit:                               ; preds = %44, %41, %24, %3
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @fcgi_quick_getenv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #23 {
+define hidden ptr @fcgi_quick_getenv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #23 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   %6 = and i32 %3, 127
   %7 = zext nneg i32 %6 to i64
@@ -3280,7 +3280,7 @@ fcgi_hash_get.exit:                               ; preds = %24, %4, %21
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden ptr @fcgi_putenv(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #21 {
+define hidden ptr @fcgi_putenv(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %fcgi_hash_del.exit, label %5
 
@@ -3398,7 +3398,7 @@ fcgi_hash_del.exit:                               ; preds = %53, %46, %27, %4, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @fcgi_hash_set(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #21 {
+define internal fastcc ptr @fcgi_hash_set(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #21 {
   %7 = and i32 %1, 127
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw [128 x ptr], ptr %0, i64 0, i64 %8
@@ -3597,7 +3597,7 @@ fcgi_hash_strndup.exit60:                         ; preds = %fcgi_hash_strndup.e
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden ptr @fcgi_quick_putenv(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #21 {
+define hidden ptr @fcgi_quick_putenv(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #21 {
   %6 = icmp eq ptr %4, null
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8296
   br i1 %6, label %8, label %36
@@ -3664,7 +3664,7 @@ fcgi_hash_del.exit:                               ; preds = %33, %26, %8, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @fcgi_loadenv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden void @fcgi_loadenv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 9320
   %.012.i = load ptr, ptr %4, align 8
   %.not13.i = icmp eq ptr %.012.i, null
@@ -3724,10 +3724,10 @@ define internal void @fcgi_signal_handler(i32 noundef %0) #0 {
 declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #24
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #21 {
+define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr noundef captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #21 {
   %4 = icmp ult ptr %1, %2
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -3858,7 +3858,7 @@ define internal fastcc range(i32 0, 2) i32 @fcgi_get_params(ptr nocapture nounde
 declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #24
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #25
@@ -3873,7 +3873,7 @@ declare void @llvm.va_start.p0(ptr) #27
 declare void @llvm.va_end.p0(ptr) #27
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #29
@@ -3882,10 +3882,10 @@ declare i32 @llvm.smax.i32(i32, i32) #29
 declare i32 @llvm.umax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

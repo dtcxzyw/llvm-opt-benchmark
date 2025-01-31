@@ -104,7 +104,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2lp12int_gcd_testC2ERNS_10int_solverE(ptr nocapture noundef nonnull align 8 dereferenceable(148) initializes((0, 28), (32, 44), (48, 60), (64, 76), (80, 92), (96, 108), (112, 148)) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp12int_gcd_testC2ERNS_10int_solverE(ptr noundef nonnull align 8 captures(none) dereferenceable(148) initializes((0, 28), (32, 44), (48, 60), (64, 76), (80, 92), (96, 108), (112, 148)) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   store ptr %lia, ptr %this, align 8
   %lra = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -191,7 +191,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp12int_gcd_test12should_applyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN2lp12int_gcd_test12should_applyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %this) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10int_solver8settingsEv(ptr noundef nonnull align 8 dereferenceable(504) %0)
@@ -736,7 +736,7 @@ return:                                           ; preds = %if.end11, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp12int_gcd_test10reset_testEv(ptr nocapture noundef nonnull align 8 dereferenceable(148) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2lp12int_gcd_test10reset_testEv(ptr noundef nonnull align 8 captures(none) dereferenceable(148) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_inserted_vars = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_inserted_vars, align 8
@@ -812,7 +812,7 @@ declare noundef zeroext i1 @_ZNK2lp10int_solver13column_is_intERKNS_12column_ind
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZNK2lp10int_solver9get_valueEj(ptr noundef nonnull align 8 dereferenceable(504), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp12int_gcd_test16gcd_test_for_rowERKNS_13static_matrixI8rationalNS_12numeric_pairIS2_EEEEj(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %A, i32 noundef %i) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2lp12int_gcd_test16gcd_test_for_rowERKNS_13static_matrixI8rationalNS_12numeric_pairIS2_EEEEj(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %A, i32 noundef %i) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %class.rational, align 8
   %ref.tmp3.i = alloca %class.rational, align 8
@@ -2262,7 +2262,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i21,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERK6vectorINS_8row_cellI8rationalEELb1EjE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %row) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERK6vectorINS_8row_cellI8rationalEELb1EjE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %row) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %row, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -2302,7 +2302,7 @@ for.end:                                          ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2lp12int_gcd_test12ext_gcd_testERK6vectorINS_8row_cellI8rationalEELb1EjE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %row) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2lp12int_gcd_test12ext_gcd_testERK6vectorINS_8row_cellI8rationalEELb1EjE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %row) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gcds = alloca %class.rational, align 8
   %l = alloca %class.rational, align 8
@@ -4064,7 +4064,7 @@ if.end20:                                         ; preds = %.noexc.i, %if.else.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %this, i32 noundef %j) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2lp12int_gcd_test45add_to_explanation_from_fixed_or_boxed_columnEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %this, i32 noundef %j) local_unnamed_addr #5 align 2 {
 entry:
   %tmp.i.i = alloca i32, align 4
   %lra = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5450,7 +5450,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -6219,10 +6219,10 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN11mpq_managerILb1EE3divERK3mpqS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %a, ptr noundef nonnull align 8 dereferenceable(32) %b, ptr noundef nonnull align 8 dereferenceable(32) %c) local_unnamed_addr #5 comdat align 2 {
@@ -6959,10 +6959,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

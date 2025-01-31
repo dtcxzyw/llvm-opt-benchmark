@@ -253,7 +253,7 @@ define i32 @H5Pset_fapl_family(i64 noundef %0, i64 noundef %1, i64 noundef %2) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @H5_init_library() local_unnamed_addr #1
 
@@ -266,7 +266,7 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #1
 declare i32 @H5P_isa_class(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__family_get_default_config(ptr nocapture noundef nonnull initializes((0, 8)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__family_get_default_config(ptr noundef nonnull captures(none) initializes((0, 8)) %0) unnamed_addr #0 {
   store i64 104857600, ptr %0, align 8
   %2 = load i64, ptr @H5P_LST_FILE_ACCESS_ID_g, align 8
   %3 = tail call ptr @H5I_object(i64 noundef %2) #13
@@ -476,12 +476,12 @@ define internal noundef i32 @H5FD__family_term() #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @H5FD__family_sb_size(ptr nocapture readnone %0) #4 {
+define internal noundef i64 @H5FD__family_sb_size(ptr readnone captures(none) %0) #4 {
   ret i64 8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FD__family_sb_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9)) %1, ptr nocapture noundef writeonly %2) #5 {
+define internal noundef i32 @H5FD__family_sb_encode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 9)) %1, ptr noundef writeonly captures(none) %2) #5 {
   store i64 7596835238254429006, ptr %1, align 1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 0, ptr %4, align 1
@@ -506,7 +506,7 @@ define internal noundef i32 @H5FD__family_sb_encode(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__family_sb_decode(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__family_sb_decode(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %5
 
@@ -566,7 +566,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_sb_decode(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5FD__family_fapl_get(ptr nocapture noundef readonly %0) #0 {
+define internal noundef ptr @H5FD__family_fapl_get(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %8
@@ -606,7 +606,7 @@ define internal noundef ptr @H5FD__family_fapl_get(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5FD__family_fapl_copy(ptr nocapture noundef readonly %0) #0 {
+define internal noundef ptr @H5FD__family_fapl_copy(ptr noundef readonly captures(none) %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %8
@@ -1325,7 +1325,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_close(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5FD__family_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @H5FD__family_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1361,14 +1361,14 @@ define internal noundef i32 @H5FD__family_query(ptr noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @H5FD__family_get_eoa(ptr nocapture noundef readonly %0, i32 %1) #7 {
+define internal i64 @H5FD__family_get_eoa(ptr noundef readonly captures(none) %0, i32 %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %4 = load i64, ptr %3, align 8
   ret i64 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %union.anon.0, align 8
   %6 = alloca ptr, align 8
@@ -1566,7 +1566,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_set_eoa(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @H5FD__family_get_eof(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal i64 @H5FD__family_get_eof(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1610,7 +1610,7 @@ split:                                            ; preds = %10, %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5FD__family_get_handle(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2) #0 {
+define internal i32 @H5FD__family_get_handle(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = load i64, ptr @H5P_CLS_FILE_ACCESS_ID_g, align 8
   %6 = tail call ptr @H5P_object_verify(i64 noundef %1, i64 noundef %5) #13
@@ -1668,7 +1668,7 @@ define internal i32 @H5FD__family_get_handle(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__family_read(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__family_read(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = tail call ptr @H5I_object(i64 noundef %2) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %11, label %.preheader
@@ -1724,7 +1724,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_read(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__family_write(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__family_write(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = tail call ptr @H5I_object(i64 noundef %2) #13
   %8 = icmp eq ptr %7, null
   br i1 %8, label %11, label %.preheader
@@ -1780,7 +1780,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_write(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__family_flush(ptr nocapture noundef readonly %0, i64 %1, i1 noundef zeroext %2) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__family_flush(ptr noundef readonly captures(none) %0, i64 %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %.not18 = icmp eq i32 %5, 0
@@ -1831,7 +1831,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_flush(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__family_truncate(ptr nocapture noundef readonly %0, i64 %1, i1 noundef zeroext %2) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__family_truncate(ptr noundef readonly captures(none) %0, i64 %1, i1 noundef zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8
   %.not18 = icmp eq i32 %5, 0
@@ -1882,7 +1882,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_truncate(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__family_lock(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__family_lock(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8
   %.not27 = icmp eq i32 %4, 0
@@ -1962,7 +1962,7 @@ define internal range(i32 -1, 1) i32 @H5FD__family_lock(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__family_unlock(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__family_unlock(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %.not12 = icmp eq i32 %3, 0
@@ -2232,10 +2232,10 @@ declare i32 @H5P_get(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare noalias ptr @H5MM_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noalias noundef ptr @H5FD__family_get_default_printf_filename(ptr noundef nonnull %0) unnamed_addr #0 {
@@ -2319,10 +2319,10 @@ declare i64 @H5FDget_eof(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @H5FD_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #11

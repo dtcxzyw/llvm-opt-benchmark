@@ -158,7 +158,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_multibytecodec_traverse(ptr noundef %mod, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @_multibytecodec_traverse(ptr noundef %mod, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %call.i = tail call ptr @PyModule_GetState(ptr noundef %mod) #8
   %multibytecodec_type = getelementptr inbounds nuw i8, ptr %call.i, i64 32
@@ -576,7 +576,7 @@ Py_DECREF.exit:                                   ; preds = %multibytecodec_clea
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @multibytecodec_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @multibytecodec_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -608,7 +608,7 @@ return:                                           ; preds = %if.then8, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @multibytecodec_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @multibytecodec_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %cjk_module = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %cjk_module, align 8
@@ -641,7 +641,7 @@ declare void @PyObject_GC_UnTrack(ptr noundef) local_unnamed_addr #1
 declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multibytecodec_MultibyteCodec_encode(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_multibytecodec_MultibyteCodec_encode(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %state.i = alloca %struct.MultibyteCodec_State, align 1
   %argsbuf = alloca [2 x ptr], align 16
@@ -969,7 +969,7 @@ exit:                                             ; preds = %if.then22, %cond.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multibytecodec_MultibyteCodec_decode(ptr nocapture noundef readonly %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
+define internal ptr @_multibytecodec_MultibyteCodec_decode(ptr noundef readonly captures(none) %self, ptr noundef %args, i64 noundef %nargs, ptr noundef %kwnames) #0 {
 entry:
   %state.i = alloca %struct.MultibyteCodec_State, align 1
   %buf.i = alloca %struct.MultibyteDecodeBuffer, align 8
@@ -1383,7 +1383,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare ptr @PyUnicode_AsUTF8AndSize(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1636,7 +1636,7 @@ return:                                           ; preds = %if.then1.i.i48, %if
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 
@@ -2237,7 +2237,7 @@ declare i32 @PyUnicodeEncodeError_SetReason(ptr noundef, ptr noundef) local_unna
 declare ptr @PyCodec_StrictErrors(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #1
 
@@ -2258,7 +2258,7 @@ declare ptr @PyTuple_New(i64 noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @PyObject_GetBuffer(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -2269,7 +2269,7 @@ declare ptr @PyUnicode_New(i64 noundef, i32 noundef) local_unnamed_addr #1
 declare void @_PyUnicodeWriter_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @multibytecodec_decerror(ptr nocapture noundef readonly %codec, ptr noundef nonnull %buf, ptr noundef %errors, i64 noundef range(i64 1, 0) %e) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @multibytecodec_decerror(ptr noundef readonly captures(none) %codec, ptr noundef nonnull %buf, ptr noundef %errors, i64 noundef range(i64 1, 0) %e) unnamed_addr #0 {
 entry:
   %cmp = icmp sgt i64 %e, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -2633,7 +2633,7 @@ Py_DECREF.exit:                                   ; preds = %do.end10, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mbiencoder_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @mbiencoder_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %errors = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %errors, align 8
@@ -2658,7 +2658,7 @@ return:                                           ; preds = %if.then4, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mbiencoder_init(ptr nocapture readnone %self, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #5 {
+define internal noundef i32 @mbiencoder_init(ptr readnone captures(none) %self, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #5 {
 entry:
   ret i32 0
 }
@@ -2859,7 +2859,7 @@ exit:                                             ; preds = %if.end14, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multibytecodec_MultibyteIncrementalEncoder_getstate(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_multibytecodec_MultibyteIncrementalEncoder_getstate(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %statebytes.i = alloca [17 x i8], align 16
   %pendingsize.i = alloca i64, align 8
@@ -2915,7 +2915,7 @@ _multibytecodec_MultibyteIncrementalEncoder_getstate_impl.exit: ; preds = %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_multibytecodec_MultibyteIncrementalEncoder_setstate(ptr nocapture noundef %self, ptr noundef %arg) #0 {
+define internal noundef ptr @_multibytecodec_MultibyteIncrementalEncoder_setstate(ptr noundef captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %statebytes.i = alloca [17 x i8], align 16
   %0 = getelementptr i8, ptr %arg, i64 8
@@ -2996,7 +2996,7 @@ exit:                                             ; preds = %_multibytecodec_Mul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_multibytecodec_MultibyteIncrementalEncoder_reset(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_multibytecodec_MultibyteIncrementalEncoder_reset(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %buffer.i = alloca [4 x i8], align 1
   %outbuf.i = alloca ptr, align 8
@@ -3369,7 +3369,7 @@ declare i32 @_PyLong_AsByteArray(ptr noundef, ptr noundef, i64 noundef, i32 noun
 declare ptr @PyUnicode_DecodeUTF8(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @codecctx_errors_get(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @codecctx_errors_get(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %errors1 = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %errors1, align 8
@@ -3400,7 +3400,7 @@ return:                                           ; preds = %if.end.i.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @codecctx_errors_set(ptr nocapture noundef %self, ptr noundef %value, ptr nocapture readnone %closure) #0 {
+define internal range(i32 -1, 1) i32 @codecctx_errors_set(ptr noundef captures(none) %self, ptr noundef %value, ptr readnone captures(none) %closure) #0 {
 entry:
   %cmp = icmp eq ptr %value, null
   br i1 %cmp, label %if.then, label %if.end
@@ -3550,7 +3550,7 @@ Py_DECREF.exit:                                   ; preds = %do.end, %if.then1.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mbidecoder_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @mbidecoder_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %errors = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %errors, align 8
@@ -3575,7 +3575,7 @@ return:                                           ; preds = %if.then4, %if.end9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mbidecoder_init(ptr nocapture readnone %self, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #5 {
+define internal noundef i32 @mbidecoder_init(ptr readnone captures(none) %self, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #5 {
 entry:
   ret i32 0
 }
@@ -4009,7 +4009,7 @@ if.end27:                                         ; preds = %if.then26, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multibytecodec_MultibyteIncrementalDecoder_getstate(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_multibytecodec_MultibyteIncrementalDecoder_getstate(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %pending.i = getelementptr inbounds nuw i8, ptr %self, i64 40
   %pendingsize.i = getelementptr inbounds nuw i8, ptr %self, i64 48
@@ -4050,7 +4050,7 @@ _multibytecodec_MultibyteIncrementalDecoder_getstate_impl.exit: ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_multibytecodec_MultibyteIncrementalDecoder_setstate(ptr nocapture noundef writeonly %self, ptr noundef %arg) #0 {
+define internal noundef ptr @_multibytecodec_MultibyteIncrementalDecoder_setstate(ptr noundef writeonly captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %buffer.i = alloca ptr, align 8
   %statelong.i = alloca ptr, align 8
@@ -4125,7 +4125,7 @@ exit:                                             ; preds = %_multibytecodec_Mul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_multibytecodec_MultibyteIncrementalDecoder_reset(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_multibytecodec_MultibyteIncrementalDecoder_reset(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %codec.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %codec.i, align 8
@@ -4241,7 +4241,7 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mbstreamreader_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @mbstreamreader_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %errors = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %errors, align 8
@@ -4277,7 +4277,7 @@ return:                                           ; preds = %if.then12, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mbstreamreader_init(ptr nocapture readnone %self, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #5 {
+define internal noundef i32 @mbstreamreader_init(ptr readnone captures(none) %self, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #5 {
 entry:
   ret i32 0
 }
@@ -4438,7 +4438,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multibytecodec_MultibyteStreamReader_read(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_multibytecodec_MultibyteStreamReader_read(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -4495,7 +4495,7 @@ exit:                                             ; preds = %land.lhs.true.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multibytecodec_MultibyteStreamReader_readline(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_multibytecodec_MultibyteStreamReader_readline(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -4552,7 +4552,7 @@ exit:                                             ; preds = %land.lhs.true.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_multibytecodec_MultibyteStreamReader_readlines(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_multibytecodec_MultibyteStreamReader_readlines(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -4624,7 +4624,7 @@ exit:                                             ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_multibytecodec_MultibyteStreamReader_reset(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_multibytecodec_MultibyteStreamReader_reset(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %codec.i = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %codec.i, align 8
@@ -5043,7 +5043,7 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mbstreamwriter_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @mbstreamwriter_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %errors = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %errors, align 8
@@ -5079,7 +5079,7 @@ return:                                           ; preds = %if.then12, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mbstreamwriter_init(ptr nocapture readnone %self, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #5 {
+define internal noundef i32 @mbstreamwriter_init(ptr readnone captures(none) %self, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #5 {
 entry:
   ret i32 0
 }
@@ -5450,7 +5450,7 @@ exit:                                             ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_multibytecodec_MultibyteStreamWriter_reset(ptr noundef %self, ptr noundef %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal noundef ptr @_multibytecodec_MultibyteStreamWriter_reset(ptr noundef %self, ptr noundef %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %tobool.not = icmp eq i64 %nargs, 0
@@ -5567,10 +5567,10 @@ declare ptr @PySequence_GetItem(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @llvm.smax.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

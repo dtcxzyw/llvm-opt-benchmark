@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @WebPConvertARGBToUV = hidden local_unnamed_addr global ptr null, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @WebPSamplerProcessPlane(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef readonly %9) local_unnamed_addr #0 {
+define hidden void @WebPSamplerProcessPlane(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef readonly captures(none) %9) local_unnamed_addr #0 {
   %11 = icmp sgt i32 %8, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -115,7 +115,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) #2 {
+define hidden void @WebPConvertARGBToUV_C(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4) #2 {
   %6 = ashr i32 %3, 1
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -298,7 +298,7 @@ define hidden void @WebPConvertARGBToUV_C(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @WebPConvertRGBA32ToUV_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) #2 {
+define hidden void @WebPConvertRGBA32ToUV_C(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #2 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -401,7 +401,7 @@ WebPInitConvertARGBToYUV_body.exit:               ; preds = %12, %9, %5, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
+define internal void @YuvToRgbRow(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
   %6 = and i32 %4, -2
   %7 = mul nsw i32 %6, 3
   %8 = sext i32 %7 to i64
@@ -578,7 +578,7 @@ define internal void @YuvToRgbRow(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
+define internal void @YuvToRgbaRow(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 2
   %7 = and i32 %6, -8
   %8 = sext i32 %7 to i64
@@ -761,7 +761,7 @@ define internal void @YuvToRgbaRow(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
+define internal void @YuvToBgrRow(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
   %6 = and i32 %4, -2
   %7 = mul nsw i32 %6, 3
   %8 = sext i32 %7 to i64
@@ -938,7 +938,7 @@ define internal void @YuvToBgrRow(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
+define internal void @YuvToBgraRow(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 2
   %7 = and i32 %6, -8
   %8 = sext i32 %7 to i64
@@ -1121,7 +1121,7 @@ define internal void @YuvToBgraRow(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
+define internal void @YuvToArgbRow(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 2
   %7 = and i32 %6, -8
   %8 = sext i32 %7 to i64
@@ -1304,7 +1304,7 @@ define internal void @YuvToArgbRow(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
+define internal void @YuvToRgba4444Row(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 1
   %7 = and i32 %6, -4
   %8 = sext i32 %7 to i64
@@ -1481,7 +1481,7 @@ define internal void @YuvToRgba4444Row(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToRgb565Row(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
+define internal void @YuvToRgb565Row(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 1
   %7 = and i32 %6, -4
   %8 = sext i32 %7 to i64
@@ -1671,7 +1671,7 @@ declare void @WebPInitSamplersSSE2() local_unnamed_addr #3
 declare void @WebPInitSamplersSSE41() local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ConvertARGBToY_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
+define internal void @ConvertARGBToY_C(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1707,7 +1707,7 @@ define internal void @ConvertARGBToY_C(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ConvertRGB24ToY_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
+define internal void @ConvertRGB24ToY_C(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1746,7 +1746,7 @@ define internal void @ConvertRGB24ToY_C(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @ConvertBGR24ToY_C(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #2 {
+define internal void @ConvertBGR24ToY_C(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #2 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 

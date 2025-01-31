@@ -196,7 +196,7 @@ declare i32 @dsm_segment_handle(ptr noundef) local_unnamed_addr #1
 declare void @on_dsm_detach(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dsa_on_dsm_detach_release_in_place(ptr nocapture readnone %0, i64 noundef %1) #0 {
+define dso_local void @dsa_on_dsm_detach_release_in_place(ptr readnone captures(none) %0, i64 noundef %1) #0 {
   %3 = inttoptr i64 %1 to ptr
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6156
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 0) #10
@@ -252,7 +252,7 @@ define dso_local noundef ptr @dsa_create_in_place(ptr noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @dsa_get_handle(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i32 @dsa_get_handle(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load i32, ptr %3, align 8
@@ -445,7 +445,7 @@ declare void @dsm_unpin_segment(i32 noundef) local_unnamed_addr #1
 declare void @LWLockRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dsa_pin_mapping(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @dsa_pin_mapping(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1828,7 +1828,7 @@ check_for_freed_segments.exit:                    ; preds = %3, %check_for_freed
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @get_segment_by_index(ptr noundef %0, i64 noundef range(i64 0, -1) %1) unnamed_addr #0 {
@@ -2226,7 +2226,7 @@ check_for_freed_segments_locked.exit:             ; preds = %unlink_span.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dsa_pin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @dsa_pin(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 6156
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #10
@@ -2259,7 +2259,7 @@ define dso_local void @dsa_pin(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dsa_unpin(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @dsa_unpin(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 6156
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #10
@@ -2292,7 +2292,7 @@ define dso_local void @dsa_unpin(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dsa_set_size_limit(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @dsa_set_size_limit(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6156
   %5 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %4, i32 noundef 0) #10
@@ -2487,7 +2487,7 @@ dsa_get_address.exit:                             ; preds = %77, %68, %check_for
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dsa_dump(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @dsa_dump(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 6156
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #10
@@ -3003,10 +3003,10 @@ declare void @llvm.assume(i1 noundef) #7
 declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

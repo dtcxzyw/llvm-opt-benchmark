@@ -1645,7 +1645,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
+define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -2901,7 +2901,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wsp_fromwap_co(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_wsp_fromwap_co(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = load ptr, ptr @wtp_fromudp_handle, align 8
   tail call fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5, i32 noundef 0)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
@@ -2909,7 +2909,7 @@ define internal i32 @dissect_wsp_fromwap_co(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wsp_fromwap_cl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_wsp_fromwap_cl(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_clear(ptr noundef %6, i32 noundef 25) #4
@@ -2922,7 +2922,7 @@ define internal i32 @dissect_wsp_fromwap_cl(ptr noundef %0, ptr noundef %1, ptr 
 declare ptr @register_heur_dissector_list_with_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_wsp_fromudp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_wsp_fromudp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.547) #4
@@ -3094,7 +3094,7 @@ define internal void @wsp_stat_init(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @wsp_stat_packet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 %4) #1 {
+define internal range(i32 0, 2) i32 @wsp_stat_packet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 %4) #1 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %8 = load ptr, ptr %7, align 8
@@ -3212,7 +3212,7 @@ define internal void @wsp_stat_reset(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @wsp_stat_free_table_item(ptr nocapture readnone %0, i32 %1, i32 noundef %2, ptr nocapture noundef %3) #1 {
+define internal void @wsp_stat_free_table_item(ptr readnone captures(none) %0, i32 %1, i32 noundef %2, ptr noundef captures(none) %3) #1 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %8
 
@@ -3228,7 +3228,7 @@ define internal void @wsp_stat_free_table_item(ptr nocapture readnone %0, i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #1 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3287,7 +3287,7 @@ define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %.0103107 = phi i32 [ %57, %.lr.ph ], [ 0, %34 ]
   %.0104106 = phi i32 [ %56, %.lr.ph ], [ %50, %34 ]
-  %51 = call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %.0104106, ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
+  %51 = call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %.0104106, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %52 = load i32, ptr @hf_sir_protocol_options, align 4
   %53 = load i32, ptr %5, align 4
   %54 = call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %52, ptr noundef %0, i32 noundef %.0104106, i32 noundef %53, i32 noundef %51) #4
@@ -3299,7 +3299,7 @@ define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 ._crit_edge:                                      ; preds = %.lr.ph, %34
   %.0104.lcssa = phi i32 [ %50, %34 ], [ %56, %.lr.ph ]
-  %58 = call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %.0104.lcssa, ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
+  %58 = call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %.0104.lcssa, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %59 = load i32, ptr @hf_sir_prov_url_len, align 4
   %60 = load i32, ptr %5, align 4
   %61 = call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %59, ptr noundef %0, i32 noundef %.0104.lcssa, i32 noundef %60, i32 noundef %58) #4
@@ -3308,7 +3308,7 @@ define internal i32 @dissect_sir(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %64 = load i32, ptr @hf_sir_prov_url, align 4
   %65 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %64, ptr noundef %0, i32 noundef %63, i32 noundef %58, i32 noundef 0) #4
   %66 = add i32 %63, %58
-  %67 = call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %5, ptr noundef %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
+  %67 = call i32 @tvb_get_guintvar(ptr noundef %0, i32 noundef %66, ptr noundef nonnull %5, ptr noundef nonnull %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %68 = load i32, ptr @hf_sir_cpi_tag_len, align 4
   %69 = load i32, ptr %5, align 4
   %70 = call ptr @proto_tree_add_uint(ptr noundef %11, i32 noundef %68, ptr noundef %0, i32 noundef %66, i32 noundef %69, i32 noundef %67) #4
@@ -3361,7 +3361,7 @@ declare ptr @proto_tree_add_expert_format(ptr noundef, ptr noundef, ptr noundef,
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parameter_text(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parameter_text(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr %2, align 4
   %8 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %7) #4
@@ -3401,7 +3401,7 @@ define internal fastcc range(i32 0, 2) i32 @parameter_text(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @parameter_text_value(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, ptr noundef %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = load i32, ptr %3, align 4
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %8) #4
@@ -8554,7 +8554,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
 
 86:                                               ; preds = %.backedge.i, %80
   %.0169209.i = phi i32 [ 0, %80 ], [ %.0169.be.i, %.backedge.i ]
-  %87 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.0169209.i, ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
+  %87 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.0169209.i, ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %88 = load i32, ptr %11, align 4
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %add_capabilities.exit, label %90
@@ -8629,7 +8629,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
 
 132:                                              ; preds = %129
   %133 = load ptr, ptr %9, align 8
-  %134 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %133, ptr noundef nonnull @ei_wsp_capability_invalid, ptr noundef nonnull @.str.1269, ptr noundef %102) #4
+  %134 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %133, ptr noundef nonnull @ei_wsp_capability_invalid, ptr noundef nonnull @.str.1269, ptr noundef %102) #4
   br label %.backedge.i
 
 .backedge.i:                                      ; preds = %.lr.ph.i, %227, %.lr.ph205.i, %197, %252, %247, %242, %239, %.preheader192.i, %.preheader194.i, %.preheader.i, %.preheader190.i, %175, %171, %169, %165, %156, %151, %132
@@ -8650,7 +8650,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
 140:                                              ; preds = %138
   %141 = zext nneg i8 %98 to i32
   %142 = load ptr, ptr %9, align 8
-  %143 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %142, ptr noundef nonnull @ei_wsp_capability_invalid, ptr noundef nonnull @.str.1270, i32 noundef %141) #4
+  %143 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %142, ptr noundef nonnull @ei_wsp_capability_invalid, ptr noundef nonnull @.str.1270, i32 noundef %141) #4
   br label %add_capabilities.exit
 
 144:                                              ; preds = %138
@@ -8680,14 +8680,14 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
   ]
 
 151:                                              ; preds = %147
-  %152 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.2171.i, ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
+  %152 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.2171.i, ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %153 = load i32, ptr @hf_capa_client_sdu_size, align 4
   %154 = load i32, ptr %11, align 4
   %155 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %153, ptr noundef %77, i32 noundef %.2171.i, i32 noundef %154, i32 noundef %152) #4
   br label %.backedge.i
 
 156:                                              ; preds = %147
-  %157 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.2171.i, ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
+  %157 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.2171.i, ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %158 = load i32, ptr @hf_capa_server_sdu_size, align 4
   %159 = load i32, ptr %11, align 4
   %160 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %158, ptr noundef %77, i32 noundef %.2171.i, i32 noundef %159, i32 noundef %157) #4
@@ -8756,7 +8756,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
 
 195:                                              ; preds = %192, %189
   store i32 0, ptr %11, align 4
-  %196 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %185, ptr noundef nonnull @ei_wsp_capability_encoding_invalid) #4
+  %196 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %185, ptr noundef nonnull @ei_wsp_capability_encoding_invalid) #4
   br label %add_capabilities.exit
 
 197:                                              ; preds = %192, %.lr.ph207.i
@@ -8813,7 +8813,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
 
 225:                                              ; preds = %222, %219
   store i32 0, ptr %11, align 4
-  %226 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %215, ptr noundef nonnull @ei_wsp_capability_encoding_invalid) #4
+  %226 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %215, ptr noundef nonnull @ei_wsp_capability_encoding_invalid) #4
   br label %add_capabilities.exit
 
 227:                                              ; preds = %222, %.lr.ph203.i
@@ -8842,14 +8842,14 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
   br label %.backedge.i
 
 242:                                              ; preds = %147
-  %243 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.2171.i, ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
+  %243 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.2171.i, ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %244 = load i32, ptr @hf_capa_client_message_size, align 4
   %245 = load i32, ptr %11, align 4
   %246 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %244, ptr noundef %77, i32 noundef %.2171.i, i32 noundef %245, i32 noundef %243) #4
   br label %.backedge.i
 
 247:                                              ; preds = %147
-  %248 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.2171.i, ptr noundef nonnull %11, ptr noundef %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
+  %248 = call i32 @tvb_get_guintvar(ptr noundef %77, i32 noundef %.2171.i, ptr noundef nonnull %11, ptr noundef nonnull %1, ptr noundef nonnull @ei_wsp_oversized_uintvar) #4
   %249 = load i32, ptr @hf_capa_server_message_size, align 4
   %250 = load i32, ptr %11, align 4
   %251 = call ptr @proto_tree_add_uint(ptr noundef %93, i32 noundef %249, ptr noundef %77, i32 noundef %.2171.i, i32 noundef %250, i32 noundef %248) #4
@@ -8857,7 +8857,7 @@ define internal fastcc void @dissect_wsp_common(ptr noundef %0, ptr noundef %1, 
 
 252:                                              ; preds = %147
   %253 = load ptr, ptr %9, align 8
-  %254 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %253, ptr noundef nonnull @ei_wsp_capability_invalid, ptr noundef nonnull @.str.1275, i32 noundef %149) #4
+  %254 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %253, ptr noundef nonnull @ei_wsp_capability_invalid, ptr noundef nonnull @.str.1275, i32 noundef %149) #4
   br label %.backedge.i
 
 add_capabilities.exit:                            ; preds = %86, %90, %.backedge.i, %76, %140, %195, %225
@@ -8875,7 +8875,7 @@ add_capabilities.exit:                            ; preds = %86, %90, %.backedge
 257:                                              ; preds = %256
   %258 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.3, i32 noundef %.0303) #4
   %259 = load i32, ptr @hf_wsp_headers_section, align 4
-  call fastcc void @add_headers(ptr noundef %26, ptr noundef %258, i32 noundef %259, ptr noundef %1)
+  call fastcc void @add_headers(ptr noundef %26, ptr noundef %258, i32 noundef %259, ptr noundef nonnull %1)
   br label %493
 
 260:                                              ; preds = %31
@@ -9403,7 +9403,7 @@ declare ptr @stat_tap_init_table(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare void @stat_tap_add_table(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #0
 
@@ -9535,10 +9535,10 @@ define internal fastcc void @add_addresses(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

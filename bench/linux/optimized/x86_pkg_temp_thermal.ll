@@ -148,7 +148,7 @@ define dso_local void @cleanup_module() #0 section ".exit.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @x86_match_cpu(ptr noundef) local_unnamed_addr #2
@@ -589,7 +589,7 @@ define internal noundef zeroext i1 @pkg_thermal_rate_control() #4 align 16 {
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid allocsize(0)
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #5
@@ -604,7 +604,7 @@ declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef 
 declare dso_local i32 @intel_tcc_get_tjmax(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pkg_temp_thermal_threshold_work_fn(ptr nocapture readnone %0) #3 align 16 {
+define internal void @pkg_temp_thermal_threshold_work_fn(ptr readnone captures(none) %0) #3 align 16 {
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #11, !srcloc !21
   tail call void @mutex_lock(ptr noundef nonnull @thermal_zone_mutex) #8
   tail call void @_raw_spin_lock_irq(ptr noundef nonnull @pkg_temp_lock) #8
@@ -749,7 +749,7 @@ declare dso_local void @thermal_zone_device_update(ptr noundef, i32 noundef) loc
 declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @sys_get_curr_temp(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
+define internal range(i32 -2147483648, 1) i32 @sys_get_curr_temp(ptr noundef %0, ptr noundef writeonly captures(none) %1) #3 align 16 {
   %3 = tail call ptr @thermal_zone_device_priv(ptr noundef %0) #8
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @intel_tcc_get_temp(i32 noundef %4, i1 noundef zeroext true) #8

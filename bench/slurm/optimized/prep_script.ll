@@ -68,7 +68,7 @@ define range(i32 -1, 1) i32 @init() local_unnamed_addr #0 {
 declare zeroext i1 @running_in_slurmctld() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #2
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #2
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
@@ -78,7 +78,7 @@ define void @fini() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: read, inaccessiblemem: none) uwtable
-define void @prep_p_register_callbacks(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define void @prep_p_register_callbacks(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   store ptr %2, ptr @prolog_slurmctld_callback, align 8
   %.not = icmp eq ptr %2, null
@@ -118,7 +118,7 @@ define i32 @prep_p_epilog(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prep_p_prolog_slurmctld(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define noundef i32 @prep_p_prolog_slurmctld(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   %.b3 = load i1, ptr @have_prolog_slurmctld, align 1
   br i1 %.b3, label %3, label %4
 
@@ -135,7 +135,7 @@ define noundef i32 @prep_p_prolog_slurmctld(ptr noundef %0, ptr nocapture nounde
 declare void @slurmctld_script(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prep_p_epilog_slurmctld(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define noundef i32 @prep_p_epilog_slurmctld(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   %.b3 = load i1, ptr @have_epilog_slurmctld, align 1
   br i1 %.b3, label %3, label %4
 
@@ -150,7 +150,7 @@ define noundef i32 @prep_p_epilog_slurmctld(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prep_p_required(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define void @prep_p_required(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   switch i32 %0, label %11 [
     i32 3, label %3

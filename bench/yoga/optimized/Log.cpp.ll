@@ -10,7 +10,7 @@ $__clang_call_terminate = comdat any
 @stderr = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN8facebook4yoga3logENS0_8LogLevelEPKcz(i8 noundef zeroext %level, ptr nocapture noundef readonly %format, ...) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8facebook4yoga3logENS0_8LogLevelEPKcz(i8 noundef zeroext %level, ptr noundef readonly captures(none) %format, ...) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -140,7 +140,7 @@ entry:
 declare void @_ZNK8facebook4yoga6Config3logEPKNS0_4NodeENS0_8LogLevelEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef i32 @"_ZZN8facebook4yoga16getDefaultLoggerEvEN3$_08__invokeEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag"(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %level, ptr nocapture noundef readonly %format, ptr noundef %args) #0 align 2 {
+define internal noundef i32 @"_ZZN8facebook4yoga16getDefaultLoggerEvEN3$_08__invokeEPK8YGConfigPK6YGNode10YGLogLevelPKcP13__va_list_tag"(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 noundef %level, ptr noundef readonly captures(none) %format, ptr noundef %args) #0 align 2 {
 entry:
   switch i32 %level, label %sw.default.i [
     i32 0, label %sw.bb.i
@@ -162,10 +162,10 @@ sw.default.i:                                     ; preds = %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #7

@@ -137,7 +137,7 @@ define dso_local noundef range(i32 -1, 1) i32 @early_dbgp_init(ptr noundef %0) l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @early_pci_allowed() local_unnamed_addr #2
@@ -146,7 +146,7 @@ declare dso_local i32 @early_pci_allowed() local_unnamed_addr #2
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc range(i32 0, 253) i32 @find_dbgp(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc range(i32 0, 253) i32 @find_dbgp(i32 noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) unnamed_addr #0 section ".init.text" align 16 {
   br label %5
 
 5:                                                ; preds = %26, %4
@@ -362,10 +362,10 @@ define internal fastcc noundef range(i32 -1, 1) i32 @ehci_setup() unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @early_dbgp_write(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 align 16 {
+define internal void @early_dbgp_write(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 align 16 {
   %4 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %5 = load ptr, ptr @ehci_debug, align 8
@@ -551,12 +551,12 @@ define internal void @early_dbgp_write(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @dbgp_reset_prep(ptr nocapture readnone %0) #4 align 16 {
+define dso_local noundef i32 @dbgp_reset_prep(ptr readnone captures(none) %0) #4 align 16 {
   ret i32 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef i32 @dbgp_external_startup(ptr nocapture readnone %0) #4 align 16 {
+define dso_local noundef i32 @dbgp_external_startup(ptr readnone captures(none) %0) #4 align 16 {
   ret i32 -1
 }
 
@@ -1314,7 +1314,7 @@ define internal fastcc range(i32 -250000, 16) i32 @dbgp_wait_until_done(i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -250000, 16) i32 @dbgp_control_msg(i32 noundef %0, i32 noundef range(i32 0, 129) %1, i32 noundef range(i32 3, 7) %2, i32 noundef range(i32 6, 2561) %3, ptr nocapture noundef writeonly %4, i32 noundef range(i32 0, 5) %5) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -250000, 16) i32 @dbgp_control_msg(i32 noundef %0, i32 noundef range(i32 0, 129) %1, i32 noundef range(i32 3, 7) %2, i32 noundef range(i32 6, 2561) %3, ptr noundef writeonly captures(none) %4, i32 noundef range(i32 0, 5) %5) unnamed_addr #3 align 16 {
   %7 = alloca %struct.usb_ctrlrequest, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #7
   %8 = lshr i32 %1, 4

@@ -169,7 +169,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___folio_batc
 declare dso_local i32 @__SCT__tp_func_mm_lru_insertion(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_lru_insertion(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_lru_insertion(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_lru_insertion, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -190,21 +190,21 @@ define dso_local noundef i32 @__traceiter_mm_lru_insertion(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_lru_insertion(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_mm_lru_insertion(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_mm_lru_activate(ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_mm_lru_activate(ptr nocapture readnone %0, ptr noundef %1) #1 align 16 {
+define dso_local noundef i32 @__traceiter_mm_lru_activate(ptr readnone captures(none) %0, ptr noundef %1) #1 align 16 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_mm_lru_activate, i64 72), align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %.preheader
@@ -225,7 +225,7 @@ define dso_local noundef i32 @__traceiter_mm_lru_activate(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_mm_lru_activate(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 align 16 {
+define dso_local void @__probestub_mm_lru_activate(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 align 16 {
   ret void
 }
 
@@ -1595,7 +1595,7 @@ define internal void @lru_add_fn(ptr noundef %0, ptr noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @folio_add_lru_vma(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local void @folio_add_lru_vma(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, 268723200
@@ -1750,7 +1750,7 @@ define dso_local void @lru_add_drain_cpu(i32 noundef %0) local_unnamed_addr #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @folio_batch_move_lru(ptr nocapture noundef %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = load i8, ptr %0, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.thread, label %5
@@ -2934,7 +2934,7 @@ define dso_local void @lru_cache_disable() local_unnamed_addr #1 align 16 {
 declare dso_local void @synchronize_rcu_expedited() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) #1 align 16 {
+define dso_local void @release_pages(ptr readonly captures(none) %0, i32 noundef %1) #1 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
   store ptr %3, ptr %3, align 8
@@ -3231,7 +3231,7 @@ define dso_local void @release_pages(ptr nocapture readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @zone_stat_sub_folio(ptr noundef %0) unnamed_addr #6 align 16 {
@@ -3261,7 +3261,7 @@ define internal fastcc void @zone_stat_sub_folio(ptr noundef %0) unnamed_addr #6
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__folio_batch_release(ptr nocapture noundef %0) #1 align 16 {
+define dso_local void @__folio_batch_release(ptr noundef captures(none) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1, !range !107, !noundef !108
   %4 = icmp eq i8 %3, 0
@@ -3302,7 +3302,7 @@ define dso_local void @__folio_batch_release(ptr nocapture noundef %0) #1 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @folio_batch_remove_exceptionals(ptr nocapture noundef %0) local_unnamed_addr #8 align 16 {
+define dso_local void @folio_batch_remove_exceptionals(ptr noundef captures(none) %0) local_unnamed_addr #8 align 16 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %25, label %4
@@ -3626,7 +3626,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #0
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @lru_add_drain_per_cpu(ptr nocapture readnone %0) #1 align 16 {
+define internal void @lru_add_drain_per_cpu(ptr readnone captures(none) %0) #1 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #12, !srcloc !29
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !111
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @cpu_fbatches) #13, !srcloc !112

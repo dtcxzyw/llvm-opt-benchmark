@@ -54,7 +54,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_proc_create_
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_proc_create_net_data439, ptr @__UNIQUE_ID___addressable_proc_create_net_data_write440, ptr @__UNIQUE_ID___addressable_proc_create_net_single441, ptr @__UNIQUE_ID___addressable_proc_create_net_single_write442], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @bpf_iter_init_seq_net(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @bpf_iter_init_seq_net(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #4, !srcloc !5
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1872
@@ -83,7 +83,7 @@ define dso_local noundef i32 @bpf_iter_init_seq_net(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bpf_iter_fini_seq_net(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @bpf_iter_fini_seq_net(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 140
   %4 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %3, i32 -1, ptr nonnull elementtype(i32) %3) #5, !srcloc !9
@@ -254,7 +254,7 @@ define internal ptr @proc_tgid_net_lookup(ptr noundef %0, ptr noundef %1, i32 %2
 declare dso_local i32 @proc_setattr(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_tgid_net_getattr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 align 16 {
+define internal noundef i32 @proc_tgid_net_getattr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -354,7 +354,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare dso_local void @__put_net(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -13, 1) i32 @seq_open_net(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal noundef range(i32 -13, 1) i32 @seq_open_net(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -509,7 +509,7 @@ declare void @llvm.assume(i1 noundef) #3
 declare dso_local i32 @seq_release_private(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @single_open_net(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal i32 @single_open_net(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
@@ -619,7 +619,7 @@ declare dso_local i32 @single_open(ptr noundef, ptr noundef, ptr noundef) local_
 declare dso_local i32 @single_release(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @get_proc_task_net(ptr nocapture noundef readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @get_proc_task_net(ptr noundef readonly captures(none) %0) unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #5
   %2 = getelementptr i8, ptr %0, i64 -72
   %3 = load ptr, ptr %2, align 8
@@ -735,7 +735,7 @@ define internal noundef range(i32 -17, 1) i32 @proc_net_ns_init(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @proc_net_ns_exit(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @proc_net_ns_exit(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.3, ptr noundef %3) #5

@@ -278,7 +278,7 @@ vaarg.end:                                        ; preds = %vaarg.in_mem, %vaar
   br i1 %cmp46.not, label %sw.epilog, label %if.then48
 
 if.then48:                                        ; preds = %vaarg.end
-  %call49 = call ptr @hi_sdscatlen(ptr noundef %curarg.0, ptr noundef %14, i64 noundef %call45) #13
+  %call49 = call ptr @hi_sdscatlen(ptr noundef %curarg.0, ptr noundef nonnull %14, i64 noundef %call45) #13
   br label %sw.epilog
 
 sw.bb51:                                          ; preds = %lor.lhs.false
@@ -993,7 +993,7 @@ declare ptr @hi_sdsempty() local_unnamed_addr #1
 declare ptr @hi_sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @hi_sdscat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1007,14 +1007,14 @@ declare void @llvm.va_copy.p0(ptr, ptr) #4
 declare void @llvm.va_end.p0(ptr) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @hi_sdscatvprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @hi_sdsfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @redisFormatCommand(ptr noundef %target, ptr noundef %format, ...) local_unnamed_addr #0 {
@@ -1031,7 +1031,7 @@ entry:
 declare void @llvm.va_start.p0(ptr) #4
 
 ; Function Attrs: nounwind uwtable
-define i64 @redisFormatSdsCommandArgv(ptr noundef writeonly %target, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef readonly %argvlen) local_unnamed_addr #0 {
+define i64 @redisFormatSdsCommandArgv(ptr noundef writeonly %target, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly %argvlen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %target, null
   br i1 %cmp, label %return, label %if.end
@@ -1265,7 +1265,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @redisFormatCommandArgv(ptr noundef writeonly %target, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef readonly %argvlen) local_unnamed_addr #0 {
+define i64 @redisFormatCommandArgv(ptr noundef writeonly %target, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef readonly %argvlen) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %target, null
   br i1 %cmp, label %return, label %if.end
@@ -1647,7 +1647,7 @@ return:                                           ; preds = %entry, %if.end23
 declare void @redisReaderFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
 define i32 @redisFreeKeepFd(ptr noundef %c) local_unnamed_addr #0 {
@@ -1797,7 +1797,7 @@ declare i32 @redisContextConnectUnix(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @redisContextSetTimeout(ptr noundef, i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisConnectWithOptions(ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
+define ptr @redisConnectWithOptions(ptr noundef readonly captures(none) %options) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %0(i64 noundef 1, i64 noundef 272) #13
@@ -2033,7 +2033,7 @@ return:                                           ; preds = %entry, %if.then7.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @redisSetPushCallback(ptr nocapture noundef %c, ptr noundef %fn) local_unnamed_addr #9 {
+define ptr @redisSetPushCallback(ptr noundef captures(none) %c, ptr noundef %fn) local_unnamed_addr #9 {
 entry:
   %push_cb = getelementptr inbounds nuw i8, ptr %c, i64 264
   %0 = load ptr, ptr %push_cb, align 8
@@ -2042,7 +2042,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @redisPushAutoFree(ptr nocapture readnone %privdata, ptr noundef %reply) #0 {
+define internal void @redisPushAutoFree(ptr readnone captures(none) %privdata, ptr noundef %reply) #0 {
 entry:
   tail call void @freeReplyObject(ptr noundef %reply)
   ret void
@@ -2479,7 +2479,7 @@ return:                                           ; preds = %if.end27, %hi_sdsle
 declare i32 @hi_sdsrange(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisGetReplyFromReader(ptr nocapture noundef %c, ptr noundef %reply) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisGetReplyFromReader(ptr noundef captures(none) %c, ptr noundef %reply) local_unnamed_addr #0 {
 entry:
   %reader = getelementptr inbounds nuw i8, ptr %c, i64 160
   %0 = load ptr, ptr %reader, align 8
@@ -2693,7 +2693,7 @@ return:                                           ; preds = %do.body, %redisNext
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @__redisAppendCommand(ptr nocapture noundef %c, ptr noundef %cmd, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @__redisAppendCommand(ptr noundef captures(none) %c, ptr noundef %cmd, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %obuf = getelementptr inbounds nuw i8, ptr %c, i64 152
   %0 = load ptr, ptr %obuf, align 8
@@ -2720,7 +2720,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisAppendFormattedCommand(ptr nocapture noundef %c, ptr noundef %cmd, i64 noundef %len) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisAppendFormattedCommand(ptr noundef captures(none) %c, ptr noundef %cmd, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %obuf.i = getelementptr inbounds nuw i8, ptr %c, i64 152
   %0 = load ptr, ptr %obuf.i, align 8
@@ -2747,7 +2747,7 @@ __redisAppendCommand.exit:                        ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisvAppendCommand(ptr nocapture noundef %c, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisvAppendCommand(ptr noundef captures(none) %c, ptr noundef %format, ptr noundef %ap) local_unnamed_addr #0 {
 entry:
   %cmd = alloca ptr, align 8
   %call = call i32 @redisvFormatCommand(ptr noundef nonnull %cmd, ptr noundef %format, ptr noundef %ap)
@@ -2808,7 +2808,7 @@ return:                                           ; preds = %if.end8, %if.then7,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisAppendCommand(ptr nocapture noundef %c, ptr noundef %format, ...) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisAppendCommand(ptr noundef captures(none) %c, ptr noundef %format, ...) local_unnamed_addr #0 {
 entry:
   %cmd.i = alloca ptr, align 8
   %ap = alloca [1 x %struct.__va_list_tag], align 16
@@ -2874,7 +2874,7 @@ redisvAppendCommand.exit:                         ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr nocapture noundef %c, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %argvlen) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %c, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef %argvlen) local_unnamed_addr #0 {
 entry:
   %cmd = alloca ptr, align 8
   %call = call i64 @redisFormatSdsCommandArgv(ptr noundef nonnull %cmd, i32 noundef %argc, ptr noundef %argv, ptr noundef %argvlen)
@@ -3016,7 +3016,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisCommandArgv(ptr noundef %c, i32 noundef %argc, ptr nocapture noundef readonly %argv, ptr noundef %argvlen) local_unnamed_addr #0 {
+define ptr @redisCommandArgv(ptr noundef %c, i32 noundef %argc, ptr noundef readonly captures(none) %argv, ptr noundef %argvlen) local_unnamed_addr #0 {
 entry:
   %reply.i = alloca ptr, align 8
   %cmd.i = alloca ptr, align 8
@@ -3087,7 +3087,7 @@ return:                                           ; preds = %redisAppendCommandA
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @createStringObject(ptr nocapture noundef readonly %task, ptr nocapture noundef readonly %str, i64 noundef %len) #0 {
+define internal ptr @createStringObject(ptr noundef readonly captures(none) %task, ptr noundef readonly captures(none) %str, i64 noundef %len) #0 {
 entry:
   %0 = load i32, ptr %task, align 8
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8
@@ -3166,7 +3166,7 @@ return:                                           ; preds = %entry, %if.end21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @createArrayObject(ptr nocapture noundef readonly %task, i64 noundef %elements) #0 {
+define internal ptr @createArrayObject(ptr noundef readonly captures(none) %task, i64 noundef %elements) #0 {
 entry:
   %0 = load i32, ptr %task, align 8
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8
@@ -3226,7 +3226,7 @@ return:                                           ; preds = %entry, %if.end8, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @createIntegerObject(ptr nocapture noundef readonly %task, i64 noundef %value) #0 {
+define internal ptr @createIntegerObject(ptr noundef readonly captures(none) %task, i64 noundef %value) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %0(i64 noundef 1, i64 noundef 64) #13
@@ -3259,7 +3259,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @createDoubleObject(ptr nocapture noundef readonly %task, double noundef %value, ptr nocapture noundef readonly %str, i64 noundef %len) #0 {
+define internal ptr @createDoubleObject(ptr noundef readonly captures(none) %task, double noundef %value, ptr noundef readonly captures(none) %str, i64 noundef %len) #0 {
 entry:
   %cmp = icmp eq i64 %len, -1
   br i1 %cmp, label %return, label %if.end
@@ -3316,7 +3316,7 @@ return:                                           ; preds = %if.end, %if.end9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @createNilObject(ptr nocapture noundef readonly %task) #0 {
+define internal ptr @createNilObject(ptr noundef readonly captures(none) %task) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %0(i64 noundef 1, i64 noundef 64) #13
@@ -3347,7 +3347,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @createBoolObject(ptr nocapture noundef readonly %task, i32 noundef %bval) #0 {
+define internal ptr @createBoolObject(ptr noundef readonly captures(none) %task, i32 noundef %bval) #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 8), align 8
   %call.i.i = tail call ptr %0(i64 noundef 1, i64 noundef 64) #13
@@ -3401,10 +3401,10 @@ declare i32 @llvm.smax.i32(i32, i32) #11
 declare i64 @llvm.umin.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

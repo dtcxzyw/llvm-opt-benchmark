@@ -109,7 +109,7 @@ if.end15:                                         ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_uadd(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_uadd(ptr noundef %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8
@@ -181,7 +181,7 @@ return:                                           ; preds = %entry, %while.end
 declare i32 @BN_ucmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_usub(ptr noundef %r, ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_usub(ptr noundef %r, ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b) local_unnamed_addr #0 {
 entry:
   %top = getelementptr inbounds nuw i8, ptr %a, i64 8
   %0 = load i32, ptr %top, align 8

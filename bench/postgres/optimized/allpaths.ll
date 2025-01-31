@@ -1647,7 +1647,7 @@ list_length.exit266.thread:                       ; preds = %574, %553, %.lr.ph4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @accumulate_append_subpath(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @accumulate_append_subpath(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   switch i32 %4, label %35 [
     i32 274, label %5
@@ -1782,8 +1782,8 @@ define dso_local void @generate_gather_paths(ptr noundef %0, ptr noundef %1, i1 
   %38 = fmul double %34, %37
   store double %38, ptr %4, align 8
   %39 = load ptr, ptr %17, align 8
-  %40 = call ptr @create_gather_merge_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %28, ptr noundef %39, ptr noundef nonnull %30, ptr noundef null, ptr noundef %spec.select) #9
-  call void @add_path(ptr noundef %1, ptr noundef %40) #9
+  %40 = call ptr @create_gather_merge_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %28, ptr noundef %39, ptr noundef nonnull %30, ptr noundef null, ptr noundef %spec.select) #9
+  call void @add_path(ptr noundef nonnull %1, ptr noundef %40) #9
   %.pre = load i32, ptr %21, align 4
   br label %41
 
@@ -1836,7 +1836,7 @@ define dso_local void @generate_useful_gather_paths(ptr noundef %0, ptr noundef 
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
-  %21 = tail call zeroext i1 @relation_can_be_sorted_early(ptr noundef %0, ptr noundef %1, ptr noundef %20, i1 noundef zeroext true) #9
+  %21 = tail call zeroext i1 @relation_can_be_sorted_early(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %20, i1 noundef zeroext true) #9
   br i1 %21, label %22, label %._crit_edge.i
 
 22:                                               ; preds = %15
@@ -1946,7 +1946,7 @@ get_useful_pathkeys_for_relation.exit:            ; preds = %list_length.exit.i,
   br i1 %63, label %72, label %64
 
 64:                                               ; preds = %.thread60, %61
-  %65 = call ptr @create_sort_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %51, ptr noundef %43, double noundef -1.000000e+00) #9
+  %65 = call ptr @create_sort_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %51, ptr noundef %43, double noundef -1.000000e+00) #9
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %67 = load double, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 36
@@ -1957,7 +1957,7 @@ get_useful_pathkeys_for_relation.exit:            ; preds = %list_length.exit.i,
   br label %74
 
 72:                                               ; preds = %.thread60
-  %73 = call ptr @create_incremental_sort_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %51, ptr noundef %43, i32 noundef %.pr, double noundef -1.000000e+00) #9
+  %73 = call ptr @create_incremental_sort_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %51, ptr noundef %43, i32 noundef %.pr, double noundef -1.000000e+00) #9
   br label %74
 
 74:                                               ; preds = %72, %64
@@ -1965,8 +1965,8 @@ get_useful_pathkeys_for_relation.exit:            ; preds = %list_length.exit.i,
   %75 = load ptr, ptr %38, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.044, i64 64
   %77 = load ptr, ptr %76, align 8
-  %78 = call ptr @create_gather_merge_path(ptr noundef %0, ptr noundef %1, ptr noundef %.044, ptr noundef %75, ptr noundef %77, ptr noundef null, ptr noundef %spec.select) #9
-  call void @add_path(ptr noundef %1, ptr noundef %78) #9
+  %78 = call ptr @create_gather_merge_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.044, ptr noundef %75, ptr noundef %77, ptr noundef null, ptr noundef %spec.select) #9
+  call void @add_path(ptr noundef nonnull %1, ptr noundef %78) #9
   br label %79
 
 79:                                               ; preds = %57, %58, %.lr.ph79, %74
@@ -2170,11 +2170,11 @@ define dso_local void @generate_partitionwise_join_paths(ptr noundef %0, ptr nou
   br i1 %.not33, label %._crit_edge.thread, label %37
 
 ._crit_edge.thread:                               ; preds = %20, %._crit_edge
-  tail call void @mark_dummy_rel(ptr noundef %1) #9
+  tail call void @mark_dummy_rel(ptr noundef nonnull %1) #9
   br label %38
 
 37:                                               ; preds = %._crit_edge
-  tail call void @add_paths_to_append_rel(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.1)
+  tail call void @add_paths_to_append_rel(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.1)
   tail call void @list_free(ptr noundef nonnull %.1) #9
   br label %38
 
@@ -2255,7 +2255,7 @@ compute_parallel_worker.exit.thread:              ; preds = %13, %compute_parall
 declare double @compute_bitmap_pages(ptr noundef, ptr noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @compute_parallel_worker(ptr nocapture noundef readonly %0, double noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define dso_local i32 @compute_parallel_worker(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = load i32, ptr %5, align 8
   %.not = icmp eq i32 %6, -1
@@ -3133,7 +3133,7 @@ qual_is_pushdown_safe.exit.i:                     ; preds = %370
   br i1 %switch.i, label %371, label %372
 
 371:                                              ; preds = %qual_is_pushdown_safe.exit.i, %qual_is_pushdown_safe.exit.thread161.i
-  tail call fastcc void @subquery_push_qual(ptr noundef %294, ptr noundef %3, i32 noundef %2, ptr noundef %331)
+  tail call fastcc void @subquery_push_qual(ptr noundef nonnull %294, ptr noundef %3, i32 noundef %2, ptr noundef %331)
   br label %440
 
 372:                                              ; preds = %qual_is_pushdown_safe.exit.i
@@ -3582,9 +3582,9 @@ list_length.exit153.i:                            ; preds = %577, %list_length.e
   %610 = getelementptr inbounds nuw i8, ptr %607, i64 16
   %611 = load ptr, ptr %610, align 8
   %612 = call ptr @make_tlist_from_pathtarget(ptr noundef %611) #9
-  %613 = call ptr @convert_subquery_pathkeys(ptr noundef %0, ptr noundef %1, ptr noundef %609, ptr noundef %612) #9
-  %614 = call ptr @create_subqueryscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %607, i1 noundef zeroext %.0.i48, ptr noundef %613, ptr noundef %296) #9
-  call void @add_path(ptr noundef %1, ptr noundef %614) #9
+  %613 = call ptr @convert_subquery_pathkeys(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %609, ptr noundef %612) #9
+  %614 = call ptr @create_subqueryscan_path(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %607, i1 noundef zeroext %.0.i48, ptr noundef %613, ptr noundef %296) #9
+  call void @add_path(ptr noundef nonnull %1, ptr noundef %614) #9
   %indvars.iv.next201.i = add nuw nsw i64 %indvars.iv200.i, 1
   %615 = load i32, ptr %601, align 4
   %616 = sext i32 %615 to i64
@@ -3622,9 +3622,9 @@ list_length.exit153.i:                            ; preds = %577, %list_length.e
   %634 = getelementptr inbounds nuw i8, ptr %631, i64 16
   %635 = load ptr, ptr %634, align 8
   %636 = call ptr @make_tlist_from_pathtarget(ptr noundef %635) #9
-  %637 = call ptr @convert_subquery_pathkeys(ptr noundef %0, ptr noundef %1, ptr noundef %633, ptr noundef %636) #9
-  %638 = call ptr @create_subqueryscan_path(ptr noundef %0, ptr noundef %1, ptr noundef %631, i1 noundef zeroext %.0.i48, ptr noundef %637, ptr noundef null) #9
-  call void @add_partial_path(ptr noundef %1, ptr noundef %638) #9
+  %637 = call ptr @convert_subquery_pathkeys(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %633, ptr noundef %636) #9
+  %638 = call ptr @create_subqueryscan_path(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %631, i1 noundef zeroext %.0.i48, ptr noundef %637, ptr noundef null) #9
+  call void @add_partial_path(ptr noundef nonnull %1, ptr noundef %638) #9
   %indvars.iv.next204.i = add nuw nsw i64 %indvars.iv203.i, 1
   %639 = load i32, ptr %625, align 4
   %640 = sext i32 %639 to i64
@@ -3908,7 +3908,7 @@ define internal fastcc void @set_dummy_rel_pathlist(ptr noundef initializes((16,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_foreign_size(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @set_foreign_size(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   tail call void @set_foreign_size_estimates(ptr noundef %0, ptr noundef %1) #9
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %5 = load ptr, ptr %4, align 8
@@ -3930,7 +3930,7 @@ define internal fastcc void @set_foreign_size(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_tablesample_rel_size(ptr noundef %0, ptr noundef %1, ptr nocapture readonly %.24.val) unnamed_addr #0 {
+define internal fastcc void @set_tablesample_rel_size(ptr noundef %0, ptr noundef %1, ptr readonly captures(none) %.24.val) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca double, align 8
   tail call void @check_index_predicates(ptr noundef %0, ptr noundef %1) #9
@@ -3993,7 +3993,7 @@ declare void @set_baserel_size_estimates(ptr noundef, ptr noundef) local_unnamed
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4403,7 +4403,7 @@ declare ptr @make_tlist_from_pathtarget(ptr noundef) local_unnamed_addr #1
 declare ptr @create_subqueryscan_path(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @recurse_pushdown_safe(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @recurse_pushdown_safe(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %26, %3
@@ -4473,7 +4473,7 @@ declare zeroext i1 @contain_leaked_vars(ptr noundef) local_unnamed_addr #1
 declare ptr @pull_var_clause(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recurse_push_qual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @recurse_push_qual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %19, %5
@@ -4526,7 +4526,7 @@ declare void @set_opfuncid(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @func_strict(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr nocapture noundef readonly %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr noundef readonly captures(none) %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.SupportRequestWFuncMonotonic, align 8
   store i8 1, ptr %5, align 1
   br label %9
@@ -4757,7 +4757,7 @@ declare void @set_cte_size_estimates(ptr noundef, ptr noundef, double noundef) l
 declare ptr @create_worktablescan_path(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @create_ctescan_path(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -5022,7 +5022,7 @@ set_function_pathlist.exit:                       ; preds = %101, %65, %70, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_tablesample_rel_pathlist(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @set_tablesample_rel_pathlist(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @create_samplescan_path(ptr noundef %0, ptr noundef %1, ptr noundef %5) #9
@@ -5184,10 +5184,10 @@ declare i32 @llvm.smin.i32(i32, i32) #7
 declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

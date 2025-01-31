@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [32 x i8] c"%12s:%11lu%9lu%9lu%9lu%9lu%9lu\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -12, 1) i32 @mempool_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i32 %2, i32 %3) #0 {
+define internal range(i32 -12, 1) i32 @mempool_open(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #0 {
   %5 = tail call noalias dereferenceable_or_null(96) ptr @zalloc(i64 noundef 96) #12
   %6 = icmp eq ptr %5, null
   br i1 %6, label %9, label %7
@@ -35,7 +35,7 @@ define internal range(i32 -12, 1) i32 @mempool_open(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @mempool_close(ptr nocapture noundef %0) #1 {
+define internal noundef i32 @mempool_close(ptr noundef captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3)
@@ -44,7 +44,7 @@ define internal noundef i32 @mempool_close(ptr nocapture noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i64 @mempool_read(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.mempoolinfo_s, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -117,7 +117,7 @@ define internal i64 @mempool_read(ptr nocapture noundef %0, ptr noundef %1, i64 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal range(i32 -12, 1) i32 @mempool_dup(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
+define internal range(i32 -12, 1) i32 @mempool_dup(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #14
@@ -136,7 +136,7 @@ define internal range(i32 -12, 1) i32 @mempool_dup(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mempool_stat(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #3 {
+define internal noundef i32 @mempool_stat(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 88)) %1) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 33060, ptr %3, align 8
@@ -193,7 +193,7 @@ define void @mempool_procfs_unregister(ptr noundef readonly %0) local_unnamed_ad
 declare noalias ptr @zalloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @procfs_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #8
 
@@ -205,10 +205,10 @@ declare i32 @mempool_info(ptr noundef, ptr noundef) local_unnamed_addr #8
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

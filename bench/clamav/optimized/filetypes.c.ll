@@ -131,7 +131,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.118 = private unnamed_addr constant [16 x i8] c"CL_TYPE_LHA_LZH\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @cli_ftcode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @cli_ftcode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(19) @.str.33, ptr noundef nonnull dereferenceable(1) %0) #9
   %.not714 = icmp eq i32 %2, 0
   br i1 %.not714, label %._crit_edge, label %.lr.ph
@@ -161,7 +161,7 @@ define i32 @cli_ftcode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define ptr @cli_ftname(i32 noundef %0) local_unnamed_addr #2 {
@@ -191,7 +191,7 @@ define ptr @cli_ftname(i32 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_ftfree(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define void @cli_ftfree(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %.not21 = icmp eq ptr %3, null
@@ -252,7 +252,7 @@ define void @cli_ftfree(ptr nocapture noundef readonly %0) local_unnamed_addr #3
 declare void @mpool_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_compare_ftm_partition(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define i32 @cli_compare_ftm_partition(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %.016 = load ptr, ptr %4, align 8
   %.not17 = icmp eq ptr %.016, null
@@ -305,7 +305,7 @@ define i32 @cli_compare_ftm_partition(ptr nocapture noundef readonly %0, i64 nou
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_compare_ftm_file(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define i32 @cli_compare_ftm_file(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %.018 = load ptr, ptr %4, align 8
   %.not19 = icmp eq ptr %.018, null
@@ -614,7 +614,7 @@ cli_compare_ftm_file.exit:                        ; preds = %61, %._crit_edge.i2
 
 108:                                              ; preds = %107
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28) #10
-  %109 = call i32 @cli_ooxml_filetype(ptr noundef null, ptr noundef %0) #10
+  %109 = call i32 @cli_ooxml_filetype(ptr noundef null, ptr noundef nonnull %0) #10
   switch i32 %109, label %114 [
     i32 517, label %cli_compare_ftm_partition.exit.thread
     i32 0, label %cli_compare_ftm_partition.exit.thread
@@ -854,17 +854,17 @@ declare void @cli_ac_freedata(ptr noundef) local_unnamed_addr #4
 declare ptr @cli_utf16toascii(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @encoding_detect_bom(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @encoding_normalize_toascii(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #8

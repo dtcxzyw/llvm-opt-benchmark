@@ -43,7 +43,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @llvm.used = appending global [1 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17EpsilonInitLogger17print_gc_specificEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17EpsilonInitLogger17print_gc_specificEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @InitialHeapSize, align 8
   %3 = load i64, ptr @MaxHeapSize, align 8
   %.not = icmp eq i64 %2, %3

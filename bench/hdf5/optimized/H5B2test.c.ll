@@ -70,14 +70,14 @@ define internal noundef i32 @H5B2__test_dst_context(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5B2__test_store(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef i32 @H5B2__test_store(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5B2__test_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
+define internal noundef i32 @H5B2__test_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #1 {
   %4 = load i64, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = sub nsw i64 %4, %5
@@ -87,7 +87,7 @@ define internal noundef i32 @H5B2__test_compare(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5B2__test_encode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef i32 @H5B2__test_encode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = load i8, ptr %2, align 1
   switch i8 %4, label %.loopexit [
     i8 4, label %5
@@ -148,7 +148,7 @@ define internal noundef i32 @H5B2__test_encode(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5B2__test_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef i32 @H5B2__test_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = load i8, ptr %2, align 1
   switch i8 %4, label %.loopexit [
     i8 4, label %5
@@ -215,20 +215,20 @@ define internal noundef i32 @H5B2__test_decode(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5B2__test_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #3 {
+define internal noundef i32 @H5B2__test_debug(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #3 {
   %6 = load i64, ptr %3, align 8
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1, ptr noundef nonnull @.str.14, i32 noundef %2, ptr noundef nonnull @.str.15, i64 noundef %6) #8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5B2__test2_store(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) #1 {
+define internal noundef i32 @H5B2__test2_store(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5B2__test2_compare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
+define internal noundef i32 @H5B2__test2_compare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #1 {
   %4 = load i64, ptr %0, align 8
   %5 = load i64, ptr %1, align 8
   %6 = sub i64 %4, %5
@@ -238,7 +238,7 @@ define internal noundef i32 @H5B2__test2_compare(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5B2__test2_encode(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef i32 @H5B2__test2_encode(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = load i8, ptr %2, align 1
   switch i8 %4, label %31 [
     i8 4, label %5
@@ -366,7 +366,7 @@ thread-pre-split:                                 ; preds = %18, %thread-pre-spl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5B2__test2_decode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef i32 @H5B2__test2_decode(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = load i8, ptr %2, align 1
   switch i8 %4, label %45 [
     i8 4, label %5
@@ -512,7 +512,7 @@ thread-pre-split:                                 ; preds = %5, %34, %36
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @H5B2__test2_debug(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #3 {
+define internal noundef i32 @H5B2__test2_debug(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4) #3 {
   %6 = load i64, ptr %3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %7, align 8
@@ -521,7 +521,7 @@ define internal noundef i32 @H5B2__test2_debug(ptr nocapture noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5B2__get_root_addr_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define noundef i32 @H5B2__get_root_addr_test(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 248
   %5 = load i64, ptr %4, align 8
@@ -530,7 +530,7 @@ define noundef i32 @H5B2__get_root_addr_test(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5B2_node_ptr_t, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -798,7 +798,7 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
@@ -813,7 +813,7 @@ declare i32 @H5AC_unprotect(ptr noundef, ptr noundef, i64 noundef, ptr noundef, 
 declare ptr @H5B2__protect_leaf(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 65536) i32 @H5B2__get_node_depth_test(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @H5B2__get_node_depth_test(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5B2_node_info_test_t, align 2
   %4 = call i32 @H5B2__get_node_info_test(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3)
   %5 = icmp slt i32 %4, 0
@@ -842,7 +842,7 @@ declare zeroext i8 @H5F_sizeof_size(ptr noundef) local_unnamed_addr #6
 declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

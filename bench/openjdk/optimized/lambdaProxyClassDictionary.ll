@@ -22,7 +22,7 @@ $_ZN26GrowableArrayWithAllocatorIP13InstanceKlass13GrowableArrayIS1_EE13shrink_t
 @_ZN28DumpTimeLambdaProxyClassInfoD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN28DumpTimeLambdaProxyClassInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28DumpTimeLambdaProxyClassInfoD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN28DumpTimeLambdaProxyClassInfoD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
@@ -51,7 +51,7 @@ _ZN13GrowableArrayIP13InstanceKlassED2Ev.exit:    ; preds = %3, %7
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19LambdaProxyClassKey16init_for_archiveERS_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19LambdaProxyClassKey16init_for_archiveERS_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %4 = load ptr, ptr %1, align 8
   tail call void @_ZN14ArchiveBuilder23write_pointer_in_bufferEPPhS0_(ptr noundef nonnull align 8 dereferenceable(1080) %3, ptr noundef nonnull %0, ptr noundef %4) #4
@@ -79,7 +79,7 @@ define hidden void @_ZN19LambdaProxyClassKey16init_for_archiveERS_(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZNK19LambdaProxyClassKey4hashEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK19LambdaProxyClassKey4hashEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef i32 @_ZN22SystemDictionaryShared26hash_for_shared_dictionaryEPh(ptr noundef %2) #4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -104,7 +104,7 @@ define hidden noundef i32 @_ZNK19LambdaProxyClassKey4hashEv(ptr nocapture nounde
 declare noundef i32 @_ZN22SystemDictionaryShared26hash_for_shared_dictionaryEPh(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27RunTimeLambdaProxyClassInfo4initER19LambdaProxyClassKeyR28DumpTimeLambdaProxyClassInfo(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27RunTimeLambdaProxyClassInfo4initER19LambdaProxyClassKeyR28DumpTimeLambdaProxyClassInfo(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %5 = load ptr, ptr %1, align 8
   tail call void @_ZN14ArchiveBuilder23write_pointer_in_bufferEPPhS0_(ptr noundef nonnull align 8 dereferenceable(1080) %4, ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %5) #4

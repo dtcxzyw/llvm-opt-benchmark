@@ -1243,7 +1243,7 @@ define ptr @Hop_Multi(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Hop_Miter(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define ptr @Hop_Miter(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0

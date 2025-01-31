@@ -111,15 +111,15 @@ define hidden noundef zeroext i8 @XShared_initIDs(ptr noundef %0, i8 noundef zer
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @TryInitMITShm(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11SurfaceData_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11SurfaceData_initIDs(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i8 @XShared_initIDs(ptr noundef %0, i8 noundef zeroext 1)
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 168
@@ -275,7 +275,7 @@ define hidden ptr @X11SurfaceData_GetOps(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 -1, 1) i32 @X11SD_InitWindow(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
+define hidden range(i32 -1, 1) i32 @X11SD_InitWindow(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 1
@@ -298,7 +298,7 @@ define hidden range(i32 -1, 1) i32 @X11SD_InitWindow(ptr nocapture noundef readn
 declare void @awt_output_flush(...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define zeroext i8 @Java_sun_java2d_x11_X11SurfaceData_isShmPMAvailable(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define zeroext i8 @Java_sun_java2d_x11_X11SurfaceData_isShmPMAvailable(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   %3 = load i32, ptr @useMitShmPixmaps, align 4
   %4 = trunc i32 %3 to i8
   ret i8 %4
@@ -426,7 +426,7 @@ declare ptr @SurfaceData_InitOps(ptr noundef, ptr noundef, i32 noundef) local_un
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @X11SD_Lock(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 2) i32 @X11SD_Lock(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1824
@@ -910,7 +910,7 @@ X11SD_InitWindow.exit:                            ; preds = %70, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @X11SD_GetRasInfo(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @X11SD_GetRasInfo(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i64, align 8
@@ -1524,7 +1524,7 @@ X11SD_DisposeOrCacheXImage.exit.thread11.i:       ; preds = %X11SD_DisposeOrCach
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @X11SD_Unlock(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
+define internal void @X11SD_Unlock(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 2
@@ -1736,7 +1736,7 @@ X11SD_DisposeOrCacheXImage.exit:                  ; preds = %82, %X11SD_DisposeX
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @X11SD_Dispose(ptr noundef %0, ptr nocapture noundef initializes((72, 73)) %1) #0 {
+define internal void @X11SD_Dispose(ptr noundef %0, ptr noundef captures(none) initializes((72, 73)) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8
@@ -1939,7 +1939,7 @@ X11SD_DropSharedSegment.exit:                     ; preds = %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @X11SD_GetPixmapWithBg(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) #0 {
+define internal i64 @X11SD_GetPixmapWithBg(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load i8, ptr %4, align 8
   %.not = icmp eq i8 %5, 0
@@ -2228,7 +2228,7 @@ define internal i64 @X11SD_GetPixmapWithBg(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @X11SD_ReleasePixmapWithBg(ptr nocapture readnone %0, ptr nocapture noundef %1) #6 {
+define internal void @X11SD_ReleasePixmapWithBg(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
@@ -2281,7 +2281,7 @@ define void @Java_sun_java2d_x11_XSurfaceData_setInvalid(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq i64 %5, 0
   br i1 %.not, label %9, label %.thread167
 
@@ -2676,7 +2676,7 @@ define hidden zeroext range(i8 0, 2) i8 @XShared_initSurface(ptr noundef %0, ptr
 declare ptr @XCreateImage(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @X11SD_CreateSharedPixmap(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden i64 @X11SD_CreateSharedPixmap(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -2812,7 +2812,7 @@ declare i32 @XShmDetach(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @shmdt(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X11SD_CreateSharedImage(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @X11SD_CreateSharedImage(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(32) ptr @calloc(i64 1, i64 32)
   %4 = icmp eq ptr %calloc, null
   br i1 %4, label %72, label %5
@@ -2926,12 +2926,12 @@ define hidden ptr @X11SD_CreateSharedImage(ptr nocapture noundef readonly %0, i3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare ptr @XShmCreateImage(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @shmget(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #7
@@ -2961,7 +2961,7 @@ declare i32 @XShmAttach(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare zeroext i8 @isXShmAttachFailed(...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X11SD_GetSharedImage(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
+define hidden ptr @X11SD_GetSharedImage(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr @cachedXImage, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %X11SD_CachedXImageFits.exit.thread, label %8
@@ -3070,7 +3070,7 @@ declare i32 @XFree(ptr noundef) local_unnamed_addr #3
 declare i64 @XShmCreatePixmap(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X11SD_PuntPixmap(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @X11SD_PuntPixmap(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @useMitShmPixmaps, align 4
   %5 = icmp ne i32 %4, 1
   %6 = load i32, ptr @forceSharedPixmaps, align 4
@@ -3143,7 +3143,7 @@ declare i32 @XCopyArea(ptr noundef, i64 noundef, i64 noundef, ptr noundef, i32 n
 declare i32 @XFreeGC(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X11SD_UnPuntPixmap(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define hidden void @X11SD_UnPuntPixmap(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @useMitShmPixmaps, align 4
   %3 = icmp ne i32 %2, 1
   %4 = load i32, ptr @forceSharedPixmaps, align 4
@@ -3317,7 +3317,7 @@ X11SD_DropSharedSegment.exit:                     ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @X11SD_DirectRenderNotify(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @X11SD_DirectRenderNotify(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
@@ -3334,7 +3334,7 @@ define hidden void @X11SD_DirectRenderNotify(ptr nocapture noundef readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_sun_java2d_x11_XSurfaceData_XCreateGC(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @Java_sun_java2d_x11_XSurfaceData_XCreateGC(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %13, label %5
 
@@ -3355,7 +3355,7 @@ define i64 @Java_sun_java2d_x11_XSurfaceData_XCreateGC(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_XSurfaceData_XResetClip(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_XSurfaceData_XResetClip(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XSetClipMask(ptr noundef %4, ptr noundef %5, i64 noundef 0) #18
@@ -3365,7 +3365,7 @@ define void @Java_sun_java2d_x11_XSurfaceData_XResetClip(ptr nocapture noundef r
 declare i32 @XSetClipMask(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_XSurfaceData_XSetClip(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_XSurfaceData_XSetClip(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca [256 x %struct.XRectangle], align 16
   %10 = alloca ptr, align 8
   store ptr %9, ptr %10, align 8
@@ -3391,7 +3391,7 @@ declare i32 @RegionToYXBandedRectangles(ptr noundef, i32 noundef, i32 noundef, i
 declare i32 @XSetClipRectangles(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11SurfaceData_XSetCopyMode(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11SurfaceData_XSetCopyMode(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XSetFunction(ptr noundef %4, ptr noundef %5, i32 noundef 3) #18
@@ -3401,7 +3401,7 @@ define void @Java_sun_java2d_x11_X11SurfaceData_XSetCopyMode(ptr nocapture nound
 declare i32 @XSetFunction(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11SurfaceData_XSetXorMode(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11SurfaceData_XSetXorMode(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @awt_display, align 8
   %5 = inttoptr i64 %2 to ptr
   %6 = tail call i32 @XSetFunction(ptr noundef %4, ptr noundef %5, i32 noundef 6) #18
@@ -3409,7 +3409,7 @@ define void @Java_sun_java2d_x11_X11SurfaceData_XSetXorMode(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11SurfaceData_XSetForeground(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11SurfaceData_XSetForeground(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @awt_display, align 8
   %6 = inttoptr i64 %2 to ptr
   %7 = sext i32 %3 to i64
@@ -3420,7 +3420,7 @@ define void @Java_sun_java2d_x11_X11SurfaceData_XSetForeground(ptr nocapture nou
 declare i32 @XSetForeground(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_XSurfaceData_XSetGraphicsExposures(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_XSurfaceData_XSetGraphicsExposures(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @awt_display, align 8
   %6 = inttoptr i64 %2 to ptr
   %.not = icmp ne i8 %3, 0
@@ -3446,10 +3446,10 @@ declare i32 @XGrabServer(ptr noundef) local_unnamed_addr #3
 declare i32 @XUngrabServer(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @X11SD_SwapBytes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef range(i32 9, -2147483648) %2, i32 noundef %3) unnamed_addr #14 {
+define internal fastcc void @X11SD_SwapBytes(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 9, -2147483648) %2, i32 noundef %3) unnamed_addr #14 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = load i32, ptr %5, align 4
   %7 = sext i32 %6 to i64
@@ -3597,10 +3597,10 @@ declare i16 @llvm.bswap.i16(i16) #15
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

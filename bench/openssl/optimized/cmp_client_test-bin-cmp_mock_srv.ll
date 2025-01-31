@@ -463,7 +463,7 @@ declare ptr @OSSL_CMP_SRV_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @OSSL_CMP_SRV_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @process_cert_request(ptr noundef %srv_ctx, ptr noundef %cert_req, i32 %certReqId, ptr noundef %crm, ptr nocapture readnone %p10cr, ptr noundef %certOut, ptr noundef %chainOut, ptr noundef %caPubs) #0 {
+define internal ptr @process_cert_request(ptr noundef %srv_ctx, ptr noundef %cert_req, i32 %certReqId, ptr noundef %crm, ptr readnone captures(none) %p10cr, ptr noundef %certOut, ptr noundef %chainOut, ptr noundef %caPubs) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -918,7 +918,7 @@ if.end35:                                         ; preds = %for.end, %if.then20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @process_certConf(ptr noundef %srv_ctx, ptr noundef %certConf, i32 %certReqId, ptr noundef %certHash, ptr nocapture readnone %si) #0 {
+define internal range(i32 0, 2) i32 @process_certConf(ptr noundef %srv_ctx, ptr noundef %certConf, i32 %certReqId, ptr noundef %certHash, ptr readnone captures(none) %si) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %srv_ctx) #2
   %cmp = icmp eq ptr %call, null
@@ -1135,7 +1135,7 @@ declare ptr @OSSL_CMP_ITAV_get0_type(ptr noundef) local_unnamed_addr #1
 declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @process_genm_itav(ptr nocapture noundef nonnull readonly %ctx, i32 noundef %req_nid, ptr noundef %req) unnamed_addr #0 {
+define internal fastcc ptr @process_genm_itav(ptr noundef nonnull readonly captures(none) %ctx, i32 noundef %req_nid, ptr noundef %req) unnamed_addr #0 {
 entry:
   switch i32 %req_nid, label %sw.default [
     i32 1223, label %sw.bb

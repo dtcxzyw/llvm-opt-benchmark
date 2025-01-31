@@ -1015,7 +1015,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare ptr @qemu_get_nic_opaque(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @ladr_match(ptr nocapture noundef readonly %s, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ladr_match(ptr noundef readonly captures(none) %s, ptr noundef %buf) unnamed_addr #0 {
 entry:
   %ladr = alloca [8 x i8], align 1
   %0 = load i8, ptr %buf, align 2
@@ -1078,7 +1078,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcnet_rdte_poll(ptr nocapture noundef initializes((8324, 8328)) %s) unnamed_addr #0 {
+define internal fastcc void @pcnet_rdte_poll(ptr noundef captures(none) initializes((8324, 8328)) %s) unnamed_addr #0 {
 entry:
   %rda.i159 = alloca %struct.anon, align 4
   %rda.i138 = alloca %struct.anon, align 4
@@ -1549,7 +1549,7 @@ if.end203:                                        ; preds = %if.else198, %pcnet_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcnet_rmd_load(ptr nocapture noundef readonly %s, ptr noundef nonnull %rmd, i64 noundef range(i64 0, 4294967296) %addr) unnamed_addr #0 {
+define internal fastcc void @pcnet_rmd_load(ptr noundef readonly captures(none) %s, ptr noundef nonnull %rmd, i64 noundef range(i64 0, 4294967296) %addr) unnamed_addr #0 {
 entry:
   %rda = alloca %struct.anon, align 4
   %arrayidx = getelementptr i8, ptr %s, i64 8564
@@ -1605,13 +1605,13 @@ if.end29:                                         ; preds = %if.else, %if.then24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @htonl(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcnet_rmd_store(ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull readonly %rmd, i64 noundef range(i64 0, 4294967296) %addr) unnamed_addr #0 {
+define internal fastcc void @pcnet_rmd_store(ptr noundef readonly captures(none) %s, ptr noundef nonnull readonly captures(none) %rmd, i64 noundef range(i64 0, 4294967296) %addr) unnamed_addr #0 {
 entry:
   %rda = alloca %struct.anon.4, align 4
   %rda10 = alloca %struct.anon.5, align 4
@@ -1868,7 +1868,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 65536) i32 @pcnet_bcr_readw(ptr nocapture noundef readonly %s, i32 noundef %rap) local_unnamed_addr #4 {
+define dso_local range(i32 0, 65536) i32 @pcnet_bcr_readw(ptr noundef readonly captures(none) %s, i32 noundef %rap) local_unnamed_addr #4 {
 entry:
   %and = and i32 %rap, 127
   %0 = and i32 %rap, 124
@@ -2506,7 +2506,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcnet_bcr_writew(ptr nocapture noundef %s, i32 noundef %rap, i32 noundef %val) unnamed_addr #0 {
+define internal fastcc void @pcnet_bcr_writew(ptr noundef captures(none) %s, i32 noundef %rap, i32 noundef %val) unnamed_addr #0 {
 entry:
   %and = and i32 %rap, 127
   switch i32 %and, label %sw.epilog24 [
@@ -2948,7 +2948,7 @@ if.end:                                           ; preds = %cond.true.i, %sw.de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @is_version_2(ptr nocapture readnone %opaque, i32 noundef %version_id) #5 {
+define internal noundef zeroext i1 @is_version_2(ptr readnone captures(none) %opaque, i32 noundef %version_id) #5 {
 entry:
   %cmp = icmp eq i32 %version_id, 2
   ret i1 %cmp
@@ -3023,14 +3023,14 @@ declare i32 @net_crc32_le(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @pcnet_tdte_poll(ptr nocapture noundef initializes((8336, 8340)) %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcnet_tdte_poll(ptr noundef captures(none) initializes((8336, 8340)) %s) unnamed_addr #0 {
 entry:
   %xda.i38 = alloca %struct.anon.6, align 4
   %xda.i = alloca %struct.anon.6, align 4
@@ -4115,13 +4115,13 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8

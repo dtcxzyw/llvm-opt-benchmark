@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [4 x i8] c"LZ4\00", align 1
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @bbstreamer_lz4_compressor_new(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @bbstreamer_lz4_compressor_new(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   tail call void @exit(i32 noundef 1) #4
   unreachable
@@ -19,7 +19,7 @@ declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_u
 declare void @exit(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define dso_local noalias noundef nonnull ptr @bbstreamer_lz4_decompressor_new(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define dso_local noalias noundef nonnull ptr @bbstreamer_lz4_decompressor_new(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #3
   tail call void @exit(i32 noundef 1) #4
   unreachable

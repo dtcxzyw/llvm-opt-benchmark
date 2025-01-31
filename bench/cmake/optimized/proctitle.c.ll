@@ -73,7 +73,7 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly %1) loc
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #6
   %26 = add i64 %25, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr align 1 %24, i64 %26, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %22, ptr nonnull align 1 %24, i64 %26, i1 false)
   %27 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv66
   store ptr %22, ptr %27, align 8
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
@@ -109,15 +109,15 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly %1) loc
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -105, 1) i32 @uv_set_process_title(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i32 -105, 1) i32 @uv_set_process_title(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @args_mem, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %10, label %4
@@ -131,7 +131,7 @@ define dso_local range(i32 -105, 1) i32 @uv_set_process_title(ptr nocapture noun
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %6, i64 1)
   %.0 = select i1 %.not, i64 %5, i64 %spec.select
   %7 = load ptr, ptr @process_title.0, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr align 1 %0, i64 %.0, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %7, ptr nonnull align 1 %0, i64 %.0, i1 false)
   %8 = getelementptr inbounds i8, ptr %7, i64 %.0
   %9 = sub i64 %6, %.0
   tail call void @llvm.memset.p0.i64(ptr align 1 %8, i8 0, i64 %9, i1 false)
@@ -156,7 +156,7 @@ define internal void @init_process_title_mutex_once() #0 {
 declare void @uv_mutex_lock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @uv__set_process_title(ptr noundef) local_unnamed_addr #2
 

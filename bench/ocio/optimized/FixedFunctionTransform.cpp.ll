@@ -90,7 +90,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev22FixedFunctionTransformEE = comdat any
 @_ZN19OpenColorIO_v2_4dev26FixedFunctionTransformImplC1ENS_18FixedFunctionStyleERKSt6vectorIdSaIdEE = hidden unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN19OpenColorIO_v2_4dev26FixedFunctionTransformImplC2ENS_18FixedFunctionStyleERKSt6vectorIdSaIdEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev22FixedFunctionTransform6CreateENS_18FixedFunctionStyleE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, i32 noundef %style) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev22FixedFunctionTransform6CreateENS_18FixedFunctionStyleE(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, i32 noundef %style) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #18
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev26FixedFunctionTransformImplE, i64 16), ptr %call, align 8
@@ -187,7 +187,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev22FixedFunctionTransform6CreateENS_18FixedFunctionStyleEPKdm(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, i32 noundef %style, ptr nocapture noundef readonly %params, i64 noundef %num) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev22FixedFunctionTransform6CreateENS_18FixedFunctionStyleEPKdm(ptr noalias writeonly sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, i32 noundef %style, ptr noundef readonly captures(none) %params, i64 noundef %num) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.std::vector.8", align 8
   %cmp.i.i = icmp ugt i64 %num, 1152921504606846975
@@ -711,7 +711,7 @@ terminate.lpad:                                   ; preds = %if.end
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_19FixedFunctionOpDataES2_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev26FixedFunctionTransformImpl8getStyleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK19OpenColorIO_v2_4dev26FixedFunctionTransformImpl8getStyleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) unnamed_addr #0 align 2 {
 entry:
   %m_style.i = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load i32, ptr %m_style.i, align 8
@@ -735,7 +735,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK19OpenColorIO_v2_4dev26FixedFunctionTransformImpl12getNumParamsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #11 align 2 {
+define hidden noundef range(i64 -1152921504606846976, 1152921504606846976) i64 @_ZNK19OpenColorIO_v2_4dev26FixedFunctionTransformImpl12getNumParamsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this) unnamed_addr #11 align 2 {
 entry:
   %m_params.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -749,7 +749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev26FixedFunctionTransformImpl9setParamsEPKdm(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %params, i64 noundef %num) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev26FixedFunctionTransformImpl9setParamsEPKdm(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef readonly captures(none) %params, i64 noundef %num) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %"class.std::vector.8", align 8
   %cmp.i.i = icmp ugt i64 %num, 1152921504606846975
@@ -825,7 +825,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i8, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev26FixedFunctionTransformImpl9getParamsEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nocapture noundef writeonly %params) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev26FixedFunctionTransformImpl9getParamsEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %this, ptr noundef writeonly captures(none) %params) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_params.i = getelementptr inbounds nuw i8, ptr %this, i64 184
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -1104,7 +1104,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
 declare void @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpDataD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #6
@@ -1178,7 +1178,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
@@ -1187,10 +1187,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 declare i32 @llvm.eh.typeid.for.p0(ptr) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

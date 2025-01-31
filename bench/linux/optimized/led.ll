@@ -64,7 +64,7 @@ define dso_local void @ieee80211_led_radio(ptr noundef %0, i1 noundef zeroext %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_alloc_led_names(ptr nocapture noundef initializes((4912, 4920), (4992, 5000), (5072, 5080), (5152, 5160)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_alloc_led_names(ptr noundef captures(none) initializes((4912, 4920), (4992, 5000), (5072, 5080), (5152, 5160)) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 456
@@ -137,7 +137,7 @@ define dso_local void @ieee80211_alloc_led_names(ptr nocapture noundef initializ
 declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_free_led_names(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_free_led_names(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #5
@@ -278,7 +278,7 @@ define dso_local void @ieee80211_led_init(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_rx_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @ieee80211_rx_led_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 324
@@ -287,7 +287,7 @@ define internal noundef i32 @ieee80211_rx_led_activate(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_rx_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ieee80211_rx_led_deactivate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 324
@@ -299,7 +299,7 @@ define internal void @ieee80211_rx_led_deactivate(ptr nocapture noundef readonly
 declare dso_local i32 @led_trigger_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_tx_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @ieee80211_tx_led_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 400
@@ -308,7 +308,7 @@ define internal noundef i32 @ieee80211_tx_led_activate(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_tx_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ieee80211_tx_led_deactivate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 400
@@ -317,7 +317,7 @@ define internal void @ieee80211_tx_led_deactivate(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_assoc_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @ieee80211_assoc_led_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 248
@@ -326,7 +326,7 @@ define internal noundef i32 @ieee80211_assoc_led_activate(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_assoc_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ieee80211_assoc_led_deactivate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 248
@@ -335,7 +335,7 @@ define internal void @ieee80211_assoc_led_deactivate(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_radio_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @ieee80211_radio_led_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 172
@@ -344,7 +344,7 @@ define internal noundef i32 @ieee80211_radio_led_activate(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_radio_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ieee80211_radio_led_deactivate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 172
@@ -353,7 +353,7 @@ define internal void @ieee80211_radio_led_deactivate(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ieee80211_tpt_led_activate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @ieee80211_tpt_led_activate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 96
@@ -362,7 +362,7 @@ define internal noundef i32 @ieee80211_tpt_led_activate(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ieee80211_tpt_led_deactivate(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @ieee80211_tpt_led_deactivate(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 96
@@ -432,28 +432,28 @@ define dso_local void @ieee80211_led_exit(ptr noundef %0) local_unnamed_addr #0 
 declare dso_local void @led_trigger_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @__ieee80211_get_radio_led_name(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local ptr @__ieee80211_get_radio_led_name(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5152
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @__ieee80211_get_assoc_led_name(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local ptr @__ieee80211_get_assoc_led_name(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5072
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @__ieee80211_get_tx_led_name(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local ptr @__ieee80211_get_tx_led_name(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4912
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @__ieee80211_get_rx_led_name(ptr nocapture noundef readonly %0) #2 align 16 {
+define dso_local ptr @__ieee80211_get_rx_led_name(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4992
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -515,7 +515,7 @@ define dso_local noundef ptr @__ieee80211_create_tpt_led_trigger(ptr noundef %0,
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

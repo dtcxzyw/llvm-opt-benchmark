@@ -74,13 +74,13 @@ define dso_local range(i32 0, 4352) i32 @v9fs_uflags2omode(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @v9fs_blank_wstat(ptr nocapture noundef writeonly initializes((2, 9), (12, 36), (40, 100)) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @v9fs_blank_wstat(ptr noundef writeonly captures(none) initializes((2, 9), (12, 36), (40, 100)) %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 -1, ptr %2, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -105,7 +105,7 @@ define dso_local void @v9fs_blank_wstat(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @v9fs_alloc_inode(ptr noundef %0) local_unnamed_addr #4 align 16 {
@@ -140,7 +140,7 @@ define dso_local void @v9fs_free_inode(ptr noundef %0) local_unnamed_addr #4 ali
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @v9fs_set_netfs_context(ptr nocapture noundef initializes((600, 632)) %0) local_unnamed_addr #4 align 16 {
+define dso_local void @v9fs_set_netfs_context(ptr noundef captures(none) initializes((600, 632)) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store ptr @v9fs_req_ops, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -159,7 +159,7 @@ define dso_local void @v9fs_set_netfs_context(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @v9fs_init_inode(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @v9fs_init_inode(ptr noundef readonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
   tail call void @inode_init_owner(ptr noundef nonnull @nop_mnt_idmap, ptr noundef %1, ptr noundef null, i16 noundef zeroext %2) #14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   store i64 0, ptr %5, align 8
@@ -388,7 +388,7 @@ declare dso_local void @clear_inode(ptr noundef) local_unnamed_addr #5
 declare dso_local i32 @filemap_fdatawrite(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @v9fs_inode_from_fid(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local ptr @v9fs_inode_from_fid(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @p9_client_stat(ptr noundef %1) #14
   %7 = icmp ugt ptr %6, inttoptr (i64 -4096 to ptr)
@@ -470,7 +470,7 @@ declare dso_local void @p9stat_free(ptr noundef) local_unnamed_addr #5
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @v9fs_vfs_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #4 align 16 {
+define dso_local ptr @v9fs_vfs_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %2) #4 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
@@ -828,7 +828,7 @@ define dso_local i32 @v9fs_vfs_rmdir(ptr noundef %0, ptr noundef %1) #4 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @v9fs_vfs_rename(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #4 align 16 {
+define dso_local i32 @v9fs_vfs_rename(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #4 align 16 {
   %7 = alloca %struct.p9_wstat, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %7) #14
   %8 = icmp eq i32 %5, 0
@@ -1186,7 +1186,7 @@ define dso_local i32 @v9fs_vfs_rename(ptr nocapture readnone %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @v9fs_fid_lookup(ptr noundef) local_unnamed_addr #5
@@ -1213,7 +1213,7 @@ declare dso_local void @d_move(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @v9fs_stat2inode(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local void @v9fs_stat2inode(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 872
   %7 = load ptr, ptr %6, align 8
@@ -1348,10 +1348,10 @@ define dso_local void @v9fs_stat2inode(ptr nocapture noundef readonly %0, ptr no
 declare dso_local void @set_nlink(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @v9fs_qid2ino(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local i64 @v9fs_qid2ino(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, 2
@@ -1403,7 +1403,7 @@ define dso_local i32 @v9fs_refresh_inode(ptr noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc zeroext range(i16 0, -12288) i16 @p9mode2unixmode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #10 align 16 {
+define internal fastcc zeroext range(i16 0, -12288) i16 @p9mode2unixmode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #10 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1549,12 +1549,12 @@ define internal fastcc zeroext range(i16 0, -12288) i16 @p9mode2unixmode(ptr noc
 declare dso_local noalias ptr @kmem_cache_alloc_lru(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @v9fs_test_new_inode(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @v9fs_test_new_inode(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @v9fs_test_inode(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #10 align 16 {
+define internal range(i32 0, 2) i32 @v9fs_test_inode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #10 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1601,7 +1601,7 @@ define internal range(i32 0, 2) i32 @v9fs_test_inode(ptr nocapture noundef reado
 declare dso_local ptr @iget5_locked(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @v9fs_set_inode(ptr nocapture noundef writeonly initializes((632, 648)) %0, ptr nocapture noundef readonly %1) #11 align 16 {
+define internal noundef i32 @v9fs_set_inode(ptr noundef writeonly captures(none) initializes((632, 648)) %0, ptr noundef readonly captures(none) %1) #11 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
@@ -1636,7 +1636,7 @@ declare dso_local i32 @p9_client_remove(ptr noundef) local_unnamed_addr #5
 declare dso_local void @drop_nlink(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_create(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef zeroext %3, i1 zeroext %4) #4 align 16 {
+define internal i32 @v9fs_vfs_create(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i16 noundef zeroext %3, i1 zeroext %4) #4 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 872
@@ -1733,7 +1733,7 @@ define internal i32 @v9fs_vfs_create(ptr nocapture readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_link(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) #4 align 16 {
+define internal i32 @v9fs_vfs_link(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #4 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca [13 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 13, ptr nonnull %5) #14
@@ -1921,7 +1921,7 @@ v9fs_vfs_mkspecial.exit.thread4:                  ; preds = %27, %v9fs_refresh_i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_symlink(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) #4 align 16 {
+define internal i32 @v9fs_vfs_symlink(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
@@ -1982,7 +1982,7 @@ v9fs_vfs_mkspecial.exit:                          ; preds = %4, %15, %18, %29, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_mkdir(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #4 align 16 {
+define internal i32 @v9fs_vfs_mkdir(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i16 noundef zeroext %3) #4 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 872
@@ -2078,7 +2078,7 @@ define internal i32 @v9fs_vfs_mkdir(ptr nocapture readnone %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_mknod(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) #4 align 16 {
+define internal i32 @v9fs_vfs_mknod(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i16 noundef zeroext %3, i32 noundef %4) #4 align 16 {
   %6 = alloca [24 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %8 = load ptr, ptr %7, align 8
@@ -2205,7 +2205,7 @@ v9fs_vfs_mkspecial.exit:                          ; preds = %49, %60, %63, %74, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_setattr(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #4 align 16 {
+define internal i32 @v9fs_vfs_setattr(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #4 align 16 {
   %4 = alloca %struct.p9_wstat, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -2487,7 +2487,7 @@ define internal i32 @v9fs_vfs_setattr(ptr nocapture readnone %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_getattr(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 %4) #4 align 16 {
+define internal i32 @v9fs_vfs_getattr(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i32 %4) #4 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -2589,7 +2589,7 @@ define internal i32 @v9fs_vfs_getattr(ptr nocapture readnone %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @v9fs_vfs_atomic_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #4 align 16 {
+define internal i32 @v9fs_vfs_atomic_open(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #4 align 16 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
   %7 = load i32, ptr %1, align 8
@@ -2812,7 +2812,7 @@ define internal i32 @v9fs_vfs_atomic_open(ptr nocapture noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @v9fs_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, -2130706432) %4, i8 noundef zeroext range(i8 0, -124) %5) unnamed_addr #4 align 16 {
+define internal fastcc ptr @v9fs_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 0, -2130706432) %4, i8 noundef zeroext range(i8 0, -124) %5) unnamed_addr #4 align 16 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
@@ -3045,7 +3045,7 @@ declare dso_local i32 @p9_client_fcreate(ptr noundef, ptr noundef, i32 noundef, 
 declare dso_local void @d_instantiate(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @setattr_prepare(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -3078,7 +3078,7 @@ declare dso_local void @v9fs_open_fid_add(ptr noundef, ptr noundef) local_unname
 declare dso_local void @dput(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @v9fs_vfs_get_link(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #4 align 16 {
+define internal ptr @v9fs_vfs_get_link(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #4 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %46, label %5
 
@@ -3172,13 +3172,13 @@ define internal ptr @v9fs_vfs_get_link(ptr noundef %0, ptr nocapture readnone %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree_link(ptr noundef) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 attributes #0 = { fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none) "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

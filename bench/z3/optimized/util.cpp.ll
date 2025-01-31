@@ -145,7 +145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_Z21product_iterator_nextjPKjPj(i32 noundef %n, ptr nocapture noundef readonly %sz, ptr nocapture noundef %it) local_unnamed_addr #8 {
+define hidden noundef zeroext i1 @_Z21product_iterator_nextjPKjPj(i32 noundef %n, ptr noundef readonly captures(none) %sz, ptr noundef captures(none) %it) local_unnamed_addr #8 {
 entry:
   %cmp8.not = icmp eq i32 %n, 0
   br i1 %cmp8.not, label %return, label %for.body.preheader
@@ -177,7 +177,7 @@ return:                                           ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK7escaped3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZNK7escaped3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp = icmp eq ptr %0, null
@@ -219,7 +219,7 @@ return:                                           ; preds = %while.body.us, %whi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7escaped7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK7escaped7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.i = icmp eq ptr %0, null

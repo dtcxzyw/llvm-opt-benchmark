@@ -58,7 +58,7 @@ $_ZN9LogPrefixILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 @_ZN9metaspace14MetaspaceArenaD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN9metaspace14MetaspaceArenaD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef signext i8 @_ZNK9metaspace14MetaspaceArena16next_chunk_levelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef signext i8 @_ZNK9metaspace14MetaspaceArena16next_chunk_levelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -154,7 +154,7 @@ declare noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr nound
 declare noundef ptr @_ZN9metaspace9Metachunk8allocateEm(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace14MetaspaceArena21add_allocation_to_fblEPP12MetaWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9metaspace14MetaspaceArena21add_allocation_to_fblEPP12MetaWordImplm(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -175,7 +175,7 @@ define hidden void @_ZN9metaspace14MetaspaceArena21add_allocation_to_fblEPP12Met
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN9metaspace14MetaspaceArena18allocate_new_chunkEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = icmp ult i64 %1, 2097153
   br i1 %3, label %6, label %4
 
@@ -216,7 +216,7 @@ declare noundef signext i8 @_ZN9metaspace10chunklevel23level_fitting_word_sizeEm
 declare noundef ptr @_ZN9metaspace12ChunkManager9get_chunkEaam(ptr noundef nonnull align 8 dereferenceable(376), i8 noundef signext, i8 noundef signext, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(304), ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -362,7 +362,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN9metaspace14MetaspaceArena29attempt_enlarge_current_chunkEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -810,7 +810,7 @@ _ZN9metaspace14MetaspaceArena21add_allocation_to_fblEPP12MetaWordImplm.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10ArenaStatsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr nocapture noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10ArenaStatsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.022 = load ptr, ptr %3, align 8
   %.not23 = icmp eq ptr %.022, null
@@ -894,7 +894,7 @@ define hidden void @_ZNK9metaspace14MetaspaceArena17add_to_statisticsEPNS_10Aren
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK9metaspace14MetaspaceArena13usage_numbersEPmS1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #5 align 2 {
+define hidden void @_ZNK9metaspace14MetaspaceArena13usage_numbersEPmS1_S1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.026 = load ptr, ptr %5, align 8
   %.not27 = icmp eq ptr %.026, null

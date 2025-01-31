@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [27 x i8] c"Relaxation memory is NULL.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @arkRelaxSolve(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -934,7 +934,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %10, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFnEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFnEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -964,7 +964,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxJacEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxJacEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -994,7 +994,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxFails(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -1024,7 +1024,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveFails(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -1054,7 +1054,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxBoundFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxBoundFails(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -1084,7 +1084,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveIters(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxGetNumRelaxSolveIters(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %3, label %4
 
@@ -1114,7 +1114,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %3, %7, %arkRelaxAcc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -44, 1) i32 @arkRelaxPrintAllStats(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -44, 1) i32 @arkRelaxPrintAllStats(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %4, label %5
 
@@ -1190,7 +1190,7 @@ arkRelaxAccessMem.exit.thread:                    ; preds = %4, %8, %9, %28, %47
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -22, 1) i32 @arkRelaxCreate(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -1314,10 +1314,10 @@ define noundef i32 @arkRelaxDestroy(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #0 {
+define range(i32 -2147483648, 6) i32 @arkRelax(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca double, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %7 = load ptr, ptr %6, align 8
@@ -1410,10 +1410,10 @@ declare double @llvm.fmuladd.f64(double, double, double) #5
 declare double @N_VDotProd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7

@@ -287,7 +287,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_bmaple_lcs_qos(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_bmaple_lcs_qos(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -335,7 +335,7 @@ define internal noundef zeroext i16 @de_bmaple_lcs_qos(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext range(i16 1, 3) i16 @de_bmaple_location_type(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal zeroext range(i16 1, 3) i16 @de_bmaple_location_type(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_bssmap_le_location_inf, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
   %10 = icmp eq i32 %4, 1
@@ -355,7 +355,7 @@ define internal zeroext range(i16 1, 3) i16 @de_bmaple_location_type(ptr noundef
 declare zeroext i16 @be_ganss_loc_type(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_bmaple_pos_dta(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_bmaple_pos_dta(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_gsm_bssmap_le_pos_data_disc, align 4
   %10 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %8) #2
@@ -387,7 +387,7 @@ define internal noundef zeroext i16 @de_bmaple_pos_dta(ptr noundef %0, ptr nound
 declare zeroext i16 @be_ganss_pos_dta(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_bmaple_cause(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_bmaple_cause(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_bssmap_le_lcs_cause_value, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
   %10 = add i32 %3, 1
@@ -408,7 +408,7 @@ define internal noundef zeroext i16 @de_bmaple_cause(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_bmaple_client(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_bmaple_client(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = load i32, ptr @hf_gsm_bssmap_le_client_category, align 4
   %10 = and i32 %8, 248
@@ -420,7 +420,7 @@ define internal noundef zeroext i16 @de_bmaple_client(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_bmaple_apdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_bmaple_apdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_bssmap_le_apdu, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #2
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %3) #2
@@ -448,7 +448,7 @@ define internal noundef zeroext i16 @de_bmaple_apdu(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_bmaple_req_gps_ass_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_bmaple_req_gps_ass_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = load i32, ptr @hf_gsm_bssmap_le_acq_ass, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef 1, i32 noundef 0) #2
   %10 = load i32, ptr @hf_gsm_bssmap_le_ref_time, align 4
@@ -482,7 +482,7 @@ define internal noundef zeroext i16 @de_bmaple_req_gps_ass_data(ptr noundef %0, 
 declare zeroext i16 @be_ganss_ass_dta(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @de_bmaple_decihp_keys(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @de_bmaple_decihp_keys(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = shl i32 %3, 3
   %9 = load i32, ptr @hf_gsm_bssmap_le_spare, align 4
   %10 = tail call ptr @proto_tree_add_bits_item(ptr noundef %1, i32 noundef %9, ptr noundef %0, i32 noundef %8, i32 noundef 7, i32 noundef 0) #2
@@ -502,21 +502,21 @@ define internal noundef zeroext i16 @de_bmaple_decihp_keys(ptr noundef %0, ptr n
 declare zeroext i16 @de_mid(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @be_lcs_capability(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @be_lcs_capability(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_le_not_decoded_yet, ptr noundef %0, i32 noundef %3, i32 noundef %4) #2
   %9 = trunc i32 %4 to i16
   ret i16 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @be_packet_meas_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @be_packet_meas_rep(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_le_not_decoded_yet, ptr noundef %0, i32 noundef %3, i32 noundef %4) #2
   %9 = trunc i32 %4 to i16
   ret i16 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i16 @be_measured_cell_identity(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal noundef zeroext i16 @be_measured_cell_identity(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5, i32 %6) #1 {
   %8 = tail call ptr @proto_tree_add_expert(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_gsm_a_bssmap_le_not_decoded_yet, ptr noundef %0, i32 noundef %3, i32 noundef %4) #2
   %9 = trunc i32 %4 to i16
   ret i16 %9

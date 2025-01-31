@@ -60,7 +60,7 @@ define hidden noundef i64 @avifNTOH64(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @avifArrayCreate(ptr nocapture noundef writeonly initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @avifArrayCreate(ptr noundef writeonly captures(none) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %4, ptr %5, align 8
@@ -92,10 +92,10 @@ define hidden range(i32 0, 2) i32 @avifArrayCreate(ptr nocapture noundef writeon
 declare ptr @avifAlloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @avifArrayPush(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define hidden ptr @avifArrayPush(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -147,12 +147,12 @@ define hidden ptr @avifArrayPush(ptr nocapture noundef %0) local_unnamed_addr #2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @avifFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @avifArrayPop(ptr nocapture noundef %0) local_unnamed_addr #6 {
+define hidden void @avifArrayPop(ptr noundef captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -169,7 +169,7 @@ define hidden void @avifArrayPop(ptr nocapture noundef %0) local_unnamed_addr #6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifArrayDestroy(ptr nocapture noundef initializes((8, 24)) %0) local_unnamed_addr #2 {
+define hidden void @avifArrayDestroy(ptr noundef captures(none) initializes((8, 24)) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -184,7 +184,7 @@ define hidden void @avifArrayDestroy(ptr nocapture noundef initializes((8, 24)) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @avifFractionSimplify(ptr nocapture noundef %0) local_unnamed_addr #7 {
+define hidden void @avifFractionSimplify(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 4
   %3 = sext i32 %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -224,7 +224,7 @@ calcGCD.exit:                                     ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @avifFractionCD(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @avifFractionCD(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = load i32, ptr %0, align 4
   %4 = sext i32 %3 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -338,7 +338,7 @@ avifFractionSimplify.exit42:                      ; preds = %calcGCD.exit.i40, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @avifFractionAdd(i64 %0, i64 %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @avifFractionAdd(i64 %0, i64 %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %.sroa.6.0.extract.shift = lshr i64 %0, 32
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
   %sext = shl i64 %0, 32
@@ -488,7 +488,7 @@ avifFractionCD.exit:                              ; preds = %47, %calcGCD.exit.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @avifFractionSub(i64 %0, i64 %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @avifFractionSub(i64 %0, i64 %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %.sroa.6.0.extract.shift = lshr i64 %0, 32
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
   %sext = shl i64 %0, 32
@@ -638,7 +638,7 @@ avifFractionCD.exit:                              ; preds = %47, %calcGCD.exit.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @avifDoubleToSignedFraction(double noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @avifDoubleToSignedFraction(double noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = tail call double @llvm.fabs.f64(double %0)
   %or.cond.i = fcmp uno double %0, 0.000000e+00
   %5 = fcmp ogt double %4, 0x41DFFFFFFFC00000
@@ -716,7 +716,7 @@ avifDoubleToUnsignedFractionImpl.exit:            ; preds = %3, %.loopexit
 declare double @llvm.fabs.f64(double) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @avifDoubleToUnsignedFraction(double noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #7 {
+define hidden range(i32 0, 2) i32 @avifDoubleToUnsignedFraction(double noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #7 {
   %or.cond.i = fcmp ult double %0, 0.000000e+00
   %4 = fcmp ogt double %0, 0x41EFFFFFFFE00000
   %or.cond = or i1 %or.cond.i, %4

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %.not = icmp ne i32 %4, 0
   %6 = load i8, ptr %0, align 1
   %7 = zext i8 %6 to i32
@@ -178,7 +178,7 @@ define hidden range(i32 0, 2) i32 @_pcre2_is_newline_8(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @_pcre2_was_newline_8(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @_pcre2_was_newline_8(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 -1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %98, label %.preheader

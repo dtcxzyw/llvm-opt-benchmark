@@ -428,19 +428,19 @@ define internal i32 @virtscsi_restore(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @scsi_host_alloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @virtscsi_init(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.irq_affinity, align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -875,7 +875,7 @@ virtscsi_tmf.exit:                                ; preds = %44, %8, %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 8194, 8196) i32 @virtscsi_device_reset(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal range(i32 8194, 8196) i32 @virtscsi_device_reset(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca %struct.completion, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
@@ -961,7 +961,7 @@ virtscsi_tmf.exit:                                ; preds = %44, %8, %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @virtscsi_device_alloc(ptr nocapture noundef writeonly initializes((320, 328)) %0) #5 align 16 {
+define internal noundef i32 @virtscsi_device_alloc(ptr noundef writeonly captures(none) initializes((320, 328)) %0) #5 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   store i64 268435456, ptr %2, align 8
   ret i32 0
@@ -1062,12 +1062,12 @@ define internal i32 @virtscsi_mq_poll(ptr noundef %0, i32 noundef %1) #2 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @virtscsi_eh_timed_out(ptr nocapture readnone %0) #6 align 16 {
+define internal noundef i32 @virtscsi_eh_timed_out(ptr readnone captures(none) %0) #6 align 16 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64 noundef range(i64 24, 52) %2, i64 noundef range(i64 1, 109) %3, i1 noundef zeroext %4) unnamed_addr #2 align 16 {
@@ -1223,7 +1223,7 @@ define internal fastcc i32 @virtscsi_add_cmd(ptr noundef %0, ptr noundef %1, i64
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @virtscsi_complete_cmd(ptr nocapture noundef readonly %0) unnamed_addr #2 align 16 {
+define internal fastcc void @virtscsi_complete_cmd(ptr noundef readonly captures(none) %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 75
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 85
@@ -1346,7 +1346,7 @@ declare dso_local zeroext i1 @virtqueue_kick_prepare(ptr noundef) local_unnamed_
 declare dso_local zeroext i1 @virtqueue_notify(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @sg_init_one(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -1538,7 +1538,7 @@ declare dso_local void @blk_mq_virtio_map_queues(ptr noundef, ptr noundef, i32 n
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtscsi_ctrl_done(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @virtscsi_ctrl_done(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -1585,7 +1585,7 @@ define internal void @virtscsi_ctrl_done(ptr nocapture noundef readonly %0) #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtscsi_event_done(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @virtscsi_event_done(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -1634,7 +1634,7 @@ define internal void @virtscsi_event_done(ptr nocapture noundef readonly %0) #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @virtscsi_req_done(ptr nocapture noundef readonly %0) #2 align 16 {
+define internal void @virtscsi_req_done(ptr noundef readonly captures(none) %0) #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 792

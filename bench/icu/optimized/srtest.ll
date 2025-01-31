@@ -86,7 +86,7 @@ declare noundef signext i8 @_ZN6icu_759ScriptRun4nextEv(ptr noundef nonnull alig
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @uscript_getName_75(i32 noundef) local_unnamed_addr #1
 

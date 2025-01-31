@@ -297,7 +297,7 @@ if.then89:                                        ; preds = %if.else84
 
 if.else94:                                        ; preds = %if.then89
   %conv96 = trunc i64 %call90 to i32
-  %call97 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call, ptr noundef %spec.addr.2116125, i32 noundef %conv96, i32 noundef 1) #11
+  %call97 = tail call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call, ptr noundef nonnull %spec.addr.2116125, i32 noundef %conv96, i32 noundef 1) #11
   %tobool98.not = icmp eq i32 %call97, 0
   br i1 %tobool98.not, label %if.then151.sink.split, label %if.else100
 
@@ -386,10 +386,10 @@ declare i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef, ptr nounde
 declare i32 @FLAC__metadata_object_picture_set_description(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @FLAC__metadata_object_picture_set_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -493,7 +493,7 @@ return:                                           ; preds = %if.else50, %if.end2
 declare void @FLAC__metadata_object_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__picture_from_specification(i32 noundef %type, ptr noundef readonly %mime_type_in, ptr noundef %description, ptr noundef readonly %res, ptr noundef %filepath, ptr noundef %error_message) local_unnamed_addr #0 {
+define dso_local ptr @grabbag__picture_from_specification(i32 noundef %type, ptr noundef readonly captures(none) %mime_type_in, ptr noundef %description, ptr noundef readonly %res, ptr noundef %filepath, ptr noundef %error_message) local_unnamed_addr #0 {
 entry:
   %mime_type = alloca [64 x i8], align 16
   %cmp = icmp eq ptr %error_message, null
@@ -506,21 +506,17 @@ if.end:                                           ; preds = %entry
   store ptr null, ptr %error_message, align 8
   %call1 = call ptr @FLAC__metadata_object_new(i32 noundef 6) #11
   %cmp2 = icmp eq ptr %call1, null
-  br i1 %cmp2, label %if.then3, label %if.end4
+  br i1 %cmp2, label %if.then3, label %land.lhs.true
 
 if.then3:                                         ; preds = %if.end
   store ptr @.str.3, ptr %error_message, align 8
   br label %return
 
-if.end4:                                          ; preds = %if.end
+land.lhs.true:                                    ; preds = %if.end
   %cmp5 = icmp sgt i32 %type, -1
   %cond = select i1 %cmp5, i32 %type, i32 3
   %data = getelementptr inbounds nuw i8, ptr %call1, i64 16
   store i32 %cond, ptr %data, align 8
-  %tobool.not = icmp eq ptr %mime_type_in, null
-  br i1 %tobool.not, label %if.end11, label %land.lhs.true
-
-land.lhs.true:                                    ; preds = %if.end4
   %call8 = call i32 @FLAC__metadata_object_picture_set_mime_type(ptr noundef nonnull %call1, ptr noundef nonnull %mime_type, i32 noundef 1) #11
   %tobool9.not = icmp eq i32 %call8, 0
   br i1 %tobool9.not, label %if.then10, label %if.end11
@@ -529,7 +525,7 @@ if.then10:                                        ; preds = %land.lhs.true
   store ptr @.str.3, ptr %error_message, align 8
   br label %return
 
-if.end11:                                         ; preds = %land.lhs.true, %if.end4
+if.end11:                                         ; preds = %land.lhs.true
   %tobool12.not = icmp eq ptr %description, null
   br i1 %tobool12.not, label %if.end17, label %land.lhs.true13
 
@@ -584,7 +580,7 @@ if.end36:                                         ; preds = %if.else, %if.then19
 if.then41:                                        ; preds = %if.end36
   %call42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %filepath) #12
   %conv = trunc i64 %call42 to i32
-  %call43 = call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call1, ptr noundef %filepath, i32 noundef %conv, i32 noundef 1) #11
+  %call43 = call i32 @FLAC__metadata_object_picture_set_data(ptr noundef nonnull %call1, ptr noundef nonnull %filepath, i32 noundef %conv, i32 noundef 1) #11
   %tobool44.not = icmp eq i32 %call43, 0
   br i1 %tobool44.not, label %if.then99.sink.split, label %if.else46
 
@@ -663,7 +659,7 @@ return:                                           ; preds = %lor.lhs.false88, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
@@ -671,16 +667,16 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i64 @grabbag__file_get_filesize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @local__extract_mime_type_(ptr noundef nonnull %obj) unnamed_addr #0 {
@@ -743,7 +739,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info_(ptr nocapture noundef nonnull %picture) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @local__extract_resolution_color_info_(ptr noundef nonnull captures(none) %picture) unnamed_addr #7 {
 entry:
   %data1 = getelementptr inbounds nuw i8, ptr %picture, i64 48
   %0 = load ptr, ptr %data1, align 8
@@ -1107,13 +1103,13 @@ return:                                           ; preds = %if.end161, %if.else
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #8
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #9
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

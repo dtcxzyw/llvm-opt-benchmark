@@ -360,14 +360,14 @@ define internal void @_set_bsub_options(i32 noundef %0, ptr noundef %1) unnamed_
   br i1 %.not20, label %38, label %41
 
 38:                                               ; preds = %35
-  %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef %34) #12
+  %39 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.20, ptr noundef nonnull %34) #12
   %40 = load i32, ptr @error_exit, align 4
   call void @exit(i32 noundef %40) #14
   unreachable
 
 41:                                               ; preds = %33, %35
   %.014 = phi ptr [ %36, %35 ], [ %34, %33 ]
-  %42 = call ptr @xstrdup(ptr noundef %.014) #12
+  %42 = call ptr @xstrdup(ptr noundef nonnull %.014) #12
   store ptr %42, ptr %5, align 8
   br label %.loopexit
 
@@ -1242,7 +1242,7 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
   %340 = add nsw i32 %.05565.i.i, 4
   %341 = sext i32 %340 to i64
   %342 = getelementptr inbounds i8, ptr %301, i64 %341
-  %343 = call i64 @strtol(ptr nocapture noundef nonnull %342, ptr noundef null, i32 noundef 10) #12
+  %343 = call i64 @strtol(ptr noundef nonnull captures(none) %342, ptr noundef null, i32 noundef 10) #12
   %344 = trunc i64 %343 to i32
   %345 = add i32 %.067.i.i, %344
   br label %346
@@ -1279,7 +1279,7 @@ _get_pbs_option_value.exit210.i:                  ; preds = %309, %.critedge.i20
   br i1 %.not29.i.i, label %373, label %361
 
 361:                                              ; preds = %352
-  %362 = call i64 @strtol(ptr nocapture noundef nonnull %317, ptr noundef null, i32 noundef 10) #12
+  %362 = call i64 @strtol(ptr noundef nonnull captures(none) %317, ptr noundef null, i32 noundef 10) #12
   %363 = trunc i64 %362 to i32
   %364 = add i32 %.02366.i.i, %363
   br label %365
@@ -2047,7 +2047,7 @@ _xlate_pbs_mail_type.exit:                        ; preds = %._crit_edge.i20, %6
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2070,7 +2070,7 @@ declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare i32 @getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
@@ -2090,7 +2090,7 @@ declare void @slurm_process_option_or_exit(ptr noundef, i32 noundef, ptr noundef
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_pbs_option_value(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, i8 noundef signext range(i8 44, 59) %2) unnamed_addr #0 {
+define internal fastcc ptr @_get_pbs_option_value(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(none) %1, i8 noundef signext range(i8 44, 59) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = sext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
@@ -2150,7 +2150,7 @@ declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @hostlist_create(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #8
 
 declare i32 @hostlist_push_host(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -2167,10 +2167,10 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -131,7 +131,7 @@ vhost_net_get_feature_bits.exit:                  ; preds = %entry, %sw.bb1.i, %
 declare void @vhost_ack_features(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @vhost_net_get_max_queues(ptr nocapture noundef readonly %net) local_unnamed_addr #2 {
+define dso_local i64 @vhost_net_get_max_queues(ptr noundef readonly captures(none) %net) local_unnamed_addr #2 {
 entry:
   %max_queues = getelementptr inbounds nuw i8, ptr %net, i64 488
   %0 = load i64, ptr %max_queues, align 8
@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @vhost_net_get_acked_features(ptr nocapture noundef readonly %net) local_unnamed_addr #2 {
+define dso_local i64 @vhost_net_get_acked_features(ptr noundef readonly captures(none) %net) local_unnamed_addr #2 {
 entry:
   %acked_features = getelementptr inbounds nuw i8, ptr %net, i64 464
   %0 = load i64, ptr %acked_features, align 8
@@ -165,7 +165,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @vhost_user_save_acked_features(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @vhost_net_init(ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
+define dso_local noundef ptr @vhost_net_init(ptr noundef readonly captures(none) %options) local_unnamed_addr #0 {
 entry:
   %local_err = alloca ptr, align 8
   %0 = load i32, ptr %options, align 8
@@ -349,7 +349,7 @@ return:                                           ; preds = %fail, %vhost_net_ac
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare zeroext i1 @qemu_has_vnet_hdr(ptr noundef) local_unnamed_addr #1
 
@@ -996,7 +996,7 @@ if.end26:                                         ; preds = %if.then21, %if.end1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @vhost_net_stop(ptr noundef %dev, ptr noundef %ncs, i32 noundef %data_queue_pairs, i32 noundef %cvq) local_unnamed_addr #0 {
@@ -1193,7 +1193,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @vhost_net_virtqueue_reset(ptr noundef %vdev, ptr nocapture noundef readonly %nc, i32 noundef %vq_index) local_unnamed_addr #0 {
+define dso_local void @vhost_net_virtqueue_reset(ptr noundef %vdev, ptr noundef readonly captures(none) %nc, i32 noundef %vq_index) local_unnamed_addr #0 {
 entry:
   %file = alloca %struct.vhost_vring_file, align 8
   %peer = getelementptr inbounds nuw i8, ptr %nc, i64 32
@@ -1282,7 +1282,7 @@ declare i32 @vhost_net_set_backend(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @vhost_virtqueue_stop(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhost_net_virtqueue_restart(ptr noundef %vdev, ptr nocapture noundef readonly %nc, i32 noundef %vq_index) local_unnamed_addr #0 {
+define dso_local i32 @vhost_net_virtqueue_restart(ptr noundef %vdev, ptr noundef readonly captures(none) %nc, i32 noundef %vq_index) local_unnamed_addr #0 {
 entry:
   %file = alloca %struct.vhost_vring_file, align 8
   %peer = getelementptr inbounds nuw i8, ptr %nc, i64 32
@@ -1410,7 +1410,7 @@ return:                                           ; preds = %if.end14, %if.then1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @vhost_virtqueue_start(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1438,13 +1438,13 @@ declare zeroext i1 @virtio_queue_enabled(ptr noundef, i32 noundef) local_unnamed
 declare void @vhost_dev_disable_notifiers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10

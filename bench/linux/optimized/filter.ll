@@ -502,13 +502,13 @@ define dso_local range(i32 -22, 1) i32 @copy_bpf_fprog_from_user(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @sk_filter_trim_cap(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
@@ -1215,7 +1215,7 @@ define dso_local noundef zeroext i1 @sk_filter_charge(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @bpf_prog_create(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @bpf_prog_create(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i16, ptr %1, align 8
   %4 = zext i16 %3 to i64
   %5 = shl nuw nsw i64 %4, 3
@@ -1267,7 +1267,7 @@ define dso_local i32 @bpf_prog_create(ptr nocapture noundef writeonly %0, ptr no
 declare dso_local ptr @bpf_prog_alloc(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((48, 56)) %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
@@ -1678,7 +1678,7 @@ define internal fastcc ptr @bpf_prepare_filter(ptr noundef nonnull initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @bpf_prog_create_from_user(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local i32 @bpf_prog_create_from_user(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = load i16, ptr %1, align 8
   %6 = zext i16 %5 to i64
   %7 = shl nuw nsw i64 %6, 3
@@ -1797,7 +1797,7 @@ define dso_local void @bpf_prog_destroy(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sk_attach_filter(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @sk_attach_filter(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = tail call fastcc ptr @__get_filter(ptr noundef %0, ptr noundef %1)
   %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
   br i1 %4, label %5, label %8
@@ -1903,7 +1903,7 @@ __sk_attach_prog.exit.thread:                     ; preds = %42, %44, %45, %28, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__get_filter(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__get_filter(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i64
   %5 = shl nuw nsw i64 %4, 3
@@ -1984,7 +1984,7 @@ define internal fastcc ptr @__get_filter(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sk_reuseport_attach_filter(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @sk_reuseport_attach_filter(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call fastcc ptr @__get_filter(ptr noundef %0, ptr noundef %1)
   %4 = icmp ugt ptr %3, inttoptr (i64 -4096 to ptr)
   br i1 %4, label %5, label %8
@@ -2231,7 +2231,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_skb_store_bytes(i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @__bpf_skb_store_bytes(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__bpf_skb_store_bytes(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = icmp ult i64 %4, 4
   br i1 %6, label %7, label %90, !prof !9
 
@@ -7523,7 +7523,7 @@ define dso_local noundef range(i64 -22, 1) i64 @bpf_xdp_adjust_head(i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @bpf_xdp_copy_buf(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #12 align 16 {
+define dso_local void @bpf_xdp_copy_buf(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #12 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
@@ -7662,7 +7662,7 @@ define dso_local void @bpf_xdp_copy_buf(ptr nocapture noundef readonly %0, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @bpf_xdp_pointer(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 16 {
+define dso_local ptr @bpf_xdp_pointer(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -7972,7 +7972,7 @@ define dso_local i64 @bpf_xdp_load_bytes(i64 noundef %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local i32 @__bpf_xdp_load_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #12 align 16 {
+define dso_local i32 @__bpf_xdp_load_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #12 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -8377,7 +8377,7 @@ define dso_local i64 @bpf_xdp_store_bytes(i64 noundef %0, i64 noundef %1, i64 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local i32 @__bpf_xdp_store_bytes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #12 align 16 {
+define dso_local i32 @__bpf_xdp_store_bytes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #12 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -9016,7 +9016,7 @@ define dso_local noundef range(i32 -95, 1) i32 @xdp_do_redirect(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @xdp_do_redirect_frame(ptr noundef %0, ptr nocapture readnone %1, ptr noundef readnone %2, ptr noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @xdp_do_redirect_frame(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef readnone %2, ptr noundef %3) #0 align 16 {
   %5 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !111
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -9164,7 +9164,7 @@ define dso_local noundef range(i32 -95, 1) i32 @xdp_do_redirect_frame(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -524, 1) i32 @xdp_do_generic_redirect(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -524, 1) i32 @xdp_do_generic_redirect(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @bpf_redirect_info) #35, !srcloc !112
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -11800,7 +11800,7 @@ __bpf_sk_lookup.exit:                             ; preds = %5, %21, %31, %33, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i1 @bpf_tcp_sock_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #10 align 16 {
+define dso_local noundef zeroext i1 @bpf_tcp_sock_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #10 align 16 {
   %5 = icmp ugt i32 %0, 111
   br i1 %5, label %14, label %6
 
@@ -11829,7 +11829,7 @@ define dso_local noundef zeroext i1 @bpf_tcp_sock_is_valid_access(i32 noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @bpf_tcp_sock_convert_ctx_access(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4) local_unnamed_addr #15 align 16 {
+define dso_local i32 @bpf_tcp_sock_convert_ctx_access(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
@@ -12442,7 +12442,7 @@ define dso_local range(i64 0, 2) i64 @bpf_skb_ecn_set_ce(i64 noundef %0, i64 %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i1 @bpf_xdp_sock_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3) local_unnamed_addr #10 align 16 {
+define dso_local noundef zeroext i1 @bpf_xdp_sock_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #10 align 16 {
   %5 = icmp ugt i32 %0, 3
   br i1 %5, label %11, label %6
 
@@ -12459,7 +12459,7 @@ define dso_local noundef zeroext i1 @bpf_xdp_sock_is_valid_access(i32 noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @bpf_xdp_sock_convert_ctx_access(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4) local_unnamed_addr #15 align 16 {
+define dso_local i32 @bpf_xdp_sock_convert_ctx_access(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = icmp eq i16 %7, 0
@@ -13488,7 +13488,7 @@ define dso_local zeroext i1 @bpf_helper_changes_pkt_data(ptr noundef readnone %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local zeroext i1 @bpf_sock_common_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #18 align 16 {
+define dso_local zeroext i1 @bpf_sock_common_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #18 align 16 {
   %5 = add i32 %0, -8
   %6 = icmp ult i32 %5, 16
   br i1 %6, label %9, label %7
@@ -13503,7 +13503,7 @@ define dso_local zeroext i1 @bpf_sock_common_is_valid_access(i32 noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local zeroext i1 @bpf_sock_is_valid_access(i32 noundef %0, i32 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #18 align 16 {
+define dso_local zeroext i1 @bpf_sock_is_valid_access(i32 noundef %0, i32 noundef %1, i32 %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #18 align 16 {
   %5 = icmp ugt i32 %0, 79
   br i1 %5, label %26, label %6
 
@@ -13600,7 +13600,7 @@ define dso_local zeroext i1 @bpf_sock_is_valid_access(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @bpf_warn_invalid_xdp_action(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local void @bpf_warn_invalid_xdp_action(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = load i1, ptr @bpf_warn_invalid_xdp_action.__already_done, align 1
   br i1 %4, label %17, label %5, !prof !9
 
@@ -13627,7 +13627,7 @@ define dso_local void @bpf_warn_invalid_xdp_action(ptr noundef %0, ptr nocapture
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #19
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local i32 @bpf_sock_convert_ctx_access(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define dso_local i32 @bpf_sock_convert_ctx_access(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   switch i16 %7, label %130 [
@@ -13891,7 +13891,7 @@ define dso_local i32 @bpf_sock_convert_ctx_access(i32 noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @sk_filter_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @sk_filter_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %13 [
     i32 26, label %21
     i32 68, label %3
@@ -13960,7 +13960,7 @@ define internal ptr @sk_filter_func_proto(i32 noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef zeroext i1 @sk_filter_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #18 align 16 {
+define internal noundef zeroext i1 @sk_filter_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #18 align 16 {
   switch i32 %0, label %6 [
     i32 184, label %13
     i32 185, label %13
@@ -14069,7 +14069,7 @@ define internal noundef zeroext i1 @sk_filter_is_valid_access(i32 noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @bpf_gen_ld_abs(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 1)) %1) #15 align 16 {
+define internal i32 @bpf_gen_ld_abs(ptr noundef readonly captures(none) %0, ptr noundef initializes((0, 1)) %1) #15 align 16 {
   %3 = load i8, ptr %0, align 4
   %4 = and i8 %3, -32
   %5 = icmp eq i8 %4, 64
@@ -14194,7 +14194,7 @@ default.unreachable:                              ; preds = %32
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @bpf_convert_ctx_access(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal i32 @bpf_convert_ctx_access(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   switch i16 %7, label %496 [
@@ -15166,12 +15166,12 @@ define internal i32 @bpf_convert_ctx_access(i32 noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @bpf_prog_test_run_skb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #20 align 16 {
+define internal noundef i32 @bpf_prog_test_run_skb(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #20 align 16 {
   ret i32 -524
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @tc_cls_act_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @tc_cls_act_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %62 [
     i32 9, label %64
     i32 26, label %3
@@ -15416,7 +15416,7 @@ define internal ptr @tc_cls_act_func_proto(i32 noundef %0, ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef zeroext i1 @tc_cls_act_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal noundef zeroext i1 @tc_cls_act_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = icmp eq i32 %2, 2
   br i1 %6, label %7, label %8
 
@@ -15570,7 +15570,7 @@ define internal noundef zeroext i1 @tc_cls_act_is_valid_access(i32 noundef %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 0, 12) i32 @tc_cls_act_prologue(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) #15 align 16 {
+define internal noundef range(i32 0, 12) i32 @tc_cls_act_prologue(ptr noundef writeonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) #15 align 16 {
   br i1 %1, label %4, label %47
 
 4:                                                ; preds = %3
@@ -15665,7 +15665,7 @@ define internal noundef range(i32 0, 12) i32 @tc_cls_act_prologue(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @tc_cls_act_convert_ctx_access(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal i32 @tc_cls_act_convert_ctx_access(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = icmp eq i16 %7, 40
@@ -15722,7 +15722,7 @@ define internal i32 @tc_cls_act_btf_struct_access(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @xdp_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @xdp_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %31 [
     i32 25, label %39
     i32 8, label %3
@@ -15863,7 +15863,7 @@ define internal ptr @xdp_func_proto(i32 noundef %0, ptr nocapture readnone %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef zeroext i1 @xdp_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal noundef zeroext i1 @xdp_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = icmp ne i32 %7, 33
@@ -15908,12 +15908,12 @@ define internal noundef zeroext i1 @xdp_is_valid_access(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @bpf_noop_prologue(ptr nocapture readnone %0, i1 zeroext %1, ptr nocapture readnone %2) #10 align 16 {
+define internal noundef i32 @bpf_noop_prologue(ptr readnone captures(none) %0, i1 zeroext %1, ptr readnone captures(none) %2) #10 align 16 {
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @xdp_convert_ctx_access(i32 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #15 align 16 {
+define internal i32 @xdp_convert_ctx_access(i32 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
@@ -16067,12 +16067,12 @@ define internal i32 @xdp_btf_struct_access(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @bpf_prog_test_run_xdp(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #20 align 16 {
+define internal noundef i32 @bpf_prog_test_run_xdp(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #20 align 16 {
   ret i32 -524
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @cg_skb_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @cg_skb_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %26 [
     i32 95, label %sk_filter_func_proto.exit
     i32 107, label %3
@@ -16197,7 +16197,7 @@ sk_filter_func_proto.exit:                        ; preds = %2, %sk_filter_func_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @cg_skb_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #0 align 16 {
+define internal noundef zeroext i1 @cg_skb_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #0 align 16 {
   switch i32 %0, label %10 [
     i32 160, label %23
     i32 161, label %23
@@ -16311,7 +16311,7 @@ define internal noundef zeroext i1 @cg_skb_is_valid_access(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @lwt_in_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @lwt_in_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = icmp eq i32 %0, 73
   br i1 %3, label %6, label %4
 
@@ -16325,7 +16325,7 @@ define internal ptr @lwt_in_func_proto(i32 noundef %0, ptr nocapture readnone %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef zeroext i1 @lwt_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #18 align 16 {
+define internal noundef zeroext i1 @lwt_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #18 align 16 {
   switch i32 %0, label %6 [
     i32 184, label %15
     i32 185, label %15
@@ -16475,7 +16475,7 @@ define internal noundef zeroext i1 @lwt_is_valid_access(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @lwt_out_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @lwt_out_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %17 [
     i32 26, label %25
     i32 39, label %3
@@ -16560,7 +16560,7 @@ define internal ptr @lwt_out_func_proto(i32 noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @lwt_xmit_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @lwt_xmit_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %35 [
     i32 20, label %37
     i32 21, label %3
@@ -16663,13 +16663,13 @@ define internal ptr @lwt_xmit_func_proto(i32 noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @lwt_seg6local_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @lwt_seg6local_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = tail call ptr @lwt_out_func_proto(i32 noundef %0, ptr poison)
   ret ptr %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef ptr @sock_filter_func_proto(i32 noundef %0, ptr nocapture readnone %1) #10 align 16 {
+define internal noundef ptr @sock_filter_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #10 align 16 {
   switch i32 %0, label %7 [
     i32 46, label %8
     i32 122, label %3
@@ -16699,7 +16699,7 @@ define internal noundef ptr @sock_filter_func_proto(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal zeroext i1 @sock_filter_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal zeroext i1 @sock_filter_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = tail call zeroext i1 @bpf_sock_is_valid_access(i32 noundef %0, i32 noundef %1, i32 poison, ptr noundef %4)
   br i1 %6, label %7, label %23
 
@@ -16765,7 +16765,7 @@ define internal zeroext i1 @sock_filter_is_valid_access(i32 noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @sock_addr_func_proto(i32 noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal ptr @sock_addr_func_proto(i32 noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   switch i32 %0, label %31 [
     i32 64, label %3
     i32 46, label %39
@@ -16913,7 +16913,7 @@ define internal ptr @sock_addr_func_proto(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef zeroext i1 @sock_addr_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal noundef zeroext i1 @sock_addr_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = zext i32 %0 to i64
   %7 = icmp ugt i32 %0, 71
   br i1 %7, label %73, label %8
@@ -17128,7 +17128,7 @@ define internal noundef zeroext i1 @sock_addr_is_valid_access(i32 noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @sock_addr_convert_ctx_access(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal i32 @sock_addr_convert_ctx_access(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   switch i16 %7, label %383 [
@@ -17732,7 +17732,7 @@ define internal i32 @sock_addr_convert_ctx_access(i32 noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @sock_ops_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @sock_ops_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %22 [
     i32 49, label %30
     i32 57, label %3
@@ -17837,7 +17837,7 @@ define internal ptr @sock_ops_func_proto(i32 noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal zeroext i1 @sock_ops_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #18 align 16 {
+define internal zeroext i1 @sock_ops_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #18 align 16 {
   %6 = icmp ugt i32 %0, 223
   br i1 %6, label %38, label %7
 
@@ -17935,7 +17935,7 @@ define internal zeroext i1 @sock_ops_is_valid_access(i32 noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   switch i16 %7, label %2253 [
@@ -21700,7 +21700,7 @@ define internal i32 @sock_ops_convert_ctx_access(i32 noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @sk_skb_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @sk_skb_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %23 [
     i32 9, label %31
     i32 26, label %3
@@ -21809,7 +21809,7 @@ define internal ptr @sk_skb_func_proto(i32 noundef %0, ptr nocapture readnone %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef zeroext i1 @sk_skb_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #18 align 16 {
+define internal noundef zeroext i1 @sk_skb_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #18 align 16 {
   switch i32 %0, label %6 [
     i32 184, label %15
     i32 185, label %15
@@ -21891,7 +21891,7 @@ define internal noundef zeroext i1 @sk_skb_is_valid_access(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef range(i32 0, 12) i32 @sk_skb_prologue(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) #15 align 16 {
+define internal noundef range(i32 0, 12) i32 @sk_skb_prologue(ptr noundef writeonly captures(none) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) #15 align 16 {
   br i1 %1, label %4, label %47
 
 4:                                                ; preds = %3
@@ -21986,7 +21986,7 @@ define internal noundef range(i32 0, 12) i32 @sk_skb_prologue(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @sk_skb_convert_ctx_access(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal i32 @sk_skb_convert_ctx_access(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   switch i16 %7, label %108 [
@@ -22192,7 +22192,7 @@ define internal i32 @sk_skb_convert_ctx_access(i32 noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @sk_msg_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @sk_msg_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %22 [
     i32 60, label %30
     i32 71, label %3
@@ -22297,7 +22297,7 @@ define internal ptr @sk_msg_func_proto(i32 noundef %0, ptr nocapture readnone %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef zeroext i1 @sk_msg_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #18 align 16 {
+define internal noundef zeroext i1 @sk_msg_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #18 align 16 {
   %6 = icmp eq i32 %2, 2
   br i1 %6, label %21, label %7
 
@@ -22400,7 +22400,7 @@ define internal noundef zeroext i1 @sk_msg_is_valid_access(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @sk_msg_convert_ctx_access(i32 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #15 align 16 {
+define internal i32 @sk_msg_convert_ctx_access(i32 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   switch i16 %7, label %120 [
@@ -22634,7 +22634,7 @@ define internal i32 @sk_msg_convert_ctx_access(i32 %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @flow_dissector_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @flow_dissector_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %9 [
     i32 26, label %17
     i32 136, label %10
@@ -22687,7 +22687,7 @@ define internal ptr @flow_dissector_func_proto(i32 noundef %0, ptr nocapture rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef zeroext i1 @flow_dissector_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #18 align 16 {
+define internal noundef zeroext i1 @flow_dissector_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #18 align 16 {
   %6 = icmp ugt i32 %0, 191
   %7 = icmp eq i32 %2, 2
   %8 = or i1 %6, %7
@@ -22737,7 +22737,7 @@ define internal noundef zeroext i1 @flow_dissector_is_valid_access(i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @flow_dissector_convert_ctx_access(i32 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #15 align 16 {
+define internal i32 @flow_dissector_convert_ctx_access(i32 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   switch i16 %7, label %18 [
@@ -22777,7 +22777,7 @@ define internal i32 @flow_dissector_convert_ctx_access(i32 %0, ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @bpf_prog_test_run_flow_dissector(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #20 align 16 {
+define internal noundef i32 @bpf_prog_test_run_flow_dissector(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #20 align 16 {
   ret i32 -524
 }
 
@@ -22891,7 +22891,7 @@ declare dso_local void @sockopt_lock_sock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @sockopt_release_sock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @bpf_run_sk_reuseport(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local ptr @bpf_run_sk_reuseport(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca %struct.sk_reuseport_kern, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #34
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -23177,7 +23177,7 @@ define dso_local noundef range(i64 -14, 1) i64 @sk_reuseport_load_bytes_relative
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef ptr @sk_reuseport_func_proto(i32 noundef %0, ptr nocapture readnone %1) #10 align 16 {
+define internal noundef ptr @sk_reuseport_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #10 align 16 {
   switch i32 %0, label %7 [
     i32 82, label %8
     i32 26, label %3
@@ -23207,7 +23207,7 @@ define internal noundef ptr @sk_reuseport_func_proto(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal zeroext i1 @sk_reuseport_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #18 align 16 {
+define internal zeroext i1 @sk_reuseport_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #18 align 16 {
   %6 = icmp ugt i32 %0, 55
   br i1 %6, label %31, label %7
 
@@ -23288,7 +23288,7 @@ define internal zeroext i1 @sk_reuseport_is_valid_access(i32 noundef %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @sk_reuseport_convert_ctx_access(i32 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal i32 @sk_reuseport_convert_ctx_access(i32 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   %8 = sext i16 %7 to i32
@@ -23567,12 +23567,12 @@ define dso_local noundef range(i64 -97, 1) i64 @bpf_sk_lookup_assign(i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @bpf_prog_test_run_sk_lookup(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #20 align 16 {
+define internal noundef i32 @bpf_prog_test_run_sk_lookup(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #20 align 16 {
   ret i32 -524
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @sk_lookup_func_proto(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @sk_lookup_func_proto(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   switch i32 %0, label %11 [
     i32 25, label %19
     i32 124, label %3
@@ -23633,7 +23633,7 @@ define internal ptr @sk_lookup_func_proto(i32 noundef %0, ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal zeroext i1 @sk_lookup_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #18 align 16 {
+define internal zeroext i1 @sk_lookup_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #18 align 16 {
   %6 = icmp ugt i32 %0, 71
   br i1 %6, label %29, label %7
 
@@ -23747,7 +23747,7 @@ define internal zeroext i1 @sk_lookup_is_valid_access(i32 noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @sk_lookup_convert_ctx_access(i32 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #15 align 16 {
+define internal i32 @sk_lookup_convert_ctx_access(i32 %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) %4) #15 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %7 = load i16, ptr %6, align 2
   switch i16 %7, label %91 [
@@ -23952,7 +23952,7 @@ define internal i32 @sk_lookup_convert_ctx_access(i32 %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @bpf_prog_change_xdp(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #10 align 16 {
+define dso_local void @bpf_prog_change_xdp(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #10 align 16 {
   ret void
 }
 
@@ -24148,21 +24148,21 @@ define dso_local i64 @bpf_sock_from_file(i64 noundef %0, i64 %1, i64 %2, i64 %3,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef range(i32 -22, 1) i32 @bpf_dynptr_from_skb(ptr nocapture readonly %0, i64 noundef %1, ptr nocapture readnone %2) #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_dynptr_from_skb(ptr readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #10 align 16 {
   %4 = icmp eq i64 %1, 0
   %5 = select i1 %4, i32 0, i32 -22
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef range(i32 -22, 1) i32 @bpf_dynptr_from_xdp(ptr nocapture readonly %0, i64 noundef %1, ptr nocapture readnone %2) #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_dynptr_from_xdp(ptr readonly captures(none) %0, i64 noundef %1, ptr readnone captures(none) %2) #10 align 16 {
   %4 = icmp eq i64 %1, 0
   %5 = select i1 %4, i32 0, i32 -22
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @bpf_sock_addr_set_sun_path(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #6 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_sock_addr_set_sun_path(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #6 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i16, ptr %5, align 8
@@ -24189,7 +24189,7 @@ define dso_local noundef range(i32 -22, 1) i32 @bpf_sock_addr_set_sun_path(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef range(i32 -22, 1) i32 @bpf_dynptr_from_skb_rdonly(ptr nocapture noundef readnone %0, i64 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #10 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @bpf_dynptr_from_skb_rdonly(ptr noundef readnone captures(none) %0, i64 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #10 align 16 {
   %4 = icmp eq i64 %1, 0
   %5 = select i1 %4, i32 0, i32 -22
   ret i32 %5
@@ -24321,7 +24321,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #26
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @bpf_convert_filter(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @bpf_convert_filter(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) unnamed_addr #0 align 16 {
   %6 = alloca [32 x %struct.bpf_insn], align 16
   %7 = alloca ptr, align 8
   %8 = alloca %struct.sock_filter, align 8
@@ -25499,7 +25499,7 @@ declare dso_local ptr @bpf_prog_realloc(ptr noundef, i32 noundef, i32 noundef) l
 declare dso_local ptr @bpf_prog_select_runtime(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef zeroext i1 @convert_bpf_ld_abs(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #27 align 16 {
+define internal fastcc noundef zeroext i1 @convert_bpf_ld_abs(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #27 align 16 {
   %3 = load i16, ptr %0, align 4
   %4 = and i16 %3, 24
   %5 = lshr exact i16 %4, 3
@@ -25806,7 +25806,7 @@ declare dso_local void @inet_proto_csum_replace4(ptr noundef, ptr noundef, i32 n
 declare dso_local ptr @skb_clone(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noalias noundef ptr @netkit_peer_dev(ptr nocapture readnone %0) #20 align 16 {
+define internal noalias noundef ptr @netkit_peer_dev(ptr readnone captures(none) %0) #20 align 16 {
   ret ptr null
 }
 
@@ -26091,7 +26091,7 @@ define internal fastcc i32 @neigh_output(ptr noundef %0, ptr noundef %1, i1 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #28 align 16 {
+define internal fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #28 align 16 {
   %3 = load ptr, ptr @ipv6_stub, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load ptr, ptr %4, align 8
@@ -26275,7 +26275,7 @@ declare dso_local i32 @pskb_expand_head(ptr noundef, i32 noundef, i32 noundef, i
 declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc noundef range(i32 -12, 1) i32 @bpf_skb_net_hdr_pop(ptr noundef %0, i32 noundef range(i32 -65536, 65576) %1, i32 noundef range(i32 0, 4096) %2) unnamed_addr #0 align 16 {
@@ -26603,7 +26603,7 @@ define internal fastcc i32 @__bpf_skb_change_tail(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @bpf_xdp_frags_shrink_tail(ptr nocapture noundef %0, i32 noundef range(i32 1, -2147483647) %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @bpf_xdp_frags_shrink_tail(ptr noundef captures(none) %0, i32 noundef range(i32 1, -2147483647) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -26746,7 +26746,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @bpf_xdp_frags_shrink_tail(
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -95, 1) i32 @bpf_xdp_frags_increase_tail(ptr nocapture noundef readonly %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #6 align 16 {
+define internal fastcc noundef range(i32 -95, 1) i32 @bpf_xdp_frags_increase_tail(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -26894,7 +26894,7 @@ declare i64 @llvm.bswap.i64(i64) #23
 declare dso_local zeroext i1 @rcuref_get_slowpath(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal noundef i64 @bpf_xdp_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3) #12 align 16 {
+define internal noundef i64 @bpf_xdp_copy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) #12 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %1, align 8
@@ -27234,7 +27234,7 @@ declare dso_local i32 @do_ip_getsockopt(ptr noundef, i32 noundef, i32 noundef, p
 declare dso_local i32 @do_ip_setsockopt(ptr noundef, i32 noundef, i32 noundef, ptr, i8, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @bpf_sol_tcp_setsockopt(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @bpf_sol_tcp_setsockopt(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 align 16 {
   %5 = icmp eq i32 %3, 4
   br i1 %5, label %6, label %40
 
@@ -27314,7 +27314,7 @@ declare dso_local i32 @do_tcp_getsockopt(ptr noundef, i32 noundef, i32 noundef, 
 declare dso_local i32 @do_tcp_setsockopt(ptr noundef, i32 noundef, i32 noundef, ptr, i8, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #31
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #31
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @__usecs_to_jiffies(i32 noundef) local_unnamed_addr #3
@@ -27557,7 +27557,7 @@ sol_tcp_sockopt.exit:                             ; preds = %33, %29, %34, %48, 
 declare dso_local i32 @__inet_bind(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -19, 9) i32 @bpf_ipv4_fib_lookup(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -19, 9) i32 @bpf_ipv4_fib_lookup(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 32) %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.fib_result, align 8
   %6 = alloca %struct.flowi4, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #34
@@ -28393,7 +28393,7 @@ declare dso_local ptr @inet6_lookup_listener(ptr noundef, ptr noundef, ptr nound
 declare dso_local void @__put_net(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @bpf_sk_lookup(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 6, 18) %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc ptr @bpf_sk_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i8 noundef zeroext range(i8 6, 18) %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
@@ -28553,7 +28553,7 @@ define internal fastcc ptr @bpf_sk_base_func_proto(i32 noundef %0) unnamed_addr 
 declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal fastcc noundef zeroext i1 @bpf_skb_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #18 align 16 {
+define internal fastcc noundef zeroext i1 @bpf_skb_is_valid_access(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #18 align 16 {
   %5 = icmp ugt i32 %0, 191
   br i1 %5, label %38, label %6
 
@@ -28723,7 +28723,7 @@ define internal fastcc noundef zeroext i1 @bpf_skb_is_valid_access(i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef ptr @bpf_convert_tstamp_write(i16 %.2.val, ptr nocapture noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #15 align 16 {
+define internal fastcc noundef ptr @bpf_convert_tstamp_write(i16 %.2.val, ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) unnamed_addr #15 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = and i16 %.2.val, 8192
@@ -28986,7 +28986,7 @@ declare i32 @llvm.smax.i32(i32, i32) #23
 declare i32 @llvm.smin.i32(i32, i32) #23
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #32
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #32
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.fshl.i8(i8, i8, i8) #23

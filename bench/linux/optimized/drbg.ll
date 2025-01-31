@@ -96,10 +96,10 @@ define internal i32 @drbg_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @drbg_fill_array(ptr nocapture noundef writeonly initializes((0, 28), (72, 76), (80, 84), (88, 94), (216, 224), (384, 400), (408, 416)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc void @drbg_fill_array(ptr noundef writeonly captures(none) initializes((0, 28), (72, 76), (80, 84), (88, 94), (216, 224), (384, 400), (408, 416)) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 section ".init.text" align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false)
   %5 = icmp eq i32 %2, 0
@@ -147,16 +147,16 @@ define internal fastcc void @drbg_fill_array(ptr nocapture noundef writeonly ini
 declare dso_local i32 @crypto_register_rngs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal noundef i32 @drbg_kcapi_init(ptr noundef %0) #7 align 16 {
@@ -1300,7 +1300,7 @@ define internal i32 @drbg_hmac_update(ptr noundef readonly %0, ptr noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @drbg_hmac_generate(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr noundef %3) #7 align 16 {
+define internal i32 @drbg_hmac_generate(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) #7 align 16 {
   %5 = alloca %struct.drbg_string, align 8
   %6 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #12
@@ -1569,7 +1569,7 @@ define internal i32 @drbg_init_hash_kernel(ptr noundef %0) #7 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @drbg_fini_hash_kernel(ptr nocapture noundef %0) #7 align 16 {
+define internal noundef i32 @drbg_fini_hash_kernel(ptr noundef captures(none) %0) #7 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -1612,7 +1612,7 @@ declare dso_local ptr @crypto_alloc_rng(ptr noundef, i32 noundef, i32 noundef) l
 declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #10

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @UH_P1P2 = external hidden local_unnamed_addr constant i64, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @crt3(ptr nocapture noundef %x1, ptr nocapture noundef readonly %x2, ptr nocapture noundef readonly %x3, i64 noundef %rsize) local_unnamed_addr #0 {
+define hidden void @crt3(ptr noundef captures(none) %x1, ptr noundef readonly captures(none) %x2, ptr noundef readonly captures(none) %x3, i64 noundef %rsize) local_unnamed_addr #0 {
 entry:
   %cmp66.not = icmp eq i64 %rsize, 0
   br i1 %cmp66.not, label %for.end, label %for.body.lr.ph

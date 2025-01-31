@@ -49,7 +49,7 @@ define void @Java_java_lang_Thread_registerNatives(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @Java_java_lang_Thread_clearInterruptEvent(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #1 {
+define void @Java_java_lang_Thread_clearInterruptEvent(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #1 {
   ret void
 }
 

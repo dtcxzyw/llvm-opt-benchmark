@@ -1401,7 +1401,7 @@ if.end129:                                        ; preds = %if.else122, %if.the
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN35btSequentialImpulseConstraintSolver22setupContactConstraintER18btSolverConstraintiiR15btManifoldPointRK19btContactSolverInfoRfRK9btVector3SA_(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(160), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(204), ptr noundef nonnull align 4 dereferenceable(128), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #1
 
@@ -1847,14 +1847,14 @@ invoke.cont:                                      ; preds = %entry, %if.then, %_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @_ZN35btSequentialImpulseConstraintSolver14initSolverBodyEP12btSolverBodyP17btCollisionObjectf(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, ptr noundef, float noundef) local_unnamed_addr #1
 
 declare void @_ZN11btSpinMutex6unlockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt40internalCollectContactManifoldCachedInfoEPNS_27btContactManifoldCachedInfoEPP20btPersistentManifoldiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef writeonly %cachedInfoArray, ptr nocapture noundef readonly %manifoldPtr, i32 noundef %numManifolds, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt40internalCollectContactManifoldCachedInfoEPNS_27btContactManifoldCachedInfoEPP20btPersistentManifoldiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr noundef writeonly captures(none) %cachedInfoArray, ptr noundef readonly captures(none) %manifoldPtr, i32 noundef %numManifolds, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %infoGlobal) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.3)
@@ -1954,7 +1954,7 @@ for.end40:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalAllocContactConstraintsEPKNS_27btContactManifoldCachedInfoEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this, ptr nocapture noundef readonly %cachedInfoArray, i32 noundef %numManifolds) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt31internalAllocContactConstraintsEPKNS_27btContactManifoldCachedInfoEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this, ptr noundef readonly captures(none) %cachedInfoArray, i32 noundef %numManifolds) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.4)
@@ -2871,7 +2871,7 @@ return:                                           ; preds = %if.end19, %if.then
 declare void @_ZN35btSequentialImpulseConstraintSolver15convertContactsEPP20btPersistentManifoldiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26internalInitMultipleJointsEPP17btTypedConstraintii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this, ptr nocapture noundef readonly %constraints, i32 noundef %iBegin, i32 noundef %iEnd) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt26internalInitMultipleJointsEPP17btTypedConstraintii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this, ptr noundef readonly captures(none) %constraints, i32 noundef %iBegin, i32 noundef %iEnd) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.8)
@@ -2944,7 +2944,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt29internalConvertMultipleJointsERK20btAlignedObjectArrayINS_11JointParamsEEPP17btTypedConstraintiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %jointParamsArray, ptr nocapture noundef readonly %constraints, i32 noundef %iBegin, i32 noundef %iEnd, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt29internalConvertMultipleJointsERK20btAlignedObjectArrayINS_11JointParamsEEPP17btTypedConstraintiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %jointParamsArray, ptr noundef readonly captures(none) %constraints, i32 noundef %iBegin, i32 noundef %iEnd, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.9)
@@ -3422,12 +3422,12 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt21internalConvertBodiesEPP17btCollisionObjectiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef readonly %bodies, i32 noundef %iBegin, i32 noundef %iEnd, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt21internalConvertBodiesEPP17btCollisionObjectiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr noundef readonly captures(none) %bodies, i32 noundef %iBegin, i32 noundef %iEnd, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %infoGlobal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.11)
-  %cmp60 = icmp slt i32 %iBegin, %iEnd
-  br i1 %cmp60, label %for.body.lr.ph, label %for.end
+  %cmp59 = icmp slt i32 %iBegin, %iEnd
+  br i1 %cmp59, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -3561,11 +3561,11 @@ invoke.cont39:                                    ; preds = %if.then36
   %37 = load float, ptr %arrayidx12.i35, align 4
   %add13.i = fadd float %gyroForce.sroa.11.8.vec.extract56, %37
   store float %add13.i, ptr %arrayidx12.i35, align 4
-  %.pre63 = load i32, ptr %m_rigidbodyFlags.i, align 8
+  %.pre62 = load i32, ptr %m_rigidbodyFlags.i, align 8
   br label %if.end45
 
 if.end45:                                         ; preds = %invoke.cont39, %if.end
-  %38 = phi i32 [ %.pre63, %invoke.cont39 ], [ %31, %if.end ]
+  %38 = phi i32 [ %.pre62, %invoke.cont39 ], [ %31, %if.end ]
   %and48 = and i32 %38, 8
   %tobool49.not = icmp eq i32 %and48, 0
   br i1 %tobool49.not, label %for.inc, label %if.then50
@@ -3845,7 +3845,7 @@ declare noundef zeroext i1 @_Z19btThreadsAreRunningv() local_unnamed_addr #1
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver28solveGroupCacheFriendlySetupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt56resolveMultipleContactSplitPenetrationImpulseConstraintsERK20btAlignedObjectArrayIiEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(920) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt56resolveMultipleContactSplitPenetrationImpulseConstraintsERK20btAlignedObjectArrayIiEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(920) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
 entry:
   %cmp16 = icmp slt i32 %batchBegin, %batchEnd
   br i1 %cmp16, label %for.body.lr.ph, label %for.end
@@ -3893,7 +3893,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt45solveGroupCacheFriendlySplitImpulseIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture readnone %bodies, i32 %numBodies, ptr nocapture readnone %manifoldPtr, i32 %numManifolds, ptr nocapture readnone %constraints, i32 %numConstraints, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %infoGlobal, ptr nocapture readnone %debugDrawer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt45solveGroupCacheFriendlySplitImpulseIterationsEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr readnone captures(none) %bodies, i32 %numBodies, ptr readnone captures(none) %manifoldPtr, i32 %numManifolds, ptr readnone captures(none) %constraints, i32 %numConstraints, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(128) %infoGlobal, ptr readnone captures(none) %debugDrawer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   %loop = alloca %struct.ContactSplitPenetrationImpulseSolverLoop, align 8
@@ -4217,7 +4217,7 @@ return:                                           ; preds = %if.end68, %if.then
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver20solveSingleIterationEiPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDraw(ptr noundef nonnull align 8 dereferenceable(408), i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt31resolveMultipleJointConstraintsERK20btAlignedObjectArrayIiEiii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd, i32 noundef %iteration) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt31resolveMultipleJointConstraintsERK20btAlignedObjectArrayIiEiii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd, i32 noundef %iteration) local_unnamed_addr #0 align 2 {
 entry:
   %cmp17 = icmp slt i32 %batchBegin, %batchEnd
   br i1 %cmp17, label %for.body.lr.ph, label %for.end
@@ -4272,7 +4272,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver33resolveSingleConstraintRowGenericER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt33resolveMultipleContactConstraintsERK20btAlignedObjectArrayIiEii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt33resolveMultipleContactConstraintsERK20btAlignedObjectArrayIiEii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
 entry:
   %cmp16 = icmp slt i32 %batchBegin, %batchEnd
   br i1 %cmp16, label %for.body.lr.ph, label %for.end
@@ -4317,7 +4317,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare noundef float @_ZN35btSequentialImpulseConstraintSolver36resolveSingleConstraintRowLowerLimitER12btSolverBodyS1_RK18btSolverConstraint(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt41resolveMultipleContactFrictionConstraintsERK20btAlignedObjectArrayIiEii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt41resolveMultipleContactFrictionConstraintsERK20btAlignedObjectArrayIiEii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
 entry:
   %cmp32 = icmp slt i32 %batchBegin, %batchEnd
   br i1 %cmp32, label %for.body.lr.ph, label %for.end20
@@ -4398,7 +4398,7 @@ for.end20:                                        ; preds = %for.inc18, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt48resolveMultipleContactRollingFrictionConstraintsERK20btAlignedObjectArrayIiEii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt48resolveMultipleContactRollingFrictionConstraintsERK20btAlignedObjectArrayIiEii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %consIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
 entry:
   %cmp41 = icmp slt i32 %batchBegin, %batchEnd
   br i1 %cmp41, label %for.body.lr.ph, label %for.end27
@@ -4487,7 +4487,7 @@ for.end27:                                        ; preds = %for.inc25, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt44resolveMultipleContactConstraintsInterleavedERK20btAlignedObjectArrayIiEii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %contactIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt44resolveMultipleContactConstraintsInterleavedERK20btAlignedObjectArrayIiEii(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %contactIndices, i32 noundef %batchBegin, i32 noundef %batchEnd) local_unnamed_addr #0 align 2 {
 entry:
   %cmp85 = icmp slt i32 %batchBegin, %batchEnd
   br i1 %cmp85, label %for.body.lr.ph, label %for.end67
@@ -4632,7 +4632,7 @@ for.end67:                                        ; preds = %for.inc65, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt34randomizeBatchedConstraintOrderingEP20btBatchedConstraints(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture noundef readonly %batchedConstraints) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN37btSequentialImpulseConstraintSolverMt34randomizeBatchedConstraintOrderingEP20btBatchedConstraints(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr noundef readonly captures(none) %batchedConstraints) local_unnamed_addr #0 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %batchedConstraints, i64 132
   %0 = load i32, ptr %m_size.i, align 4
@@ -5387,7 +5387,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN35btSequentialImpulseConstraintSolver15writeBackBodiesEiiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(408), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr nocapture readnone %bodies, i32 %numBodies, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN37btSequentialImpulseConstraintSolverMt29solveGroupCacheFriendlyFinishEPP17btCollisionObjectiRK19btContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(920) %this, ptr readnone captures(none) %bodies, i32 %numBodies, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   %loop = alloca %struct.WriteContactPointsLoop, align 8
@@ -6703,10 +6703,10 @@ declare float @llvm.fabs.f32(float) #7
 declare noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #12

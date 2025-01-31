@@ -68,14 +68,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @git_gettext_enabled = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @credential_init(ptr nocapture noundef writeonly initializes((0, 128)) %c) local_unnamed_addr #0 {
+define dso_local void @credential_init(ptr noundef writeonly captures(none) initializes((0, 128)) %c) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %c, ptr noundef nonnull align 8 dereferenceable(128) @__const.match_partial_url.want, i64 128, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @credential_clear(ptr noundef %c) local_unnamed_addr #2 {
@@ -106,14 +106,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @string_list_clear(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 declare void @strvec_clear(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @credential_match(ptr nocapture noundef readonly %want, ptr nocapture noundef readonly %have, i32 noundef %match_password) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @credential_match(ptr noundef readonly captures(none) %want, ptr noundef readonly captures(none) %have, i32 noundef %match_password) local_unnamed_addr #5 {
 entry:
   %protocol = getelementptr inbounds nuw i8, ptr %want, i64 88
   %0 = load ptr, ptr %protocol, align 8
@@ -210,7 +210,7 @@ land.end47:                                       ; preds = %land.rhs, %lor.rhs3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @credential_read(ptr noundef %c, ptr noundef %fp) local_unnamed_addr #2 {
@@ -247,7 +247,7 @@ if.end:                                           ; preds = %while.body
   br i1 %tobool2.not, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  call void (ptr, ...) @warning(ptr noundef nonnull @.str, ptr noundef %0) #14
+  call void (ptr, ...) @warning(ptr noundef nonnull @.str, ptr noundef nonnull %0) #14
   br label %return
 
 if.end4:                                          ; preds = %if.end
@@ -437,7 +437,7 @@ if.end:                                           ; preds = %entry
 declare i32 @git_config_bool(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @credential_write(ptr nocapture noundef readonly %c, ptr nocapture noundef %fp) local_unnamed_addr #2 {
+define dso_local void @credential_write(ptr noundef readonly captures(none) %c, ptr noundef captures(none) %fp) local_unnamed_addr #2 {
 entry:
   %protocol = getelementptr inbounds nuw i8, ptr %c, i64 88
   %0 = load ptr, ptr %protocol, align 8
@@ -1182,7 +1182,7 @@ if.end3.i:                                        ; preds = %if.then3
 
 _.exit:                                           ; preds = %if.then3, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.43, %if.then3 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i, ptr noundef %url) #14
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i, ptr noundef nonnull %url) #14
   br label %return
 
 if.end5:                                          ; preds = %land.lhs.true, %entry
@@ -1191,7 +1191,7 @@ if.end5:                                          ; preds = %land.lhs.true, %ent
   %cond = select i1 %tobool6.not, ptr %url, ptr %add.ptr
   %call7 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond, i32 noundef 64) #15
   %call8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %cond, i32 noundef 58) #15
-  %call9 = tail call i64 @strcspn(ptr noundef %cond, ptr noundef nonnull @.str.44) #15
+  %call9 = tail call i64 @strcspn(ptr noundef nonnull %cond, ptr noundef nonnull @.str.44) #15
   %add.ptr10 = getelementptr inbounds i8, ptr %cond, i64 %call9
   %tobool11.not = icmp ne ptr %call7, null
   %cmp13.not = icmp ugt ptr %add.ptr10, %call7
@@ -1209,7 +1209,7 @@ if.then18:                                        ; preds = %if.else
   %sub.ptr.lhs.cast = ptrtoint ptr %call7 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast31
   %conv = trunc i64 %sub.ptr.sub to i32
-  %call19 = tail call ptr @url_decode_mem(ptr noundef %cond, i32 noundef %conv) #14
+  %call19 = tail call ptr @url_decode_mem(ptr noundef nonnull %cond, i32 noundef %conv) #14
   store ptr %call19, ptr %username.i, align 8
   %tobool21.not = icmp eq ptr %call19, null
   br i1 %tobool21.not, label %if.end27, label %land.lhs.true22
@@ -1234,7 +1234,7 @@ if.else29:                                        ; preds = %if.else
   %sub.ptr.lhs.cast30 = ptrtoint ptr %call8 to i64
   %sub.ptr.sub32 = sub i64 %sub.ptr.lhs.cast30, %sub.ptr.rhs.cast31
   %conv33 = trunc i64 %sub.ptr.sub32 to i32
-  %call34 = tail call ptr @url_decode_mem(ptr noundef %cond, i32 noundef %conv33) #14
+  %call34 = tail call ptr @url_decode_mem(ptr noundef nonnull %cond, i32 noundef %conv33) #14
   store ptr %call34, ptr %username.i, align 8
   %tobool37.not = icmp eq ptr %call34, null
   br i1 %tobool37.not, label %if.end47, label %land.lhs.true38
@@ -1274,7 +1274,7 @@ land.lhs.true59:                                  ; preds = %if.end57
   br i1 %cmp63, label %if.then65, label %if.end70
 
 if.then65:                                        ; preds = %land.lhs.true59
-  %call69 = tail call ptr @xmemdupz(ptr noundef %url, i64 noundef %sub.ptr.sub62) #14
+  %call69 = tail call ptr @xmemdupz(ptr noundef nonnull %url, i64 noundef %sub.ptr.sub62) #14
   store ptr %call69, ptr %protocol.i, align 8
   br label %if.end70
 
@@ -1288,7 +1288,7 @@ if.end70:                                         ; preds = %if.then65, %land.lh
 
 if.then78:                                        ; preds = %if.end70
   %conv82 = trunc i64 %sub.ptr.sub75 to i32
-  %call83 = tail call ptr @url_decode_mem(ptr noundef %host.0, i32 noundef %conv82) #14
+  %call83 = tail call ptr @url_decode_mem(ptr noundef nonnull %host.0, i32 noundef %conv82) #14
   store ptr %call83, ptr %host.i, align 8
   br label %while.cond.preheader
 
@@ -1354,7 +1354,7 @@ if.end3.i.i:                                      ; preds = %if.then5.i
 
 _.exit.i:                                         ; preds = %if.end3.i.i, %if.then5.i
   %retval.0.i.i = phi ptr [ %call.i.i, %if.end3.i.i ], [ @.str.45, %if.then5.i ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.1, ptr noundef %url) #14
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i, ptr noundef nonnull @.str.1, ptr noundef nonnull %url) #14
   br label %return
 
 lor.lhs.false112:                                 ; preds = %if.end.i, %if.end107
@@ -1382,7 +1382,7 @@ if.end3.i.i88:                                    ; preds = %if.then5.i86
 
 _.exit.i90:                                       ; preds = %if.end3.i.i88, %if.then5.i86
   %retval.0.i.i91 = phi ptr [ %call.i.i89, %if.end3.i.i88 ], [ @.str.45, %if.then5.i86 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i91, ptr noundef nonnull @.str.2, ptr noundef %url) #14
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i91, ptr noundef nonnull @.str.2, ptr noundef nonnull %url) #14
   br label %return
 
 lor.lhs.false117:                                 ; preds = %if.end.i80, %lor.lhs.false112
@@ -1410,7 +1410,7 @@ if.end3.i.i102:                                   ; preds = %if.then5.i100
 
 _.exit.i104:                                      ; preds = %if.end3.i.i102, %if.then5.i100
   %retval.0.i.i105 = phi ptr [ %call.i.i103, %if.end3.i.i102 ], [ @.str.45, %if.then5.i100 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i105, ptr noundef nonnull @.str.3, ptr noundef %url) #14
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i105, ptr noundef nonnull @.str.3, ptr noundef nonnull %url) #14
   br label %return
 
 lor.lhs.false122:                                 ; preds = %if.end.i94, %lor.lhs.false117
@@ -1438,7 +1438,7 @@ if.end3.i.i116:                                   ; preds = %if.then5.i114
 
 _.exit.i118:                                      ; preds = %if.end3.i.i116, %if.then5.i114
   %retval.0.i.i119 = phi ptr [ %call.i.i117, %if.end3.i.i116 ], [ @.str.45, %if.then5.i114 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i119, ptr noundef nonnull @.str.4, ptr noundef %url) #14
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i119, ptr noundef nonnull @.str.4, ptr noundef nonnull %url) #14
   br label %return
 
 lor.lhs.false127:                                 ; preds = %if.end.i108, %lor.lhs.false122
@@ -1466,7 +1466,7 @@ if.end3.i.i130:                                   ; preds = %if.then5.i128
 
 _.exit.i132:                                      ; preds = %if.end3.i.i130, %if.then5.i128
   %retval.0.i.i133 = phi ptr [ %call.i.i131, %if.end3.i.i130 ], [ @.str.45, %if.then5.i128 ]
-  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i133, ptr noundef nonnull @.str.5, ptr noundef %url) #14
+  tail call void (ptr, ...) @warning(ptr noundef %retval.0.i.i133, ptr noundef nonnull @.str.5, ptr noundef nonnull %url) #14
   br label %return
 
 return:                                           ; preds = %if.end3.i111, %_.exit.i118, %if.end3.i97, %_.exit.i104, %if.end3.i83, %_.exit.i90, %if.end3.i77, %_.exit.i, %lor.lhs.false127, %if.end.i122, %_.exit.i132, %if.end3.i125, %if.then, %_.exit
@@ -1499,13 +1499,13 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %var, ptr noundef %value, ptr nocapture readnone %ctx, ptr noundef %data) #2 {
+define internal range(i32 -1, 1) i32 @credential_config_callback(ptr noundef %var, ptr noundef %value, ptr readnone captures(none) %ctx, ptr noundef %data) #2 {
 entry:
   %scevgep.i = getelementptr i8, ptr %var, i64 11
   br label %do.body.i
@@ -1598,13 +1598,13 @@ return:                                           ; preds = %if.else, %if.then9,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @select_all(ptr nocapture readnone %a, ptr nocapture readnone %b) #12 {
+define internal noundef i32 @select_all(ptr readnone captures(none) %a, ptr readnone captures(none) %b) #12 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @match_partial_url(ptr noundef %url, ptr nocapture noundef readonly %cb) #2 {
+define internal range(i32 0, 2) i32 @match_partial_url(ptr noundef %url, ptr noundef readonly captures(none) %cb) #2 {
 entry:
   %want = alloca %struct.credential, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %want, ptr noundef nonnull align 8 dereferenceable(128) @__const.match_partial_url.want, i64 128, i1 false)
@@ -1677,7 +1677,7 @@ declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @start_command(ptr noundef) local_unnamed_addr #4
 
@@ -1686,17 +1686,17 @@ declare ptr @xfdopen(i32 noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @sigchain_push(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @sigchain_pop(i32 noundef) local_unnamed_addr #4
 
 declare i32 @finish_command(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @credential_ask_one(ptr noundef %what, ptr nocapture noundef readonly %c, i32 noundef range(i32 1, 4) %flags) unnamed_addr #2 {
+define internal fastcc ptr @credential_ask_one(ptr noundef %what, ptr noundef readonly captures(none) %c, i32 noundef range(i32 1, 4) %flags) unnamed_addr #2 {
 entry:
   %desc = alloca %struct.strbuf, align 8
   %prompt = alloca %struct.strbuf, align 8
@@ -1773,10 +1773,10 @@ if.end:                                           ; preds = %if.else, %if.then
 declare ptr @git_prompt(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @url_decode_mem(ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -1788,10 +1788,10 @@ declare ptr @url_decode(ptr noundef) local_unnamed_addr #4
 declare ptr @gettext(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

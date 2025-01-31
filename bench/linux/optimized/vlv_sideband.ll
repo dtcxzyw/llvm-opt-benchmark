@@ -94,10 +94,10 @@ define dso_local i32 @vlv_punit_read(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr noundef %0, i32 noundef range(i32 3, 170) %1, i32 noundef range(i32 0, 8) %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr noundef %0, i32 noundef range(i32 3, 170) %1, i32 noundef range(i32 0, 8) %2, i32 noundef %3, ptr noundef captures(none) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %7 = icmp eq i32 %2, 0
   %8 = icmp eq i32 %2, 6
@@ -209,7 +209,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @vlv_sideband_rw(ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -110, 1) i32 @vlv_punit_write(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
@@ -381,7 +381,7 @@ declare dso_local void @iosf_mbi_punit_acquire() local_unnamed_addr #1
 declare dso_local void @cpu_latency_qos_update_request(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @ping(ptr nocapture readnone %0) #3 align 16 {
+define internal void @ping(ptr readnone captures(none) %0) #3 align 16 {
   ret void
 }
 

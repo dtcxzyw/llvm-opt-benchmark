@@ -369,7 +369,7 @@ declare dso_local ptr @__i915_request_commit(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @dma_fence_add_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal void @duration(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #3 align 16 {
+define internal void @duration(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 528

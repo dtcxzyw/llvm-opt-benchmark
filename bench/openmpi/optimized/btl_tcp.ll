@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) #0 {
+define range(i32 -2, 1) i32 @mca_btl_tcp_add_procs(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) #0 {
   %6 = tail call ptr @opal_proc_local_get() #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -287,7 +287,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @mca_btl_tcp_del_procs(ptr noundef %0, i64 noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3) #0 {
+define noundef i32 @mca_btl_tcp_del_procs(ptr noundef %0, i64 noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = load i8, ptr @opal_uses_threads, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %10
@@ -483,7 +483,7 @@ opal_list_remove_first.exit12:                    ; preds = %36
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_btl_tcp_alloc(ptr noundef %0, ptr nocapture readnone %1, i8 zeroext %2, i64 noundef %3, i32 noundef %4) #0 {
+define ptr @mca_btl_tcp_alloc(ptr noundef %0, ptr readnone captures(none) %1, i8 zeroext %2, i64 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8
   %.not = icmp ugt i64 %3, %7
@@ -525,7 +525,7 @@ define ptr @mca_btl_tcp_alloc(ptr noundef %0, ptr nocapture readnone %1, i8 zero
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @mca_btl_tcp_free(ptr nocapture readnone %0, ptr noundef %1) #1 {
+define noundef i32 @mca_btl_tcp_free(ptr readnone captures(none) %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr @opal_uses_threads, align 1
@@ -609,7 +609,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mca_btl_tcp_prepare_src(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i8 zeroext %3, i64 noundef %4, ptr nocapture noundef %5, i32 noundef %6) #0 {
+define ptr @mca_btl_tcp_prepare_src(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2, i8 zeroext %3, i64 noundef %4, ptr noundef captures(none) %5, i32 noundef %6) #0 {
   %8 = alloca %struct.iovec, align 8
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
@@ -957,7 +957,7 @@ define i32 @mca_btl_tcp_send(ptr noundef %0, ptr noundef %1, ptr noundef initial
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @mca_btl_tcp_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i64 noundef %6, i32 %7, i32 %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
+define range(i32 -2147483648, 1) i32 @mca_btl_tcp_put(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, i64 noundef %6, i32 %7, i32 %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) #0 {
   %13 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_tcp_component, i64 1488))
   %14 = icmp eq ptr %13, null
   br i1 %14, label %56, label %._crit_edge
@@ -1049,7 +1049,7 @@ define range(i32 -2147483648, 1) i32 @mca_btl_tcp_put(ptr noundef %0, ptr nounde
 declare void @mca_btl_base_dump(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mca_btl_tcp_register_error_cb(ptr nocapture noundef writeonly initializes((832, 840)) %0, ptr noundef %1) #3 {
+define internal noundef i32 @mca_btl_tcp_register_error_cb(ptr noundef writeonly captures(none) initializes((832, 840)) %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store ptr %1, ptr %3, align 8
   ret i32 0
@@ -1062,7 +1062,7 @@ declare ptr @mca_btl_tcp_proc_create(ptr noundef) local_unnamed_addr #2
 declare i32 @mca_btl_tcp_proc_insert(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @opal_bitmap_set_bit(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1211,7 +1211,7 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #5
 declare i32 @mca_btl_tcp_endpoint_send(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @fake_rdma_complete(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 {
+define internal void @fake_rdma_complete(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 104
@@ -1225,7 +1225,7 @@ define internal void @fake_rdma_complete(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @mca_btl_tcp_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @mca_btl_tcp_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = tail call fastcc ptr @opal_free_list_get(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @mca_btl_tcp_component, i64 1488))
   %14 = icmp eq ptr %13, null
   br i1 %14, label %51, label %15
@@ -1306,7 +1306,7 @@ define range(i32 -2147483648, 1) i32 @mca_btl_tcp_get(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_btl_tcp_dump(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @mca_btl_tcp_dump(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @opal_process_name_print, align 8
   %5 = tail call ptr @opal_proc_local_get() #10
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -1451,10 +1451,10 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i32 @llvm.smin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

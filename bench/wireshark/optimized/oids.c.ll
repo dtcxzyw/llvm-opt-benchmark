@@ -152,13 +152,13 @@ rel_oid_subid2string.exit:                        ; preds = %6, %14
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @add_oid(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   tail call fastcc void @prepopulate_oids()
   %4 = add i32 %1, -1
   %5 = zext i32 %4 to i64
@@ -350,7 +350,7 @@ oid_subid2string.exit:                            ; preds = %8, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @oid_string2subid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define i32 @oid_string2subid(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr @debuglevel, align 4
   %5 = icmp sgt i32 %4, 7
   br i1 %5, label %6, label %10
@@ -721,7 +721,7 @@ oid_subid2string.exit:                            ; preds = %38, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @oid_encoded2subid(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @oid_encoded2subid(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @oid_encoded2subid_sub(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef 1)
   ret i32 %5
 }
@@ -769,7 +769,7 @@ define internal fastcc void @prepopulate_oids() unnamed_addr #0 {
   br i1 %.not2, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i64 @strtoul(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #8
+  %6 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #8
   %7 = trunc i64 %6 to i32
   br label %8
 
@@ -870,7 +870,7 @@ declare ptr @wmem_strbuf_finalize(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp ne i32 %4, 0
   %7 = zext i1 %6 to i32
   %8 = icmp slt i32 %2, 1
@@ -985,7 +985,7 @@ define i32 @oid_encoded2subid_sub(ptr noundef %0, ptr nocapture noundef readonly
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @oid_get(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define ptr @oid_get(i32 noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -1043,7 +1043,7 @@ define ptr @oid_get(i32 noundef %0, ptr noundef readonly %1, ptr nocapture nound
 declare ptr @wmem_tree_lookup32(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @oid_get_from_encoded(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define ptr @oid_get_from_encoded(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call i32 @oid_encoded2subid_sub(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef 1)
   %8 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %8, null
@@ -1101,7 +1101,7 @@ oid_get.exit:                                     ; preds = %12, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @oid_get_from_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define ptr @oid_get_from_string(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call i32 @oid_string2subid(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %7 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %7, null
@@ -1159,7 +1159,7 @@ oid_get.exit:                                     ; preds = %11, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @oid_resolved_from_encoded(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %._crit_edge.i.thread, label %.lr.ph.preheader.i
 
@@ -1448,7 +1448,7 @@ oid_subid2string.exit:                            ; preds = %30, %22, %71, %oid_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @rel_oid_resolved_from_encoded(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %._crit_edge.i, label %.lr.ph.preheader.i
 
@@ -1527,7 +1527,7 @@ oid_encoded2subid_sub.exit:                       ; preds = %25, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %2, null
   %6 = icmp ult i32 %1, 2
   %or.cond = or i1 %6, %5
@@ -1658,7 +1658,7 @@ define i32 @oid_subid2encoded(ptr noundef %0, i32 noundef %1, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @oid_encoded2string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %._crit_edge.i.thread, label %.lr.ph.preheader.i
 
@@ -1801,7 +1801,7 @@ oid_subid2string.exit:                            ; preds = %46, %38, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @rel_oid_encoded2string(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @rel_oid_encoded2string(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %._crit_edge.i, label %.lr.ph.preheader.i
 
@@ -1891,7 +1891,7 @@ oid_encoded2subid_sub.exit:                       ; preds = %24, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @oid_string2encoded(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @oid_string2encoded(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = call i32 @oid_string2subid(ptr noundef null, ptr noundef %1, ptr noundef nonnull %4)
   %.not = icmp eq i32 %5, 0
@@ -1925,7 +1925,7 @@ define ptr @oid_resolved_from_string(ptr noundef %0, ptr noundef %1) local_unnam
 declare noalias ptr @wmem_strconcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @oid_both(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @oid_both(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   store ptr %6, ptr %3, align 8
   %7 = icmp eq ptr %2, null
@@ -1965,7 +1965,7 @@ oid_subid2string.exit:                            ; preds = %9, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define void @oid_both_from_encoded(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @oid_both_from_encoded(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %2, 1
   br i1 %6, label %._crit_edge.i.thread, label %.lr.ph.preheader.i
 
@@ -2103,7 +2103,7 @@ oid_subid2string.exit:                            ; preds = %43, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define void @oid_both_from_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @oid_both_from_string(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = call i32 @oid_string2subid(ptr noundef null, ptr noundef %1, ptr noundef nonnull %5)
   %7 = load ptr, ptr %5, align 8
@@ -2166,10 +2166,10 @@ declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_un
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #7

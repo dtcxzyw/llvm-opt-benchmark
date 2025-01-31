@@ -809,7 +809,7 @@ _ZN4pbrt5ClampIiiEENS_15SampledSpectrumERKS1_T_T0_.exit65: ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef float @_ZN4pbrt21BasicTextureEvaluatorclENS_12FloatTextureENS_18TextureEvalContextE(ptr noundef nonnull align 1 dereferenceable(1) %this, ptr noundef %tex, ptr noundef byval(%"struct.pbrt::TextureEvalContext") align 8 %ctx) local_unnamed_addr #0 comdat align 2 {
@@ -2566,7 +2566,7 @@ invoke.cont4:                                     ; preds = %if.end
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt18DielectricMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt18DielectricMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3125,7 +3125,7 @@ eh.resume:                                        ; preds = %lpad.i3, %cleanup.a
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt22ThinDielectricMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt22ThinDielectricMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3396,7 +3396,7 @@ _ZN4pbrt12StringPrintfIJRKNS_8MaterialES3_RKNS_12FloatTextureEEEENSt7__cxx1112ba
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt11MixMaterial6CreateEPNS_8MaterialERKNS_26TextureParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef readonly %materials, ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt11MixMaterial6CreateEPNS_8MaterialERKNS_26TextureParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef readonly captures(none) %materials, ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %amount = alloca %"class.pbrt::FloatTexture", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4083,7 +4083,7 @@ eh.resume:                                        ; preds = %lpad.i3, %cleanup.a
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt15DiffuseMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt15DiffuseMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reflectance = alloca %"class.pbrt::SpectrumTexture", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4917,7 +4917,7 @@ eh.resume:                                        ; preds = %lpad.i3, %cleanup.a
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt21CoatedDiffuseMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt21CoatedDiffuseMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reflectance = alloca %"class.pbrt::SpectrumTexture", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7919,7 +7919,7 @@ _ZN4pbrt12StringPrintfIJRKNS_12FloatTextureERKNS_15SpectrumTextureES6_RKfEEENSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt27DiffuseTransmissionMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt27DiffuseTransmissionMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reflectance = alloca %"class.pbrt::SpectrumTexture", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8154,7 +8154,7 @@ eh.resume:                                        ; preds = %lpad48, %lpad.i44, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt16MeasuredMaterialC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12FloatTextureEPNS_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef readonly %displacement, ptr noundef %normalMap, ptr %alloc.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt16MeasuredMaterialC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12FloatTextureEPNS_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef readonly captures(none) %displacement, ptr noundef %normalMap, ptr %alloc.coerce) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %0 = load i64, ptr %displacement, align 8
@@ -8241,7 +8241,7 @@ eh.resume:                                        ; preds = %lpad.i3, %cleanup.a
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt16MeasuredMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr nocapture readnone %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt16MeasuredMaterial6CreateERKNS_26TextureParameterDictionaryEPNS_5ImageEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr readnone captures(none) %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %filename = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8459,7 +8459,7 @@ eh.resume:                                        ; preds = %ehcleanup27, %ehcle
 declare void @_ZN4pbrt15ResolveFilenameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt8Material8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt8Material8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i = alloca %struct._Guard, align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -8644,7 +8644,7 @@ return:                                           ; preds = %sw.bb7.i, %sw.bb4.i
 declare void @_ZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt8Material6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_26TextureParameterDictionaryEPNS_5ImageERSt3mapIS6_S0_St4lessIS6_ESaISt4pairIS7_S0_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Material") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr noundef nonnull align 8 dereferenceable(48) %namedMaterials, ptr noundef %loc, i64 %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt8Material6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_26TextureParameterDictionaryEPNS_5ImageERSt3mapIS6_S0_St4lessIS6_ESaISt4pairIS7_S0_EEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Material") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(16) %parameters, ptr noundef %normalMap, ptr noundef nonnull align 8 dereferenceable(48) %namedMaterials, ptr noundef %loc, i64 %alloc.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca ptr, align 8
@@ -10044,7 +10044,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 declare void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
@@ -11669,7 +11669,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
@@ -24110,13 +24110,13 @@ entry:
 declare float @llvm.fabs.f32(float) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #16

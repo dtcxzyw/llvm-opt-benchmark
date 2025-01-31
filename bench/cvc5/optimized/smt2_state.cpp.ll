@@ -1963,7 +1963,7 @@ eh.resume:                                        ; preds = %lpad105, %lpad.i178
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN4cvc56parser9Smt2State23addQuantifiersOperatorsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(512) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc56parser9Smt2State23addQuantifiersOperatorsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(512) %this) local_unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -4531,7 +4531,7 @@ declare void @_ZN4cvc56parser11ParserState9defineVarERKNSt7__cxx1112basic_string
 declare void @_ZNK4cvc56Solver7mkTupleERKSt6vectorINS_4TermESaIS2_EE(ptr sret(%"class.cvc5::Term") align 8, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind
 declare void @_ZN4cvc54TermD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
@@ -9452,7 +9452,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2State24isIndexedOperatorEnabledERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #3 align 2 {
@@ -9939,7 +9939,7 @@ entry:
 declare noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo25hasCardinalityConstraintsEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2State10logicIsSetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this) unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2State10logicIsSetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %this) unnamed_addr #9 align 2 {
 entry:
   %d_logicSet = getelementptr inbounds nuw i8, ptr %this, i64 169
   %0 = load i8, ptr %d_logicSet, align 1
@@ -9948,7 +9948,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2State13getTesterNameENS_4TermERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr noundef %cons, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2State13getTesterNameENS_4TermERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %this, ptr noundef %cons, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10003,7 +10003,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State17mkIndexedConstantERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIjSaIjEE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %numerals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State17mkIndexedConstantERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIjSaIjEE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %numerals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator.11", align 1
@@ -10535,7 +10535,7 @@ declare void @_ZNK4cvc56Solver11mkBitVectorEjRKNSt7__cxx1112basic_stringIcSt11ch
 declare void @_ZN4cvc54TermC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State17mkIndexedConstantERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_SaIS7_EE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %symbols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State17mkIndexedConstantERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_SaIS7_EE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %symbols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator.11", align 1
@@ -10908,7 +10908,7 @@ declare noundef i32 @_ZN4cvc56parser16stringToUnsignedERKNSt7__cxx1112basic_stri
 declare void @_ZNK4cvc56Solver23mkCardinalityConstraintERKNS_4SortEj(ptr sret(%"class.cvc5::Term") align 8, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State11mkIndexedOpENS_4KindERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKS3_INS_4TermESaISE_EE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %k, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %symbols, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State11mkIndexedOpENS_4KindERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EERKS3_INS_4TermESaISE_EE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, i32 noundef %k, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %symbols, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.11", align 1
@@ -11875,7 +11875,7 @@ return:                                           ; preds = %invoke.cont19, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State16bindDefineFunRecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIS7_NS_4SortEESaISD_EESC_RSA_INS_4TermESaISI_EE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sortedVarNames, ptr nocapture noundef readonly %t, ptr noundef nonnull align 8 dereferenceable(24) %flattenVars) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State16bindDefineFunRecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIS7_NS_4SortEESaISD_EESC_RSA_INS_4TermESaISI_EE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sortedVarNames, ptr noundef readonly captures(none) %t, ptr noundef nonnull align 8 dereferenceable(24) %flattenVars) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sorts = alloca %"class.std::vector.60", align 8
   %ft = alloca %"class.cvc5::Sort", align 8
@@ -12177,7 +12177,7 @@ declare void @_ZNK4cvc56Solver14mkFunctionSortERKSt6vectorINS_4SortESaIS2_EERKS2
 declare void @_ZN4cvc56parser11ParserState7bindVarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4SortEb(ptr sret(%"class.cvc5::Term") align 8, ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State21pushDefineFunRecScopeERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SortEESaISB_EENS_4TermERKS2_ISG_SaISG_EERSI_(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sortedVarNames, ptr nocapture noundef readnone %func, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %flattenVars, ptr noundef nonnull align 8 dereferenceable(24) %bvs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State21pushDefineFunRecScopeERKSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SortEESaISB_EENS_4TermERKS2_ISG_SaISG_EERSI_(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %sortedVarNames, ptr noundef readnone captures(none) %func, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %flattenVars, ptr noundef nonnull align 8 dereferenceable(24) %bvs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v = alloca %"class.cvc5::Term", align 8
   tail call void @_ZN4cvc56parser11ParserState9pushScopeEb(ptr noundef nonnull align 8 dereferenceable(168) %this, i1 noundef zeroext false)
@@ -12472,7 +12472,7 @@ _ZN4cvc54TermaSERKS0_.exit:                       ; preds = %entry, %if.end9.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State13invConstraintERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.95") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %names) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State13invConstraintERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noalias writeonly sret(%"class.std::unique_ptr.95") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %names) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end14:
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::allocator.11", align 1
@@ -18544,7 +18544,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZN4cvc58internal9LogicInfoC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2State5sygusEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2State5sygusEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_isSygus = getelementptr inbounds nuw i8, ptr %this, i64 168
   %0 = load i8, ptr %d_isSygus, align 8
@@ -18593,7 +18593,7 @@ declare void @_ZNK4cvc56Solver19mkFloatingPointSortEjj(ptr sret(%"class.cvc5::So
 declare void @_ZNK4cvc56Solver14mkRoundingModeENS_12RoundingModeE(ptr sret(%"class.cvc5::Term") align 8, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN4cvc56parser9Smt2State9mkGrammarERKSt6vectorINS_4TermESaIS3_EES7_(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(24) %boundVars, ptr noundef nonnull align 8 dereferenceable(24) %ntSymbols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN4cvc56parser9Smt2State9mkGrammarERKSt6vectorINS_4TermESaIS3_EES7_(ptr noundef nonnull align 8 captures(none) dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(24) %boundVars, ptr noundef nonnull align 8 dereferenceable(24) %ntSymbols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #24
   %d_solver = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -18690,7 +18690,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZNK4cvc56Solver9mkGrammarERKSt6vectorINS_4TermESaIS2_EES6_(ptr sret(%"class.cvc5::Grammar") align 8, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2State11hasGrammarsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK4cvc56parser9Smt2State11hasGrammarsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19004,7 +19004,7 @@ if.end:                                           ; preds = %invoke.cont9, %land
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2State15isAbstractValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc56parser9Smt2State15isAbstractValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name) #21
   %cmp = icmp ugt i64 %call, 1
@@ -26100,7 +26100,7 @@ declare void @_ZN4cvc56parser11ParserState18mkFlatFunctionTypeERSt6vectorINS_4So
 declare void @_ZN4cvc56parser11ParserState17getParametricSortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS_4SortESaISB_EE(ptr sret(%"class.cvc5::Sort") align 8, ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State14getIndexedSortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_SaIS7_EE(ptr noalias nonnull sret(%"class.cvc5::Sort") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %numerals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State14getIndexedSortERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS7_SaIS7_EE(ptr noalias nonnull sret(%"class.cvc5::Sort") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %numerals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.11", align 1
@@ -26909,7 +26909,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State10handlePushESt8optionalIjE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.95") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, i64 %nscopes.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State10handlePushESt8optionalIjE(ptr noalias writeonly sret(%"class.std::unique_ptr.95") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, i64 %nscopes.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator.11", align 1
@@ -27006,7 +27006,7 @@ _ZNSt10unique_ptrIN4cvc56parser11PushCommandESt14default_deleteIS2_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State9handlePopESt8optionalIjE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.95") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, i64 %nscopes.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State9handlePopESt8optionalIjE(ptr noalias writeonly sret(%"class.std::unique_ptr.95") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(512) %this, i64 %nscopes.coerce) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator.11", align 1
@@ -27418,7 +27418,7 @@ eh.resume:                                        ; preds = %lpad19, %lpad28, %l
 declare noundef i32 @_ZN4cvc56parser10SymManager17setExpressionNameENS_4TermERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc56parser9Smt2State5mkAndERKSt6vectorINS_4TermESaIS3_EE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(24) %es) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc56parser9Smt2State5mkAndERKSt6vectorINS_4TermESaIS3_EE(ptr noalias sret(%"class.cvc5::Term") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(512) %this, ptr noundef nonnull align 8 dereferenceable(24) %es) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %es, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -27618,7 +27618,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -29688,7 +29688,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
@@ -29703,10 +29703,10 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 declare void @llvm.assume(i1 noundef) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

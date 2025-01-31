@@ -5648,7 +5648,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiSt14_List_iteratorIiEESt10_Select1stIS4_ESt4lessIiESaI
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
 define weak_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpIiE11_DeleteKeysENS_13SdfListOpTypeERKSt8functionIFSt8optionalIiES2_RKiEEPNSt7__cxx114listIiSaIiEEEPSt3mapIiSt14_List_iteratorIiESt4lessIiESaISt4pairIS6_SJ_EEE(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9173,7 +9173,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIiEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet", align 8
   %5 = alloca %"class.std::optional.11", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -18087,7 +18087,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIjEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.751", align 8
   %5 = alloca %"class.std::optional.65", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -27007,7 +27007,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperIlEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.814", align 8
   %5 = alloca %"class.std::optional.127", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -35928,7 +35928,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperImEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS2_SaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.877", align 8
   %5 = alloca %"class.std::optional.189", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -41332,7 +41332,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS8_SaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.214", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.940", align 8
   %6 = alloca %"class.std::optional.254", align 8
@@ -42556,7 +42556,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6insertES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_4listIS6_SaIS6_EEESt3mapIS6_St14_List_iteratorIS6_ESt4lessIS6_ESaISt4pairIKS6_SC_EEEEEvRKT_NT0_8iteratorEPSN_PT1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_4listIS6_SaIS6_EEESt3mapIS6_St14_List_iteratorIS6_ESt4lessIS6_ESaISt4pairIKS6_SC_EEEEEvRKT_NT0_8iteratorEPSN_PT1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -42648,7 +42648,7 @@ _ZNSt7__cxx114listINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6spliceES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_4listIS6_SaIS6_EEESt3mapIS6_St14_List_iteratorIS6_ESt4lessIS6_ESaISt4pairIKS6_SC_EEEEEvRKT_PT0_PT1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_4listIS6_SaIS6_EEESt3mapIS6_St14_List_iteratorIS6_ESt4lessIS6_ESaISt4pairIKS6_SC_EEEEEvRKT_PT0_PT1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -48552,7 +48552,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7TfTokenEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.281", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1005", align 8
   %6 = alloca %"class.std::optional.318", align 8
@@ -50386,7 +50386,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt14_List_iteratorIS1_ENS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_NT0_8iteratorEPSI_PT1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_NT0_8iteratorEPSI_PT1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.999", align 8
   %6 = alloca %"class.std::tuple.699", align 1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -50532,7 +50532,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS2_EE6spliceES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7TfTokenENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr %.0.val, ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -56196,7 +56196,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_20SdfUnregisteredValueEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.345", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1069", align 8
   %6 = alloca %"class.std::optional.383", align 8
@@ -57899,7 +57899,7 @@ _ZNSt14_Optional_baseIN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINS_20SdfUnregisteredValueENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_16Sdf_ListOpTraitsIS1_E8LessThanESaISt4pairIKS1_S8_EEEEEvRKT_NT0_8iteratorEPSK_PT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINS_20SdfUnregisteredValueENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_16Sdf_ListOpTraitsIS1_E8LessThanESaISt4pairIKS1_S8_EEEEEvRKT_NT0_8iteratorEPSK_PT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Sdf_ListOpTraits<pxrInternal_v0_24__pxrReserved__::SdfUnregisteredValue>::LessThan", align 1
   %6 = alloca %"class.std::tuple.1063", align 8
   %7 = alloca %"class.std::tuple.699", align 1
@@ -58013,7 +58013,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__20SdfUnregisteredValueESaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_20SdfUnregisteredValueENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_16Sdf_ListOpTraitsIS1_E8LessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_20SdfUnregisteredValueENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS_16Sdf_ListOpTraitsIS1_E8LessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -64065,7 +64065,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_7SdfPathEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.410", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1135", align 8
   %6 = alloca %"class.std::optional.448", align 8
@@ -65945,7 +65945,7 @@ _ZNSt14_Optional_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathELb0ELb0EED2Ev.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_NT0_8iteratorEPSI_PT1_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_NT0_8iteratorEPSI_PT1_(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.1129", align 8
   %6 = alloca %"class.std::tuple.699", align 1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -66084,7 +66084,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS2_EE6spliceES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(i64 %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_7SdfPathENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ENS1_12FastLessThanESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(i64 %.0.val, ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -70723,7 +70723,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_12SdfReferenceEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.475", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1199", align 8
   %6 = alloca %"class.std::optional.514", align 8
@@ -72282,7 +72282,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__12SdfReferenceESaIS2_EE6sp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_12SdfReferenceENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ESt4lessIS1_ESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_12SdfReferenceENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ESt4lessIS1_ESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -77408,7 +77408,7 @@ define weak_odr noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfLis
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L21_ModifyCallbackHelperINS_10SdfPayloadEEEbRKNS_9SdfListOpIT_E14ModifyCallbackEPSt6vectorIS3_SaIS3_EEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.541", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashSet.1265", align 8
   %6 = alloca %"class.std::optional.578", align 8
@@ -79130,7 +79130,7 @@ _ZNSt14_Optional_baseIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadELb0ELb0EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINS_10SdfPayloadENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ESt4lessIS1_ESaISt4pairIKS1_S8_EEEEEvRKT_NT0_8iteratorEPSJ_PT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_InsertOrMoveINS_10SdfPayloadENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ESt4lessIS1_ESaISt4pairIKS1_S8_EEEEEvRKT_NT0_8iteratorEPSJ_PT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.1259", align 8
   %6 = alloca %"class.std::tuple.699", align 1
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -79267,7 +79267,7 @@ _ZNSt7__cxx114listIN32pxrInternal_v0_24__pxrReserved__10SdfPayloadESaIS2_EE6spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_10SdfPayloadENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ESt4lessIS1_ESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16_RemoveIfPresentINS_10SdfPayloadENSt7__cxx114listIS1_SaIS1_EEESt3mapIS1_St14_List_iteratorIS1_ESt4lessIS1_ESaISt4pairIKS1_S8_EEEEEvRKT_PT0_PT1_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -80348,13 +80348,13 @@ _ZNSt8functionIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7TfTokenEENS1_13S
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd29EPNS_6TfTypeE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd29EPNS_6TfTypeE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str.15, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction29EPNS_6TfTypeEPv, ptr noundef nonnull @.str.16)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction29EPNS_6TfTypeEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction29EPNS_6TfTypeEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.220", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -80776,13 +80776,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfType5AliasES0_RKNSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd55EPNS_6TfEnumE(ptr nocapture readnone %0) #0 section ".pxrctor" {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L17_Tf_RegistryAdd55EPNS_6TfEnumE(ptr readnone captures(none) %0) #0 section ".pxrctor" {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__15Tf_RegistryInit3AddEPKcPFvPvS3_ES2_(ptr noundef nonnull @.str.15, ptr noundef nonnull @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction55EPNS_6TfEnumEPv, ptr noundef nonnull @.str.17)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction55EPNS_6TfEnumEPv(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFunction55EPNS_6TfEnumEPv(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum8_AddNameES0_PKcS2_(ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeE, i32 0, ptr noundef nonnull @.str.31, ptr noundef null)
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum8_AddNameES0_PKcS2_(ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeE, i32 1, ptr noundef nonnull @.str.32, ptr noundef null)
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum8_AddNameES0_PKcS2_(ptr nonnull @_ZTIN32pxrInternal_v0_24__pxrReserved__13SdfListOpTypeE, i32 4, ptr noundef nonnull @.str.33, ptr noundef null)
@@ -80800,7 +80800,7 @@ define internal void @__cxx_global_var_init.19() #4 section ".text.startup" {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_121Tf_RegistryStaticInitD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitDtorEPKc(ptr noundef nonnull @.str.15)
           to label %2 unwind label %3
 
@@ -85637,7 +85637,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitCtorEPKc(ptr
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__19Tf_RegistryInitDtorEPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @__cxa_rethrow() local_unnamed_addr
 
@@ -85653,7 +85653,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #11
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #9
@@ -87077,7 +87077,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIiEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %11, label %6
 
 6:                                                ; preds = %5
@@ -88501,7 +88501,7 @@ _ZNKSt10_HashtableIjSt4pairIKjmESaIS2_ENSt8__detail10_Select1stESt8equal_toIjEN3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIjEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %11, label %6
 
 6:                                                ; preds = %5
@@ -89920,7 +89920,7 @@ _ZNKSt10_HashtableIlSt4pairIKlmESaIS2_ENSt8__detail10_Select1stESt8equal_toIlEN3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsIlEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %11, label %6
 
 6:                                                ; preds = %5
@@ -91339,7 +91339,7 @@ _ZNKSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImEN3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L15_StreamOutItemsImEEvRSoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIT_SaISB_EEPbb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   br i1 %4, label %11, label %6
 
 6:                                                ; preds = %5
@@ -111387,10 +111387,10 @@ define internal void @_GLOBAL__sub_I_listOp.cpp() #14 section ".text.startup" {
 declare i64 @llvm.bswap.i64(i64) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
@@ -111405,7 +111405,7 @@ declare i64 @llvm.umin.i64(i64, i64) #15
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

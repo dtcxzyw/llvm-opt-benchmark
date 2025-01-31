@@ -300,10 +300,10 @@ _ZN26SuspendibleThreadSetJoinerD2Ev.exit:         ; preds = %._crit_edge, %58
 declare noundef double @_ZN2os12elapsedVTimeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK24G1ConcurrentRefineThread13report_activeEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK24G1ConcurrentRefineThread13report_activeEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1104) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %4
@@ -324,7 +324,7 @@ define hidden void @_ZNK24G1ConcurrentRefineThread13report_activeEPKc(ptr nocapt
 declare noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr noundef nonnull align 8 dereferenceable(918)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK24G1ConcurrentRefineThread15report_inactiveEPKcRK23G1ConcurrentRefineStats(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK24G1ConcurrentRefineThread15report_inactiveEPKcRK23G1ConcurrentRefineStats(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_127ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %5
@@ -550,7 +550,7 @@ declare noundef zeroext i1 @_ZN18G1ConcurrentRefine27adjust_threads_periodically
 declare void @_ZN18G1ConcurrentRefine21reduce_threads_wantedEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31G1PrimaryConcurrentRefineThread11track_usageEv(ptr nocapture noundef nonnull align 8 dereferenceable(1104) initializes((928, 936)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN31G1PrimaryConcurrentRefineThread11track_usageEv(ptr noundef nonnull align 8 captures(none) dereferenceable(1104) initializes((928, 936)) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.ThreadTotalCPUTimeClosure, align 8
   %3 = tail call noundef zeroext i1 @_ZN2os14supports_vtimeEv() #9
   br i1 %3, label %4, label %_ZN24G1ConcurrentRefineThread11track_usageEv.exit
@@ -959,13 +959,13 @@ declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr nound
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

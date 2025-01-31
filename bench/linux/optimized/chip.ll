@@ -110,7 +110,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_irq_chip_rel
 @llvm.compiler.used = appending global [37 x ptr] [ptr @__UNIQUE_ID___addressable___irq_set_handler444, ptr @__UNIQUE_ID___addressable_handle_edge_irq435, ptr @__UNIQUE_ID___addressable_handle_fasteoi_irq433, ptr @__UNIQUE_ID___addressable_handle_fasteoi_nmi434, ptr @__UNIQUE_ID___addressable_handle_level_irq432, ptr @__UNIQUE_ID___addressable_handle_nested_irq429, ptr @__UNIQUE_ID___addressable_handle_simple_irq430, ptr @__UNIQUE_ID___addressable_handle_untracked_irq431, ptr @__UNIQUE_ID___addressable_irq_chip_ack_parent454, ptr @__UNIQUE_ID___addressable_irq_chip_disable_parent453, ptr @__UNIQUE_ID___addressable_irq_chip_enable_parent452, ptr @__UNIQUE_ID___addressable_irq_chip_eoi_parent458, ptr @__UNIQUE_ID___addressable_irq_chip_get_parent_state451, ptr @__UNIQUE_ID___addressable_irq_chip_mask_ack_parent456, ptr @__UNIQUE_ID___addressable_irq_chip_mask_parent455, ptr @__UNIQUE_ID___addressable_irq_chip_release_resources_parent465, ptr @__UNIQUE_ID___addressable_irq_chip_request_resources_parent464, ptr @__UNIQUE_ID___addressable_irq_chip_retrigger_hierarchy461, ptr @__UNIQUE_ID___addressable_irq_chip_set_affinity_parent459, ptr @__UNIQUE_ID___addressable_irq_chip_set_parent_state450, ptr @__UNIQUE_ID___addressable_irq_chip_set_type_parent460, ptr @__UNIQUE_ID___addressable_irq_chip_set_vcpu_affinity_parent462, ptr @__UNIQUE_ID___addressable_irq_chip_set_wake_parent463, ptr @__UNIQUE_ID___addressable_irq_chip_unmask_parent457, ptr @__UNIQUE_ID___addressable_irq_get_irq_data420, ptr @__UNIQUE_ID___addressable_irq_modify_status449, ptr @__UNIQUE_ID___addressable_irq_set_chained_handler_and_data445, ptr @__UNIQUE_ID___addressable_irq_set_chip416, ptr @__UNIQUE_ID___addressable_irq_set_chip_and_handler_name446, ptr @__UNIQUE_ID___addressable_irq_set_chip_data419, ptr @__UNIQUE_ID___addressable_irq_set_handler_data418, ptr @__UNIQUE_ID___addressable_irq_set_irq_type417, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5, ptr @trace_irq_handler_entry.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace318, ptr @trace_irq_handler_entry.__UNIQUE_ID___addressable___SCK__tp_func_irq_handler_entry317, ptr @trace_irq_handler_exit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace332, ptr @trace_irq_handler_exit.__UNIQUE_ID___addressable___SCK__tp_func_irq_handler_exit331], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bad_chained_irq(i32 noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @bad_chained_irq(i32 noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = load i1, ptr @bad_chained_irq.__already_done, align 1
   br i1 %3, label %5, label %4, !prof !6
 
@@ -153,10 +153,10 @@ define dso_local noundef range(i32 -22, 1) i32 @irq_set_chip(i32 noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @irq_set_irq_type(i32 noundef %0, i32 noundef %1) #0 align 16 {
@@ -2745,7 +2745,7 @@ define dso_local void @irq_modify_status(i32 noundef %0, i64 noundef %1, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_set_parent_state(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @irq_chip_set_parent_state(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2769,7 +2769,7 @@ define dso_local i32 @irq_chip_set_parent_state(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_get_parent_state(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @irq_chip_get_parent_state(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2793,7 +2793,7 @@ define dso_local i32 @irq_chip_get_parent_state(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_chip_enable_parent(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @irq_chip_enable_parent(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2815,7 +2815,7 @@ define dso_local void @irq_chip_enable_parent(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_chip_disable_parent(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @irq_chip_disable_parent(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2837,7 +2837,7 @@ define dso_local void @irq_chip_disable_parent(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_chip_ack_parent(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @irq_chip_ack_parent(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2849,7 +2849,7 @@ define dso_local void @irq_chip_ack_parent(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_chip_mask_parent(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @irq_chip_mask_parent(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2861,7 +2861,7 @@ define dso_local void @irq_chip_mask_parent(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_chip_mask_ack_parent(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @irq_chip_mask_ack_parent(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2873,7 +2873,7 @@ define dso_local void @irq_chip_mask_ack_parent(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_chip_unmask_parent(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @irq_chip_unmask_parent(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2885,7 +2885,7 @@ define dso_local void @irq_chip_unmask_parent(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_chip_eoi_parent(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @irq_chip_eoi_parent(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -2897,7 +2897,7 @@ define dso_local void @irq_chip_eoi_parent(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_set_affinity_parent(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @irq_chip_set_affinity_parent(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2917,7 +2917,7 @@ define dso_local i32 @irq_chip_set_affinity_parent(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_set_type_parent(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @irq_chip_set_type_parent(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2937,7 +2937,7 @@ define dso_local i32 @irq_chip_set_type_parent(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_retrigger_hierarchy(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i32 @irq_chip_retrigger_hierarchy(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2972,7 +2972,7 @@ define dso_local i32 @irq_chip_retrigger_hierarchy(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_set_vcpu_affinity_parent(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @irq_chip_set_vcpu_affinity_parent(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2992,7 +2992,7 @@ define dso_local i32 @irq_chip_set_vcpu_affinity_parent(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_set_wake_parent(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @irq_chip_set_wake_parent(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -3019,7 +3019,7 @@ define dso_local i32 @irq_chip_set_wake_parent(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @irq_chip_request_resources_parent(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i32 @irq_chip_request_resources_parent(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3039,7 +3039,7 @@ define dso_local i32 @irq_chip_request_resources_parent(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @irq_chip_release_resources_parent(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @irq_chip_release_resources_parent(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -3102,7 +3102,7 @@ define dso_local noundef range(i32 -38, 1) i32 @irq_chip_compose_msi_msg(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_get(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_get(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3146,7 +3146,7 @@ define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_get(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_put(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @irq_chip_pm_put(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

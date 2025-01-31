@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [25 x i8] c"Can't get the size of %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @file_setup_connection(ptr nocapture noundef writeonly initializes((384, 392)) %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 28) i32 @file_setup_connection(ptr noundef writeonly captures(none) initializes((384, 392)) %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @Curl_ccalloc, align 8
   %4 = tail call ptr %3(i64 noundef 1, i64 noundef 24) #9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -37,7 +37,7 @@ define internal range(i32 0, 28) i32 @file_setup_connection(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @file_do(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 {
+define internal i32 @file_do(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1) #0 {
   %3 = alloca [8192 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = alloca i64, align 8
@@ -77,7 +77,7 @@ define internal i32 @file_do(ptr noundef %0, ptr nocapture noundef writeonly ini
   %..i = select i1 %.not63.i, i32 577, i32 1089
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 1756
   %26 = load i32, ptr %25, align 4
-  %27 = tail call i32 (ptr, i32, ...) @open64(ptr noundef %17, i32 noundef %..i, i32 noundef %26) #9
+  %27 = tail call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %17, i32 noundef %..i, i32 noundef %26) #9
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %29, label %31
 
@@ -454,7 +454,7 @@ file_upload.exit:                                 ; preds = %14, %19, %29, %40, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_done(ptr nocapture noundef readonly %0, i32 %1, i1 zeroext %2) #0 {
+define internal noundef i32 @file_done(ptr noundef readonly captures(none) %0, i32 %1, i1 zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -484,7 +484,7 @@ define internal noundef i32 @file_done(ptr nocapture noundef readonly %0, i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @file_connect(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal i32 @file_connect(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 384
@@ -572,7 +572,7 @@ file_done.exit:                                   ; preds = %43, %32, %9, %44, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_disconnect(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i1 zeroext %2) #0 {
+define internal noundef i32 @file_disconnect(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i1 zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null
@@ -607,26 +607,26 @@ declare i32 @Curl_urldecode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, 
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 declare void @Curl_failf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare zeroext i1 @Curl_meets_timecondition(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @Curl_client_write(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @Curl_gmtime(i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -642,7 +642,7 @@ declare { i64, i32 } @Curl_pgrsTime(ptr noundef, i32 noundef) local_unnamed_addr
 declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @Curl_pgrsUpdate(ptr noundef) local_unnamed_addr #1
 
@@ -658,18 +658,18 @@ declare void @Curl_pgrsSetUploadSize(ptr noundef, i64 noundef) local_unnamed_add
 declare i32 @Curl_fillreadbuffer(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #3
 
 declare void @Curl_pgrsSetUploadCounter(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

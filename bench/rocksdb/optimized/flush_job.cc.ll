@@ -552,7 +552,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -569,7 +569,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.23(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.23(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -586,7 +586,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.26(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.26(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -603,7 +603,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.34(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.34(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -620,7 +620,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.37(ptr nocapture readnone %0) #3 section ".text.startup" {
+define internal void @__cxx_global_array_dtor.37(ptr readnone captures(none) %0) #3 section ".text.startup" {
 entry:
   br label %arraydestroy.body
 
@@ -654,7 +654,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb8FlushJobC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16ColumnFamilyDataERKNS_18ImmutableDBOptionsERKNS_16MutableCFOptionsEmRKNS_11FileOptionsEPNS_10VersionSetEPNS_17InstrumentedMutexEPSt6atomicIbESt6vectorImSaImEEmPNS_15SnapshotCheckerEPNS_10JobContextENS_11FlushReasonEPNS_9LogBufferEPNS_11FSDirectoryES12_NS_15CompressionTypeEPNS_10StatisticsEPNS_11EventLoggerEbbbNS_3Env8PriorityERKSt10shared_ptrINS_8IOTracerEERKNS_18SeqnoToTimeMappingES8_S8_S6_PNS_26BlobFileCompletionCallbackE(ptr noundef nonnull align 8 dereferenceable(1760) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(569) %db_options, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, i64 noundef %max_memtable_id, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef %versions, ptr noundef %db_mutex, ptr noundef %shutting_down, ptr nocapture noundef %existing_snapshots, i64 noundef %earliest_write_conflict_snapshot, ptr noundef %snapshot_checker, ptr noundef %job_context, i32 noundef %flush_reason, ptr noundef %log_buffer, ptr noundef %db_directory, ptr noundef %output_file_directory, i8 noundef zeroext %output_compression, ptr noundef %stats, ptr noundef %event_logger, i1 noundef zeroext %measure_io_stats, i1 noundef zeroext %sync_output_directory, i1 noundef zeroext %write_manifest, i32 noundef %thread_pri, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %io_tracer, ptr noundef nonnull align 8 dereferenceable(97) %seqno_to_time_mapping, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, ptr noundef %full_history_ts_low, ptr noundef %blob_callback) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8FlushJobC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16ColumnFamilyDataERKNS_18ImmutableDBOptionsERKNS_16MutableCFOptionsEmRKNS_11FileOptionsEPNS_10VersionSetEPNS_17InstrumentedMutexEPSt6atomicIbESt6vectorImSaImEEmPNS_15SnapshotCheckerEPNS_10JobContextENS_11FlushReasonEPNS_9LogBufferEPNS_11FSDirectoryES12_NS_15CompressionTypeEPNS_10StatisticsEPNS_11EventLoggerEbbbNS_3Env8PriorityERKSt10shared_ptrINS_8IOTracerEERKNS_18SeqnoToTimeMappingES8_S8_S6_PNS_26BlobFileCompletionCallbackE(ptr noundef nonnull align 8 dereferenceable(1760) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(569) %db_options, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, i64 noundef %max_memtable_id, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef %versions, ptr noundef %db_mutex, ptr noundef %shutting_down, ptr noundef captures(none) %existing_snapshots, i64 noundef %earliest_write_conflict_snapshot, ptr noundef %snapshot_checker, ptr noundef %job_context, i32 noundef %flush_reason, ptr noundef %log_buffer, ptr noundef %db_directory, ptr noundef %output_file_directory, i8 noundef zeroext %output_compression, ptr noundef %stats, ptr noundef %event_logger, i1 noundef zeroext %measure_io_stats, i1 noundef zeroext %sync_output_directory, i1 noundef zeroext %write_manifest, i32 noundef %thread_pri, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %io_tracer, ptr noundef nonnull align 8 dereferenceable(97) %seqno_to_time_mapping, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, ptr noundef %full_history_ts_low, ptr noundef %blob_callback) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %frombool = zext i1 %measure_io_stats to i8
@@ -1096,7 +1096,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb8FlushJob18ReportStartedFlushEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1760) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb8FlushJob18ReportStartedFlushEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1760) %this) local_unnamed_addr #5 align 2 {
 entry:
   %db_options_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load ptr, ptr %db_options_, align 8
@@ -1635,7 +1635,7 @@ declare void @_ZN7rocksdb16ThreadStatusUtil18SetThreadOperationENS_12ThreadStatu
 declare void @_ZN7rocksdb16ThreadStatusUtil26SetThreadOperationPropertyEim(i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8FlushJob20ReportFlushInputSizeERKNS_10autovectorIPNS_8MemTableELm8EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1760) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %mems) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8FlushJob20ReportFlushInputSizeERKNS_10autovectorIPNS_8MemTableELm8EEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1760) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %mems) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %mems, align 8, !noalias !7
   %vect_.i.i = getelementptr inbounds nuw i8, ptr %mems, i64 80
@@ -1682,7 +1682,7 @@ declare noundef i64 @_ZN7rocksdb8MemTable22ApproximateMemoryUsageEv(ptr noundef 
 declare void @_ZN7rocksdb16ThreadStatusUtil31IncreaseThreadOperationPropertyEim(i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb8FlushJob18RecordFlushIOStatsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1760) %this) local_unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb8FlushJob18RecordFlushIOStatsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1760) %this) local_unnamed_addr #5 align 2 {
 entry:
   %stats_ = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load ptr, ptr %stats_, align 8
@@ -3753,7 +3753,7 @@ declare noundef zeroext i8 @_ZN7rocksdb12GetPerfLevelEv() local_unnamed_addr #6
 declare void @_ZN7rocksdb12SetPerfLevelENS_9PerfLevelE(i8 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb8FlushJob15MemPurgeDeciderEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1760) %this, double noundef %threshold) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb8FlushJob15MemPurgeDeciderEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1760) %this, double noundef %threshold) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %len.i54 = alloca i32, align 4
   %len.i = alloca i32, align 4
@@ -9361,7 +9361,7 @@ declare void @_ZN7rocksdb17EventLoggerStreamD1Ev(ptr noundef nonnull align 8 der
 declare void @_ZN7rocksdb31AutoThreadOperationStageUpdaterD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8FlushJob6CancelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN7rocksdb8FlushJob6CancelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1760) %this) local_unnamed_addr #7 align 2 {
 entry:
   %db_mutex_ = getelementptr inbounds nuw i8, ptr %this, i64 264
   %0 = load ptr, ptr %db_mutex_, align 8
@@ -9409,7 +9409,7 @@ declare void @_ZN7rocksdb8MemTableC1ERKNS_21InternalKeyComparatorERKNS_16Immutab
 declare void @_ZN7rocksdb11MergeHelperC1EPNS_3EnvEPKNS_10ComparatorEPKNS_13MergeOperatorEPKNS_16CompactionFilterEPNS_6LoggerEbmPKNS_15SnapshotCheckerEiPNS_10StatisticsEPKSt6atomicIbE(ptr noundef nonnull align 8 dereferenceable(296), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 declare noundef zeroext i1 @_ZN7rocksdb24ShouldReportDetailedTimeEPNS_3EnvEPNS_10StatisticsE(ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -9498,7 +9498,7 @@ _ZNSt12__shared_ptrIN7rocksdb6LoggerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 declare void @_ZN7rocksdb18CompactionIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(1097)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 declare void @_ZN7rocksdb8MemTable3AddEmNS_9ValueTypeERKNS_5SliceES4_PKNS_18ProtectionInfoKVOSImEEbPNS_23MemTablePostProcessInfoEPPv(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 16 dereferenceable(3528), i64 noundef, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #6
 
@@ -10289,7 +10289,7 @@ declare void @_ZNK7rocksdb18SeqnoToTimeMapping4CopyEm(ptr sret(%"class.rocksdb::
 declare noundef i32 @_ZN7rocksdb16ColumnFamilyData21CalculateSSTWriteHintEi(ptr noundef nonnull align 8 dereferenceable(2656), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 2, 4) i32 @_ZN7rocksdb8FlushJob30GetRateLimiterPriorityForWriteEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 {
+define noundef range(i32 2, 4) i32 @_ZN7rocksdb8FlushJob30GetRateLimiterPriorityForWriteEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1760) %this) local_unnamed_addr #7 align 2 {
 entry:
   %versions_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %versions_, align 8
@@ -11696,7 +11696,7 @@ declare void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 
 declare void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext, i8 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i8 noundef zeroext) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
@@ -12789,7 +12789,7 @@ ehcleanup16:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7rocksdb10autovectorImLm8EE9push_backEOm(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %item) local_unnamed_addr #7 comdat align 2 {
@@ -16224,10 +16224,10 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #14
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #18

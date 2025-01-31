@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_op_ddt_map = external local_unnamed_addr global [52 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_exscan_intra_linear(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_exscan_intra_linear(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %5, i64 220
   %.val = load i32, ptr %8, align 4
   %9 = icmp eq ptr %0, inttoptr (i64 1 to ptr)
@@ -127,7 +127,7 @@ ompi_datatype_copy_content_same_ddt.exit:         ; preds = %.lr.ph.i, %54, %47
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @ompi_op_reduce(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 -2147483648, 2147483648) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -238,10 +238,10 @@ define internal fastcc void @ompi_op_reduce(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_exscan_intra_recursivedoubling(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_exscan_intra_recursivedoubling(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 {
   %8 = getelementptr i8, ptr %5, i64 248
   %.val113 = load ptr, ptr %8, align 8
   %9 = getelementptr i8, ptr %.val113, i64 16

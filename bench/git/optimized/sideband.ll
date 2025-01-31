@@ -57,7 +57,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @demultiplex_sideband(ptr noundef %me, i32 noundef %status, ptr noundef %buf, i32 noundef %len, i32 noundef %die_on_error, ptr noundef %scratch, ptr nocapture noundef writeonly %sideband_type) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @demultiplex_sideband(ptr noundef %me, i32 noundef %status, ptr noundef %buf, i32 noundef %len, i32 noundef %die_on_error, ptr noundef %scratch, ptr noundef writeonly captures(none) %sideband_type) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @demultiplex_sideband.suffix, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -176,7 +176,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
 if.then41:                                        ; preds = %while.body
   %6 = load ptr, ptr @demultiplex_sideband.suffix, align 8
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11
-  tail call void @strbuf_add(ptr noundef nonnull %scratch, ptr noundef %6, i64 noundef %call.i) #9
+  tail call void @strbuf_add(ptr noundef nonnull %scratch, ptr noundef nonnull %6, i64 noundef %call.i) #9
   %.pr = load i64, ptr %len37, align 8
   br label %if.end42
 
@@ -197,7 +197,7 @@ if.then49:                                        ; preds = %if.end46
   tail call fastcc void @maybe_colorize_sideband(ptr noundef nonnull %scratch, ptr noundef nonnull %b.080, i32 noundef %conv36)
   %8 = load ptr, ptr @demultiplex_sideband.suffix, align 8
   %call.i57 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #11
-  tail call void @strbuf_add(ptr noundef nonnull %scratch, ptr noundef %8, i64 noundef %call.i57) #9
+  tail call void @strbuf_add(ptr noundef nonnull %scratch, ptr noundef nonnull %8, i64 noundef %call.i57) #9
   br label %if.end50
 
 if.end50:                                         ; preds = %if.then49, %if.end46
@@ -518,7 +518,7 @@ for.body:                                         ; preds = %while.end, %for.inc
 if.end15:                                         ; preds = %for.body
   %sext = shl i64 %call10, 32
   %conv17 = ashr exact i64 %sext, 32
-  %call18 = call i32 @strncasecmp(ptr noundef %16, ptr noundef %src.addr.0.lcssa, i64 noundef %conv17) #11
+  %call18 = call i32 @strncasecmp(ptr noundef nonnull %16, ptr noundef %src.addr.0.lcssa, i64 noundef %conv17) #11
   %tobool19.not = icmp eq i32 %call18, 0
   br i1 %tobool19.not, label %land.lhs.true, label %for.inc
 
@@ -561,12 +561,12 @@ return:                                           ; preds = %for.inc, %if.then30
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i64 @xwrite(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
@@ -635,10 +635,10 @@ declare i32 @want_color_fd(i32 noundef, i32 noundef) local_unnamed_addr #2
 declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @git_config_get_string(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -649,10 +649,10 @@ declare i32 @color_parse(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @strbuf_grow(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8

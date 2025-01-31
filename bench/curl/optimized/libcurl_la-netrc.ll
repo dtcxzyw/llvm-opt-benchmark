@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [9 x i8] c"password\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @Curl_parsenetrc(ptr noundef %host, ptr nocapture noundef %loginp, ptr nocapture noundef %passwordp, ptr noundef readonly %netrcfile) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @Curl_parsenetrc(ptr noundef %host, ptr noundef captures(none) %loginp, ptr noundef captures(none) %passwordp, ptr noundef readonly %netrcfile) local_unnamed_addr #0 {
 entry:
   %pwbuf = alloca [1024 x i8], align 16
   %pw = alloca %struct.passwd, align 8
@@ -82,7 +82,7 @@ declare i32 @geteuid() local_unnamed_addr #2
 declare ptr @curl_maprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %host, ptr nocapture noundef %loginp, ptr nocapture noundef %passwordp, ptr nocapture noundef nonnull readonly %netrcfile) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @parsenetrc(ptr noundef %host, ptr noundef captures(none) %loginp, ptr noundef captures(none) %passwordp, ptr noundef nonnull readonly captures(none) %netrcfile) unnamed_addr #0 {
 entry:
   %netrcbuffer = alloca [4096 x i8], align 16
   %0 = load ptr, ptr %loginp, align 8
@@ -490,7 +490,7 @@ if.end224:                                        ; preds = %if.end222, %land.en
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare ptr @Curl_get_line(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -499,7 +499,7 @@ declare i32 @curl_strequal(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_timestrcmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

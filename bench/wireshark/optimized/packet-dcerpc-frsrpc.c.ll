@@ -1920,7 +1920,7 @@ define hidden i32 @frsrpc_dissect_struct_CommPktDataExtensionChecksum(ptr nounde
   %.010.i = phi i32 [ 0, %19 ], [ %27, %24 ]
   %.089.i = phi i32 [ %23, %19 ], [ %26, %24 ]
   %25 = load i32, ptr @hf_frsrpc_frsrpc_CommPktDataExtensionChecksum_data, align 4
-  %26 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.035, ptr noundef %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
+  %26 = call i32 @PIDL_dissect_uint8(ptr noundef %0, i32 noundef %.089.i, ptr noundef %2, ptr noundef %.035, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %25, i32 noundef 0) #5
   %27 = add nuw nsw i32 %.010.i, 1
   %exitcond.not.i = icmp eq i32 %27, 16
   br i1 %exitcond.not.i, label %frsrpc_dissect_element_CommPktDataExtensionChecksum_data.exit, label %24, !llvm.loop !7
@@ -2477,7 +2477,7 @@ define internal i32 @frsrpc_dissect_element_FrsSendCommPktReq_ctr_(ptr noundef %
 32:                                               ; preds = %32, %28
   %.125.i.i = phi i32 [ 0, %28 ], [ %34, %32 ]
   %33 = load i32, ptr @hf_CommPktChunk, align 4
-  %34 = call i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %23, i32 noundef %.125.i.i, ptr noundef %2, ptr noundef %31, ptr noundef %4, ptr noundef %5, i32 noundef %33, i32 poison)
+  %34 = call i32 @frsrpc_dissect_struct_CommPktChunk(ptr noundef %23, i32 noundef %.125.i.i, ptr noundef %2, ptr noundef %31, ptr noundef nonnull %4, ptr noundef %5, i32 noundef %33, i32 poison)
   %35 = call i32 @tvb_reported_length_remaining(ptr noundef %23, i32 noundef %34) #5
   %.not24.i.i = icmp eq i32 %35, 0
   br i1 %.not24.i.i, label %36, label %32, !llvm.loop !8
@@ -2658,7 +2658,7 @@ define internal i32 @frsrpc_dissect_FrsStartPromotionParent_response(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FrsNOP_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FrsNOP_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.482, ptr %7, align 8
   ret i32 %1
@@ -2687,98 +2687,98 @@ define internal i32 @frsrpc_dissect_FrsNOP_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.483, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_response(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.483, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.484, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_5_response(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.484, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.485, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_6_response(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.485, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.486, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_7_response(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.486, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.487, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_8_response(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.487, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.488, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_BACKUP_COMPLETE_9_response(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.488, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_request(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.489, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #3 {
+define internal noundef i32 @frsrpc_dissect_FRSRPC_VERIFY_PROMOTION_PARENT_EX_response(ptr readnone captures(none) %0, i32 noundef returned %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(none) initializes((80, 88)) %4, ptr readnone captures(none) %5) #3 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 80
   store ptr @.str.489, ptr %7, align 8
   ret i32 %1
@@ -3017,10 +3017,10 @@ define internal i32 @frsrpc_dissect_element_FrsStartPromotionParent_parent_guid_
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

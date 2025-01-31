@@ -86,21 +86,21 @@ define i32 @get_eo_proto_id(ptr noundef readonly %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_eo_tap_listener_name(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_eo_tap_listener_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_eo_packet_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_eo_packet_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_eo_reset_func(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define ptr @get_eo_reset_func(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -173,7 +173,7 @@ define ptr @eo_massage_str(ptr noundef %0, i64 noundef %1, i32 noundef %2) local
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @g_string_append_len(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
@@ -302,7 +302,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @g_string_truncate(ptr noundef, i64 noundef) local_unnamed_addr #2
 

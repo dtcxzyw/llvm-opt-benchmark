@@ -154,12 +154,12 @@ if.end5:                                          ; preds = %if.end
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @crc32c(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local i32 @vhdx_checksum_calc(i32 noundef %crc, ptr noundef %buf, i64 noundef %size, i32 noundef %crc_offset) local_unnamed_addr #0 {
@@ -262,7 +262,7 @@ if.end:                                           ; preds = %entry
 declare void @qemu_uuid_generate(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhdx_update_headers(ptr nocapture noundef readonly %bs, ptr nocapture noundef %s, i1 noundef zeroext %generate_data_write_guid, ptr noundef readonly %log_guid) local_unnamed_addr #0 {
+define dso_local i32 @vhdx_update_headers(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %s, i1 noundef zeroext %generate_data_write_guid, ptr noundef readonly %log_guid) local_unnamed_addr #0 {
 entry:
   %uuid.i.i6 = alloca %struct.QemuUUID, align 4
   %uuid.i.i = alloca %struct.QemuUUID, align 4
@@ -362,7 +362,7 @@ return:                                           ; preds = %if.end11.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhdx_user_visible_write(ptr nocapture noundef readonly %bs, ptr nocapture noundef %s) local_unnamed_addr #0 {
+define dso_local i32 @vhdx_user_visible_write(ptr noundef readonly captures(none) %bs, ptr noundef captures(none) %s) local_unnamed_addr #0 {
 entry:
   %first_visible_write = getelementptr inbounds nuw i8, ptr %s, i64 464
   %0 = load i8, ptr %first_visible_write, align 8
@@ -429,12 +429,12 @@ if.else10:                                        ; preds = %if.end4
 
 vhdx_update_checksum.exit:                        ; preds = %if.else10, %if.then5
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(80) %call, ptr noundef nonnull align 1 dereferenceable(80) %hdr, i64 80, i1 false)
-  tail call void @vhdx_header_le_export(ptr noundef nonnull %hdr, ptr noundef %call) #17
+  tail call void @vhdx_header_le_export(ptr noundef nonnull %hdr, ptr noundef nonnull %call) #17
   %add.ptr.i = getelementptr i8, ptr %call, i64 4
   store i32 0, ptr %add.ptr.i, align 1
   %call.i = tail call i32 @crc32c(i32 noundef -1, ptr noundef nonnull %call, i32 noundef 4096) #17
   store i32 %call.i, ptr %add.ptr.i, align 1
-  %call13 = tail call i32 @bdrv_pwrite_sync(ptr noundef nonnull %file, i64 noundef %offset, i64 noundef 80, ptr noundef %call, i32 noundef 0) #17
+  %call13 = tail call i32 @bdrv_pwrite_sync(ptr noundef nonnull %file, i64 noundef %offset, i64 noundef 80, ptr noundef nonnull %call, i32 noundef 0) #17
   br label %exit
 
 exit:                                             ; preds = %if.then5, %vhdx_update_checksum.exit
@@ -456,7 +456,7 @@ declare void @qemu_vfree(ptr noundef) local_unnamed_addr #3
 declare void @bdrv_register(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef i32 @vhdx_reopen_prepare(ptr nocapture readnone %state, ptr nocapture readnone %queue, ptr nocapture readnone %errp) #5 {
+define internal noundef i32 @vhdx_reopen_prepare(ptr readnone captures(none) %state, ptr readnone captures(none) %queue, ptr readnone captures(none) %errp) #5 {
 entry:
   ret i32 0
 }
@@ -810,10 +810,10 @@ vhdx_open_region_tables.exit.thread:              ; preds = %if.end48.i, %if.the
   br label %fail
 
 if.end24:                                         ; preds = %for.end.i
-  call void @qemu_vfree(ptr noundef %call.i58) #17
+  call void @qemu_vfree(ptr noundef nonnull %call.i58) #17
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %rt_entry.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %md_entry.i)
-  %call.i78 = call ptr @qemu_blockalign(ptr noundef %bs, i64 noundef 65536) #17
+  %call.i78 = call ptr @qemu_blockalign(ptr noundef nonnull %bs, i64 noundef 65536) #17
   %29 = load ptr, ptr %file, align 8
   %file_offset.i80 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %30 = load i64, ptr %file_offset.i80, align 8
@@ -1154,7 +1154,7 @@ if.end74:                                         ; preds = %if.then68, %for.con
 
 fail:                                             ; preds = %vhdx_parse_metadata.exit.thread, %vhdx_open_region_tables.exit.thread, %if.end35, %if.end28, %if.end10, %if.end74, %if.then68, %if.end47, %if.end16, %if.end3, %if.then15
   %ret.0 = phi i32 [ %call7, %if.end3 ], [ -22, %if.then15 ], [ %call17, %if.end16 ], [ %call54, %if.end47 ], [ %call77, %if.end74 ], [ %call69, %if.then68 ], [ -22, %if.end10 ], [ -22, %if.end28 ], [ -12, %if.end35 ], [ %ret.0.i68.ph, %vhdx_open_region_tables.exit.thread ], [ %ret.0.i83.ph, %vhdx_parse_metadata.exit.thread ]
-  call void @vhdx_close(ptr noundef %bs)
+  call void @vhdx_close(ptr noundef nonnull %bs)
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 glib_autoptr_cleanup_GraphLockableMainloop.exit:  ; preds = %if.end74, %fail
@@ -1168,7 +1168,7 @@ return:                                           ; preds = %do.end, %glib_autop
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vhdx_close(ptr nocapture noundef readonly %bs) #0 {
+define internal void @vhdx_close(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1238,7 +1238,7 @@ vhdx_region_unregister_all.exit:                  ; preds = %entry, %for.end.cri
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhdx_co_create(ptr nocapture noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhdx_co_create(ptr noundef captures(none) %opts, ptr noundef %errp) #0 {
 entry:
   %signature = alloca i64, align 8
   %metadata_offset = alloca i64, align 8
@@ -1463,7 +1463,7 @@ return:                                           ; preds = %if.end68, %delete_a
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhdx_co_create_opts(ptr nocapture readnone %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhdx_co_create_opts(ptr readnone captures(none) %drv, ptr noundef %filename, ptr noundef %opts, ptr noundef %errp) #0 {
 entry:
   %create_options = alloca ptr, align 8
   store ptr null, ptr %create_options, align 8
@@ -1589,7 +1589,7 @@ qobject_unref_impl.exit:                          ; preds = %fail, %land.lhs.tru
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_has_zero_init(ptr nocapture noundef readonly %bs) #0 {
+define internal i32 @vhdx_has_zero_init(ptr noundef readonly captures(none) %bs) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1621,7 +1621,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare void @bdrv_default_perms(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 101) i32 @vhdx_probe(ptr nocapture noundef readonly %buf, i32 noundef %buf_size, ptr nocapture readnone %filename) #6 {
+define internal range(i32 0, 101) i32 @vhdx_probe(ptr noundef readonly captures(none) %buf, i32 noundef %buf_size, ptr readnone captures(none) %filename) #6 {
 entry:
   %cmp = icmp sgt i32 %buf_size, 7
   br i1 %cmp, label %land.lhs.true, label %if.end
@@ -1640,7 +1640,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @vhdx_co_readv(ptr nocapture noundef readonly %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov) #0 {
+define internal range(i32 -2147483648, 1) i32 @vhdx_co_readv(ptr noundef readonly captures(none) %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr noundef %qiov) #0 {
 entry:
   %hd_qiov = alloca %struct.QEMUIOVector, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
@@ -2044,7 +2044,7 @@ exit:                                             ; preds = %if.end.i41, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @vhdx_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 4)) %bdi) #7 {
+define internal noundef i32 @vhdx_co_get_info(ptr noundef readonly captures(none) %bs, ptr noundef writeonly captures(none) initializes((0, 4)) %bdi) #7 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2055,7 +2055,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vhdx_co_check(ptr nocapture noundef readonly %bs, ptr noundef %result, i32 %fix) #0 {
+define internal noundef i32 @vhdx_co_check(ptr noundef readonly captures(none) %bs, ptr noundef %result, i32 %fix) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2087,7 +2087,7 @@ declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @vhdx_parse_log(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @vhdx_calc_bat_entries(ptr nocapture noundef initializes((440, 444)) %s) unnamed_addr #8 {
+define internal fastcc void @vhdx_calc_bat_entries(ptr noundef captures(none) initializes((440, 444)) %s) unnamed_addr #8 {
 entry:
   %virtual_disk_size = getelementptr inbounds nuw i8, ptr %s, i64 408
   %0 = load i64, ptr %virtual_disk_size, align 8
@@ -2133,7 +2133,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_check_bat_entries(ptr nocapture noundef readonly %bs, ptr noundef %errcnt) #0 {
+define internal i32 @vhdx_check_bat_entries(ptr noundef readonly captures(none) %bs, ptr noundef %errcnt) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -2500,8 +2500,8 @@ vhdx_update_checksum.exit:                        ; preds = %if.else.i, %if.then
   store i32 1048576, ptr %length31, align 1
   store i64 %and29, ptr %metadata_offset, align 8
   tail call void @vhdx_region_header_le_export(ptr noundef nonnull %call4) #17
-  tail call void @vhdx_region_entry_le_export(ptr noundef %add.ptr) #17
-  tail call void @vhdx_region_entry_le_export(ptr noundef %add.ptr11) #17
+  tail call void @vhdx_region_entry_le_export(ptr noundef nonnull %add.ptr) #17
+  tail call void @vhdx_region_entry_le_export(ptr noundef nonnull %add.ptr11) #17
   %add.ptr.i = getelementptr i8, ptr %call4, i64 4
   store i32 0, ptr %add.ptr.i, align 1
   %call.i = tail call i32 @crc32c(i32 noundef -1, ptr noundef nonnull %call4, i32 noundef 65536) #17
@@ -2588,7 +2588,7 @@ vhdx_guid_generate.exit:                          ; preds = %if.end
   %1 = load i32, ptr %data_bits33, align 1
   %or34 = or i32 %1, 4
   store i32 %or34, ptr %data_bits33, align 1
-  call void @vhdx_metadata_entry_le_export(ptr noundef %add.ptr28) #17
+  call void @vhdx_metadata_entry_le_export(ptr noundef nonnull %add.ptr28) #17
   %arrayidx39 = getelementptr i8, ptr %call27, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx39, ptr noundef nonnull align 1 dereferenceable(16) @virtual_size_guid, i64 16, i1 false)
   %offset42 = getelementptr i8, ptr %call27, i64 80
@@ -2599,7 +2599,7 @@ vhdx_guid_generate.exit:                          ; preds = %if.end
   %2 = load i32, ptr %data_bits46, align 1
   %or47 = or i32 %2, 6
   store i32 %or47, ptr %data_bits46, align 1
-  call void @vhdx_metadata_entry_le_export(ptr noundef %arrayidx39) #17
+  call void @vhdx_metadata_entry_le_export(ptr noundef nonnull %arrayidx39) #17
   %arrayidx52 = getelementptr i8, ptr %call27, i64 96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx52, ptr noundef nonnull align 1 dereferenceable(16) @page83_guid, i64 16, i1 false)
   %offset55 = getelementptr i8, ptr %call27, i64 112
@@ -2610,7 +2610,7 @@ vhdx_guid_generate.exit:                          ; preds = %if.end
   %3 = load i32, ptr %data_bits59, align 1
   %or60 = or i32 %3, 6
   store i32 %or60, ptr %data_bits59, align 1
-  call void @vhdx_metadata_entry_le_export(ptr noundef %arrayidx52) #17
+  call void @vhdx_metadata_entry_le_export(ptr noundef nonnull %arrayidx52) #17
   %arrayidx65 = getelementptr i8, ptr %call27, i64 128
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx65, ptr noundef nonnull align 1 dereferenceable(16) @logical_sector_guid, i64 16, i1 false)
   %offset68 = getelementptr i8, ptr %call27, i64 144
@@ -2621,7 +2621,7 @@ vhdx_guid_generate.exit:                          ; preds = %if.end
   %4 = load i32, ptr %data_bits72, align 1
   %or73 = or i32 %4, 6
   store i32 %or73, ptr %data_bits72, align 1
-  call void @vhdx_metadata_entry_le_export(ptr noundef %arrayidx65) #17
+  call void @vhdx_metadata_entry_le_export(ptr noundef nonnull %arrayidx65) #17
   %arrayidx78 = getelementptr i8, ptr %call27, i64 160
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx78, ptr noundef nonnull align 1 dereferenceable(16) @phys_sector_guid, i64 16, i1 false)
   %offset81 = getelementptr i8, ptr %call27, i64 176
@@ -2632,7 +2632,7 @@ vhdx_guid_generate.exit:                          ; preds = %if.end
   %5 = load i32, ptr %data_bits85, align 1
   %or86 = or i32 %5, 6
   store i32 %or86, ptr %data_bits85, align 1
-  call void @vhdx_metadata_entry_le_export(ptr noundef %arrayidx78) #17
+  call void @vhdx_metadata_entry_le_export(ptr noundef nonnull %arrayidx78) #17
   %call88 = call i32 @blk_co_pwrite(ptr noundef %blk, i64 noundef %metadata_offset, i64 noundef 65536, ptr noundef %call27, i32 noundef 0) #17
   %cmp89 = icmp slt i32 %call88, 0
   br i1 %cmp89, label %exit, label %if.end92
@@ -2670,7 +2670,7 @@ declare i32 @g_random_int() local_unnamed_addr #3
 declare void @bdrv_graph_co_rdlock() #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @graph_lockable_auto_unlock(ptr nocapture readnone %x) #0 {
+define internal void @graph_lockable_auto_unlock(ptr readnone captures(none) %x) #0 {
 entry:
   tail call void @bdrv_graph_co_rdunlock() #17
   ret void
@@ -2683,7 +2683,7 @@ declare void @vhdx_region_header_le_export(ptr noundef) local_unnamed_addr #3
 declare void @vhdx_region_entry_le_export(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_create_bat(ptr noundef %blk, ptr nocapture noundef %s, i64 noundef %image_size, i32 noundef %type, i1 noundef zeroext %use_zero_blocks, i64 noundef %file_offset, i32 noundef %length, ptr noundef %errp) #0 {
+define internal i32 @vhdx_create_bat(ptr noundef %blk, ptr noundef captures(none) %s, i64 noundef %image_size, i32 noundef %type, i1 noundef zeroext %use_zero_blocks, i64 noundef %file_offset, i32 noundef %length, ptr noundef %errp) #0 {
 entry:
   %bat = getelementptr inbounds nuw i8, ptr %s, i64 448
   %0 = load ptr, ptr %bat, align 8
@@ -2882,7 +2882,7 @@ declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 declare void @qemu_iovec_destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @vhdx_allocate_block(ptr nocapture noundef readonly %bs, ptr nocapture noundef readonly %s, ptr nocapture noundef %new_offset, ptr nocapture noundef %need_zero) #0 {
+define internal i32 @vhdx_allocate_block(ptr noundef readonly captures(none) %bs, ptr noundef readonly captures(none) %s, ptr noundef captures(none) %new_offset, ptr noundef captures(none) %need_zero) #0 {
 entry:
   %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -2951,7 +2951,7 @@ declare i64 @bdrv_co_getlength(ptr noundef) #3
 declare i32 @bdrv_co_truncate(ptr noundef, i64 noundef, i1 noundef zeroext, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #14
@@ -2963,10 +2963,10 @@ declare i64 @llvm.ctpop.i64(i64) #14
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

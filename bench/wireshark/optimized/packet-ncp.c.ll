@@ -557,7 +557,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ncp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ncp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
@@ -600,7 +600,7 @@ declare i32 @register_tap(ptr noundef) local_unnamed_addr #1
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ncp_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #0 {
+define internal noundef i32 @ncp_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 5
@@ -631,7 +631,7 @@ define internal noundef i32 @ncp_conversation_packet(ptr noundef initializes((24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ncp_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, i32 noundef %4) #0 {
+define internal noundef i32 @ncp_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -651,7 +651,7 @@ define internal noundef i32 @ncp_endpoint_packet(ptr noundef initializes((24, 28
 declare void @register_srt_table(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 %4) #0 {
+define internal range(i32 0, 2) i32 @ncpstat_packet(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i32 %4) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %421, label %6
 
@@ -1269,7 +1269,7 @@ define internal range(i32 0, 2) i32 @ncpstat_packet(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ncpstat_init(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @ncpstat_init(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = tail call ptr @init_srt_table(ptr noundef nonnull @.str.251, ptr noundef nonnull @.str.340, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.341, ptr noundef null) #6
   %4 = tail call ptr @init_srt_table(ptr noundef nonnull @.str.342, ptr noundef nonnull @.str.343, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.344, ptr noundef null) #6
   %5 = tail call ptr @init_srt_table(ptr noundef nonnull @.str.345, ptr noundef nonnull @.str.346, ptr noundef %1, i32 noundef 0, ptr noundef null, ptr noundef nonnull @.str.347, ptr noundef null) #6
@@ -2056,7 +2056,7 @@ declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_un
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @get_ncp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @get_ncp_pdu_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef %2) #6
   switch i32 %5, label %6 [
     i32 1951294288, label %8
@@ -2079,7 +2079,7 @@ define internal i32 @get_ncp_pdu_len(ptr nocapture readnone %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ncp_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_ncp_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   tail call fastcc void @dissect_ncp_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #6
   ret i32 %5
@@ -2088,7 +2088,7 @@ define internal i32 @dissect_ncp_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr nou
 declare ptr @g_hash_table_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @mncp_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @mncp_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = trunc i64 %3 to i32
@@ -2103,7 +2103,7 @@ define internal i32 @mncp_hash(ptr nocapture noundef readonly %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @mncp_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #2 {
+define internal range(i32 0, 2) i32 @mncp_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %3, %4
@@ -2138,7 +2138,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ncp_conv_get_filter_type(ptr nocapture readnone %0, i32 noundef %1) #3 {
+define internal noundef nonnull ptr @ncp_conv_get_filter_type(ptr readnone captures(none) %0, i32 noundef %1) #3 {
   %3 = add i32 %1, -3
   %or.cond3 = icmp ult i32 %3, 3
   %.str.158..str.315 = select i1 %or.cond3, ptr @.str.158, ptr @.str.315
@@ -2148,7 +2148,7 @@ define internal noundef nonnull ptr @ncp_conv_get_filter_type(ptr nocapture read
 declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @ncp_endpoint_get_filter_type(ptr nocapture readnone %0, i32 noundef %1) #3 {
+define internal noundef nonnull ptr @ncp_endpoint_get_filter_type(ptr readnone captures(none) %0, i32 noundef %1) #3 {
   %3 = add i32 %1, -3
   %or.cond3.i = icmp ult i32 %3, 3
   %.str.158..str.315.i = select i1 %or.cond3.i, ptr @.str.158, ptr @.str.315
@@ -2166,10 +2166,10 @@ declare void @add_srt_table_data(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare ptr @init_srt_table(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #5

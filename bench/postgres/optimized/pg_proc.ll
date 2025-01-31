@@ -1100,7 +1100,7 @@ declare i64 @SysCacheGetAttr(i32 noundef, ptr noundef, i16 noundef signext, ptr 
 declare i32 @get_func_input_arg_names(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @SysCacheGetAttrNotNull(i32 noundef, ptr noundef, i16 noundef signext) local_unnamed_addr #2
 
@@ -1165,7 +1165,7 @@ declare void @AtEOXact_GUC(i1 noundef zeroext, i32 noundef) local_unnamed_addr #
 declare void @pgstat_create_function(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @fmgr_internal_validator(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @fmgr_internal_validator(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1219,7 +1219,7 @@ declare ptr @SearchSysCache1(i32 noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @fmgr_internal_function(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @fmgr_c_validator(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @fmgr_c_validator(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1265,7 +1265,7 @@ declare ptr @load_external_function(ptr noundef, ptr noundef, i1 noundef zeroext
 declare ptr @fetch_finfo_record(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @fmgr_sql_validator(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @fmgr_sql_validator(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca %struct.parse_error_callback_arg, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
@@ -1523,7 +1523,7 @@ declare signext i8 @get_typtype(i32 noundef) local_unnamed_addr #2
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @sql_function_parse_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @sql_function_parse_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call zeroext i1 @function_parse_error_transpose(ptr noundef %3)
@@ -1614,7 +1614,7 @@ define dso_local noundef zeroext i1 @function_parse_error_transpose(ptr noundef 
 
 26:                                               ; preds = %23
   %27 = getelementptr i8, ptr %15, i64 %.pre.i
-  %28 = tail call i32 @strncmp(ptr noundef %0, ptr noundef %27, i64 noundef %22) #8
+  %28 = tail call i32 @strncmp(ptr noundef nonnull %0, ptr noundef %27, i64 noundef %22) #8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %.thread.i
 
@@ -1704,7 +1704,7 @@ match_prosrc_to_literal.exit.i:                   ; preds = %._crit_edge.i.i
 .thread.sink.split.i:                             ; preds = %64, %36
   %.sink42.i = phi i32 [ %.010, %36 ], [ %.026.lcssa.i.i, %64 ]
   %.sink43.i = trunc i64 %.pre.i to i32
-  %65 = tail call i32 @pg_mbstrlen_with_len(ptr noundef %15, i32 noundef %.sink43.i) #7
+  %65 = tail call i32 @pg_mbstrlen_with_len(ptr noundef nonnull %15, i32 noundef %.sink43.i) #7
   %66 = add i32 %65, %.sink42.i
   br label %.thread.i
 
@@ -1785,10 +1785,10 @@ declare i32 @set_errcontext_domain(ptr noundef) local_unnamed_addr #2
 declare i32 @errcontext_msg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 declare i32 @pg_mbstrlen_with_len(ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1798,7 +1798,7 @@ declare i32 @pg_mblen(ptr noundef) local_unnamed_addr #2
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

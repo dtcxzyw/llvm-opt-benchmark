@@ -227,7 +227,7 @@ define dso_local i32 @nghttp2_submit_priority(ptr noundef %0, i8 noundef zeroext
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @nghttp2_priority_spec_normalize_weight(ptr noundef) local_unnamed_addr #1
 
@@ -640,10 +640,10 @@ declare void @nghttp2_frame_altsvc_init(ptr noundef, i32 noundef, ptr noundef, i
 declare void @nghttp2_frame_altsvc_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_submit_origin(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2844
   %7 = load i8, ptr %6, align 4
@@ -899,7 +899,7 @@ set_response_flags.exit:                          ; preds = %12, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local i32 @nghttp2_submit_data(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = and i8 %1, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2528
   %7 = icmp eq i32 %2, 0

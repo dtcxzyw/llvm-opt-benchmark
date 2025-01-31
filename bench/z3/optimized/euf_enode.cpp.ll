@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf5enode9invariantERNS_6egraphE(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(536) %g) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf5enode9invariantERNS_6egraphE(ptr noundef nonnull readonly align 8 dereferenceable(176) %this, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(536) %g) local_unnamed_addr #3 align 2 {
 entry:
   %m_root5 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_root5, align 8
@@ -429,7 +429,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3euf5enode9congruentEPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %n) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK3euf5enode9congruentEPS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -530,7 +530,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 -8388608, 8388608) i32 @_ZNK3euf5enode18get_closest_th_varEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, i32 noundef %id) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 -8388608, 8388608) i32 @_ZNK3euf5enode18get_closest_th_varEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(176) %this, i32 noundef %id) local_unnamed_addr #5 align 2 {
 entry:
   br label %while.body
 
@@ -708,7 +708,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @_ZNK3euf5enode18children_are_rootsEv(ptr noundef nonnull readonly align 8 dereferenceable(176) %this) local_unnamed_addr #5 align 2 {

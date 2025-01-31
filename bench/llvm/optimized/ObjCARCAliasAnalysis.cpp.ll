@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZN4llvm7objcarc15ObjCARCAAResult13getModRefInfoEPKNS_8CallBaseERKNS_14MemoryLocationERNS_11AAQueryInfoE = private unnamed_addr constant [12 x i8] c"\00\00\03\03\03\00\00\00\03\00\00\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm7objcarc15ObjCARCAAResult5aliasERKNS_14MemoryLocationES4_RNS_11AAQueryInfoEPKNS_11InstructionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(498) %3, ptr nocapture noundef readnone %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm7objcarc15ObjCARCAAResult5aliasERKNS_14MemoryLocationES4_RNS_11AAQueryInfoEPKNS_11InstructionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(498) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 align 2 {
   %6 = load i8, ptr @_ZN4llvm7objcarc13EnableARCOptsE, align 1
   %7 = trunc i8 %6 to i1
   br i1 %7, label %.preheader62, label %_ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit47
@@ -224,7 +224,7 @@ _ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit47: ; preds = %_ZN4llvm7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i8 @_ZN4llvm7objcarc15ObjCARCAAResult17getModRefInfoMaskERKNS_14MemoryLocationERNS_11AAQueryInfoEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(498) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i8 @_ZN4llvm7objcarc15ObjCARCAAResult17getModRefInfoMaskERKNS_14MemoryLocationERNS_11AAQueryInfoEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(498) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr @_ZN4llvm7objcarc13EnableARCOptsE, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %.preheader27, label %_ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit
@@ -334,7 +334,7 @@ _ZN4llvm7objcarc20GetUnderlyingObjCPtrEPKNS_5ValueE.exit: ; preds = %_ZN4llvm7ob
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 64) i32 @_ZN4llvm7objcarc15ObjCARCAAResult16getMemoryEffectsEPKNS_8FunctionE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local range(i32 0, 64) i32 @_ZN4llvm7objcarc15ObjCARCAAResult16getMemoryEffectsEPKNS_8FunctionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @_ZN4llvm7objcarc13EnableARCOptsE, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %7
@@ -353,7 +353,7 @@ define dso_local range(i32 0, 64) i32 @_ZN4llvm7objcarc15ObjCARCAAResult16getMem
 declare noundef i32 @_ZN4llvm7objcarc16GetFunctionClassEPKNS_8FunctionE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm7objcarc15ObjCARCAAResult13getModRefInfoEPKNS_8CallBaseERKNS_14MemoryLocationERNS_11AAQueryInfoE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(498) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext range(i8 0, 4) i8 @_ZN4llvm7objcarc15ObjCARCAAResult13getModRefInfoEPKNS_8CallBaseERKNS_14MemoryLocationERNS_11AAQueryInfoE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(498) %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr @_ZN4llvm7objcarc13EnableARCOptsE, align 1
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread
@@ -399,7 +399,7 @@ _ZN4llvm7objcarc19GetBasicARCInstKindEPKNS_5ValueE.exit.thread: ; preds = %9, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7objcarc9ObjCARCAA3runERNS_8FunctionERNS_15AnalysisManagerIS2_JEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::objcarc::ObjCARCAAResult") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7objcarc9ObjCARCAA3runERNS_8FunctionERNS_15AnalysisManagerIS2_JEEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::objcarc::ObjCARCAAResult") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #2
   store ptr %5, ptr %0, align 8
   ret void

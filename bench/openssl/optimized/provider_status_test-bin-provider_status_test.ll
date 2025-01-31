@@ -153,12 +153,12 @@ declare ptr @opt_arg() local_unnamed_addr #2
 declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @OSSL_SELF_TEST_set_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @self_test_on_load(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal range(i32 0, 2) i32 @self_test_on_load(ptr noundef %params, ptr noundef captures(none) %arg) #1 {
 entry:
   %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.22, i32 noundef 0)
   ret i32 %call
@@ -302,7 +302,7 @@ entry:
 declare void @OSSL_LIB_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @self_test_events(ptr noundef %params, ptr nocapture noundef %arg, ptr noundef %title, i32 noundef range(i32 0, 2) %corrupt) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @self_test_events(ptr noundef %params, ptr noundef captures(none) %arg, ptr noundef %title, i32 noundef range(i32 0, 2) %corrupt) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %arg, align 4
   %cmp = icmp eq i32 %0, 0
@@ -378,7 +378,7 @@ lor.lhs.false29:                                  ; preds = %if.else
 
 if.then32:                                        ; preds = %lor.lhs.false29, %if.else
   %10 = load ptr, ptr @bio_out, align 8
-  %call33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.31, ptr noundef %4) #5
+  %call33 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %10, ptr noundef nonnull @.str.31, ptr noundef nonnull %4) #5
   br label %if.end35
 
 if.end35:                                         ; preds = %lor.lhs.false29, %if.then32, %if.then25
@@ -520,7 +520,7 @@ end:                                              ; preds = %lor.lhs.false61, %i
 declare void @OSSL_PARAM_construct_uint(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #2
 
@@ -533,7 +533,7 @@ declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @self_test_on_demand(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal range(i32 0, 2) i32 @self_test_on_demand(ptr noundef %params, ptr noundef captures(none) %arg) #1 {
 entry:
   %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.54, i32 noundef 0)
   ret i32 %call
@@ -542,7 +542,7 @@ entry:
 declare i32 @OSSL_PROVIDER_self_test(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @self_test_on_demand_fail(ptr noundef %params, ptr nocapture noundef %arg) #1 {
+define internal range(i32 0, 2) i32 @self_test_on_demand_fail(ptr noundef %params, ptr noundef captures(none) %arg) #1 {
 entry:
   %call = tail call fastcc i32 @self_test_events(ptr noundef %params, ptr noundef %arg, ptr noundef nonnull @.str.55, i32 noundef 1)
   ret i32 %call

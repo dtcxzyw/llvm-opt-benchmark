@@ -364,7 +364,7 @@ declare ptr @BIO_s_mem() local_unnamed_addr #1
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @OSSL_HTTP_REQ_CTX_add1_header(ptr noundef readonly %rctx, ptr noundef %name, ptr noundef %value) local_unnamed_addr #0 {
@@ -1275,7 +1275,7 @@ if.then217:                                       ; preds = %while.end, %if.end2
   br i1 %cmp219, label %land.lhs.true221, label %if.end227
 
 land.lhs.true221:                                 ; preds = %if.then217
-  %call222 = call i32 @OPENSSL_strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.11) #9
+  %call222 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.11) #9
   %cmp223 = icmp eq i32 %call222, 0
   br i1 %cmp223, label %if.then225, label %if.end227
 
@@ -1284,7 +1284,7 @@ if.then225:                                       ; preds = %land.lhs.true221
   br label %return
 
 if.end227:                                        ; preds = %land.lhs.true221, %if.then217
-  %call228 = call i32 @OPENSSL_strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.12) #9
+  %call228 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.12) #9
   %cmp229 = icmp eq i32 %call228, 0
   br i1 %cmp229, label %if.then231, label %if.end272
 
@@ -1324,7 +1324,7 @@ lor.lhs.false255:                                 ; preds = %lor.lhs.false251
   br i1 %cmp258.not, label %lor.lhs.false260, label %if.then268
 
 lor.lhs.false260:                                 ; preds = %lor.lhs.false255
-  %call265 = call i32 @OPENSSL_strncasecmp(ptr noundef %65, ptr noundef nonnull %value.1, i64 noundef %sub.ptr.sub) #9
+  %call265 = call i32 @OPENSSL_strncasecmp(ptr noundef nonnull %65, ptr noundef nonnull %value.1, i64 noundef %sub.ptr.sub) #9
   %cmp266.not = icmp eq i32 %call265, 0
   br i1 %cmp266.not, label %if.end272, label %if.then268
 
@@ -1337,7 +1337,7 @@ if.then268:                                       ; preds = %lor.lhs.false260, %
 
 if.end272:                                        ; preds = %if.then241, %lor.lhs.false260, %if.then231, %land.lhs.true238, %if.end227
   %found_expected_ct.5 = phi i32 [ %found_expected_ct.3.ph209, %land.lhs.true238 ], [ %found_expected_ct.3.ph209, %if.then231 ], [ %found_expected_ct.3.ph209, %if.end227 ], [ 1, %lor.lhs.false260 ], [ 1, %if.then241 ]
-  %call273 = call i32 @OPENSSL_strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.15) #9
+  %call273 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.15) #9
   %cmp274 = icmp eq i32 %call273, 0
   br i1 %cmp274, label %if.then276, label %if.else288
 
@@ -1353,7 +1353,7 @@ if.else281:                                       ; preds = %if.then276
   br label %if.end308
 
 if.else288:                                       ; preds = %if.end272
-  %call289 = call i32 @OPENSSL_strcasecmp(ptr noundef %3, ptr noundef nonnull @.str.18) #9
+  %call289 = call i32 @OPENSSL_strcasecmp(ptr noundef nonnull %3, ptr noundef nonnull @.str.18) #9
   %cmp290 = icmp eq i32 %call289, 0
   br i1 %cmp290, label %if.then292, label %if.end308
 
@@ -1600,13 +1600,13 @@ declare i32 @OPENSSL_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @OPENSSL_strncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_set_resp_len(ptr nocapture noundef nonnull %rctx, i64 noundef %len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_set_resp_len(ptr noundef nonnull captures(none) %rctx, i64 noundef %len) unnamed_addr #0 {
 entry:
   %max_resp_len = getelementptr inbounds nuw i8, ptr %rctx, i64 152
   %0 = load i64, ptr %max_resp_len, align 8
@@ -1647,7 +1647,7 @@ return:                                           ; preds = %if.end10, %if.then8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @OSSL_HTTP_REQ_CTX_nbio_d2i(ptr noundef %rctx, ptr nocapture noundef writeonly initializes((0, 8)) %pval, ptr noundef %it) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @OSSL_HTTP_REQ_CTX_nbio_d2i(ptr noundef %rctx, ptr noundef writeonly captures(none) initializes((0, 8)) %pval, ptr noundef %it) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   store ptr null, ptr %pval, align 8
@@ -2798,13 +2798,13 @@ if.end73:                                         ; preds = %if.then65, %if.end2
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end80, %if.end73
-  %call75 = tail call i64 @BIO_ctrl(ptr noundef %call2, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
+  %call75 = tail call i64 @BIO_ctrl(ptr noundef nonnull %call2, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
   %2 = and i64 %call75, 4294967295
   %cmp77.not = icmp eq i64 %2, 0
   br i1 %cmp77.not, label %if.end80, label %for.cond84.preheader
 
 if.end80:                                         ; preds = %for.cond
-  %call81 = tail call i32 @BIO_test_flags(ptr noundef %call2, i32 noundef 8) #9
+  %call81 = tail call i32 @BIO_test_flags(ptr noundef nonnull %call2, i32 noundef 8) #9
   %tobool.not = icmp eq i32 %call81, 0
   br i1 %tobool.not, label %for.cond84.preheader, label %for.cond
 
@@ -2812,7 +2812,7 @@ for.cond84.preheader:                             ; preds = %if.end80, %for.cond
   br label %for.cond84
 
 for.cond84:                                       ; preds = %for.cond84.preheader, %if.end93
-  %call85 = tail call i32 @BIO_wait(ptr noundef %call2, i64 noundef %cond, i32 noundef 100) #9
+  %call85 = tail call i32 @BIO_wait(ptr noundef nonnull %call2, i64 noundef %cond, i32 noundef 100) #9
   %cmp86 = icmp slt i32 %call85, 1
   br i1 %cmp86, label %if.then88, label %if.end93
 
@@ -2823,7 +2823,7 @@ if.then88:                                        ; preds = %for.cond84
   br label %end
 
 if.end93:                                         ; preds = %for.cond84
-  %call94 = tail call i32 @BIO_gets(ptr noundef %call2, ptr noundef %call, i32 noundef 8192) #9
+  %call94 = tail call i32 @BIO_gets(ptr noundef nonnull %call2, ptr noundef %call, i32 noundef 8192) #9
   %cmp95 = icmp slt i32 %call94, 13
   br i1 %cmp95, label %for.cond84, label %if.end98
 
@@ -2908,7 +2908,7 @@ while.end:                                        ; preds = %while.body, %land.r
   br label %end
 
 do.body:                                          ; preds = %if.end112.tail, %do.body
-  %call133 = tail call i32 @BIO_gets(ptr noundef %call2, ptr noundef %call, i32 noundef 8192) #9
+  %call133 = tail call i32 @BIO_gets(ptr noundef nonnull %call2, ptr noundef nonnull %call, i32 noundef 8192) #9
   %cmp134 = icmp sgt i32 %call133, 2
   br i1 %cmp134, label %do.body, label %end, !llvm.loop !16
 
@@ -2945,10 +2945,10 @@ declare ptr @BIO_pop(ptr noundef) local_unnamed_addr #1
 declare i32 @BIO_method_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @BIO_new_connect(ptr noundef) local_unnamed_addr #1
 
@@ -2962,10 +2962,10 @@ declare i32 @EVP_EncodeBlock(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare i64 @llvm.smin.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5E_CANTALLOC_g = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__accum_read(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__accum_read(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load i64, ptr %7, align 8
@@ -472,15 +472,15 @@ declare ptr @H5FL_blk_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @H5FD_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5F__accum_write(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
@@ -1189,7 +1189,7 @@ H5VM_log2_gen.exit:                               ; preds = %255, %262, %268
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__accum_adjust(ptr nocapture noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__accum_adjust(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, %3
@@ -1433,7 +1433,7 @@ H5VM_log2_gen.exit.thread._crit_edge:             ; preds = %H5VM_log2_gen.exit.
 declare i32 @H5FD_write(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__accum_reset(ptr nocapture noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__accum_reset(ptr noundef captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   br i1 %1, label %3, label %H5F__accum_flush.exit.thread
 
 3:                                                ; preds = %2
@@ -1513,7 +1513,7 @@ H5F__accum_flush.exit.thread:                     ; preds = %3, %7, %25, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__accum_free(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__accum_free(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2000
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1723,7 +1723,7 @@ define range(i32 -1, 1) i32 @H5F__accum_free(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__accum_flush(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__accum_flush(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 6

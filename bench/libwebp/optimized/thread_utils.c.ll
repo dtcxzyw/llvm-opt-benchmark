@@ -57,7 +57,7 @@ define range(i32 0, 2) i32 @WebPSetWorkerInterface(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef nonnull ptr @WebPGetWorkerInterface() local_unnamed_addr #2 {
@@ -65,7 +65,7 @@ define noundef nonnull ptr @WebPGetWorkerInterface() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @Init(ptr nocapture noundef writeonly initializes((0, 48)) %0) #3 {
+define internal void @Init(ptr noundef writeonly captures(none) initializes((0, 48)) %0) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
@@ -159,7 +159,7 @@ Sync.exit:                                        ; preds = %._crit_edge.i.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Sync(ptr nocapture noundef readonly %0) #4 {
+define internal range(i32 0, 2) i32 @Sync(ptr noundef readonly captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %ChangeState.exit, label %4
@@ -194,7 +194,7 @@ ChangeState.exit:                                 ; preds = %1, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Launch(ptr nocapture noundef %0) #4 {
+define internal void @Launch(ptr noundef captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %ChangeState.exit, label %4
@@ -234,7 +234,7 @@ ChangeState.exit:                                 ; preds = %1, %._crit_edge.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @Execute(ptr nocapture noundef %0) #4 {
+define internal void @Execute(ptr noundef captures(none) %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -259,7 +259,7 @@ define internal void @Execute(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @End(ptr nocapture noundef %0) #4 {
+define internal void @End(ptr noundef captures(none) %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %21, label %3
@@ -310,7 +310,7 @@ ChangeState.exit:                                 ; preds = %._crit_edge.i, %13
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @WebPSafeCalloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 

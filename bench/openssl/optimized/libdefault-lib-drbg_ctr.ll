@@ -175,7 +175,7 @@ declare i32 @ossl_drbg_lock(ptr noundef) #1
 declare void @ossl_drbg_unlock(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @drbg_ctr_settable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @drbg_ctr_settable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @drbg_ctr_settable_ctx_params.known_settable_ctx_params
 }
@@ -208,7 +208,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @drbg_ctr_gettable_ctx_params(ptr nocapture readnone %vctx, ptr nocapture readnone %provctx) #2 {
+define internal noundef nonnull ptr @drbg_ctr_gettable_ctx_params(ptr readnone captures(none) %vctx, ptr readnone captures(none) %provctx) #2 {
 entry:
   ret ptr @drbg_ctr_gettable_ctx_params.known_gettable_ctx_params
 }
@@ -288,7 +288,7 @@ return:                                           ; preds = %err, %if.then30, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_verify_zeroization(ptr nocapture noundef readonly %vdrbg) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_verify_zeroization(ptr noundef readonly captures(none) %vdrbg) #0 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %vdrbg, i64 248
   %0 = load ptr, ptr %data, align 8
@@ -394,7 +394,7 @@ declare void @ossl_drbg_clear_seed(ptr noundef, ptr noundef, i64 noundef) #1
 declare ptr @ossl_rand_drbg_new(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_new(ptr nocapture noundef writeonly %drbg) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_new(ptr noundef writeonly captures(none) %drbg) #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_secure_zalloc(i64 noundef 176, ptr noundef nonnull @.str, i32 noundef 622) #7
   %cmp = icmp eq ptr %call, null
@@ -436,7 +436,7 @@ return:                                           ; preds = %if.then1.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_instantiate(ptr nocapture noundef readonly %drbg, ptr noundef %entropy, i64 noundef %entropylen, ptr noundef %nonce, i64 noundef %noncelen, ptr noundef %pers, i64 noundef %perslen) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_instantiate(ptr noundef readonly captures(none) %drbg, ptr noundef %entropy, i64 noundef %entropylen, ptr noundef %nonce, i64 noundef %noncelen, ptr noundef %pers, i64 noundef %perslen) #0 {
 entry:
   %cmp = icmp eq ptr %entropy, null
   br i1 %cmp, label %return, label %if.end
@@ -495,7 +495,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_reseed(ptr nocapture noundef readonly %drbg, ptr noundef %entropy, i64 noundef %entropylen, ptr noundef %adin, i64 noundef %adinlen) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_reseed(ptr noundef readonly captures(none) %drbg, ptr noundef %entropy, i64 noundef %entropylen, ptr noundef %adin, i64 noundef %adinlen) #0 {
 entry:
   %cmp = icmp eq ptr %entropy, null
   br i1 %cmp, label %return, label %if.end
@@ -530,7 +530,7 @@ return:                                           ; preds = %inc_128.exit, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_generate(ptr nocapture noundef readonly %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adinlen) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_generate(ptr noundef readonly captures(none) %drbg, ptr noundef %out, i64 noundef %outlen, ptr noundef %adin, i64 noundef %adinlen) #0 {
 entry:
   %outl = alloca i32, align 4
   %data = getelementptr inbounds nuw i8, ptr %drbg, i64 248
@@ -693,12 +693,12 @@ return:                                           ; preds = %if.end31, %do.body,
 declare noalias ptr @CRYPTO_secure_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ctr_update(ptr nocapture noundef readonly %drbg, ptr noundef %in1, i64 noundef %in1len, ptr noundef %in2, i64 noundef %in2len, ptr noundef %nonce, i64 noundef %noncelen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ctr_update(ptr noundef readonly captures(none) %drbg, ptr noundef %in1, i64 noundef %in1len, ptr noundef %in2, i64 noundef %in2len, ptr noundef %nonce, i64 noundef %noncelen) unnamed_addr #0 {
 entry:
   %outlen.i.i.i.i = alloca i32, align 4
   %in_tmp.i.i.i = alloca [48 x i8], align 16
@@ -1156,7 +1156,7 @@ return:                                           ; preds = %ctr_df.exit.thread,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @EVP_CipherUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1680,10 +1680,10 @@ declare i32 @ossl_drbg_get_ctx_params(ptr noundef, ptr noundef) local_unnamed_ad
 declare i64 @llvm.umin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5

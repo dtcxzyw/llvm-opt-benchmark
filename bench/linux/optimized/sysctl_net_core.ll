@@ -194,7 +194,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_sysctl_core_init907, ptr @__UNIQUE_ID___addressable_sysctl_devconf_inherit_init_net889, ptr @__UNIQUE_ID___addressable_sysctl_fb_tunnels_only_for_init_net888, ptr @__setup_fb_tunnels_only_for_init_net_sysctl_setup], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef i32 @fb_tunnels_only_for_init_net_sysctl_setup(ptr nocapture noundef readonly %0) #0 section ".init.text" align 16 {
+define internal noundef i32 @fb_tunnels_only_for_init_net_sysctl_setup(ptr noundef readonly captures(none) %0) #0 section ".init.text" align 16 {
   %2 = tail call i32 @strncmp(ptr noundef %0, ptr noundef nonnull dereferenceable(7) @.str, i64 noundef 6) #14
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %7, label %4
@@ -221,7 +221,7 @@ define internal i32 @sysctl_core_init() #1 section ".init.text" align 16 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare dso_local i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @register_net_sysctl_sz(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -260,7 +260,7 @@ define internal i32 @proc_do_dev_weight(ptr noundef %0, i32 noundef %1, ptr noun
 declare dso_local i32 @proc_dointvec(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @proc_do_rss_key(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 align 16 {
+define internal i32 @proc_do_rss_key(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 align 16 {
   %6 = alloca %struct.ctl_table, align 8
   %7 = alloca [156 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #14
@@ -282,7 +282,7 @@ define internal i32 @proc_do_rss_key(ptr nocapture readnone %0, i32 noundef %1, 
 declare dso_local i32 @proc_dointvec_jiffies(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rps_sock_flow_sysctl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 align 16 {
+define internal i32 @rps_sock_flow_sysctl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.ctl_table, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
@@ -413,7 +413,7 @@ define internal i32 @rps_sock_flow_sysctl(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @flow_limit_cpu_sysctl(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #4 align 16 {
+define internal i32 @flow_limit_cpu_sysctl(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) #4 align 16 {
   %6 = alloca [128 x i8], align 16
   %7 = alloca [1 x %struct.cpumask], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
@@ -633,7 +633,7 @@ define internal i32 @flow_limit_table_len_sysctl(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @set_default_qdisc(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 align 16 {
+define internal i32 @set_default_qdisc(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #4 align 16 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca %struct.ctl_table, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #14
@@ -666,7 +666,7 @@ define internal i32 @set_default_qdisc(ptr nocapture readnone %0, i32 noundef %1
 declare dso_local i32 @proc_do_static_key(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
@@ -675,13 +675,13 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @proc_dostring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -717,7 +717,7 @@ declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @qdisc_get_default(ptr noundef, i64 noundef) local_unnamed_addr #3
@@ -778,7 +778,7 @@ define internal noundef range(i32 -12, 1) i32 @sysctl_core_net_init(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sysctl_core_net_exit(ptr nocapture noundef readonly %0) #4 align 16 {
+define internal void @sysctl_core_net_exit(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load ptr, ptr %2, align 16
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -807,7 +807,7 @@ declare dso_local ptr @kmemdup(ptr noundef, i64 noundef, i32 noundef) local_unna
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rps_default_mask_sysctl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #4 align 16 {
+define internal i32 @rps_default_mask_sysctl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4) #4 align 16 {
   %6 = alloca [128 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8

@@ -84,7 +84,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @udatpg_clone_75(ptr noundef %dtpg, ptr nocapture noundef readonly %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @udatpg_clone_75(ptr noundef %dtpg, ptr noundef readonly captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -198,7 +198,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UError
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udatpg_getSkeleton_75(ptr nocapture noundef readnone %0, ptr noundef %pattern, i32 noundef %length, ptr noundef %skeleton, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @udatpg_getSkeleton_75(ptr noundef readnone captures(none) %0, ptr noundef %pattern, i32 noundef %length, ptr noundef %skeleton, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %patternString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -280,7 +280,7 @@ eh.resume:                                        ; preds = %ehcleanup13, %lpad
 declare void @_ZN6icu_7524DateTimePatternGenerator17staticGetSkeletonERKNS_13UnicodeStringER10UErrorCode(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @udatpg_getBaseSkeleton_75(ptr nocapture noundef readnone %0, ptr noundef %pattern, i32 noundef %length, ptr noundef %skeleton, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @udatpg_getBaseSkeleton_75(ptr noundef readnone captures(none) %0, ptr noundef %pattern, i32 noundef %length, ptr noundef %skeleton, i32 noundef %capacity, ptr noundef %pErrorCode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %patternString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8

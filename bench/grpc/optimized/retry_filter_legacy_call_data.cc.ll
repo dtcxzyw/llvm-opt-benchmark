@@ -941,7 +941,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @_ZNK9grpc_core8DurationcvNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
@@ -1396,7 +1396,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt31FreeCachedSendOpDataAfterCommitEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3105) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt31FreeCachedSendOpDataAfterCommitEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3105) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %completed_send_initial_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 2992
   %bf.load = load i16, ptr %completed_send_initial_metadata_, align 8
@@ -1602,7 +1602,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3105) %this, ptr nocapture noundef readonly %pending) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt36PendingBatchContainsUnstartedSendOpsEPNS1_12PendingBatchE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3105) %this, ptr noundef readonly captures(none) %pending) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %pending, align 8
   %1 = load ptr, ptr %0, align 8
@@ -1658,7 +1658,7 @@ return:                                           ; preds = %land.lhs.true21, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt19HaveSendOpsToReplayEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(3105) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt19HaveSendOpsToReplayEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3105) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %started_send_message_count_ = getelementptr inbounds nuw i8, ptr %this, i64 2960
   %0 = load i64, ptr %started_send_message_count_, align 8
@@ -2240,7 +2240,7 @@ if.end64:                                         ; preds = %if.end63, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData33AddRetriableSendInitialMetadataOpEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData33AddRetriableSendInitialMetadataOpEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sink.i = alloca %"class.grpc_core::metadata_detail::CopySink", align 8
   %ref.tmp = alloca %struct.grpc_metadata_batch, align 8
@@ -2340,7 +2340,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData25AddRetriableSendMessageOpEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData25AddRetriableSendMessageOpEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call_attempt_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %call_attempt_, align 8
@@ -2390,7 +2390,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData34AddRetriableSendTrailingMetadataOpEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData34AddRetriableSendTrailingMetadataOpEv(ptr noundef nonnull align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sink.i = alloca %"class.grpc_core::metadata_detail::CopySink", align 8
   %ref.tmp = alloca %struct.grpc_metadata_batch, align 8
@@ -2588,7 +2588,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_124StartBatchInCallCombinerEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture readnone %0) #3 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_124StartBatchInCallCombinerEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr readnone captures(none) %0) #3 {
 entry:
   %handler_private = getelementptr inbounds nuw i8, ptr %arg, i64 24
   %1 = load ptr, ptr %handler_private, align 8
@@ -2802,7 +2802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt24MaybeAddBatchForCancelOpEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr noundef nonnull align 8 dereferenceable(3105) %this, ptr nocapture noundef readonly %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt24MaybeAddBatchForCancelOpEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr noundef nonnull align 8 dereferenceable(3105) %this, ptr noundef readonly captures(none) %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.grpc_core::RefCountedPtr.109", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -2998,7 +2998,7 @@ lpad:                                             ; preds = %if.then.i7.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData17AddCancelStreamOpEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(120) initializes((96, 104)) %this, ptr nocapture noundef readonly %error) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData17AddCancelStreamOpEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(120) initializes((96, 104)) %this, ptr noundef readonly captures(none) %error) local_unnamed_addr #3 align 2 {
 entry:
   %cancel_stream = getelementptr inbounds nuw i8, ptr %this, i64 40
   %bf.load = load i8, ptr %cancel_stream, align 8
@@ -3747,7 +3747,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData17PendingBatchClearEPNS1_12PendingBatchE(ptr nocapture noundef nonnull align 8 dereferenceable(1848) %this, ptr nocapture noundef %pending) local_unnamed_addr #10 align 2 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData17PendingBatchClearEPNS1_12PendingBatchE(ptr noundef nonnull align 8 captures(none) dereferenceable(1848) %this, ptr noundef captures(none) %pending) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %pending, align 8
   %send_initial_metadata = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3800,7 +3800,7 @@ if.end22:                                         ; preds = %if.then18, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData25MaybeCacheSendOpsForBatchEPNS1_12PendingBatchE(ptr noundef nonnull align 8 dereferenceable(1848) %this, ptr nocapture noundef %pending) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData25MaybeCacheSendOpsForBatchEPNS1_12PendingBatchE(ptr noundef nonnull align 8 dereferenceable(1848) %this, ptr noundef captures(none) %pending) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sink.i11 = alloca %"class.grpc_core::metadata_detail::CopySink", align 8
   %sink.i = alloca %"class.grpc_core::metadata_detail::CopySink", align 8
@@ -5423,7 +5423,7 @@ declare void @_Z18grpc_error_set_intN4absl12lts_202308026StatusEN9grpc_core17Sta
 declare void @_ZN9grpc_core12StatusCreateEN4absl12lts_2023080210StatusCodeESt17basic_string_viewIcSt11char_traitsIcEERKNS_13DebugLocationESt6vectorINS1_6StatusESaISB_EE(ptr sret(%"class.absl::lts_20230802::Status") align 8, i32 noundef, i64, ptr, ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIN4absl12lts_202308026StatusESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5711,7 +5711,7 @@ if.end11:                                         ; preds = %entry, %if.end10, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataC2ENS_13RefCountedPtrIS2_EEib(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 41), (48, 88)) %this, ptr nocapture noundef %attempt, i32 noundef %refcount, i1 noundef zeroext %set_on_complete) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataC2ENS_13RefCountedPtrIS2_EEib(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 41), (48, 88)) %this, ptr noundef captures(none) %attempt, i32 noundef %refcount, i1 noundef zeroext %set_on_complete) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_retry_trace, i64 16) monotonic, align 8
   %conv = sext i32 %refcount to i64
@@ -6336,7 +6336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37FreeCachedSendOpDataForCompletedBatchEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37FreeCachedSendOpDataForCompletedBatchEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call_attempt_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %call_attempt_, align 8
@@ -6447,7 +6447,7 @@ if.end15:                                         ; preds = %_ZN9grpc_core11Retr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef readonly captures(none) %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %closure.addr.i = alloca ptr, align 8
   %reason.addr.i = alloca ptr, align 8
@@ -6662,7 +6662,7 @@ lpad:                                             ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData22MaybeClearPendingBatchEPNS1_12PendingBatchE(ptr noundef nonnull align 8 dereferenceable(1848) %this, ptr nocapture noundef %pending) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData22MaybeClearPendingBatchEPNS1_12PendingBatchE(ptr noundef nonnull align 8 dereferenceable(1848) %this, ptr noundef captures(none) %pending) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %pending, align 8
   %1 = load ptr, ptr %0, align 8
@@ -7273,7 +7273,7 @@ _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9Batch
 declare void @_ZN9grpc_core12CallCombiner4StopEPKc(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef readonly captures(none) %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %closure.addr.i = alloca ptr, align 8
   %reason.addr.i = alloca ptr, align 8
@@ -7974,7 +7974,7 @@ _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9Batch
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef readonly captures(none) %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %closure.addr.i = alloca ptr, align 8
   %reason.addr.i = alloca ptr, align 8
@@ -8223,7 +8223,7 @@ lpad:                                             ; preds = %if.end.i.i.i
 declare void @_Z25grpc_transport_move_statsP27grpc_transport_stream_statsS0_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData41AddClosuresForDeferredCompletionCallbacksEPNS_23CallCombinerClosureListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData41AddClosuresForDeferredCompletionCallbacksEPNS_23CallCombinerClosureListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %closure.addr.i = alloca ptr, align 8
   %reason.addr.i = alloca ptr, align 8
@@ -8632,7 +8632,7 @@ eh.resume:                                        ; preds = %lpad33, %lpad24, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData40AddClosuresToFailUnstartedPendingBatchesEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData40AddClosuresToFailUnstartedPendingBatchesEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef readonly captures(none) %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %closure.addr.i = alloca ptr, align 8
   %reason.addr.i = alloca ptr, align 8
@@ -8814,7 +8814,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData27RunClosuresForCompletedCallEN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %error) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData27RunClosuresForCompletedCallEN4absl12lts_202308026StatusE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef readonly captures(none) %error) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %closures = alloca %"class.grpc_core::CallCombinerClosureList", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -9849,7 +9849,7 @@ lpad:                                             ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202308026StatusEPNS_23CallCombinerClosureListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef readonly captures(none) %error, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %closure.addr.i = alloca ptr, align 8
   %reason.addr.i = alloca ptr, align 8
@@ -10036,7 +10036,7 @@ lpad:                                             ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData36AddClosuresForReplayOrPendingSendOpsEPNS_23CallCombinerClosureListE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData36AddClosuresForReplayOrPendingSendOpsEPNS_23CallCombinerClosureListE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef %closures) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call_attempt_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %call_attempt_, align 8
@@ -10308,7 +10308,7 @@ _ZN9grpc_core15metadata_detail10UnknownMap5ClearEv.exit: ; preds = %entry, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData4InitEP17grpc_call_elementPK22grpc_call_element_args(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %elem, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData4InitEP17grpc_call_elementPK22grpc_call_element_args(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef readonly captures(none) %elem, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %channel_data = getelementptr inbounds nuw i8, ptr %elem, i64 8
   %0 = load ptr, ptr %channel_data, align 8
@@ -10330,7 +10330,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData7DestroyEP17grpc_call_elementPK20grpc_call_final_infoP12grpc_closure(ptr nocapture noundef readonly %elem, ptr nocapture noundef readnone %0, ptr noundef %then_schedule_closure) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData7DestroyEP17grpc_call_elementPK20grpc_call_final_infoP12grpc_closure(ptr noundef readonly captures(none) %elem, ptr noundef readnone captures(none) %0, ptr noundef %then_schedule_closure) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %call_data = getelementptr inbounds nuw i8, ptr %elem, i64 16
   %1 = load ptr, ptr %call_data, align 8
@@ -10356,7 +10356,7 @@ _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData27CallStackDestruct
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP17grpc_call_elementP30grpc_transport_stream_op_batch(ptr nocapture noundef readonly %elem, ptr noundef %batch) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP17grpc_call_elementP30grpc_transport_stream_op_batch(ptr noundef readonly captures(none) %elem, ptr noundef %batch) local_unnamed_addr #3 align 2 {
 entry:
   %call_data = getelementptr inbounds nuw i8, ptr %elem, i64 16
   %0 = load ptr, ptr %call_data, align 8
@@ -10852,7 +10852,7 @@ return:                                           ; preds = %if.then.i.i43, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData10SetPollentEP17grpc_call_elementP19grpc_polling_entity(ptr nocapture noundef readonly %elem, ptr noundef %pollent) local_unnamed_addr #14 align 2 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData10SetPollentEP17grpc_call_elementP19grpc_polling_entity(ptr noundef readonly captures(none) %elem, ptr noundef %pollent) local_unnamed_addr #14 align 2 {
 entry:
   %call_data = getelementptr inbounds nuw i8, ptr %elem, i64 16
   %0 = load ptr, ptr %call_data, align 8
@@ -10862,7 +10862,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallDataC2EPS0_RK22grpc_call_element_args(ptr noundef nonnull align 8 dereferenceable(1848) initializes((0, 8), (16, 24)) %this, ptr noundef %chand, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallDataC2EPS0_RK22grpc_call_element_args(ptr noundef nonnull align 8 dereferenceable(1848) initializes((0, 8), (16, 24)) %this, ptr noundef %chand, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::BackOff::Options", align 8
   store ptr %chand, ptr %this, align 8
@@ -11911,7 +11911,7 @@ _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttemptEED2Ev
 declare void @_ZN9grpc_core13ClientChannel22CreateLoadBalancedCallERK22grpc_call_element_argsP19grpc_polling_entityP12grpc_closureN4absl12lts_2023080212AnyInvocableIFvvEEEb(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(616), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 0, 6) i64 @_ZN9grpc_core11RetryFilter14LegacyCallData13GetBatchIndexEP30grpc_transport_stream_op_batch(ptr nocapture noundef readonly %batch) local_unnamed_addr #3 align 2 {
+define noundef range(i64 0, 6) i64 @_ZN9grpc_core11RetryFilter14LegacyCallData13GetBatchIndexEP30grpc_transport_stream_op_batch(ptr noundef readonly captures(none) %batch) local_unnamed_addr #3 align 2 {
 entry:
   %send_initial_metadata = getelementptr inbounds nuw i8, ptr %batch, i64 16
   %bf.load = load i8, ptr %send_initial_metadata, align 8
@@ -11956,7 +11956,7 @@ return:                                           ; preds = %if.end23, %if.end17
 declare void @gpr_unreachable_code(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData30FailPendingBatchInCallCombinerEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture noundef readonly %error) #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData30FailPendingBatchInCallCombinerEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr noundef readonly captures(none) %error) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %handler_private = getelementptr inbounds nuw i8, ptr %arg, i64 24
@@ -12176,7 +12176,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData18OnRetryTimerLockedEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture readnone %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData18OnRetryTimerLockedEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr readnone captures(none) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_engaged.i.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 600
   %1 = load i8, ptr %_M_engaged.i.i.i, align 8
@@ -12236,7 +12236,7 @@ _Z17grpc_stream_unrefP20grpc_stream_refcount.exit: ; preds = %_ZN9grpc_core11Ret
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData21StartTransparentRetryEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture readnone %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData21StartTransparentRetryEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr readnone captures(none) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cancelled_from_surface_ = getelementptr inbounds nuw i8, ptr %arg, i64 440
   %1 = load i64, ptr %cancelled_from_surface_, align 8
@@ -13068,7 +13068,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #17
 declare void @_ZN9grpc_core7ExecCtx3RunERKNS_13DebugLocationEP12grpc_closureN4absl12lts_202308026StatusE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_Z19grpc_stream_destroyP20grpc_stream_refcount(ptr noundef) local_unnamed_addr #0
 
@@ -15141,7 +15141,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr nocapture noundef readonly %state) #3 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr noundef readonly captures(none) %state) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %on_commit.i.i.i.i.i.i = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %call.val = load ptr, ptr %state, align 8
@@ -15210,7 +15210,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define internal void @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr nocapture noundef readonly %state) #13 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC1EPS5_bE3$_1JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr noundef readonly captures(none) %state) #13 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i = alloca %"class.absl::lts_20230802::Status", align 8
   %callback_exec_ctx.i.i.i.i.i = alloca %"class.grpc_core::ApplicationCallbackExecCtx", align 8
@@ -18648,7 +18648,7 @@ _ZN9grpc_core11RetryFilter14LegacyCallData27CallStackDestructionBarrierD2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batchE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr nocapture noundef readonly %state) #3 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData27StartTransportStreamOpBatchEP30grpc_transport_stream_op_batchE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr noundef readonly captures(none) %state) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %on_commit.i.i.i.i.i.i = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
   %call.val = load ptr, ptr %state, align 8
@@ -19891,7 +19891,7 @@ declare void @_ZN9grpc_core19GrpcTimeoutMetadata6EncodeENS_9TimestampE(ptr sret(
 declare void @_ZN9grpc_core17LbCostBinMetadata6EncodeERKNS0_9ValueTypeE(ptr sret(%"class.grpc_core::Slice") align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define internal void @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr nocapture noundef readonly %state) #13 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN4absl12lts_2023080222internal_any_invocable12LocalInvokerILb0EvRZN9grpc_core11RetryFilter14LegacyCallData15StartRetryTimerESt8optionalINS3_8DurationEEE3$_0JEEET0_PNS1_15TypeErasedStateEDpNS1_18ForwardedParameterIT2_E4typeE"(ptr noundef readonly captures(none) %state) #13 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i = alloca %"class.absl::lts_20230802::Status", align 8
   %callback_exec_ctx.i.i.i.i.i = alloca %"class.grpc_core::ApplicationCallbackExecCtx", align 8
@@ -20215,10 +20215,10 @@ declare extern_weak void @_ZTHN9grpc_core26ApplicationCallbackExecCtx18callback_
 declare extern_weak void @_ZTHN9grpc_core7ExecCtx9exec_ctx_E() #0
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #24

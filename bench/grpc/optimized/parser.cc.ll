@@ -65,7 +65,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z21grpc_http_parser_initP16grpc_http_parser14grpc_http_typePv(ptr nocapture noundef writeonly initializes((0, 4144)) %parser, i32 noundef %type, ptr noundef %request_or_response) local_unnamed_addr #3 {
+define void @_Z21grpc_http_parser_initP16grpc_http_parser14grpc_http_typePv(ptr noundef writeonly captures(none) initializes((0, 4144)) %parser, i32 noundef %type, ptr noundef %request_or_response) local_unnamed_addr #3 {
 entry:
   %type1 = getelementptr inbounds nuw i8, ptr %parser, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4136) %parser, i8 0, i64 4136, i1 false)
@@ -78,16 +78,16 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_Z24grpc_http_parser_destroyP16grpc_http_parser(ptr nocapture noundef readnone %0) local_unnamed_addr #5 {
+define void @_Z24grpc_http_parser_destroyP16grpc_http_parser(ptr noundef readnone captures(none) %0) local_unnamed_addr #5 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25grpc_http_request_destroyP17grpc_http_request(ptr nocapture noundef readonly %request) local_unnamed_addr #6 {
+define void @_Z25grpc_http_request_destroyP17grpc_http_request(ptr noundef readonly captures(none) %request) local_unnamed_addr #6 {
 entry:
   %body = getelementptr inbounds nuw i8, ptr %request, i64 48
   %0 = load ptr, ptr %body, align 8
@@ -131,7 +131,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26grpc_http_response_destroyP18grpc_http_response(ptr nocapture noundef readonly %response) local_unnamed_addr #6 {
+define void @_Z26grpc_http_response_destroyP18grpc_http_response(ptr noundef readonly captures(none) %response) local_unnamed_addr #6 {
 entry:
   %body = getelementptr inbounds nuw i8, ptr %response, i64 48
   %0 = load ptr, ptr %body, align 8
@@ -168,7 +168,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22grpc_http_parser_parseP16grpc_http_parserRK10grpc_slicePm(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %parser, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %slice, ptr noundef writeonly %start_of_body) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_Z22grpc_http_parser_parseP16grpc_http_parserRK10grpc_slicePm(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %parser, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %slice, ptr noundef writeonly %start_of_body) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i16.i = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp52.i.i = alloca %"class.std::vector", align 8
@@ -2414,7 +2414,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20grpc_http_parser_eofP16grpc_http_parser(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef readonly %parser) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_Z20grpc_http_parser_eofP16grpc_http_parser(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef readonly captures(none) %parser) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp3 = alloca %"class.std::vector", align 8
@@ -2557,7 +2557,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) local_unnamed_addr #0
 
@@ -2565,7 +2565,7 @@ declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) loca
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare ptr @gpr_realloc(ptr noundef, i64 noundef) local_unnamed_addr #0
 
@@ -2585,10 +2585,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

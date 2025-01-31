@@ -197,7 +197,7 @@ _ZN4pbrt12StringPrintfIJRKfS2_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local { <2 x float>, float } @_ZNK4pbrt18RGBToSpectrumTableclENS_3RGBE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, <2 x float> %rgb.coerce0, float %rgb.coerce1) local_unnamed_addr #1 align 2 {
+define dso_local { <2 x float>, float } @_ZNK4pbrt18RGBToSpectrumTableclENS_3RGBE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, <2 x float> %rgb.coerce0, float %rgb.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %c = alloca %"class.pstd::array", align 4
   %rgb.sroa.0.0.vec.extract = extractelement <2 x float> %rgb.coerce0, i64 0
@@ -531,7 +531,7 @@ _ZN4pbrt12StringPrintfIJRKfS2_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4pbrt17sRGBColorEncoding10FromLinearEN4pstd4spanIKfEENS2_IhEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture readonly %vin.coerce0, i64 %vin.coerce1, ptr nocapture writeonly %vout.coerce0, i64 %vout.coerce1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt17sRGBColorEncoding10FromLinearEN4pstd4spanIKfEENS2_IhEE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr readonly captures(none) %vin.coerce0, i64 %vin.coerce1, ptr writeonly captures(none) %vout.coerce0, i64 %vout.coerce1) local_unnamed_addr #5 align 2 {
 entry:
   %cmp5.not = icmp eq i64 %vin.coerce1, 0
   br i1 %cmp5.not, label %for.end, label %for.body
@@ -594,7 +594,7 @@ for.end:                                          ; preds = %_ZN4pbrt13LinearToS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4pbrt17sRGBColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture readonly %vin.coerce0, i64 %vin.coerce1, ptr nocapture writeonly %vout.coerce0, i64 %vout.coerce1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt17sRGBColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr readonly captures(none) %vin.coerce0, i64 %vin.coerce1, ptr writeonly captures(none) %vout.coerce0, i64 %vout.coerce1) local_unnamed_addr #5 align 2 {
 entry:
   %cmp6.not = icmp eq i64 %vin.coerce1, 0
   br i1 %cmp6.not, label %for.end, label %for.body
@@ -617,7 +617,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef float @_ZNK4pbrt17sRGBColorEncoding13ToFloatLinearEf(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, float noundef %v) local_unnamed_addr #6 align 2 {
+define dso_local noundef float @_ZNK4pbrt17sRGBColorEncoding13ToFloatLinearEf(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, float noundef %v) local_unnamed_addr #6 align 2 {
 entry:
   %cmp.i = fcmp ugt float %v, 0x3FA4B5DCC0000000
   br i1 %cmp.i, label %if.end.i, label %_ZN4pbrt12SRGBToLinearEf.exit
@@ -661,7 +661,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt13ColorEncoding8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt13ColorEncoding8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i5.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i.i.i = alloca %"class.std::allocator", align 1
@@ -1153,7 +1153,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #9
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
@@ -1311,7 +1311,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write) uwtable
-define dso_local void @_ZN4pbrt18GammaColorEncodingC2Ef(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5124) initializes((0, 5124)) %this, float noundef %gamma) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4pbrt18GammaColorEncodingC2Ef(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(5124) initializes((0, 5124)) %this, float noundef %gamma) unnamed_addr #10 align 2 {
 entry:
   store float %gamma, ptr %this, align 4
   %applyLUT = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -1358,7 +1358,7 @@ for.end27:                                        ; preds = %for.body12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5124) %this, ptr nocapture readonly %vin.coerce0, i64 %vin.coerce1, ptr nocapture writeonly %vout.coerce0, i64 %vout.coerce1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt18GammaColorEncoding8ToLinearEN4pstd4spanIKhEENS2_IfEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5124) %this, ptr readonly captures(none) %vin.coerce0, i64 %vin.coerce1, ptr writeonly captures(none) %vout.coerce0, i64 %vout.coerce1) local_unnamed_addr #5 align 2 {
 entry:
   %cmp6.not = icmp eq i64 %vin.coerce1, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
@@ -1385,7 +1385,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local noundef float @_ZNK4pbrt18GammaColorEncoding13ToFloatLinearEf(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5124) %this, float noundef %v) local_unnamed_addr #11 align 2 {
+define dso_local noundef float @_ZNK4pbrt18GammaColorEncoding13ToFloatLinearEf(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5124) %this, float noundef %v) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load float, ptr %this, align 4
   %call.i = tail call noundef float @powf(float noundef %v, float noundef %0) #23
@@ -1393,7 +1393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4pbrt18GammaColorEncoding10FromLinearEN4pstd4spanIKfEENS2_IhEE(ptr nocapture noundef nonnull readonly align 4 dereferenceable(5124) %this, ptr nocapture readonly %vin.coerce0, i64 %vin.coerce1, ptr nocapture writeonly %vout.coerce0, i64 %vout.coerce1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4pbrt18GammaColorEncoding10FromLinearEN4pstd4spanIKfEENS2_IhEE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(5124) %this, ptr readonly captures(none) %vin.coerce0, i64 %vin.coerce1, ptr writeonly captures(none) %vout.coerce0, i64 %vout.coerce1) local_unnamed_addr #5 align 2 {
 entry:
   %cmp6.not = icmp eq i64 %vin.coerce1, 0
   br i1 %cmp6.not, label %for.end, label %for.body.lr.ph
@@ -1999,7 +1999,7 @@ ehcleanup51:                                      ; preds = %lpad42, %ehcleanup3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #18
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #18
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
 
@@ -3343,7 +3343,7 @@ return:                                           ; preds = %if.end18.i82, %if.e
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #9
@@ -3822,13 +3822,13 @@ declare i64 @llvm.umin.i64(i64, i64) #21
 declare i32 @llvm.smin.i32(i32, i32) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #22
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

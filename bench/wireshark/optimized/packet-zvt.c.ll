@@ -392,7 +392,7 @@ declare ptr @wmem_file_scope() local_unnamed_addr #1
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @dissect_zvt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #5
   %6 = icmp eq i32 %5, 1
   br i1 %6, label %7, label %13
@@ -536,7 +536,7 @@ declare void @dissector_add_for_decode_as_with_preference(ptr noundef, ptr nound
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_zvt_bitmap_seq(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_zvt_bitmap_seq(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca ptr, align 8
   %8 = zext i16 %2 to i32
   br label %9
@@ -612,7 +612,7 @@ dissect_zvt_bitmap.exit:                          ; preds = %17, %32, %35, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_zvt_int_status(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_zvt_int_status(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_int_status, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %9 = icmp ugt i16 %2, 2
@@ -629,7 +629,7 @@ define internal void @dissect_zvt_int_status(ptr noundef %0, i32 noundef %1, i16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_zvt_reg(ptr noundef %0, i32 noundef %1, i16 zeroext %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_zvt_reg(ptr noundef %0, i32 noundef %1, i16 zeroext %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_pwd, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0) #5
   %9 = add i32 %1, 3
@@ -655,7 +655,7 @@ define internal void @dissect_zvt_reg(ptr noundef %0, i32 noundef %1, i16 zeroex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_zvt_abort(ptr noundef %0, i32 noundef %1, i16 zeroext %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_zvt_abort(ptr noundef %0, i32 noundef %1, i16 zeroext %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_res_code, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   %9 = add i32 %1, 1
@@ -666,7 +666,7 @@ define internal void @dissect_zvt_abort(ptr noundef %0, i32 noundef %1, i16 zero
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_zvt_pass_bitmap_seq(ptr noundef %0, i32 noundef %1, i16 zeroext %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_zvt_pass_bitmap_seq(ptr noundef %0, i32 noundef %1, i16 zeroext %2, ptr noundef %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_pwd, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0) #5
   %9 = add i32 %1, 3
@@ -677,7 +677,7 @@ define internal void @dissect_zvt_pass_bitmap_seq(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_zvt_init(ptr noundef %0, i32 noundef %1, i16 zeroext %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal void @dissect_zvt_init(ptr noundef %0, i32 noundef %1, i16 zeroext %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_pwd, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 0) #5
   ret void
@@ -702,14 +702,14 @@ declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_cc(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_zvt_cc(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = load i32, ptr @hf_zvt_cc, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 2, i32 noundef 0) #5
   ret i32 2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_amount(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_zvt_amount(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @tvb_bcd_dig_to_str_be(ptr noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 6, ptr noundef null, i32 noundef 0) #5
@@ -764,14 +764,14 @@ dissect_zvt_tlv_len.exit:                         ; preds = %8, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_trace_number(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_zvt_trace_number(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = load i32, ptr @hf_zvt_trace_number, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 3, i32 noundef 68) #5
   ret i32 3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_time(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_zvt_time(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @tvb_bcd_dig_to_str_be(ptr noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 3, ptr noundef null, i32 noundef 0) #5
@@ -811,7 +811,7 @@ define internal noundef i32 @dissect_zvt_time(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_date(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_zvt_date(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @tvb_bcd_dig_to_str_be(ptr noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 2, ptr noundef null, i32 noundef 0) #5
@@ -841,7 +841,7 @@ define internal noundef i32 @dissect_zvt_date(ptr noundef %0, i32 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_expiry_date(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_zvt_expiry_date(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @tvb_bcd_dig_to_str_be(ptr noundef %6, ptr noundef %0, i32 noundef %1, i32 noundef 2, ptr noundef null, i32 noundef 0) #5
@@ -871,7 +871,7 @@ define internal noundef i32 @dissect_zvt_expiry_date(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 168) i32 @dissect_zvt_card_number(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal range(i32 2, 168) i32 @dissect_zvt_card_number(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %6 = and i8 %5, 15
   %7 = add i32 %1, 1
@@ -888,21 +888,21 @@ define internal range(i32 2, 168) i32 @dissect_zvt_card_number(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_res_code(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_zvt_res_code(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = load i32, ptr @hf_zvt_res_code, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_terminal_id(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_zvt_terminal_id(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = load i32, ptr @hf_zvt_terminal_id, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef 68) #5
   ret i32 4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 3, 1669) i32 @dissect_zvt_additional_data(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal range(i32 3, 1669) i32 @dissect_zvt_additional_data(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %7 = and i8 %6, 15
@@ -930,14 +930,14 @@ define internal range(i32 3, 1669) i32 @dissect_zvt_additional_data(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_card_type(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3) #0 {
+define internal noundef i32 @dissect_zvt_card_type(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3) #0 {
   %5 = load i32, ptr @hf_zvt_card_type, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %5, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #5
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 2, 168) i32 @dissect_zvt_card_name(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 {
+define internal range(i32 2, 168) i32 @dissect_zvt_card_name(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5
   %7 = and i8 %6, 15
@@ -1127,7 +1127,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_item_ret_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_tlv_text_lines(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture noundef readonly %5) #0 {
+define internal noundef i32 @dissect_zvt_tlv_text_lines(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_text_lines_line, align 4
   %8 = load i32, ptr %5, align 4
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %8) #5
@@ -1144,21 +1144,21 @@ define internal i32 @dissect_zvt_tlv_subseq(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_tlv_permitted_cmd(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @dissect_zvt_tlv_permitted_cmd(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_permitted_cmd, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #5
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_tlv_receipt_type(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @dissect_zvt_tlv_receipt_type(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_receipt_type, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #5
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_tlv_receipt_param(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @dissect_zvt_tlv_receipt_param(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_receipt_parameter, align 4
   %8 = load i32, ptr @ett_zvt_tlv_receipt, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @receipt_parameter_flag_fields, i32 noundef 0) #5
@@ -1166,14 +1166,14 @@ define internal noundef i32 @dissect_zvt_tlv_receipt_param(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_tlv_characters_per_line(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @dissect_zvt_tlv_characters_per_line(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_characters_per_line, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %4, i32 noundef %7, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 68) #5
   ret i32 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_zvt_tlv_receipt_info(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @dissect_zvt_tlv_receipt_info(ptr noundef %0, i32 noundef %1, i32 noundef returned %2, ptr readnone captures(none) %3, ptr noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = load i32, ptr @hf_zvt_receipt_info, align 4
   %8 = load i32, ptr @ett_zvt_tlv_receipt, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @receipt_info_fields, i32 noundef 0) #5
@@ -1498,7 +1498,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65541) i32 @get_zvt_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65541) i32 @get_zvt_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 2
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %5) #5
   %7 = icmp eq i8 %6, -1
@@ -1532,10 +1532,10 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

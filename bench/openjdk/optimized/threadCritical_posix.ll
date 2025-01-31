@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN14ThreadCriticalD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14ThreadCriticalD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ThreadCriticalC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ThreadCriticalC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = tail call i64 @pthread_self() #4
   %3 = load i64, ptr @_ZL8tc_owner, align 8
   %.not = icmp eq i64 %2, %3
@@ -59,7 +59,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #2
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ThreadCriticalD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ThreadCriticalD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = load i32, ptr @_ZL8tc_count, align 4
   %3 = add nsw i32 %2, -1
   store i32 %3, ptr @_ZL8tc_count, align 4

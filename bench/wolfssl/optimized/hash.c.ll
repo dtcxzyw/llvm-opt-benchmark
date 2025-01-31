@@ -580,7 +580,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = load ptr, ptr %arrayidx24, align 8
   %call27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 3, ptr noundef %0, i32 noundef %conv) #5
+  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 3, ptr noundef nonnull %0, i32 noundef %conv) #5
   %cmp29.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not, label %if.end32, label %return
 
@@ -658,7 +658,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = load ptr, ptr %arrayidx24, align 8
   %call27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 4, ptr noundef %0, i32 noundef %conv) #5
+  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 4, ptr noundef nonnull %0, i32 noundef %conv) #5
   %cmp29.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not, label %if.end32, label %return
 
@@ -736,7 +736,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = load ptr, ptr %arrayidx18, align 8
   %call21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %conv = trunc i64 %call21 to i32
-  %call22 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 5, ptr noundef %0, i32 noundef %conv) #5
+  %call22 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 5, ptr noundef nonnull %0, i32 noundef %conv) #5
   %cmp23.not = icmp eq i32 %call22, 0
   br i1 %cmp23.not, label %if.end26, label %return
 
@@ -814,7 +814,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = load ptr, ptr %arrayidx24, align 8
   %call27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 6, ptr noundef %0, i32 noundef %conv) #5
+  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 6, ptr noundef nonnull %0, i32 noundef %conv) #5
   %cmp29.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not, label %if.end32, label %return
 
@@ -892,7 +892,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %0 = load ptr, ptr %arrayidx24, align 8
   %call27 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #6
   %conv = trunc i64 %call27 to i32
-  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 7, ptr noundef %0, i32 noundef %conv) #5
+  %call28 = call i32 @wc_HmacSetKey(ptr noundef nonnull %hmac, i32 noundef 7, ptr noundef nonnull %0, i32 noundef %conv) #5
   %cmp29.not = icmp eq i32 %call28, 0
   br i1 %cmp29.not, label %if.end32, label %return
 
@@ -938,7 +938,7 @@ return:                                           ; preds = %if.end44, %if.end32
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @wc_InitMd5(ptr noundef) local_unnamed_addr #2
 
@@ -999,10 +999,10 @@ declare i32 @wc_HmacFinal(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @wc_HmacFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

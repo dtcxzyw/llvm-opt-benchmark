@@ -868,12 +868,12 @@ define i32 @string_hash(ptr noundef readonly %0, i64 noundef %1) local_unnamed_a
   %4 = add i64 %1, -1
   %5 = tail call i64 @llvm.umin.i64(i64 %3, i64 %4)
   %6 = trunc i64 %5 to i32
-  %7 = tail call i32 @hash_bytes(ptr noundef %0, i32 noundef %6)
+  %7 = tail call i32 @hash_bytes(ptr noundef nonnull %0, i32 noundef %6)
   ret i32 %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define i32 @tag_hash(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -883,7 +883,7 @@ define i32 @tag_hash(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uint32_hash(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 {
+define i32 @uint32_hash(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = load i32, ptr %0, align 4
   %4 = add i32 %3, -1636608428
   %5 = xor i32 %4, 711645284

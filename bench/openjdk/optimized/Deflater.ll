@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [36 x i8] c"unknown error in checkDeflateStatus\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @Java_java_util_zip_Deflater_init(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
+define noundef i64 @Java_java_util_zip_Deflater_init(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(112) ptr @calloc(i64 noundef 1, i64 noundef 112) #5
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -70,14 +70,14 @@ declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_
 declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @JNU_ThrowIllegalArgumentException(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @JNU_ThrowInternalError(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_util_zip_Deflater_setDictionary(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Java_java_util_zip_Deflater_setDictionary(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1776
   %9 = load ptr, ptr %8, align 8
@@ -118,7 +118,7 @@ checkSetDictionaryResult.exit:                    ; preds = %21, %20, %12, %6
 declare i32 @deflateSetDictionary(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_util_zip_Deflater_setDictionaryBuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Java_java_util_zip_Deflater_setDictionaryBuffer(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = inttoptr i64 %3 to ptr
   %7 = inttoptr i64 %2 to ptr
   %8 = tail call i32 @deflateSetDictionary(ptr noundef %7, ptr noundef %6, i32 noundef %4) #6
@@ -144,7 +144,7 @@ checkSetDictionaryResult.exit:                    ; preds = %5, %9, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
+define i64 @Java_java_util_zip_Deflater_deflateBytesBytes(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) local_unnamed_addr #0 {
   %12 = load ptr, ptr %0, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1776
   %14 = load ptr, ptr %13, align 8
@@ -290,7 +290,7 @@ checkDeflateStatus.exit:                          ; preds = %73, %71, %67, %31, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_java_util_zip_Deflater_deflateBytesBuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define i64 @Java_java_util_zip_Deflater_deflateBytesBuffer(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1776
   %13 = load ptr, ptr %12, align 8
@@ -397,7 +397,7 @@ checkDeflateStatus.exit:                          ; preds = %52, %50, %42, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_java_util_zip_Deflater_deflateBufferBytes(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define i64 @Java_java_util_zip_Deflater_deflateBufferBytes(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = load ptr, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1776
   %13 = load ptr, ptr %12, align 8
@@ -504,7 +504,7 @@ checkDeflateStatus.exit:                          ; preds = %52, %50, %42, %16, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Java_java_util_zip_Deflater_deflateBufferBuffer(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define i64 @Java_java_util_zip_Deflater_deflateBufferBuffer(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = inttoptr i64 %3 to ptr
   %11 = inttoptr i64 %5 to ptr
   %12 = inttoptr i64 %2 to ptr
@@ -578,7 +578,7 @@ checkDeflateStatus.exit:                          ; preds = %23, %28, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Java_java_util_zip_Deflater_getAdler(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #4 {
+define i32 @Java_java_util_zip_Deflater_getAdler(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = inttoptr i64 %2 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
   %6 = load i64, ptr %5, align 8
@@ -587,7 +587,7 @@ define i32 @Java_java_util_zip_Deflater_getAdler(ptr nocapture noundef readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_util_zip_Deflater_reset(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_java_util_zip_Deflater_reset(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @deflateReset(ptr noundef %4) #6
   %.not = icmp eq i32 %5, 0
@@ -604,7 +604,7 @@ define void @Java_java_util_zip_Deflater_reset(ptr noundef %0, ptr nocapture nou
 declare i32 @deflateReset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_util_zip_Deflater_end(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @Java_java_util_zip_Deflater_end(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = inttoptr i64 %2 to ptr
   %5 = tail call i32 @deflateEnd(ptr noundef %4) #6
   %6 = icmp eq i32 %5, -2

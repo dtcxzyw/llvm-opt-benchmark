@@ -685,7 +685,7 @@ ompi_request_complete.exit50:                     ; preds = %194, %.critedge.i49
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_common_ompio_request_alloc(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @mca_common_ompio_request_alloc(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @mca_ompio_request_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #8
   %5 = load i32, ptr @opal_class_init_epoch, align 4
@@ -773,7 +773,7 @@ define void @mca_common_ompio_register_progress() local_unnamed_addr #0 {
 declare i32 @opal_progress_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mca_common_ompio_request_free(ptr nocapture noundef %0) #0 {
+define internal noundef i32 @mca_common_ompio_request_free(ptr noundef captures(none) %0) #0 {
   %2 = alloca %struct.iovec, align 8
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
@@ -888,7 +888,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @mca_common_ompio_request_cancel(ptr nocapture readnone %0, i32 %1) #2 {
+define internal noundef i32 @mca_common_ompio_request_cancel(ptr readnone captures(none) %0, i32 %1) #2 {
   ret i32 0
 }
 
@@ -897,7 +897,7 @@ declare i32 @opal_convertor_unpack(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare void @mca_common_ompio_release_buf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -917,7 +917,7 @@ declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #4
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

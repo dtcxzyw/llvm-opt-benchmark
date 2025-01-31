@@ -53,7 +53,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_percpu_up_wr
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable___percpu_down_read350, ptr @__UNIQUE_ID___addressable___percpu_init_rwsem341, ptr @__UNIQUE_ID___addressable_percpu_down_write354, ptr @__UNIQUE_ID___addressable_percpu_free_rwsem342, ptr @__UNIQUE_ID___addressable_percpu_is_read_locked352, ptr @__UNIQUE_ID___addressable_percpu_up_write355, ptr @__percpu_down_read.__UNIQUE_ID___addressable___SCK__preempt_schedule349, ptr @__percpu_rwsem_trylock.__UNIQUE_ID___addressable___SCK__preempt_schedule343, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched40, ptr @trace_contention_begin.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace318, ptr @trace_contention_begin.__UNIQUE_ID___addressable___SCK__tp_func_contention_begin317, ptr @trace_contention_end.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace332, ptr @trace_contention_end.__UNIQUE_ID___addressable___SCK__tp_func_contention_end331], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @__percpu_init_rwsem(ptr noundef initializes((48, 56)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @__percpu_init_rwsem(ptr noundef initializes((48, 56)) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @__alloc_percpu(i64 noundef 4, i64 noundef 4) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %4, ptr %5, align 8
@@ -394,10 +394,10 @@ define dso_local zeroext i1 @percpu_is_read_locked(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @percpu_down_write(ptr noundef %0) #0 section ".sched.text" align 16 {

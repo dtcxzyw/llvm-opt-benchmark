@@ -144,10 +144,10 @@ ompi_errcode_get_mpi_code.exit:                   ; preds = %27, %49, %24, %22
 declare void @ompi_hook_base_mpi_init_thread_top(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @ompi_mpi_init(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 

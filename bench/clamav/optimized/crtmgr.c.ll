@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.crtmgr_rsa_verify = private unnamed_addr constant [7 x i32] [i32 20, i32 16, i32 poison, i32 poison, i32 32, i32 48, i32 64], align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @cli_crt_init(ptr nocapture noundef initializes((0, 408)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @cli_crt_init(ptr noundef captures(none) initializes((0, 408)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %0, i8 0, i64 408, i1 false)
   %2 = tail call ptr @BN_new() #10
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -72,10 +72,10 @@ cli_crt_init_fps.exit:                            ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @cli_crt_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @cli_crt_clear(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   tail call void @BN_free(ptr noundef %3) #10
@@ -92,7 +92,7 @@ define void @cli_crt_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare void @BN_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @crtmgr_trust_list_lookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @crtmgr_trust_list_lookup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %.051 = load ptr, ptr %0, align 8
   %.not52 = icmp eq ptr %.051, null
@@ -235,7 +235,7 @@ define ptr @crtmgr_trust_list_lookup(ptr nocapture noundef readonly %0, ptr noca
 declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @crtmgr_block_list_lookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @crtmgr_block_list_lookup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.020 = load ptr, ptr %0, align 8
   %.not21 = icmp eq ptr %.020, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
@@ -291,7 +291,7 @@ define ptr @crtmgr_block_list_lookup(ptr nocapture noundef readonly %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @crtmgr_lookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @crtmgr_lookup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -357,7 +357,7 @@ crtmgr_block_list_lookup.exit:                    ; preds = %24, %22, %19, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @crtmgr_add(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @crtmgr_add(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 384
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -589,16 +589,16 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare ptr @BN_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @crtmgr_init(ptr nocapture noundef writeonly initializes((0, 12)) %0) local_unnamed_addr #7 {
+define void @crtmgr_init(ptr noundef writeonly captures(none) initializes((0, 12)) %0) local_unnamed_addr #7 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -606,7 +606,7 @@ define void @crtmgr_init(ptr nocapture noundef writeonly initializes((0, 12)) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @crtmgr_del(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @crtmgr_del(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.026 = load ptr, ptr %0, align 8
   %.not27 = icmp eq ptr %.026, null
   br i1 %.not27, label %.loopexit, label %.lr.ph
@@ -681,7 +681,7 @@ define void @crtmgr_del(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @crtmgr_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @crtmgr_free(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not3 = icmp eq i32 %3, 0
@@ -699,7 +699,7 @@ define void @crtmgr_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @crtmgr_verify_crt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.03545 = load ptr, ptr %0, align 8
   %.not46 = icmp eq ptr %.03545, null
   br i1 %.not46, label %.loopexit, label %.lr.ph
@@ -787,7 +787,7 @@ define ptr @crtmgr_verify_crt(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @crtmgr_rsa_verify(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @crtmgr_rsa_verify(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @BN_num_bits(ptr noundef %6) #10
@@ -1139,7 +1139,7 @@ crtmgr_get_recov_data.exit:                       ; preds = %18, %24, %26, %35, 
 declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @crtmgr_verify_pkcs7(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
+define ptr @crtmgr_verify_pkcs7(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = add i32 %4, -514
   %or.cond = icmp ult i32 %9, -386
   br i1 %or.cond, label %10, label %11
@@ -1293,7 +1293,7 @@ declare i32 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @BN_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

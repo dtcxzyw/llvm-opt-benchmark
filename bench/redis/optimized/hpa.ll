@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @hpa_central_init(ptr noundef %central, ptr noundef %base, ptr nocapture noundef readonly %hooks) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @hpa_central_init(ptr noundef %central, ptr noundef %base, ptr noundef readonly captures(none) %hooks) local_unnamed_addr #1 {
 entry:
   %grow_mtx = getelementptr inbounds nuw i8, ptr %central, i64 112
   %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %grow_mtx, ptr noundef nonnull @.str, i32 noundef 19, i32 noundef 0) #8
@@ -50,10 +50,10 @@ return:                                           ; preds = %if.end, %entry, %if
 declare zeroext i1 @malloc_mutex_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @hpa_central_extract(ptr noundef %tsdn, ptr noundef %central, i64 %size, ptr nocapture noundef writeonly initializes((0, 1)) %oom) local_unnamed_addr #1 {
+define hidden ptr @hpa_central_extract(ptr noundef %tsdn, ptr noundef %central, i64 %size, ptr noundef writeonly captures(none) initializes((0, 1)) %oom) local_unnamed_addr #1 {
 entry:
   %commit = alloca i8, align 1
   %cmp.i = icmp eq ptr %tsdn, null
@@ -243,7 +243,7 @@ declare ptr @pages_map(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local
 declare void @pages_unmap(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @hpa_shard_init(ptr noundef %shard, ptr noundef %central, ptr noundef %emap, ptr noundef %base, ptr noundef %edata_cache, i32 noundef %ind, ptr nocapture noundef readonly %opts) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @hpa_shard_init(ptr noundef %shard, ptr noundef %central, ptr noundef %emap, ptr noundef %base, ptr noundef %edata_cache, i32 noundef %ind, ptr noundef readonly captures(none) %opts) local_unnamed_addr #1 {
 entry:
   %grow_mtx = getelementptr inbounds nuw i8, ptr %shard, i64 176
   %call = tail call zeroext i1 @malloc_mutex_init(ptr noundef nonnull %grow_mtx, ptr noundef nonnull @.str.2, i32 noundef 17, i32 noundef 0) #8
@@ -302,7 +302,7 @@ declare void @edata_cache_fast_init(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @psset_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @hpa_alloc(ptr noundef %tsdn, ptr noundef %self, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 zeroext %guarded, i1 zeroext %frequent_reuse, ptr nocapture noundef writeonly %deferred_work_generated) #1 {
+define internal ptr @hpa_alloc(ptr noundef %tsdn, ptr noundef %self, i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %zero, i1 zeroext %guarded, i1 zeroext %frequent_reuse, ptr noundef writeonly captures(none) %deferred_work_generated) #1 {
 entry:
   %results = alloca %struct.edata_list_active_t, align 8
   %cmp = icmp ugt i64 %alignment, 4096
@@ -321,7 +321,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @hpa_alloc_batch(ptr noundef %tsdn, ptr noundef %self, i64 noundef %size, i64 noundef %nallocs, ptr nocapture noundef %results, ptr nocapture noundef writeonly %deferred_work_generated) #1 {
+define internal i64 @hpa_alloc_batch(ptr noundef %tsdn, ptr noundef %self, i64 noundef %size, i64 noundef %nallocs, ptr noundef captures(none) %results, ptr noundef writeonly captures(none) %deferred_work_generated) #1 {
 entry:
   %oom.i = alloca i8, align 1
   %opts = getelementptr inbounds nuw i8, ptr %self, i64 5624
@@ -451,19 +451,19 @@ return:                                           ; preds = %entry, %hpa_alloc_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @hpa_expand(ptr nocapture readnone %tsdn, ptr nocapture readnone %self, ptr nocapture readnone %edata, i64 %old_size, i64 %new_size, i1 zeroext %zero, ptr nocapture readnone %deferred_work_generated) #0 {
+define internal noundef zeroext i1 @hpa_expand(ptr readnone captures(none) %tsdn, ptr readnone captures(none) %self, ptr readnone captures(none) %edata, i64 %old_size, i64 %new_size, i1 zeroext %zero, ptr readnone captures(none) %deferred_work_generated) #0 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @hpa_shrink(ptr nocapture readnone %tsdn, ptr nocapture readnone %self, ptr nocapture readnone %edata, i64 %old_size, i64 %new_size, ptr nocapture readnone %deferred_work_generated) #0 {
+define internal noundef zeroext i1 @hpa_shrink(ptr readnone captures(none) %tsdn, ptr readnone captures(none) %self, ptr readnone captures(none) %edata, i64 %old_size, i64 %new_size, ptr readnone captures(none) %deferred_work_generated) #0 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @hpa_dalloc(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, ptr nocapture noundef writeonly %deferred_work_generated) #1 {
+define internal void @hpa_dalloc(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, ptr noundef writeonly captures(none) %deferred_work_generated) #1 {
 edata_list_active_append.exit:
   %dalloc_list = alloca %struct.edata_list_active_t, align 8
   %0 = getelementptr inbounds nuw i8, ptr %edata, i64 40
@@ -476,7 +476,7 @@ edata_list_active_append.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @hpa_dalloc_batch(ptr noundef %tsdn, ptr noundef %self, ptr nocapture noundef %list, ptr nocapture noundef writeonly %deferred_work_generated) #1 {
+define internal void @hpa_dalloc_batch(ptr noundef %tsdn, ptr noundef %self, ptr noundef captures(none) %list, ptr noundef writeonly captures(none) %deferred_work_generated) #1 {
 entry:
   %now.i.i = alloca %struct.nstime_t, align 8
   %0 = load ptr, ptr %list, align 8
@@ -1100,7 +1100,7 @@ malloc_mutex_lock.exit:                           ; preds = %if.end.i, %if.then.
 declare void @edata_cache_fast_disable(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hpa_shard_destroy(ptr nocapture noundef readnone %tsdn, ptr noundef %shard) local_unnamed_addr #1 {
+define hidden void @hpa_shard_destroy(ptr noundef readnone captures(none) %tsdn, ptr noundef %shard) local_unnamed_addr #1 {
 entry:
   %psset = getelementptr inbounds nuw i8, ptr %shard, i64 320
   %call5 = tail call ptr @psset_pick_alloc(ptr noundef nonnull %psset, i64 noundef 4096) #8
@@ -1753,7 +1753,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #4
 declare void @nstime_copy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef %shard, i64 noundef %size, ptr nocapture noundef nonnull writeonly %oom, i64 noundef %nallocs, ptr nocapture noundef %results, ptr nocapture noundef writeonly %deferred_work_generated) unnamed_addr #1 {
+define internal fastcc i64 @hpa_try_alloc_batch_no_grow(ptr noundef %tsdn, ptr noundef %shard, i64 noundef %size, ptr noundef nonnull writeonly captures(none) %oom, i64 noundef %nallocs, ptr noundef captures(none) %results, ptr noundef writeonly captures(none) %deferred_work_generated) unnamed_addr #1 {
 entry:
   %now.i.i = alloca %struct.nstime_t, align 8
   %lock.i.i = getelementptr inbounds nuw i8, ptr %shard, i64 128
@@ -2098,16 +2098,16 @@ declare void @hpdata_purge_end(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @hpdata_hugify(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

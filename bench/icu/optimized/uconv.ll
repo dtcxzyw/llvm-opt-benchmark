@@ -113,7 +113,7 @@ $_ZN11ConvertFileD2Ev = comdat any
 @.str.102 = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext range(i8 0, 2) i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %this, ptr noundef %pname, ptr noundef %fromcpage, ptr noundef %toucallback, ptr noundef %touctxt, ptr noundef %tocpage, ptr noundef %fromucallback, ptr noundef %fromuctxt, i8 noundef signext %fallback, ptr noundef %translit, ptr noundef %infilestr, ptr nocapture noundef %outfile, i32 noundef %verbose) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef signext range(i8 0, 2) i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %this, ptr noundef %pname, ptr noundef %fromcpage, ptr noundef %toucallback, ptr noundef %touctxt, ptr noundef %tocpage, ptr noundef %fromucallback, ptr noundef %fromuctxt, i8 noundef signext %fallback, ptr noundef %translit, ptr noundef %infilestr, ptr noundef captures(none) %outfile, i32 noundef %verbose) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %srcChar.addr.i276 = alloca i16, align 2
   %srcChar.addr.i269 = alloca i16, align 2
@@ -1620,10 +1620,10 @@ ehcleanup606:                                     ; preds = %lpad2.loopexit, %lp
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare void @_ZN6icu_7513UnicodeStringC1EPKcS2_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef) unnamed_addr #3
 
@@ -1704,7 +1704,7 @@ declare i32 @u_wmsg(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @_ZN6icu_7513UnicodeStringC1EPKc(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #3
 
@@ -1734,10 +1734,10 @@ declare void @ucnv_setFromUCallBack_75(ptr noundef, ptr noundef, ptr noundef, pt
 declare void @ucnv_setFallback_75(ptr noundef, i8 noundef signext) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #3
 
@@ -1748,12 +1748,12 @@ declare void @_ZN6icu_7513UnicodeString13releaseBufferEi(ptr noundef nonnull ali
 declare void @ucnv_getInvalidChars_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @_ZN6icu_7513UnicodeStringC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #3
 
@@ -1816,12 +1816,12 @@ declare void @ucnv_fromUnicode_75(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare void @ucnv_getInvalidUChars_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @ucnv_close_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress norecurse uwtable
 define dso_local noundef range(i32 0, 5) i32 @main(i32 noundef %argc, ptr noundef %argv) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
@@ -2145,7 +2145,7 @@ if.then63:                                        ; preds = %if.then60
   br i1 %cmp66, label %if.then67, label %for.inc
 
 if.then67:                                        ; preds = %if.then63
-  invoke fastcc void @_ZL7initMsgPKc(ptr noundef %pname.0)
+  invoke fastcc void @_ZL7initMsgPKc(ptr noundef nonnull %pname.0)
           to label %invoke.cont68 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont68:                                    ; preds = %if.then67
@@ -2154,7 +2154,7 @@ invoke.cont68:                                    ; preds = %if.then67
           to label %invoke.cont69 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont69:                                    ; preds = %invoke.cont68
-  invoke fastcc void @_ZL7initMsgPKc(ptr noundef %pname.0)
+  invoke fastcc void @_ZL7initMsgPKc(ptr noundef nonnull %pname.0)
           to label %invoke.cont71 unwind label %lpad70
 
 invoke.cont71:                                    ; preds = %invoke.cont69
@@ -2254,7 +2254,7 @@ if.then119:                                       ; preds = %invoke.cont112
           to label %invoke.cont121 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont121:                                   ; preds = %if.then119
-  invoke fastcc void @_ZL7initMsgPKc(ptr noundef %pname.0)
+  invoke fastcc void @_ZL7initMsgPKc(ptr noundef nonnull %pname.0)
           to label %invoke.cont123 unwind label %lpad122
 
 invoke.cont123:                                   ; preds = %invoke.cont121
@@ -2427,7 +2427,7 @@ if.else174:                                       ; preds = %for.cond.i
           to label %invoke.cont176 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont176:                                   ; preds = %if.else174
-  invoke fastcc void @_ZL7initMsgPKc(ptr noundef %pname.0)
+  invoke fastcc void @_ZL7initMsgPKc(ptr noundef nonnull %pname.0)
           to label %invoke.cont178 unwind label %lpad177
 
 invoke.cont178:                                   ; preds = %invoke.cont176
@@ -2492,7 +2492,7 @@ if.else200:                                       ; preds = %for.cond.i167
           to label %invoke.cont202 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont202:                                   ; preds = %if.else200
-  invoke fastcc void @_ZL7initMsgPKc(ptr noundef %pname.0)
+  invoke fastcc void @_ZL7initMsgPKc(ptr noundef nonnull %pname.0)
           to label %invoke.cont204 unwind label %lpad203
 
 invoke.cont204:                                   ; preds = %invoke.cont202
@@ -2584,7 +2584,7 @@ if.else233:                                       ; preds = %for.cond.i178
           to label %invoke.cont235 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont235:                                   ; preds = %if.else233
-  invoke fastcc void @_ZL7initMsgPKc(ptr noundef %pname.0)
+  invoke fastcc void @_ZL7initMsgPKc(ptr noundef nonnull %pname.0)
           to label %invoke.cont237 unwind label %lpad236
 
 invoke.cont237:                                   ; preds = %invoke.cont235
@@ -2691,7 +2691,7 @@ lor.lhs.false263:                                 ; preds = %if.else260.tail
   br i1 %tobool265.not, label %if.then266, label %sub_0320
 
 if.then266:                                       ; preds = %lor.lhs.false263, %if.else260.tail
-  %call268 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef %pname.0)
+  %call268 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef nonnull %pname.0)
   br label %cleanup
 
 sub_0320:                                         ; preds = %lor.lhs.false263
@@ -2762,7 +2762,7 @@ land.lhs.true295:                                 ; preds = %if.else292
 
 if.then298.invoke:                                ; preds = %land.lhs.true295, %if.then275, %if.then220, %if.then190, %if.then165, %if.else147.tail, %lor.lhs.false150.tail, %lor.lhs.false153, %if.then142, %if.end108, %if.then104, %if.then94, %if.then86, %if.then60, %if.then39, %if.then29, %if.then16
   %171 = phi i32 [ 1, %if.then16 ], [ 1, %if.then29 ], [ 1, %if.then39 ], [ 1, %if.then60 ], [ 1, %if.then86 ], [ 1, %if.then94 ], [ 1, %if.then104 ], [ 1, %if.end108 ], [ 1, %if.then142 ], [ 0, %lor.lhs.false153 ], [ 0, %lor.lhs.false150.tail ], [ 0, %if.else147.tail ], [ 1, %if.then165 ], [ 1, %if.then190 ], [ 1, %if.then220 ], [ 1, %if.then275 ], [ 1, %land.lhs.true295 ]
-  invoke fastcc void @_ZL5usagePKci(ptr noundef %pname.0, i32 noundef %171)
+  invoke fastcc void @_ZL5usagePKci(ptr noundef nonnull %pname.0, i32 noundef %171)
           to label %if.then298.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.then298.cont:                                  ; preds = %if.then298.invoke
@@ -2848,7 +2848,7 @@ call10.i.noexc:                                   ; preds = %if.end9.i
   br i1 %cmp.i186, label %if.then11.i, label %if.end13.i
 
 if.then11.i:                                      ; preds = %call10.i.noexc
-  invoke fastcc void @_ZL7initMsgPKc(ptr noundef %pname.0)
+  invoke fastcc void @_ZL7initMsgPKc(ptr noundef nonnull %pname.0)
           to label %.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .noexc:                                           ; preds = %if.then11.i
@@ -3412,7 +3412,7 @@ invoke.cont368:                                   ; preds = %if.then367
           to label %invoke.cont372 unwind label %lpad371
 
 invoke.cont372:                                   ; preds = %invoke.cont368
-  invoke fastcc void @_ZL7initMsgPKc(ptr noundef %pname.0)
+  invoke fastcc void @_ZL7initMsgPKc(ptr noundef nonnull %pname.0)
           to label %invoke.cont374 unwind label %lpad373
 
 invoke.cont374:                                   ; preds = %invoke.cont372
@@ -3521,7 +3521,7 @@ for.cond387:                                      ; preds = %invoke.cont391
 for.body389:                                      ; preds = %invoke.cont384, %for.cond387
   %iter.2879 = phi ptr [ %incdec.ptr397, %for.cond387 ], [ %add.ptr10.ptr, %invoke.cont384 ]
   %230 = load ptr, ptr %iter.2879, align 8
-  %call392 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa97310091042, ptr noundef %touctxt.0.lcssa97410081044, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa97110111038, ptr noundef %fromuctxt.0.lcssa97210101040, i8 noundef signext %fallback.0.lcssa97010121036, ptr noundef %translit.0.lcssa96810141032, ptr noundef %230, ptr noundef %outfile.0, i32 noundef %verbose.0.lcssa98210041050)
+  %call392 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef nonnull %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa97310091042, ptr noundef %touctxt.0.lcssa97410081044, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa97110111038, ptr noundef %fromuctxt.0.lcssa97210101040, i8 noundef signext %fallback.0.lcssa97010121036, ptr noundef %translit.0.lcssa96810141032, ptr noundef %230, ptr noundef %outfile.0, i32 noundef %verbose.0.lcssa98210041050)
           to label %invoke.cont391 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont391:                                   ; preds = %for.body389
@@ -3529,7 +3529,7 @@ invoke.cont391:                                   ; preds = %for.body389
   br i1 %tobool393.not, label %error_exit, label %for.cond387
 
 if.else399:                                       ; preds = %invoke.cont384
-  %call402 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa97310091042, ptr noundef %touctxt.0.lcssa97410081044, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa97110111038, ptr noundef %fromuctxt.0.lcssa97210101040, i8 noundef signext %fallback.0.lcssa97010121036, ptr noundef %translit.0.lcssa96810141032, ptr noundef null, ptr noundef %outfile.0, i32 noundef %verbose.0.lcssa98210041050)
+  %call402 = invoke noundef signext i8 @_ZN11ConvertFile11convertFileEPKcS1_PFvPKvP23UConverterToUnicodeArgsS1_i24UConverterCallbackReasonP10UErrorCodeES3_S1_PFvS3_P25UConverterFromUnicodeArgsPKDsiiS6_S8_ES3_aS1_S1_P8_IO_FILEi(ptr noundef nonnull align 8 dereferenceable(33) %cf, ptr noundef nonnull %pname.0, ptr noundef %fromcpage.2, ptr noundef %toucallback.0.lcssa97310091042, ptr noundef %touctxt.0.lcssa97410081044, ptr noundef %tocpage.2, ptr noundef %fromucallback.0.lcssa97110111038, ptr noundef %fromuctxt.0.lcssa97210101040, i8 noundef signext %fallback.0.lcssa97010121036, ptr noundef %translit.0.lcssa96810141032, ptr noundef null, ptr noundef %outfile.0, i32 noundef %verbose.0.lcssa98210041050)
           to label %invoke.cont401 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont401:                                   ; preds = %if.else399
@@ -3615,7 +3615,7 @@ entry:
   %call5 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %pname) #23
   %3 = trunc i64 %call5 to i32
   %conv = add i32 %3, 1
-  call void @_ZN6icu_7513UnicodeStringC1EPKci(ptr noundef nonnull align 8 dereferenceable(64) %upname, ptr noundef %pname, i32 noundef %conv)
+  call void @_ZN6icu_7513UnicodeStringC1EPKci(ptr noundef nonnull align 8 dereferenceable(64) %upname, ptr noundef nonnull %pname, i32 noundef %conv)
   %4 = load i32, ptr %msgLen, align 4
   %add6 = add nsw i32 %4, 1
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %mname, ptr noundef %call, i32 noundef %add6)
@@ -3723,7 +3723,7 @@ ehcleanup:                                        ; preds = %lpad9, %lpad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #11
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @ucnv_getDefaultName_75() local_unnamed_addr #3
 
@@ -3734,7 +3734,7 @@ declare void @UCNV_FROM_U_CALLBACK_SKIP_75(ptr noundef, ptr noundef, ptr noundef
 declare void @UCNV_TO_U_CALLBACK_SKIP_75(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @u_cleanup_75() local_unnamed_addr #3
 
@@ -3768,7 +3768,7 @@ declare void @udata_setAppData_75(ptr noundef, ptr noundef, ptr noundef) local_u
 declare ptr @u_wmsg_setPath(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 declare ptr @u_getDataDirectory_75() local_unnamed_addr #3
 
@@ -3789,7 +3789,7 @@ declare signext i8 @uset_contains_75(ptr noundef, i32 noundef) local_unnamed_add
 declare void @uset_close_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @ucnv_resetFromUnicode_75(ptr noundef) local_unnamed_addr #3
 
@@ -3798,14 +3798,14 @@ declare ptr @ucnv_detectUnicodeSignature_75(ptr noundef, i32 noundef, ptr nounde
 declare ptr @ures_getStringByKey_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @_ZN6icu_7513UnicodeStringC1EPKci(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #3
 
 declare void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef) unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @UCNV_FROM_U_CALLBACK_SUBSTITUTE_75(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) #3
 
@@ -3827,7 +3827,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #14
 declare ptr @ucnv_getStandard_75(i16 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare ptr @ucnv_getAvailableName_75(i32 noundef) local_unnamed_addr #3
 
@@ -3858,13 +3858,13 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #16
 declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #19
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #19
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -853,7 +853,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsmcc_ts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dsmcc_ts(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr @proto_dsmcc, align 4
   %6 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %7 = load i32, ptr @ett_dsmcc, align 4
@@ -954,7 +954,7 @@ proto_item_set_generated.exit:                    ; preds = %51, %54, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsmcc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dsmcc_tcp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %.not = icmp eq i8 %5, 17
   br i1 %.not, label %6, label %15
@@ -979,7 +979,7 @@ define internal i32 @dissect_dsmcc_tcp(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dsmcc_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dsmcc_udp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #2
   %.not = icmp eq i8 %5, 17
   br i1 %.not, label %6, label %15
@@ -2376,7 +2376,7 @@ dissect_dsmcc_adaptation_header.exit:             ; preds = %85, %72, %54, %36
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dsmcc_un_session_id(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dsmcc_un_session_id(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_dsmcc_heading, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %1, i32 noundef 10, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.560) #2
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 408

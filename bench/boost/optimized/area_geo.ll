@@ -5032,7 +5032,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter9log_startERSom(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((12, 13)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter9log_startERSom(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((12, 13)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = load ptr, ptr @_ZN5boost9unit_test14runtime_config17btrt_color_outputB5cxx11E, align 8, !tbaa !4
   %6 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost9unit_test14runtime_config17btrt_color_outputB5cxx11E, i64 8), align 8, !tbaa !11
@@ -5068,7 +5068,7 @@ define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter9log_st
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter10log_finishERSo(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter10log_finishERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
@@ -5076,7 +5076,7 @@ define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter10log_f
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter14log_build_infoERSob(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter14log_build_infoERSob(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -5374,7 +5374,7 @@ _ZN5boost9unit_test5utils14scope_setcolorD2Ev.exit: ; preds = %_ZNSolsEPFRSoS_E.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -5534,7 +5534,7 @@ _ZN5boost9unit_test5utilslsERSoRKNS1_8setcolorE.exit: ; preds = %12, %4, %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter16test_unit_finishERSoRKNS0_9test_unitEm(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(280) %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -5961,7 +5961,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5boost9unit_test9test_unit9full_nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5boost9unit_test9test_unit9full_nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i64, ptr %4, align 8, !tbaa !93
@@ -6085,7 +6085,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter19log_exception_startERSoRKNS0_19log_checkpoint_dataERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter19log_exception_startERSoRKNS0_19log_checkpoint_dataERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %6 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %7 = alloca i8, align 1
@@ -6501,7 +6501,7 @@ _ZN5boost9unit_test9framework16test_in_progressEv.exit: ; preds = %1, %4, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter20log_exception_finishERSo(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter20log_exception_finishERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !25
   %4 = getelementptr i8, ptr %3, i64 -24
   %5 = load i64, ptr %4, align 8
@@ -6542,7 +6542,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %12, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %7 = alloca %"class.boost::unit_test::utils::setcolor", align 4
@@ -6936,13 +6936,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit56: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter15log_entry_valueERSoNS0_13basic_cstringIKcEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter15log_entry_valueERSoNS0_13basic_cstringIKcEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2) unnamed_addr #3 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter15log_entry_valueERSoRKNS0_12lazy_ostreamE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(9) %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter15log_entry_valueERSoRKNS0_12lazy_ostreamE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(9) %2) unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %2, align 8, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -6951,7 +6951,7 @@ define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter15log_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter16log_entry_finishERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter16log_entry_finishERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4, !tbaa !19, !range !17, !noundef !18
@@ -7025,7 +7025,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %29, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter12print_prefixERSoNS0_13basic_cstringIKcEEm(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter12print_prefixERSoNS0_13basic_cstringIKcEEm(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !14
@@ -7066,7 +7066,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter19entry_context_startERSoNS0_9log_levelE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter19entry_context_startERSoNS0_9log_levelE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = icmp eq i32 %2, 2
   br i1 %4, label %5, label %7
 
@@ -7087,7 +7087,7 @@ define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter19entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter20entry_context_finishERSoNS0_9log_levelE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter20entry_context_finishERSoNS0_9log_levelE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = icmp eq i32 %2, 2
   br i1 %4, label %5, label %7
 
@@ -7101,7 +7101,7 @@ define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter20entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter17log_entry_contextERSoNS0_9log_levelENS0_13basic_cstringIKcEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2, ptr noundef %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test6output22compiler_log_formatter17log_entry_contextERSoNS0_9log_levelENS0_13basic_cstringIKcEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2, ptr noundef %3) unnamed_addr #3 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.35, i64 noundef 5)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_testlsIcSt11char_traitsIcEKcEERSt13basic_ostreamIT_T0_ES9_RKNS0_13basic_cstringIT1_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret void
@@ -7127,7 +7127,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output13file_basenameENS0_13basic_cstringIKcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::unit_test::basic_cstring") align 8 initializes((0, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define hidden void @_ZN5boost9unit_test6output13file_basenameENS0_13basic_cstringIKcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::unit_test::basic_cstring") align 8 captures(none) initializes((0, 16)) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
 _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit:
   %2 = load ptr, ptr %1, align 8, !tbaa !12
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7479,7 +7479,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit46.thread:       ; preds = %._crit_edge.i.i.i.u
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter9log_startERSom(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter9log_startERSom(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !148
@@ -7941,7 +7941,7 @@ _ZN5boost9unit_test18traverse_test_treeERKNS0_9test_caseERNS0_17test_tree_visito
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter14log_build_infoERSob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((200, 201)) %0, ptr nocapture nonnull readnone align 8 %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter14log_build_infoERSob(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(208) initializes((200, 201)) %0, ptr nonnull readnone align 8 captures(none) %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 %4, ptr %5, align 8, !tbaa !176
@@ -7949,7 +7949,7 @@ define hidden void @_ZN5boost9unit_test6output19junit_log_formatter14log_build_i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter15test_unit_startERSoRKNS0_9test_unitE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter15test_unit_startERSoRKNS0_9test_unitE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.57", align 8
   %5 = alloca %"struct.boost::unit_test::output::junit_impl::junit_log_helper", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -8125,7 +8125,7 @@ _ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter16test_unit_finishERSoRKNS0_9test_unitEm(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, i64 %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter16test_unit_finishERSoRKNS0_9test_unitEm(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, i64 %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %6 = load ptr, ptr %5, align 8, !tbaa !155
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -8138,12 +8138,12 @@ define hidden void @_ZN5boost9unit_test6output19junit_log_formatter16test_unit_f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter17test_unit_abortedERSoRKNS0_9test_unitE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #10 align 2 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter17test_unit_abortedERSoRKNS0_9test_unitE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #10 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter19test_unit_timed_outERSoRKNS0_9test_unitE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter19test_unit_timed_outERSoRKNS0_9test_unitE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::unit_test::output::junit_impl::junit_log_helper::assertion_entry", align 8
   %5 = load i32, ptr %2, align 8, !tbaa !188
   %6 = icmp eq i32 %5, 16
@@ -8395,7 +8395,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter17test_unit_skippedERSoRKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(280) %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter17test_unit_skippedERSoRKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull align 8 dereferenceable(280) %2, ptr noundef readonly captures(none) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.430", align 8
   %6 = alloca %"class.std::tuple.355", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8459,7 +8459,7 @@ _ZNSt3mapImN5boost9unit_test6output10junit_impl16junit_log_helperESt4lessImESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter19log_exception_startERSoRKNS0_19log_checkpoint_dataERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(208) initializes((201, 202)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter19log_exception_startERSoRKNS0_19log_checkpoint_dataERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(208) initializes((201, 202)) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"struct.boost::unit_test::output::junit_impl::junit_log_helper::assertion_entry", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -9568,7 +9568,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(p
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter20log_exception_finishERSo(ptr noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter20log_exception_finishERSo(ptr noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8, !tbaa !152
   %5 = icmp eq ptr %4, %3
@@ -9633,7 +9633,7 @@ _ZN5boost9unit_test6output19junit_log_formatter21get_current_log_entryEv.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"struct.boost::unit_test::output::junit_impl::junit_log_helper::assertion_entry", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -10724,7 +10724,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3 align 2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter15log_entry_valueERSoNS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter15log_entry_valueERSoNS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -10941,7 +10941,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit12: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter16log_entry_finishERSo(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter16log_entry_finishERSo(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8, !tbaa !152
@@ -11131,7 +11131,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter19entry_context_startERSoNS0_9log_levelE(ptr noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter19entry_context_startERSoNS0_9log_levelE(ptr noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1, i32 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8, !tbaa !152
   %6 = icmp eq ptr %5, %4
@@ -11236,13 +11236,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit6: ; preds = %45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter20entry_context_finishERSoNS0_9log_levelE(ptr nocapture nonnull readonly align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter20entry_context_finishERSoNS0_9log_levelE(ptr nonnull readonly align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1, i32 %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost9unit_test6output19junit_log_formatter21get_current_log_entryEv.exit:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter17log_entry_contextERSoNS0_9log_levelENS0_13basic_cstringIKcEE(ptr noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter17log_entry_contextERSoNS0_9log_levelENS0_13basic_cstringIKcEE(ptr noundef nonnull readonly align 8 dereferenceable(208) %0, ptr nonnull readnone align 8 captures(none) %1, i32 %2, ptr noundef readonly captures(none) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11663,7 +11663,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
-  %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, i64 noundef %4)
+  %10 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2, i64 noundef %4)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !92
   %12 = load ptr, ptr %10, align 8, !tbaa !4
@@ -11702,7 +11702,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %15
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #56
-  %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef 0, ptr noundef %1, i64 noundef %4)
+  %5 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %1, i64 noundef %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %6, ptr %0, align 8, !tbaa !92
   %7 = load ptr, ptr %5, align 8, !tbaa !4
@@ -11739,7 +11739,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5boost9unit_test6output19junit_log_formatter30get_default_stream_descriptionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5boost9unit_test6output19junit_log_formatter30get_default_stream_descriptionB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -13303,7 +13303,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit4: ; preds =
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %1
@@ -13342,7 +13342,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.85(ptr nocapture readnone %0) #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor.85(ptr readnone captures(none) %0) #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %1
@@ -13951,7 +13951,7 @@ define dso_local void @_ZN5boost5debug14debugger_breakEv() local_unnamed_addr #6
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost5debug12set_debuggerB5cxx11ENS_9unit_test13basic_cstringIKcEENS_8functionIFvRKNS0_16dbg_startup_infoEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost5debug12set_debuggerB5cxx11ENS_9unit_test13basic_cstringIKcEENS_8functionIFvRKNS0_16dbg_startup_infoEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::function", align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14513,7 +14513,7 @@ _ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev.exit: ; preds = %.loopexit, %.thread
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: nounwind
 declare i32 @umask(i32 noundef) local_unnamed_addr #1
@@ -14527,7 +14527,7 @@ declare i32 @fork() local_unnamed_addr #14
 declare void @exit(i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #16
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK5boost10function_nIvJRKNS_5debug16dbg_startup_infoEEEclES4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -14565,7 +14565,7 @@ define linkonce_odr hidden void @_ZNK5boost10function_nIvJRKNS_5debug16dbg_start
 }
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost10function_nIvJRKNS_5debug16dbg_startup_infoEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -14605,7 +14605,7 @@ _ZN5boost10function_nIvJRKNS_5debug16dbg_startup_infoEEE5clearEv.exit: ; preds =
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #14
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #14
 
 declare i32 @select(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
@@ -14630,7 +14630,7 @@ define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_19fd_holderD2Ev(i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5boost5debug19detect_memory_leaksEbNS_9unit_test13basic_cstringIKcEE(i1 noundef zeroext %0, ptr nocapture noundef readnone %1) local_unnamed_addr #10 {
+define dso_local void @_ZN5boost5debug19detect_memory_leaksEbNS_9unit_test13basic_cstringIKcEE(i1 noundef zeroext %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #10 {
   ret void
 }
 
@@ -14808,7 +14808,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9decorator11collector_t8store_inERNS0_9test_unitE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test9decorator11collector_t8store_inERNS0_9test_unitE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %5 = load ptr, ptr %4, align 8, !tbaa !173
@@ -15016,7 +15016,7 @@ _ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -15094,7 +15094,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrINS0_9unit_test9decorator4baseEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5boost9unit_test9decorator11collector_t19get_lazy_decoratorsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.27") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5boost9unit_test9decorator11collector_t19get_lazy_decoratorsEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.27") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !173
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !319
@@ -15235,12 +15235,12 @@ _ZN5boost9unit_test9decorator11collector_t8instanceEv.exit: ; preds = %1, %4, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN5boost9unit_test9decorator15stack_decorator5applyERNS0_9test_unitE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #10 align 2 {
+define dso_local void @_ZN5boost9unit_test9decorator15stack_decorator5applyERNS0_9test_unitE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #10 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9decorator5label5applyERNS0_9test_unitE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test9decorator5label5applyERNS0_9test_unitE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !12
@@ -15254,7 +15254,7 @@ define dso_local void @_ZN5boost9unit_test9decorator5label5applyERNS0_9test_unit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9test_unit9add_labelENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9test_unit9add_labelENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15429,7 +15429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9decorator17expected_failures5applyERNS0_9test_unitE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test9decorator17expected_failures5applyERNS0_9test_unitE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(280) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !333
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -15458,7 +15458,7 @@ _ZN5boost9unit_test9test_unit17increase_exp_failEm.exit: ; preds = %tailrecurse.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9test_unit17increase_exp_failEm(ptr nocapture noundef nonnull align 8 dereferenceable(280) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test9test_unit17increase_exp_failEm(ptr noundef nonnull align 8 captures(none) dereferenceable(280) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %4 = load i64, ptr %3, align 8, !tbaa !336
   %5 = add i64 %4, %1
@@ -15485,7 +15485,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5boost9unit_test9decorator7timeout5applyERNS0_9test_unitE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((200, 204)) %1) unnamed_addr #18 align 2 {
+define dso_local void @_ZN5boost9unit_test9decorator7timeout5applyERNS0_9test_unitE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(280) initializes((200, 204)) %1) unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !337
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -15494,7 +15494,7 @@ define dso_local void @_ZN5boost9unit_test9decorator7timeout5applyERNS0_9test_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9decorator11description5applyERNS0_9test_unitE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test9decorator11description5applyERNS0_9test_unitE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %5 = load ptr, ptr %3, align 8, !tbaa !12
@@ -15510,7 +15510,7 @@ define dso_local void @_ZN5boost9unit_test9decorator11description5applyERNS0_9te
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9decorator10depends_on5applyERNS0_9test_unitE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9decorator10depends_on5applyERNS0_9test_unitE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost9unit_test5utils27basic_string_token_iteratorIcNS1_9ut_detail20default_char_compareIcEEEC2INS_3nfp23named_parameter_combineINS8_15named_parameterIKNS1_17ti_delimeter_typeENS1_12_GLOBAL__N_117kept_delimeters_tERSC_EENSA_IPKcNSD_20dropped_delimeters_tESI_EEEEEENS0_13basic_cstringISH_EERKT_.exit:
   %2 = alloca %"struct.boost::unit_test::framework::internal_error", align 8
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -16203,7 +16203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i64 @_ZNK5boost9unit_test10test_suite3getENS0_13basic_cstringIKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef i64 @_ZNK5boost9unit_test10test_suite3getENS0_13basic_cstringIKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(384) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8, !tbaa !173
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -16268,7 +16268,7 @@ _ZN5boost9unit_testeqIKcEEbRKNS0_13basic_cstringIT_EERKNS5_10std_stringE.exit.us
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9test_unit10depends_onEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9test_unit10depends_onEPS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::unit_test::framework::setup_error", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -16369,7 +16369,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %21, %_ZNSt6vectorIm
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9decorator14enable_if_impl10apply_implERNS0_9test_unitEb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(280) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9decorator14enable_if_impl10apply_implERNS0_9test_unitEb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(280) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::unit_test::framework::setup_error", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16613,7 +16613,7 @@ _ZNSt6vectorIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EE9p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5boost6detail23system_signal_exception6reportEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK5boost6detail23system_signal_exception6reportEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !373
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %71, label %3
@@ -16867,7 +16867,7 @@ define hidden void @_ZNK5boost6detail23system_signal_exception6reportEv(ptr noca
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN5boost6detailL12report_errorENS_19execution_exception10error_codeEPKcz(i32 noundef range(i32 205, 226) %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #20 {
+define internal void @_ZN5boost6detailL12report_errorENS_19execution_exception10error_codeEPKcz(i32 noundef range(i32 205, 226) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #20 {
   %3 = alloca %"class.boost::execution_exception", align 8
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #56
@@ -16912,7 +16912,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit.i.preheader: ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5boost6detail13signal_actionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((4, 5)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN5boost6detail13signal_actionC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(312) initializes((4, 5)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %2, align 4, !tbaa !378
   ret void
@@ -17018,7 +17018,7 @@ declare i32 @sigaction(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr
 define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail15throw_exceptionINS_12system_errorEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #19 comdat {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !387
-  tail call void @__cxa_throw(ptr %2, ptr nonnull @_ZTIN5boost12system_errorE, ptr null) #55
+  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5boost12system_errorE, ptr null) #55
   unreachable
 }
 
@@ -17705,7 +17705,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #25
 declare ptr @strerror(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN5boost17execution_monitor13catch_signalsERKNS_8functionIFivEEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN5boost17execution_monitor13catch_signalsERKNS_8functionIFivEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::bad_function_call", align 8
   %4 = alloca %"class.boost::detail::signal_handler", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -17841,12 +17841,12 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #27
 define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail15throw_exceptionINS_6detail23system_signal_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #19 comdat {
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !401
-  tail call void @__cxa_throw(ptr %2, ptr nonnull @_ZTIN5boost6detail23system_signal_exceptionE, ptr null) #55
+  tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5boost6detail23system_signal_exceptionE, ptr null) #55
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5boost17execution_monitorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 2), (8, 17), (20, 48)) %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5boost17execution_monitorC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 2), (8, 17), (20, 48)) %0) unnamed_addr #8 align 2 {
   store i8 1, ptr %0, align 8, !tbaa !396
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1, !tbaa !396
@@ -17860,7 +17860,7 @@ define dso_local void @_ZN5boost17execution_monitorC2Ev(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN5boost17execution_monitor7executeERKNS_8functionIFivEEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN5boost17execution_monitor7executeERKNS_8functionIFivEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::debug::(anonymous namespace)::process_info", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19268,7 +19268,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN5boost6detailL12report_errorENS_19execution_exception10error_codeEPKNS_9exceptionEPKcz(i32 %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ...) unnamed_addr #20 {
+define internal void @_ZN5boost6detailL12report_errorENS_19execution_exception10error_codeEPKNS_9exceptionEPKcz(i32 %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ...) unnamed_addr #20 {
   %4 = alloca %"class.boost::execution_exception", align 8
   %5 = alloca %"struct.boost::execution_exception::location", align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
@@ -19366,7 +19366,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost22current_exception_castIKNS_9e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::function.111", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #56
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -19452,7 +19452,7 @@ _ZN5boost10function_nIiJEE5clearEv.exit:          ; preds = %_ZNK5boost6detail8f
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5boost12system_errorC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #29 align 2 {
+define hidden void @_ZN5boost12system_errorC2EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #29 align 2 {
   %3 = tail call ptr @__errno_location() #62
   %4 = load i32, ptr %3, align 4, !tbaa !263
   %5 = sext i32 %4 to i64
@@ -19463,7 +19463,7 @@ define hidden void @_ZN5boost12system_errorC2EPKc(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5boost19execution_exceptionC2ENS0_10error_codeENS_9unit_test13basic_cstringIKcEERKNS0_8locationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 4), (8, 64)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #18 align 2 {
+define dso_local void @_ZN5boost19execution_exceptionC2ENS0_10error_codeENS_9unit_test13basic_cstringIKcEERKNS0_8locationE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(64) initializes((0, 4), (8, 64)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %3) unnamed_addr #18 align 2 {
   store i32 %1, ptr %0, align 8, !tbaa !201
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !14
@@ -19498,7 +19498,7 @@ define dso_local void @_ZN5boost19execution_exceptionC2ENS0_10error_codeENS_9uni
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5boost19execution_exception8locationC2EPKcmS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #30 align 2 {
+define dso_local void @_ZN5boost19execution_exception8locationC2EPKcmS3_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #30 align 2 {
   %.not = icmp eq ptr %1, null
   %5 = select i1 %.not, ptr @.str.144, ptr %1
   store ptr %5, ptr %0, align 8, !tbaa !12
@@ -19555,7 +19555,7 @@ _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit5: ; preds = %.thread.i, %_ZN5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5boost19execution_exception8locationC2ENS_9unit_test13basic_cstringIKcEEmPS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 32)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) unnamed_addr #31 align 2 {
+define dso_local void @_ZN5boost19execution_exception8locationC2ENS_9unit_test13basic_cstringIKcEEmPS4_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #31 align 2 {
   %5 = load ptr, ptr %1, align 8, !tbaa !12
   store ptr %5, ptr %0, align 8, !tbaa !12
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19672,7 +19672,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9framework4impl19setup_for_executionERKNS0_9test_unitE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9framework4impl19setup_for_executionERKNS0_9test_unitE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit, !prof !101
@@ -24211,7 +24211,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZStlsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -2147483648, 9) i32 @_ZN5boost9unit_test15unit_test_log_t19set_threshold_levelENS0_9log_levelE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -2147483648, 9) i32 @_ZN5boost9unit_test15unit_test_log_t19set_threshold_levelENS0_9log_levelE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -24318,7 +24318,7 @@ _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t10set_formatENS0_13output_formatE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t10set_formatENS0_13output_formatE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -24412,7 +24412,7 @@ _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t10set_streamERSo(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t10set_streamERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -24523,7 +24523,7 @@ _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t9configureEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t9configureEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -24753,7 +24753,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
   br i1 %13, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %10
-  %14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %4)
+  %14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %4)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit unwind label %21
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -24834,7 +24834,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_26
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %2, i64 noundef %5)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2, i64 noundef %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7runtime11param_errorE, i64 16), ptr %0, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -25272,7 +25272,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %76
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t10add_formatENS0_13output_formatE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t10add_formatENS0_13output_formatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -25371,7 +25371,7 @@ _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5boost9unit_test15unit_test_log_t13get_formatterENS0_13output_formatE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN5boost9unit_test15unit_test_log_t13get_formatterENS0_13output_formatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -25660,7 +25660,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %76
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN5boost9unit_test15unit_test_log_t19set_threshold_levelENS0_13output_formatENS0_9log_levelE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN5boost9unit_test15unit_test_log_t19set_threshold_levelENS0_13output_formatENS0_9log_levelE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -25774,7 +25774,7 @@ _ZNK5boost9unit_test12_GLOBAL__N_118unit_test_log_impl21has_entry_in_progressEv.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t10set_streamENS0_13output_formatERSo(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t10set_streamENS0_13output_formatERSo(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -26591,7 +26591,7 @@ _ZN5boost10function_nIvJEED2Ev.exit44:            ; preds = %227, %229, %223
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test14runtime_config4initERiPPc(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test14runtime_config4initERiPPc(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -28069,7 +28069,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN5boost9unit_test18progress_monitor_t10set_streamERSo(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test18progress_monitor_t10set_streamERSo(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_pm_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_19s_pm_implEv.exit, !prof !101
@@ -28093,7 +28093,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_pm_implEv.exit: ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5boost9unit_test9framework4implL16invoke_init_funcEPFPNS0_10test_suiteEiPPcE(ptr nocapture noundef readonly %0) #3 {
+define internal void @_ZN5boost9unit_test9framework4implL16invoke_init_funcEPFPNS0_10test_suiteEiPPcE(ptr noundef readonly captures(none) %0) #3 {
   %2 = tail call noundef nonnull align 8 dereferenceable(400) ptr @_ZN5boost9unit_test9framework17master_test_suiteEv()
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 384
   %4 = load i32, ptr %3, align 8, !tbaa !278
@@ -30736,7 +30736,7 @@ define dso_local noundef i32 @_ZN5boost9unit_test9framework11get_contextEv() loc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK5boost9unit_test9framework17context_generator8is_emptyEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK5boost9unit_test9framework17context_generator8is_emptyEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit, !prof !101
@@ -30769,7 +30769,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5boost9unit_test9framework17context_generator4nextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::unit_test::basic_cstring") align 8 %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5boost9unit_test9framework17context_generator4nextEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::unit_test::basic_cstring") align 8 captures(none) %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 4, !tbaa !687
   %4 = zext i32 %3 to i64
   %5 = load atomic i8, ptr @_ZGVZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEvE8the_inst acquire, align 8
@@ -30867,7 +30867,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #26
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #32
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9framework4impl29master_test_suite_name_setterC2ENS0_13basic_cstringIKcEE(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test9framework4impl29master_test_suite_name_setterC2ENS0_13basic_cstringIKcEE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #3 align 2 {
 _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit:
   %2 = tail call noundef nonnull align 8 dereferenceable(400) ptr @_ZN5boost9unit_test9framework17master_test_suiteEv()
   %3 = load ptr, ptr %1, align 8, !tbaa !12
@@ -33548,7 +33548,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit337: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 -5, 1) i32 @_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS_8functionIFvvEEEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 -5, 1) i32 @_ZN5boost9unit_test19unit_test_monitor_t21execute_and_translateERKNS_8functionIFvvEEEm(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::function.111", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -33738,7 +33738,7 @@ _ZN5boost17execution_monitor8vexecuteERKNS_8functionIFvvEEE.exit: ; preds = %46,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5boost9unit_test25framework_init_observer_t10has_failedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %0) local_unnamed_addr #33 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5boost9unit_test25framework_init_observer_t10has_failedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(9) %0) local_unnamed_addr #33 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8, !tbaa !698, !range !17, !noundef !18
   %4 = trunc nuw i8 %3 to i1
@@ -33796,7 +33796,7 @@ declare i32 @rand() local_unnamed_addr #1
 declare i64 @time(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log5beginE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log5beginE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -34089,7 +34089,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit28: ; preds = %_ZSt9transfor
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::unit_test::ut_detail::entry_value_collector") align 1 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::unit_test::ut_detail::entry_value_collector") align 1 captures(none) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %_ZN5boost9unit_test15unit_test_log_tlsENS0_9log_levelE.exit, !prof !101
@@ -36143,7 +36143,7 @@ _ZN5boost9unit_test16results_reporter12_GLOBAL__N_19s_rr_implEv.exit32: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5boost9unit_test25framework_init_observer_t5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN5boost9unit_test25framework_init_observer_t5clearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((8, 9)) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8, !tbaa !698
   ret void
@@ -36209,7 +36209,7 @@ _ZN5boost9unit_test9framework19deregister_observerERNS0_13test_observerE.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9framework3runEPKNS0_9test_unitEb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
+define dso_local void @_ZN5boost9unit_test9framework3runEPKNS0_9test_unitEb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8, !tbaa !93
   tail call void @_ZN5boost9unit_test9framework3runEmb(i64 noundef %4, i1 noundef zeroext %1)
@@ -37293,7 +37293,7 @@ _ZN5boost9unit_test9framework4impl12_GLOBAL__N_111s_frk_stateEv.exit26: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output22plain_report_formatter20results_report_startERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((8, 17)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output22plain_report_formatter20results_report_startERSo(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(17) initializes((8, 17)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -37335,13 +37335,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output22plain_report_formatter21results_report_finishERSo(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output22plain_report_formatter21results_report_finishERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5flushEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output22plain_report_formatter22test_unit_report_startERKNS0_9test_unitERSo(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output22plain_report_formatter22test_unit_report_startERKNS0_9test_unitERSo(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -37820,7 +37820,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit131: ; preds = %250, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(107) ptr @_ZNK5boost9unit_test19results_collector_t7resultsEm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(107) ptr @_ZNK5boost9unit_test19results_collector_t7resultsEm(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8, !tbaa !93
   %4 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst acquire, align 8
@@ -37848,7 +37848,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %6, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5boost9unit_test12test_results6passedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(107) %0) local_unnamed_addr #33 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5boost9unit_test12test_results6passedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(107) %0) local_unnamed_addr #33 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %3 = load i8, ptr %2, align 1, !tbaa !396, !range !17, !noundef !18
   %4 = trunc nuw i8 %3 to i1
@@ -38067,7 +38067,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit30: ; preds = %93, %95
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5boost9unit_test6output22plain_report_formatter23test_unit_report_finishERKNS0_9test_unitERSo(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #18 align 2 {
+define hidden void @_ZN5boost9unit_test6output22plain_report_formatter23test_unit_report_finishERKNS0_9test_unitERSo(ptr noundef nonnull align 8 captures(none) dereferenceable(17) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !634
   %6 = add i64 %5, -2
@@ -38076,7 +38076,7 @@ define hidden void @_ZN5boost9unit_test6output22plain_report_formatter23test_uni
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output22plain_report_formatter22do_confirmation_reportERKNS0_9test_unitERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output22plain_report_formatter22do_confirmation_reportERKNS0_9test_unitERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -39143,7 +39143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit227: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test18progress_monitor_t10test_startEmm(ptr nocapture nonnull readnone align 8 %0, i64 noundef %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test18progress_monitor_t10test_startEmm(ptr nonnull readnone align 8 captures(none) %0, i64 noundef %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %5 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -39419,7 +39419,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %19, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test18progress_monitor_t12test_abortedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test18progress_monitor_t12test_abortedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %3 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %4 = alloca %"struct.boost::unit_test::utils::scope_setcolor", align 8
@@ -39725,7 +39725,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %70, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test18progress_monitor_t16test_unit_finishERKNS0_9test_unitEm(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test18progress_monitor_t16test_unit_finishERKNS0_9test_unitEm(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %5 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %6 = alloca %"struct.boost::unit_test::utils::scope_setcolor", align 8
@@ -39877,7 +39877,7 @@ _ZN5boost9unit_test5utils14scope_setcolorD2Ev.exit: ; preds = %_ZN5boost9unit_te
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test18progress_monitor_t17test_unit_skippedERKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test18progress_monitor_t17test_unit_skippedERKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %5 = alloca %"class.boost::unit_test::utils::setcolor", align 4
   %6 = alloca %"struct.boost::unit_test::utils::scope_setcolor", align 8
@@ -40054,19 +40054,19 @@ _ZN5boost9unit_test5utils14scope_setcolorD2Ev.exit: ; preds = %54, %_ZN5boost9un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5boost9unit_test12test_resultsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(107) initializes((0, 107)) %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5boost9unit_test12test_resultsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(107) initializes((0, 107)) %0) unnamed_addr #8 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(107) %0, i8 0, i64 107, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5boost9unit_test12test_results5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(107) initializes((0, 107)) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN5boost9unit_test12test_results5clearEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(107) initializes((0, 107)) %0) local_unnamed_addr #8 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(107) %0, i8 0, i64 107, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5boost9unit_test12test_results7abortedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(107) %0) local_unnamed_addr #33 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5boost9unit_test12test_results7abortedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(107) %0) local_unnamed_addr #33 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8, !tbaa !15, !range !17, !noundef !18
   %4 = trunc nuw i8 %3 to i1
@@ -40074,7 +40074,7 @@ define dso_local noundef zeroext i1 @_ZNK5boost9unit_test12test_results7abortedE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK5boost9unit_test12test_results7skippedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(107) %0) local_unnamed_addr #33 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5boost9unit_test12test_results7skippedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(107) %0) local_unnamed_addr #33 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %3 = load i8, ptr %2, align 1, !tbaa !15, !range !17, !noundef !18
   %4 = trunc nuw i8 %3 to i1
@@ -40082,7 +40082,7 @@ define dso_local noundef zeroext i1 @_ZNK5boost9unit_test12test_results7skippedE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef range(i32 0, 202) i32 @_ZNK5boost9unit_test12test_results11result_codeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(107) %0) local_unnamed_addr #33 align 2 {
+define dso_local noundef range(i32 0, 202) i32 @_ZNK5boost9unit_test12test_results11result_codeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(107) %0) local_unnamed_addr #33 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %3 = load i8, ptr %2, align 1, !tbaa !396, !range !17, !noundef !18
   %4 = trunc nuw i8 %3 to i1
@@ -40136,7 +40136,7 @@ _ZNK5boost9unit_test12test_results6passedEv.exit.thread: ; preds = %1, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5boost9unit_test12test_resultspLERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(107) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(107) %1) local_unnamed_addr #18 align 2 {
+define dso_local void @_ZN5boost9unit_test12test_resultspLERKS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(107) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(107) %1) local_unnamed_addr #18 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !93
   %4 = load i64, ptr %0, align 8, !tbaa !336
   %5 = add i64 %4, %3
@@ -40211,7 +40211,7 @@ define dso_local void @_ZN5boost9unit_test12test_resultspLERKS1_(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test19results_collector_t10test_startEmm(ptr nocapture nonnull readnone align 8 %0, i64 %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test19results_collector_t10test_startEmm(ptr nonnull readnone align 8 captures(none) %0, i64 %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::(anonymous namespace)::clear_subtree_result", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #56
   %5 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst acquire, align 8
@@ -40301,7 +40301,7 @@ _ZN5boost9unit_test18traverse_test_treeEmRNS0_17test_tree_visitorEb.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test19results_collector_t15test_unit_startERKNS0_9test_unitE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test19results_collector_t15test_unit_startERKNS0_9test_unitE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, !prof !101
@@ -40419,7 +40419,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test19results_collector_t16test_unit_finishERKNS0_9test_unitEm(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test19results_collector_t16test_unit_finishERKNS0_9test_unitEm(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::results_collect_helper", align 8
   %5 = alloca %"class.boost::unit_test::ut_detail::entry_value_collector", align 1
   %6 = alloca %"struct.boost::unit_test::log::begin", align 8
@@ -40810,7 +40810,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test19results_collector_t17test_unit_skippedERKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture readnone %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test19results_collector_t17test_unit_skippedERKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr readnone captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::test_case_counter", align 8
   %5 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst acquire, align 8
   %6 = icmp eq i8 %5, 0
@@ -40861,7 +40861,7 @@ _ZN5boost9unit_test18traverse_test_treeERKNS0_9test_unitERNS0_17test_tree_visito
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test19results_collector_t19test_unit_timed_outERKNS0_9test_unitE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test19results_collector_t19test_unit_timed_outERKNS0_9test_unitE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, !prof !101
@@ -40890,7 +40890,7 @@ _ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit: ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE(ptr nocapture nonnull readnone align 8 %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test19results_collector_t16assertion_resultENS0_16assertion_resultE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -41046,7 +41046,7 @@ _ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test12test_resultsEESt10_Select1stIS5_ESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test19results_collector_t16exception_caughtERKNS_19execution_exceptionE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test19results_collector_t16exception_caughtERKNS_19execution_exceptionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -41116,7 +41116,7 @@ _ZN5boost9unit_test9framework20current_test_case_idEv.exit: ; preds = %_ZN5boost
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test19results_collector_t17test_unit_abortedERKNS0_9test_unitE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test19results_collector_t17test_unit_abortedERKNS0_9test_unitE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_19s_rc_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_19s_rc_implEv.exit, !prof !101
@@ -41223,14 +41223,14 @@ _ZN5boost10scoped_ptrINS_9unit_test16results_reporter6formatEE5resetEPS3_.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5boost9unit_test25framework_init_observer_t10test_startEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0, i64 %1, i64 %2) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5boost9unit_test25framework_init_observer_t10test_startEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((8, 9)) %0, i64 %1, i64 %2) unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %4, align 8, !tbaa !698
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5boost9unit_test25framework_init_observer_t16assertion_resultENS0_16assertion_resultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5boost9unit_test25framework_init_observer_t16assertion_resultENS0_16assertion_resultE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   %cond = icmp eq i32 %1, 0
   br i1 %cond, label %3, label %5
 
@@ -41244,14 +41244,14 @@ define dso_local void @_ZN5boost9unit_test25framework_init_observer_t16assertion
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5boost9unit_test25framework_init_observer_t16exception_caughtERKNS_19execution_exceptionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5boost9unit_test25framework_init_observer_t16exception_caughtERKNS_19execution_exceptionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((8, 9)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %3, align 8, !tbaa !698
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5boost9unit_test25framework_init_observer_t12test_abortedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5boost9unit_test25framework_init_observer_t12test_abortedEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(9) initializes((8, 9)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8, !tbaa !698
   ret void
@@ -41340,7 +41340,7 @@ _ZN5boost10function_nIvJEED2Ev.exit:              ; preds = %31, %33, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test10test_suite3addEPNS0_9test_unitEmj(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef initializes((200, 204)) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test10test_suite3addEPNS0_9test_unitEmj(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0, ptr noundef captures(none) initializes((200, 204)) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 200
   store i32 %3, ptr %5, align 8, !tbaa !339
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 288
@@ -41611,7 +41611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIbEclERSob(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIbEclERSob(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !25
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
@@ -41625,7 +41625,7 @@ define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIbEclERSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIcEclERSoc(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIcEclERSoc(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -41730,7 +41730,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit9: ; preds = %36, %38
 declare i32 @isprint(i32 noundef) local_unnamed_addr #34
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIhEclERSoh(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIhEclERSoh(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !25
   %5 = getelementptr i8, ptr %4, i64 -24
   %6 = load i64, ptr %5, align 8
@@ -41752,7 +41752,7 @@ define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIhEclERSo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIwEclERSow(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef signext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIwEclERSow(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef signext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit:
   %3 = alloca %struct.__mbstate_t, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -41829,7 +41829,7 @@ declare i64 @__ctype_get_mb_cur_max() local_unnamed_addr #1
 declare i64 @wcrtomb(ptr noundef, i32 noundef signext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIPKcEclERSoS4_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIPKcEclERSoS4_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %2, null
   %4 = select i1 %.not, ptr @.str.218, ptr %2
   %5 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #56
@@ -41838,7 +41838,7 @@ define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIPKcEclER
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIPKwEclERSoS4_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIPKwEclERSoS4_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %4
 
@@ -41855,7 +41855,7 @@ define dso_local void @_ZN5boost10test_tools9tt_detail15print_log_valueIPKwEclER
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5boost10test_tools9tt_detail16report_assertionERKNS0_16assertion_resultERKNS_9unit_test12lazy_ostreamENS5_13basic_cstringIKcEEmNS1_10tool_levelENS1_10check_typeEmz(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ...) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.boost::unit_test::log::begin", align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = alloca %"struct.boost::execution_aborted", align 1
@@ -44150,7 +44150,7 @@ _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit: ; 
 declare void @llvm.va_end.p0(ptr) #35
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture nonnull readnone align 1 %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsERKNS0_3log3endE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nonnull readnone align 1 captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -46366,7 +46366,7 @@ _ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail10equal_implEPKcS3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::test_tools::assertion_result") align 8 initializes((0, 1), (8, 24)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #36 {
+define dso_local void @_ZN5boost10test_tools9tt_detail10equal_implEPKcS3_(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::test_tools::assertion_result") align 8 captures(none) initializes((0, 1), (8, 24)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #36 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -46391,10 +46391,10 @@ define dso_local void @_ZN5boost10test_tools9tt_detail10equal_implEPKcS3_(ptr de
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #37
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #37
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail10equal_implEPKwS3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::test_tools::assertion_result") align 8 initializes((0, 1), (8, 24)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #38 {
+define dso_local void @_ZN5boost10test_tools9tt_detail10equal_implEPKwS3_(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::test_tools::assertion_result") align 8 captures(none) initializes((0, 1), (8, 24)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #38 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -46422,7 +46422,7 @@ define dso_local void @_ZN5boost10test_tools9tt_detail10equal_implEPKwS3_(ptr de
 declare i32 @wcscmp(ptr noundef, ptr noundef) local_unnamed_addr #34
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5boost10test_tools9tt_detail15is_defined_implENS_9unit_test13basic_cstringIKcEES5_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #30 {
+define dso_local noundef zeroext i1 @_ZN5boost10test_tools9tt_detail15is_defined_implENS_9unit_test13basic_cstringIKcEES5_(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #30 {
   %3 = load ptr, ptr %1, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -46466,14 +46466,14 @@ _ZN5boost9unit_testneIKcEEbRKNS0_13basic_cstringIT_EES7_.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail13context_frameC2ERKNS_9unit_test12lazy_ostreamE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost10test_tools9tt_detail13context_frameC2ERKNS_9unit_test12lazy_ostreamE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef i32 @_ZN5boost9unit_test9framework11add_contextERKNS0_12lazy_ostreamEb(ptr noundef nonnull align 8 dereferenceable(9) %1, i1 noundef zeroext true)
   store i32 %3, ptr %0, align 4, !tbaa !916
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5boost10test_tools9tt_detail13context_frameD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost10test_tools9tt_detail13context_frameD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 4, !tbaa !916
   invoke void @_ZN5boost9unit_test9framework13clear_contextEi(i32 noundef %2)
           to label %3 unwind label %4
@@ -46490,7 +46490,7 @@ define dso_local void @_ZN5boost10test_tools9tt_detail13context_frameD2Ev(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZN5boost10test_tools9tt_detail13context_framecvbEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) local_unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZN5boost10test_tools9tt_detail13context_framecvbEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #10 align 2 {
   ret i1 true
 }
 
@@ -47056,7 +47056,7 @@ _ZN5boost9unit_test9ut_detail21entry_value_collectorD2Ev.exit: ; preds = %95
 declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5boost10test_tools18output_test_streamD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 16)) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost10test_tools18output_test_streamD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !25
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -47397,7 +47397,7 @@ define dso_local void @_ZN5boost10test_tools18output_test_stream12check_lengthEm
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost10test_tools18output_test_stream8is_equalENS_9unit_test13basic_cstringIKcEEb(ptr dead_on_unwind noalias writable sret(%"class.boost::test_tools::assertion_result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost10test_tools18output_test_stream8is_equalENS_9unit_test13basic_cstringIKcEEb(ptr dead_on_unwind noalias writable sret(%"class.boost::test_tools::assertion_result") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %1, align 8, !tbaa !25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -47466,7 +47466,7 @@ _ZN5boost9unit_testeqIKcS2_EEbRKNS0_13basic_cstringIT_EERKNS3_IT0_EE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost10test_tools16pretty_print_logENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost10test_tools16pretty_print_logENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -47680,7 +47680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.234(ptr nocapture readnone %0) #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor.234(ptr readnone captures(none) %0) #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %1
@@ -47713,7 +47713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor.237(ptr nocapture readnone %0) #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor.237(ptr readnone captures(none) %0) #12 section ".text.startup" personality ptr @__gxx_personality_v0 {
   br label %2
 
 2:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %1
@@ -50300,7 +50300,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfin
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5boost10test_tools18output_test_stream32get_stream_string_representationB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5boost10test_tools18output_test_stream32get_stream_string_representationB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !921
@@ -50530,7 +50530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9test_unitC2ENS0_13basic_cstringIKcEES4_mNS0_14test_unit_typeE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9test_unitC2ENS0_13basic_cstringIKcEES4_mNS0_14test_unit_typeE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 4), (8, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -50828,7 +50828,7 @@ _ZNSt6vectorIN5boost8functionIFNS0_10test_tools16assertion_resultEmEEESaIS5_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9test_unitC2ENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 4), (8, 136)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9test_unitC2ENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 4), (8, 136)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -51397,7 +51397,7 @@ _ZN5boost9unit_test14class_propertyISt6vectorINSt7__cxx1112basic_stringIcSt11cha
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5boost9unit_test9test_unit19check_preconditionsEv(ptr dead_on_unwind noalias writable sret(%"class.boost::test_tools::assertion_result") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5boost9unit_test9test_unit19check_preconditionsEv(ptr dead_on_unwind noalias writable sret(%"class.boost::test_tools::assertion_result") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::bad_function_call", align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -52256,7 +52256,7 @@ _ZN5boost10function_nINS_10test_tools16assertion_resultEJmEE5clearEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK5boost9unit_test9test_unit9has_labelENS0_13basic_cstringIKcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5boost9unit_test9test_unit9has_labelENS0_13basic_cstringIKcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !173
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -52268,7 +52268,7 @@ define dso_local noundef zeroext i1 @_ZNK5boost9unit_test9test_unit9has_labelENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9test_caseC2ENS0_13basic_cstringIKcEERKNS_8functionIFvvEEE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9test_caseC2ENS0_13basic_cstringIKcEERKNS_8functionIFvvEEE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 4), (8, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit:
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -52369,7 +52369,7 @@ _ZN5boost10function_nIvJEED2Ev.exit:              ; preds = %1, %_ZNK5boost6deta
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9test_caseC2ENS0_13basic_cstringIKcEES4_mRKNS_8functionIFvvEEE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9test_caseC2ENS0_13basic_cstringIKcEES4_mRKNS_8functionIFvvEEE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 4), (8, 16)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %8 = load ptr, ptr %1, align 8, !tbaa !12
@@ -52435,7 +52435,7 @@ _ZN5boost9unit_test9test_case20readonly_property144C2ERKNS_8functionIFvvEEE.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test10test_suiteC2ENS0_13basic_cstringIKcEES4_m(ptr noundef nonnull align 8 dereferenceable(384) initializes((8, 12), (16, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test10test_suiteC2ENS0_13basic_cstringIKcEES4_m(ptr noundef nonnull align 8 dereferenceable(384) initializes((8, 12), (16, 24)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -52558,7 +52558,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %47, %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9ut_detail24normalize_test_case_nameB5cxx11ENS0_13basic_cstringIKcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -52950,7 +52950,7 @@ _ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test10test_suiteC2ENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(384) initializes((8, 12), (16, 144)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test10test_suiteC2ENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(384) initializes((8, 12), (16, 144)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8, !tbaa !12
@@ -53005,7 +53005,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %16, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test10test_suite3addERKNS0_19test_unit_generatorEj(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test10test_suite3addERKNS0_19test_unit_generatorEj(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !25
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -53026,7 +53026,7 @@ define dso_local void @_ZN5boost9unit_test10test_suite3addERKNS0_19test_unit_gen
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test10test_suite3addERKNS0_19test_unit_generatorERNS0_9decorator11collector_tE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test10test_suite3addERKNS0_19test_unit_generatorERNS0_9decorator11collector_tE(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !25
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -53131,7 +53131,7 @@ _ZN5boost9unit_test9decorator11collector_t5resetEv.exit: ; preds = %31, %33, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test10test_suite3addENS_10shared_ptrINS0_19test_unit_generatorEEERNS0_9decorator11collector_tE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test10test_suite3addENS_10shared_ptrINS0_19test_unit_generatorEEERNS0_9decorator11collector_tE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.263", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #56
   %5 = load ptr, ptr %2, align 8, !tbaa !173, !noalias !1022
@@ -53623,7 +53623,7 @@ _ZN5boost10shared_ptrINS_9unit_test19test_unit_generatorEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test10test_suite8generateEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test10test_suite8generateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.boost::unit_test::framework::internal_error", align 8
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -54375,7 +54375,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5boost9unit_test10test_suite6removeEm(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0, i64 noundef %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN5boost9unit_test10test_suite6removeEm(ptr noundef nonnull align 8 captures(none) dereferenceable(384) %0, i64 noundef %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8, !tbaa !173
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
@@ -54673,7 +54673,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17fin
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16find_last_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2EPNS0_9test_caseERNS0_9decorator11collector_tEm(ptr nocapture nonnull readnone align 1 %0, ptr noundef initializes((200, 204)) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2EPNS0_9test_caseERNS0_9decorator11collector_tEm(ptr nonnull readnone align 1 captures(none) %0, ptr noundef initializes((200, 204)) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN5boost9unit_test9framework23current_auto_test_suiteEPNS0_10test_suiteEb(ptr noundef null, i1 noundef zeroext true)
   tail call void @_ZN5boost9unit_test10test_suite3addEPNS0_9test_unitEmj(ptr noundef nonnull align 8 dereferenceable(384) %5, ptr noundef %1, i64 noundef %3, i32 noundef 0)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 232
@@ -54764,7 +54764,7 @@ _ZN5boost9unit_test9decorator11collector_t5resetEv.exit: ; preds = %26, %28, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2ENS0_13basic_cstringIKcEES5_mRNS0_9decorator11collector_tE(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2ENS0_13basic_cstringIKcEES5_mRNS0_9decorator11collector_tE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %8 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN5boost9unit_test9framework23current_auto_test_suiteEPNS0_10test_suiteEb(ptr noundef null, i1 noundef zeroext true)
@@ -54954,14 +54954,14 @@ _ZN5boost9unit_test9decorator11collector_t5resetEv.exit: ; preds = %74, %76, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2ERKNS0_19test_unit_generatorERNS0_9decorator11collector_tE(ptr nocapture nonnull readnone align 1 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2ERKNS0_19test_unit_generatorERNS0_9decorator11collector_tE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN5boost9unit_test9framework23current_auto_test_suiteEPNS0_10test_suiteEb(ptr noundef null, i1 noundef zeroext true)
   tail call void @_ZN5boost9unit_test10test_suite3addERKNS0_19test_unit_generatorERNS0_9decorator11collector_tE(ptr noundef nonnull align 8 dereferenceable(384) %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2ENS_10shared_ptrINS0_19test_unit_generatorEEERNS0_9decorator11collector_tE(ptr nocapture nonnull readnone align 1 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2ENS_10shared_ptrINS0_19test_unit_generatorEEERNS0_9decorator11collector_tE(ptr nonnull readnone align 1 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::shared_ptr.262", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN5boost9unit_test9framework23current_auto_test_suiteEPNS0_10test_suiteEb(ptr noundef null, i1 noundef zeroext true)
   %6 = load ptr, ptr %1, align 8, !tbaa !1025
@@ -55073,7 +55073,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2Ei(ptr nocapture nonnull readnone align 1 %0, i32 %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC2Ei(ptr nonnull readnone align 1 captures(none) %0, i32 %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN5boost9unit_test9framework23current_auto_test_suiteEPNS0_10test_suiteEb(ptr noundef null, i1 noundef zeroext false)
   ret void
 }
@@ -55106,7 +55106,7 @@ define dso_local void @_ZN5boost9unit_test14global_fixtureD2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN5boost9unit_test14global_fixtureD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #39 align 2 {
+define dso_local void @_ZN5boost9unit_test14global_fixtureD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #39 align 2 {
   tail call void @llvm.trap() #57
   unreachable
 }
@@ -55336,7 +55336,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit16: ; preds = %.lr.ph, %20, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5boost9unit_test9ut_detail21entry_value_collectorlsENS0_13basic_cstringIKcEE(ptr noundef nonnull readnone returned align 1 dereferenceable(1) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5boost9unit_test9ut_detail21entry_value_collectorlsENS0_13basic_cstringIKcEE(ptr noundef nonnull readnone returned align 1 dereferenceable(1) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !173
   %5 = load ptr, ptr %1, align 8, !tbaa !12
@@ -55350,7 +55350,7 @@ define dso_local noundef nonnull align 1 dereferenceable(1) ptr @_ZNK5boost9unit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !14
@@ -55463,7 +55463,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit14: ; preds = %20, %24, %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5boost9unit_test9ut_detail21entry_value_collectorD2Ev(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test9ut_detail21entry_value_collectorD2Ev(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i8, ptr %0, align 1, !tbaa !732, !range !17, !noundef !18
   %3 = trunc nuw i8 %2 to i1
   br i1 %3, label %4, label %7
@@ -55490,7 +55490,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test13test_observerD2Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t10test_startEmm(ptr nocapture nonnull readnone align 8 %0, i64 noundef %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t10test_startEmm(ptr nonnull readnone align 8 captures(none) %0, i64 noundef %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   tail call void @_ZN5boost9unit_test15unit_test_log_t9configureEv(ptr nonnull align 8 poison)
   %5 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
@@ -55563,7 +55563,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %3, %7, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t11test_finishEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t11test_finishEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -55616,7 +55616,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %1, %4, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t12test_abortedEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t12test_abortedEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %3 = alloca %"class.boost::unit_test::ut_detail::entry_value_collector", align 1
   %4 = alloca %"struct.boost::unit_test::log::begin", align 8
@@ -55994,7 +55994,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit15: ; preds = %_ZNK5boost9un
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t17test_unit_skippedERKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t17test_unit_skippedERKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %6 = icmp eq i8 %5, 0
@@ -56497,7 +56497,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit23: ; preds = %40, %45, %48
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost9unit_test12_GLOBAL__N_117log_entry_contextENS0_9log_levelERNS1_30unit_test_log_data_helper_implE(i32 noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost9unit_test12_GLOBAL__N_117log_entry_contextENS0_9log_levelERNS1_30unit_test_log_data_helper_implE(i32 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::unit_test::framework::context_generator", align 4
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -56589,7 +56589,7 @@ _ZNK5boost9unit_test9framework17context_generator8is_emptyEv.exit: ; preds = %2,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t14set_checkpointENS0_13basic_cstringIKcEEmS4_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -56640,7 +56640,7 @@ define hidden noundef signext range(i8 93, 92) i8 @_ZN5boost9unit_test14set_unix
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5boost9unit_test15log_entry_startERNS0_12_GLOBAL__N_130unit_test_log_data_helper_implE(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5boost9unit_test15log_entry_startERNS0_12_GLOBAL__N_130unit_test_log_data_helper_implE(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i8, ptr %2, align 8, !tbaa !529, !range !17, !noundef !18
   %4 = trunc nuw i8 %3 to i1
@@ -56970,7 +56970,7 @@ _ZN5boost10shared_ptrINS_2io18ios_base_all_saverEED2Ev.exit: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK5boost9unit_test15unit_test_log_t10get_streamENS0_13output_formatE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK5boost9unit_test15unit_test_log_t10get_streamENS0_13output_formatE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -57024,7 +57024,7 @@ _ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit: ; preds = %2, %5, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t13add_formatterEPNS0_23unit_test_log_formatterE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t13add_formatterEPNS0_23unit_test_log_formatterE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::unit_test::(anonymous namespace)::unit_test_log_data_helper_impl", align 8
   %4 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %5 = icmp eq i8 %4, 0
@@ -57452,7 +57452,7 @@ _ZN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implD2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE9push_backEOS3_(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EE9push_backEOS3_(ptr noundef nonnull align 8 captures(none) dereferenceable(49) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 8), align 8, !tbaa !1053
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 16), align 8, !tbaa !1055
   %.not.i = icmp eq ptr %2, %3
@@ -57663,7 +57663,7 @@ _ZN5boost10shared_ptrINS_2io18ios_base_all_saverEEC2IS2_EEPT_.exit: ; preds = %4
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !323
   %.not.i.i = icmp eq ptr %3, null
@@ -57746,7 +57746,7 @@ _ZN5boost10shared_ptrINS_2io18ios_base_all_saverEED2Ev.exit: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5boost9unit_test15unit_test_log_t13set_formatterEPNS0_23unit_test_log_formatterE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5boost9unit_test15unit_test_log_t13set_formatterEPNS0_23unit_test_log_formatterE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN5boost9unit_test12_GLOBAL__N_110s_log_implEv.exit, !prof !101
@@ -58212,14 +58212,14 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5boost9unit_test23unit_test_log_formatter13set_log_levelENS0_9log_levelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((8, 12)) %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5boost9unit_test23unit_test_log_formatter13set_log_levelENS0_9log_levelE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(12) initializes((8, 12)) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8, !tbaa !1072
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_ZNK5boost9unit_test23unit_test_log_formatter13get_log_levelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0) unnamed_addr #33 align 2 {
+define dso_local noundef i32 @_ZNK5boost9unit_test23unit_test_log_formatter13get_log_levelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0) unnamed_addr #33 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !1072
   ret i32 %3
@@ -59291,7 +59291,7 @@ _ZN5boost10shared_ptrINS_6detail22translator_holder_baseEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #5
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost7runtime15arguments_storeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -73831,19 +73831,19 @@ define dso_local noundef zeroext i1 @_ZN5boost9unit_test14runtime_config12save_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter9log_startERSom(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter9log_startERSom(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2) unnamed_addr #3 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.337, i64 noundef 9)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter10log_finishERSo(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter10log_finishERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.338, i64 noundef 10)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter14log_build_infoERSob(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter14log_build_infoERSob(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -73960,7 +73960,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit: ; preds = %61, %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15test_unit_startERSoRKNS0_9test_unitE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15test_unit_startERSoRKNS0_9test_unitE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %2) unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -74111,7 +74111,7 @@ _ZN5boost9unit_test5utilslsImEERSoRKNS1_14custom_printerINS1_12custom_manipINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter16test_unit_finishERSoRKNS0_9test_unitEm(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %2, i64 noundef %3) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter16test_unit_finishERSoRKNS0_9test_unitEm(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %2, i64 noundef %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = load i32, ptr %2, align 8, !tbaa !188
   %7 = icmp eq i32 %6, 1
@@ -74154,7 +74154,7 @@ _ZN5boost9unit_test6outputL12tu_type_nameERKNS0_9test_unitE.exit: ; preds = %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter17test_unit_skippedERSoRKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter17test_unit_skippedERSoRKNS0_9test_unitENS0_13basic_cstringIKcEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %2, ptr noundef readonly captures(none) %3) unnamed_addr #3 align 2 {
   %5 = alloca i8, align 1
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %7 = alloca i8, align 1
@@ -74281,7 +74281,7 @@ _ZN5boost9unit_test5utilslsINS0_13basic_cstringIKcEEEERSoRKNS1_14custom_printerI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter19log_exception_startERSoRKNS0_19log_checkpoint_dataERKNS_19execution_exceptionE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter19log_exception_startERSoRKNS0_19log_checkpoint_dataERKNS_19execution_exceptionE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -74516,13 +74516,13 @@ _ZN5boost9unit_test5utilslsImEERSoRKNS1_14custom_printerINS1_12custom_manipINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter20log_exception_finishERSo(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter20log_exception_finishERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.360, i64 noundef 12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesE(ptr noundef nonnull align 8 dereferenceable(33) initializes((16, 32)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15log_entry_startERSoRKNS0_14log_entry_dataENS0_23unit_test_log_formatter15log_entry_typesE(ptr noundef nonnull align 8 dereferenceable(33) initializes((16, 32)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -74668,7 +74668,7 @@ _ZN5boost9unit_test5utilslsImEERSoRKNS1_14custom_printerINS1_12custom_manipINS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15log_entry_valueERSoNS0_13basic_cstringIKcEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter15log_entry_valueERSoNS0_13basic_cstringIKcEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readonly captures(none) %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = load ptr, ptr %2, align 8, !tbaa !12
   store ptr %5, ptr %4, align 8, !tbaa !12
@@ -74854,7 +74854,7 @@ define hidden void @_ZN5boost9unit_test6output17xml_log_formatter16log_entry_fin
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter19entry_context_startERSoNS0_9log_levelE(ptr nocapture noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter19entry_context_startERSoNS0_9log_levelE(ptr noundef nonnull align 8 captures(none) dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -74883,7 +74883,7 @@ define hidden void @_ZN5boost9unit_test6output17xml_log_formatter19entry_context
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter20entry_context_finishERSoNS0_9log_levelE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter20entry_context_finishERSoNS0_9log_levelE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #56
   store ptr @.str.369, ptr %4, align 8, !tbaa !12
@@ -74895,7 +74895,7 @@ define hidden void @_ZN5boost9unit_test6output17xml_log_formatter20entry_context
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output17xml_log_formatter17log_entry_contextERSoNS0_9log_levelENS0_13basic_cstringIKcEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output17xml_log_formatter17log_entry_contextERSoNS0_9log_levelENS0_13basic_cstringIKcEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %2, ptr noundef readonly captures(none) %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -74938,19 +74938,19 @@ define hidden void @_ZN5boost9unit_test6output17xml_log_formatter17log_entry_con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output20xml_report_formatter20results_report_startERSo(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output20xml_report_formatter20results_report_startERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.372, i64 noundef 12)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output20xml_report_formatter21results_report_finishERSo(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output20xml_report_formatter21results_report_finishERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.373, i64 noundef 13)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output20xml_report_formatter22test_unit_report_startERKNS0_9test_unitERSo(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output20xml_report_formatter22test_unit_report_startERKNS0_9test_unitERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
@@ -75459,7 +75459,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit61: ; preds = %280, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output20xml_report_formatter23test_unit_report_finishERKNS0_9test_unitERSo(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output20xml_report_formatter23test_unit_report_finishERKNS0_9test_unitERSo(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 {
   %4 = alloca i8, align 1
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.352, i64 noundef 2)
   %6 = load i32, ptr %1, align 8, !tbaa !188
@@ -75505,7 +75505,7 @@ define hidden void @_ZN5boost9unit_test6output20xml_report_formatter22do_confirm
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_Z9test_mainiPPc(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #3 {
+define hidden noundef i32 @_Z9test_mainiPPc(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #3 {
   tail call void @_Z19test_geo_strategiesIdEvv()
   ret i32 0
 }
@@ -80325,7 +80325,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test19master_test_suite_tD0Ev(pt
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test17test_tree_visitor5visitERKNS0_9test_unitE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #6 comdat align 2 {
@@ -86262,7 +86262,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5boost5debug12_GLOBAL__N_120start_gdb_in_consoleERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) #3 {
+define internal void @_ZN5boost5debug12_GLOBAL__N_120start_gdb_in_consoleERKNS0_16dbg_startup_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) #3 {
   %2 = tail call fastcc noundef ptr @_ZN5boost5debug12_GLOBAL__N_121prepare_gdb_cmnd_fileERKNS0_16dbg_startup_infoE(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3
@@ -86371,7 +86371,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_emacsERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) #3 {
+define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_emacsERKNS0_16dbg_startup_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) #3 {
   %2 = alloca [500 x i8], align 16
   %3 = tail call fastcc noundef ptr @_ZN5boost5debug12_GLOBAL__N_121prepare_gdb_cmnd_fileERKNS0_16dbg_startup_infoE(ptr noundef nonnull align 8 dereferenceable(64) %0)
   %.not = icmp eq ptr %3, null
@@ -86451,7 +86451,7 @@ _ZN5boost5debug12_GLOBAL__N_123start_debugger_in_emacsERKNS0_16dbg_startup_infoE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_xtermERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) #3 {
+define internal void @_ZN5boost5debug12_GLOBAL__N_118start_gdb_in_xtermERKNS0_16dbg_startup_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -86514,12 +86514,12 @@ _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5boost5debug12_GLOBAL__N_119start_gdb_in_xemacsERKNS0_16dbg_startup_infoE(ptr nocapture nonnull readnone align 8 %0) #10 {
+define internal void @_ZN5boost5debug12_GLOBAL__N_119start_gdb_in_xemacsERKNS0_16dbg_startup_infoE(ptr nonnull readnone align 8 captures(none) %0) #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZN5boost5debug12_GLOBAL__N_120start_dbx_in_consoleERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) #7 {
+define internal void @_ZN5boost5debug12_GLOBAL__N_120start_dbx_in_consoleERKNS0_16dbg_startup_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) #7 {
   %2 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #56
   %3 = load i64, ptr %0, align 8, !tbaa !309
@@ -86539,12 +86539,12 @@ define internal void @_ZN5boost5debug12_GLOBAL__N_120start_dbx_in_consoleERKNS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5boost5debug12_GLOBAL__N_118start_dbx_in_emacsERKNS0_16dbg_startup_infoE(ptr nocapture nonnull readnone align 8 %0) #10 {
+define internal void @_ZN5boost5debug12_GLOBAL__N_118start_dbx_in_emacsERKNS0_16dbg_startup_infoE(ptr nonnull readnone align 8 captures(none) %0) #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZN5boost5debug12_GLOBAL__N_118start_dbx_in_xtermERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) #7 {
+define internal void @_ZN5boost5debug12_GLOBAL__N_118start_dbx_in_xtermERKNS0_16dbg_startup_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) #7 {
   %2 = alloca [16 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !12
@@ -86612,12 +86612,12 @@ _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN5boost5debug12_GLOBAL__N_119start_dbx_in_xemacsERKNS0_16dbg_startup_infoE(ptr nocapture nonnull readnone align 8 %0) #10 {
+define internal void @_ZN5boost5debug12_GLOBAL__N_119start_dbx_in_xemacsERKNS0_16dbg_startup_infoE(ptr nonnull readnone align 8 captures(none) %0) #10 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZN5boost5debug12_GLOBAL__N_116start_dbx_in_dddERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) #7 {
+define internal void @_ZN5boost5debug12_GLOBAL__N_116start_dbx_in_dddERKNS0_16dbg_startup_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) #7 {
   %2 = alloca [16 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !12
@@ -86685,7 +86685,7 @@ _ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN5boost5debug12_GLOBAL__N_121prepare_gdb_cmnd_fileERKNS0_16dbg_startup_infoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN5boost5debug12_GLOBAL__N_121prepare_gdb_cmnd_fileERKNS0_16dbg_startup_infoE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #56
   %3 = load i64, ptr %0, align 8, !tbaa !309
@@ -87025,10 +87025,10 @@ _ZN5boost5debug12_GLOBAL__N_18copy_argERNS_9unit_test13basic_cstringIcEENS3_IKcE
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #43
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #43
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare i32 @execvp(ptr noundef, ptr noundef) local_unnamed_addr #14
@@ -87198,7 +87198,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #37
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #37
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost8functionIFvRKNS8_5debug16dbg_startup_infoEEEEESt10_Select1stISG_ESt4lessIS5_ESaISG_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISG_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -87804,16 +87804,16 @@ _ZN5boost10function_nIvJRKNS_5debug16dbg_startup_infoEEE5clearEv.exit: ; preds =
 }
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #43
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #43
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #43
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #43
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #14
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @readlink(ptr nocapture noundef readonly, ptr nocapture noundef, i64 noundef) local_unnamed_addr #14
+declare noundef i64 @readlink(ptr noundef readonly captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #14
 
 declare i32 @close(i32 noundef) local_unnamed_addr #0
 
@@ -87982,7 +87982,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test9framework11setup_errorD0Ev(
 declare noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #14
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: inlinehint mustprogress noreturn uwtable
 define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail15throw_exceptionINS_19execution_exceptionEEEvRKT_(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #19 comdat personality ptr @__gxx_personality_v0 {
@@ -89082,7 +89082,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test9framework5sta
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost9unit_test9framework4implL23add_filtered_test_unitsEmNS0_13basic_cstringIKcEERSt6vectorImSaImEE(i64 noundef %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost9unit_test9framework4implL23add_filtered_test_unitsEmNS0_13basic_cstringIKcEERSt6vectorImSaImEE(i64 noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::unit_test::framework::impl::label_filter", align 8
   %5 = alloca %"class.boost::unit_test::framework::impl::name_filter", align 8
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -92535,7 +92535,7 @@ _ZN5boost7runtime11param_errorD2Ev.exit:          ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZZN5boost9unit_test9framework20finalize_setup_phaseEmEN16apply_decorators5visitERKNS0_9test_unitE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZZN5boost9unit_test9framework20finalize_setup_phaseEmEN16apply_decorators5visitERKNS0_9test_unitE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::shared_ptr", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %5 = load ptr, ptr %4, align 8, !tbaa !173
@@ -93805,7 +93805,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #22
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #34
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost9unit_test12_GLOBAL__N_121progress_monitor_implD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0) unnamed_addr #9 align 2 {
+define internal void @_ZN5boost9unit_test12_GLOBAL__N_121progress_monitor_implD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !611
   %4 = icmp eq ptr %3, null
@@ -93858,7 +93858,7 @@ define linkonce_odr dso_local void @_ZNSt8_Rb_treeImSt4pairIKmN5boost9unit_test1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN5boost9unit_test12_GLOBAL__N_120clear_subtree_result5visitERKNS0_9test_unitE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN5boost9unit_test12_GLOBAL__N_120clear_subtree_result5visitERKNS0_9test_unitE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !1824
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -94313,7 +94313,7 @@ define internal fastcc void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implE, i64 16), ptr %0, align 8, !tbaa !25
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !638
@@ -94382,7 +94382,7 @@ _ZN5boost14checked_deleteINS_2io18ios_base_all_saverEEEvPT_.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_impl5visitERKNS0_9test_caseE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(312) %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_impl5visitERKNS0_9test_caseE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(312) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !638
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -94401,7 +94401,7 @@ define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121resul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_impl16test_suite_startERKNS0_10test_suiteE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_impl16test_suite_startERKNS0_10test_suiteE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !638
@@ -94464,7 +94464,7 @@ _ZNK5boost9unit_test19results_collector_t7resultsEm.exit: ; preds = %15, %20, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_impl17test_suite_finishERKNS0_10test_suiteE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #3 align 2 {
+define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_impl17test_suite_finishERKNS0_10test_suiteE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !638
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -95481,7 +95481,7 @@ _ZNSt6vectorIPN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EED2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN5boost9unit_test12_GLOBAL__N_130unit_test_log_data_helper_implESaIS3_EED2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !1056
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !1053
@@ -95983,7 +95983,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_9
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #14
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost9unit_test9ut_detail20dot_content_reporter5visitERKNS0_9test_caseE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(312) %1) unnamed_addr #3 comdat align 2 {
@@ -97103,7 +97103,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEES9_RKT_(ptr noundef nonnull align 8 dereferenceable(235) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEES9_RKT_(ptr noundef nonnull align 8 dereferenceable(235) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -97859,7 +97859,7 @@ _ZN5boost10shared_ptrINS_7runtime11basic_paramEED2Ev.exit: ; preds = %73, %75, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_IKbNSB_15default_value_tERSF_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEEEES9_RKT_(ptr noundef nonnull align 8 dereferenceable(235) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_IKbNSB_15default_value_tERSF_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEEEES9_RKT_(ptr noundef nonnull align 8 dereferenceable(235) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -98436,7 +98436,7 @@ _ZN5boost3nfp3nil4instEv.exit.i.i.i.i7.i:         ; preds = %212, %210, %207
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime14enum_parameterINS_9unit_test13output_formatELNS0_11args_amountE0EEC2INS_3nfp23named_parameter_combineINS7_15named_parameterIKNS2_13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSD_EENS8_INS9_IKSt16initializer_listISt4pairISD_S3_EENSE_13enum_values_tERSM_EENS8_INS9_IKS3_NSE_15default_value_tERSQ_EENS8_INS9_ISD_NSE_9env_var_tESG_EENS9_ISD_NSE_13description_tESG_EEEEEEEEEEEESC_RKT_(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime14enum_parameterINS_9unit_test13output_formatELNS0_11args_amountE0EEC2INS_3nfp23named_parameter_combineINS7_15named_parameterIKNS2_13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSD_EENS8_INS9_IKSt16initializer_listISt4pairISD_S3_EENSE_13enum_values_tERSM_EENS8_INS9_IKS3_NSE_15default_value_tERSQ_EENS8_INS9_ISD_NSE_9env_var_tESG_EENS9_ISD_NSE_13description_tESG_EEEEEEEEEEEESC_RKT_(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -99185,7 +99185,7 @@ _ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_113description_tERS9_EEEES8_RKT_(ptr noundef nonnull align 8 dereferenceable(235) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr nocapture readonly %.0.val1, i8 %.8.val3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_113description_tERS9_EEEES8_RKT_(ptr noundef nonnull align 8 dereferenceable(235) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr readonly captures(none) %.0.val1, i8 %.8.val3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -102101,7 +102101,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_12
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %2, i64 noundef %5)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2, i64 noundef %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7runtime11param_errorE, i64 16), ptr %0, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -104085,7 +104085,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49: ; preds = %_ZN
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17find_first_not_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #37
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #37
 
 ; Function Attrs: nounwind
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -104604,7 +104604,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_14
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %2, i64 noundef %5)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2, i64 noundef %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7runtime11param_errorE, i64 16), ptr %0, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -106444,7 +106444,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %2, i64 noundef %5)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2, i64 noundef %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7runtime11param_errorE, i64 16), ptr %0, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -107419,7 +107419,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_18
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %2, i64 noundef %5)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2, i64 noundef %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7runtime11param_errorE, i64 16), ptr %0, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -107910,7 +107910,7 @@ _ZN5boost10function_nIvJNS_9unit_test13basic_cstringIKcEEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN5boost6detail8function15functor_managerIZNS_9unit_test14runtime_config12_GLOBAL__N_119register_parametersERNS_7runtime16parameters_storeEE3$_0E6manageERKNS1_15function_bufferERSB_NS1_30functor_manager_operation_typeE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #47 align 2 {
+define internal void @"_ZN5boost6detail8function15functor_managerIZNS_9unit_test14runtime_config12_GLOBAL__N_119register_parametersERNS_7runtime16parameters_storeEE3$_0E6manageERKNS1_15function_bufferERSB_NS1_30functor_manager_operation_typeE"(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) #47 align 2 {
   switch i32 %2, label %16 [
     i32 4, label %4
     i32 0, label %"_ZN5boost6detail8function15functor_managerIZNS_9unit_test14runtime_config12_GLOBAL__N_119register_parametersERNS_7runtime16parameters_storeEE3$_0E7managerERKNS1_15function_bufferERSB_NS1_30functor_manager_operation_typeENS1_16function_obj_tagE.exit"
@@ -107965,7 +107965,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread14.i.i.i:      ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @"_ZN5boost6detail8function25void_function_obj_invokerIZNS_9unit_test14runtime_config12_GLOBAL__N_119register_parametersERNS_7runtime16parameters_storeEE3$_0vJNS3_13basic_cstringIKcEEEE6invokeERNS1_15function_bufferESC_"(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readonly %1) #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5boost6detail8function25void_function_obj_invokerIZNS_9unit_test14runtime_config12_GLOBAL__N_119register_parametersERNS_7runtime16parameters_storeEE3$_0vJNS3_13basic_cstringIKcEEEE6invokeERNS1_15function_bufferESC_"(ptr nonnull readnone align 8 captures(none) %0, ptr readonly captures(none) %1) #20 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::unit_test::framework::setup_error", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -112948,7 +112948,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime11basic_paramC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_ISA_NSB_12value_hint_tESD_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEEEES9_bbRKT_(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime11basic_paramC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_ISA_NSB_12value_hint_tESD_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEEEES9_bbRKT_(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0, ptr noundef nonnull readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -114889,7 +114889,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %2, i64 noundef %5)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2, i64 noundef %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7runtime11param_errorE, i64 16), ptr %0, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -120309,7 +120309,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_13
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %2, i64 noundef %5)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2, i64 noundef %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7runtime11param_errorE, i64 16), ptr %0, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -121566,7 +121566,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_18
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %2, i64 noundef %4)
+  %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %2, i64 noundef %4)
   tail call void @_ZN5boost7runtime18unrecognized_paramC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
   ret void
 }
@@ -121738,7 +121738,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef %2, i64 noundef %4)
+  %11 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull %2, i64 noundef %4)
   tail call void @_ZN5boost7runtime15ambiguous_paramC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1)
   ret void
 }
@@ -123015,7 +123015,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %2, i64 noundef %5)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2, i64 noundef %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7runtime11param_errorE, i64 16), ptr %0, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -130050,7 +130050,7 @@ _ZNSt8_Rb_treeIN5boost16exception_detail10type_info_ESt4pairIKS2_NS0_10shared_pt
 declare ptr @__cxa_demangle(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #49
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #49
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost6detail8function15functor_managerINS0_7forwardEE6manageERKNS1_15function_bufferERS5_NS1_30functor_manager_operation_typeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) #4 comdat align 2 {
@@ -130154,7 +130154,7 @@ _ZN5boost6detail7forwardclEv.exit:                ; preds = %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN5boost7runtime15arguments_store3getIjEERT_NS_9unit_test13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -131868,7 +131868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
-  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, i64 noundef %27)
+  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %11, i64 noundef %27)
           to label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit unwind label %33
 
 33:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i, %31
@@ -131990,7 +131990,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit14
-  %76 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %70, i64 noundef %71)
+  %76 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %70, i64 noundef %71)
           to label %.noexc15 unwind label %97
 
 .noexc15:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -132209,7 +132209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i
-  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %11, i64 noundef %27)
+  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %11, i64 noundef %27)
           to label %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit unwind label %33
 
 33:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i, %31
@@ -132331,7 +132331,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit14
-  %76 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %70, i64 noundef %71)
+  %76 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %70, i64 noundef %71)
           to label %.noexc15 unwind label %97
 
 .noexc15:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
@@ -139240,7 +139240,7 @@ define linkonce_odr hidden void @_ZNO5boost7runtime20specific_param_errorINS0_17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef %2, i64 noundef %5)
+  %12 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %2, i64 noundef %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5boost7runtime11param_errorE, i64 16), ptr %0, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -140320,7 +140320,7 @@ define linkonce_odr hidden void @_ZN5boost4math8policies6detail21replace_all_in_
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #64
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #64
   %6 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #56
-  %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef 0, i64 noundef %6) #56
+  %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef 0, i64 noundef %6) #56
   %.not13 = icmp eq i64 %7, -1
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
@@ -140342,10 +140342,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEmmPKc.exit: ; pred
   %14 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #56
   %15 = sub nuw i64 %11, %10
   %spec.select.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %4, i64 %15)
-  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %10, i64 noundef %spec.select.i.i.i, ptr noundef %2, i64 noundef %14)
+  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %10, i64 noundef %spec.select.i.i.i, ptr noundef nonnull %2, i64 noundef %14)
   %17 = add i64 %10, %5
   %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #56
-  %19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %17, i64 noundef %18) #56
+  %19 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %17, i64 noundef %18) #56
   %.not = icmp eq i64 %19, -1
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !2456
 
@@ -147824,7 +147824,7 @@ define linkonce_odr hidden void @_ZN5boost8geometry18read_wkt_exceptionC2INS_14t
   br i1 %82, label %.invoke, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds = %76
-  %83 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef %78, i64 noundef %79)
+  %83 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull %78, i64 noundef %79)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit unwind label %91
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i

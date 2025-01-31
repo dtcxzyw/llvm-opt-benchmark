@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @_ZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 1) i32 @_ZN13addI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
@@ -71,7 +71,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %5, %7, %12, %_Z
 declare noundef zeroext i1 @_ZN8Peephole16lea_coalesce_regEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN17addI_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
@@ -105,7 +105,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %5, %7, %12, %_Z
 declare noundef zeroext i1 @_ZN8Peephole16lea_coalesce_immEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 3) i32 @_ZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 3) i32 @_ZN13incI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
@@ -162,7 +162,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is
 declare noundef zeroext i1 @_ZN10VM_Version21is_intel_cascade_lakeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 4) i32 @_ZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 4) i32 @_ZN13decI_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
@@ -217,7 +217,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 6) i32 @_ZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 6) i32 @_ZN13addL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(96) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
@@ -249,7 +249,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %5, %7, %12, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 7) i32 @_ZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 7) i32 @_ZN17addL_rReg_immNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
@@ -281,7 +281,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %5, %7, %12, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 8) i32 @_ZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 8) i32 @_ZN13incL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
@@ -336,7 +336,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 9) i32 @_ZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 9) i32 @_ZN13decL_rRegNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_3op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.i
@@ -391,7 +391,7 @@ _ZN10VM_Version21supports_fast_3op_leaEv.exit:    ; preds = %_ZN10VM_Version20is
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 5) i32 @_ZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 5) i32 @_ZN19salI_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
@@ -423,7 +423,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %5, %7, %12, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 10) i32 @_ZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 10) i32 @_ZN19salL_rReg_immI2Node8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 4), align 4
   switch i32 %6, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit.thread [
     i32 1970169159, label %_ZN10VM_Version21supports_fast_2op_leaEv.exit
@@ -455,7 +455,7 @@ _ZN10VM_Version21supports_fast_2op_leaEv.exit.thread: ; preds = %5, %7, %12, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 11) i32 @_ZN13testI_regNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 11) i32 @_ZN13testI_regNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = tail call noundef zeroext i1 @_ZN8Peephole15test_may_removeEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef 410) #3
   %. = select i1 %6, i32 10, i32 -1
   ret i32 %.
@@ -464,7 +464,7 @@ define hidden noundef range(i32 -1, 11) i32 @_ZN13testI_regNode8peepholeEP5Block
 declare noundef zeroext i1 @_ZN8Peephole15test_may_removeEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -1, 12) i32 @_ZN13testL_regNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -1, 12) i32 @_ZN13testL_regNode8peepholeEP5BlockiP8PhaseCFGP13PhaseRegAlloc(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = tail call noundef zeroext i1 @_ZN8Peephole15test_may_removeEP5BlockiP8PhaseCFGP13PhaseRegAllocPFP8MachNodevEj(ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, i32 noundef 437) #3
   %. = select i1 %6, i32 11, i32 -1
   ret i32 %.

@@ -262,10 +262,10 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %lor.lhs.false.i18, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8expr2varC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8expr2varC2ER11ast_manager(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 41)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_id2map = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -276,7 +276,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8expr2varD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8expr2varD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_mapping = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_mapping, align 8
@@ -410,7 +410,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK8expr2var6to_varEP4expr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this, ptr nocapture noundef readonly %n) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK8expr2var6to_varEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %this, ptr noundef readonly captures(none) %n) local_unnamed_addr #9 align 2 {
 entry:
   %m_id2map = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_id2map, align 8
@@ -445,7 +445,7 @@ if.end:                                           ; preds = %entry, %_ZNK6vector
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8expr2var7displayERSo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK8expr2var7displayERSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.mk_ismt2_pp, align 8
   %m_mapping = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -512,7 +512,7 @@ declare void @_ZN11mk_ismt2_ppC1EP3astR11ast_managerjjPKc(ptr noundef nonnull al
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8expr2var6mk_invER10ref_vectorI4expr11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(16) %var2expr) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK8expr2var6mk_invER10ref_vectorI4expr11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(16) %var2expr) local_unnamed_addr #3 align 2 {
 entry:
   %m_mapping = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_mapping, align 8
@@ -683,7 +683,7 @@ for.end:                                          ; preds = %_ZN10ref_vectorI4ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8expr2var5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN8expr2var5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(41) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_mapping = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_mapping, align 8
@@ -822,7 +822,7 @@ _ZN6vectorIjLb0EjE9push_backEOj.exit:             ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8expr2var3popEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %this, i32 noundef %num_scopes) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN8expr2var3popEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %this, i32 noundef %num_scopes) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not = icmp eq i32 %num_scopes, 0
   br i1 %cmp.not, label %if.end32, label %if.then
@@ -1179,7 +1179,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -1225,7 +1225,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6vectorIN7obj_mapI4exprjE8key_dataELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {

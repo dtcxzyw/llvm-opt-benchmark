@@ -21,7 +21,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nf_nat_exp_f
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable___nf_nat_mangle_tcp_packet1002, ptr @__UNIQUE_ID___addressable_nf_nat_exp_find_port1006, ptr @__UNIQUE_ID___addressable_nf_nat_follow_master1005, ptr @__UNIQUE_ID___addressable_nf_nat_mangle_udp_packet1003], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8) #0 align 16 {
+define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i1 noundef zeroext %8) #0 align 16 {
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8
   %12 = tail call i32 @skb_ensure_writable(ptr noundef %0, i32 noundef %11) #5
@@ -114,13 +114,13 @@ define dso_local noundef zeroext i1 @__nf_nat_mangle_tcp_packet(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @skb_ensure_writable(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc void @mangle_contents(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 0
@@ -241,10 +241,10 @@ declare dso_local void @nf_nat_csum_recalc(ptr noundef, i8 noundef zeroext, i8 n
 declare dso_local i32 @nf_ct_seqadj_set(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @nf_nat_mangle_udp_packet(ptr noundef %0, ptr nocapture noundef readonly %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, i32 noundef %7) #0 align 16 {
+define dso_local noundef zeroext i1 @nf_nat_mangle_udp_packet(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(none) %6, i32 noundef %7) #0 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load i32, ptr %9, align 8
   %11 = tail call i32 @skb_ensure_writable(ptr noundef %0, i32 noundef %10) #5
@@ -342,7 +342,7 @@ define dso_local noundef zeroext i1 @nf_nat_mangle_udp_packet(ptr noundef %0, pt
 declare i16 @llvm.bswap.i16(i16) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_nat_follow_master(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @nf_nat_follow_master(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.nf_nat_range2, align 4
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %3) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -394,7 +394,7 @@ define dso_local void @nf_nat_follow_master(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @nf_nat_setup_info(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -441,7 +441,7 @@ define dso_local zeroext i16 @nf_nat_exp_find_port(ptr noundef initializes((68, 
 declare dso_local i32 @pskb_expand_head(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #2

@@ -68,7 +68,7 @@ return:                                           ; preds = %for.inc, %return.sp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @gdb_get_cpu_index(ptr nocapture noundef readonly %cpu) local_unnamed_addr #2 {
+define dso_local i32 @gdb_get_cpu_index(ptr noundef readonly captures(none) %cpu) local_unnamed_addr #2 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %cpu, i64 624
   %0 = load ptr, ptr %opaque, align 16
@@ -85,7 +85,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_query_offsets(ptr nocapture noundef readnone %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
+define dso_local void @gdb_handle_query_offsets(ptr noundef readnone captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 8), align 8
   %opaque = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -107,7 +107,7 @@ declare void @g_string_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare void @gdb_put_strbuf() local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_query_xfer_auxv(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
+define dso_local void @gdb_handle_query_xfer_auxv(ptr noundef readonly captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #3 {
 entry:
   %len1 = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load i32, ptr %len1, align 8
@@ -206,7 +206,7 @@ declare void @gdb_memtox(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @gdb_put_packet_binary(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_v_file_open(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
+define dso_local void @gdb_handle_v_file_open(ptr noundef readonly captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #3 {
 entry:
   %params.val = load ptr, ptr %params, align 8
   %params.val.val = load ptr, ptr %params.val, align 8
@@ -214,7 +214,7 @@ entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %params.val.val) #10
   %div2.i = lshr i64 %call.i, 1
   %conv.i = trunc i64 %div2.i to i32
-  tail call void @gdb_hextomem(ptr noundef %0, ptr noundef %params.val.val, i32 noundef %conv.i) #9
+  tail call void @gdb_hextomem(ptr noundef %0, ptr noundef nonnull %params.val.val, i32 noundef %conv.i) #9
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %call1.i = tail call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef 1) #9
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
@@ -254,7 +254,7 @@ declare i32 @do_guest_openat(ptr noundef, i32 noundef, ptr noundef, i32 noundef,
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_v_file_close(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
+define dso_local void @gdb_handle_v_file_close(ptr noundef readonly captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %params, align 8
   %1 = load i64, ptr %0, align 8
@@ -282,7 +282,7 @@ return:                                           ; preds = %if.end, %if.then
 declare i32 @close(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_v_file_pread(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
+define dso_local void @gdb_handle_v_file_pread(ptr noundef readonly captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %params, align 8
   %1 = load i64, ptr %0, align 8
@@ -337,7 +337,7 @@ declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #6
 declare i64 @pread64(i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_v_file_readlink(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
+define dso_local void @gdb_handle_v_file_readlink(ptr noundef readonly captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #3 {
 entry:
   %params.val = load ptr, ptr %params, align 8
   %params.val.val = load ptr, ptr %params.val, align 8
@@ -345,7 +345,7 @@ entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %params.val.val) #10
   %div2.i = lshr i64 %call.i, 1
   %conv.i = trunc i64 %div2.i to i32
-  tail call void @gdb_hextomem(ptr noundef %0, ptr noundef %params.val.val, i32 noundef %conv.i) #9
+  tail call void @gdb_hextomem(ptr noundef %0, ptr noundef nonnull %params.val.val, i32 noundef %conv.i) #9
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
   %call1.i = tail call ptr @g_byte_array_append(ptr noundef %1, ptr noundef nonnull @.str.13, i32 noundef 1) #9
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @gdbserver_state, i64 4184), align 8
@@ -392,7 +392,7 @@ cleanup:                                          ; preds = %if.end7, %if.then5,
 declare i64 @do_guest_readlink(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_handle_query_xfer_exec_file(ptr nocapture noundef readonly %params, ptr nocapture noundef readnone %user_ctx) local_unnamed_addr #3 {
+define dso_local void @gdb_handle_query_xfer_exec_file(ptr noundef readonly captures(none) %params, ptr noundef readnone captures(none) %user_ctx) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %params, align 8
   %1 = load i64, ptr %0, align 8
@@ -472,7 +472,7 @@ declare ptr @gdb_get_process(i32 noundef) local_unnamed_addr #4
 declare ptr @gdb_get_first_cpu_in_process(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @cpu_memory_rw_debug(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #4
 

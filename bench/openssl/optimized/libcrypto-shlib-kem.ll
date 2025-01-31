@@ -525,7 +525,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_KEM_up_ref(ptr nocapture noundef %kem) #2 {
+define noundef i32 @EVP_KEM_up_ref(ptr noundef captures(none) %kem) #2 {
 entry:
   %refcnt = getelementptr inbounds nuw i8, ptr %kem, i64 32
   %0 = atomicrmw add ptr %refcnt, i32 1 monotonic, align 4
@@ -533,7 +533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_KEM_get0_provider(ptr nocapture noundef readonly %kem) local_unnamed_addr #3 {
+define ptr @EVP_KEM_get0_provider(ptr noundef readonly captures(none) %kem) local_unnamed_addr #3 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %kem, i64 24
   %0 = load ptr, ptr %prov, align 8
@@ -879,14 +879,14 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @evp_is_a(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @evp_kem_get_number(ptr nocapture noundef readonly %kem) local_unnamed_addr #3 {
+define i32 @evp_kem_get_number(ptr noundef readonly captures(none) %kem) local_unnamed_addr #3 {
 entry:
   %0 = load i32, ptr %kem, align 8
   ret i32 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_KEM_get0_name(ptr nocapture noundef readonly %kem) local_unnamed_addr #3 {
+define ptr @EVP_KEM_get0_name(ptr noundef readonly captures(none) %kem) local_unnamed_addr #3 {
 entry:
   %type_name = getelementptr inbounds nuw i8, ptr %kem, i64 8
   %0 = load ptr, ptr %type_name, align 8
@@ -894,7 +894,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_KEM_get0_description(ptr nocapture noundef readonly %kem) local_unnamed_addr #3 {
+define ptr @EVP_KEM_get0_description(ptr noundef readonly captures(none) %kem) local_unnamed_addr #3 {
 entry:
   %description = getelementptr inbounds nuw i8, ptr %kem, i64 16
   %0 = load ptr, ptr %description, align 8
@@ -911,7 +911,7 @@ entry:
 declare void @evp_generic_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_KEM_names_do_all(ptr nocapture noundef readonly %kem, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
+define i32 @EVP_KEM_names_do_all(ptr noundef readonly captures(none) %kem, ptr noundef %fn, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %prov = getelementptr inbounds nuw i8, ptr %kem, i64 24
   %0 = load ptr, ptr %prov, align 8

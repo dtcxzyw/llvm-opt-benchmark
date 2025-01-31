@@ -490,7 +490,7 @@ return:                                           ; preds = %if.end114, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt6MIPMap5TexelIfEET_iNS_6Point2IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, i32 noundef %level, i64 %st.coerce) local_unnamed_addr #1 align 2 {
+define dso_local noundef float @_ZNK4pbrt6MIPMap5TexelIfEET_iNS_6Point2IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, i32 noundef %level, i64 %st.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %conv = sext i32 %level to i64
   %ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -506,10 +506,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZNK4pbrt6MIPMap6BilerpIfEET_iNS_6Point2IfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, i32 noundef %level, <2 x float> %st.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZNK4pbrt6MIPMap6BilerpIfEET_iNS_6Point2IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, i32 noundef %level, <2 x float> %st.coerce) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.pbrt::ImageChannelValues", align 8
   %ref.tmp37 = alloca i32, align 4
@@ -1332,7 +1332,7 @@ return:                                           ; preds = %if.end123, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap5TexelINS_3RGBEEET_iNS_6Point2IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, i32 noundef %level, i64 %st.coerce) local_unnamed_addr #1 align 2 {
+define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap5TexelINS_3RGBEEET_iNS_6Point2IiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, i32 noundef %level, i64 %st.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %va = alloca i32, align 4
   %vb = alloca i32, align 4
@@ -1402,7 +1402,7 @@ return:                                           ; preds = %do.end39, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap6BilerpINS_3RGBEEET_iNS_6Point2IfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, i32 noundef %level, <2 x float> %st.coerce) local_unnamed_addr #0 align 2 {
+define dso_local { <2 x float>, float } @_ZNK4pbrt6MIPMap6BilerpINS_3RGBEEET_iNS_6Point2IfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %this, i32 noundef %level, <2 x float> %st.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %conv = sext i32 %level to i64
   %ptr.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2930,7 +2930,7 @@ _ZN4pbrt12StringPrintfIJRKNS_14FilterFunctionERKfEEENSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt6MIPMapC2ENS_5ImageEPKNS_13RGBColorSpaceENS_8WrapModeEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_19MIPMapFilterOptionsE(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 52)) %this, ptr nocapture noundef %image, ptr noundef %colorSpace, i32 noundef %wrapMode, ptr %alloc.coerce, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %options) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt6MIPMapC2ENS_5ImageEPKNS_13RGBColorSpaceENS_8WrapModeEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_19MIPMapFilterOptionsE(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 52)) %this, ptr noundef captures(none) %image, ptr noundef %colorSpace, i32 noundef %wrapMode, ptr %alloc.coerce, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %options) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.pstd::vector", align 8
   %agg.tmp = alloca %"class.pbrt::Image", align 8
@@ -4071,7 +4071,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt6MIPMap14CreateFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19MIPMapFilterOptionsENS_8WrapModeENS_13ColorEncodingEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 4 dereferenceable(8) %options, i32 noundef %wrapMode, ptr nocapture noundef readonly %encoding, ptr %alloc.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt6MIPMap14CreateFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19MIPMapFilterOptionsENS_8WrapModeENS_13ColorEncodingEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 4 dereferenceable(8) %options, i32 noundef %wrapMode, ptr noundef readonly captures(none) %encoding, ptr %alloc.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alloc = alloca %"class.pstd::pmr::polymorphic_allocator.3", align 8
   %wrapMode.addr = alloca i32, align 4
@@ -5573,7 +5573,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 declare void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
 
@@ -9731,7 +9731,7 @@ eh.resume:                                        ; preds = %lpad11, %lpad.i21, 
 declare float @llvm.ceil.f32(float) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_mipmap.cpp() #15 section ".text.startup" {
@@ -9747,10 +9747,10 @@ declare i32 @llvm.smin.i32(i32, i32) #16
 declare float @llvm.sqrt.f32(float) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.log.f32(float) #16

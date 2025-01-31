@@ -78,7 +78,7 @@ declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(
 declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal11AnyMetadata16InternalPackFromEPNS0_5ArenaERKNS0_11MessageLiteESt17basic_string_viewIcSt11char_traitsIcEESB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(16) %message, i64 %type_url_prefix.coerce0, ptr %type_url_prefix.coerce1, ptr nocapture noundef readonly byval(%"class.std::basic_string_view") align 8 %type_name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal11AnyMetadata16InternalPackFromEPNS0_5ArenaERKNS0_11MessageLiteESt17basic_string_viewIcSt11char_traitsIcEESB_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %arena, ptr noundef nonnull align 8 dereferenceable(16) %message, i64 %type_url_prefix.coerce0, ptr %type_url_prefix.coerce1, ptr noundef readonly byval(%"class.std::basic_string_view") align 8 captures(none) %type_name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -164,7 +164,7 @@ declare noundef zeroext i1 @_ZNK6google8protobuf11MessageLite17SerializeToString
 declare noundef ptr @_ZN6google8protobuf8internal14ArenaStringPtr7MutableB5cxx11EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf8internal11AnyMetadata16InternalUnpackToESt17basic_string_viewIcSt11char_traitsIcEEPNS0_11MessageLiteE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %type_name.coerce0, ptr nocapture readonly %type_name.coerce1, ptr noundef %message) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZNK6google8protobuf8internal11AnyMetadata16InternalUnpackToESt17basic_string_viewIcSt11char_traitsIcEEPNS0_11MessageLiteE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 %type_name.coerce0, ptr readonly captures(none) %type_name.coerce1, ptr noundef %message) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -220,7 +220,7 @@ return:                                           ; preds = %lor.rhs.i.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK6google8protobuf8internal11AnyMetadata10InternalIsESt17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %type_name.coerce0, ptr nocapture readonly %type_name.coerce1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK6google8protobuf8internal11AnyMetadata10InternalIsESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i64 %type_name.coerce0, ptr readonly captures(none) %type_name.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
@@ -395,13 +395,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

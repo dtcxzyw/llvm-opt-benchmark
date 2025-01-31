@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ZBarrierSetStackChunk14encode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ZBarrierSetStackChunk14encode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.ZContinuation::ZColorStackOopClosure", align 8
   call void @_ZN13ZContinuation21ZColorStackOopClosureC1EP17stackChunkOopDesc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %1) #4
   %5 = load ptr, ptr %2, align 8
@@ -26,7 +26,7 @@ define hidden void @_ZN21ZBarrierSetStackChunk14encode_gc_modeEP17stackChunkOopD
 declare void @_ZN13ZContinuation21ZColorStackOopClosureC1EP17stackChunkOopDesc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ZBarrierSetStackChunk14decode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ZBarrierSetStackChunk14decode_gc_modeEP17stackChunkOopDescP11OopIterator(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.ZContinuation::ZUncolorStackOopClosure", align 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN13ZContinuation23ZUncolorStackOopClosureE, i64 16), ptr %4, align 8
   %5 = load ptr, ptr %2, align 8
@@ -36,7 +36,7 @@ define hidden void @_ZN21ZBarrierSetStackChunk14decode_gc_modeEP17stackChunkOopD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN21ZBarrierSetStackChunk8load_oopEP17stackChunkOopDescPP7oopDesc(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN21ZBarrierSetStackChunk8load_oopEP17stackChunkOopDescPP7oopDesc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN13ZContinuation8load_oopEP17stackChunkOopDescPv(ptr noundef %1, ptr noundef %2) #4
   ret ptr %4
 }
@@ -44,7 +44,7 @@ define hidden noundef ptr @_ZN21ZBarrierSetStackChunk8load_oopEP17stackChunkOopD
 declare noundef ptr @_ZN13ZContinuation8load_oopEP17stackChunkOopDescPv(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN21ZBarrierSetStackChunk8load_oopEP17stackChunkOopDescP9narrowOop(ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1, ptr nocapture readnone %2) unnamed_addr #2 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN21ZBarrierSetStackChunk8load_oopEP17stackChunkOopDescP9narrowOop(ptr nonnull readnone align 8 captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) unnamed_addr #2 align 2 {
   %4 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %4, align 1
   tail call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str, i32 noundef 45) #5

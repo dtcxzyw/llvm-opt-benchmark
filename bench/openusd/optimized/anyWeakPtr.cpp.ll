@@ -17,12 +17,12 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr18_PointerHolderBaseD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr18_PointerHolderBaseD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolderD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolderD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr18_PointerHolderBaseD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr18_PointerHolderBaseD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret void
 }
 
@@ -37,48 +37,48 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolderD0
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder5CloneEPNS0_5_DataE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #3 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder5CloneEPNS0_5_DataE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolderE, i64 16), ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder9IsInvalidEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder9IsInvalidEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder19GetUniqueIdentifierEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noalias noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder19GetUniqueIdentifierEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder11GetWeakBaseEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noalias noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder11GetWeakBaseEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHoldercvbEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHoldercvbEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder8_IsConstEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder8_IsConstEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define { i64, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder15GetPythonObjectEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define { i64, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder15GetPythonObjectEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret { i64, i64 } zeroinitializer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder11GetTypeInfoEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder11GetTypeInfoEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret ptr @_ZTIv
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder7GetTypeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder7GetTypeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType14GetUnknownTypeEv()
   ret ptr %2
 }
@@ -86,12 +86,12 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType14GetUnknownTypeEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder18_GetMostDerivedPtrEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noalias noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder18_GetMostDerivedPtrEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder14_IsPolymorphicEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr12_EmptyHolder14_IsPolymorphicEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   ret i1 false
 }
 
@@ -188,7 +188,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr18_PointerHolderBaseD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfAnyWeakPtr18_PointerHolderBaseD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #10
   unreachable
 }

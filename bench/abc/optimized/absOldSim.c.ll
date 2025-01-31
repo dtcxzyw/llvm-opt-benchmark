@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Saig_ManSetAndDriveImplications_rec = private unnamed_addr constant [4 x i32] [i32 1, i32 0, i32 3, i32 2], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @Saig_ManExtendOneEval(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @Saig_ManExtendOneEval(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = ptrtoint ptr %.val to i64
@@ -117,7 +117,7 @@ define range(i32 0, 4) i32 @Saig_ManExtendOneEval(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @Saig_ManSimDataInit(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @Saig_ManSimDataInit(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 104
   %.val110157 = load i32, ptr %5, align 8
   %6 = icmp sgt i32 %.val110157, 0
@@ -625,7 +625,7 @@ Saig_ManExtendOneEval.exit152:                    ; preds = %204, %216
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @Saig_ManExtendOneEval2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @Saig_ManExtendOneEval2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8
   %5 = ptrtoint ptr %.val to i64
@@ -716,7 +716,7 @@ Saig_ManSimInfo2Not.exit41:                       ; preds = %switch.lookup51, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @Saig_ManSimDataInit2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @Saig_ManSimDataInit2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 104
   %.val83132 = load i32, ptr %4, align 8
   %5 = icmp sgt i32 %.val83132, 0
@@ -1164,7 +1164,7 @@ Saig_ManExtendOneEval2.exit125:                   ; preds = %Saig_ManSimInfo2Not
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Saig_ManSetAndDriveImplications_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #2 {
+define void @Saig_ManSetAndDriveImplications_rec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %4, i64 8
   %7 = getelementptr i8, ptr %0, i64 112
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1398,7 +1398,7 @@ Saig_ManSimInfo2Not.exit109:                      ; preds = %111, %110, %109, %S
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Saig_ManExplorePaths_rec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define void @Saig_ManExplorePaths_rec(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %4, i64 8
   %7 = ashr i32 %2, 4
   %8 = sext i32 %7 to i64
@@ -1515,7 +1515,7 @@ Saig_ObjIsLo.exit:                                ; preds = %.lr.ph.split
   %.val64.val = load ptr, ptr %46, align 8
   %47 = getelementptr inbounds ptr, ptr %.val64.val, i64 %43
   %48 = load ptr, ptr %47, align 8
-  tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef %0, ptr noundef %48, i32 noundef %.0110, i32 noundef %3, ptr noundef %4)
+  tail call void @Saig_ManSetAndDriveImplications_rec(ptr noundef %0, ptr noundef %48, i32 noundef %.0110, i32 noundef %3, ptr noundef nonnull %4)
   br label %49
 
 49:                                               ; preds = %44, %45
@@ -1584,7 +1584,7 @@ tailrecurse.backedge:                             ; preds = %.lr.ph.split, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManProcessCex(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 %4) local_unnamed_addr #3 {
+define noalias noundef ptr @Saig_ManProcessCex(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 %4) local_unnamed_addr #3 {
   %6 = tail call i32 @Saig_ManSimDataInit2(ptr noundef %0, ptr noundef %2, ptr noundef %3)
   %7 = getelementptr i8, ptr %0, i64 104
   %.val6279 = load i32, ptr %7, align 8
@@ -1889,7 +1889,7 @@ Vec_IntFree.exit:                                 ; preds = %._crit_edge, %139
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_ManExtendCounterExampleTest2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
+define noalias noundef ptr @Saig_ManExtendCounterExampleTest2(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = getelementptr i8, ptr %0, i64 108
@@ -1985,7 +1985,7 @@ Vec_PtrCleanSimInfo.exit:                         ; preds = %41, %Vec_PtrAllocSi
 Abc_Clock.exit:                                   ; preds = %Vec_PtrCleanSimInfo.exit, %47
   %.0.i.neg = phi i64 [ %.neg33, %47 ], [ 1, %Vec_PtrCleanSimInfo.exit ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  %51 = call ptr @Saig_ManProcessCex(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %36, i32 poison)
+  %51 = call ptr @Saig_ManProcessCex(ptr noundef nonnull %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %36, i32 poison)
   %.not22 = icmp eq i32 %3, 0
   br i1 %.not22, label %68, label %52
 
@@ -2030,7 +2030,7 @@ Abc_Clock.exit31:                                 ; preds = %52, %58
 
 Vec_PtrFree.exit:                                 ; preds = %68, %70
   call void @free(ptr noundef nonnull %36) #16
-  call void @Aig_ManFanoutStop(ptr noundef %0) #16
+  call void @Aig_ManFanoutStop(ptr noundef nonnull %0) #16
   br label %71
 
 71:                                               ; preds = %Vec_PtrFree.exit, %10
@@ -2039,7 +2039,7 @@ Vec_PtrFree.exit:                                 ; preds = %68, %70
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare void @Aig_ManFanoutStart(ptr noundef) local_unnamed_addr #5
 
@@ -2062,7 +2062,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #16
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #16
   call void @free(ptr noundef %9) #16
   br label %16
 
@@ -2084,13 +2084,13 @@ declare void @Aig_ManFanoutStop(ptr noundef) local_unnamed_addr #5
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #10
@@ -2102,10 +2102,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #12
@@ -2114,10 +2114,10 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

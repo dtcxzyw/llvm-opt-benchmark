@@ -640,7 +640,7 @@ define internal void @init_complete(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 .lr.ph.i:                                         ; preds = %45, %.lr.ph.i
   %51 = phi ptr [ %53, %.lr.ph.i ], [ %50, %45 ]
   %.07.i = phi ptr [ %52, %.lr.ph.i ], [ %49, %45 ]
-  tail call void %51(ptr noundef %2) #14
+  tail call void %51(ptr noundef nonnull %2) #14
   %52 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %53 = load ptr, ptr %52, align 8
   %.not.i = icmp eq ptr %53, null
@@ -1109,7 +1109,7 @@ pmix_pointer_array_get_item.exit128:              ; preds = %215, %230
 .lr.ph.i:                                         ; preds = %248, %.lr.ph.i
   %254 = phi ptr [ %256, %.lr.ph.i ], [ %253, %248 ]
   %.07.i = phi ptr [ %255, %.lr.ph.i ], [ %252, %248 ]
-  call void %254(ptr noundef %2) #14
+  call void %254(ptr noundef nonnull %2) #14
   %255 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %256 = load ptr, ptr %255, align 8
   %.not.i129 = icmp eq ptr %256, null
@@ -1217,7 +1217,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %248
 .lr.ph.i132:                                      ; preds = %307, %.lr.ph.i132
   %313 = phi ptr [ %315, %.lr.ph.i132 ], [ %312, %307 ]
   %.07.i133 = phi ptr [ %314, %.lr.ph.i132 ], [ %311, %307 ]
-  call void %313(ptr noundef %2) #14
+  call void %313(ptr noundef nonnull %2) #14
   %314 = getelementptr inbounds nuw i8, ptr %.07.i133, i64 8
   %315 = load ptr, ptr %314, align 8
   %.not.i134 = icmp eq ptr %315, null
@@ -1330,7 +1330,7 @@ define internal void @job_started(i32 %0, i16 signext %1, ptr noundef %2) #0 {
 .lr.ph.i:                                         ; preds = %43, %.lr.ph.i
   %49 = phi ptr [ %51, %.lr.ph.i ], [ %48, %43 ]
   %.07.i = phi ptr [ %50, %.lr.ph.i ], [ %47, %43 ]
-  call void %49(ptr noundef %2) #14
+  call void %49(ptr noundef nonnull %2) #14
   %50 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %51 = load ptr, ptr %50, align 8
   %.not.i = icmp eq ptr %51, null
@@ -4310,7 +4310,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %22
 .lr.ph.i39:                                       ; preds = %50, %.lr.ph.i39
   %56 = phi ptr [ %58, %.lr.ph.i39 ], [ %55, %50 ]
   %.07.i40 = phi ptr [ %57, %.lr.ph.i39 ], [ %54, %50 ]
-  tail call void %56(ptr noundef %2) #14
+  tail call void %56(ptr noundef nonnull %2) #14
   %57 = getelementptr inbounds nuw i8, ptr %.07.i40, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i41 = icmp eq ptr %58, null
@@ -4336,7 +4336,7 @@ pmix_obj_run_destructors.exit42:                  ; preds = %.lr.ph.i39, %50
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @prte_util_print_name_args(ptr noundef) local_unnamed_addr #1
 
@@ -4368,7 +4368,7 @@ define internal fastcc void @pmix_obj_run_destructors(ptr noundef %0) unnamed_ad
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
@@ -4377,7 +4377,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #4
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #6
@@ -4412,10 +4412,10 @@ declare void @PMIx_Proc_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare zeroext i1 @PMIx_Check_nspace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
@@ -4578,7 +4578,7 @@ declare ptr @prte_dump_aborted_procs(ptr noundef) local_unnamed_addr #1
 declare void @PMIx_Byte_object_construct(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @PMIx_server_IOF_deliver(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -4652,13 +4652,13 @@ declare i32 @PMIx_Data_copy_payload(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @prte_state_base_track_procs(i32 noundef, i16 noundef signext, ptr noundef) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

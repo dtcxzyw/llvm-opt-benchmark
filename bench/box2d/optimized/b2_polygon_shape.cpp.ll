@@ -25,7 +25,7 @@ $_ZTI7b2Shape = comdat any
 @_ZN14b2PolygonShapeC1Ev = unnamed_addr alias void (ptr), ptr @_ZN14b2PolygonShapeC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14b2PolygonShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(156) initializes((0, 24), (152, 156)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14b2PolygonShapeC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(156) initializes((0, 24), (152, 156)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV14b2PolygonShape, i64 16), ptr %this, align 8
   %m_type = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -44,7 +44,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK14b2PolygonShape5CloneEP16b2BlockAllocator(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %this, ptr noundef nonnull %allocator) unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK14b2PolygonShape5CloneEP16b2BlockAllocator(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(156) %this, ptr noundef nonnull %allocator) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 160)
   tail call void @_ZN14b2PolygonShapeC1Ev(ptr noundef nonnull align 8 dereferenceable(156) %call)
@@ -61,7 +61,7 @@ entry:
 declare noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14b2PolygonShape8SetAsBoxEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(156) initializes((16, 56), (88, 120), (152, 156)) %this, float noundef %hx, float noundef %hy) local_unnamed_addr #0 align 2 {
+define void @_ZN14b2PolygonShape8SetAsBoxEff(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(156) initializes((16, 56), (88, 120), (152, 156)) %this, float noundef %hx, float noundef %hy) local_unnamed_addr #0 align 2 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 4, ptr %m_count, align 8
@@ -107,7 +107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_ZN14b2PolygonShape8SetAsBoxEffRK6b2Vec2f(ptr nocapture noundef nonnull align 8 dereferenceable(156) initializes((16, 56), (88, 120), (152, 156)) %this, float noundef %hx, float noundef %hy, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %angle) local_unnamed_addr #3 align 2 {
+define void @_ZN14b2PolygonShape8SetAsBoxEffRK6b2Vec2f(ptr noundef nonnull align 8 captures(none) dereferenceable(156) initializes((16, 56), (88, 120), (152, 156)) %this, float noundef %hx, float noundef %hy, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %center, float noundef %angle) local_unnamed_addr #3 align 2 {
 entry:
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 152
   store i32 4, ptr %m_count, align 8
@@ -196,16 +196,16 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK14b2PolygonShape13GetChildCountEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK14b2PolygonShape13GetChildCountEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN14b2PolygonShape3SetEPK6b2Vec2i(ptr nocapture noundef nonnull align 8 dereferenceable(156) %this, ptr noundef %vertices, i32 noundef %count) local_unnamed_addr #6 align 2 {
+define noundef zeroext i1 @_ZN14b2PolygonShape3SetEPK6b2Vec2i(ptr noundef nonnull align 8 captures(none) dereferenceable(156) %this, ptr noundef %vertices, i32 noundef %count) local_unnamed_addr #6 align 2 {
 entry:
   %hull = alloca %struct.b2Hull, align 4
   call void @_Z13b2ComputeHullPK6b2Vec2i(ptr nonnull sret(%struct.b2Hull) align 4 %hull, ptr noundef %vertices, i32 noundef %count)
@@ -372,7 +372,7 @@ return:                                           ; preds = %entry, %_ZN14b2Poly
 declare void @_Z13b2ComputeHullPK6b2Vec2i(ptr sret(%struct.b2Hull) align 4, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN14b2PolygonShape3SetERK6b2Hull(ptr nocapture noundef nonnull align 8 dereferenceable(156) initializes((152, 156)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %hull) local_unnamed_addr #7 align 2 {
+define void @_ZN14b2PolygonShape3SetERK6b2Hull(ptr noundef nonnull align 8 captures(none) dereferenceable(156) initializes((152, 156)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(68) %hull) local_unnamed_addr #7 align 2 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %hull, i64 64
   %0 = load i32, ptr %count, align 4
@@ -548,7 +548,7 @@ _ZL15ComputeCentroidPK6b2Vec2i.exit:              ; preds = %cond.end.i, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK14b2PolygonShape9TestPointERK11b2TransformRK6b2Vec2(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p) unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZNK14b2PolygonShape9TestPointERK11b2TransformRK6b2Vec2(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(156) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xf, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %p) unnamed_addr #8 align 2 {
 entry:
   %q = getelementptr inbounds nuw i8, ptr %xf, i64 8
   %0 = load float, ptr %p, align 4
@@ -604,7 +604,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK14b2PolygonShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %this, ptr nocapture noundef writeonly %output, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %input, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZNK14b2PolygonShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(156) %this, ptr noundef writeonly captures(none) %output, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %input, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #7 align 2 {
 entry:
   %q = getelementptr inbounds nuw i8, ptr %xf, i64 8
   %0 = load float, ptr %input, align 4
@@ -740,7 +740,7 @@ return:                                           ; preds = %if.end35, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK14b2PolygonShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %this, ptr nocapture noundef writeonly %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #7 align 2 {
+define void @_ZNK14b2PolygonShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(156) %this, ptr noundef writeonly captures(none) %aabb, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #7 align 2 {
 entry:
   %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 24
   %q.i = getelementptr inbounds nuw i8, ptr %xf, i64 8
@@ -830,7 +830,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK14b2PolygonShape11ComputeMassEP10b2MassDataf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %this, ptr nocapture noundef writeonly %massData, float noundef %density) unnamed_addr #7 align 2 {
+define void @_ZNK14b2PolygonShape11ComputeMassEP10b2MassDataf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(156) %this, ptr noundef writeonly captures(none) %massData, float noundef %density) unnamed_addr #7 align 2 {
 entry:
   %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load float, ptr %m_vertices, align 8
@@ -937,7 +937,7 @@ for.end:                                          ; preds = %cond.end, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK14b2PolygonShape8ValidateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %this) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK14b2PolygonShape8ValidateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(156) %this) local_unnamed_addr #1 align 2 {
 entry:
   %hull = alloca %struct.b2Hull, align 4
   %m_count = getelementptr inbounds nuw i8, ptr %this, i64 152

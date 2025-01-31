@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_jdk_internal_reflect_Reflection_getCallerClass(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_jdk_internal_reflect_Reflection_getCallerClass(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @JVM_GetCallerClass(ptr noundef %0) #2
   ret ptr %3
 }
@@ -12,7 +12,7 @@ define ptr @Java_jdk_internal_reflect_Reflection_getCallerClass(ptr noundef %0, 
 declare ptr @JVM_GetCallerClass(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Java_jdk_internal_reflect_Reflection_getClassAccessFlags(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @Java_jdk_internal_reflect_Reflection_getClassAccessFlags(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @JVM_GetClassAccessFlags(ptr noundef %0, ptr noundef %2) #2
   ret i32 %4
 }
@@ -20,7 +20,7 @@ define i32 @Java_jdk_internal_reflect_Reflection_getClassAccessFlags(ptr noundef
 declare i32 @JVM_GetClassAccessFlags(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_jdk_internal_reflect_Reflection_areNestMates(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define zeroext i8 @Java_jdk_internal_reflect_Reflection_areNestMates(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call zeroext i8 @JVM_AreNestMates(ptr noundef %0, ptr noundef %2, ptr noundef %3) #2
   ret i8 %5
 }

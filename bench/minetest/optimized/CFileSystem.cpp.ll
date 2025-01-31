@@ -60,7 +60,7 @@ $_ZTIN3irr2io11IFileSystemE = comdat any
 @.str.12 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CFileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io11CFileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -177,7 +177,7 @@ _ZN3irr4core5arrayIPNS_2io14IArchiveLoaderEE9push_backEOS4_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
@@ -185,7 +185,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 declare void @_ZN3irr2io17CArchiveLoaderZIPC1EPNS0_11IFileSystemE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io11CFileSystemC1Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (144, 164)) %this) unnamed_addr #0 align 2 {
@@ -290,7 +290,7 @@ _ZN3irr4core5arrayIPNS_2io14IArchiveLoaderEE9push_backEOS4_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io11CFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -584,7 +584,7 @@ return:                                           ; preds = %for.body, %_ZN3irr4
 declare noundef ptr @_ZN3irr2io9CReadFile14createReadFileERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr2io11CFileSystem20createMemoryReadFileEPKviRKNS_4core6stringIcEEb(ptr nocapture nonnull readnone align 8 %this, ptr noundef %memory, i32 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %deleteMemoryWhenDropped) unnamed_addr #0 align 2 {
+define noundef ptr @_ZN3irr2io11CFileSystem20createMemoryReadFileEPKviRKNS_4core6stringIcEEb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %memory, i32 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %deleteMemoryWhenDropped) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %memory, null
   br i1 %tobool.not, label %return, label %if.else
@@ -603,7 +603,7 @@ return:                                           ; preds = %if.else, %entry
 declare void @_ZN3irr2io15CMemoryReadFileC1EPKvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65), ptr noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr2io11CFileSystem19createLimitReadFileERKNS_4core6stringIcEEPNS0_9IReadFileEll(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef %alreadyOpenedFile, i64 noundef %pos, i64 noundef %areaSize) unnamed_addr #0 align 2 {
+define noundef ptr @_ZN3irr2io11CFileSystem19createLimitReadFileERKNS_4core6stringIcEEPNS0_9IReadFileEll(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %fileName, ptr noundef %alreadyOpenedFile, i64 noundef %pos, i64 noundef %areaSize) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %alreadyOpenedFile, null
   br i1 %tobool.not, label %return, label %if.else
@@ -621,7 +621,7 @@ return:                                           ; preds = %if.else, %entry
 declare void @_ZN3irr2io14CLimitReadFileC1EPNS0_9IReadFileEllRKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr2io11CFileSystem21createMemoryWriteFileEPviRKNS_4core6stringIcEEb(ptr nocapture nonnull readnone align 8 %this, ptr noundef %memory, i32 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %deleteMemoryWhenDropped) unnamed_addr #0 align 2 {
+define noundef ptr @_ZN3irr2io11CFileSystem21createMemoryWriteFileEPviRKNS_4core6stringIcEEb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %memory, i32 noundef %len, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %deleteMemoryWhenDropped) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %memory, null
   br i1 %tobool.not, label %return, label %if.else
@@ -640,7 +640,7 @@ return:                                           ; preds = %if.else, %entry
 declare void @_ZN3irr2io16CMemoryWriteFileC1EPvlRKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(65), ptr noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr2io11CFileSystem18createAndWriteFileERKNS_4core6stringIcEEb(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
+define noundef ptr @_ZN3irr2io11CFileSystem18createAndWriteFileERKNS_4core6stringIcEEb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN3irr2io10CWriteFile15createWriteFileERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %append) #23
   ret ptr %call
@@ -649,7 +649,7 @@ entry:
 declare noundef ptr @_ZN3irr2io10CWriteFile15createWriteFileERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CFileSystem16addArchiveLoaderEPNS0_14IArchiveLoaderE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %loader) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io11CFileSystem16addArchiveLoaderEPNS0_14IArchiveLoaderE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, ptr noundef %loader) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %loader, null
   br i1 %tobool.not, label %return, label %if.end
@@ -736,7 +736,7 @@ return:                                           ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr2io11CFileSystem21getArchiveLoaderCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK3irr2io11CFileSystem21getArchiveLoaderCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this) unnamed_addr #6 align 2 {
 entry:
   %ArchiveLoader = getelementptr inbounds nuw i8, ptr %this, i64 80
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -751,7 +751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK3irr2io11CFileSystem16getArchiveLoaderEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, i32 noundef %index) unnamed_addr #7 align 2 {
+define noundef ptr @_ZNK3irr2io11CFileSystem16getArchiveLoaderEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, i32 noundef %index) unnamed_addr #7 align 2 {
 entry:
   %ArchiveLoader = getelementptr inbounds nuw i8, ptr %this, i64 80
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -777,7 +777,7 @@ return:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3irr2io11CFileSystem15moveFileArchiveEji(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, i32 noundef %sourceIndex, i32 noundef %relative) unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN3irr2io11CFileSystem15moveFileArchiveEji(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, i32 noundef %sourceIndex, i32 noundef %relative) unnamed_addr #8 align 2 {
 entry:
   %add = add nsw i32 %relative, %sourceIndex
   %cmp.inv = icmp sgt i32 %relative, -1
@@ -1159,7 +1159,7 @@ if.end130:                                        ; preds = %if.else129, %if.the
 declare void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr2io11CFileSystem14addFileArchiveEPNS0_9IReadFileEbbNS0_19E_FILE_ARCHIVE_TYPEERKNS_4core6stringIcEEPPNS0_12IFileArchiveE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %file, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i32 noundef %archiveType, ptr noundef nonnull align 8 dereferenceable(32) %password, ptr noundef writeonly %retArchive) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr2io11CFileSystem14addFileArchiveEPNS0_9IReadFileEbbNS0_19E_FILE_ARCHIVE_TYPEERKNS_4core6stringIcEEPPNS0_12IFileArchiveE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, ptr noundef %file, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i32 noundef %archiveType, ptr noundef nonnull align 8 dereferenceable(32) %password, ptr noundef writeonly %retArchive) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %file, null
   br i1 %tobool.not, label %return, label %if.then4
@@ -1424,7 +1424,7 @@ return:                                           ; preds = %if.else110, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr2io11CFileSystem14addFileArchiveEPNS0_12IFileArchiveE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %archive) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr2io11CFileSystem14addFileArchiveEPNS0_12IFileArchiveE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, ptr noundef %archive) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %archive, null
   br i1 %tobool.not, label %return, label %for.cond.preheader
@@ -1534,7 +1534,7 @@ return:                                           ; preds = %for.body, %_ZN3irr4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr2io11CFileSystem17removeFileArchiveEj(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %index) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr2io11CFileSystem17removeFileArchiveEj(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, i32 noundef %index) unnamed_addr #0 align 2 {
 entry:
   %FileArchives = getelementptr inbounds nuw i8, ptr %this, i64 112
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -1757,7 +1757,7 @@ cleanup:                                          ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr2io11CFileSystem19getFileArchiveCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 {
+define noundef i32 @_ZNK3irr2io11CFileSystem19getFileArchiveCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this) unnamed_addr #6 align 2 {
 entry:
   %FileArchives = getelementptr inbounds nuw i8, ptr %this, i64 112
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -2406,10 +2406,10 @@ return:                                           ; preds = %cleanup, %if.end.i.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @realpath(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+declare noundef ptr @realpath(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3irr2io11CFileSystem10getFileDirERKNS_4core6stringIcEE(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
+define void @_ZNK3irr2io11CFileSystem10getFileDirERKNS_4core6stringIcEE(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
 entry:
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %filename, i8 noundef signext 47, i64 noundef -1) #23
   %conv.i4.i = trunc i64 %call2.i to i32
@@ -2668,7 +2668,7 @@ return:                                           ; preds = %for.body.i.i22, %ve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK3irr2io11CFileSystem15getFileBasenameERKNS_4core6stringIcEEb(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %keepExtension) unnamed_addr #0 align 2 {
+define void @_ZNK3irr2io11CFileSystem15getFileBasenameERKNS_4core6stringIcEEb(ptr dead_on_unwind noalias writable sret(%"class.irr::core::string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %keepExtension) unnamed_addr #0 align 2 {
 entry:
   %call2.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %filename, i8 noundef signext 47, i64 noundef -1) #23
   %conv.i4.i = trunc i64 %call2.i to i32
@@ -2735,7 +2735,7 @@ cleanup:                                          ; preds = %if.end.i.i, %if.els
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io11CFileSystem15flattenFilenameERNS_4core6stringIcEERKS4_(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull returned align 8 dereferenceable(32) %directory, ptr noundef nonnull align 8 dereferenceable(32) %root) unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr2io11CFileSystem15flattenFilenameERNS_4core6stringIcEERKS4_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull returned align 8 dereferenceable(32) %directory, ptr noundef nonnull align 8 dereferenceable(32) %root) unnamed_addr #0 align 2 {
 entry:
   %dir = alloca %"class.irr::core::string", align 8
   %subdir = alloca %"class.irr::core::string", align 8
@@ -3369,7 +3369,7 @@ if.then.i.i.i.i:                                  ; preds = %if.else
   unreachable
 
 _ZN3irr4core6stringIcE6appendERKS2_.exit:         ; preds = %if.else
-  %call.i.i.i48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef %96, i64 noundef %108) #23
+  %call.i.i.i48 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef nonnull %96, i64 noundef %108) #23
   br label %if.end25
 
 sub_0:                                            ; preds = %_ZN3irr4core6stringIcED2Ev.exit
@@ -4851,10 +4851,10 @@ return:                                           ; preds = %if.end52, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN3irr2io11CFileSystem17setFileListSystemENS0_15EFileSystemTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %listType) unnamed_addr #12 align 2 {
+define noundef i32 @_ZN3irr2io11CFileSystem17setFileListSystemENS0_15EFileSystemTypeE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, i32 noundef %listType) unnamed_addr #12 align 2 {
 entry:
   %FileSystemType = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %FileSystemType, align 8, !tbaa !35
@@ -5892,21 +5892,21 @@ _ZN3irr4core6stringIcED2Ev.exit217:               ; preds = %if.then.i.i.i213, %
 declare void @_ZN3irr2io9CFileListC1ERKNS_4core6stringIcEEbb(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN3irr2io11CFileSystem19createEmptyFileListERKNS_4core6stringIcEEbb(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths) unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN3irr2io11CFileSystem19createEmptyFileListERKNS_4core6stringIcEEbb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #24
   tail call void @_ZN3irr2io9CFileListC1ERKNS_4core6stringIcEEbb(ptr noundef nonnull align 8 dereferenceable(80) %call, ptr noundef nonnull align 8 dereferenceable(32) %path, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths) #23
@@ -5914,7 +5914,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZNK3irr2io11CFileSystem9existFileERKNS_4core6stringIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK3irr2io11CFileSystem9existFileERKNS_4core6stringIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 align 2 {
 entry:
   %FileArchives = getelementptr inbounds nuw i8, ptr %this, i64 112
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -5967,7 +5967,7 @@ return:                                           ; preds = %for.body, %for.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @access(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #10
+declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull ptr @_ZN3irr2io16createFileSystemEv() local_unnamed_addr #0 {
@@ -6021,7 +6021,7 @@ declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #3
 
@@ -6029,13 +6029,13 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(pt
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -6060,7 +6060,7 @@ declare i64 @llvm.umin.i64(i64, i64) #20
 declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #22
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #22
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -577,7 +577,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -617,7 +617,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -1880,7 +1880,7 @@ declare void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on
 declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6GLArea2mwEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1676) %0) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZN6GLArea2mwEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1676) %0) local_unnamed_addr #10 align 2 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -2219,7 +2219,7 @@ declare void @_ZN9QGLWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(48))
 declare void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
@@ -2756,7 +2756,7 @@ define void @_ZThn16_N6GLAreaD0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea17GetMeshInfoStringEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1676) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea17GetMeshInfoStringEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1676) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -3384,12 +3384,12 @@ declare noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 derefere
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK6GLArea15minimumSizeHintEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1676) %0) unnamed_addr #14 align 2 {
+define noundef i64 @_ZNK6GLArea15minimumSizeHintEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1676) %0) unnamed_addr #14 align 2 {
   ret i64 1288490189200
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @_ZNK6GLArea8sizeHintEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(1676) %0) unnamed_addr #14 align 2 {
+define noundef i64 @_ZNK6GLArea8sizeHintEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1676) %0) unnamed_addr #14 align 2 {
   ret i64 1288490189200
 }
 
@@ -4729,7 +4729,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea17shotFromTrackballEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.QPair) align 4 %0, ptr noundef nonnull align 8 dereferenceable(1676) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea17shotFromTrackballEv(ptr dead_on_unwind noalias writable writeonly sret(%struct.QPair) align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(1676) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Shot", align 4
   %4 = alloca %"class.vcg::Matrix44", align 4
   %5 = alloca %"class.vcg::Matrix44", align 4
@@ -4890,7 +4890,7 @@ declare noundef zeroext i1 @_ZN10MainWindow12importRasterERK7QString(ptr noundef
 declare noundef ptr @_ZN12MeshDocument2rmEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea8loadShotERK5QPairIN3vcg4ShotIfNS1_8Matrix44IfEEEEfE(ptr noundef nonnull align 8 dereferenceable(1676) initializes((1496, 1500)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(136) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea8loadShotERK5QPairIN3vcg4ShotIfNS1_8Matrix44IfEEEEfE(ptr noundef nonnull align 8 dereferenceable(1676) initializes((1496, 1500)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(136) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Shot", align 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %3, ptr noundef nonnull align 4 dereferenceable(132) %1, i64 132, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 52
@@ -4957,7 +4957,7 @@ declare void @_ZNK9QFileInfo8fileNameEv(ptr dead_on_unwind writable sret(%class.
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #16
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #16
 
 declare void @_ZN11GLLogStream3logEiPKc(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -6059,7 +6059,7 @@ _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdjESt6vectorIS3_SaIS3_
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readnone %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readnone captures(none) %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca [4096 x i8], align 16
   %5 = alloca %class.QPainter, align 8
@@ -9106,7 +9106,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #18
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea17setLightingColorsERK18MLPerViewGLOptions(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %1) local_unnamed_addr #15 align 2 {
+define void @_ZN6GLArea17setLightingColorsERK18MLPerViewGLOptions(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(90) %1) local_unnamed_addr #15 align 2 {
   %3 = alloca %"class.vcg::Color4.289", align 8
   %4 = alloca %"class.vcg::Color4.289", align 8
   %5 = alloca %"class.vcg::Color4.289", align 8
@@ -14650,7 +14650,7 @@ _ZN5QListI7QStringED2Ev.exit288:                  ; preds = %_ZN5QListI7QStringE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN6GLArea9updateFpsEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1676) %0, float noundef %1) local_unnamed_addr #19 align 2 {
+define void @_ZN6GLArea9updateFpsEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1676) %0, float noundef %1) local_unnamed_addr #19 align 2 {
   %3 = fcmp ogt float %1, 0.000000e+00
   br i1 %3, label %4, label %.preheader
 
@@ -15289,7 +15289,7 @@ define linkonce_odr noundef ptr @_ZNK11MLException4whatEv(ptr noundef nonnull al
 declare void @glReadPixels(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 declare void @glGetFloatv(i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -18360,7 +18360,7 @@ _ZN4QMapIibEixERKi.exit:                          ; preds = %_ZN4QMapIibEixERKi.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea17meshSetVisibilityER9MeshModelb(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1288) initializes((1204, 1205)) %1, i1 noundef zeroext %2) local_unnamed_addr #10 align 2 {
+define void @_ZN6GLArea17meshSetVisibilityER9MeshModelb(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(1288) initializes((1204, 1205)) %1, i1 noundef zeroext %2) local_unnamed_addr #10 align 2 {
   %4 = alloca i32, align 4
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 1204
@@ -22550,7 +22550,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #17
 declare void @_ZN26MLSceneGLSharedDataContext12setGLOptionsEiP10QGLContextRK18MLPerViewGLOptions(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(90)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea21mouseDoubleClickEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 {
+define void @_ZN6GLArea21mouseDoubleClickEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 align 2 {
   tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   %4 = load ptr, ptr %3, align 8
@@ -22988,7 +22988,7 @@ declare void @_ZN7QCursorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8),
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QCursoraSERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea12setDecoratorE7QStringb(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea12setDecoratorE7QStringb(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %5 = load ptr, ptr %1, align 8
@@ -24675,7 +24675,7 @@ _ZN7QStringD2Ev.exit248:                          ; preds = %_ZN19ConstPluginIte
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea15toggleDecoratorE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea15toggleDecoratorE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   tail call void @_ZN9QGLWidget11makeCurrentEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
   %4 = load ptr, ptr %1, align 8
@@ -26187,7 +26187,7 @@ _ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit147:     ; preds = %3, %8, %656, %654, 
 declare void @_ZNK12MeshDocument4bboxEv(ptr dead_on_unwind writable sret(%"class.vcg::Box3") align 4, ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef float @_ZN6GLArea17getCameraDistanceEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1676) %0) local_unnamed_addr #22 align 2 {
+define noundef float @_ZN6GLArea17getCameraDistanceEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1676) %0) local_unnamed_addr #22 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1496
   %3 = load float, ptr %2, align 8
   %4 = fmul float %3, 5.000000e-01
@@ -26383,14 +26383,14 @@ declare void @_ZN3vcg9Trackball5ResetEv(ptr noundef nonnull align 8 dereferencea
 declare float @sqrtf(float noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6GLArea9hideEventEP10QHideEvent(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1676) initializes((388, 392)) %0, ptr nocapture noundef readnone %1) unnamed_addr #23 align 2 {
+define void @_ZN6GLArea9hideEventEP10QHideEvent(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1676) initializes((388, 392)) %0, ptr noundef readnone captures(none) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 388
   store i32 0, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea11sendViewPosE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea11sendViewPosE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = alloca %"class.vcg::Matrix44", align 4
   %5 = alloca %"class.vcg::Matrix44", align 4
@@ -27075,7 +27075,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %11, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea11sendViewDirE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea11sendViewDirE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = tail call { <2 x float>, float } @_ZN6GLArea10getViewDirEv(ptr noundef nonnull align 8 dereferenceable(1676) %0)
   %.fca.0.extract = extractvalue { <2 x float>, float } %4, 0
@@ -27128,7 +27128,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %10, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress uwtable
-define { <2 x float>, float } @_ZN6GLArea10getViewDirEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1676) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define { <2 x float>, float } @_ZN6GLArea10getViewDirEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1676) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.vcg::Matrix44", align 4
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -27259,7 +27259,7 @@ define { <2 x float>, float } @_ZN6GLArea10getViewDirEv(ptr nocapture noundef no
 declare void @_ZN6GLArea15transmitViewDirE7QStringN3vcg6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(1676), ptr noundef, <2 x float>, float) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea12sendMeshShotE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea12sendMeshShotE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Shot", align 4
   %4 = alloca %class.QString, align 8
   %5 = alloca %"class.vcg::Shot", align 4
@@ -27322,7 +27322,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %17, %_ZN9QtPrivate8
 declare void @_ZN6GLArea12transmitShotE7QStringN3vcg4ShotIfNS1_8Matrix44IfEEEE(ptr noundef nonnull align 8 dereferenceable(1676), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea14sendMeshMatrixE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea14sendMeshMatrixE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0 = alloca [16 x float], align 4
   %3 = alloca %class.QString, align 8
   %4 = alloca %"class.vcg::Matrix44", align 4
@@ -27385,7 +27385,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %16, %_ZN9QtPrivate8
 declare void @_ZN6GLArea14transmitMatrixE7QStringN3vcg8Matrix44IfEE(ptr noundef nonnull align 8 dereferenceable(1676), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea14sendViewerShotE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea14sendViewerShotE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Shot", align 4
   %4 = alloca %struct.QPair, align 4
   %5 = alloca %class.QString, align 8
@@ -27441,7 +27441,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %12, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea14sendRasterShotE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea14sendRasterShotE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0 = alloca %"class.vcg::Camera", align 8
   %.sroa.4 = alloca [4 x float], align 4
   %.sroa.6 = alloca [4 x float], align 4
@@ -27567,7 +27567,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %21, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea13sendCameraPosE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea13sendCameraPosE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = tail call { <2 x float>, float } @_ZNK3vcg4ViewIfE9ViewPointEv(ptr noundef nonnull align 4 dereferenceable(273) %4)
@@ -27765,7 +27765,7 @@ define linkonce_odr { <2 x float>, float } @_ZNK3vcg4ViewIfE9ViewPointEv(ptr nou
 declare void @_ZN6GLArea17transmitCameraPosE7QStringN3vcg6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(1676), ptr noundef, <2 x float>, float) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6GLArea16sendTrackballPosE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6GLArea16sendTrackballPosE7QString(ptr noundef nonnull align 8 dereferenceable(1676) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load float, ptr %4, align 8
@@ -28020,7 +28020,7 @@ _ZN4QMapIibE6insertERKiRKb.exit:                  ; preds = %15, %._crit_edge.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6GLArea11setIsRasterEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1676) initializes((1640, 1641)) %0, i1 noundef zeroext %1) local_unnamed_addr #23 align 2 {
+define void @_ZN6GLArea11setIsRasterEb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1676) initializes((1640, 1641)) %0, i1 noundef zeroext %1) local_unnamed_addr #23 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1640
   store i8 %3, ptr %4, align 8
@@ -30259,7 +30259,7 @@ declare void @glTexImage2D(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i
 declare float @tanf(float noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6GLArea14initializeShotERN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1676) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(132) initializes((0, 36), (56, 132)) %1) local_unnamed_addr #25 align 2 {
+define void @_ZN6GLArea14initializeShotERN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1676) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(132) initializes((0, 36), (56, 132)) %1) local_unnamed_addr #25 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store float 0x3FA2E6AA00000000, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -42187,7 +42187,7 @@ _ZN3vcg10QuaternionIfEC2EfRKNS_6Point3IfEE.exit120: ; preds = %_ZN7QStringD2Ev.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK6GLArea19showInterruptButtonEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1676) %0) local_unnamed_addr #26 align 2 {
+define noundef zeroext i1 @_ZNK6GLArea19showInterruptButtonEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1676) %0) local_unnamed_addr #26 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -42195,7 +42195,7 @@ define noundef zeroext i1 @_ZNK6GLArea19showInterruptButtonEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6GLArea19showInterruptButtonERKb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1676) initializes((1400, 1401)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) local_unnamed_addr #27 align 2 {
+define void @_ZN6GLArea19showInterruptButtonERKb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1676) initializes((1400, 1401)) %0, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %1) local_unnamed_addr #27 align 2 {
   %3 = load i8, ptr %1, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1400
   %5 = and i8 %3, 1
@@ -43836,10 +43836,10 @@ declare i32 @llvm.smax.i32(i32, i32) #29
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #32

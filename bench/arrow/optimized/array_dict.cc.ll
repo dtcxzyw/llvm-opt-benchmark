@@ -1505,7 +1505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK5arrow15DictionaryArray13GetValueIndexEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %i) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZNK5arrow15DictionaryArray13GetValueIndexEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, i64 noundef %i) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp29 = alloca %"class.arrow::util::ArrowLog", align 8
   %data_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2607,7 +2607,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EEaSEOS4_.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow15DictionaryArrayC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_5ArrayEES9_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %indices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15DictionaryArrayC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_5ArrayEES9_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %indices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dictionary) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.arrow::util::ArrowLog", align 8
   %ref.tmp35 = alloca %"class.arrow::util::ArrowLog", align 8
@@ -3894,7 +3894,7 @@ declare noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKSt10shared_ptrIS0_Eb(pt
 declare noundef zeroext i1 @_ZNK5arrow5Array11RangeEqualsERKSt10shared_ptrIS0_ElllRKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow15DictionaryArray9TransposeERKSt10shared_ptrINS_8DataTypeEERKS1_INS_5ArrayEEPKiPNS_10MemoryPoolE(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef %transpose_map, ptr noundef %pool) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow15DictionaryArray9TransposeERKSt10shared_ptrINS_8DataTypeEERKS1_INS_5ArrayEEPKiPNS_10MemoryPoolE(ptr noalias sret(%"class.arrow::Result") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dictionary, ptr noundef %transpose_map, ptr noundef %pool) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.36", align 8
   %transposed = alloca %"class.std::shared_ptr", align 8
@@ -4024,7 +4024,7 @@ cleanup:                                          ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture readonly %in_type.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %out_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary, ptr noundef %transpose_map, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_120TransposeDictIndicesERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEES9_S5_PKiPNS_10MemoryPoolE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %data, ptr readonly captures(none) %in_type.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %out_type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dictionary, ptr noundef %transpose_map, ptr noundef %pool) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %out_data = alloca %"class.std::shared_ptr", align 8
@@ -6696,7 +6696,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %if.then.i, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow17DictionaryUnifier4MakeESt10shared_ptrINS_8DataTypeEEPNS_10MemoryPoolE(ptr noalias sret(%"class.arrow::Result.47") align 8 %agg.result, ptr nocapture noundef readonly %value_type, ptr noundef %pool) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow17DictionaryUnifier4MakeESt10shared_ptrINS_8DataTypeEEPNS_10MemoryPoolE(ptr noalias sret(%"class.arrow::Result.47") align 8 %agg.result, ptr noundef readonly captures(none) %value_type, ptr noundef %pool) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maker = alloca %"struct.arrow::(anonymous namespace)::MakeUnifier", align 8
   %__s = alloca %"class.arrow::Status", align 8
@@ -12785,7 +12785,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_111MakeUnifierD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_111MakeUnifierD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %result, align 8
@@ -12879,7 +12879,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolE(ptr noalias sret(%"class.arrow::Result.59") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %array, ptr noundef %pool) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow17DictionaryUnifier17UnifyChunkedArrayERKSt10shared_ptrINS_12ChunkedArrayEEPNS_10MemoryPoolE(ptr noalias sret(%"class.arrow::Result.59") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %array, ptr noundef %pool) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::shared_ptr.0", align 8
   %data_chunks = alloca %"class.std::vector.12", align 8
@@ -13783,7 +13783,7 @@ return:                                           ; preds = %if.then.i.i.i190, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef nonnull %type, ptr nocapture noundef nonnull readonly %chunks) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_116RecursiveUnifier5UnifyESt10shared_ptrINS_8DataTypeEEPSt6vectorIS2_INS_9ArrayDataEESaIS7_EE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef nonnull captures(none) %type, ptr noundef nonnull readonly captures(none) %chunks) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ext_type = alloca %"class.std::shared_ptr.9", align 8
   %children = alloca %"class.std::vector.12", align 8
@@ -17982,7 +17982,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #9
@@ -18825,7 +18825,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
@@ -18900,7 +18900,7 @@ _ZNSt6vectorIN5arrow9ArraySpanESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5ar
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6ResultISt10shared_ptrINS_9ArrayDataEEEC2ERKNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %status) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -31260,7 +31260,7 @@ return:                                           ; preds = %sw.epilog, %sw.bb84
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_126CompactTransposeMapVisitorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_refcount.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
@@ -48045,7 +48045,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrowlsERSoRKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(96) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -48657,7 +48657,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -49597,7 +49597,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -50268,7 +50268,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare noundef i64 @_ZNK5arrow5Array10null_countEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
@@ -52045,7 +52045,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1096) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(1096) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -52242,7 +52242,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr.4", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -52747,7 +52747,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -53683,7 +53683,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -55216,7 +55216,7 @@ ehcleanup54:                                      ; preds = %ehcleanup52, %_ZNSt
 declare void @_ZN5arrow8internal15BitmapAllButOneEPNS_10MemoryPoolEllb(ptr sret(%"class.arrow::Result.114") align 8, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1096) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(1096) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -55413,7 +55413,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEE5UnifyERKNS_5ArrayEPSt10shared_ptrINS_6BufferEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(32) %dictionary, ptr noundef %out) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr.4", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -55918,7 +55918,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -56854,7 +56854,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -58385,7 +58385,7 @@ ehcleanup54:                                      ; preds = %ehcleanup52, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -59059,7 +59059,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -59995,7 +59995,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -62162,7 +62162,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -62834,7 +62834,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -63770,7 +63770,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -65844,7 +65844,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -66100,7 +66100,7 @@ return:                                           ; preds = %cleanup, %if.end16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -66774,7 +66774,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -67710,7 +67710,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -69784,7 +69784,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -70040,7 +70040,7 @@ return:                                           ; preds = %cleanup, %if.end16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -70712,7 +70712,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -71648,7 +71648,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -73812,7 +73812,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -74480,7 +74480,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -75416,7 +75416,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -77490,7 +77490,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -77746,7 +77746,7 @@ return:                                           ; preds = %cleanup, %if.end16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -78414,7 +78414,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -79350,7 +79350,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -81514,7 +81514,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -82186,7 +82186,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -83122,7 +83122,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -84548,7 +84548,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -85232,7 +85232,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -86168,7 +86168,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -87705,7 +87705,7 @@ return:                                           ; preds = %_ZL28XXH3_hashLong_
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #17
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #17
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEE6UpsizeEm(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %new_capacity) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -88882,7 +88882,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -89568,7 +89568,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -90504,7 +90504,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -93473,7 +93473,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -94409,7 +94409,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -98842,7 +98842,7 @@ cleanup89:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -99646,7 +99646,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -100582,7 +100582,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -102776,7 +102776,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -103712,7 +103712,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -105688,7 +105688,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -106624,7 +106624,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -108664,7 +108664,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -109600,7 +109600,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -114009,7 +114009,7 @@ cleanup88:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %null_count, ptr noundef nonnull captures(none) initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -114830,7 +114830,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -115766,7 +115766,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -117738,7 +117738,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -118674,7 +118674,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -120028,7 +120028,7 @@ cleanup62:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -120696,7 +120696,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -121632,7 +121632,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -123058,7 +123058,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -123732,7 +123732,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -124668,7 +124668,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -126094,7 +126094,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -126762,7 +126762,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -127698,7 +127698,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -129124,7 +129124,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -129792,7 +129792,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -130728,7 +130728,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -132154,7 +132154,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -132828,7 +132828,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -133764,7 +133764,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -135190,7 +135190,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -135858,7 +135858,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -136794,7 +136794,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -138220,7 +138220,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -138899,7 +138899,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -139835,7 +139835,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -142000,7 +142000,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -142674,7 +142674,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -143610,7 +143610,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -145036,7 +145036,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -145703,7 +145703,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -146639,7 +146639,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -149351,7 +149351,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -150287,7 +150287,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -152185,7 +152185,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %out_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEE9GetResultEPSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias writeonly sret(%"class.arrow::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef captures(none) %out_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index_type = alloca %"class.std::shared_ptr.9", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.9", align 8
@@ -153121,7 +153121,7 @@ ehcleanup48:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index_type, ptr nocapture noundef %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEE22GetResultWithIndexTypeERKSt10shared_ptrINS_8DataTypeEEPS4_INS_5ArrayEE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %index_type, ptr noundef captures(none) %out_dict) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dict_length = alloca %"struct.arrow::Int64Scalar", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -154959,10 +154959,10 @@ declare i64 @llvm.umin.i64(i64, i64) #18
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #20
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #18
@@ -154974,7 +154974,7 @@ declare i64 @llvm.smax.i64(i64, i64) #18
 declare i64 @llvm.umax.i64(i64, i64) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #21
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

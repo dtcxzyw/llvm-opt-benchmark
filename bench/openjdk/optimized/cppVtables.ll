@@ -243,7 +243,7 @@ $_ZTV16CppVtableTesterBI14TypeArrayKlassE = comdat any
 @llvm.used = appending global [2 x ptr] [ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_129ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_175ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CppVtables13dumptime_initEP14ArchiveBuilder(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CppVtables13dumptime_initEP14ArchiveBuilder(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN15CppVtableClonerI12ConstantPoolE23allocate_and_initializeEPKc(ptr noundef nonnull @.str)
   store ptr %2, ptr @_ZL6_index, align 16
   tail call void @_ZN16ArchivePtrMarker12mark_pointerEPPh(ptr noundef nonnull @_ZL6_index) #10
@@ -1233,7 +1233,7 @@ define hidden void @_ZN10CppVtables21zero_archived_vtablesEv() local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN10CppVtables22is_valid_shared_methodEPK6Method(ptr nocapture noundef readonly %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN10CppVtables22is_valid_shared_methodEPK6Method(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 2 {
   %.val = load ptr, ptr %0, align 8
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL6_index, i64 48), align 16
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1284,7 +1284,7 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE14ELS1_175E
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare noundef ptr @_ZN10DumpRegion8allocateEm(ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #5
 
@@ -1608,7 +1608,7 @@ define linkonce_odr hidden noundef ptr @_ZN16CppVtableTesterAI6MethodE19last_vir
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN16CppVtableTesterBI6MethodE19last_virtual_methodEv(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 comdat align 2 {
@@ -1784,10 +1784,10 @@ declare void @_ZN16InstanceRefKlassC1Ev(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN23InstanceStackChunkKlassC1Ev(ptr noundef nonnull align 8 dereferenceable(464)) unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

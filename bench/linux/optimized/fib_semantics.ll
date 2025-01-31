@@ -115,7 +115,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_fib_add_next
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_fib_add_nexthop990, ptr @__UNIQUE_ID___addressable_fib_nexthop_info989, ptr @__UNIQUE_ID___addressable_fib_nh_common_init981, ptr @__UNIQUE_ID___addressable_fib_nh_common_release971, ptr @__UNIQUE_ID___addressable_free_fib_info972], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fib_nh_common_release(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @fib_nh_common_release(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %7, label %4
@@ -245,7 +245,7 @@ define dso_local void @fib_nh_common_release(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fib_nh_release(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @fib_nh_release(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   tail call void @fib_nh_common_release(ptr noundef %1)
   ret void
 }
@@ -573,10 +573,10 @@ define dso_local void @fib_release_info(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -1, 1) i32 @ip_fib_check_default(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
@@ -634,7 +634,7 @@ define dso_local noundef range(i32 -1, 1) i32 @ip_fib_check_default(i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_nlmsg_size(ptr nocapture noundef readonly %0) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 -9223372036854775604, -9223372036854775808) i64 @fib_nlmsg_size(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -830,7 +830,7 @@ define internal fastcc ptr @fib_info_nhc(ptr noundef readonly %0) unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rtmsg_fib(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6) local_unnamed_addr #0 align 16 {
+define dso_local void @rtmsg_fib(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 align 16 {
   %8 = alloca %struct.fib_rt_info, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -929,10 +929,10 @@ define dso_local void @rtmsg_fib(i32 noundef %0, i32 noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -90, 1) i32 @fib_dump_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @fib_dump_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -1255,7 +1255,7 @@ declare dso_local void @rtnl_notify(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare dso_local void @rtnl_set_sk_err(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @fib_nh_common_init(ptr nocapture readnone %0, ptr nocapture noundef initializes((48, 56)) %1, ptr noundef readnone %2, i16 noundef zeroext %3, ptr nocapture readnone %4, i32 noundef %5, ptr noundef writeonly %6) #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @fib_nh_common_init(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((48, 56)) %1, ptr noundef readnone %2, i16 noundef zeroext %3, ptr readnone captures(none) %4, i32 noundef %5, ptr noundef writeonly %6) #0 align 16 {
   %8 = tail call noalias dereferenceable_or_null(8) ptr @__alloc_percpu_gfp(i64 noundef 8, i64 noundef 8, i32 noundef %5) #19
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 48
   store ptr %8, ptr %9, align 8
@@ -1347,7 +1347,7 @@ declare dso_local noalias ptr @__alloc_percpu_gfp(i64 noundef, i64 noundef, i32 
 declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -95, 1) i32 @fib_nh_init(ptr nocapture readnone %0, ptr nocapture noundef initializes((13, 14), (48, 56)) %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -95, 1) i32 @fib_nh_init(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((13, 14), (48, 56)) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 13
   store i8 2, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -1400,10 +1400,10 @@ define dso_local noundef range(i32 -95, 1) i32 @fib_nh_init(ptr nocapture readno
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fib_nh_match(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @fib_nh_match(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.fib_config, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8
@@ -1717,7 +1717,7 @@ declare dso_local ptr @nla_find(ptr noundef, i32 noundef, i32 noundef) local_unn
 declare dso_local i32 @fib_gw_from_via(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @fib_metrics_match(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @fib_metrics_match(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1825,7 +1825,7 @@ declare dso_local i64 @nla_strscpy(ptr noundef, ptr noundef, i64 noundef) local_
 declare dso_local i32 @tcp_ca_get_key_by_name(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fib_check_nh(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @fib_check_nh(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.fib6_config, align 8
   %7 = alloca %struct.fib6_nh, align 8
   %8 = alloca %struct.fib_result, align 8
@@ -2280,7 +2280,7 @@ define dso_local i32 @fib_info_update_nhc_saddr(ptr noundef %0, ptr noundef %1, 
 declare dso_local i32 @inet_select_addr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @fib_result_prefsrc(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @fib_result_prefsrc(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2337,7 +2337,7 @@ define dso_local i32 @fib_result_prefsrc(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @fib_create_info(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @fib_create_info(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3445,7 +3445,7 @@ define internal fastcc zeroext i1 @nexthop_get(ptr noundef nonnull %0) unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @fib_get_nhs(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @fib_get_nhs(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.fib_config, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %6, i8 0, i64 128, i1 false), !annotation !22
@@ -3757,7 +3757,7 @@ declare dso_local i32 @fib_check_nexthop(ptr noundef, i8 noundef zeroext, ptr no
 declare dso_local ptr @dev_get_by_index(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @fib_valid_prefsrc(ptr nocapture noundef readonly %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @fib_valid_prefsrc(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = icmp eq i8 %4, 2
@@ -4132,7 +4132,7 @@ define internal fastcc void @fib_rebalance(ptr noundef %0) unnamed_addr #4 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @fib_find_info(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 align 16 {
+define internal fastcc ptr @fib_find_info(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 69
@@ -4434,7 +4434,7 @@ define internal fastcc ptr @fib_find_info(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc i32 @fib_info_hashfn(ptr nocapture noundef nonnull readonly %0) unnamed_addr #10 align 16 {
+define internal fastcc i32 @fib_info_hashfn(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #10 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 69
@@ -4500,7 +4500,7 @@ define internal fastcc i32 @fib_info_hashfn(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -90, 1) i32 @fib_nexthop_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr nocapture noundef %3, i1 noundef zeroext %4) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @fib_nexthop_info(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef captures(none) %3, i1 noundef zeroext %4) #0 align 16 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 15
@@ -4870,7 +4870,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @fib_add_multipath(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local i32 @fib_sync_down_addr(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #11 align 16 {
+define dso_local i32 @fib_sync_down_addr(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #11 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @fib_info_laddrhash, align 8
@@ -4942,7 +4942,7 @@ define dso_local i32 @fib_sync_down_addr(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @fib_nhc_update_mtu(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 16 {
+define dso_local void @fib_nhc_update_mtu(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -5592,7 +5592,7 @@ define dso_local i32 @fib_sync_up(ptr noundef %0, i8 noundef zeroext %1) local_u
 declare dso_local i32 @dev_get_flags(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fib_select_multipath(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @fib_select_multipath(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104
@@ -5782,7 +5782,7 @@ define dso_local void @fib_select_multipath(ptr nocapture noundef %0, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fib_select_path(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @fib_select_path(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = load i32, ptr %2, align 8
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %49
@@ -5924,7 +5924,7 @@ define dso_local void @fib_select_path(ptr noundef %0, ptr nocapture noundef %1,
 declare dso_local i32 @fib_multipath_hash(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fib_select_default(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc void @fib_select_default(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
@@ -6349,7 +6349,7 @@ declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 declare dso_local ptr @__nlmsg_put(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @nexthop_mpath_fill_node(ptr noundef %0, ptr nocapture readonly %.128.val) unnamed_addr #9 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @nexthop_mpath_fill_node(ptr noundef %0, ptr readonly captures(none) %.128.val) unnamed_addr #9 align 16 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %.128.val, i64 8
   %4 = load i16, ptr %3, align 8
@@ -6437,7 +6437,7 @@ declare dso_local i32 @call_fib4_notifiers(ptr noundef, i32 noundef, ptr noundef
 declare dso_local ptr @nexthop_select_path(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nounwind null_pointer_is_valid
-define internal fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 16 {
+define internal fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #14 align 16 {
   %3 = load ptr, ptr @ipv6_stub, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load ptr, ptr %4, align 8
@@ -6517,7 +6517,7 @@ define internal fastcc ptr @__ipv6_neigh_lookup_noref_stub(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @fib_detect_death(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef range(i32 -32768, 32768) %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @fib_detect_death(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(none) %3, i32 noundef range(i32 -32768, 32768) %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -6640,7 +6640,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @fib_detect_death(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc void @fib_result_assign(ptr nocapture noundef writeonly initializes((16, 32)) %0, ptr noundef nonnull %1) unnamed_addr #5 align 16 {
+define internal fastcc void @fib_result_assign(ptr noundef writeonly captures(none) initializes((16, 32)) %0, ptr noundef nonnull %1) unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -6699,7 +6699,7 @@ declare dso_local ptr @neigh_lookup(ptr noundef, ptr noundef, ptr noundef) local
 declare dso_local void @neigh_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.uadd.sat.i64(i64, i64) #13

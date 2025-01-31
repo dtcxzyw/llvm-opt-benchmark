@@ -40,7 +40,7 @@ define hidden void @VP8LFreeHistogramSet(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LHistogramStoreRefs(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define hidden void @VP8LHistogramStoreRefs(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   %3 = alloca %struct.VP8LRefsCursor, align 8
   call void @VP8LRefsCursorInit(ptr dead_on_unwind nonnull writable sret(%struct.VP8LRefsCursor) align 8 %3, ptr noundef %0) #11
   %.val3 = load ptr, ptr %3, align 8
@@ -78,7 +78,7 @@ VP8LRefsCursorNext.exit:                          ; preds = %5, %10
 declare void @VP8LRefsCursorInit(ptr dead_on_unwind writable sret(%struct.VP8LRefsCursor) align 8, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LHistogramAddSinglePixOrCopy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @VP8LHistogramAddSinglePixOrCopy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %.val = load i8, ptr %1, align 4
   switch i8 %.val, label %41 [
     i8 0, label %5
@@ -234,7 +234,7 @@ VP8LPrefixEncodeBits.exit33:                      ; preds = %88, %84, %72, %68
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LHistogramCreate(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden void @VP8LHistogramCreate(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.VP8LRefsCursor, align 8
   %5 = icmp sgt i32 %2, -1
   br i1 %5, label %6, label %._crit_edge
@@ -292,7 +292,7 @@ VP8LHistogramStoreRefs.exit:                      ; preds = %VP8LRefsCursorNext.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @VP8LHistogramInit(ptr nocapture noundef initializes((3240, 3244)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden void @VP8LHistogramInit(ptr noundef captures(none) initializes((3240, 3244)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3240
   store i32 %1, ptr %4, align 8
   %.not = icmp eq i32 %2, 0
@@ -320,7 +320,7 @@ define hidden void @VP8LHistogramInit(ptr nocapture noundef initializes((3240, 3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @VP8LAllocateHistogram(i32 noundef %0) local_unnamed_addr #1 {
@@ -592,7 +592,7 @@ define hidden float @VP8LHistogramEstimateBits(ptr noundef initializes((3264, 32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc float @PopulationCost(ptr noundef %0, i32 noundef range(i32 -2147483368, -2147483648) %1, ptr noundef writeonly %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) unnamed_addr #1 {
+define internal fastcc float @PopulationCost(ptr noundef %0, i32 noundef range(i32 -2147483368, -2147483648) %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) initializes((0, 1)) %3) unnamed_addr #1 {
   %5 = alloca %struct.VP8LBitEntropy, align 4
   %6 = alloca %struct.VP8LStreaks, align 4
   %7 = load ptr, ptr @VP8LGetEntropyUnrefined, align 8
@@ -691,7 +691,7 @@ BitsEntropyRefine.exit:                           ; preds = %22, %25, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8LGetHistoImageSymbols(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr nocapture noundef %9, ptr noundef %10, i32 noundef %11, ptr noundef %12) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @VP8LGetHistoImageSymbols(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef captures(none) %9, ptr noundef %10, i32 noundef %11, ptr noundef %12) local_unnamed_addr #1 {
   %14 = alloca float, align 4
   %15 = alloca %struct.HistogramPair, align 4
   %16 = alloca %struct.HistogramPair, align 4
@@ -2771,7 +2771,7 @@ declare i32 @WebPReportProgress(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare void @VP8LRefsCursorNextBlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
@@ -2845,7 +2845,7 @@ define internal fastcc void @UpdateHistogramCost(ptr noundef %0) unnamed_addr #1
 declare void @VP8LHistogramAdd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @GetCombinedHistogramEntropy(ptr noundef %0, ptr noundef %1, float noundef %2, ptr nocapture noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @GetCombinedHistogramEntropy(ptr noundef %0, ptr noundef %1, float noundef %2, ptr noundef captures(none) %3) unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3240
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr %0, align 8
@@ -3127,7 +3127,7 @@ declare void @VP8LBitEntropyInit(ptr noundef) local_unnamed_addr #2
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @PairComparison(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define internal i32 @PairComparison(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = sub nsw i32 %3, %4
@@ -3135,13 +3135,13 @@ define internal i32 @PairComparison(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

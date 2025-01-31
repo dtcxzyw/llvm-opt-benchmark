@@ -349,10 +349,10 @@ return:                                           ; preds = %entry, %if.end76, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @Curl_splaygetbest(i64 %i.coerce0, i32 %i.coerce1, ptr noundef %t, ptr nocapture noundef writeonly %removed) local_unnamed_addr #0 {
+define hidden ptr @Curl_splaygetbest(i64 %i.coerce0, i32 %i.coerce1, ptr noundef %t, ptr noundef writeonly captures(none) %removed) local_unnamed_addr #0 {
 entry:
   %N.i = alloca %struct.Curl_tree, align 8
   %tobool.not = icmp eq ptr %t, null
@@ -529,7 +529,7 @@ return:                                           ; preds = %cond.false7, %Curl_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %t, ptr noundef %removenode, ptr nocapture noundef writeonly %newroot) local_unnamed_addr #0 {
+define hidden range(i32 0, 4) i32 @Curl_splayremove(ptr noundef %t, ptr noundef %removenode, ptr noundef writeonly captures(none) %newroot) local_unnamed_addr #0 {
 entry:
   %N.i43 = alloca %struct.Curl_tree, align 8
   %N.i = alloca %struct.Curl_tree, align 8
@@ -863,13 +863,13 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

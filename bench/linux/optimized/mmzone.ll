@@ -30,7 +30,7 @@ define dso_local ptr @first_online_pgdat() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read)
-define dso_local ptr @next_online_pgdat(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @next_online_pgdat(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 13120
   %3 = load i32, ptr %2, align 64
   %4 = add i32 %3, 1
@@ -179,7 +179,7 @@ define dso_local void @lruvec_init(ptr noundef initializes((0, 136)) %0) local_u
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #4

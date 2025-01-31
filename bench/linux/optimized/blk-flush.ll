@@ -35,7 +35,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blk_mq_hctx_
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_blk_mq_hctx_set_fq_lock_class436, ptr @__UNIQUE_ID___addressable_blkdev_issue_flush435, ptr @blk_account_io_flush.__UNIQUE_ID___addressable___SCK__preempt_schedule425], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @is_flush_rq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @is_flush_rq(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, @flush_end_io
@@ -390,10 +390,10 @@ define dso_local noundef zeroext i1 @blk_insert_flush(ptr noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @blk_mq_end_request(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
@@ -630,7 +630,7 @@ define dso_local i32 @blkdev_issue_flush(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @bio_init(ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
@@ -713,7 +713,7 @@ define dso_local void @blk_free_flush_queue(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @blk_mq_hctx_set_fq_lock_class(ptr nocapture readnone %0, ptr nocapture readnone %1) #5 align 16 {
+define dso_local void @blk_mq_hctx_set_fq_lock_class(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #5 align 16 {
   ret void
 }
 

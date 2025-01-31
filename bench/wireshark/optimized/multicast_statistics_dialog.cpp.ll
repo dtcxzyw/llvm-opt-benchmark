@@ -2133,10 +2133,10 @@ declare void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef no
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25MulticastStatisticsDialog8tapResetEP20_mcaststream_tapinfo(ptr nocapture noundef readonly %0) #0 align 2 {
+define void @_ZN25MulticastStatisticsDialog8tapResetEP20_mcaststream_tapinfo(ptr noundef readonly captures(none) %0) #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -2156,7 +2156,7 @@ define void @_ZN25MulticastStatisticsDialog8tapResetEP20_mcaststream_tapinfo(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25MulticastStatisticsDialog7tapDrawEP20_mcaststream_tapinfo(ptr nocapture noundef readonly %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN25MulticastStatisticsDialog7tapDrawEP20_mcaststream_tapinfo(ptr noundef readonly captures(none) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QVariant, align 8
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
@@ -2381,7 +2381,7 @@ _ZN17QArrayDataPointerIP7QWidgetED2Ev.exit:       ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN7QWidget15setMinimumWidthEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
@@ -2397,7 +2397,7 @@ declare void @_ZN18TapParameterDialog16setDisplayFilterERK7QString(ptr noundef n
 declare void @_ZN18TapParameterDialog12updateFilterE7QString(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25MulticastStatisticsDialog25updateMulticastParametersEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN25MulticastStatisticsDialog25updateMulticastParametersEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
@@ -2922,7 +2922,7 @@ _ZL12copy_addressP8_addressPKS_.exit13:           ; preds = %_ZL12copy_addressP8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK25MulticastStatisticsDialog12treeItemDataEP15QTreeWidgetItem(ptr dead_on_unwind noalias writable sret(%class.QList.23) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(296) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define void @_ZNK25MulticastStatisticsDialog12treeItemDataEP15QTreeWidgetItem(ptr dead_on_unwind noalias writable sret(%class.QList.23) align 8 %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(296) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.thread, label %5
 
@@ -5483,7 +5483,7 @@ _ZN5QListIP7QWidgetED2Ev.exit19:                  ; preds = %_ZN5QListIP7QWidget
 declare noundef ptr @_ZN18TapParameterDialog21displayFilterLineEditEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25MulticastStatisticsDialog6rescanEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN25MulticastStatisticsDialog6rescanEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -5551,7 +5551,7 @@ declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 no
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5839,7 +5839,7 @@ declare noundef zeroext i1 @_ZNK15QTreeWidgetItemltERKS_(ptr noundef nonnull ali
 declare noundef i32 @_ZNK11QTreeWidget10sortColumnEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN27MulticastStatTreeWidgetItem4drawEv(ptr noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -7263,7 +7263,7 @@ _ZN17QArrayDataPointerI8QVariantED2Ev.exit:       ; preds = %_ZN9QtPrivate16QGen
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QArrayDataPointerI8QVariantE12allocateGrowERKS1_xN10QArrayData14GrowthPositionE(ptr dead_on_unwind noalias writable sret(%struct.QArrayDataPointer.26) align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 comdat align 2 {
@@ -7441,7 +7441,7 @@ declare void @_ZNK7QString3argEyii5QChar(ptr dead_on_unwind writable sret(%class
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6insertExPK5QCharx(ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL25multicast_statistics_initPKcPv(ptr noundef %0, ptr nocapture readnone %1) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL25multicast_statistics_initPKcPv(ptr noundef %0, ptr readnone captures(none) %1) #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -9910,10 +9910,10 @@ _ZN17QArrayDataPointerIP7QWidgetED2Ev.exit27:     ; preds = %94, %_ZN17QArrayDat
 declare i64 @llvm.smax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #16

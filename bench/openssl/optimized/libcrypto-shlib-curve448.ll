@@ -307,7 +307,7 @@ gf_subx_nr.exit122:                               ; preds = %for.body.i8.i111
   %and15.i.i120 = and i64 %40, 72057594037927935
   %add16.i.i121 = add nuw nsw i64 %and15.i.i120, %shr.i.i108
   store i64 %add16.i.i121, ptr %a, align 16
-  call void @ossl_gf_mul(ptr noundef %p, ptr noundef nonnull %a, ptr noundef nonnull %b) #7
+  call void @ossl_gf_mul(ptr noundef nonnull %p, ptr noundef nonnull %a, ptr noundef nonnull %b) #7
   call void @ossl_gf_mul(ptr noundef nonnull %z25, ptr noundef nonnull %t, ptr noundef nonnull %a) #7
   %y45 = getelementptr inbounds nuw i8, ptr %p, i64 64
   call void @ossl_gf_mul(ptr noundef nonnull %y45, ptr noundef nonnull %t, ptr noundef nonnull %d) #7
@@ -374,7 +374,7 @@ declare void @gf_sub(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @gf_add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_curve448_precomputed_scalarmul(ptr noundef %out, ptr nocapture noundef readonly %table, ptr noundef %scalar) local_unnamed_addr #0 {
+define void @ossl_curve448_precomputed_scalarmul(ptr noundef %out, ptr noundef readonly captures(none) %table, ptr noundef %scalar) local_unnamed_addr #0 {
 entry:
   %y.i.i = alloca [1 x %struct.gf_s], align 16
   %ni = alloca [1 x %struct.niels_s], align 16
@@ -860,7 +860,7 @@ if.end:                                           ; preds = %if.then, %gf_weak_r
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef initializes((56, 57)) %enc, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef initializes((56, 57)) %enc, ptr noundef readonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   %t1.i = alloca [1 x %struct.gf_s], align 16
   %t2.i = alloca [1 x %struct.gf_s], align 16
@@ -927,7 +927,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef %p, ptr nocapture noundef readonly %enc) local_unnamed_addr #0 {
+define i32 @ossl_curve448_point_decode_like_eddsa_and_mul_by_ratio(ptr noundef %p, ptr noundef readonly captures(none) %enc) local_unnamed_addr #0 {
 entry:
   %y.i = alloca [1 x %struct.gf_s], align 16
   %enc2 = alloca [57 x i8], align 16
@@ -1010,14 +1010,14 @@ gf_cond_neg.exit:                                 ; preds = %for.body.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i64 @gf_deserialize(ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 declare i64 @gf_isr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_x448_int(ptr noundef %out, ptr noundef %base, ptr nocapture noundef readonly %scalar) local_unnamed_addr #0 {
+define i32 @ossl_x448_int(ptr noundef %out, ptr noundef %base, ptr noundef readonly captures(none) %scalar) local_unnamed_addr #0 {
 entry:
   %t1.i = alloca [1 x %struct.gf_s], align 16
   %t2.i = alloca [1 x %struct.gf_s], align 16
@@ -1526,7 +1526,7 @@ gf_cond_swap.exit202:                             ; preds = %for.body.i192
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_curve448_point_mul_by_ratio_and_encode_like_x448(ptr noundef %out, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define void @ossl_curve448_point_mul_by_ratio_and_encode_like_x448(ptr noundef %out, ptr noundef readonly captures(none) %p) local_unnamed_addr #0 {
 entry:
   %t1.i = alloca [1 x %struct.gf_s], align 16
   %t2.i = alloca [1 x %struct.gf_s], align 16
@@ -1552,7 +1552,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_x448_derive_public_key(ptr noundef %out, ptr nocapture noundef readonly %scalar) local_unnamed_addr #0 {
+define void @ossl_x448_derive_public_key(ptr noundef %out, ptr noundef readonly captures(none) %scalar) local_unnamed_addr #0 {
 entry:
   %t1.i.i = alloca [1 x %struct.gf_s], align 16
   %t2.i.i = alloca [1 x %struct.gf_s], align 16
@@ -1598,7 +1598,7 @@ entry:
 declare void @ossl_curve448_scalar_decode_long(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef %combo, ptr nocapture noundef readonly %scalar1, ptr noundef %base2, ptr nocapture noundef readonly %scalar2) local_unnamed_addr #0 {
+define void @ossl_curve448_base_double_scalarmul_non_secret(ptr noundef %combo, ptr noundef readonly captures(none) %scalar1, ptr noundef %base2, ptr noundef readonly captures(none) %scalar2) local_unnamed_addr #0 {
 entry:
   %L0.i130 = alloca [1 x %struct.gf_s], align 16
   %L0.i = alloca [1 x %struct.gf_s], align 16
@@ -2370,7 +2370,7 @@ if.end:                                           ; preds = %if.then, %gf_sub_nr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x448(ptr noundef %out_shared_key, ptr nocapture noundef readonly %private_key, ptr noundef %peer_public_value) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x448(ptr noundef %out_shared_key, ptr noundef readonly captures(none) %private_key, ptr noundef %peer_public_value) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_x448_int(ptr noundef %out_shared_key, ptr noundef %peer_public_value, ptr noundef %private_key)
   %cmp = icmp eq i32 %call, -1
@@ -2379,7 +2379,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_x448_public_from_private(ptr noundef %out_public_value, ptr nocapture noundef readonly %private_key) local_unnamed_addr #0 {
+define void @ossl_x448_public_from_private(ptr noundef %out_public_value, ptr noundef readonly captures(none) %private_key) local_unnamed_addr #0 {
 entry:
   tail call void @ossl_x448_derive_public_key(ptr noundef %out_public_value, ptr noundef %private_key)
   ret void
@@ -2388,7 +2388,7 @@ entry:
 declare void @ossl_gf_mulw_unsigned(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
@@ -2397,10 +2397,10 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #4
 declare void @llvm.experimental.noalias.scope.decl(metadata) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -2961,7 +2961,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN34btDeformableBackwardEulerObjectiveC2ER20btAlignedObjectArrayIP10btSoftBodyERKS0_I9btVector3E(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8), (20, 28), (32, 41), (48, 56), (64, 80), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (212, 220), (224, 233), (244, 252), (256, 265), (276, 284), (288, 297), (308, 316), (320, 329), (340, 348), (352, 361), (372, 380), (384, 393), (404, 412), (416, 425), (440, 448), (452, 460), (464, 473), (480, 481)) %this, ptr noundef nonnull align 8 dereferenceable(25) %softBodies, ptr noundef nonnull align 8 dereferenceable(25) %backup_v) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -3620,7 +3620,7 @@ invoke.cont55:                                    ; preds = %for.end53
 declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN34btDeformableBackwardEulerObjective5setDtEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(504) initializes((8, 12)) %this, float noundef %dt) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN34btDeformableBackwardEulerObjective5setDtEf(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(504) initializes((8, 12)) %this, float noundef %dt) local_unnamed_addr #9 align 2 {
 entry:
   %m_dt = getelementptr inbounds nuw i8, ptr %this, i64 8
   store float %dt, ptr %m_dt, align 8
@@ -3633,7 +3633,7 @@ declare void @_ZN29btDeformableContactProjection12reinitializeEb(ptr noundef non
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK34btDeformableBackwardEulerObjective8multiplyERK20btAlignedObjectArrayI9btVector3ERS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, ptr noundef nonnull align 8 dereferenceable(25) %x, ptr noundef nonnull align 8 dereferenceable(25) %b) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK34btDeformableBackwardEulerObjective8multiplyERK20btAlignedObjectArrayI9btVector3ERS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, ptr noundef nonnull align 8 dereferenceable(25) %x, ptr noundef nonnull align 8 dereferenceable(25) %b) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.7)
@@ -4000,13 +4000,13 @@ for.end156:                                       ; preds = %for.inc154, %for.co
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fmuladd.f32(float, float, float) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN34btDeformableBackwardEulerObjective14updateVelocityERK20btAlignedObjectArrayI9btVector3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %dv) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN34btDeformableBackwardEulerObjective14updateVelocityERK20btAlignedObjectArrayI9btVector3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %dv) local_unnamed_addr #12 align 2 {
 entry:
   %m_softBodies = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_softBodies, align 8
@@ -4093,7 +4093,7 @@ for.end16:                                        ; preds = %for.inc14, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN34btDeformableBackwardEulerObjective10applyForceER20btAlignedObjectArrayI9btVector3Eb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %force, i1 noundef zeroext %setZero) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN34btDeformableBackwardEulerObjective10applyForceER20btAlignedObjectArrayI9btVector3Eb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %force, i1 noundef zeroext %setZero) local_unnamed_addr #12 align 2 {
 entry:
   %m_softBodies = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_softBodies, align 8
@@ -4303,7 +4303,7 @@ if.end67:                                         ; preds = %for.body62, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableBackwardEulerObjective15computeResidualEfR20btAlignedObjectArrayI9btVector3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, float noundef %dt, ptr noundef nonnull align 8 dereferenceable(25) %residual) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN34btDeformableBackwardEulerObjective15computeResidualEfR20btAlignedObjectArrayI9btVector3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, float noundef %dt, ptr noundef nonnull align 8 dereferenceable(25) %residual) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.8)
@@ -4368,7 +4368,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local noundef float @_ZNK34btDeformableBackwardEulerObjective11computeNormERK20btAlignedObjectArrayI9btVector3E(ptr nocapture noundef nonnull readnone align 8 dereferenceable(504) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %residual) local_unnamed_addr #13 align 2 {
+define dso_local noundef float @_ZNK34btDeformableBackwardEulerObjective11computeNormERK20btAlignedObjectArrayI9btVector3E(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(504) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %residual) local_unnamed_addr #13 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %residual, i64 4
   %0 = load i32, ptr %m_size.i, align 4
@@ -4405,7 +4405,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN34btDeformableBackwardEulerObjective11totalEnergyEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, float noundef %dt) local_unnamed_addr #3 align 2 {
+define dso_local noundef float @_ZN34btDeformableBackwardEulerObjective11totalEnergyEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, float noundef %dt) local_unnamed_addr #3 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 20
   %0 = load i32, ptr %m_size.i, align 4
@@ -4441,7 +4441,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN34btDeformableBackwardEulerObjective18applyExplicitForceER20btAlignedObjectArrayI9btVector3E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, ptr noundef nonnull align 8 dereferenceable(25) %force) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN34btDeformableBackwardEulerObjective18applyExplicitForceER20btAlignedObjectArrayI9btVector3E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, ptr noundef nonnull align 8 dereferenceable(25) %force) local_unnamed_addr #5 align 2 {
 entry:
   %m_softBodies = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_softBodies, align 8
@@ -4815,7 +4815,7 @@ for.end114:                                       ; preds = %for.inc112, %if.end
 declare void @_ZN10btSoftBody18advanceDeformationEv(ptr noundef nonnull align 8 dereferenceable(2064)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN34btDeformableBackwardEulerObjective12initialGuessER20btAlignedObjectArrayI9btVector3ERKS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %dv, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %residual) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN34btDeformableBackwardEulerObjective12initialGuessER20btAlignedObjectArrayI9btVector3ERKS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %dv, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %residual) local_unnamed_addr #12 align 2 {
 entry:
   %m_softBodies = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_softBodies, align 8
@@ -7590,13 +7590,13 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #18
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

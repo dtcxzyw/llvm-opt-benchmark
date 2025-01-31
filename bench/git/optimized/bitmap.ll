@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bitmap_dup(ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local ptr @bitmap_dup(ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %word_alloc = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i64, ptr %word_alloc, align 8
@@ -66,7 +66,7 @@ copy_array.exit:                                  ; preds = %entry, %st_mult.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_set(ptr nocapture noundef %self, i64 noundef %pos) local_unnamed_addr #0 {
+define dso_local void @bitmap_set(ptr noundef captures(none) %self, i64 noundef %pos) local_unnamed_addr #0 {
 entry:
   %div4 = lshr i64 %pos, 6
   %word_alloc1.i = getelementptr inbounds nuw i8, ptr %self, i64 8
@@ -110,7 +110,7 @@ bitmap_grow.exit:                                 ; preds = %entry.do.end_crit_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @bitmap_unset(ptr nocapture noundef readonly %self, i64 noundef %pos) local_unnamed_addr #2 {
+define dso_local void @bitmap_unset(ptr noundef readonly captures(none) %self, i64 noundef %pos) local_unnamed_addr #2 {
 entry:
   %div4 = lshr i64 %pos, 6
   %word_alloc = getelementptr inbounds nuw i8, ptr %self, i64 8
@@ -134,7 +134,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @bitmap_get(ptr nocapture noundef readonly %self, i64 noundef %pos) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @bitmap_get(ptr noundef readonly captures(none) %self, i64 noundef %pos) local_unnamed_addr #3 {
 entry:
   %div4 = lshr i64 %pos, 6
   %word_alloc = getelementptr inbounds nuw i8, ptr %self, i64 8
@@ -158,7 +158,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bitmap_to_ewah(ptr nocapture noundef readonly %bitmap) local_unnamed_addr #0 {
+define dso_local ptr @bitmap_to_ewah(ptr noundef readonly captures(none) %bitmap) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @ewah_new() #12
   %word_alloc = getelementptr inbounds nuw i8, ptr %bitmap, i64 8
@@ -297,7 +297,7 @@ declare i32 @ewah_iterator_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @bitmap_and_not(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other) local_unnamed_addr #4 {
+define dso_local void @bitmap_and_not(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other) local_unnamed_addr #4 {
 entry:
   %word_alloc = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
@@ -327,7 +327,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_or(ptr nocapture noundef %self, ptr nocapture noundef readonly %other) local_unnamed_addr #0 {
+define dso_local void @bitmap_or(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %other) local_unnamed_addr #0 {
 entry:
   %word_alloc = getelementptr inbounds nuw i8, ptr %other, i64 8
   %0 = load i64, ptr %word_alloc, align 8
@@ -392,7 +392,7 @@ for.end:                                          ; preds = %for.body, %bitmap_g
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bitmap_or_ewah(ptr nocapture noundef %self, ptr noundef %other) local_unnamed_addr #0 {
+define dso_local void @bitmap_or_ewah(ptr noundef captures(none) %self, ptr noundef %other) local_unnamed_addr #0 {
 entry:
   %it = alloca %struct.ewah_iterator, align 8
   %word = alloca i64, align 8
@@ -442,10 +442,10 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @bitmap_popcount(ptr nocapture noundef readonly %self) local_unnamed_addr #6 {
+define dso_local i64 @bitmap_popcount(ptr noundef readonly captures(none) %self) local_unnamed_addr #6 {
 entry:
   %word_alloc = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
@@ -486,7 +486,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @bitmap_is_empty(ptr nocapture noundef readonly %self) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @bitmap_is_empty(ptr noundef readonly captures(none) %self) local_unnamed_addr #6 {
 entry:
   %word_alloc = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
@@ -515,7 +515,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @bitmap_equals(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @bitmap_equals(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other) local_unnamed_addr #6 {
 entry:
   %word_alloc = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
@@ -576,7 +576,7 @@ return:                                           ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @bitmap_is_subset(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @bitmap_is_subset(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other) local_unnamed_addr #6 {
 entry:
   %word_alloc = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %word_alloc, align 8
@@ -653,10 +653,10 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: noreturn
 declare void @die(ptr noundef, ...) local_unnamed_addr #10

@@ -10,7 +10,7 @@ $_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615EL
 @_ZN16CorpusPropertiesC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16CorpusPropertiesC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN16CorpusPropertiesC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2556) initializes((0, 52), (2544, 2552)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN16CorpusPropertiesC2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(2556) initializes((0, 52), (2544, 2552)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 100, ptr %this, align 8
   %unmatchness = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -118,7 +118,7 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZN16CorpusProperties14setPercentagesEjjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2556) %this, i32 noundef %match, i32 noundef %unmatch, i32 noundef %random) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN16CorpusProperties14setPercentagesEjjj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2556) %this, i32 noundef %match, i32 noundef %unmatch, i32 noundef %random) local_unnamed_addr #1 align 2 {
 entry:
   %add = add i32 %unmatch, %match
   %add2 = add i32 %add, %random
@@ -138,7 +138,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN16CorpusProperties4seedEj(ptr nocapture noundef nonnull align 8 dereferenceable(2556) initializes((48, 52), (2544, 2556)) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16CorpusProperties4seedEj(ptr noundef nonnull align 8 captures(none) dereferenceable(2556) initializes((48, 52), (2544, 2556)) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %rngSeed = getelementptr inbounds nuw i8, ptr %this, i64 2552
   store i32 %val, ptr %rngSeed, align 8
@@ -239,7 +239,7 @@ _ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615ELm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK16CorpusProperties7getSeedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2556) %this) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZNK16CorpusProperties7getSeedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2556) %this) local_unnamed_addr #2 align 2 {
 entry:
   %rngSeed = getelementptr inbounds nuw i8, ptr %this, i64 2552
   %0 = load i32, ptr %rngSeed, align 8
@@ -632,7 +632,7 @@ for.cond.cleanup77:                               ; preds = %vector.body162
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -63,7 +63,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_led_trigger_
 @llvm.compiler.used = appending global [13 x ptr] [ptr @__UNIQUE_ID___addressable_devm_led_trigger_register346, ptr @__UNIQUE_ID___addressable_led_trigger_blink352, ptr @__UNIQUE_ID___addressable_led_trigger_blink_oneshot353, ptr @__UNIQUE_ID___addressable_led_trigger_event349, ptr @__UNIQUE_ID___addressable_led_trigger_read340, ptr @__UNIQUE_ID___addressable_led_trigger_register344, ptr @__UNIQUE_ID___addressable_led_trigger_register_simple354, ptr @__UNIQUE_ID___addressable_led_trigger_remove342, ptr @__UNIQUE_ID___addressable_led_trigger_set341, ptr @__UNIQUE_ID___addressable_led_trigger_set_default343, ptr @__UNIQUE_ID___addressable_led_trigger_unregister345, ptr @__UNIQUE_ID___addressable_led_trigger_unregister_simple355, ptr @__UNIQUE_ID___addressable_led_trigger_write339], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_write(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 %4, i64 noundef %5) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_write(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i64 %4, i64 noundef %5) #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 376
@@ -140,10 +140,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_write(ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -349,7 +349,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_read(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_read(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) #0 align 16 {
   %7 = alloca i64, align 8
   store i64 %4, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -386,7 +386,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @led_trigger_read(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @led_trigger_format(ptr noundef %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 288
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -467,7 +467,7 @@ declare dso_local i64 @memory_read_from_buffer(ptr noundef, i64 noundef, ptr nou
 declare dso_local void @kvfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local noalias ptr @kasprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -562,7 +562,7 @@ define dso_local void @led_trigger_set_default(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef range(i32 -17, 1) i32 @led_trigger_register(ptr noundef initializes((32, 36)) %0) #0 align 16 {
@@ -771,7 +771,7 @@ define dso_local noundef range(i32 -17, 1) i32 @devm_led_trigger_register(ptr no
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_led_trigger_release(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @devm_led_trigger_release(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   tail call void @led_trigger_unregister(ptr noundef %3)
   ret void
@@ -876,7 +876,7 @@ define dso_local void @led_trigger_blink_oneshot(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @led_trigger_register_simple(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 align 16 {
+define dso_local void @led_trigger_register_simple(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 8), align 8
   %4 = tail call noalias noundef align 8 dereferenceable_or_null(80) ptr @kmalloc_trace(ptr noundef %3, i32 noundef 3520, i64 noundef 80) #13
   %5 = icmp eq ptr %4, null
@@ -945,7 +945,7 @@ define internal i32 @led_trigger_snprintf(ptr noundef %0, i64 noundef range(i64 
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare dso_local noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @vscnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

@@ -397,7 +397,7 @@ define hidden void @proto_register_protobuf() local_unnamed_addr #0 {
 declare zeroext i1 @uat_fld_chk_str(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_search_paths_path_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_search_paths_path_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = load ptr, ptr %0, align 8
@@ -407,7 +407,7 @@ define internal void @protobuf_search_paths_path_set_cb(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_search_paths_path_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_search_paths_path_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -434,7 +434,7 @@ define internal void @protobuf_search_paths_path_tostr_cb(ptr nocapture noundef 
 declare zeroext i1 @uat_fld_chk_bool(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_search_paths_load_all_set_cb(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_search_paths_load_all_set_cb(ptr noundef writeonly captures(none) initializes((8, 12)) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.167) #11
@@ -447,7 +447,7 @@ define internal void @protobuf_search_paths_load_all_set_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_search_paths_load_all_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_search_paths_load_all_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -463,7 +463,7 @@ define internal void @protobuf_search_paths_load_all_tostr_cb(ptr nocapture noun
 declare zeroext i1 @uat_fld_chk_range(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_udp_message_types_udp_port_range_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4) #0 {
+define internal void @protobuf_udp_message_types_udp_port_range_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = ptrtoint ptr %4 to i64
@@ -474,7 +474,7 @@ define internal void @protobuf_udp_message_types_udp_port_range_set_cb(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_udp_message_types_udp_port_range_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_udp_message_types_udp_port_range_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %11, label %7
@@ -498,7 +498,7 @@ define internal void @protobuf_udp_message_types_udp_port_range_tostr_cb(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_udp_message_types_message_type_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_udp_message_types_message_type_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -509,7 +509,7 @@ define internal void @protobuf_udp_message_types_message_type_set_cb(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_udp_message_types_message_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_udp_message_types_message_type_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -535,7 +535,7 @@ define internal void @protobuf_udp_message_types_message_type_tostr_cb(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_uri_message_type_uri_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_uri_message_type_uri_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = load ptr, ptr %0, align 8
@@ -545,7 +545,7 @@ define internal void @protobuf_uri_message_type_uri_set_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_uri_message_type_uri_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_uri_message_type_uri_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -570,7 +570,7 @@ define internal void @protobuf_uri_message_type_uri_tostr_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_uri_message_type_message_type_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_uri_message_type_message_type_set_cb(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -581,7 +581,7 @@ define internal void @protobuf_uri_message_type_message_type_set_cb(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_uri_message_type_message_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @protobuf_uri_message_type_message_type_tostr_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -666,7 +666,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @protobuf_search_paths_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @protobuf_search_paths_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
@@ -682,7 +682,7 @@ define internal noundef ptr @protobuf_search_paths_copy_cb(ptr noundef returned 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_search_paths_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @protobuf_search_paths_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #11
   ret void
@@ -701,7 +701,7 @@ declare void @prefs_set_preference_effect_fields(ptr noundef, ptr noundef) local
 declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @protobuf_udp_message_types_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @protobuf_udp_message_types_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
@@ -729,7 +729,7 @@ define internal noundef ptr @protobuf_udp_message_types_copy_cb(ptr noundef retu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @protobuf_udp_message_types_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef zeroext i1 @protobuf_udp_message_types_update_cb(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = tail call ptr @range_empty(ptr noundef null) #11
   store ptr %3, ptr @protobuf_udp_message_types_update_cb.empty, align 8
   %4 = load ptr, ptr %0, align 8
@@ -749,7 +749,7 @@ define internal noundef zeroext i1 @protobuf_udp_message_types_update_cb(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_udp_message_types_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @protobuf_udp_message_types_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @wmem_free(ptr noundef null, ptr noundef %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -765,7 +765,7 @@ define internal void @update_protobuf_udp_message_types() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @protobuf_uri_message_type_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @protobuf_uri_message_type_copy_cb(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -792,7 +792,7 @@ define internal noundef ptr @protobuf_uri_message_type_copy_cb(ptr noundef retur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @protobuf_uri_message_type_free_cb(ptr nocapture noundef readonly %0) #0 {
+define internal void @protobuf_uri_message_type_free_cb(ptr noundef readonly captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1261,7 +1261,7 @@ deregister_header_fields.exit:                    ; preds = %21, %23
   %44 = sext i32 %.037 to i64
   %45 = getelementptr %struct.hf_register_info, ptr %43, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %45, ptr noundef nonnull align 8 dereferenceable(80) %42, i64 80, i1 false)
-  tail call void @g_free(ptr noundef %42) #11
+  tail call void @g_free(ptr noundef nonnull %42) #11
   %46 = load ptr, ptr @dynamic_hf, align 8
   %47 = getelementptr %struct.hf_register_info, ptr %46, i64 %44, i32 1, i32 7
   store i32 -1, ptr %47, align 8
@@ -1515,7 +1515,7 @@ declare void @g_free(ptr noundef) #1
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @g_strcmp0(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1526,7 +1526,7 @@ declare i32 @range_convert_str(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 declare ptr @range_convert_range(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @range_copy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1558,7 +1558,7 @@ declare ptr @wmem_strsplit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) l
 declare ptr @pbw_DescriptorPool_FindMethodByName(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @pbw_MethodDescriptor_input_type(ptr noundef) local_unnamed_addr #1
 
@@ -1569,7 +1569,7 @@ declare ptr @pbw_Descriptor_full_name(ptr noundef) local_unnamed_addr #1
 declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare ptr @g_string_new(ptr noundef) local_unnamed_addr #1
 
@@ -1796,7 +1796,7 @@ abs_time_to_rfc3339.exit:                         ; preds = %84, %.critedge.i
 
 111:                                              ; preds = %109
   %112 = load ptr, ptr @pbf_hf_hash, align 8
-  %113 = call ptr @g_hash_table_lookup(ptr noundef %112, ptr noundef %30) #11
+  %113 = call ptr @g_hash_table_lookup(ptr noundef %112, ptr noundef nonnull %30) #11
   %.not139 = icmp eq ptr %113, null
   br i1 %.not139, label %117, label %114
 
@@ -1812,7 +1812,7 @@ abs_time_to_rfc3339.exit:                         ; preds = %84, %.critedge.i
 118:                                              ; preds = %114
   %119 = call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %115, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0) #11
   store ptr %119, ptr %25, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %119, ptr noundef nonnull @.str.187, ptr noundef %30) #11
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %119, ptr noundef nonnull @.str.187, ptr noundef nonnull %30) #11
   %120 = load i32, ptr @show_details, align 4
   %.not140 = icmp eq i32 %120, 0
   %121 = load ptr, ptr %25, align 8
@@ -1843,7 +1843,7 @@ abs_time_to_rfc3339.exit:                         ; preds = %84, %.critedge.i
 proto_item_set_hidden.exit:                       ; preds = %125, %126, %129
   %133 = call ptr @proto_tree_get_parent(ptr noundef %.0) #11
   store ptr %133, ptr %25, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %133, ptr noundef nonnull @.str.188, ptr noundef %30) #11
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %133, ptr noundef nonnull @.str.188, ptr noundef nonnull %30) #11
   br label %136
 
 .thread:                                          ; preds = %11, %109
@@ -1854,7 +1854,7 @@ proto_item_set_hidden.exit:                       ; preds = %125, %126, %129
   %.0123243 = phi ptr [ %.0123, %109 ], [ %8, %11 ]
   %.0124241 = phi ptr [ %30, %109 ], [ @.str.182, %11 ]
   %134 = load i32, ptr @ett_protobuf_message, align 4
-  %135 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0250, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %134, ptr noundef nonnull %25, ptr noundef nonnull @.str.187, ptr noundef %.0124241) #11
+  %135 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %.0250, ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %134, ptr noundef nonnull %25, ptr noundef nonnull @.str.187, ptr noundef nonnull %.0124241) #11
   br label %136
 
 136:                                              ; preds = %122, %proto_item_set_hidden.exit, %.thread
@@ -1895,12 +1895,12 @@ proto_item_set_hidden.exit:                       ; preds = %125, %126, %129
 
 149:                                              ; preds = %146, %144
   %150 = load ptr, ptr %138, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %150, i32 noundef 34, ptr noundef nonnull @.str.190, ptr noundef %.0124240) #11
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %150, i32 noundef 34, ptr noundef nonnull @.str.190, ptr noundef nonnull %.0124240) #11
   br label %151
 
 151:                                              ; preds = %149, %136
   %152 = load i32, ptr @hf_protobuf_message_name, align 4
-  %153 = call ptr @proto_tree_add_string(ptr noundef %.0125, i32 noundef %152, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %.0124240) #11
+  %153 = call ptr @proto_tree_add_string(ptr noundef %.0125, i32 noundef %152, ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %.0124240) #11
   %.not.i153 = icmp eq ptr %153, null
   br i1 %.not.i153, label %proto_item_set_hidden.exit157, label %154
 
@@ -3316,7 +3316,7 @@ declare ptr @gmtime(ptr noundef) local_unnamed_addr #6
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare ptr @localtime(ptr noundef) local_unnamed_addr #6
@@ -4506,10 +4506,10 @@ declare void @llvm.va_start.p0(ptr) #9
 declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

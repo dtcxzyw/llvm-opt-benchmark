@@ -9,7 +9,7 @@ define weak i64 @ruby_abi_version() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @rb_Digest_RMD160_Init(ptr nocapture noundef writeonly initializes((0, 28), (92, 96)) %0) local_unnamed_addr #1 {
+define noundef i32 @rb_Digest_RMD160_Init(ptr noundef writeonly captures(none) initializes((0, 28), (92, 96)) %0) local_unnamed_addr #1 {
   store i32 1732584193, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 -271733879, ptr %2, align 4
@@ -29,7 +29,7 @@ define noundef i32 @rb_Digest_RMD160_Init(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @rb_Digest_RMD160_Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1526,7 +1526,7 @@ define void @rb_Digest_RMD160_Transform(ptr nocapture noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define void @rb_Digest_RMD160_Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = alloca [16 x i32], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4
@@ -1577,7 +1577,7 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
   %34 = zext i32 %33 to i64
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %gep, i64 64, i1 false)
-  call void @rb_Digest_RMD160_Transform(ptr noundef %0, ptr noundef nonnull %4)
+  call void @rb_Digest_RMD160_Transform(ptr noundef nonnull %0, ptr noundef nonnull %4)
   %35 = add i32 %.035, 1
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ugt i64 %32, %36
@@ -1604,13 +1604,13 @@ define void @rb_Digest_RMD160_Update(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @rb_Digest_RMD160_Finish(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
+define noundef i32 @rb_Digest_RMD160_Finish(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %3 = alloca [16 x i32], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 92

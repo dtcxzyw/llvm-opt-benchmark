@@ -636,7 +636,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray7setRGBAEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %values) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray7setRGBAEPKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %values) local_unnamed_addr #5 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load float, ptr %values, align 4
@@ -746,7 +746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray7setRGBAEPKd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %values) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray7setRGBAEPKd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %values) local_unnamed_addr #6 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i, align 8
@@ -755,7 +755,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7OffsetsC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, double noundef %redOff, double noundef %grnOff, double noundef %bluOff, double noundef %whtOff) unnamed_addr #7 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7OffsetsC2Edddd(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, double noundef %redOff, double noundef %grnOff, double noundef %bluOff, double noundef %whtOff) unnamed_addr #7 align 2 {
 entry:
   store double %redOff, ptr %this, align 8
   %arrayidx4 = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -768,10 +768,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7OffsetsC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %o) unnamed_addr #9 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7OffsetsC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %o) unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %o, i64 32, i1 false)
@@ -793,7 +793,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetseqERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %o) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7OffsetseqERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %o) local_unnamed_addr #10 align 2 {
 entry:
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %this, ptr noundef nonnull dereferenceable(32) %o, i64 32)
   %cmp = icmp eq i32 %bcmp, 0
@@ -801,7 +801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7Offsets9isNotNullEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7Offsets9isNotNullEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load double, ptr %this, align 8
   %cmp = fcmp une double %0, 0.000000e+00
@@ -827,7 +827,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7Offsets5scaleEd(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, double noundef %s) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData7Offsets5scaleEd(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, double noundef %s) local_unnamed_addr #12 align 2 {
 entry:
   br label %for.body
 
@@ -995,7 +995,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray5innerERKS1_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %B) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray5innerERKS1_(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %B) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_data3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1328,7 +1328,7 @@ _ZN19OpenColorIO_v2_4dev6ArrayTIdED2Ev.exit:      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray5innerERKSt10shared_ptrIS1_E(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %B) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray5innerERKSt10shared_ptrIS1_E(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %B) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %B, align 8
   tail call void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray5innerERKS1_(ptr sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -1336,7 +1336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE(ptr noalias nocapture writeonly sret(%"class.OpenColorIO_v2_4dev::MatrixOpData::Offsets") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray5innerERKNS0_7OffsetsE(ptr noalias writeonly sret(%"class.OpenColorIO_v2_4dev::MatrixOpData::Offsets") align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %b) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %vtable = load ptr, ptr %this, align 8
@@ -1823,7 +1823,7 @@ return:                                           ; preds = %for.inc17, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData11MatrixArray18expandFrom3x3To4x4Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -2219,7 +2219,7 @@ lpad.body:                                        ; preds = %_ZNKSt6vectorIdSaId
 declare void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpDataC2ERKNS0_11MatrixArrayE(ptr noundef nonnull align 8 dereferenceable(260) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %matrix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpDataC2ERKNS0_11MatrixArrayE(ptr noundef nonnull align 8 dereferenceable(260) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %matrix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12MatrixOpDataE, i64 16), ptr %this, align 8
@@ -2363,7 +2363,7 @@ lpad.body:                                        ; preds = %_ZNKSt6vectorIdSaId
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(260) initializes((256, 260)) %this, i32 noundef %dir) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData12setDirectionENS_18TransformDirectionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(260) initializes((256, 260)) %this, i32 noundef %dir) local_unnamed_addr #7 align 2 {
 entry:
   %m_direction = getelementptr inbounds nuw i8, ptr %this, i64 256
   store i32 %dir, ptr %m_direction, align 8
@@ -2419,7 +2419,7 @@ _ZN19OpenColorIO_v2_4dev12MatrixOpDataD2Ev.exit:  ; preds = %entry, %if.then.i.i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.14") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(260) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData5cloneEv(ptr noalias writeonly sret(%"class.std::shared_ptr.14") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(260) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   store ptr null, ptr %agg.result, align 8, !alias.scope !30
@@ -2442,7 +2442,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_4dev12MatrixOpDataEJRKS1_EESt10shared_ptrINS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData13setArrayValueEmd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(260) %this, i64 noundef %index, double noundef %value) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData13setArrayValueEmd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(260) %this, i64 noundef %index, double noundef %value) local_unnamed_addr #5 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_data.i, align 8
@@ -2452,7 +2452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef double @_ZNK19OpenColorIO_v2_4dev12MatrixOpData13getArrayValueEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(260) %this, i64 noundef %index) local_unnamed_addr #17 align 2 {
+define hidden noundef double @_ZNK19OpenColorIO_v2_4dev12MatrixOpData13getArrayValueEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(260) %this, i64 noundef %index) local_unnamed_addr #17 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_data.i, align 8
@@ -2462,7 +2462,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData6setRGBEPKf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(260) %this, ptr nocapture noundef readonly %values) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData6setRGBEPKf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(260) %this, ptr noundef readonly captures(none) %values) local_unnamed_addr #5 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load float, ptr %values, align 4
@@ -3300,7 +3300,7 @@ return:                                           ; preds = %if.then.i, %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12MatrixOpData8hasAlphaEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(260) %this) local_unnamed_addr #17 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev12MatrixOpData8hasAlphaEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(260) %this) local_unnamed_addr #17 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_data.i, align 8
@@ -3643,7 +3643,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7composeERSt10shared_ptrIKS0_E(ptr noalias sret(%"class.std::shared_ptr.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(260) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %B) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev12MatrixOpData7composeERSt10shared_ptrIKS0_E(ptr noalias sret(%"class.std::shared_ptr.14") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(260) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %B) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i = alloca %"class.std::allocator.24", align 1
   %newDesc = alloca %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", align 8
@@ -4446,7 +4446,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData5scaleEdd(ptr nocapture noundef nonnull align 8 dereferenceable(260) %this, double noundef %inScale, double noundef %outScale) local_unnamed_addr #20 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12MatrixOpData5scaleEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(260) %this, double noundef %inScale, double noundef %outScale) local_unnamed_addr #20 align 2 {
 entry:
   %mul = fmul double %inScale, %outScale
   %cmp.i = fcmp une double %mul, 1.000000e+00
@@ -4771,7 +4771,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #22
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN19OpenColorIO_v2_4dev6ArrayTIdED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4964,7 +4964,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #24
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev12MatrixOpDataESaIvELN9__gnu_cxx12_Lock_policyE2EEC2IJRKS1_EEES2_DpOT_(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(260) %__args) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5229,7 +5229,7 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #26
 declare void @llvm.assume(i1 noundef) #27
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #29
@@ -5241,10 +5241,10 @@ declare i64 @llvm.umin.i64(i64, i64) #29
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

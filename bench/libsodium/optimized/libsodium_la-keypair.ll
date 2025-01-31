@@ -33,7 +33,7 @@ declare void @_sodium_ge25519_scalarmult_base(ptr noundef, ptr noundef) local_un
 declare void @_sodium_ge25519_p3_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind ssp uwtable
 define noundef i32 @crypto_sign_ed25519_keypair(ptr noundef nonnull %pk, ptr noundef nonnull %sk) local_unnamed_addr #0 {
@@ -252,7 +252,7 @@ declare void @_sodium_fe25519_invert(ptr noundef, ptr noundef) local_unnamed_add
 declare void @_sodium_fe25519_tobytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define noundef i32 @crypto_sign_ed25519_sk_to_curve25519(ptr nocapture noundef nonnull writeonly initializes((0, 32)) %curve25519_sk, ptr noundef nonnull %ed25519_sk) local_unnamed_addr #0 {
+define noundef i32 @crypto_sign_ed25519_sk_to_curve25519(ptr noundef nonnull writeonly captures(none) initializes((0, 32)) %curve25519_sk, ptr noundef nonnull %ed25519_sk) local_unnamed_addr #0 {
 entry:
   %h = alloca [64 x i8], align 16
   %call = call i32 @crypto_hash_sha512(ptr noundef nonnull %h, ptr noundef nonnull %ed25519_sk, i64 noundef 32) #4
@@ -270,13 +270,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind ssp uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

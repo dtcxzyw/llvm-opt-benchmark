@@ -59,12 +59,12 @@ declare i32 @fsync(i32 noundef) local_unnamed_addr #1
 declare void @JNU_ThrowByName(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i64 @Java_java_io_FileDescriptor_getHandle(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef i64 @Java_java_io_FileDescriptor_getHandle(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   ret i64 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext range(i8 0, 2) i8 @Java_java_io_FileDescriptor_getAppend(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define zeroext range(i8 0, 2) i8 @Java_java_io_FileDescriptor_getAppend(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 (i32, i32, ...) @fcntl64(i32 noundef %2, i32 noundef 3) #3
   %5 = lshr i32 %4, 10
   %6 = trunc i32 %5 to i8
@@ -83,7 +83,7 @@ define void @Java_java_io_FileDescriptor_close0(ptr noundef %0, ptr noundef %1) 
 declare void @fileDescriptorClose(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_io_FileCleanable_cleanupClose0(ptr noundef %0, ptr nocapture noundef readnone %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Java_java_io_FileCleanable_cleanupClose0(ptr noundef %0, ptr noundef readnone captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %9, label %5
 

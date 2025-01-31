@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1fd0f21b59ebd390a4b6844ce9c4a3aa.5 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.1fd0f21b59ebd390a4b6844ce9c4a3aa.4, [16 x i8] c"\1A\00\00\00\00\00\00\00\F2\00\00\00I\00\00\00" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h39c9d34820ec298aE"(ptr nocapture readonly align 8 %0, ptr readonly align 8 %1) unnamed_addr #0 {
+define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h39c9d34820ec298aE"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, ptr }, align 8
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = icmp ne ptr %1, null
@@ -32,7 +32,7 @@ define zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..functi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hab7d47256a5fe88aE"(ptr nocapture writeonly sret({ { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }) align 8 initializes((0, 80)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hab7d47256a5fe88aE"(ptr writeonly sret({ { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }) align 8 captures(none) initializes((0, 80)) %0, ptr readonly align 8 captures(none) %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -59,7 +59,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h8f5899abb398856aE"(ptr nocapture writeonly sret({ ptr, [11 x i64] }) align 8 %0, ptr nocapture readnone align 1 %1, ptr %2, i32 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h8f5899abb398856aE"(ptr writeonly sret({ ptr, [11 x i64] }) align 8 captures(none) %0, ptr readnone align 1 captures(none) %1, ptr %2, i32 %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }, align 8
   %6 = alloca { { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }, align 8
   %7 = alloca { ptr, i32 }, align 8
@@ -112,7 +112,7 @@ define hidden void @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h7f8f8f2e9841dc95E"(ptr nocapture readonly align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden zeroext i1 @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$17h7f8f8f2e9841dc95E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #1 {
   %3 = alloca { ptr, i64 }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
@@ -130,7 +130,7 @@ define hidden zeroext i1 @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf48bab8ca5b1c62bE"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #1 {
+define hidden zeroext i1 @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf48bab8ca5b1c62bE"(ptr readonly align 8 captures(none) %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = tail call { ptr, i64 } @"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf2f771f9658d2575E"(ptr align 8 %1, ptr nonnull align 8 @anon.1fd0f21b59ebd390a4b6844ce9c4a3aa.2)
   %5 = extractvalue { ptr, i64 } %4, 0
@@ -144,7 +144,7 @@ define hidden zeroext i1 @"_ZN14anki_proto_gen12get_services28_$u7b$$u7b$closure
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN14anki_proto_gen14MethodComments9from_pool28_$u7b$$u7b$closure$u7d$$u7d$17hd8124a7074adab45E"(ptr nocapture writeonly sret({ { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } } }) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN14anki_proto_gen14MethodComments9from_pool28_$u7b$$u7b$closure$u7d$$u7d$17hd8124a7074adab45E"(ptr writeonly sret({ { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 } } }) align 8 captures(none) %0, ptr readnone align 1 captures(none) %1, ptr align 8 %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, i64 }, align 8
   %5 = alloca { { ptr, i64 }, i64 }, align 8
   call void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd05ce0e2cd23d46dE"(ptr nonnull sret({ { ptr, i64 }, i64 }) align 8 %5, ptr align 8 %2)
@@ -186,7 +186,7 @@ define hidden void @"_ZN14anki_proto_gen14MethodComments9from_pool28_$u7b$$u7b$c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN14anki_proto_gen32add_must_use_annotations_to_file18MESSAGE_OR_ENUM_RE28_$u7b$$u7b$closure$u7d$$u7d$17h0147e5c4c734aa75E"(ptr sret({ { ptr, ptr }, { ptr, i64 } }) align 8 %0, ptr nocapture readnone align 1 %1) unnamed_addr #1 {
+define void @"_ZN14anki_proto_gen32add_must_use_annotations_to_file18MESSAGE_OR_ENUM_RE28_$u7b$$u7b$closure$u7d$$u7d$17h0147e5c4c734aa75E"(ptr sret({ { ptr, ptr }, { ptr, i64 } }) align 8 %0, ptr readnone align 1 captures(none) %1) unnamed_addr #1 {
   %3 = alloca { ptr, [3 x i64] }, align 8
   call void @_ZN5regex5regex6string5Regex3new17haac8534c3f55b7b4E(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %3, ptr nonnull align 1 @anon.1fd0f21b59ebd390a4b6844ce9c4a3aa.3, i64 35)
   call void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb3c73e2bde1503e3E"(ptr sret({ { ptr, ptr }, { ptr, i64 } }) align 8 %0, ptr nonnull align 8 %3, ptr nonnull align 8 @anon.1fd0f21b59ebd390a4b6844ce9c4a3aa.5)
@@ -206,7 +206,7 @@ declare zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with1
 declare void @_ZN14anki_proto_gen17CollectionService10from_proto17h3c3cec6cba8b2894E(ptr sret({ { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }) align 8, ptr, i32) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nonlazybind uwtable
 declare void @_ZN14anki_proto_gen14BackendService10from_proto17h89b6cf5547bbcf0cE(ptr sret({ { { { ptr, i64 }, i64 } }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, { ptr, i32 }, i64 }) align 8, ptr, i32) unnamed_addr #0
@@ -260,10 +260,10 @@ declare void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hb3c73e2bde1503e3E"(
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #6

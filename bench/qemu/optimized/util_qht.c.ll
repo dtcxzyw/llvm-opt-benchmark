@@ -86,7 +86,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qht_destroy(ptr nocapture noundef %ht) local_unnamed_addr #0 {
+define dso_local void @qht_destroy(ptr noundef captures(none) %ht) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %ht, align 8
   %n_buckets.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -182,7 +182,7 @@ for.end:                                          ; preds = %qht_chain_destroy.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @qht_reset(ptr noundef %ht) local_unnamed_addr #0 {
@@ -474,7 +474,7 @@ if.end:                                           ; preds = %for.body.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qht_lookup_custom(ptr nocapture noundef readonly %ht, ptr noundef %userp, i32 noundef %hash, ptr nocapture noundef readonly %func) local_unnamed_addr #0 {
+define dso_local noundef ptr @qht_lookup_custom(ptr noundef readonly captures(none) %ht, ptr noundef %userp, i32 noundef %hash, ptr noundef readonly captures(none) %func) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr %ht monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -599,7 +599,7 @@ return:                                           ; preds = %qht_do_lookup.exit.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qht_lookup(ptr nocapture noundef readonly %ht, ptr noundef %userp, i32 noundef %hash) local_unnamed_addr #0 {
+define dso_local noundef ptr @qht_lookup(ptr noundef readonly captures(none) %ht, ptr noundef %userp, i32 noundef %hash) local_unnamed_addr #0 {
 entry:
   %cmp = getelementptr inbounds nuw i8, ptr %ht, i64 8
   %0 = load ptr, ptr %cmp, align 8
@@ -661,31 +661,29 @@ do.end.i:                                         ; preds = %for.end.i
   %n_added_buckets_threshold.i.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load i64, ptr %n_added_buckets_threshold.i.i, align 8
   %cmp.i.i = icmp ugt i64 %6, %7
-  %8 = icmp eq ptr %call16.i, null
   br label %found.i
 
 found.loopexit.i:                                 ; preds = %for.body.i
-  %9 = and i64 %indvars.iv.i, 4294967295
+  %8 = and i64 %indvars.iv.i, 4294967295
   br label %found.i
 
 found.i:                                          ; preds = %do.end.i, %found.loopexit.i
   %needs_resize.0 = phi i1 [ false, %found.loopexit.i ], [ %cmp.i.i, %do.end.i ]
-  %i.1.i = phi i64 [ %9, %found.loopexit.i ], [ 0, %do.end.i ]
-  %new.0.i = phi i1 [ true, %found.loopexit.i ], [ %8, %do.end.i ]
+  %i.1.i = phi i64 [ %8, %found.loopexit.i ], [ 0, %do.end.i ]
   %prev.1.i = phi ptr [ %prev.0.i, %found.loopexit.i ], [ %b.0.i, %do.end.i ]
   %b.1.i = phi ptr [ %b.0.i, %found.loopexit.i ], [ %call16.i, %do.end.i ]
   %sequence.i = getelementptr inbounds nuw i8, ptr %call, i64 4
-  %10 = load i32, ptr %sequence.i, align 4
-  %add.i.i = add i32 %10, 1
+  %9 = load i32, ptr %sequence.i, align 4
+  %add.i.i = add i32 %9, 1
   store atomic i32 %add.i.i, ptr %sequence.i monotonic, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
   fence release
-  br i1 %new.0.i, label %qht_insert__locked.exit, label %while.end.i
+  br i1 %tobool.not.i, label %qht_insert__locked.exit, label %while.end.i
 
 while.end.i:                                      ; preds = %found.i
   %next33.i = getelementptr inbounds nuw i8, ptr %prev.1.i, i64 56
-  %11 = ptrtoint ptr %b.1.i to i64
-  store atomic i64 %11, ptr %next33.i release, align 8
+  %10 = ptrtoint ptr %b.1.i to i64
+  store atomic i64 %10, ptr %next33.i release, align 8
   br label %qht_insert__locked.exit
 
 qht_insert__locked.exit:                          ; preds = %found.i, %while.end.i
@@ -694,25 +692,25 @@ qht_insert__locked.exit:                          ; preds = %found.i, %while.end
   store atomic i32 %hash, ptr %arrayidx47.i monotonic, align 4
   %pointers58.i = getelementptr inbounds nuw i8, ptr %b.1.i, i64 24
   %arrayidx60.i = getelementptr [4 x ptr], ptr %pointers58.i, i64 0, i64 %i.1.i
-  %12 = ptrtoint ptr %p to i64
-  store atomic i64 %12, ptr %arrayidx60.i monotonic, align 8
+  %11 = ptrtoint ptr %p to i64
+  store atomic i64 %11, ptr %arrayidx60.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
   fence release
-  %13 = load i32, ptr %sequence.i, align 4
-  %add.i26.i = add i32 %13, 1
+  %12 = load i32, ptr %sequence.i, align 4
+  %add.i26.i = add i32 %12, 1
   store atomic i32 %add.i26.i, ptr %sequence.i monotonic, align 4
   store atomic i32 0, ptr %call release, align 4
   br i1 %needs_resize.0, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %qht_insert__locked.exit
   %mode = getelementptr inbounds nuw i8, ptr %ht, i64 64
-  %14 = load i32, ptr %mode, align 8
-  %and = and i32 %14, 1
+  %13 = load i32, ptr %mode, align 8
+  %and = and i32 %13, 1
   %tobool4.not = icmp eq i32 %and, 0
   br i1 %tobool4.not, label %return, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %and.i.i = and i32 %14, 2
+  %and.i.i = and i32 %13, 2
   %tobool.not.i.i = icmp eq i32 %and.i.i, 0
   br i1 %tobool.not.i.i, label %while.end.i.i, label %if.then.i.i
 
@@ -722,10 +720,10 @@ if.then.i.i:                                      ; preds = %if.then
   br label %qht_trylock.exit.i
 
 while.end.i.i:                                    ; preds = %if.then
-  %15 = load atomic i64, ptr @qemu_mutex_trylock_func monotonic, align 8
-  %16 = inttoptr i64 %15 to ptr
+  %14 = load atomic i64, ptr @qemu_mutex_trylock_func monotonic, align 8
+  %15 = inttoptr i64 %14 to ptr
   %lock2.i.i = getelementptr inbounds nuw i8, ptr %ht, i64 16
-  %call3.i.i = tail call i32 %16(ptr noundef nonnull %lock2.i.i, ptr noundef nonnull @.str, i32 noundef 124) #8
+  %call3.i.i = tail call i32 %15(ptr noundef nonnull %lock2.i.i, ptr noundef nonnull @.str, i32 noundef 124) #8
   br label %qht_trylock.exit.i
 
 qht_trylock.exit.i:                               ; preds = %while.end.i.i, %if.then.i.i
@@ -734,28 +732,28 @@ qht_trylock.exit.i:                               ; preds = %while.end.i.i, %if.
   br i1 %tobool.not.i9, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %qht_trylock.exit.i
-  %17 = load ptr, ptr %ht, align 8
-  %n_added_buckets.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %18 = load atomic i64, ptr %n_added_buckets.i.i monotonic, align 8
-  %n_added_buckets_threshold.i.i10 = getelementptr inbounds nuw i8, ptr %17, i64 40
-  %19 = load i64, ptr %n_added_buckets_threshold.i.i10, align 8
-  %cmp.i.i11 = icmp ugt i64 %18, %19
+  %16 = load ptr, ptr %ht, align 8
+  %n_added_buckets.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %17 = load atomic i64, ptr %n_added_buckets.i.i monotonic, align 8
+  %n_added_buckets_threshold.i.i10 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  %18 = load i64, ptr %n_added_buckets_threshold.i.i10, align 8
+  %cmp.i.i11 = icmp ugt i64 %17, %18
   br i1 %cmp.i.i11, label %if.then3.i, label %if.end5.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %n_buckets.i = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %20 = load i64, ptr %n_buckets.i, align 8
-  %mul.i = shl i64 %20, 1
+  %n_buckets.i = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %19 = load i64, ptr %n_buckets.i, align 8
+  %mul.i = shl i64 %19, 1
   %call.i5.i = tail call noalias dereferenceable_or_null(48) ptr @g_malloc(i64 noundef 48) #9
   %n_buckets1.i.i = getelementptr inbounds nuw i8, ptr %call.i5.i, i64 24
   store i64 %mul.i, ptr %n_buckets1.i.i, align 8
   %n_added_buckets.i6.i = getelementptr inbounds nuw i8, ptr %call.i5.i, i64 32
   store i64 0, ptr %n_added_buckets.i6.i, align 8
   %n_added_buckets_threshold.i7.i = getelementptr inbounds nuw i8, ptr %call.i5.i, i64 40
-  %21 = tail call i64 @llvm.umax.i64(i64 %mul.i, i64 8)
-  %spec.select.i.i = lshr i64 %21, 3
+  %20 = tail call i64 @llvm.umax.i64(i64 %mul.i, i64 8)
+  %spec.select.i.i = lshr i64 %20, 3
   store i64 %spec.select.i.i, ptr %n_added_buckets_threshold.i7.i, align 8
-  %mul.i.i = shl i64 %20, 7
+  %mul.i.i = shl i64 %19, 7
   %call5.i.i = tail call ptr @qemu_memalign(i64 noundef 64, i64 noundef %mul.i.i) #8
   %buckets.i.i = getelementptr inbounds nuw i8, ptr %call.i5.i, i64 16
   store ptr %call5.i.i, ptr %buckets.i.i, align 8
@@ -784,15 +782,15 @@ if.end5.i:                                        ; preds = %qht_map_create.exit
 
 if.end:                                           ; preds = %land.rhs.i
   %arrayidx.i.le = getelementptr [4 x ptr], ptr %pointers.i, i64 0, i64 %indvars.iv.i
-  %22 = load ptr, ptr %arrayidx.i.le, align 8
+  %21 = load ptr, ptr %arrayidx.i.le, align 8
   store atomic i32 0, ptr %call release, align 4
-  %cmp = icmp eq ptr %22, null
+  %cmp = icmp eq ptr %21, null
   %tobool14.not = icmp eq ptr %existing, null
   %or.cond = or i1 %tobool14.not, %cmp
   br i1 %or.cond, label %return, label %if.then15
 
 if.then15:                                        ; preds = %if.end
-  store ptr %22, ptr %existing, align 8
+  store ptr %21, ptr %existing, align 8
   br label %return
 
 return:                                           ; preds = %if.end5.i, %qht_trylock.exit.i, %qht_insert__locked.exit, %land.lhs.true, %if.then15, %if.end
@@ -801,7 +799,7 @@ return:                                           ; preds = %if.end5.i, %qht_try
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr nocapture noundef nonnull writeonly %pmap) unnamed_addr #0 {
+define internal fastcc noundef ptr @qht_bucket_lock__no_stale(ptr noundef %ht, i32 noundef %hash, ptr noundef nonnull writeonly captures(none) %pmap) unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr %ht monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -1070,7 +1068,7 @@ qht_remove__locked.exit:                          ; preds = %for.end.i, %for.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qht_iter(ptr nocapture noundef readonly %ht, ptr noundef %func, ptr noundef %userp) local_unnamed_addr #0 {
+define dso_local void @qht_iter(ptr noundef readonly captures(none) %ht, ptr noundef %func, ptr noundef %userp) local_unnamed_addr #0 {
 entry:
   %iter = alloca %struct.qht_iter, align 8
   store ptr %func, ptr %iter, align 8
@@ -1143,7 +1141,7 @@ do_qht_iter.exit:                                 ; preds = %for.body.i7.i, %qht
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qht_iter_remove(ptr nocapture noundef readonly %ht, ptr noundef %func, ptr noundef %userp) local_unnamed_addr #0 {
+define dso_local void @qht_iter_remove(ptr noundef readonly captures(none) %ht, ptr noundef %func, ptr noundef %userp) local_unnamed_addr #0 {
 entry:
   %iter = alloca %struct.qht_iter, align 8
   store ptr %func, ptr %iter, align 8
@@ -1292,7 +1290,7 @@ if.end:                                           ; preds = %qht_map_create.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qht_statistics_init(ptr nocapture noundef readonly %ht, ptr noundef initializes((8, 24)) %stats) local_unnamed_addr #0 {
+define dso_local void @qht_statistics_init(ptr noundef readonly captures(none) %ht, ptr noundef initializes((8, 24)) %stats) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr %ht monotonic, align 8
   %1 = inttoptr i64 %0 to ptr
@@ -1612,7 +1610,7 @@ return:                                           ; preds = %for.body.i25, %if.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qht_map_copy(ptr noundef %p, i32 noundef %hash, ptr nocapture noundef readonly %userp) #0 {
+define internal void @qht_map_copy(ptr noundef %p, i32 noundef %hash, ptr noundef readonly captures(none) %userp) #0 {
 entry:
   %0 = load ptr, ptr %userp, align 8
   %new2 = getelementptr inbounds nuw i8, ptr %userp, i64 8
@@ -1670,30 +1668,28 @@ do.end.i:                                         ; preds = %for.end.i
   %n_added_buckets.i = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = atomicrmw add ptr %n_added_buckets.i, i64 1 seq_cst, align 8
   %9 = load atomic i64, ptr %n_added_buckets.i monotonic, align 8
-  %10 = icmp eq ptr %call16.i, null
   br label %found.i
 
 found.loopexit.i:                                 ; preds = %for.body.i
-  %11 = and i64 %indvars.iv.i, 4294967295
+  %10 = and i64 %indvars.iv.i, 4294967295
   br label %found.i
 
 found.i:                                          ; preds = %do.end.i, %found.loopexit.i
-  %i.1.i = phi i64 [ 0, %do.end.i ], [ %11, %found.loopexit.i ]
-  %new.0.i = phi i1 [ %10, %do.end.i ], [ true, %found.loopexit.i ]
+  %i.1.i = phi i64 [ 0, %do.end.i ], [ %10, %found.loopexit.i ]
   %prev.1.i = phi ptr [ %b.0.i, %do.end.i ], [ %prev.0.i, %found.loopexit.i ]
   %b.1.i = phi ptr [ %call16.i, %do.end.i ], [ %b.0.i, %found.loopexit.i ]
   %sequence.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
-  %12 = load i32, ptr %sequence.i, align 4
-  %add.i.i = add i32 %12, 1
+  %11 = load i32, ptr %sequence.i, align 4
+  %add.i.i = add i32 %11, 1
   store atomic i32 %add.i.i, ptr %sequence.i monotonic, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !15
   fence release
-  br i1 %new.0.i, label %while.end44.i, label %while.end.i
+  br i1 %tobool.not.i, label %while.end44.i, label %while.end.i
 
 while.end.i:                                      ; preds = %found.i
   %next33.i = getelementptr inbounds nuw i8, ptr %prev.1.i, i64 56
-  %13 = ptrtoint ptr %b.1.i to i64
-  store atomic i64 %13, ptr %next33.i release, align 8
+  %12 = ptrtoint ptr %b.1.i to i64
+  store atomic i64 %12, ptr %next33.i release, align 8
   br label %while.end44.i
 
 while.end44.i:                                    ; preds = %while.end.i, %found.i
@@ -1702,12 +1698,12 @@ while.end44.i:                                    ; preds = %while.end.i, %found
   store atomic i32 %hash, ptr %arrayidx47.i monotonic, align 4
   %pointers58.i = getelementptr inbounds nuw i8, ptr %b.1.i, i64 24
   %arrayidx60.i = getelementptr [4 x ptr], ptr %pointers58.i, i64 0, i64 %i.1.i
-  %14 = ptrtoint ptr %p to i64
-  store atomic i64 %14, ptr %arrayidx60.i monotonic, align 8
+  %13 = ptrtoint ptr %p to i64
+  store atomic i64 %13, ptr %arrayidx60.i monotonic, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !18
   fence release
-  %15 = load i32, ptr %sequence.i, align 4
-  %add.i26.i = add i32 %15, 1
+  %14 = load i32, ptr %sequence.i, align 4
+  %add.i26.i = add i32 %14, 1
   store atomic i32 %add.i26.i, ptr %sequence.i monotonic, align 4
   br label %qht_insert__locked.exit
 
@@ -1716,7 +1712,7 @@ qht_insert__locked.exit:                          ; preds = %land.rhs.i, %while.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qht_map_iter__all_locked(ptr nocapture noundef readonly %map, ptr nocapture noundef nonnull readonly %iter, ptr noundef %userp) unnamed_addr #0 {
+define internal fastcc void @qht_map_iter__all_locked(ptr noundef readonly captures(none) %map, ptr noundef nonnull readonly captures(none) %iter, ptr noundef %userp) unnamed_addr #0 {
 entry:
   %n_buckets = getelementptr inbounds nuw i8, ptr %map, i64 24
   %0 = load i64, ptr %n_buckets, align 8

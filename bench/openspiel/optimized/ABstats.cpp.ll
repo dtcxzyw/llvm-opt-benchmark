@@ -173,7 +173,7 @@ _ZN7ABstats8SetNamesEv.exit:                      ; preds = %.noexc8
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN7ABstats5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2800) initializes((256, 460)) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN7ABstats5ResetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2800) initializes((256, 460)) %0) local_unnamed_addr #4 align 2 {
 .preheader24:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(204) %1, i8 0, i64 204, i1 false)
@@ -253,7 +253,7 @@ define void @_ZN7ABstatsD2Ev(ptr noundef nonnull align 8 dereferenceable(2800) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN7ABstats8ResetCumEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2800) initializes((672, 680)) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN7ABstats8ResetCumEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2800) initializes((672, 680)) %0) local_unnamed_addr #4 align 2 {
 .preheader.critedge:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 672
   store i32 0, ptr %1, align 8
@@ -288,7 +288,7 @@ define void @_ZN7ABstats8ResetCumEv(ptr nocapture noundef nonnull writeonly alig
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7ABstats7IncrPosE11ABCountTypebi(ptr nocapture noundef nonnull align 8 dereferenceable(2800) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
+define void @_ZN7ABstats7IncrPosE11ABCountTypebi(ptr noundef nonnull align 8 captures(none) dereferenceable(2800) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #6 align 2 {
   %or.cond = icmp ugt i32 %1, 7
   br i1 %or.cond, label %43, label %5
 
@@ -347,7 +347,7 @@ define void @_ZN7ABstats7IncrPosE11ABCountTypebi(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7ABstats8IncrNodeEi(ptr nocapture noundef nonnull align 8 dereferenceable(2800) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN7ABstats8IncrNodeEi(ptr noundef nonnull align 8 captures(none) dereferenceable(2800) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [49 x i32], ptr %3, i64 0, i64 %4
@@ -379,14 +379,14 @@ define void @_ZN7ABstats8IncrNodeEi(ptr nocapture noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK7ABstats8GetNodesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2800) %0) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK7ABstats8GetNodesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2800) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7ABstats19PrintHeaderPositionERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7ABstats19PrintHeaderPositionERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.8)
@@ -490,7 +490,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7ABstats18PrintStatsPositionERSt14basic_ofstreamIcSt11char_traitsIcEEiRKNSt7__cxx1112basic_stringIcS2_SaIcEEERK9ABtrackerSD_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(212) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(212) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7ABstats18PrintStatsPositionERSt14basic_ofstreamIcSt11char_traitsIcEEiRKNSt7__cxx1112basic_stringIcS2_SaIcEEERK9ABtrackerSD_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(212) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(212) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 204
@@ -822,7 +822,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt5fixed
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7ABstats16PrintHeaderDepthERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7ABstats16PrintHeaderDepthERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 5)
@@ -888,7 +888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7ABstats15PrintStatsDepthERSt14basic_ofstreamIcSt11char_traitsIcEEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZNK7ABstats15PrintStatsDepthERSt14basic_ofstreamIcSt11char_traitsIcEEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 5)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %2)
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %6, i32 7)
@@ -954,7 +954,7 @@ define void @_ZNK7ABstats15PrintStatsDepthERSt14basic_ofstreamIcSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7ABstats17PrintAverageDepthERSt14basic_ofstreamIcSt11char_traitsIcEERK9ABtracker(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(212) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK7ABstats17PrintAverageDepthERSt14basic_ofstreamIcSt11char_traitsIcEERK9ABtracker(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(212) %2) local_unnamed_addr #3 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.22)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_St5_Setw(ptr noundef nonnull align 8 dereferenceable(8) %4, i32 7)
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSt8ios_baseS0_E(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull @_ZSt5rightRSt8ios_base)
@@ -1070,7 +1070,7 @@ define void @_ZNK7ABstats17PrintAverageDepthERSt14basic_ofstreamIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7ABstats17PrintHeaderDetailERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7ABstats17PrintHeaderDetailERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.28)
@@ -1139,7 +1139,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7ABstats16PrintStatsDetailERSt14basic_ofstreamIcSt11char_traitsIcEEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK7ABstats16PrintStatsDetailERSt14basic_ofstreamIcSt11char_traitsIcEEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 892
   %6 = sext i32 %2 to i64
@@ -1187,7 +1187,7 @@ define void @_ZNK7ABstats16PrintStatsDetailERSt14basic_ofstreamIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7ABstats14PrintSumDetailERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7ABstats14PrintSumDetailERSt14basic_ofstreamIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2800) %0, ptr noundef nonnull align 8 dereferenceable(248) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
@@ -1539,7 +1539,7 @@ define internal void @_GLOBAL__sub_I_ABstats.cpp() #10 section ".text.startup" {
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

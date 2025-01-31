@@ -95,7 +95,7 @@ define void @Java_sun_java2d_SurfaceData_initIDs(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_sun_java2d_SurfaceData_isOpaqueGray(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define zeroext i8 @Java_sun_java2d_SurfaceData_isOpaqueGray(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %11, label %5
 
@@ -329,7 +329,7 @@ define void @SurfaceData_ThrowInvalidPipeException(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SurfaceData_IntersectBounds(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @SurfaceData_IntersectBounds(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %3, %4
@@ -380,7 +380,7 @@ define void @SurfaceData_IntersectBounds(ptr nocapture noundef %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SurfaceData_IntersectBoundsXYXY(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @SurfaceData_IntersectBoundsXYXY(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = load i32, ptr %0, align 4
   %7 = icmp slt i32 %6, %1
   br i1 %7, label %8, label %9
@@ -424,7 +424,7 @@ define void @SurfaceData_IntersectBoundsXYXY(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SurfaceData_IntersectBoundsXYWH(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @SurfaceData_IntersectBoundsXYWH(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = tail call i32 @llvm.smax.i32(i32 %3, i32 0)
   %7 = add nsw i32 %6, %1
   %8 = load i32, ptr %0, align 4
@@ -472,7 +472,7 @@ define void @SurfaceData_IntersectBoundsXYWH(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SurfaceData_IntersectBlitBounds(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define void @SurfaceData_IntersectBlitBounds(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %0, align 4
   %7 = add nsw i32 %6, %2
@@ -628,10 +628,10 @@ SurfaceData_SetOps.exit:                          ; preds = %12, %18
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #1
 

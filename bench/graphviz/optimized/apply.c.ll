@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.agapply = private unnamed_addr constant [4 x ptr] [ptr @subgraph_search, ptr @subnode_search, ptr @subedge_search, ptr @subedge_search], align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @agapply(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agapply(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
 switch.lookup:
   %5 = load i32, ptr %1, align 8
   %6 = and i32 %5, 3
@@ -28,7 +28,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @subgraph_search(ptr noundef readnone returned %0, ptr nocapture readnone %1) #1 {
+define internal noundef ptr @subgraph_search(ptr noundef readnone returned %0, ptr readnone captures(none) %1) #1 {
   ret ptr %0
 }
 
@@ -63,7 +63,7 @@ define internal ptr @subedge_search(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_apply(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @rec_apply(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i1 noundef zeroext %5) unnamed_addr #0 {
   br i1 %5, label %7, label %8
 
 7:                                                ; preds = %6

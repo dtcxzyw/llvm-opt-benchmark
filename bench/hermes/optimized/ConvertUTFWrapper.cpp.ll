@@ -13,7 +13,7 @@ $_ZNSt6vectorItSaItEE15_M_range_insertIPKtEEvN9__gnu_cxx17__normal_iteratorIPtS1
 @.str = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvh17ConvertUTF8toWideEjNS_9StringRefERPcRPKh(i32 noundef %WideCharWidth, ptr %Source.coerce0, i64 %Source.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %ResultPtr, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %ErrorPtr) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN4llvh17ConvertUTF8toWideEjNS_9StringRefERPcRPKh(i32 noundef %WideCharWidth, ptr %Source.coerce0, i64 %Source.coerce1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %ResultPtr, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %ErrorPtr) local_unnamed_addr #0 {
 entry:
   %Pos = alloca ptr, align 8
   %sourceStart = alloca ptr, align 8
@@ -94,14 +94,14 @@ if.end38:                                         ; preds = %entry, %if.else18, 
 declare noundef zeroext i8 @_ZN4llvh17isLegalUTF8StringEPPKhS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare noundef i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare noundef i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN4llvh22ConvertCodePointToUTF8EjRPc(i32 noundef %Source, ptr nocapture noundef nonnull align 8 dereferenceable(8) %ResultPtr) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_ZN4llvh22ConvertCodePointToUTF8EjRPc(i32 noundef %Source, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %ResultPtr) local_unnamed_addr #0 {
 entry:
   %Source.addr = alloca i32, align 4
   %SourceStart = alloca ptr, align 8
@@ -128,7 +128,7 @@ return:                                           ; preds = %entry, %if.end
 declare noundef i32 @_ZN4llvh18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN4llvh21hasUTF16ByteOrderMarkENS_8ArrayRefIcEE(ptr nocapture readonly %S.coerce0, i64 %S.coerce1) local_unnamed_addr #3 {
+define hidden noundef zeroext i1 @_ZN4llvh21hasUTF16ByteOrderMarkENS_8ArrayRefIcEE(ptr readonly captures(none) %S.coerce0, i64 %S.coerce1) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ugt i64 %S.coerce1, 1
   br i1 %cmp, label %land.rhs, label %land.end13
@@ -572,7 +572,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
@@ -735,7 +735,7 @@ if.end80:                                         ; preds = %if.then.i.i.i.i.i48
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
@@ -753,7 +753,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt7__cxx1112basic_str
 declare i16 @llvm.bswap.i16(i16) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
@@ -762,10 +762,10 @@ declare i64 @llvm.umax.i64(i64, i64) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

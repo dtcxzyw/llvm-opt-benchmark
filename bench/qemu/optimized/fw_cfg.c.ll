@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 0, 4294967296) i64 @qfw_cfg_get_file(ptr noundef %fw_cfg, ptr nocapture noundef readonly %filename, ptr noundef %data, i64 noundef %buflen) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @qfw_cfg_get_file(ptr noundef %fw_cfg, ptr noundef readonly captures(none) %filename, ptr noundef %data, i64 noundef %buflen) local_unnamed_addr #0 {
 entry:
   %count = alloca i32, align 4
   %select.i.i = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 16
@@ -142,7 +142,7 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
@@ -164,7 +164,7 @@ entry:
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mm_fw_cfg_select(ptr nocapture noundef readonly %fw_cfg, i16 noundef zeroext %key) #0 {
+define internal void @mm_fw_cfg_select(ptr noundef readonly captures(none) %fw_cfg, i16 noundef zeroext %key) #0 {
 entry:
   %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
   %0 = load ptr, ptr %qts, align 8
@@ -174,7 +174,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mm_fw_cfg_read(ptr nocapture noundef readonly %fw_cfg, ptr nocapture noundef writeonly %data, i64 noundef %len) #0 {
+define internal void @mm_fw_cfg_read(ptr noundef readonly captures(none) %fw_cfg, ptr noundef writeonly captures(none) %data, i64 noundef %len) #0 {
 entry:
   %cmp4.not = icmp eq i64 %len, 0
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph
@@ -224,7 +224,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @io_fw_cfg_select(ptr nocapture noundef readonly %fw_cfg, i16 noundef zeroext %key) #0 {
+define internal void @io_fw_cfg_select(ptr noundef readonly captures(none) %fw_cfg, i16 noundef zeroext %key) #0 {
 entry:
   %qts = getelementptr inbounds nuw i8, ptr %fw_cfg, i64 8
   %0 = load ptr, ptr %qts, align 8
@@ -235,7 +235,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @io_fw_cfg_read(ptr nocapture noundef readonly %fw_cfg, ptr nocapture noundef writeonly %data, i64 noundef %len) #0 {
+define internal void @io_fw_cfg_read(ptr noundef readonly captures(none) %fw_cfg, ptr noundef writeonly captures(none) %data, i64 noundef %len) #0 {
 entry:
   %cmp4.not = icmp eq i64 %len, 0
   br i1 %cmp4.not, label %for.end, label %for.body.lr.ph

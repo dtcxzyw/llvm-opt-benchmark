@@ -490,9 +490,9 @@ list_head.exit.us.i:                              ; preds = %.lr.ph.split.us.i.p
   %253 = load ptr, ptr %14, align 8
   %254 = call ptr @find_mergeclauses_for_outer_pathkeys(ptr noundef %0, ptr noundef %.097.us.i, ptr noundef %253) #5
   %255 = call ptr @make_inner_pathkeys_for_merge(ptr noundef %0, ptr noundef %254, ptr noundef %.097.us.i) #5
-  %256 = call ptr @build_join_pathkeys(ptr noundef %0, ptr noundef %1, i32 noundef %.0.i, ptr noundef %.097.us.i) #5
-  call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %.096.i, ptr noundef %.098.i, ptr noundef %256, ptr noundef %254, ptr noundef %.097.us.i, ptr noundef %255, i32 noundef %.0.i, ptr noundef nonnull %8, i1 noundef zeroext false)
-  call fastcc void @try_partial_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.099.i, ptr noundef nonnull %.0100.i, ptr noundef %256, ptr noundef %254, ptr noundef %.097.us.i, ptr noundef %255, i32 noundef %.0.i, ptr noundef nonnull %8)
+  %256 = call ptr @build_join_pathkeys(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0.i, ptr noundef %.097.us.i) #5
+  call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.096.i, ptr noundef %.098.i, ptr noundef %256, ptr noundef %254, ptr noundef %.097.us.i, ptr noundef %255, i32 noundef %.0.i, ptr noundef nonnull %8, i1 noundef zeroext false)
+  call fastcc void @try_partial_mergejoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.099.i, ptr noundef nonnull %.0100.i, ptr noundef %256, ptr noundef %254, ptr noundef %.097.us.i, ptr noundef %255, i32 noundef %.0.i, ptr noundef nonnull %8)
   %indvars.iv.next135.i = add nuw nsw i64 %indvars.iv134.i142, 1
   %257 = load i32, ptr %239, align 4
   %258 = sext i32 %257 to i64
@@ -522,8 +522,8 @@ list_head.exit.i:                                 ; preds = %.lr.ph.split.split.
   %269 = load ptr, ptr %14, align 8
   %270 = call ptr @find_mergeclauses_for_outer_pathkeys(ptr noundef %0, ptr noundef %.097.i, ptr noundef %269) #5
   %271 = call ptr @make_inner_pathkeys_for_merge(ptr noundef %0, ptr noundef %270, ptr noundef %.097.i) #5
-  %272 = call ptr @build_join_pathkeys(ptr noundef %0, ptr noundef %1, i32 noundef %.0.i, ptr noundef %.097.i) #5
-  call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %.096.i, ptr noundef %.098.i, ptr noundef %272, ptr noundef %270, ptr noundef %.097.i, ptr noundef %271, i32 noundef %.0.i, ptr noundef nonnull %8, i1 noundef zeroext false)
+  %272 = call ptr @build_join_pathkeys(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.0.i, ptr noundef %.097.i) #5
+  call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %.096.i, ptr noundef %.098.i, ptr noundef %272, ptr noundef %270, ptr noundef %.097.i, ptr noundef %271, i32 noundef %.0.i, ptr noundef nonnull %8, i1 noundef zeroext false)
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
   %273 = load i32, ptr %239, align 4
   %274 = sext i32 %273 to i64
@@ -1708,7 +1708,7 @@ allow_star_schema_join.exit.thread:               ; preds = %56, %59, %allow_sta
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_memoize_path(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef nonnull readonly %6) unnamed_addr #0 {
+define internal fastcc ptr @get_memoize_path(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca i8, align 1
@@ -1873,7 +1873,7 @@ list_length.exit:                                 ; preds = %38, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @generate_mergejoin_paths(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 8, 7) %4, ptr noundef nonnull %5, i1 noundef zeroext %6, ptr noundef nonnull %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
+define internal fastcc void @generate_mergejoin_paths(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 8, 7) %4, ptr noundef nonnull %5, i1 noundef zeroext %6, ptr noundef nonnull %7, ptr noundef %8, i1 noundef zeroext %9) unnamed_addr #0 {
   %11 = icmp eq i32 %4, 8
   %spec.store.select = select i1 %11, i32 0, i32 %4
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 64
@@ -1978,7 +1978,7 @@ list_length.exit109.thread:                       ; preds = %list_length.exit109
 
 56:                                               ; preds = %52, %54
   %.1 = phi ptr [ %55, %54 ], [ %16, %52 ]
-  tail call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %46, ptr noundef %8, ptr noundef %.1, ptr noundef null, ptr noundef null, i32 noundef %spec.store.select, ptr noundef %5, i1 noundef zeroext %9)
+  tail call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %46, ptr noundef %8, ptr noundef %.1, ptr noundef null, ptr noundef null, i32 noundef %spec.store.select, ptr noundef %5, i1 noundef zeroext %9)
   br label %57
 
 57:                                               ; preds = %56, %49, %43
@@ -2016,7 +2016,7 @@ list_length.exit109.thread:                       ; preds = %list_length.exit109
 
 72:                                               ; preds = %68, %70, %66
   %.2 = phi ptr [ %71, %70 ], [ %.0, %66 ], [ %16, %68 ]
-  tail call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %59, ptr noundef %8, ptr noundef %.2, ptr noundef null, ptr noundef null, i32 noundef %spec.store.select, ptr noundef %5, i1 noundef zeroext %9)
+  tail call fastcc void @try_mergejoin_path(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %3, ptr noundef nonnull %59, ptr noundef %8, ptr noundef %.2, ptr noundef null, ptr noundef null, i32 noundef %spec.store.select, ptr noundef %5, i1 noundef zeroext %9)
   br label %73
 
 73:                                               ; preds = %65, %72, %62, %57
@@ -2031,7 +2031,7 @@ list_length.exit109.thread:                       ; preds = %list_length.exit109
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @consider_parallel_nestloop(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 8, 7) %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @consider_parallel_nestloop(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 8, 7) %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct.JoinCostWorkspace, align 8
   %8 = alloca %struct.JoinCostWorkspace, align 8
   %9 = icmp eq i32 %4, 8
@@ -2244,7 +2244,7 @@ try_partial_nestloop_path.exit66:                 ; preds = %90, %92, %104, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @consider_parallel_mergejoin(ptr noundef %0, ptr noundef %1, ptr readonly %.56.val, ptr nocapture noundef readonly %2, i32 noundef range(i32 8, 7) %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @consider_parallel_mergejoin(ptr noundef %0, ptr noundef %1, ptr readonly %.56.val, ptr noundef readonly captures(none) %2, i32 noundef range(i32 8, 7) %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %.56.val, i64 4
   %.not = icmp eq ptr %.56.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2291,7 +2291,7 @@ declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @contain_volatile_functions(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @paraminfo_get_equal_hashops(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull initializes((0, 8)) %3, ptr nocapture noundef nonnull initializes((0, 8)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @paraminfo_get_equal_hashops(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 8)) %3, ptr noundef nonnull captures(none) initializes((0, 8)) %4, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %5) unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   store i8 0, ptr %5, align 1
@@ -2635,10 +2635,10 @@ declare void @update_mergeclause_eclasses(ptr noundef, ptr noundef) local_unname
 declare void @llvm.assume(i1 noundef) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

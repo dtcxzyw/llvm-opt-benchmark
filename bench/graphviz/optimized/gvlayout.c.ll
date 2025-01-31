@@ -185,7 +185,7 @@ define zeroext i1 @gvLayoutDone(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @gvFreeLayout(ptr nocapture noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i32 @gvFreeLayout(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agbindrec(ptr noundef %1, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef 1) #2
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4

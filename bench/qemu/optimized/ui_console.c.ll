@@ -360,7 +360,7 @@ declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @qemu_console_get_window_id(ptr nocapture noundef readonly %con) local_unnamed_addr #3 {
+define dso_local i32 @qemu_console_get_window_id(ptr noundef readonly captures(none) %con) local_unnamed_addr #3 {
 entry:
   %window_id = getelementptr inbounds nuw i8, ptr %con, i64 144
   %0 = load i32, ptr %window_id, align 8
@@ -368,7 +368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_console_set_window_id(ptr nocapture noundef writeonly initializes((144, 148)) %con, i32 noundef %window_id) local_unnamed_addr #4 {
+define dso_local void @qemu_console_set_window_id(ptr noundef writeonly captures(none) initializes((144, 148)) %con, i32 noundef %window_id) local_unnamed_addr #4 {
 entry:
   %window_id1 = getelementptr inbounds nuw i8, ptr %con, i64 144
   store i32 %window_id, ptr %window_id1, align 8
@@ -889,7 +889,7 @@ return:                                           ; preds = %if.end4.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_text_console_put_string(ptr noundef %s, ptr nocapture noundef readonly %str, i32 noundef %len) local_unnamed_addr #0 {
+define dso_local void @qemu_text_console_put_string(ptr noundef %s, ptr noundef readonly captures(none) %str, i32 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp5 = icmp sgt i32 %len, 0
   br i1 %cmp5, label %land.rhs.lr.ph, label %for.end
@@ -1091,7 +1091,7 @@ trace_displaysurface_create_pixman.exit:          ; preds = %entry, %land.lhs.tr
 declare ptr @pixman_image_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @qemu_create_placeholder_surface(i32 noundef %w, i32 noundef %h, ptr nocapture noundef readonly %msg) local_unnamed_addr #0 {
+define dso_local noundef ptr @qemu_create_placeholder_surface(i32 noundef %w, i32 noundef %h, ptr noundef readonly captures(none) %msg) local_unnamed_addr #0 {
 entry:
   %bg = alloca %struct.pixman_color, align 8
   %fg = alloca %struct.pixman_color, align 8
@@ -1137,10 +1137,10 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @qemu_pixman_glyph_from_vgafont(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -1202,7 +1202,7 @@ return:                                           ; preds = %entry, %trace_displ
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @console_has_gl(ptr nocapture noundef readonly %con) local_unnamed_addr #3 {
+define dso_local zeroext i1 @console_has_gl(ptr noundef readonly captures(none) %con) local_unnamed_addr #3 {
 entry:
   %gl = getelementptr inbounds nuw i8, ptr %con, i64 120
   %0 = load ptr, ptr %gl, align 8
@@ -1211,7 +1211,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @console_handle_touch_event(ptr noundef %con, ptr nocapture noundef %touch_slots, i64 noundef %num_slot, i32 noundef %width, i32 noundef %height, double noundef %x, double noundef %y, i32 noundef %type, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @console_handle_touch_event(ptr noundef %con, ptr noundef captures(none) %touch_slots, i64 noundef %num_slot, i32 noundef %width, i32 noundef %height, double noundef %x, double noundef %y, i32 noundef %type, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ugt i64 %num_slot, 9
   br i1 %cmp, label %if.then, label %if.end
@@ -1545,7 +1545,7 @@ if.end15:                                         ; preds = %land.lhs.true, %if.
 declare void @qemu_text_console_update_cursor() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @update_displaychangelistener(ptr nocapture noundef initializes((0, 8)) %dcl, i64 noundef %interval) local_unnamed_addr #0 {
+define dso_local void @update_displaychangelistener(ptr noundef captures(none) initializes((0, 8)) %dcl, i64 noundef %interval) local_unnamed_addr #0 {
 entry:
   %ds1 = getelementptr inbounds nuw i8, ptr %dcl, i64 16
   %0 = load ptr, ptr %ds1, align 8
@@ -1700,7 +1700,7 @@ if.end:                                           ; preds = %dpy_ui_info_support
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @dpy_set_ui_info(ptr noundef %con, ptr nocapture noundef readonly %info, i1 noundef zeroext %delay) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @dpy_set_ui_info(ptr noundef %con, ptr noundef readonly captures(none) %info, i1 noundef zeroext %delay) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %con, null
   %0 = load ptr, ptr @active_console, align 8
@@ -2571,7 +2571,7 @@ declare void @cursor_unref(ptr noundef) local_unnamed_addr #1
 declare ptr @cursor_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @dpy_cursor_define_supported(ptr nocapture noundef readonly %con) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @dpy_cursor_define_supported(ptr noundef readonly captures(none) %con) local_unnamed_addr #5 {
 entry:
   %ds = getelementptr inbounds nuw i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -2597,7 +2597,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @dpy_gl_ctx_create(ptr nocapture noundef readonly %con, ptr noundef %qparams) local_unnamed_addr #0 {
+define dso_local ptr @dpy_gl_ctx_create(ptr noundef readonly captures(none) %con, ptr noundef %qparams) local_unnamed_addr #0 {
 entry:
   %gl = getelementptr inbounds nuw i8, ptr %con, i64 120
   %0 = load ptr, ptr %gl, align 8
@@ -2617,7 +2617,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_ctx_destroy(ptr nocapture noundef readonly %con, ptr noundef %ctx) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_ctx_destroy(ptr noundef readonly captures(none) %con, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %gl = getelementptr inbounds nuw i8, ptr %con, i64 120
   %0 = load ptr, ptr %gl, align 8
@@ -2637,7 +2637,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @dpy_gl_ctx_make_current(ptr nocapture noundef readonly %con, ptr noundef %ctx) local_unnamed_addr #0 {
+define dso_local i32 @dpy_gl_ctx_make_current(ptr noundef readonly captures(none) %con, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %gl = getelementptr inbounds nuw i8, ptr %con, i64 120
   %0 = load ptr, ptr %gl, align 8
@@ -3135,7 +3135,7 @@ declare ptr @container_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @object_get_root() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @graphic_console_set_hwops(ptr nocapture noundef writeonly initializes((184, 200)) %con, ptr noundef %hw_ops, ptr noundef %opaque) local_unnamed_addr #4 {
+define dso_local void @graphic_console_set_hwops(ptr noundef writeonly captures(none) initializes((184, 200)) %con, ptr noundef %hw_ops, ptr noundef %opaque) local_unnamed_addr #4 {
 entry:
   %hw_ops1 = getelementptr inbounds nuw i8, ptr %con, i64 184
   store ptr %hw_ops, ptr %hw_ops1, align 8
@@ -3342,7 +3342,7 @@ declare ptr @object_new(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @object_property_set_link(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @graphic_hw_gl_unblock_timer(ptr nocapture readnone %opaque) #0 {
+define internal void @graphic_hw_gl_unblock_timer(ptr readnone captures(none) %opaque) #0 {
 entry:
   tail call void (ptr, ...) @warn_report(ptr noundef nonnull @.str.67) #18
   ret void
@@ -3522,7 +3522,7 @@ for.inc.i:                                        ; preds = %if.then10.i, %if.en
 
 if.end:                                           ; preds = %for.inc.i, %if.end.i, %trace_console_gfx_close.exit
   %call3 = tail call ptr @qemu_create_placeholder_surface(i32 noundef %retval.0.i27, i32 noundef %retval.0.i17, ptr noundef nonnull @graphic_console_close.unplugged)
-  tail call void @dpy_gfx_replace_surface(ptr noundef %con, ptr noundef %call3)
+  tail call void @dpy_gfx_replace_surface(ptr noundef nonnull %con, ptr noundef %call3)
   ret void
 }
 
@@ -4017,7 +4017,7 @@ return:                                           ; preds = %qemu_console_get_he
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qemu_console_surface(ptr nocapture noundef readonly %console) local_unnamed_addr #3 {
+define dso_local ptr @qemu_console_surface(ptr noundef readonly captures(none) %console) local_unnamed_addr #3 {
 entry:
   %scanout = getelementptr inbounds nuw i8, ptr %console, i64 64
   %0 = load i32, ptr %scanout, align 8
@@ -4063,7 +4063,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @qemu_display_find_default(ptr nocapture noundef readnone %opts) local_unnamed_addr #11 {
+define dso_local noundef zeroext i1 @qemu_display_find_default(ptr noundef readnone captures(none) %opts) local_unnamed_addr #11 {
 entry:
   ret i1 false
 }
@@ -4174,7 +4174,7 @@ return:                                           ; preds = %if.end, %if.end9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local nonnull ptr @qemu_display_get_vc(ptr nocapture noundef readonly %opts) local_unnamed_addr #0 {
+define dso_local nonnull ptr @qemu_display_get_vc(ptr noundef readonly captures(none) %opts) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %opts, align 8
   %cmp = icmp ult i32 %0, 4
@@ -4360,7 +4360,7 @@ while.end.i:                                      ; preds = %land.rhs.i, %while.
   %index53.i = getelementptr inbounds nuw i8, ptr %it.0.i, i64 40
   %10 = load i32, ptr %index53.i, align 8
   %next58.i = getelementptr inbounds nuw i8, ptr %call.i, i64 216
-  br i1 %tobool30.not.i, label %for.body.preheader.i, label %if.then31.i
+  br i1 %tobool30.not.i, label %if.else52.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %while.end.i
   %add33.i = add i32 %10, 1
@@ -4386,7 +4386,7 @@ if.end46.i:                                       ; preds = %if.else44.i, %if.th
   store ptr %next24.i, ptr %tql_prev50.i, align 8
   br label %qemu_console_register.exit
 
-for.body.preheader.i:                             ; preds = %while.end.i
+if.else52.i:                                      ; preds = %while.end.i
   %index54.i = getelementptr inbounds nuw i8, ptr %call.i, i64 40
   store i32 %10, ptr %index54.i, align 8
   %tql_prev57.i = getelementptr inbounds nuw i8, ptr %it.0.i, i64 224
@@ -4400,13 +4400,13 @@ for.body.preheader.i:                             ; preds = %while.end.i
   %14 = load i32, ptr %index54.i, align 8
   br label %for.body.i
 
-for.body.i:                                       ; preds = %for.body.i, %for.body.preheader.i
-  %it.145.i = phi ptr [ %15, %for.body.i ], [ %it.0.i, %for.body.preheader.i ]
-  %i.0.in44.i = phi i32 [ %i.0.i, %for.body.i ], [ %14, %for.body.preheader.i ]
-  %i.0.i = add i32 %i.0.in44.i, 1
-  %index71.i = getelementptr inbounds nuw i8, ptr %it.145.i, i64 40
+for.body.i:                                       ; preds = %for.body.i, %if.else52.i
+  %it.144.i = phi ptr [ %it.0.i, %if.else52.i ], [ %15, %for.body.i ]
+  %i.0.in43.i = phi i32 [ %14, %if.else52.i ], [ %i.0.i, %for.body.i ]
+  %i.0.i = add i32 %i.0.in43.i, 1
+  %index71.i = getelementptr inbounds nuw i8, ptr %it.144.i, i64 40
   store i32 %i.0.i, ptr %index71.i, align 8
-  %next72.i = getelementptr inbounds nuw i8, ptr %it.145.i, i64 216
+  %next72.i = getelementptr inbounds nuw i8, ptr %it.144.i, i64 216
   %15 = load ptr, ptr %next72.i, align 8
   %cmp70.not.i = icmp eq ptr %15, null
   br i1 %cmp70.not.i, label %qemu_console_register.exit, label %for.body.i, !llvm.loop !35
@@ -4458,7 +4458,7 @@ do.end16:                                         ; preds = %do.body9, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qemu_console_class_init(ptr nocapture readnone %oc, ptr nocapture readnone %data) #11 {
+define internal void @qemu_console_class_init(ptr readnone captures(none) %oc, ptr readnone captures(none) %data) #11 {
 entry:
   ret void
 }
@@ -4503,7 +4503,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare zeroext i1 @phase_check(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qemu_graphic_console_init(ptr nocapture readnone %obj) #11 {
+define internal void @qemu_graphic_console_init(ptr readnone captures(none) %obj) #11 {
 entry:
   ret void
 }
@@ -4527,7 +4527,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_graphic_console_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @qemu_graphic_console_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call = tail call ptr @object_class_property_add_link(ptr noundef %oc, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.16, i64 noundef 232, ptr noundef nonnull @object_property_allow_set_link, i32 noundef 1) #18
   %call1 = tail call ptr @object_class_property_add(ptr noundef %oc, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.39, ptr noundef nonnull @qemu_graphic_console_prop_get_head, ptr noundef null, ptr noundef null, ptr noundef null) #18
@@ -4543,7 +4543,7 @@ declare void @object_property_allow_set_link(ptr noundef, ptr noundef, ptr nound
 declare ptr @object_class_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qemu_graphic_console_prop_get_head(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal void @qemu_graphic_console_prop_get_head(ptr noundef %obj, ptr noundef %v, ptr noundef %name, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.37, i32 noundef 15, ptr noundef nonnull @__func__.QEMU_GRAPHIC_CONSOLE) #18
   %head = getelementptr inbounds nuw i8, ptr %call.i, i64 240
@@ -4556,14 +4556,14 @@ declare zeroext i1 @visit_type_uint32(ptr noundef, ptr noundef, ptr noundef, ptr
 declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gui_update(ptr nocapture noundef initializes((24, 25)) %opaque) #0 {
+define internal void @gui_update(ptr noundef captures(none) initializes((24, 25)) %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %refreshing = getelementptr inbounds nuw i8, ptr %opaque, i64 24
@@ -4680,7 +4680,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @warn_report(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #14
@@ -4689,19 +4689,19 @@ declare i32 @llvm.smax.i32(i32, i32) #14
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -69,7 +69,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [27 x i8] c"Reading library has filed.\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_SclHashLookup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Abc_SclHashLookup(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = load i8, ptr %1, align 1
@@ -145,10 +145,10 @@ Abc_SclHashString.exit:                           ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_SclHashCells(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @Abc_SclHashCells(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr i8, ptr %0, i64 100
   %.val19 = load i32, ptr %2, align 4
   %3 = mul nsw i32 %.val19, 5
@@ -296,13 +296,13 @@ Abc_SclHashLookup.exit.thread:                    ; preds = %.lr.ph57, %Abc_SclH
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Abc_SclCellFind(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @Abc_SclCellFind(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %.fr12 = freeze i32 %4
@@ -418,7 +418,7 @@ define i32 @Abc_SclClassCellNum(ptr noundef readonly %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, -2147483648) i32 @Abc_SclLibClassNum(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
+define range(i32 0, -2147483648) i32 @Abc_SclLibClassNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
 .critedge:
   %1 = getelementptr i8, ptr %0, i64 116
   %.val7 = load i32, ptr %1, align 4
@@ -427,7 +427,7 @@ define range(i32 0, -2147483648) i32 @Abc_SclLibClassNum(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Abc_SclShortFormula(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
+define void @Abc_SclShortFormula(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = load i8, ptr %1, align 1
   %.not25 = icmp eq i8 %4, 0
   br i1 %.not25, label %._crit_edge, label %.lr.ph28
@@ -519,7 +519,7 @@ Abc_SclFindLimit.exit:                            ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclShortNames(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @Abc_SclShortNames(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = alloca [10000 x i8], align 16
   %3 = getelementptr i8, ptr %0, i64 116
   %.val7.i = load i32, ptr %3, align 4
@@ -1035,13 +1035,13 @@ Abc_SclPinUpdate.exit:                            ; preds = %Abc_SclShortFormula
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclLinkCells(ptr nocapture noundef %0) local_unnamed_addr #9 {
+define void @Abc_SclLinkCells(ptr noundef captures(none) %0) local_unnamed_addr #9 {
   %2 = getelementptr i8, ptr %0, i64 100
   %.val114147 = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val114147, 0
@@ -1418,10 +1418,10 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge4, %.crite
 }
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @Abc_SclCompareCells(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @Abc_SclCompareCells(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %5 = load i32, ptr %4, align 8
@@ -1581,7 +1581,7 @@ SC_CellPinCapAve.exit38:                          ; preds = %67, %SC_CellPinCapA
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_SclFindInvertor(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @Abc_SclFindInvertor(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq i32 %1, 0
   %3 = select i1 %.not, i64 6148914691236517205, i64 -6148914691236517206
   %4 = getelementptr i8, ptr %0, i64 116
@@ -1638,7 +1638,7 @@ define ptr @Abc_SclFindInvertor(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Abc_SclFindSmallestGate(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #6 {
+define ptr @Abc_SclFindSmallestGate(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   br label %4
 
@@ -1709,7 +1709,7 @@ SC_CellPinCapAve.exit:                            ; preds = %12, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_SclFetchWireLoadModel(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #9 {
+define noundef ptr @Abc_SclFetchWireLoadModel(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr i8, ptr %0, i64 52
   %.val12 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val12, 0
@@ -1786,7 +1786,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
   %16 = load ptr, ptr @stdout, align 8
   %17 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #28
   %18 = trunc i64 %17 to i32
-  %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef %15) #30
+  %19 = call i32 @Gia_ManToBridgeText(ptr noundef %16, i32 noundef %18, ptr noundef nonnull %15) #30
   call void @free(ptr noundef %15) #30
   br label %22
 
@@ -1806,7 +1806,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #9 {
 declare void @exit(i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_SclFindWireLoadModel(ptr nocapture noundef readonly %0, float noundef %1) local_unnamed_addr #9 {
+define noundef ptr @Abc_SclFindWireLoadModel(ptr noundef readonly captures(none) %0, float noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1974,10 +1974,10 @@ Abc_SclFetchWireLoadModel.exit:                   ; preds = %.critedge.i, %42, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Abc_SclHasDelayInfo(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Abc_SclHasDelayInfo(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 116
   %.val12.i = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val12.i, 0
@@ -2057,7 +2057,7 @@ Abc_SclFindInvertor.exit.thread:                  ; preds = %30, %20, %1, %Abc_S
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define float @Abc_SclComputeAverageSlew(ptr nocapture noundef readonly %0) local_unnamed_addr #6 {
+define float @Abc_SclComputeAverageSlew(ptr noundef readonly captures(none) %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 116
   %.val12.i = load i32, ptr %2, align 4
   %3 = icmp sgt i32 %.val12.i, 0
@@ -2147,7 +2147,7 @@ Abc_SclFindInvertor.exit.thread:                  ; preds = %20, %1, %Scl_CellPi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Abc_SclComputeParametersPin(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, float noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @Abc_SclComputeParametersPin(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #13 {
   %7 = alloca %struct.SC_Pair_, align 8
   %8 = alloca %struct.SC_Pair_, align 8
   %9 = alloca %struct.SC_Pair_, align 8
@@ -2260,7 +2260,7 @@ Scl_CellPinTime.exit.thread:                      ; preds = %Scl_CellPinTime.exi
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Scl_LibPinArrival(ptr nocapture noundef readonly %0, float %.0.val, float %.4.val, float %.0.val1, float %.4.val3, float %.0.val5, float %.4.val7, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2) unnamed_addr #14 {
+define internal fastcc void @Scl_LibPinArrival(ptr noundef readonly captures(none) %0, float %.0.val, float %.4.val, float %.0.val1, float %.4.val3, float %.0.val5, float %.4.val7, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #14 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %31 [
@@ -2345,7 +2345,7 @@ define internal fastcc void @Scl_LibPinArrival(ptr nocapture noundef readonly %0
 declare double @llvm.fmuladd.f64(double, double, double) #15
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Abc_SclComputeParametersCell(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, float noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #13 {
+define range(i32 0, 2) i32 @Abc_SclComputeParametersCell(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, float noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #13 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   store float 0.000000e+00, ptr %7, align 4
@@ -2394,7 +2394,7 @@ define range(i32 0, 2) i32 @Abc_SclComputeParametersCell(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Abc_SclComputeParametersClass(ptr nocapture noundef readnone %0, ptr noundef readonly %1, float noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #14 {
+define void @Abc_SclComputeParametersClass(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, float noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #14 {
   br label %6
 
 6:                                                ; preds = %5, %Abc_SclComputeParametersCell.exit
@@ -2676,7 +2676,7 @@ Abc_SclComputeParametersCell.exit:                ; preds = %.lr.ph.i, %Scl_Cell
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_SclComputeParametersClassPin(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, float noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #13 {
+define void @Abc_SclComputeParametersClassPin(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, float noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #13 {
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   store float 0.000000e+00, ptr %8, align 4
@@ -2709,7 +2709,7 @@ define void @Abc_SclComputeParametersClassPin(ptr nocapture noundef readnone %0,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define float @Abc_SclComputeDelayCellPin(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #13 {
+define float @Abc_SclComputeDelayCellPin(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #13 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   store float 0.000000e+00, ptr %6, align 4
@@ -2727,7 +2727,7 @@ define float @Abc_SclComputeDelayCellPin(ptr nocapture noundef readnone %0, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define float @Abc_SclComputeDelayClassPin(ptr nocapture noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #13 {
+define float @Abc_SclComputeDelayClassPin(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2, float noundef %3, float noundef %4) local_unnamed_addr #13 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   %8 = fpext float %4 to double
@@ -2812,7 +2812,7 @@ define float @Abc_SclComputeAreaClass(ptr noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_SclMarkSkippedCells(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Abc_SclMarkSkippedCells(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = alloca [1000 x i8], align 16
   %3 = alloca [1000 x i8], align 16
   %4 = load ptr, ptr %0, align 8
@@ -2878,19 +2878,19 @@ define void @Abc_SclMarkSkippedCells(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclPrintCells(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 {
+define void @Abc_SclPrintCells(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #9 {
   %6 = fcmp oeq float %1, 0.000000e+00
   br i1 %6, label %7, label %Abc_SclComputeAverageSlew.exit
 
@@ -4984,7 +4984,7 @@ Abc_SclClassCellNum.exit:                         ; preds = %1089
 declare void @Kit_DsdPrintFromTruth(ptr noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_SclConvertLeakageIntoArea(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) local_unnamed_addr #13 {
+define void @Abc_SclConvertLeakageIntoArea(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #13 {
   %4 = getelementptr i8, ptr %0, i64 100
   %.val910 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val910, 0
@@ -5020,7 +5020,7 @@ define void @Abc_SclConvertLeakageIntoArea(ptr nocapture noundef readonly %0, fl
 declare float @llvm.fmuladd.f32(float, float, float) #15
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Abc_SclLibNormalizeSurface(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) local_unnamed_addr #13 {
+define void @Abc_SclLibNormalizeSurface(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2) local_unnamed_addr #13 {
   %4 = getelementptr i8, ptr %0, i64 12
   %.val4148 = load i32, ptr %4, align 4
   %5 = icmp sgt i32 %.val4148, 0
@@ -5120,7 +5120,7 @@ define void @Abc_SclLibNormalizeSurface(ptr nocapture noundef readonly %0, float
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define void @Abc_SclLibNormalize(ptr nocapture noundef %0) local_unnamed_addr #18 {
+define void @Abc_SclLibNormalize(ptr noundef captures(none) %0) local_unnamed_addr #18 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   %4 = sub nsw i32 12, %3
@@ -5676,7 +5676,7 @@ Abc_SclLibNormalizeSurface.exit174:               ; preds = %.critedge6.i153, %.
 declare double @pow(double noundef, double noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_SclProduceGenlibStrSimple(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define noundef ptr @Abc_SclProduceGenlibStrSimple(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = alloca [200 x i8], align 16
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -6710,7 +6710,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_StrPrintStr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #9 {
+define internal fastcc void @Vec_StrPrintStr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
   %4 = trunc i64 %3 to i32
   %5 = icmp sgt i32 %4, 0
@@ -6796,7 +6796,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_SclDeriveGenlibSimple(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define ptr @Abc_SclDeriveGenlibSimple(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = tail call ptr @Abc_SclProduceGenlibStrSimple(ptr noundef %0)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -6834,7 +6834,7 @@ Vec_StrFree.exit:                                 ; preds = %1, %8
 declare ptr @Mio_LibraryRead(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_SclProduceGenlibStr(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #9 {
+define noalias noundef ptr @Abc_SclProduceGenlibStr(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #9 {
   %6 = alloca [200 x i8], align 16
   %7 = getelementptr i8, ptr %0, i64 116
   %.val83 = load i32, ptr %7, align 4
@@ -8976,7 +8976,7 @@ Vec_StrPush.exit:                                 ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_SclProduceGenlibStrProfile(ptr nocapture noundef readonly %0, ptr noundef %1, float noundef %2, float noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #9 {
+define noalias noundef ptr @Abc_SclProduceGenlibStrProfile(ptr noundef readonly captures(none) %0, ptr noundef %1, float noundef %2, float noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #9 {
   %7 = alloca [200 x i8], align 16
   %8 = getelementptr i8, ptr %0, i64 116
   %.val89 = load i32, ptr %8, align 4
@@ -11136,7 +11136,7 @@ declare ptr @Mio_LibraryReadGateByName(ptr noundef, ptr noundef, ptr noundef) lo
 declare i32 @Mio_GateReadProfile(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclDumpGenlib(ptr noundef readonly %0, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, i32 noundef %4) local_unnamed_addr #9 {
+define void @Abc_SclDumpGenlib(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, i32 noundef %4) local_unnamed_addr #9 {
   %6 = alloca i32, align 4
   %7 = alloca [1000 x i8], align 16
   store i32 0, ptr %6, align 4
@@ -11276,7 +11276,7 @@ Vec_StrFree.exit:                                 ; preds = %61, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_SclDeriveGenlib(ptr nocapture noundef readonly %0, ptr noundef %1, float noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
+define ptr @Abc_SclDeriveGenlib(ptr noundef readonly captures(none) %0, ptr noundef %1, float noundef %2, float noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #9 {
   %7 = alloca i32, align 4
   store i32 0, ptr %7, align 4
   %8 = fcmp oeq float %2, 0.000000e+00
@@ -11420,7 +11420,7 @@ Vec_StrFree.exit:                                 ; preds = %54, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_SclInstallGenlib(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #9 {
+define void @Abc_SclInstallGenlib(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = alloca i32, align 4
   %6 = fcmp oeq float %1, 0.000000e+00
   br i1 %6, label %7, label %Abc_SclComputeAverageSlew.exit
@@ -11598,13 +11598,13 @@ Vec_StrFree.exit25:                               ; preds = %Vec_StrFree.exit, %
 declare i32 @Mio_UpdateGenlib2(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #20
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #17
 
@@ -11613,10 +11613,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc float @Scl_LibLookup(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2) unnamed_addr #6 {
+define internal fastcc float @Scl_LibLookup(ptr noundef readonly captures(none) %0, float noundef %1, float noundef %2) unnamed_addr #6 {
   %4 = getelementptr i8, ptr %0, i64 12
   %.val63 = load i32, ptr %4, align 4
   %5 = icmp eq i32 %.val63, 1
@@ -11754,7 +11754,7 @@ define internal fastcc float @Scl_LibLookup(ptr nocapture noundef readonly %0, f
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #23
@@ -11769,19 +11769,19 @@ declare i32 @llvm.smax.i32(i32, i32) #24
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #25
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #26
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 attributes #0 = { nofree nounwind memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -66,7 +66,7 @@ define ptr @plugins_init(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %9
-  tail call fastcc void @scan_plugins_dir(ptr noundef %4, ptr noundef %10, i32 noundef %0, i32 noundef 2)
+  tail call fastcc void @scan_plugins_dir(ptr noundef %4, ptr noundef nonnull %10, i32 noundef %0, i32 noundef 2)
   br label %14
 
 13:                                               ; preds = %9
@@ -310,12 +310,12 @@ declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, pt
 declare ptr @get_plugins_dir() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @g_slist_prepend(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @plugins_get_descriptions(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @plugins_get_descriptions(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._GHashTableIter, align 8
   %4 = alloca ptr, align 8
   %5 = tail call ptr @g_ptr_array_new() #11
@@ -396,7 +396,7 @@ declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @g_ptr_array_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @compare_plugins(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @compare_plugins(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -412,7 +412,7 @@ declare ptr @g_module_name(ptr noundef) local_unnamed_addr #2
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @plugins_print_description(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr noundef %6, i32 %7, ptr nocapture readnone %8) #4 {
+define void @plugins_print_description(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr noundef %6, i32 %7, ptr readnone captures(none) %8) #4 {
   %10 = zext i32 %2 to i64
   %11 = and i64 %10, 1
   %.not.i = icmp eq i64 %11, 0
@@ -451,7 +451,7 @@ flags_to_str.exit:                                ; preds = %9, %12, %14, %16, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @plugins_dump_all() local_unnamed_addr #0 {

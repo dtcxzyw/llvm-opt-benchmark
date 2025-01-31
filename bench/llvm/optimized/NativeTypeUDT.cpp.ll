@@ -65,7 +65,7 @@ $_ZN4llvm3pdb15NativeRawSymbol10initializeEv = comdat any
 @_ZN4llvm3pdb13NativeTypeUDTD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb13NativeTypeUDTD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjNS_8codeview9TypeIndexENS4_11ClassRecordE(ptr noundef nonnull align 8 dereferenceable(194) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2, i32 %3, ptr nocapture noundef readonly byval(%"class.llvm::codeview::ClassRecord") align 8 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjNS_8codeview9TypeIndexENS4_11ClassRecordE(ptr noundef nonnull align 8 dereferenceable(194) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2, i32 %3, ptr noundef readonly byval(%"class.llvm::codeview::ClassRecord") align 8 captures(none) %4) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef 11, i32 noundef %2) #9
   store ptr getelementptr inbounds nuw inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb13NativeTypeUDTE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -88,10 +88,10 @@ define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjNS_8c
 declare void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(584), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjNS_8codeview9TypeIndexENS4_11UnionRecordE(ptr noundef nonnull align 8 dereferenceable(194) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2, i32 %3, ptr nocapture noundef readonly byval(%"struct.llvm::codeview::UnionRecord") align 8 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13NativeTypeUDTC2ERNS0_13NativeSessionEjNS_8codeview9TypeIndexENS4_11UnionRecordE(ptr noundef nonnull align 8 dereferenceable(194) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef %2, i32 %3, ptr noundef readonly byval(%"struct.llvm::codeview::UnionRecord") align 8 captures(none) %4) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(584) %1, i32 noundef 11, i32 noundef %2) #9
   store ptr getelementptr inbounds nuw inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb13NativeTypeUDTE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -675,7 +675,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %36, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb13NativeTypeUDT7getNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb13NativeTypeUDT7getNameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::allocator.58", align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 168
@@ -722,12 +722,12 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT18getLexicalParentIdEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT18getLexicalParentIdEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT19getUnmodifiedTypeIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT19getUnmodifiedTypeIdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -746,7 +746,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT19getUnmodifiedTypeIdE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT22getVirtualTableShapeIdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT22getVirtualTableShapeIdEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -782,7 +782,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT22getVirtualTableShape
 declare noundef i32 @_ZNK4llvm3pdb11SymbolCache21findSymbolByTypeIndexENS_8codeview9TypeIndexE(ptr noundef nonnull align 8 dereferenceable(280), i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i64 @_ZNK4llvm3pdb13NativeTypeUDT9getLengthEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZNK4llvm3pdb13NativeTypeUDT9getLengthEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -817,7 +817,7 @@ define dso_local noundef i64 @_ZNK4llvm3pdb13NativeTypeUDT9getLengthEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT10getUdtKindEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT10getUdtKindEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -859,7 +859,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13NativeTypeUDT10getUdtKindEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14hasConstructorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14hasConstructorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -887,7 +887,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14hasConstructo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT11isConstTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT11isConstTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -900,7 +900,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT11isConstTypeEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT21hasAssignmentOperatorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT21hasAssignmentOperatorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -928,7 +928,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT21hasAssignment
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT15hasCastOperatorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT15hasCastOperatorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -956,7 +956,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT15hasCastOperat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14hasNestedTypesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14hasNestedTypesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -984,7 +984,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14hasNestedType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT21hasOverloadedOperatorEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT21hasOverloadedOperatorEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1012,12 +1012,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT21hasOverloaded
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14isInterfaceUdtEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14isInterfaceUdtEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT11isIntrinsicEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT11isIntrinsicEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1045,7 +1045,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT11isIntrinsicEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isNestedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isNestedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1073,7 +1073,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isNestedEv(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isPackedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isPackedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1101,12 +1101,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isPackedEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isRefUdtEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isRefUdtEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isScopedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isScopedEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1134,12 +1134,12 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT8isScopedEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT10isValueUdtEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT10isValueUdtEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT15isUnalignedTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT15isUnalignedTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1152,7 +1152,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT15isUnalignedTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14isVolatileTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(194) %0) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13NativeTypeUDT14isVolatileTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(194) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -1512,10 +1512,10 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm3pdblsERNS_11ra
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

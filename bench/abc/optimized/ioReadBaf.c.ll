@@ -150,7 +150,7 @@ Vec_PtrPush.exit:                                 ; preds = %Vec_PtrAlloc.exit, 
 .lr.ph:                                           ; preds = %Vec_PtrPush.exit, %Vec_PtrPush.exit168
   %.7209 = phi ptr [ %67, %Vec_PtrPush.exit168 ], [ %37, %Vec_PtrPush.exit ]
   %.0124208 = phi i32 [ %97, %Vec_PtrPush.exit168 ], [ 0, %Vec_PtrPush.exit ]
-  %64 = tail call ptr @Abc_NtkCreateObj(ptr noundef %40, i32 noundef 2) #8
+  %64 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %40, i32 noundef 2) #8
   %65 = tail call ptr @Abc_ObjAssignName(ptr noundef %64, ptr noundef nonnull %.7209, ptr noundef null) #8
   br label %66
 
@@ -235,7 +235,7 @@ Vec_PtrPush.exit168:                              ; preds = %.Vec_PtrGrow.exit11
 .lr.ph213:                                        ; preds = %.preheader190, %104
   %.9212 = phi ptr [ %102, %104 ], [ %.7.lcssa, %.preheader190 ]
   %.1125211 = phi i32 [ %105, %104 ], [ 0, %.preheader190 ]
-  %99 = tail call ptr @Abc_NtkCreateObj(ptr noundef %40, i32 noundef 3) #8
+  %99 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %40, i32 noundef 3) #8
   %100 = tail call ptr @Abc_ObjAssignName(ptr noundef %99, ptr noundef nonnull %.9212, ptr noundef null) #8
   br label %101
 
@@ -254,7 +254,7 @@ Vec_PtrPush.exit168:                              ; preds = %.Vec_PtrGrow.exit11
 .lr.ph217:                                        ; preds = %.preheader, %Vec_PtrPush.exit175
   %.11216 = phi ptr [ %121, %Vec_PtrPush.exit175 ], [ %.9.lcssa, %.preheader ]
   %.2126215 = phi i32 [ %151, %Vec_PtrPush.exit175 ], [ 0, %.preheader ]
-  %106 = tail call ptr @Abc_NtkCreateObj(ptr noundef %40, i32 noundef 8) #8
+  %106 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %40, i32 noundef 8) #8
   %107 = tail call ptr @Abc_ObjAssignName(ptr noundef %106, ptr noundef nonnull %.11216, ptr noundef null) #8
   br label %108
 
@@ -266,7 +266,7 @@ Vec_PtrPush.exit168:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not146, label %111, label %108, !llvm.loop !16
 
 111:                                              ; preds = %108
-  %112 = tail call ptr @Abc_NtkCreateObj(ptr noundef %40, i32 noundef 4) #8
+  %112 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %40, i32 noundef 4) #8
   %113 = tail call ptr @Abc_ObjAssignName(ptr noundef %112, ptr noundef nonnull %109, ptr noundef null) #8
   br label %114
 
@@ -278,7 +278,7 @@ Vec_PtrPush.exit168:                              ; preds = %.Vec_PtrGrow.exit11
   br i1 %.not147, label %117, label %114, !llvm.loop !17
 
 117:                                              ; preds = %114
-  %118 = tail call ptr @Abc_NtkCreateObj(ptr noundef %40, i32 noundef 5) #8
+  %118 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %40, i32 noundef 5) #8
   %119 = tail call ptr @Abc_ObjAssignName(ptr noundef %118, ptr noundef nonnull %115, ptr noundef null) #8
   br label %120
 
@@ -381,7 +381,7 @@ Vec_PtrPush.exit175:                              ; preds = %.Vec_PtrGrow.exit11
 
 Vec_PtrFree.exit:                                 ; preds = %159, %161
   tail call void @free(ptr noundef nonnull %48) #8
-  tail call void @Abc_NtkDelete(ptr noundef %40) #8
+  tail call void @Abc_NtkDelete(ptr noundef nonnull %40) #8
   %puts145 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   br label %256
 
@@ -577,19 +577,19 @@ Vec_PtrFree.exit186:                              ; preds = %.loopexit, %252
 declare i32 @Extra_FileSize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @Abc_NtkAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -602,7 +602,7 @@ declare ptr @Abc_ObjAssignName(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
@@ -615,14 +615,14 @@ declare void @Extra_ProgressBarStop(ptr noundef) local_unnamed_addr #1
 declare i32 @Abc_NtkCheckRead(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #6
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @Extra_ProgressBarUpdate_int(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

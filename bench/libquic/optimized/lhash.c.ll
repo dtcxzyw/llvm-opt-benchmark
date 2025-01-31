@@ -43,10 +43,10 @@ return:                                           ; preds = %entry, %if.end6, %i
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden i32 @lh_strhash(ptr noundef readonly %c) #4 {
@@ -148,14 +148,14 @@ return:                                           ; preds = %entry, %for.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @lh_num_items(ptr nocapture noundef readonly %lh) local_unnamed_addr #6 {
+define hidden i64 @lh_num_items(ptr noundef readonly captures(none) %lh) local_unnamed_addr #6 {
 entry:
   %0 = load i64, ptr %lh, align 8
   ret i64 %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lh_retrieve(ptr nocapture noundef readonly %lh, ptr noundef %data) local_unnamed_addr #5 {
+define hidden ptr @lh_retrieve(ptr noundef readonly captures(none) %lh, ptr noundef %data) local_unnamed_addr #5 {
 entry:
   %hash1.i = getelementptr inbounds nuw i8, ptr %lh, i64 40
   %0 = load ptr, ptr %hash1.i, align 8
@@ -213,7 +213,7 @@ return:                                           ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lh_insert(ptr nocapture noundef %lh, ptr nocapture noundef writeonly initializes((0, 8)) %old_data, ptr noundef %data) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @lh_insert(ptr noundef captures(none) %lh, ptr noundef writeonly captures(none) initializes((0, 8)) %old_data, ptr noundef %data) local_unnamed_addr #5 {
 entry:
   store ptr null, ptr %old_data, align 8
   %hash1.i = getelementptr inbounds nuw i8, ptr %lh, i64 40
@@ -298,7 +298,7 @@ return:                                           ; preds = %if.end, %if.end6, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lh_maybe_resize(ptr nocapture noundef %lh) unnamed_addr #5 {
+define internal fastcc void @lh_maybe_resize(ptr noundef captures(none) %lh) unnamed_addr #5 {
 entry:
   %callback_depth = getelementptr inbounds nuw i8, ptr %lh, i64 24
   %0 = load i32, ptr %callback_depth, align 8
@@ -441,7 +441,7 @@ if.end19:                                         ; preds = %for.end13.i40, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lh_delete(ptr nocapture noundef %lh, ptr noundef %data) local_unnamed_addr #5 {
+define hidden ptr @lh_delete(ptr noundef captures(none) %lh, ptr noundef %data) local_unnamed_addr #5 {
 entry:
   %hash1.i = getelementptr inbounds nuw i8, ptr %lh, i64 40
   %0 = load ptr, ptr %hash1.i, align 8
@@ -507,7 +507,7 @@ return:                                           ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lh_doall(ptr noundef %lh, ptr nocapture noundef readonly %func) local_unnamed_addr #5 {
+define hidden void @lh_doall(ptr noundef %lh, ptr noundef readonly captures(none) %func) local_unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %lh, null
   br i1 %cmp.i, label %lh_doall_internal.exit, label %if.end.i

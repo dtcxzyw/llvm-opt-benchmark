@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN11G1AnalyticsC1EPK13G1Predictions = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN11G1AnalyticsC2EPK13G1Predictions
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK19G1PhaseDependentSeq31enough_samples_to_use_mixed_seqEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK19G1PhaseDependentSeq31enough_samples_to_use_mixed_seqEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 2
@@ -22,7 +22,7 @@ define hidden noundef zeroext i1 @_ZNK19G1PhaseDependentSeq31enough_samples_to_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN11G1Analytics24enough_samples_availableEPK12TruncatedSeq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN11G1Analytics24enough_samples_availableEPK12TruncatedSeq(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 2
@@ -66,7 +66,7 @@ define hidden void @_ZN19G1PhaseDependentSeq3addEdb(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = icmp slt i32 %5, 3
@@ -224,7 +224,7 @@ define hidden void @_ZN11G1AnalyticsC2EPK13G1Predictions(ptr noundef nonnull ali
 declare noundef double @_ZN2os11elapsedTimeEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK11G1Analytics24predict_in_unit_intervalEPK12TruncatedSeq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2048) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden noundef double @_ZNK11G1Analytics24predict_in_unit_intervalEPK12TruncatedSeq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2048) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
   %5 = load double, ptr %3, align 8
@@ -255,7 +255,7 @@ _ZNK13G1Predictions24predict_in_unit_intervalEPK12TruncatedSeq.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK11G1Analytics12predict_sizeEPK12TruncatedSeq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2048) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK11G1Analytics12predict_sizeEPK12TruncatedSeq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2048) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
   %5 = load double, ptr %3, align 8
@@ -285,7 +285,7 @@ _ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %2, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2048) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden noundef double @_ZNK11G1Analytics20predict_zero_boundedEPK12TruncatedSeq(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2048) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef double @_ZNK6AbsSeq4davgEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #7
   %5 = load double, ptr %3, align 8
@@ -314,7 +314,7 @@ _ZNK13G1Predictions20predict_zero_boundedEPK12TruncatedSeq.exit: ; preds = %2, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK11G1Analytics24predict_in_unit_intervalEPK19G1PhaseDependentSeqb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2048) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden noundef double @_ZNK11G1Analytics24predict_in_unit_intervalEPK19G1PhaseDependentSeqb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2048) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %4, i1 noundef zeroext %2)
   %6 = fcmp ogt double %5, 0.000000e+00
@@ -325,7 +325,7 @@ define hidden noundef double @_ZNK11G1Analytics24predict_in_unit_intervalEPK19G1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZNK11G1Analytics12predict_sizeEPK19G1PhaseDependentSeqb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2048) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZNK11G1Analytics12predict_sizeEPK19G1PhaseDependentSeqb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2048) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %4, i1 noundef zeroext %2)
   %6 = fcmp ogt double %5, 0.000000e+00
@@ -335,7 +335,7 @@ define hidden noundef i64 @_ZNK11G1Analytics12predict_sizeEPK19G1PhaseDependentS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef double @_ZNK11G1Analytics20predict_zero_boundedEPK19G1PhaseDependentSeqb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2048) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden noundef double @_ZNK11G1Analytics20predict_zero_boundedEPK19G1PhaseDependentSeqb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2048) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef double @_ZNK19G1PhaseDependentSeq7predictEPK13G1Predictionsb(ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %4, i1 noundef zeroext %2)
   %6 = fcmp ogt double %5, 0.000000e+00
@@ -344,7 +344,7 @@ define hidden noundef double @_ZNK11G1Analytics20predict_zero_boundedEPK19G1Phas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK11G1Analytics17num_alloc_rate_msEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2048) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZNK11G1Analytics17num_alloc_rate_msEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2048) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load i32, ptr %2, align 8
   ret i32 %3
@@ -960,7 +960,7 @@ declare noundef double @_ZNK6AbsSeq3dsdEv(ptr noundef nonnull align 8 dereferenc
 declare i32 @llvm.umin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

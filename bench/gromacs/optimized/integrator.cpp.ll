@@ -32,7 +32,7 @@ $_ZNSt6vectorIfSaIfEE17_M_default_appendEm = comdat any
 @_ZN5nblib8LeapFrogC1EN3gmx8ArrayRefIKfEERKNS_3BoxE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5nblib8LeapFrogC2EN3gmx8ArrayRefIKfEERKNS_3BoxE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib8LeapFrogC2ERKNS_8TopologyERKNS_3BoxE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 60)) %0, ptr noundef nonnull align 8 dereferenceable(1104) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib8LeapFrogC2ERKNS_8TopologyERKNS_3BoxE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 60)) %0, ptr noundef nonnull align 8 dereferenceable(1104) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.5", align 8
   %5 = alloca %"class.std::vector.0", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -172,7 +172,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %52, %54
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare noundef i32 @_ZNK5nblib8Topology12numParticlesEv(ptr noundef nonnull align 8 dereferenceable(1104)) local_unnamed_addr #2
 
@@ -324,13 +324,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib8LeapFrogC2EN3gmx8ArrayRefIKfEERKNS_3BoxE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 24)) %0, ptr %1, ptr %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib8LeapFrogC2EN3gmx8ArrayRefIKfEERKNS_3BoxE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 24)) %0, ptr %1, ptr %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(36) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = ptrtoint ptr %2 to i64
   %6 = ptrtoint ptr %1 to i64
@@ -391,7 +391,7 @@ _ZNSt12_Vector_baseIfSaIfEE11_M_allocateEm.exit.i.i: ; preds = %_ZNSt6vectorIfSa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5nblib8LeapFrog9integrateEfN3gmx8ArrayRefINS1_11BasicVectorIfEEEES5_NS2_IKS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, float noundef %1, ptr %2, ptr %3, ptr nocapture %4, ptr nocapture readnone %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.187") align 8 %6) local_unnamed_addr #8 align 2 {
+define void @_ZN5nblib8LeapFrog9integrateEfN3gmx8ArrayRefINS1_11BasicVectorIfEEEES5_NS2_IKS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0, float noundef %1, ptr %2, ptr %3, ptr captures(none) %4, ptr readnone captures(none) %5, ptr noundef readonly byval(%"class.gmx::ArrayRef.187") align 8 captures(none) %6) local_unnamed_addr #8 align 2 {
   %.not = icmp eq ptr %3, %2
   br i1 %.not, label %._crit_edge, label %.preheader.lr.ph
 
@@ -448,7 +448,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #9
 declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12

@@ -15,7 +15,7 @@ define hidden i64 @lexbor_conv_float_to_data(double noundef %0, ptr noundef %1, 
 declare i64 @lexbor_dtoa(double noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden i64 @lexbor_conv_long_to_data(i64 noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden i64 @lexbor_conv_long_to_data(i64 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not.i = icmp eq i64 %0, 0
   br i1 %.not.i, label %8, label %4
 
@@ -94,7 +94,7 @@ lexbor_conv_int64_to_data.exit:                   ; preds = %.lr.ph57.i, %8, %9,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %9, label %4
 
@@ -173,7 +173,7 @@ define hidden i64 @lexbor_conv_int64_to_data(i64 noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden double @lexbor_conv_data_to_double(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 %1
@@ -356,7 +356,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
 declare double @lexbor_strtod_internal(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @lexbor_conv_data_to_ulong(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden i64 @lexbor_conv_data_to_ulong(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 %1
   %5 = icmp sgt i64 %1, 0
@@ -395,7 +395,7 @@ define hidden i64 @lexbor_conv_data_to_ulong(ptr nocapture noundef %0, i64 nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i64 @lexbor_conv_data_to_long(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden i64 @lexbor_conv_data_to_long(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 %1
   %5 = load i8, ptr %3, align 1
@@ -453,7 +453,7 @@ define hidden i64 @lexbor_conv_data_to_long(ptr nocapture noundef %0, i64 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lexbor_conv_data_to_uint(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+define hidden i32 @lexbor_conv_data_to_uint(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 %1
   %5 = icmp sgt i64 %1, 0
@@ -492,7 +492,7 @@ define hidden i32 @lexbor_conv_data_to_uint(ptr nocapture noundef %0, i64 nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden i64 @lexbor_conv_dec_to_hex(i32 noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %6, label %.preheader23
 

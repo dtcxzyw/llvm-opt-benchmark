@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [56 x i8] c"SPGiST inner-tuple split must not produce longer prefix\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @spgUpdateNodeLink(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @spgUpdateNodeLink(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load i32, ptr %0, align 4
   %6 = lshr i32 %5, 3
   %7 = and i32 %6, 8191
@@ -116,7 +116,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @spgPageIndexMultiDelete(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7) local_unnamed_addr #0 {
+define dso_local void @spgPageIndexMultiDelete(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i16 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca [408 x i16], align 16
   %10 = icmp eq i32 %3, 0
   br i1 %10, label %.loopexit, label %11
@@ -213,12 +213,12 @@ define dso_local void @spgPageIndexMultiDelete(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -65535, 65536) i32 @cmpOffsetNumbers(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #4 {
+define internal range(i32 -65535, 65536) i32 @cmpOffsetNumbers(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #4 {
   %3 = load i16, ptr %0, align 2
   %4 = load i16, ptr %1, align 2
   %5 = zext i16 %3 to i32
@@ -234,7 +234,7 @@ declare ptr @spgFormDeadTuple(ptr noundef, i32 noundef, i32 noundef, i16 noundef
 declare zeroext i16 @PageAddItemExtended(ptr noundef, ptr noundef, i64 noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @spgdoinsert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.spgxlogSplitTuple, align 2
   %7 = alloca %struct.spgxlogAddNode, align 4
   %8 = alloca %struct.spgPickSplitIn, align 8
@@ -3064,11 +3064,11 @@ saveNodeLink.exit.i197:                           ; preds = %.lr.ph.i.i.i192
 
 1479:                                             ; preds = %1477, %1475
   %.093.i = phi ptr [ %1476, %1475 ], [ %1478, %1477 ]
-  call void @PageIndexTupleDelete(ptr noundef %.ph252772, i16 noundef zeroext %.ph251771) #10
+  call void @PageIndexTupleDelete(ptr noundef nonnull %.ph252772, i16 noundef zeroext %.ph251771) #10
   %1480 = load i32, ptr %.093.i, align 4
   %1481 = lshr i32 %1480, 2
   %1482 = zext nneg i32 %1481 to i64
-  %1483 = call zeroext i16 @PageAddItemExtended(ptr noundef %.ph252772, ptr noundef nonnull %.093.i, i64 noundef %1482, i16 noundef zeroext %.ph251771, i32 noundef 0) #10
+  %1483 = call zeroext i16 @PageAddItemExtended(ptr noundef nonnull %.ph252772, ptr noundef nonnull %.093.i, i64 noundef %1482, i16 noundef zeroext %.ph251771, i32 noundef 0) #10
   %.not96.i = icmp eq i16 %1483, %.ph251771
   br i1 %.not96.i, label %1489, label %1484
 
@@ -3138,7 +3138,7 @@ saveNodeLink.exit.i197:                           ; preds = %.lr.ph.i.i.i192
   call void @XLogRegisterData(ptr noundef nonnull %7, i32 noundef 20) #10
   %1521 = load i16, ptr %1367, align 4
   %1522 = zext i16 %1521 to i32
-  call void @XLogRegisterData(ptr noundef %1362, i32 noundef %1522) #10
+  call void @XLogRegisterData(ptr noundef nonnull %1362, i32 noundef %1522) #10
   %1523 = call i64 @XLogInsert(i8 noundef zeroext 16, i8 noundef zeroext 48) #10
   %1524 = lshr i64 %1523, 32
   %1525 = trunc nuw i64 %1524 to i32
@@ -3705,7 +3705,7 @@ declare ptr @spgFormLeafTuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare i64 @PageGetExactFreeSpace(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @moveLeafs(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @moveLeafs(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca i16, align 2
   %8 = alloca %struct.spgxlogMoveLeafs, align 4
   %9 = zext i1 %5 to i8
@@ -4073,7 +4073,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 declare ptr @spgExtractNodeLabels(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare i64 @FunctionCall2Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
@@ -4114,10 +4114,10 @@ declare void @llvm.assume(i1 noundef) #6
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

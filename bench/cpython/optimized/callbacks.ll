@@ -248,7 +248,7 @@ declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @ffi_prep_closure_loc(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @closure_fcn(ptr nocapture readnone %cif, ptr noundef %resp, ptr nocapture noundef readonly %args, ptr nocapture noundef readonly %userdata) #0 {
+define internal void @closure_fcn(ptr readnone captures(none) %cif, ptr noundef %resp, ptr noundef readonly captures(none) %args, ptr noundef readonly captures(none) %userdata) #0 {
 entry:
   %ffi_restype = getelementptr inbounds nuw i8, ptr %userdata, i64 112
   %0 = load ptr, ptr %ffi_restype, align 8
@@ -302,7 +302,7 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @CThunkObject_traverse(ptr nocapture noundef readonly %myself, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @CThunkObject_traverse(ptr noundef readonly captures(none) %myself, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %myself, i64 8
   %myself.val20 = load ptr, ptr %0, align 8
@@ -356,7 +356,7 @@ return:                                           ; preds = %if.then30, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @CThunkObject_clear(ptr nocapture noundef %myself) #0 {
+define internal noundef i32 @CThunkObject_clear(ptr noundef captures(none) %myself) #0 {
 entry:
   %converters = getelementptr inbounds nuw i8, ptr %myself, i64 80
   %0 = load ptr, ptr %converters, align 8
@@ -441,12 +441,12 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare ptr @_PyObject_GC_NewVar(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @PyObject_GC_Track(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_CallPythonObject(ptr noundef %mem, ptr noundef readnone %restype, ptr noundef readonly %setfunc, ptr noundef %callable, ptr nocapture noundef readonly %converters, i32 noundef %flags, ptr nocapture noundef readonly %pArgs) unnamed_addr #0 {
+define internal fastcc void @_CallPythonObject(ptr noundef %mem, ptr noundef readnone %restype, ptr noundef readonly %setfunc, ptr noundef %callable, ptr noundef readonly captures(none) %converters, i32 noundef %flags, ptr noundef readonly captures(none) %pArgs) unnamed_addr #0 {
 entry:
   %space = alloca ptr, align 8
   %call = tail call i32 @PyGILState_Ensure() #6
@@ -798,7 +798,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @_ctypes_get_errobj(ptr noundef) local_unnamed_addr #1
 

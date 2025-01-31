@@ -16,7 +16,7 @@ define hidden void @VP8SSIMDspInitSSE2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #1 {
+define internal i32 @AccumulateSSE_SSE2(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #1 {
   %4 = icmp sgt i32 %2, 15
   br i1 %4, label %5, label %60
 
@@ -137,7 +137,7 @@ define internal i32 @AccumulateSSE_SSE2(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal double @SSIMGet_SSE2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) #2 {
+define internal double @SSIMGet_SSE2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) #2 {
   %5 = alloca %struct.VP8DistoStats, align 4
   %6 = load i64, ptr %0, align 1
   %7 = insertelement <2 x i64> poison, i64 %6, i64 0

@@ -140,7 +140,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @SystemAttributeByName(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local ptr @SystemAttributeByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   br label %3
 
 2:                                                ; preds = %3
@@ -163,7 +163,7 @@ define dso_local ptr @SystemAttributeByName(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @heap_create(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i8 noundef signext %7, i8 noundef signext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12, ptr noundef %13, i1 noundef zeroext %14) local_unnamed_addr #0 {
@@ -352,7 +352,7 @@ SystemAttributeByName.exit:                       ; preds = %14
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %20)
   %21 = tail call i32 @errcode(i32 noundef 16806020) #11
-  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef %12) #11
+  %22 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %12) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 486, ptr noundef nonnull @__func__.CheckAttributeNamesTypes) #11
   unreachable
 
@@ -405,7 +405,7 @@ SystemAttributeByName.exit.thread:                ; preds = %13
   %33 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
   tail call void @llvm.assume(i1 %33)
   %34 = tail call i32 @errcode(i32 noundef 16806020) #11
-  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef %29) #11
+  %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.6, ptr noundef nonnull %29) #11
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 502, ptr noundef nonnull @__func__.CheckAttributeNamesTypes) #11
   unreachable
 
@@ -968,7 +968,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare ptr @ExecStoreVirtualTuple(ptr noundef) local_unnamed_addr #2
 
@@ -983,7 +983,7 @@ declare void @ExecDropSingleTupleTableSlot(ptr noundef) local_unnamed_addr #2
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InsertPgClassTuple(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local void @InsertPgClassTuple(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [33 x i64], align 16
   %7 = alloca [33 x i8], align 16
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1601,7 +1601,7 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
   %176 = load i16, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %172, i64 24
   %178 = load ptr, ptr %177, align 8
-  %179 = call i32 @StoreAttrDefault(ptr noundef %105, i16 noundef signext %176, ptr noundef %178, i1 noundef zeroext %18, i1 noundef zeroext false) #11
+  %179 = call i32 @StoreAttrDefault(ptr noundef nonnull %105, i16 noundef signext %176, ptr noundef %178, i1 noundef zeroext %18, i1 noundef zeroext false) #11
   %180 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i32 %179, ptr %180, align 4
   br label %225
@@ -1623,7 +1623,7 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
   %195 = getelementptr inbounds nuw i8, ptr %172, i64 40
   %196 = load i8, ptr %195, align 8
   %197 = trunc i8 %196 to i1
-  %198 = call fastcc i32 @StoreRelCheck(ptr noundef %105, ptr noundef %183, ptr noundef %185, i1 noundef zeroext %189, i1 noundef zeroext %192, i32 noundef %194, i1 noundef zeroext %197, i1 noundef zeroext %18)
+  %198 = call fastcc i32 @StoreRelCheck(ptr noundef nonnull %105, ptr noundef %183, ptr noundef %185, i1 noundef zeroext %189, i1 noundef zeroext %192, i32 noundef %194, i1 noundef zeroext %197, i1 noundef zeroext %18)
   %199 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i32 %198, ptr %199, align 4
   %200 = add i32 %.042.i, 1
@@ -1679,7 +1679,7 @@ switch.early.test:                                ; preds = %AddNewAttributeTupl
   br i1 %228, label %229, label %StoreConstraints.exit
 
 229:                                              ; preds = %._crit_edge.i186
-  call fastcc void @SetRelationNumChecks(ptr noundef %105, i32 noundef %.1.i)
+  call fastcc void @SetRelationNumChecks(ptr noundef nonnull %105, i32 noundef %.1.i)
   br label %StoreConstraints.exit
 
 StoreConstraints.exit:                            ; preds = %162, %164, %._crit_edge.i186, %229
@@ -1691,7 +1691,7 @@ StoreConstraints.exit:                            ; preds = %162, %164, %._crit_
   br label %231
 
 231:                                              ; preds = %230, %StoreConstraints.exit
-  call void @table_close(ptr noundef %105, i32 noundef 0) #11
+  call void @table_close(ptr noundef nonnull %105, i32 noundef 0) #11
   call void @table_close(ptr noundef %29, i32 noundef 3) #11
   ret i32 %.0
 }
@@ -2155,7 +2155,7 @@ declare void @RelationForgetRelation(i32 noundef) local_unnamed_addr #2
 declare void @CacheInvalidateRelcacheByRelid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RelationClearMissing(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @RelationClearMissing(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [26 x i64], align 16
   %3 = alloca [26 x i8], align 16
   %4 = alloca [26 x i8], align 16
@@ -3057,7 +3057,7 @@ list_length.exit.thread:                          ; preds = %294, %list_length.e
 ._crit_edge280:                                   ; preds = %417, %.lr.ph279, %._crit_edge
   %.0178.lcssa = phi i32 [ %.0176, %._crit_edge ], [ %.0176, %.lr.ph279 ], [ %.1179, %417 ]
   %.2.lcssa = phi ptr [ %.0175.lcssa, %._crit_edge ], [ %.0175.lcssa, %.lr.ph279 ], [ %.3, %417 ]
-  call fastcc void @SetRelationNumChecks(ptr noundef %0, i32 noundef %.0178.lcssa)
+  call fastcc void @SetRelationNumChecks(ptr noundef nonnull %0, i32 noundef %.0178.lcssa)
   ret ptr %.2.lcssa
 }
 
@@ -3131,7 +3131,7 @@ declare ptr @get_attname(i32 noundef, i16 noundef signext, i1 noundef zeroext) l
 declare ptr @ChooseConstraintName(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @StoreRelCheck(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc i32 @StoreRelCheck(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = tail call ptr @nodeToString(ptr noundef %2) #11
   %10 = tail call ptr @pull_var_clause(ptr noundef %2, i32 noundef 0) #11
   %.not.i = icmp eq ptr %10, null
@@ -3298,7 +3298,7 @@ define internal fastcc void @SetRelationNumChecks(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @AddRelationNotNullConstraints(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @AddRelationNotNullConstraints(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %.not = icmp eq ptr %1, null
@@ -3657,7 +3657,7 @@ declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @list_sort(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -65535, 65536) i32 @list_cookedconstr_attnum_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 -65535, 65536) i32 @list_cookedconstr_attnum_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i16, ptr %4, align 8
@@ -4386,7 +4386,7 @@ declare void @recordDependencyOnSingleRelExpr(ptr noundef, ptr noundef, i32 noun
 declare void @CacheInvalidateRelcache(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @StorePartitionBound(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @StorePartitionBound(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [33 x i64], align 16
   %5 = alloca [33 x i8], align 16
   %6 = alloca [33 x i8], align 16
@@ -4585,10 +4585,10 @@ declare i32 @llvm.smax.i32(i32, i32) #8
 declare i32 @llvm.umin.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { cold "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

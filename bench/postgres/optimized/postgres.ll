@@ -1826,7 +1826,7 @@ define dso_local zeroext i1 @stack_is_too_deep() local_unnamed_addr #12 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_max_stack_depth(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_max_stack_depth(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.rlimit, align 8
   %5 = load i32, ptr %0, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -1920,7 +1920,7 @@ declare void @pre_format_elog_string(i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @format_elog_string(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @assign_max_stack_depth(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #11 {
+define dso_local void @assign_max_stack_depth(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #11 {
   %3 = sext i32 %0 to i64
   %4 = shl nsw i64 %3, 10
   store i64 %4, ptr @max_stack_depth_bytes, align 8
@@ -1928,7 +1928,7 @@ define dso_local void @assign_max_stack_depth(i32 noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_client_connection_check_interval(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_client_connection_check_interval(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i1 @WaitEventSetCanReportClosed() #26
   br i1 %4, label %11, label %5
 
@@ -1953,7 +1953,7 @@ define dso_local noundef zeroext i1 @check_client_connection_check_interval(ptr 
 declare zeroext i1 @WaitEventSetCanReportClosed() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_stage_log_stats(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_stage_log_stats(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %13
@@ -1977,7 +1977,7 @@ define dso_local noundef zeroext i1 @check_stage_log_stats(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @check_log_stats(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @check_log_stats(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %6, label %19
@@ -2011,7 +2011,7 @@ define dso_local noundef zeroext i1 @check_log_stats(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @assign_transaction_timeout(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define dso_local void @assign_transaction_timeout(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @IsTransactionState() #26
   br i1 %3, label %4, label %11
 
@@ -2097,7 +2097,7 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare void @SetConfigOption(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @set_plan_disabling_options(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @set_plan_disabling_options(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %0, align 1
   %switch.tableidx = add i8 %4, -98
   %5 = icmp ult i8 %switch.tableidx, 19
@@ -2122,7 +2122,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @get_stats_option_name(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define dso_local ptr @get_stats_option_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = load i8, ptr %0, align 1
   switch i8 %2, label %7 [
     i8 112, label %3
@@ -2479,7 +2479,7 @@ set_plan_disabling_options.exit.thread:           ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind
 declare i32 @getopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -2489,10 +2489,10 @@ declare void @ParseLongOption(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #15
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #16
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #17
@@ -6256,7 +6256,7 @@ declare i32 @getrlimit(i32 noundef, ptr noundef) local_unnamed_addr #5
 declare i32 @getrusage(i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @appendStringInfoString(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -6309,14 +6309,14 @@ declare i32 @pq_getbyte() local_unnamed_addr #2
 declare i32 @pq_getmessage(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @resetStringInfo(ptr noundef) local_unnamed_addr #2
 
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @getc(ptr nocapture noundef) local_unnamed_addr #19
+declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare i32 @errhidestmt(i1 noundef zeroext) local_unnamed_addr #2
 
@@ -6393,7 +6393,7 @@ declare void @SaveCachedPlan(ptr noundef) local_unnamed_addr #2
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @bind_param_error_callback(ptr nocapture noundef readonly %0) #0 {
+define internal void @bind_param_error_callback(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -6518,10 +6518,10 @@ declare void @llvm.assume(i1 noundef) #21
 declare i64 @llvm.abs.i64(i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #22

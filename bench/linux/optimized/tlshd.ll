@@ -25,7 +25,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_tls_handshak
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_tls_client_hello_anon678, ptr @__UNIQUE_ID___addressable_tls_client_hello_psk680, ptr @__UNIQUE_ID___addressable_tls_client_hello_x509679, ptr @__UNIQUE_ID___addressable_tls_handshake_cancel683, ptr @__UNIQUE_ID___addressable_tls_handshake_close684, ptr @__UNIQUE_ID___addressable_tls_server_hello_psk682, ptr @__UNIQUE_ID___addressable_tls_server_hello_x509681], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tls_client_hello_anon(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @tls_client_hello_anon(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = tail call ptr @handshake_req_alloc(ptr noundef nonnull @tls_handshake_proto, i32 noundef %1) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %28, label %5
@@ -71,7 +71,7 @@ define dso_local i32 @tls_client_hello_anon(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @handshake_req_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -80,10 +80,10 @@ declare dso_local ptr @handshake_req_alloc(ptr noundef, i32 noundef) local_unnam
 declare dso_local i32 @handshake_req_submit(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tls_client_hello_x509(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @tls_client_hello_x509(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = tail call ptr @handshake_req_alloc(ptr noundef nonnull @tls_handshake_proto, i32 noundef %1) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %32, label %5
@@ -135,7 +135,7 @@ define dso_local i32 @tls_client_hello_x509(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tls_client_hello_psk(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @tls_client_hello_psk(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, -6
@@ -211,7 +211,7 @@ define dso_local i32 @tls_client_hello_psk(ptr nocapture noundef readonly %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tls_server_hello_x509(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @tls_server_hello_x509(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = tail call ptr @handshake_req_alloc(ptr noundef nonnull @tls_handshake_proto, i32 noundef %1) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %32, label %5
@@ -263,7 +263,7 @@ define dso_local i32 @tls_server_hello_x509(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tls_server_hello_psk(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @tls_server_hello_psk(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = tail call ptr @handshake_req_alloc(ptr noundef nonnull @tls_handshake_proto, i32 noundef %1) #6
   %4 = icmp eq ptr %3, null
   br i1 %4, label %31, label %5
@@ -671,7 +671,7 @@ declare dso_local ptr @handshake_req_private(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @handshake_genl_put(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_identity(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_identity(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -703,7 +703,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_peer_ide
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certificate(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -90, 1) i32 @tls_handshake_put_certificate(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -804,7 +804,7 @@ declare dso_local ptr @__alloc_skb(i32 noundef, i32 noundef, i32 noundef, i32 no
 declare dso_local i32 @nla_put(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #2

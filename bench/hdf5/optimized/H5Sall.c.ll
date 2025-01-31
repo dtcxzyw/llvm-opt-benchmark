@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [28 x i8] c"unable to set all selection\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5S__all_copy(ptr nocapture noundef initializes((352, 360)) %0, ptr nocapture readnone %1, i1 zeroext %2) #0 {
+define internal noundef i32 @H5S__all_copy(ptr noundef captures(none) initializes((352, 360)) %0, ptr readnone captures(none) %1, i1 zeroext %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 352
@@ -51,24 +51,24 @@ define internal noundef i32 @H5S__all_copy(ptr nocapture noundef initializes((35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5S__all_release(ptr nocapture noundef writeonly initializes((352, 360)) %0) #1 {
+define internal noundef i32 @H5S__all_release(ptr noundef writeonly captures(none) initializes((352, 360)) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 352
   store i64 0, ptr %2, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_is_valid(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @H5S__all_is_valid(ptr readnone captures(none) %0) #2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i64 @H5S__all_serial_size(ptr nocapture readnone %0) #2 {
+define internal noundef i64 @H5S__all_serial_size(ptr readnone captures(none) %0) #2 {
   ret i64 16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5S__all_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 {
+define internal noundef i32 @H5S__all_serialize(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #3 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8
@@ -103,7 +103,7 @@ define internal noundef i32 @H5S__all_serialize(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5S__all_deserialize(ptr nocapture noundef %0, ptr nocapture noundef %1, i64 noundef %2, i1 noundef zeroext %3) #4 {
+define internal range(i32 -1, 1) i32 @H5S__all_deserialize(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) #4 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 %2
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
@@ -255,7 +255,7 @@ define internal range(i32 -1, 1) i32 @H5S__all_deserialize(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5S__all_bounds(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #5 {
+define internal noundef i32 @H5S__all_bounds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -285,33 +285,33 @@ define internal noundef i32 @H5S__all_bounds(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5S__all_offset(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
+define internal noundef i32 @H5S__all_offset(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   store i64 0, ptr %1, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_unlim_dim(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @H5S__all_unlim_dim(ptr readnone captures(none) %0) #2 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_is_contiguous(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @H5S__all_is_contiguous(ptr readnone captures(none) %0) #2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_is_single(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @H5S__all_is_single(ptr readnone captures(none) %0) #2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_is_regular(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @H5S__all_is_regular(ptr readnone captures(none) %0) #2 {
   ret i32 1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #6 {
+define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -369,28 +369,28 @@ define internal range(i32 0, 2) i32 @H5S__all_shape_same(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_intersect_block(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 {
+define internal noundef i32 @H5S__all_intersect_block(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 {
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_adjust_u(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 {
+define internal noundef i32 @H5S__all_adjust_u(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_adjust_s(ptr nocapture readnone %0, ptr nocapture readnone %1) #2 {
+define internal noundef i32 @H5S__all_adjust_s(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5S__all_project_scalar(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 {
+define internal noundef i32 @H5S__all_project_scalar(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #1 {
   store i64 0, ptr %1, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5S__all_project_simple(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #4 {
+define internal range(i32 -1, 1) i32 @H5S__all_project_simple(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #4 {
   %4 = tail call i32 @H5S_select_release(ptr noundef %1) #12
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %10, label %H5S_select_all.exit
@@ -419,7 +419,7 @@ H5S_select_all.exit:                              ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5S__all_iter_init(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8), (552, 568)) %1) #1 {
+define internal noundef i32 @H5S__all_iter_init(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8), (552, 568)) %1) #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 552
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr @H5S_sel_iter_all, ptr %1, align 8
@@ -574,7 +574,7 @@ define internal range(i32 -1, 1) i32 @H5S__all_iter_coords(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5S__all_iter_block(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #8 {
+define internal noundef i32 @H5S__all_iter_block(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.not = icmp eq i32 %5, 0
@@ -604,19 +604,19 @@ define internal noundef i32 @H5S__all_iter_block(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i64 @H5S__all_iter_nelmts(ptr nocapture noundef readonly %0) #9 {
+define internal i64 @H5S__all_iter_nelmts(ptr noundef readonly captures(none) %0) #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %3 = load i64, ptr %2, align 8
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_iter_has_next_block(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @H5S__all_iter_has_next_block(ptr readnone captures(none) %0) #2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5S__all_iter_next(ptr nocapture noundef %0, i64 noundef %1) #0 {
+define internal noundef i32 @H5S__all_iter_next(ptr noundef captures(none) %0, i64 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, %1
@@ -632,12 +632,12 @@ define internal noundef i32 @H5S__all_iter_next(ptr nocapture noundef %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_iter_next_block(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @H5S__all_iter_next_block(ptr readnone captures(none) %0) #2 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5S__all_iter_get_seq_list(ptr nocapture noundef %0, i64 %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef initializes((0, 8)) %6) #0 {
+define internal noundef i32 @H5S__all_iter_get_seq_list(ptr noundef captures(none) %0, i64 %1, i64 noundef %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef captures(none) initializes((0, 8)) %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %9 = load i64, ptr %8, align 8
   %. = tail call i64 @llvm.umin.i64(i64 %2, i64 %9)
@@ -665,7 +665,7 @@ define internal noundef i32 @H5S__all_iter_get_seq_list(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @H5S__all_iter_release(ptr nocapture readnone %0) #2 {
+define internal noundef i32 @H5S__all_iter_release(ptr readnone captures(none) %0) #2 {
   ret i32 0
 }
 
@@ -679,7 +679,7 @@ declare i32 @H5S_close(ptr noundef) local_unnamed_addr #7
 declare i64 @llvm.umin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

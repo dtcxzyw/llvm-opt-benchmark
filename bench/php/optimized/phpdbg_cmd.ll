@@ -79,7 +79,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.phpdbg_get_param_type = private unnamed_addr constant [10 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.7, ptr @.str.9, ptr @.str.4, ptr @.str.8, ptr @.str.3, ptr @.str.5, ptr @.str.6, ptr @.str], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull ptr @phpdbg_get_param_type(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @phpdbg_get_param_type(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp ult i32 %2, 10
   br i1 %3, label %switch.lookup, label %5
@@ -131,7 +131,7 @@ define void @phpdbg_clear_param(ptr noundef readonly %0) local_unnamed_addr #1 {
 declare void @_efree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @phpdbg_param_tostring(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @phpdbg_param_tostring(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8
   switch i32 %3, label %47 [
     i32 5, label %4
@@ -219,10 +219,10 @@ define ptr @phpdbg_param_tostring(ptr nocapture noundef readonly %0, ptr noundef
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @phpdbg_copy_param(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define void @phpdbg_copy_param(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8
   store i32 %3, ptr %1, align 8
   switch i32 %3, label %75 [
@@ -353,7 +353,7 @@ declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @phpdbg_hash_param(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @phpdbg_hash_param(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8
   %3 = zext i32 %2 to i64
   switch i32 %2, label %66 [
@@ -379,12 +379,12 @@ define i64 @phpdbg_hash_param(ptr nocapture noundef readonly %0) local_unnamed_a
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #23
-  %15 = tail call i64 @zend_hash_func(ptr noundef %13, i64 noundef %14) #22
+  %15 = tail call i64 @zend_hash_func(ptr noundef nonnull %13, i64 noundef %14) #22
   %16 = add i64 %15, %3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #23
-  %20 = tail call i64 @zend_hash_func(ptr noundef %18, i64 noundef %19) #22
+  %20 = tail call i64 @zend_hash_func(ptr noundef nonnull %18, i64 noundef %19) #22
   %21 = add i64 %16, %20
   br label %66
 
@@ -392,7 +392,7 @@ define i64 @phpdbg_hash_param(ptr nocapture noundef readonly %0) local_unnamed_a
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #23
-  %26 = tail call i64 @zend_hash_func(ptr noundef %24, i64 noundef %25) #22
+  %26 = tail call i64 @zend_hash_func(ptr noundef nonnull %24, i64 noundef %25) #22
   %27 = add i64 %26, %3
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i64, ptr %28, align 8
@@ -430,12 +430,12 @@ define i64 @phpdbg_hash_param(ptr nocapture noundef readonly %0) local_unnamed_a
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %54) #23
-  %56 = tail call i64 @zend_hash_func(ptr noundef %54, i64 noundef %55) #22
+  %56 = tail call i64 @zend_hash_func(ptr noundef nonnull %54, i64 noundef %55) #22
   %57 = add i64 %56, %3
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #23
-  %61 = tail call i64 @zend_hash_func(ptr noundef %59, i64 noundef %60) #22
+  %61 = tail call i64 @zend_hash_func(ptr noundef nonnull %59, i64 noundef %60) #22
   %62 = add i64 %57, %61
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i64, ptr %63, align 8
@@ -450,7 +450,7 @@ define i64 @phpdbg_hash_param(ptr nocapture noundef readonly %0) local_unnamed_a
 declare i64 @zend_hash_func(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
@@ -550,7 +550,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   br i1 %or.cond58, label %59, label %86
 
 59:                                               ; preds = %53
-  %bcmp54 = tail call i32 @bcmp(ptr %48, ptr %50, i64 %49)
+  %bcmp54 = tail call i32 @bcmp(ptr nonnull %48, ptr nonnull %50, i64 %49)
   %60 = icmp eq i32 %bcmp54, 0
   br label %87
 
@@ -573,7 +573,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   br i1 %73, label %74, label %86
 
 74:                                               ; preds = %66
-  %bcmp = tail call i32 @bcmp(ptr %68, ptr %71, i64 %69)
+  %bcmp = tail call i32 @bcmp(ptr nonnull %68, ptr nonnull %71, i64 %69)
   %75 = icmp eq i32 %bcmp, 0
   br i1 %75, label %76, label %86
 
@@ -588,7 +588,7 @@ define zeroext i1 @phpdbg_match_param(ptr noundef readonly %0, ptr noundef reado
   br i1 %83, label %84, label %86
 
 84:                                               ; preds = %76
-  %bcmp51 = tail call i32 @bcmp(ptr %78, ptr %81, i64 %79)
+  %bcmp51 = tail call i32 @bcmp(ptr nonnull %78, ptr nonnull %81, i64 %79)
   %85 = icmp eq i32 %bcmp51, 0
   br label %87
 
@@ -711,7 +711,7 @@ define void @phpdbg_param_debug(ptr noundef readonly %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define void @phpdbg_stack_free(ptr noundef %0) local_unnamed_addr #1 {
@@ -791,10 +791,10 @@ define void @phpdbg_stack_free(ptr noundef %0) local_unnamed_addr #1 {
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @phpdbg_stack_push(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define void @phpdbg_stack_push(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #25
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %19, label %4
@@ -838,10 +838,10 @@ define void @phpdbg_stack_push(ptr nocapture noundef %0, ptr nocapture noundef r
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @phpdbg_stack_separate(ptr nocapture noundef %0) local_unnamed_addr #14 {
+define void @phpdbg_stack_separate(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   %2 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #25
   store i32 9, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1745,12 +1745,12 @@ phpdbg_command_name.exit191:                      ; preds = %414, %418
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 declare i32 @phpdbg_print(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
+define ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca [3 x ptr], align 16
   %.promoted = load ptr, ptr %2, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -1958,7 +1958,7 @@ tailrecurse:                                      ; preds = %91
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: allocsize(0)
 declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #17
@@ -1967,7 +1967,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #17
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define i32 @phpdbg_stack_execute(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
+define i32 @phpdbg_stack_execute(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %4, 9
@@ -2220,7 +2220,7 @@ declare i32 @phpdbg_consume_stdin_line(ptr noundef) local_unnamed_addr #2
 declare ptr @__ctype_b_loc() local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define void @phpdbg_destroy_input(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @phpdbg_destroy_input(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @_efree(ptr noundef %2) #22
   ret void
@@ -2283,13 +2283,13 @@ declare i32 @phpdbg_do_run(ptr noundef) local_unnamed_addr #2
 declare i32 @phpdbg_do_sh(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #20
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -56,7 +56,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @_Z29mk_lackr_model_converter_lazyR11ast_managerRK3refI23lackr_model_constructorE(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %model_constructor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_Z29mk_lackr_model_converter_lazyR11ast_managerRK3refI23lackr_model_constructorE(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %model_constructor) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
   %m_ref_count.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 8
@@ -352,7 +352,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: uwtable
 define internal void @_GLOBAL__sub_I_lackr_model_converter_lazy.cpp() #10 section ".text.startup" {

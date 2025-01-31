@@ -132,7 +132,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -172,7 +172,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
@@ -629,7 +629,7 @@ declare void @glClearColor(float noundef, float noundef, float noundef, float no
 declare void @glEnable(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr nocapture noundef readnone %1) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15AlignPairWidget10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr noundef readnone captures(none) %1) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = alloca %"class.vcg::Matrix44", align 4
   %5 = alloca %class.QPainter, align 8
@@ -1633,7 +1633,7 @@ declare void @glClear(i32 noundef) local_unnamed_addr #0
 declare void @_ZN15MLRenderingDataC1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget19createRenderingDataEP9MeshModelR15MLRenderingData(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1367) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15AlignPairWidget19createRenderingDataEP9MeshModelR15MLRenderingData(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1367) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts.213", align 1
   %5 = alloca %struct.MLPerViewGLOptions, align 8
   %6 = icmp eq ptr %1, null
@@ -3151,7 +3151,7 @@ declare void @glPushMatrix() local_unnamed_addr #0
 declare void @_ZNK26MLSceneGLSharedDataContext4drawEiP10QGLContext(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget16drawPickedPointsEP8QPainterRSt6vectorIN3vcg6Point3IfEESaIS5_EENS3_6Color4IhEE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15AlignPairWidget16drawPickedPointsEP8QPainterRSt6vectorIN3vcg6Point3IfEESaIS5_EENS3_6Color4IhEE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i32 %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.vcg::glLabel::Mode", align 8
   %6 = alloca %"class.vcg::Color4", align 4
   %7 = alloca %"class.vcg::Color4", align 1
@@ -3377,7 +3377,7 @@ declare void @glGetIntegerv(i32 noundef, ptr noundef) local_unnamed_addr #0
 declare void @glReadPixels(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 declare void @glGetFloatv(i32 noundef, ptr noundef) local_unnamed_addr #0
 
@@ -3783,7 +3783,7 @@ define linkonce_odr void @_ZN18MLPerViewGLOptionsD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget15keyReleaseEventEP9QKeyEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr nocapture noundef %1) unnamed_addr #10 align 2 {
+define void @_ZN15AlignPairWidget15keyReleaseEventEP9QKeyEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr noundef captures(none) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, -5
@@ -3840,7 +3840,7 @@ define void @_ZN15AlignPairWidget15keyReleaseEventEP9QKeyEvent(ptr noundef nonnu
 declare void @_ZN3vcg9Trackball8ButtonUpENS0_6ButtonE(ptr noundef nonnull align 8 dereferenceable(597), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget13keyPressEventEP9QKeyEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr nocapture noundef %1) unnamed_addr #10 align 2 {
+define void @_ZN15AlignPairWidget13keyPressEventEP9QKeyEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr noundef captures(none) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, -5
@@ -3897,7 +3897,7 @@ define void @_ZN15AlignPairWidget13keyPressEventEP9QKeyEvent(ptr noundef nonnull
 declare void @_ZN3vcg9Trackball10ButtonDownENS0_6ButtonEj(ptr noundef nonnull align 8 dereferenceable(597), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget21mouseDoubleClickEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) initializes((1352, 1353)) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 {
+define void @_ZN15AlignPairWidget21mouseDoubleClickEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) initializes((1352, 1353)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1352
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -3991,7 +3991,7 @@ _Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit:          ; preds = %36, %39
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget15mousePressEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr nocapture noundef %1) unnamed_addr #10 align 2 {
+define void @_ZN15AlignPairWidget15mousePressEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr noundef captures(none) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 18
   %4 = load i16, ptr %3, align 2
   %5 = or i16 %4, 4
@@ -4124,7 +4124,7 @@ declare void @_ZN3vcg9Trackball9MouseDownEiii(ptr noundef nonnull align 8 derefe
 declare void @_ZN7QWidget8setFocusEN2Qt11FocusReasonE(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget14mouseMoveEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 {
+define void @_ZN15AlignPairWidget14mouseMoveEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 align 2 {
   %3 = alloca %class.QMessageLogger, align 8
   %4 = alloca [4 x float], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1280
@@ -4322,7 +4322,7 @@ declare void @glLightfv(i32 noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @_ZN3vcg9Trackball9MouseMoveEii(ptr noundef nonnull align 8 dereferenceable(597), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget17mouseReleaseEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 {
+define void @_ZN15AlignPairWidget17mouseReleaseEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 align 2 {
   %3 = alloca %class.QMessageLogger, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1280
   %5 = load ptr, ptr %4, align 8
@@ -4432,7 +4432,7 @@ _Z8QT2VCG_YP7QWidgetP11QMouseEvent.exit:          ; preds = %42, %45
 declare void @_ZN3vcg9Trackball7MouseUpEiii(ptr noundef nonnull align 8 dereferenceable(597), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15AlignPairWidget10wheelEventEP11QWheelEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 {
+define void @_ZN15AlignPairWidget10wheelEventEP11QWheelEvent(ptr noundef nonnull align 8 dereferenceable(1367) %0, ptr noundef readonly captures(none) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1365
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -6059,10 +6059,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #16
 declare float @llvm.sqrt.f32(float) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

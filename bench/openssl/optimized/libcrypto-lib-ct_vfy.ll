@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [9 x i8] c"SHA2-256\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SCT_CTX_verify(ptr nocapture noundef readonly %sctx, ptr noundef %sct) local_unnamed_addr #0 {
+define i32 @SCT_CTX_verify(ptr noundef readonly captures(none) %sctx, ptr noundef %sct) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @SCT_is_complete(ptr noundef %sct) #3
   %tobool.not = icmp eq i32 %call, 0
@@ -145,7 +145,7 @@ declare ptr @EVP_MD_CTX_new() local_unnamed_addr #1
 declare i32 @EVP_DigestVerifyInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sct_ctx_update(ptr noundef nonnull %ctx, ptr nocapture noundef readonly %sctx, ptr nocapture noundef readonly %sct) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @sct_ctx_update(ptr noundef nonnull %ctx, ptr noundef readonly captures(none) %sctx, ptr noundef readonly captures(none) %sct) unnamed_addr #0 {
 entry:
   %tmpbuf = alloca [12 x i8], align 1
   %entry_type = getelementptr inbounds nuw i8, ptr %sct, i64 88
@@ -292,7 +292,7 @@ declare void @EVP_MD_CTX_free(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_DigestUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #2
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

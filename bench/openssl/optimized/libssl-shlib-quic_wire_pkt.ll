@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.ossl_quic_hdr_protector_init = private unnamed_addr constant [3 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2], align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_hdr_protector_init(ptr nocapture noundef %hpr, ptr noundef %libctx, ptr noundef %propq, i32 noundef %cipher_id, ptr noundef %quic_hp_key, i64 noundef %quic_hp_key_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_init(ptr noundef captures(none) %hpr, ptr noundef %libctx, ptr noundef %propq, i32 noundef %cipher_id, ptr noundef %quic_hp_key, i64 noundef %quic_hp_key_len) local_unnamed_addr #0 {
 entry:
   %switch.tableidx = add i32 %cipher_id, -1
   %0 = icmp ult i32 %switch.tableidx, 3
@@ -110,7 +110,7 @@ declare i32 @EVP_CIPHER_get_key_length(ptr noundef) local_unnamed_addr #1
 declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_hdr_protector_cleanup(ptr nocapture noundef %hpr) local_unnamed_addr #0 {
+define void @ossl_quic_hdr_protector_cleanup(ptr noundef captures(none) %hpr) local_unnamed_addr #0 {
 entry:
   %cipher_ctx = getelementptr inbounds nuw i8, ptr %hpr, i64 16
   %0 = load ptr, ptr %cipher_ctx, align 8
@@ -128,7 +128,7 @@ declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #1
 declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_hdr_protector_decrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_decrypt(ptr noundef readonly captures(none) %hpr, ptr noundef readonly captures(none) %ptrs) local_unnamed_addr #0 {
 entry:
   %mask.i = alloca [5 x i8], align 1
   %raw_sample = getelementptr inbounds nuw i8, ptr %ptrs, i64 8
@@ -175,7 +175,7 @@ ossl_quic_hdr_protector_decrypt_fields.exit:      ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_hdr_protector_decrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_decrypt_fields(ptr noundef readonly captures(none) %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef captures(none) %first_byte, ptr noundef captures(none) %pn_bytes) local_unnamed_addr #0 {
 entry:
   %mask = alloca [5 x i8], align 1
   %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef %mask)
@@ -213,7 +213,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hdr_generate_mask(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hdr_generate_mask(ptr noundef readonly captures(none) %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef nonnull %mask) unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   %dst = alloca [16 x i8], align 16
@@ -300,7 +300,7 @@ return:                                           ; preds = %for.body.preheader,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt(ptr nocapture noundef readonly %hpr, ptr nocapture noundef readonly %ptrs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt(ptr noundef readonly captures(none) %hpr, ptr noundef readonly captures(none) %ptrs) local_unnamed_addr #0 {
 entry:
   %mask.i = alloca [5 x i8], align 1
   %raw_sample = getelementptr inbounds nuw i8, ptr %ptrs, i64 8
@@ -351,7 +351,7 @@ ossl_quic_hdr_protector_encrypt_fields.exit:      ; preds = %entry, %for.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt_fields(ptr nocapture noundef readonly %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr nocapture noundef %first_byte, ptr nocapture noundef %pn_bytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_hdr_protector_encrypt_fields(ptr noundef readonly captures(none) %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef captures(none) %first_byte, ptr noundef captures(none) %pn_bytes) local_unnamed_addr #0 {
 entry:
   %mask = alloca [5 x i8], align 1
   %call = call fastcc i32 @hdr_generate_mask(ptr noundef %hpr, ptr noundef %sample, i64 noundef %sample_len, ptr noundef %mask)
@@ -393,7 +393,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr nocapture noundef %pkt, i64 noundef %short_conn_id_len, i32 noundef %partial, i32 noundef %nodata, ptr nocapture noundef %hdr, ptr noundef writeonly %ptrs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr(ptr noundef captures(none) %pkt, i64 noundef %short_conn_id_len, i32 noundef %partial, i32 noundef %nodata, ptr noundef captures(none) %hdr, ptr noundef writeonly %ptrs) local_unnamed_addr #0 {
 entry:
   %token_len237 = alloca i64, align 8
   %len285 = alloca i64, align 8
@@ -912,10 +912,10 @@ return:                                           ; preds = %if.end107, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr nocapture noundef %pkt, ptr nocapture noundef nonnull writeonly %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @PACKET_get_quic_vlint(ptr noundef captures(none) %pkt, ptr noundef nonnull writeonly captures(none) %data) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %pkt, i64 8
   %pkt.val6 = load i64, ptr %0, align 8
@@ -1286,7 +1286,7 @@ declare i32 @WPACKET_reserve_bytes(ptr noundef, i64 noundef, ptr noundef) local_
 declare i32 @WPACKET_quic_write_vlint(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %short_conn_id_len, ptr nocapture noundef readonly %hdr) local_unnamed_addr #3 {
+define i32 @ossl_quic_wire_get_encoded_pkt_hdr_len(i64 noundef %short_conn_id_len, ptr noundef readonly captures(none) %hdr) local_unnamed_addr #3 {
 entry:
   %bf.load = load i32, ptr %hdr, align 8
   %0 = and i32 %bf.load, 16384
@@ -1419,7 +1419,7 @@ return:                                           ; preds = %if.end6.i41, %if.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr nocapture noundef readonly %buf, i64 noundef %buf_len, i64 noundef %short_conn_id_len, ptr nocapture noundef writeonly %dst_conn_id) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_wire_get_pkt_hdr_dst_conn_id(ptr noundef readonly captures(none) %buf, i64 noundef %buf_len, i64 noundef %short_conn_id_len, ptr noundef writeonly captures(none) %dst_conn_id) local_unnamed_addr #4 {
 entry:
   %cmp = icmp ult i64 %buf_len, 7
   %cmp1 = icmp ugt i64 %short_conn_id_len, 20
@@ -1500,10 +1500,10 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr nocapture noundef readonly %enc_pn, i64 noundef %enc_pn_len, i64 noundef %largest_pn, ptr nocapture noundef writeonly %res_pn) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr noundef readonly captures(none) %enc_pn, i64 noundef %enc_pn_len, i64 noundef %largest_pn, ptr noundef writeonly captures(none) %res_pn) local_unnamed_addr #4 {
 entry:
   switch i64 %enc_pn_len, label %return [
     i64 1, label %sw.bb
@@ -1623,7 +1623,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr_pn(i64 noundef %pn, ptr nocapture noundef writeonly %enc_pn, i64 noundef %enc_pn_len) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @ossl_quic_wire_encode_pkt_hdr_pn(i64 noundef %pn, ptr noundef writeonly captures(none) %enc_pn, i64 noundef %enc_pn_len) local_unnamed_addr #7 {
 entry:
   switch i64 %enc_pn_len, label %return [
     i64 1, label %return.sink.split
@@ -1704,7 +1704,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr nocapture noundef readonly %hdr, ptr noundef %client_initial_dcid, ptr noundef %tag) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_calculate_retry_integrity_tag(ptr noundef %libctx, ptr noundef %propq, ptr noundef readonly captures(none) %hdr, ptr noundef %client_initial_dcid, ptr noundef %tag) local_unnamed_addr #0 {
 entry:
   %l = alloca i32, align 4
   %l2 = alloca i32, align 4
@@ -1923,10 +1923,10 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare i64 @ossl_quic_vlint_decode_unchecked(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

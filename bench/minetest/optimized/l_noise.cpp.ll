@@ -149,14 +149,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14LuaPerlinNoiseC2EPK11NoiseParams(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef readonly %params) unnamed_addr #3 align 2 {
+define dso_local void @_ZN14LuaPerlinNoiseC2EPK11NoiseParams(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(40) initializes((0, 40)) %this, ptr noundef readonly captures(none) %params) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(40) %params, i64 40, i1 false), !tbaa.struct !4
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN14LuaPerlinNoise8l_get_2dEP9lua_State(ptr noundef %L) #5 align 2 {
@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 declare <2 x float> @_ZN9LuaHelper9readParamIN3irr4core8vector2dIfEEEET_P9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #0
 
@@ -182,7 +182,7 @@ declare noundef float @_Z13NoisePerlin2DPK11NoiseParamsffi(ptr noundef, float no
 declare void @lua_pushnumber(ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN14LuaPerlinNoise8l_get_3dEP9lua_State(ptr noundef %L) #5 align 2 {
@@ -366,7 +366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17LuaPerlinNoiseMapC2EPK11NoiseParamsiN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %np, i32 noundef %seed, i48 %size.coerce) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17LuaPerlinNoiseMapC2EPK11NoiseParamsiN3irr4core8vector3dIsEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %np, i32 noundef %seed, i48 %size.coerce) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator", align 1
@@ -623,7 +623,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17LuaPerlinNoiseMapD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #14 align 2 {
+define dso_local void @_ZN17LuaPerlinNoiseMapD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #14 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !23
   %isnull = icmp eq ptr %0, null
@@ -1094,7 +1094,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17LuaPerlinNoiseMap7packOutEP9lua_StatePv(ptr noundef %L, ptr noundef %ptr) #9 align 2 personality ptr @__gxx_personality_v0 {
@@ -2639,7 +2639,7 @@ declare void @_ZN9PcgRandomC1Emm(ptr noundef nonnull align 8 dereferenceable(16)
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #1

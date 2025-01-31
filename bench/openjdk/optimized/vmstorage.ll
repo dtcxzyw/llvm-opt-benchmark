@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9VMStorage8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK9VMStorage8print_onEP12outputStream(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 4
   %4 = sext i8 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4

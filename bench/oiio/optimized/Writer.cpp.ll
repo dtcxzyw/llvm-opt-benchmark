@@ -55,7 +55,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm(i32 noundef %bitdepth, i32 noundef %packing, ptr nocapture noundef %buf, i64 noundef %size) local_unnamed_addr #4 {
+define hidden void @_ZN3dpx16EndianBufferSwapEiNS_7PackingEPvm(i32 noundef %bitdepth, i32 noundef %packing, ptr noundef captures(none) %buf, i64 noundef %size) local_unnamed_addr #4 {
 entry:
   switch i32 %bitdepth, label %sw.default [
     i32 8, label %sw.epilog
@@ -199,7 +199,7 @@ entry:
 declare void @_ZN3dpx6HeaderC1Ev(ptr noundef nonnull align 4 dereferenceable(2049)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3dpx6WriterD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN3dpx6WriterD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -212,7 +212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN3dpx6Writer5StartEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2080) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN3dpx6Writer5StartEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(2080) %this) local_unnamed_addr #6 align 2 {
 entry:
   ret void
 }
@@ -350,7 +350,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #2
 declare void @_ZN3dpx13GenericHeader19SetCreationTimeDateEl(ptr noundef nonnull align 4 dereferenceable(1664), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx6Writer12SetImageInfoEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) initializes((776, 778), (780, 788)) %this, i32 noundef %width, i32 noundef %height) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3dpx6Writer12SetImageInfoEjj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2080) initializes((776, 778), (780, 788)) %this, i32 noundef %width, i32 noundef %height) local_unnamed_addr #8 align 2 {
 entry:
   %imageOrientation.i = getelementptr inbounds nuw i8, ptr %this, i64 776
   store i16 0, ptr %imageOrientation.i, align 8
@@ -362,7 +362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3dpx6Writer16NextAvailElementEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2080) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK3dpx6Writer16NextAvailElementEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2080) %this) local_unnamed_addr #9 align 2 {
 entry:
   %invariant.gep = getelementptr inbounds nuw i8, ptr %this, i64 808
   br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
@@ -390,7 +390,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx6Writer12SetOutStreamEP9OutStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) initializes((2072, 2080)) %this, ptr noundef %fd) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3dpx6Writer12SetOutStreamEP9OutStream(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2080) initializes((2072, 2080)) %this, ptr noundef %fd) local_unnamed_addr #8 align 2 {
 entry:
   %fd2 = getelementptr inbounds nuw i8, ptr %this, i64 2072
   store ptr %fd, ptr %fd2, align 8
@@ -427,7 +427,7 @@ declare void @_ZN3dpx6Header16CalculateOffsetsEv(ptr noundef nonnull align 4 der
 declare noundef zeroext i1 @_ZN3dpx6Header5WriteEP9OutStream(ptr noundef nonnull align 4 dereferenceable(2049), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx6Writer11SetUserDataEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) initializes((40, 44)) %this, i64 noundef %size) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3dpx6Writer11SetUserDataEl(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2080) initializes((40, 44)) %this, i64 noundef %size) local_unnamed_addr #8 align 2 {
 entry:
   %conv = trunc i64 %size to i32
   %userSize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -436,7 +436,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3dpx6Writer13WriteUserDataEPv(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %this, ptr noundef %data) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN3dpx6Writer13WriteUserDataEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(2080) %this, ptr noundef %data) local_unnamed_addr #5 align 2 {
 entry:
   %userSize.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %userSize.i, align 8
@@ -518,7 +518,7 @@ return:                                           ; preds = %entry, %_ZN3dpx13Ge
 declare void @_ZN3dpx13GenericHeader25CalculateNumberOfElementsEv(ptr noundef nonnull align 4 dereferenceable(1664)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3dpx6Writer12WritePadDataEi(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %this, i32 noundef %alignment) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3dpx6Writer12WritePadDataEi(ptr noundef nonnull align 8 captures(none) dereferenceable(2080) %this, i32 noundef %alignment) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fileLoc = getelementptr inbounds nuw i8, ptr %this, i64 2064
   %0 = load i64, ptr %fileLoc, align 8
@@ -553,21 +553,14 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i.i.i
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 24
   %3 = load ptr, ptr %vfn, align 8
   %call14 = invoke noundef i64 %3(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %pad.sroa.0.0, i64 noundef %conv9)
-          to label %invoke.cont13 unwind label %lpad12
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit unwind label %lpad12
 
-invoke.cont13:                                    ; preds = %invoke.cont
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont
   %4 = load i64, ptr %fileLoc, align 8
   %add16 = add i64 %4, %call14
   store i64 %add16, ptr %fileLoc, align 8
   %cmp19.not.not = icmp eq i64 %add16, %conv5
-  %tobool.not.i.i.i = icmp eq ptr %pad.sroa.0.0, null
-  br i1 %tobool.not.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %if.then.i.i.i
-
-if.then.i.i.i:                                    ; preds = %invoke.cont13
   tail call void @_ZdlPv(ptr noundef nonnull %pad.sroa.0.0) #18
-  br label %_ZNSt6vectorIhSaIhEED2Ev.exit
-
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %invoke.cont13, %if.then.i.i.i
   br i1 %cmp19.not.not, label %if.end21, label %return
 
 lpad12:                                           ; preds = %invoke.cont
@@ -594,7 +587,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i9, %lp
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3dpx6Writer12WriteElementEiPvl(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %this, i32 noundef %element, ptr noundef %data, i64 noundef %count) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3dpx6Writer12WriteElementEiPvl(ptr noundef nonnull align 8 captures(none) dereferenceable(2080) %this, i32 noundef %element, ptr noundef %data, i64 noundef %count) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %or.cond = icmp ugt i32 %element, 7
   br i1 %or.cond, label %return, label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
@@ -635,17 +628,17 @@ if.then.i:                                        ; preds = %if.end5
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %6 = load ptr, ptr %vfn.i, align 8
   %call14.i = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %call5.i.i.i.i1.i.i7.i, i64 noundef %conv9.i)
-          to label %invoke.cont13.i unwind label %lpad12.i
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit.i unwind label %lpad12.i
 
-invoke.cont13.i:                                  ; preds = %if.then.i
+_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i
   %7 = load i64, ptr %fileLoc.i, align 8
   %add16.i = add i64 %7, %call14.i
   store i64 %add16.i, ptr %fileLoc.i, align 8
   %cmp19.not.not.i = icmp eq i64 %add16.i, %conv5.i
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i7.i) #18
-  br i1 %cmp19.not.not.i, label %invoke.cont13.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge, label %return
+  br i1 %cmp19.not.not.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge, label %return
 
-invoke.cont13.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge: ; preds = %invoke.cont13.i
+_ZNSt6vectorIhSaIhEED2Ev.exit.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge: ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i
   %.pre = load i64, ptr %fileLoc.i, align 8
   br label %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit
 
@@ -655,8 +648,8 @@ lpad12.i:                                         ; preds = %if.then.i
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i7.i) #18
   resume { ptr, i32 } %8
 
-_ZN3dpx13GenericHeader13SetDataOffsetEij.exit:    ; preds = %invoke.cont13.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge, %if.end5
-  %9 = phi i64 [ %.pre, %invoke.cont13.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge ], [ %.fr.i, %if.end5 ]
+_ZN3dpx13GenericHeader13SetDataOffsetEij.exit:    ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge, %if.end5
+  %9 = phi i64 [ %.pre, %_ZNSt6vectorIhSaIhEED2Ev.exit.i._ZN3dpx13GenericHeader13SetDataOffsetEij.exit_crit_edge ], [ %.fr.i, %if.end5 ]
   %conv = trunc i64 %9 to i32
   %dataOffset.i = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %conv, ptr %dataOffset.i, align 8
@@ -671,8 +664,8 @@ _ZN3dpx13GenericHeader13SetDataOffsetEij.exit:    ; preds = %invoke.cont13.i._ZN
   %cmp.i11 = icmp eq i64 %call.i, %count
   br label %return
 
-return:                                           ; preds = %invoke.cont13.i, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %entry, %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit
-  %retval.0 = phi i1 [ %cmp.i11, %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit ], [ false, %entry ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %invoke.cont13.i ]
+return:                                           ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit.i, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %entry, %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit
+  %retval.0 = phi i1 [ %cmp.i11, %_ZN3dpx13GenericHeader13SetDataOffsetEij.exit ], [ false, %entry ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit.i ]
   ret i1 %retval.0
 }
 
@@ -748,9 +741,9 @@ if.then.i:                                        ; preds = %if.end5
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 24
   %6 = load ptr, ptr %vfn.i, align 8
   %call14.i = invoke noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %call5.i.i.i.i1.i.i7.i, i64 noundef %conv9.i)
-          to label %invoke.cont13.i unwind label %lpad12.i
+          to label %_ZNSt6vectorIhSaIhEED2Ev.exit.i unwind label %lpad12.i
 
-invoke.cont13.i:                                  ; preds = %if.then.i
+_ZNSt6vectorIhSaIhEED2Ev.exit.i:                  ; preds = %if.then.i
   %7 = load i64, ptr %fileLoc.i, align 8
   %add16.i = add i64 %7, %call14.i
   store i64 %add16.i, ptr %fileLoc.i, align 8
@@ -764,7 +757,7 @@ lpad12.i:                                         ; preds = %if.then.i
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i1.i.i7.i) #18
   resume { ptr, i32 } %8
 
-if.end8:                                          ; preds = %if.end5, %invoke.cont13.i
+if.end8:                                          ; preds = %if.end5, %_ZNSt6vectorIhSaIhEED2Ev.exit.i
   %cmp9 = icmp eq i32 %element, 0
   %9 = load i64, ptr %fileLoc.i, align 8
   %conv = trunc i64 %9 to i32
@@ -1044,8 +1037,8 @@ if.end246:                                        ; preds = %delete.notnull244, 
   %tobool247 = trunc i8 %37 to i1
   br label %return
 
-return:                                           ; preds = %if.then77, %delete.notnull, %invoke.cont13.i, %_ZNK3dpx13GenericHeader12ImagePackingEi.exit, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %entry, %if.end246
-  %retval.0 = phi i1 [ %tobool247, %if.end246 ], [ false, %entry ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %_ZNK3dpx13GenericHeader12ImagePackingEi.exit ], [ false, %invoke.cont13.i ], [ %call78, %delete.notnull ], [ %call78, %if.then77 ]
+return:                                           ; preds = %if.then77, %delete.notnull, %_ZNSt6vectorIhSaIhEED2Ev.exit.i, %_ZNK3dpx13GenericHeader12ImagePackingEi.exit, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit, %entry, %if.end246
+  %retval.0 = phi i1 [ %tobool247, %if.end246 ], [ false, %entry ], [ false, %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit ], [ false, %_ZNK3dpx13GenericHeader12ImagePackingEi.exit ], [ false, %_ZNSt6vectorIhSaIhEED2Ev.exit.i ], [ %call78, %delete.notnull ], [ %call78, %if.then77 ]
   ret i1 %retval.0
 }
 
@@ -1061,10 +1054,10 @@ declare noundef i32 @_ZNK3dpx13GenericHeader26ImageElementComponentCountEi(ptr n
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3dpx6Writer12WriteThroughEPvjjiijjPc(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %this, ptr noundef %data, i32 noundef %width, i32 noundef %height, i32 noundef %noc, i32 noundef %bytes, i32 noundef %eolnPad, i32 noundef %eoimPad, ptr noundef %blank) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN3dpx6Writer12WriteThroughEPvjjiijjPc(ptr noundef nonnull align 8 captures(none) dereferenceable(2080) %this, ptr noundef %data, i32 noundef %width, i32 noundef %height, i32 noundef %noc, i32 noundef %bytes, i32 noundef %eolnPad, i32 noundef %eoimPad, ptr noundef %blank) local_unnamed_addr #5 align 2 {
 entry:
   %conv = zext i32 %width to i64
   %conv2 = zext i32 %height to i64
@@ -3777,7 +3770,7 @@ declare noundef zeroext i1 @_ZN3dpx6Header15WriteOffsetDataEP9OutStream(ptr noun
 declare noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare noundef zeroext i1 @_ZNK3dpx6Header17DetermineByteSwapEj(ptr noundef nonnull align 4 dereferenceable(2049), i32 noundef) local_unnamed_addr #1
 
@@ -3798,16 +3791,16 @@ entry:
 declare i32 @llvm.umax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 attributes #0 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

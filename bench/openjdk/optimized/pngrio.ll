@@ -26,7 +26,7 @@ define hidden void @png_read_data(ptr noalias noundef %0, ptr noundef %1, i64 no
 declare void @png_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_default_read_data(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) #0 {
+define hidden void @png_default_read_data(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %10, label %5
 
@@ -46,7 +46,7 @@ define hidden void @png_default_read_data(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @png_set_read_fn(ptr noalias noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {

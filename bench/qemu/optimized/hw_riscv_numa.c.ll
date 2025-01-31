@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.MACHINE_GET_CLASS = private unnamed_addr constant [18 x i8] c"MACHINE_GET_CLASS\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 1, 0) i32 @riscv_socket_count(ptr nocapture noundef readonly %ms) local_unnamed_addr #0 {
+define dso_local range(i32 1, 0) i32 @riscv_socket_count(ptr noundef readonly captures(none) %ms) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -41,7 +41,7 @@ cond.end:                                         ; preds = %numa_enabled.exit, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @riscv_socket_first_hartid(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
+define dso_local i32 @riscv_socket_first_hartid(ptr noundef readonly captures(none) %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
 entry:
   %smp = getelementptr inbounds nuw i8, ptr %ms, i64 288
   %0 = load i32, ptr %smp, align 8
@@ -97,7 +97,7 @@ return:                                           ; preds = %for.end, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @riscv_socket_last_hartid(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
+define dso_local i32 @riscv_socket_last_hartid(ptr noundef readonly captures(none) %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -158,7 +158,7 @@ return:                                           ; preds = %cond.true, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @riscv_socket_hart_count(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
+define dso_local i32 @riscv_socket_hart_count(ptr noundef readonly captures(none) %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -245,7 +245,7 @@ return:                                           ; preds = %for.cond.preheader.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @riscv_socket_check_hartids(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @riscv_socket_check_hartids(ptr noundef readonly captures(none) %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -343,7 +343,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @riscv_socket_mem_offset(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
+define dso_local i64 @riscv_socket_mem_offset(ptr noundef readonly captures(none) %ms, i32 noundef %socket_id) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -392,7 +392,7 @@ return:                                           ; preds = %for.cond.preheader,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @riscv_socket_mem_size(ptr nocapture noundef readonly %ms, i32 noundef %socket_id) local_unnamed_addr #0 {
+define dso_local i64 @riscv_socket_mem_size(ptr noundef readonly captures(none) %ms, i32 noundef %socket_id) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -430,7 +430,7 @@ return:                                           ; preds = %cond.true1, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_socket_fdt_write_id(ptr nocapture noundef readonly %ms, ptr noundef %node_name, i32 noundef %socket_id) local_unnamed_addr #2 {
+define dso_local void @riscv_socket_fdt_write_id(ptr noundef readonly captures(none) %ms, ptr noundef %node_name, i32 noundef %socket_id) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -455,7 +455,7 @@ if.end:                                           ; preds = %entry, %if.then, %n
 declare i32 @qemu_fdt_setprop_cell(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_socket_fdt_write_distance_matrix(ptr nocapture noundef readonly %ms) local_unnamed_addr #2 {
+define dso_local void @riscv_socket_fdt_write_distance_matrix(ptr noundef readonly captures(none) %ms) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr i8, ptr %ms, i64 336
   %ms.val = load ptr, ptr %0, align 8
@@ -581,7 +581,7 @@ declare i32 @qemu_fdt_setprop(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @riscv_numa_cpu_index_to_props(ptr noalias nocapture writeonly sret(%struct.CpuInstanceProperties) align 8 %agg.result, ptr noundef %ms, i32 noundef %cpu_index) local_unnamed_addr #2 {
+define dso_local void @riscv_numa_cpu_index_to_props(ptr noalias writeonly sret(%struct.CpuInstanceProperties) align 8 captures(none) %agg.result, ptr noundef %ms, i32 noundef %cpu_index) local_unnamed_addr #2 {
 entry:
   %call.i = tail call ptr @object_get_class(ptr noundef %ms) #10
   %call1.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef 23, ptr noundef nonnull @__func__.MACHINE_GET_CLASS) #10
@@ -609,10 +609,10 @@ if.end:                                           ; preds = %entry
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @riscv_numa_get_default_cpu_node_id(ptr nocapture noundef readonly %ms, i32 noundef %idx) local_unnamed_addr #2 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @riscv_numa_get_default_cpu_node_id(ptr noundef readonly captures(none) %ms, i32 noundef %idx) local_unnamed_addr #2 {
 entry:
   %numa_state = getelementptr inbounds nuw i8, ptr %ms, i64 336
   %0 = load ptr, ptr %numa_state, align 8
@@ -655,7 +655,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #3
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @riscv_numa_possible_cpu_arch_ids(ptr nocapture noundef %ms) local_unnamed_addr #2 {
+define dso_local ptr @riscv_numa_possible_cpu_arch_ids(ptr noundef captures(none) %ms) local_unnamed_addr #2 {
 entry:
   %max_cpus1 = getelementptr inbounds nuw i8, ptr %ms, i64 320
   %0 = load i32, ptr %max_cpus1, align 8

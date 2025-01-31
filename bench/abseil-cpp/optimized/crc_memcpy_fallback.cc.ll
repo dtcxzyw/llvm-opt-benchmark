@@ -27,7 +27,7 @@ $_ZTIN4absl12crc_internal15CrcMemcpyEngineE = comdat any
 @_ZTIN4absl12crc_internal23FallbackCrcMemcpyEngineE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN4absl12crc_internal23FallbackCrcMemcpyEngineE, ptr @_ZTIN4absl12crc_internal15CrcMemcpyEngineE }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK4absl12crc_internal23FallbackCrcMemcpyEngine7ComputeEPvPKvmNS_8crc32c_tE(ptr nocapture nonnull readnone align 8 %this, ptr noalias nocapture noundef writeonly %dst, ptr noalias noundef %src, i64 noundef %length, i32 %initial_crc.coerce) unnamed_addr #0 align 2 {
+define dso_local i32 @_ZNK4absl12crc_internal23FallbackCrcMemcpyEngine7ComputeEPvPKvmNS_8crc32c_tE(ptr nonnull readnone align 8 captures(none) %this, ptr noalias noundef writeonly captures(none) %dst, ptr noalias noundef %src, i64 noundef %length, i32 %initial_crc.coerce) unnamed_addr #0 align 2 {
 entry:
   %cmp21 = icmp ugt i64 %length, 8192
   br i1 %cmp21, label %for.body, label %for.end
@@ -64,7 +64,7 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
 define dso_local { ptr, ptr } @_ZN4absl12crc_internal9CrcMemcpy22GetArchSpecificEnginesEv() local_unnamed_addr #0 align 2 {
@@ -82,7 +82,7 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12crc_internal9CrcMemcpy13GetTestEngineEii(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12crc_internal9CrcMemcpy13GetTestEngineEii(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) initializes((0, 8)) %agg.result, i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN4absl12crc_internal23FallbackCrcMemcpyEngineESt14default_deleteIS2_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #6, !noalias !7
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4absl12crc_internal23FallbackCrcMemcpyEngineE, i64 16), ptr %call.i, align 8, !noalias !7

@@ -101,7 +101,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.66 = private unnamed_addr constant [39 x i8] c"MPI: Unable to destroy context plugin.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @mpi_process_env(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mpi_process_env(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @slurm_getenvp(ptr noundef %2, ptr noundef nonnull @.str) #8
   %.not = icmp eq ptr %3, null
@@ -1182,7 +1182,7 @@ declare void @slurm_destroy_config_key_pair(ptr noundef) #1
 declare i32 @slurm_list_transfer_unique(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_match_keys(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_match_keys(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = tail call i32 @slurm_xstrcmp(ptr noundef %3, ptr noundef %4) #8
@@ -1610,10 +1610,10 @@ _plugin_idx.exit:                                 ; preds = %36
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare i32 @htonl(i32 noundef) local_unnamed_addr #3
@@ -2175,7 +2175,7 @@ define range(i32 -1, 1) i32 @mpi_conf_recv_stepd(i32 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2794,7 +2794,7 @@ declare ptr @plugin_get_plugins_of_type(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_load_plugin(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @_load_plugin(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = load ptr, ptr @ops, align 8
   %4 = load i32, ptr @g_context_cnt, align 4
   %5 = sext i32 %4 to i64
@@ -2837,7 +2837,7 @@ declare ptr @slurm_s_p_hashtbl_create(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_get_extra_conf_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @slurm_s_p_parse_file(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 

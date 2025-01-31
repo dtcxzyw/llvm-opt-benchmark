@@ -96,7 +96,7 @@ sw.epilog:                                        ; preds = %sw.bb13, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr nocapture noundef readonly %data, i64 noundef %n, i64 noundef %seed) local_unnamed_addr #2 {
+define noundef i64 @_ZN7rocksdb6Hash64EPKcmm(ptr noundef readonly captures(none) %data, i64 noundef %n, i64 noundef %seed) local_unnamed_addr #2 {
 entry:
   %acc.i.i.sroa.0.i = alloca [4 x i64], align 32
   %acc.i.i.sroa.11.i = alloca [4 x i64], align 32
@@ -735,7 +735,7 @@ _ZL29ROCKSDB_XXPH3_64bits_withSeedPKvmm.exit:     ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i64 @_ZN7rocksdb6Hash64EPKcm(ptr nocapture noundef readonly %data, i64 noundef %n) local_unnamed_addr #3 {
+define noundef i64 @_ZN7rocksdb6Hash64EPKcm(ptr noundef readonly captures(none) %data, i64 noundef %n) local_unnamed_addr #3 {
 entry:
   %cmp.i = icmp ult i64 %n, 17
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -1076,7 +1076,7 @@ _ZL20ROCKSDB_XXPH3_64bitsPKvm.exit:               ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN7rocksdb21GetSlicePartsNPHash64ERKNS_10SlicePartsEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %data, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN7rocksdb21GetSlicePartsNPHash64ERKNS_10SlicePartsEm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %data, i64 noundef %seed) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %concat_data = alloca %"class.std::__cxx11::basic_string", align 8
   %num_parts = getelementptr inbounds nuw i8, ptr %data, i64 8
@@ -1165,29 +1165,29 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define { i64, i64 } @_ZN7rocksdb7Hash128EPKcmm(ptr nocapture noundef readonly %data, i64 noundef %n, i64 noundef %seed) local_unnamed_addr #6 {
+define { i64, i64 } @_ZN7rocksdb7Hash128EPKcmm(ptr noundef readonly captures(none) %data, i64 noundef %n, i64 noundef %seed) local_unnamed_addr #6 {
 entry:
-  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef %data, i64 noundef %n, i64 noundef %seed) #15
+  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr noundef captures(none) %data, i64 noundef %n, i64 noundef %seed) #15
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
+declare { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define { i64, i64 } @_ZN7rocksdb7Hash128EPKcm(ptr nocapture noundef readonly %data, i64 noundef %n) local_unnamed_addr #6 {
+define { i64, i64 } @_ZN7rocksdb7Hash128EPKcm(ptr noundef readonly captures(none) %data, i64 noundef %n) local_unnamed_addr #6 {
 entry:
-  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef %data, i64 noundef %n) #15
+  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits(ptr noundef captures(none) %data, i64 noundef %n) #15
   ret { i64, i64 } %call
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare { i64, i64 } @ROCKSDB_XXH3_128bits(ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define void @_ZN7rocksdb8Hash2x64EPKcmPmS2_(ptr nocapture noundef readonly %data, i64 noundef %n, ptr nocapture noundef writeonly initializes((0, 8)) %high64, ptr nocapture noundef writeonly initializes((0, 8)) %low64) local_unnamed_addr #8 {
+define void @_ZN7rocksdb8Hash2x64EPKcmPmS2_(ptr noundef readonly captures(none) %data, i64 noundef %n, ptr noundef writeonly captures(none) initializes((0, 8)) %high64, ptr noundef writeonly captures(none) initializes((0, 8)) %low64) local_unnamed_addr #8 {
 entry:
-  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef %data, i64 noundef %n) #15
+  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits(ptr noundef captures(none) %data, i64 noundef %n) #15
   %0 = extractvalue { i64, i64 } %call, 0
   %1 = extractvalue { i64, i64 } %call, 1
   store i64 %1, ptr %high64, align 8
@@ -1196,9 +1196,9 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define void @_ZN7rocksdb8Hash2x64EPKcmmPmS2_(ptr nocapture noundef readonly %data, i64 noundef %n, i64 noundef %seed, ptr nocapture noundef writeonly initializes((0, 8)) %high64, ptr nocapture noundef writeonly initializes((0, 8)) %low64) local_unnamed_addr #8 {
+define void @_ZN7rocksdb8Hash2x64EPKcmmPmS2_(ptr noundef readonly captures(none) %data, i64 noundef %n, i64 noundef %seed, ptr noundef writeonly captures(none) initializes((0, 8)) %high64, ptr noundef writeonly captures(none) initializes((0, 8)) %low64) local_unnamed_addr #8 {
 entry:
-  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef %data, i64 noundef %n, i64 noundef %seed) #15
+  %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr noundef captures(none) %data, i64 noundef %n, i64 noundef %seed) #15
   %0 = extractvalue { i64, i64 } %call, 0
   %1 = extractvalue { i64, i64 } %call, 1
   store i64 %1, ptr %high64, align 8
@@ -1207,7 +1207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb17BijectiveHash2x64EmmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, i64 noundef %seed, ptr nocapture noundef writeonly initializes((0, 8)) %out_high64, ptr nocapture noundef writeonly initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
+define void @_ZN7rocksdb17BijectiveHash2x64EmmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, i64 noundef %seed, ptr noundef writeonly captures(none) initializes((0, 8)) %out_high64, ptr noundef writeonly captures(none) initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
 entry:
   %sub = sub i64 6455697860950631241, %seed
   %add = add i64 %seed, -4466874330221494952
@@ -1273,10 +1273,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb19BijectiveUnhash2x64EmmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, i64 noundef %seed, ptr nocapture noundef writeonly initializes((0, 8)) %out_high64, ptr nocapture noundef writeonly initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
+define void @_ZN7rocksdb19BijectiveUnhash2x64EmmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, i64 noundef %seed, ptr noundef writeonly captures(none) initializes((0, 8)) %out_high64, ptr noundef writeonly captures(none) initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
 entry:
   %sub = sub i64 6455697860950631241, %seed
   %add = add i64 %seed, -4466874330221494952
@@ -1343,7 +1343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, ptr nocapture noundef writeonly initializes((0, 8)) %out_high64, ptr nocapture noundef writeonly initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
+define void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, ptr noundef writeonly captures(none) initializes((0, 8)) %out_high64, ptr noundef writeonly captures(none) initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
 entry:
   %0 = xor i64 %in_high64, %in_low64
   %xor1.i = xor i64 %0, 6455697860950631241
@@ -1407,7 +1407,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb19BijectiveUnhash2x64EmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, ptr nocapture noundef writeonly initializes((0, 8)) %out_high64, ptr nocapture noundef writeonly initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
+define void @_ZN7rocksdb19BijectiveUnhash2x64EmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, ptr noundef writeonly captures(none) initializes((0, 8)) %out_high64, ptr noundef writeonly captures(none) initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
 entry:
   %shr.i.i = lshr i64 %in_low64, 32
   %xor.i.i = xor i64 %shr.i.i, %in_low64
@@ -1472,7 +1472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr nocapture noundef readonly %input, i64 noundef range(i64 241, 0) %len) unnamed_addr #2 {
+define internal fastcc noundef i64 @_ZL32XXPH3_hashLong_64b_defaultSecretPKhm(ptr noundef readonly captures(none) %input, i64 noundef range(i64 241, 0) %len) unnamed_addr #2 {
 entry:
   %acc.i.sroa.0 = alloca [4 x i64], align 32
   %acc.i.sroa.9 = alloca [4 x i64], align 32
@@ -1685,16 +1685,16 @@ _ZL28XXPH3_hashLong_internal_loopPmPKhmS1_m16XXPH3_accWidth_e.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #11
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.bswap.i64(i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="non-leaf" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-cldemote,-clwb,-clzero,-cmpccxadd,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-pconfig,-prefetchi,-prefetchwt1,-ptwrite,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

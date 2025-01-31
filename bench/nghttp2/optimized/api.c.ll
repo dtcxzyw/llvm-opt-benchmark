@@ -216,7 +216,7 @@ entry:
 declare i32 @llhttp__internal_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @llhttp_get_type(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define zeroext i8 @llhttp_get_type(ptr noundef readonly captures(none) %parser) local_unnamed_addr #2 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %parser, i64 72
   %0 = load i8, ptr %type, align 8
@@ -224,7 +224,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @llhttp_get_http_major(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define zeroext i8 @llhttp_get_http_major(ptr noundef readonly captures(none) %parser) local_unnamed_addr #2 {
 entry:
   %http_major = getelementptr inbounds nuw i8, ptr %parser, i64 74
   %0 = load i8, ptr %http_major, align 2
@@ -232,7 +232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @llhttp_get_http_minor(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define zeroext i8 @llhttp_get_http_minor(ptr noundef readonly captures(none) %parser) local_unnamed_addr #2 {
 entry:
   %http_minor = getelementptr inbounds nuw i8, ptr %parser, i64 75
   %0 = load i8, ptr %http_minor, align 1
@@ -240,7 +240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @llhttp_get_method(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define zeroext i8 @llhttp_get_method(ptr noundef readonly captures(none) %parser) local_unnamed_addr #2 {
 entry:
   %method = getelementptr inbounds nuw i8, ptr %parser, i64 73
   %0 = load i8, ptr %method, align 1
@@ -248,7 +248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @llhttp_get_status_code(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define range(i32 0, 65536) i32 @llhttp_get_status_code(ptr noundef readonly captures(none) %parser) local_unnamed_addr #2 {
 entry:
   %status_code = getelementptr inbounds nuw i8, ptr %parser, i64 82
   %0 = load i16, ptr %status_code, align 2
@@ -257,7 +257,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i8 @llhttp_get_upgrade(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define zeroext i8 @llhttp_get_upgrade(ptr noundef readonly captures(none) %parser) local_unnamed_addr #2 {
 entry:
   %upgrade = getelementptr inbounds nuw i8, ptr %parser, i64 78
   %0 = load i8, ptr %upgrade, align 2
@@ -294,14 +294,14 @@ entry:
 declare i32 @llhttp__internal_execute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llhttp_settings_init(ptr nocapture noundef writeonly initializes((0, 184)) %settings) local_unnamed_addr #3 {
+define void @llhttp_settings_init(ptr noundef writeonly captures(none) initializes((0, 184)) %settings) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %settings, i8 0, i64 184, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define i32 @llhttp_finish(ptr noundef %parser) local_unnamed_addr #0 {
@@ -358,7 +358,7 @@ return:                                           ; preds = %do.end, %entry, %sw
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_pause(ptr nocapture noundef %parser) local_unnamed_addr #6 {
+define void @llhttp_pause(ptr noundef captures(none) %parser) local_unnamed_addr #6 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %0 = load i32, ptr %error, align 8
@@ -376,7 +376,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_resume(ptr nocapture noundef %parser) local_unnamed_addr #6 {
+define void @llhttp_resume(ptr noundef captures(none) %parser) local_unnamed_addr #6 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %0 = load i32, ptr %error, align 8
@@ -392,7 +392,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_resume_after_upgrade(ptr nocapture noundef %parser) local_unnamed_addr #6 {
+define void @llhttp_resume_after_upgrade(ptr noundef captures(none) %parser) local_unnamed_addr #6 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %0 = load i32, ptr %error, align 8
@@ -408,7 +408,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @llhttp_get_errno(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define i32 @llhttp_get_errno(ptr noundef readonly captures(none) %parser) local_unnamed_addr #2 {
 entry:
   %error = getelementptr inbounds nuw i8, ptr %parser, i64 24
   %0 = load i32, ptr %error, align 8
@@ -416,7 +416,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @llhttp_get_error_reason(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define ptr @llhttp_get_error_reason(ptr noundef readonly captures(none) %parser) local_unnamed_addr #2 {
 entry:
   %reason = getelementptr inbounds nuw i8, ptr %parser, i64 32
   %0 = load ptr, ptr %reason, align 8
@@ -424,7 +424,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llhttp_set_error_reason(ptr nocapture noundef writeonly initializes((32, 40)) %parser, ptr noundef %reason) local_unnamed_addr #3 {
+define void @llhttp_set_error_reason(ptr noundef writeonly captures(none) initializes((32, 40)) %parser, ptr noundef %reason) local_unnamed_addr #3 {
 entry:
   %reason1 = getelementptr inbounds nuw i8, ptr %parser, i64 32
   store ptr %reason, ptr %reason1, align 8
@@ -432,7 +432,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @llhttp_get_error_pos(ptr nocapture noundef readonly %parser) local_unnamed_addr #2 {
+define ptr @llhttp_get_error_pos(ptr noundef readonly captures(none) %parser) local_unnamed_addr #2 {
 entry:
   %error_pos = getelementptr inbounds nuw i8, ptr %parser, i64 40
   %0 = load ptr, ptr %error_pos, align 8
@@ -882,7 +882,7 @@ return:                                           ; preds = %entry, %sw.bb98, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_set_lenient_headers(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
+define void @llhttp_set_lenient_headers(ptr noundef captures(none) %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp ne i32 %enabled, 0
   %lenient_flags2 = getelementptr inbounds nuw i8, ptr %parser, i64 77
@@ -895,7 +895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_set_lenient_chunked_length(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
+define void @llhttp_set_lenient_chunked_length(ptr noundef captures(none) %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
   %lenient_flags2 = getelementptr inbounds nuw i8, ptr %parser, i64 77
@@ -908,7 +908,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_set_lenient_keep_alive(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
+define void @llhttp_set_lenient_keep_alive(ptr noundef captures(none) %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
   %lenient_flags2 = getelementptr inbounds nuw i8, ptr %parser, i64 77
@@ -921,7 +921,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_set_lenient_transfer_encoding(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
+define void @llhttp_set_lenient_transfer_encoding(ptr noundef captures(none) %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
   %lenient_flags2 = getelementptr inbounds nuw i8, ptr %parser, i64 77
@@ -934,7 +934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_set_lenient_version(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
+define void @llhttp_set_lenient_version(ptr noundef captures(none) %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
   %lenient_flags2 = getelementptr inbounds nuw i8, ptr %parser, i64 77
@@ -947,7 +947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_set_lenient_data_after_close(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
+define void @llhttp_set_lenient_data_after_close(ptr noundef captures(none) %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
   %lenient_flags2 = getelementptr inbounds nuw i8, ptr %parser, i64 77
@@ -960,7 +960,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_set_lenient_optional_lf_after_cr(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
+define void @llhttp_set_lenient_optional_lf_after_cr(ptr noundef captures(none) %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
   %lenient_flags2 = getelementptr inbounds nuw i8, ptr %parser, i64 77
@@ -973,7 +973,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @llhttp_set_lenient_optional_crlf_after_chunk(ptr nocapture noundef %parser, i32 noundef %enabled) local_unnamed_addr #6 {
+define void @llhttp_set_lenient_optional_crlf_after_chunk(ptr noundef captures(none) %parser, i32 noundef %enabled) local_unnamed_addr #6 {
 entry:
   %tobool.not = icmp eq i32 %enabled, 0
   %lenient_flags2 = getelementptr inbounds nuw i8, ptr %parser, i64 77
@@ -986,7 +986,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_message_begin(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_message_begin(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1040,7 +1040,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_url_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_url_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1095,7 +1095,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_status_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_status_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1150,7 +1150,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_method_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_method_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1205,7 +1205,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_version_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_version_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1260,7 +1260,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_header_field_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_header_field_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1315,7 +1315,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_header_value_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_header_value_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1338,7 +1338,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_headers_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_headers_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1361,7 +1361,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_message_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_message_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1416,7 +1416,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_chunk_header(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_chunk_header(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1471,7 +1471,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_chunk_extension_name_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_chunk_extension_name_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1526,7 +1526,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_chunk_extension_value_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_chunk_extension_value_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1549,7 +1549,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_chunk_complete(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_chunk_complete(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1572,7 +1572,7 @@ do.end:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @llhttp__on_reset(ptr noundef %s, ptr nocapture noundef readnone %p, ptr nocapture noundef readnone %endp) local_unnamed_addr #0 {
+define i32 @llhttp__on_reset(ptr noundef %s, ptr noundef readnone captures(none) %p, ptr noundef readnone captures(none) %endp) local_unnamed_addr #0 {
 entry:
   %settings1 = getelementptr inbounds nuw i8, ptr %s, i64 88
   %0 = load ptr, ptr %settings1, align 8
@@ -1622,7 +1622,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.nghttp2_queue_back = private unnamed_addr constant [42 x i8] c"void *nghttp2_queue_back(nghttp2_queue *)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_queue_init(ptr nocapture noundef writeonly initializes((0, 16)) %queue) local_unnamed_addr #0 {
+define hidden void @nghttp2_queue_init(ptr noundef writeonly captures(none) initializes((0, 16)) %queue) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %queue, i8 0, i64 16, i1 false)
   ret void
@@ -42,10 +42,10 @@ if.end:                                           ; preds = %while.body, %if.els
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 -901, 1) i32 @nghttp2_queue_push(ptr nocapture noundef %queue, ptr noundef %data) local_unnamed_addr #3 {
+define hidden range(i32 -901, 1) i32 @nghttp2_queue_push(ptr noundef captures(none) %queue, ptr noundef %data) local_unnamed_addr #3 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #9
   %tobool.not = icmp eq ptr %call, null
@@ -80,7 +80,7 @@ return:                                           ; preds = %if.then3, %if.else,
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_queue_pop(ptr nocapture noundef %queue) local_unnamed_addr #1 {
+define hidden void @nghttp2_queue_pop(ptr noundef captures(none) %queue) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -112,7 +112,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @nghttp2_queue_front(ptr nocapture noundef readonly %queue) local_unnamed_addr #1 {
+define hidden ptr @nghttp2_queue_front(ptr noundef readonly captures(none) %queue) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -128,7 +128,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @nghttp2_queue_back(ptr nocapture noundef readonly %queue) local_unnamed_addr #1 {
+define hidden ptr @nghttp2_queue_back(ptr noundef readonly captures(none) %queue) local_unnamed_addr #1 {
 entry:
   %back = getelementptr inbounds nuw i8, ptr %queue, i64 8
   %0 = load ptr, ptr %back, align 8
@@ -145,7 +145,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @nghttp2_queue_empty(ptr nocapture noundef readonly %queue) local_unnamed_addr #6 {
+define hidden range(i32 0, 2) i32 @nghttp2_queue_empty(ptr noundef readonly captures(none) %queue) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %queue, align 8
   %cmp = icmp eq ptr %0, null
@@ -154,7 +154,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

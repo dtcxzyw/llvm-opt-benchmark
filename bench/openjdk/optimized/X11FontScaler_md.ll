@@ -198,7 +198,7 @@ declare i32 @XFreeFontNames(ptr noundef) local_unnamed_addr #1
 declare void @awt_output_flush(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @AWTLoadFont(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define void @AWTLoadFont(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %3 = load ptr, ptr @jvm, align 8
   %4 = tail call ptr @JNU_GetEnv(ptr noundef %3, i32 noundef 65538) #8
@@ -388,42 +388,42 @@ define void @AWTFreeFont(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @XFreeFont(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @AWTFontMinByte1(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @AWTFontMinByte1(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @AWTFontMaxByte1(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @AWTFontMaxByte1(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @AWTFontMinCharOrByte2(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @AWTFontMinCharOrByte2(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @AWTFontMaxCharOrByte2(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @AWTFontMaxCharOrByte2(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @AWTFontDefaultChar(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @AWTFontDefaultChar(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @AWTFontPerChar(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @AWTFontPerChar(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -440,21 +440,21 @@ define nonnull ptr @AWTFontMaxBounds(ptr noundef readnone %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @AWTFontAscent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @AWTFontAscent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @AWTFontDescent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @AWTFontDescent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @AWTFontTextExtents16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define void @AWTFontTextExtents16(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -558,16 +558,16 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare i32 @XQueryTextExtents16(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @AWTFreeChar(ptr nocapture noundef %0) local_unnamed_addr #5 {
+define void @AWTFreeChar(ptr noundef captures(none) %0) local_unnamed_addr #5 {
   tail call void @free(ptr noundef %0) #8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @AWTFontGenerateImage(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i64 @AWTFontGenerateImage(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1203,34 +1203,34 @@ declare i32 @XDrawString16(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i
 declare ptr @XGetImage(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i16 @AWTCharAdvance(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define signext i16 @AWTCharAdvance(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i16, ptr %2, align 2
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i16 @AWTCharLBearing(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define signext i16 @AWTCharLBearing(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load i16, ptr %0, align 2
   ret i16 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i16 @AWTCharRBearing(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define signext i16 @AWTCharRBearing(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i16 @AWTCharAscent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define signext i16 @AWTCharAscent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %3 = load i16, ptr %2, align 2
   ret i16 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define signext i16 @AWTCharDescent(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define signext i16 @AWTCharDescent(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i16, ptr %2, align 2
   ret i16 %3

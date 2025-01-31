@@ -991,7 +991,7 @@ ARKodeSPRKTable_Alloc.exit.thread:                ; preds = %0, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @ARKodeSPRKTable_Create(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #6 {
+define noalias noundef ptr @ARKodeSPRKTable_Create(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #6 {
   %5 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #13
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.loopexit, label %6
@@ -1147,7 +1147,7 @@ ARKodeSymplecticEuler.exit:                       ; preds = %9, %ARKodeSPRKTable
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ARKodeSPRKTable_LoadByName(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @ARKodeSPRKTable_LoadByName(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(22) @.str) #15
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %3, label %12
@@ -1293,10 +1293,10 @@ ARKodeSymplecticEuler.exit:                       ; preds = %10, %ARKodeSPRKTabl
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @ARKodeSPRKTable_Copy(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define noalias noundef ptr @ARKodeSPRKTable_Copy(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %calloc.i = tail call dereferenceable_or_null(24) ptr @calloc(i64 1, i64 24)
@@ -1373,7 +1373,7 @@ ARKodeSPRKTable_Alloc.exit:                       ; preds = %1, %ARKodeSPRKTable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ARKodeSPRKTable_Space(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #9 {
+define void @ARKodeSPRKTable_Space(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #9 {
   store i64 2, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1384,10 +1384,10 @@ define void @ARKodeSPRKTable_Space(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define void @ARKodeSPRKTable_Write(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @ARKodeSPRKTable_Write(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8
@@ -1403,7 +1403,7 @@ define void @ARKodeSPRKTable_Write(ptr nocapture noundef readonly %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
+define range(i32 -20, 1) i32 @ARKodeSPRKTable_ToButcher(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = tail call ptr @ARKodeButcherTable_Alloc(i32 noundef %5, i32 noundef 0) #14

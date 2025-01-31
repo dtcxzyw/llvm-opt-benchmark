@@ -347,7 +347,7 @@ define hidden noundef i32 @_ZN17CompilationPolicy14compiler_countE9CompLevel(i8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17CompilationPolicy16must_be_compiledERK12methodHandlei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17CompilationPolicy16must_be_compiledERK12methodHandlei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr @ReplayCompiles, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %_ZN13CompileBroker23should_compile_new_jobsEv.exit, label %5
@@ -407,7 +407,7 @@ _ZN13CompileBroker23should_compile_new_jobsEv.exit: ; preds = %28, %25, %22, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17CompilationPolicy15can_be_compiledERK12methodHandlei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17CompilationPolicy15can_be_compiledERK12methodHandlei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %4, align 8
@@ -993,7 +993,7 @@ declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare noundef zeroext i1 @_ZNK6Method17is_not_compilableEi(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17CompilationPolicy19can_be_osr_compiledERK12methodHandlei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = and i32 %1, 255
   %4 = icmp eq i32 %3, 255
   br i1 %4, label %5, label %24
@@ -2318,7 +2318,7 @@ _ZN17CompilationPolicy23handle_counter_overflowERK12methodHandle.exit46: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17CompilationPolicy23method_invocation_eventERK12methodHandleS2_9CompLevelP7nmethodP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1, i8 noundef signext %2, ptr nocapture readnone %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17CompilationPolicy23method_invocation_eventERK12methodHandleS2_9CompLevelP7nmethodP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nonnull readnone align 8 captures(none) %1, i8 noundef signext %2, ptr readnone captures(none) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call noundef zeroext i1 @_ZN17CompilationPolicy17should_create_mdoERK12methodHandle9CompLevel(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %2)
   br i1 %6, label %7, label %8
 
@@ -3222,7 +3222,7 @@ declare noundef ptr @_ZN10MethodData9bci_to_dpEi(ptr noundef nonnull align 8 der
 declare void @_ZN5frame25interpreter_frame_set_mdpEPh(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef signext i8 @_ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden noundef signext i8 @_ZN17CompilationPolicy10call_eventERK12methodHandle9CompLevelP6Thread(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call noundef i32 @_ZNK6Method22highest_osr_comp_levelEv(ptr noundef nonnull align 8 dereferenceable(88) %4) #12
   %6 = trunc i32 %5 to i8
@@ -3970,7 +3970,7 @@ _ZN17CompilationPolicy11limit_levelE9CompLevel.exit: ; preds = %_ZN14CompilerCon
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef signext i8 @_ZN17CompilationPolicy10loop_eventERK12methodHandle9CompLevelP6Thread(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 align 2 {
+define hidden noundef signext i8 @_ZN17CompilationPolicy10loop_eventERK12methodHandle9CompLevelP6Thread(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef signext i8 @_ZN17CompilationPolicy6commonI13LoopPredicateEE9CompLevelRK12methodHandleS2_b(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef signext %1, i1 noundef zeroext true)
   %5 = icmp eq i8 %1, 0
   br i1 %5, label %6, label %12
@@ -4979,10 +4979,10 @@ declare i8 @llvm.smax.i8(i8, i8) #9
 declare i32 @llvm.ctpop.i32(i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
@@ -4991,7 +4991,7 @@ declare i32 @llvm.umax.i32(i32, i32) #9
 declare i16 @llvm.umax.i16(i16, i16) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

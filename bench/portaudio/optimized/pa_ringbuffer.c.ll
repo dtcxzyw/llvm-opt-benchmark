@@ -71,7 +71,7 @@ define i64 @PaUtil_GetRingBufferWriteAvailable(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define i64 @PaUtil_GetRingBufferWriteRegions(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #2 {
+define i64 @PaUtil_GetRingBufferWriteRegions(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #2 {
   %7 = load i64, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load volatile i64, ptr %8, align 8
@@ -146,7 +146,7 @@ define i64 @PaUtil_AdvanceRingBufferWriteIndex(ptr noundef %0, i64 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define i64 @PaUtil_GetRingBufferReadRegions(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #2 {
+define i64 @PaUtil_GetRingBufferReadRegions(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load volatile i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -220,7 +220,7 @@ define i64 @PaUtil_AdvanceRingBufferReadIndex(ptr noundef %0, i64 noundef %1) lo
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i64 @PaUtil_WriteRingBuffer(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define i64 @PaUtil_WriteRingBuffer(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = load i64, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load volatile i64, ptr %5, align 8
@@ -299,10 +299,10 @@ PaUtil_GetRingBufferWriteRegions.exit:            ; preds = %36, %37
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define i64 @PaUtil_ReadRingBuffer(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define i64 @PaUtil_ReadRingBuffer(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load volatile i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

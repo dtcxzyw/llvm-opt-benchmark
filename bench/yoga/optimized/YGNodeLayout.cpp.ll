@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [54 x i8] c"Cannot get layout properties of multi-edge shorthands\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define float @YGNodeLayoutGetLeft(ptr nocapture noundef readonly %node) local_unnamed_addr #0 {
+define float @YGNodeLayoutGetLeft(ptr noundef readonly captures(none) %node) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
   %position_.i = getelementptr inbounds nuw i8, ptr %node, i64 508
@@ -16,7 +16,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define float @YGNodeLayoutGetTop(ptr nocapture noundef readonly %node) local_unnamed_addr #0 {
+define float @YGNodeLayoutGetTop(ptr noundef readonly captures(none) %node) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 512
@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define float @YGNodeLayoutGetRight(ptr nocapture noundef readonly %node) local_unnamed_addr #0 {
+define float @YGNodeLayoutGetRight(ptr noundef readonly captures(none) %node) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 516
@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define float @YGNodeLayoutGetBottom(ptr nocapture noundef readonly %node) local_unnamed_addr #0 {
+define float @YGNodeLayoutGetBottom(ptr noundef readonly captures(none) %node) local_unnamed_addr #0 {
 entry:
   tail call void @_ZN8facebook4yoga11assertFatalEbPKc(i1 noundef zeroext true, ptr noundef nonnull @.str)
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 520
@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @YGNodeLayoutGetWidth(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define float @YGNodeLayoutGetWidth(ptr noundef readonly captures(none) %node) local_unnamed_addr #1 {
 entry:
   %dimensions_.i = getelementptr inbounds nuw i8, ptr %node, i64 492
   %0 = load float, ptr %dimensions_.i, align 4
@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define float @YGNodeLayoutGetHeight(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define float @YGNodeLayoutGetHeight(ptr noundef readonly captures(none) %node) local_unnamed_addr #1 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %node, i64 496
   %0 = load float, ptr %arrayidx.i.i.i, align 4
@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @YGNodeLayoutGetDirection(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define range(i32 0, 4) i32 @YGNodeLayoutGetDirection(ptr noundef readonly captures(none) %node) local_unnamed_addr #1 {
 entry:
   %direction_.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i = load i8, ptr %direction_.i, align 4
@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @YGNodeLayoutGetHadOverflow(ptr nocapture noundef readonly %node) local_unnamed_addr #1 {
+define zeroext i1 @YGNodeLayoutGetHadOverflow(ptr noundef readonly captures(none) %node) local_unnamed_addr #1 {
 entry:
   %hadOverflow_.i = getelementptr inbounds nuw i8, ptr %node, i64 488
   %bf.load.i = load i8, ptr %hadOverflow_.i, align 4

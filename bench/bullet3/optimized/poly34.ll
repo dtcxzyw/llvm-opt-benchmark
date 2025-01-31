@@ -8,7 +8,7 @@ $_Z5root3f = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef range(i32 0, 3) i32 @_Z7SolveP2Pfff(ptr nocapture noundef writeonly initializes((0, 8)) %x, float noundef %a, float noundef %b) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_Z7SolveP2Pfff(ptr noundef writeonly captures(none) initializes((0, 8)) %x, float noundef %a, float noundef %b) local_unnamed_addr #0 {
 entry:
   %conv = fpext float %a to double
   %mul = fmul double %conv, 2.500000e-01
@@ -49,7 +49,7 @@ return:                                           ; preds = %if.end, %if.then
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 1, 4) i32 @_Z7SolveP3Pffff(ptr nocapture noundef writeonly initializes((0, 12)) %x, float noundef %a, float noundef %b, float noundef %c) local_unnamed_addr #2 {
+define dso_local noundef range(i32 1, 4) i32 @_Z7SolveP3Pffff(ptr noundef writeonly captures(none) initializes((0, 12)) %x, float noundef %a, float noundef %b, float noundef %c) local_unnamed_addr #2 {
 entry:
   %mul = fmul float %a, %a
   %0 = tail call float @llvm.fmuladd.f32(float %b, float -3.000000e+00, float %mul)
@@ -317,7 +317,7 @@ return:                                           ; preds = %if.else, %_ZL6_root
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local void @_Z5CSqrtffRfS_(float noundef %x, float noundef %y, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %a, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %b) local_unnamed_addr #0 {
+define dso_local void @_Z5CSqrtffRfS_(float noundef %x, float noundef %y, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %a, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %b) local_unnamed_addr #0 {
 entry:
   %mul1 = fmul float %y, %y
   %0 = tail call float @llvm.fmuladd.f32(float %x, float %x, float %mul1)
@@ -359,7 +359,7 @@ if.end12:                                         ; preds = %if.then4, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local noundef range(i32 0, 5) i32 @_Z9SolveP4BiPfff(ptr nocapture noundef writeonly initializes((0, 16)) %x, float noundef %b, float noundef %d) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 5) i32 @_Z9SolveP4BiPfff(ptr noundef writeonly captures(none) initializes((0, 16)) %x, float noundef %b, float noundef %d) local_unnamed_addr #0 {
 entry:
   %neg = fmul float %d, -4.000000e+00
   %0 = tail call float @llvm.fmuladd.f32(float %b, float %b, float %neg)
@@ -491,7 +491,7 @@ return:                                           ; preds = %_Z5CSqrtffRfS_.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 5) i32 @_Z9SolveP4DePffff(ptr nocapture noundef initializes((0, 16)) %x, float noundef %b, float noundef %c, float noundef %d) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 5) i32 @_Z9SolveP4DePffff(ptr noundef captures(none) initializes((0, 16)) %x, float noundef %b, float noundef %c, float noundef %d) local_unnamed_addr #2 {
 entry:
   %0 = tail call noundef float @llvm.fabs.f32(float %c)
   %conv = fpext float %0 to double
@@ -732,7 +732,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 5) i32 @_Z7SolveP4Pfffff(ptr nocapture noundef initializes((0, 16)) %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d) local_unnamed_addr #2 {
+define dso_local noundef range(i32 0, 5) i32 @_Z7SolveP4Pfffff(ptr noundef captures(none) initializes((0, 16)) %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d) local_unnamed_addr #2 {
 entry:
   %conv = fpext float %d to double
   %conv1 = fpext float %a to double
@@ -1025,7 +1025,7 @@ return:                                           ; preds = %for.body, %if.end76
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 1, 6) i32 @_Z7SolveP5Pffffff(ptr nocapture noundef initializes((0, 20)) %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d, float noundef %e) local_unnamed_addr #2 {
+define dso_local noundef range(i32 1, 6) i32 @_Z7SolveP5Pffffff(ptr noundef captures(none) initializes((0, 20)) %x, float noundef %a, float noundef %b, float noundef %c, float noundef %d, float noundef %e) local_unnamed_addr #2 {
 entry:
   %call = tail call noundef float @_Z9SolveP5_1fffff(float noundef %a, float noundef %b, float noundef %c, float noundef %d, float noundef %e)
   store float %call, ptr %x, align 4

@@ -103,7 +103,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC1ERKNS0_13DbiModuleListEjt = unnamed_addr alias void (ptr, ptr, i32, i16), ptr @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC2ERKNS0_13DbiModuleListEjt
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC2ERKNS0_13DbiModuleListEjt(ptr nocapture noundef nonnull align 8 dereferenceable(30) initializes((0, 30)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC2ERKNS0_13DbiModuleListEjt(ptr noundef nonnull align 8 captures(none) dereferenceable(30) initializes((0, 30)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2, i16 noundef zeroext %3) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
@@ -116,7 +116,7 @@ define dso_local void @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC2ERKNS0_13DbiM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb28DbiModuleSourceFilesIterator8setValueEv(ptr nocapture noundef nonnull align 8 dereferenceable(30) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb28DbiModuleSourceFilesIterator8setValueEv(ptr noundef nonnull align 8 captures(none) dereferenceable(30) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Error", align 8
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %class.anon, align 1
@@ -258,7 +258,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %60, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIteratoreqERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIteratoreqERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -304,7 +304,7 @@ _ZNK4llvm3pdb28DbiModuleSourceFilesIterator12isCompatibleERKS1_.exit.thread: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator12isCompatibleERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator12isCompatibleERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -328,7 +328,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator5isEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator5isEndEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::Error", align 8
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %class.anon, align 1
@@ -423,7 +423,7 @@ _ZNK4llvm3pdb13DbiModuleList18getSourceFileCountEj.exit: ; preds = %18, %33, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIteratorltERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIteratorltERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -482,7 +482,7 @@ _ZNK4llvm3pdb28DbiModuleSourceFilesIteratoreqERKS1_.exit.thread6: ; preds = %13,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4llvm3pdb28DbiModuleSourceFilesIteratormiERKS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4llvm3pdb28DbiModuleSourceFilesIteratormiERKS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %class.anon, align 1
@@ -661,10 +661,10 @@ define dso_local noundef nonnull align 8 dereferenceable(30) ptr @_ZN4llvm3pdb28
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb13DbiModuleList11getFileNameEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb13DbiModuleList11getFileNameEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon, align 1
@@ -989,7 +989,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit:            ; preds = %117, %136, %149, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator14isUniversalEndEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(30) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator14isUniversalEndEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(30) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -997,7 +997,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb28DbiModuleSourceFilesIterator
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: write) uwtable
-define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb13DbiModuleList14getModuleCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb13DbiModuleList14getModuleCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1015,7 +1015,7 @@ define dso_local noundef range(i32 0, 65536) i32 @_ZNK4llvm3pdb13DbiModuleList14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13DbiModuleList10initializeENS_15BinaryStreamRefES2_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) initializes((208, 216), (224, 256)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13DbiModuleList10initializeENS_15BinaryStreamRefES2_(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) initializes((208, 216), (224, 256)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::BinaryStreamRef", align 8
   %6 = alloca %"class.llvm::BinaryStreamRef", align 8
   %7 = load ptr, ptr %2, align 8
@@ -1235,7 +1235,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13DbiModuleList17initializeModInfoENS_15BinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) initializes((208, 216), (224, 256)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13DbiModuleList17initializeModInfoENS_15BinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) initializes((208, 216), (224, 256)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::BinaryStreamReader", align 8
   %5 = alloca %"class.llvm::BinaryStreamRef", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 208
@@ -1596,7 +1596,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit:            ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13DbiModuleList18initializeFileInfoENS_15BinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) initializes((256, 264), (272, 304)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13DbiModuleList18initializeFileInfoENS_15BinaryStreamRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) initializes((256, 264), (272, 304)) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon, align 1
@@ -4035,7 +4035,7 @@ _ZN4llvm15BinaryStreamRefD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm3pdb13DbiModuleList18getSourceFileCountEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3pdb13DbiModuleList18getSourceFileCountEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -4070,7 +4070,7 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb13DbiModuleList19getModuleDescriptorEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::pdb::DbiModuleDescriptor") align 8 initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb13DbiModuleList19getModuleDescriptorEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::pdb::DbiModuleDescriptor") align 8 captures(none) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::VarStreamArrayIterator", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %6 = zext i32 %2 to i64
@@ -4158,7 +4158,7 @@ _ZN4llvm22VarStreamArrayIteratorINS_3pdb19DbiModuleDescriptorENS_23VarStreamArra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb13DbiModuleList12source_filesEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb13DbiModuleList12source_filesEj(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::iterator_range") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorC1ERKNS0_13DbiModuleListEjt(ptr noundef nonnull align 8 dereferenceable(30) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, i32 noundef %2, i16 noundef zeroext 0) #15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -4166,7 +4166,7 @@ define dso_local void @_ZNK4llvm3pdb13DbiModuleList12source_filesEj(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @_ZN4llvm18BinaryStreamReader11readCStringERNS_9StringRefE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
@@ -5461,7 +5461,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %_ZNSt6vectorIjSa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZNK4llvm15BinaryStreamRef9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
@@ -5907,10 +5907,10 @@ declare i64 @llvm.umax.i64(i64, i64) #13
 declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

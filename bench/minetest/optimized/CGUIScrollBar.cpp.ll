@@ -190,7 +190,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @_ZTTN3irr3gui11IGUIElementE = linkonce_odr unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 1, i32 3)], comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIScrollBarC2EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef %vtt, i1 noundef zeroext %horizontal, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %rectangle, i1 noundef zeroext %noclip) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBarC2EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef %vtt, i1 noundef zeroext %horizontal, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef readonly byval(%"class.irr::core::rect") align 8 captures(none) %rectangle, i1 noundef zeroext %noclip) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -322,7 +322,7 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui13CGUIScrollBar15refreshControlsEv(ptr noundef nonnull align 8 dereferenceable(388) initializes((384, 388)) %this) local_unnamed_addr #0 align 2 {
@@ -986,7 +986,7 @@ if.end216:                                        ; preds = %if.end216.sink.spli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIScrollBarC1EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(388) initializes((392, 412)) %this, i1 noundef zeroext %horizontal, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %rectangle, i1 noundef zeroext %noclip) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBarC1EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(388) initializes((392, 412)) %this, i1 noundef zeroext %horizontal, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef readonly byval(%"class.irr::core::rect") align 8 captures(none) %rectangle, i1 noundef zeroext %noclip) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -1938,13 +1938,13 @@ return:                                           ; preds = %sw.epilog, %if.then
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui13CGUIScrollBar18getPosFromMousePosERKNS_4core8vector2dIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(388) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui13CGUIScrollBar18getPosFromMousePosERKNS_4core8vector2dIiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %pos) local_unnamed_addr #5 align 2 {
 entry:
   %Horizontal = getelementptr inbounds nuw i8, ptr %this, i64 345
   %0 = load i8, ptr %Horizontal, align 1, !tbaa !6, !range !43, !noundef !44
@@ -2362,7 +2362,7 @@ for.body:                                         ; preds = %entry, %for.body
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr3gui13CGUIScrollBar6setPosEi(ptr nocapture noundef nonnull align 8 dereferenceable(388) initializes((348, 352)) %this, i32 noundef %pos) unnamed_addr #7 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBar6setPosEi(ptr noundef nonnull align 8 captures(none) dereferenceable(388) initializes((348, 352)) %this, i32 noundef %pos) unnamed_addr #7 align 2 {
 entry:
   %Min = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load i32, ptr %Min, align 8, !tbaa !77
@@ -2412,7 +2412,7 @@ if.end43:                                         ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui13CGUIScrollBar12getSmallStepEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(388) %this) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui13CGUIScrollBar12getSmallStepEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this) unnamed_addr #5 align 2 {
 entry:
   %SmallStep = getelementptr inbounds nuw i8, ptr %this, i64 368
   %0 = load i32, ptr %SmallStep, align 8, !tbaa !76
@@ -2420,7 +2420,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui13CGUIScrollBar12setSmallStepEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(388) initializes((368, 372)) %this, i32 noundef %step) unnamed_addr #8 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBar12setSmallStepEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(388) initializes((368, 372)) %this, i32 noundef %step) unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp sgt i32 %step, 0
   %spec.select = select i1 %cmp, i32 %step, i32 10
@@ -2430,7 +2430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui13CGUIScrollBar12getLargeStepEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(388) %this) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui13CGUIScrollBar12getLargeStepEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this) unnamed_addr #5 align 2 {
 entry:
   %LargeStep = getelementptr inbounds nuw i8, ptr %this, i64 372
   %0 = load i32, ptr %LargeStep, align 4, !tbaa !78
@@ -2438,7 +2438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui13CGUIScrollBar12setLargeStepEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(388) initializes((372, 376)) %this, i32 noundef %step) unnamed_addr #8 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBar12setLargeStepEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(388) initializes((372, 376)) %this, i32 noundef %step) unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp sgt i32 %step, 0
   %spec.select = select i1 %cmp, i32 %step, i32 50
@@ -2448,7 +2448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui13CGUIScrollBar6getMaxEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(388) %this) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui13CGUIScrollBar6getMaxEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this) unnamed_addr #5 align 2 {
 entry:
   %Max = getelementptr inbounds nuw i8, ptr %this, i64 364
   %0 = load i32, ptr %Max, align 4, !tbaa !79
@@ -2497,7 +2497,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui13CGUIScrollBar6getMinEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(388) %this) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui13CGUIScrollBar6getMinEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this) unnamed_addr #5 align 2 {
 entry:
   %Min = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load i32, ptr %Min, align 8, !tbaa !77
@@ -2546,7 +2546,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr3gui13CGUIScrollBar6getPosEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(388) %this) unnamed_addr #5 align 2 {
+define noundef i32 @_ZNK3irr3gui13CGUIScrollBar6getPosEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(388) %this) unnamed_addr #5 align 2 {
 entry:
   %Pos = getelementptr inbounds nuw i8, ptr %this, i64 348
   %0 = load i32, ptr %Pos, align 4, !tbaa !74
@@ -4487,7 +4487,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i32 noundef signext) local_unnamed_addr #10
 
@@ -4495,7 +4495,7 @@ declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE6resizeEmw(pt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #10
 
@@ -4505,7 +4505,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERK
 declare void @llvm.assume(i1 noundef) #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6

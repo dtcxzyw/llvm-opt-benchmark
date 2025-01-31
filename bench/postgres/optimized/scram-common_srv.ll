@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [28 x i8] c"could not encode server key\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca [32 x i8], align 16
   %11 = alloca [32 x i8], align 16
@@ -34,7 +34,7 @@ define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 
 17:                                               ; preds = %8
   %sext = shl i64 %12, 32
   %18 = ashr exact i64 %sext, 32
-  %19 = tail call i32 @pg_hmac_init(ptr noundef nonnull %13, ptr noundef %0, i64 noundef %18) #7
+  %19 = tail call i32 @pg_hmac_init(ptr noundef nonnull %13, ptr noundef nonnull %0, i64 noundef %18) #7
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %32, label %21
 
@@ -85,7 +85,7 @@ define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 
   br label %38
 
 38:                                               ; preds = %37, %.lr.ph47.split.us
-  %39 = call i32 @pg_hmac_init(ptr noundef nonnull %13, ptr noundef %0, i64 noundef %18) #7
+  %39 = call i32 @pg_hmac_init(ptr noundef nonnull %13, ptr noundef nonnull %0, i64 noundef %18) #7
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %.split.us, label %41
 
@@ -128,7 +128,7 @@ define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 
   br label %55
 
 55:                                               ; preds = %.lr.ph47.split, %54
-  %56 = call i32 @pg_hmac_init(ptr noundef nonnull %13, ptr noundef %0, i64 noundef %18) #7
+  %56 = call i32 @pg_hmac_init(ptr noundef nonnull %13, ptr noundef nonnull %0, i64 noundef %18) #7
   %57 = icmp slt i32 %56, 0
   br i1 %57, label %.split.us, label %58
 
@@ -164,7 +164,7 @@ define dso_local range(i32 -1, 1) i32 @scram_SaltedPassword(ptr noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @pg_hmac_create(i32 noundef) local_unnamed_addr #2
 
@@ -179,12 +179,12 @@ declare i32 @pg_hmac_final(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare void @pg_hmac_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @ProcessInterrupts() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @scram_H(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scram_H(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @pg_cryptohash_create(i32 noundef %1) #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -238,7 +238,7 @@ declare i32 @pg_cryptohash_final(ptr noundef, ptr noundef, i64 noundef) local_un
 declare void @pg_cryptohash_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @scram_ClientKey(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scram_ClientKey(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @pg_hmac_create(i32 noundef %1) #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -280,7 +280,7 @@ define dso_local range(i32 -1, 1) i32 @scram_ClientKey(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @scram_ServerKey(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scram_ServerKey(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = tail call ptr @pg_hmac_create(i32 noundef %1) #7
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %10
@@ -322,7 +322,7 @@ define dso_local range(i32 -1, 1) i32 @scram_ServerKey(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @scram_build_secret(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
+define dso_local noundef ptr @scram_build_secret(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
   %10 = alloca [32 x i8], align 16

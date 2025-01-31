@@ -277,7 +277,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %cvAccessProjMem.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @CVodeGetNumProjEvals(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @CVodeGetNumProjEvals(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -307,7 +307,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessPro
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -29, 1) i32 @CVodeGetNumProjFails(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
+define range(i32 -29, 1) i32 @CVodeGetNumProjFails(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -337,7 +337,7 @@ cvAccessProjMem.exit.thread:                      ; preds = %9, %4, %cvAccessPro
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -31, 4) i32 @cvDoProjection(ptr noundef %0, ptr nocapture noundef writeonly %1, double noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define range(i32 -31, 4) i32 @cvDoProjection(ptr noundef %0, ptr noundef writeonly captures(none) %1, double noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1504
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -484,7 +484,7 @@ define range(i32 -29, 1) i32 @cvProjInit(ptr noundef writeonly %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @cvProjFree(ptr nocapture noundef %0) local_unnamed_addr #4 {
+define noundef i32 @cvProjFree(ptr noundef captures(none) %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -499,10 +499,10 @@ define noundef i32 @cvProjFree(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Java_java_lang_ref_Reference_getAndClearReferencePendingList(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define ptr @Java_java_lang_ref_Reference_getAndClearReferencePendingList(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @JVM_GetAndClearReferencePendingList(ptr noundef %0) #2
   ret ptr %3
 }
@@ -12,7 +12,7 @@ define ptr @Java_java_lang_ref_Reference_getAndClearReferencePendingList(ptr nou
 declare ptr @JVM_GetAndClearReferencePendingList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @Java_java_lang_ref_Reference_hasReferencePendingList(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define zeroext i8 @Java_java_lang_ref_Reference_hasReferencePendingList(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i8 @JVM_HasReferencePendingList(ptr noundef %0) #2
   ret i8 %3
 }
@@ -20,7 +20,7 @@ define zeroext i8 @Java_java_lang_ref_Reference_hasReferencePendingList(ptr noun
 declare zeroext i8 @JVM_HasReferencePendingList(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_java_lang_ref_Reference_waitForReferencePendingList(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define void @Java_java_lang_ref_Reference_waitForReferencePendingList(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   tail call void @JVM_WaitForReferencePendingList(ptr noundef %0) #2
   ret void
 }

@@ -52,7 +52,7 @@ define hidden ptr @avifIOCreateMemoryReader(ptr noundef %0, i64 noundef %1) loca
 declare ptr @avifAlloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define internal void @avifIOMemoryReaderDestroy(ptr noundef %0) #0 {
@@ -61,7 +61,7 @@ define internal void @avifIOMemoryReaderDestroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 23) i32 @avifIOMemoryReaderRead(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) #3 {
+define internal range(i32 0, 23) i32 @avifIOMemoryReaderRead(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) #3 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %6, label %16
 
@@ -88,7 +88,7 @@ define internal range(i32 0, 23) i32 @avifIOMemoryReaderRead(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @avifIOCreateFileReader(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @avifIOCreateFileReader(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %19, label %3
@@ -134,16 +134,16 @@ define hidden ptr @avifIOCreateFileReader(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal void @avifIOFileReaderDestroy(ptr noundef %0) #0 {
@@ -157,7 +157,7 @@ define internal void @avifIOFileReaderDestroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @avifIOFileReaderRead(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) #0 {
+define internal i32 @avifIOFileReaderRead(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) #0 {
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %6, label %36
 
@@ -230,10 +230,10 @@ declare void @avifFree(ptr noundef) local_unnamed_addr #1
 declare void @avifRWDataFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

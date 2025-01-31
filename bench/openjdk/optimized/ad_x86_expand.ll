@@ -128,7 +128,7 @@ $_ZTV12MachTempNode = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ad_x86_expand.cpp, ptr null }]
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17loadUB2L_immINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17loadUB2L_immINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -205,7 +205,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11loadS2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11loadS2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 4
@@ -259,7 +259,7 @@ define hidden noundef nonnull ptr @_ZN11loadS2BNode6ExpandEP5StateR9Node_ListP4N
 declare void @_ZN4Node7del_reqEj(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12loadUS2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12loadUS2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 4
@@ -311,7 +311,7 @@ define hidden noundef nonnull ptr @_ZN12loadUS2BNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17loadUS2L_immINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17loadUS2L_immINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -388,7 +388,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11loadI2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11loadI2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 4
@@ -440,7 +440,7 @@ define hidden noundef nonnull ptr @_ZN11loadI2BNode6ExpandEP5StateR9Node_ListP4N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11loadI2SNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11loadI2SNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 4
@@ -492,7 +492,7 @@ define hidden noundef nonnull ptr @_ZN11loadI2SNode6ExpandEP5StateR9Node_ListP4N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18loadI2L_immU31Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18loadI2L_immU31Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -569,7 +569,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12maxF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12maxF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -732,7 +732,7 @@ declare noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 
 declare void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22maxF_reduction_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22maxF_reduction_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -911,7 +911,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12maxD_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12maxD_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -1070,7 +1070,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22maxD_reduction_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22maxD_reduction_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -1249,7 +1249,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12minF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12minF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -1408,7 +1408,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22minF_reduction_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22minF_reduction_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -1587,7 +1587,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12minD_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12minD_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -1746,7 +1746,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22minD_reduction_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22minD_reduction_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -1925,7 +1925,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13loadConI0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13loadConI0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2002,7 +2002,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13loadConL0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13loadConL0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2079,7 +2079,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13loadConP0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13loadConP0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2156,7 +2156,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14loadConP31Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14loadConP31Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2233,7 +2233,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12loadConFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12loadConFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2248,7 +2248,7 @@ define hidden noundef nonnull ptr @_ZN12loadConFNode6ExpandEP5StateR9Node_ListP4
 declare noundef ptr @_ZN7Compile23mach_constant_base_nodeEv(ptr noundef nonnull align 8 dereferenceable(2316)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13loadConN0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13loadConN0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2325,7 +2325,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12loadConDNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12loadConDNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2338,7 +2338,7 @@ define hidden noundef nonnull ptr @_ZN12loadConDNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN32bytes_reverse_unsigned_shortNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN32bytes_reverse_unsigned_shortNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2415,7 +2415,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23bytes_reverse_shortNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23bytes_reverse_shortNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2492,7 +2492,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22countLeadingZerosINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22countLeadingZerosINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2569,7 +2569,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26countLeadingZerosI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26countLeadingZerosI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2646,7 +2646,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26countLeadingZerosI_bsrNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26countLeadingZerosI_bsrNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2723,7 +2723,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22countLeadingZerosLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22countLeadingZerosLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2800,7 +2800,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26countLeadingZerosL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26countLeadingZerosL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2877,7 +2877,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26countLeadingZerosL_bsrNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26countLeadingZerosL_bsrNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -2954,7 +2954,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23countTrailingZerosINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23countTrailingZerosINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -3031,7 +3031,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27countTrailingZerosI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27countTrailingZerosI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -3108,7 +3108,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27countTrailingZerosI_bsfNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27countTrailingZerosI_bsfNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -3185,7 +3185,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23countTrailingZerosLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23countTrailingZerosLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -3262,7 +3262,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27countTrailingZerosL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27countTrailingZerosL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -3339,7 +3339,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27countTrailingZerosL_bsfNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27countTrailingZerosL_bsfNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -3416,7 +3416,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24bytes_reversebit_intNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24bytes_reversebit_intNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -3595,7 +3595,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN29bytes_reversebit_int_gfniNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN29bytes_reversebit_int_gfniNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -3876,7 +3876,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25bytes_reversebit_longNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25bytes_reversebit_longNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -4106,7 +4106,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN30bytes_reversebit_long_gfniNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN30bytes_reversebit_long_gfniNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -4387,7 +4387,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13popCountINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13popCountINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -4464,7 +4464,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17popCountI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17popCountI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -4541,7 +4541,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13popCountLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13popCountLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -4618,7 +4618,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17popCountL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17popCountL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -4695,7 +4695,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19membar_volatileNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19membar_volatileNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -4772,7 +4772,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17encodeHeapOopNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17encodeHeapOopNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -4849,7 +4849,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26encodeHeapOop_not_nullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26encodeHeapOop_not_nullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -4926,7 +4926,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17decodeHeapOopNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17decodeHeapOopNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -5003,7 +5003,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26decodeHeapOop_not_nullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26decodeHeapOop_not_nullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -5080,7 +5080,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24encodeKlass_not_nullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24encodeKlass_not_nullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -5208,7 +5208,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24decodeKlass_not_nullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24decodeKlass_not_nullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -5336,7 +5336,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19jumpXtnd_offsetNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19jumpXtnd_offsetNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -5395,7 +5395,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17jumpXtnd_addrNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(176) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17jumpXtnd_addrNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(176) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -5454,7 +5454,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12jumpXtndNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(160) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12jumpXtndNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(160) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -7151,7 +7151,7 @@ _ZN4NodenwEm.exit:                                ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13addI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13addI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -7228,7 +7228,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17addI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17addI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -7305,7 +7305,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17addI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17addI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -7382,7 +7382,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19addI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19addI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -7459,7 +7459,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17addI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17addI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -7683,7 +7683,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19addI_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19addI_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -7807,7 +7807,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16addI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16addI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -8031,7 +8031,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13incI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13incI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -8108,7 +8108,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12incI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12incI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -8332,7 +8332,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13decI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13decI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -8409,7 +8409,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12decI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12decI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -8633,7 +8633,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13addL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13addL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -8710,7 +8710,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17addL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17addL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -8787,7 +8787,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17addL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17addL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -8864,7 +8864,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19addL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19addL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -8941,7 +8941,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17addL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17addL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -9165,7 +9165,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19addL_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19addL_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -9289,7 +9289,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16addL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16addL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -9513,7 +9513,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13incL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13incL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -9590,7 +9590,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12incL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12incL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -9814,7 +9814,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13decL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13decL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -9891,7 +9891,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12decL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12decL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -10115,7 +10115,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13addP_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13addP_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -10192,7 +10192,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17addP_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17addP_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -10269,7 +10269,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19compareAndSwapPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19compareAndSwapPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -10425,7 +10425,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21compareAndSwapP_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21compareAndSwapP_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -10581,7 +10581,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19compareAndSwapLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19compareAndSwapLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -10737,7 +10737,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21compareAndSwapL_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21compareAndSwapL_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -10893,7 +10893,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19compareAndSwapINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19compareAndSwapINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -11049,7 +11049,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21compareAndSwapI_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21compareAndSwapI_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -11205,7 +11205,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19compareAndSwapBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19compareAndSwapBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -11361,7 +11361,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21compareAndSwapB_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21compareAndSwapB_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -11517,7 +11517,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19compareAndSwapSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19compareAndSwapSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -11673,7 +11673,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21compareAndSwapS_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21compareAndSwapS_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -11829,7 +11829,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19compareAndSwapNNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19compareAndSwapNNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -11985,7 +11985,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21compareAndSwapN_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21compareAndSwapN_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12141,7 +12141,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23compareAndExchangeBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23compareAndExchangeBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12218,7 +12218,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23compareAndExchangeSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23compareAndExchangeSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12295,7 +12295,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23compareAndExchangeINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23compareAndExchangeINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12372,7 +12372,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23compareAndExchangeLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23compareAndExchangeLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12449,7 +12449,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23compareAndExchangeNNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23compareAndExchangeNNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12526,7 +12526,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23compareAndExchangePNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23compareAndExchangePNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12603,7 +12603,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20xaddB_reg_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20xaddB_reg_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12680,7 +12680,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20xaddB_imm_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20xaddB_imm_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12757,7 +12757,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN9xaddBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9xaddBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12834,7 +12834,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20xaddS_reg_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20xaddS_reg_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12911,7 +12911,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20xaddS_imm_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20xaddS_imm_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -12988,7 +12988,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN9xaddSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9xaddSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13065,7 +13065,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20xaddI_reg_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20xaddI_reg_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13142,7 +13142,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20xaddI_imm_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20xaddI_imm_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13219,7 +13219,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN9xaddINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9xaddINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13296,7 +13296,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20xaddL_reg_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20xaddL_reg_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13373,7 +13373,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20xaddL_imm_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20xaddL_imm_no_resNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13450,7 +13450,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN9xaddLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9xaddLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13527,7 +13527,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13absI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13absI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13655,7 +13655,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13absL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13absL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13783,7 +13783,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13subI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13subI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13860,7 +13860,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17subI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17subI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -13937,7 +13937,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17subI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17subI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -14161,7 +14161,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13subL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13subL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -14238,7 +14238,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17subL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17subL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -14315,7 +14315,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17subL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17subL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -14539,7 +14539,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13subP_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13subP_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -14616,7 +14616,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13negI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13negI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -14693,7 +14693,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15negI_rReg_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15negI_rReg_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -14770,7 +14770,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12negI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12negI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -14894,7 +14894,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13negL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13negL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -14971,7 +14971,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15negL_rReg_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15negL_rReg_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -15048,7 +15048,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12negL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12negL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -15172,7 +15172,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13mulI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13mulI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -15249,7 +15249,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17mulI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17mulI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -15326,7 +15326,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12mulI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12mulI_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -15403,7 +15403,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14mulI_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14mulI_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -15480,7 +15480,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16mulI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16mulI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -15945,7 +15945,7 @@ _ZN4NodenwEm.exit110:                             ; preds = %170, %172
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13mulL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13mulL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -16022,7 +16022,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17mulL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17mulL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -16099,7 +16099,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12mulL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12mulL_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -16176,7 +16176,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14mulL_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14mulL_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -16253,7 +16253,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16mulL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16mulL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -16330,7 +16330,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15mulHiL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15mulHiL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -16486,7 +16486,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16umulHiL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16umulHiL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -16642,7 +16642,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13divI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13divI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -16798,7 +16798,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13divL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13divL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -16954,7 +16954,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14udivI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14udivI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -17110,7 +17110,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14udivL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14udivL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -17266,7 +17266,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23divModI_rReg_divmodNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23divModI_rReg_divmodNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -17343,7 +17343,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23divModL_rReg_divmodNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23divModL_rReg_divmodNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -17420,7 +17420,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24udivModI_rReg_divmodNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24udivModI_rReg_divmodNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -17548,7 +17548,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24udivModL_rReg_divmodNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24udivModL_rReg_divmodNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -17676,7 +17676,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13modI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13modI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -17832,7 +17832,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13modL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13modL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -17988,7 +17988,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14umodI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14umodI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -18144,7 +18144,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14umodL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14umodL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -18300,7 +18300,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19salI_rReg_immI2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19salI_rReg_immI2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -18377,7 +18377,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17salI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17salI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -18454,7 +18454,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16salI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16salI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -18678,7 +18678,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16salI_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16salI_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -18755,7 +18755,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15salI_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15salI_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -18979,7 +18979,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17sarI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17sarI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -19056,7 +19056,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16sarI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16sarI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -19280,7 +19280,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16sarI_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16sarI_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -19357,7 +19357,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15sarI_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15sarI_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -19581,7 +19581,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17shrI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17shrI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -19658,7 +19658,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16shrI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16shrI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -19882,7 +19882,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16shrI_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16shrI_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -19959,7 +19959,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15shrI_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15shrI_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -20183,7 +20183,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19salL_rReg_immI2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19salL_rReg_immI2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -20260,7 +20260,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17salL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17salL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -20337,7 +20337,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16salL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16salL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -20561,7 +20561,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16salL_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16salL_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -20638,7 +20638,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15salL_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15salL_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -20862,7 +20862,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17sarL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17sarL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -20939,7 +20939,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16sarL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16sarL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -21163,7 +21163,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16sarL_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16sarL_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -21240,7 +21240,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15sarL_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15sarL_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -21464,7 +21464,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17shrL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17shrL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -21541,7 +21541,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16shrL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16shrL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -21765,7 +21765,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16shrL_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16shrL_rReg_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -21842,7 +21842,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15shrL_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15shrL_mem_CLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22066,7 +22066,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN7i2bNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN7i2bNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 4
@@ -22118,7 +22118,7 @@ define hidden noundef nonnull ptr @_ZN7i2bNode6ExpandEP5StateR9Node_ListP4Node(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN7i2sNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN7i2sNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 54
   %6 = load i16, ptr %5, align 2
   %7 = icmp eq i16 %6, 4
@@ -22170,7 +22170,7 @@ define hidden noundef nonnull ptr @_ZN7i2sNode6ExpandEP5StateR9Node_ListP4Node(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21rolI_immI8_legacyNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21rolI_immI8_legacyNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22247,7 +22247,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17rolI_rReg_VarNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17rolI_rReg_VarNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22324,7 +22324,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21rorI_immI8_legacyNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21rorI_immI8_legacyNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22401,7 +22401,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17rorI_rReg_VarNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17rorI_rReg_VarNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22478,7 +22478,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21rolL_immI8_legacyNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21rolL_immI8_legacyNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22555,7 +22555,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17rolL_rReg_VarNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17rolL_rReg_VarNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22632,7 +22632,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21rorL_immI8_legacyNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21rorL_immI8_legacyNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22709,7 +22709,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17rorL_rReg_VarNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17rorL_rReg_VarNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22786,7 +22786,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13andI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13andI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22863,7 +22863,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN31convI2LAndI_reg_immIbitmaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN31convI2LAndI_reg_immIbitmaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -22991,7 +22991,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17andI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17andI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -23068,7 +23068,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17andI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17andI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -23145,7 +23145,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19andI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19andI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -23222,7 +23222,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17andB_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17andB_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -23446,7 +23446,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19andB_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19andB_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -23570,7 +23570,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17andI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17andI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -23794,7 +23794,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19andI_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19andI_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -23918,7 +23918,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16andI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16andI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -24142,7 +24142,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23andnI_rReg_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23andnI_rReg_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -24219,7 +24219,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25andnI_rReg_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25andnI_rReg_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -24296,7 +24296,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24andnI_rReg_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24andnI_rReg_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -24373,7 +24373,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26andnI_rReg_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26andnI_rReg_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -24450,7 +24450,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19blsiI_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19blsiI_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -24574,7 +24574,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21blsiI_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21blsiI_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -24698,7 +24698,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18blsiI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18blsiI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -24822,7 +24822,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20blsiI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20blsiI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -24946,7 +24946,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20blsmskI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20blsmskI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -25070,7 +25070,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22blsmskI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22blsmskI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -25294,7 +25294,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21blsmskI_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21blsmskI_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -25418,7 +25418,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23blsmskI_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23blsmskI_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -25642,7 +25642,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19blsrI_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19blsrI_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -25766,7 +25766,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21blsrI_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21blsrI_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -25990,7 +25990,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18blsrI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18blsrI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -26114,7 +26114,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20blsrI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20blsrI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -26338,7 +26338,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12orI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12orI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -26415,7 +26415,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16orI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16orI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -26492,7 +26492,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16orI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16orI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -26569,7 +26569,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18orI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18orI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -26646,7 +26646,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16orB_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16orB_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -26870,7 +26870,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18orB_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18orB_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -26994,7 +26994,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16orI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16orI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -27218,7 +27218,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18orI_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18orI_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -27342,7 +27342,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15orI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15orI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -27566,7 +27566,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13xorI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13xorI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -27643,7 +27643,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17xorI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17xorI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -27720,7 +27720,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17xorI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17xorI_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -27797,7 +27797,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19xorI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19xorI_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -27874,7 +27874,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17xorB_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17xorB_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -28098,7 +28098,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19xorB_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19xorB_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -28222,7 +28222,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17xorI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17xorI_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -28446,7 +28446,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19xorI_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19xorI_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -28570,7 +28570,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16xorI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16xorI_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -28794,7 +28794,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13andL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13andL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -28871,7 +28871,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17andL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17andL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -28948,7 +28948,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17andL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17andL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -29025,7 +29025,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19andL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19andL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -29102,7 +29102,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17andL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17andL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -29326,7 +29326,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19andL_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19andL_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -29450,7 +29450,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16andL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16andL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -29674,7 +29674,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16btrL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16btrL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -29898,7 +29898,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23andnL_rReg_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23andnL_rReg_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -29975,7 +29975,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25andnL_rReg_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25andnL_rReg_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -30052,7 +30052,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24andnL_rReg_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24andnL_rReg_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -30129,7 +30129,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26andnL_rReg_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26andnL_rReg_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -30206,7 +30206,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19blsiL_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19blsiL_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -30330,7 +30330,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21blsiL_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21blsiL_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -30454,7 +30454,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18blsiL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18blsiL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -30578,7 +30578,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20blsiL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20blsiL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -30702,7 +30702,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20blsmskL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20blsmskL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -30826,7 +30826,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22blsmskL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22blsmskL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -31050,7 +31050,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21blsmskL_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21blsmskL_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -31174,7 +31174,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23blsmskL_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23blsmskL_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -31398,7 +31398,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19blsrL_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19blsrL_rReg_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -31522,7 +31522,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21blsrL_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21blsrL_rReg_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -31746,7 +31746,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18blsrL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18blsrL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -31870,7 +31870,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20blsrL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20blsrL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -32094,7 +32094,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12orL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12orL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -32171,7 +32171,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20orL_rReg_castP2XNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20orL_rReg_castP2XNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -32248,7 +32248,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22orL_rReg_castP2X_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22orL_rReg_castP2X_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -32325,7 +32325,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16orL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16orL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -32402,7 +32402,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16orL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16orL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -32479,7 +32479,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18orL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18orL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -32556,7 +32556,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16orL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16orL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -32780,7 +32780,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18orL_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18orL_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -32904,7 +32904,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15orL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15orL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -33128,7 +33128,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16btsL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16btsL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -33352,7 +33352,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13xorL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13xorL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -33429,7 +33429,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17xorL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17xorL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -33506,7 +33506,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17xorL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17xorL_rReg_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -33583,7 +33583,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19xorL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19xorL_rReg_mem_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -33660,7 +33660,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17xorL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17xorL_mem_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -33884,7 +33884,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19xorL_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19xorL_mem_rReg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -34008,7 +34008,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16xorL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16xorL_mem_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -34232,7 +34232,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13cmpLTMaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13cmpLTMaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -34309,7 +34309,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14cmpLTMask0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14cmpLTMask0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -34386,7 +34386,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18cadd_cmpLTMaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18cadd_cmpLTMaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -34524,7 +34524,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20cadd_cmpLTMask_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20cadd_cmpLTMask_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -34762,7 +34762,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20cadd_cmpLTMask_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20cadd_cmpLTMask_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -34900,7 +34900,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20cadd_cmpLTMask_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20cadd_cmpLTMask_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35038,7 +35038,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17and_cmpLTMaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17and_cmpLTMaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35115,7 +35115,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19and_cmpLTMask_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19and_cmpLTMask_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35192,7 +35192,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17cmpF_cc_immCFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17cmpF_cc_immCFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35205,7 +35205,7 @@ define hidden noundef nonnull ptr @_ZN17cmpF_cc_immCFNode6ExpandEP5StateR9Node_L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17cmpD_cc_immCFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17cmpD_cc_immCFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35218,7 +35218,7 @@ define hidden noundef nonnull ptr @_ZN17cmpD_cc_immCFNode6ExpandEP5StateR9Node_L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12cmpF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12cmpF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35295,7 +35295,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12cmpF_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12cmpF_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35372,7 +35372,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12cmpF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12cmpF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35451,7 +35451,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12cmpD_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12cmpD_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35528,7 +35528,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12cmpD_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12cmpD_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35605,7 +35605,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12cmpD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12cmpD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35684,7 +35684,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19convF2I_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19convF2I_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35761,7 +35761,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19convF2L_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19convF2L_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35838,7 +35838,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19convD2I_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19convD2I_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35915,7 +35915,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19convD2L_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19convD2L_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -35992,7 +35992,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20round_double_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20round_double_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -36222,7 +36222,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19round_float_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19round_float_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -36452,7 +36452,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12rep_stosNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12rep_stosNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -36795,7 +36795,7 @@ _ZN9Node_List4pushEP4Node.exit32:                 ; preds = %178, %182
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17rep_stos_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17rep_stos_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -37189,7 +37189,7 @@ _ZN9Node_List4pushEP4Node.exit38:                 ; preds = %206, %210
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18rep_stos_largeNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18rep_stos_largeNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -37532,7 +37532,7 @@ _ZN9Node_List4pushEP4Node.exit32:                 ; preds = %178, %182
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23rep_stos_large_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23rep_stos_large_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -37926,7 +37926,7 @@ _ZN9Node_List4pushEP4Node.exit38:                 ; preds = %206, %210
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15rep_stos_imNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15rep_stos_imNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -38156,7 +38156,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19string_compareLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19string_compareLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -38567,7 +38567,7 @@ _ZN9Node_List4pushEP4Node.exit40:                 ; preds = %214, %218
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24string_compareL_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24string_compareL_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -39029,7 +39029,7 @@ _ZN9Node_List4pushEP4Node.exit46:                 ; preds = %242, %246
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19string_compareUNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19string_compareUNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -39440,7 +39440,7 @@ _ZN9Node_List4pushEP4Node.exit40:                 ; preds = %214, %218
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24string_compareU_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24string_compareU_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -39902,7 +39902,7 @@ _ZN9Node_List4pushEP4Node.exit46:                 ; preds = %242, %246
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20string_compareLUNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20string_compareLUNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -40313,7 +40313,7 @@ _ZN9Node_List4pushEP4Node.exit40:                 ; preds = %214, %218
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25string_compareLU_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25string_compareLU_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -40775,7 +40775,7 @@ _ZN9Node_List4pushEP4Node.exit46:                 ; preds = %242, %246
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20string_compareULNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20string_compareULNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -41186,7 +41186,7 @@ _ZN9Node_List4pushEP4Node.exit40:                 ; preds = %214, %218
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25string_compareUL_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25string_compareUL_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -41648,7 +41648,7 @@ _ZN9Node_List4pushEP4Node.exit46:                 ; preds = %242, %246
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23string_indexof_conLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23string_indexof_conLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -42127,7 +42127,7 @@ _ZN9Node_List4pushEP4Node.exit48:                 ; preds = %250, %254
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23string_indexof_conUNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23string_indexof_conUNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -42606,7 +42606,7 @@ _ZN9Node_List4pushEP4Node.exit48:                 ; preds = %250, %254
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24string_indexof_conULNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24string_indexof_conULNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -43085,7 +43085,7 @@ _ZN9Node_List4pushEP4Node.exit48:                 ; preds = %250, %254
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19string_indexofLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19string_indexofLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -43564,7 +43564,7 @@ _ZN9Node_List4pushEP4Node.exit48:                 ; preds = %250, %254
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19string_indexofUNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19string_indexofUNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -44043,7 +44043,7 @@ _ZN9Node_List4pushEP4Node.exit48:                 ; preds = %250, %254
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20string_indexofULNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20string_indexofULNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -44522,7 +44522,7 @@ _ZN9Node_List4pushEP4Node.exit48:                 ; preds = %250, %254
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23string_indexof_charNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23string_indexof_charNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -45018,7 +45018,7 @@ _ZN9Node_List4pushEP4Node.exit50:                 ; preds = %262, %266
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24stringL_indexof_charNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24stringL_indexof_charNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -45514,7 +45514,7 @@ _ZN9Node_List4pushEP4Node.exit50:                 ; preds = %262, %266
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17string_equalsNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17string_equalsNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -45976,7 +45976,7 @@ _ZN9Node_List4pushEP4Node.exit46:                 ; preds = %242, %246
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22string_equals_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22string_equals_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -46489,7 +46489,7 @@ _ZN9Node_List4pushEP4Node.exit52:                 ; preds = %270, %274
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17array_equalsBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17array_equalsBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -46951,7 +46951,7 @@ _ZN9Node_List4pushEP4Node.exit46:                 ; preds = %242, %246
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22array_equalsB_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22array_equalsB_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -47464,7 +47464,7 @@ _ZN9Node_List4pushEP4Node.exit52:                 ; preds = %270, %274
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17array_equalsCNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17array_equalsCNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -47926,7 +47926,7 @@ _ZN9Node_List4pushEP4Node.exit46:                 ; preds = %242, %246
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22array_equalsC_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22array_equalsC_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -48439,7 +48439,7 @@ _ZN9Node_List4pushEP4Node.exit52:                 ; preds = %270, %274
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19arrays_hashcodeNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(232) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19arrays_hashcodeNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(232) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -49479,7 +49479,7 @@ _ZN9Node_List4pushEP4Node.exit114:                ; preds = %562, %566
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19count_positivesNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19count_positivesNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -49873,7 +49873,7 @@ _ZN9Node_List4pushEP4Node.exit38:                 ; preds = %206, %210
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24count_positives_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24count_positives_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -50369,7 +50369,7 @@ _ZN9Node_List4pushEP4Node.exit50:                 ; preds = %262, %266
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19string_compressNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19string_compressNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -50933,7 +50933,7 @@ _ZN9Node_List4pushEP4Node.exit58:                 ; preds = %298, %302
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24string_compress_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24string_compress_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -51599,7 +51599,7 @@ _ZN9Node_List4pushEP4Node.exit70:                 ; preds = %354, %358
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18string_inflateNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18string_inflateNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -51993,7 +51993,7 @@ _ZN9Node_List4pushEP4Node.exit38:                 ; preds = %206, %210
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23string_inflate_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23string_inflate_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -52438,7 +52438,7 @@ _ZN9Node_List4pushEP4Node.exit44:                 ; preds = %234, %238
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20encode_iso_arrayNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20encode_iso_arrayNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -53002,7 +53002,7 @@ _ZN9Node_List4pushEP4Node.exit58:                 ; preds = %298, %302
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22encode_ascii_arrayNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22encode_ascii_arrayNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -53566,7 +53566,7 @@ _ZN9Node_List4pushEP4Node.exit58:                 ; preds = %298, %302
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21overflowAddI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21overflowAddI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -53643,7 +53643,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25overflowAddI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25overflowAddI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -53720,7 +53720,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21overflowAddL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21overflowAddL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -53797,7 +53797,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25overflowAddL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25overflowAddL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -53874,7 +53874,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21overflowNegI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21overflowNegI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -53951,7 +53951,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21overflowNegL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21overflowNegL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -54028,7 +54028,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21overflowMulI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21overflowMulI_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -54105,7 +54105,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25overflowMulI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25overflowMulI_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -54162,7 +54162,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21overflowMulL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21overflowMulL_rRegNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -54239,7 +54239,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25overflowMulL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25overflowMulL_rReg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -54296,7 +54296,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17cmpU3_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17cmpU3_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -54373,7 +54373,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17cmpL3_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17cmpL3_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -54450,7 +54450,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18cmpUL3_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18cmpUL3_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -55097,7 +55097,7 @@ _ZN4NodenwEm.exit78:                              ; preds = %118, %120
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23partialSubtypeCheckNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23partialSubtypeCheckNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -55253,7 +55253,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN33partialSubtypeCheckConstSuperNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN33partialSubtypeCheckConstSuperNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -55534,7 +55534,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN31partialSubtypeCheck_vs_ZeroNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN31partialSubtypeCheck_vs_ZeroNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -55690,7 +55690,7 @@ _ZN9Node_List4pushEP4Node.exit10:                 ; preds = %78, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15cmpFastLockNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15cmpFastLockNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -55869,7 +55869,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %87, %89
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17cmpFastUnlockNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17cmpFastUnlockNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -55997,7 +55997,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %59, %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26cmpFastLockLightweightNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26cmpFastLockLightweightNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56176,7 +56176,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %87, %89
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN28cmpFastUnlockLightweightNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN28cmpFastUnlockLightweightNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56304,7 +56304,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %59, %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22safePoint_poll_tlsNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22safePoint_poll_tlsNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56381,7 +56381,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23mask_all_evexI_GT32Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23mask_all_evexI_GT32Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56438,7 +56438,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12addF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12addF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56451,7 +56451,7 @@ define hidden noundef nonnull ptr @_ZN12addF_immNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16addF_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16addF_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56464,7 +56464,7 @@ define hidden noundef nonnull ptr @_ZN16addF_reg_immNode6ExpandEP5StateR9Node_Li
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12addD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12addD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56477,7 +56477,7 @@ define hidden noundef nonnull ptr @_ZN12addD_immNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16addD_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16addD_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56490,7 +56490,7 @@ define hidden noundef nonnull ptr @_ZN16addD_reg_immNode6ExpandEP5StateR9Node_Li
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12subF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12subF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56503,7 +56503,7 @@ define hidden noundef nonnull ptr @_ZN12subF_immNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16subF_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16subF_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56516,7 +56516,7 @@ define hidden noundef nonnull ptr @_ZN16subF_reg_immNode6ExpandEP5StateR9Node_Li
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12subD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12subD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56529,7 +56529,7 @@ define hidden noundef nonnull ptr @_ZN12subD_immNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16subD_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16subD_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56542,7 +56542,7 @@ define hidden noundef nonnull ptr @_ZN16subD_reg_immNode6ExpandEP5StateR9Node_Li
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12mulF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12mulF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56555,7 +56555,7 @@ define hidden noundef nonnull ptr @_ZN12mulF_immNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16mulF_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16mulF_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56568,7 +56568,7 @@ define hidden noundef nonnull ptr @_ZN16mulF_reg_immNode6ExpandEP5StateR9Node_Li
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12mulD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12mulD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56581,7 +56581,7 @@ define hidden noundef nonnull ptr @_ZN12mulD_immNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16mulD_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16mulD_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56594,7 +56594,7 @@ define hidden noundef nonnull ptr @_ZN16mulD_reg_immNode6ExpandEP5StateR9Node_Li
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12divF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12divF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56607,7 +56607,7 @@ define hidden noundef nonnull ptr @_ZN12divF_immNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16divF_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16divF_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56620,7 +56620,7 @@ define hidden noundef nonnull ptr @_ZN16divF_reg_immNode6ExpandEP5StateR9Node_Li
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12divD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12divD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56633,7 +56633,7 @@ define hidden noundef nonnull ptr @_ZN12divD_immNode6ExpandEP5StateR9Node_ListP4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16divD_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16divD_reg_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56646,7 +56646,7 @@ define hidden noundef nonnull ptr @_ZN16divD_reg_immNode6ExpandEP5StateR9Node_Li
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20convF2HF_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20convF2HF_reg_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56703,7 +56703,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20convF2HF_mem_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20convF2HF_mem_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56811,7 +56811,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24reinterpret_mask_W2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24reinterpret_mask_W2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56868,7 +56868,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24reinterpret_mask_D2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24reinterpret_mask_D2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56925,7 +56925,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24reinterpret_mask_Q2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24reinterpret_mask_Q2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -56982,7 +56982,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22reinterpret_expandNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22reinterpret_expandNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -57039,7 +57039,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14roundD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14roundD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -57052,7 +57052,7 @@ define hidden noundef nonnull ptr @_ZN14roundD_immNode6ExpandEP5StateR9Node_List
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN10gatherNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10gatherNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -57211,7 +57211,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12evgatherNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12evgatherNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -57370,7 +57370,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19evgather_maskedNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19evgather_maskedNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -57529,7 +57529,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vgather_subwordLE8BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vgather_subwordLE8BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -57637,7 +57637,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vgather_subwordGT8BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vgather_subwordGT8BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -58122,7 +58122,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %258, %264
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27vgather_subwordLE8B_offNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27vgather_subwordLE8B_offNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -58301,7 +58301,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27vgather_subwordGT8B_offNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27vgather_subwordGT8B_offNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -58786,7 +58786,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %258, %264
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN35vgather_masked_subwordLE8B_avx3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN35vgather_masked_subwordLE8B_avx3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -59067,7 +59067,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN35vgather_masked_subwordGT8B_avx3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN35vgather_masked_subwordGT8B_avx3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -59654,7 +59654,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %314, %320
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN39vgather_masked_subwordLE8B_off_avx3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN39vgather_masked_subwordLE8B_off_avx3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -59935,7 +59935,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN39vgather_masked_subwordGT8B_off_avx3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN39vgather_masked_subwordGT8B_off_avx3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -60522,7 +60522,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %314, %320
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN35vgather_masked_subwordLE8B_avx2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN35vgather_masked_subwordLE8B_avx2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -60803,7 +60803,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN35vgather_masked_subwordGT8B_avx2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN35vgather_masked_subwordGT8B_avx2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -61390,7 +61390,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %314, %320
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN39vgather_masked_subwordLE8B_off_avx2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN39vgather_masked_subwordLE8B_off_avx2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -61671,7 +61671,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN39vgather_masked_subwordGT8B_off_avx2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN39vgather_masked_subwordGT8B_off_avx2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62258,7 +62258,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %314, %320
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11scatterNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11scatterNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62366,7 +62366,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18scatter_maskedNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18scatter_maskedNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62474,7 +62474,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13ReplI_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13ReplI_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62487,7 +62487,7 @@ define hidden noundef nonnull ptr @_ZN13ReplI_immNode6ExpandEP5StateR9Node_ListP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13ReplL_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13ReplL_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62500,7 +62500,7 @@ define hidden noundef nonnull ptr @_ZN13ReplL_immNode6ExpandEP5StateR9Node_ListP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13ReplF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13ReplF_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62513,7 +62513,7 @@ define hidden noundef nonnull ptr @_ZN13ReplF_immNode6ExpandEP5StateR9Node_ListP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13ReplD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13ReplD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62526,7 +62526,7 @@ define hidden noundef nonnull ptr @_ZN13ReplD_immNode6ExpandEP5StateR9Node_ListP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12insert32Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12insert32Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62583,7 +62583,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12insert64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12insert64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62640,7 +62640,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12insert4LNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12insert4LNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62697,7 +62697,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12insert8LNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12insert8LNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62754,7 +62754,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12vinsertFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12vinsertFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62811,7 +62811,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12insert2DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12insert2DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -62868,115 +62868,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12insert4DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %.not.i.i.i = icmp ult i64 %19, 72
-  br i1 %.not.i.i.i, label %22, label %20
-
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store ptr %21, ptr %15, align 8
-  br label %_ZN4NodenwEm.exit
-
-22:                                               ; preds = %4
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit
-
-_ZN4NodenwEm.exit:                                ; preds = %20, %22
-  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
-  %24 = icmp eq ptr %.0.i.i.i, null
-  br i1 %24, label %33, label %25
-
-25:                                               ; preds = %_ZN4NodenwEm.exit
-  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 68) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
-  store i8 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
-  store i32 34, ptr %30, align 4
-  store i16 1, ptr %28, align 2
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store ptr %31, ptr %29, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
-  %32 = load ptr, ptr %29, align 8
-  store ptr %26, ptr %32, align 8
-  br label %33
-
-33:                                               ; preds = %25, %_ZN4NodenwEm.exit
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1808
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 728
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = ptrtoint ptr %42 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %.not.i.i.i6 = icmp ult i64 %47, 72
-  br i1 %.not.i.i.i6, label %50, label %48
-
-48:                                               ; preds = %33
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  store ptr %49, ptr %43, align 8
-  br label %_ZN4NodenwEm.exit8
-
-50:                                               ; preds = %33
-  %51 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit8
-
-_ZN4NodenwEm.exit8:                               ; preds = %48, %50
-  %.0.i.i.i7 = phi ptr [ %44, %48 ], [ %51, %50 ]
-  %52 = icmp eq ptr %.0.i.i.i7, null
-  br i1 %52, label %61, label %53
-
-53:                                               ; preds = %_ZN4NodenwEm.exit8
-  %54 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i7, i32 noundef 0) #7
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 52
-  store i8 0, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 54
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 56
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i7, align 8
-  store i32 34, ptr %58, align 4
-  store i16 1, ptr %56, align 2
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 64
-  store ptr %59, ptr %57, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i7, ptr noundef null) #7
-  %60 = load ptr, ptr %57, align 8
-  store ptr %54, ptr %60, align 8
-  br label %61
-
-61:                                               ; preds = %53, %_ZN4NodenwEm.exit8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i7) #7
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12insert8DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12insert4DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -63061,6 +62953,114 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
   br i1 %52, label %61, label %53
 
 53:                                               ; preds = %_ZN4NodenwEm.exit8
+  %54 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i7, i32 noundef 0) #7
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 52
+  store i8 0, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 54
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i7, align 8
+  store i32 34, ptr %58, align 4
+  store i16 1, ptr %56, align 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 64
+  store ptr %59, ptr %57, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i7, ptr noundef null) #7
+  %60 = load ptr, ptr %57, align 8
+  store ptr %54, ptr %60, align 8
+  br label %61
+
+61:                                               ; preds = %53, %_ZN4NodenwEm.exit8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i7) #7
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef nonnull ptr @_ZN12insert8DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %.not.i.i.i = icmp ult i64 %19, 72
+  br i1 %.not.i.i.i, label %22, label %20
+
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store ptr %21, ptr %15, align 8
+  br label %_ZN4NodenwEm.exit
+
+22:                                               ; preds = %4
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit
+
+_ZN4NodenwEm.exit:                                ; preds = %20, %22
+  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
+  %24 = icmp eq ptr %.0.i.i.i, null
+  br i1 %24, label %33, label %25
+
+25:                                               ; preds = %_ZN4NodenwEm.exit
+  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 68) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
+  store i8 0, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
+  store i32 34, ptr %30, align 4
+  store i16 1, ptr %28, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  store ptr %31, ptr %29, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
+  %32 = load ptr, ptr %29, align 8
+  store ptr %26, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %25, %_ZN4NodenwEm.exit
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1808
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 728
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %42 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %.not.i.i.i6 = icmp ult i64 %47, 72
+  br i1 %.not.i.i.i6, label %50, label %48
+
+48:                                               ; preds = %33
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 72
+  store ptr %49, ptr %43, align 8
+  br label %_ZN4NodenwEm.exit8
+
+50:                                               ; preds = %33
+  %51 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit8
+
+_ZN4NodenwEm.exit8:                               ; preds = %48, %50
+  %.0.i.i.i7 = phi ptr [ %44, %48 ], [ %51, %50 ]
+  %52 = icmp eq ptr %.0.i.i.i7, null
+  br i1 %52, label %61, label %53
+
+53:                                               ; preds = %_ZN4NodenwEm.exit8
   %54 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 115) #7
   tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i7, i32 noundef 0) #7
   %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 52
@@ -63084,7 +63084,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14reductionINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14reductionINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -63192,7 +63192,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionI_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionI_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -63300,7 +63300,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionI_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionI_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -63408,7 +63408,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionI_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionI_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -63516,7 +63516,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionI_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionI_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -63624,7 +63624,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionI_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionI_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -63732,7 +63732,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionI_5Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionI_5Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -63840,7 +63840,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14reductionLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14reductionLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -63948,7 +63948,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionL_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionL_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -64056,7 +64056,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionL_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionL_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -64164,7 +64164,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionL_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionL_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -64272,7 +64272,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionL_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionL_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -64380,7 +64380,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionL_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionL_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -64488,7 +64488,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionL_5Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionL_5Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -64596,7 +64596,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23reductionL_avx512dqNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23reductionL_avx512dqNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -64704,7 +64704,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -64812,7 +64812,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -64920,7 +64920,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -65028,7 +65028,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -65136,7 +65136,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -65244,7 +65244,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_5Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionL_avx512dq_5Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -65352,7 +65352,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17reductionF128Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17reductionF128Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -65614,7 +65614,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19reductionF128_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19reductionF128_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -65876,7 +65876,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15reduction8FNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15reduction8FNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -66296,7 +66296,7 @@ _ZN4Node7set_reqEjPS_.exit63:                     ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17reduction8F_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17reduction8F_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -66716,7 +66716,7 @@ _ZN4Node7set_reqEjPS_.exit63:                     ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reduction16FNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reduction16FNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -67136,7 +67136,7 @@ _ZN4Node7set_reqEjPS_.exit63:                     ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18reduction16F_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18reduction16F_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -67556,7 +67556,7 @@ _ZN4Node7set_reqEjPS_.exit63:                     ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15reduction2DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15reduction2DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -67818,7 +67818,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17reduction2D_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17reduction2D_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -68080,7 +68080,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15reduction4DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15reduction4DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -68500,7 +68500,7 @@ _ZN4Node7set_reqEjPS_.exit63:                     ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17reduction4D_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17reduction4D_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -68920,7 +68920,7 @@ _ZN4Node7set_reqEjPS_.exit63:                     ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15reduction8DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15reduction8DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -69340,7 +69340,7 @@ _ZN4Node7set_reqEjPS_.exit63:                     ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17reduction8D_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17reduction8D_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -69760,7 +69760,7 @@ _ZN4Node7set_reqEjPS_.exit63:                     ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14reductionBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14reductionBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -69868,7 +69868,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionB_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionB_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -69976,7 +69976,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionB_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionB_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -70084,7 +70084,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionB_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionB_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -70192,7 +70192,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionB_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionB_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -70300,7 +70300,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionB_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionB_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -70408,7 +70408,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23reductionB_avx512bwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23reductionB_avx512bwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -70516,7 +70516,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -70624,7 +70624,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -70732,7 +70732,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -70840,7 +70840,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -70948,7 +70948,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25reductionB_avx512bw_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -71056,7 +71056,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14reductionSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14reductionSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -71164,7 +71164,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionS_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionS_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -71272,7 +71272,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionS_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionS_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -71380,7 +71380,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionS_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionS_2Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -71488,7 +71488,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionS_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionS_3Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -71596,7 +71596,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionS_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionS_4Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -71704,7 +71704,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16reductionS_5Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16reductionS_5Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -71812,7 +71812,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18mul_reductionBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18mul_reductionBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -71971,7 +71971,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20mul_reduction64BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20mul_reduction64BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -72130,7 +72130,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22minmax_reduction2FNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22minmax_reduction2FNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -72462,7 +72462,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %174, %180
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24minmax_reduction2F_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24minmax_reduction2F_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -72794,7 +72794,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %174, %180
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21minmax_reductionFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21minmax_reductionFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -73177,7 +73177,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %202, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23minmax_reductionF_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23minmax_reductionF_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -73560,7 +73560,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %202, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25minmax_reduction2F_avNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25minmax_reduction2F_avNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -74367,7 +74367,7 @@ _ZN4Node7set_reqEjPS_.exit126:                    ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27minmax_reduction2F_av_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27minmax_reduction2F_av_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -75174,7 +75174,7 @@ _ZN4Node7set_reqEjPS_.exit126:                    ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24minmax_reductionF_avNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24minmax_reductionF_avNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -76139,7 +76139,7 @@ _ZN4Node7set_reqEjPS_.exit154:                    ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26minmax_reductionF_av_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26minmax_reductionF_av_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -77104,7 +77104,7 @@ _ZN4Node7set_reqEjPS_.exit154:                    ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22minmax_reduction2DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22minmax_reduction2DNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -77436,7 +77436,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %174, %180
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24minmax_reduction2D_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24minmax_reduction2D_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -77768,7 +77768,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %174, %180
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21minmax_reductionDNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21minmax_reductionDNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -78151,7 +78151,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %202, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23minmax_reductionD_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23minmax_reductionD_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -78534,7 +78534,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %202, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25minmax_reduction2D_avNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25minmax_reduction2D_avNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -79341,7 +79341,7 @@ _ZN4Node7set_reqEjPS_.exit126:                    ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27minmax_reduction2D_av_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27minmax_reduction2D_av_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -80148,7 +80148,7 @@ _ZN4Node7set_reqEjPS_.exit126:                    ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24minmax_reductionD_avNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24minmax_reductionD_avNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -81113,7 +81113,7 @@ _ZN4Node7set_reqEjPS_.exit154:                    ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN26minmax_reductionD_av_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN26minmax_reductionD_av_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -82078,7 +82078,7 @@ _ZN4Node7set_reqEjPS_.exit154:                    ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN10vmul8BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10vmul8BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -82186,7 +82186,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN9vmulBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9vmulBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -82294,7 +82294,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vmulB_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vmulB_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -82402,7 +82402,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN9vmulLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9vmulLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -82510,7 +82510,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vmulL_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vmulL_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -82618,7 +82618,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19minmaxL_reg_sseNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19minmaxL_reg_sseNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -82880,7 +82880,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21minmaxL_reg_sse_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21minmaxL_reg_sse_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -83142,7 +83142,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20vminmaxL_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20vminmaxL_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -83199,7 +83199,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22vminmaxL_reg_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22vminmaxL_reg_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -83256,166 +83256,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16minmaxFP_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %.not.i.i.i = icmp ult i64 %19, 72
-  br i1 %.not.i.i.i, label %22, label %20
-
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store ptr %21, ptr %15, align 8
-  br label %_ZN4NodenwEm.exit
-
-22:                                               ; preds = %4
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit
-
-_ZN4NodenwEm.exit:                                ; preds = %20, %22
-  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
-  %24 = icmp eq ptr %.0.i.i.i, null
-  br i1 %24, label %33, label %25
-
-25:                                               ; preds = %_ZN4NodenwEm.exit
-  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 115) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
-  store i8 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
-  store i32 34, ptr %30, align 4
-  store i16 1, ptr %28, align 2
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store ptr %31, ptr %29, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
-  %32 = load ptr, ptr %29, align 8
-  store ptr %26, ptr %32, align 8
-  br label %33
-
-33:                                               ; preds = %25, %_ZN4NodenwEm.exit
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1808
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 728
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = ptrtoint ptr %42 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %.not.i.i.i9 = icmp ult i64 %47, 72
-  br i1 %.not.i.i.i9, label %50, label %48
-
-48:                                               ; preds = %33
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  store ptr %49, ptr %43, align 8
-  br label %_ZN4NodenwEm.exit11
-
-50:                                               ; preds = %33
-  %51 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit11
-
-_ZN4NodenwEm.exit11:                              ; preds = %48, %50
-  %.0.i.i.i10 = phi ptr [ %44, %48 ], [ %51, %50 ]
-  %52 = icmp eq ptr %.0.i.i.i10, null
-  br i1 %52, label %61, label %53
-
-53:                                               ; preds = %_ZN4NodenwEm.exit11
-  %54 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 115) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i10, i32 noundef 0) #7
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 52
-  store i8 0, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 54
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 56
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i10, align 8
-  store i32 34, ptr %58, align 4
-  store i16 1, ptr %56, align 2
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 64
-  store ptr %59, ptr %57, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i10, ptr noundef null) #7
-  %60 = load ptr, ptr %57, align 8
-  store ptr %54, ptr %60, align 8
-  br label %61
-
-61:                                               ; preds = %53, %_ZN4NodenwEm.exit11
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i10) #7
-  %62 = load ptr, ptr %5, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1808
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 128
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 728
-  %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %68, i64 32
-  %72 = load ptr, ptr %71, align 8
-  %73 = ptrtoint ptr %70 to i64
-  %74 = ptrtoint ptr %72 to i64
-  %75 = sub i64 %73, %74
-  %.not.i.i.i12 = icmp ult i64 %75, 72
-  br i1 %.not.i.i.i12, label %78, label %76
-
-76:                                               ; preds = %61
-  %77 = getelementptr inbounds nuw i8, ptr %72, i64 72
-  store ptr %77, ptr %71, align 8
-  br label %_ZN4NodenwEm.exit14
-
-78:                                               ; preds = %61
-  %79 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %68, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit14
-
-_ZN4NodenwEm.exit14:                              ; preds = %76, %78
-  %.0.i.i.i13 = phi ptr [ %72, %76 ], [ %79, %78 ]
-  %80 = icmp eq ptr %.0.i.i.i13, null
-  br i1 %80, label %89, label %81
-
-81:                                               ; preds = %_ZN4NodenwEm.exit14
-  %82 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 115) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i13, i32 noundef 0) #7
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 52
-  store i8 0, ptr %83, align 4
-  %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 54
-  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 56
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i13, align 8
-  store i32 34, ptr %86, align 4
-  store i16 1, ptr %84, align 2
-  %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 64
-  store ptr %87, ptr %85, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i13, ptr noundef null) #7
-  %88 = load ptr, ptr %85, align 8
-  store ptr %82, ptr %88, align 8
-  br label %89
-
-89:                                               ; preds = %81, %_ZN4NodenwEm.exit14
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i13) #7
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18minmaxFP_reg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16minmaxFP_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -83574,7 +83415,166 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23evminmaxFP_reg_eavxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18minmaxFP_reg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %.not.i.i.i = icmp ult i64 %19, 72
+  br i1 %.not.i.i.i, label %22, label %20
+
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store ptr %21, ptr %15, align 8
+  br label %_ZN4NodenwEm.exit
+
+22:                                               ; preds = %4
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit
+
+_ZN4NodenwEm.exit:                                ; preds = %20, %22
+  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
+  %24 = icmp eq ptr %.0.i.i.i, null
+  br i1 %24, label %33, label %25
+
+25:                                               ; preds = %_ZN4NodenwEm.exit
+  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 115) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
+  store i8 0, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
+  store i32 34, ptr %30, align 4
+  store i16 1, ptr %28, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  store ptr %31, ptr %29, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
+  %32 = load ptr, ptr %29, align 8
+  store ptr %26, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %25, %_ZN4NodenwEm.exit
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1808
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 728
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %42 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %.not.i.i.i9 = icmp ult i64 %47, 72
+  br i1 %.not.i.i.i9, label %50, label %48
+
+48:                                               ; preds = %33
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 72
+  store ptr %49, ptr %43, align 8
+  br label %_ZN4NodenwEm.exit11
+
+50:                                               ; preds = %33
+  %51 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit11
+
+_ZN4NodenwEm.exit11:                              ; preds = %48, %50
+  %.0.i.i.i10 = phi ptr [ %44, %48 ], [ %51, %50 ]
+  %52 = icmp eq ptr %.0.i.i.i10, null
+  br i1 %52, label %61, label %53
+
+53:                                               ; preds = %_ZN4NodenwEm.exit11
+  %54 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 115) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i10, i32 noundef 0) #7
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 52
+  store i8 0, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 54
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i10, align 8
+  store i32 34, ptr %58, align 4
+  store i16 1, ptr %56, align 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i10, i64 64
+  store ptr %59, ptr %57, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i10, ptr noundef null) #7
+  %60 = load ptr, ptr %57, align 8
+  store ptr %54, ptr %60, align 8
+  br label %61
+
+61:                                               ; preds = %53, %_ZN4NodenwEm.exit11
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i10) #7
+  %62 = load ptr, ptr %5, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 1808
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 128
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 728
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 40
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 32
+  %72 = load ptr, ptr %71, align 8
+  %73 = ptrtoint ptr %70 to i64
+  %74 = ptrtoint ptr %72 to i64
+  %75 = sub i64 %73, %74
+  %.not.i.i.i12 = icmp ult i64 %75, 72
+  br i1 %.not.i.i.i12, label %78, label %76
+
+76:                                               ; preds = %61
+  %77 = getelementptr inbounds nuw i8, ptr %72, i64 72
+  store ptr %77, ptr %71, align 8
+  br label %_ZN4NodenwEm.exit14
+
+78:                                               ; preds = %61
+  %79 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %68, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit14
+
+_ZN4NodenwEm.exit14:                              ; preds = %76, %78
+  %.0.i.i.i13 = phi ptr [ %72, %76 ], [ %79, %78 ]
+  %80 = icmp eq ptr %.0.i.i.i13, null
+  br i1 %80, label %89, label %81
+
+81:                                               ; preds = %_ZN4NodenwEm.exit14
+  %82 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 115) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i13, i32 noundef 0) #7
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 52
+  store i8 0, ptr %83, align 4
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 54
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 56
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i13, align 8
+  store i32 34, ptr %86, align 4
+  store i16 1, ptr %84, align 2
+  %87 = getelementptr inbounds nuw i8, ptr %.0.i.i.i13, i64 64
+  store ptr %87, ptr %85, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i13, ptr noundef null) #7
+  %88 = load ptr, ptr %85, align 8
+  store ptr %82, ptr %88, align 8
+  br label %89
+
+89:                                               ; preds = %81, %_ZN4NodenwEm.exit14
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i13) #7
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef nonnull ptr @_ZN23evminmaxFP_reg_eavxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -83784,7 +83784,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25evminmaxFP_reg_eavx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25evminmaxFP_reg_eavx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -83994,7 +83994,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15signumF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15signumF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -84071,7 +84071,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15signumD_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15signumD_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -84148,7 +84148,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19signumV_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19signumV_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -84256,7 +84256,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21signumV_reg_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21signumV_reg_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -84364,7 +84364,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20signumV_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20signumV_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -84472,7 +84472,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22signumV_reg_evex_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22signumV_reg_evex_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -84580,7 +84580,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17copySignF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17copySignF_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -84688,7 +84688,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17copySignD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17copySignD_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -84796,7 +84796,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11vshiftBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11vshiftBNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -84904,7 +84904,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vshiftB_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vshiftB_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -85012,7 +85012,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vshiftB_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vshiftB_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -85120,7 +85120,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vshift16BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vshift16BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -85279,7 +85279,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15vshift16B_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15vshift16B_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -85438,7 +85438,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15vshift16B_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15vshift16B_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -85597,7 +85597,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17vshift16B_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17vshift16B_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -85705,7 +85705,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19vshift16B_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19vshift16B_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -85813,7 +85813,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19vshift16B_avx_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19vshift16B_avx_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -85921,7 +85921,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17vshift32B_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17vshift32B_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86029,7 +86029,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19vshift32B_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19vshift32B_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86137,7 +86137,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19vshift32B_avx_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19vshift32B_avx_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86245,7 +86245,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17vshift64B_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17vshift64B_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86404,7 +86404,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19vshift64B_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19vshift64B_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86563,7 +86563,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19vshift64B_avx_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19vshift64B_avx_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86722,7 +86722,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11vshiftSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11vshiftSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86779,7 +86779,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vshiftS_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vshiftS_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86836,7 +86836,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vshiftS_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vshiftS_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86893,7 +86893,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11vshiftINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11vshiftINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -86950,7 +86950,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vshiftI_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vshiftI_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87007,7 +87007,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vshiftI_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vshiftI_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87064,7 +87064,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11vshiftLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11vshiftLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87121,7 +87121,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vshiftL_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vshiftL_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87178,7 +87178,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vshiftL_arith_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vshiftL_arith_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87286,7 +87286,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vshift8B_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vshift8B_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87394,7 +87394,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vshift8B_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vshift8B_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87502,7 +87502,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vshift8B_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vshift8B_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87610,7 +87610,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22vshift16B_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22vshift16B_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87769,7 +87769,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24vshift16B_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24vshift16B_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -87928,7 +87928,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24vshift16B_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24vshift16B_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -88087,7 +88087,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22vshift32B_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22vshift32B_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -88348,7 +88348,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24vshift32B_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24vshift32B_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -88609,7 +88609,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24vshift32B_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24vshift32B_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -88870,7 +88870,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vshiftB_var_evex_bwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vshiftB_var_evex_bwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -88978,7 +88978,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25vshiftB_var_evex_bw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25vshiftB_var_evex_bw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -89086,7 +89086,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25vshiftB_var_evex_bw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25vshiftB_var_evex_bw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -89194,7 +89194,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN25vshift64B_var_evex_bwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN25vshift64B_var_evex_bwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -89353,7 +89353,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27vshift64B_var_evex_bw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27vshift64B_var_evex_bw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -89512,7 +89512,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27vshift64B_var_evex_bw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27vshift64B_var_evex_bw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -89671,7 +89671,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vshift8S_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vshift8S_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -89779,7 +89779,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vshift8S_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vshift8S_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -89887,7 +89887,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vshift8S_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vshift8S_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -89995,7 +89995,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22vshift16S_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22vshift16S_var_nobwNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -90154,7 +90154,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24vshift16S_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24vshift16S_var_nobw_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -90313,7 +90313,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24vshift16S_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24vshift16S_var_nobw_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -90472,7 +90472,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vshiftL_arith_varNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vshiftL_arith_varNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -90580,7 +90580,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vcastStoXNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vcastStoXNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -90688,7 +90688,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vcastItoXNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vcastItoXNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -90796,7 +90796,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20castFtoX_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20castFtoX_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -91128,7 +91128,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %174, %180
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21castFtoX_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21castFtoX_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -91460,7 +91460,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %174, %180
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20castDtoX_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20castDtoX_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -91843,7 +91843,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %202, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21castDtoX_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21castDtoX_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -92175,7 +92175,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %174, %180
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20vround_float_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20vround_float_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -92560,7 +92560,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %202, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vround_float_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vround_float_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -92945,7 +92945,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %202, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19vround_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19vround_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93330,7 +93330,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %202, %208
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13evcmpFD64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13evcmpFD64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93387,7 +93387,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15vcmp_negateNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15vcmp_negateNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93495,7 +93495,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN9vcmpuNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(152) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN9vcmpuNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(152) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93605,7 +93605,7 @@ _ZN4NodenwEm.exit9:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN10vcmp64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10vcmp64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93662,7 +93662,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vextractINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vextractINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93719,7 +93719,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15vextractI_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15vextractI_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93776,7 +93776,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15vextractI_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15vextractI_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93833,7 +93833,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vextractLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vextractLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93890,7 +93890,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12extractFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12extractFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -93998,7 +93998,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vextractFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vextractFNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94055,7 +94055,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vextractDNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vextractDNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94112,7 +94112,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11blendvpNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11blendvpNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94169,7 +94169,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12vblendvpNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12vblendvpNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94277,7 +94277,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15evblendvp64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15evblendvp64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94334,7 +94334,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15vptest_lt16Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15vptest_lt16Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94391,7 +94391,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21ktest_alltrue_le8Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21ktest_alltrue_le8Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94448,7 +94448,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21ktest_anytrue_le8Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21ktest_anytrue_le8Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94505,7 +94505,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN12loadMaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN12loadMaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94562,7 +94562,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN14loadMask64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN14loadMask64Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94619,7 +94619,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17loadMask_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17loadMask_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94676,115 +94676,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16vstoreMask2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %.not.i.i.i = icmp ult i64 %19, 72
-  br i1 %.not.i.i.i, label %22, label %20
-
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store ptr %21, ptr %15, align 8
-  br label %_ZN4NodenwEm.exit
-
-22:                                               ; preds = %4
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit
-
-_ZN4NodenwEm.exit:                                ; preds = %20, %22
-  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
-  %24 = icmp eq ptr %.0.i.i.i, null
-  br i1 %24, label %33, label %25
-
-25:                                               ; preds = %_ZN4NodenwEm.exit
-  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
-  store i8 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
-  store i32 34, ptr %30, align 4
-  store i16 1, ptr %28, align 2
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store ptr %31, ptr %29, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
-  %32 = load ptr, ptr %29, align 8
-  store ptr %26, ptr %32, align 8
-  br label %33
-
-33:                                               ; preds = %25, %_ZN4NodenwEm.exit
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1808
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 728
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = ptrtoint ptr %42 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %.not.i.i.i6 = icmp ult i64 %47, 72
-  br i1 %.not.i.i.i6, label %50, label %48
-
-48:                                               ; preds = %33
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  store ptr %49, ptr %43, align 8
-  br label %_ZN4NodenwEm.exit8
-
-50:                                               ; preds = %33
-  %51 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit8
-
-_ZN4NodenwEm.exit8:                               ; preds = %48, %50
-  %.0.i.i.i7 = phi ptr [ %44, %48 ], [ %51, %50 ]
-  %52 = icmp eq ptr %.0.i.i.i7, null
-  br i1 %52, label %61, label %53
-
-53:                                               ; preds = %_ZN4NodenwEm.exit8
-  %54 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i7, i32 noundef 0) #7
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 52
-  store i8 0, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 54
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 56
-  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i7, align 8
-  store i32 34, ptr %58, align 4
-  store i16 1, ptr %56, align 2
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 64
-  store ptr %59, ptr %57, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i7, ptr noundef null) #7
-  %60 = load ptr, ptr %57, align 8
-  store ptr %54, ptr %60, align 8
-  br label %61
-
-61:                                               ; preds = %53, %_ZN4NodenwEm.exit8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i7) #7
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16vstoreMask4BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16vstoreMask2BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -94892,7 +94784,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15storeMask8BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16vstoreMask4BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -95000,7 +94892,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19storeMask8B_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15storeMask8BNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -95108,121 +95000,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN28vstoreMask_evex_vectmaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %.not.i.i.i = icmp ult i64 %19, 72
-  br i1 %.not.i.i.i, label %22, label %20
-
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store ptr %21, ptr %15, align 8
-  br label %_ZN4NodenwEm.exit
-
-22:                                               ; preds = %4
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit
-
-_ZN4NodenwEm.exit:                                ; preds = %20, %22
-  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
-  %24 = icmp eq ptr %.0.i.i.i, null
-  br i1 %24, label %33, label %25
-
-25:                                               ; preds = %_ZN4NodenwEm.exit
-  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
-  store i8 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
-  store i32 34, ptr %30, align 4
-  store i16 1, ptr %28, align 2
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store ptr %31, ptr %29, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
-  %32 = load ptr, ptr %29, align 8
-  store ptr %26, ptr %32, align 8
-  br label %33
-
-33:                                               ; preds = %25, %_ZN4NodenwEm.exit
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19vstoreMask_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %.not.i.i.i = icmp ult i64 %19, 72
-  br i1 %.not.i.i.i, label %22, label %20
-
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store ptr %21, ptr %15, align 8
-  br label %_ZN4NodenwEm.exit
-
-22:                                               ; preds = %4
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit
-
-_ZN4NodenwEm.exit:                                ; preds = %20, %22
-  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
-  %24 = icmp eq ptr %.0.i.i.i, null
-  br i1 %24, label %33, label %25
-
-25:                                               ; preds = %_ZN4NodenwEm.exit
-  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
-  store i8 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
-  store i32 34, ptr %30, align 4
-  store i16 1, ptr %28, align 2
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store ptr %31, ptr %29, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
-  %32 = load ptr, ptr %29, align 8
-  store ptr %26, ptr %32, align 8
-  br label %33
-
-33:                                               ; preds = %25, %_ZN4NodenwEm.exit
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23VectorPopulateIndexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19storeMask8B_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -95330,7 +95108,121 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24VectorPopulateLIndexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN28vstoreMask_evex_vectmaskNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %.not.i.i.i = icmp ult i64 %19, 72
+  br i1 %.not.i.i.i, label %22, label %20
+
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store ptr %21, ptr %15, align 8
+  br label %_ZN4NodenwEm.exit
+
+22:                                               ; preds = %4
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit
+
+_ZN4NodenwEm.exit:                                ; preds = %20, %22
+  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
+  %24 = icmp eq ptr %.0.i.i.i, null
+  br i1 %24, label %33, label %25
+
+25:                                               ; preds = %_ZN4NodenwEm.exit
+  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
+  store i8 0, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
+  store i32 34, ptr %30, align 4
+  store i16 1, ptr %28, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  store ptr %31, ptr %29, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
+  %32 = load ptr, ptr %29, align 8
+  store ptr %26, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %25, %_ZN4NodenwEm.exit
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef nonnull ptr @_ZN19vstoreMask_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %.not.i.i.i = icmp ult i64 %19, 72
+  br i1 %.not.i.i.i, label %22, label %20
+
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store ptr %21, ptr %15, align 8
+  br label %_ZN4NodenwEm.exit
+
+22:                                               ; preds = %4
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit
+
+_ZN4NodenwEm.exit:                                ; preds = %20, %22
+  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
+  %24 = icmp eq ptr %.0.i.i.i, null
+  br i1 %24, label %33, label %25
+
+25:                                               ; preds = %_ZN4NodenwEm.exit
+  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
+  store i8 0, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
+  store i32 34, ptr %30, align 4
+  store i16 1, ptr %28, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  store ptr %31, ptr %29, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
+  %32 = load ptr, ptr %29, align 8
+  store ptr %26, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %25, %_ZN4NodenwEm.exit
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef nonnull ptr @_ZN23VectorPopulateIndexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -95438,7 +95330,115 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18rearrangeB_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24VectorPopulateLIndexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %.not.i.i.i = icmp ult i64 %19, 72
+  br i1 %.not.i.i.i, label %22, label %20
+
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store ptr %21, ptr %15, align 8
+  br label %_ZN4NodenwEm.exit
+
+22:                                               ; preds = %4
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit
+
+_ZN4NodenwEm.exit:                                ; preds = %20, %22
+  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
+  %24 = icmp eq ptr %.0.i.i.i, null
+  br i1 %24, label %33, label %25
+
+25:                                               ; preds = %_ZN4NodenwEm.exit
+  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
+  store i8 0, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
+  store i32 34, ptr %30, align 4
+  store i16 1, ptr %28, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  store ptr %31, ptr %29, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
+  %32 = load ptr, ptr %29, align 8
+  store ptr %26, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %25, %_ZN4NodenwEm.exit
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1808
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 728
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %42 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %.not.i.i.i6 = icmp ult i64 %47, 72
+  br i1 %.not.i.i.i6, label %50, label %48
+
+48:                                               ; preds = %33
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 72
+  store ptr %49, ptr %43, align 8
+  br label %_ZN4NodenwEm.exit8
+
+50:                                               ; preds = %33
+  %51 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit8
+
+_ZN4NodenwEm.exit8:                               ; preds = %48, %50
+  %.0.i.i.i7 = phi ptr [ %44, %48 ], [ %51, %50 ]
+  %52 = icmp eq ptr %.0.i.i.i7, null
+  br i1 %52, label %61, label %53
+
+53:                                               ; preds = %_ZN4NodenwEm.exit8
+  %54 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 114) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i7, i32 noundef 0) #7
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 52
+  store i8 0, ptr %55, align 4
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 54
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 56
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i7, align 8
+  store i32 34, ptr %58, align 4
+  store i16 1, ptr %56, align 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 64
+  store ptr %59, ptr %57, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i7, ptr noundef null) #7
+  %60 = load ptr, ptr %57, align 8
+  store ptr %54, ptr %60, align 8
+  br label %61
+
+61:                                               ; preds = %53, %_ZN4NodenwEm.exit8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i7) #7
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef nonnull ptr @_ZN18rearrangeB_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -95597,7 +95597,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19rearrangeB_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19rearrangeB_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -95909,7 +95909,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16loadShuffleSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16loadShuffleSNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -96017,7 +96017,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18rearrangeS_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18rearrangeS_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -96176,7 +96176,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16loadShuffleINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16loadShuffleINode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -96284,7 +96284,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16loadShuffleLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16loadShuffleLNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -96392,7 +96392,7 @@ _ZN4NodenwEm.exit8:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vpopcount_avx_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vpopcount_avx_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -96602,7 +96602,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vpopcount_avx_reg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vpopcount_avx_reg_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -96812,7 +96812,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN34vcount_trailing_zeros_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN34vcount_trailing_zeros_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -96971,7 +96971,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN40vcount_trailing_zeros_short_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN40vcount_trailing_zeros_short_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -97232,7 +97232,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN39vcount_trailing_zeros_byte_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN39vcount_trailing_zeros_byte_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(144) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -97595,7 +97595,7 @@ _ZN4NodenwEm.exit38:                              ; preds = %188, %190
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN33vcount_trailing_zeros_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN33vcount_trailing_zeros_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -97856,7 +97856,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vpternlogNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vpternlogNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -97974,7 +97974,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17vpternlog_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17vpternlog_memNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -98092,7 +98092,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27verify_vector_alignmentNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27verify_vector_alignmentNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -98169,7 +98169,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN18vmask_cmp_nodeNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN18vmask_cmp_nodeNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -98399,7 +98399,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN13vmask_genNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN13vmask_genNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -98527,7 +98527,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN17vmask_gen_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN17vmask_gen_immNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -98584,7 +98584,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vmask_tolong_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vmask_tolong_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -98712,7 +98712,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vmask_tolong_boolNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vmask_tolong_boolNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -98891,7 +98891,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20vmask_tolong_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20vmask_tolong_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -99070,7 +99070,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24vmask_truecount_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24vmask_truecount_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -99249,7 +99249,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24vmask_truecount_boolNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24vmask_truecount_boolNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -99479,7 +99479,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vmask_truecount_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vmask_truecount_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -99709,7 +99709,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN33vmask_first_or_last_true_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN33vmask_first_or_last_true_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -99888,7 +99888,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN35vmask_first_or_last_true_evex_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN35vmask_first_or_last_true_evex_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -100067,7 +100067,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN33vmask_first_or_last_true_boolNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN33vmask_first_or_last_true_boolNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -100297,7 +100297,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN35vmask_first_or_last_true_bool_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN35vmask_first_or_last_true_bool_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -100527,7 +100527,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN32vmask_first_or_last_true_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN32vmask_first_or_last_true_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -100757,7 +100757,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN34vmask_first_or_last_true_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN34vmask_first_or_last_true_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -100987,7 +100987,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %118, %124
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vcompress_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vcompress_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -101319,7 +101319,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %174, %180
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vcompress_reg_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vcompress_reg_avx_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -101651,7 +101651,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %174, %180
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN27vcompress_mask_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN27vcompress_mask_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -101830,7 +101830,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN16vreverse_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN16vreverse_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -102040,7 +102040,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vreverse_reg_gfniNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vreverse_reg_gfniNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -102150,7 +102150,7 @@ _ZN4NodenwEm.exit9:                               ; preds = %48, %50
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21vreverse_byte_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21vreverse_byte_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -102207,7 +102207,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23vreverse_byte64_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23vreverse_byte64_regNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -102417,7 +102417,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN39vcount_leading_zeros_short_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN39vcount_leading_zeros_short_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -102576,7 +102576,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN38vcount_leading_zeros_byte_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN38vcount_leading_zeros_byte_reg_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -102888,7 +102888,7 @@ _ZN4NodenwEm.exit32:                              ; preds = %160, %162
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN36vcount_leading_zeros_int_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN36vcount_leading_zeros_int_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -103098,7 +103098,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN32vcount_leading_zeros_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN32vcount_leading_zeros_reg_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(128) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -103359,7 +103359,7 @@ _ZN4NodenwEm.exit26:                              ; preds = %132, %134
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19mask_not_immLT8Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19mask_not_immLT8Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -103518,7 +103518,7 @@ _ZN4NodenwEm.exit14:                              ; preds = %76, %78
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23long_to_maskLE8_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23long_to_maskLE8_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -103728,7 +103728,7 @@ _ZN4NodenwEm.exit20:                              ; preds = %104, %106
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN23long_to_maskGT8_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN23long_to_maskGT8_avxNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -104009,7 +104009,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %146, %152
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN19mask_opers_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN19mask_opers_evexNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -104066,7 +104066,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21mask_opers_evex_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21mask_opers_evex_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -104123,7 +104123,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN21mask_opers_evex_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN21mask_opers_evex_1Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -104180,135 +104180,7 @@ _ZN4NodenwEm.exit:                                ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN36FloatClassCheck_reg_reg_vfpclassNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
-  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
-  %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %16 = load ptr, ptr %15, align 8
-  %17 = ptrtoint ptr %14 to i64
-  %18 = ptrtoint ptr %16 to i64
-  %19 = sub i64 %17, %18
-  %.not.i.i.i = icmp ult i64 %19, 72
-  br i1 %.not.i.i.i, label %22, label %20
-
-20:                                               ; preds = %4
-  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
-  store ptr %21, ptr %15, align 8
-  br label %_ZN4NodenwEm.exit
-
-22:                                               ; preds = %4
-  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit
-
-_ZN4NodenwEm.exit:                                ; preds = %20, %22
-  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
-  %24 = icmp eq ptr %.0.i.i.i, null
-  br i1 %24, label %33, label %25
-
-25:                                               ; preds = %_ZN4NodenwEm.exit
-  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 48) #7
-  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
-  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
-  store i8 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
-  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
-  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
-  store i32 34, ptr %30, align 4
-  store i16 1, ptr %28, align 2
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  store ptr %31, ptr %29, align 8
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
-  %32 = load ptr, ptr %29, align 8
-  store ptr %26, ptr %32, align 8
-  br label %33
-
-33:                                               ; preds = %25, %_ZN4NodenwEm.exit
-  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1808
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 728
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = ptrtoint ptr %42 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %.not.i.i.i6 = icmp ult i64 %47, 168
-  br i1 %.not.i.i.i6, label %50, label %48
-
-48:                                               ; preds = %33
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 168
-  store ptr %49, ptr %43, align 8
-  br label %_ZN4NodenwEm.exit8
-
-50:                                               ; preds = %33
-  %51 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef 168, i32 noundef 0) #7
-  br label %_ZN4NodenwEm.exit8
-
-_ZN4NodenwEm.exit8:                               ; preds = %48, %50
-  %.0.i.i.i7 = phi ptr [ %44, %48 ], [ %51, %50 ]
-  %52 = icmp eq ptr %.0.i.i.i7, null
-  br i1 %52, label %62, label %53
-
-53:                                               ; preds = %_ZN4NodenwEm.exit8
-  tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(164) %.0.i.i.i7, ptr noundef nonnull %0) #7
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 52
-  store i32 1, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 56
-  store i8 0, ptr %55, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 44
-  store i32 8, ptr %56, align 4
-  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 48
-  %58 = load i32, ptr %57, align 8
-  %59 = or i32 %58, 64
-  store i32 %59, ptr %57, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i7, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %60, ptr noundef nonnull align 8 dereferenceable(96) @_INT_FLAGS_mask, i64 96, i1 false)
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 160
-  store i32 15, ptr %61, align 8
-  store i32 520, ptr %56, align 4
-  br label %62
-
-62:                                               ; preds = %53, %_ZN4NodenwEm.exit8
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %64 = load i32, ptr %63, align 8
-  %65 = add i32 %64, 1
-  store i32 %65, ptr %63, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %67 = load i32, ptr %66, align 8
-  %.not.i.i = icmp ult i32 %64, %67
-  br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
-
-68:                                               ; preds = %62
-  tail call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %64) #7
-  br label %_ZN9Node_List4pushEP4Node.exit
-
-_ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %70 = load ptr, ptr %69, align 8
-  %71 = zext i32 %64 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
-  store ptr %.0.i.i.i7, ptr %72, align 8
-  ret ptr %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN37DoubleClassCheck_reg_reg_vfpclassNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN36FloatClassCheck_reg_reg_vfpclassNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -104436,7 +104308,135 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN30compareAndSwapP_shenandoahNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN37DoubleClassCheck_reg_reg_vfpclassNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
+  %8 = load ptr, ptr %7, align 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %10 = load ptr, ptr %9, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 728
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %16 = load ptr, ptr %15, align 8
+  %17 = ptrtoint ptr %14 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %.not.i.i.i = icmp ult i64 %19, 72
+  br i1 %.not.i.i.i, label %22, label %20
+
+20:                                               ; preds = %4
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 72
+  store ptr %21, ptr %15, align 8
+  br label %_ZN4NodenwEm.exit
+
+22:                                               ; preds = %4
+  %23 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %12, i64 noundef 72, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit
+
+_ZN4NodenwEm.exit:                                ; preds = %20, %22
+  %.0.i.i.i = phi ptr [ %16, %20 ], [ %23, %22 ]
+  %24 = icmp eq ptr %.0.i.i.i, null
+  br i1 %24, label %33, label %25
+
+25:                                               ; preds = %_ZN4NodenwEm.exit
+  %26 = tail call noundef ptr @_ZN5State17MachOperGeneratorEi(ptr noundef nonnull align 8 dereferenceable(1920) %1, i32 noundef 48) #7
+  tail call void @_ZN4NodeC2Ej(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, i32 noundef 0) #7
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 52
+  store i8 0, ptr %27, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 54
+  %29 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 44
+  store ptr getelementptr inbounds nuw inrange(-16, 360) (i8, ptr @_ZTV12MachTempNode, i64 16), ptr %.0.i.i.i, align 8
+  store i32 34, ptr %30, align 4
+  store i16 1, ptr %28, align 2
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  store ptr %31, ptr %29, align 8
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(72) %.0.i.i.i, ptr noundef null) #7
+  %32 = load ptr, ptr %29, align 8
+  store ptr %26, ptr %32, align 8
+  br label %33
+
+33:                                               ; preds = %25, %_ZN4NodenwEm.exit
+  tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %.0.i.i.i) #7
+  %34 = load ptr, ptr %5, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1808
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 728
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  %44 = load ptr, ptr %43, align 8
+  %45 = ptrtoint ptr %42 to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %.not.i.i.i6 = icmp ult i64 %47, 168
+  br i1 %.not.i.i.i6, label %50, label %48
+
+48:                                               ; preds = %33
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 168
+  store ptr %49, ptr %43, align 8
+  br label %_ZN4NodenwEm.exit8
+
+50:                                               ; preds = %33
+  %51 = tail call noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48) %40, i64 noundef 168, i32 noundef 0) #7
+  br label %_ZN4NodenwEm.exit8
+
+_ZN4NodenwEm.exit8:                               ; preds = %48, %50
+  %.0.i.i.i7 = phi ptr [ %44, %48 ], [ %51, %50 ]
+  %52 = icmp eq ptr %.0.i.i.i7, null
+  br i1 %52, label %62, label %53
+
+53:                                               ; preds = %_ZN4NodenwEm.exit8
+  tail call void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(164) %.0.i.i.i7, ptr noundef nonnull %0) #7
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 52
+  store i32 1, ptr %54, align 4
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 56
+  store i8 0, ptr %55, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 44
+  store i32 8, ptr %56, align 4
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 48
+  %58 = load i32, ptr %57, align 8
+  %59 = or i32 %58, 64
+  store i32 %59, ptr %57, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV12MachProjNode, i64 16), ptr %.0.i.i.i7, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %60, ptr noundef nonnull align 8 dereferenceable(96) @_INT_FLAGS_mask, i64 96, i1 false)
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i7, i64 160
+  store i32 15, ptr %61, align 8
+  store i32 520, ptr %56, align 4
+  br label %62
+
+62:                                               ; preds = %53, %_ZN4NodenwEm.exit8
+  %63 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %64 = load i32, ptr %63, align 8
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %63, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %67 = load i32, ptr %66, align 8
+  %.not.i.i = icmp ult i32 %64, %67
+  br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %68
+
+68:                                               ; preds = %62
+  tail call void @_ZN10Node_Array4growEj(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %64) #7
+  br label %_ZN9Node_List4pushEP4Node.exit
+
+_ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = zext i32 %64 to i64
+  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
+  store ptr %.0.i.i.i7, ptr %72, align 8
+  ret ptr %0
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define hidden noundef nonnull ptr @_ZN30compareAndSwapP_shenandoahNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -104694,7 +104694,7 @@ _ZN9Node_List4pushEP4Node.exit22:                 ; preds = %134, %138
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN32compareAndSwapP_shenandoah_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN32compareAndSwapP_shenandoah_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -104952,7 +104952,7 @@ _ZN9Node_List4pushEP4Node.exit22:                 ; preds = %134, %138
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN30compareAndSwapN_shenandoahNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN30compareAndSwapN_shenandoahNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -105210,7 +105210,7 @@ _ZN9Node_List4pushEP4Node.exit22:                 ; preds = %134, %138
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN32compareAndSwapN_shenandoah_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN32compareAndSwapN_shenandoah_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -105468,7 +105468,7 @@ _ZN9Node_List4pushEP4Node.exit22:                 ; preds = %134, %138
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN34compareAndExchangeN_shenandoahNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN34compareAndExchangeN_shenandoahNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -105647,7 +105647,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN34compareAndExchangeP_shenandoahNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN34compareAndExchangeP_shenandoahNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -105826,7 +105826,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %90, %96
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN10xLoadPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10xLoadPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -105954,7 +105954,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24xCompareAndExchangePNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24xCompareAndExchangePNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -106082,7 +106082,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20xCompareAndSwapPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20xCompareAndSwapPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -106289,7 +106289,7 @@ _ZN9Node_List4pushEP4Node.exit16:                 ; preds = %106, %110
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22xCompareAndSwapP_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22xCompareAndSwapP_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -106496,7 +106496,7 @@ _ZN9Node_List4pushEP4Node.exit16:                 ; preds = %106, %110
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN10xXChgPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr nocapture noundef readnone %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10xXChgPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef readnone captures(none) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -106573,7 +106573,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %34, %40
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN10zLoadPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10zLoadPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -106701,7 +106701,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN11zStorePNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN11zStorePNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -106829,7 +106829,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN15zStorePNullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN15zStorePNullNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -106957,7 +106957,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN24zCompareAndExchangePNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN24zCompareAndExchangePNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -107085,7 +107085,7 @@ _ZN9Node_List4pushEP4Node.exit:                   ; preds = %62, %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN20zCompareAndSwapPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN20zCompareAndSwapPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -107292,7 +107292,7 @@ _ZN9Node_List4pushEP4Node.exit16:                 ; preds = %106, %110
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN22zCompareAndSwapP_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN22zCompareAndSwapP_0Node6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -107499,7 +107499,7 @@ _ZN9Node_List4pushEP4Node.exit16:                 ; preds = %106, %110
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN10zXChgPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef readnone %3) unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN10zXChgPNode6ExpandEP5StateR9Node_ListP4Node(ptr noundef nonnull returned align 8 dereferenceable(104) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef readnone captures(none) %3) unnamed_addr #0 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 1808
@@ -107632,7 +107632,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #2
 declare noundef ptr @_ZN5Arena4growEmN17AllocFailStrategy13AllocFailEnumE(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @_ZN4NodeC2EPS_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) unnamed_addr #1
 
@@ -109793,7 +109793,7 @@ __cxx_global_var_init.53.exit:                    ; preds = %594, %.lr.ph.i.i339
 declare void @llvm.assume(i1 noundef) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

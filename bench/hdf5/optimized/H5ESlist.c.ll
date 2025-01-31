@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [26 x i8] c"iteration operator failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @H5ES__list_append(ptr nocapture noundef %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #0 {
+define void @H5ES__list_append(ptr noundef captures(none) %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -40,13 +40,13 @@ define void @H5ES__list_append(ptr nocapture noundef %0, ptr noundef initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @H5ES__list_count(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define i64 @H5ES__list_count(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = load i64, ptr %0, align 8
   ret i64 %2
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5ES__list_iterate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #2 {
+define i32 @H5ES__list_iterate(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp eq i32 %1, 1
   %.in.v = select i1 %5, i64 16, i64 8
   %.in = getelementptr inbounds nuw i8, ptr %0, i64 %.in.v
@@ -84,7 +84,7 @@ define i32 @H5ES__list_iterate(ptr nocapture noundef readonly %0, i32 noundef %1
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @H5ES__list_remove(ptr nocapture noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @H5ES__list_remove(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4

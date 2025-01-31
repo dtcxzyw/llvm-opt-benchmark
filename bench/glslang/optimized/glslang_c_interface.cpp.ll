@@ -244,20 +244,20 @@ _ZL23c_shader_client_version31glslang_target_client_version_t.exit: ; preds = %_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @_ZN7glslang7TShaderC1E11EShLanguage(ptr noundef nonnull align 8 dereferenceable(165), i32 noundef) unnamed_addr #1
 
 declare void @_ZN7glslang7TShader10setStringsEPKPKci(ptr noundef nonnull align 8 dereferenceable(165), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @glslang_shader_set_preamble(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @glslang_shader_set_preamble(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store ptr %1, ptr %4, align 8
@@ -265,7 +265,7 @@ define void @glslang_shader_set_preamble(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @glslang_shader_shift_binding(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @glslang_shader_shift_binding(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   tail call void @_ZN7glslang7TShader15setShiftBindingENS_13TResourceTypeEj(ptr noundef nonnull align 8 dereferenceable(165) %4, i32 noundef %1, i32 noundef %2) #15
   ret void
@@ -274,7 +274,7 @@ define void @glslang_shader_shift_binding(ptr nocapture noundef readonly %0, i32
 declare void @_ZN7glslang7TShader15setShiftBindingENS_13TResourceTypeEj(ptr noundef nonnull align 8 dereferenceable(165), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @glslang_shader_shift_binding_for_set(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @glslang_shader_shift_binding_for_set(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   tail call void @_ZN7glslang7TShader21setShiftBindingForSetENS_13TResourceTypeEjj(ptr noundef nonnull align 8 dereferenceable(165) %5, i32 noundef %1, i32 noundef %2, i32 noundef %3) #15
   ret void
@@ -283,7 +283,7 @@ define void @glslang_shader_shift_binding_for_set(ptr nocapture noundef readonly
 declare void @_ZN7glslang7TShader21setShiftBindingForSetENS_13TResourceTypeEjj(ptr noundef nonnull align 8 dereferenceable(165), i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @glslang_shader_set_options(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @glslang_shader_set_options(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = and i32 %1, 1
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -323,7 +323,7 @@ declare void @_ZN7glslang7TShader18setAutoMapBindingsEb(ptr noundef nonnull alig
 declare void @_ZN7glslang7TShader19setAutoMapLocationsEb(ptr noundef nonnull align 8 dereferenceable(165), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @glslang_shader_set_glsl_version(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @glslang_shader_set_glsl_version(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   tail call void @_ZN7glslang7TShader18setOverrideVersionEi(ptr noundef nonnull align 8 dereferenceable(165) %3, i32 noundef %1) #15
   ret void
@@ -342,7 +342,7 @@ define noundef ptr @glslang_shader_get_preprocessed_code(ptr noundef %0) local_u
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 2) i32 @glslang_shader_preprocess(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @glslang_shader_preprocess(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %class.DirStackFileIncluder, align 8
   %4 = alloca %class.CallbackIncluder, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTV20DirStackFileIncluder, i64 16), ptr %3, align 8
@@ -450,7 +450,7 @@ _ZN20DirStackFileIncluderD2Ev.exit:               ; preds = %_ZSt8_DestroyIPNSt7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare noundef zeroext i1 @_ZN7glslang7TShader10preprocessEPK16TBuiltInResourcei8EProfilebb11EShMessagesPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_8IncluderE(ptr noundef nonnull align 8 dereferenceable(165), ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
@@ -503,7 +503,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 2) i32 @glslang_shader_parse(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @glslang_shader_parse(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.glslang::TShader::ForbidIncluder", align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -531,7 +531,7 @@ define range(i32 0, 2) i32 @glslang_shader_parse(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @glslang_shader_get_info_log(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @glslang_shader_get_info_log(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN7glslang7TShader10getInfoLogEv(ptr noundef nonnull align 8 dereferenceable(165) %2) #15
   ret ptr %3
@@ -540,7 +540,7 @@ define noundef ptr @glslang_shader_get_info_log(ptr nocapture noundef readonly %
 declare noundef ptr @_ZN7glslang7TShader10getInfoLogEv(ptr noundef nonnull align 8 dereferenceable(165)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @glslang_shader_get_info_debug_log(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @glslang_shader_get_info_debug_log(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN7glslang7TShader15getInfoDebugLogEv(ptr noundef nonnull align 8 dereferenceable(165) %2) #15
   ret ptr %3
@@ -635,7 +635,7 @@ _ZN17glslang_program_sD2Ev.exit:                  ; preds = %9, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @glslang_program_add_shader(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @glslang_program_add_shader(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -655,7 +655,7 @@ define void @glslang_program_add_shader(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 2) i32 @glslang_program_link(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @glslang_program_link(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = tail call noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef nonnull align 8 dereferenceable(497) %3, i32 noundef %1) #15
   %5 = zext i1 %4 to i32
@@ -665,7 +665,7 @@ define range(i32 0, 2) i32 @glslang_program_link(ptr nocapture noundef readonly 
 declare noundef zeroext i1 @_ZN7glslang8TProgram4linkE11EShMessages(ptr noundef nonnull align 8 dereferenceable(497), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @glslang_program_add_source_text(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @glslang_program_add_source_text(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
 _ZL14c_shader_stage15glslang_stage_t.exit:
   %4 = load ptr, ptr %0, align 8
   %narrow = tail call i32 @llvm.umin.i32(i32 %1, i32 14)
@@ -679,7 +679,7 @@ _ZL14c_shader_stage15glslang_stage_t.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @glslang_program_set_source_file(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @glslang_program_set_source_file(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 _ZL14c_shader_stage15glslang_stage_t.exit:
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN7glslang13TIntermediate13setSourceFileEPKc.exit, label %3
@@ -700,7 +700,7 @@ _ZN7glslang13TIntermediate13setSourceFileEPKc.exit: ; preds = %_ZL14c_shader_sta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 2) i32 @glslang_program_map_io(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @glslang_program_map_io(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef zeroext i1 @_ZN7glslang8TProgram5mapIOEPNS_14TIoMapResolverEPNS_9TIoMapperE(ptr noundef nonnull align 8 dereferenceable(497) %2, ptr noundef null, ptr noundef null) #15
   %4 = zext i1 %3 to i32
@@ -710,7 +710,7 @@ define range(i32 0, 2) i32 @glslang_program_map_io(ptr nocapture noundef readonl
 declare noundef zeroext i1 @_ZN7glslang8TProgram5mapIOEPNS_14TIoMapResolverEPNS_9TIoMapperE(ptr noundef nonnull align 8 dereferenceable(497), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @glslang_program_get_info_log(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @glslang_program_get_info_log(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN7glslang8TProgram10getInfoLogEv(ptr noundef nonnull align 8 dereferenceable(497) %2) #15
   ret ptr %3
@@ -719,7 +719,7 @@ define noundef ptr @glslang_program_get_info_log(ptr nocapture noundef readonly 
 declare noundef ptr @_ZN7glslang8TProgram10getInfoLogEv(ptr noundef nonnull align 8 dereferenceable(497)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @glslang_program_get_info_debug_log(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noundef ptr @glslang_program_get_info_debug_log(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN7glslang8TProgram15getInfoDebugLogEv(ptr noundef nonnull align 8 dereferenceable(497) %2) #15
   ret ptr %3
@@ -1460,7 +1460,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #1
 
@@ -1827,10 +1827,10 @@ declare i64 @llvm.umax.i64(i64, i64) #12
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #12

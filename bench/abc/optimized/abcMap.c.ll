@@ -361,7 +361,7 @@ declare ptr @Abc_FrameReadLibSuper(...) local_unnamed_addr #1
 declare void @Abc_FrameSetLibSuper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare void @Mio_LibraryMultiArea(ptr noundef, double noundef) local_unnamed_addr #1
 
@@ -473,7 +473,7 @@ Scl_ConHasInArrs.exit:                            ; preds = %30, %23
   br i1 %53, label %.lr.ph.i, label %Abc_NtkMapCopyCiArrivalCon.exit, !llvm.loop !6
 
 54:                                               ; preds = %Scl_ConHasInArrs.exit, %19
-  %55 = tail call ptr @Abc_NtkGetCiArrivalTimes(ptr noundef %0) #13
+  %55 = tail call ptr @Abc_NtkGetCiArrivalTimes(ptr noundef nonnull %0) #13
   %56 = getelementptr i8, ptr %0, i64 56
   %.val.i137 = load ptr, ptr %56, align 8
   %57 = getelementptr i8, ptr %.val.i137, i64 4
@@ -584,7 +584,7 @@ Scl_ConHasOutReqs.exit:                           ; preds = %78, %71
   br i1 %101, label %.lr.ph.i152, label %Abc_NtkMapCopyCoRequiredCon.exit, !llvm.loop !8
 
 102:                                              ; preds = %Scl_ConHasOutReqs.exit, %Abc_NtkMapCopyCiArrivalCon.exit
-  %103 = tail call ptr @Abc_NtkGetCoRequiredTimes(ptr noundef %0) #13
+  %103 = tail call ptr @Abc_NtkGetCoRequiredTimes(ptr noundef nonnull %0) #13
   %104 = getelementptr i8, ptr %0, i64 64
   %.val.i158 = load ptr, ptr %104, align 8
   %105 = getelementptr i8, ptr %.val.i158, i64 4
@@ -627,9 +627,9 @@ Scl_ConHasOutReqs.exit:                           ; preds = %78, %71
 Abc_NtkMapCopyCoRequiredCon.exit:                 ; preds = %.lr.ph.i152, %._crit_edge.thread.i162, %._crit_edge.i160, %84
   %.sink209 = phi ptr [ %88, %84 ], [ %107, %._crit_edge.i160 ], [ %107, %._crit_edge.thread.i162 ], [ %88, %.lr.ph.i152 ]
   tail call void @Map_ManSetOutputRequireds(ptr noundef nonnull %17, ptr noundef %.sink209) #13
-  tail call void @Abc_NtkCleanCopy(ptr noundef %0) #13
+  tail call void @Abc_NtkCleanCopy(ptr noundef nonnull %0) #13
   %118 = tail call ptr @Map_ManReadConst1(ptr noundef nonnull %17) #13
-  %119 = tail call ptr @Abc_AigConst1(ptr noundef %0) #13
+  %119 = tail call ptr @Abc_AigConst1(ptr noundef nonnull %0) #13
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 64
   store ptr %118, ptr %120, align 8
   %121 = getelementptr i8, ptr %0, i64 56
@@ -1115,7 +1115,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #15
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #13
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #13
   call void @free(ptr noundef %9) #13
   br label %16
 
@@ -1136,7 +1136,7 @@ declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #1
 declare void @Abc_NtkDelete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkMapCopyCiArrival(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkMapCopyCiArrival(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 56
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 4
@@ -1184,10 +1184,10 @@ define noalias noundef ptr @Abc_NtkMapCopyCiArrival(ptr nocapture noundef readon
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkMapCopyCoRequired(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkMapCopyCoRequired(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 64
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 4
@@ -1232,7 +1232,7 @@ define noalias noundef ptr @Abc_NtkMapCopyCoRequired(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkMapCopyCiArrivalCon(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkMapCopyCiArrivalCon(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 56
   %.val11 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val11, i64 4
@@ -1270,7 +1270,7 @@ define noalias noundef ptr @Abc_NtkMapCopyCiArrivalCon(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkMapCopyCoRequiredCon(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkMapCopyCoRequiredCon(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 64
   %.val11 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val11, i64 4
@@ -1348,7 +1348,7 @@ declare void @Map_NodeSetRepr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @Map_ManReadOutputs(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NodeFromMapSuper_rec(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Abc_NodeFromMapSuper_rec(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr (...) @Abc_FrameReadLibGen() #13
   %7 = tail call ptr @Map_SuperReadRoot(ptr noundef %2) #13
   %8 = icmp eq ptr %7, null
@@ -1988,7 +1988,7 @@ Abc_NtkFromMapSuperChoice.exit:                   ; preds = %Abc_NodeSuperChoice
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkFetchTwinNode(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define ptr @Abc_NtkFetchTwinNode(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3055,7 +3055,7 @@ define void @Abc_NtkPrintMiniMapping(ptr noundef %0) local_unnamed_addr #5 {
   %36 = getelementptr i8, ptr %.03857, i64 %35
   %37 = getelementptr i8, ptr %36, i64 1
   %38 = add nsw i32 %.258, %2
-  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %38, ptr noundef %.03857)
+  %39 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %38, ptr noundef nonnull %.03857)
   %40 = add nuw nsw i32 %.258, 1
   %exitcond69.not = icmp eq i32 %40, %6
   br i1 %exitcond69.not, label %._crit_edge61, label %.lr.ph60, !llvm.loop !41
@@ -3065,7 +3065,7 @@ define void @Abc_NtkPrintMiniMapping(ptr noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @Abc_NtkOutputMiniMapping(ptr noundef %0) local_unnamed_addr #0 {
@@ -3269,7 +3269,7 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #2
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #2
 
 declare ptr @Scl_ConReadMan(...) local_unnamed_addr #1
 
@@ -3355,7 +3355,7 @@ declare ptr @Map_NodeReadCuts(ptr noundef) local_unnamed_addr #1
 declare ptr @Map_CutReadNext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Abc_NodeFromMapSuperChoice_rec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @Abc_NodeFromMapSuperChoice_rec(ptr noundef %0, ptr noundef %1, ptr noundef nonnull readonly captures(none) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr (...) @Abc_FrameReadLibGen() #13
   %6 = tail call ptr @Map_SuperReadRoot(ptr noundef %1) #13
   %7 = icmp eq ptr %6, null
@@ -3421,7 +3421,7 @@ declare ptr @Mio_GateReadSop(ptr noundef) local_unnamed_addr #1
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #10
@@ -3430,13 +3430,13 @@ declare void @llvm.va_start.p0(ptr) #10
 declare void @llvm.va_end.p0(ptr) #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

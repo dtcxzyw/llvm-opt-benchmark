@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @prte_ess_base_num_procs = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @rte_init(i32 %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @prte_ess_base_std_prolog() #3
   switch i32 %3, label %29 [
     i32 0, label %4
@@ -62,7 +62,7 @@ define internal noundef i32 @rte_init(i32 %0, ptr nocapture readnone %1) #0 {
   br label %env_set_name.exit
 
 14:                                               ; preds = %9
-  %15 = tail call i64 @strtoul(ptr nocapture noundef nonnull %10, ptr noundef null, i32 noundef 10) #3
+  %15 = tail call i64 @strtoul(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #3
   %16 = trunc i64 %15 to i32
   store i32 %16, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_ess_base_framework, i64 76), align 4
@@ -145,7 +145,7 @@ declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_un
 declare void @PMIx_Load_nspace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 declare ptr @prte_util_print_name_args(ptr noundef) local_unnamed_addr #1
 

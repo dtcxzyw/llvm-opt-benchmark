@@ -44,7 +44,7 @@ entry:
 declare i32 @PyModule_AddFunctions(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_check(ptr nocapture readnone %_unused_module, ptr noundef readonly %obj) #0 {
+define internal ptr @float_check(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -66,7 +66,7 @@ PyObject_TypeCheck.exit:                          ; preds = %entry, %lor.rhs.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_checkexact(ptr nocapture readnone %_unused_module, ptr noundef readonly %obj) #0 {
+define internal ptr @float_checkexact(ptr readnone captures(none) %_unused_module, ptr noundef readonly %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -79,7 +79,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_fromstring(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @float_fromstring(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_fromdouble(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @float_fromdouble(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %d = alloca double, align 8
   %call = call i32 (ptr, ptr, ...) @PyArg_Parse(ptr noundef %obj, ptr noundef nonnull @.str.10, ptr noundef nonnull %d) #3
@@ -106,7 +106,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_asdouble(ptr nocapture readnone %_unused_module, ptr noundef %obj) #0 {
+define internal ptr @float_asdouble(ptr readnone captures(none) %_unused_module, ptr noundef %obj) #0 {
 entry:
   %cmp = icmp eq ptr %obj, @_Py_NoneStruct
   %spec.store.select = select i1 %cmp, ptr null, ptr %obj
@@ -129,14 +129,14 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_getinfo(ptr nocapture readnone %_unused_module, ptr nocapture readnone %_unused_arg) #0 {
+define internal ptr @float_getinfo(ptr readnone captures(none) %_unused_module, ptr readnone captures(none) %_unused_arg) #0 {
 entry:
   %call = tail call ptr @PyFloat_GetInfo() #3
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_getmax(ptr nocapture readnone %_unused_module, ptr nocapture readnone %_unused_arg) #0 {
+define internal ptr @float_getmax(ptr readnone captures(none) %_unused_module, ptr readnone captures(none) %_unused_arg) #0 {
 entry:
   %call = tail call double @PyFloat_GetMax() #3
   %call1 = tail call ptr @PyFloat_FromDouble(double noundef %call) #3
@@ -144,7 +144,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_getmin(ptr nocapture readnone %_unused_module, ptr nocapture readnone %_unused_arg) #0 {
+define internal ptr @float_getmin(ptr readnone captures(none) %_unused_module, ptr readnone captures(none) %_unused_arg) #0 {
 entry:
   %call = tail call double @PyFloat_GetMin() #3
   %call1 = tail call ptr @PyFloat_FromDouble(double noundef %call) #3
@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_float_pack(ptr nocapture readnone %module, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_testcapi_float_pack(ptr readnone captures(none) %module, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp eq i64 %nargs, 3
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -220,7 +220,7 @@ exit:                                             ; preds = %exit.sink.split, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testcapi_float_unpack(ptr nocapture readnone %module, ptr noundef %args, i64 noundef %nargs) #0 {
+define internal ptr @_testcapi_float_unpack(ptr readnone captures(none) %module, ptr noundef %args, i64 noundef %nargs) #0 {
 entry:
   %data = alloca ptr, align 8
   %data_length = alloca i64, align 8

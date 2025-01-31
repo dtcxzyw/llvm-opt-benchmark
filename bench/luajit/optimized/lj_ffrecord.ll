@@ -191,7 +191,7 @@ declare hidden void @lj_record_ret(ptr noundef, i32 noundef, i64 noundef) local_
 declare hidden i32 @lj_strscan_num(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_nyi(ptr noundef %J, ptr nocapture noundef writeonly %rd) #0 {
+define internal void @recff_nyi(ptr noundef %J, ptr noundef writeonly captures(none) %rd) #0 {
 entry:
   %nins = getelementptr inbounds nuw i8, ptr %J, i64 12
   %0 = load i32, ptr %nins, align 4
@@ -350,7 +350,7 @@ if.end16:                                         ; preds = %if.end14, %recff_st
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @recff_assert(ptr nocapture noundef readonly %J, ptr nocapture noundef writeonly initializes((8, 16)) %rd) #3 {
+define internal void @recff_assert(ptr noundef readonly captures(none) %J, ptr noundef writeonly captures(none) initializes((8, 16)) %rd) #3 {
 entry:
   %maxslot = getelementptr inbounds nuw i8, ptr %J, i64 172
   %0 = load i32, ptr %maxslot, align 4
@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_type(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_type(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %0 = load ptr, ptr %rd, align 8
   %1 = load i64, ptr %0, align 8
@@ -383,7 +383,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_next(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_next(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -507,7 +507,7 @@ if.end36:                                         ; preds = %land.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_xpairs(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_xpairs(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %ix.i = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -608,7 +608,7 @@ if.end16:                                         ; preds = %recff_metacall.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_ipairs_aux(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_ipairs_aux(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -682,7 +682,7 @@ if.end31:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_getmetatable(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_getmetatable(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -713,7 +713,7 @@ if.end8:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_setmetatable(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_setmetatable(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -788,7 +788,7 @@ if.end25:                                         ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_getfenv(ptr noundef %J, ptr nocapture noundef writeonly %rd) #0 {
+define internal void @recff_getfenv(ptr noundef %J, ptr noundef writeonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -833,7 +833,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_rawget(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_rawget(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -875,7 +875,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_rawset(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_rawset(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -923,7 +923,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_rawequal(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_rawequal(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -950,7 +950,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_select(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_select(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1109,7 +1109,7 @@ return:                                           ; preds = %if.end40, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_tostring(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_tostring(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %ix.i = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -1213,7 +1213,7 @@ if.end28:                                         ; preds = %recff_metacall.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_pcall(ptr noundef %J, ptr nocapture noundef writeonly %rd) #0 {
+define internal void @recff_pcall(ptr noundef %J, ptr noundef writeonly captures(none) %rd) #0 {
 entry:
   %maxslot = getelementptr inbounds nuw i8, ptr %J, i64 172
   %0 = load i32, ptr %maxslot, align 4
@@ -1242,7 +1242,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_xpcall(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_xpcall(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %maxslot = getelementptr inbounds nuw i8, ptr %J, i64 172
   %0 = load i32, ptr %maxslot, align 4
@@ -1303,7 +1303,7 @@ if.end30:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_abs(ptr noundef %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_math_abs(ptr noundef %J, ptr readnone captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1332,7 +1332,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_round(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_math_round(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1365,7 +1365,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_unary(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_math_unary(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1388,7 +1388,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_call(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_math_call(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1411,7 +1411,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_log(ptr noundef %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_math_log(ptr noundef %J, ptr readnone captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1470,7 +1470,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_atan2(ptr noundef %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_math_atan2(ptr noundef %J, ptr readnone captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1487,7 +1487,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_pow(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_math_pow(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1503,7 +1503,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_ldexp(ptr noundef %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_math_ldexp(ptr noundef %J, ptr readnone captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1528,7 +1528,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_minmax(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_math_minmax(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -1614,7 +1614,7 @@ for.end:                                          ; preds = %if.end27, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_math_random(ptr noundef %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_math_random(ptr noundef %J, ptr readnone captures(none) %rd) #0 {
 entry:
   %fn = getelementptr inbounds nuw i8, ptr %J, i64 144
   %0 = load ptr, ptr %fn, align 8
@@ -1873,7 +1873,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_string_range(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_string_range(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %start = alloca i32, align 4
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -2293,7 +2293,7 @@ if.end154:                                        ; preds = %for.body, %if.else1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_string_char(ptr noundef %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_string_char(ptr noundef %J, ptr readnone captures(none) %rd) #0 {
 entry:
   %call = tail call i32 @lj_ir_kint(ptr noundef %J, i32 noundef 255) #9
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -2402,7 +2402,7 @@ if.end43:                                         ; preds = %if.end43.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_string_rep(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_string_rep(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -2539,7 +2539,7 @@ if.end39:                                         ; preds = %if.end29, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_string_op(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_string_op(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -2570,7 +2570,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_string_find(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_string_find(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %start = alloca i32, align 4
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -2850,7 +2850,7 @@ if.end97:                                         ; preds = %if.then68, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_string_format(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_string_format(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %tmpbuf.i = getelementptr inbounds i8, ptr %J, i64 -528
   %call.i = tail call i32 @lj_ir_kptr_(ptr noundef %J, i32 noundef 25, ptr noundef nonnull %tmpbuf.i) #9
@@ -2867,7 +2867,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_table_insert(ptr noundef %J, ptr nocapture noundef initializes((8, 16)) %rd) #0 {
+define internal void @recff_table_insert(ptr noundef %J, ptr noundef captures(none) initializes((8, 16)) %rd) #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -2937,7 +2937,7 @@ if.end18:                                         ; preds = %if.then8, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_table_concat(ptr noundef %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_table_concat(ptr noundef %J, ptr readnone captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -3054,7 +3054,7 @@ if.end:                                           ; preds = %cond.end40, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_table_new(ptr noundef %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_table_new(ptr noundef %J, ptr readnone captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -3128,7 +3128,7 @@ return:                                           ; preds = %if.end48, %cond.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_table_clear(ptr noundef %J, ptr nocapture noundef writeonly %rd) #0 {
+define internal void @recff_table_clear(ptr noundef %J, ptr noundef writeonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -3150,7 +3150,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_io_write(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_io_write(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %ud = alloca i32, align 4
   %data = getelementptr inbounds nuw i8, ptr %rd, i64 16
@@ -3301,7 +3301,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_io_flush(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_io_flush(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %ud = alloca i32, align 4
   %data = getelementptr inbounds nuw i8, ptr %rd, i64 16
@@ -3347,7 +3347,7 @@ if.end:                                           ; preds = %if.then, %results_w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_debug_getmetatable(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_debug_getmetatable(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -3452,7 +3452,7 @@ declare hidden void @recff_ffi_abi(ptr noundef, ptr noundef) #1
 declare hidden void @recff_ffi_gc(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_reset(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_method_reset(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -3608,7 +3608,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_skip(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_method_skip(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -3694,7 +3694,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_set(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_method_set(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -3815,7 +3815,7 @@ if.end37:                                         ; preds = %recff_sbufx_check.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_put(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_buffer_method_put(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -3924,7 +3924,7 @@ recff_sbufx_check.exit86:                         ; preds = %land.lhs.true.i72
   store i16 2441, ptr %ot1.i18.i, align 4
   store i16 %conv8.i, ptr %fold.i17.i, align 8
   store i16 %conv8.i76, ptr %op2.i21.i, align 2
-  %call8 = tail call i32 @lj_opt_fold(ptr noundef %J) #9
+  %call8 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   %.pre = load ptr, ptr %base.i, align 8
   br label %for.inc
 
@@ -3950,7 +3950,7 @@ if.then18:                                        ; preds = %for.body14
   store i16 22153, ptr %ot1.i18.i, align 4
   store i16 %conv19, ptr %fold.i17.i, align 8
   store i16 %conv20, ptr %op2.i21.i, align 2
-  %call21 = tail call i32 @lj_opt_fold(ptr noundef %J) #9
+  %call21 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   br label %for.inc48
 
 if.else:                                          ; preds = %for.body14
@@ -3968,12 +3968,12 @@ if.then25:                                        ; preds = %if.else
   store i16 23812, ptr %ot1.i18.i, align 4
   store i16 %conv27, ptr %fold.i17.i, align 8
   store i16 %conv31, ptr %op2.i21.i, align 2
-  %call32 = tail call i32 @lj_opt_fold(ptr noundef %J) #9
+  %call32 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   %conv33 = trunc i32 %call32 to i16
   store i16 22153, ptr %ot1.i18.i, align 4
   store i16 %conv26, ptr %fold.i17.i, align 8
   store i16 %conv33, ptr %op2.i21.i, align 2
-  %call34 = tail call i32 @lj_opt_fold(ptr noundef %J) #9
+  %call34 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   br label %for.inc48
 
 if.else35:                                        ; preds = %if.else
@@ -3985,27 +3985,27 @@ if.then39:                                        ; preds = %if.else35
   store i16 17673, ptr %ot1.i18.i, align 4
   store i16 %conv.i97, ptr %fold.i17.i, align 8
   store i16 19, ptr %op2.i21.i, align 2
-  %call.i104 = tail call i32 @lj_opt_fold(ptr noundef %J) #9
+  %call.i104 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   store i16 17673, ptr %ot1.i18.i, align 4
   store i16 %conv.i97, ptr %fold.i17.i, align 8
   store i16 14, ptr %op2.i21.i, align 2
-  %call.i = tail call i32 @lj_opt_fold(ptr noundef %J) #9
+  %call.i = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   %conv.i110 = trunc i32 %call.i to i16
   %conv1.i111 = trunc i32 %call.i104 to i16
   store i16 10773, ptr %ot1.i18.i, align 4
   store i16 %conv.i110, ptr %fold.i17.i, align 8
   store i16 %conv1.i111, ptr %op2.i21.i, align 2
-  %call.i112 = tail call i32 @lj_opt_fold(ptr noundef %J) #9
+  %call.i112 = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
   %conv2.i = trunc i32 %call.i112 to i16
   store i16 23315, ptr %ot1.i18.i, align 4
   store i16 %conv2.i, ptr %fold.i17.i, align 8
   store i16 4725, ptr %op2.i21.i, align 2
-  %call3.i = tail call i32 @lj_opt_fold(ptr noundef %J) #9
-  %call43 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef %J, i32 noundef 16, i32 noundef %trbuf.093, i32 noundef %call.i104, i32 noundef %call3.i) #9
+  %call3.i = tail call i32 @lj_opt_fold(ptr noundef nonnull %J) #9
+  %call43 = tail call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %J, i32 noundef 16, i32 noundef %trbuf.093, i32 noundef %call.i104, i32 noundef %call3.i) #9
   br label %for.inc48
 
 if.else44:                                        ; preds = %if.else35
-  tail call void @recff_nyi(ptr noundef %J, ptr noundef nonnull %rd)
+  tail call void @recff_nyi(ptr noundef nonnull %J, ptr noundef nonnull %rd)
   br label %for.inc48
 
 for.inc48:                                        ; preds = %if.then18, %if.then39, %if.else44, %if.then25
@@ -4031,7 +4031,7 @@ return:                                           ; preds = %recff_sbufx_check.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_putf(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_buffer_method_putf(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4088,7 +4088,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_get(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_buffer_method_get(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4178,7 +4178,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp, label %for.inc, label %if.then10
 
 if.then10:                                        ; preds = %for.body
-  %call12 = tail call fastcc i32 @recff_sbufx_checkint(ptr noundef %J, ptr noundef nonnull %rd, i64 noundef %add77)
+  %call12 = tail call fastcc i32 @recff_sbufx_checkint(ptr noundef nonnull %J, ptr noundef nonnull %rd, i64 noundef %add77)
   %10 = load ptr, ptr %base.i, align 8
   %arrayidx15 = getelementptr inbounds nuw i32, ptr %10, i64 %add77
   store i32 %call12, ptr %arrayidx15, align 4
@@ -4271,7 +4271,7 @@ for.end45:                                        ; preds = %if.end42, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_putcdata(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_method_putcdata(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4340,7 +4340,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_reserve(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_buffer_method_reserve(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4410,7 +4410,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_commit(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_method_commit(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4495,7 +4495,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_ref(ptr noundef %J, ptr nocapture noundef %rd) #0 {
+define internal void @recff_buffer_method_ref(ptr noundef %J, ptr noundef captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4567,7 +4567,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_encode(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_method_encode(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4648,7 +4648,7 @@ recff_tmpref.exit:                                ; preds = %recff_sbufx_check.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method_decode(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_method_decode(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4728,7 +4728,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method___tostring(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_method___tostring(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4799,7 +4799,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_method___len(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_method___len(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %rd.val = load ptr, ptr %rd, align 8
   %base.i = getelementptr inbounds nuw i8, ptr %J, i64 160
@@ -4865,7 +4865,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_encode(ptr noundef initializes((184, 190)) %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_buffer_encode(ptr noundef initializes((184, 190)) %J, ptr readnone captures(none) %rd) #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -4911,7 +4911,7 @@ recff_tmpref.exit:                                ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_decode(ptr noundef %J, ptr nocapture noundef readonly %rd) #0 {
+define internal void @recff_buffer_decode(ptr noundef %J, ptr noundef readonly captures(none) %rd) #0 {
 entry:
   %sbx = alloca %struct.SBufExt, align 8
   %0 = load ptr, ptr %rd, align 8
@@ -4977,7 +4977,7 @@ declare hidden void @lj_record_stop(ptr noundef, i32 noundef, i32 noundef) local
 declare hidden void @lj_cont_stitch() #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare hidden i32 @lj_ir_k64(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -4994,7 +4994,7 @@ declare hidden i32 @lj_record_mm_lookup(ptr noundef, ptr noundef, i32 noundef) l
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @recff_metacall_cp(ptr nocapture readnone %L, ptr nocapture readnone %dummy, ptr noundef %ud) #0 {
+define internal noalias noundef ptr @recff_metacall_cp(ptr readnone captures(none) %L, ptr readnone captures(none) %dummy, ptr noundef %ud) #0 {
 entry:
   tail call void @lj_record_tailcall(ptr noundef %ud, i32 noundef 0, i64 noundef 1) #9
   ret ptr null
@@ -5020,7 +5020,7 @@ declare hidden ptr @lj_strfmt_obj(ptr noundef, ptr noundef) local_unnamed_addr #
 declare hidden void @lj_record_call(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @recff_xpcall_cp(ptr nocapture readnone %L, ptr nocapture readnone %dummy, ptr noundef %ud) #0 {
+define internal noalias noundef ptr @recff_xpcall_cp(ptr readnone captures(none) %L, ptr readnone captures(none) %dummy, ptr noundef %ud) #0 {
 entry:
   %maxslot = getelementptr inbounds nuw i8, ptr %ud, i64 172
   %0 = load i32, ptr %maxslot, align 4
@@ -5057,7 +5057,7 @@ declare hidden i32 @recff_bit64_tohex(ptr noundef, ptr noundef, i32 noundef) loc
 declare hidden i32 @lj_ir_tostr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recff_string_start(ptr noundef %J, ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %st, i32 noundef %tr, i32 noundef %trlen, i32 noundef %tr0) unnamed_addr #0 {
+define internal fastcc i32 @recff_string_start(ptr noundef %J, ptr noundef readonly captures(none) %s, ptr noundef nonnull captures(none) %st, i32 noundef %tr, i32 noundef %trlen, i32 noundef %tr0) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %st, align 4
   %cmp = icmp slt i32 %0, 0
@@ -5141,7 +5141,7 @@ declare hidden i32 @lj_str_haspattern(ptr noundef) local_unnamed_addr #1
 declare hidden ptr @lj_str_find(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recff_format(ptr noundef %J, ptr nocapture noundef %rd, i32 noundef %hdr, i32 noundef range(i32 0, 2) %sbufx) unnamed_addr #0 {
+define internal fastcc void @recff_format(ptr noundef %J, ptr noundef captures(none) %rd, i32 noundef %hdr, i32 noundef range(i32 0, 2) %sbufx) unnamed_addr #0 {
 entry:
   %fs = alloca %struct.FormatState, align 8
   %conv = zext nneg i32 %sbufx to i64
@@ -5410,7 +5410,7 @@ declare hidden i32 @lj_tab_len(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recff_io_fp(ptr noundef %J, ptr nocapture noundef nonnull writeonly %udp, i32 noundef %id) unnamed_addr #0 {
+define internal fastcc i32 @recff_io_fp(ptr noundef %J, ptr noundef nonnull writeonly captures(none) %udp, i32 noundef %id) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i32 %id, 0
   br i1 %tobool.not, label %if.else, label %if.then
@@ -5477,7 +5477,7 @@ if.end11:                                         ; preds = %if.end, %if.then
 declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @recff_sbufx_checkint(ptr noundef %J, ptr nocapture noundef readonly %rd, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %arg) unnamed_addr #0 {
+define internal fastcc i32 @recff_sbufx_checkint(ptr noundef %J, ptr noundef readonly captures(none) %rd, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %arg) unnamed_addr #0 {
 entry:
   %base = getelementptr inbounds nuw i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8
@@ -5564,7 +5564,7 @@ declare hidden i32 @lj_serialize_peektype(ptr noundef) local_unnamed_addr #1
 declare hidden i32 @lj_record_vload(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
@@ -5573,10 +5573,10 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare i64 @llvm.smax.i64(i64, i64) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #7

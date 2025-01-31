@@ -67,7 +67,7 @@ ompi_mpi_errcode_is_predefined.exit:              ; preds = %17, %20
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #4
   %29 = trunc i64 %28 to i32
   %30 = add i32 %29, 1
-  %31 = tail call i32 @ompi_mpi_errnum_add_string(i32 noundef %0, ptr noundef %1, i32 noundef %30) #3
+  %31 = tail call i32 @ompi_mpi_errnum_add_string(i32 noundef %0, ptr noundef nonnull %1, i32 noundef %30) #3
   %.not7 = icmp eq i32 %31, 0
   br i1 %.not7, label %33, label %.sink.split
 
@@ -84,7 +84,7 @@ ompi_mpi_errcode_is_predefined.exit:              ; preds = %17, %20
 declare i32 @ompi_errhandler_invoke(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @ompi_mpi_errnum_add_string(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 

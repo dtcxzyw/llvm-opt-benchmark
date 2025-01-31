@@ -658,7 +658,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4pbrt12SpectralFilmC1ENS_18FilmBaseParametersEffiPKNS_13RGBColorSpaceEfbN4pstd3pmr21polymorphic_allocatorISt4byteEE = dso_local unnamed_addr alias void (ptr, ptr, float, float, i32, ptr, float, i1, ptr), ptr @_ZN4pbrt12SpectralFilmC2ENS_18FilmBaseParametersEffiPKNS_13RGBColorSpaceEfbN4pstd3pmr21polymorphic_allocatorISt4byteEE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt4Film8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 {
 entry:
   %this.val = load i64, ptr %this, align 8
   %and.i.i = and i64 %this.val, 144115188075855871
@@ -687,7 +687,7 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt4Film10WriteImageENS_13ImageMetadataEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %metadata, float noundef %splatScale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt4Film10WriteImageENS_13ImageMetadataEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %metadata, float noundef %splatScale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i7.i.i = alloca %"struct.pbrt::ImageMetadata", align 8
   %agg.tmp.i5.i.i = alloca %"struct.pbrt::ImageMetadata", align 8
@@ -761,7 +761,7 @@ lpad.i8.i.i:                                      ; preds = %sw.default.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt4Film8GetImageEPNS_13ImageMetadataEf(ptr noalias sret(%"class.pbrt::Image") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef %metadata, float noundef %splatScale) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt4Film8GetImageEPNS_13ImageMetadataEf(ptr noalias sret(%"class.pbrt::Image") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef %metadata, float noundef %splatScale) local_unnamed_addr #1 align 2 {
 entry:
   %this.val = load i64, ptr %this, align 8
   %and.i.i = and i64 %this.val, 144115188075855871
@@ -790,7 +790,7 @@ sw.default.i.i:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt4Film8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt4Film8ToStringB5cxx11Ev(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.30", align 1
   %0 = load i64, ptr %this, align 8
@@ -865,7 +865,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt4Film11GetFilenameB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4pbrt4Film11GetFilenameB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %this.val = load i64, ptr %this, align 8
   %and.i.i = and i64 %this.val, 144115188075855871
@@ -876,7 +876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt18FilmBaseParametersC2ERKNS_19ParameterDictionaryENS_6FilterEPKNS_11PixelSensorEPKNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 32), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef readonly %filter, ptr noundef %sensor, ptr noundef %loc) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt18FilmBaseParametersC2ERKNS_19ParameterDictionaryENS_6FilterEPKNS_11PixelSensorEPKNS_7FileLocE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 32), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef readonly captures(none) %filter, ptr noundef %sensor, ptr noundef %loc) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i454 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i314 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1988,7 +1988,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare i64 @_ZN4pbrt3GUI13GetResolutionEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef i32 @_ZNK4pbrt19ParameterDictionary9GetOneIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #3
 
@@ -2033,7 +2033,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 declare noundef float @_ZNK4pbrt19ParameterDictionary11GetOneFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(108), ptr noundef nonnull align 8 dereferenceable(32), float noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8FilmBase12SampleBoundsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #6 align 2 {
+define dso_local { <2 x float>, <2 x float> } @_ZNK4pbrt8FilmBase12SampleBoundsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %this) local_unnamed_addr #6 align 2 {
 entry:
   %filter = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %filter, align 8
@@ -2101,7 +2101,7 @@ _ZN4pbrt12StringPrintfIJRKNS_6Point2IiEERKfRKNS_6FilterERKNSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4pbrt14VisibleSurfaceC2ERKNS_18SurfaceInteractionENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(89) initializes((0, 89)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %si, <2 x float> %albedo.coerce0, <2 x float> %albedo.coerce1, ptr nocapture nonnull readnone align 4 %lambda) unnamed_addr #7 align 2 {
+define dso_local void @_ZN4pbrt14VisibleSurfaceC2ERKNS_18SurfaceInteractionENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(89) initializes((0, 89)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(248) %si, <2 x float> %albedo.coerce0, <2 x float> %albedo.coerce1, ptr nonnull readnone align 4 captures(none) %lambda) unnamed_addr #7 align 2 {
 entry:
   %z.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %n = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -2750,7 +2750,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt19ParameterDictionaryD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3308,7 +3308,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt7RGBFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, <2 x float> %p.coerce, <2 x float> %L.coerce0, <2 x float> %L.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt7RGBFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %this, <2 x float> %p.coerce, <2 x float> %L.coerce0, <2 x float> %L.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i = alloca %"class.pbrt::Point2", align 8
   %eval.i = alloca %class.anon.95, align 8
@@ -3965,7 +3965,7 @@ ehcleanup:                                        ; preds = %lpad, %common.resum
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt7RGBFilm8GetImageEPNS_13ImageMetadataEf(ptr noalias sret(%"class.pbrt::Image") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef %metadata, float noundef %splatScale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt7RGBFilm8GetImageEPNS_13ImageMetadataEf(ptr noalias sret(%"class.pbrt::Image") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef captures(none) %metadata, float noundef %splatScale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::function.96", align 8
@@ -4519,7 +4519,7 @@ invoke.cont:                                      ; preds = %_ZNK4pbrt8FilmBase1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt7RGBFilm6CreateERKNS_19ParameterDictionaryEfNS_6FilterEPKNS_13RGBColorSpaceEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr nocapture noundef readonly %filter, ptr noundef %colorSpace, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt7RGBFilm6CreateERKNS_19ParameterDictionaryEfNS_6FilterEPKNS_13RGBColorSpaceEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr noundef readonly captures(none) %filter, ptr noundef %colorSpace, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.pbrt::FilmBaseParameters", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5241,7 +5241,7 @@ declare { <2 x float>, float } @_ZNK4pbrt17AnimatedTransformclENS_7Vector3IfEEf(
 declare { <2 x float>, float } @_ZNK4pbrt15SampledSpectrum5ToRGBERKNS_18SampledWavelengthsERKNS_13RGBColorSpaceE(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11GBufferFilmC2ENS_18FilmBaseParametersERKNS_17AnimatedTransformEbPKNS_13RGBColorSpaceEfbN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef %p, ptr nocapture noundef nonnull readonly align 4 dereferenceable(696) %outputFromRender, i1 noundef zeroext %applyInverse, ptr noundef %colorSpace, float noundef %maxComponentValue, i1 noundef zeroext %writeFP16, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11GBufferFilmC2ENS_18FilmBaseParametersERKNS_17AnimatedTransformEbPKNS_13RGBColorSpaceEfbN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef %p, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(696) %outputFromRender, i1 noundef zeroext %applyInverse, ptr noundef %colorSpace, float noundef %maxComponentValue, i1 noundef zeroext %writeFP16, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %integral.i = alloca %class.anon.93, align 1
   %agg.tmp = alloca %"struct.pbrt::FilmBaseParameters", align 8
@@ -5478,7 +5478,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11GBufferFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(872) %this, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11GBufferFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(872) %this, <2 x float> %p.coerce, <2 x float> %v.coerce0, <2 x float> %v.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i = alloca %"class.pbrt::Point2", align 8
   %eval.i = alloca %class.anon.95, align 8
@@ -5779,7 +5779,7 @@ ehcleanup:                                        ; preds = %lpad, %common.resum
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11GBufferFilm8GetImageEPNS_13ImageMetadataEf(ptr noalias sret(%"class.pbrt::Image") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(872) %this, ptr nocapture noundef %metadata, float noundef %splatScale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11GBufferFilm8GetImageEPNS_13ImageMetadataEf(ptr noalias sret(%"class.pbrt::Image") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef captures(none) %metadata, float noundef %splatScale) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp.i = alloca %"class.std::function.96", align 8
@@ -8426,7 +8426,7 @@ invoke.cont:                                      ; preds = %_ZNK4pbrt8FilmBase1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt11GBufferFilm6CreateERKNS_19ParameterDictionaryEfRKNS_15CameraTransformENS_6FilterEPKNS_13RGBColorSpaceEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr noundef nonnull align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %filter, ptr noundef %colorSpace, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt11GBufferFilm6CreateERKNS_19ParameterDictionaryEfRKNS_15CameraTransformENS_6FilterEPKNS_13RGBColorSpaceEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr noundef nonnull align 4 dereferenceable(824) %cameraTransform, ptr noundef readonly captures(none) %filter, ptr noundef %colorSpace, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.pbrt::FilmBaseParameters", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9235,7 +9235,7 @@ for.end:                                          ; preds = %_ZN4pbrt3RGBixEi.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt12SpectralFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(180) %this, <2 x float> %p.coerce, <2 x float> %L.coerce0, <2 x float> %L.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt12SpectralFilm8AddSplatENS_6Point2IfEENS_15SampledSpectrumERKNS_18SampledWavelengthsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(180) %this, <2 x float> %p.coerce, <2 x float> %L.coerce0, <2 x float> %L.coerce1, ptr noundef nonnull align 4 dereferenceable(32) %lambda) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i = alloca %"class.pbrt::Point2", align 8
   %eval.i = alloca %class.anon.95, align 8
@@ -10407,7 +10407,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -10567,7 +10567,7 @@ invoke.cont:                                      ; preds = %_ZNK4pbrt8FilmBase1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4pbrt12SpectralFilm6CreateERKNS_19ParameterDictionaryEfNS_6FilterEPKNS_13RGBColorSpaceEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr nocapture noundef readonly %filter, ptr noundef %colorSpace, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4pbrt12SpectralFilm6CreateERKNS_19ParameterDictionaryEfNS_6FilterEPKNS_13RGBColorSpaceEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr noundef readonly captures(none) %filter, ptr noundef %colorSpace, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.pbrt::FilmBaseParameters", align 8
   %filmBaseParameters = alloca %"struct.pbrt::FilmBaseParameters", align 8
@@ -10901,7 +10901,7 @@ ehcleanup60:                                      ; preds = %lpad8, %lpad.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt4Film6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryEfRKNS_15CameraTransformENS_6FilterEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Film") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr noundef nonnull align 4 dereferenceable(824) %cameraTransform, ptr nocapture noundef readonly %filter, ptr noundef %loc, i64 %alloc.coerce) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt4Film6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryEfRKNS_15CameraTransformENS_6FilterEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias writeonly sret(%"class.pbrt::Film") align 8 captures(none) initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, float noundef %exposureTime, ptr noundef nonnull align 4 dereferenceable(824) %cameraTransform, ptr noundef readonly captures(none) %filter, ptr noundef %loc, i64 %alloc.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp = alloca %"class.pbrt::Filter", align 8
   %agg.tmp9 = alloca %"class.pbrt::Filter", align 8
@@ -11515,7 +11515,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare void @_ZN4pbrt6detail21stringPrintfRecursiveEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
 
@@ -16388,7 +16388,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
@@ -22674,7 +22674,7 @@ ehcleanup42:                                      ; preds = %ehcleanup27, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E9_M_invokeERKSt9_Any_dataOS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %__args) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E9_M_invokeERKSt9_Any_dataOS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %__args) #0 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca [3 x float], align 4
   %ref.tmp30.i.i.i = alloca [3 x float], align 4
@@ -22769,7 +22769,7 @@ if.then.i.i.i:                                    ; preds = %_ZSt3maxIfET_St16in
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_7RGBFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -23438,7 +23438,7 @@ ehcleanup58:                                      ; preds = %lpad49, %lpad21, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E9_M_invokeERKSt9_Any_dataOS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %__args) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E9_M_invokeERKSt9_Any_dataOS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %__args) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rgb.i.i.i = alloca %"class.pbrt::RGB", align 8
   %ref.tmp40.i.i.i = alloca [3 x float], align 4
@@ -23932,7 +23932,7 @@ cond.false.i134.i.i.i:                            ; preds = %_ZNK4pbrt17Variance
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_11GBufferFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -24639,7 +24639,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E9_M_invokeERKSt9_Any_dataOS2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %__args) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E9_M_invokeERKSt9_Any_dataOS2_"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__functor, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %__args) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rgb.sroa.0.i.i.i = alloca <2 x float>, align 8
   %rgb.sroa.7.i.i.i = alloca float, align 4
@@ -24831,7 +24831,7 @@ if.end48.i.i.i:                                   ; preds = %if.then45.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %__dest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4pbrt6Point2IiEEEZNS0_12SpectralFilm8GetImageEPNS0_13ImageMetadataEfE3$_0E10_M_managerERSt9_Any_dataRKS9_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %__dest, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %__source, i32 noundef %__op) #1 align 2 {
 entry:
   switch i32 %__op, label %sw.epilog [
     i32 0, label %sw.bb
@@ -27229,10 +27229,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #22

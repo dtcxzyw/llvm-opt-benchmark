@@ -20,7 +20,7 @@ $_ZTI7b2Shape = comdat any
 @_ZTI11b2EdgeShape = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS11b2EdgeShape, ptr @_ZTI7b2Shape }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11b2EdgeShape11SetOneSidedERK6b2Vec2S2_S2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((16, 49)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v3) local_unnamed_addr #0 align 2 {
+define void @_ZN11b2EdgeShape11SetOneSidedERK6b2Vec2S2_S2_S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((16, 49)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %v0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %v1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %v2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %v3) local_unnamed_addr #0 align 2 {
 entry:
   %m_vertex0 = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %v0, align 4
@@ -40,10 +40,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11b2EdgeShape11SetTwoSidedERK6b2Vec2S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((16, 32), (48, 49)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %v2) local_unnamed_addr #0 align 2 {
+define void @_ZN11b2EdgeShape11SetTwoSidedERK6b2Vec2S2_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(49) initializes((16, 32), (48, 49)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %v1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %v2) local_unnamed_addr #0 align 2 {
 entry:
   %m_vertex1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %v1, align 4
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK11b2EdgeShape5CloneEP16b2BlockAllocator(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef nonnull %allocator) unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK11b2EdgeShape5CloneEP16b2BlockAllocator(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef nonnull %allocator) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 56)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV11b2EdgeShape, i64 16), ptr %call, align 8
@@ -79,19 +79,19 @@ entry:
 declare noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZNK11b2EdgeShape13GetChildCountEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef i32 @_ZNK11b2EdgeShape13GetChildCountEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_ZNK11b2EdgeShape9TestPointERK11b2TransformRK6b2Vec2(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %xf, ptr nocapture nonnull readnone align 4 %p) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK11b2EdgeShape9TestPointERK11b2TransformRK6b2Vec2(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %xf, ptr nonnull readnone align 4 captures(none) %p) unnamed_addr #4 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK11b2EdgeShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly %output, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %input, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK11b2EdgeShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef writeonly captures(none) %output, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %input, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #5 align 2 {
 entry:
   %q = getelementptr inbounds nuw i8, ptr %xf, i64 8
   %0 = load float, ptr %input, align 4
@@ -214,7 +214,7 @@ return:                                           ; preds = %if.end32, %if.end23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK11b2EdgeShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly initializes((0, 16)) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #5 align 2 {
+define void @_ZNK11b2EdgeShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %aabb, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %xf, i32 %childIndex) unnamed_addr #5 align 2 {
 entry:
   %m_vertex1 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %q.i = getelementptr inbounds nuw i8, ptr %xf, i64 8
@@ -270,7 +270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK11b2EdgeShape11ComputeMassEP10b2MassDataf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr nocapture noundef writeonly initializes((0, 16)) %massData, float %density) unnamed_addr #5 align 2 {
+define void @_ZNK11b2EdgeShape11ComputeMassEP10b2MassDataf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %massData, float %density) unnamed_addr #5 align 2 {
 entry:
   store float 0.000000e+00, ptr %massData, align 4
   %m_vertex1 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -317,7 +317,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare float @llvm.sqrt.f32(float) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

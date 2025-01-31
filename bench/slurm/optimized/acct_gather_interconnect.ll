@@ -203,7 +203,7 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #3
 declare ptr @slurm_get_acct_gather_interconnect_type() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
@@ -489,7 +489,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_watch_node(ptr nocapture readnone %0) #0 {
+define internal noundef ptr @_watch_node(ptr readnone captures(none) %0) #0 {
   %2 = tail call i32 (i32, ...) @prctl(i32 noundef 15, ptr noundef nonnull @.str.25, ptr noundef null, ptr noundef null, ptr noundef null) #6
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %.preheader65

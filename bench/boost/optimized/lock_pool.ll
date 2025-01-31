@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_114g_find_addressE = internal global %"union.boost::atomics::detail::lock_pool::(anonymous namespace)::find_address_ptr" { ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_121find_address_dispatchEPVKvPKS5_m }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %.not11.not = icmp eq i64 %2, 0
   br i1 %.not11.not, label %._crit_edge, label %.lr.ph
 
@@ -42,10 +42,10 @@ define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPK
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64 noundef %0) local_unnamed_addr #2 {
@@ -331,7 +331,7 @@ _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE23compare_exch
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost7atomics6detail9lock_pool19allocate_wait_stateEPvPVKv(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5boost7atomics6detail9lock_pool19allocate_wait_stateEPvPVKv(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %5 = icmp eq ptr %4, null
@@ -450,7 +450,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_creat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list5eraseEPNS3_10wait_stateE.exit, label %3, !prof !16
 
@@ -1029,13 +1029,13 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list10free_spareEv(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !13
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %18, label %3, !prof !16
@@ -1090,7 +1090,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 declare i32 @posix_memalign(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #12
 

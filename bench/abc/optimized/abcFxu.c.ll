@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [50 x i8] c"Abc_NtkFastExtract: The network check has failed.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Abc_NtkSetDefaultFxParams(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #0 {
+define void @Abc_NtkSetDefaultFxParams(ptr noundef writeonly captures(none) initializes((0, 96)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 80, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -31,7 +31,7 @@ define void @Abc_NtkSetDefaultFxParams(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Abc_NtkFastExtract(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -133,7 +133,7 @@ Abc_NtkIsSopLogic.exit:
   br i1 %exitcond59.not.i, label %Abc_NtkFxuCheck.exit, label %9, !llvm.loop !7
 
 Abc_NtkFxuCheck.exit:                             ; preds = %.critedge2.i, %3
-  %39 = tail call i32 @Abc_NtkCleanup(ptr noundef %0, i32 noundef 0) #9
+  %39 = tail call i32 @Abc_NtkCleanup(ptr noundef nonnull %0, i32 noundef 0) #9
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -426,7 +426,7 @@ Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.e
 
 .lr.ph.i31:                                       ; preds = %160, %.lr.ph.i31
   %.04755.i = phi i32 [ %172, %.lr.ph.i31 ], [ %163, %160 ]
-  %171 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #9
+  %171 = tail call ptr @Abc_NtkCreateObj(ptr noundef nonnull %0, i32 noundef 7) #9
   %172 = add nsw i32 %.04755.i, 1
   %173 = load ptr, ptr %44, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 4
@@ -578,7 +578,7 @@ Abc_NtkFxuCollectInfo.exit:                       ; preds = %152, %Vec_PtrFill.e
   br i1 %262, label %226, label %Abc_NtkFxuReconstruct.exit, !llvm.loop !14
 
 Abc_NtkFxuReconstruct.exit:                       ; preds = %._crit_edge63.i, %.preheader.i26
-  %263 = tail call i32 @Abc_NtkCheck(ptr noundef %0) #9
+  %263 = tail call i32 @Abc_NtkCheck(ptr noundef nonnull %0) #9
   %.not13 = icmp eq i32 %263, 0
   br i1 %.not13, label %.sink.split, label %264
 
@@ -602,7 +602,7 @@ declare i32 @Fxu_FastExtract(ptr noundef) local_unnamed_addr #3
 declare i32 @Abc_NtkCheck(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkFxuFreeInfo(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Abc_NtkFxuFreeInfo(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -739,10 +739,10 @@ declare i32 @Abc_SopGetCubeNum(ptr noundef) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @Abc_ObjRemoveFanins(ptr noundef) local_unnamed_addr #3
 
@@ -751,7 +751,7 @@ declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #7
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [24 x i32] [i32 83, i32 101, i32 108, i32 101, i32 99, i32 116, i32 105, i32 118, i32 101, i32 83, i32 117, i32 115, i32 112, i32 101, i32 110, i32 100, i32 69, i32 110, i32 97, i32 98, i32 108, i32 101, i32 100, i32 0], align 4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @usb_desc_msos(ptr nocapture noundef readonly %desc, ptr nocapture noundef writeonly %p, i32 noundef %index, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #0 {
+define dso_local noundef i32 @usb_desc_msos(ptr noundef readonly captures(none) %desc, ptr noundef writeonly captures(none) %p, i32 noundef %index, ptr noundef writeonly captures(none) %dest, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc0(i64 noundef 4096) #7
   switch i32 %index, label %sw.epilog [
@@ -221,15 +221,15 @@ sw.epilog:                                        ; preds = %usb_desc_msos_prop.
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

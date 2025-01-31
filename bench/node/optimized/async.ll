@@ -95,7 +95,7 @@ return:                                           ; preds = %do.body, %do.body13
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef i32 @uv_async_send(ptr nocapture noundef %handle) local_unnamed_addr #1 {
+define dso_local noundef i32 @uv_async_send(ptr noundef captures(none) %handle) local_unnamed_addr #1 {
 entry:
   %pending1 = getelementptr inbounds nuw i8, ptr %handle, i64 120
   %u = getelementptr inbounds nuw i8, ptr %handle, i64 48
@@ -161,7 +161,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @uv__async_close(ptr nocapture noundef %handle) local_unnamed_addr #0 {
+define hidden void @uv__async_close(ptr noundef captures(none) %handle) local_unnamed_addr #0 {
 entry:
   %pending1.i = getelementptr inbounds nuw i8, ptr %handle, i64 120
   %u.i = getelementptr inbounds nuw i8, ptr %handle, i64 48
@@ -456,7 +456,7 @@ return:                                           ; preds = %if.end4.i, %if.then
 declare i32 @sched_yield() local_unnamed_addr #3
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #5
@@ -470,7 +470,7 @@ declare i32 @eventfd(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare void @uv__io_init(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @uv__async_io(ptr noundef %loop, ptr nocapture noundef readonly %w, i32 %events) #0 {
+define internal void @uv__async_io(ptr noundef %loop, ptr noundef readonly captures(none) %w, i32 %events) #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %queue = alloca %struct.uv__queue, align 8
@@ -568,7 +568,7 @@ while.end:                                        ; preds = %while.cond.backedge
 declare void @uv__io_start(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

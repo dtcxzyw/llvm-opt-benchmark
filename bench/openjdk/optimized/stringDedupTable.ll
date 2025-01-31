@@ -364,7 +364,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN11StringDedup5Table6BucketC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN11StringDedup5Table6BucketC2Ei
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup5Table6BucketC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11StringDedup5Table6BucketC2Ei(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i, label %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i
 
@@ -434,7 +434,7 @@ define hidden noundef range(i32 -536870910, -1610612735) i32 @_ZN11StringDedup5T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup5Table6Bucket14expand_if_fullEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11StringDedup5Table6Bucket14expand_if_fullEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -622,7 +622,7 @@ _ZN26GrowableArrayWithAllocatorI10WeakHandle18GrowableArrayCHeapIS0_L8MEMFLAGS25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup5Table6Bucket6shrinkEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11StringDedup5Table6Bucket6shrinkEv(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   %4 = load i32, ptr %0, align 8
@@ -714,7 +714,7 @@ _ZN26GrowableArrayWithAllocatorI10WeakHandle18GrowableArrayCHeapIS0_L8MEMFLAGS25
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZNK11StringDedup5Table6Bucket4findEP16typeArrayOopDescj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZNK11StringDedup5Table6Bucket4findEP16typeArrayOopDescj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %0, align 8
   %.not1820 = icmp eq i32 %4, 0
   br i1 %.not1820, label %.loopexit, label %.lr.ph
@@ -788,7 +788,7 @@ _ZN16java_lang_String12value_equalsEP16typeArrayOopDescS1_.exit.thread17: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11StringDedup5Table6Bucket6verifyEmm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK11StringDedup5Table6Bucket6verifyEmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
@@ -918,7 +918,7 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %7, %6, %5, %_ZN13Mo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11StringDedup5Table7Resizer4stepEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN11StringDedup5Table7Resizer4stepEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.WeakHandle, align 8
   %3 = alloca i32, align 4
   %4 = alloca %class.WeakHandle, align 8
@@ -1047,7 +1047,7 @@ define hidden void @_ZN11StringDedup5Table3addE10WeakHandlej(ptr %0, i32 noundef
 declare void @_ZN10WeakHandle7releaseEP10OopStorage(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK11StringDedup5Table7Resizer6verifyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZNK11StringDedup5Table7Resizer6verifyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %.not = icmp eq i64 %3, 0
@@ -1073,7 +1073,7 @@ define hidden void @_ZNK11StringDedup5Table7Resizer6verifyEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11StringDedup5Table7Cleaner4stepEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN11StringDedup5Table7Cleaner4stepEv(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @_ZN11StringDedup5Table18_number_of_bucketsE, align 8
@@ -1690,7 +1690,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup5Table22try_deduplicate_shared
   br i1 %27, label %30, label %28
 
 28:                                               ; preds = %20
-  %29 = tail call noundef zeroext i1 @_ZN11StringDedup5Table28try_deduplicate_found_sharedEP7oopDescS2_(ptr noundef %0, ptr noundef nonnull %19)
+  %29 = tail call noundef zeroext i1 @_ZN11StringDedup5Table28try_deduplicate_found_sharedEP7oopDescS2_(ptr noundef nonnull %0, ptr noundef nonnull %19)
   br i1 %29, label %_ZN12ResourceMarkD2Ev.exit, label %30
 
 30:                                               ; preds = %13, %20, %28, %1
@@ -1754,7 +1754,7 @@ define hidden noundef zeroext i1 @_ZN11StringDedup5Table22try_deduplicate_shared
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %._crit_edge
-  %68 = tail call noundef zeroext i1 @_ZN11StringDedup5Table28try_deduplicate_found_sharedEP7oopDescS2_(ptr noundef %0, ptr noundef nonnull %65)
+  %68 = tail call noundef zeroext i1 @_ZN11StringDedup5Table28try_deduplicate_found_sharedEP7oopDescS2_(ptr noundef nonnull %0, ptr noundef nonnull %65)
   br label %69
 
 69:                                               ; preds = %._crit_edge, %67, %52
@@ -6493,19 +6493,19 @@ declare void @_ZN17LogStreamImplBase10LineBufferD1Ev(ptr noundef nonnull align 8
 declare noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

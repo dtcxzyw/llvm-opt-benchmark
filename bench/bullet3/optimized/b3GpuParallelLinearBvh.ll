@@ -524,7 +524,7 @@ declare void @_ZN15b3RadixSort32CLC1EP11_cl_contextP13_cl_device_idP17_cl_comman
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayI9b3SapAabbED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1252,7 +1252,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22b3GpuParallelLinearBvh5buildERK13b3OpenCLArrayI9b3SapAabbERKS0_IiES7_(ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %worldSpaceAabbs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %smallAabbIndices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %largeAabbIndices) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22b3GpuParallelLinearBvh5buildERK13b3OpenCLArrayI9b3SapAabbERKS0_IiES7_(ptr noundef nonnull align 8 dereferenceable(1096) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %worldSpaceAabbs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %smallAabbIndices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %largeAabbIndices) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i362 = alloca [3 x i64], align 16
   %lRange.i.i363 = alloca [3 x i64], align 16
@@ -2851,7 +2851,7 @@ declare void @_ZN12b3LauncherCLD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN15b3RadixSort32CL7executeER13b3OpenCLArrayI10b3SortDataEi(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(50), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22b3GpuParallelLinearBvh24constructBinaryRadixTreeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1096) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22b3GpuParallelLinearBvh24constructBinaryRadixTreeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1096) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i316 = alloca [3 x i64], align 16
   %lRange.i.i317 = alloca [3 x i64], align 16
@@ -4450,7 +4450,7 @@ _ZN13b3ProfileZoneD2Ev.exit353:                   ; preds = %ehcleanup180
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22b3GpuParallelLinearBvh25calculateOverlappingPairsER13b3OpenCLArrayI6b3Int4E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(50) %out_overlappingPairs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22b3GpuParallelLinearBvh25calculateOverlappingPairsER13b3OpenCLArrayI6b3Int4E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1096) %this, ptr noundef nonnull align 8 dereferenceable(50) %out_overlappingPairs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i170 = alloca [3 x i64], align 16
   %lRange.i.i171 = alloca [3 x i64], align 16
@@ -5459,7 +5459,7 @@ eh.resume:                                        ; preds = %ehcleanup93, %ehcle
 declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22b3GpuParallelLinearBvh23testRaysAgainstBvhAabbsERK13b3OpenCLArrayI9b3RayInfoERS0_IiERS0_I6b3Int2E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1096) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %rays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %out_numRayRigidPairs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %out_rayRigidPairs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22b3GpuParallelLinearBvh23testRaysAgainstBvhAabbsERK13b3OpenCLArrayI9b3RayInfoERS0_IiERS0_I6b3Int2E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1096) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %rays, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %out_numRayRigidPairs, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %out_rayRigidPairs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gRange.i.i175 = alloca [3 x i64], align 16
   %lRange.i.i176 = alloca [3 x i64], align 16
@@ -6497,7 +6497,7 @@ declare ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef, ptr noundef, p
 declare void @b3EnterProfileZone(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #8
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 declare void @b3LeaveProfileZone() local_unnamed_addr #1
 
@@ -7254,16 +7254,16 @@ if.end14:                                         ; preds = %_ZN13b3OpenCLArrayI
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

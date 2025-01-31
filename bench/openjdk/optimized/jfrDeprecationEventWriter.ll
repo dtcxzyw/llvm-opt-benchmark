@@ -84,7 +84,7 @@ define hidden void @_ZN29JfrDeprecatedEventWriterState23on_level_setting_updateE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29JfrDeprecatedStackTraceWriter23install_stacktrace_blobEP17JfrDeprecatedEdgeR19JfrCheckpointWriterP10JavaThread(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(73) %1, ptr nocapture noundef readnone %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN29JfrDeprecatedStackTraceWriter23install_stacktrace_blobEP17JfrDeprecatedEdgeR19JfrCheckpointWriterP10JavaThread(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(73) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.JfrCheckpointFlush, align 8
   %5 = alloca %class.JfrCheckpointFlush, align 8
   %6 = alloca %class.JfrCheckpointFlush, align 8
@@ -724,7 +724,7 @@ declare void @_ZN19JfrCheckpointWriter4moveEPK20JfrCheckpointContext(ptr dead_on
 declare void @_ZN17JfrDeprecatedEdge14set_stacktraceERK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE(ptr noundef nonnull align 8 dereferenceable(82), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29JfrDeprecatedStackTraceWriterC2ER14JfrChunkWriter(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((0, 37)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN29JfrDeprecatedStackTraceWriterC2ER14JfrChunkWriter(ptr noundef nonnull align 8 captures(none) dereferenceable(37) initializes((0, 37)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1314,7 +1314,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29JfrDeprecatedStackTraceWriterD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN29JfrDeprecatedStackTraceWriterD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 0
@@ -1593,7 +1593,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 declare void @_ZN14JfrChunkWriter26set_last_checkpoint_offsetEl(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN29JfrDeprecatedStackTraceWriter7processEPK17JfrDeprecatedEdge(ptr nocapture noundef nonnull align 8 dereferenceable(37) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN29JfrDeprecatedStackTraceWriter7processEPK17JfrDeprecatedEdge(ptr noundef nonnull align 8 captures(none) dereferenceable(37) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -1688,7 +1688,7 @@ _ZNK7JfrBlob5writeI14JfrChunkWriterEEvRT_.exit:   ; preds = %_ZN10WriterHostI11E
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK17JfrDeprecatedEdge10stacktraceEv(ptr noundef nonnull align 8 dereferenceable(82)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24JfrDeprecatedEventWriterC2ER14JfrChunkWriterR19JfrCheckpointWriterb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 26)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(73) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN24JfrDeprecatedEventWriterC2ER14JfrChunkWriterR19JfrCheckpointWriterb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(26) initializes((0, 26)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(73) %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
   %5 = zext i1 %3 to i8
   %6 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #14
   store i64 %6, ptr %0, align 8
@@ -1710,7 +1710,7 @@ define hidden void @_ZN24JfrDeprecatedEventWriterC2ER14JfrChunkWriterR19JfrCheck
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN24JfrDeprecatedEventWriter7processEPK17JfrDeprecatedEdge(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN24JfrDeprecatedEventWriter7processEPK17JfrDeprecatedEdge(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -2008,12 +2008,12 @@ _ZL14write_type_setPK17JfrDeprecatedEdgeR19JfrCheckpointWriter.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN23JfrDeprecatedEventClearC2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN23JfrDeprecatedEventClearC2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #4 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN23JfrDeprecatedEventClear7processEPK17JfrDeprecatedEdge(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN23JfrDeprecatedEventClear7processEPK17JfrDeprecatedEdge(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %0, ptr noundef nonnull %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK17JfrDeprecatedEdge12has_type_setEv(ptr noundef nonnull align 8 dereferenceable(82) %1) #14
   br i1 %3, label %4, label %8
 
@@ -2429,7 +2429,7 @@ declare void @_ZN14JfrJavaSupport5abortEPKcb(ptr noundef, i1 noundef zeroext) lo
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -2687,16 +2687,16 @@ _ZN16StreamWriterHostI13MallocAdapterILm1048576EE11JfrCHeapObjE16write_unbuffere
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

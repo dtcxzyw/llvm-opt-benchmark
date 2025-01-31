@@ -169,7 +169,7 @@ return:                                           ; preds = %entry, %_ZN8proof2p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z5applyR11ast_managerP15proof_converterR7obj_refI3appS_E(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %pc, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pr) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z5applyR11ast_managerP15proof_converterR7obj_refI3appS_E(ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %pc, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %pr) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_pr = alloca ptr, align 8
   %ref.tmp = alloca %class.obj_ref, align 8
@@ -248,7 +248,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z5applyR11ast_managerR3refI15proof_converterER11sref_bufferIS2_Lj16EE(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %pc1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %pc2s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z5applyR11ast_managerR3refI15proof_converterER11sref_bufferIS2_Lj16EE(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %pc1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %pc2s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %prs = alloca %class.ref_buffer, align 8
   %pr = alloca %class.obj_ref, align 8

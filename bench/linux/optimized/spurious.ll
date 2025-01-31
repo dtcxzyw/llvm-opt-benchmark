@@ -490,14 +490,14 @@ declare dso_local void @irq_disable(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @noirqdebug_setup(ptr nocapture readnone %0) #2 align 16 {
+define dso_local noundef i32 @noirqdebug_setup(ptr readnone captures(none) %0) #2 align 16 {
   store i8 1, ptr @noirqdebug, align 1
   %2 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.4) #7
   ret i32 1
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @irqfixup_setup(ptr nocapture readnone %0) #4 section ".init.text" align 16 {
+define internal noundef i32 @irqfixup_setup(ptr readnone captures(none) %0) #4 section ".init.text" align 16 {
   store i32 1, ptr @irqfixup, align 4
   %2 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.11) #7
   %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12) #7
@@ -505,7 +505,7 @@ define internal noundef i32 @irqfixup_setup(ptr nocapture readnone %0) #4 sectio
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef i32 @irqpoll_setup(ptr nocapture readnone %0) #4 section ".init.text" align 16 {
+define internal noundef i32 @irqpoll_setup(ptr readnone captures(none) %0) #4 section ".init.text" align 16 {
   store i32 2, ptr @irqfixup, align 4
   %2 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13) #7
   %3 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.14) #7
@@ -528,7 +528,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @poll_spurious_irqs(ptr nocapture readnone %0) #0 align 16 {
+define internal void @poll_spurious_irqs(ptr readnone captures(none) %0) #0 align 16 {
   %2 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) @irq_poll_active, i32 1, ptr nonnull elementtype(i32) @irq_poll_active) #6, !srcloc !22
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %.loopexit

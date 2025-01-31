@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfSpinMutex17_AcquireContendedEv(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfSpinMutex17_AcquireContendedEv(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = atomicrmw xchg ptr %0, i8 1 acquire, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %.preheader1.i, label %"_ZN32pxrInternal_v0_24__pxrReserved__L15WaitWithBackoffIZNS_11TfSpinMutex17_AcquireContendedEvE3$_0EEvOT_.exit"

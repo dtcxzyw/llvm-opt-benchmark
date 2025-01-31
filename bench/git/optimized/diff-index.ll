@@ -207,7 +207,7 @@ return:                                           ; preds = %if.end46, %if.then4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: noreturn
 declare void @usage(ptr noundef) local_unnamed_addr #2
@@ -227,7 +227,7 @@ declare void @setup_work_tree() local_unnamed_addr #3
 declare i32 @repo_read_index_preload(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 declare i32 @repo_read_index(ptr noundef) local_unnamed_addr #3
 

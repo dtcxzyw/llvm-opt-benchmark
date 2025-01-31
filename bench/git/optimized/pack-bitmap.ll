@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @get_midx_filename(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -190,7 +190,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @open_bitmap(ptr noundef %r, ptr nocapture noundef %bitmap_git) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @open_bitmap(ptr noundef %r, ptr noundef captures(none) %bitmap_git) unnamed_addr #0 {
 entry:
   %st.i.i = alloca %struct.stat, align 8
   %call.i = tail call ptr @get_multi_pack_index(ptr noundef %r) #18
@@ -381,7 +381,7 @@ if.end:                                           ; preds = %open_pack_bitmap.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @load_bitmap(ptr noundef %r, ptr nocapture noundef initializes((80, 88), (144, 152)) %bitmap_git) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @load_bitmap(ptr noundef %r, ptr noundef captures(none) initializes((80, 88), (144, 152)) %bitmap_git) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #18
   %bitmaps = getelementptr inbounds nuw i8, ptr %bitmap_git, i64 80
@@ -774,7 +774,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @open_midx_bitmap_1(ptr nocapture noundef %bitmap_git, ptr noundef %midx) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @open_midx_bitmap_1(ptr noundef captures(none) %bitmap_git, ptr noundef %midx) unnamed_addr #0 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %st = alloca %struct.stat, align 8
@@ -1028,7 +1028,7 @@ return:                                           ; preds = %if.end58, %cleanup,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bitmap_for_commit(ptr nocapture noundef %bitmap_git, ptr noundef %commit) local_unnamed_addr #0 {
+define dso_local ptr @bitmap_for_commit(ptr noundef captures(none) %bitmap_git, ptr noundef %commit) local_unnamed_addr #0 {
 entry:
   %byval-temp.i.i = alloca %struct.object_id, align 8
   %arrayidx121.i = alloca %struct.object_id, align 8
@@ -1700,7 +1700,7 @@ return:                                           ; preds = %lazy_bitmap_for_com
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_stored_bitmap(ptr nocapture noundef %st) unnamed_addr #0 {
+define internal fastcc ptr @lookup_stored_bitmap(ptr noundef captures(none) %st) unnamed_addr #0 {
 entry:
   %xor = getelementptr inbounds nuw i8, ptr %st, i64 48
   %0 = load ptr, ptr %xor, align 8
@@ -2064,7 +2064,7 @@ if.then78.i:                                      ; preds = %bitmap_walk_contain
   br label %for.inc87.i
 
 if.else.i60:                                      ; preds = %bitmap_walk_contains.exit43.i, %if.end.i35.i, %for.body71.i
-  call void @add_pending_object(ptr noundef %revs, ptr noundef %42, ptr noundef nonnull @.str.14) #18
+  call void @add_pending_object(ptr noundef nonnull %revs, ptr noundef %42, ptr noundef nonnull @.str.14) #18
   br label %for.inc87.i
 
 for.inc87.i:                                      ; preds = %if.else.i60, %if.then78.i
@@ -2771,7 +2771,7 @@ return:                                           ; preds = %for.body, %for.cond
 declare void @object_list_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @reuse_partial_packfile_from_bitmap(ptr nocapture noundef readonly %bitmap_git, ptr nocapture noundef writeonly %packs_out, ptr nocapture noundef writeonly %packs_nr_out, ptr nocapture noundef writeonly %reuse_out, i32 noundef %multi_pack_reuse) local_unnamed_addr #0 {
+define dso_local void @reuse_partial_packfile_from_bitmap(ptr noundef readonly captures(none) %bitmap_git, ptr noundef writeonly captures(none) %packs_out, ptr noundef writeonly captures(none) %packs_nr_out, ptr noundef writeonly captures(none) %reuse_out, i32 noundef %multi_pack_reuse) local_unnamed_addr #0 {
 entry:
   %offset.i.i = alloca i64, align 8
   %size.i.i = alloca i64, align 8
@@ -3259,7 +3259,7 @@ return:                                           ; preds = %if.end96, %if.then9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @bitmap_is_midx(ptr nocapture noundef readonly %bitmap_git) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @bitmap_is_midx(ptr noundef readonly captures(none) %bitmap_git) local_unnamed_addr #4 {
 entry:
   %midx = getelementptr inbounds nuw i8, ptr %bitmap_git, i64 8
   %0 = load ptr, ptr %midx, align 8
@@ -3294,12 +3294,12 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @bitmapped_pack_cmp(ptr nocapture noundef readonly %va, ptr nocapture noundef readonly %vb) #4 {
+define internal range(i32 -1, 2) i32 @bitmapped_pack_cmp(ptr noundef readonly captures(none) %va, ptr noundef readonly captures(none) %vb) #4 {
 entry:
   %bitmap_pos = getelementptr inbounds nuw i8, ptr %va, i64 8
   %0 = load i32, ptr %bitmap_pos, align 8
@@ -3316,7 +3316,7 @@ declare i32 @bitmap_is_empty(ptr noundef) local_unnamed_addr #2
 declare void @bitmap_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @bitmap_walk_contains(ptr nocapture noundef readonly %bitmap_git, ptr noundef %bitmap, ptr noundef %oid) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bitmap_walk_contains(ptr noundef readonly captures(none) %bitmap_git, ptr noundef %bitmap, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %bitmap, null
   br i1 %tobool.not, label %return, label %if.end
@@ -3339,7 +3339,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @bitmap_position(ptr nocapture noundef readonly %bitmap_git, ptr noundef %oid) unnamed_addr #0 {
+define internal fastcc i32 @bitmap_position(ptr noundef readonly captures(none) %bitmap_git, ptr noundef %oid) unnamed_addr #0 {
 entry:
   %byval-temp.i.i = alloca %struct.object_id, align 8
   %byval-temp5.i = alloca %struct.object_id, align 8
@@ -3526,7 +3526,7 @@ cond.end:                                         ; preds = %bitmap_num_objects.
 declare i32 @bitmap_get(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @traverse_bitmap_commit_list(ptr nocapture noundef readonly %bitmap_git, ptr nocapture noundef readonly %revs, ptr nocapture noundef readonly %show_reachable) local_unnamed_addr #0 {
+define dso_local void @traverse_bitmap_commit_list(ptr noundef readonly captures(none) %bitmap_git, ptr noundef readonly captures(none) %revs, ptr noundef readonly captures(none) %show_reachable) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @show_objects_for_type(ptr noundef %bitmap_git, i32 noundef 1, ptr noundef %show_reachable)
   %tree_objects = getelementptr inbounds nuw i8, ptr %revs, i64 280
@@ -3651,7 +3651,7 @@ show_extended_objects.exit:                       ; preds = %for.inc.i, %if.end1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @show_objects_for_type(ptr nocapture noundef readonly %bitmap_git, i32 noundef range(i32 1, 5) %object_type, ptr nocapture noundef readonly %show_reach) unnamed_addr #0 {
+define internal fastcc void @show_objects_for_type(ptr noundef readonly captures(none) %bitmap_git, i32 noundef range(i32 1, 5) %object_type, ptr noundef readonly captures(none) %show_reach) unnamed_addr #0 {
 entry:
   %it = alloca %struct.ewah_iterator, align 8
   %filter = alloca i64, align 8
@@ -3791,7 +3791,7 @@ for.end45:                                        ; preds = %land.rhs, %for.inc4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @count_bitmap_commit_list(ptr nocapture noundef readonly %bitmap_git, ptr noundef writeonly %commits, ptr noundef writeonly %trees, ptr noundef writeonly %blobs, ptr noundef writeonly %tags) local_unnamed_addr #0 {
+define dso_local void @count_bitmap_commit_list(ptr noundef readonly captures(none) %bitmap_git, ptr noundef writeonly %commits, ptr noundef writeonly %trees, ptr noundef writeonly %blobs, ptr noundef writeonly %tags) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %commits, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -3833,7 +3833,7 @@ if.end12:                                         ; preds = %if.then10, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @count_object_type(ptr nocapture noundef readonly %bitmap_git, i32 noundef range(i32 1, 5) %type) unnamed_addr #0 {
+define internal fastcc i32 @count_object_type(ptr noundef readonly captures(none) %bitmap_git, i32 noundef range(i32 1, 5) %type) unnamed_addr #0 {
 entry:
   %it = alloca %struct.ewah_iterator, align 8
   %filter = alloca i64, align 8
@@ -4134,7 +4134,7 @@ declare ptr @bitmap_new() local_unnamed_addr #2
 declare ptr @start_progress(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @test_show_commit(ptr noundef %commit, ptr nocapture noundef %data) #0 {
+define internal void @test_show_commit(ptr noundef %commit, ptr noundef captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %oid = getelementptr inbounds nuw i8, ptr %commit, i64 4
@@ -4165,7 +4165,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @test_show_object(ptr noundef %object, ptr nocapture readnone %name, ptr nocapture noundef %data) #0 {
+define internal void @test_show_object(ptr noundef %object, ptr readnone captures(none) %name, ptr noundef captures(none) %data) #0 {
 entry:
   %0 = load ptr, ptr %data, align 8
   %oid = getelementptr inbounds nuw i8, ptr %object, i64 4
@@ -4289,7 +4289,7 @@ for.end:                                          ; preds = %for.inc, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @load_bitmap_entries_v1(ptr nocapture noundef %index) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @load_bitmap_entries_v1(ptr noundef captures(none) %index) unnamed_addr #0 {
 entry:
   %recent_bitmaps = alloca [160 x ptr], align 16
   %oid = alloca %struct.object_id, align 4
@@ -4598,7 +4598,7 @@ declare i32 @pack_pos_to_midx(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @pack_pos_to_index(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @nth_bitmap_object_oid(ptr nocapture noundef readonly %index, ptr noundef %oid, i32 noundef %n) unnamed_addr #0 {
+define internal fastcc void @nth_bitmap_object_oid(ptr noundef readonly captures(none) %index, ptr noundef %oid, i32 noundef %n) unnamed_addr #0 {
 entry:
   %midx = getelementptr inbounds nuw i8, ptr %index, i64 8
   %0 = load ptr, ptr %midx, align 8
@@ -4619,7 +4619,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @rebuild_bitmap(ptr nocapture noundef readonly %reposition, ptr noundef %source, ptr noundef %dest) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rebuild_bitmap(ptr noundef readonly captures(none) %reposition, ptr noundef %source, ptr noundef %dest) local_unnamed_addr #0 {
 entry:
   %it = alloca %struct.ewah_iterator, align 8
   %word = alloca i64, align 8
@@ -4680,7 +4680,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #6
 declare void @bitmap_set(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @create_bitmap_mapping(ptr nocapture noundef readonly %bitmap_git, ptr noundef %mapping) local_unnamed_addr #0 {
+define dso_local ptr @create_bitmap_mapping(ptr noundef readonly captures(none) %bitmap_git, ptr noundef %mapping) local_unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %midx.i = getelementptr inbounds nuw i8, ptr %bitmap_git, i64 8
@@ -4863,7 +4863,7 @@ land.end:                                         ; preds = %land.rhs.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @get_disk_usage_from_bitmap(ptr nocapture noundef readonly %bitmap_git, ptr nocapture noundef readonly %revs) local_unnamed_addr #0 {
+define dso_local i64 @get_disk_usage_from_bitmap(ptr noundef readonly captures(none) %bitmap_git, ptr noundef readonly captures(none) %revs) local_unnamed_addr #0 {
 entry:
   %oi.i = alloca %struct.object_info, align 8
   %object_size.i = alloca i64, align 8
@@ -4987,7 +4987,7 @@ get_disk_usage_for_extended.exit:                 ; preds = %for.inc.i, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @get_disk_usage_for_type(ptr nocapture noundef readonly %bitmap_git, i32 noundef range(i32 1, 5) %object_type) unnamed_addr #0 {
+define internal fastcc i64 @get_disk_usage_for_type(ptr noundef readonly captures(none) %bitmap_git, i32 noundef range(i32 1, 5) %object_type) unnamed_addr #0 {
 entry:
   %it = alloca %struct.ewah_iterator, align 8
   %filter = alloca i64, align 8
@@ -5295,7 +5295,7 @@ return:                                           ; preds = %entry, %if.then3, %
 declare ptr @get_all_packs(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @trace2_is_enabled() local_unnamed_addr #2
 
@@ -5307,7 +5307,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 declare void @warning_errno(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fstat64(i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #2
 
@@ -5320,7 +5320,7 @@ declare i32 @is_pack_valid(ptr noundef) local_unnamed_addr #2
 declare ptr @xmmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @load_bitmap_header(ptr nocapture noundef %index) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @load_bitmap_header(ptr noundef captures(none) %index) unnamed_addr #0 {
 entry:
   %map = getelementptr inbounds nuw i8, ptr %index, i64 24
   %0 = load ptr, ptr %map, align 8
@@ -5539,7 +5539,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @read_bitmap_1(ptr nocapture noundef %index) unnamed_addr #0 {
+define internal fastcc noundef ptr @read_bitmap_1(ptr noundef captures(none) %index) unnamed_addr #0 {
 entry:
   %call = tail call ptr @ewah_pool_new() #18
   %map = getelementptr inbounds nuw i8, ptr %index, i64 24
@@ -5591,7 +5591,7 @@ declare i32 @prepare_midx_pack(ptr noundef, ptr noundef, i32 noundef) local_unna
 declare i32 @midx_preferred_pack(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @store_bitmap(ptr nocapture noundef readonly %index, ptr noundef nonnull %root, ptr noundef %oid, ptr noundef %xor_with, i32 noundef range(i32 0, 256) %flags) unnamed_addr #0 {
+define internal fastcc noundef ptr @store_bitmap(ptr noundef readonly captures(none) %index, ptr noundef nonnull %root, ptr noundef %oid, ptr noundef %xor_with, i32 noundef range(i32 0, 256) %flags) unnamed_addr #0 {
 entry:
   %key.sroa.5.i = alloca [32 x i8], align 4
   %tmp.sroa.2.i = alloca [32 x i8], align 4
@@ -6020,7 +6020,7 @@ if.end3.i:                                        ; preds = %if.then
 
 _.exit:                                           ; preds = %if.then, %if.end3.i
   %retval.0.i = phi ptr [ %call.i, %if.end3.i ], [ @.str.50, %if.then ]
-  %call7 = tail call ptr @oid_to_hex(ptr noundef %oid) #18
+  %call7 = tail call ptr @oid_to_hex(ptr noundef nonnull %oid) #18
   %call8 = tail call i32 (ptr, ...) @error(ptr noundef %retval.0.i, ptr noundef %call7) #18
   br label %return
 
@@ -6047,7 +6047,7 @@ declare i32 @bsearch_pack(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @triplet_cmp(ptr nocapture noundef readonly %commit_pos, ptr nocapture noundef readonly %table_entry) #4 {
+define internal range(i32 -1, 2) i32 @triplet_cmp(ptr noundef readonly captures(none) %commit_pos, ptr noundef readonly captures(none) %table_entry) #4 {
 entry:
   %0 = load i32, ptr %commit_pos, align 4
   %1 = load i8, ptr %table_entry, align 1
@@ -6077,7 +6077,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare void @ewah_xor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -6151,7 +6151,7 @@ if.end15:                                         ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal void @show_boundary_object(ptr nocapture readnone %object, ptr nocapture readnone %name, ptr nocapture readnone %data) #12 {
+define internal void @show_boundary_object(ptr readnone captures(none) %object, ptr readnone captures(none) %name, ptr readnone captures(none) %data) #12 {
 entry:
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.2, i32 noundef 1113, ptr noundef nonnull @.str.54) #20
   unreachable
@@ -6166,7 +6166,7 @@ declare void @bitmap_or_ewah(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @add_object_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @should_include(ptr noundef %commit, ptr nocapture noundef readonly %_data) #0 {
+define internal range(i32 0, 2) i32 @should_include(ptr noundef %commit, ptr noundef readonly captures(none) %_data) #0 {
 entry:
   %0 = load ptr, ptr %_data, align 8
   %oid = getelementptr inbounds nuw i8, ptr %commit, i64 4
@@ -6237,7 +6237,7 @@ return:                                           ; preds = %while.body, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @should_include_obj(ptr noundef %obj, ptr nocapture noundef readonly %_data) #0 {
+define internal range(i32 0, 2) i32 @should_include_obj(ptr noundef %obj, ptr noundef readonly captures(none) %_data) #0 {
 entry:
   %0 = load ptr, ptr %_data, align 8
   %oid = getelementptr inbounds nuw i8, ptr %obj, i64 4
@@ -6276,13 +6276,13 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @show_commit(ptr nocapture readnone %commit, ptr nocapture readnone %data) #13 {
+define internal void @show_commit(ptr readnone captures(none) %commit, ptr readnone captures(none) %data) #13 {
 entry:
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_object(ptr noundef %object, ptr noundef %name, ptr nocapture noundef readonly %data_) #0 {
+define internal void @show_object(ptr noundef %object, ptr noundef %name, ptr noundef readonly captures(none) %data_) #0 {
 entry:
   %0 = load ptr, ptr %data_, align 8
   %oid = getelementptr inbounds nuw i8, ptr %object, i64 4
@@ -6305,7 +6305,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ext_index_add_object(ptr nocapture noundef %bitmap_git, ptr noundef %object, ptr noundef readonly %name) unnamed_addr #0 {
+define internal fastcc i32 @ext_index_add_object(ptr noundef captures(none) %bitmap_git, ptr noundef %object, ptr noundef readonly %name) unnamed_addr #0 {
 entry:
   %key.sroa.5.i = alloca [32 x i8], align 4
   %tmp.sroa.2.i = alloca [32 x i8], align 4
@@ -6831,7 +6831,7 @@ bitmap_num_objects.exit:                          ; preds = %if.then.i40, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @filter_bitmap_exclude_type(ptr nocapture noundef nonnull readonly %bitmap_git, ptr noundef readonly %tip_objects, ptr noundef %to_filter, i32 noundef range(i32 1, 5) %type) unnamed_addr #0 {
+define internal fastcc void @filter_bitmap_exclude_type(ptr noundef nonnull readonly captures(none) %bitmap_git, ptr noundef readonly %tip_objects, ptr noundef %to_filter, i32 noundef range(i32 1, 5) %type) unnamed_addr #0 {
 entry:
   %it = alloca %struct.ewah_iterator, align 8
   %mask = alloca i64, align 8
@@ -6987,7 +6987,7 @@ for.end33:                                        ; preds = %for.inc31, %for.end
 declare void @bitmap_unset(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @get_size_by_pos(ptr nocapture noundef nonnull readonly %bitmap_git, i32 noundef %pos) unnamed_addr #0 {
+define internal fastcc i64 @get_size_by_pos(ptr noundef nonnull readonly captures(none) %bitmap_git, i32 noundef %pos) unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
   %oi = alloca %struct.object_info, align 8
@@ -7089,7 +7089,7 @@ declare i32 @load_pack_revindex(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @gettext(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 declare i32 @offset_to_pack_pos(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
@@ -7108,7 +7108,7 @@ declare i32 @midx_to_pack_pos(ptr noundef, i32 noundef, ptr noundef) local_unnam
 declare ptr @nth_midxed_object_oid(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @test_bitmap_type(ptr nocapture noundef readonly %tdata, ptr noundef %obj, i32 noundef range(i32 0, -2147483648) %pos) unnamed_addr #0 {
+define internal fastcc void @test_bitmap_type(ptr noundef readonly captures(none) %tdata, ptr noundef %obj, i32 noundef range(i32 0, -2147483648) %pos) unnamed_addr #0 {
 entry:
   %commits = getelementptr inbounds nuw i8, ptr %tdata, i64 16
   %0 = load ptr, ptr %commits, align 8
@@ -7192,16 +7192,16 @@ declare i32 @nth_packed_object_id(ptr noundef, ptr noundef, i32 noundef) local_u
 declare i32 @hashfile_checksum_valid(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #15
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #16

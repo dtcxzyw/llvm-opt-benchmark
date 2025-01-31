@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.58 = private unnamed_addr constant [11 x i8] c"MemoryTier\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hwloc_internal_memattrs_init(ptr nocapture noundef writeonly initializes((748, 760)) %0) local_unnamed_addr #0 {
+define hidden void @hwloc_internal_memattrs_init(ptr noundef writeonly captures(none) initializes((748, 760)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 748
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 752
@@ -62,7 +62,7 @@ define hidden void @hwloc_internal_memattrs_init(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden void @hwloc_internal_memattrs_prepare(ptr nocapture noundef writeonly initializes((752, 760)) %0) local_unnamed_addr #1 {
+define hidden void @hwloc_internal_memattrs_prepare(ptr noundef writeonly captures(none) initializes((752, 760)) %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #26
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 752
   store ptr %2, ptr %3, align 8
@@ -161,7 +161,7 @@ define hidden void @hwloc_internal_memattrs_prepare(ptr nocapture noundef writeo
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hwloc_internal_memattrs_destroy(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define hidden void @hwloc_internal_memattrs_destroy(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %3 = load i32, ptr %2, align 4
   %.not22 = icmp eq i32 %3, 0
@@ -269,10 +269,10 @@ hwloc__imtg_destroy.exit:                         ; preds = %hwloc__imi_destroy.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @hwloc_internal_memattrs_dup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define hidden range(i32 -1, 1) i32 @hwloc_internal_memattrs_dup(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 840
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 748
@@ -341,7 +341,7 @@ hwloc_tma_malloc.exit.i:                          ; preds = %32, %29
   br label %118
 
 36:                                               ; preds = %hwloc_tma_malloc.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i, ptr readonly align 1 %26, i64 %28, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i, ptr nonnull readonly align 1 %26, i64 %28, i1 false)
   store ptr %.0.i.i, ptr %25, align 8
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %38 = load i32, ptr %37, align 8
@@ -513,12 +513,12 @@ hwloc_tma_malloc.exit99:                          ; preds = %70, %73
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @hwloc_bitmap_tma_dup(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_by_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_by_name(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %5 = load i32, ptr %4, align 4
   %.not11 = icmp eq i32 %5, 0
@@ -559,13 +559,13 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_by_name(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_name(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_name(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %5 = load i32, ptr %4, align 4
   %.not = icmp ult i32 %1, %5
@@ -591,7 +591,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_name(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_flags(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_flags(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %5 = load i32, ptr %4, align 4
   %.not = icmp ult i32 %1, %5
@@ -617,7 +617,7 @@ define range(i32 -1, 1) i32 @hwloc_memattr_get_flags(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #3 {
   %.not = icmp ult i64 %2, 8
   br i1 %.not, label %7, label %5
 
@@ -724,10 +724,10 @@ define range(i32 -1, 1) i32 @hwloc_memattr_register(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #12
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
 define hidden void @hwloc_internal_memattrs_refresh(ptr noundef %0) local_unnamed_addr #3 {
@@ -768,7 +768,7 @@ define hidden void @hwloc_internal_memattrs_refresh(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc__imattr_refresh(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #3 {
+define internal fastcc void @hwloc__imattr_refresh(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1074,7 +1074,7 @@ hwloc__imtg_refresh.exit:                         ; preds = %hwloc__imi_destroy.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @hwloc_internal_memattrs_need_refresh(ptr nocapture noundef readonly %0) local_unnamed_addr #13 {
+define hidden void @hwloc_internal_memattrs_need_refresh(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 748
   %3 = load i32, ptr %2, align 4
   %.not7 = icmp eq i32 %3, 0
@@ -1171,7 +1171,7 @@ hwloc_get_obj_by_type.exit.lr.ph:                 ; preds = %.preheader
 hwloc_get_obj_by_type.exit.us:                    ; preds = %hwloc_get_obj_by_type.exit.lr.ph, %38
   %31 = phi i32 [ %40, %38 ], [ %30, %hwloc_get_obj_by_type.exit.lr.ph ]
   %.05581.us = phi i32 [ %39, %38 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %32 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %31, i32 noundef %.05581.us) #28
+  %32 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %31, i32 noundef %.05581.us) #28
   %.not73.us = icmp eq ptr %32, null
   br i1 %.not73.us, label %hwloc_get_obj_by_type.exit.thread, label %33
 
@@ -1187,7 +1187,7 @@ hwloc_get_obj_by_type.exit.us:                    ; preds = %hwloc_get_obj_by_ty
 
 38:                                               ; preds = %35, %33
   %39 = add i32 %.05581.us, 1
-  %40 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %40 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 13) #27
   %switch.i.us = icmp ugt i32 %40, -3
   br i1 %switch.i.us, label %hwloc_get_obj_by_type.exit.thread, label %hwloc_get_obj_by_type.exit.us
 
@@ -1200,7 +1200,7 @@ hwloc_get_obj_by_type.exit.lr.ph.split:           ; preds = %hwloc_get_obj_by_ty
 hwloc_get_obj_by_type.exit.us84:                  ; preds = %hwloc_get_obj_by_type.exit.lr.ph.split, %51
   %41 = phi i32 [ %53, %51 ], [ %30, %hwloc_get_obj_by_type.exit.lr.ph.split ]
   %.05581.us85 = phi i32 [ %52, %51 ], [ %1, %hwloc_get_obj_by_type.exit.lr.ph.split ]
-  %42 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %41, i32 noundef %.05581.us85) #28
+  %42 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %41, i32 noundef %.05581.us85) #28
   %.not73.us87 = icmp eq ptr %42, null
   br i1 %.not73.us87, label %hwloc_get_obj_by_type.exit.thread, label %43
 
@@ -1221,14 +1221,14 @@ hwloc__memattr_get_convenience_value.exit.us:     ; preds = %43
 
 51:                                               ; preds = %hwloc__memattr_get_convenience_value.exit.us, %43
   %52 = add i32 %.05581.us85, 1
-  %53 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %53 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 13) #27
   %switch.i.us88 = icmp ugt i32 %53, -3
   br i1 %switch.i.us88, label %hwloc_get_obj_by_type.exit.thread, label %hwloc_get_obj_by_type.exit.us84
 
 hwloc_get_obj_by_type.exit.us94:                  ; preds = %hwloc_get_obj_by_type.exit.lr.ph.split, %65
   %54 = phi i32 [ %67, %65 ], [ %30, %hwloc_get_obj_by_type.exit.lr.ph.split ]
   %.05581.us95 = phi i32 [ %66, %65 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph.split ]
-  %55 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %54, i32 noundef %.05581.us95) #28
+  %55 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %54, i32 noundef %.05581.us95) #28
   %.not73.us97 = icmp eq ptr %55, null
   br i1 %.not73.us97, label %hwloc_get_obj_by_type.exit.thread, label %56
 
@@ -1250,14 +1250,14 @@ hwloc__memattr_get_convenience_value.exit.us98:   ; preds = %56
 
 65:                                               ; preds = %hwloc__memattr_get_convenience_value.exit.us98, %56
   %66 = add i32 %.05581.us95, 1
-  %67 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %67 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 13) #27
   %switch.i.us100 = icmp ugt i32 %67, -3
   br i1 %switch.i.us100, label %hwloc_get_obj_by_type.exit.thread, label %hwloc_get_obj_by_type.exit.us94
 
 hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_type.exit.lr.ph.split, %75
   %68 = phi i32 [ %77, %75 ], [ %30, %hwloc_get_obj_by_type.exit.lr.ph.split ]
   %.05581 = phi i32 [ %76, %75 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph.split ]
-  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %68, i32 noundef %.05581) #28
+  %69 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %68, i32 noundef %.05581) #28
   %.not73 = icmp eq ptr %69, null
   br i1 %.not73, label %hwloc_get_obj_by_type.exit.thread, label %70
 
@@ -1275,7 +1275,7 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %70
 
 75:                                               ; preds = %hwloc__memattr_get_convenience_value.exit, %70
   %76 = add i32 %.05581, 1
-  %77 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %77 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 13) #27
   %switch.i = icmp ugt i32 %77, -3
   br i1 %switch.i, label %hwloc_get_obj_by_type.exit.thread, label %hwloc_get_obj_by_type.exit
 
@@ -1410,7 +1410,7 @@ hwloc_get_obj_by_type.exit.thread:                ; preds = %hwloc_get_obj_by_ty
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc noundef ptr @hwloc__memattr_get_initiator_from_location(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #14 {
+define internal fastcc noundef ptr @hwloc__memattr_get_initiator_from_location(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #14 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %5
 
@@ -1543,7 +1543,7 @@ hwloc__memattr_target_get_initiator.exit:         ; preds = %match_internal_loca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_initiators(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_initiators(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #3 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %10, label %8
 
@@ -1812,7 +1812,7 @@ from_internal_location.exit:                      ; preds = %108, %112, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hwloc__memattr_get_target(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
+define internal fastcc ptr @hwloc__memattr_get_target(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %.not57 = icmp eq i32 %7, 0
@@ -1945,7 +1945,7 @@ define internal fastcc ptr @hwloc__memattr_get_target(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_value(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_value(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #3 {
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %9, label %7
 
@@ -2232,7 +2232,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc__internal_memattr_set_value(p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_set_value(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_memattr_set_value(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 {
   %7 = alloca %struct.hwloc_internal_location_s, align 8
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %10, label %8
@@ -2307,7 +2307,7 @@ to_internal_location.exit:                        ; preds = %23, %18, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_best_target(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_best_target(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5) local_unnamed_addr #3 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %7
 
@@ -2356,7 +2356,7 @@ hwloc_get_obj_by_type.exit.us:                    ; preds = %hwloc_get_obj_by_ty
   %.06181.us = phi i32 [ %.4.us, %hwloc__update_best_target.exit.us ], [ %1, %hwloc_get_obj_by_type.exit.lr.ph ]
   %.06380.us = phi ptr [ %.467.us, %hwloc__update_best_target.exit.us ], [ null, %hwloc_get_obj_by_type.exit.lr.ph ]
   %.06979.us = phi i64 [ %.473.us, %hwloc__update_best_target.exit.us ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %25 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %24, i32 noundef %.03782.us) #28
+  %25 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %24, i32 noundef %.03782.us) #28
   %.not47.us = icmp eq ptr %25, null
   br i1 %.not47.us, label %hwloc_get_obj_by_type.exit.thread, label %hwloc__memattr_get_convenience_value.exit.us
 
@@ -2389,7 +2389,7 @@ hwloc__update_best_target.exit.us:                ; preds = %34, %33, %32
   %.467.us = phi ptr [ %25, %34 ], [ %.06380.us, %33 ], [ %.06380.us, %32 ]
   %.4.us = phi i32 [ 1, %34 ], [ %.06181.us, %33 ], [ %.06181.us, %32 ]
   %35 = add i32 %.03782.us, 1
-  %36 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %36 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 13) #27
   %switch.i.us = icmp ugt i32 %36, -3
   br i1 %switch.i.us, label %hwloc_get_obj_by_type.exit.thread.thread, label %hwloc_get_obj_by_type.exit.us
 
@@ -2399,7 +2399,7 @@ hwloc_get_obj_by_type.exit.us94:                  ; preds = %hwloc_get_obj_by_ty
   %.06181.us96 = phi i32 [ %.4.us109, %hwloc__update_best_target.exit.us106 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
   %.06380.us97 = phi ptr [ %.467.us108, %hwloc__update_best_target.exit.us106 ], [ null, %hwloc_get_obj_by_type.exit.lr.ph ]
   %.06979.us98 = phi i64 [ %.473.us107, %hwloc__update_best_target.exit.us106 ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %38 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %37, i32 noundef %.03782.us95) #28
+  %38 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %37, i32 noundef %.03782.us95) #28
   %.not47.us99 = icmp eq ptr %38, null
   br i1 %.not47.us99, label %hwloc_get_obj_by_type.exit.thread, label %hwloc__memattr_get_convenience_value.exit.us100
 
@@ -2433,7 +2433,7 @@ hwloc__update_best_target.exit.us106:             ; preds = %48, %47, %46
   %.467.us108 = phi ptr [ %38, %48 ], [ %.06380.us97, %47 ], [ %.06380.us97, %46 ]
   %.4.us109 = phi i32 [ 1, %48 ], [ %.06181.us96, %47 ], [ %.06181.us96, %46 ]
   %49 = add i32 %.03782.us95, 1
-  %50 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %50 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 13) #27
   %switch.i.us110 = icmp ugt i32 %50, -3
   br i1 %switch.i.us110, label %hwloc_get_obj_by_type.exit.thread.thread, label %hwloc_get_obj_by_type.exit.us94
 
@@ -2442,7 +2442,7 @@ hwloc_get_obj_by_type.exit:                       ; preds = %hwloc_get_obj_by_ty
   %.03782 = phi i32 [ %53, %hwloc__memattr_get_convenience_value.exit ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
   %.06181 = phi i32 [ %spec.select165, %hwloc__memattr_get_convenience_value.exit ], [ 0, %hwloc_get_obj_by_type.exit.lr.ph ]
   %.06380 = phi ptr [ %spec.select, %hwloc__memattr_get_convenience_value.exit ], [ null, %hwloc_get_obj_by_type.exit.lr.ph ]
-  %52 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef %0, i32 noundef %51, i32 noundef %.03782) #28
+  %52 = tail call ptr @hwloc_get_obj_by_depth(ptr noundef nonnull %0, i32 noundef %51, i32 noundef %.03782) #28
   %.not47 = icmp eq ptr %52, null
   br i1 %.not47, label %hwloc_get_obj_by_type.exit.thread, label %hwloc__memattr_get_convenience_value.exit
 
@@ -2451,7 +2451,7 @@ hwloc__memattr_get_convenience_value.exit:        ; preds = %hwloc_get_obj_by_ty
   %spec.select = select i1 %.not.i, ptr %52, ptr %.06380
   %spec.select165 = tail call i32 @llvm.umax.i32(i32 %.06181, i32 1)
   %53 = add i32 %.03782, 1
-  %54 = tail call i32 @hwloc_get_type_depth(ptr noundef %0, i32 noundef 13) #27
+  %54 = tail call i32 @hwloc_get_type_depth(ptr noundef nonnull %0, i32 noundef 13) #27
   %switch.i = icmp ugt i32 %54, -3
   br i1 %switch.i, label %hwloc_get_obj_by_type.exit.thread.thread, label %hwloc_get_obj_by_type.exit
 
@@ -2563,7 +2563,7 @@ hwloc_get_obj_by_type.exit.thread.thread147:      ; preds = %.preheader, %58, %h
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_memattr_get_best_initiator(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @hwloc_memattr_get_best_initiator(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly %5) local_unnamed_addr #3 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %9, label %7
 
@@ -4177,13 +4177,13 @@ hwloc__group_memory_tiers.exit.thread:            ; preds = %97, %270, %6, %._cr
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #15
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #16
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_tiers_by_bw_and_type(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
+define internal i32 @compare_tiers_by_bw_and_type(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -4230,7 +4230,7 @@ define internal i32 @compare_tiers_by_bw_and_type(ptr nocapture noundef readonly
 declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @hwloc_get_obj_by_type_and_gp_index(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
@@ -4248,7 +4248,7 @@ declare i32 @hwloc_bitmap_iszero(ptr noundef) local_unnamed_addr #18
 declare i32 @hwloc_bitmap_weight(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @hwloc__memattr_target_get_initiator(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @hwloc__memattr_target_get_initiator(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8
   %.not50 = icmp eq i32 %5, 0
@@ -4382,7 +4382,7 @@ declare i32 @hwloc_bitmap_isincluded(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @hwloc_bitmap_isequal(ptr noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
@@ -4395,16 +4395,16 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare i32 @hwloc_bitmap_sscanf(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @hwloc_get_nbobjs_by_depth(ptr noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #18
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @compare_node_infos_by_type_and_bw(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #17 {
+define internal i32 @compare_node_infos_by_type_and_bw(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #17 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4438,7 +4438,7 @@ define internal i32 @compare_node_infos_by_type_and_bw(ptr nocapture noundef rea
 declare i32 @hwloc_bitmap_set(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #21
@@ -4447,15 +4447,15 @@ declare void @abort() local_unnamed_addr #21
 declare i32 @hwloc_bitmap_isset(ptr noundef, i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #19
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 declare i32 @hwloc__replace_infos(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #22
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24
@@ -4464,10 +4464,10 @@ declare i32 @llvm.umax.i32(i32, i32) #24
 declare i64 @llvm.umax.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

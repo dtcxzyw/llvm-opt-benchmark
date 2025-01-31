@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @usArrayToRLEString(ptr nocapture noundef readonly %src, i32 noundef %srcLen, ptr noundef %buffer, i32 noundef %bufLen, ptr nocapture noundef writeonly %status) local_unnamed_addr #0 {
+define dso_local i32 @usArrayToRLEString(ptr noundef readonly captures(none) %src, i32 noundef %srcLen, ptr noundef %buffer, i32 noundef %bufLen, ptr noundef writeonly captures(none) %status) local_unnamed_addr #0 {
 entry:
   %idx.ext = sext i32 %bufLen to i64
   %add.ptr.idx = shl nsw i64 %idx.ext, 1
@@ -372,7 +372,7 @@ if.end21:                                         ; preds = %for.inc.i72, %for.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @byteArrayToRLEString(ptr nocapture noundef readonly %src, i32 noundef %srcLen, ptr noundef %buffer, i32 noundef %bufLen, ptr noundef %status) local_unnamed_addr #1 {
+define dso_local i32 @byteArrayToRLEString(ptr noundef readonly captures(none) %src, i32 noundef %srcLen, ptr noundef %buffer, i32 noundef %bufLen, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %state = alloca [2 x i8], align 2
   %idx.ext = sext i32 %bufLen to i64
@@ -484,7 +484,7 @@ if.end30:                                         ; preds = %if.then10.i, %if.el
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @encodeRunByte(ptr noundef writeonly %buffer, ptr noundef readnone %bufLimit, i8 noundef zeroext %value, i32 noundef %length, ptr nocapture noundef nonnull %state, ptr noundef %status) unnamed_addr #0 {
+define internal fastcc ptr @encodeRunByte(ptr noundef writeonly %buffer, ptr noundef readnone %bufLimit, i8 noundef zeroext %value, i32 noundef %length, ptr noundef nonnull captures(none) %state, ptr noundef %status) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %status, null
   br i1 %tobool.not, label %return, label %lor.lhs.false

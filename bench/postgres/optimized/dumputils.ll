@@ -560,17 +560,17 @@ define dso_local noundef zeroext i1 @buildACLCommands(ptr noundef %0, ptr nounde
 declare zeroext i1 @parsePGArray(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @createPQExpBuffer() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @parseAclItem(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parseAclItem(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = tail call ptr @pg_strdup(ptr noundef %0) #7
   tail call void @resetPQExpBuffer(ptr noundef %3) #7
   br label %.loopexit.i
@@ -1359,7 +1359,7 @@ define dso_local noundef zeroext i1 @buildDefaultACLCommands(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @quoteAclUserName(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @quoteAclUserName(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1
   %.not23 = icmp eq i8 %3, 0
   br i1 %.not23, label %.critedge, label %.lr.ph
@@ -1506,7 +1506,7 @@ define dso_local zeroext i1 @variable_is_guc_list_quote(ptr noundef %0) local_un
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef signext %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef signext %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %5 = shl i64 %4, 2
   %6 = and i64 %5, -8
@@ -1650,13 +1650,13 @@ define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef sig
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @makeAlterConfigCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
@@ -1682,9 +1682,9 @@ define dso_local void @makeAlterConfigCommand(ptr noundef %0, ptr noundef %1, pt
   br label %19
 
 19:                                               ; preds = %17, %12
-  %20 = tail call ptr @fmtId(ptr noundef %9) #7
+  %20 = tail call ptr @fmtId(ptr noundef nonnull %9) #7
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %6, ptr noundef nonnull @.str.29, ptr noundef %20) #7
-  %21 = tail call zeroext i1 @variable_is_guc_list_quote(ptr noundef %9)
+  %21 = tail call zeroext i1 @variable_is_guc_list_quote(ptr noundef nonnull %9)
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %19
@@ -1729,7 +1729,7 @@ define dso_local void @makeAlterConfigCommand(ptr noundef %0, ptr noundef %1, pt
   br label %34
 
 34:                                               ; preds = %7, %33
-  tail call void @pg_free(ptr noundef %9) #7
+  tail call void @pg_free(ptr noundef nonnull %9) #7
   ret void
 }
 

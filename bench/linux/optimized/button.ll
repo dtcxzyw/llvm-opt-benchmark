@@ -159,16 +159,16 @@ define internal void @acpi_button_driver_exit() #1 section ".exit.text" align 16
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @param_set_lid_init_state(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal range(i32 -2147483648, 1) i32 @param_set_lid_init_state(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = tail call i32 @__sysfs_match_string(ptr noundef nonnull @lid_init_state_str, i64 noundef 4, ptr noundef %0) #11
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %10, label %5
@@ -187,7 +187,7 @@ define internal range(i32 -2147483648, 1) i32 @param_set_lid_init_state(ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal i32 @param_get_lid_init_state(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #4 align 16 {
+define internal i32 @param_get_lid_init_state(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1) #4 align 16 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -221,7 +221,7 @@ declare dso_local i32 @__sysfs_match_string(ptr noundef, i64 noundef, ptr nounde
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dmi_first_match(ptr noundef) local_unnamed_addr #3
@@ -559,13 +559,13 @@ define internal void @acpi_button_remove(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @acpi_device_hid(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @input_allocate_device() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_button_notify(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define internal void @acpi_button_notify(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = icmp eq i32 %1, 128
   br i1 %4, label %5, label %33
 
@@ -616,7 +616,7 @@ define internal void @acpi_button_notify(ptr nocapture readnone %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @acpi_lid_notify(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define internal void @acpi_lid_notify(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca i64, align 8
   %5 = icmp eq i32 %1, 128
   br i1 %5, label %6, label %24
@@ -660,7 +660,7 @@ define internal void @acpi_lid_notify(ptr nocapture readnone %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_lid_input_open(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @acpi_lid_input_open(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 664
@@ -722,7 +722,7 @@ define internal noundef i32 @acpi_lid_input_open(ptr nocapture noundef readonly 
 declare dso_local void @input_free_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @input_set_capability(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
@@ -761,7 +761,7 @@ declare dso_local i32 @acpi_bus_generate_netlink_event(ptr noundef, ptr noundef,
 declare dso_local void @input_event(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @acpi_lid_notify_state(ptr nocapture %.608.val, i32 noundef range(i32 -19, 2) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @acpi_lid_notify_state(ptr captures(none) %.608.val, i32 noundef range(i32 -19, 2) %0) unnamed_addr #0 align 16 {
 ._crit_edge:
   %1 = load i64, ptr @lid_init_state, align 8
   %2 = icmp ne i64 %1, 0
@@ -844,7 +844,7 @@ declare dso_local ptr @proc_mkdir(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local ptr @proc_create_single_data(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_button_state_seq_show(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @acpi_button_state_seq_show(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
@@ -895,7 +895,7 @@ declare dso_local i32 @acpi_remove_notify_handler(ptr noundef, i32 noundef, ptr 
 declare dso_local void @acpi_os_wait_events_complete() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @acpi_button_suspend(ptr nocapture noundef readonly %0) #9 align 16 {
+define internal noundef i32 @acpi_button_suspend(ptr noundef readonly captures(none) %0) #9 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 72
@@ -904,7 +904,7 @@ define internal noundef i32 @acpi_button_suspend(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_button_resume(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal noundef i32 @acpi_button_resume(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = getelementptr i8, ptr %0, i64 -8
@@ -986,7 +986,7 @@ define internal noundef i32 @acpi_button_resume(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 attributes #0 = { fn_ret_thunk_extern nounwind null_pointer_is_valid "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

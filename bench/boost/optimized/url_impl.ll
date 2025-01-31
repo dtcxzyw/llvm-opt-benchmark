@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5boost4urls6detail9query_refC1ERKNS1_8url_implE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5boost4urls6detail9query_refC2ERKNS1_8url_implE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls6detail8url_impl12apply_schemeENS_4core17basic_string_viewIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(171) initializes((168, 170)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost4urls6detail8url_impl12apply_schemeENS_4core17basic_string_viewIcEE(ptr noundef nonnull align 8 captures(none) dereferenceable(171) initializes((168, 170)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i16 @_ZN5boost4urls16string_to_schemeENS_4core17basic_string_viewIcEE(ptr %1, i64 %2) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i16 %4, ptr %5, align 8, !tbaa !3
@@ -41,10 +41,10 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %10
 declare noundef zeroext i16 @_ZN5boost4urls16string_to_schemeENS_4core17basic_string_viewIcEE(ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl8set_sizeEim(ptr nocapture noundef nonnull align 8 dereferenceable(171) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail8url_impl8set_sizeEim(ptr noundef nonnull align 8 captures(none) dereferenceable(171) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = icmp eq i32 %1, 7
   br i1 %4, label %._crit_edge, label %5
 
@@ -103,7 +103,7 @@ _ZNK5boost4urls6detail8url_impl3lenEi.exit:       ; preds = %_ZNK5boost4urls6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl14apply_userinfoERKNS0_15pct_string_viewEPS4_(ptr nocapture noundef nonnull align 8 dereferenceable(171) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef readonly %2) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail8url_impl14apply_userinfoERKNS0_15pct_string_viewEPS4_(ptr noundef nonnull align 8 captures(none) dereferenceable(171) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef readonly %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -183,7 +183,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit15: ; preds = %38, %_ZN5boost4url
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl10apply_hostENS0_9host_typeENS0_15pct_string_viewEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(171) initializes((164, 168)) %0, i32 noundef %1, ptr nocapture noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 %2, ptr nocapture noundef readonly %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail8url_impl10apply_hostENS0_9host_typeENS0_15pct_string_viewEPKh(ptr noundef nonnull align 8 captures(none) dereferenceable(171) initializes((164, 168)) %0, i32 noundef %1, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store i32 %1, ptr %5, align 4, !tbaa !21
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -218,7 +218,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl10apply_portENS_4core17basic_string_viewIcEEt(ptr nocapture noundef nonnull align 8 dereferenceable(171) initializes((160, 162)) %0, ptr nocapture readnone %1, i64 %2, i16 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail8url_impl10apply_portENS_4core17basic_string_viewIcEEt(ptr noundef nonnull align 8 captures(none) dereferenceable(171) initializes((160, 162)) %0, ptr readnone captures(none) %1, i64 %2, i16 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i16 %3, ptr %5, align 8, !tbaa !22
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -246,7 +246,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl15apply_authorityERKNS0_14authority_viewE(ptr nocapture noundef nonnull align 8 dereferenceable(171) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail8url_impl15apply_authorityERKNS0_14authority_viewE(ptr noundef nonnull align 8 captures(none) dereferenceable(171) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !13
@@ -369,7 +369,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit25: ; preds = %69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(171) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq i32 %1, 7
   br i1 %3, label %20, label %4
 
@@ -406,7 +406,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit3:   ; preds = %_ZNK5boost4urls6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost4urls6detail8url_impl10apply_pathENS0_15pct_string_viewEm(ptr nocapture noundef nonnull align 8 dereferenceable(171) %0, ptr nocapture noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
+define void @_ZN5boost4urls6detail8url_impl10apply_pathENS0_15pct_string_viewEm(ptr noundef nonnull align 8 captures(none) dereferenceable(171) %0, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %1, i64 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -496,7 +496,7 @@ _ZN5boost4urls6detail13path_segmentsENS_4core17basic_string_viewIcEEm.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl11apply_queryENS0_15pct_string_viewEm(ptr nocapture noundef nonnull align 8 dereferenceable(171) initializes((136, 144)) %0, ptr nocapture noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail8url_impl11apply_queryENS0_15pct_string_viewEm(ptr noundef nonnull align 8 captures(none) dereferenceable(171) initializes((136, 144)) %0, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i64 %2, ptr %4, align 8, !tbaa !30
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -530,7 +530,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:  ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl10apply_fragENS0_15pct_string_viewE(ptr nocapture noundef nonnull align 8 dereferenceable(171) initializes((64, 72), (120, 128)) %0, ptr nocapture noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 %1) local_unnamed_addr #6 align 2 {
+define void @_ZN5boost4urls6detail8url_impl10apply_fragENS0_15pct_string_viewE(ptr noundef nonnull align 8 captures(none) dereferenceable(171) initializes((64, 72), (120, 128)) %0, ptr noundef readonly byval(%"class.boost::urls::pct_string_view") align 8 captures(none) %1) local_unnamed_addr #6 align 2 {
 _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !16
@@ -548,7 +548,7 @@ _ZN5boost4urls6detail8url_impl8set_sizeEim.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(171) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK5boost4urls6detail8url_impl3lenEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = icmp eq i32 %2, -1
   br i1 %4, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit, label %5
 
@@ -578,7 +578,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit2:   ; preds = %_ZNK5boost4urls6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK5boost4urls6detail8url_impl6offsetEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(171) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define noundef i64 @_ZNK5boost4urls6detail8url_impl6offsetEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq i32 %1, -1
   br i1 %3, label %9, label %4
 
@@ -595,7 +595,7 @@ define noundef i64 @_ZNK5boost4urls6detail8url_impl6offsetEi(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(171) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !31
   %4 = icmp eq i32 %1, -1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -640,7 +640,7 @@ _ZNK5boost4urls6detail8url_impl3lenEi.exit:       ; preds = %_ZNK5boost4urls6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(171) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define { ptr, i64 } @_ZNK5boost4urls6detail8url_impl3getEii(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !31
   %5 = icmp eq i32 %1, -1
   br i1 %5, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit, label %6
@@ -685,7 +685,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit4:   ; preds = %_ZNK5boost4urls6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5boost4urls6detail8url_impl7pct_getEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(171) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
+define void @_ZNK5boost4urls6detail8url_impl7pct_getEi(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %1, i32 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !31
   %5 = icmp eq i32 %2, -1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -738,7 +738,7 @@ _ZNK5boost4urls6detail8url_impl3lenEi.exit:       ; preds = %_ZNK5boost4urls6det
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5boost4urls6detail8url_impl7pct_getEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(171) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZNK5boost4urls6detail8url_impl7pct_getEii(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(171) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = icmp eq i32 %2, -1
   br i1 %5, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit, label %6
 
@@ -796,7 +796,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit12:  ; preds = %._crit_edge, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl5splitEim(ptr nocapture noundef nonnull align 8 dereferenceable(171) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
+define void @_ZN5boost4urls6detail8url_impl5splitEim(ptr noundef nonnull align 8 captures(none) dereferenceable(171) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #6 align 2 {
   %4 = icmp eq i32 %1, -1
   br i1 %4, label %_ZNK5boost4urls6detail8url_impl6offsetEi.exit, label %5
 
@@ -819,7 +819,7 @@ _ZNK5boost4urls6detail8url_impl6offsetEi.exit:    ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl12adjust_rightEiim(ptr nocapture noundef nonnull align 8 dereferenceable(171) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail8url_impl12adjust_rightEiim(ptr noundef nonnull align 8 captures(none) dereferenceable(171) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
   %.not6 = icmp sgt i32 %1, %2
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -845,7 +845,7 @@ define void @_ZN5boost4urls6detail8url_impl12adjust_rightEiim(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail8url_impl11adjust_leftEiim(ptr nocapture noundef nonnull align 8 dereferenceable(171) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail8url_impl11adjust_leftEiim(ptr noundef nonnull align 8 captures(none) dereferenceable(171) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
   %.not6 = icmp sgt i32 %1, %2
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -871,7 +871,7 @@ define void @_ZN5boost4urls6detail8url_impl11adjust_leftEiim(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN5boost4urls6detail8url_impl8collapseEiim(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(171) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #7 align 2 {
+define void @_ZN5boost4urls6detail8url_impl8collapseEiim(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(171) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #7 align 2 {
   %.06 = add nsw i32 %1, 1
   %5 = icmp slt i32 %.06, %2
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -896,7 +896,7 @@ define void @_ZN5boost4urls6detail8url_impl8collapseEiim(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5boost4urls6detail8path_refC2ERKNS1_8url_implE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(171) %1) unnamed_addr #6 align 2 {
+define hidden void @_ZN5boost4urls6detail8path_refC2ERKNS1_8url_implE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(171) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 170
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %4 = load i8, ptr %3, align 2, !tbaa !23
@@ -934,7 +934,7 @@ define hidden void @_ZN5boost4urls6detail8path_refC2ERKNS1_8url_implE(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5boost4urls6detail8path_refC2ENS_4core17basic_string_viewIcEEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define hidden void @_ZN5boost4urls6detail8path_refC2ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !43
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !45
@@ -948,7 +948,7 @@ define hidden void @_ZN5boost4urls6detail8path_refC2ENS_4core17basic_string_view
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #9 align 2 {
+define hidden void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !43
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4
@@ -986,7 +986,7 @@ define hidden void @_ZNK5boost4urls6detail8path_ref6bufferEv(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
+define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -1010,7 +1010,7 @@ define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4sizeEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
@@ -1033,7 +1033,7 @@ define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
@@ -1059,7 +1059,7 @@ define hidden noundef ptr @_ZNK5boost4urls6detail8path_ref3endEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4nsegEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
+define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4nsegEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !43
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
@@ -1070,7 +1070,7 @@ define hidden noundef i64 @_ZNK5boost4urls6detail8path_ref4nsegEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls6detail9query_refC2ENS_4core17basic_string_viewIcEEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
+define void @_ZN5boost4urls6detail9query_refC2ENS_4core17basic_string_viewIcEEmm(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 41)) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #8 align 2 {
   store ptr null, ptr %0, align 8, !tbaa !49
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !52
@@ -1086,7 +1086,7 @@ define void @_ZN5boost4urls6detail9query_refC2ENS_4core17basic_string_viewIcEEmm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail9query_refC2ERKNS1_8url_implE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %0, ptr noundef nonnull align 8 dereferenceable(171) %1) unnamed_addr #6 align 2 {
+define void @_ZN5boost4urls6detail9query_refC2ERKNS1_8url_implE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(41) initializes((0, 41)) %0, ptr noundef nonnull align 8 dereferenceable(171) %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1137,7 +1137,7 @@ define void @_ZN5boost4urls6detail9query_refC2ERKNS1_8url_implE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5boost4urls6detail9query_ref6bufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1) local_unnamed_addr #9 align 2 {
+define void @_ZNK5boost4urls6detail9query_ref6bufferEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::urls::pct_string_view") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %1) local_unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %1, align 8, !tbaa !49
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %23, label %4
@@ -1191,7 +1191,7 @@ define void @_ZNK5boost4urls6detail9query_ref6bufferEv(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK5boost4urls6detail9query_ref4sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK5boost4urls6detail9query_ref4sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !49
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -1226,7 +1226,7 @@ define noundef i64 @_ZNK5boost4urls6detail9query_ref4sizeEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK5boost4urls6detail9query_ref5beginEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK5boost4urls6detail9query_ref5beginEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !49
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %3
@@ -1254,7 +1254,7 @@ define noundef ptr @_ZNK5boost4urls6detail9query_ref5beginEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK5boost4urls6detail9query_ref3endEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK5boost4urls6detail9query_ref3endEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !49
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %3
@@ -1280,7 +1280,7 @@ define noundef ptr @_ZNK5boost4urls6detail9query_ref3endEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZNK5boost4urls6detail9query_ref6nparamEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
+define noundef i64 @_ZNK5boost4urls6detail9query_ref6nparamEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #10 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !49
   %.not = icmp eq ptr %2, null
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 136
@@ -1291,7 +1291,7 @@ define noundef i64 @_ZNK5boost4urls6detail9query_ref6nparamEv(ptr nocapture noun
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -527,7 +527,7 @@ virtio_pci_find_capability.exit19:                ; preds = %203, %170, %198
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold null_pointer_is_valid
 declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -542,7 +542,7 @@ declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @pci_request_selected_regions(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @vp_modern_map_capability(ptr nocapture noundef readonly %0, i32 noundef %1, i64 noundef range(i64 0, 57) %2, i32 noundef range(i32 1, 5) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 align 16 {
+define internal fastcc ptr @vp_modern_map_capability(ptr noundef readonly captures(none) %0, i32 noundef %1, i64 noundef range(i64 0, 57) %2, i32 noundef range(i32 1, 5) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) unnamed_addr #0 align 16 {
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -716,10 +716,10 @@ declare dso_local void @pci_iounmap(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local void @pci_release_selected_regions(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vp_modern_remove(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @vp_modern_remove(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -754,7 +754,7 @@ define dso_local void @vp_modern_remove(ptr nocapture noundef readonly %0) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @vp_modern_get_features(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @vp_modern_get_features(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @iowrite32(i32 noundef 0, ptr noundef %3) #4
@@ -770,7 +770,7 @@ define dso_local i64 @vp_modern_get_features(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @vp_modern_get_driver_features(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @vp_modern_get_driver_features(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -787,7 +787,7 @@ define dso_local i64 @vp_modern_get_driver_features(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vp_modern_set_features(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local void @vp_modern_set_features(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -803,7 +803,7 @@ define dso_local void @vp_modern_set_features(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 256) i32 @vp_modern_generation(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local range(i32 0, 256) i32 @vp_modern_generation(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 21
@@ -813,7 +813,7 @@ define dso_local range(i32 0, 256) i32 @vp_modern_generation(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i8 @vp_modern_get_status(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local zeroext i8 @vp_modern_get_status(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
@@ -823,7 +823,7 @@ define dso_local zeroext i8 @vp_modern_get_status(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vp_modern_set_status(ptr nocapture noundef readonly %0, i8 noundef zeroext %1) #0 align 16 {
+define dso_local void @vp_modern_set_status(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -832,7 +832,7 @@ define dso_local void @vp_modern_set_status(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 65536) i32 @vp_modern_get_queue_reset(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local range(i32 0, 65536) i32 @vp_modern_get_queue_reset(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 22
@@ -844,7 +844,7 @@ define dso_local range(i32 0, 65536) i32 @vp_modern_get_queue_reset(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vp_modern_set_queue_reset(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local void @vp_modern_set_queue_reset(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 22
@@ -885,7 +885,7 @@ define dso_local void @vp_modern_set_queue_reset(ptr nocapture noundef readonly 
 declare dso_local void @msleep(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i16 @vp_modern_queue_vector(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 align 16 {
+define dso_local zeroext i16 @vp_modern_queue_vector(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 22
@@ -898,7 +898,7 @@ define dso_local zeroext i16 @vp_modern_queue_vector(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i16 @vp_modern_config_vector(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local zeroext i16 @vp_modern_config_vector(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -909,7 +909,7 @@ define dso_local zeroext i16 @vp_modern_config_vector(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vp_modern_queue_address(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local void @vp_modern_queue_address(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 22
@@ -939,7 +939,7 @@ define dso_local void @vp_modern_queue_address(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vp_modern_set_queue_enable(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local void @vp_modern_set_queue_enable(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 22
@@ -952,7 +952,7 @@ define dso_local void @vp_modern_set_queue_enable(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @vp_modern_get_queue_enable(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local zeroext i1 @vp_modern_get_queue_enable(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 22
@@ -966,7 +966,7 @@ define dso_local zeroext i1 @vp_modern_get_queue_enable(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vp_modern_set_queue_size(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 align 16 {
+define dso_local void @vp_modern_set_queue_size(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, i16 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 22
@@ -978,7 +978,7 @@ define dso_local void @vp_modern_set_queue_size(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i16 @vp_modern_get_queue_size(ptr nocapture noundef readonly %0, i16 noundef zeroext %1) #0 align 16 {
+define dso_local zeroext i16 @vp_modern_get_queue_size(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 22
@@ -991,7 +991,7 @@ define dso_local zeroext i16 @vp_modern_get_queue_size(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i16 @vp_modern_get_num_queues(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local zeroext i16 @vp_modern_get_num_queues(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 18
@@ -1001,7 +1001,7 @@ define dso_local zeroext i16 @vp_modern_get_num_queues(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @vp_modern_map_vq_notify(ptr nocapture noundef readonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @vp_modern_map_vq_notify(ptr noundef readonly captures(none) %0, i16 noundef zeroext %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 22
@@ -1073,7 +1073,7 @@ define dso_local ptr @vp_modern_map_vq_notify(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i16 @vp_modern_avq_num(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local zeroext i16 @vp_modern_avq_num(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 62
@@ -1083,7 +1083,7 @@ define dso_local zeroext i16 @vp_modern_avq_num(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i16 @vp_modern_avq_index(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local zeroext i16 @vp_modern_avq_index(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 60

@@ -181,7 +181,7 @@ declare void @sec_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @hpa_shard_postfork_child(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_basic_stats_merge(ptr noundef %shard, ptr nocapture noundef %nactive, ptr nocapture noundef %ndirty, ptr nocapture noundef %nmuzzy) local_unnamed_addr #0 {
+define hidden void @pa_shard_basic_stats_merge(ptr noundef %shard, ptr noundef captures(none) %nactive, ptr noundef captures(none) %ndirty, ptr noundef captures(none) %nmuzzy) local_unnamed_addr #0 {
 entry:
   %nactive1 = getelementptr inbounds nuw i8, ptr %shard, i64 8
   %0 = load atomic i64, ptr %nactive1 monotonic, align 8
@@ -208,7 +208,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @pa_shard_stats_merge(ptr noundef %tsdn, ptr noundef %shard, ptr nocapture noundef %pa_shard_stats_out, ptr nocapture noundef writeonly %estats_out, ptr noundef %hpa_stats_out, ptr noundef %sec_stats_out, ptr nocapture noundef %resident) local_unnamed_addr #0 {
+define hidden void @pa_shard_stats_merge(ptr noundef %tsdn, ptr noundef %shard, ptr noundef captures(none) %pa_shard_stats_out, ptr noundef writeonly captures(none) %estats_out, ptr noundef %hpa_stats_out, ptr noundef %sec_stats_out, ptr noundef captures(none) %resident) local_unnamed_addr #0 {
 entry:
   %eset.i = getelementptr inbounds nuw i8, ptr %shard, i64 39072
   %call.i = tail call i64 @eset_npages_get(ptr noundef nonnull %eset.i) #4
@@ -684,7 +684,7 @@ declare void @malloc_mutex_lock_slow(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_trylock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2

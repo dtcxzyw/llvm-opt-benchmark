@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN18BaseBytecodeStreamC1ERK12methodHandle = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN18BaseBytecodeStreamC2ERK12methodHandle
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN17RawBytecodeStream16raw_next_specialEN9Bytecodes4CodeE(ptr nocapture noundef nonnull align 8 dereferenceable(42) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN17RawBytecodeStream16raw_next_specialEN9Bytecodes4CodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(42) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

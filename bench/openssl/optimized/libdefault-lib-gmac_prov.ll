@@ -176,7 +176,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @gmac_update(ptr nocapture noundef readonly %vmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
+define internal i32 @gmac_update(ptr noundef readonly captures(none) %vmacctx, ptr noundef %data, i64 noundef %datalen) #0 {
 entry:
   %outlen = alloca i32, align 4
   %ctx1 = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
@@ -214,7 +214,7 @@ return:                                           ; preds = %while.body, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @gmac_final(ptr nocapture noundef readonly %vmacctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 %outsize) #0 {
+define internal range(i32 0, 2) i32 @gmac_final(ptr noundef readonly captures(none) %vmacctx, ptr noundef %out, ptr noundef writeonly captures(none) %outl, i64 %outsize) #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %hlen = alloca i32, align 4
@@ -254,7 +254,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @gmac_gettable_params(ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @gmac_gettable_params(ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_gettable_params
 }
@@ -276,7 +276,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @gmac_settable_ctx_params(ptr nocapture readnone %ctx, ptr nocapture readnone %provctx) #1 {
+define internal noundef nonnull ptr @gmac_settable_ctx_params(ptr readnone captures(none) %ctx, ptr readnone captures(none) %provctx) #1 {
 entry:
   ret ptr @known_settable_ctx_params
 }
@@ -421,14 +421,14 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare i32 @EVP_EncryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare i32 @EVP_CIPHER_CTX_get_params(ptr noundef, ptr noundef) local_unnamed_addr #2
 

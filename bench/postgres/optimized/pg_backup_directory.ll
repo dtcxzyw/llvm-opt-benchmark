@@ -256,7 +256,7 @@ sub_167:                                          ; preds = %.tail
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture noundef initializes((144, 152)) %1) #0 {
+define internal void @_ArchiveEntry(ptr readnone captures(none) %0, ptr noundef captures(none) initializes((144, 152)) %1) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = tail call ptr @pg_malloc0(i64 noundef 8) #14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -291,7 +291,7 @@ define internal void @_ArchiveEntry(ptr nocapture readnone %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_StartData(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_StartData(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -319,7 +319,7 @@ define internal void @_StartData(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_WriteData(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @_WriteData(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -357,7 +357,7 @@ define internal void @_WriteData(ptr nocapture noundef readonly %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_EndData(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @_EndData(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -376,7 +376,7 @@ define internal void @_EndData(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 noundef %1) #0 {
+define internal noundef i32 @_WriteByte(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = alloca i8, align 1
   %4 = trunc i32 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -413,7 +413,7 @@ define internal noundef i32 @_WriteByte(ptr nocapture noundef readonly %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_ReadByte(ptr nocapture noundef readonly %0) #0 {
+define internal i32 @_ReadByte(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -425,7 +425,7 @@ define internal i32 @_ReadByte(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_WriteBuf(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @_WriteBuf(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -459,7 +459,7 @@ define internal void @_WriteBuf(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ReadBuf(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal void @_ReadBuf(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -548,12 +548,12 @@ define internal void @_CloseArchive(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ReopenArchive(ptr nocapture readnone %0) #1 {
+define internal void @_ReopenArchive(ptr readnone captures(none) %0) #1 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_PrintTocData(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_PrintTocData(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [1024 x i8], align 16
@@ -678,7 +678,7 @@ _LoadLOs.exit:                                    ; preds = %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ReadExtraToc(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal void @_ReadExtraToc(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -707,7 +707,7 @@ define internal void @_ReadExtraToc(ptr noundef %0, ptr nocapture noundef %1) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_WriteExtraToc(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_WriteExtraToc(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -718,7 +718,7 @@ define internal void @_WriteExtraToc(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_PrintExtraToc(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @_PrintExtraToc(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -740,7 +740,7 @@ define internal void @_PrintExtraToc(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_StartLOs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @_StartLOs(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca %struct.pg_compress_specification, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -767,7 +767,7 @@ define internal void @_StartLOs(ptr nocapture noundef readonly %0, ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_StartLO(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @_StartLO(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8
@@ -792,7 +792,7 @@ define internal void @_StartLO(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_EndLO(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2) #0 {
+define internal void @_EndLO(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, i32 noundef %2) #0 {
   %4 = alloca [50 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %6 = load ptr, ptr %5, align 8
@@ -840,7 +840,7 @@ define internal void @_EndLO(ptr nocapture noundef readonly %0, ptr nocapture re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_EndLOs(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @_EndLOs(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -859,7 +859,7 @@ define internal void @_EndLOs(ptr nocapture noundef readonly %0, ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_PrepParallelRestore(ptr nocapture noundef readonly %0) #0 {
+define internal void @_PrepParallelRestore(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 504
@@ -955,7 +955,7 @@ define internal void @_PrepParallelRestore(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_Clone(ptr nocapture noundef %0) #0 {
+define internal void @_Clone(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @pg_malloc(i64 noundef 32) #14
@@ -965,7 +965,7 @@ define internal void @_Clone(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @_DeClone(ptr nocapture noundef readonly %0) #2 {
+define internal void @_DeClone(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 592
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14
@@ -989,7 +989,7 @@ declare ptr @pg_malloc0(i64 noundef) local_unnamed_addr #3
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -997,10 +997,10 @@ declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_u
 declare void @exit_nicely(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #7
@@ -1008,13 +1008,13 @@ declare ptr @__errno_location() local_unnamed_addr #7
 declare ptr @readdir(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @mkdir(ptr nocapture noundef readonly, i32 noundef) local_unnamed_addr #6
+declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setFilePath(ptr %.592.val.0.val, ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @setFilePath(ptr %.592.val.0.val, ptr noundef nonnull %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.592.val.0.val) #17
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %5 = add i64 %3, -1023
@@ -1023,7 +1023,7 @@ define internal fastcc void @setFilePath(ptr %.592.val.0.val, ptr noundef nonnul
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %2
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef %.592.val.0.val) #14
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.33, ptr noundef nonnull %.592.val.0.val) #14
   tail call void @exit_nicely(i32 noundef 1) #15
   unreachable
 
@@ -1053,10 +1053,10 @@ declare i64 @WriteStr(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @ReadStr(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 declare i32 @ahprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
@@ -1112,7 +1112,7 @@ define internal fastcc void @_PrintFileData(ptr noundef %0, ptr noundef nonnull 
 declare void @StartRestoreLOs(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 declare void @StartRestoreLO(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
@@ -1123,7 +1123,7 @@ declare void @EndRestoreLOs(ptr noundef) local_unnamed_addr #3
 declare void @ahwrite(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare ptr @ParallelBackupStart(ptr noundef) local_unnamed_addr #3
 
@@ -1138,26 +1138,26 @@ declare void @ParallelBackupEnd(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @sync_dir_recurse(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #10
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree
 declare i64 @strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 declare void @WriteDataChunksForTocEntry(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 declare i32 @parallel_restore(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

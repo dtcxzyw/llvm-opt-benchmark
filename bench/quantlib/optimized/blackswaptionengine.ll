@@ -556,7 +556,7 @@ $_ZTIN5boost3any6holderIdEE = comdat any
 @_ZN8QuantLib23BachelierSwaptionEngineC1ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_27SwaptionVolatilityStructureEEENS_6detail24BlackStyleSwaptionEngineINSA_13BachelierSpecEE16CashAnnuityModelE = unnamed_addr alias void (ptr, ptr, ptr, i32), ptr @_ZN8QuantLib23BachelierSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_27SwaptionVolatilityStructureEEENS_6detail24BlackStyleSwaptionEngineINSA_13BachelierSpecEE16CashAnnuityModelE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -641,7 +641,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -884,7 +884,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19BlackSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEEdRKNS_10DayCounterEdNS_6detail24BlackStyleSwaptionEngineINS9_11Black76SpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %discountCurve, double noundef %vol, ptr noundef nonnull align 8 dereferenceable(16) %dc, double noundef %displacement, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19BlackSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEEdRKNS_10DayCounterEdNS_6detail24BlackStyleSwaptionEngineINS9_11Black76SpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %discountCurve, double noundef %vol, ptr noundef nonnull align 8 dereferenceable(16) %dc, double noundef %displacement, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %0 = load ptr, ptr %discountCurve, align 8, !tbaa !39
@@ -1439,7 +1439,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19BlackSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_5QuoteEEERKNS_10DayCounterEdNS_6detail24BlackStyleSwaptionEngineINSD_11Black76SpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %discountCurve, ptr noundef nonnull align 8 dereferenceable(16) %vol, ptr noundef nonnull align 8 dereferenceable(16) %dc, double noundef %displacement, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19BlackSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_5QuoteEEERKNS_10DayCounterEdNS_6detail24BlackStyleSwaptionEngineINSD_11Black76SpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %discountCurve, ptr noundef nonnull align 8 dereferenceable(16) %vol, ptr noundef nonnull align 8 dereferenceable(16) %dc, double noundef %displacement, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %0 = load ptr, ptr %discountCurve, align 8, !tbaa !39
@@ -2233,7 +2233,7 @@ ehcleanup36:                                      ; preds = %ehcleanup35, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19BlackSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_27SwaptionVolatilityStructureEEENS_6detail24BlackStyleSwaptionEngineINSA_11Black76SpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %discountCurve, ptr noundef nonnull align 8 dereferenceable(16) %vol, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19BlackSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_27SwaptionVolatilityStructureEEENS_6detail24BlackStyleSwaptionEngineINSA_11Black76SpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %discountCurve, ptr noundef nonnull align 8 dereferenceable(16) %vol, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Handle.43", align 8
@@ -3264,7 +3264,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23BachelierSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEEdRKNS_10DayCounterENS_6detail24BlackStyleSwaptionEngineINS9_13BachelierSpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %discountCurve, double noundef %vol, ptr noundef nonnull align 8 dereferenceable(16) %dc, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23BachelierSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEEdRKNS_10DayCounterENS_6detail24BlackStyleSwaptionEngineINS9_13BachelierSpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %discountCurve, double noundef %vol, ptr noundef nonnull align 8 dereferenceable(16) %dc, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %0 = load ptr, ptr %discountCurve, align 8, !tbaa !39
@@ -3775,7 +3775,7 @@ ehcleanup24:                                      ; preds = %lpad18, %ehcleanup1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23BachelierSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_5QuoteEEERKNS_10DayCounterENS_6detail24BlackStyleSwaptionEngineINSD_13BachelierSpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %discountCurve, ptr noundef nonnull align 8 dereferenceable(16) %vol, ptr noundef nonnull align 8 dereferenceable(16) %dc, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23BachelierSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_5QuoteEEERKNS_10DayCounterENS_6detail24BlackStyleSwaptionEngineINSD_13BachelierSpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %discountCurve, ptr noundef nonnull align 8 dereferenceable(16) %vol, ptr noundef nonnull align 8 dereferenceable(16) %dc, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %0 = load ptr, ptr %discountCurve, align 8, !tbaa !39
@@ -4570,7 +4570,7 @@ ehcleanup34:                                      ; preds = %ehcleanup33, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23BachelierSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_27SwaptionVolatilityStructureEEENS_6detail24BlackStyleSwaptionEngineINSA_13BachelierSpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %discountCurve, ptr noundef nonnull align 8 dereferenceable(16) %vol, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23BachelierSwaptionEngineC2ERKNS_6HandleINS_18YieldTermStructureEEERKNS1_INS_27SwaptionVolatilityStructureEEENS_6detail24BlackStyleSwaptionEngineINSA_13BachelierSpecEE16CashAnnuityModelE(ptr noundef nonnull align 8 dereferenceable(628) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %discountCurve, ptr noundef nonnull align 8 dereferenceable(16) %vol, i32 noundef %model) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Handle.43", align 8
@@ -11450,7 +11450,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #16
@@ -13110,7 +13110,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #20
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -15860,7 +15860,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJOS5_EESL_IJEEEEESt17_Rb_tree_iteratorISA_ESt23_Rb_tree_const_iteratorISA_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__pos.coerce, ptr noundef nonnull align 1 dereferenceable(1) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1, ptr noundef nonnull align 1 dereferenceable(1) %__args3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16008,7 +16008,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #20
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N5boost3anyEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE29_M_get_insert_hint_unique_posESt23_Rb_tree_const_iteratorISA_ERS7_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__k) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -16420,7 +16420,7 @@ declare noundef double @_ZN8QuantLib38bachelierBlackFormulaForwardDerivativeENS_
 declare void @llvm.assume(i1 noundef) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #24
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #25

@@ -46,7 +46,7 @@ entry:
 declare void @_ZN6icu_7517CharsetRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7520CharsetRecog_UnicodeD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7520CharsetRecog_UnicodeD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #10
   unreachable
@@ -74,7 +74,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_UTF_16_BE7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_UTF_16_BE7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr @.str
 }
@@ -170,7 +170,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_UTF_16_LE7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_UTF_16_LE7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr @.str.1
 }
@@ -273,7 +273,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7519CharsetRecog_UTF_32D0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7519CharsetRecog_UTF_32D0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #10
   unreachable
@@ -370,13 +370,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_UTF_32_BE7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_UTF_32_BE7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr @.str.2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7522CharsetRecog_UTF_32_BE7getCharEPKhi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i32 noundef %index) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK6icu_7522CharsetRecog_UTF_32_BE7getCharEPKhi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i32 noundef %index) unnamed_addr #7 align 2 {
 entry:
   %idxprom = sext i32 %index to i64
   %arrayidx = getelementptr inbounds i8, ptr %input, i64 %idxprom
@@ -416,13 +416,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_UTF_32_LE7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_UTF_32_LE7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret ptr @.str.3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK6icu_7522CharsetRecog_UTF_32_LE7getCharEPKhi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %input, i32 noundef %index) unnamed_addr #7 align 2 {
+define noundef i32 @_ZNK6icu_7522CharsetRecog_UTF_32_LE7getCharEPKhi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %input, i32 noundef %index) unnamed_addr #7 align 2 {
 entry:
   %0 = sext i32 %index to i64
   %1 = getelementptr i8, ptr %input, i64 %0

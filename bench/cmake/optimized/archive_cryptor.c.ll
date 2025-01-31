@@ -22,7 +22,7 @@ define internal noundef i32 @pbkdf2_sha1(ptr noundef %0, i64 noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = tail call ptr @EVP_CIPHER_CTX_new() #7
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -73,7 +73,7 @@ define internal range(i32 -1, 1) i32 @aes_ctr_init(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) #1 {
+define internal range(i32 -1, 1) i32 @aes_ctr_update(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4) #1 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
@@ -230,7 +230,7 @@ aes_ctr_encrypt_counter.exit59:                   ; preds = %aes_ctr_increase_co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_ctr_release(ptr nocapture noundef initializes((52, 68)) %0) #1 {
+define internal noundef i32 @aes_ctr_release(ptr noundef captures(none) initializes((52, 68)) %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @EVP_CIPHER_CTX_free(ptr noundef %2) #7
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -254,10 +254,10 @@ declare ptr @EVP_aes_192_ecb() local_unnamed_addr #2
 declare ptr @EVP_aes_256_ecb() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -266,10 +266,10 @@ declare i32 @EVP_EncryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare void @EVP_CIPHER_CTX_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #6

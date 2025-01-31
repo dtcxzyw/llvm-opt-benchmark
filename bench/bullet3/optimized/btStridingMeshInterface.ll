@@ -40,13 +40,13 @@ $_ZNK23btStridingMeshInterface28calculateSerializeBufferSizeEv = comdat any
 @_ZN23btStridingMeshInterfaceD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN23btStridingMeshInterfaceD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN23btStridingMeshInterfaceD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btStridingMeshInterfaceD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN23btStridingMeshInterfaceD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN23btStridingMeshInterfaceD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.trap() #10
   unreachable
@@ -56,7 +56,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTrianglesEP31btInternalTriangleIndexCallbackRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %callback, ptr nocapture nonnull readnone align 4 %aabbMin, ptr nocapture nonnull readnone align 4 %aabbMax) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK23btStridingMeshInterface27InternalProcessAllTrianglesEP31btInternalTriangleIndexCallbackRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %callback, ptr nonnull readnone align 4 captures(none) %aabbMin, ptr nonnull readnone align 4 captures(none) %aabbMax) unnamed_addr #3 align 2 {
 entry:
   %vertexbase = alloca ptr, align 8
   %indexbase = alloca ptr, align 8
@@ -613,7 +613,7 @@ for.end434:                                       ; preds = %sw.epilog429, %entr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23btStridingMeshInterface23calculateAabbBruteForceER9btVector3S1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(16) initializes((0, 16)) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) initializes((0, 16)) %aabbMax) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
@@ -679,7 +679,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 8), (24, 28)) %dataBuffer, ptr noundef %serializer) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef writeonly captures(none) initializes((0, 8), (24, 28)) %dataBuffer, ptr noundef %serializer) unnamed_addr #3 align 2 {
 entry:
   %vertexbase = alloca ptr, align 8
   %indexbase = alloca ptr, align 8
@@ -1066,7 +1066,7 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
@@ -1106,7 +1106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZZN23btStridingMeshInterface23calculateAabbBruteForceER9btVector3S1_EN23AabbCalculationCallback28internalProcessTriangleIndexEPS0_ii(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %triangle, i32 %partId, i32 %triangleIndex) unnamed_addr #8 align 2 {
+define internal void @_ZZN23btStridingMeshInterface23calculateAabbBruteForceER9btVector3S1_EN23AabbCalculationCallback28internalProcessTriangleIndexEPS0_ii(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly captures(none) %triangle, i32 %partId, i32 %triangleIndex) unnamed_addr #8 align 2 {
 entry:
   %m_aabbMin = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load float, ptr %triangle, align 4

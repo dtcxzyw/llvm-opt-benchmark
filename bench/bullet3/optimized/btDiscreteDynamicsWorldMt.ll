@@ -115,7 +115,7 @@ $_ZTIN25btDiscreteDynamicsWorldMt26UpdaterIntegrateTransformsE = comdat any
 @_ZN25btDiscreteDynamicsWorldMtD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN25btDiscreteDynamicsWorldMtD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN24btConstraintSolverPoolMt22getAndLockThreadSolverEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN24btConstraintSolverPoolMt22getAndLockThreadSolverEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i, align 8
@@ -147,7 +147,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
 declare noundef zeroext i1 @_ZN11btSpinMutex7tryLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((40, 44)) %this, ptr nocapture noundef readonly %solvers, i32 noundef %numSolvers) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr noundef nonnull align 8 captures(none) dereferenceable(44) initializes((40, 44)) %this, ptr noundef readonly captures(none) %solvers, i32 noundef %numSolvers) local_unnamed_addr #0 align 2 {
 entry:
   %m_solverType = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i32 1, ptr %m_solverType, align 8
@@ -267,7 +267,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24btConstraintSolverPoolMtC2Ei(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8), (12, 20), (24, 33)) %this, i32 noundef %numSolvers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -416,13 +416,9 @@ terminate.lpad.i:                                 ; preds = %lpad7
 for.end:                                          ; preds = %for.inc, %invoke.cont3
   %10 = phi ptr [ null, %invoke.cont3 ], [ %3, %for.inc ]
   invoke void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull %10, i32 noundef %numSolvers)
-          to label %invoke.cont12 unwind label %lpad4.loopexit.split-lp
+          to label %if.then3.i.i.i33 unwind label %lpad4.loopexit.split-lp
 
-invoke.cont12:                                    ; preds = %for.end
-  %tobool.not.i.i.i29 = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i.i29, label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit, label %if.then3.i.i.i33
-
-if.then3.i.i.i33:                                 ; preds = %invoke.cont12
+if.then3.i.i.i33:                                 ; preds = %for.end
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %10)
           to label %_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit unwind label %terminate.lpad.i34
 
@@ -433,7 +429,7 @@ terminate.lpad.i34:                               ; preds = %if.then3.i.i.i33
   tail call void @__clang_call_terminate(ptr %12) #9
   unreachable
 
-_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit: ; preds = %invoke.cont12, %if.then3.i.i.i33
+_ZN20btAlignedObjectArrayIP18btConstraintSolverED2Ev.exit: ; preds = %if.then3.i.i.i33
   ret void
 
 ehcleanup:                                        ; preds = %lpad4.loopexit, %lpad4.loopexit.split-lp, %lpad7
@@ -521,7 +517,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btConstraintSolverPoolMtC2EPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8), (12, 20), (24, 33), (40, 44)) %this, ptr nocapture noundef readonly %solvers, i32 noundef %numSolvers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btConstraintSolverPoolMtC2EPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8), (12, 20), (24, 33), (40, 44)) %this, ptr noundef readonly captures(none) %solvers, i32 noundef %numSolvers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -547,7 +543,7 @@ lpad2:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24btConstraintSolverPoolMtD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btConstraintSolverPoolMtD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
@@ -695,7 +691,7 @@ _ZN24btConstraintSolverPoolMtD2Ev.exit:           ; preds = %for.end.i, %if.then
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN24btConstraintSolverPoolMt10solveGroupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDrawP12btDispatcher(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef %bodies, i32 noundef %numBodies, ptr noundef %manifolds, i32 noundef %numManifolds, ptr noundef %constraints, i32 noundef %numConstraints, ptr noundef nonnull align 4 dereferenceable(128) %info, ptr noundef %debugDrawer, ptr noundef %dispatcher) unnamed_addr #0 align 2 {
+define dso_local noundef float @_ZN24btConstraintSolverPoolMt10solveGroupEPP17btCollisionObjectiPP20btPersistentManifoldiPP17btTypedConstraintiRK19btContactSolverInfoP12btIDebugDrawP12btDispatcher(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef %bodies, i32 noundef %numBodies, ptr noundef %manifolds, i32 noundef %numManifolds, ptr noundef %constraints, i32 noundef %numConstraints, ptr noundef nonnull align 4 dereferenceable(128) %info, ptr noundef %debugDrawer, ptr noundef %dispatcher) unnamed_addr #0 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i, align 8
@@ -734,7 +730,7 @@ _ZN24btConstraintSolverPoolMt22getAndLockThreadSolverEv.exit: ; preds = %if.end.
 declare void @_ZN11btSpinMutex6unlockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btConstraintSolverPoolMt5resetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN24btConstraintSolverPoolMt5resetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this) unnamed_addr #0 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %m_size.i, align 4
@@ -927,7 +923,7 @@ declare void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferencea
 declare void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25btDiscreteDynamicsWorldMt25predictUnconstraintMotionEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %this, float noundef %timeStep) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25btDiscreteDynamicsWorldMt25predictUnconstraintMotionEf(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(520) %this, float noundef %timeStep) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile = alloca %class.CProfileSample, align 1
   %update = alloca %struct.UpdaterUnconstrainedMotion, align 8
@@ -1319,7 +1315,7 @@ declare void @_ZN23btDiscreteDynamicsWorld27integrateTransformsInternalEPP11btRi
 declare void @_ZN23btDiscreteDynamicsWorld13updateActionsEf(ptr noundef nonnull align 8 dereferenceable(508), float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

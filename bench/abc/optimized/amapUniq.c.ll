@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [8 x i8] c"%d(%d) \00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -32768, 32768) i32 @Amap_LibFindNode(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -32768, 32768) i32 @Amap_LibFindNode(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %5 = sext i32 %1 to i64
   br i1 %.not, label %26, label %6
@@ -94,7 +94,7 @@ Vec_IntCheckWithMask.exit:                        ; preds = %17, %37, %44, %26, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Amap_LibFindMux(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @Amap_LibFindMux(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %6, i64 4
@@ -147,7 +147,7 @@ define i32 @Amap_LibFindMux(ptr nocapture noundef readonly %0, i32 noundef %1, i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @Amap_LibCreateObj(ptr nocapture noundef %0) local_unnamed_addr #1 {
+define noundef ptr @Amap_LibCreateObj(ptr noundef captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -499,16 +499,16 @@ Vec_PtrPush.exit39:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @Amap_LibCreateVar(ptr nocapture noundef initializes((88, 96), (100, 104)) %0) local_unnamed_addr #1 {
+define noundef i32 @Amap_LibCreateVar(ptr noundef captures(none) initializes((88, 96), (100, 104)) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 256, ptr %2, align 4
   %3 = tail call noalias dereferenceable_or_null(6144) ptr @malloc(i64 noundef 6144) #11
@@ -529,7 +529,7 @@ define noundef i32 @Amap_LibCreateVar(ptr nocapture noundef initializes((88, 96)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 65536) i32 @Amap_LibCreateNode(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 65536) i32 @Amap_LibCreateNode(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %2)
   %spec.select60 = tail call i32 @llvm.smax.i32(i32 %1, i32 %2)
   %5 = tail call ptr @Amap_LibCreateObj(ptr noundef %0)
@@ -1052,10 +1052,10 @@ Vec_IntPushOrderWithMask.exit:                    ; preds = %155, %81, %269, %19
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 65536) i32 @Amap_LibCreateMux(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define range(i32 0, 65536) i32 @Amap_LibCreateMux(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = tail call ptr @Amap_LibCreateObj(ptr noundef %0)
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 16777215
@@ -1389,7 +1389,7 @@ Vec_IntPush.exit54:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @Amap_LibLookupTableAlloc(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
+define noundef ptr @Amap_LibLookupTableAlloc(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val54 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val54, 0

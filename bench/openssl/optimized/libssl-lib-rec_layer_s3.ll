@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.ossl_get_max_early_data = private unnamed_addr constant [24 x i8] c"ossl_get_max_early_data\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @RECORD_LAYER_init(ptr nocapture noundef writeonly initializes((0, 8)) %rl, ptr noundef %s) local_unnamed_addr #0 {
+define void @RECORD_LAYER_init(ptr noundef writeonly captures(none) initializes((0, 8)) %rl, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   store ptr %s, ptr %rl, align 8
   ret void
@@ -96,14 +96,14 @@ if.end15:                                         ; preds = %if.then14, %if.end7
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
 
 declare void @DTLS_RECORD_LAYER_clear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @RECORD_LAYER_read_pending(ptr nocapture noundef readonly %rl) local_unnamed_addr #1 {
+define i32 @RECORD_LAYER_read_pending(ptr noundef readonly captures(none) %rl) local_unnamed_addr #1 {
 entry:
   %rrlmethod = getelementptr inbounds nuw i8, ptr %rl, i64 24
   %0 = load ptr, ptr %rrlmethod, align 8
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @RECORD_LAYER_processed_read_pending(ptr nocapture noundef readonly %rl) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @RECORD_LAYER_processed_read_pending(ptr noundef readonly captures(none) %rl) local_unnamed_addr #1 {
 entry:
   %curr_rec = getelementptr inbounds nuw i8, ptr %rl, i64 184
   %0 = load i64, ptr %curr_rec, align 8
@@ -143,7 +143,7 @@ lor.end:                                          ; preds = %lor.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @RECORD_LAYER_write_pending(ptr nocapture noundef readonly %rl) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @RECORD_LAYER_write_pending(ptr noundef readonly captures(none) %rl) local_unnamed_addr #4 {
 entry:
   %wpend_tot = getelementptr inbounds nuw i8, ptr %rl, i64 104
   %0 = load i64, ptr %wpend_tot, align 8
@@ -257,7 +257,7 @@ declare ptr @pqueue_iterator(ptr noundef) local_unnamed_addr #3
 declare ptr @pqueue_next(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SSL_CTX_set_default_read_buffer_len(ptr nocapture noundef writeonly initializes((512, 520)) %ctx, i64 noundef %len) local_unnamed_addr #0 {
+define void @SSL_CTX_set_default_read_buffer_len(ptr noundef writeonly captures(none) initializes((512, 520)) %ctx, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %default_read_buf_len = getelementptr inbounds nuw i8, ptr %ctx, i64 512
   store i64 %len, ptr %default_read_buf_len, align 8
@@ -375,7 +375,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @ssl3_write_bytes(ptr noundef %ssl, i8 noundef zeroext %type, ptr noundef %buf_, i64 noundef %len, ptr nocapture noundef writeonly %written) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2) i32 @ssl3_write_bytes(ptr noundef %ssl, i8 noundef zeroext %type, ptr noundef %buf_, i64 noundef %len, ptr noundef writeonly captures(none) %written) local_unnamed_addr #1 {
 entry:
   %split_send_fragment = alloca i64, align 8
   %tmpls = alloca [32 x %struct.ossl_record_template_st], align 16
@@ -722,7 +722,7 @@ if.end204:                                        ; preds = %for.body182, %for.e
   %31 = load ptr, ptr %write_records, align 8
   %32 = load ptr, ptr %wrl137, align 8
   %call209 = call i32 %31(ptr noundef %32, ptr noundef nonnull %tmpls, i64 noundef %spec.store.select) #9
-  %call210 = call i32 @ossl_tls_handle_rlayer_return(ptr noundef %ssl, i32 noundef 1, i32 noundef %call209, ptr noundef nonnull @.str.1, i32 noundef 424)
+  %call210 = call i32 @ossl_tls_handle_rlayer_return(ptr noundef nonnull %ssl, i32 noundef 1, i32 noundef %call209, ptr noundef nonnull @.str.1, i32 noundef 424)
   %cmp211 = icmp slt i32 %call210, 1
   br i1 %cmp211, label %if.then213, label %if.end216
 
@@ -957,7 +957,7 @@ declare i32 @SSL_version(ptr noundef) local_unnamed_addr #3
 declare void @SSL_set_shutdown(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_release_record(ptr noundef %s, ptr nocapture noundef %rr, i64 noundef %length) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ssl_release_record(ptr noundef %s, ptr noundef captures(none) %rr, i64 noundef %length) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %rr, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -1042,7 +1042,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %ssl, i8 noundef zeroext %type, ptr noundef writeonly %recvd_type, ptr nocapture noundef writeonly %buf, i64 noundef %len, i32 noundef %peek, ptr nocapture noundef writeonly %readbytes) local_unnamed_addr #1 {
+define range(i32 -2147483648, 2) i32 @ssl3_read_bytes(ptr noundef %ssl, i8 noundef zeroext %type, ptr noundef writeonly %recvd_type, ptr noundef writeonly captures(none) %buf, i64 noundef %len, i32 noundef %peek, ptr noundef writeonly captures(none) %readbytes) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ssl, null
   br i1 %cmp, label %cond.end5, label %cond.false
@@ -2067,7 +2067,7 @@ return:                                           ; preds = %if.then.i299, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare i32 @SSL_CTX_remove_session(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -2082,7 +2082,7 @@ declare i32 @ossl_statem_app_data_allowed(ptr noundef) local_unnamed_addr #3
 declare i32 @ossl_statem_skip_early_data(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @RECORD_LAYER_is_sslv2_record(ptr nocapture noundef readonly %rl) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @RECORD_LAYER_is_sslv2_record(ptr noundef readonly captures(none) %rl) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %rl, align 8
   %method = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2108,7 +2108,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_ssl_set_custom_record_layer(ptr nocapture noundef writeonly initializes((3008, 3024)) %s, ptr noundef %meth, ptr noundef %rlarg) local_unnamed_addr #0 {
+define void @ossl_ssl_set_custom_record_layer(ptr noundef writeonly captures(none) initializes((3008, 3024)) %s, ptr noundef %meth, ptr noundef %rlarg) local_unnamed_addr #0 {
 entry:
   %custom_rlmethod = getelementptr inbounds nuw i8, ptr %s, i64 3008
   store ptr %meth, ptr %custom_rlmethod, align 8
@@ -2719,7 +2719,7 @@ declare ptr @BIO_s_mem() local_unnamed_addr #3
 declare ptr @pqueue_peek(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_set_record_protocol_version(ptr nocapture noundef readonly %s, i32 noundef %vers) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ssl_set_record_protocol_version(ptr noundef readonly captures(none) %s, i32 noundef %vers) local_unnamed_addr #1 {
 entry:
   %rrlmethod = getelementptr inbounds nuw i8, ptr %s, i64 3024
   %0 = load ptr, ptr %rrlmethod, align 8

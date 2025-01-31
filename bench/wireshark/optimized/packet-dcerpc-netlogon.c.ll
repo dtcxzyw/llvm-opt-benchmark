@@ -1874,7 +1874,7 @@ declare ptr @wmem_epan_scope() local_unnamed_addr #1
 declare ptr @wmem_file_scope() local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal i32 @netlogon_auth_hash(ptr nocapture noundef readonly %0) #2 {
+define internal i32 @netlogon_auth_hash(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1933,7 +1933,7 @@ add_address_to_hash.exit13:                       ; preds = %.lr.ph.i8, %add_add
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @netlogon_auth_equal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #3 {
+define internal range(i32 0, 2) i32 @netlogon_auth_equal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #3 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %5 = icmp eq i32 %3, %4
@@ -3645,7 +3645,7 @@ declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netlogon_dissect_AUTHENTICATOR(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @netlogon_dissect_AUTHENTICATOR(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
@@ -3733,7 +3733,7 @@ define internal i32 @netlogon_dissect_LEVEL(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netlogon_dissect_CREDENTIAL(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @netlogon_dissect_CREDENTIAL(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
@@ -4042,7 +4042,7 @@ dissect_ndr_wstr_LOGON_IDENTITY_INFO.exit53:      ; preds = %33, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netlogon_dissect_LM_OWF_PASSWORD(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @netlogon_dissect_LM_OWF_PASSWORD(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -4078,7 +4078,7 @@ declare ptr @proto_registrar_get_name(i32 noundef) local_unnamed_addr #1
 declare i32 @dissect_ndr_counted_string_cb(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cb_wstr_LOGON_IDENTITY_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7) #0 {
+define internal void @cb_wstr_LOGON_IDENTITY_INFO(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %7, align 8
@@ -4157,10 +4157,10 @@ declare void @ntlmssp_create_session_key(ptr noundef, ptr noundef, ptr noundef, 
 declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @tvb_memcpy(ptr noundef, ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -4201,7 +4201,7 @@ dissect_ndr_lm_nt_hash_cb.exit:                   ; preds = %8, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dissect_ndr_lm_nt_byte_array(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7) #0 {
+define internal void @dissect_ndr_lm_nt_byte_array(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7) #0 {
   %9 = icmp eq ptr %7, null
   br i1 %9, label %dissect_LOGON_INFO_STATE_finish.exit, label %10
 
@@ -4878,7 +4878,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netlogon_dissect_ENCRYPTED_LM_OWF_PASSWORD(ptr noundef %0, i32 noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @netlogon_dissect_ENCRYPTED_LM_OWF_PASSWORD(ptr noundef %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 28
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
@@ -6598,7 +6598,7 @@ define internal i32 @netlogon_dissect_opaque_buffer(ptr noundef %0, i32 noundef 
 declare i32 @dissect_ndr_ucarray_block(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @netlogon_dissect_opaque_buffer_block(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture readnone %6) #0 {
+define internal noundef i32 @netlogon_dissect_opaque_buffer_block(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr readnone captures(none) %6) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [16 x i8], align 16
@@ -7056,7 +7056,7 @@ define internal i32 @netlogon_dissect_site_name_item(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr noundef %5) #0 {
+define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
@@ -7171,25 +7171,25 @@ define internal i32 @dissect_secchan_nl_auth_message(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_request_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture noundef readonly %5) #0 {
+define internal noundef i32 @dissect_request_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = tail call fastcc i32 @dissect_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, i8 noundef zeroext 0)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_response_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture noundef readonly %5) #0 {
+define internal noundef i32 @dissect_response_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = tail call fastcc i32 @dissect_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %5, i8 noundef zeroext 1)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dissect_request_data(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
+define internal ptr @dissect_request_data(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call fastcc ptr @dissect_packet_data(ptr noundef %1, ptr noundef %4, i8 noundef zeroext 0)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dissect_response_data(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef readonly %4, ptr nocapture readnone %5) #0 {
+define internal ptr @dissect_response_data(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3, ptr noundef readonly captures(none) %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call fastcc ptr @dissect_packet_data(ptr noundef %1, ptr noundef %4, i8 noundef zeroext 1)
   ret ptr %7
 }
@@ -7203,7 +7203,7 @@ declare i32 @dissect_mscldap_string(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_secchan_verf(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i8 noundef zeroext range(i8 0, 2) %5) unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -7605,7 +7605,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @tvb_bytes_exist(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr nocapture noundef readonly %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
+define internal fastcc ptr @dissect_packet_data(ptr noundef %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext range(i8 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [4 x i8], align 4
   %6 = alloca i64, align 8
@@ -7877,16 +7877,16 @@ declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare i32 @gcry_cipher_ctl(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

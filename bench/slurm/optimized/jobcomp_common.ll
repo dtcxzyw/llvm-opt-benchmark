@@ -123,7 +123,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare void @_xstrcat(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @jobcomp_common_write_state_file(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @jobcomp_common_write_state_file(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -294,7 +294,7 @@ define void @jobcomp_common_write_state_file(ptr nocapture noundef readonly %0, 
 declare i32 @creat(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #2
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
@@ -306,7 +306,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare i32 @fsync_and_close(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i32 @link(ptr noundef, ptr noundef) local_unnamed_addr #5
@@ -1094,7 +1094,7 @@ declare ptr @get_job_script(ptr noundef) local_unnamed_addr #1
 declare void @free_buf(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #1
 

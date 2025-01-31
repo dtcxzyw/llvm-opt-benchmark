@@ -48,7 +48,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN18ZObjArrayAllocatorC1EP5KlassmibP6Thread = hidden unnamed_addr alias void (ptr, ptr, i64, i32, i1, ptr), ptr @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 37)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(37) initializes((0, 37)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %5, ptr %8, align 8
@@ -65,7 +65,7 @@ define hidden void @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK18ZObjArrayAllocator19yield_for_safepointEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK18ZObjArrayAllocator19yield_for_safepointEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(37) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 928
@@ -293,7 +293,7 @@ _ZN12arrayOopDesc20base_offset_in_bytesE9BasicType.exit: ; preds = %58, %_ZN12ar
 declare noundef ptr @_ZNK17ObjArrayAllocator10initializeEPP12HeapWordImpl(ptr noundef nonnull align 8 dereferenceable(37), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_0clEv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZNK18ZObjArrayAllocator10initializeEPP12HeapWordImplENK3$_0clEv"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

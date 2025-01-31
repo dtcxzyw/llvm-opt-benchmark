@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.26 = private unnamed_addr constant [2 x i8] c"B\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_database_size_oid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_database_size_oid(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -151,7 +151,7 @@ sub_118:                                          ; preds = %.tail
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_database_size_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_database_size_name(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -172,7 +172,7 @@ define dso_local i64 @pg_database_size_name(ptr nocapture noundef %0) local_unna
 declare i32 @get_database_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_oid(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_oid(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -342,7 +342,7 @@ sub_128:                                          ; preds = %.tail
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_name(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_name(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -364,7 +364,7 @@ define dso_local range(i64 0, -9223372036854775808) i64 @pg_tablespace_size_name
 declare i32 @get_tablespace_oid(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_relation_size(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_relation_size(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -400,7 +400,7 @@ declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #1
 declare ptr @try_relation_open(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @calculate_relation_size(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @calculate_relation_size(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca %struct.stat, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -471,7 +471,7 @@ declare ptr @text_to_cstring(ptr noundef) local_unnamed_addr #1
 declare void @relation_close(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_table_size(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_table_size(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -495,7 +495,7 @@ define dso_local i64 @pg_table_size(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @calculate_table_size(ptr nocapture noundef nonnull readonly %0) unnamed_addr #0 {
+define internal fastcc i64 @calculate_table_size(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca %struct.stat, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -638,7 +638,7 @@ calculate_relation_size.exit.i:                   ; preds = %55
 calculate_toast_table_size.exit:                  ; preds = %69, %.lr.ph.i, %23
   %.1.lcssa.i = phi i64 [ %21, %23 ], [ %21, %.lr.ph.i ], [ %67, %69 ]
   call void @list_free(ptr noundef %24) #9
-  call void @relation_close(ptr noundef %16, i32 noundef 1) #9
+  call void @relation_close(ptr noundef nonnull %16, i32 noundef 1) #9
   %73 = add i64 %.1.lcssa.i, %8
   br label %74
 
@@ -648,7 +648,7 @@ calculate_toast_table_size.exit:                  ; preds = %69, %.lr.ph.i, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_indexes_size(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_indexes_size(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -794,7 +794,7 @@ calculate_relation_size.exit:                     ; preds = %41
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_total_relation_size(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_total_relation_size(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -820,7 +820,7 @@ define dso_local i64 @pg_total_relation_size(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_size_pretty(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_size_pretty(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -893,7 +893,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_size_pretty_numeric(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -992,7 +992,7 @@ declare ptr @int64_to_numeric(i64 noundef) local_unnamed_addr #1
 declare ptr @psprintf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_size_bytes(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_size_bytes(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -1260,7 +1260,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #5
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #5
 
 declare i64 @DirectFunctionCall3Coll(ptr noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1281,7 +1281,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @numeric_int8(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @pg_relation_filenode(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1357,7 +1357,7 @@ declare i32 @RelationMapOidToFilenumber(i32 noundef, i1 noundef zeroext) local_u
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @pg_filenode_relation(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @pg_filenode_relation(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1394,7 +1394,7 @@ define dso_local range(i64 0, 4294967296) i64 @pg_filenode_relation(ptr nocaptur
 declare i32 @RelidByRelfilenumber(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pg_relation_filepath(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @pg_relation_filepath(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -1628,7 +1628,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #1
 declare i32 @FreeDir(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #3
@@ -1663,10 +1663,10 @@ declare i64 @numeric_out(ptr noundef) #1
 declare void @llvm.assume(i1 noundef) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qcrypto_block_qcow_decrypt = private unnamed_addr constant [86 x i8] c"int qcrypto_block_qcow_decrypt(QCryptoBlock *, uint64_t, uint8_t *, size_t, Error **)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -95, 1) i32 @qcrypto_block_qcow_open(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture readnone %readfunc, ptr nocapture readnone %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #0 {
+define internal range(i32 -95, 1) i32 @qcrypto_block_qcow_open(ptr noundef %block, ptr noundef readonly captures(none) %options, ptr noundef %optprefix, ptr readnone captures(none) %readfunc, ptr readnone captures(none) %opaque, i32 noundef %flags, i64 noundef %n_threads, ptr noundef %errp) #0 {
 entry:
   %and = and i32 %flags, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -52,7 +52,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -95, 1) i32 @qcrypto_block_qcow_create(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture readnone %initfunc, ptr nocapture readnone %writefunc, ptr nocapture readnone %opaque, ptr noundef %errp) #0 {
+define internal range(i32 -95, 1) i32 @qcrypto_block_qcow_create(ptr noundef %block, ptr noundef readonly captures(none) %options, ptr noundef %optprefix, ptr readnone captures(none) %initfunc, ptr readnone captures(none) %writefunc, ptr readnone captures(none) %opaque, ptr noundef %errp) #0 {
 entry:
   %u = getelementptr inbounds nuw i8, ptr %options, i64 8
   %0 = load ptr, ptr %u, align 8
@@ -75,7 +75,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal void @qcrypto_block_qcow_cleanup(ptr nocapture readnone %block) #1 {
+define internal void @qcrypto_block_qcow_cleanup(ptr readnone captures(none) %block) #1 {
 entry:
   ret void
 }
@@ -131,7 +131,7 @@ if.end5:                                          ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal noundef zeroext i1 @qcrypto_block_qcow_has_format(ptr nocapture readnone %buf, i64 %buf_size) #1 {
+define internal noundef zeroext i1 @qcrypto_block_qcow_has_format(ptr readnone captures(none) %buf, i64 %buf_size) #1 {
 entry:
   ret i1 false
 }
@@ -187,15 +187,15 @@ return:                                           ; preds = %entry, %fail, %if.e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @qcrypto_secret_lookup_as_utf8(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 

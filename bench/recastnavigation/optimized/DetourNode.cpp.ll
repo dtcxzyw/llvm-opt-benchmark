@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 @_ZN11dtNodeQueueD1Ev = unnamed_addr alias void (ptr), ptr @_ZN11dtNodeQueueD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10dtNodePoolC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN10dtNodePoolC2Eii(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((0, 36)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -141,10 +141,10 @@ declare noundef ptr @_Z21dtAssertFailGetCustomv() local_unnamed_addr #1
 declare noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10dtNodePoolD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10dtNodePoolD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   invoke void @_Z6dtFreePv(ptr noundef %2)
           to label %3 unwind label %10
@@ -189,7 +189,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10dtNodePool5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((32, 36)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN10dtNodePool5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(36) initializes((32, 36)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -203,7 +203,7 @@ define void @_ZN10dtNodePool5clearEv(ptr nocapture noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
+define noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #7 align 2 {
   %5 = shl i32 %1, 15
   %6 = xor i32 %5, -1
   %7 = add i32 %1, %6
@@ -269,7 +269,7 @@ define noundef i32 @_ZN10dtNodePool9findNodesEjPP6dtNodei(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN10dtNodePool8findNodeEjh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN10dtNodePool8findNodeEjh(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #8 align 2 {
   %4 = shl i32 %1, 15
   %5 = xor i32 %4, -1
   %6 = add i32 %1, %5
@@ -331,7 +331,7 @@ define noundef ptr @_ZN10dtNodePool8findNodeEjh(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr noundef nonnull align 8 captures(none) dereferenceable(36) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #9 align 2 {
   %4 = shl i32 %1, 15
   %5 = xor i32 %4, -1
   %6 = add i32 %1, %5
@@ -435,7 +435,7 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11dtNodeQueueC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN11dtNodeQueueC2Ei(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -476,7 +476,7 @@ define void @_ZN11dtNodeQueueC2Ei(ptr nocapture noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11dtNodeQueueD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11dtNodeQueueD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   invoke void @_Z6dtFreePv(ptr noundef %2)
           to label %3 unwind label %4
@@ -493,7 +493,7 @@ define void @_ZN11dtNodeQueueD2Ev(ptr nocapture noundef nonnull readonly align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
+define void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %.critedge
 
@@ -532,7 +532,7 @@ define void @_ZN11dtNodeQueue8bubbleUpEiP6dtNode(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
+define void @_ZN11dtNodeQueue11trickleDownEiP6dtNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.0.in15 = shl nsw i32 %1, 1
   %.016 = or disjoint i32 %.0.in15, 1

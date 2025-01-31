@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [118 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/c3c/c3c/src/compiler/compiler_internal.h\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_deref(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_value_deref(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   tail call void @llvm_value_rvalue(ptr noundef %0, ptr noundef %1)
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, -32
@@ -40,7 +40,7 @@ define dso_local void @llvm_value_deref(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_value_rvalue(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.val = load i8, ptr %1, align 8
   %3 = and i8 %.val, 31
   %4 = add nsw i8 %3, -1
@@ -368,7 +368,7 @@ type_flatten.exit99:                              ; preds = %136
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc ptr @type_lowering(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_void, align 8
   br label %.backedge
 
@@ -506,7 +506,7 @@ declare ptr @type_get_indexed_type(ptr noundef) local_unnamed_addr #1
 declare i32 @type_abi_alignment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_set(ptr nocapture noundef initializes((4, 24)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @llvm_value_set(ptr noundef captures(none) initializes((4, 24)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
@@ -577,7 +577,7 @@ declare ptr @LLVMIntTypeInContext(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @LLVMGetElementType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_set_address(ptr nocapture noundef initializes((4, 24)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @llvm_value_set_address(ptr noundef captures(none) initializes((4, 24)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -593,7 +593,7 @@ define dso_local void @llvm_value_set_address(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_set_address_abi_aligned(ptr nocapture noundef initializes((4, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @llvm_value_set_address_abi_aligned(ptr noundef captures(none) initializes((4, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %2)
   %5 = tail call i32 @type_abi_alignment(ptr noundef %2) #3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -712,7 +712,7 @@ llvm_value_fold_optional.exit.thread:             ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_fold_optional(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @llvm_value_fold_optional(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 31
   %5 = icmp eq i8 %4, 2
@@ -842,7 +842,7 @@ declare void @llvm_emit_block(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @llvm_load_abi_alignment(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_set_decl_address(ptr noundef %0, ptr nocapture noundef initializes((4, 32)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @llvm_value_set_decl_address(ptr noundef %0, ptr noundef captures(none) initializes((4, 32)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @llvm_get_ref(ptr noundef %0, ptr noundef %2) #3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %6 = load ptr, ptr %5, align 8

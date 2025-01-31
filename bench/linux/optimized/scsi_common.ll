@@ -149,7 +149,7 @@ define dso_local noundef range(i32 0, 9) i32 @block_pr_type_to_scsi(i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local i64 @scsilun_to_int(ptr nocapture noundef readonly %0) #1 align 16 {
+define dso_local i64 @scsilun_to_int(ptr noundef readonly captures(none) %0) #1 align 16 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -177,7 +177,7 @@ define dso_local i64 @scsilun_to_int(ptr nocapture noundef readonly %0) #1 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: write)
-define dso_local void @int_to_scsilun(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 align 16 {
+define dso_local void @int_to_scsilun(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #2 align 16 {
   store i64 0, ptr %1, align 1
   br label %3
 
@@ -359,7 +359,7 @@ define dso_local ptr @scsi_sense_desc_find(ptr noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @scsi_build_sense_buffer(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #4 align 16 {
+define dso_local void @scsi_build_sense_buffer(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) #4 align 16 {
   %6 = icmp eq i32 %0, 0
   %7 = select i1 %6, i8 112, i8 114
   %8 = select i1 %6, i64 2, i64 1

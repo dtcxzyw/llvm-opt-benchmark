@@ -111,7 +111,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %6, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @mca_rcache_base_vma_find(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @mca_rcache_base_vma_find(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %12, label %6
 

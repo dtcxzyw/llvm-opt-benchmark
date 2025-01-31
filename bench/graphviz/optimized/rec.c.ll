@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [33 x i8] c"move to front lock inconsistency\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @aggetrec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @aggetrec(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   br label %6
@@ -250,7 +250,7 @@ declare ptr @agalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @agstrdup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agdelrec(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call ptr @agraphof(ptr noundef %0) #6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -351,7 +351,7 @@ aggetrec.exit:                                    ; preds = %11, %6, %objdelrec.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @objdelrec(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef readonly %2) #2 {
+define internal void @objdelrec(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %2
@@ -620,7 +620,7 @@ agdelrec.exit:                                    ; preds = %15, %20, %objdelrec
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @simple_delrec(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @simple_delrec(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call i32 @agdelrec(ptr noundef %1, ptr noundef %2)
   ret void
 }
@@ -650,7 +650,7 @@ define void @agrecclose(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

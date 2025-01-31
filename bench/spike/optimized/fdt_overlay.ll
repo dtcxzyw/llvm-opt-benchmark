@@ -725,7 +725,7 @@ define internal fastcc i32 @overlay_update_local_node_references(ptr noundef %0,
   %28 = load ptr, ptr %5, align 8
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #9
   %30 = trunc i64 %29 to i32
-  %31 = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %0, i32 noundef %1, ptr noundef %28, i32 noundef %30, i32 noundef %rev.i, ptr noundef nonnull %8, i32 noundef 4) #8
+  %31 = call i32 @fdt_setprop_inplace_namelen_partial(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %28, i32 noundef %30, i32 noundef %rev.i, ptr noundef nonnull %8, i32 noundef 4) #8
   switch i32 %31, label %.loopexit [
     i32 -3, label %.loopexit.loopexit91
     i32 0, label %32
@@ -783,12 +783,12 @@ declare i32 @fdt_first_property_offset(ptr noundef, i32 noundef) local_unnamed_a
 declare ptr @fdt_getprop_by_offset(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i32 @fdt_setprop_inplace_namelen_partial(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @fdt_next_property_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -800,7 +800,7 @@ declare i32 @fdt_subnode_offset(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare i32 @fdt_get_phandle(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -963,16 +963,16 @@ declare i32 @fdt_get_path(ptr noundef, i32 noundef, ptr noundef, i32 noundef) lo
 declare i32 @fdt_parent_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #5
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #6

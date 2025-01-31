@@ -87,7 +87,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr nocapture noundef nonnull readonly %src, i32 noundef %srcLength, ptr nocapture noundef writeonly %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14doWriteReversePKDsiPDsitP10UErrorCode(ptr noundef nonnull readonly captures(none) %src, i32 noundef %srcLength, ptr noundef writeonly captures(none) %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr noundef nonnull writeonly captures(none) %pErrorCode) unnamed_addr #0 {
 entry:
   %conv = zext i16 %options to i32
   %and = and i32 %conv, 11
@@ -1021,7 +1021,7 @@ declare i32 @ubidi_countRuns_75(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @ubidi_getVisualRun_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr nocapture noundef nonnull readonly %src, i32 noundef %srcLength, ptr nocapture noundef writeonly %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr nocapture noundef nonnull writeonly %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL14doWriteForwardPKDsiPDsitP10UErrorCode(ptr noundef nonnull readonly captures(none) %src, i32 noundef %srcLength, ptr noundef writeonly captures(none) %dest, i32 noundef %destSize, i16 noundef zeroext %options, ptr noundef nonnull writeonly captures(none) %pErrorCode) unnamed_addr #0 {
 entry:
   %0 = lshr i16 %options, 1
   %1 = and i16 %0, 5

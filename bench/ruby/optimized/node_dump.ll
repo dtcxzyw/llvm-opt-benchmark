@@ -4545,7 +4545,7 @@ define internal fastcc void @add_id(i64 noundef %0, i64 noundef %1) unnamed_addr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly %3) unnamed_addr #0 {
+define internal fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
 .critedge57:
   %4 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #4
   %.not = icmp eq i32 %2, 0
@@ -4616,7 +4616,7 @@ define internal fastcc void @dump_array(i64 noundef %0, i64 noundef %1, i32 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare i64 @rb_str_concat(i64 noundef, i64 noundef) local_unnamed_addr #1
 

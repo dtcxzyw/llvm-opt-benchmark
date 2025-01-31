@@ -104,13 +104,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22CavesNoiseIntersectionC2EPK14NodeDefManagerP12BiomeManagerP8BiomeGenN3irr4core8vector3dIsEEP11NoiseParamsSC_if(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 30), (32, 40)) %this, ptr noundef %nodedef, ptr noundef %biomemgr, ptr noundef %biomegen, i48 %chunksize.coerce, ptr noundef %np_cave1, ptr noundef %np_cave2, i32 noundef %seed, float noundef %cave_width) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22CavesNoiseIntersectionC2EPK14NodeDefManagerP12BiomeManagerP8BiomeGenN3irr4core8vector3dIsEEP11NoiseParamsSC_if(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 30), (32, 40)) %this, ptr noundef %nodedef, ptr noundef %biomemgr, ptr noundef %biomegen, i48 %chunksize.coerce, ptr noundef %np_cave1, ptr noundef %np_cave2, i32 noundef %seed, float noundef %cave_width) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_csize = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %nodedef, ptr %this, align 8, !tbaa !4
@@ -178,7 +178,7 @@ eh.resume:                                        ; preds = %lpad29, %lpad
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
@@ -191,7 +191,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22CavesNoiseIntersectionD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN22CavesNoiseIntersectionD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) unnamed_addr #8 align 2 {
 entry:
   %noise_cave1 = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %noise_cave1, align 8, !tbaa !19
@@ -222,7 +222,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22CavesNoiseIntersection13generateCavesEP8MMVManipN3irr4core8vector3dIsEES5_Pt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %vm, i48 %nmin.coerce, i48 %nmax.coerce, ptr nocapture noundef readonly %biomemap) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN22CavesNoiseIntersection13generateCavesEP8MMVManipN3irr4core8vector3dIsEES5_Pt(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readonly captures(none) %vm, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef readonly captures(none) %biomemap) local_unnamed_addr #4 align 2 {
 entry:
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
   %0 = trunc i48 %nmin.coerce to i32
@@ -632,7 +632,7 @@ declare noundef ptr @_ZN5Noise11perlinMap3DEfffPf(ptr noundef nonnull align 8 de
 declare noundef float @_Z7contourf(float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12CavernsNoiseC2EPK14NodeDefManagerN3irr4core8vector3dIsEEP11NoiseParamsifff(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 14), (16, 32)) %this, ptr noundef %nodedef, i48 %chunksize.coerce, ptr noundef %np_cavern, i32 noundef %seed, float noundef %cavern_limit, float noundef %cavern_taper, float noundef %cavern_threshold) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12CavernsNoiseC2EPK14NodeDefManagerN3irr4core8vector3dIsEEP11NoiseParamsifff(ptr noundef nonnull align 8 captures(none) dereferenceable(44) initializes((0, 14), (16, 32)) %this, ptr noundef %nodedef, i48 %chunksize.coerce, ptr noundef %np_cavern, i32 noundef %seed, float noundef %cavern_limit, float noundef %cavern_taper, float noundef %cavern_threshold) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i61 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -896,7 +896,7 @@ invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12CavernsNoiseD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN12CavernsNoiseD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this) unnamed_addr #8 align 2 {
 entry:
   %noise_cavern = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %noise_cavern, align 8, !tbaa !116
@@ -913,7 +913,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12CavernsNoise15generateCavernsEP8MMVManipN3irr4core8vector3dIsEES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef readonly %vm, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN12CavernsNoise15generateCavernsEP8MMVManipN3irr4core8vector3dIsEES5_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef readonly captures(none) %vm, i48 %nmin.coerce, i48 %nmax.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
   %0 = trunc i48 %nmin.coerce to i32
@@ -1213,7 +1213,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15CavesRandomWalkC2EPK14NodeDefManagerP16GenerateNotifieriittfP8BiomeGen(ptr nocapture noundef nonnull align 8 dereferenceable(150) initializes((8, 24), (32, 52), (56, 64), (80, 116), (120, 132), (144, 146)) %this, ptr noundef %ndef, ptr noundef %gennotify, i32 noundef %seed, i32 noundef %water_level, i16 noundef zeroext %water_source, i16 noundef zeroext %lava_source, float noundef %large_cave_flooded, ptr noundef %biomegen) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15CavesRandomWalkC2EPK14NodeDefManagerP16GenerateNotifieriittfP8BiomeGen(ptr noundef nonnull align 8 captures(none) dereferenceable(150) initializes((8, 24), (32, 52), (56, 64), (80, 116), (120, 132), (144, 146)) %this, ptr noundef %ndef, ptr noundef %gennotify, i32 noundef %seed, i32 noundef %water_level, i16 noundef zeroext %water_source, i16 noundef zeroext %lava_source, float noundef %large_cave_flooded, ptr noundef %biomegen) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i68 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -1988,7 +1988,7 @@ unreachable:                                      ; preds = %invoke.cont14, %inv
 declare noundef zeroext i1 @_ZN16GenerateNotifier8addEventE13GenNotifyTypeN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, i48) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15CavesRandomWalk10makeTunnelEb(ptr nocapture noundef nonnull align 8 dereferenceable(150) initializes((116, 118)) %this, i1 noundef zeroext %dirswitch) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15CavesRandomWalk10makeTunnelEb(ptr noundef nonnull align 8 captures(none) dereferenceable(150) initializes((116, 118)) %this, i1 noundef zeroext %dirswitch) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %large_cave = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i8, ptr %large_cave, align 4, !range !99
@@ -2398,7 +2398,7 @@ cleanup:                                          ; preds = %for.cond.cleanup, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15CavesRandomWalk10carveRouteEN3irr4core8vector3dIfEEfb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(150) %this, <2 x float> %vec.coerce0, float %vec.coerce1, float noundef %f, i1 noundef zeroext %randomize_xz) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15CavesRandomWalk10carveRouteEN3irr4core8vector3dIfEEfb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(150) %this, <2 x float> %vec.coerce0, float %vec.coerce1, float noundef %f, i1 noundef zeroext %randomize_xz) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %waternode = alloca %struct.MapNode, align 4
   %lavanode = alloca %struct.MapNode, align 4
@@ -2891,7 +2891,7 @@ declare noundef float @_Z13NoisePerlin3DPK11NoiseParamsfffi(ptr noundef, float n
 declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7CavesV6C2EPK14NodeDefManagerP16GenerateNotifieritt(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((8, 24), (48, 50), (52, 56), (70, 82), (84, 108), (112, 124)) %this, ptr noundef %ndef, ptr noundef %gennotify, i32 noundef %water_level, i16 noundef zeroext %water_source, i16 noundef zeroext %lava_source) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7CavesV6C2EPK14NodeDefManagerP16GenerateNotifieritt(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((8, 24), (48, 50), (52, 56), (70, 82), (84, 108), (112, 124)) %this, ptr noundef %ndef, ptr noundef %gennotify, i32 noundef %water_level, i16 noundef zeroext %water_source, i16 noundef zeroext %lava_source) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i66 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -3085,7 +3085,7 @@ eh.resume:                                        ; preds = %ehcleanup31, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7CavesV68makeCaveEP8MMVManipN3irr4core8vector3dIsEES5_P12PseudoRandomS7_biPs(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8), (24, 48), (56, 82), (102, 108), (112, 124)) %this, ptr noundef %vm, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef %ps, ptr noundef %ps2, i1 noundef zeroext %is_large_cave, i32 noundef %max_stone_height, ptr noundef %heightmap) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7CavesV68makeCaveEP8MMVManipN3irr4core8vector3dIsEES5_P12PseudoRandomS7_biPs(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((0, 8), (24, 48), (56, 82), (102, 108), (112, 124)) %this, ptr noundef %vm, i48 %nmin.coerce, i48 %nmax.coerce, ptr noundef %ps, ptr noundef %ps2, i1 noundef zeroext %is_large_cave, i32 noundef %max_stone_height, ptr noundef %heightmap) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nmin.sroa.0.0.extract.trunc = trunc i48 %nmin.coerce to i16
   %nmin.sroa.3.0.extract.shift = lshr i48 %nmin.coerce, 16
@@ -3452,7 +3452,7 @@ if.end313:                                        ; preds = %if.then280, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7CavesV610makeTunnelEb(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((108, 110)) %this, i1 noundef zeroext %dirswitch) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7CavesV610makeTunnelEb(ptr noundef nonnull align 8 captures(none) dereferenceable(128) initializes((108, 110)) %this, i1 noundef zeroext %dirswitch) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %large_cave = getelementptr inbounds nuw i8, ptr %this, i64 68
   %0 = load i8, ptr %large_cave, align 4, !range !99
@@ -3876,7 +3876,7 @@ for.body:                                         ; preds = %for.body, %if.end21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN7CavesV610carveRouteEN3irr4core8vector3dIfEEfbb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, <2 x float> %vec.coerce0, float %vec.coerce1, float noundef %f, i1 noundef zeroext %randomize_xz, i1 noundef zeroext %tunnel_above_ground) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7CavesV610carveRouteEN3irr4core8vector3dIfEEfbb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %this, <2 x float> %vec.coerce0, float %vec.coerce1, float noundef %f, i1 noundef zeroext %randomize_xz, i1 noundef zeroext %tunnel_above_ground) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c_water_source = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i16, ptr %c_water_source, align 8, !tbaa !190
@@ -4454,7 +4454,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #11
@@ -4480,7 +4480,7 @@ declare void @llvm.assume(i1 noundef) #20
 declare i16 @llvm.abs.i16(i16, i1 immarg) #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #11

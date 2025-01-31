@@ -125,7 +125,7 @@ target triple = "x86_64-pc-linux-gnu"
 @default_kb_ctrl_num_map = internal constant [17 x i32] [i32 1, i32 1, i32 1, i32 802, i32 1, i32 1, i32 1, i32 802, i32 1, i32 1, i32 1, i32 2, i32 1, i32 1, i32 1, i32 1, i32 1], align 16
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_keyboard_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
+define internal void @lv_keyboard_constructor(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 4) #3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   store ptr null, ptr %3, align 8, !tbaa !3
@@ -301,21 +301,21 @@ define void @lv_keyboard_set_map(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_keyboard_get_textarea(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_keyboard_get_textarea(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_keyboard_get_mode(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @lv_keyboard_get_mode(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 8, !tbaa !13
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i1 @lv_keyboard_get_popovers(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define zeroext i1 @lv_keyboard_get_popovers(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, 1

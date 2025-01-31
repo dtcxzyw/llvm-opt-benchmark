@@ -31,7 +31,7 @@ _ZL18raw_checked_mallocm.exit:                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN20NMTPreInitAllocationdlEPv(ptr nocapture noundef %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20NMTPreInitAllocationdlEPv(ptr noundef captures(none) %0) local_unnamed_addr #1 align 2 {
   tail call void @free(ptr noundef %0) #13
   ret void
 }
@@ -65,7 +65,7 @@ _ZN20NMTPreInitAllocationnwEm.exit:               ; preds = %_ZL18raw_checked_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noalias noundef nonnull ptr @_ZN20NMTPreInitAllocation13do_reallocateEPS_m(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noalias noundef nonnull ptr @_ZN20NMTPreInitAllocation13do_reallocateEPS_m(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noalias noundef ptr @realloc(ptr noundef %4, i64 noundef %1) #14
@@ -96,7 +96,7 @@ _ZL19raw_checked_reallocPvm.exit:                 ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @_ZN20NMTPreInitAllocation7do_freeEPS_(ptr nocapture noundef %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN20NMTPreInitAllocation7do_freeEPS_(ptr noundef captures(none) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #13
@@ -119,13 +119,13 @@ _ZL18raw_checked_mallocm.exit:                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN25NMTPreInitAllocationTabledlEPv(ptr nocapture noundef %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25NMTPreInitAllocationTabledlEPv(ptr noundef captures(none) %0) local_unnamed_addr #1 align 2 {
   tail call void @free(ptr noundef %0) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN25NMTPreInitAllocationTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65532) initializes((0, 65532)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN25NMTPreInitAllocationTableC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(65532) initializes((0, 65532)) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 65528
   store i32 -1, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65528) %0, i8 0, i64 65528, i1 false)
@@ -133,10 +133,10 @@ define hidden void @_ZN25NMTPreInitAllocationTableC2Ev(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25NMTPreInitAllocationTableD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65532) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25NMTPreInitAllocationTableD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65532) %0) unnamed_addr #0 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %._crit_edge
@@ -163,7 +163,7 @@ define hidden void @_ZN25NMTPreInitAllocationTableD2Ev(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK25NMTPreInitAllocationTable11print_stateEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(65532) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK25NMTPreInitAllocationTable11print_stateEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65532) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %._crit_edge
@@ -341,10 +341,10 @@ declare void @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef, i32
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #10

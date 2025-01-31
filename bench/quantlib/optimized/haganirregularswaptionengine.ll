@@ -645,7 +645,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib23BachelierSwaptionEngineEEE = 
 @_ZN8QuantLib28HaganIrregularSwaptionEngineC1ENS_6HandleINS_27SwaptionVolatilityStructureEEENS1_INS_18YieldTermStructureEEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib28HaganIrregularSwaptionEngineC2ENS_6HandleINS_27SwaptionVolatilityStructureEEENS1_INS_18YieldTermStructureEEE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -730,7 +730,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -1047,7 +1047,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28HaganIrregularSwaptionEngine6BasketC2EN5boost10shared_ptrINS_13IrregularSwapEEENS_6HandleINS_18YieldTermStructureEEENS6_INS_27SwaptionVolatilityStructureEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 152)) %this, ptr nocapture noundef %swap, ptr nocapture noundef %termStructure, ptr nocapture noundef %volatilityStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28HaganIrregularSwaptionEngine6BasketC2EN5boost10shared_ptrINS_13IrregularSwapEEENS_6HandleINS_18YieldTermStructureEEENS6_INS_27SwaptionVolatilityStructureEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 152)) %this, ptr noundef captures(none) %swap, ptr noundef captures(none) %termStructure, ptr noundef captures(none) %volatilityStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i428 = alloca %"class.boost::shared_ptr.166", align 8
   %pt.i = alloca %"class.boost::shared_ptr.71", align 8
@@ -5561,7 +5561,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28HaganIrregularSwaptionEngine6Basket7computeEd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((144, 152)) %this, double noundef %lambda) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib28HaganIrregularSwaptionEngine6Basket7computeEd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(152) initializes((144, 152)) %this, double noundef %lambda) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arr = alloca %"class.QuantLib::Matrix", align 8
   %rhs = alloca %"class.QuantLib::Array", align 8
@@ -6417,7 +6417,7 @@ _ZN8QuantLib6MatrixD2Ev.exit5:                    ; preds = %_ZN8QuantLib6Matrix
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((144, 152)) %this, double noundef %lambda) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib28HaganIrregularSwaptionEngine6BasketclEd(ptr noundef nonnull align 8 captures(none) dereferenceable(152) initializes((144, 152)) %this, double noundef %lambda) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %weights = alloca %"class.QuantLib::Array", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %weights) #26
@@ -7590,7 +7590,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28HaganIrregularSwaptionEngineC2ENS_6HandleINS_27SwaptionVolatilityStructureEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(616) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %volatilityStructure, ptr nocapture noundef %termStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28HaganIrregularSwaptionEngineC2ENS_6HandleINS_27SwaptionVolatilityStructureEEENS1_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(616) initializes((16, 20), (24, 32)) %this, ptr noundef captures(none) %volatilityStructure, ptr noundef captures(none) %termStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp7 = alloca %"class.boost::shared_ptr", align 8
@@ -14523,7 +14523,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #17
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #18
@@ -15691,7 +15691,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #21
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #21
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
@@ -15862,10 +15862,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #21
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #17
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #17
 
 declare void @_ZN8QuantLib10IborCouponC1ERKNS_4DateEdS3_S3_jRKN5boost10shared_ptrINS_9IborIndexEEEddS3_S3_RKNS_10DayCounterEbS3_(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(8), double noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), double noundef, double noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext, ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
@@ -18150,7 +18150,7 @@ entry:
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #24

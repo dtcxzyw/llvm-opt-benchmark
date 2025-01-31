@@ -666,12 +666,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread18:       ; preds = %17, %_ZNK5clang4Dec
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager21getSummaryForOSObjectEPKNS_12FunctionDeclEN4llvm9StringRefENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr nocapture readonly %2, i64 %3, i64 %4) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager21getSummaryForOSObjectEPKNS_12FunctionDeclEN4llvm9StringRefENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr readonly captures(none) %2, i64 %3, i64 %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %"class.clang::ento::RetainSummary", align 8
   %7 = alloca %"class.clang::ento::RetainSummary", align 8
   %8 = alloca %"class.clang::ento::RetainSummary", align 8
@@ -1249,7 +1249,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager22getOSSummaryCreateRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture readnone %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager22getOSSummaryCreateRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr readnone captures(none) %1) local_unnamed_addr #2 align 2 {
 _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit.i:
   %2 = alloca %"class.clang::ento::RetainSummary", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
@@ -1285,7 +1285,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager19getOSSummaryGetRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture readnone %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager19getOSSummaryGetRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr readnone captures(none) %1) local_unnamed_addr #2 align 2 {
 _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit.i:
   %2 = alloca %"class.clang::ento::RetainSummary", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
@@ -1321,7 +1321,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager23getOSSummaryReleaseRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager23getOSSummaryReleaseRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
 _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit.i:
   %2 = alloca %"class.clang::ento::RetainSummary", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
@@ -1357,7 +1357,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager22getOSSummaryRetainRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager22getOSSummaryRetainRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
 _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit.i:
   %2 = alloca %"class.clang::ento::RetainSummary", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
@@ -1393,7 +1393,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager20getOSSummaryFreeRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture readnone %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager20getOSSummaryFreeRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr readnone captures(none) %1) local_unnamed_addr #2 align 2 {
 _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit.i:
   %2 = alloca %"class.clang::ento::RetainSummary", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
@@ -1431,7 +1431,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 declare noundef i32 @_ZNK5clang12FunctionDecl21getOverloadedOperatorEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager27getSummaryForObjCOrCFObjectEPKNS_12FunctionDeclEN4llvm9StringRefENS_8QualTypeEPKNS_12FunctionTypeERb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr %2, i64 %3, i64 %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager27getSummaryForObjCOrCFObjectEPKNS_12FunctionDeclEN4llvm9StringRefENS_8QualTypeEPKNS_12FunctionTypeERb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr %2, i64 %3, i64 %4, ptr noundef %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) local_unnamed_addr #2 align 2 {
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.clang::ento::RetainSummary", align 8
   %10 = alloca %"class.clang::ento::RetainSummary", align 8
@@ -3176,7 +3176,7 @@ define internal fastcc noundef zeroext i1 @_ZL9isReleasePKN5clang12FunctionDeclE
 declare noundef i64 @_ZN4llvm14StrInStrNoCaseENS_9StringRefES0_(ptr, i64, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager15generateSummaryEPKNS_12FunctionDeclERb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager15generateSummaryEPKNS_12FunctionDeclERb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %"class.clang::ento::RetainSummary", align 8
   %5 = alloca %"class.clang::ento::RetainSummary", align 8
   %6 = alloca %"class.clang::ento::RetainSummary", align 8
@@ -3795,7 +3795,7 @@ _ZN5clang4ento21RetainSummaryTemplateD2Ev.exit:   ; preds = %84, %79, %77, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager34updateSummaryForNonZeroCallbackArgEPKNS0_13RetainSummaryERNS_7AnyCallE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %2) local_unnamed_addr #2 align 2 {
 switch.lookup:
   %3 = alloca %"class.clang::ento::RetainSummary", align 8
   %4 = alloca %"class.llvm::ImmutableMap<unsigned int, clang::ento::ArgEffect>::iterator", align 8
@@ -4208,7 +4208,7 @@ _ZN5clang4ento21RetainSummaryTemplateD2Ev.exit:   ; preds = %12, %21, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento20RetainSummaryManager29updateSummaryForArgumentTypesERKNS_7AnyCallERPKNS0_13RetainSummaryE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4ento20RetainSummaryManager29updateSummaryForArgumentTypesERKNS_7AnyCallERPKNS0_13RetainSummaryE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %"class.clang::QualType", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.clang::ento::RetainSummaryTemplate", align 8
@@ -4540,7 +4540,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager10getSummaryENS_7AnyCallEbbNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef readonly byval(%"class.clang::AnyCall") align 8 %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i64 %4) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager10getSummaryENS_7AnyCallEbbNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef readonly byval(%"class.clang::AnyCall") align 8 captures(none) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i64 %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %"class.clang::ento::RetainSummaryTemplate", align 8
   %7 = alloca %"class.clang::ento::RetainSummary", align 8
   %8 = alloca ptr, align 8
@@ -4892,7 +4892,7 @@ define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager21getClassMeth
 declare noundef zeroext i1 @_ZN5clang4ento14coreFoundation17followsCreateRuleEPKNS_12FunctionDeclE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager22getCFSummaryCreateRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager22getCFSummaryCreateRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
 _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit.i:
   %2 = alloca %"class.clang::ento::RetainSummary", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
@@ -4928,7 +4928,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager19getCFSummaryGetRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN5clang4ento20RetainSummaryManager19getCFSummaryGetRuleEPKNS_12FunctionDeclE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
 _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev.exit.i:
   %2 = alloca %"class.clang::ento::RetainSummary", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2)
@@ -4964,7 +4964,7 @@ _ZN4llvm12ImmutableMapIjN5clang4ento9ArgEffectENS_16ImutKeyValueInfoIjS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4ento20RetainSummaryManager37isTrustedReferenceCountImplementationEPKNS_4DeclE(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4ento20RetainSummaryManager37isTrustedReferenceCountImplementationEPKNS_4DeclE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 256
@@ -5073,7 +5073,7 @@ _ZL15hasRCAnnotationPKN5clang4DeclEN4llvm9StringRefE.exit: ; preds = %24, %_ZN5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 4294967300) i64 @_ZN5clang4ento20RetainSummaryManager7canEvalEPKNS_8CallExprEPKNS_12FunctionDeclERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(304) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #2 align 2 {
+define dso_local range(i64 0, 4294967300) i64 @_ZN5clang4ento20RetainSummaryManager7canEvalEPKNS_8CallExprEPKNS_12FunctionDeclERb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %3) local_unnamed_addr #2 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
@@ -8155,7 +8155,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
@@ -8268,7 +8268,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) unnamed_addr #1
 
@@ -8516,7 +8516,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit5:   ; preds = %_ZN4llvm16FoldingSe
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc noundef zeroext i1 @_ZL10isSubclassPKN5clang4DeclEN4llvm9StringRefE(ptr noundef nonnull %0, ptr %1, i64 %2) unnamed_addr #2 {
@@ -11136,7 +11136,7 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcm
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare noundef i64 @_ZNK4llvm9StringRef4findES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #1
 
@@ -13964,7 +13964,7 @@ _ZN5clangL18getKeywordSelectorIJccccEEENS_8SelectorERNS_10ASTContextEDpPKT_.exit
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #13
@@ -13973,10 +13973,10 @@ declare i32 @llvm.umax.i32(i32, i32) #13
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

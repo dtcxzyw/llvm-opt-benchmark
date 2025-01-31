@@ -43,7 +43,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN20JfrAddRefCountedBlobD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20JfrAddRefCountedBlobD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrAddRefCountedBlobC2ER19JfrCheckpointWriterbb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN20JfrAddRefCountedBlobC2ER19JfrCheckpointWriterbb(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(73) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %3 to i8
   store i8 %5, ptr %0, align 1
   %6 = tail call noundef zeroext i1 @_ZNK19JfrCheckpointWriter8has_dataEv(ptr noundef nonnull align 8 dereferenceable(73) %1) #6
@@ -167,7 +167,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrAddRefCountedBlobD2Ev(ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20JfrAddRefCountedBlobD2Ev(ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr %0, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %_ZN26JfrReferenceCountedStorage5resetEv.exit

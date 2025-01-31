@@ -1409,7 +1409,7 @@ declare ptr @data_new() local_unnamed_addr #1
 declare i32 @data_dict_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_foreach_parse_marray(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @_foreach_parse_marray(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.parse_marray_args_t, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1968,7 +1968,7 @@ _dump_flag_bit_array.exit:                        ; preds = %61, %55, %57
   %178 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %179 = load i32, ptr %178, align 8
   %180 = tail call ptr @find_parser_by_type(i32 noundef %179) #6
-  %181 = tail call i32 @dump(ptr noundef %spec.select.i, i64 noundef 4294967294, ptr noundef %180, ptr noundef %.082.i, ptr noundef %4)
+  %181 = tail call i32 @dump(ptr noundef %spec.select.i, i64 noundef 4294967294, ptr noundef %180, ptr noundef %.082.i, ptr noundef nonnull %4)
   %182 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
   %183 = and i64 %182, 256
   %.not89.i = icmp eq i64 %183, 0
@@ -2157,7 +2157,7 @@ _dump_list.exit:                                  ; preds = %214, %215, %217, %2
   %268 = load i32, ptr %263, align 4
   %269 = tail call ptr @find_parser_by_type(i32 noundef %268) #6
   %270 = tail call ptr @data_list_append(ptr noundef %3) #6
-  %271 = tail call i32 @dump(ptr noundef nonnull %266, i64 noundef 4294967294, ptr noundef %269, ptr noundef %270, ptr noundef %4)
+  %271 = tail call i32 @dump(ptr noundef nonnull %266, i64 noundef 4294967294, ptr noundef %269, ptr noundef %270, ptr noundef nonnull %4)
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
   %.not46.i = icmp eq i32 %271, 0
   br i1 %.not46.i, label %264, label %.critedge, !llvm.loop !16
@@ -2201,7 +2201,7 @@ _dump_list.exit:                                  ; preds = %214, %215, %217, %2
   %287 = load i32, ptr %273, align 4
   %288 = tail call ptr @find_parser_by_type(i32 noundef %287) #6
   %289 = tail call ptr @data_list_append(ptr noundef %3) #6
-  %290 = tail call i32 @dump(ptr noundef nonnull %282, i64 noundef 4294967294, ptr noundef %288, ptr noundef %289, ptr noundef %4)
+  %290 = tail call i32 @dump(ptr noundef nonnull %282, i64 noundef 4294967294, ptr noundef %288, ptr noundef %289, ptr noundef nonnull %4)
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %.not43.i = icmp eq i32 %290, 0
   br i1 %.not43.i, label %278, label %.critedge, !llvm.loop !18
@@ -2266,7 +2266,7 @@ _dump_list.exit:                                  ; preds = %214, %215, %217, %2
 declare void @set_openapi_schema(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 5) i32 @_foreach_flag_parser(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_flag_parser(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -2448,7 +2448,7 @@ declare i32 @data_list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_flag_bit(i64 %.48.val, ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_set_flag_bit(i64 %.48.val, ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   switch i64 %.48.val, label %56 [
     i64 8, label %4
     i64 4, label %17
@@ -2549,7 +2549,7 @@ define internal fastcc void @_set_flag_bit(i64 %.48.val, ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_flag_bit_equal(i64 %.48.val, ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_set_flag_bit_equal(i64 %.48.val, ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   switch i64 %.48.val, label %81 [
     i64 8, label %4
     i64 4, label %21
@@ -2679,7 +2679,7 @@ declare ptr @openapi_fork_rel_path_list(ptr noundef, i32 noundef) local_unnamed_
 declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 5) i32 @_foreach_parse_list(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_parse_list(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2776,7 +2776,7 @@ declare ptr @data_resolve_dict_path(ptr noundef, ptr noundef) local_unnamed_addr
 declare i32 @openapi_append_rel_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_is_duplicate_linked_parser_value(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_is_duplicate_linked_parser_value(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load i8, ptr %5, align 8
   %7 = icmp eq i8 %6, 1
@@ -2840,7 +2840,7 @@ declare zeroext i1 @data_check_match(ptr noundef, ptr noundef, i1 noundef zeroex
 declare ptr @data_key_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @data_set_string(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2861,7 +2861,7 @@ declare void @free_parser_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 5) i32 @_foreach_array_entry(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define internal range(i32 1, 5) i32 @_foreach_array_entry(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i32, ptr %4, align 8
@@ -3003,7 +3003,7 @@ declare i32 @openapi_data_type_to_type_format(i32 noundef) local_unnamed_addr #1
 declare ptr @data_type_to_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc void @_dump_flag_bit_array_flag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8
   switch i32 %8, label %63 [
@@ -3265,7 +3265,7 @@ declare i32 @list_is_empty(ptr noundef) local_unnamed_addr #1
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_foreach_dump_list(ptr noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 -1, 1) i32 @_foreach_dump_list(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -3285,13 +3285,13 @@ define internal range(i32 -1, 1) i32 @_foreach_dump_list(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

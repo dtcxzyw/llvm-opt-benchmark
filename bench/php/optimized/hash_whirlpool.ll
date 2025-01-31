@@ -19,16 +19,16 @@ target triple = "x86_64-pc-linux-gnu"
 @rc = internal unnamed_addr constant [11 x i64] [i64 0, i64 1739452583106838863, i64 3938066875928252754, i64 6970617360185850677, i64 2152957850883456599, i64 1546766456395418330, i64 6397689871562992517, i64 -4801662984139176601, i64 -2006563040903981608, i64 -293160144494704738, i64 -3878233664402062541], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_WHIRLPOOLInit(ptr nocapture noundef writeonly initializes((0, 168)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_WHIRLPOOLInit(ptr noundef writeonly captures(none) initializes((0, 168)) %0, ptr readnone captures(none) %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, i8 0, i64 168, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_WHIRLPOOLUpdate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #2 {
+define void @PHP_WHIRLPOOLUpdate(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = shl i64 %2, 3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -178,7 +178,7 @@ define void @PHP_WHIRLPOOLUpdate(ptr nocapture noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WhirlpoolTransform(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @WhirlpoolTransform(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = alloca [8 x i64], align 16
   %3 = alloca [8 x i64], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -941,7 +941,7 @@ define internal fastcc void @WhirlpoolTransform(ptr nocapture noundef %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_WHIRLPOOLFinal(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
+define void @PHP_WHIRLPOOLFinal(ptr noundef writeonly captures(none) %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1048,7 +1048,7 @@ define void @PHP_WHIRLPOOLFinal(ptr nocapture noundef writeonly %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind
 declare void @explicit_bzero(ptr noundef, i64 noundef) local_unnamed_addr #4

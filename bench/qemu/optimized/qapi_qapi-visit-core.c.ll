@@ -986,7 +986,7 @@ return:                                           ; preds = %trace_visit_policy_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @visit_set_policy(ptr nocapture noundef writeonly initializes((164, 196)) %v, ptr nocapture noundef readonly %policy) local_unnamed_addr #2 {
+define dso_local void @visit_set_policy(ptr noundef writeonly captures(none) initializes((164, 196)) %v, ptr noundef readonly captures(none) %policy) local_unnamed_addr #2 {
 entry:
   %compat_policy = getelementptr inbounds nuw i8, ptr %v, i64 164
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %compat_policy, ptr noundef nonnull align 4 dereferenceable(32) %policy, i64 32, i1 false)
@@ -994,10 +994,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @visit_is_input(ptr nocapture noundef readonly %v) local_unnamed_addr #4 {
+define dso_local zeroext i1 @visit_is_input(ptr noundef readonly captures(none) %v) local_unnamed_addr #4 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %v, i64 160
   %0 = load i32, ptr %type, align 8
@@ -1006,7 +1006,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @visit_is_dealloc(ptr nocapture noundef readonly %v) local_unnamed_addr #4 {
+define dso_local zeroext i1 @visit_is_dealloc(ptr noundef readonly captures(none) %v) local_unnamed_addr #4 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %v, i64 160
   %0 = load i32, ptr %type, align 8
@@ -2129,7 +2129,7 @@ return:                                           ; preds = %trace_visit_type_en
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #7
 
@@ -2146,10 +2146,10 @@ declare void @g_free(ptr noundef) local_unnamed_addr #7
 declare ptr @qapi_enum_lookup(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -38,7 +38,7 @@ $_ZNK4llvh12DenseMapBaseINS_13SmallDenseMapINS_9StringRefENS_6detail13DenseSetEm
 @_ZN6hermes11PassManagerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes11PassManagerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes11PassManagerC2ERKNS_22CodeGenerationSettingsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(392) %settings) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes11PassManagerC2ERKNS_22CodeGenerationSettingsE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(392) %settings) unnamed_addr #0 align 2 {
 entry:
   store ptr %settings, ptr %this, align 8
   %pipeline_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11PassManagerD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes11PassManagerD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this) unnamed_addr #1 align 2 {
 entry:
   %pipeline_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %pipeline_, align 8
@@ -93,7 +93,7 @@ _ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef %pass) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(none) %pass) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %pass, align 8
   %kind.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -147,7 +147,7 @@ declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() local
 declare void @_ZN6hermes12hermes_fatalEPKc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %P) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes11PassManager7addPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, ptr noundef captures(none) %P) local_unnamed_addr #1 align 2 {
 entry:
   %TheBucket.i.i.i3 = alloca ptr, align 8
   %ref.tmp.i4 = alloca %"class.llvh::StringRef", align 8
@@ -346,7 +346,7 @@ _ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12empl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11PassManager3runEPNS_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %F) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes11PassManager3runEPNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %F) local_unnamed_addr #1 align 2 {
 entry:
   %lazySource_.i = getelementptr inbounds nuw i8, ptr %F, i64 248
   %0 = load i32, ptr %lazySource_.i, align 8
@@ -381,7 +381,7 @@ for.end:                                          ; preds = %for.body, %if.end, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes11PassManager3runEPNS_6ModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef %M) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes11PassManager3runEPNS_6ModuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef %M) local_unnamed_addr #1 align 2 {
 if.end:
   %timers = alloca %"class.llvh::SmallVector.43", align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %timers, i64 16
@@ -707,18 +707,18 @@ return:                                           ; preds = %land.rhs.i.i, %land
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare i64 @_ZN4llvh10hash_valueENS_9StringRefE(ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes12_GLOBAL__N_110DumpModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN6hermes12_GLOBAL__N_110DumpModuleD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), ptr %this, align 8
   %pass_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -760,7 +760,7 @@ _ZN6hermes12_GLOBAL__N_110DumpModuleD2Ev.exit:    ; preds = %entry, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_110DumpModule11runOnModuleEPNS_6ModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %M) unnamed_addr #1 align 2 {
+define internal noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_110DumpModule11runOnModuleEPNS_6ModuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %M) unnamed_addr #1 align 2 {
 entry:
   %cgSettings_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %cgSettings_, align 8
@@ -779,7 +779,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK6hermes12_GLOBAL__N_110DumpModule13dumpIfEnabledEPNS_6ModuleERKNS_35CodeGenerationSettings_DumpSettingsEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %M, ptr noundef nonnull align 8 dereferenceable(152) %settings, ptr %prefix.coerce0, i64 %prefix.coerce1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK6hermes12_GLOBAL__N_110DumpModule13dumpIfEnabledEPNS_6ModuleERKNS_35CodeGenerationSettings_DumpSettingsEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %M, ptr noundef nonnull align 8 dereferenceable(152) %settings, ptr %prefix.coerce0, i64 %prefix.coerce1) unnamed_addr #1 align 2 {
 entry:
   %TheBucket.i.i.i50 = alloca ptr, align 8
   %TheBucket.i.i.i = alloca ptr, align 8
@@ -999,7 +999,7 @@ declare void @_ZNK6hermes8Function4dumpERN4llvh11raw_ostreamE(ptr noundef nonnul
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes12_GLOBAL__N_112DumpFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN6hermes12_GLOBAL__N_112DumpFunctionD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), ptr %this, align 8
   %pass_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1041,7 +1041,7 @@ _ZN6hermes12_GLOBAL__N_112DumpFunctionD2Ev.exit:  ; preds = %entry, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_112DumpFunction13runOnFunctionEPNS_8FunctionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %F) unnamed_addr #1 align 2 {
+define internal noundef zeroext i1 @_ZN6hermes12_GLOBAL__N_112DumpFunction13runOnFunctionEPNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %F) unnamed_addr #1 align 2 {
 entry:
   %cgSettings_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %cgSettings_, align 8
@@ -1060,7 +1060,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK6hermes12_GLOBAL__N_112DumpFunction13dumpIfEnabledEPNS_8FunctionERKNS_35CodeGenerationSettings_DumpSettingsEN4llvh9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef %F, ptr noundef nonnull align 8 dereferenceable(152) %dumpSettings, ptr %prefix.coerce0, i64 %prefix.coerce1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZNK6hermes12_GLOBAL__N_112DumpFunction13dumpIfEnabledEPNS_8FunctionERKNS_35CodeGenerationSettings_DumpSettingsEN4llvh9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef %F, ptr noundef nonnull align 8 dereferenceable(152) %dumpSettings, ptr %prefix.coerce0, i64 %prefix.coerce1) unnamed_addr #1 align 2 {
 entry:
   %TheBucket.i.i.i3 = alloca ptr, align 8
   %TheBucket.i.i.i = alloca ptr, align 8
@@ -1251,19 +1251,19 @@ if.end15:                                         ; preds = %_ZN6hermes12_GLOBAL
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #12

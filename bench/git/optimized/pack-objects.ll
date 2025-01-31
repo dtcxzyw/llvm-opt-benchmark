@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [25 x i8] c"Duplicate object in hash\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @packlist_find(ptr nocapture noundef readonly %pdata, ptr nocapture noundef readonly %oid) local_unnamed_addr #0 {
+define dso_local ptr @packlist_find(ptr noundef readonly captures(none) %pdata, ptr noundef readonly captures(none) %oid) local_unnamed_addr #0 {
 entry:
   %index_size = getelementptr inbounds nuw i8, ptr %pdata, i64 32
   %0 = load i32, ptr %index_size, align 8
@@ -117,7 +117,7 @@ return:                                           ; preds = %if.end.i, %if.end.u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @oe_map_new_pack(ptr nocapture noundef %pack) local_unnamed_addr #1 {
+define dso_local void @oe_map_new_pack(ptr noundef captures(none) %pack) local_unnamed_addr #1 {
 entry:
   %in_pack = getelementptr inbounds nuw i8, ptr %pack, i64 64
   %0 = load ptr, ptr %in_pack, align 8
@@ -192,7 +192,7 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @prepare_packing_data(ptr noundef %r, ptr noundef initializes((0, 8)) %pdata) local_unnamed_addr #1 {
@@ -293,7 +293,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @packlist_alloc(ptr nocapture noundef %pdata, ptr nocapture noundef readonly %oid) local_unnamed_addr #1 {
+define dso_local noundef ptr @packlist_alloc(ptr noundef captures(none) %pdata, ptr noundef readonly captures(none) %oid) local_unnamed_addr #1 {
 entry:
   %nr_objects = getelementptr inbounds nuw i8, ptr %pdata, i64 16
   %0 = load i32, ptr %nr_objects, align 8
@@ -671,10 +671,10 @@ if.end100:                                        ; preds = %if.then94, %if.end9
 declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @oe_set_delta_ext(ptr nocapture noundef %pdata, ptr nocapture noundef initializes((72, 76)) %delta, ptr nocapture noundef readonly %oid) local_unnamed_addr #1 {
+define dso_local void @oe_set_delta_ext(ptr noundef captures(none) %pdata, ptr noundef captures(none) initializes((72, 76)) %delta, ptr noundef readonly captures(none) %oid) local_unnamed_addr #1 {
 entry:
   %nr_ext = getelementptr inbounds nuw i8, ptr %pdata, i64 120
   %0 = load i32, ptr %nr_ext, align 8
@@ -738,14 +738,14 @@ do.end:                                           ; preds = %entry.do.end_crit_e
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare ptr @get_all_packs(ptr noundef) local_unnamed_addr #3
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

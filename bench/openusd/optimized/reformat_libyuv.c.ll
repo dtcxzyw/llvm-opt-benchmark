@@ -4,28 +4,28 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @avifImageRGBToYUVLibYUV(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define hidden noundef i32 @avifImageRGBToYUVLibYUV(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   ret i32 25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @avifImageYUVToRGBLibYUV(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #1 {
+define hidden noundef i32 @avifImageYUVToRGBLibYUV(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   ret i32 25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @avifRGBImagePremultiplyAlphaLibYUV(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden noundef i32 @avifRGBImagePremultiplyAlphaLibYUV(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @avifRGBImageUnpremultiplyAlphaLibYUV(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden noundef i32 @avifRGBImageUnpremultiplyAlphaLibYUV(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @avifRGBImageToF16LibYUV(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define hidden noundef i32 @avifRGBImageToF16LibYUV(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret i32 25
 }
 

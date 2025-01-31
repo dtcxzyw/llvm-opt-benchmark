@@ -581,7 +581,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN48NonsecureURBGBase_DefaultConstructorIsValid_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN48NonsecureURBGBase_DefaultConstructorIsValid_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %__arr.i.i.i.i = alloca [624 x i32], align 16
   %urbg = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
@@ -628,7 +628,7 @@ for.end26.i.i.i.i:                                ; preds = %for.inc24.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN42RecommendedTemplates_CanBeConstructed_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN42RecommendedTemplates_CanBeConstructed_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %buffer.i.i.i.i.i = alloca [4 x i32], align 16
   %seeder.i.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
@@ -654,7 +654,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN42RecommendedTemplates_CanDiscardValues_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN42RecommendedTemplates_CanDiscardValues_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %buffer.i.i.i.i.i = alloca [4 x i32], align 16
   %seeder.i.i = alloca %"class.absl::random_internal::RandenPoolSeedSeq", align 1
@@ -712,7 +712,7 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_13randen_engineImEENS0_17Randen
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN40NonsecureURBGBase_StandardInterface_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN40NonsecureURBGBase_StandardInterface_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__arr.i.i.i.i25 = alloca [4 x i32], align 16
   %__arr.i.i.i.i22 = alloca [4 x i32], align 16
@@ -1370,7 +1370,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN48NonsecureURBGBase_SeedSeqConstructorIsValid_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN48NonsecureURBGBase_SeedSeqConstructorIsValid_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seq = alloca %"class.std::seed_seq", align 8
   %rbg = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
@@ -1406,7 +1406,7 @@ _ZNSt8seed_seqD2Ev.exit3:                         ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN54NonsecureURBGBase_CompatibleWithDistributionUtils_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN54NonsecureURBGBase_CompatibleWithDistributionUtils_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dist.i.i.i = alloca %"class.absl::poisson_distribution", align 8
   %__arr.i.i.i.i = alloca [624 x i32], align 16
@@ -1538,7 +1538,7 @@ cdce.end:                                         ; preds = %_ZN4absl7UniformIdR
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN53NonsecureURBGBase_CompatibleWithStdDistributions_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN53NonsecureURBGBase_CompatibleWithStdDistributions_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   %__arr.i.i.i.i = alloca [624 x i32], align 16
   %rbg = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
@@ -1660,7 +1660,7 @@ _ZNSt22bernoulli_distributionclIN4absl15random_internal17NonsecureURBGBaseISt23m
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN69NonsecureURBGBase_ConsecutiveDefaultInstancesYieldUniqueVariates_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN69NonsecureURBGBase_ConsecutiveDefaultInstancesYieldUniqueVariates_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__arr.i.i.i.i4 = alloca [624 x i32], align 16
   %__arr.i.i.i.i = alloca [624 x i32], align 16
@@ -1893,7 +1893,7 @@ for.end:                                          ; preds = %_ZN7testing15Assert
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN59NonsecureURBGBase_EqualSeedSequencesYieldEqualVariates_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN59NonsecureURBGBase_EqualSeedSequencesYieldEqualVariates_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seq = alloca %"class.std::seed_seq", align 8
   %rbg1 = alloca %"class.absl::random_internal::NonsecureURBGBase", align 8
@@ -2380,7 +2380,7 @@ _ZNSt8seed_seqD2Ev.exit118:                       ; preds = %ehcleanup56, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN44RandenPoolSeedSeqTest_SeederWorksForU32_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN44RandenPoolSeedSeqTest_SeederWorksForU32_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state = alloca [2 x i32], align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -2496,10 +2496,10 @@ ehcleanup18:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN44RandenPoolSeedSeqTest_SeederWorksForU64_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN44RandenPoolSeedSeqTest_SeederWorksForU64_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state = alloca [2 x i64], align 16
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -2718,7 +2718,7 @@ eh.resume:                                        ; preds = %lpad30, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN44RandenPoolSeedSeqTest_SeederWorksForS32_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN44RandenPoolSeedSeqTest_SeederWorksForS32_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state = alloca [2 x i32], align 8
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
@@ -2834,7 +2834,7 @@ ehcleanup18:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN47RandenPoolSeedSeqTest_SeederWorksForVector_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN47RandenPoolSeedSeqTest_SeederWorksForVector_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_ = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp19 = alloca %"class.testing::Message", align 8
@@ -3799,7 +3799,7 @@ declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #10
 declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #11
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local i64 @_ZN4absl15random_internal17NonsecureURBGBaseISt26linear_congruential_engineImLm48271ELm0ELm2147483647EENS0_17RandenPoolSeedSeqEE13ConstructURBGIRSt8seed_seqEES3_OT_(ptr noundef nonnull align 8 dereferenceable(24) %seq) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -6778,10 +6778,10 @@ __cxx_global_var_init.38.exit:                    ; preds = %invoke.cont10.i308
 declare double @llvm.log.f64(double) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17

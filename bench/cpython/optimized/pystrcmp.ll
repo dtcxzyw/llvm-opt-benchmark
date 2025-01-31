@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_Py_ctype_tolower = external local_unnamed_addr constant [256 x i8], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -255, 256) i32 @PyOS_mystrnicmp(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2, i64 noundef %size) local_unnamed_addr #0 {
+define dso_local range(i32 -255, 256) i32 @PyOS_mystrnicmp(ptr noundef readonly captures(none) %s1, ptr noundef readonly captures(none) %s2, i64 noundef %size) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %size, 0
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -73,7 +73,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 -255, 256) i32 @PyOS_mystricmp(ptr nocapture noundef readonly %s1, ptr nocapture noundef readonly %s2) local_unnamed_addr #0 {
+define dso_local range(i32 -255, 256) i32 @PyOS_mystricmp(ptr noundef readonly captures(none) %s1, ptr noundef readonly captures(none) %s2) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %s1, align 1
   %tobool.not7 = icmp eq i8 %0, 0

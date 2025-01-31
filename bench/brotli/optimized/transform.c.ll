@@ -17,7 +17,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @BrotliTransformDictionaryWord(ptr nocapture noundef %dst, ptr nocapture noundef readonly %word, i32 noundef %len, ptr nocapture noundef readonly %transforms, i32 noundef %transform_idx) local_unnamed_addr #1 {
+define i32 @BrotliTransformDictionaryWord(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %word, i32 noundef %len, ptr noundef readonly captures(none) %transforms, i32 noundef %transform_idx) local_unnamed_addr #1 {
 entry:
   %prefix_suffix = getelementptr inbounds nuw i8, ptr %transforms, i64 8
   %0 = load ptr, ptr %prefix_suffix, align 8
@@ -301,7 +301,7 @@ while.end134:                                     ; preds = %while.end134.loopex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -2147483648, 5) i32 @Shift(ptr nocapture noundef %word, i32 noundef %word_len, i16 noundef zeroext %parameter) unnamed_addr #2 {
+define internal fastcc range(i32 -2147483648, 5) i32 @Shift(ptr noundef captures(none) %word, i32 noundef %word_len, i16 noundef zeroext %parameter) unnamed_addr #2 {
 entry:
   %conv = zext i16 %parameter to i32
   %and = and i32 %conv, 32767

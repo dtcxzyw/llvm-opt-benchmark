@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [22 x i8] c"node iteration failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5B2_stat_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %1) local_unnamed_addr #0 {
+define noundef i32 @H5B2_stat_info(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4), (8, 16)) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 284
   %5 = load i16, ptr %4, align 4
@@ -25,7 +25,7 @@ define noundef i32 @H5B2_stat_info(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2_size(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5B2_size(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

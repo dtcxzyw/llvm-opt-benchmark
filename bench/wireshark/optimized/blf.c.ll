@@ -162,7 +162,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.blf_read_lincrcerror2 = private unnamed_addr constant [3 x i32] [i32 1, i32 2, i32 2], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -1, 2) i32 @blf_logcontainers_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden range(i32 -1, 2) i32 @blf_logcontainers_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -172,7 +172,7 @@ define hidden range(i32 -1, 2) i32 @blf_logcontainers_cmp(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 -1, 2) i32 @blf_logcontainers_search(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define hidden range(i32 -1, 2) i32 @blf_logcontainers_search(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i64, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -234,7 +234,7 @@ define hidden zeroext i16 @blf_get_xml_channel_number(ptr noundef %0, ptr nounde
 declare noalias ptr @g_try_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare zeroext i1 @ws_strtou16(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -268,7 +268,7 @@ define hidden noalias ptr @blf_get_xml_channel_name(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @blf_parse_xml_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @blf_parse_xml_port(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = icmp ne ptr %0, null
   %7 = icmp ne ptr %1, null
   %or.cond.not55 = and i1 %6, %7
@@ -376,12 +376,12 @@ define hidden range(i32 0, 2) i32 @blf_parse_xml_port(ptr noundef %0, ptr nounde
 declare ptr @g_strsplit_set(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @g_strfreev(ptr noundef) local_unnamed_addr #4
 
@@ -453,7 +453,7 @@ define hidden ptr @blf_strmem(ptr noundef %0, ptr noundef %1, ptr noundef %2) lo
 declare ptr @ws_memmem(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @blf_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @blf_open(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.blf_fileheader, align 8
   %5 = alloca %struct.tm, align 8
   %6 = load ptr, ptr %0, align 8
@@ -593,7 +593,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare ptr @g_array_new(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -620,7 +620,7 @@ define internal void @blf_free_channel_to_name_entry(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @blf_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #1 {
+define internal range(i32 0, 2) i32 @blf_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) #1 {
   %7 = alloca %struct.blf_params, align 8
   store ptr %0, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
@@ -683,7 +683,7 @@ define internal range(i32 0, 2) i32 @blf_seek_read(ptr noundef %0, i64 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @blf_close(ptr nocapture noundef readonly %0) #1 {
+define internal void @blf_close(ptr noundef readonly captures(none) %0) #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -769,7 +769,7 @@ declare i32 @wtap_register_file_type_subtype(ptr noundef) local_unnamed_addr #4
 declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_block(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_block(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.blf_apptext, align 4
   %6 = alloca %struct.blf_blockheader, align 4
   %7 = alloca %struct.blf_logobjectheader, align 8
@@ -1429,7 +1429,7 @@ blf_read_log_object_header2.exit.thread:          ; preds = %311, %311, %311, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_bytes_or_eof(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef range(i64 0, 4294967296) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_bytes_or_eof(ptr noundef nonnull readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef range(i64 0, 4294967296) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   store i64 %1, ptr %7, align 8
@@ -1636,7 +1636,7 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_bytes_or_eof(ptr nocapture 
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_ethernetframe(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_ethernetframe(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_ethernetframeheader, align 8
   %10 = alloca [18 x i8], align 16
   %reass.sub = sub i64 %4, %3
@@ -1827,7 +1827,7 @@ blf_read_bytes.exit.thread:                       ; preds = %100, %103, %17, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_ethernetframe_ext(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_ethernetframe_ext(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_ethernetframeheader_ex, align 8
   %10 = sub i64 %4, %3
   %11 = add i64 %10, 32
@@ -1930,7 +1930,7 @@ blf_read_bytes.exit.thread:                       ; preds = %38, %41, %17, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_wlanframe(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_wlanframe(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_wlanframeheader, align 4
   %10 = sub i64 %4, %3
   %11 = add i64 %10, 16
@@ -2025,7 +2025,7 @@ blf_read_bytes.exit.thread:                       ; preds = %38, %41, %17, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_canmessage(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_canmessage(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #1 {
   %10 = alloca %struct.blf_canmessage, align 4
   %11 = alloca %struct.blf_canmessage2_trailer, align 4
   %12 = sub i64 %4, %3
@@ -2121,7 +2121,7 @@ blf_read_bytes.exit.thread:                       ; preds = %44, %47, %20, %23, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_canerror(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_canerror(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #1 {
   %10 = alloca %struct.blf_canerror, align 2
   %11 = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -2185,7 +2185,7 @@ blf_read_bytes.exit.thread:                       ; preds = %18, %21, %24, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_canerrorext(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_canerrorext(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_canerrorext, align 4
   %10 = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -2320,7 +2320,7 @@ blf_read_bytes.exit.thread:                       ; preds = %17, %20, %.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_canfdmessage(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_canfdmessage(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_canfdmessage, align 4
   %10 = sub i64 %4, %3
   %11 = add i64 %10, 20
@@ -2405,7 +2405,7 @@ blf_read_bytes.exit.thread:                       ; preds = %17, %20, %blf_read_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_canfdmessage64(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_canfdmessage64(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_canfdmessage64, align 4
   %10 = sub i64 %4, %3
   %11 = add i64 %10, 40
@@ -2514,7 +2514,7 @@ blf_read_bytes.exit.thread:                       ; preds = %17, %20, %46, %blf_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_canfderror64(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_canfderror64(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_canfderror64, align 4
   %10 = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %10, i8 0, i64 16, i1 false)
@@ -2650,7 +2650,7 @@ blf_read_bytes.exit.thread:                       ; preds = %17, %20, %.thread, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_flexraydata(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_flexraydata(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_flexraydata, align 2
   %10 = alloca [7 x i8], align 1
   %11 = sub i64 %4, %3
@@ -2788,7 +2788,7 @@ blf_read_bytes.exit.thread:                       ; preds = %70, %73, %18, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_flexraymessage(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_flexraymessage(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_flexraymessage, align 4
   %10 = alloca [7 x i8], align 1
   %11 = sub i64 %4, %3
@@ -2952,7 +2952,7 @@ blf_read_bytes.exit.thread:                       ; preds = %87, %90, %18, %21, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_flexrayrcvmessageex(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_flexrayrcvmessageex(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #1 {
   %10 = alloca %struct.blf_flexrayrcvmessage, align 4
   %11 = alloca [7 x i8], align 1
   %.not = icmp eq i32 %8, 0
@@ -3138,7 +3138,7 @@ blf_read_bytes.exit.thread:                       ; preds = %104, %107, %20, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_linmessage(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_linmessage(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i32 noundef range(i32 0, 2) %8) unnamed_addr #1 {
   %10 = alloca %struct.blf_linmessage, align 2
   %11 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
@@ -3239,7 +3239,7 @@ blf_read_bytes.exit.thread:                       ; preds = %20, %23, %blf_add_d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_linsenderror(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_linsenderror(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_linsenderror, align 2
   %10 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
@@ -3304,7 +3304,7 @@ blf_read_bytes.exit.thread:                       ; preds = %17, %20, %blf_read_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_linmessage2(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %8) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_linmessage2(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %8) unnamed_addr #1 {
   %10 = alloca %struct.blf_linmessage2, align 8
   %11 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
@@ -3422,7 +3422,7 @@ blf_read_bytes.exit.thread:                       ; preds = %18, %21, %blf_add_d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_lincrcerror2(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %8) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_lincrcerror2(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %8) unnamed_addr #1 {
   %10 = alloca %struct.blf_lincrcerror2, align 8
   %11 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
@@ -3540,7 +3540,7 @@ blf_read_bytes.exit.thread:                       ; preds = %18, %21, %blf_add_d
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_linsenderror2(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %8) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_linsenderror2(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %8) unnamed_addr #1 {
   %10 = alloca %struct.blf_linsenderror2, align 8
   %11 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
@@ -3627,7 +3627,7 @@ blf_read_bytes.exit.thread:                       ; preds = %18, %21, %37, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_ethernet_status(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %8) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_ethernet_status(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7, i16 noundef zeroext %8) unnamed_addr #1 {
   %10 = alloca %struct.blf_ethernet_status, align 4
   %11 = alloca [24 x i8], align 16
   %12 = alloca i64, align 8
@@ -3823,7 +3823,7 @@ blf_read_bytes.exit.thread:                       ; preds = %28, %31, %21, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_read_ethernet_phystate(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_read_ethernet_phystate(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef range(i64 0, 4294967296) %5, i32 noundef %6, i64 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.blf_ethernet_phystate, align 2
   %10 = alloca [8 x i8], align 1
   %reass.sub = sub i64 %4, %3
@@ -3929,7 +3929,7 @@ declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, pt
 declare i32 @g_array_binary_search(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_pull_next_logcontainer(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_pull_next_logcontainer(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca %struct.blf_blockheader, align 4
   %5 = alloca %struct.blf_logcontainerheader, align 4
   %6 = alloca %struct.blf_log_container, align 8
@@ -4168,7 +4168,7 @@ blf_find_next_logcontainer.exit.thread:           ; preds = %26, %blf_find_next_
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_pull_logcontainer_into_memory(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_pull_logcontainer_into_memory(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca %struct.z_stream_s, align 8
   %6 = icmp eq ptr %1, null
   br i1 %6, label %7, label %9
@@ -4472,7 +4472,7 @@ declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_un
 declare noalias ptr @g_try_malloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @inflateInit_(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -4485,7 +4485,7 @@ declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_add
 declare void @ws_buffer_append(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @blf_init_rec(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, i64 noundef %2, i32 noundef range(i32 1, 156) %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
+define internal fastcc void @blf_init_rec(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, i64 noundef %2, i32 noundef range(i32 1, 156) %3, i16 noundef zeroext %4, i16 noundef zeroext %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 {
   %9 = alloca %struct.nstime_t, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
@@ -4590,7 +4590,7 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #4
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @blf_lookup_interface(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 1, 156) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @blf_lookup_interface(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 156) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = zext nneg i32 %1 to i64
   %8 = shl nuw nsw i64 %7, 32
@@ -4646,7 +4646,7 @@ define internal fastcc i32 @blf_lookup_interface(ptr nocapture noundef nonnull r
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @blf_add_interface(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 1, 156) %1, i32 noundef range(i32 0, 65536) %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @blf_add_interface(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 1, 156) %1, i32 noundef range(i32 0, 65536) %2, i16 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 {
   %6 = tail call ptr @wtap_block_create(i32 noundef 1) #14
   %7 = tail call ptr @wtap_block_get_mandatory_data(ptr noundef %6) #14
   store i32 %1, ptr %7, align 8
@@ -4778,7 +4778,7 @@ declare i32 @wtap_block_add_string_option_format(ptr noundef, i32 noundef, ptr n
 declare i32 @wtap_block_add_uint32_option(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_can_fill_buf_and_rec(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i64 noundef %6, i32 noundef %7, i64 noundef %8, i16 noundef zeroext %9, i8 noundef zeroext range(i8 0, 8) %10) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_can_fill_buf_and_rec(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext %5, i64 noundef %6, i32 noundef %7, i64 noundef %8, i16 noundef zeroext %9, i8 noundef zeroext range(i8 0, 8) %10) unnamed_addr #1 {
   %12 = alloca [8 x i8], align 1
   %13 = lshr i32 %3, 24
   %14 = trunc nuw i32 %13 to i8
@@ -4849,7 +4849,7 @@ blf_read_bytes.exit.thread:                       ; preds = %42, %45, %blf_read_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @blf_prepare_interface_name(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 -1, 156) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @blf_prepare_interface_name(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 -1, 156) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #1 {
   %7 = alloca i64, align 8
   %8 = sext i32 %1 to i64
   %9 = shl nsw i64 %8, 32
@@ -4941,7 +4941,7 @@ declare void @wtap_buffer_append_epdu_string(ptr noundef, i16 noundef zeroext, p
 declare i32 @wtap_buffer_append_epdu_end(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @blf_set_xml_channels(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc void @blf_set_xml_channels(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %6 = alloca ptr, align 8
@@ -5298,7 +5298,7 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 declare i8 @llvm.umin.i8(i8, i8) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #10
@@ -5307,10 +5307,10 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #10
 declare i32 @llvm.usub.sat.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #10

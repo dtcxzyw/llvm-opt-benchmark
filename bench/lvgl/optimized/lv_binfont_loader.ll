@@ -474,7 +474,7 @@ lvgl_load_font.exit.thread:                       ; preds = %read_label.exit.thr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare i32 @lv_fs_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -573,12 +573,12 @@ define void @lv_binfont_destroy(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @lv_fs_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @lv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @load_kern(ptr noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @load_kern(ptr noundef %0, ptr noundef captures(none) %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x i8], align 1
   %7 = alloca i8, align 1
@@ -791,7 +791,7 @@ declare zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef, ptr noundef, i32 
 declare ptr @lv_font_get_bitmap_fmt_txt(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_glyph(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 {
+define internal fastcc i32 @load_glyph(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca [4 x i8], align 1
   %9 = alloca %struct.bit_iterator_t, align 8

@@ -632,14 +632,14 @@ define linkonce_odr hidden noundef ptr @_ZN11PaddedArrayI18PSPromotionManagerL8M
 declare void @_ZN17PreservedMarksSet4initEj(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18PSPromotionManager24register_preserved_marksEP14PreservedMarks(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(912) initializes((824, 832)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN18PSPromotionManager24register_preserved_marksEP14PreservedMarks(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(912) initializes((824, 832)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN18PSPromotionManager15should_scavengeEPP7oopDescb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN18PSPromotionManager15should_scavengeEPP7oopDescb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   br i1 %1, label %3, label %17
 
 3:                                                ; preds = %2
@@ -675,7 +675,7 @@ _ZN10PSScavenge15should_scavengeIP7oopDescEEbPT_b.exit: ; preds = %3, %9, %13, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN18PSPromotionManager15should_scavengeEP9narrowOopb(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN18PSPromotionManager15should_scavengeEP9narrowOopb(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   br i1 %1, label %3, label %25
 
 3:                                                ; preds = %2
@@ -2030,7 +2030,7 @@ _ZN16GenericTaskQueueI11ScannerTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @_ZN14PSPromotionLAB5flushEv(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #1
 
@@ -7965,7 +7965,7 @@ _ZN23InstanceStackChunkKlass33oop_oop_iterate_stack_with_bitmapI9narrowOop21PSPu
 declare void @_ZN23InstanceStackChunkKlass26oop_oop_iterate_stack_slowEP17stackChunkOopDescP17OopIterateClosure9MemRegion(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef, ptr noundef, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
@@ -11357,10 +11357,10 @@ define linkonce_odr hidden noundef i32 @_ZNK19GenericTaskQueueSetI17OverflowTask
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -72,7 +72,7 @@ $_ZN5arrow4util13StringBuilderIJRA17_KcRKlRA22_S2_lRA11_S2_RlSA_SB_RA2_S2_EEENSt
 @.str.20 = private unnamed_addr constant [2 x i8] c")\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5arrow8ree_util16LogicalNullCountERKNS_9ArraySpanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span) local_unnamed_addr #0 {
+define noundef i64 @_ZN5arrow8ree_util16LogicalNullCountERKNS_9ArraySpanE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %span) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds nuw i8, ptr %span, i64 104
   %0 = load ptr, ptr %child_data.i, align 8
@@ -296,7 +296,7 @@ return:                                           ; preds = %for.body.i24, %for.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl16ERNS1_19PhysicalIndexFinderIsEEl(ptr nocapture noundef nonnull align 8 dereferenceable(144) %self, i64 noundef %i) local_unnamed_addr #1 {
+define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl16ERNS1_19PhysicalIndexFinderIsEEl(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %self, i64 noundef %i) local_unnamed_addr #1 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %offset.i, align 8
@@ -397,7 +397,7 @@ _ZN5arrow8ree_util8internal21FindPhysicalIndexImplIsEElRNS1_19PhysicalIndexFinde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl32ERNS1_19PhysicalIndexFinderIiEEl(ptr nocapture noundef nonnull align 8 dereferenceable(144) %self, i64 noundef %i) local_unnamed_addr #1 {
+define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl32ERNS1_19PhysicalIndexFinderIiEEl(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %self, i64 noundef %i) local_unnamed_addr #1 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %offset.i, align 8
@@ -498,7 +498,7 @@ _ZN5arrow8ree_util8internal21FindPhysicalIndexImplIiEElRNS1_19PhysicalIndexFinde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl64ERNS1_19PhysicalIndexFinderIlEEl(ptr nocapture noundef nonnull align 8 dereferenceable(144) %self, i64 noundef %i) local_unnamed_addr #1 {
+define noundef i64 @_ZN5arrow8ree_util8internal23FindPhysicalIndexImpl64ERNS1_19PhysicalIndexFinderIlEEl(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %self, i64 noundef %i) local_unnamed_addr #1 {
 entry:
   %offset.i = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %offset.i, align 8
@@ -595,7 +595,7 @@ _ZN5arrow8ree_util8internal21FindPhysicalIndexImplIlEElRNS1_19PhysicalIndexFinde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN5arrow8ree_util17FindPhysicalIndexERKNS_9ArraySpanEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span, i64 noundef %i, i64 noundef %absolute_offset) local_unnamed_addr #0 {
+define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN5arrow8ree_util17FindPhysicalIndexERKNS_9ArraySpanEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %span, i64 noundef %i, i64 noundef %absolute_offset) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds nuw i8, ptr %span, i64 104
   %0 = load ptr, ptr %child_data.i, align 8
@@ -686,7 +686,7 @@ return:                                           ; preds = %while.body.i.i.i.i2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i64 -4611686018427387903, 4611686018427387905) i64 @_ZN5arrow8ree_util18FindPhysicalLengthERKNS_9ArraySpanE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span) local_unnamed_addr #0 {
+define noundef range(i64 -4611686018427387903, 4611686018427387905) i64 @_ZN5arrow8ree_util18FindPhysicalLengthERKNS_9ArraySpanE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %span) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds nuw i8, ptr %span, i64 104
   %0 = load ptr, ptr %child_data.i, align 8
@@ -914,7 +914,7 @@ return:                                           ; preds = %_ZN5arrow8ree_util8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { i64, i64 } @_ZN5arrow8ree_util17FindPhysicalRangeERKNS_9ArraySpanEll(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %span, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 {
+define { i64, i64 } @_ZN5arrow8ree_util17FindPhysicalRangeERKNS_9ArraySpanEll(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %span, i64 noundef %offset, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %child_data.i = getelementptr inbounds nuw i8, ptr %span, i64 104
   %0 = load ptr, ptr %child_data.i, align 8
@@ -1141,7 +1141,7 @@ return:                                           ; preds = %_ZN5arrow8ree_util8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8ree_util29ValidateRunEndEncodedChildrenERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEES8_ll(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, i64 noundef %logical_length, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %run_ends_data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %values_data, i64 noundef %null_count, i64 noundef %logical_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8ree_util29ValidateRunEndEncodedChildrenERKNS_17RunEndEncodedTypeElRKSt10shared_ptrINS_9ArrayDataEES8_ll(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %type, i64 noundef %logical_length, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %run_ends_data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %values_data, i64 noundef %null_count, i64 noundef %logical_offset) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i36.i90 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i27.i91 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2546,10 +2546,10 @@ declare i64 @llvm.smax.i64(i64, i64) #6
 declare i64 @llvm.smin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }

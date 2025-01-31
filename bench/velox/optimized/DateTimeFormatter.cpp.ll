@@ -334,7 +334,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_l
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZNK8facebook5velox9functions17DateTimeFormatter13maxResultSizeEPKN4date9time_zoneE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr noundef %timezone) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZNK8facebook5velox9functions17DateTimeFormatter13maxResultSizeEPKN4date9time_zoneE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef %timezone) local_unnamed_addr #3 align 2 {
 entry:
   %tokens_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %tokens_, align 8
@@ -570,7 +570,7 @@ declare void @llvm.trap() #5
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK8facebook5velox9functions17DateTimeFormatter6formatERKNS0_9TimestampEPKN4date9time_zoneEjPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %timestamp, ptr noundef %timezone, i32 noundef %maxResultSize, ptr noundef %result) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK8facebook5velox9functions17DateTimeFormatter6formatERKNS0_9TimestampEPKN4date9time_zoneEjPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %timestamp, ptr noundef %timezone, i32 noundef %maxResultSize, ptr noundef %result) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"struct.facebook::velox::Timestamp", align 8
   %century = alloca i32, align 4
@@ -1010,14 +1010,14 @@ if.end287:                                        ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @_ZN8facebook5velox9Timestamp10toTimezoneERKN4date9time_zoneE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #8
 
 declare i64 @_ZNK8facebook5velox9Timestamp11toTimePointEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIiEEiRKT_cmPcS7_b(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %content, align 4
   %cmp = icmp slt i32 %0, 0
@@ -1570,7 +1570,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIjEEiRKT_cmPcS7_b(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
 entry:
   %0 = load i32, ptr %content, align 4
   %cmp.i142 = icmp ult i32 %0, 10
@@ -1861,7 +1861,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
+define internal fastcc noundef i32 @_ZN8facebook5velox9functions12_GLOBAL__N_110padContentIlEEiRKT_cmPcS7_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %content, i64 noundef %totalDigits, ptr noundef %maxResultEnd, ptr noundef %result) unnamed_addr #9 {
 entry:
   %0 = load i64, ptr %content, align 8
   %cmp = icmp slt i64 %0, 0
@@ -2487,7 +2487,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox9functions17DateTimeFormatter5parseERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::functions::DateTimeResult") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %input) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox9functions17DateTimeFormatter5parseERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias writeonly sret(%"struct.facebook::velox::functions::DateTimeResult") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %input) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %date = alloca %"struct.facebook::velox::functions::(anonymous namespace)::Date", align 8
   %cur = alloca ptr, align 8
@@ -2826,7 +2826,7 @@ _ZN8facebook5velox9functions12_GLOBAL__N_14DateD2Ev.exit: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116parseFromPatternENS1_13FormatPatternERKSt17basic_string_viewIcSt11char_traitsIcEERPKcSB_RNS2_4DateEbNS1_21DateTimeFormatterTypeE(i8 %curPattern.coerce0, i64 %curPattern.coerce1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cur, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(120) %date, i1 noundef zeroext %specifierNext, i32 noundef %type) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116parseFromPatternENS1_13FormatPatternERKSt17basic_string_viewIcSt11char_traitsIcEERPKcSB_RNS2_4DateEbNS1_21DateTimeFormatterTypeE(i8 %curPattern.coerce0, i64 %curPattern.coerce1, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cur, ptr noundef %end, ptr noundef nonnull align 8 dereferenceable(120) %date, i1 noundef zeroext %specifierNext, i32 noundef %type) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i336 = alloca %"class.std::basic_string_view", align 8
   %ref.tmp.i294 = alloca %"class.std::basic_string_view", align 8
@@ -4232,7 +4232,7 @@ declare noundef i64 @_ZN8facebook5velox4util8fromTimeEiiii(i32 noundef, i32 noun
 declare { i64, i64 } @_ZN8facebook5velox4util12fromDatetimeEll(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_14DateD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_14DateD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dayOfYearValues = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %dayOfYearValues, align 8
@@ -4258,7 +4258,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions27buildMysqlDateTimeFormatterERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %format) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions27buildMysqlDateTimeFormatterERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %format) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %builder = alloca %"class.facebook::velox::functions::DateTimeFormatterBuilder", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4747,7 +4747,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions26buildJodaDateTimeFormatterERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %format) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions26buildJodaDateTimeFormatterERKSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %format) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %builder = alloca %"class.facebook::velox::functions::DateTimeFormatterBuilder", align 8
   %ref.tmp = alloca %"class.std::basic_string_view", align 8
@@ -5123,7 +5123,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_S4_IS3_lEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5161,7 +5161,7 @@ invoke.cont:                                      ; preds = %if.end.i.i, %_ZNSt1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
@@ -5240,7 +5240,7 @@ _ZNSt6vectorIiSaIiEE12emplace_backIJiEEERiDpOT_.exit: ; preds = %if.then.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #15
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #15
 
 declare noundef i64 @_ZN8facebook5velox4util13getTimeZoneIDESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #8
 
@@ -6139,7 +6139,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #21
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #15
@@ -7337,16 +7337,16 @@ declare void @llvm.assume(i1 noundef) #22
 declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #24
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23

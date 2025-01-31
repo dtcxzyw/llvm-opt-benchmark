@@ -22,7 +22,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_csum_partial
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_csum_partial_copy_to_xdr690, ptr @__kunmap_atomic.__UNIQUE_ID___addressable___SCK__preempt_schedule333], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.xdr_skb_reader, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -152,16 +152,16 @@ define dso_local range(i32 -1, 1) i32 @csum_partial_copy_to_xdr(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @csum_partial(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i64 @xdr_partial_copy_from_skb(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -314,7 +314,7 @@ define internal fastcc i64 @xdr_partial_copy_from_skb(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @xdr_skb_read_and_csum_bits(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define internal i64 @xdr_skb_read_and_csum_bits(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %2)
@@ -344,13 +344,13 @@ define internal i64 @xdr_skb_read_and_csum_bits(ptr nocapture noundef %0, ptr no
 declare dso_local i32 @skb_checksum(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @netdev_rx_csum_fault(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @xdr_skb_read_bits(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define internal i64 @xdr_skb_read_bits(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %2)
@@ -377,7 +377,7 @@ define internal i64 @xdr_skb_read_bits(ptr nocapture noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @xprt_sock_sendmsg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) initializes((0, 4)) %5) local_unnamed_addr #0 align 16 {
   %7 = alloca i32, align 4
   %8 = alloca [2 x %struct.kvec], align 16
   %9 = icmp eq i32 %4, 0
@@ -595,7 +595,7 @@ declare dso_local i32 @skb_copy_and_csum_bits(ptr noundef, i32 noundef, ptr noun
 declare dso_local i32 @skb_copy_bits(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @iov_iter_kvec(ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3

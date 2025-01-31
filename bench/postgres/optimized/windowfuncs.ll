@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.window_nth_value = private unnamed_addr constant [17 x i8] c"window_nth_value\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @window_row_number(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @window_row_number(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
@@ -24,7 +24,7 @@ declare i64 @WinGetCurrentPosition(ptr noundef) local_unnamed_addr #1
 declare void @WinSetMarkPosition(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_row_number_support(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @window_row_number_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -49,7 +49,7 @@ define dso_local i64 @window_row_number_support(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_rank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @window_rank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
@@ -92,7 +92,7 @@ rank_up.exit._crit_edge:                          ; preds = %rank_up.exit
 declare ptr @WinGetPartitionLocalMemory(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_rank_support(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @window_rank_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -117,7 +117,7 @@ define dso_local i64 @window_rank_support(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_dense_rank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @window_dense_rank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @WinGetCurrentPosition(ptr noundef %3) #6
@@ -154,7 +154,7 @@ rank_up.exit:                                     ; preds = %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_dense_rank_support(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @window_dense_rank_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -179,7 +179,7 @@ define dso_local i64 @window_dense_rank_support(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_percent_rank(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @window_percent_rank(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @WinGetPartitionRowCount(ptr noundef %3) #6
@@ -233,7 +233,7 @@ rank_up.exit:                                     ; preds = %9, %10
 declare i64 @WinGetPartitionRowCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_percent_rank_support(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @window_percent_rank_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -258,7 +258,7 @@ define dso_local i64 @window_percent_rank_support(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_cume_dist(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @window_cume_dist(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 @WinGetPartitionRowCount(ptr noundef %3) #6
@@ -322,7 +322,7 @@ rank_up.exit:                                     ; preds = %9, %10
 declare zeroext i1 @WinRowsArePeers(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_cume_dist_support(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @window_cume_dist_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -347,7 +347,7 @@ define dso_local i64 @window_cume_dist_support(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @window_ntile(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -470,7 +470,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @window_ntile_support(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @window_ntile_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -495,7 +495,7 @@ define dso_local i64 @window_ntile_support(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_lag(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @window_lag(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -520,7 +520,7 @@ leadlag_common.exit:                              ; preds = %1, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_lag_with_offset(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @window_lag_with_offset(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -555,7 +555,7 @@ leadlag_common.exit:                              ; preds = %9, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_lag_with_offset_and_default(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @window_lag_with_offset_and_default(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -600,7 +600,7 @@ leadlag_common.exit:                              ; preds = %19, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_lead(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @window_lead(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -625,7 +625,7 @@ leadlag_common.exit:                              ; preds = %1, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_lead_with_offset(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @window_lead_with_offset(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -659,7 +659,7 @@ leadlag_common.exit:                              ; preds = %9, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_lead_with_offset_and_default(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @window_lead_with_offset_and_default(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
@@ -703,7 +703,7 @@ leadlag_common.exit:                              ; preds = %18, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_first_value(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @window_first_value(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -725,7 +725,7 @@ define dso_local i64 @window_first_value(ptr nocapture noundef %0) local_unnamed
 declare i64 @WinGetFuncArgInFrame(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_last_value(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @window_last_value(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -745,7 +745,7 @@ define dso_local i64 @window_last_value(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @window_nth_value(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @window_nth_value(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -794,10 +794,10 @@ declare i64 @WinGetFuncArgInPartition(ptr noundef, i32 noundef, i32 noundef, i32
 declare void @llvm.assume(i1 noundef) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

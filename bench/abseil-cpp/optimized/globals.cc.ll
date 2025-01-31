@@ -112,7 +112,7 @@ _ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal17ScopedMinLogLevelC2ENS_18LogSeverityAtLeastE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %severity) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4absl12log_internal17ScopedMinLogLevelC2ENS_18LogSeverityAtLeastE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, i32 noundef %severity) unnamed_addr #1 align 2 {
 entry:
   %0 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_113min_log_levelE.0 acquire, align 4
   store i32 %0, ptr %this, align 4
@@ -133,7 +133,7 @@ _ZN4absl14SetMinLogLevelENS_18LogSeverityAtLeastE.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl12log_internal17ScopedMinLogLevelD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12log_internal17ScopedMinLogLevelD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 4
   store atomic i32 %0, ptr @_ZN4absl12_GLOBAL__N_113min_log_levelE.0 release, align 4
@@ -200,7 +200,7 @@ _ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl21ScopedStderrThresholdC2ENS_18LogSeverityAtLeastE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %severity) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4absl21ScopedStderrThresholdC2ENS_18LogSeverityAtLeastE(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %this, i32 noundef %severity) unnamed_addr #1 align 2 {
 entry:
   %0 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_115stderrthresholdE.0 acquire, align 4
   store i32 %0, ptr %this, align 4
@@ -221,7 +221,7 @@ _ZN4absl18SetStderrThresholdENS_18LogSeverityAtLeastE.exit: ; preds = %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl21ScopedStderrThresholdD2Ev(ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl21ScopedStderrThresholdD2Ev(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %this, align 4
   store atomic i32 %0, ptr @_ZN4absl12_GLOBAL__N_115stderrthresholdE.0 release, align 4
@@ -741,7 +741,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 

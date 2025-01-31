@@ -10,14 +10,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL25RESIZE_POLICY_RATIO_TABLE = internal unnamed_addr constant [6 x float] [float 0.000000e+00, float 5.000000e-01, float 0x3FB99999A0000000, float 5.000000e-01, float 0.000000e+00, float 1.000000e+00], align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uhash_open_75(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define noundef ptr @uhash_open_75(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef 4, ptr noundef %status)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %primeIndex, ptr nocapture noundef %status) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL13_uhash_createPFi8UElementEPFaS_S_ES3_iP10UErrorCode(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %primeIndex, ptr noundef captures(none) %status) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -115,7 +115,7 @@ return:                                           ; preds = %_ZL11_uhash_initP10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @uhash_openSize_75(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %size, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define noundef ptr @uhash_openSize_75(ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %size, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   br label %land.rhs
 
@@ -142,7 +142,7 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_init_75(ptr noundef %fillinResult, ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @uhash_init_75(ptr noundef %fillinResult, ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -222,7 +222,7 @@ _ZL11_uhash_initP10UHashtablePFi8UElementEPFaS1_S1_ES5_iP10UErrorCode.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_initSize_75(ptr noundef %fillinResult, ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %size, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @uhash_initSize_75(ptr noundef %fillinResult, ptr noundef %keyHash, ptr noundef %keyComp, ptr noundef %valueComp, i32 noundef %size, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   br label %land.rhs
 
@@ -430,7 +430,7 @@ if.end27:                                         ; preds = %entry, %if.then26, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @uhash_nextElement_75(ptr nocapture noundef readonly %hash, ptr nocapture noundef %pos) local_unnamed_addr #1 {
+define ptr @uhash_nextElement_75(ptr noundef readonly captures(none) %hash, ptr noundef captures(none) %pos) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %pos, align 4
   %length = getelementptr inbounds nuw i8, ptr %hash, i64 52
@@ -467,7 +467,7 @@ return:                                           ; preds = %for.cond, %if.then
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setKeyHasher_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
+define ptr @uhash_setKeyHasher_75(ptr noundef captures(none) %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
   %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
@@ -476,7 +476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setKeyComparator_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
+define ptr @uhash_setKeyComparator_75(ptr noundef captures(none) %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
   %keyComparator = getelementptr inbounds nuw i8, ptr %hash, i64 16
   %0 = load ptr, ptr %keyComparator, align 8
@@ -485,7 +485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setValueComparator_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
+define ptr @uhash_setValueComparator_75(ptr noundef captures(none) %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
   %valueComparator = getelementptr inbounds nuw i8, ptr %hash, i64 24
   %0 = load ptr, ptr %valueComparator, align 8
@@ -494,7 +494,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setKeyDeleter_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
+define ptr @uhash_setKeyDeleter_75(ptr noundef captures(none) %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
   %keyDeleter = getelementptr inbounds nuw i8, ptr %hash, i64 32
   %0 = load ptr, ptr %keyDeleter, align 8
@@ -503,7 +503,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @uhash_setValueDeleter_75(ptr nocapture noundef %hash, ptr noundef %fn) local_unnamed_addr #3 {
+define ptr @uhash_setValueDeleter_75(ptr noundef captures(none) %hash, ptr noundef %fn) local_unnamed_addr #3 {
 entry:
   %valueDeleter = getelementptr inbounds nuw i8, ptr %hash, i64 40
   %0 = load ptr, ptr %valueDeleter, align 8
@@ -512,7 +512,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uhash_setResizePolicy_75(ptr nocapture noundef initializes((56, 72)) %hash, i32 noundef %policy) local_unnamed_addr #0 {
+define void @uhash_setResizePolicy_75(ptr noundef captures(none) initializes((56, 72)) %hash, i32 noundef %policy) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4
@@ -544,7 +544,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr nocapture noundef %hash, ptr nocapture noundef %status) unnamed_addr #0 {
+define internal fastcc void @_ZL13_uhash_rehashP10UHashtableP10UErrorCode(ptr noundef captures(none) %hash, ptr noundef captures(none) %status) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %hash, align 8
   %length = getelementptr inbounds nuw i8, ptr %hash, i64 52
@@ -761,7 +761,7 @@ return:                                           ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @uhash_count_75(ptr nocapture noundef readonly %hash) local_unnamed_addr #4 {
+define i32 @uhash_count_75(ptr noundef readonly captures(none) %hash) local_unnamed_addr #4 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %hash, i64 48
   %0 = load i32, ptr %count, align 8
@@ -769,7 +769,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_get_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
+define ptr @uhash_get_75(ptr noundef readonly captures(none) %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
@@ -860,7 +860,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_iget_75(ptr nocapture noundef readonly %hash, i32 noundef %key) local_unnamed_addr #0 {
+define ptr @uhash_iget_75(ptr noundef readonly captures(none) %hash, i32 noundef %key) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -953,7 +953,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_geti_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @uhash_geti_75(ptr noundef readonly captures(none) %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
@@ -1044,7 +1044,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_igeti_75(ptr nocapture noundef readonly %hash, i32 noundef %key) local_unnamed_addr #0 {
+define i32 @uhash_igeti_75(ptr noundef readonly captures(none) %hash, i32 noundef %key) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -1137,7 +1137,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_getiAndFound_75(ptr nocapture noundef readonly %hash, ptr noundef %key, ptr nocapture noundef writeonly %found) local_unnamed_addr #0 {
+define i32 @uhash_getiAndFound_75(ptr noundef readonly captures(none) %hash, ptr noundef %key, ptr noundef writeonly captures(none) %found) local_unnamed_addr #0 {
 entry:
   %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
@@ -1233,7 +1233,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_igetiAndFound_75(ptr nocapture noundef readonly %hash, i32 noundef %key, ptr nocapture noundef writeonly %found) local_unnamed_addr #0 {
+define i32 @uhash_igetiAndFound_75(ptr noundef readonly captures(none) %hash, i32 noundef %key, ptr noundef writeonly captures(none) %found) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -1331,14 +1331,14 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_put_75(ptr nocapture noundef %hash, ptr noundef %key, ptr noundef %value, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @uhash_put_75(ptr noundef captures(none) %hash, ptr noundef %key, ptr noundef %value, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef %hash, ptr %key, ptr %value, i8 noundef signext 3, ptr noundef %status)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr nocapture noundef %hash, ptr %key.coerce, ptr %value.coerce, i8 noundef signext range(i8 0, 6) %hint, ptr nocapture noundef %status) unnamed_addr #0 {
+define internal fastcc ptr @_ZL10_uhash_putP10UHashtable8UElementS1_aP10UErrorCode(ptr noundef captures(none) %hash, ptr %key.coerce, ptr %value.coerce, i8 noundef signext range(i8 0, 6) %hint, ptr noundef captures(none) %status) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1555,7 +1555,7 @@ return:                                           ; preds = %if.then51, %if.end4
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_iput_75(ptr nocapture noundef %hash, i32 noundef %key, ptr noundef %value, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define ptr @uhash_iput_75(ptr noundef captures(none) %hash, i32 noundef %key, ptr noundef %value, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -1564,7 +1564,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_puti_75(ptr nocapture noundef %hash, ptr noundef %key, i32 noundef %value, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define i32 @uhash_puti_75(ptr noundef captures(none) %hash, ptr noundef %key, i32 noundef %value, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %valueholder.sroa.0.0.insert.ext = zext i32 %value to i64
   %0 = inttoptr i64 %valueholder.sroa.0.0.insert.ext to ptr
@@ -1575,7 +1575,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_iputi_75(ptr nocapture noundef %hash, i32 noundef %key, i32 noundef %value, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define i32 @uhash_iputi_75(ptr noundef captures(none) %hash, i32 noundef %key, i32 noundef %value, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -1588,7 +1588,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_putiAllowZero_75(ptr nocapture noundef %hash, ptr noundef %key, i32 noundef %value, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define i32 @uhash_putiAllowZero_75(ptr noundef captures(none) %hash, ptr noundef %key, i32 noundef %value, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %valueholder.sroa.0.0.insert.ext = zext i32 %value to i64
   %0 = inttoptr i64 %valueholder.sroa.0.0.insert.ext to ptr
@@ -1599,7 +1599,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_iputiAllowZero_75(ptr nocapture noundef %hash, i32 noundef %key, i32 noundef %value, ptr nocapture noundef %status) local_unnamed_addr #0 {
+define i32 @uhash_iputiAllowZero_75(ptr noundef captures(none) %hash, i32 noundef %key, i32 noundef %value, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -1612,14 +1612,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_remove_75(ptr nocapture noundef %hash, ptr noundef %key) local_unnamed_addr #0 {
+define ptr @uhash_remove_75(ptr noundef captures(none) %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %hash, ptr %key)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr nocapture noundef %hash, ptr %key.coerce) unnamed_addr #0 {
+define internal fastcc ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef captures(none) %hash, ptr %key.coerce) unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
@@ -1767,7 +1767,7 @@ if.end9:                                          ; preds = %_ZL28_uhash_interna
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_iremove_75(ptr nocapture noundef %hash, i32 noundef %key) local_unnamed_addr #0 {
+define ptr @uhash_iremove_75(ptr noundef captures(none) %hash, i32 noundef %key) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -1776,7 +1776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_removei_75(ptr nocapture noundef %hash, ptr noundef %key) local_unnamed_addr #0 {
+define i32 @uhash_removei_75(ptr noundef captures(none) %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @_ZL13_uhash_removeP10UHashtable8UElement(ptr noundef %hash, ptr %key)
   %0 = ptrtoint ptr %call to i64
@@ -1785,7 +1785,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uhash_iremovei_75(ptr nocapture noundef %hash, i32 noundef %key) local_unnamed_addr #0 {
+define i32 @uhash_iremovei_75(ptr noundef captures(none) %hash, i32 noundef %key) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -1796,7 +1796,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uhash_removeAll_75(ptr nocapture noundef %hash) local_unnamed_addr #0 {
+define void @uhash_removeAll_75(ptr noundef captures(none) %hash) local_unnamed_addr #0 {
 entry:
   %count = getelementptr inbounds nuw i8, ptr %hash, i64 48
   %0 = load i32, ptr %count, align 8
@@ -1871,7 +1871,7 @@ if.end:                                           ; preds = %for.cond.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_removeElement_75(ptr nocapture noundef %hash, ptr nocapture noundef %e) local_unnamed_addr #0 {
+define ptr @uhash_removeElement_75(ptr noundef captures(none) %hash, ptr noundef captures(none) %e) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %e, align 8
   %cmp = icmp slt i32 %0, 0
@@ -1925,7 +1925,7 @@ return:                                           ; preds = %entry, %_ZL28_uhash
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @uhash_containsKey_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_containsKey_75(ptr noundef readonly captures(none) %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
@@ -2018,7 +2018,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define signext range(i8 0, 2) i8 @uhash_icontainsKey_75(ptr nocapture noundef readonly %hash, i32 noundef %key) local_unnamed_addr #0 {
+define signext range(i8 0, 2) i8 @uhash_icontainsKey_75(ptr noundef readonly captures(none) %hash, i32 noundef %key) local_unnamed_addr #0 {
 entry:
   %keyholder.sroa.0.0.insert.ext = zext i32 %key to i64
   %0 = inttoptr i64 %keyholder.sroa.0.0.insert.ext to ptr
@@ -2113,7 +2113,7 @@ _ZL11_uhash_findPK10UHashtable8UElementi.exit:    ; preds = %if.then.i, %if.end3
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @uhash_find_75(ptr nocapture noundef readonly %hash, ptr noundef %key) local_unnamed_addr #0 {
+define ptr @uhash_find_75(ptr noundef readonly captures(none) %hash, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %keyHasher = getelementptr inbounds nuw i8, ptr %hash, i64 8
   %0 = load ptr, ptr %keyHasher, align 8
@@ -2245,7 +2245,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 declare i32 @ustr_hashCharsN_75(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define i32 @uhash_hashIChars_75(ptr %key.coerce) local_unnamed_addr #0 {
@@ -2606,7 +2606,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #7
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #10

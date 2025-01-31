@@ -250,7 +250,7 @@ $_ZTVN8QuantLib10ObservableE = comdat any
 @_ZN8QuantLib26GaussianRandomDefaultModelC1ERKN5boost10shared_ptrINS_4PoolEEERKSt6vectorINS_14DefaultProbKeyESaIS8_EERKNS_6HandleINS_15OneFactorCopulaEEEdl = unnamed_addr alias void (ptr, ptr, ptr, ptr, double, i64), ptr @_ZN8QuantLib26GaussianRandomDefaultModelC2ERKN5boost10shared_ptrINS_4PoolEEERKSt6vectorINS_14DefaultProbKeyESaIS8_EERKNS_6HandleINS_15OneFactorCopulaEEEdl
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -335,7 +335,7 @@ if.end:                                           ; preds = %_ZN8QuantLib9Single
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8QuantLib8ObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 {
@@ -350,7 +350,7 @@ declare void @llvm.trap() #5
 declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26GaussianRandomDefaultModelC2ERKN5boost10shared_ptrINS_4PoolEEERKSt6vectorINS_14DefaultProbKeyESaIS8_EERKNS_6HandleINS_15OneFactorCopulaEEEdl(ptr noundef nonnull align 8 dereferenceable(5304) %this, ptr noundef nonnull align 8 dereferenceable(16) %pool, ptr noundef nonnull align 8 dereferenceable(24) %defaultKeys, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %copula, double noundef %accuracy, i64 noundef %seed) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26GaussianRandomDefaultModelC2ERKN5boost10shared_ptrINS_4PoolEEERKSt6vectorINS_14DefaultProbKeyESaIS8_EERKNS_6HandleINS_15OneFactorCopulaEEEdl(ptr noundef nonnull align 8 dereferenceable(5304) %this, ptr noundef nonnull align 8 dereferenceable(16) %pool, ptr noundef nonnull align 8 dereferenceable(24) %defaultKeys, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %copula, double noundef %accuracy, i64 noundef %seed) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   tail call void @_ZN8QuantLib18RandomDefaultModelC2ERKN5boost10shared_ptrINS_4PoolEEERKSt6vectorINS_14DefaultProbKeyESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(16) %pool, ptr noundef nonnull align 8 dereferenceable(24) %defaultKeys)
@@ -1517,7 +1517,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_15OneFactorCopulaEE4LinkEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26GaussianRandomDefaultModel5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(5304) initializes((184, 5192), (5200, 5208), (5216, 5224), (5232, 5240), (5248, 5256), (5264, 5272), (5280, 5304)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26GaussianRandomDefaultModel5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(5304) initializes((184, 5192), (5200, 5208), (5216, 5224), (5232, 5240), (5248, 5256), (5264, 5272), (5280, 5304)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::InverseCumulativeRsg", align 8
   %pool_ = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -3808,10 +3808,10 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_31DefaultProbabilityTermStructureEE4
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef double @_ZNK8QuantLib8Solver1DINS_9BisectionEE5solveINS_12_GLOBAL__N_14RootEEEdRKT_dddd(ptr nocapture noundef nonnull align 8 dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(24) %f, double noundef %accuracy, double noundef %guess, double noundef %xMax) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef double @_ZNK8QuantLib8Solver1DINS_9BisectionEE5solveINS_12_GLOBAL__N_14RootEEEdRKT_dddd(ptr noundef nonnull align 8 captures(none) dereferenceable(74) %this, ptr noundef nonnull align 8 dereferenceable(24) %f, double noundef %accuracy, double noundef %guess, double noundef %xMax) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5843,7 +5843,7 @@ _ZNSt8_Rb_treeIPN8QuantLib8ObserverES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_EE12_M
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #16
@@ -6600,7 +6600,7 @@ for.end:                                          ; preds = %_ZSt8_DestroyIN8Qua
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #21
@@ -6935,7 +6935,7 @@ declare void @_ZN8QuantLib25MersenneTwisterUniformRngC1Em(ptr noundef nonnull al
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #15
 
 declare void @_ZNK8QuantLib25MersenneTwisterUniformRng5twistEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #6
 

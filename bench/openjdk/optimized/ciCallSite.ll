@@ -154,7 +154,7 @@ declare noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull 
 declare noundef ptr @_ZNK8ciObject7get_oopEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN10ciCallSite5printEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(41) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ciCallSite5printEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(41) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void @_Z20report_unimplementedPKci(ptr noundef nonnull @.str, i32 noundef 51) #7

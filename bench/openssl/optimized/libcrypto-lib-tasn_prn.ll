@@ -54,21 +54,21 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ASN1_PCTX_get_flags(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
+define i64 @ASN1_PCTX_get_flags(ptr noundef readonly captures(none) %p) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %p, align 8
   ret i64 %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ASN1_PCTX_set_flags(ptr nocapture noundef writeonly initializes((0, 8)) %p, i64 noundef %flags) local_unnamed_addr #3 {
+define void @ASN1_PCTX_set_flags(ptr noundef writeonly captures(none) initializes((0, 8)) %p, i64 noundef %flags) local_unnamed_addr #3 {
 entry:
   store i64 %flags, ptr %p, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ASN1_PCTX_get_nm_flags(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
+define i64 @ASN1_PCTX_get_nm_flags(ptr noundef readonly captures(none) %p) local_unnamed_addr #2 {
 entry:
   %nm_flags = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = load i64, ptr %nm_flags, align 8
@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ASN1_PCTX_set_nm_flags(ptr nocapture noundef writeonly initializes((8, 16)) %p, i64 noundef %flags) local_unnamed_addr #3 {
+define void @ASN1_PCTX_set_nm_flags(ptr noundef writeonly captures(none) initializes((8, 16)) %p, i64 noundef %flags) local_unnamed_addr #3 {
 entry:
   %nm_flags = getelementptr inbounds nuw i8, ptr %p, i64 8
   store i64 %flags, ptr %nm_flags, align 8
@@ -84,7 +84,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ASN1_PCTX_get_cert_flags(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
+define i64 @ASN1_PCTX_get_cert_flags(ptr noundef readonly captures(none) %p) local_unnamed_addr #2 {
 entry:
   %cert_flags = getelementptr inbounds nuw i8, ptr %p, i64 16
   %0 = load i64, ptr %cert_flags, align 8
@@ -92,7 +92,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ASN1_PCTX_set_cert_flags(ptr nocapture noundef writeonly initializes((16, 24)) %p, i64 noundef %flags) local_unnamed_addr #3 {
+define void @ASN1_PCTX_set_cert_flags(ptr noundef writeonly captures(none) initializes((16, 24)) %p, i64 noundef %flags) local_unnamed_addr #3 {
 entry:
   %cert_flags = getelementptr inbounds nuw i8, ptr %p, i64 16
   store i64 %flags, ptr %cert_flags, align 8
@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ASN1_PCTX_get_oid_flags(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
+define i64 @ASN1_PCTX_get_oid_flags(ptr noundef readonly captures(none) %p) local_unnamed_addr #2 {
 entry:
   %oid_flags = getelementptr inbounds nuw i8, ptr %p, i64 24
   %0 = load i64, ptr %oid_flags, align 8
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ASN1_PCTX_set_oid_flags(ptr nocapture noundef writeonly initializes((24, 32)) %p, i64 noundef %flags) local_unnamed_addr #3 {
+define void @ASN1_PCTX_set_oid_flags(ptr noundef writeonly captures(none) initializes((24, 32)) %p, i64 noundef %flags) local_unnamed_addr #3 {
 entry:
   %oid_flags = getelementptr inbounds nuw i8, ptr %p, i64 24
   store i64 %flags, ptr %oid_flags, align 8
@@ -116,7 +116,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ASN1_PCTX_get_str_flags(ptr nocapture noundef readonly %p) local_unnamed_addr #2 {
+define i64 @ASN1_PCTX_get_str_flags(ptr noundef readonly captures(none) %p) local_unnamed_addr #2 {
 entry:
   %str_flags = getelementptr inbounds nuw i8, ptr %p, i64 32
   %0 = load i64, ptr %str_flags, align 8
@@ -124,7 +124,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ASN1_PCTX_set_str_flags(ptr nocapture noundef writeonly initializes((32, 40)) %p, i64 noundef %flags) local_unnamed_addr #3 {
+define void @ASN1_PCTX_set_str_flags(ptr noundef writeonly captures(none) initializes((32, 40)) %p, i64 noundef %flags) local_unnamed_addr #3 {
 entry:
   %str_flags = getelementptr inbounds nuw i8, ptr %p, i64 32
   store i64 %flags, ptr %str_flags, align 8
@@ -614,7 +614,7 @@ return:                                           ; preds = %if.end145, %for.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr nocapture noundef readonly %pctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_print_fsname(ptr noundef %out, i32 noundef %indent, ptr noundef %fname, ptr noundef %sname, ptr noundef readonly captures(none) %pctx) unnamed_addr #0 {
 entry:
   %cmp17 = icmp sgt i32 %indent, 20
   br i1 %cmp17, label %while.body, label %while.end
@@ -687,7 +687,7 @@ return:                                           ; preds = %while.body, %if.end
 declare i32 @BIO_puts(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr nocapture noundef readonly %tt, ptr noundef %pctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_template_print_ctx(ptr noundef %out, ptr noundef %fld, i32 noundef %indent, ptr noundef readonly captures(none) %tt, ptr noundef %pctx) unnamed_addr #0 {
 entry:
   %tfld = alloca ptr, align 8
   %skitem = alloca ptr, align 8
@@ -883,7 +883,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_print_obstring(ptr noundef %out, ptr nocapture noundef readonly %str, i32 noundef %indent) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_print_obstring(ptr noundef %out, ptr noundef readonly captures(none) %str, i32 noundef %indent) unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds nuw i8, ptr %str, i64 4
   %0 = load i32, ptr %type, align 4

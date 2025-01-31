@@ -89,7 +89,7 @@ $_ZTIN7nanogui6LayoutE = comdat any
 @_ZN7nanogui18AdvancedGridLayoutC1ERKSt6vectorIiSaIiEES5_i = hidden unnamed_addr alias void (ptr, ptr, ptr, i32), ptr @_ZN7nanogui18AdvancedGridLayoutC2ERKSt6vectorIiSaIiEES5_i
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7nanogui9BoxLayoutC2ENS_11OrientationENS_9AlignmentEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 17), (20, 28)) %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN7nanogui9BoxLayoutC2ENS_11OrientationENS_9AlignmentEii(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) initializes((0, 17), (20, 28)) %0, i32 noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN7nanogui9BoxLayoutE, i64 16), ptr %0, align 8
@@ -105,7 +105,7 @@ define hidden void @_ZN7nanogui9BoxLayoutC2ENS_11OrientationENS_9AlignmentEii(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZNK7nanogui9BoxLayout14preferred_sizeEP10NVGcontextPKNS_6WidgetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden i64 @_ZNK7nanogui9BoxLayout14preferred_sizeEP10NVGcontextPKNS_6WidgetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
   %3 = alloca %"struct.nanogui::Array", align 4
   %4 = alloca %"struct.nanogui::Array", align 4
@@ -250,10 +250,10 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #2
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6WidgetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6WidgetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"struct.nanogui::Array", align 4
   %5 = alloca %"struct.nanogui::Array", align 8
   %6 = alloca %"struct.nanogui::Array", align 8
@@ -465,7 +465,7 @@ define hidden void @_ZNK7nanogui9BoxLayout14perform_layoutEP10NVGcontextPNS_6Wid
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6WidgetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6WidgetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = shl nsw i32 %5, 1
@@ -587,7 +587,7 @@ define hidden i64 @_ZNK7nanogui11GroupLayout14preferred_sizeEP10NVGcontextPKNS_6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6WidgetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6WidgetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
@@ -723,7 +723,7 @@ define hidden void @_ZNK7nanogui11GroupLayout14perform_layoutEP10NVGcontextPNS_6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZNK7nanogui10GridLayout14preferred_sizeEP10NVGcontextPKNS_6WidgetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden i64 @_ZNK7nanogui10GridLayout14preferred_sizeEP10NVGcontextPKNS_6WidgetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"class.std::vector.5"], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -868,7 +868,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit23:                  ; preds = %68, %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7nanogui10GridLayout14compute_layoutEP10NVGcontextPKNS_6WidgetEPSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7nanogui10GridLayout14compute_layoutEP10NVGcontextPKNS_6WidgetEPSt6vectorIiSaIiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.nanogui::Array", align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1089,7 +1089,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit58:          ; preds = %71, %73, %75, %77
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7nanogui10GridLayout14perform_layoutEP10NVGcontextPNS_6WidgetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7nanogui10GridLayout14perform_layoutEP10NVGcontextPNS_6WidgetE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0237 = alloca i32, align 4
   %.sroa.2238 = alloca i32, align 4
   %4 = alloca [2 x %"class.std::vector.5"], align 16
@@ -1577,7 +1577,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit121:                 ; preds = %243, %247
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui18AdvancedGridLayoutC2ERKSt6vectorIiSaIiEES5_i(ptr noundef nonnull align 8 dereferenceable(172) initializes((0, 12), (16, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui18AdvancedGridLayoutC2ERKSt6vectorIiSaIiEES5_i(ptr noundef nonnull align 8 dereferenceable(172) initializes((0, 12), (16, 40)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca float, align 4
   %6 = alloca float, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3295,7 +3295,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
@@ -3306,7 +3306,7 @@ declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #12
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
@@ -3370,7 +3370,7 @@ _ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
@@ -3592,7 +3592,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i71, %.l
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15

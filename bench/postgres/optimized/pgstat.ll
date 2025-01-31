@@ -434,7 +434,7 @@ pgstat_reset_after_failure.exit:                  ; preds = %29
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #2
@@ -959,7 +959,7 @@ define dso_local void @pgstat_reset_counters() local_unnamed_addr #0 {
 declare void @pgstat_reset_matching_entries(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @match_db_entries(ptr nocapture noundef readonly %0, i64 %1) #6 {
+define internal zeroext i1 @match_db_entries(ptr noundef readonly captures(none) %0, i64 %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr @MyDatabaseId, align 4
@@ -1043,7 +1043,7 @@ define dso_local void @pgstat_clear_snapshot() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #4
 
@@ -1069,7 +1069,7 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i32 nou
 12:                                               ; preds = %11, %3
   %13 = phi i32 [ %.pr, %11 ], [ %9, %3 ]
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %15, label %61
+  br i1 %14, label %15, label %59
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
@@ -1134,98 +1134,91 @@ define dso_local ptr @pgstat_fetch_entry(i32 noundef %0, i32 noundef %1, i32 nou
 
 pgstat_snapshot_lookup.exit.thread:               ; preds = %47, %15
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  br label %59
+  %56 = icmp eq i32 %13, 2
+  br i1 %56, label %102, label %59
 
 pgstat_snapshot_lookup.exit:                      ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  %.not = icmp eq ptr %54, null
-  br i1 %.not, label %59, label %56
-
-56:                                               ; preds = %pgstat_snapshot_lookup.exit
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %58 = load ptr, ptr %57, align 8
-  br label %104
+  br label %102
 
-59:                                               ; preds = %pgstat_snapshot_lookup.exit.thread, %pgstat_snapshot_lookup.exit
-  %60 = icmp eq i32 %13, 2
-  br i1 %60, label %104, label %61
-
-61:                                               ; preds = %59, %12
+59:                                               ; preds = %pgstat_snapshot_lookup.exit.thread, %12
   store i32 %13, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 24), align 8
-  %62 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext false, ptr noundef null) #17
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %69, label %64
+  %60 = tail call ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext false, ptr noundef null) #17
+  %61 = icmp eq ptr %60, null
+  br i1 %61, label %67, label %62
 
-64:                                               ; preds = %61
-  %65 = load ptr, ptr %62, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %67 = load i8, ptr %66, align 4
-  %68 = trunc i8 %67 to i1
-  br i1 %68, label %69, label %76
+62:                                               ; preds = %59
+  %63 = load ptr, ptr %60, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  %65 = load i8, ptr %64, align 4
+  %66 = trunc i8 %65 to i1
+  br i1 %66, label %67, label %74
 
-69:                                               ; preds = %64, %61
-  %70 = load i32, ptr @pgstat_fetch_consistency, align 4
-  %71 = icmp eq i32 %70, 1
-  br i1 %71, label %72, label %104
+67:                                               ; preds = %62, %59
+  %68 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %69 = icmp eq i32 %68, 1
+  br i1 %69, label %70, label %102
 
-72:                                               ; preds = %69
-  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
+70:                                               ; preds = %67
+  %71 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
   %.sroa.4.0.insert.ext26 = zext i32 %1 to i64
   %.sroa.4.0.insert.shift27 = shl nuw i64 %.sroa.4.0.insert.ext26, 32
   %.sroa.019.0.insert.insert22 = or disjoint i64 %.sroa.4.0.insert.shift27, %7
-  %74 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %73, i64 %.sroa.019.0.insert.insert22, i32 %2, ptr noundef %5)
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store ptr null, ptr %75, align 8
-  br label %104
+  %72 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %71, i64 %.sroa.019.0.insert.insert22, i32 %2, ptr noundef %5)
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store ptr null, ptr %73, align 8
+  br label %102
 
-76:                                               ; preds = %64
-  %77 = load i32, ptr @pgstat_fetch_consistency, align 4
-  %78 = icmp eq i32 %77, 0
-  br i1 %78, label %79, label %84
+74:                                               ; preds = %62
+  %75 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %76 = icmp eq i32 %75, 0
+  br i1 %76, label %77, label %82
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %81 = load i32, ptr %80, align 4
-  %82 = zext i32 %81 to i64
-  %83 = tail call ptr @palloc(i64 noundef %82) #17
-  br label %90
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %79 = load i32, ptr %78, align 4
+  %80 = zext i32 %79 to i64
+  %81 = tail call ptr @palloc(i64 noundef %80) #17
+  br label %88
 
-84:                                               ; preds = %76
-  %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
-  %86 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %87 = load i32, ptr %86, align 4
-  %88 = zext i32 %87 to i64
-  %89 = tail call ptr @MemoryContextAlloc(ptr noundef %85, i64 noundef %88) #17
-  br label %90
+82:                                               ; preds = %74
+  %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17272), align 8
+  %84 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %85 = load i32, ptr %84, align 4
+  %86 = zext i32 %85 to i64
+  %87 = tail call ptr @MemoryContextAlloc(ptr noundef %83, i64 noundef %86) #17
+  br label %88
 
-90:                                               ; preds = %84, %79
-  %.pre-phi = phi i64 [ %88, %84 ], [ %82, %79 ]
-  %.044 = phi ptr [ %89, %84 ], [ %83, %79 ]
-  %91 = tail call zeroext i1 @pgstat_lock_entry_shared(ptr noundef nonnull %62, i1 noundef zeroext false) #17
-  %92 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr [12 x %struct.PgStat_KindInfo], ptr @pgstat_kind_infos, i64 0, i64 %7, i32 2
-  %95 = load i32, ptr %94, align 8
-  %96 = zext i32 %95 to i64
-  %97 = getelementptr i8, ptr %93, i64 %96
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.044, ptr align 1 %97, i64 %.pre-phi, i1 false)
-  tail call void @pgstat_unlock_entry(ptr noundef nonnull %62) #17
-  %98 = load i32, ptr @pgstat_fetch_consistency, align 4
-  %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %100, label %104
+88:                                               ; preds = %82, %77
+  %.pre-phi = phi i64 [ %86, %82 ], [ %80, %77 ]
+  %.044 = phi ptr [ %87, %82 ], [ %81, %77 ]
+  %89 = tail call zeroext i1 @pgstat_lock_entry_shared(ptr noundef nonnull %60, i1 noundef zeroext false) #17
+  %90 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = getelementptr [12 x %struct.PgStat_KindInfo], ptr @pgstat_kind_infos, i64 0, i64 %7, i32 2
+  %93 = load i32, ptr %92, align 8
+  %94 = zext i32 %93 to i64
+  %95 = getelementptr i8, ptr %91, i64 %94
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.044, ptr align 1 %95, i64 %.pre-phi, i1 false)
+  tail call void @pgstat_unlock_entry(ptr noundef nonnull %60) #17
+  %96 = load i32, ptr @pgstat_fetch_consistency, align 4
+  %97 = icmp sgt i32 %96, 0
+  br i1 %97, label %98, label %102
 
-100:                                              ; preds = %90
-  %101 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
+98:                                               ; preds = %88
+  %99 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pgStatLocal, i64 17280), align 8
   %.sroa.4.0.insert.ext = zext i32 %1 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
   %.sroa.019.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %7
-  %102 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %101, i64 %.sroa.019.0.insert.insert, i32 %2, ptr noundef %6)
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
-  store ptr %.044, ptr %103, align 8
-  br label %104
+  %100 = call fastcc ptr @pgstat_snapshot_insert(ptr noundef %99, i64 %.sroa.019.0.insert.insert, i32 %2, ptr noundef %6)
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  store ptr %.044, ptr %101, align 8
+  br label %102
 
-104:                                              ; preds = %90, %100, %69, %72, %59, %56
-  %.0 = phi ptr [ %58, %56 ], [ null, %59 ], [ null, %72 ], [ null, %69 ], [ %.044, %100 ], [ %.044, %90 ]
+102:                                              ; preds = %88, %98, %67, %70, %pgstat_snapshot_lookup.exit.thread, %pgstat_snapshot_lookup.exit
+  %.0 = phi ptr [ %58, %pgstat_snapshot_lookup.exit ], [ null, %pgstat_snapshot_lookup.exit.thread ], [ null, %70 ], [ null, %67 ], [ %.044, %98 ], [ %.044, %88 ]
   ret ptr %.0
 }
 
@@ -1416,12 +1409,12 @@ pgstat_build_snapshot_fixed.exit:                 ; preds = %56, %53, %44
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare ptr @pgstat_get_entry_ref(i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @pgstat_snapshot_insert(ptr nocapture noundef %0, i64 %1, i32 %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @pgstat_snapshot_insert(ptr noundef captures(none) %0, i64 %1, i32 %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.PgStat_HashKey, align 8
   %6 = lshr i64 %1, 23
   %7 = xor i64 %6, %1
@@ -1839,7 +1832,7 @@ declare zeroext i1 @pgstat_lock_entry_shared(ptr noundef, i1 noundef zeroext) lo
 declare void @pgstat_unlock_entry(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @pgstat_get_stat_snapshot_timestamp(ptr nocapture noundef writeonly initializes((0, 1)) %0) local_unnamed_addr #0 {
+define dso_local i64 @pgstat_get_stat_snapshot_timestamp(ptr noundef writeonly captures(none) initializes((0, 1)) %0) local_unnamed_addr #0 {
   %.b2 = load i1, ptr @force_stats_snapshot_clear, align 1
   br i1 %.b2, label %2, label %5
 
@@ -2096,7 +2089,7 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @errcode(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @assign_stats_fetch_consistency(i32 noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #10 {
+define dso_local void @assign_stats_fetch_consistency(i32 noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #10 {
   %3 = load i32, ptr @pgstat_fetch_consistency, align 4
   %.not = icmp eq i32 %3, %0
   br i1 %.not, label %5, label %4
@@ -2179,24 +2172,24 @@ declare ptr @AllocateFile(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @ProcessInterrupts() local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @FreeFile(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
+declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #1
 
 declare ptr @dshash_find_or_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
@@ -2205,7 +2198,7 @@ declare void @dshash_release_lock(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @pgstat_init_entry(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 declare void @pgstat_drop_all_entries() local_unnamed_addr #4
 
@@ -2219,13 +2212,13 @@ declare i64 @llvm.umax.i64(i64, i64) #14
 declare i64 @llvm.ctpop.i64(i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

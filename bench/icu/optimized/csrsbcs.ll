@@ -188,7 +188,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7526CharsetRecog_IBM420_ar_ltrD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7526CharsetRecog_IBM420_ar_ltrD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7511NGramParserC2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 36), (40, 48)) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7511NGramParserC2EPKiPKh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 12), (16, 36), (40, 48)) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511NGramParserE, i64 16), ptr %this, align 8
   %ngram = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -207,7 +207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7511NGramParserD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7511NGramParserD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -224,7 +224,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef range(i32 -1, 67) i32 @_ZN6icu_7511NGramParser6searchEPKii(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %table, i32 noundef %value) local_unnamed_addr #4 align 2 {
+define noundef range(i32 -1, 67) i32 @_ZN6icu_7511NGramParser6searchEPKii(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %table, i32 noundef %value) local_unnamed_addr #4 align 2 {
 entry:
   %arrayidx = getelementptr inbounds nuw i8, ptr %table, i64 128
   %0 = load i32, ptr %arrayidx, align 4
@@ -283,7 +283,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7511NGramParser6lookupEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %thisNgram) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7511NGramParser6lookupEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 noundef %thisNgram) local_unnamed_addr #5 align 2 {
 entry:
   %ngramCount = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %ngramCount, align 8
@@ -353,7 +353,7 @@ if.end:                                           ; preds = %lor.lhs.false.i, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7511NGramParser7addByteEi(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %b) local_unnamed_addr #5 align 2 {
+define void @_ZN6icu_7511NGramParser7addByteEi(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, i32 noundef %b) local_unnamed_addr #5 align 2 {
 entry:
   %ngram = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %ngram, align 8
@@ -429,7 +429,7 @@ _ZN6icu_7511NGramParser6lookupEi.exit:            ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN6icu_7511NGramParser8nextByteEPNS_9InputTextE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %det) unnamed_addr #5 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN6icu_7511NGramParser8nextByteEPNS_9InputTextE(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %det) unnamed_addr #5 align 2 {
 entry:
   %byteIndex = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %byteIndex, align 8
@@ -717,7 +717,7 @@ _ZN6icu_7511NGramParser7addByteEi.exit:           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7518NGramParser_IBM420C2EPKiPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 12), (16, 36), (40, 52)) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518NGramParser_IBM420C2EPKiPKh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((0, 12), (16, 36), (40, 52)) %this, ptr noundef %theNgramList, ptr noundef %theCharMap) unnamed_addr #0 align 2 {
 entry:
   %ngram.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %ngram.i, align 8
@@ -738,7 +738,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN6icu_7518NGramParser_IBM420D2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7518NGramParser_IBM420D2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret void
 }
@@ -752,7 +752,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, 87) i32 @_ZN6icu_7518NGramParser_IBM4209isLamAlefEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(52) %this, i32 noundef %b) local_unnamed_addr #1 align 2 {
+define noundef range(i32 0, 87) i32 @_ZN6icu_7518NGramParser_IBM4209isLamAlefEi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(52) %this, i32 noundef %b) local_unnamed_addr #1 align 2 {
 entry:
   %0 = and i32 %b, -2
   switch i32 %0, label %if.else7 [
@@ -774,7 +774,7 @@ return:                                           ; preds = %entry, %return.fold
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -1, 256) i32 @_ZN6icu_7518NGramParser_IBM4208nextByteEPNS_9InputTextE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef readonly %det) unnamed_addr #5 align 2 {
+define noundef range(i32 -1, 256) i32 @_ZN6icu_7518NGramParser_IBM4208nextByteEPNS_9InputTextE(ptr noundef nonnull align 8 captures(none) dereferenceable(52) %this, ptr noundef readonly captures(none) %det) unnamed_addr #5 align 2 {
 entry:
   %byteIndex = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i32, ptr %byteIndex, align 8
@@ -1169,7 +1169,7 @@ while.end:                                        ; preds = %if.end30, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7517CharsetRecog_sbcsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7517CharsetRecog_sbcsC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7517CharsetRecog_sbcsE, i64 16), ptr %this, align 8
   ret void
@@ -1186,7 +1186,7 @@ entry:
 declare void @_ZN6icu_7517CharsetRecognizerD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7517CharsetRecog_sbcsD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7517CharsetRecog_sbcsD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
@@ -1196,7 +1196,7 @@ entry:
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517CharsetRecog_sbcs10match_sbcsEPNS_9InputTextEPKiPKh(ptr nocapture nonnull readnone align 8 %this, ptr noundef %det, ptr noundef %ngrams, ptr noundef %byteMap) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7517CharsetRecog_sbcs10match_sbcsEPNS_9InputTextEPKiPKh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %det, ptr noundef %ngrams, ptr noundef %byteMap) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parser = alloca %"class.icu_75::NGramParser", align 8
   call void @_ZN6icu_7511NGramParserC1EPKiPKh(ptr noundef nonnull align 8 dereferenceable(48) %parser, ptr noundef %ngrams, ptr noundef %byteMap)
@@ -1354,7 +1354,7 @@ for.end:                                          ; preds = %for.inc
 declare void @_ZN6icu_7512CharsetMatch3setEPNS_9InputTextEPKNS_17CharsetRecognizerEiPKcS7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_17getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_17getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.1
 }
@@ -1413,7 +1413,7 @@ for.end:                                          ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_27getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_27getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.3
 }
@@ -1426,14 +1426,14 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7519CharsetRecog_8859_5D0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7519CharsetRecog_8859_5D0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_57getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_57getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.4
 }
@@ -1454,7 +1454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_5_ru11getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_5_ru11getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.5
 }
@@ -1480,14 +1480,14 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7519CharsetRecog_8859_6D0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7519CharsetRecog_8859_6D0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_67getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_67getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.6
 }
@@ -1508,7 +1508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_6_ar11getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_6_ar11getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.7
 }
@@ -1534,14 +1534,14 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7519CharsetRecog_8859_7D0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7519CharsetRecog_8859_7D0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_77getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_77getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.8
 }
@@ -1562,7 +1562,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_7_el11getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_7_el11getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.9
 }
@@ -1592,14 +1592,14 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7519CharsetRecog_8859_8D0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7519CharsetRecog_8859_8D0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_87getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_87getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.11
 }
@@ -1620,13 +1620,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7524CharsetRecog_8859_8_I_he7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7524CharsetRecog_8859_8_I_he7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7524CharsetRecog_8859_8_I_he11getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7524CharsetRecog_8859_8_I_he11getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.13
 }
@@ -1664,7 +1664,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_8_he11getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_8_he11getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.13
 }
@@ -1694,14 +1694,14 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7519CharsetRecog_8859_9D0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7519CharsetRecog_8859_9D0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_97getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_8859_97getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.15
 }
@@ -1722,7 +1722,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_9_tr11getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_8859_9_tr11getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.16
 }
@@ -1760,13 +1760,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7525CharsetRecog_windows_12567getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7525CharsetRecog_windows_12567getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7525CharsetRecog_windows_125611getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7525CharsetRecog_windows_125611getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.7
 }
@@ -1800,13 +1800,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7525CharsetRecog_windows_12517getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7525CharsetRecog_windows_12517getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7525CharsetRecog_windows_125111getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7525CharsetRecog_windows_125111getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.5
 }
@@ -1840,13 +1840,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_KOI8_R7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_KOI8_R7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_KOI8_R11getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7519CharsetRecog_KOI8_R11getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.5
 }
@@ -1872,14 +1872,14 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7522CharsetRecog_IBM424_heD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7522CharsetRecog_IBM424_heD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_IBM424_he11getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_IBM424_he11getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.13
 }
@@ -1900,7 +1900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7526CharsetRecog_IBM424_he_rtl7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7526CharsetRecog_IBM424_he_rtl7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.21
 }
@@ -1934,7 +1934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7526CharsetRecog_IBM424_he_ltr7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7526CharsetRecog_IBM424_he_ltr7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.22
 }
@@ -1960,20 +1960,20 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6icu_7522CharsetRecog_IBM420_arD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7522CharsetRecog_IBM420_arD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.trap() #11
   unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_IBM420_ar11getLanguageEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7522CharsetRecog_IBM420_ar11getLanguageEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7522CharsetRecog_IBM420_ar10match_sbcsEPNS_9InputTextEPKiPKh(ptr nocapture nonnull readnone align 8 %this, ptr noundef %det, ptr noundef %ngrams, ptr noundef %byteMap) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6icu_7522CharsetRecog_IBM420_ar10match_sbcsEPNS_9InputTextEPKiPKh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %det, ptr noundef %ngrams, ptr noundef %byteMap) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parser = alloca %"class.icu_75::NGramParser_IBM420", align 8
   call void @_ZN6icu_7518NGramParser_IBM420C1EPKiPKh(ptr noundef nonnull align 8 dereferenceable(52) %parser, ptr noundef %ngrams, ptr noundef %byteMap)
@@ -2089,7 +2089,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7526CharsetRecog_IBM420_ar_rtl7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7526CharsetRecog_IBM420_ar_rtl7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.23
 }
@@ -2123,7 +2123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7526CharsetRecog_IBM420_ar_ltr7getNameEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7526CharsetRecog_IBM420_ar_ltr7getNameEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
 entry:
   ret ptr @.str.24
 }

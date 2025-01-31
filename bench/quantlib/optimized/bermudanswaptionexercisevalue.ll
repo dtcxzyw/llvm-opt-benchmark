@@ -82,7 +82,7 @@ $_ZTIN8QuantLib24MarketModelExerciseValueE = comdat any
 @_ZN8QuantLib29BermudanSwaptionExerciseValueC1ERKSt6vectorIdSaIdEES1_IN5boost10shared_ptrINS_6PayoffEEESaIS9_EE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib29BermudanSwaptionExerciseValueC2ERKSt6vectorIdSaIdEES1_IN5boost10shared_ptrINS_6PayoffEEESaIS9_EE
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1 align 2
@@ -201,7 +201,7 @@ _ZN5boost10shared_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
@@ -209,7 +209,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29BermudanSwaptionExerciseValueC2ERKSt6vectorIdSaIdEES1_IN5boost10shared_ptrINS_6PayoffEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef %payoffs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29BermudanSwaptionExerciseValueC2ERKSt6vectorIdSaIdEES1_IN5boost10shared_ptrINS_6PayoffEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr noundef captures(none) %payoffs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -707,7 +707,7 @@ unreachable:                                      ; preds = %invoke.cont22
 declare void @_ZN8QuantLib20checkIncreasingTimesERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @_ZN8QuantLib20EvolutionDescriptionC1ERKSt6vectorIdSaIdEES5_RKS1_ISt4pairImmESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
@@ -1007,7 +1007,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib6PayoffEEESaIS4_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZNK8QuantLib29BermudanSwaptionExerciseValue17numberOfExercisesEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #7 align 2 {
+define noundef i64 @_ZNK8QuantLib29BermudanSwaptionExerciseValue17numberOfExercisesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) unnamed_addr #7 align 2 {
 entry:
   %numberOfExercises_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %numberOfExercises_, align 8, !tbaa !19
@@ -1022,7 +1022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.3") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue21possibleCashFlowTimesEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.3") align 8 captures(none) initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1067,7 +1067,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib29BermudanSwaptionExerciseValue5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((192, 200)) %this) unnamed_addr #9 align 2 {
+define void @_ZN8QuantLib29BermudanSwaptionExerciseValue5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(216) initializes((192, 200)) %this) unnamed_addr #9 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i64 0, ptr %currentIndex_, align 8, !tbaa !57
@@ -1075,7 +1075,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29BermudanSwaptionExerciseValue8nextStepERKNS_10CurveStateE(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((200, 216)) %this, ptr noundef nonnull align 8 dereferenceable(64) %state) unnamed_addr #1 align 2 {
+define void @_ZN8QuantLib29BermudanSwaptionExerciseValue8nextStepERKNS_10CurveStateE(ptr noundef nonnull align 8 captures(none) dereferenceable(216) initializes((200, 216)) %this, ptr noundef nonnull align 8 dereferenceable(64) %state) unnamed_addr #1 align 2 {
 entry:
   %payoffs_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -1122,7 +1122,7 @@ _ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv.exit: ; preds = %entry, %cond.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue14isExerciseTimeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::valarray") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #1 align 2 {
+define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue14isExerciseTimeEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::valarray") align 8 captures(none) initializes((0, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this) unnamed_addr #1 align 2 {
 entry:
   %numberOfExercises_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %numberOfExercises_, align 8, !tbaa !19
@@ -1142,7 +1142,7 @@ _ZNSt8valarrayIbEC2ERKbm.exit:                    ; preds = %entry, %while.body.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, double } @_ZNK8QuantLib29BermudanSwaptionExerciseValue5valueERKNS_10CurveStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #7 align 2 {
+define { i64, double } @_ZNK8QuantLib29BermudanSwaptionExerciseValue5valueERKNS_10CurveStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #7 align 2 {
 entry:
   %cf_ = getelementptr inbounds nuw i8, ptr %this, i64 200
   %retval.sroa.0.0.copyload = load i64, ptr %cf_, align 8, !tbaa !8
@@ -1154,10 +1154,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #23
   invoke void @_ZN8QuantLib29BermudanSwaptionExerciseValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %call, ptr noundef nonnull align 8 dereferenceable(216) %this)
@@ -1868,13 +1868,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit120:                 ; preds = %ehcleanup15, %if.th
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #10
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #2
 

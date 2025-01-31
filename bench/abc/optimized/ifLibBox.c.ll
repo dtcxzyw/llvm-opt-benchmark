@@ -55,12 +55,12 @@ define noalias noundef ptr @If_BoxStart(ptr noundef %0, i32 noundef %1, i32 noun
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @If_BoxDup(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define noalias noundef ptr @If_BoxDup(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @If_BoxFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
+define void @If_BoxFree(ptr noundef captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -86,7 +86,7 @@ define void @If_BoxFree(ptr nocapture noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: none, inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @If_LibBoxStart() local_unnamed_addr #0 {
@@ -104,7 +104,7 @@ define noalias noundef ptr @If_LibBoxStart() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noalias noundef ptr @If_LibBoxDup(ptr nocapture noundef readnone %0) local_unnamed_addr #2 {
+define noalias noundef ptr @If_LibBoxDup(ptr noundef readnone captures(none) %0) local_unnamed_addr #2 {
   ret ptr null
 }
 
@@ -186,7 +186,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @If_LibBoxReadBox(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @If_LibBoxReadBox(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 8
@@ -198,7 +198,7 @@ define ptr @If_LibBoxReadBox(ptr nocapture noundef readonly %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @If_LibBoxFindBox(ptr noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define ptr @If_LibBoxFindBox(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %.preheader
 
@@ -240,10 +240,10 @@ define ptr @If_LibBoxFindBox(ptr noundef readonly %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @If_LibBoxAdd(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @If_LibBoxAdd(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -361,7 +361,7 @@ Vec_PtrFillExtra.exit:                            ; preds = %._crit_edge.i, %8, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @If_LibBoxNum(ptr nocapture noundef readonly %0) local_unnamed_addr #9 {
+define i32 @If_LibBoxNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 {
   %2 = load i32, ptr %0, align 8
   ret i32 %2
 }
@@ -603,31 +603,31 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %49
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #12
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @If_LibBoxGetToken(ptr nocapture noundef %0) local_unnamed_addr #14 {
+define noundef ptr @If_LibBoxGetToken(ptr noundef captures(none) %0) local_unnamed_addr #14 {
   br label %.outer
 
 .outer:                                           ; preds = %.split22.us, %1
@@ -698,7 +698,7 @@ define noundef ptr @If_LibBoxGetToken(ptr nocapture noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @If_LibBoxRead(ptr noundef %0) local_unnamed_addr #5 {
@@ -886,7 +886,7 @@ If_LibBoxGetToken.exit:                           ; preds = %.outer.split.us.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_LibBoxPrint(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define void @If_LibBoxPrint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = tail call ptr (...) @Extra_TimeStamp() #20
   %4 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.10, ptr noundef %3) #20
   %5 = tail call i64 @fwrite(ptr nonnull @.str.11, i64 29, i64 1, ptr %0)
@@ -981,12 +981,12 @@ define void @If_LibBoxPrint(ptr nocapture noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 declare ptr @Extra_TimeStamp(...) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define void @If_LibBoxWrite(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 {
+define void @If_LibBoxWrite(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.16)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -1031,19 +1031,19 @@ declare ptr @Abc_FrameReadLibBox(...) local_unnamed_addr #15
 declare void @Abc_FrameSetLibBox(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #16
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #17
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #18
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #18

@@ -30,7 +30,7 @@ $__clang_call_terminate = comdat any
 @_hb_NullPool = external constant [80 x i64], align 16
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_ot_meta_get_entry_tags(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @hb_ot_meta_get_entry_tags(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load atomic i64, ptr %5 acquire, align 8
   %.not23.i.i.i = icmp eq i64 %6, 0
@@ -219,7 +219,7 @@ _ZorI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @hb_ot_meta_reference_entry(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @hb_ot_meta_reference_entry(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %4 = load atomic i64, ptr %3 acquire, align 8
   %.not23.i.i.i = icmp eq i64 %4, 0
@@ -815,10 +815,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9

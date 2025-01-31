@@ -30,20 +30,20 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6google8protobuf8compiler4java16GeneratorFactoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN6google8protobuf8compiler4java16GeneratorFactoryC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler4java16GeneratorFactoryE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6google8protobuf8compiler4java16GeneratorFactoryD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6google8protobuf8compiler4java16GeneratorFactoryD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN6google8protobuf8compiler4java16GeneratorFactoryD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6google8protobuf8compiler4java16GeneratorFactoryD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.trap() #12
   unreachable
@@ -53,7 +53,7 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6google8protobuf8compiler4java25ImmutableGeneratorFactoryC2EPNS2_7ContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %context) unnamed_addr #3 align 2 {
+define hidden void @_ZN6google8protobuf8compiler4java25ImmutableGeneratorFactoryC2EPNS2_7ContextE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %context) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6google8protobuf8compiler4java25ImmutableGeneratorFactoryE, i64 16), ptr %this, align 8
   %context_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -62,7 +62,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN6google8protobuf8compiler4java25ImmutableGeneratorFactoryD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6google8protobuf8compiler4java25ImmutableGeneratorFactoryD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
@@ -78,7 +78,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory19NewMessageGeneratorEPKNS0_10DescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory19NewMessageGeneratorEPKNS0_10DescriptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %context_, align 8
@@ -125,7 +125,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google8protobuf8compiler4java29ImmutableMessageLiteGeneratorC1EPKNS0_10DescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory21NewExtensionGeneratorEPKNS0_15FieldDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory21NewExtensionGeneratorEPKNS0_15FieldDescriptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %context_, align 8
@@ -167,7 +167,7 @@ declare void @_ZN6google8protobuf8compiler4java27ImmutableExtensionGeneratorC1EP
 declare void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorC1EPKNS0_15FieldDescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory19NewServiceGeneratorEPKNS0_17ServiceDescriptorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZNK6google8protobuf8compiler4java25ImmutableGeneratorFactory19NewServiceGeneratorEPKNS0_17ServiceDescriptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %descriptor) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
   %context_ = getelementptr inbounds nuw i8, ptr %this, i64 8

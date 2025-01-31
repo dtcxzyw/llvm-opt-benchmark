@@ -785,7 +785,7 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 declare i64 @OBJ_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EC_GROUP_new_from_ecparameters(ptr nocapture noundef readonly %params) local_unnamed_addr #0 {
+define ptr @EC_GROUP_new_from_ecparameters(ptr noundef readonly captures(none) %params) local_unnamed_addr #0 {
 entry:
   %fieldID = getelementptr inbounds nuw i8, ptr %params, i64 8
   %0 = load ptr, ptr %fieldID, align 8
@@ -1253,7 +1253,7 @@ declare ptr @EC_GROUP_new_curve_GFp(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @EC_POINT_new(ptr noundef) local_unnamed_addr #1
 
@@ -1350,7 +1350,7 @@ return:                                           ; preds = %if.end6, %if.end13,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_ECPKParameters(ptr noundef %a, ptr nocapture noundef %in, i64 noundef %len) local_unnamed_addr #0 {
+define ptr @d2i_ECPKParameters(ptr noundef %a, ptr noundef captures(none) %in, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %0 = load ptr, ptr %in, align 8
@@ -1438,7 +1438,7 @@ return:                                           ; preds = %if.end4, %if.then3,
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_ECPrivateKey(ptr noundef %a, ptr nocapture noundef %in, i64 noundef %len) local_unnamed_addr #0 {
+define ptr @d2i_ECPrivateKey(ptr noundef %a, ptr noundef captures(none) %in, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %p = alloca ptr, align 8
   %0 = load ptr, ptr %in, align 8
@@ -1919,7 +1919,7 @@ return:                                           ; preds = %if.end23, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @o2i_ECPublicKey(ptr noundef readonly %a, ptr nocapture noundef %in, i64 noundef %len) local_unnamed_addr #0 {
+define ptr @o2i_ECPublicKey(ptr noundef readonly %a, ptr noundef captures(none) %in, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %a, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -2168,7 +2168,7 @@ return:                                           ; preds = %if.end33, %land.lhs
 declare i64 @ossl_decode_der_dsa_sig(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @i2d_ECDSA_SIG(ptr nocapture noundef readonly %sig, ptr noundef %ppout) local_unnamed_addr #0 {
+define i32 @i2d_ECDSA_SIG(ptr noundef readonly captures(none) %sig, ptr noundef %ppout) local_unnamed_addr #0 {
 entry:
   %encoded_len = alloca i64, align 8
   %pkt = alloca %struct.wpacket_st, align 8
@@ -2279,7 +2279,7 @@ declare i32 @WPACKET_finish(ptr noundef) local_unnamed_addr #1
 declare void @WPACKET_cleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ECDSA_SIG_get0(ptr nocapture noundef readonly %sig, ptr noundef writeonly %pr, ptr noundef writeonly %ps) local_unnamed_addr #4 {
+define void @ECDSA_SIG_get0(ptr noundef readonly captures(none) %sig, ptr noundef writeonly %pr, ptr noundef writeonly %ps) local_unnamed_addr #4 {
 entry:
   %cmp.not = icmp eq ptr %pr, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -2304,14 +2304,14 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ECDSA_SIG_get0_r(ptr nocapture noundef readonly %sig) local_unnamed_addr #5 {
+define ptr @ECDSA_SIG_get0_r(ptr noundef readonly captures(none) %sig) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %sig, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ECDSA_SIG_get0_s(ptr nocapture noundef readonly %sig) local_unnamed_addr #5 {
+define ptr @ECDSA_SIG_get0_s(ptr noundef readonly captures(none) %sig) local_unnamed_addr #5 {
 entry:
   %s = getelementptr inbounds nuw i8, ptr %sig, i64 8
   %0 = load ptr, ptr %s, align 8
@@ -2319,7 +2319,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ECDSA_SIG_set0(ptr nocapture noundef %sig, ptr noundef %r, ptr noundef %s) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ECDSA_SIG_set0(ptr noundef captures(none) %sig, ptr noundef %r, ptr noundef %s) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %r, null
   %cmp1 = icmp eq ptr %s, null
@@ -2475,10 +2475,10 @@ declare void @ASN1_BIT_STRING_free(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

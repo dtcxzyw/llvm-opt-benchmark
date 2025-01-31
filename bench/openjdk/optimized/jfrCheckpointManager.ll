@@ -183,13 +183,13 @@ declare void @_ZN14JfrTypeManager7destroyEv() local_unnamed_addr #3
 declare void @_ZN21JfrTraceIdLoadBarrier7destroyEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20JfrCheckpointManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN20JfrCheckpointManagerC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN20JfrCheckpointManagerD2Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN20JfrCheckpointManagerD2Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #5 align 2 {
   ret void
 }
 
@@ -380,7 +380,7 @@ _ZN19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb1EE10initializeEm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20JfrCheckpointManager10initializeEP14JfrChunkWriter(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN20JfrCheckpointManager10initializeEP14JfrChunkWriter(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZN14JfrTypeManager10initializeEv() #20
@@ -400,14 +400,14 @@ declare noundef zeroext i1 @_ZN14JfrTypeManager10initializeEv() local_unnamed_ad
 declare noundef zeroext i1 @_ZN21JfrTraceIdLoadBarrier10initializeEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN20JfrCheckpointManager11chunkwriterEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN20JfrCheckpointManager11chunkwriterEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden void @_ZN20JfrCheckpointManager13register_fullEP9JfrBufferP6Thread(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN20JfrCheckpointManager13register_fullEP9JfrBufferP6Thread(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #5 align 2 {
   ret void
 }
 
@@ -604,7 +604,7 @@ _Z27mspace_acquire_to_live_listI14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffe
 declare void @_ZN9JfrBuffer11set_contextEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN20JfrCheckpointManager24get_virtual_thread_localEP6Thread(ptr nocapture noundef readonly %0) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZN20JfrCheckpointManager24get_virtual_thread_localEP6Thread(ptr noundef readonly captures(none) %0) local_unnamed_addr #8 align 2 {
   %2 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %3 = trunc i8 %2 to i1
   %.in.v = select i1 %3, i64 640, i64 632
@@ -614,7 +614,7 @@ define hidden noundef ptr @_ZN20JfrCheckpointManager24get_virtual_thread_localEP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN20JfrCheckpointManager24set_virtual_thread_localEP6ThreadP9JfrBuffer(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN20JfrCheckpointManager24set_virtual_thread_localEP6ThreadP9JfrBuffer(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
   %3 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %4 = trunc i8 %3 to i1
   %. = select i1 %4, i64 640, i64 632
@@ -886,7 +886,7 @@ _Z26migrate_outstanding_writesI9JfrBufferEvPKT_PS1_mm.exit: ; preds = %16, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrCheckpointManager17begin_epoch_shiftEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrCheckpointManager17begin_epoch_shiftEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN15JfrTraceIdEpoch17begin_epoch_shiftEv() #20
   ret void
 }
@@ -894,7 +894,7 @@ define hidden void @_ZN20JfrCheckpointManager17begin_epoch_shiftEv(ptr nocapture
 declare void @_ZN15JfrTraceIdEpoch17begin_epoch_shiftEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrCheckpointManager15end_epoch_shiftEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrCheckpointManager15end_epoch_shiftEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   tail call void @_ZN15JfrTraceIdEpoch15end_epoch_shiftEv() #20
   tail call void @_ZN13JfrStringPool14on_epoch_shiftEv() #20
   ret void
@@ -905,7 +905,7 @@ declare void @_ZN15JfrTraceIdEpoch15end_epoch_shiftEv() local_unnamed_addr #3
 declare void @_ZN13JfrStringPool14on_epoch_shiftEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN20JfrCheckpointManager5writeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN20JfrCheckpointManager5writeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ReinitializeAllReleaseRetiredOp, align 8
   %3 = alloca %class.CompositeOperation.36, align 8
   %4 = alloca %class.CheckpointWriteOp, align 8
@@ -1592,7 +1592,7 @@ _Z17process_live_listI18CompositeOperationI14MutexedWriteOpI35VirtualThreadLocal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN20JfrCheckpointManager5clearEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN20JfrCheckpointManager5clearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ReinitializeAllReleaseRetiredOp, align 8
   %3 = alloca %class.ReinitializeAllReleaseRetiredOp, align 8
   %4 = alloca %class.DiscardOp, align 8
@@ -1830,7 +1830,7 @@ _ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE7iterateI18CompositeOperationI9Discar
 declare void @_ZN21JfrTraceIdLoadBarrier5clearEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrCheckpointManager14clear_type_setEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrCheckpointManager14clear_type_setEv(ptr nonnull readnone align 8 captures(none) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.JfrCheckpointWriter, align 8
   %3 = alloca %class.JfrCheckpointWriter, align 8
   %4 = alloca %class.JfrAddRefCountedBlob, align 1
@@ -1921,7 +1921,7 @@ _ZN11MutexLockerD2Ev.exit9:                       ; preds = %_ZN11MutexLockerD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN20JfrCheckpointManager21write_static_type_setEP6Thread(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN20JfrCheckpointManager21write_static_type_setEP6Thread(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.JfrCheckpointWriter, align 8
   call void @_ZN19JfrCheckpointWriterC1EbP6Threadb17JfrCheckpointType(ptr noundef nonnull align 8 dereferenceable(73) %3, i1 noundef zeroext true, ptr noundef %1, i1 noundef zeroext true, i32 noundef 4) #20
   call void @_ZN14JfrTypeManager18write_static_typesER19JfrCheckpointWriter(ptr noundef nonnull align 8 dereferenceable(73) %3) #20
@@ -1943,7 +1943,7 @@ declare void @_ZN14JfrTypeManager18write_static_typesER19JfrCheckpointWriter(ptr
 declare void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN20JfrCheckpointManager13write_threadsEP10JavaThread(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN20JfrCheckpointManager13write_threadsEP10JavaThread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %class.HandleMark, align 8
   %4 = alloca %class.JfrCheckpointWriter, align 8
   %5 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -2037,7 +2037,7 @@ declare void @_ZN14JfrTypeManager13write_threadsER19JfrCheckpointWriter(ptr noun
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN20JfrCheckpointManager33write_static_type_set_and_threadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN20JfrCheckpointManager33write_static_type_set_and_threadsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.JfrCheckpointWriter, align 8
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
@@ -2052,7 +2052,7 @@ define hidden noundef i64 @_ZN20JfrCheckpointManager33write_static_type_set_and_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrCheckpointManager11on_rotationEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrCheckpointManager11on_rotationEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.JfrThreadIterator, align 8
   tail call void @_ZN14JfrTypeManager11on_rotationEv() #20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2)
@@ -2076,7 +2076,7 @@ _ZN20JfrCheckpointManager14notify_threadsEv.exit: ; preds = %.lr.ph.i, %1
 declare void @_ZN14JfrTypeManager11on_rotationEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrCheckpointManager14notify_threadsEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrCheckpointManager14notify_threadsEv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.JfrThreadIterator, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @_ZN28JfrJavaThreadIteratorAdapterC1Eb(ptr noundef nonnull align 8 dereferenceable(73) %3, i1 noundef zeroext true) #20
@@ -2106,7 +2106,7 @@ declare void @_ZN21JfrDeprecationManager11on_type_setEP14JfrChunkWriterP6Thread(
 declare void @_ZN20JfrAddRefCountedBlobD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JfrCheckpointManager14write_type_setEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20JfrCheckpointManager14write_type_setEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.JfrCheckpointWriter, align 8
   %3 = alloca %class.JfrCheckpointWriter, align 8
   %4 = alloca %class.JfrAddRefCountedBlob, align 1
@@ -2230,7 +2230,7 @@ declare void @_ZN19JfrCheckpointWriterC1EP6Threadb17JfrCheckpointType23JfrCheckp
 declare noundef i64 @_ZN10JfrTypeSet20on_unloading_classesEP19JfrCheckpointWriter(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN20JfrCheckpointManager14flush_type_setEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN20JfrCheckpointManager14flush_type_setEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ReleaseRetiredOp.41, align 8
   %3 = alloca %class.ReleaseRetiredOp, align 8
   %4 = alloca %class.CheckpointWriteOp, align 8
@@ -2775,7 +2775,7 @@ _ZN14JfrMemorySpaceI19JfrEpochStorageHostI9JfrBuffer24JfrMspaceRemoveRetrievalLb
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNK27JfrConcurrentLinkedListHostI18JfrConcurrentQueueI9JfrBuffer11JfrCHeapObjE8HeadNodeS2_E11insert_tailEPS1_S6_S6_PKS1_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 comdat align 2 {
@@ -3378,7 +3378,7 @@ declare void @llvm.va_end.p0(ptr) #14
 declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13JfrLinkedListI9JfrBuffer11JfrCHeapObjE7iterateI18CompositeOperationI14MutexedWriteOpI17CheckpointWriteOpIS0_EE31ReinitializeAllReleaseRetiredOpI14JfrMemorySpaceI19JfrEpochStorageHostIS0_24JfrMspaceRemoveRetrievalLb1EESC_18JfrConcurrentQueueIS0_S1_ES2_Lb1EES2_E21CompositeOperationAndEEEvRT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 comdat align 2 {
@@ -5519,10 +5519,10 @@ define internal void @_GLOBAL__sub_I_jfrCheckpointManager.cpp() #17 section ".te
 declare i64 @llvm.umin.i64(i64, i64) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

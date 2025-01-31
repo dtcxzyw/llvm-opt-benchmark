@@ -74,7 +74,7 @@ tailrecurse.loopexit:                             ; preds = %14
 declare void @print_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @Abc_FlowRetime_InitTiming(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Abc_FlowRetime_InitTiming(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @pManMR, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 0, ptr %3, align 4
@@ -113,10 +113,10 @@ define void @Abc_FlowRetime_InitTiming(ptr nocapture noundef readonly %0) local_
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FlowRetime_ConstrainConserv(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Abc_FlowRetime_ConstrainConserv(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @pManMR, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 0, ptr %3, align 4
@@ -2793,7 +2793,7 @@ Abc_FlowRetime_ConstrainConserv_back.exit:        ; preds = %1198, %.critedge24.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_FlowRetime_ConstrainExact(ptr noundef %0) local_unnamed_addr #0 {
@@ -3489,7 +3489,7 @@ Abc_FlowRetime_ConstrainExact_back.exit:          ; preds = %350, %Vec_PtrPush.e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FlowRetime_ConstrainExact_forw_rec(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Abc_FlowRetime_ConstrainExact_forw_rec(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 20
   %.val25 = load i32, ptr %4, align 4
   %5 = and i32 %.val25, 15
@@ -3634,7 +3634,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FlowRetime_ConstrainExact_back_rec(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Abc_FlowRetime_ConstrainExact_back_rec(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %4, align 4
   %5 = and i32 %.val, 15
@@ -3779,7 +3779,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FlowRetime_ConstrainExactAll(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Abc_FlowRetime_ConstrainExactAll(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -3897,7 +3897,7 @@ define void @Abc_FlowRetime_ConstrainExactAll(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FlowRetime_FreeTiming(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @Abc_FlowRetime_FreeTiming(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @pManMR, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %4 = load ptr, ptr %3, align 8
@@ -4342,17 +4342,17 @@ define range(i32 0, 2) i32 @Abc_FlowRetime_RefineConstraints() local_unnamed_add
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @Abc_FlowRetime_PushFlows(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @Abc_FlowRetime_ClearFlows(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_FlowRetime_Dfs_forw(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @Abc_FlowRetime_Dfs_forw(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %3, align 4
   %4 = and i32 %.val, 15
@@ -4497,10 +4497,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFillExtra(ptr nocapture noundef %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFillExtra(ptr noundef captures(none) %0, i32 noundef range(i32 -2147483647, -2147483648) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -4595,7 +4595,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_FlowRetime_Dfs_back(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @Abc_FlowRetime_Dfs_back(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 20
   %.val14 = load i32, ptr %3, align 4
   %4 = and i32 %.val14, 15
@@ -4740,7 +4740,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

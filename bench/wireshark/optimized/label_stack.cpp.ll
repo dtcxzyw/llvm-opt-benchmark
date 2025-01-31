@@ -565,7 +565,7 @@ _ZN17QArrayDataPointerIN10LabelStack10_StackItemEED2Ev.exit: ; preds = %1, %_ZN1
 declare void @_ZN6QLabelD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10LabelStack19setTemporaryContextEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN10LabelStack19setTemporaryContextEi(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(112) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8
   ret void
@@ -848,7 +848,7 @@ declare void @_ZN12QFontMetricsD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN7QWidget15setMinimumWidthEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10LabelStack15mousePressEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10LabelStack15mousePressEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QPoint, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i32, ptr %4, align 8
@@ -882,22 +882,22 @@ define void @_ZN10LabelStack15mousePressEventEP11QMouseEvent(ptr noundef nonnull
 declare void @_ZN10LabelStack14mousePressedAtERK6QPointN2Qt11MouseButtonE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN10LabelStack17mouseReleaseEventEP11QMouseEvent(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0, ptr nocapture noundef readnone %1) unnamed_addr #5 align 2 {
+define void @_ZN10LabelStack17mouseReleaseEventEP11QMouseEvent(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0, ptr noundef readnone captures(none) %1) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN10LabelStack21mouseDoubleClickEventEP11QMouseEvent(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0, ptr nocapture noundef readnone %1) unnamed_addr #5 align 2 {
+define void @_ZN10LabelStack21mouseDoubleClickEventEP11QMouseEvent(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0, ptr noundef readnone captures(none) %1) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN10LabelStack14mouseMoveEventEP11QMouseEvent(ptr nocapture noundef nonnull readnone align 8 dereferenceable(112) %0, ptr nocapture noundef readnone %1) unnamed_addr #5 align 2 {
+define void @_ZN10LabelStack14mouseMoveEventEP11QMouseEvent(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(112) %0, ptr noundef readnone captures(none) %1) unnamed_addr #5 align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10LabelStack16contextMenuEventEP17QContextMenuEvent(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define void @_ZN10LabelStack16contextMenuEventEP17QContextMenuEvent(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.QPoint, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 4
@@ -1217,7 +1217,7 @@ declare void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef, i64 noundef, i64 no
 declare void @_ZN7QString8fromUtf8E14QByteArrayView(ptr dead_on_unwind writable sret(%class.QString) align 8, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
@@ -2544,13 +2544,13 @@ _ZN9QtPrivate16QGenericArrayOpsIN10LabelStack10_StackItemEE5eraseEPS2_x.exit: ; 
 declare i64 @llvm.smax.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #12

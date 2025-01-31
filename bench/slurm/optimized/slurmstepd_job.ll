@@ -1314,10 +1314,10 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
 declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_slurm_cred_to_step_rec(ptr noundef %0, ptr nocapture noundef initializes((0, 8), (160, 168), (368, 372), (376, 432), (784, 808), (888, 896)) %1) unnamed_addr #0 {
+define internal fastcc void @_slurm_cred_to_step_rec(ptr noundef %0, ptr noundef captures(none) initializes((0, 8), (160, 168), (368, 372), (376, 432), (784, 808), (888, 896)) %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_cred_get_args(ptr noundef %0) #9
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %5 = load i32, ptr %4, align 4
@@ -1447,7 +1447,7 @@ declare ptr @slurm_char_array_copy(i32 noundef, ptr noundef) local_unnamed_addr 
 declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #6
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @eio_handle_create(i16 noundef zeroext) local_unnamed_addr #1
 
@@ -1467,7 +1467,7 @@ define internal void @_srun_info_destructor(ptr noundef %0) #0 {
 declare void @slurm_set_port(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @srun_info_create(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
@@ -1520,7 +1520,7 @@ declare void @get_cred_gres(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @batch_stepd_step_rec_create(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local ptr @batch_stepd_step_rec_create(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i32 @get_log_level() #9
   %3 = icmp sgt i32 %2, 6
   br i1 %3, label %4, label %5
@@ -2025,10 +2025,10 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare i32 @pthread_mutex_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

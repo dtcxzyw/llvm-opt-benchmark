@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [52 x i8] c"Could not load state information for step %u.%u: %m\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.step_update_request_msg, align 4
   %5 = alloca ptr, align 8
@@ -52,7 +52,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %19 = call i32 @llvm.smax.i32(i32 %17, i32 4)
   %20 = zext nneg i32 %19 to i64
-  %21 = call i32 @xstrncasecmp(ptr noundef %11, ptr noundef nonnull @.str.2, i64 noundef %20) #8
+  %21 = call i32 @xstrncasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.2, i64 noundef %20) #8
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %30, label %46
 
@@ -79,7 +79,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 1
-  %37 = call i64 @strtol(ptr nocapture noundef nonnull %36, ptr noundef null, i32 noundef 10) #8
+  %37 = call i64 @strtol(ptr noundef nonnull captures(none) %36, ptr noundef null, i32 noundef 10) #8
   %38 = trunc i64 %37 to i32
   store i32 %38, ptr %7, align 4
   br label %100
@@ -97,7 +97,7 @@ define dso_local i32 @scontrol_update_step(i32 noundef %0, ptr nocapture noundef
 46:                                               ; preds = %13
   %47 = call i32 @llvm.smax.i32(i32 %17, i32 2)
   %48 = zext nneg i32 %47 to i64
-  %49 = call i32 @xstrncasecmp(ptr noundef %11, ptr noundef nonnull @.str.4, i64 noundef %48) #8
+  %49 = call i32 @xstrncasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.4, i64 noundef %48) #8
   %.not56 = icmp eq i32 %49, 0
   br i1 %.not56, label %50, label %93
 
@@ -259,12 +259,12 @@ declare void @slurm_init_update_step_msg(ptr noundef) local_unnamed_addr #1
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 declare i32 @time_str2mins(ptr noundef) local_unnamed_addr #1
 
@@ -279,16 +279,16 @@ declare i32 @slurm_get_job_steps(i64 noundef, i32 noundef, i32 noundef, ptr noun
 declare void @slurm_free_job_step_info_response_msg(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

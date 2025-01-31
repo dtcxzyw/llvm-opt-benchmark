@@ -311,7 +311,7 @@ if.then1.i.i67:                                   ; preds = %if.end.i.i64
 
 Py_XDECREF.exit68:                                ; preds = %if.end, %Py_XDECREF.exit59, %if.then.i61, %if.end.i.i64, %if.then1.i.i67
   %repr.0809199103 = phi ptr [ %repr.079, %Py_XDECREF.exit59 ], [ %repr.079, %if.then.i61 ], [ %repr.079, %if.end.i.i64 ], [ %repr.079, %if.then1.i.i67 ], [ null, %if.end ]
-  tail call void @Py_ReprLeave(ptr noundef %ns) #2
+  tail call void @Py_ReprLeave(ptr noundef nonnull %ns) #2
   br label %return
 
 return:                                           ; preds = %cond.true4, %if.then, %Py_XDECREF.exit68
@@ -324,7 +324,7 @@ declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #1
 declare i32 @PyObject_GenericSetAttr(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @namespace_traverse(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @namespace_traverse(ptr noundef readonly captures(none) %ns, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %ns_dict = getelementptr inbounds nuw i8, ptr %ns, i64 16
   %0 = load ptr, ptr %ns_dict, align 8
@@ -345,7 +345,7 @@ return:                                           ; preds = %if.then, %do.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @namespace_clear(ptr nocapture noundef %ns) #0 {
+define internal noundef i32 @namespace_clear(ptr noundef captures(none) %ns) #0 {
 entry:
   %ns_dict = getelementptr inbounds nuw i8, ptr %ns, i64 16
   %0 = load ptr, ptr %ns_dict, align 8
@@ -374,7 +374,7 @@ do.end:                                           ; preds = %entry, %if.then, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @namespace_richcompare(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %other, i32 noundef %op) #0 {
+define internal ptr @namespace_richcompare(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %other, i32 noundef %op) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -411,7 +411,7 @@ return:                                           ; preds = %PyObject_TypeCheck.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @namespace_init(ptr nocapture noundef readonly %ns, ptr nocapture noundef readonly %args, ptr noundef %kwds) #0 {
+define internal i32 @namespace_init(ptr noundef readonly captures(none) %ns, ptr noundef readonly captures(none) %args, ptr noundef %kwds) #0 {
 entry:
   %0 = getelementptr i8, ptr %args, i64 16
   %args.val = load i64, ptr %0, align 8
@@ -446,7 +446,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 declare ptr @PyType_GenericAlloc(ptr noundef, i64 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @namespace_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
+define internal ptr @namespace_new(ptr noundef %type, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #0 {
 entry:
   %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
@@ -574,7 +574,7 @@ declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_u
 declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @namespace_reduce(ptr nocapture noundef readonly %ns, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @namespace_reduce(ptr noundef readonly captures(none) %ns, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call ptr @PyTuple_New(i64 noundef 0) #2
   %tobool.not = icmp eq ptr %call, null
@@ -607,7 +607,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @namespace_replace(ptr nocapture noundef readonly %self, ptr noundef %args, ptr noundef %kwargs) #0 {
+define internal ptr @namespace_replace(ptr noundef readonly captures(none) %self, ptr noundef %args, ptr noundef %kwargs) #0 {
 entry:
   %cmp = icmp eq ptr %args, null
   br i1 %cmp, label %if.end, label %lor.lhs.false

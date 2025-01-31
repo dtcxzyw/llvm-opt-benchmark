@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN13logos_codegen4util12expect_punct28_$u7b$$u7b$closure$u7d$$u7d$17hcff693268e283c43E"(ptr nocapture readonly align 4 %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden zeroext i1 @"_ZN13logos_codegen4util12expect_punct28_$u7b$$u7b$closure$u7d$$u7d$17hcff693268e283c43E"(ptr readonly align 4 captures(none) %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 4
   %4 = tail call zeroext i1 @_ZN13logos_codegen4util8is_punct17h20d22eadc7ef77b7E(ptr align 8 %1, i32 %3)
   %5 = xor i1 %4, true

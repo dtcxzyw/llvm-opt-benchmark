@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare void @AnyShortIsomorphicCopy(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @IntArgbToUshort4444ArgbSrcOverMaskBlit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture readnone %9, ptr nocapture noundef readonly %10) #1 {
+define hidden void @IntArgbToUshort4444ArgbSrcOverMaskBlit(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(none) %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9, ptr noundef readonly captures(none) %10) #1 {
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = load float, ptr %12, align 4
   %14 = fpext float %13 to double
@@ -352,7 +352,7 @@ define hidden zeroext i8 @RegisterUshort4444Argb(ptr noundef %0) local_unnamed_a
 declare zeroext i8 @RegisterPrimitives(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 65536) i32 @PixelForUshort4444Argb(ptr nocapture noundef readnone %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden range(i32 0, 65536) i32 @PixelForUshort4444Argb(ptr noundef readnone captures(none) %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = shl i32 %1, 8
   %4 = and i32 %3, 61440
   %5 = shl i32 %1, 4

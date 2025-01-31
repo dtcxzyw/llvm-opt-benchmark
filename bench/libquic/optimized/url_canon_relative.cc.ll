@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3url17kFileSystemSchemeE = external constant [0 x i8], align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedES1_ibPbPNS_9ComponentE(ptr nocapture noundef readonly %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %base_parsed, ptr noundef %fragment, i32 noundef %fragment_len, i1 noundef zeroext %is_base_hierarchical, ptr nocapture noundef writeonly initializes((0, 1)) %is_relative, ptr nocapture noundef writeonly %relative_component) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedES1_ibPbPNS_9ComponentE(ptr noundef readonly captures(none) %base, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %base_parsed, ptr noundef %fragment, i32 noundef %fragment_len, i1 noundef zeroext %is_base_hierarchical, ptr noundef writeonly captures(none) initializes((0, 1)) %is_relative, ptr noundef writeonly captures(none) %relative_component) local_unnamed_addr #0 {
 entry:
   %scheme.i = alloca %"struct.url::Component", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %scheme.i)
@@ -261,7 +261,7 @@ _ZN3url12_GLOBAL__N_115DoIsRelativeURLIcEEbPKcRKNS_6ParsedEPKT_ibPbPNS_9Componen
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedEPKtibPbPNS_9ComponentE(ptr nocapture noundef readonly %base, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %base_parsed, ptr noundef %fragment, i32 noundef %fragment_len, i1 noundef zeroext %is_base_hierarchical, ptr nocapture noundef writeonly initializes((0, 1)) %is_relative, ptr nocapture noundef writeonly %relative_component) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url13IsRelativeURLEPKcRKNS_6ParsedEPKtibPbPNS_9ComponentE(ptr noundef readonly captures(none) %base, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %base_parsed, ptr noundef %fragment, i32 noundef %fragment_len, i1 noundef zeroext %is_base_hierarchical, ptr noundef writeonly captures(none) initializes((0, 1)) %is_relative, ptr noundef writeonly captures(none) %relative_component) local_unnamed_addr #0 {
 entry:
   %scheme.i = alloca %"struct.url::Component", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %scheme.i)
@@ -991,7 +991,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i:  ; preds = %do.body.i.i.i.i.i, 
   br i1 %cmp11.not.not.i.i.i, label %for.body12.i.i.i, label %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, !llvm.loop !20
 
 _ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i: ; preds = %for.cond.i.i.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i, %for.end.i59.i.i
-  %call16.i.i = call noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKcRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i59.i, i32 noundef %47, ptr noundef nonnull %output)
+  %call16.i.i = call noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKcRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i59.i, i32 noundef %47, ptr noundef nonnull %output)
   %64 = load i32, ptr %cur_len_.i.i.i, align 4
   %sub.i.i.i = sub nsw i32 %64, %47
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
@@ -1006,9 +1006,9 @@ if.end.i71.i:                                     ; preds = %_ZN3url12_GLOBAL__N
   %retval.sroa.0.0.insert.ext.i69.pre-phi.i.i = phi i64 [ %retval.sroa.0.0.insert.ext.i.i.i, %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i ], [ %.pre.i.i, %if.then6.i.i ]
   %success.0.in.i.i = phi i1 [ %call16.i.i, %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i ], [ %call8.i.i, %if.then6.i.i ]
   %query26.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 48
-  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query26.i.i)
+  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query26.i.i)
   %ref27.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref27.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref27.i.i)
   %path29.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 40
   %65 = load i32, ptr %path29.i.i, align 4
   %len.i64.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 44
@@ -1113,9 +1113,9 @@ _ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcE
 
 if.then38.i.i:                                    ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
   %query39.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 48
-  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query39.i.i)
+  call void @_ZN3url17CanonicalizeQueryEPKcRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query39.i.i)
   %ref40.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref40.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref40.i.i)
   br label %_ZN3url12_GLOBAL__N_121DoResolveRelativePathIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i
 
 if.end42.i.i:                                     ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
@@ -1265,7 +1265,7 @@ _ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcE
 
 if.then50.i.i:                                    ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i
   %ref51.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref51.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref51.i.i)
   br label %_ZN3url12_GLOBAL__N_121DoResolveRelativePathIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i
 
 _ZN3url12_GLOBAL__N_121DoResolveRelativePathIcEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i: ; preds = %if.then50.i.i, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i, %if.then38.i.i, %if.end.i71.i
@@ -1765,7 +1765,7 @@ _ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i:  ; preds = %do.body.i.i.i.i.i, 
   br i1 %cmp11.not.not.i.i.i, label %for.body12.i.i.i, label %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i, !llvm.loop !20
 
 _ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i: ; preds = %for.cond.i.i.i, %_ZN3url12CanonOutputTIcE9push_backEc.exit.i.i.i, %for.end.i59.i.i
-  %call15.i.i = call noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKtRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i59.i, i32 noundef %47, ptr noundef nonnull %output)
+  %call15.i.i = call noundef zeroext i1 @_ZN3url23CanonicalizePartialPathEPKtRKNS_9ComponentEiPNS_12CanonOutputTIcEE(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %path.i59.i, i32 noundef %47, ptr noundef nonnull %output)
   %64 = load i32, ptr %cur_len_.i.i.i, align 4
   %sub.i.i.i = sub nsw i32 %64, %47
   %retval.sroa.2.0.insert.ext.i.i.i = zext i32 %sub.i.i.i to i64
@@ -1780,9 +1780,9 @@ if.end.i71.i:                                     ; preds = %_ZN3url12_GLOBAL__N
   %retval.sroa.0.0.insert.ext.i69.pre-phi.i.i = phi i64 [ %retval.sroa.0.0.insert.ext.i.i.i, %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i ], [ %.pre.i.i, %if.then6.i.i ]
   %success.0.in.i.i = phi i1 [ %call15.i.i, %_ZN3url12_GLOBAL__N_115CopyToLastSlashEPKciiPNS_12CanonOutputTIcEE.exit.i.i ], [ %call8.i.i, %if.then6.i.i ]
   %query25.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 48
-  call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query25.i.i)
+  call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query25.i.i)
   %ref26.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref26.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref26.i.i)
   %path28.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 40
   %65 = load i32, ptr %path28.i.i, align 4
   %len.i64.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 44
@@ -1887,9 +1887,9 @@ _ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcE
 
 if.then37.i.i:                                    ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
   %query38.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 48
-  call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query38.i.i)
+  call void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %query.i60.i, ptr noundef %query_converter, ptr noundef nonnull %output, ptr noundef nonnull %query38.i.i)
   %ref39.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref39.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref39.i.i)
   br label %_ZN3url12_GLOBAL__N_121DoResolveRelativePathItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i
 
 if.end41.i.i:                                     ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit.i.i
@@ -2039,7 +2039,7 @@ _ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcE
 
 if.then49.i.i:                                    ; preds = %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i
   %ref50.i.i = getelementptr inbounds nuw i8, ptr %out_parsed, i64 56
-  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref50.i.i)
+  call void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef nonnull %relative_url, ptr noundef nonnull align 4 dereferenceable(8) %ref.i61.i, ptr noundef nonnull %output, ptr noundef nonnull %ref50.i.i)
   br label %_ZN3url12_GLOBAL__N_121DoResolveRelativePathItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i
 
 _ZN3url12_GLOBAL__N_121DoResolveRelativePathItEEbPKcRKNS_6ParsedEbPKT_RKNS_9ComponentEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS4_.exit.i: ; preds = %if.then49.i.i, %_ZN3url12_GLOBAL__N_116CopyOneComponentEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS3_.exit163.i.i, %if.then37.i.i, %if.end.i71.i
@@ -2112,13 +2112,13 @@ declare void @_ZN3url17CanonicalizeQueryEPKtRKNS_9ComponentEPNS_16CharsetConvert
 declare void @_ZN3url15CanonicalizeRefEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -51,7 +51,7 @@ define noundef zeroext i1 @_ZNK5boost13serialization14no_rtti_system28extended_t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZNK5boost13serialization14no_rtti_system28extended_type_info_no_rtti_08is_equalERKNS0_18extended_type_infoE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
@@ -90,7 +90,7 @@ define void @_ZN5boost13serialization14no_rtti_system28extended_type_info_no_rtt
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN5boost13serialization14no_rtti_system28extended_type_info_no_rtti_0D0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #6 align 2 {
+define void @_ZN5boost13serialization14no_rtti_system28extended_type_info_no_rtti_0D0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.trap() #10
   unreachable
 }

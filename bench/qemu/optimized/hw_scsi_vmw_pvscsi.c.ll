@@ -244,7 +244,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pvscsi_class_init(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @pvscsi_class_init(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #9
   %call.i14 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.7, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE_CLASS) #9
@@ -281,7 +281,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pvscsi_realizefn(ptr noundef %pci_dev, ptr nocapture readnone %errp) #0 {
+define internal void @pvscsi_realizefn(ptr noundef %pci_dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -627,7 +627,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pvscsi_hotplug(ptr noundef %hotplug_dev, ptr noundef %dev, ptr nocapture readnone %errp) #0 {
+define internal void @pvscsi_hotplug(ptr noundef %hotplug_dev, ptr noundef %dev, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %hotplug_dev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.8, i32 noundef 68, ptr noundef nonnull @__func__.PVSCSI) #9
   %call.i1 = tail call ptr @object_dynamic_cast_assert(ptr noundef %dev, ptr noundef nonnull @.str.133, ptr noundef nonnull @.str.134, i32 noundef 55, ptr noundef nonnull @__func__.SCSI_DEVICE) #9
@@ -810,17 +810,17 @@ declare void @qbus_set_hotplug_handler(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @pvscsi_io_read(ptr nocapture noundef readonly %opaque, i64 noundef %addr, i32 noundef %size) #0 {
+define internal i64 @pvscsi_io_read(ptr noundef readonly captures(none) %opaque, i64 noundef %addr, i32 noundef %size) #0 {
 entry:
   %_now.i.i37 = alloca %struct.timeval, align 8
   %_now.i.i22 = alloca %struct.timeval, align 8
@@ -2062,7 +2062,7 @@ return:                                           ; preds = %entry, %while.end
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @pvscsi_on_cmd_unknown(ptr nocapture noundef readonly %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_unknown(ptr noundef readonly captures(none) %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %curr_cmd_data = getelementptr inbounds nuw i8, ptr %s, i64 3100
@@ -2185,7 +2185,7 @@ pvscsi_reset_adapter.exit:                        ; preds = %trace_pvscsi_on_cmd
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @pvscsi_on_issue_scsi(ptr nocapture readnone %s) #0 {
+define internal noundef i64 @pvscsi_on_issue_scsi(ptr readnone captures(none) %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -2850,7 +2850,7 @@ return:                                           ; preds = %trace_pvscsi_on_cmd
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @pvscsi_on_cmd_abort(ptr nocapture noundef readonly %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_abort(ptr noundef readonly captures(none) %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %curr_cmd_data = getelementptr inbounds nuw i8, ptr %s, i64 3100
@@ -2935,7 +2935,7 @@ if.end10:                                         ; preds = %for.inc, %trace_pvs
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @pvscsi_on_cmd_config(ptr nocapture readnone %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_config(ptr readnone captures(none) %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3148,7 +3148,7 @@ return:                                           ; preds = %if.then2, %if.end, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @pvscsi_on_cmd_unplug(ptr nocapture readnone %s) #0 {
+define internal noundef i64 @pvscsi_on_cmd_unplug(ptr readnone captures(none) %s) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3209,7 +3209,7 @@ declare void @qemu_bh_schedule(ptr noundef) local_unnamed_addr #1
 declare void @cpu_physical_memory_rw(i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pvscsi_complete_request(ptr nocapture noundef %s, ptr noundef %r) unnamed_addr #0 {
+define internal fastcc void @pvscsi_complete_request(ptr noundef captures(none) %s, ptr noundef %r) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %completed = getelementptr inbounds nuw i8, ptr %r, i64 17
@@ -3341,7 +3341,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @scsi_bus_init_named(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pvscsi_command_failed(ptr nocapture noundef readonly %req) #0 {
+define internal void @pvscsi_command_failed(ptr noundef readonly captures(none) %req) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %hba_private = getelementptr inbounds nuw i8, ptr %req, i64 40
@@ -3419,7 +3419,7 @@ return:                                           ; preds = %sw.epilog, %trace_p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pvscsi_command_complete(ptr nocapture noundef readonly %req, i64 noundef %resid) #0 {
+define internal void @pvscsi_command_complete(ptr noundef readonly captures(none) %req, i64 noundef %resid) #0 {
 entry:
   %_now.i.i26 = alloca %struct.timeval, align 8
   %_now.i.i12 = alloca %struct.timeval, align 8
@@ -3589,7 +3589,7 @@ return:                                           ; preds = %if.end11, %trace_pv
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @pvscsi_request_cancelled(ptr nocapture noundef readonly %req) #0 {
+define internal void @pvscsi_request_cancelled(ptr noundef readonly captures(none) %req) #0 {
 entry:
   %hba_private = getelementptr inbounds nuw i8, ptr %req, i64 40
   %0 = load ptr, ptr %hba_private, align 8
@@ -3615,7 +3615,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal nonnull ptr @pvscsi_get_sg_list(ptr nocapture noundef readonly %r) #0 {
+define internal nonnull ptr @pvscsi_get_sg_list(ptr noundef readonly captures(none) %r) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %hba_private = getelementptr inbounds nuw i8, ptr %r, i64 40
@@ -3667,7 +3667,7 @@ declare void @qemu_sglist_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @scsi_req_get_sense(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @qemu_bh_delete(ptr noundef) local_unnamed_addr #1
 
@@ -3676,7 +3676,7 @@ declare void @msi_uninit(ptr noundef) local_unnamed_addr #1
 declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @pvscsi_post_load(ptr nocapture readnone %opaque, i32 %version_id) #0 {
+define internal noundef i32 @pvscsi_post_load(ptr readnone captures(none) %opaque, i32 %version_id) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3717,7 +3717,7 @@ trace_pvscsi_state.exit:                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @pvscsi_pre_save(ptr nocapture noundef readonly %opaque) #0 {
+define internal noundef i32 @pvscsi_pre_save(ptr noundef readonly captures(none) %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -3800,7 +3800,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pvscsi_send_msg(ptr noundef %s, ptr nocapture noundef readonly %dev, i32 noundef range(i32 0, 2) %msg_type) unnamed_addr #0 {
+define internal fastcc void @pvscsi_send_msg(ptr noundef %s, ptr noundef readonly captures(none) %dev, i32 noundef range(i32 0, 2) %msg_type) unnamed_addr #0 {
 entry:
   %val.addr.i.i.i = alloca i32, align 4
   %_now.i.i.i7 = alloca %struct.timeval, align 8
@@ -3975,10 +3975,10 @@ declare i64 @llvm.umin.i64(i64, i64) #7
 declare i32 @llvm.umin.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

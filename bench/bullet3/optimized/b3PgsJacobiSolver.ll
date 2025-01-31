@@ -60,7 +60,7 @@ $_ZN20b3AlignedObjectArrayIN17b3TypedConstraint17b3ConstraintInfo1EE7reserveEi =
 @_ZN17b3PgsJacobiSolverD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN17b3PgsJacobiSolverD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z15getContactPointP10b3Contact4iR14b3ContactPoint(ptr nocapture noundef readonly %contact, i32 noundef %contactIndex, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(128) initializes((0, 76), (80, 92), (96, 125)) %pointOut) local_unnamed_addr #0 {
+define dso_local void @_Z15getContactPointP10b3Contact4iR14b3ContactPoint(ptr noundef readonly captures(none) %contact, i32 noundef %contactIndex, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(128) initializes((0, 76), (80, 92), (96, 125)) %pointOut) local_unnamed_addr #0 {
 entry:
   %m_appliedImpulse = getelementptr inbounds nuw i8, ptr %pointOut, i64 48
   store float 0.000000e+00, ptr %m_appliedImpulse, align 16
@@ -196,10 +196,10 @@ _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_Z14getNumContactsP10b3Contact4(ptr nocapture noundef readonly %contact) local_unnamed_addr #2 {
+define dso_local noundef i32 @_Z14getNumContactsP10b3Contact4(ptr noundef readonly captures(none) %contact) local_unnamed_addr #2 {
 entry:
   %w.i = getelementptr inbounds nuw i8, ptr %contact, i64 76
   %0 = load float, ptr %w.i, align 4
@@ -893,14 +893,14 @@ _ZN13b3ProfileZoneD2Ev.exit9:                     ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver37resolveSingleConstraintRowGenericSIMDER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nocapture noundef nonnull readnone align 8 dereferenceable(448) %this, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body1, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body2, ptr nocapture noundef nonnull align 16 dereferenceable(160) %c) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver37resolveSingleConstraintRowGenericSIMDER12b3SolverBodyS1_RK18b3SolverConstraint(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(448) %this, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body1, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body2, ptr noundef nonnull align 16 captures(none) dereferenceable(160) %c) local_unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN17b3PgsJacobiSolver33resolveSingleConstraintRowGenericER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nonnull align 8 poison, ptr noundef nonnull align 16 dereferenceable(228) %body1, ptr noundef nonnull align 16 dereferenceable(228) %body2, ptr noundef nonnull align 16 dereferenceable(160) %c)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver33resolveSingleConstraintRowGenericER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body1, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body2, ptr nocapture noundef nonnull align 16 dereferenceable(160) %c) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver33resolveSingleConstraintRowGenericER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body1, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body2, ptr noundef nonnull align 16 captures(none) dereferenceable(160) %c) local_unnamed_addr #0 align 2 {
 entry:
   %m_rhs = getelementptr inbounds nuw i8, ptr %c, i64 104
   %0 = load float, ptr %m_rhs, align 8
@@ -1122,14 +1122,14 @@ if.end29:                                         ; preds = %if.else, %if.then21
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver40resolveSingleConstraintRowLowerLimitSIMDER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nocapture noundef nonnull readnone align 8 dereferenceable(448) %this, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body1, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body2, ptr nocapture noundef nonnull align 16 dereferenceable(160) %c) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver40resolveSingleConstraintRowLowerLimitSIMDER12b3SolverBodyS1_RK18b3SolverConstraint(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(448) %this, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body1, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body2, ptr noundef nonnull align 16 captures(none) dereferenceable(160) %c) local_unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN17b3PgsJacobiSolver36resolveSingleConstraintRowLowerLimitER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nonnull align 8 poison, ptr noundef nonnull align 16 dereferenceable(228) %body1, ptr noundef nonnull align 16 dereferenceable(228) %body2, ptr noundef nonnull align 16 dereferenceable(160) %c)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver36resolveSingleConstraintRowLowerLimitER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body1, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body2, ptr nocapture noundef nonnull align 16 dereferenceable(160) %c) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver36resolveSingleConstraintRowLowerLimitER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body1, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body2, ptr noundef nonnull align 16 captures(none) dereferenceable(160) %c) local_unnamed_addr #0 align 2 {
 entry:
   %m_rhs = getelementptr inbounds nuw i8, ptr %c, i64 104
   %0 = load float, ptr %m_rhs, align 8
@@ -1332,7 +1332,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver43resolveSplitPenetrationImpulseCacheFriendlyER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nocapture noundef nonnull align 8 dereferenceable(448) %this, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body1, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body2, ptr nocapture noundef nonnull align 16 dereferenceable(160) %c) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver43resolveSplitPenetrationImpulseCacheFriendlyER12b3SolverBodyS1_RK18b3SolverConstraint(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %this, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body1, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body2, ptr noundef nonnull align 16 captures(none) dereferenceable(160) %c) local_unnamed_addr #0 align 2 {
 entry:
   %m_rhsPenetration = getelementptr inbounds nuw i8, ptr %c, i64 120
   %0 = load float, ptr %m_rhsPenetration, align 8
@@ -1562,14 +1562,14 @@ if.end37:                                         ; preds = %if.then.i73, %_ZN12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver27resolveSplitPenetrationSIMDER12b3SolverBodyS1_RK18b3SolverConstraint(ptr nocapture noundef nonnull align 8 dereferenceable(448) %this, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body1, ptr nocapture noundef nonnull align 16 dereferenceable(228) %body2, ptr nocapture noundef nonnull align 16 dereferenceable(160) %c) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver27resolveSplitPenetrationSIMDER12b3SolverBodyS1_RK18b3SolverConstraint(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %this, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body1, ptr noundef nonnull align 16 captures(none) dereferenceable(228) %body2, ptr noundef nonnull align 16 captures(none) dereferenceable(160) %c) local_unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN17b3PgsJacobiSolver43resolveSplitPenetrationImpulseCacheFriendlyER12b3SolverBodyS1_RK18b3SolverConstraint(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull align 16 dereferenceable(228) %body1, ptr noundef nonnull align 16 dereferenceable(228) %body2, ptr noundef nonnull align 16 dereferenceable(160) %c)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i64 0, 4294967296) i64 @_ZN17b3PgsJacobiSolver7b3Rand2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(448) %this) local_unnamed_addr #6 align 2 {
+define dso_local noundef range(i64 0, 4294967296) i64 @_ZN17b3PgsJacobiSolver7b3Rand2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_btSeed2 = getelementptr inbounds nuw i8, ptr %this, i64 440
   %0 = load i64, ptr %m_btSeed2, align 8
@@ -1581,7 +1581,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN17b3PgsJacobiSolver10b3RandInt2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %n) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZN17b3PgsJacobiSolver10b3RandInt2Ei(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %this, i32 noundef %n) local_unnamed_addr #6 align 2 {
 entry:
   %m_btSeed2.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   %0 = load i64, ptr %m_btSeed2.i, align 8
@@ -1630,7 +1630,7 @@ if.end21:                                         ; preds = %if.then, %if.then7,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver14initSolverBodyEiP12b3SolverBodyP15b3RigidBodyData(ptr nocapture nonnull readnone align 8 %this, i32 noundef %bodyIndex, ptr nocapture noundef writeonly initializes((0, 212)) %solverBody, ptr noundef readonly %rb) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver14initSolverBodyEiP12b3SolverBodyP15b3RigidBodyData(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %bodyIndex, ptr noundef writeonly captures(none) initializes((0, 212)) %solverBody, ptr noundef readonly %rb) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp14.sroa.15 = alloca [4 x float], align 16
   %m_deltaLinearVelocity = getelementptr inbounds nuw i8, ptr %solverBody, i64 64
@@ -1772,7 +1772,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef float @_ZN17b3PgsJacobiSolver16restitutionCurveEff(ptr nocapture noundef nonnull readnone align 8 dereferenceable(448) %this, float noundef %rel_vel, float noundef %restitution) local_unnamed_addr #8 align 2 {
+define dso_local noundef float @_ZN17b3PgsJacobiSolver16restitutionCurveEff(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(448) %this, float noundef %rel_vel, float noundef %restitution) local_unnamed_addr #8 align 2 {
 entry:
   %fneg = fneg float %rel_vel
   %mul = fmul float %restitution, %fneg
@@ -1780,7 +1780,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this, ptr noundef readonly %bodies, ptr nocapture noundef readonly %inertias, ptr nocapture noundef nonnull align 16 dereferenceable(160) initializes((0, 88), (96, 120), (128, 136), (144, 152)) %solverConstraint, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %normalAxis, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr nocapture readnone %colObj0, ptr nocapture readnone %colObj1, float noundef %relaxation, float noundef %desiredVelocity, float noundef %cfmSlip) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %this, ptr noundef readonly %bodies, ptr noundef readonly captures(none) %inertias, ptr noundef nonnull align 16 captures(none) dereferenceable(160) initializes((0, 88), (96, 120), (128, 136), (144, 152)) %solverConstraint, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %normalAxis, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rel_pos2, ptr readnone captures(none) %colObj0, ptr readnone captures(none) %colObj1, float noundef %relaxation, float noundef %desiredVelocity, float noundef %cfmSlip) local_unnamed_addr #9 align 2 {
 entry:
   %m_contactNormal = getelementptr inbounds nuw i8, ptr %solverConstraint, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %m_contactNormal, ptr noundef nonnull align 16 dereferenceable(16) %normalAxis, i64 16, i1 false)
@@ -2136,7 +2136,7 @@ cond.end127:                                      ; preds = %cond.false123, %con
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr nocapture noundef readonly %inertias, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %normalAxis, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, i32 noundef %frictionIndex, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rel_pos1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %rel_pos2, ptr nocapture noundef readnone %colObj0, ptr nocapture noundef readnone %colObj1, float noundef %relaxation, float noundef %desiredVelocity, float noundef %cfmSlip) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly captures(none) %inertias, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %normalAxis, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, i32 noundef %frictionIndex, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %cp, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rel_pos1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %rel_pos2, ptr noundef readnone captures(none) %colObj0, ptr noundef readnone captures(none) %colObj1, float noundef %relaxation, float noundef %desiredVelocity, float noundef %cfmSlip) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 108
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -2169,7 +2169,7 @@ _ZN20b3AlignedObjectArrayI18b3SolverConstraintE21expandNonInitializingEv.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this, ptr noundef readnone %bodies, ptr nocapture noundef readonly %inertias, ptr nocapture noundef nonnull align 16 dereferenceable(160) initializes((0, 88), (96, 120), (128, 136), (144, 152)) %solverConstraint, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %normalAxis1, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nocapture nonnull readnone align 16 %rel_pos1, ptr nocapture nonnull readnone align 16 %rel_pos2, ptr nocapture readnone %colObj0, ptr nocapture readnone %colObj1, float %relaxation, float noundef %desiredVelocity, float noundef %cfmSlip) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %this, ptr noundef readnone %bodies, ptr noundef readonly captures(none) %inertias, ptr noundef nonnull align 16 captures(none) dereferenceable(160) initializes((0, 88), (96, 120), (128, 136), (144, 152)) %solverConstraint, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %normalAxis1, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %cp, ptr nonnull readnone align 16 captures(none) %rel_pos1, ptr nonnull readnone align 16 captures(none) %rel_pos2, ptr readnone captures(none) %colObj0, ptr readnone captures(none) %colObj1, float %relaxation, float noundef %desiredVelocity, float noundef %cfmSlip) local_unnamed_addr #9 align 2 {
 entry:
   %m_contactNormal = getelementptr inbounds nuw i8, ptr %solverConstraint, i64 16
   %normalAxis.sroa.2.0.m_contactNormal.sroa_idx = getelementptr inbounds nuw i8, ptr %solverConstraint, i64 24
@@ -2500,7 +2500,7 @@ cond.end113:                                      ; preds = %cond.false109, %con
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr nocapture noundef readonly %inertias, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %normalAxis, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, i32 noundef %frictionIndex, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nocapture noundef nonnull readnone align 16 dereferenceable(16) %rel_pos1, ptr nocapture noundef nonnull readnone align 16 dereferenceable(16) %rel_pos2, ptr nocapture noundef readnone %colObj0, ptr nocapture noundef readnone %colObj1, float noundef %relaxation, float noundef %desiredVelocity, float noundef %cfmSlip) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 16 dereferenceable(160) ptr @_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly captures(none) %inertias, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %normalAxis, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, i32 noundef %frictionIndex, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %cp, ptr noundef nonnull readnone align 16 captures(none) dereferenceable(16) %rel_pos1, ptr noundef nonnull readnone align 16 captures(none) dereferenceable(16) %rel_pos2, ptr noundef readnone captures(none) %colObj0, ptr noundef readnone captures(none) %colObj1, float noundef %relaxation, float noundef %desiredVelocity, float noundef %cfmSlip) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %this, i64 140
   %0 = load i32, ptr %m_size.i.i, align 4
@@ -2533,7 +2533,7 @@ _ZN20b3AlignedObjectArrayI18b3SolverConstraintE21expandNonInitializingEv.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN17b3PgsJacobiSolver19getOrInitSolverBodyEiP15b3RigidBodyDataP13b3InertiaData(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %bodyIndex, ptr noundef %bodies, ptr nocapture readnone %inertias) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN17b3PgsJacobiSolver19getOrInitSolverBodyEiP15b3RigidBodyDataP13b3InertiaData(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %bodyIndex, ptr noundef %bodies, ptr readnone captures(none) %inertias) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.b3SolverBody, align 16
   %ref.tmp17 = alloca %struct.b3SolverBody, align 16
@@ -2665,10 +2665,10 @@ if.end19:                                         ; preds = %if.then, %_ZN20b3Al
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver22setupContactConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintiiR14b3ContactPointRK19b3ContactSolverInfoR9b3Vector3RfSD_SC_SC_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this, ptr noundef readonly %bodies, ptr nocapture noundef readonly %inertias, ptr nocapture noundef nonnull align 16 dereferenceable(160) initializes((48, 80)) %solverConstraint, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84) %infoGlobal, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(16) initializes((0, 16)) %vel, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %rel_vel, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %relaxation, ptr nocapture noundef nonnull align 16 dereferenceable(16) initializes((0, 16)) %rel_pos1, ptr nocapture noundef nonnull align 16 dereferenceable(16) initializes((0, 16)) %rel_pos2) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver22setupContactConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintiiR14b3ContactPointRK19b3ContactSolverInfoR9b3Vector3RfSD_SC_SC_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %this, ptr noundef readonly %bodies, ptr noundef readonly captures(none) %inertias, ptr noundef nonnull align 16 captures(none) dereferenceable(160) initializes((48, 80)) %solverConstraint, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %cp, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %infoGlobal, ptr noundef nonnull writeonly align 16 captures(none) dereferenceable(16) initializes((0, 16)) %vel, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %rel_vel, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %relaxation, ptr noundef nonnull align 16 captures(none) dereferenceable(16) initializes((0, 16)) %rel_pos1, ptr noundef nonnull align 16 captures(none) dereferenceable(16) initializes((0, 16)) %rel_pos2) local_unnamed_addr #11 align 2 {
 entry:
   %retval.sroa.0.0.copyload.i = load <2 x float>, ptr %cp, align 16
   %retval.sroa.2.0.m_positionWorldOnA.sroa_idx.i = getelementptr inbounds nuw i8, ptr %cp, i64 8
@@ -3385,7 +3385,7 @@ if.end236:                                        ; preds = %if.else231, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver28setFrictionConstraintImpulseEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintiiR14b3ContactPointRK19b3ContactSolverInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this, ptr nocapture noundef readonly %bodies, ptr nocapture readnone %inertias, ptr nocapture noundef nonnull readonly align 16 dereferenceable(160) %solverConstraint, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %cp, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84) %infoGlobal) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver28setFrictionConstraintImpulseEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintiiR14b3ContactPointRK19b3ContactSolverInfo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(448) %this, ptr noundef readonly captures(none) %bodies, ptr readnone captures(none) %inertias, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(160) %solverConstraint, i32 noundef %solverBodyIdA, i32 noundef %solverBodyIdB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(128) %cp, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %infoGlobal) local_unnamed_addr #11 align 2 {
 entry:
   %m_data.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i, align 8
@@ -3753,7 +3753,7 @@ if.end88:                                         ; preds = %if.else85, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver14convertContactEP15b3RigidBodyDataP13b3InertiaDataP10b3Contact4RK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr nocapture noundef readonly %inertias, ptr nocapture noundef readonly %manifold, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84) %infoGlobal) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver14convertContactEP15b3RigidBodyDataP13b3InertiaDataP10b3Contact4RK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef readonly captures(none) %inertias, ptr noundef readonly captures(none) %manifold, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %infoGlobal) local_unnamed_addr #12 align 2 {
 entry:
   %cp = alloca %struct.b3ContactPoint, align 16
   %rel_pos1 = alloca %class.b3Vector3, align 16
@@ -4468,7 +4468,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN17b3PgsJacobiSolver28solveGroupCacheFriendlySetupEP15b3RigidBodyDataP13b3InertiaDataiP10b3Contact4iPP17b3TypedConstraintiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(448) initializes((428, 432)) %this, ptr noundef %bodies, ptr nocapture noundef readonly %inertias, i32 noundef %numBodies, ptr nocapture noundef readonly %manifoldPtr, i32 noundef %numManifolds, ptr nocapture noundef readonly %constraints, i32 noundef %numConstraints, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84) %infoGlobal) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN17b3PgsJacobiSolver28solveGroupCacheFriendlySetupEP15b3RigidBodyDataP13b3InertiaDataiP10b3Contact4iPP17b3TypedConstraintiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(448) initializes((428, 432)) %this, ptr noundef %bodies, ptr noundef readonly captures(none) %inertias, i32 noundef %numBodies, ptr noundef readonly captures(none) %manifoldPtr, i32 noundef %numManifolds, ptr noundef readonly captures(none) %constraints, i32 noundef %numConstraints, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %infoGlobal) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %struct.b3SolverBody, align 16
   %info2 = alloca %"struct.b3TypedConstraint::b3ConstraintInfo2", align 8
@@ -5692,7 +5692,7 @@ _ZN13b3ProfileZoneD2Ev.exit492:                   ; preds = %for.end475
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN17b3PgsJacobiSolver20solveSingleIterationEiPP17b3TypedConstraintiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %iteration, ptr nocapture readnone %constraints, i32 %numConstraints, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84) %infoGlobal) local_unnamed_addr #5 align 2 {
+define dso_local noundef float @_ZN17b3PgsJacobiSolver20solveSingleIterationEiPP17b3TypedConstraintiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 noundef %iteration, ptr readnone captures(none) %constraints, i32 %numConstraints, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %infoGlobal) local_unnamed_addr #5 align 2 {
 entry:
   %m_size.i = getelementptr inbounds nuw i8, ptr %this, i64 76
   %0 = load i32, ptr %m_size.i, align 4
@@ -6804,7 +6804,7 @@ _ZN13b3ProfileZoneD2Ev.exit115:                   ; preds = %for.end94
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver45solveGroupCacheFriendlySplitImpulseIterationsEPP17b3TypedConstraintiRK19b3ContactSolverInfo(ptr nocapture noundef nonnull align 8 dereferenceable(448) %this, ptr nocapture readnone %constraints, i32 %numConstraints, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84) %infoGlobal) unnamed_addr #13 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver45solveGroupCacheFriendlySplitImpulseIterationsEPP17b3TypedConstraintiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %this, ptr readnone captures(none) %constraints, i32 %numConstraints, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %infoGlobal) unnamed_addr #13 align 2 {
 entry:
   %m_splitImpulse = getelementptr inbounds nuw i8, ptr %infoGlobal, i64 44
   %0 = load i32, ptr %m_splitImpulse, align 4
@@ -7026,7 +7026,7 @@ _ZN13b3ProfileZoneD2Ev.exit10:                    ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN17b3PgsJacobiSolver29solveGroupCacheFriendlyFinishEP15b3RigidBodyDataP13b3InertiaDataiRK19b3ContactSolverInfo(ptr nocapture noundef nonnull align 8 dereferenceable(448) %this, ptr nocapture noundef %bodies, ptr nocapture readnone %inertias, i32 %numBodies, ptr nocapture noundef nonnull readonly align 4 dereferenceable(84) %infoGlobal) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef float @_ZN17b3PgsJacobiSolver29solveGroupCacheFriendlyFinishEP15b3RigidBodyDataP13b3InertiaDataiRK19b3ContactSolverInfo(ptr noundef nonnull align 8 captures(none) dereferenceable(448) %this, ptr noundef captures(none) %bodies, ptr readnone captures(none) %inertias, i32 %numBodies, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(84) %infoGlobal) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %class.b3Quaternion, align 16
   tail call void @b3EnterProfileZone(ptr noundef nonnull @.str.4)
@@ -7862,7 +7862,7 @@ if.end34:                                         ; preds = %lor.lhs.false13, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17b3PgsJacobiSolver5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((440, 448)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN17b3PgsJacobiSolver5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(448) initializes((440, 448)) %this) unnamed_addr #3 align 2 {
 entry:
   %m_btSeed2 = getelementptr inbounds nuw i8, ptr %this, i64 440
   store i64 0, ptr %m_btSeed2, align 8
@@ -8595,10 +8595,10 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 declare float @llvm.sqrt.f32(float) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #18

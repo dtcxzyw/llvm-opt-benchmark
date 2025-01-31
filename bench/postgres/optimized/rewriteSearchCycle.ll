@@ -1189,7 +1189,7 @@ declare ptr @makeTargetEntry(ptr noundef, i16 noundef signext, ptr noundef, i1 n
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @make_path_rowexpr(ptr nocapture noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @make_path_rowexpr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 40) #5
   store i32 34, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1270,7 +1270,7 @@ define internal fastcc noundef ptr @make_path_rowexpr(ptr nocapture noundef read
   %50 = tail call ptr @lappend(ptr noundef %49, ptr noundef %48) #5
   store ptr %50, ptr %13, align 8
   %51 = load ptr, ptr %14, align 8
-  %52 = tail call ptr @makeString(ptr noundef %21) #5
+  %52 = tail call ptr @makeString(ptr noundef nonnull %21) #5
   %53 = tail call ptr @lappend(ptr noundef %51, ptr noundef %52) #5
   store ptr %53, ptr %14, align 8
   br label %.loopexit
@@ -1298,7 +1298,7 @@ declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 n
 declare ptr @makeString(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3

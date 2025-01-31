@@ -307,7 +307,7 @@ define internal fastcc i32 @iterateRawmidiDevices(i32 noundef %0, ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef range(i32 -11115, 1) i32 @initMIDIDeviceDescription(ptr nocapture noundef writeonly initializes((0, 8), (16, 32)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden noundef range(i32 -11115, 1) i32 @initMIDIDeviceDescription(ptr noundef writeonly captures(none) initializes((0, 8), (16, 32)) %0, i32 noundef %1) local_unnamed_addr #2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 200, ptr %3, align 4
@@ -328,7 +328,7 @@ define hidden noundef range(i32 -11115, 1) i32 @initMIDIDeviceDescription(ptr no
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @freeMIDIDeviceDescription(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define hidden void @freeMIDIDeviceDescription(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -353,7 +353,7 @@ define hidden void @freeMIDIDeviceDescription(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -11115, 1) i32 @getMidiDeviceName(i32 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -412,7 +412,7 @@ freeMIDIDeviceDescription.exit:                   ; preds = %23, %25
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden noundef i32 @getMidiDeviceVendor(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
@@ -489,7 +489,7 @@ define hidden noundef i32 @getMidiDeviceVersion(i32 noundef %0, ptr noundef %1, 
 declare void @getALSAVersion(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @openMidiDevice(i32 noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define hidden i32 @openMidiDevice(i32 noundef %0, i32 noundef %1, ptr noundef captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timeval, align 8
   %5 = alloca %struct.tag_ALSA_MIDIDeviceDescription, align 8
   %6 = alloca ptr, align 8
@@ -703,7 +703,7 @@ declare i32 @snd_rawmidi_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @snd_rawmidi_info_get_card(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #9
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 declare i32 @snd_ctl_open(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -734,7 +734,7 @@ declare void @snd_ctl_card_info_free(ptr noundef) local_unnamed_addr #1
 declare void @snd_rawmidi_info_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) #0 {
+define internal range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = alloca [300 x i8], align 16
   tail call void (...) @initAlsaSupport() #12
   %6 = load i32, ptr %3, align 8
@@ -834,10 +834,10 @@ define internal range(i32 0, 2) i32 @deviceInfoIterator(i32 noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #6
+declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @snd_ctl_card_info_get_id(ptr noundef) local_unnamed_addr #1
 
@@ -848,13 +848,13 @@ declare ptr @snd_ctl_card_info_get_name(ptr noundef) local_unnamed_addr #1
 declare ptr @snd_rawmidi_info_get_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

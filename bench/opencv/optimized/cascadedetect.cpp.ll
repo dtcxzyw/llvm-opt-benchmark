@@ -1810,7 +1810,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit118:                 ; preds = %158, %156
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1937,7 +1937,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %7, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv25groupRectangles_meanshiftERSt6vectorINS_5Rect_IiEESaIS2_EERS0_IdSaIdEES8_dNS_5Size_IiEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, double noundef %3, i64 %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv25groupRectangles_meanshiftERSt6vectorINS_5Rect_IiEESaIS2_EERS0_IdSaIdEES8_dNS_5Size_IiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, double noundef %3, i64 %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.116", align 8
   %7 = alloca %"class.std::vector.116", align 8
   %8 = alloca %"class.std::vector.5", align 8
@@ -2607,7 +2607,7 @@ define hidden void @_ZN2cv16FeatureEvaluatorD0Ev(ptr noundef nonnull align 8 der
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator4readERKNS_8FileNodeENS_5Size_IiEE(ptr nocapture noundef nonnull align 8 dereferenceable(576) initializes((12, 20), (28, 44)) %0, ptr nocapture nonnull readnone align 8 %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator4readERKNS_8FileNodeENS_5Size_IiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(576) initializes((12, 20), (28, 44)) %0, ptr nonnull readnone align 8 captures(none) %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i64 %2, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -2804,18 +2804,18 @@ _ZN2cv3PtrISt6vectorINS_16FeatureEvaluator9ScaleDataESaIS3_EEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK2cv16FeatureEvaluator5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.15") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
+define hidden void @_ZNK2cv16FeatureEvaluator5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.15") align 8 captures(none) initializes((0, 16)) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #8 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK2cv16FeatureEvaluator14getFeatureTypeEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK2cv16FeatureEvaluator14getFeatureTypeEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #9 align 2 {
   ret i32 -1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator9setWindowENS_6Point_IiEEi(ptr nocapture nonnull readnone align 8 %0, i64 %1, i32 %2) unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator9setWindowENS_6Point_IiEEi(ptr nonnull readnone align 8 captures(none) %0, i64 %1, i32 %2) unnamed_addr #9 align 2 {
   ret i1 true
 }
 
@@ -2953,17 +2953,17 @@ define hidden void @_ZN2cv16FeatureEvaluator7getMatsEv(ptr noundef nonnull align
 declare void @_ZNK2cv4UMat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef float @_ZNK2cv16FeatureEvaluator7calcOrdEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef float @_ZNK2cv16FeatureEvaluator7calcOrdEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   ret float 0.000000e+00
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK2cv16FeatureEvaluator7calcCatEi(ptr nocapture nonnull readnone align 8 %0, i32 %1) unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZNK2cv16FeatureEvaluator7calcCatEi(ptr nonnull readnone align 8 captures(none) %0, i32 %1) unnamed_addr #9 align 2 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator15updateScaleDataENS_5Size_IiEERKSt6vectorIfSaIfEE(ptr nocapture noundef nonnull align 8 dereferenceable(576) %0, i64 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator15updateScaleDataENS_5Size_IiEERKSt6vectorIfSaIfEE(ptr noundef nonnull align 8 captures(none) dereferenceable(576) %0, i64 %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.034.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
@@ -3385,7 +3385,7 @@ _ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE17_M_default_appendEm.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator8setImageERKNS_11_InputArrayERKSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv16FeatureEvaluator8setImageERKNS_11_InputArrayERKSt6vectorIfSaIfEE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::_OutputArray", align 8
   %6 = alloca %"class.cv::utils::trace::details::Region", align 8
@@ -3851,7 +3851,7 @@ declare void @_ZN2cv3Mat6createENS_5Size_IiEEi(ptr noundef nonnull align 8 deref
 declare void @_ZN2cv3MatC1EiiiPvm(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv13HaarEvaluator7Feature4readERKNS_8FileNodeERKNS_5Size_IiEE(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv13HaarEvaluator7Feature4readERKNS_8FileNodeERKNS_5Size_IiEE(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"class.cv::FileNode", align 8
   %5 = alloca %"class.cv::FileNode", align 8
   %6 = alloca %"class.cv::FileNode", align 8
@@ -4960,7 +4960,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN2cv4UMat7releaseEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv13HaarEvaluator5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(696) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv13HaarEvaluator5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.15") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(696) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::Ptr.45", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %4 = tail call noalias noundef nonnull dereferenceable(712) ptr @_Znwm(i64 noundef 712) #30, !noalias !75
@@ -6135,7 +6135,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %130, %133
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv13HaarEvaluator10OptFeature10setOffsetsERKNS0_7FeatureEii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 60)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv13HaarEvaluator10OptFeature10setOffsetsERKNS0_7FeatureEii(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(64) initializes((0, 60)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #11 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %7 = load float, ptr %6, align 4
@@ -6582,7 +6582,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #12
 declare double @sqrt(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden { i64, i64 } @_ZNK2cv13HaarEvaluator11getNormRectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %0) local_unnamed_addr #14 align 2 {
+define hidden { i64, i64 } @_ZNK2cv13HaarEvaluator11getNormRectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(696) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %.sroa.0.0.copyload = load i64, ptr %2, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 660
@@ -6593,14 +6593,14 @@ define hidden { i64, i64 } @_ZNK2cv13HaarEvaluator11getNormRectEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK2cv13HaarEvaluator16getSquaresOffsetEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %0) local_unnamed_addr #14 align 2 {
+define hidden noundef i32 @_ZNK2cv13HaarEvaluator16getSquaresOffsetEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(696) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv12LBPEvaluator7Feature4readERKNS_8FileNodeERKNS_5Size_IiEE(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv12LBPEvaluator7Feature4readERKNS_8FileNodeERKNS_5Size_IiEE(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"class.cv::FileNode", align 8
   %5 = alloca %"class.cv::FileNode", align 8
   %6 = alloca %"class.cv::FileNode", align 8
@@ -7634,7 +7634,7 @@ define hidden void @_ZN2cv12LBPEvaluatorD0Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv12LBPEvaluator4readERKNS_8FileNodeENS_5Size_IiEE(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((12, 20), (28, 44)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv12LBPEvaluator4readERKNS_8FileNodeENS_5Size_IiEE(ptr noundef nonnull align 8 captures(none) dereferenceable(640) initializes((12, 20), (28, 44)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Size_", align 8
   %5 = alloca %"class.cv::FileNodeIterator", align 8
   %6 = alloca %"class.cv::FileNodeIterator", align 8
@@ -8299,7 +8299,7 @@ _ZNSt6vectorIN2cv12LBPEvaluator7FeatureESaIS2_EE17_M_default_appendEm.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv12LBPEvaluator5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(640) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv12LBPEvaluator5cloneEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.15") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(640) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::Ptr.67", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   %4 = tail call noalias noundef nonnull dereferenceable(656) ptr @_Znwm(i64 noundef 656) #30, !noalias !119
@@ -9145,7 +9145,7 @@ _ZNSt6vectorIN2cv12LBPEvaluator10OptFeatureESaIS2_EE17_M_default_appendEm.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv12LBPEvaluator10OptFeature10setOffsetsERKNS0_7FeatureEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv12LBPEvaluator10OptFeature10setOffsetsERKNS0_7FeatureEi(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(64) initializes((0, 64)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %.sroa.0.0.copyload = load i32, ptr %1, align 4
   %.sroa.21.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.sroa.21.0.copyload = load i32, ptr %.sroa.21.0..sroa_idx, align 4
@@ -9216,7 +9216,7 @@ define hidden void @_ZN2cv12LBPEvaluator10OptFeature10setOffsetsERKNS0_7FeatureE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv12LBPEvaluator9setWindowENS_6Point_IiEEi(ptr nocapture noundef nonnull align 8 dereferenceable(640) %0, i64 %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv12LBPEvaluator9setWindowENS_6Point_IiEEi(ptr noundef nonnull align 8 captures(none) dereferenceable(640) %0, i64 %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.37", align 1
   %.sroa.010.0.extract.trunc = trunc i64 %1 to i32
@@ -9325,7 +9325,7 @@ _ZNSt6vectorIN2cv16FeatureEvaluator9ScaleDataESaIS2_EE2atEm.exit: ; preds = %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv16FeatureEvaluator6createEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.15") align 8 %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv16FeatureEvaluator6createEi(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.15") align 8 captures(none) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %1, label %56 [
     i32 0, label %3
     i32 1, label %38
@@ -9835,7 +9835,7 @@ define hidden void @_ZN2cv21CascadeClassifierImplD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK2cv21CascadeClassifierImpl5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %0) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK2cv21CascadeClassifierImpl5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -11733,7 +11733,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %.loopexit, %200
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv21CascadeClassifierImpl16setMaskGeneratorERKNS_3PtrINS_21BaseCascadeClassifier13MaskGeneratorEEE(ptr nocapture noundef nonnull align 8 dereferenceable(752) initializes((216, 224)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv21CascadeClassifierImpl16setMaskGeneratorERKNS_3PtrINS_21BaseCascadeClassifier13MaskGeneratorEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(752) initializes((216, 224)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -11850,7 +11850,7 @@ _ZN2cv3PtrINS_21BaseCascadeClassifier13MaskGeneratorEEaSERKS3_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZN2cv21CascadeClassifierImpl16getMaskGeneratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.100") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv21CascadeClassifierImpl16getMaskGeneratorEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.100") align 8 captures(none) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %1) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -11882,13 +11882,13 @@ _ZN2cv3PtrINS_21BaseCascadeClassifier13MaskGeneratorEEC2ERKS3_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv32createFaceDetectionMaskGeneratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.100") align 8 initializes((0, 16)) %0) local_unnamed_addr #8 {
+define void @_ZN2cv32createFaceDetectionMaskGeneratorEv(ptr dead_on_unwind noalias writable writeonly sret(%"struct.cv::Ptr.100") align 8 captures(none) initializes((0, 16)) %0) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK2cv21CascadeClassifierImpl18isOldFormatCascadeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %0) unnamed_addr #14 align 2 {
+define hidden noundef zeroext i1 @_ZNK2cv21CascadeClassifierImpl18isOldFormatCascadeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = icmp ne ptr %3, null
@@ -11896,7 +11896,7 @@ define hidden noundef zeroext i1 @_ZNK2cv21CascadeClassifierImpl18isOldFormatCas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK2cv21CascadeClassifierImpl14getFeatureTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %0) unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK2cv21CascadeClassifierImpl14getFeatureTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -11907,14 +11907,14 @@ define hidden noundef i32 @_ZNK2cv21CascadeClassifierImpl14getFeatureTypeEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_ZNK2cv21CascadeClassifierImpl21getOriginalWindowSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %0) unnamed_addr #14 align 2 {
+define hidden i64 @_ZNK2cv21CascadeClassifierImpl21getOriginalWindowSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.sroa.0.0.copyload = load i64, ptr %2, align 4
   ret i64 %.sroa.0.0.copyload
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN2cv21CascadeClassifierImpl13getOldCascadeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %0) unnamed_addr #14 align 2 {
+define hidden noundef ptr @_ZN2cv21CascadeClassifierImpl13getOldCascadeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(752) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
@@ -13375,7 +13375,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit30:                  ; preds = %80, %_ZNSt6vectorId
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv21CascadeClassifierImpl4DataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((0, 28), (32, 176)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv21CascadeClassifierImpl4DataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(176) initializes((0, 28), (32, 176)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
@@ -14702,7 +14702,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv16FileNodeIterato
 declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN2cv21BaseCascadeClassifierD0Ev(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define void @_ZN2cv21BaseCascadeClassifierD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
   tail call void @llvm.trap() #32
   unreachable
 }
@@ -14711,7 +14711,7 @@ define void @_ZN2cv21BaseCascadeClassifierD0Ev(ptr nocapture nonnull readnone al
 declare void @llvm.trap() #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv17CascadeClassifierC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #8 align 2 {
+define void @_ZN2cv17CascadeClassifierC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #8 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -14733,7 +14733,7 @@ define void @_ZN2cv17CascadeClassifierC2ERKNSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv17CascadeClassifier4loadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv17CascadeClassifier4loadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.131", align 1
   %4 = alloca %"class.std::shared_ptr.113", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -15105,7 +15105,7 @@ _ZNSt10shared_ptrIN2cv21BaseCascadeClassifierEED2Ev.exit: ; preds = %1, %20, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv17CascadeClassifierD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17CascadeClassifierD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -15184,7 +15184,7 @@ _ZN2cv3PtrINS_21BaseCascadeClassifierEED2Ev.exit: ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK2cv17CascadeClassifier5emptyEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZNK2cv17CascadeClassifier5emptyEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -15281,7 +15281,7 @@ _ZNSt10shared_ptrIN2cv21CascadeClassifierImplEED2Ev.exit: ; preds = %1, %20, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv17CascadeClassifier4readERKNS_8FileNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv17CascadeClassifier4readERKNS_8FileNodeE(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.131", align 1
   %4 = alloca %"class.std::shared_ptr.113", align 8
   %5 = alloca %"struct.cv::Ptr.112", align 8
@@ -16067,7 +16067,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit: ; preds = %40, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17CascadeClassifier16detectMultiScaleERKNS_11_InputArrayERSt6vectorINS_5Rect_IiEESaIS6_EEdiiNS_5Size_IiEESB_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3, i32 noundef %4, i32 noundef %5, i64 %6, i64 %7) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17CascadeClassifier16detectMultiScaleERKNS_11_InputArrayERSt6vectorINS_5Rect_IiEESaIS6_EEdiiNS_5Size_IiEESB_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, double noundef %3, i32 noundef %4, i32 noundef %5, i64 %6, i64 %7) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.cv::utils::trace::details::Region", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator.37", align 1
@@ -16162,7 +16162,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %36, %39
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17CascadeClassifier16detectMultiScaleERKNS_11_InputArrayERSt6vectorINS_5Rect_IiEESaIS6_EERS4_IiSaIiEEdiiNS_5Size_IiEESE_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef %4, i32 noundef %5, i32 noundef %6, i64 %7, i64 %8) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17CascadeClassifier16detectMultiScaleERKNS_11_InputArrayERSt6vectorINS_5Rect_IiEESaIS6_EERS4_IiSaIiEEdiiNS_5Size_IiEESE_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, double noundef %4, i32 noundef %5, i32 noundef %6, i64 %7, i64 %8) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.cv::utils::trace::details::Region", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::allocator.37", align 1
@@ -16257,7 +16257,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %37, %40
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17CascadeClassifier16detectMultiScaleERKNS_11_InputArrayERSt6vectorINS_5Rect_IiEESaIS6_EERS4_IiSaIiEERS4_IdSaIdEEdiiNS_5Size_IiEESH_b(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, double noundef %5, i32 noundef %6, i32 noundef %7, i64 %8, i64 %9, i1 noundef zeroext %10) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17CascadeClassifier16detectMultiScaleERKNS_11_InputArrayERSt6vectorINS_5Rect_IiEESaIS6_EERS4_IiSaIiEERS4_IdSaIdEEdiiNS_5Size_IiEESH_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, double noundef %5, i32 noundef %6, i32 noundef %7, i64 %8, i64 %9, i1 noundef zeroext %10) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.cv::utils::trace::details::Region", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::allocator.37", align 1
@@ -16352,7 +16352,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %39, %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK2cv17CascadeClassifier18isOldFormatCascadeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK2cv17CascadeClassifier18isOldFormatCascadeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.37", align 1
   %4 = load ptr, ptr %0, align 8
@@ -16404,7 +16404,7 @@ _ZNK2cv17CascadeClassifier5emptyEv.exit.thread:   ; preds = %1, %_ZNK2cv17Cascad
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZNK2cv17CascadeClassifier21getOriginalWindowSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZNK2cv17CascadeClassifier21getOriginalWindowSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.37", align 1
   %4 = load ptr, ptr %0, align 8
@@ -16456,7 +16456,7 @@ _ZNK2cv17CascadeClassifier5emptyEv.exit.thread:   ; preds = %1, %_ZNK2cv17Cascad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK2cv17CascadeClassifier14getFeatureTypeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK2cv17CascadeClassifier14getFeatureTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.37", align 1
   %4 = load ptr, ptr %0, align 8
@@ -16508,7 +16508,7 @@ _ZNK2cv17CascadeClassifier5emptyEv.exit.thread:   ; preds = %1, %_ZNK2cv17Cascad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN2cv17CascadeClassifier13getOldCascadeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN2cv17CascadeClassifier13getOldCascadeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.37", align 1
   %4 = load ptr, ptr %0, align 8
@@ -16560,7 +16560,7 @@ _ZNK2cv17CascadeClassifier5emptyEv.exit.thread:   ; preds = %1, %_ZNK2cv17Cascad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17CascadeClassifier16setMaskGeneratorERKNS_3PtrINS_21BaseCascadeClassifier13MaskGeneratorEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17CascadeClassifier16setMaskGeneratorERKNS_3PtrINS_21BaseCascadeClassifier13MaskGeneratorEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.37", align 1
   %5 = load ptr, ptr %0, align 8
@@ -16612,7 +16612,7 @@ _ZNK2cv17CascadeClassifier5emptyEv.exit.thread:   ; preds = %2, %_ZNK2cv17Cascad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv17CascadeClassifier16getMaskGeneratorEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.100") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv17CascadeClassifier16getMaskGeneratorEv(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr.100") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.37", align 1
   %5 = load ptr, ptr %1, align 8
@@ -17821,7 +17821,7 @@ define linkonce_odr hidden void @_ZNK2cv17MeanshiftGrouping11getNewValueERKNS_7P
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef double @_ZNK2cv17MeanshiftGrouping15getResultWeightERKNS_7Point3_IdEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 comdat align 2 {
@@ -18050,7 +18050,7 @@ declare noundef nonnull align 8 dereferenceable(80) ptr @_ZN2cv4UMataSERKS0_(ptr
 declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare i32 @llvm.x86.sse2.cvtsd2si(<2 x double>) #21
@@ -19221,7 +19221,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #23
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN2cv4UMatESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -20251,10 +20251,10 @@ declare i32 @llvm.smax.i32(i32, i32) #26
 declare void @llvm.experimental.noalias.scope.decl(metadata) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #28
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #28
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

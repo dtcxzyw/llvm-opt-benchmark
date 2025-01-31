@@ -385,7 +385,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_cimd(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef 7, i32 noundef -1, i8 noundef zeroext 3) #4
   %7 = icmp eq i32 %6, -1
@@ -395,11 +395,11 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %10 = load ptr, ptr %9, align 8
   %11 = tail call ptr @tvb_get_string_enc(ptr noundef %10, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #4
-  %12 = tail call i64 @strtoul(ptr nocapture noundef %11, ptr noundef null, i32 noundef 10) #4
+  %12 = tail call i64 @strtoul(ptr noundef captures(none) %11, ptr noundef null, i32 noundef 10) #4
   %13 = trunc i64 %12 to i32
   %14 = load ptr, ptr %9, align 8
   %15 = tail call ptr @tvb_get_string_enc(ptr noundef %14, ptr noundef %0, i32 noundef 4, i32 noundef 3, i32 noundef 0) #4
-  %16 = tail call i64 @strtoul(ptr nocapture noundef %15, ptr noundef null, i32 noundef 10) #4
+  %16 = tail call i64 @strtoul(ptr noundef captures(none) %15, ptr noundef null, i32 noundef 10) #4
   %17 = trunc i64 %16 to i32
   %18 = add i32 %6, -1
   %19 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %18) #4
@@ -431,7 +431,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 32:                                               ; preds = %27
   %33 = load ptr, ptr %9, align 8
   %34 = tail call ptr @tvb_get_string_enc(ptr noundef %33, ptr noundef %0, i32 noundef %20, i32 noundef 2, i32 noundef 0) #4
-  %35 = tail call i64 @strtoul(ptr nocapture noundef %34, ptr noundef null, i32 noundef 16) #4
+  %35 = tail call i64 @strtoul(ptr noundef captures(none) %34, ptr noundef null, i32 noundef 16) #4
   %36 = trunc i64 %35 to i16
   %37 = icmp sgt i32 %20, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
@@ -511,7 +511,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 71:                                               ; preds = %67
   %72 = call ptr @wmem_packet_scope() #4
   %73 = call ptr @tvb_get_string_enc(ptr noundef %72, ptr noundef %0, i32 noundef %68, i32 noundef 3, i32 noundef 0) #4
-  %74 = call i64 @strtoul(ptr nocapture noundef %73, ptr noundef null, i32 noundef 10) #4
+  %74 = call i64 @strtoul(ptr noundef captures(none) %73, ptr noundef null, i32 noundef 10) #4
   %75 = trunc i64 %74 to i32
   %76 = call ptr @try_val_to_str_idx(i32 noundef %75, ptr noundef nonnull @cimd_vals_PC, ptr noundef nonnull %5) #4
   %77 = icmp slt i32 %69, %6
@@ -532,7 +532,7 @@ define internal i32 @dissect_cimd(ptr noundef %0, ptr nocapture noundef readonly
 84:                                               ; preds = %80
   %85 = call ptr @wmem_packet_scope() #4
   %86 = call ptr @tvb_get_string_enc(ptr noundef %85, ptr noundef %0, i32 noundef %81, i32 noundef 3, i32 noundef 0) #4
-  %87 = call i64 @strtoul(ptr nocapture noundef %86, ptr noundef null, i32 noundef 10) #4
+  %87 = call i64 @strtoul(ptr noundef captures(none) %86, ptr noundef null, i32 noundef 10) #4
   %88 = trunc i64 %87 to i32
   %89 = call ptr @try_val_to_str_idx(i32 noundef %88, ptr noundef nonnull @cimd_vals_PC, ptr noundef nonnull %5) #4
   %90 = load i32, ptr %5, align 4
@@ -581,7 +581,7 @@ define hidden void @proto_reg_handoff_cimd() local_unnamed_addr #0 {
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dissect_cimd_heur(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 2) i32 @dissect_cimd_heur(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
   %6 = icmp ult i32 %5, 9
   br i1 %6, label %27, label %7
@@ -600,7 +600,7 @@ define internal range(i32 0, 2) i32 @dissect_cimd_heur(ptr noundef %0, ptr nocap
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @tvb_get_string_enc(ptr noundef %14, ptr noundef %0, i32 noundef 1, i32 noundef 2, i32 noundef 0) #4
-  %16 = tail call i64 @strtoul(ptr nocapture noundef %15, ptr noundef null, i32 noundef 10) #4
+  %16 = tail call i64 @strtoul(ptr noundef captures(none) %15, ptr noundef null, i32 noundef 10) #4
   %17 = trunc i64 %16 to i32
   %18 = and i32 %17, 255
   %19 = tail call ptr @try_val_to_str(i32 noundef %18, ptr noundef nonnull @vals_hdr_OC) #4
@@ -671,7 +671,7 @@ define internal void @dissect_cimd_dcs(ptr noundef %0, ptr noundef %1, i32 nound
   %19 = tail call ptr @wmem_packet_scope() #4
   %20 = sub i32 %4, %18
   %21 = tail call ptr @tvb_get_string_enc(ptr noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef %20, i32 noundef 0) #4
-  %22 = tail call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #4
+  %22 = tail call i64 @strtoul(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #4
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load ptr, ptr %24, align 8
@@ -830,7 +830,7 @@ define internal void @dissect_cimd_error_code(ptr noundef %0, ptr noundef %1, i3
   %19 = add i32 %3, 5
   %20 = sub i32 %4, %19
   %21 = tail call ptr @tvb_get_string_enc(ptr noundef %18, ptr noundef %0, i32 noundef %19, i32 noundef %20, i32 noundef 0) #4
-  %22 = tail call i64 @strtoul(ptr nocapture noundef %21, ptr noundef null, i32 noundef 10) #4
+  %22 = tail call i64 @strtoul(ptr noundef captures(none) %21, ptr noundef null, i32 noundef 10) #4
   %23 = trunc i64 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load ptr, ptr %24, align 8
@@ -844,7 +844,7 @@ declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #2
 
 declare ptr @tvb_get_string_enc(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -891,10 +891,10 @@ declare ptr @try_val_to_str_idx(i32 noundef, ptr noundef, ptr noundef) local_unn
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [26 x i8] c"Compressed data violation\00", align 1
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(argmem: readwrite)
-define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 section ".init.text" align 16 {
   %4 = getelementptr i8, ptr %0, i64 %2
   %5 = icmp slt i64 %2, 33
   br i1 %5, label %.loopexit, label %6
@@ -82,13 +82,13 @@ define dso_local noundef range(i64 0, 2) i64 @parse_header(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #2 section ".init.text" align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #2 section ".init.text" align 16 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #7
@@ -405,7 +405,7 @@ define dso_local noundef range(i32 -1, 1) i32 @unlzo(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @lzo1x_decompress_safe(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4

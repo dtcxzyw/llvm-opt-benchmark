@@ -105,7 +105,7 @@ if.end7:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_unlink(ptr nocapture noundef readonly %bev) #0 {
+define internal void @be_filter_unlink(ptr noundef readonly captures(none) %bev) #0 {
 entry:
   %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
@@ -158,7 +158,7 @@ if.end15:                                         ; preds = %if.else4, %if.end12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_destruct(ptr nocapture noundef readonly %bev) #0 {
+define internal void @be_filter_destruct(ptr noundef readonly captures(none) %bev) #0 {
 entry:
   %be_ops.i = getelementptr inbounds nuw i8, ptr %bev, i64 8
   %0 = load ptr, ptr %be_ops.i, align 8
@@ -242,7 +242,7 @@ if.end7:                                          ; preds = %if.then5, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @be_filter_ctrl(ptr nocapture noundef readonly %bev, i32 noundef %op, ptr noundef %data) #0 {
+define internal i32 @be_filter_ctrl(ptr noundef readonly captures(none) %bev, i32 noundef %op, ptr noundef %data) #0 {
 entry:
   switch i32 %op, label %return [
     i32 2, label %sw.bb
@@ -362,7 +362,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @be_null_filter(ptr noundef %src, ptr noundef %dst, i64 noundef %lim, i32 %state, ptr nocapture readnone %ctx) #0 {
+define internal range(i32 0, 3) i32 @be_null_filter(ptr noundef %src, ptr noundef %dst, i64 noundef %lim, i32 %state, ptr readnone captures(none) %ctx) #0 {
 entry:
   %call = tail call i32 @evbuffer_remove_buffer(ptr noundef %src, ptr noundef %dst, i64 noundef %lim) #2
   %0 = lshr i32 %call, 30
@@ -381,7 +381,7 @@ declare i32 @bufferevent_enable_locking_(ptr noundef, ptr noundef) local_unnamed
 declare void @bufferevent_setcb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_readcb(ptr nocapture noundef readonly %underlying, ptr noundef %me_) #0 {
+define internal void @be_filter_readcb(ptr noundef readonly captures(none) %underlying, ptr noundef %me_) #0 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %me_, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -409,7 +409,7 @@ do.end17:                                         ; preds = %if.then12, %do.end5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_writecb(ptr nocapture readnone %underlying, ptr noundef %me_) #0 {
+define internal void @be_filter_writecb(ptr readnone captures(none) %underlying, ptr noundef %me_) #0 {
 entry:
   %processed_any = alloca i32, align 4
   store i32 0, ptr %processed_any, align 4
@@ -448,7 +448,7 @@ do.end23:                                         ; preds = %if.then18, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @be_filter_eventcb(ptr nocapture readnone %underlying, i16 noundef signext %what, ptr noundef %me_) #0 {
+define internal void @be_filter_eventcb(ptr readnone captures(none) %underlying, i16 noundef signext %what, ptr noundef %me_) #0 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %me_, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -487,7 +487,7 @@ do.end22:                                         ; preds = %if.then17, %do.body
 declare ptr @evbuffer_add_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @bufferevent_filtered_inbuf_cb(ptr nocapture readnone %buf, ptr nocapture readnone %cbinfo, ptr noundef %arg) #0 {
+define internal void @bufferevent_filtered_inbuf_cb(ptr readnone captures(none) %buf, ptr readnone captures(none) %cbinfo, ptr noundef %arg) #0 {
 entry:
   %lock = getelementptr inbounds nuw i8, ptr %arg, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -555,7 +555,7 @@ do.end30:                                         ; preds = %if.then25, %do.body
 declare i32 @evbuffer_cb_clear_flags(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @bufferevent_filtered_outbuf_cb(ptr nocapture readnone %buf, ptr nocapture noundef readonly %cbinfo, ptr noundef %arg) #0 {
+define internal void @bufferevent_filtered_outbuf_cb(ptr readnone captures(none) %buf, ptr noundef readonly captures(none) %cbinfo, ptr noundef %arg) #0 {
 entry:
   %processed_any = alloca i32, align 4
   %n_added = getelementptr inbounds nuw i8, ptr %cbinfo, i64 8
@@ -599,7 +599,7 @@ declare i32 @event_del(ptr noundef) local_unnamed_addr #1
 declare void @bufferevent_incref_and_lock_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @be_filter_process_output(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef nonnull %processed_out) unnamed_addr #0 {
+define internal fastcc void @be_filter_process_output(ptr noundef %bevf, i32 noundef %state, ptr noundef nonnull captures(none) %processed_out) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %state, 0
   br i1 %cmp, label %if.then, label %do.body.preheader
@@ -869,7 +869,7 @@ declare void @bufferevent_run_readcb_(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @bufferevent_run_writecb_(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @be_filter_read_nolock_(ptr nocapture noundef readonly %underlying, ptr noundef %me_) unnamed_addr #0 {
+define internal fastcc void @be_filter_read_nolock_(ptr noundef readonly captures(none) %underlying, ptr noundef %me_) unnamed_addr #0 {
 entry:
   %processed_any = alloca i32, align 4
   store i32 0, ptr %processed_any, align 4
@@ -994,7 +994,7 @@ if.end14:                                         ; preds = %if.then2.split, %la
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @be_filter_process_input(ptr noundef %bevf, i32 noundef %state, ptr nocapture noundef nonnull %processed_out) unnamed_addr #0 {
+define internal fastcc void @be_filter_process_input(ptr noundef %bevf, i32 noundef %state, ptr noundef nonnull captures(none) %processed_out) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %state, 0
   br i1 %cmp, label %if.then, label %if.end5.split

@@ -57,7 +57,7 @@ $_ZTIN5folly7TimerFD5IoVecE = comdat any
 @_ZN5folly7TimerFDD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly7TimerFDD2Ev
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN5folly7TimerFDD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 {
+define void @_ZN5folly7TimerFDD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.trap() #15
   unreachable
@@ -184,7 +184,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZThn176_N5folly7TimerFDD0Ev(ptr nocapture readnone %this) unnamed_addr #3 align 2 {
+define void @_ZThn176_N5folly7TimerFDD0Ev(ptr readnone captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #15
   unreachable
@@ -241,7 +241,7 @@ entry:
 }
 
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZThn184_N5folly7TimerFDD0Ev(ptr nocapture readnone %this) unnamed_addr #3 align 2 {
+define void @_ZThn184_N5folly7TimerFDD0Ev(ptr readnone captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.trap() #15
   unreachable
@@ -418,7 +418,7 @@ declare void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenc
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #9 comdat {
@@ -435,10 +435,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare noundef zeroext i1 @_ZN5folly12EventHandler12registerImplEtb(ptr noundef nonnull align 8 dereferenceable(176), i16 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(212) initializes((0, 8), (176, 192)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
@@ -515,7 +515,7 @@ terminate.lpad:                                   ; preds = %.noexc5, %.noexc4, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly7TimerFD6cancelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly7TimerFD6cancelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(212) %this) local_unnamed_addr #1 align 2 {
 entry:
   %val.i = alloca %struct.itimerspec, align 8
   %fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -564,7 +564,7 @@ declare void @_ZN5folly12EventHandler15changeHandlerFDENS_13NetworkSocketE(ptr n
 declare i32 @close(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly7TimerFD8scheduleENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this, i64 %timeout.coerce) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly7TimerFD8scheduleENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(212) %this, i64 %timeout.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %val.i = alloca %struct.itimerspec, align 8
   %fd_.i = getelementptr inbounds nuw i8, ptr %this, i64 208
@@ -592,7 +592,7 @@ _ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(212) %this, i64 %useconds.coerce) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN5folly7TimerFD8setTimerENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(212) %this, i64 %useconds.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %val = alloca %struct.itimerspec, align 8
   %fd_ = getelementptr inbounds nuw i8, ptr %this, i64 208

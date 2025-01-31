@@ -124,28 +124,28 @@ define ptr @PaPulseAudio_New() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef) local_unnamed_addr #1
 
 declare void @PaUtil_SetLastHostErrorInfo(i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @pa_threaded_mainloop_new() local_unnamed_addr #1
 
 declare ptr @pa_threaded_mainloop_get_api(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @pa_context_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @pa_context_set_state_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @PaPulseAudio_CheckContextStateCb(ptr noundef readnone %0, ptr nocapture noundef readonly %1) #0 {
+define void @PaPulseAudio_CheckContextStateCb(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -262,7 +262,7 @@ declare void @PaUtil_FreeMemory(ptr noundef) local_unnamed_addr #1
 declare void @pa_threaded_mainloop_signal(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @PaPulseAudio_ServerInfoCb(ptr noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2) #0 {
+define void @PaPulseAudio_ServerInfoCb(ptr noundef readnone %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -286,7 +286,7 @@ define void @PaPulseAudio_ServerInfoCb(ptr noundef readnone %0, ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, i64 noundef %9) local_unnamed_addr #0 {
+define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, i64 noundef %9) local_unnamed_addr #0 {
   %11 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1023) #14
   %12 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1023) #14
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -335,8 +335,8 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr nocapture nound
   br i1 %43, label %63, label %44
 
 44:                                               ; preds = %42
-  %45 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %38, i64 noundef %25, ptr noundef nonnull @.str.2, ptr noundef %2) #13
-  %46 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %34, i64 noundef %33, ptr noundef nonnull @.str.2, ptr noundef %1) #13
+  %45 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %38, i64 noundef %25, ptr noundef nonnull @.str.2, ptr noundef nonnull %2) #13
+  %46 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %34, i64 noundef %33, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #13
   %47 = load i32, ptr %14, align 8
   %48 = sext i32 %47 to i64
   %.idx51 = mul nsw i64 %48, 72
@@ -372,12 +372,12 @@ define range(i32 -9992, 1) i32 @_PaPulseAudio_AddAudioDevice(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strnlen(ptr nocapture noundef, i64 noundef) local_unnamed_addr #5
+declare i64 @strnlen(ptr noundef captures(none), i64 noundef) local_unnamed_addr #5
 
 declare ptr @PaUtil_GroupAllocateZeroInitializedMemory(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @PaPulseAudio_SinkListCb(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) #0 {
+define void @PaPulseAudio_SinkListCb(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -416,7 +416,7 @@ define void @PaPulseAudio_SinkListCb(ptr noundef readnone %0, ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PaPulseAudio_SourceListCb(ptr noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) #0 {
+define void @PaPulseAudio_SourceListCb(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef captures(none) %3) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.sink.split, label %5
 
@@ -453,7 +453,7 @@ define void @PaPulseAudio_SourceListCb(ptr noundef readnone %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PaPulseAudio_StreamStateCb(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define void @PaPulseAudio_StreamStateCb(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -479,7 +479,7 @@ declare i32 @pa_stream_get_state(ptr noundef) local_unnamed_addr #1
 declare ptr @pa_stream_get_buffer_attr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @PaPulseAudio_StreamUnderflowCb(ptr noundef %0, ptr nocapture noundef %1) #0 {
+define void @PaPulseAudio_StreamUnderflowCb(ptr noundef %0, ptr noundef captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -499,7 +499,7 @@ define void @PaPulseAudio_StreamUnderflowCb(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 2) i32 @PaPulseAudio_Initialize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -9999, 2) i32 @PaPulseAudio_Initialize(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @PaPulseAudio_New()
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread98, label %4
@@ -751,7 +751,7 @@ define void @Terminate(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, ptr noundef readonly %3, double noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #0 {
+define i32 @OpenStream(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, double noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) #0 {
   %10 = and i64 %6, 4294901760
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %11, label %160
@@ -1035,7 +1035,7 @@ define i32 @OpenStream(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -9998, 1) i32 @IsFormatSupported(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, double %3) #6 {
+define range(i32 -9998, 1) i32 @IsFormatSupported(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, double %3) #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %5
 
@@ -1138,7 +1138,7 @@ define i32 @IsStreamActive(ptr noundef %0) #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define double @GetStreamTime(ptr nocapture noundef readonly %0) #0 {
+define double @GetStreamTime(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca %struct.PaStreamCallbackTimeInfo, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
@@ -1205,7 +1205,7 @@ declare i64 @PaPulseAudio_GetStreamReadAvailableBlock(ptr noundef) #1
 declare void @PaPulseAudio_UnLock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -9994, 1) i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
+define range(i32 -9994, 1) i32 @PaPulseAudio_ConvertPortaudioFormatToPaPulseAudio_(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #8 {
   switch i64 %0, label %7 [
     i64 1, label %.sink.split
     i64 2, label %3
@@ -1273,7 +1273,7 @@ define range(i32 -10000, 1) i32 @PaPulseAudio_BlockingInitRingBuffer(ptr noundef
 declare i64 @PaUtil_InitializeRingBuffer(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 declare i64 @PaUtil_SelectClosestAvailableFormat(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1334,13 +1334,13 @@ define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSource(ptr noundef %0, ptr no
 14:                                               ; preds = %6
   %15 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #14
   %16 = add i64 %15, 1
-  %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %11, i64 noundef %16, ptr noundef nonnull @.str.2, ptr noundef %1) #13
+  %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %11, i64 noundef %16, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %19 = load ptr, ptr %18, align 8
   tail call void @PaUtil_FreeMemory(ptr noundef %19) #13
   store ptr %11, ptr %18, align 8
   %20 = load ptr, ptr %3, align 8
-  %21 = tail call ptr @pa_stream_set_name(ptr noundef %20, ptr noundef %1, ptr noundef nonnull @RenameStreamCb, ptr noundef nonnull %0) #13
+  %21 = tail call ptr @pa_stream_set_name(ptr noundef %20, ptr noundef nonnull %1, ptr noundef nonnull @RenameStreamCb, ptr noundef nonnull %0) #13
   %22 = load ptr, ptr %7, align 8
   tail call void @PaPulseAudio_UnLock(ptr noundef %22) #13
   %23 = tail call i32 @pa_operation_get_state(ptr noundef %21) #13
@@ -1362,7 +1362,7 @@ define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSource(ptr noundef %0, ptr no
 declare ptr @pa_stream_set_name(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @RenameStreamCb(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @RenameStreamCb(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 424
   %5 = load ptr, ptr %4, align 8
   tail call void @pa_threaded_mainloop_signal(ptr noundef %5, i32 noundef 0) #13
@@ -1394,13 +1394,13 @@ define range(i32 -9996, 1) i32 @PaPulseAudio_RenameSink(ptr noundef %0, ptr noun
 14:                                               ; preds = %6
   %15 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %1, i64 noundef 1024) #14
   %16 = add i64 %15, 1
-  %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %11, i64 noundef %16, ptr noundef nonnull @.str.2, ptr noundef %1) #13
+  %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %11, i64 noundef %16, ptr noundef nonnull @.str.2, ptr noundef nonnull %1) #13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %19 = load ptr, ptr %18, align 8
   tail call void @PaUtil_FreeMemory(ptr noundef %19) #13
   store ptr %11, ptr %18, align 8
   %20 = load ptr, ptr %3, align 8
-  %21 = tail call ptr @pa_stream_set_name(ptr noundef %20, ptr noundef %1, ptr noundef nonnull @RenameStreamCb, ptr noundef nonnull %0) #13
+  %21 = tail call ptr @pa_stream_set_name(ptr noundef %20, ptr noundef nonnull %1, ptr noundef nonnull @RenameStreamCb, ptr noundef nonnull %0) #13
   %22 = load ptr, ptr %7, align 8
   tail call void @PaPulseAudio_UnLock(ptr noundef %22) #13
   %23 = tail call i32 @pa_operation_get_state(ptr noundef %21) #13

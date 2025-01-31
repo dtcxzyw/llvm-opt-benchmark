@@ -82,7 +82,7 @@ define internal void @CollectHistogram_SSE41(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, ptr nocapture noundef readonly %2) #2 {
+define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %5 = load <8 x i16>, ptr %0, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -161,7 +161,7 @@ define internal range(i32 0, 2) i32 @QuantizeBlock_SSE41(ptr nocapture noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 64)) %1, ptr nocapture noundef readonly %2) #2 {
+define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 64)) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 192
   %5 = load <8 x i16>, ptr %0, align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -308,7 +308,7 @@ define internal range(i32 0, 4) i32 @Quantize2Blocks_SSE41(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 32)) %1, ptr nocapture noundef readonly %2) #2 {
+define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 32)) %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = load <8 x i16>, ptr %0, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load <8 x i16>, ptr %5, align 1
@@ -381,7 +381,7 @@ define internal range(i32 0, 2) i32 @QuantizeBlockWHT_SSE41(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 67108864) i32 @Disto4x4_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #3 {
+define internal range(i32 0, 67108864) i32 @Disto4x4_SSE41(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
   %.val = load <8 x i16>, ptr %2, align 1
   %4 = getelementptr i8, ptr %2, i64 16
   %.val3 = load <8 x i16>, ptr %4, align 1
@@ -495,7 +495,7 @@ define internal range(i32 0, 67108864) i32 @Disto4x4_SSE41(ptr nocapture noundef
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal i32 @Disto16x16_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #4 {
+define internal i32 @Disto16x16_SSE41(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %.val.i = load <8 x i16>, ptr %2, align 1
   %4 = getelementptr i8, ptr %2, i64 16
   %.val3.i = load <8 x i16>, ptr %4, align 1
@@ -634,7 +634,7 @@ define internal i32 @Disto16x16_SSE41(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 declare void @VP8SetHistogramData(ptr noundef, ptr noundef) local_unnamed_addr #6
 

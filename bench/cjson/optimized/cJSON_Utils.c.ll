@@ -165,17 +165,17 @@ declare i32 @cJSON_IsArray(ptr noundef) local_unnamed_addr #1
 declare ptr @cJSON_malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @cJSON_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare i32 @cJSON_IsObject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
 define ptr @cJSONUtils_GetPointer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -719,7 +719,7 @@ get_object_item.exit138:                          ; preds = %107, %109
   br i1 %120, label %decode_pointer_inplace.exit.thread, label %121
 
 121:                                              ; preds = %.thread175
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr readonly align 1 %116, i64 %118, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr nonnull readonly align 1 %116, i64 %118, i1 false)
   %122 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %119, i32 noundef 47) #13
   %.not117 = icmp eq ptr %122, null
   br i1 %.not117, label %decode_pointer_inplace.exit.thread, label %124
@@ -932,7 +932,7 @@ pointer_encoded_length.exit:                      ; preds = %.preheader
   %26 = add i64 %.0.i, 2
   %27 = add i64 %26, %25
   %28 = tail call ptr @cJSON_malloc(i64 noundef %27) #12
-  %29 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %2) #12
+  %29 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %2) #12
   %30 = getelementptr inbounds i8, ptr %28, i64 %25
   br label %31
 
@@ -970,9 +970,9 @@ pointer_encoded_length.exit:                      ; preds = %.preheader
 
 encode_string_as_pointer.exit:                    ; preds = %31
   store i8 0, ptr %.014.i, align 1
-  %40 = tail call ptr @cJSON_CreateString(ptr noundef %28) #12
+  %40 = tail call ptr @cJSON_CreateString(ptr noundef nonnull %28) #12
   %41 = tail call i32 @cJSON_AddItemToObject(ptr noundef nonnull %10, ptr noundef nonnull @.str.2, ptr noundef %40) #12
-  tail call void @cJSON_free(ptr noundef %28) #12
+  tail call void @cJSON_free(ptr noundef nonnull %28) #12
   br label %42
 
 42:                                               ; preds = %encode_string_as_pointer.exit, %16
@@ -1106,8 +1106,8 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
   %.0130 = phi i64 [ %58, %.lr.ph131 ], [ 0, %44 ]
   %.095129 = phi ptr [ %56, %.lr.ph131 ], [ %46, %44 ]
   %.097128 = phi ptr [ %57, %.lr.ph131 ], [ %48, %44 ]
-  %55 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef %1, i64 noundef %.0130) #12
-  tail call fastcc void @create_patches(ptr noundef %0, ptr noundef %51, ptr noundef nonnull %.095129, ptr noundef nonnull %.097128, i32 noundef %4)
+  %55 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.14, ptr noundef nonnull %1, i64 noundef %.0130) #12
+  tail call fastcc void @create_patches(ptr noundef %0, ptr noundef nonnull %51, ptr noundef nonnull %.095129, ptr noundef nonnull %.097128, i32 noundef %4)
   %56 = load ptr, ptr %.095129, align 8
   %57 = load ptr, ptr %.097128, align 8
   %58 = add i64 %.0130, 1
@@ -1123,14 +1123,14 @@ define internal fastcc void @create_patches(ptr noundef %0, ptr noundef %1, ptr 
 .lr.ph136:                                        ; preds = %.preheader124, %.lr.ph136
   %.196135 = phi ptr [ %63, %.lr.ph136 ], [ %.095.lcssa, %.preheader124 ]
   %62 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %.0.lcssa) #12
-  tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %51, ptr noundef null)
+  tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.8, ptr noundef nonnull %1, ptr noundef nonnull %51, ptr noundef null)
   %63 = load ptr, ptr %.196135, align 8
   %.not107 = icmp eq ptr %63, null
   br i1 %.not107, label %.preheader, label %.lr.ph136
 
 .lr.ph139:                                        ; preds = %.preheader, %.lr.ph139
   %.198138 = phi ptr [ %64, %.lr.ph139 ], [ %.097.lcssa, %.preheader ]
-  tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %.198138)
+  tail call fastcc void @compose_patch(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %1, ptr noundef nonnull @.str.5, ptr noundef nonnull %.198138)
   %64 = load ptr, ptr %.198138, align 8
   %.not108 = icmp eq ptr %64, null
   br i1 %.not108, label %._crit_edge, label %.lr.ph139
@@ -1262,7 +1262,7 @@ pointer_encoded_length.exit:                      ; preds = %111
   %118 = add i64 %110, 2
   %119 = add i64 %118, %.0.i113
   %120 = tail call ptr @cJSON_malloc(i64 noundef %119) #12
-  %121 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef %1) #12
+  %121 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %120, ptr noundef nonnull dereferenceable(1) @.str.13, ptr noundef nonnull %1) #12
   %122 = getelementptr inbounds i8, ptr %120, i64 %110
   %123 = load ptr, ptr %.phi.trans.insert, align 8
   br label %124
@@ -1301,8 +1301,8 @@ pointer_encoded_length.exit:                      ; preds = %111
 
 encode_string_as_pointer.exit:                    ; preds = %124
   store i8 0, ptr %.014.i, align 1
-  tail call fastcc void @create_patches(ptr noundef %0, ptr noundef %120, ptr noundef nonnull %.0102126, ptr noundef nonnull %.0100127, i32 noundef %4)
-  tail call void @cJSON_free(ptr noundef %120) #12
+  tail call fastcc void @create_patches(ptr noundef %0, ptr noundef nonnull %120, ptr noundef nonnull %.0102126, ptr noundef nonnull %.0100127, i32 noundef %4)
+  tail call void @cJSON_free(ptr noundef nonnull %120) #12
   %133 = load ptr, ptr %.0102126, align 8
   %134 = load ptr, ptr %.0100127, align 8
   br label %139
@@ -1638,10 +1638,10 @@ define ptr @cJSONUtils_GenerateMergePatchCaseSensitive(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @decode_array_index_from_pointer(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @decode_array_index_from_pointer(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1) unnamed_addr #7 {
   %3 = load i8, ptr %0, align 1
   %.fr29 = freeze i8 %3
   %4 = icmp eq i8 %.fr29, 48
@@ -1926,7 +1926,7 @@ compare_strings.exit.thread64:                    ; preds = %compare_strings.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @overwrite_item(ptr noundef %0, ptr nocapture noundef readonly byval(%struct.cJSON) align 8 %1) unnamed_addr #0 {
+define internal fastcc void @overwrite_item(ptr noundef %0, ptr noundef readonly byval(%struct.cJSON) align 8 captures(none) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %17, label %4
 
@@ -1971,7 +1971,7 @@ define internal fastcc void @overwrite_item(ptr noundef %0, ptr nocapture nounde
 declare ptr @cJSON_Duplicate(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @detach_path(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc ptr @detach_path(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #13
   %5 = add i64 %4, 1
   %6 = tail call ptr @cJSON_malloc(i64 noundef %5) #12
@@ -1979,7 +1979,7 @@ define internal fastcc ptr @detach_path(ptr noundef %0, ptr nocapture noundef re
   br i1 %7, label %detach_item_from_array.exit.thread, label %8
 
 8:                                                ; preds = %3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr readonly align 1 %1, i64 %5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull readonly align 1 %1, i64 %5, i1 false)
   %9 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 47) #13
   %10 = icmp eq ptr %9, null
   br i1 %10, label %detach_item_from_array.exit.thread30, label %11
@@ -2166,7 +2166,7 @@ declare void @cJSON_Delete(ptr noundef) local_unnamed_addr #1
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @cJSON_AddItemToArray(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2519,7 +2519,7 @@ declare ptr @cJSON_CreateNull() local_unnamed_addr #1
 declare i32 @llvm.fshl.i32(i32, i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -13,7 +13,7 @@ $__clang_call_terminate = comdat any
 @_ZN5arrow8internal29OptionalBinaryBitBlockCounterC1ERKSt10shared_ptrINS_6BufferEElS6_ll = unnamed_addr alias void (ptr, ptr, i64, ptr, i64, i64), ptr @_ZN5arrow8internal29OptionalBinaryBitBlockCounterC2ERKSt10shared_ptrINS_6BufferEElS6_ll
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @_ZN5arrow8internal15BitBlockCounter12GetBlockSlowEl(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %block_size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define i32 @_ZN5arrow8internal15BitBlockCounter12GetBlockSlowEl(ptr noundef nonnull align 8 captures(none) dereferenceable(24) %this, i64 noundef %block_size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bits_remaining_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %bits_remaining_, align 8
@@ -68,7 +68,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare noundef i64 @_ZN5arrow8internal12CountSetBitsEPKhll(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow8internal23OptionalBitBlockCounterC2EPKhll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (8, 48)) %this, ptr noundef %validity_bitmap, i64 noundef %offset, i64 noundef %length) unnamed_addr #4 align 2 {
+define void @_ZN5arrow8internal23OptionalBitBlockCounterC2EPKhll(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 1), (8, 48)) %this, ptr noundef %validity_bitmap, i64 noundef %offset, i64 noundef %length) unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp ne ptr %validity_bitmap, null
   %frombool = zext i1 %cmp to i8
@@ -92,7 +92,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow8internal23OptionalBitBlockCounterC2ERKSt10shared_ptrINS_6BufferEEll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 1), (8, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %validity_bitmap, i64 noundef %offset, i64 noundef %length) unnamed_addr #5 align 2 {
+define void @_ZN5arrow8internal23OptionalBitBlockCounterC2ERKSt10shared_ptrINS_6BufferEEll(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 1), (8, 48)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %validity_bitmap, i64 noundef %offset, i64 noundef %length) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %validity_bitmap, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -131,7 +131,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow8internal29OptionalBinaryBitBlockCounterC2EPKhlS3_ll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 4), (8, 88)) %this, ptr noundef %left_bitmap, i64 noundef %left_offset, ptr noundef %right_bitmap, i64 noundef %right_offset, i64 noundef %length) unnamed_addr #4 align 2 {
+define void @_ZN5arrow8internal29OptionalBinaryBitBlockCounterC2EPKhlS3_ll(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 4), (8, 88)) %this, ptr noundef %left_bitmap, i64 noundef %left_offset, ptr noundef %right_bitmap, i64 noundef %right_offset, i64 noundef %length) unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp ne ptr %left_bitmap, null
   %cmp2 = icmp ne ptr %right_bitmap, null
@@ -181,7 +181,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow8internal29OptionalBinaryBitBlockCounterC2ERKSt10shared_ptrINS_6BufferEElS6_ll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 4), (8, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %left_bitmap, i64 noundef %left_offset, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %right_bitmap, i64 noundef %right_offset, i64 noundef %length) unnamed_addr #5 align 2 {
+define void @_ZN5arrow8internal29OptionalBinaryBitBlockCounterC2ERKSt10shared_ptrINS_6BufferEElS6_ll(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 4), (8, 88)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %left_bitmap, i64 noundef %left_offset, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %right_bitmap, i64 noundef %right_offset, i64 noundef %length) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %left_bitmap, align 8
   %cmp.i.not = icmp eq ptr %0, null

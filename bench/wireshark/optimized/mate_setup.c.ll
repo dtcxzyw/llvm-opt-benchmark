@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.44 = private unnamed_addr constant [27 x i8] c"a GOPs assigned to this %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @new_pducfg(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @new_pducfg(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(120) ptr @g_malloc_n(i64 noundef 1, i64 noundef 120) #8
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #9
   store ptr %4, ptr %3, align 8
@@ -121,7 +121,7 @@ declare i32 @g_int_hash(ptr noundef) #2
 declare i32 @g_int_equal(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @new_gopcfg(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @new_gopcfg(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(160) ptr @g_malloc_n(i64 noundef 1, i64 noundef 160) #8
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #9
   store ptr %4, ptr %3, align 8
@@ -155,7 +155,7 @@ define hidden noundef ptr @new_gopcfg(ptr nocapture noundef readonly %0, ptr nou
 declare ptr @new_avpl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @new_gogcfg(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef ptr @new_gogcfg(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(128) ptr @g_malloc_n(i64 noundef 1, i64 noundef 128) #8
   %4 = tail call noalias ptr @g_strdup(ptr noundef %1) #9
   store ptr %4, ptr %3, align 8
@@ -181,7 +181,7 @@ define hidden noundef ptr @new_gogcfg(ptr nocapture noundef readonly %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @add_hfid(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @add_hfid(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not41 = icmp eq ptr %1, null
   br i1 %.not41, label %26, label %.lr.ph
 
@@ -251,7 +251,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @report_error(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ...) unnamed_addr #0 {
+define internal void @report_error(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ...) unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %3)
   %4 = call i32 @vsnprintf(ptr noundef nonnull @report_error.error_buffer, i64 noundef 4096, ptr noundef %1, ptr noundef nonnull %3) #9
@@ -555,7 +555,7 @@ declare i32 @mate_load_config(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @report_failure(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #4
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #4
 
 declare ptr @g_string_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -564,7 +564,7 @@ declare ptr @g_string_insert_c(ptr noundef, i64 noundef, i8 noundef signext) loc
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @analyze_gop_config(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @analyze_gop_config(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.hf_register_info, align 8
   %5 = alloca %struct.hf_register_info, align 8
   %6 = alloca %struct.hf_register_info, align 8
@@ -954,7 +954,7 @@ define internal void @analyze_gop_config(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @analyze_gog_config(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @analyze_gog_config(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.hf_register_info, align 8
   %5 = alloca %struct.hf_register_info, align 8
   %6 = alloca ptr, align 8
@@ -1244,10 +1244,10 @@ define internal void @analyze_gog_config(ptr nocapture readnone %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @analyze_pdu_hfids(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @analyze_pdu_hfids(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = alloca %struct.hf_register_info, align 8
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1292,7 +1292,7 @@ define internal void @analyze_pdu_hfids(ptr noundef %0, ptr noundef %1, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @analyze_transform_hfrs(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @analyze_transform_hfrs(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.hf_register_info, align 8
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
@@ -1406,10 +1406,10 @@ declare void @llvm.va_start.p0(ptr) #6
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0,1) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

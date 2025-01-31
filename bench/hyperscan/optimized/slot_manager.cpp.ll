@@ -226,7 +226,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214SlotCacheEntryC2ERKNS_8NGHolderERKNS_9CharReachEjbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 45), (48, 52)) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix_in, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %escapes_in, i32 noundef %parent_in, i1 noundef zeroext %is_reset_in, i32 noundef %slot_in) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214SlotCacheEntryC2ERKNS_8NGHolderERKNS_9CharReachEjbj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(52) initializes((0, 45), (48, 52)) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix_in, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %escapes_in, i32 noundef %parent_in, i1 noundef zeroext %is_reset_in, i32 noundef %slot_in) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit:
   %ref.tmp = alloca %"class.std::unique_ptr.2", align 8
   %frombool = zext i1 %is_reset_in to i8
@@ -247,10 +247,10 @@ _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit:
 declare void @_ZN3ue211cloneHolderERKNS_8NGHolderE(ptr sret(%"class.std::unique_ptr.2") align 8, ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZNK3ue215SlotEntryHasherclERKNS_14SlotCacheEntryE(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %e) local_unnamed_addr #2 align 2 {
+define hidden noundef i64 @_ZNK3ue215SlotEntryHasherclERKNS_14SlotCacheEntryE(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %e) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %e, align 8
   %call2 = tail call noundef i64 @_ZN3ue211hash_holderERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %0)
@@ -294,7 +294,7 @@ _ZN3ue28hash_allIJyRKjRKbRKNS_9CharReachEEEEmDpOT_.exit: ; preds = %for.body.i.i
 declare noundef i64 @_ZN3ue211hash_holderERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK3ue214SlotEntryEqualclERKNS_14SlotCacheEntryES3_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %b) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue214SlotEntryEqualclERKNS_14SlotCacheEntryES3_(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %b) local_unnamed_addr #2 align 2 {
 entry:
   %parent_slot = getelementptr inbounds nuw i8, ptr %a, i64 40
   %0 = load i32, ptr %parent_slot, align 8
@@ -348,7 +348,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3ue29SlotCache4findERKNS_8NGHolderERKNS_9CharReachEjb(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %escapes, i32 noundef %parent_slot, i1 noundef zeroext %is_reset) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN3ue29SlotCache4findERKNS_8NGHolderERKNS_9CharReachEjb(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %escapes, i32 noundef %parent_slot, i1 noundef zeroext %is_reset) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %entry2 = alloca %"struct.ue2::SlotCacheEntry", align 8
   %frombool.i = zext i1 %is_reset to i8
@@ -570,7 +570,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue214SomSlotManager10getSomSlotERKNS_8NGHolderERKNS_9CharReachEbj(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %escapes, i1 noundef zeroext %is_reset, i32 noundef %parent_slot) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN3ue214SomSlotManager10getSomSlotERKNS_8NGHolderERKNS_9CharReachEbj(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(32) %escapes, i1 noundef zeroext %is_reset, i32 noundef %parent_slot) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parent_slot.addr.i = alloca i32, align 4
   %is_reset.addr.i = alloca i8, align 1
@@ -655,7 +655,7 @@ return:                                           ; preds = %do.end10, %do.end8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue214SomSlotManager22getInitialResetSomSlotERKNS_8NGHolderES3_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEEjPb(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %region_map, i32 noundef %last_sent_region, ptr nocapture noundef writeonly initializes((0, 1)) %prefix_already_implemented) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN3ue214SomSlotManager22getInitialResetSomSlotERKNS_8NGHolderES3_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEEjPb(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %region_map, i32 noundef %last_sent_region, ptr noundef writeonly captures(none) initializes((0, 1)) %prefix_already_implemented) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %last_sent_region.addr = alloca i32, align 4
@@ -1834,7 +1834,7 @@ _ZNSt12__shared_ptrIKN3ue28NGHolderELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN3ue214SomSlotManager17getPrivateSomSlotEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN3ue214SomSlotManager17getPrivateSomSlotEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %inc = add i32 %0, 1
@@ -1843,14 +1843,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ue214SomSlotManager13rollbackSomToEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 4)) %this, i32 noundef %num) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN3ue214SomSlotManager13rollbackSomToEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((0, 4)) %this, i32 noundef %num) local_unnamed_addr #7 align 2 {
 entry:
   store i32 %num, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK3ue214SomSlotManager11numSomSlotsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %this) local_unnamed_addr #8 align 2 {
+define hidden noundef i32 @_ZNK3ue214SomSlotManager11numSomSlotsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   ret i32 %0
@@ -2114,7 +2114,7 @@ invoke.cont2:                                     ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3880,7 +3880,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt10shared_ptrIKN3ue28NGHolderEES4_SaIS4_ENSt8__detail9_IdentityENS1_13NGHolderEqualENS1_14NGHolderHasherENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb1ELb1EEEE16_M_insert_uniqueIRKS4_SI_NS6_10_AllocNodeISaINS6_10_Hash_nodeIS4_Lb1EEEEEEEESt4pairINS6_14_Node_iteratorIS4_Lb1ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(16) %__k, ptr noundef nonnull align 8 dereferenceable(16) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5739,16 +5739,16 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #20

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.bitmap_test_and_clear_atomic = private unnamed_addr constant [64 x i8] c"_Bool bitmap_test_and_clear_atomic(unsigned long *, long, long)\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @slow_bitmap_empty(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_empty(ptr noundef readonly captures(none) %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div7 = lshr i64 %bits, 6
   %cmp9.not = icmp ult i64 %bits, 64
@@ -55,7 +55,7 @@ return:                                           ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @slow_bitmap_full(ptr nocapture noundef readonly %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_full(ptr noundef readonly captures(none) %bitmap, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div7 = lshr i64 %bits, 6
   %cmp9.not = icmp ult i64 %bits, 64
@@ -99,7 +99,7 @@ return:                                           ; preds = %for.body, %if.then2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @slow_bitmap_equal(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_equal(ptr noundef readonly captures(none) %bitmap1, ptr noundef readonly captures(none) %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div10 = lshr i64 %bits, 6
   %cmp12.not = icmp ult i64 %bits, 64
@@ -147,7 +147,7 @@ return:                                           ; preds = %for.body, %if.then3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @slow_bitmap_complement(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %bits) local_unnamed_addr #1 {
+define dso_local void @slow_bitmap_complement(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %bits) local_unnamed_addr #1 {
 entry:
   %div10 = lshr i64 %bits, 6
   %cmp11.not = icmp ult i64 %bits, 64
@@ -187,7 +187,7 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @slow_bitmap_and(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_and(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %bitmap1, ptr noundef readonly captures(none) %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
 entry:
   %sub = add i64 %bits, 63
   %div6 = lshr i64 %sub, 6
@@ -220,7 +220,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @slow_bitmap_or(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
+define dso_local void @slow_bitmap_or(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %bitmap1, ptr noundef readonly captures(none) %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
 entry:
   %sub = add i64 %bits, 63
   %div5 = lshr i64 %sub, 6
@@ -245,7 +245,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @slow_bitmap_xor(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
+define dso_local void @slow_bitmap_xor(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %bitmap1, ptr noundef readonly captures(none) %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
 entry:
   %sub = add i64 %bits, 63
   %div5 = lshr i64 %sub, 6
@@ -270,7 +270,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @slow_bitmap_andnot(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_andnot(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %bitmap1, ptr noundef readonly captures(none) %bitmap2, i64 noundef %bits) local_unnamed_addr #1 {
 entry:
   %sub = add i64 %bits, 63
   %div6 = lshr i64 %sub, 6
@@ -304,7 +304,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bitmap_set(ptr nocapture noundef %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
+define dso_local void @bitmap_set(ptr noundef captures(none) %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
 entry:
   %add = add i64 %start, %nr
   %0 = or i64 %nr, %start
@@ -362,7 +362,7 @@ if.end15:                                         ; preds = %if.then10, %while.e
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bitmap_set_atomic(ptr nocapture noundef %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
+define dso_local void @bitmap_set_atomic(ptr noundef captures(none) %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
 entry:
   %div21 = lshr i64 %start, 6
   %add.ptr = getelementptr i64, ptr %map, i64 %div21
@@ -435,7 +435,7 @@ if.end28:                                         ; preds = %if.else27, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bitmap_clear(ptr nocapture noundef %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
+define dso_local void @bitmap_clear(ptr noundef captures(none) %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
 entry:
   %add = add i64 %start, %nr
   %0 = or i64 %nr, %start
@@ -495,7 +495,7 @@ if.end17:                                         ; preds = %if.then11, %while.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @bitmap_test_and_clear(ptr nocapture noundef %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
+define dso_local zeroext i1 @bitmap_test_and_clear(ptr noundef captures(none) %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
 entry:
   %div26 = lshr i64 %start, 6
   %add.ptr = getelementptr i64, ptr %map, i64 %div26
@@ -585,7 +585,7 @@ if.end39:                                         ; preds = %if.then29, %if.end2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @bitmap_test_and_clear_atomic(ptr nocapture noundef %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
+define dso_local zeroext i1 @bitmap_test_and_clear_atomic(ptr noundef captures(none) %map, i64 noundef %start, i64 noundef %nr) local_unnamed_addr #2 {
 entry:
   %div30 = lshr i64 %start, 6
   %add.ptr = getelementptr i64, ptr %map, i64 %div30
@@ -681,7 +681,7 @@ if.end45:                                         ; preds = %if.else41, %if.then
 }
 
 ; Function Attrs: nofree norecurse nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @bitmap_copy_and_clear_atomic(ptr nocapture noundef writeonly %dst, ptr nocapture noundef %src, i64 noundef %nr) local_unnamed_addr #4 {
+define dso_local void @bitmap_copy_and_clear_atomic(ptr noundef writeonly captures(none) %dst, ptr noundef captures(none) %src, i64 noundef %nr) local_unnamed_addr #4 {
 entry:
   %cmp4 = icmp sgt i64 %nr, 0
   br i1 %cmp4, label %while.end, label %while.end5
@@ -739,7 +739,7 @@ declare i64 @find_next_zero_bit(ptr noundef, i64 noundef, i64 noundef) local_unn
 declare i64 @find_next_bit(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @slow_bitmap_intersects(ptr nocapture noundef readonly %bitmap1, ptr nocapture noundef readonly %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @slow_bitmap_intersects(ptr noundef readonly captures(none) %bitmap1, ptr noundef readonly captures(none) %bitmap2, i64 noundef %bits) local_unnamed_addr #0 {
 entry:
   %div10 = lshr i64 %bits, 6
   %cmp12.not = icmp ult i64 %bits, 64
@@ -788,7 +788,7 @@ return:                                           ; preds = %for.body, %if.then3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable
-define dso_local i64 @slow_bitmap_count_one(ptr nocapture noundef readonly %bitmap, i64 noundef %nbits) local_unnamed_addr #0 {
+define dso_local i64 @slow_bitmap_count_one(ptr noundef readonly captures(none) %bitmap, i64 noundef %nbits) local_unnamed_addr #0 {
 entry:
   %div9 = lshr i64 %nbits, 6
   %cmp11.not = icmp ult i64 %nbits, 64
@@ -829,7 +829,7 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @bitmap_from_le(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %nbits) local_unnamed_addr #6 {
+define dso_local void @bitmap_from_le(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %nbits) local_unnamed_addr #6 {
 entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
@@ -839,7 +839,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @bitmap_to_le(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %nbits) local_unnamed_addr #6 {
+define dso_local void @bitmap_to_le(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %nbits) local_unnamed_addr #6 {
 entry:
   %sub.i = add i64 %nbits, 63
   %0 = lshr i64 %sub.i, 3
@@ -849,7 +849,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @bitmap_copy_with_src_offset(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #1 {
+define dso_local void @bitmap_copy_with_src_offset(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #1 {
 entry:
   %div34 = lshr i64 %shift, 6
   %add.ptr = getelementptr i64, ptr %src, i64 %div34
@@ -938,7 +938,7 @@ if.end27:                                         ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @bitmap_copy_with_dst_offset(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #1 {
+define dso_local void @bitmap_copy_with_dst_offset(ptr noundef captures(none) %dst, ptr noundef readonly captures(none) %src, i64 noundef %shift, i64 noundef %nbits) local_unnamed_addr #1 {
 entry:
   %div37 = lshr i64 %shift, 6
   %add.ptr = getelementptr i64, ptr %dst, i64 %div37
@@ -1038,10 +1038,10 @@ if.end34:                                         ; preds = %if.else.i, %if.then
 declare i64 @llvm.ctpop.i64(i64) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

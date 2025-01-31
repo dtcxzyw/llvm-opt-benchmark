@@ -58,7 +58,7 @@ $_ZNK12hb_bit_set_t4nextEPj = comdat any
 @_hb_CrapPool = external hidden local_unnamed_addr global [80 x i64], align 16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_Z27hb_plan_subset_cff_fdselectPK16hb_subset_plan_tjRKN3CFF8FDSelectERjS6_S6_R11hb_vector_tINS2_11code_pair_tELb0EER14hb_inc_bimap_t(ptr nocapture noundef readonly %plan, i32 noundef %fdCount, ptr noundef nonnull align 1 dereferenceable(6) %src, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %subset_fd_count, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %subset_fdselect_size, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %subset_fdselect_format, ptr nocapture noundef nonnull align 8 dereferenceable(16) %fdselect_ranges, ptr noundef nonnull align 8 dereferenceable(64) %fdmap) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z27hb_plan_subset_cff_fdselectPK16hb_subset_plan_tjRKN3CFF8FDSelectERjS6_S6_R11hb_vector_tINS2_11code_pair_tELb0EER14hb_inc_bimap_t(ptr noundef readonly captures(none) %plan, i32 noundef %fdCount, ptr noundef nonnull align 1 dereferenceable(6) %src, ptr noundef nonnull align 4 captures(none) dereferenceable(4) initializes((0, 4)) %subset_fd_count, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %subset_fdselect_size, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %subset_fdselect_format, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %fdselect_ranges, ptr noundef nonnull align 8 dereferenceable(64) %fdmap) local_unnamed_addr #0 {
 entry:
   %set = alloca %struct.hb_set_t, align 8
   %fd35 = alloca i32, align 4
@@ -624,7 +624,7 @@ return:                                           ; preds = %cleanup, %if.then55
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef i32 @_ZN14hb_inc_bimap_t3addEj(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %lhs) local_unnamed_addr #0 comdat align 2 {
@@ -774,7 +774,7 @@ if.end:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_Z25hb_serialize_cff_fdselectP22hb_serialize_context_tjRKN3CFF8FDSelectEjjjRK11hb_vector_tINS1_11code_pair_tELb0EE(ptr nocapture noundef %c, i32 noundef %num_glyphs, ptr nocapture noundef nonnull readnone align 1 dereferenceable(6) %src, i32 noundef %fd_count, i32 noundef %fdselect_format, i32 noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %fdselect_ranges) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @_Z25hb_serialize_cff_fdselectP22hb_serialize_context_tjRKN3CFF8FDSelectEjjjRK11hb_vector_tINS1_11code_pair_tELb0EE(ptr noundef captures(none) %c, i32 noundef %num_glyphs, ptr noundef nonnull readnone align 1 captures(none) dereferenceable(6) %src, i32 noundef %fd_count, i32 noundef %fdselect_format, i32 noundef %size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %fdselect_ranges) local_unnamed_addr #0 {
 entry:
   %errors.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 44
   %0 = load i32, ptr %errors.i.i.i, align 4
@@ -1295,13 +1295,13 @@ cond.end29:                                       ; preds = %if.end.i35, %cond.f
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #3
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set_with_hashIRKjRjEEbOT_jOT0_b(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 4 dereferenceable(4) %key, i32 noundef %hash, ptr noundef nonnull align 4 dereferenceable(4) %value, i1 noundef zeroext %overwrite) local_unnamed_addr #0 comdat align 2 {
@@ -2230,7 +2230,7 @@ return:                                           ; preds = %if.end19, %if.then1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZN11hb_vector_tI13hb_bit_page_tLb0EE6resizeEibb(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %size_, i1 noundef zeroext %initialize, i1 noundef zeroext %exact) local_unnamed_addr #0 comdat align 2 {
@@ -2722,10 +2722,10 @@ declare i16 @llvm.bswap.i16(i16) #8
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8

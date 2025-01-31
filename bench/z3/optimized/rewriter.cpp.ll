@@ -752,7 +752,7 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 declare void @_ZN9act_cacheC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(92), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core15del_cache_stackEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core15del_cache_stackEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_cache_stack = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cache_stack, align 8
@@ -851,7 +851,7 @@ if.end:                                           ; preds = %_ZN6vectorIP9act_ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN13rewriter_core13rewrites_fromEP4exprP3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef readnone %t, ptr noundef readonly %p) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN13rewriter_core13rewrites_fromEP4exprP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone %t, ptr noundef readonly %p) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %p, null
   br i1 %tobool.not, label %lor.end, label %lor.lhs.false
@@ -883,7 +883,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN13rewriter_core11rewrites_toEP4exprP3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef readnone %t, ptr noundef readonly %p) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN13rewriter_core11rewrites_toEP4exprP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone %t, ptr noundef readonly %p) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %p, null
   br i1 %tobool.not, label %lor.end, label %lor.lhs.false
@@ -915,7 +915,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef %k, i32 noundef %offset, ptr noundef %v) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core20cache_shifted_resultEP4exprjS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef %k, i32 noundef %offset, ptr noundef %v) local_unnamed_addr #3 align 2 {
 entry:
   %m_cache = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_cache, align 8
@@ -926,7 +926,7 @@ entry:
 declare void @_ZN9act_cache6insertEP4exprjS1_(ptr noundef nonnull align 8 dereferenceable(92), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef %k, ptr noundef %v, ptr noundef %pr) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core12cache_resultEP4exprS1_P3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef %k, ptr noundef %v, ptr noundef %pr) local_unnamed_addr #3 align 2 {
 entry:
   %m_cache = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_cache, align 8
@@ -938,7 +938,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZNK13rewriter_core14get_cache_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZNK13rewriter_core14get_cache_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_cache = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_cache, align 8
@@ -948,7 +948,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core11reset_cacheEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((32, 40)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core11reset_cacheEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((32, 40)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_cache_stack = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cache_stack, align 8
@@ -977,7 +977,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @_ZN9act_cache5resetEv(ptr noundef nonnull align 8 dereferenceable(92)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core11free_memoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core11free_memoryEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN13rewriter_core15del_cache_stackEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
   %m_frame_stack = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1229,7 +1229,7 @@ if.end25:                                         ; preds = %if.then21, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core9end_scopeEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((120, 132)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core9end_scopeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((120, 132)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_cache = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_cache, align 8
@@ -1307,7 +1307,7 @@ if.end12:                                         ; preds = %if.then9, %_ZNK6vec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK13rewriter_core21is_child_of_top_frameEP4expr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef readnone %t) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK13rewriter_core21is_child_of_top_frameEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone %t) local_unnamed_addr #4 align 2 {
 entry:
   %m_frame_stack = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_frame_stack, align 8
@@ -1417,7 +1417,7 @@ return:                                           ; preds = %_ZNK10quantifier9ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core15elim_reflex_prsEj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, i32 noundef %spos) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core15elim_reflex_prsEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, i32 noundef %spos) local_unnamed_addr #3 align 2 {
 entry:
   %m_result_pr_stack = getelementptr inbounds nuw i8, ptr %this, i64 80
   %m_nodes.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -1852,7 +1852,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13rewriter_coreD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV13rewriter_core, i64 16), ptr %this, align 8
   invoke void @_ZN13rewriter_core15del_cache_stackEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
@@ -2111,7 +2111,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((32, 40)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core5resetEv(ptr noundef nonnull align 8 captures(none) dereferenceable(144) initializes((32, 40)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_cache_stack.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cache_stack.i, align 8
@@ -2645,7 +2645,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16var_shifter_core11process_appEP3appRN13rewriter_core5frameE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, ptr nocapture noundef nonnull align 8 dereferenceable(16) %fr) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN16var_shifter_core11process_appEP3appRN13rewriter_core5frameE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %fr) local_unnamed_addr #3 align 2 {
 entry:
   %m_num_args.i = getelementptr inbounds nuw i8, ptr %t, i64 24
   %0 = load i32, ptr %m_num_args.i, align 8
@@ -2838,7 +2838,7 @@ if.end28:                                         ; preds = %while.body, %if.the
 declare noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16var_shifter_core18process_quantifierEP10quantifierRN13rewriter_core5frameE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %q, ptr nocapture noundef nonnull align 8 dereferenceable(16) %fr) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN16var_shifter_core18process_quantifierEP10quantifierRN13rewriter_core5frameE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %q, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %fr) local_unnamed_addr #3 align 2 {
 entry:
   %m_i = getelementptr inbounds nuw i8, ptr %fr, i64 8
   %bf.load = load i32, ptr %m_i, align 8
@@ -3159,7 +3159,7 @@ if.end40:                                         ; preds = %_ZNK10quantifier9ge
 declare noundef ptr @_ZN11ast_manager17update_quantifierEP10quantifierjPKP4exprjS5_S3_(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16var_shifter_core9main_loopEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(144) initializes((120, 128)) %this, ptr noundef %t, ptr nocapture noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN16var_shifter_core9main_loopEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(144) initializes((120, 128)) %this, ptr noundef %t, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
 entry:
   %m_root = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %t, ptr %m_root, align 8
@@ -3556,7 +3556,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11var_shifterclEP4exprjjjR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr noundef %t, i32 noundef %bound, i32 noundef %shift1, i32 noundef %shift2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11var_shifterclEP4exprjjjR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr noundef %t, i32 noundef %bound, i32 noundef %shift1, i32 noundef %shift2, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -3771,7 +3771,7 @@ declare noundef ptr @_ZN11ast_manager6mk_varEjP4sort(ptr noundef nonnull align 8
 declare noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15inv_var_shifterclEP4exprjR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef %t, i32 noundef %shift, ptr nocapture noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN15inv_var_shifterclEP4exprjR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef %t, i32 noundef %shift, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds nuw i8, ptr %t, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4
@@ -18491,7 +18491,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
@@ -18553,7 +18553,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -44367,7 +44367,7 @@ if.then93:                                        ; preds = %invoke.cont91
   %bf.load94 = load i32, ptr %m_i, align 8
   %89 = and i32 %bf.load94, 2
   %tobool.not = icmp eq i32 %89, 0
-  br i1 %tobool.not, label %if.else, label %if.then97
+  br i1 %tobool.not, label %if.end.i182, label %if.then97
 
 if.then97:                                        ; preds = %if.then93
   %90 = load ptr, ptr %m_manager, align 8
@@ -44406,18 +44406,11 @@ if.then2.i.i.i:                                   ; preds = %if.then.i.i.i
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %95, ptr noundef nonnull %94)
           to label %if.end110.sink.split unwind label %lpad37.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-if.else:                                          ; preds = %if.then93
-  %tobool.not.i178 = icmp eq ptr %q, null
-  br i1 %tobool.not.i178, label %if.end.i182, label %_ZN11ast_manager7inc_refEP3ast.exit.i179
-
-_ZN11ast_manager7inc_refEP3ast.exit.i179:         ; preds = %if.else
+if.end.i182:                                      ; preds = %if.then93
   %m_ref_count.i.i.i180 = getelementptr inbounds nuw i8, ptr %q, i64 8
   %97 = load i32, ptr %m_ref_count.i.i.i180, align 4
   %inc.i.i.i181 = add i32 %97, 1
   store i32 %inc.i.i.i181, ptr %m_ref_count.i.i.i180, align 4
-  br label %if.end.i182
-
-if.end.i182:                                      ; preds = %_ZN11ast_manager7inc_refEP3ast.exit.i179, %if.else
   %98 = load ptr, ptr %m_r, align 8
   %tobool.not.i3.i183 = icmp eq ptr %98, null
   br i1 %tobool.not.i3.i183, label %if.end110.sink.split, label %if.then.i.i.i184
@@ -44869,10 +44862,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

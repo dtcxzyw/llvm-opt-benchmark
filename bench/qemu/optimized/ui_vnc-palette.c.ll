@@ -23,7 +23,7 @@ entry:
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @palette_init(ptr nocapture noundef writeonly initializes((0, 8216)) %palette, i64 noundef %max, i32 noundef %bpp) local_unnamed_addr #2 {
+define dso_local void @palette_init(ptr noundef writeonly captures(none) initializes((0, 8216)) %palette, i64 noundef %max, i32 noundef %bpp) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(8216) %palette, i8 0, i64 8216, i1 false)
   %max1 = getelementptr inbounds nuw i8, ptr %palette, i64 6152
@@ -34,7 +34,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @palette_destroy(ptr noundef %palette) local_unnamed_addr #0 {
@@ -128,7 +128,7 @@ return:                                           ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @palette_idx(ptr nocapture noundef readonly %palette, i32 noundef %color) local_unnamed_addr #6 {
+define dso_local i32 @palette_idx(ptr noundef readonly captures(none) %palette, i32 noundef %color) local_unnamed_addr #6 {
 entry:
   %bpp = getelementptr inbounds nuw i8, ptr %palette, i64 6160
   %0 = load i32, ptr %bpp, align 8
@@ -179,7 +179,7 @@ cond.end:                                         ; preds = %for.inc.i, %palette
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @palette_size(ptr nocapture noundef readonly %palette) local_unnamed_addr #7 {
+define dso_local i64 @palette_size(ptr noundef readonly captures(none) %palette) local_unnamed_addr #7 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %palette, i64 6144
   %0 = load i64, ptr %size, align 8
@@ -187,7 +187,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @palette_iter(ptr nocapture noundef readonly %palette, ptr nocapture noundef readonly %iter, ptr noundef %opaque) local_unnamed_addr #0 {
+define dso_local void @palette_iter(ptr noundef readonly captures(none) %palette, ptr noundef readonly captures(none) %iter, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %table = getelementptr inbounds nuw i8, ptr %palette, i64 6168
   br label %for.body
@@ -220,7 +220,7 @@ for.end5:                                         ; preds = %for.inc4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @palette_color(ptr nocapture noundef readonly %palette, i32 noundef %idx, ptr nocapture noundef writeonly %found) local_unnamed_addr #8 {
+define dso_local i32 @palette_color(ptr noundef readonly captures(none) %palette, i32 noundef %idx, ptr noundef writeonly captures(none) %found) local_unnamed_addr #8 {
 entry:
   %table = getelementptr inbounds nuw i8, ptr %palette, i64 6168
   br label %for.body
@@ -265,7 +265,7 @@ return:                                           ; preds = %for.end7, %if.then
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @palette_fill(ptr nocapture noundef readonly %palette, ptr nocapture noundef writeonly %colors) local_unnamed_addr #8 {
+define dso_local i64 @palette_fill(ptr noundef readonly captures(none) %palette, ptr noundef writeonly captures(none) %colors) local_unnamed_addr #8 {
 entry:
   %table.i = getelementptr inbounds nuw i8, ptr %palette, i64 6168
   br label %for.body.i

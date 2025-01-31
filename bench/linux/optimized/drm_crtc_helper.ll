@@ -150,13 +150,13 @@ define dso_local noundef zeroext i1 @drm_helper_encoder_in_use(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @mutex_is_locked(ptr noundef) local_unnamed_addr #3
@@ -726,7 +726,7 @@ declare dso_local void @drm_calc_timestamping_constants(ptr noundef, ptr noundef
 declare dso_local void @drm_mode_destroy(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_crtc_helper_atomic_check(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local i32 @drm_crtc_helper_atomic_check(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -752,7 +752,7 @@ define dso_local i32 @drm_crtc_helper_atomic_check(ptr nocapture noundef readonl
 declare dso_local i32 @drm_atomic_helper_check_crtc_primary_plane(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @drm_connector_get_single_encoder(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @drm_connector_get_single_encoder(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1704
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 asm "# ALT: oldnstr\0A661:\0A\09call __sw_hweight32\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 4*32+23)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09popcntl $1, $0\0A6651:\0A.popsection\0A", "={ax},{di},~{dirflag},~{fpsr},~{flags}"(i32 %3) #7, !srcloc !41
@@ -795,7 +795,7 @@ define dso_local ptr @drm_connector_get_single_encoder(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
+define dso_local i32 @drm_crtc_helper_set_config(ptr noundef %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = alloca %struct.drm_connector_list_iter, align 8
   %4 = alloca %struct.drm_connector_list_iter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #6
@@ -1646,7 +1646,7 @@ declare dso_local void @drm_mode_debug_printmodeline(ptr noundef) local_unnamed_
 declare dso_local void @__drm_err(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_helper_connector_dpms(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef i32 @drm_helper_connector_dpms(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = alloca %struct.drm_connector_list_iter, align 8
   %4 = alloca %struct.drm_connector_list_iter, align 8
   %5 = alloca %struct.drm_connector_list_iter, align 8

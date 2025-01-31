@@ -16,13 +16,13 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [25 x i8] c"Buffer allocation failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_sha512_init(ptr nocapture noundef writeonly initializes((0, 216)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_sha512_init(ptr noundef writeonly captures(none) initializes((0, 216)) %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @mbedtls_sha512_free(ptr noundef %0) local_unnamed_addr #2 {
@@ -40,16 +40,16 @@ define hidden void @mbedtls_sha512_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_sha512_clone(ptr nocapture noundef writeonly initializes((0, 216)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @mbedtls_sha512_clone(ptr noundef writeonly captures(none) initializes((0, 216)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, i64 216, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mbedtls_sha512_starts(ptr nocapture noundef writeonly initializes((0, 80), (208, 212)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @mbedtls_sha512_starts(ptr noundef writeonly captures(none) initializes((0, 80), (208, 212)) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br i1 %3, label %5, label %4
@@ -88,7 +88,7 @@ define hidden noundef i32 @mbedtls_sha512_starts(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_internal_sha512_process(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_internal_sha512_process(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
 .preheader70:
   %2 = alloca %struct.anon, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -489,7 +489,7 @@ define hidden noundef i32 @mbedtls_internal_sha512_process(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @mbedtls_sha512_update(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden noundef range(i32 -1, 1) i32 @mbedtls_sha512_update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %40, label %5
 
@@ -1008,7 +1008,7 @@ define hidden noundef i32 @mbedtls_sha512_finish(ptr noundef %0, ptr noundef wri
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef range(i32 -1, 1) i32 @mbedtls_sha512(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define hidden noundef range(i32 -1, 1) i32 @mbedtls_sha512(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = alloca %struct.mbedtls_sha512_context, align 8
   %6 = icmp eq i32 %3, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %5, i8 0, i64 216, i1 false)
@@ -1302,10 +1302,10 @@ mbedtls_sha512_update.exit63:                     ; preds = %mbedtls_sha512_upda
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #9
@@ -1314,10 +1314,10 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #9
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

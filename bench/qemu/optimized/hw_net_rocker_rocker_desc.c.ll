@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.PCI_DEVICE = private unnamed_addr constant [11 x i8] c"PCI_DEVICE\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i16 @desc_buf_size(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define dso_local zeroext i16 @desc_buf_size(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %buf_size = getelementptr inbounds nuw i8, ptr %info, i64 24
   %0 = load i16, ptr %buf_size, align 8
@@ -19,7 +19,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local zeroext i16 @desc_tlv_size(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define dso_local zeroext i16 @desc_tlv_size(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %tlv_size = getelementptr inbounds nuw i8, ptr %info, i64 26
   %0 = load i16, ptr %tlv_size, align 2
@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @desc_get_buf(ptr nocapture noundef %info, i1 noundef zeroext %read_only) local_unnamed_addr #1 {
+define dso_local ptr @desc_get_buf(ptr noundef captures(none) %info, i1 noundef zeroext %read_only) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %info, align 8
   %r = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -66,7 +66,7 @@ if.end:                                           ; preds = %entry, %if.then
 declare ptr @g_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -90, 1) i32 @desc_set_buf(ptr nocapture noundef %info, i64 noundef %tlv_size) local_unnamed_addr #1 {
+define dso_local range(i32 -90, 1) i32 @desc_set_buf(ptr noundef captures(none) %info, i64 noundef %tlv_size) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %info, align 8
   %r = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -97,14 +97,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @desc_get_ring(ptr nocapture noundef readonly %info) local_unnamed_addr #0 {
+define dso_local ptr @desc_get_ring(ptr noundef readonly captures(none) %info) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %info, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @desc_ring_index(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
+define dso_local i32 @desc_ring_index(ptr noundef readonly captures(none) %ring) local_unnamed_addr #0 {
 entry:
   %index = getelementptr inbounds nuw i8, ptr %ring, i64 48
   %0 = load i32, ptr %index, align 8
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @desc_ring_set_base_addr(ptr nocapture noundef writeonly %ring, i64 noundef %base_addr) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @desc_ring_set_base_addr(ptr noundef writeonly captures(none) %ring, i64 noundef %base_addr) local_unnamed_addr #3 {
 entry:
   %and = and i64 %base_addr, 7
   %tobool.not = icmp eq i64 %and, 0
@@ -127,7 +127,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i64 @desc_ring_get_base_addr(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
+define dso_local i64 @desc_ring_get_base_addr(ptr noundef readonly captures(none) %ring) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %ring, align 8
   ret i64 %0
@@ -199,10 +199,10 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @desc_ring_get_size(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
+define dso_local i32 @desc_ring_get_size(ptr noundef readonly captures(none) %ring) local_unnamed_addr #0 {
 entry:
   %size = getelementptr inbounds nuw i8, ptr %ring, i64 8
   %0 = load i32, ptr %size, align 8
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @desc_ring_fetch_desc(ptr nocapture noundef readonly %ring) local_unnamed_addr #1 {
+define dso_local ptr @desc_ring_fetch_desc(ptr noundef readonly captures(none) %ring) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %ring, i64 12
   %ring.val = load i32, ptr %0, align 4
@@ -248,7 +248,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @desc_ring_post_desc(ptr nocapture noundef %ring, i32 noundef %err) local_unnamed_addr #1 {
+define dso_local zeroext i1 @desc_ring_post_desc(ptr noundef captures(none) %ring, i32 noundef %err) local_unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %ring, i64 12
   %ring.val = load i32, ptr %0, align 4
@@ -304,7 +304,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local zeroext i1 @desc_ring_set_head(ptr nocapture noundef %ring, i32 noundef %new) local_unnamed_addr #1 {
+define dso_local zeroext i1 @desc_ring_set_head(ptr noundef captures(none) %ring, i32 noundef %new) local_unnamed_addr #1 {
 entry:
   %tail1 = getelementptr inbounds nuw i8, ptr %ring, i64 16
   %0 = load i32, ptr %tail1, align 8
@@ -413,7 +413,7 @@ return:                                           ; preds = %while.body.i, %land
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @desc_ring_get_head(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
+define dso_local i32 @desc_ring_get_head(ptr noundef readonly captures(none) %ring) local_unnamed_addr #0 {
 entry:
   %head = getelementptr inbounds nuw i8, ptr %ring, i64 12
   %0 = load i32, ptr %head, align 4
@@ -421,7 +421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @desc_ring_get_tail(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
+define dso_local i32 @desc_ring_get_tail(ptr noundef readonly captures(none) %ring) local_unnamed_addr #0 {
 entry:
   %tail = getelementptr inbounds nuw i8, ptr %ring, i64 16
   %0 = load i32, ptr %tail, align 8
@@ -429,7 +429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @desc_ring_set_ctrl(ptr nocapture noundef writeonly %ring, i32 noundef %val) local_unnamed_addr #3 {
+define dso_local void @desc_ring_set_ctrl(ptr noundef writeonly captures(none) %ring, i32 noundef %val) local_unnamed_addr #3 {
 entry:
   %and = and i32 %val, 1
   %tobool.not = icmp eq i32 %and, 0
@@ -444,14 +444,14 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @desc_ring_reset(ptr nocapture noundef writeonly initializes((0, 28)) %ring) local_unnamed_addr #3 {
+define dso_local void @desc_ring_reset(ptr noundef writeonly captures(none) initializes((0, 28)) %ring) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %ring, i8 0, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local zeroext i1 @desc_ring_ret_credits(ptr nocapture noundef %ring, i32 noundef %credits) local_unnamed_addr #5 {
+define dso_local zeroext i1 @desc_ring_ret_credits(ptr noundef captures(none) %ring, i32 noundef %credits) local_unnamed_addr #5 {
 entry:
   %credits1 = getelementptr inbounds nuw i8, ptr %ring, i64 24
   %0 = load i32, ptr %credits1, align 8
@@ -462,7 +462,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @desc_ring_get_credits(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
+define dso_local i32 @desc_ring_get_credits(ptr noundef readonly captures(none) %ring) local_unnamed_addr #0 {
 entry:
   %credits = getelementptr inbounds nuw i8, ptr %ring, i64 24
   %0 = load i32, ptr %credits, align 8
@@ -470,7 +470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @desc_ring_set_consume(ptr nocapture noundef writeonly initializes((56, 68)) %ring, ptr noundef %consume, i32 noundef %vector) local_unnamed_addr #3 {
+define dso_local void @desc_ring_set_consume(ptr noundef writeonly captures(none) initializes((56, 68)) %ring, ptr noundef %consume, i32 noundef %vector) local_unnamed_addr #3 {
 entry:
   %consume1 = getelementptr inbounds nuw i8, ptr %ring, i64 56
   store ptr %consume, ptr %consume1, align 8
@@ -480,7 +480,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @desc_ring_get_msix_vector(ptr nocapture noundef readonly %ring) local_unnamed_addr #0 {
+define dso_local i32 @desc_ring_get_msix_vector(ptr noundef readonly captures(none) %ring) local_unnamed_addr #0 {
 entry:
   %msix_vector = getelementptr inbounds nuw i8, ptr %ring, i64 64
   %0 = load i32, ptr %msix_vector, align 8

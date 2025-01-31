@@ -321,7 +321,7 @@ declare i32 @wtap_read_bytes_or_eof(ptr noundef, ptr noundef, i32 noundef, ptr n
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -329,7 +329,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @lanalyzer_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal i32 @lanalyzer_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #11
   store i64 %8, ptr %5, align 8
@@ -339,7 +339,7 @@ define internal i32 @lanalyzer_read(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @lanalyzer_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @lanalyzer_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @file_seek(ptr noundef %8, i64 noundef %1, i32 noundef 0, ptr noundef %4) #11
@@ -383,7 +383,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @lanalyzer_read_trace_record(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @lanalyzer_read_trace_record(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [2 x i8], align 1
   %8 = alloca [2 x i8], align 1
   %9 = alloca [32 x i8], align 16
@@ -543,7 +543,7 @@ define internal noundef range(i32 -9, 1) i32 @lanalyzer_dump_can_write_encap(i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @lanalyzer_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @lanalyzer_dump_open(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc(i64 noundef 40) #12
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %8
@@ -580,7 +580,7 @@ define internal range(i32 0, 2) i32 @lanalyzer_dump_open(ptr noundef %0, ptr nou
 declare ptr @__errno_location() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @lanalyzer_dump(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca i16, align 2
   %7 = alloca i32, align 4
   %8 = alloca i16, align 2
@@ -771,7 +771,7 @@ s0write.exit.thread:                              ; preds = %90, %s0write.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @lanalyzer_dump_finish(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2
   %6 = alloca i16, align 2
@@ -1085,27 +1085,27 @@ s0write.exit167.i:                                ; preds = %.preheader201.prehe
 .preheader199.i:                                  ; preds = %s0write.exit167.i, %142
   %.0810.i168.i = phi i64 [ %143, %142 ], [ 136, %s0write.exit167.i ]
   %144 = call i64 @llvm.umin.i64(i64 %.0810.i168.i, i64 64)
-  %145 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @z64, i64 noundef %144, ptr noundef %1) #11
+  %145 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @z64, i64 noundef %144, ptr noundef %1) #11
   %.not9.i169.i = icmp eq i32 %145, 0
   br i1 %.not9.i169.i, label %lanalyzer_dump_header.exit, label %142
 
 s0write.exit172.i:                                ; preds = %142
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %11)
   store i16 %40, ptr %11, align 2
-  %146 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %11, i64 noundef 2, ptr noundef %1) #11
+  %146 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %11, i64 noundef 2, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %11)
   %.not142.i = icmp eq i32 %146, 0
   br i1 %.not142.i, label %lanalyzer_dump_header.exit, label %.preheader197.preheader.i
 
 .preheader197.preheader.i:                        ; preds = %s0write.exit172.i
-  %147 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @z64, i64 noundef 20, ptr noundef %1) #11
+  %147 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @z64, i64 noundef 20, ptr noundef %1) #11
   %.not9.i174.i = icmp eq i32 %147, 0
   br i1 %.not9.i174.i, label %lanalyzer_dump_header.exit, label %s0write.exit177.i
 
 s0write.exit177.i:                                ; preds = %.preheader197.preheader.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %10)
   store i16 4099, ptr %10, align 2
-  %148 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 2, ptr noundef %1) #11
+  %148 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %10, i64 noundef 2, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10)
   %.not144.i = icmp eq i32 %148, 0
   br i1 %.not144.i, label %lanalyzer_dump_header.exit, label %149
@@ -1113,7 +1113,7 @@ s0write.exit177.i:                                ; preds = %.preheader197.prehe
 149:                                              ; preds = %s0write.exit177.i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %9)
   store i16 6, ptr %9, align 2
-  %150 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2, ptr noundef %1) #11
+  %150 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef 2, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %9)
   %.not145.i = icmp eq i32 %150, 0
   br i1 %.not145.i, label %lanalyzer_dump_header.exit, label %151
@@ -1121,7 +1121,7 @@ s0write.exit177.i:                                ; preds = %.preheader197.prehe
 151:                                              ; preds = %149
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %8)
   store i16 1, ptr %8, align 2
-  %152 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %8, i64 noundef 2, ptr noundef %1) #11
+  %152 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %8, i64 noundef 2, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %8)
   %.not146.i = icmp eq i32 %152, 0
   br i1 %.not146.i, label %lanalyzer_dump_header.exit, label %153
@@ -1130,20 +1130,20 @@ s0write.exit177.i:                                ; preds = %.preheader197.prehe
   %154 = load i32, ptr %136, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   store i32 %154, ptr %7, align 4
-  %155 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %1) #11
+  %155 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %7, i64 noundef 4, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.not147.i = icmp eq i32 %155, 0
   br i1 %.not147.i, label %lanalyzer_dump_header.exit, label %156
 
 156:                                              ; preds = %153
-  %157 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @LA_CyclicInformationFake, i64 noundef 30, ptr noundef %1) #11
+  %157 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @LA_CyclicInformationFake, i64 noundef 30, ptr noundef %1) #11
   %.not148.i = icmp eq i32 %157, 0
   br i1 %.not148.i, label %lanalyzer_dump_header.exit, label %158
 
 158:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
   store i16 4100, ptr %6, align 2
-  %159 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %6, i64 noundef 2, ptr noundef %1) #11
+  %159 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 2, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   %.not149.i = icmp eq i32 %159, 0
   br i1 %.not149.i, label %lanalyzer_dump_header.exit, label %160
@@ -1151,7 +1151,7 @@ s0write.exit177.i:                                ; preds = %.preheader197.prehe
 160:                                              ; preds = %158
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   store i16 2014, ptr %5, align 2
-  %161 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %5, i64 noundef 2, ptr noundef %1) #11
+  %161 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 2, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   %.not150.i = icmp eq i32 %161, 0
   br i1 %.not150.i, label %lanalyzer_dump_header.exit, label %162
@@ -1159,7 +1159,7 @@ s0write.exit177.i:                                ; preds = %.preheader197.prehe
 162:                                              ; preds = %160
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4)
   store i16 500, ptr %4, align 2
-  %163 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 2, ptr noundef %1) #11
+  %163 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef 2, ptr noundef %1) #11
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4)
   %.not151.i = icmp eq i32 %163, 0
   br i1 %.not151.i, label %lanalyzer_dump_header.exit, label %.preheader.i
@@ -1167,7 +1167,7 @@ s0write.exit177.i:                                ; preds = %.preheader197.prehe
 .preheader.i:                                     ; preds = %162, %.preheader.i
   %.0810.i178.i = phi i64 [ %166, %.preheader.i ], [ 2012, %162 ]
   %164 = call i64 @llvm.umin.i64(i64 %.0810.i178.i, i64 64)
-  %165 = call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @z64, i64 noundef %164, ptr noundef %1) #11
+  %165 = call i32 @wtap_dump_file_write(ptr noundef nonnull %0, ptr noundef nonnull @z64, i64 noundef %164, ptr noundef %1) #11
   %.not9.i179.i = icmp eq i32 %165, 0
   %166 = sub i64 %.0810.i178.i, %164
   %.not.i180.i = icmp eq i64 %166, 0
@@ -1185,7 +1185,7 @@ lanalyzer_dump_header.exit:                       ; preds = %.preheader199.i, %.
 declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 declare void @nstime_delta(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1222,10 +1222,10 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #8
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

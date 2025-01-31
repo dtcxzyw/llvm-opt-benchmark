@@ -261,7 +261,7 @@ session_terminate_session.exit:                   ; preds = %entry, %if.end3.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @nghttp2_session_is_my_stream_id(ptr nocapture noundef readonly %session, i32 noundef %stream_id) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @nghttp2_session_is_my_stream_id(ptr noundef readonly captures(none) %session, i32 noundef %stream_id) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %stream_id, 0
   br i1 %cmp, label %return, label %if.end
@@ -316,7 +316,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_client_new(ptr nocapture noundef writeonly %session_ptr, ptr nocapture noundef readonly %callbacks, ptr noundef %user_data) local_unnamed_addr #1 {
+define i32 @nghttp2_session_client_new(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data) local_unnamed_addr #1 {
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
@@ -337,7 +337,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_client_new3(ptr nocapture noundef writeonly %session_ptr, ptr nocapture noundef readonly %callbacks, ptr noundef %user_data, ptr noundef %option, ptr noundef %mem) local_unnamed_addr #1 {
+define i32 @nghttp2_session_client_new3(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef %option, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %session = alloca ptr, align 8
   %call = call fastcc i32 @session_new(ptr noundef %session, ptr noundef %callbacks, ptr noundef %user_data, i32 noundef 0, ptr noundef %option, ptr noundef %mem)
@@ -356,7 +356,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_client_new2(ptr nocapture noundef writeonly %session_ptr, ptr nocapture noundef readonly %callbacks, ptr noundef %user_data, ptr noundef %option) local_unnamed_addr #1 {
+define i32 @nghttp2_session_client_new2(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef %option) local_unnamed_addr #1 {
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
@@ -377,7 +377,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_new(ptr nocapture noundef nonnull initializes((0, 8)) %session_ptr, ptr nocapture noundef readonly %callbacks, ptr noundef %user_data, i32 noundef range(i32 0, 2) %server, ptr noundef readonly %option, ptr noundef %mem) unnamed_addr #1 {
+define internal fastcc i32 @session_new(ptr noundef nonnull captures(none) initializes((0, 8)) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, i32 noundef range(i32 0, 2) %server, ptr noundef readonly %option, ptr noundef %mem) unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %mem, null
   br i1 %cmp, label %if.then, label %if.end
@@ -901,7 +901,7 @@ return:                                           ; preds = %for.body, %fail_hd_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_server_new(ptr nocapture noundef writeonly %session_ptr, ptr nocapture noundef readonly %callbacks, ptr noundef %user_data) local_unnamed_addr #1 {
+define i32 @nghttp2_session_server_new(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data) local_unnamed_addr #1 {
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
@@ -922,7 +922,7 @@ nghttp2_session_server_new3.exit:                 ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_server_new3(ptr nocapture noundef writeonly %session_ptr, ptr nocapture noundef readonly %callbacks, ptr noundef %user_data, ptr noundef %option, ptr noundef %mem) local_unnamed_addr #1 {
+define i32 @nghttp2_session_server_new3(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef %option, ptr noundef %mem) local_unnamed_addr #1 {
 entry:
   %session = alloca ptr, align 8
   %call = call fastcc i32 @session_new(ptr noundef %session, ptr noundef %callbacks, ptr noundef %user_data, i32 noundef 1, ptr noundef %option, ptr noundef %mem)
@@ -941,7 +941,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_server_new2(ptr nocapture noundef writeonly %session_ptr, ptr nocapture noundef readonly %callbacks, ptr noundef %user_data, ptr noundef %option) local_unnamed_addr #1 {
+define i32 @nghttp2_session_server_new2(ptr noundef writeonly captures(none) %session_ptr, ptr noundef readonly captures(none) %callbacks, ptr noundef %user_data, ptr noundef %option) local_unnamed_addr #1 {
 entry:
   %session.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %session.i)
@@ -1257,7 +1257,7 @@ declare void @nghttp2_bufs_free(ptr noundef) local_unnamed_addr #3
 declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_reprioritize_stream(ptr noundef %session, ptr noundef %stream, ptr nocapture noundef readonly %pri_spec_in) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_session_reprioritize_stream(ptr noundef %session, ptr noundef %stream, ptr noundef readonly captures(none) %pri_spec_in) local_unnamed_addr #1 {
 entry:
   %pri_spec_default = alloca %struct.nghttp2_priority_spec, align 4
   %server = getelementptr inbounds nuw i8, ptr %session, i64 2876
@@ -1440,7 +1440,7 @@ declare i32 @nghttp2_stream_in_dep_tree(ptr noundef) local_unnamed_addr #3
 declare void @nghttp2_priority_spec_default_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @nghttp2_session_open_stream(ptr noundef %session, i32 noundef %stream_id, i8 noundef zeroext %flags, ptr nocapture noundef readonly %pri_spec_in, i32 noundef %initial_state, ptr noundef %stream_user_data) local_unnamed_addr #1 {
+define hidden ptr @nghttp2_session_open_stream(ptr noundef %session, i32 noundef %stream_id, i8 noundef zeroext %flags, ptr noundef readonly captures(none) %pri_spec_in, i32 noundef %initial_state, ptr noundef %stream_user_data) local_unnamed_addr #1 {
 entry:
   %pri_spec_default = alloca %struct.nghttp2_priority_spec, align 4
   %mem1 = getelementptr inbounds nuw i8, ptr %session, i64 2528
@@ -2180,7 +2180,7 @@ declare void @nghttp2_frame_rst_stream_init(ptr noundef, i32 noundef, i32 nounde
 declare void @nghttp2_frame_rst_stream_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @nghttp2_session_detach_idle_stream(ptr nocapture noundef %session, ptr nocapture noundef %stream) local_unnamed_addr #5 {
+define hidden void @nghttp2_session_detach_idle_stream(ptr noundef captures(none) %session, ptr noundef captures(none) %stream) local_unnamed_addr #5 {
 entry:
   %closed_prev = getelementptr inbounds nuw i8, ptr %stream, i64 128
   %0 = load ptr, ptr %closed_prev, align 8
@@ -2231,7 +2231,7 @@ declare i32 @nghttp2_map_insert(ptr noundef, i32 noundef, ptr noundef) local_unn
 declare void @nghttp2_stream_shutdown(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @nghttp2_session_keep_idle_stream(ptr nocapture noundef %session, ptr noundef %stream) local_unnamed_addr #5 {
+define hidden void @nghttp2_session_keep_idle_stream(ptr noundef captures(none) %session, ptr noundef %stream) local_unnamed_addr #5 {
 entry:
   %idle_stream_tail = getelementptr inbounds nuw i8, ptr %session, i64 2600
   %0 = load ptr, ptr %idle_stream_tail, align 8
@@ -2569,7 +2569,7 @@ return:                                           ; preds = %if.then, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @nghttp2_session_keep_closed_stream(ptr nocapture noundef %session, ptr noundef %stream) local_unnamed_addr #5 {
+define hidden void @nghttp2_session_keep_closed_stream(ptr noundef captures(none) %session, ptr noundef %stream) local_unnamed_addr #5 {
 entry:
   %closed_stream_tail = getelementptr inbounds nuw i8, ptr %session, i64 2584
   %0 = load ptr, ptr %closed_stream_tail, align 8
@@ -2762,7 +2762,7 @@ return:                                           ; preds = %if.end64, %if.then.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_close_stream_if_shut_rdwr(ptr noundef %session, ptr nocapture noundef readonly %stream) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_session_close_stream_if_shut_rdwr(ptr noundef %session, ptr noundef readonly captures(none) %stream) local_unnamed_addr #1 {
 entry:
   %shut_flags = getelementptr inbounds nuw i8, ptr %stream, i64 217
   %0 = load i8, ptr %shut_flags, align 1
@@ -3072,7 +3072,7 @@ return:                                           ; preds = %for.cond.i, %if.end
 declare void @nghttp2_outbound_queue_pop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i64 @nghttp2_session_mem_send(ptr noundef %session, ptr nocapture noundef writeonly initializes((0, 8)) %data_ptr) local_unnamed_addr #1 {
+define i64 @nghttp2_session_mem_send(ptr noundef %session, ptr noundef writeonly captures(none) initializes((0, 8)) %data_ptr) local_unnamed_addr #1 {
 entry:
   store ptr null, ptr %data_ptr, align 8
   %call = tail call fastcc i64 @nghttp2_session_mem_send_internal(ptr noundef %session, ptr noundef nonnull %data_ptr, i32 noundef 1)
@@ -3108,7 +3108,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @nghttp2_session_mem_send_internal(ptr noundef %session, ptr nocapture noundef writeonly %data_ptr, i32 noundef range(i32 0, 2) %fast_cb) unnamed_addr #1 {
+define internal fastcc i64 @nghttp2_session_mem_send_internal(ptr noundef %session, ptr noundef writeonly captures(none) %data_ptr, i32 noundef range(i32 0, 2) %fast_cb) unnamed_addr #1 {
 entry:
   %mem1 = getelementptr inbounds nuw i8, ptr %session, i64 2528
   %aob2 = getelementptr inbounds nuw i8, ptr %session, i64 648
@@ -5282,7 +5282,7 @@ session_handle_invalid_stream.exit.thread5:       ; preds = %if.then2.i.i, %sess
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_on_response_headers_received(ptr noundef %session, ptr noundef %frame, ptr nocapture noundef %stream) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_on_response_headers_received(ptr noundef %session, ptr noundef %frame, ptr noundef captures(none) %stream) local_unnamed_addr #1 {
 entry:
   %state = getelementptr inbounds nuw i8, ptr %stream, i64 204
   %0 = load i32, ptr %state, align 4
@@ -5629,7 +5629,7 @@ return:                                           ; preds = %if.then.i, %if.end2
 declare void @nghttp2_stream_promise_fulfilled(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_on_headers_received(ptr noundef %session, ptr noundef %frame, ptr nocapture noundef readonly %stream) local_unnamed_addr #1 {
+define hidden range(i32 -2147483648, 1) i32 @nghttp2_session_on_headers_received(ptr noundef %session, ptr noundef %frame, ptr noundef readonly captures(none) %stream) local_unnamed_addr #1 {
 entry:
   %stream_id = getelementptr inbounds nuw i8, ptr %frame, i64 8
   %0 = load i32, ptr %stream_id, align 8
@@ -6220,7 +6220,7 @@ return:                                           ; preds = %if.end6.i, %if.end.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_update_local_settings(ptr noundef %session, ptr nocapture noundef readonly %iv, i64 noundef %niv) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_session_update_local_settings(ptr noundef %session, ptr noundef readonly captures(none) %iv, i64 noundef %niv) local_unnamed_addr #1 {
 entry:
   %arg.i = alloca %struct.nghttp2_update_window_size_arg, align 8
   %cmp53.not = icmp eq i64 %niv, 0
@@ -7794,7 +7794,7 @@ while.body.i:                                     ; preds = %while.cond.i
   store ptr null, ptr %closed_next.i, align 8
   %stream_id.i = getelementptr inbounds nuw i8, ptr %stream.0.i, i64 168
   %28 = load i32, ptr %stream_id.i, align 8
-  %call6.i = call i32 @nghttp2_session_close_stream(ptr noundef %session, i32 noundef %28, i32 noundef 7)
+  %call6.i = call i32 @nghttp2_session_close_stream(ptr noundef nonnull %session, i32 noundef %28, i32 noundef 7)
   %cmp.i.i = icmp sgt i32 %call6.i, -901
   br i1 %cmp.i.i, label %while.cond.i, label %while.cond10.preheader.i, !llvm.loop !22
 
@@ -8787,7 +8787,7 @@ return:                                           ; preds = %lor.lhs.false1.i, %
 declare i32 @nghttp2_http_on_remote_end_stream(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_update_recv_stream_window_size(ptr noundef %session, ptr nocapture noundef %stream, i64 noundef %delta_size, i32 noundef %send_window_update) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_session_update_recv_stream_window_size(ptr noundef %session, ptr noundef captures(none) %stream, i64 noundef %delta_size, i32 noundef %send_window_update) local_unnamed_addr #1 {
 entry:
   %recv_window_size = getelementptr inbounds nuw i8, ptr %stream, i64 176
   %local_window_size = getelementptr inbounds nuw i8, ptr %stream, i64 188
@@ -11879,7 +11879,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -902, 1) i32 @session_call_error_callback(ptr noundef %session, i32 noundef range(i32 -536, -530) %lib_error_code, ptr nocapture noundef readonly %fmt, ...) unnamed_addr #1 {
+define internal range(i32 -902, 1) i32 @session_call_error_callback(ptr noundef %session, i32 noundef range(i32 -536, -530) %lib_error_code, ptr noundef readonly captures(none) %fmt, ...) unnamed_addr #1 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %error_callback = getelementptr inbounds nuw i8, ptr %session, i64 2512
@@ -12700,7 +12700,7 @@ declare void @nghttp2_frame_ping_init(ptr noundef, i8 noundef zeroext, ptr nound
 declare void @nghttp2_frame_ping_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @nghttp2_session_add_goaway(ptr noundef %session, i32 noundef %last_stream_id, i32 noundef %error_code, ptr nocapture noundef readonly %opaque_data, i64 noundef %opaque_data_len, i8 noundef zeroext %aux_flags) local_unnamed_addr #1 {
+define hidden i32 @nghttp2_session_add_goaway(ptr noundef %session, i32 noundef %last_stream_id, i32 noundef %error_code, ptr noundef readonly captures(none) %opaque_data, i64 noundef %opaque_data_len, i8 noundef zeroext %aux_flags) local_unnamed_addr #1 {
 entry:
   %mem1 = getelementptr inbounds nuw i8, ptr %session, i64 2528
   %cmp.i = icmp eq i32 %last_stream_id, 0
@@ -12772,7 +12772,7 @@ return:                                           ; preds = %if.end5, %if.then3,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare void @nghttp2_frame_goaway_init(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -13292,7 +13292,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @nghttp2_session_get_outbound_queue_size(ptr nocapture noundef readonly %session) local_unnamed_addr #2 {
+define i64 @nghttp2_session_get_outbound_queue_size(ptr noundef readonly captures(none) %session) local_unnamed_addr #2 {
 entry:
   %n = getelementptr inbounds nuw i8, ptr %session, i64 272
   %0 = load i64, ptr %n, align 8
@@ -13401,7 +13401,7 @@ return:                                           ; preds = %lor.lhs.false1.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, -2147483648) i32 @nghttp2_session_get_effective_recv_data_length(ptr nocapture noundef readonly %session) local_unnamed_addr #2 {
+define range(i32 0, -2147483648) i32 @nghttp2_session_get_effective_recv_data_length(ptr noundef readonly captures(none) %session) local_unnamed_addr #2 {
 entry:
   %recv_window_size = getelementptr inbounds nuw i8, ptr %session, i64 2776
   %0 = load i32, ptr %recv_window_size, align 8
@@ -13410,7 +13410,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nghttp2_session_get_effective_local_window_size(ptr nocapture noundef readonly %session) local_unnamed_addr #2 {
+define i32 @nghttp2_session_get_effective_local_window_size(ptr noundef readonly captures(none) %session) local_unnamed_addr #2 {
 entry:
   %local_window_size = getelementptr inbounds nuw i8, ptr %session, i64 2788
   %0 = load i32, ptr %local_window_size, align 4
@@ -13418,7 +13418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nghttp2_session_get_local_window_size(ptr nocapture noundef readonly %session) local_unnamed_addr #2 {
+define i32 @nghttp2_session_get_local_window_size(ptr noundef readonly captures(none) %session) local_unnamed_addr #2 {
 entry:
   %local_window_size = getelementptr inbounds nuw i8, ptr %session, i64 2788
   %0 = load i32, ptr %local_window_size, align 4
@@ -13460,7 +13460,7 @@ return:                                           ; preds = %lor.lhs.false1.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nghttp2_session_get_remote_window_size(ptr nocapture noundef readonly %session) local_unnamed_addr #2 {
+define i32 @nghttp2_session_get_remote_window_size(ptr noundef readonly captures(none) %session) local_unnamed_addr #2 {
 entry:
   %remote_window_size = getelementptr inbounds nuw i8, ptr %session, i64 2772
   %0 = load i32, ptr %remote_window_size, align 4
@@ -13468,7 +13468,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_get_remote_settings(ptr nocapture noundef readonly %session, i32 noundef %id) local_unnamed_addr #1 {
+define i32 @nghttp2_session_get_remote_settings(ptr noundef readonly captures(none) %session, i32 noundef %id) local_unnamed_addr #1 {
 entry:
   %switch.tableidx = add i32 %id, -1
   %0 = icmp ult i32 %switch.tableidx, 9
@@ -13494,7 +13494,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_get_local_settings(ptr nocapture noundef readonly %session, i32 noundef %id) local_unnamed_addr #1 {
+define i32 @nghttp2_session_get_local_settings(ptr noundef readonly captures(none) %session, i32 noundef %id) local_unnamed_addr #1 {
 entry:
   %switch.tableidx = add i32 %id, -1
   %0 = icmp ult i32 %switch.tableidx, 9
@@ -13853,7 +13853,7 @@ return:                                           ; preds = %lor.lhs.false1.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -501, 1) i32 @nghttp2_session_set_next_stream_id(ptr nocapture noundef %session, i32 noundef %next_stream_id) local_unnamed_addr #7 {
+define range(i32 -501, 1) i32 @nghttp2_session_set_next_stream_id(ptr noundef captures(none) %session, i32 noundef %next_stream_id) local_unnamed_addr #7 {
 entry:
   %cmp = icmp slt i32 %next_stream_id, 1
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -13888,7 +13888,7 @@ return:                                           ; preds = %if.else, %if.then3,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nghttp2_session_get_next_stream_id(ptr nocapture noundef readonly %session) local_unnamed_addr #2 {
+define i32 @nghttp2_session_get_next_stream_id(ptr noundef readonly captures(none) %session) local_unnamed_addr #2 {
 entry:
   %next_stream_id = getelementptr inbounds nuw i8, ptr %session, i64 2744
   %0 = load i32, ptr %next_stream_id, align 8
@@ -13896,7 +13896,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @nghttp2_session_get_last_proc_stream_id(ptr nocapture noundef readonly %session) local_unnamed_addr #2 {
+define i32 @nghttp2_session_get_last_proc_stream_id(ptr noundef readonly captures(none) %session) local_unnamed_addr #2 {
 entry:
   %last_proc_stream_id = getelementptr inbounds nuw i8, ptr %session, i64 2756
   %0 = load i32, ptr %last_proc_stream_id, align 4
@@ -13930,7 +13930,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 256) i32 @nghttp2_session_check_server_session(ptr nocapture noundef readonly %session) local_unnamed_addr #2 {
+define range(i32 0, 256) i32 @nghttp2_session_check_server_session(ptr noundef readonly captures(none) %session) local_unnamed_addr #2 {
 entry:
   %server = getelementptr inbounds nuw i8, ptr %session, i64 2876
   %0 = load i8, ptr %server, align 4
@@ -13939,7 +13939,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_change_stream_priority(ptr noundef %session, i32 noundef %stream_id, ptr nocapture noundef readonly %pri_spec) local_unnamed_addr #1 {
+define i32 @nghttp2_session_change_stream_priority(ptr noundef %session, i32 noundef %stream_id, ptr noundef readonly captures(none) %pri_spec) local_unnamed_addr #1 {
 entry:
   %pri_spec_copy = alloca %struct.nghttp2_priority_spec, align 4
   %pending_no_rfc7540_priorities = getelementptr inbounds nuw i8, ptr %session, i64 2874
@@ -13977,7 +13977,7 @@ return:                                           ; preds = %if.end10, %if.end8,
 declare void @nghttp2_priority_spec_normalize_weight(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -901, 1) i32 @nghttp2_session_create_idle_stream(ptr noundef %session, i32 noundef %stream_id, ptr nocapture noundef readonly %pri_spec) local_unnamed_addr #1 {
+define range(i32 -901, 1) i32 @nghttp2_session_create_idle_stream(ptr noundef %session, i32 noundef %stream_id, ptr noundef readonly captures(none) %pri_spec) local_unnamed_addr #1 {
 entry:
   %pri_spec_copy = alloca %struct.nghttp2_priority_spec, align 4
   %pending_no_rfc7540_priorities = getelementptr inbounds nuw i8, ptr %session, i64 2874
@@ -14054,7 +14054,7 @@ entry:
 declare i64 @nghttp2_hd_deflate_get_dynamic_table_size(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nghttp2_session_set_user_data(ptr nocapture noundef writeonly initializes((2568, 2576)) %session, ptr noundef %user_data) local_unnamed_addr #8 {
+define void @nghttp2_session_set_user_data(ptr noundef writeonly captures(none) initializes((2568, 2576)) %session, ptr noundef %user_data) local_unnamed_addr #8 {
 entry:
   %user_data1 = getelementptr inbounds nuw i8, ptr %session, i64 2568
   store ptr %user_data, ptr %user_data1, align 8
@@ -14062,7 +14062,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @nghttp2_session_change_extpri_stream_priority(ptr noundef %session, i32 noundef %stream_id, ptr nocapture noundef readonly %extpri_in, i32 noundef %ignore_client_signal) local_unnamed_addr #1 {
+define i32 @nghttp2_session_change_extpri_stream_priority(ptr noundef %session, i32 noundef %stream_id, ptr noundef readonly captures(none) %extpri_in, i32 noundef %ignore_client_signal) local_unnamed_addr #1 {
 entry:
   %extpri = alloca %struct.nghttp2_extpri, align 8
   %0 = load i64, ptr %extpri_in, align 4
@@ -14154,7 +14154,7 @@ return:                                           ; preds = %if.end7, %if.end3, 
 declare void @nghttp2_extpri_from_uint8(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare ptr @nghttp2_mem_default() local_unnamed_addr #3
 
@@ -14175,7 +14175,7 @@ declare i32 @nghttp2_bufs_add(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare void @nghttp2_pq_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @stream_less(ptr nocapture noundef readonly %lhsx, ptr nocapture noundef readonly %rhsx) #2 {
+define internal range(i32 0, 2) i32 @stream_less(ptr noundef readonly captures(none) %lhsx, ptr noundef readonly captures(none) %rhsx) #2 {
 entry:
   %cycle = getelementptr inbounds nuw i8, ptr %lhsx, i64 72
   %0 = load i64, ptr %cycle, align 8
@@ -14218,7 +14218,7 @@ declare void @nghttp2_frame_altsvc_free(ptr noundef, ptr noundef) local_unnamed_
 declare void @nghttp2_frame_origin_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 declare void @nghttp2_buf_free(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -14540,7 +14540,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 declare void @nghttp2_http_record_request_method(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -530, 1) i32 @session_predicate_push_response_headers_send(ptr noundef %session, ptr nocapture noundef nonnull readonly %stream) unnamed_addr #1 {
+define internal fastcc range(i32 -530, 1) i32 @session_predicate_push_response_headers_send(ptr noundef %session, ptr noundef nonnull readonly captures(none) %stream) unnamed_addr #1 {
 entry:
   %call.i = tail call fastcc i32 @session_is_closing(ptr noundef %session)
   %tobool.not.i = icmp eq i32 %call.i, 0
@@ -14750,7 +14750,7 @@ declare i32 @nghttp2_ratelim_drain(ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @nghttp2_map_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @update_local_initial_window_size_func(ptr noundef %entry1, ptr nocapture noundef readonly %ptr) #1 {
+define internal i32 @update_local_initial_window_size_func(ptr noundef %entry1, ptr noundef readonly captures(none) %ptr) #1 {
 entry:
   %new_window_size = getelementptr inbounds nuw i8, ptr %ptr, i64 8
   %0 = load i32, ptr %new_window_size, align 8
@@ -14834,7 +14834,7 @@ return:                                           ; preds = %if.then13, %if.then
 declare i32 @nghttp2_stream_update_local_initial_window_size(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @update_remote_initial_window_size_func(ptr noundef %entry1, ptr nocapture noundef readonly %ptr) #1 {
+define internal i32 @update_remote_initial_window_size_func(ptr noundef %entry1, ptr noundef readonly captures(none) %ptr) #1 {
 entry:
   %new_window_size = getelementptr inbounds nuw i8, ptr %ptr, i64 8
   %0 = load i32, ptr %new_window_size, align 8
@@ -14897,7 +14897,7 @@ declare i32 @nghttp2_stream_update_remote_initial_window_size(ptr noundef, i32 n
 declare i32 @nghttp2_stream_check_deferred_by_flow_control(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @find_stream_on_goaway_func(ptr noundef %entry1, ptr nocapture noundef %ptr) #1 {
+define internal noundef i32 @find_stream_on_goaway_func(ptr noundef %entry1, ptr noundef captures(none) %ptr) #1 {
 entry:
   %stream_id = getelementptr inbounds nuw i8, ptr %entry1, i64 168
   %0 = load i32, ptr %stream_id, align 8
@@ -14983,7 +14983,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #11
 
 declare void @nghttp2_buf_reset(ptr noundef) local_unnamed_addr #3
 
@@ -15020,7 +15020,7 @@ declare void @nghttp2_frame_unpack_settings_payload(ptr noundef, ptr noundef, i6
 declare void @nghttp2_frame_unpack_goaway_payload(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_update_consumed_size(ptr noundef %session, ptr nocapture noundef %consumed_size_ptr, ptr nocapture noundef %recv_window_size_ptr, i8 noundef zeroext %window_update_queued, i32 noundef %stream_id, i64 noundef %delta_size, i32 noundef %local_window_size) unnamed_addr #1 {
+define internal fastcc i32 @session_update_consumed_size(ptr noundef %session, ptr noundef captures(none) %consumed_size_ptr, ptr noundef captures(none) %recv_window_size_ptr, i8 noundef zeroext %window_update_queued, i32 noundef %stream_id, i64 noundef %delta_size, i32 noundef %local_window_size) unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %consumed_size_ptr, align 4
   %conv = sext i32 %0 to i64
@@ -15121,16 +15121,16 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #14

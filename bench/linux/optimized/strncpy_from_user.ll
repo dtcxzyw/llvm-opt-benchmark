@@ -11,7 +11,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_strncpy_from
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_strncpy_from_user323], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @strncpy_from_user(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local i64 @strncpy_from_user(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = icmp slt i64 %2, 1
   br i1 %4, label %.thread7, label %5, !prof !5
 

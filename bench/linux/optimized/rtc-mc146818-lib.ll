@@ -149,10 +149,10 @@ define dso_local noundef zeroext i1 @mc146818_avoid_UIP(ptr noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
@@ -252,10 +252,10 @@ thread-pre-split:                                 ; preds = %8, %36
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr nocapture noundef initializes((8, 10)) %1) #0 align 16 {
+define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr noundef captures(none) initializes((8, 10)) %1) #0 align 16 {
   %3 = zext i8 %0 to i32
   %4 = load ptr, ptr %1, align 8
   store i32 %3, ptr %4, align 4
@@ -309,7 +309,7 @@ define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr noca
 declare dso_local i32 @_bcd2bin(i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mc146818_set_time(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16

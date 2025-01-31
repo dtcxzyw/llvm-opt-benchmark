@@ -240,7 +240,7 @@ define range(i64 -1, -9223372036854775808) i64 @H5Oopen_by_addr(i64 noundef %0, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 declare i32 @H5_init_library() local_unnamed_addr #2
 
@@ -1465,7 +1465,7 @@ define range(i32 -1, -2147483648) i32 @H5Ovisit1(i64 noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5O__iterate1_adapter(i64 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) #0 {
+define internal i32 @H5O__iterate1_adapter(i64 noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.H5O_info1_t, align 8
   %6 = alloca %struct.H5VL_optional_args_t, align 8
   %7 = alloca %union.H5VL_native_object_optional_args_t, align 8
@@ -2187,7 +2187,7 @@ declare i32 @H5VL_native_token_to_addr(ptr noundef, i32 noundef, i64, i64, ptr n
 declare i32 @H5VL_object_optional(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @H5VLnative_token_to_addr(i64 noundef, i64, i64, ptr noundef) local_unnamed_addr #2
 

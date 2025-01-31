@@ -24,7 +24,7 @@ $__clang_call_terminate = comdat any
 @_ZN10RBTestDataD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10RBTestDataD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8TestDataC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
+define void @_ZN8TestDataC2EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(56) initializes((0, 56)) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
   %name = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8TestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define void @_ZN8TestDataD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
   %fInfo = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -81,7 +81,7 @@ if.end20:                                         ; preds = %delete.notnull16, %
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN8TestDataD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #2 align 2 {
+define void @_ZN8TestDataD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #14
   unreachable
@@ -91,7 +91,7 @@ entry:
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK8TestData7getNameEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK8TestData7getNameEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
 entry:
   %name = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %name, align 8
@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10RBTestDataC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
+define void @_ZN10RBTestDataC2EPKc(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 88)) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
 entry:
   %name.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %testName, ptr %name.i, align 8
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10RBTestDataC2EP15UResourceBundleS1_R10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, ptr noundef %data, ptr noundef %headers, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10RBTestDataC2EP15UResourceBundleS1_R10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((0, 88)) %this, ptr noundef %data, ptr noundef %headers, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %intStatus = alloca i32, align 4
   %call = tail call ptr @ures_getKey_75(ptr noundef %data)
@@ -240,7 +240,7 @@ declare void @_ZN9RBDataMapC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnul
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10RBTestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10RBTestDataD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK10RBTestData7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK10RBTestData7getInfoERPK7DataMapR10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %info, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #11 align 2 {
 entry:
   %fInfo = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load ptr, ptr %fInfo, align 8
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN10RBTestData12nextSettingsERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %settings, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN10RBTestData12nextSettingsERPK7DataMapR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %settings, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %intStatus = alloca i32, align 4
   store i32 0, ptr %intStatus, align 4
@@ -408,7 +408,7 @@ declare ptr @ures_getByIndex_75(ptr noundef, i32 noundef, ptr noundef, ptr nound
 declare void @_ZN9RBDataMap4initEP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN10RBTestData8nextCaseERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %nextCase, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN10RBTestData8nextCaseERPK7DataMapR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %nextCase, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %intStatus = alloca i32, align 4
   store i32 0, ptr %intStatus, align 4
@@ -471,7 +471,7 @@ declare void @_ZN9RBDataMap4initEP15UResourceBundleS1_R10UErrorCode(ptr noundef 
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

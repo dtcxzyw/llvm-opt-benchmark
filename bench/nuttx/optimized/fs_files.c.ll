@@ -6,12 +6,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.file = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @files_initlist(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
+define void @files_initlist(ptr noundef readnone captures(none) %0) local_unnamed_addr #0 {
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @files_releaselist(ptr nocapture noundef readonly %0) local_unnamed_addr #1 {
+define void @files_releaselist(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %.not = icmp eq i8 %3, 0
@@ -56,10 +56,10 @@ define void @files_releaselist(ptr nocapture noundef readonly %0) local_unnamed_
 declare i32 @file_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2041) i32 @files_countlist(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define range(i32 0, 2041) i32 @files_countlist(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
   %4 = zext i8 %3 to i32
@@ -68,7 +68,7 @@ define range(i32 0, 2041) i32 @files_countlist(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @files_fget(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @files_fget(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = sdiv i32 %1, 8
   %5 = srem i32 %1, 8
@@ -224,7 +224,7 @@ files_fget_by_index.exit45:                       ; preds = %files_fget_by_index
 declare ptr @nxsched_get_files_from_tcb(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr nocapture noundef %0, i64 noundef range(i64 -2147483647, 268435458) %1) unnamed_addr #1 {
+define internal fastcc range(i32 -24, 1) i32 @files_extend(ptr noundef captures(none) %0, i64 noundef range(i64 -2147483647, 268435458) %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = load i8, ptr %4, align 1
@@ -372,7 +372,7 @@ define i32 @file_allocate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr no
 declare ptr @nxsched_self() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @files_duplist(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define range(i32 -2147483648, 1) i32 @files_duplist(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -632,7 +632,7 @@ declare zeroext i1 @spawn_file_is_duplicateable(ptr noundef, i32 noundef, i1 nou
 declare i32 @file_dup2(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #1 {
+define range(i32 -11, 1) i32 @fs_getfilep(i32 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   store ptr null, ptr %1, align 8
   %4 = tail call ptr @nxsched_get_files() #10
@@ -892,10 +892,10 @@ files_fget.exit:                                  ; preds = %12, %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
 define i32 @nx_close(i32 noundef %0) local_unnamed_addr #1 {
@@ -1036,7 +1036,7 @@ define void @sync() local_unnamed_addr #1 {
 declare void @nxsched_foreach(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @task_fssync(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #1 {
+define internal void @task_fssync(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #1 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 16
@@ -1109,10 +1109,10 @@ declare i32 @file_dup3(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @file_fsync(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }

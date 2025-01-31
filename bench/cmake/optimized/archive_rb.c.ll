@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @__archive_rb_tree_init(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @__archive_rb_tree_init(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr null, ptr %0, align 8
@@ -12,7 +12,7 @@ define dso_local void @__archive_rb_tree_init(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @__archive_rb_tree_find_node(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local noundef ptr @__archive_rb_tree_find_node(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -41,7 +41,7 @@ define dso_local noundef ptr @__archive_rb_tree_find_node(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @__archive_rb_tree_find_node_geq(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local ptr @__archive_rb_tree_find_node_geq(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -73,7 +73,7 @@ define dso_local ptr @__archive_rb_tree_find_node_geq(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @__archive_rb_tree_find_node_leq(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local ptr @__archive_rb_tree_find_node_leq(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -395,7 +395,7 @@ __archive_rb_tree_insert_rebalance.exit:          ; preds = %.lr.ph, %80, %74, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @__archive_rb_tree_remove_node(ptr nocapture noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define dso_local void @__archive_rb_tree_remove_node(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.val.pre = load ptr, ptr %1, align 8
   %3 = icmp eq ptr %.val.pre, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -610,7 +610,7 @@ __archive_rb_tree_prune_node.exit:                ; preds = %121, %.thread71.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @__archive_rb_tree_iterate(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local ptr @__archive_rb_tree_iterate(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = xor i32 %2, 1
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %13
@@ -676,7 +676,7 @@ define dso_local ptr @__archive_rb_tree_iterate(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   br label %4
 
 4:                                                ; preds = %84, %3

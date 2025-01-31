@@ -663,7 +663,7 @@ $_ZTIN8facebook5velox14ConstantVectorINS0_11ComplexTypeEEE = comdat any
 @_ZTIN8facebook5velox6common16BigintMultiRangeE = external constant ptr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec24leafCallToSubfieldFilterERKNS0_4core13CallTypedExprERNS0_6common8SubfieldEPNS2_19ExpressionEvaluatorEb(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %call, ptr nocapture noundef nonnull align 8 dereferenceable(24) %subfield, ptr noundef %evaluator, i1 noundef zeroext %negated) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec24leafCallToSubfieldFilterERKNS0_4core13CallTypedExprERNS0_6common8SubfieldEPNS2_19ExpressionEvaluatorEb(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %call, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %subfield, ptr noundef %evaluator, i1 noundef zeroext %negated) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %inputs_.i = getelementptr inbounds nuw i8, ptr %call, i64 24
   %0 = load ptr, ptr %inputs_.i, align 8
@@ -917,7 +917,7 @@ return:                                           ; preds = %cond.true92, %cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN8facebook5velox4exec12_GLOBAL__N_110toSubfieldEPKNS0_4core10ITypedExprERNS0_6common8SubfieldE(ptr noundef %field, ptr nocapture noundef nonnull align 8 dereferenceable(24) %subfield) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN8facebook5velox4exec12_GLOBAL__N_110toSubfieldEPKNS0_4core10ITypedExprERNS0_6common8SubfieldE(ptr noundef %field, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %subfield) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %path = alloca %"class.std::vector.8", align 8
   %ref.tmp1 = alloca %"class.std::unique_ptr.37", align 8
@@ -1432,7 +1432,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_118makeNotEqualFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %valueExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_118makeNotEqualFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %valueExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %value = alloca %"class.std::shared_ptr.69", align 8
   %lessThanFilter = alloca %"class.std::unique_ptr", align 8
@@ -1804,7 +1804,7 @@ ehcleanup73:                                      ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_115makeEqualFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %valueExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_115makeEqualFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %valueExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.2", align 1
   %value = alloca %"class.std::shared_ptr.69", align 8
@@ -2300,7 +2300,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_121makeGreaterThanFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_121makeGreaterThanFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nullAllowed.addr.i = alloca i8, align 1
   %ref.tmp.i153 = alloca i8, align 1
@@ -2914,7 +2914,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_125makeLessThanOrEqualFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_125makeLessThanOrEqualFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nullAllowed.addr.i = alloca i8, align 1
   %ref.tmp.i138 = alloca i8, align 1
@@ -3499,7 +3499,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_128makeGreaterThanOrEqualFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_128makeGreaterThanOrEqualFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nullAllowed.addr.i = alloca i8, align 1
   %ref.tmp.i138 = alloca i8, align 1
@@ -4084,7 +4084,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_118makeLessThanFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_118makeLessThanFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %nullAllowed.addr.i = alloca i8, align 1
   %ref.tmp.i153 = alloca i8, align 1
@@ -4698,7 +4698,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_117makeBetweenFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEES9_PNS4_19ExpressionEvaluatorEb(ptr noalias nocapture writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator, i1 noundef zeroext %negated) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_117makeBetweenFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEES9_PNS4_19ExpressionEvaluatorEb(ptr noalias writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %lowerExpr, ptr noundef nonnull align 8 dereferenceable(16) %upperExpr, ptr noundef %evaluator, i1 noundef zeroext %negated) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %lower = alloca %"class.std::shared_ptr.69", align 8
   %upper = alloca %"class.std::shared_ptr.69", align 8
@@ -6344,7 +6344,7 @@ ehcleanup94:                                      ; preds = %ehcleanup92, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec16toSubfieldFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS3_19ExpressionEvaluatorE(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %expr, ptr noundef %evaluator) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec16toSubfieldFilterERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS3_19ExpressionEvaluatorE(ptr noalias writeonly sret(%"struct.std::pair") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %expr, ptr noundef %evaluator) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %left = alloca %"struct.std::pair", align 8
   %right = alloca %"struct.std::pair", align 8
@@ -6664,7 +6664,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.trap() #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112makeOrFilterESt10unique_ptrINS0_6common6FilterESt14default_deleteIS5_EES8_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %a, ptr nocapture noundef nonnull %b) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_112makeOrFilterESt10unique_ptrINS0_6common6FilterESt14default_deleteIS5_EES8_(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull captures(none) %a, ptr noundef nonnull captures(none) %b) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %filters.i = alloca %"class.std::vector.93", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.85", align 8
@@ -7320,7 +7320,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14de
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: noreturn nounwind uwtable
 define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #4 comdat {
@@ -7403,7 +7403,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN8facebook5velox6common8Subfield11PathElement
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #9
@@ -7567,7 +7567,7 @@ invoke.cont:
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %__lhs, i64 noundef %call.i)
+  %call6 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull %__lhs, i64 noundef %call.i)
           to label %invoke.cont5 unwind label %lpad3
 
 invoke.cont5:                                     ; preds = %invoke.cont4
@@ -7603,7 +7603,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #12
@@ -7622,7 +7622,7 @@ declare void @__cxa_bad_cast() local_unnamed_addr
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %expr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_110toConstantERKSt10shared_ptrIKNS0_4core10ITypedExprEEPNS4_19ExpressionEvaluatorE(ptr noalias nonnull writeonly align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %expr, ptr noundef %evaluator) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca i64, align 8
   %exprSet = alloca %"class.std::unique_ptr.106", align 8
@@ -9784,7 +9784,7 @@ if.end94:                                         ; preds = %for.body.i.i.i58, %
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 declare void @_ZN8facebook5velox6common16BigintMultiRangeC1ESt6vectorISt10unique_ptrINS1_11BigintRangeESt14default_deleteIS5_EESaIS8_EEb(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i1 noundef zeroext) unnamed_addr #7
 
@@ -10537,7 +10537,7 @@ return:                                           ; preds = %_ZN5folly3f146detai
 declare i64 @llvm.x86.sse42.crc32.64.64(i64, i64) #16
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #17
+declare void @llvm.prefetch.p0(ptr readonly captures(none), i32 immarg, i32 immarg, i32 immarg) #17
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #18
@@ -13449,7 +13449,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) #24
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) #24
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
@@ -15669,7 +15669,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr nocapture %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr nocapture noundef nonnull %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS6_EESt6vectorIS9_SaIS9_EEEElS9_NS0_5__ops15_Iter_comp_iterIZNS4_4exec12_GLOBAL__N_112makeOrFilterES2_INS5_6FilterES7_ISJ_EESL_E3$_0EEEvT_T0_SP_T1_T2_"(ptr captures(none) %__first.coerce, i64 noundef %__holeIndex, i64 noundef %__len, ptr noundef nonnull captures(none) %__value) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -15933,7 +15933,7 @@ declare void @llvm.va_start.p0(ptr) #27
 declare void @llvm.va_end.p0(ptr) #27
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #29
@@ -15942,10 +15942,10 @@ declare i64 @llvm.umax.i64(i64, i64) #29
 declare i64 @llvm.umin.i64(i64, i64) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #30
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smax.i64(i64, i64) #29

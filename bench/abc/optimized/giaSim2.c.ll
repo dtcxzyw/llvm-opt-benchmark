@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gia_Sim2Delete(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define void @Gia_Sim2Delete(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -94,7 +94,7 @@ Vec_IntFreeP.exit13:                              ; preds = %Vec_IntFreeP.exit, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Gia_Sim2Create(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
@@ -214,7 +214,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #18
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #15
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #15
   call void @free(ptr noundef %9) #15
   br label %16
 
@@ -233,7 +233,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 declare void @Gia_ManSetPhase(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Gia_Sim2CompareEqual(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Gia_Sim2CompareEqual(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #6 {
   %.not = icmp eq i32 %3, 0
   %5 = icmp sgt i32 %2, 0
   br i1 %.not, label %.preheader, label %.preheader18
@@ -287,7 +287,7 @@ define range(i32 0, 2) i32 @Gia_Sim2CompareEqual(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Gia_Sim2CompareZero(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Gia_Sim2CompareZero(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq i32 %2, 0
   %4 = icmp sgt i32 %1, 0
   br i1 %.not, label %.preheader, label %.preheader14
@@ -336,7 +336,7 @@ define range(i32 0, 2) i32 @Gia_Sim2CompareZero(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Gia_Sim2ClassCreate(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 {
+define void @Gia_Sim2ClassCreate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val26 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val26, 0
@@ -400,7 +400,7 @@ define void @Gia_Sim2ClassCreate(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Gia_Sim2ClassRefineOne(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 -2147483647, -2147483648) i32 @Gia_Sim2ClassRefineOne(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = getelementptr i8, ptr %0, i64 16
@@ -856,7 +856,7 @@ Gia_Sim2ClassCreate.exit78:                       ; preds = %192, %Gia_Sim2Class
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, -1) i32 @Gia_Sim2HashKey(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define range(i32 0, -1) i32 @Gia_Sim2HashKey(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = load i32, ptr %0, align 4
   %5 = and i32 %4, 1
   %.not = icmp eq i32 %5, 0
@@ -913,7 +913,7 @@ define range(i32 0, -1) i32 @Gia_Sim2HashKey(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_Sim2ProcessRefined(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define void @Gia_Sim2ProcessRefined(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val39 = load i32, ptr %3, align 4
   %4 = icmp eq i32 %.val39, 0
@@ -1096,7 +1096,7 @@ Gia_Sim2HashKey.exit:                             ; preds = %.lr.ph.i51, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_Sim2InfoRefineEquivs(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define void @Gia_Sim2InfoRefineEquivs(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #17
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -1310,7 +1310,7 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %.lr.ph47, %79, %Gia
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Gia_Sim2GenerateCounter(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define noundef ptr @Gia_Sim2GenerateCounter(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr i8, ptr %0, i64 16
   %.val = load i32, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 64
@@ -2023,10 +2023,10 @@ Gia_Sim2InfoIsZero.exit.thread.us.i:              ; preds = %252, %Gia_Sim2InfoI
 
 253:                                              ; preds = %Gia_Sim2InfoIsZero.exit.us.i
   %254 = trunc nuw nsw i64 %indvars.iv.i85 to i32
-  call void @Gia_ManResetRandom(ptr noundef %1) #15
+  call void @Gia_ManResetRandom(ptr noundef nonnull %1) #15
   %255 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 %254, ptr %255, align 4
-  %256 = call ptr @Gia_Sim2GenerateCounter(ptr noundef %0, i32 noundef %.1134, i32 noundef %254, i32 noundef %.val39.i, i32 noundef %250)
+  %256 = call ptr @Gia_Sim2GenerateCounter(ptr noundef nonnull %0, i32 noundef %.1134, i32 noundef %254, i32 noundef %.val39.i, i32 noundef %250)
   store ptr %256, ptr %34, align 8
   %257 = load ptr, ptr %0, align 8
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.5, i32 noundef %254, ptr noundef %257, i32 noundef %.1134)
@@ -2212,13 +2212,13 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #11
@@ -2230,13 +2230,13 @@ declare void @llvm.va_start.p0(ptr) #12
 declare void @llvm.va_end.p0(ptr) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

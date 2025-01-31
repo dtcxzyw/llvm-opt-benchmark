@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4983) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4983) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr @UseAVX, align 4
   %4 = icmp slt i32 %3, 3
   %5 = ptrtoint ptr %1 to i64
@@ -117,7 +117,7 @@ _ZNK11RegisterMap8locationEP9VMRegImplPl.exit:    ; preds = %56, %60
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpli(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4983) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK11RegisterMap11pd_locationEP9VMRegImpli(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(4983) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds %class.VMRegImpl, ptr %1, i64 %4
   %6 = ptrtoint ptr %5 to i64

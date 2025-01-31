@@ -20,7 +20,7 @@ $__clang_call_terminate = comdat any
 @.str.5 = private unnamed_addr constant [50 x i8] c"nanobind::detail::get_trampoline('%s::%s()'): %s!\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail14trampoline_newEPPvmS1_(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr @_ZN8nanobind6detail9internalsE, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %6 = ptrtoint ptr %2 to i64
@@ -117,10 +117,10 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare hidden void @_ZN8nanobind6detail16fail_unspecifiedEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail18trampoline_releaseEPPvm(ptr noundef readonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %invariant.gep = getelementptr i8, ptr %0, i64 16
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -161,7 +161,7 @@ _ZL11_Py_XDECREFP7_object.exit:                   ; preds = %4, %.lr.ph, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #5 {
+define void @_ZN8nanobind6detail16trampoline_enterEPPvmPKcbPNS0_6ticketE(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #5 {
   %invariant.gep.i = getelementptr i8, ptr %0, i64 16
   %.not119.i = icmp eq i64 %1, 0
   br i1 %.not119.i, label %.preheader.thread.i, label %.lr.ph.i
@@ -432,7 +432,7 @@ declare void @PyGILState_Release(i32 noundef) local_unnamed_addr #7
 declare void @_ZN8nanobind6detail5raiseEPKcz(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8nanobind6detail16trampoline_leaveEPNS0_6ticketE(ptr nocapture noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8nanobind6detail16trampoline_leaveEPNS0_6ticketE(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

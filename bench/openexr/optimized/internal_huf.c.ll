@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 5) i32 @internal_huf_compress(ptr nocapture noundef writeonly %encbytes, ptr noundef %out, i64 noundef %outsz, ptr nocapture noundef readonly %raw, i64 noundef %nRaw, ptr noundef %spare, i64 noundef %sparebytes) local_unnamed_addr #1 {
+define hidden range(i32 0, 5) i32 @internal_huf_compress(ptr noundef writeonly captures(none) %encbytes, ptr noundef %out, i64 noundef %outsz, ptr noundef readonly captures(none) %raw, i64 noundef %nRaw, ptr noundef %spare, i64 noundef %sparebytes) local_unnamed_addr #1 {
 entry:
   %out.addr.i = alloca ptr, align 8
   %c.i = alloca i64, align 8
@@ -1019,7 +1019,7 @@ return:                                           ; preds = %while.body.i72.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 24) i32 @internal_huf_decompress(ptr noundef readonly %decode, ptr noundef %compressed, i64 noundef %nCompressed, ptr noundef %raw, i64 noundef %nRaw, ptr nocapture noundef %spare, i64 noundef %sparebytes) local_unnamed_addr #2 {
+define hidden range(i32 0, 24) i32 @internal_huf_decompress(ptr noundef readonly %decode, ptr noundef %compressed, i64 noundef %nCompressed, ptr noundef %raw, i64 noundef %nRaw, ptr noundef captures(none) %spare, i64 noundef %sparebytes) local_unnamed_addr #2 {
 entry:
   %n.i.i = alloca [59 x i64], align 16
   %base.i = alloca [59 x i64], align 16
@@ -1862,7 +1862,7 @@ return:                                           ; preds = %for.inc.i64, %fasth
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %pctxt, ptr nocapture noundef readonly %fhd, ptr nocapture noundef readonly %src, i64 noundef range(i64 0, 4294967296) %numSrcBits, ptr nocapture noundef %dst, i64 noundef %numDstElems) unnamed_addr #2 {
+define internal fastcc range(i32 0, 24) i32 @fasthuf_decode(ptr noundef %pctxt, ptr noundef readonly captures(none) %fhd, ptr noundef readonly captures(none) %src, i64 noundef range(i64 0, 4294967296) %numSrcBits, ptr noundef captures(none) %dst, i64 noundef %numDstElems) unnamed_addr #2 {
 entry:
   %sub = add nsw i64 %numSrcBits, -128
   %cmp156.not = icmp eq i64 %numDstElems, 0
@@ -2275,7 +2275,7 @@ return:                                           ; preds = %while.end95, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readonly %pctxt, ptr nocapture noundef readonly %hcode, i32 noundef range(i32 0, 65537) %im, i32 noundef range(i32 0, 65537) %iM, ptr nocapture noundef %hdecod) unnamed_addr #2 {
+define internal fastcc range(i32 0, 24) i32 @hufBuildDecTable(ptr noundef readonly %pctxt, ptr noundef readonly captures(none) %hcode, i32 noundef range(i32 0, 65537) %im, i32 noundef range(i32 0, 65537) %iM, ptr noundef captures(none) %hdecod) unnamed_addr #2 {
 entry:
   %tobool.not = icmp eq ptr %pctxt, null
   br i1 %tobool.not, label %cond.end6, label %cond.true3
@@ -2431,7 +2431,7 @@ return:                                           ; preds = %for.body, %if.then1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr nocapture noundef readonly %hcode, ptr nocapture noundef readonly %hdecod, ptr noundef readonly %in, i64 noundef range(i64 0, 4294967296) %ni, i32 noundef range(i32 0, 65537) %rlc, i64 noundef %no, ptr noundef %out) unnamed_addr #1 {
+define internal fastcc range(i32 0, 24) i32 @hufDecode(ptr noundef readonly captures(none) %hcode, ptr noundef readonly captures(none) %hdecod, ptr noundef readonly %in, i64 noundef range(i64 0, 4294967296) %ni, i32 noundef range(i32 0, 65537) %rlc, i64 noundef %no, ptr noundef %out) unnamed_addr #1 {
 entry:
   %add.ptr = getelementptr inbounds i16, ptr %out, i64 %no
   %add = add nuw nsw i64 %ni, 7
@@ -2818,13 +2818,13 @@ return:                                           ; preds = %for.end, %if.else15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 5) i32 @sendCode(i64 noundef %sCode, i32 noundef %runCount, i64 noundef %runCode, ptr nocapture noundef nonnull %c, ptr nocapture noundef nonnull %lc, ptr nocapture noundef nonnull %out, ptr noundef readnone %outend) unnamed_addr #5 {
+define internal fastcc range(i32 0, 5) i32 @sendCode(i64 noundef %sCode, i32 noundef %runCount, i64 noundef %runCode, ptr noundef nonnull captures(none) %c, ptr noundef nonnull captures(none) %lc, ptr noundef nonnull captures(none) %out, ptr noundef readnone %outend) unnamed_addr #5 {
 entry:
   %0 = trunc i64 %sCode to i32
   %conv.i = and i32 %0, 63
@@ -3018,10 +3018,10 @@ declare void @internal_exr_free(ptr noundef) local_unnamed_addr #7
 declare i64 @llvm.bswap.i64(i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

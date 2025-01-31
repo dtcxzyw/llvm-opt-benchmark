@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_functions = external local_unnamed_addr global %struct.ompi_request_fns_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allgatherv_intra_bruck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allgatherv_intra_bruck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = getelementptr i8, ptr %7, i64 248
@@ -172,10 +172,10 @@ declare i32 @ompi_datatype_create_indexed(i32 noundef, ptr noundef, ptr noundef,
 declare i32 @ompi_datatype_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allgatherv_intra_sparbit(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %7, i64 248
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %.val, i64 16
@@ -337,7 +337,7 @@ declare double @llvm.ceil.f64(double) #6
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allgatherv_intra_ring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr nocapture readnone %8) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allgatherv_intra_ring(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, ptr readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %7, i64 248
   %.val = load ptr, ptr %10, align 8
   %11 = getelementptr i8, ptr %.val, i64 16
@@ -452,7 +452,7 @@ ompi_coll_base_sendrecv.exit:                     ; preds = %.lr.ph, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allgatherv_intra_neighborexchange(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allgatherv_intra_neighborexchange(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca [2 x i32], align 4
   %11 = alloca [2 x i32], align 4
   %12 = alloca [2 x i32], align 4
@@ -673,7 +673,7 @@ ompi_coll_base_sendrecv.exit125:                  ; preds = %129, %131
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allgatherv_intra_two_procs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allgatherv_intra_two_procs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef %6, ptr noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = getelementptr i8, ptr %7, i64 220
   %.val51 = load i32, ptr %10, align 4
   %11 = getelementptr i8, ptr %7, i64 248
@@ -741,7 +741,7 @@ define i32 @ompi_coll_base_allgatherv_intra_two_procs(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_coll_base_allgatherv_intra_basic_default(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
+define i32 @ompi_coll_base_allgatherv_intra_basic_default(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readnone captures(none) %8) local_unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = getelementptr i8, ptr %7, i64 248
   %.val = load ptr, ptr %11, align 8

@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [29 x i8] c"native iterator not supplied\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XDrawLine(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XDrawLine(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq i64 %2, 0
   br i1 %9, label %25, label %10
 
@@ -53,7 +53,7 @@ declare i32 @XDrawLine(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 n
 declare void @X11SD_DirectRenderNotify(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XDrawRect(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XDrawRect(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = inttoptr i64 %2 to ptr
   %10 = icmp eq i64 %2, 0
   %11 = or i32 %7, %6
@@ -102,7 +102,7 @@ declare i32 @XFillRectangle(ptr noundef, i64 noundef, ptr noundef, i32 noundef, 
 declare i32 @XDrawRectangle(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XDrawRoundRect(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = inttoptr i64 %2 to ptr
   %12 = icmp eq i64 %2, 0
   %13 = or i32 %7, %6
@@ -295,7 +295,7 @@ awt_drawArc.exit177:                              ; preds = %awt_drawArc.exit175
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XDrawOval(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XDrawOval(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = inttoptr i64 %2 to ptr
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %31, label %11
@@ -340,7 +340,7 @@ awt_drawArc.exit:                                 ; preds = %24, %14, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XDrawArc(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XDrawArc(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %28, label %12
 
@@ -382,7 +382,7 @@ awt_drawArc.exit:                                 ; preds = %12, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XDrawPoly(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8, i8 noundef zeroext %9) local_unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca [64 x %struct.XPoint], align 16
   store i32 %8, ptr %11, align 4
@@ -479,7 +479,7 @@ declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unna
 declare void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull %6, i32 noundef range(i32 0, 256) %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull captures(none) %6, i32 noundef range(i32 0, 256) %7) unnamed_addr #0 {
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1776
@@ -657,10 +657,10 @@ define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef 
 declare i32 @XDrawLines(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i8 noundef zeroext %8) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, i8 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca %struct.XDrawHandlerData, align 8
   %11 = alloca %struct._DrawHandler, align 8
   %12 = inttoptr i64 %3 to ptr
@@ -825,10 +825,10 @@ define void @Java_sun_java2d_x11_X11Renderer_XDoPath(ptr noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @drawScanline(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal void @drawScanline(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @awt_display, align 8
@@ -842,7 +842,7 @@ define internal void @drawScanline(ptr nocapture noundef readonly %0, i32 nounde
 declare zeroext i8 @doFillPath(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @storeLine(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #4 {
+define internal void @storeLine(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -937,7 +937,7 @@ define internal void @storeLine(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @storePoint(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) #4 {
+define internal void @storePoint(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -992,7 +992,7 @@ define internal void @storePoint(ptr nocapture noundef readonly %0, i32 noundef 
 declare zeroext i8 @doDrawPath(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @drawSubPath(ptr nocapture noundef readonly %0) #0 {
+define internal void @drawSubPath(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -1053,7 +1053,7 @@ define internal void @drawSubPath(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XFillRect(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XFillRect(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq i64 %2, 0
   br i1 %9, label %25, label %10
 
@@ -1080,7 +1080,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillRect(ptr noundef %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XFillRoundRect(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XFillRoundRect(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = inttoptr i64 %2 to ptr
   %12 = icmp eq i64 %2, 0
   %13 = icmp slt i32 %6, 1
@@ -1271,7 +1271,7 @@ awt_drawArc.exit178:                              ; preds = %awt_drawArc.exit176
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XFillOval(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = inttoptr i64 %2 to ptr
   %10 = icmp eq i64 %2, 0
   br i1 %10, label %64, label %11
@@ -1366,7 +1366,7 @@ awt_drawArc.exit:                                 ; preds = %57, %48, %51
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XFillArc(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XFillArc(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = icmp eq i64 %2, 0
   br i1 %11, label %28, label %12
 
@@ -1408,7 +1408,7 @@ awt_drawArc.exit:                                 ; preds = %12, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca [64 x %struct.XPoint], align 16
   store i32 %8, ptr %10, align 4
@@ -1484,7 +1484,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillPoly(ptr noundef %0, ptr nocap
 declare i32 @XFillPolygon(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_XFillSpans(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_XFillSpans(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [4 x i32], align 16
   %10 = inttoptr i64 %5 to ptr
   %11 = inttoptr i64 %2 to ptr
@@ -1561,7 +1561,7 @@ define void @Java_sun_java2d_x11_X11Renderer_XFillSpans(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_java2d_x11_X11Renderer_devCopyArea(ptr noundef %0, ptr nocapture noundef readnone %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @Java_sun_java2d_x11_X11Renderer_devCopyArea(ptr noundef %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i64 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = icmp eq i64 %2, 0
   %12 = icmp eq i64 %3, 0
   %or.cond = or i1 %11, %12
@@ -1591,10 +1591,10 @@ declare i32 @XFillArc(ptr noundef, i64 noundef, ptr noundef, i32 noundef, i32 no
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #8
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #9

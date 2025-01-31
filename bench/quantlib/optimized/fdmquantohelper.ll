@@ -56,7 +56,7 @@ $_ZTVN8QuantLib10ObservableE = comdat any
 @_ZN8QuantLib15FdmQuantoHelperC1EN5boost10shared_ptrINS_18YieldTermStructureEEES4_NS2_INS_21BlackVolTermStructureEEEdd = unnamed_addr alias void (ptr, ptr, ptr, ptr, double, double), ptr @_ZN8QuantLib15FdmQuantoHelperC2EN5boost10shared_ptrINS_18YieldTermStructureEEES4_NS2_INS_21BlackVolTermStructureEEEdd
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -73,10 +73,10 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib15FdmQuantoHelperC2EN5boost10shared_ptrINS_18YieldTermStructureEEES4_NS2_INS_21BlackVolTermStructureEEEdd(ptr noundef nonnull align 8 dereferenceable(120) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %rTS, ptr nocapture noundef %fTS, ptr nocapture noundef %fxVolTS, double noundef %equityFxCorrelation, double noundef %exchRateATMlevel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15FdmQuantoHelperC2EN5boost10shared_ptrINS_18YieldTermStructureEEES4_NS2_INS_21BlackVolTermStructureEEEdd(ptr noundef nonnull align 8 dereferenceable(120) initializes((16, 20), (24, 32)) %this, ptr noundef captures(none) %rTS, ptr noundef captures(none) %fTS, ptr noundef captures(none) %fxVolTS, double noundef %equityFxCorrelation, double noundef %exchRateATMlevel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib15FdmQuantoHelper16quantoAdjustmentEddd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, double noundef %equityVol, double noundef %t1, double noundef %t2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib15FdmQuantoHelper16quantoAdjustmentEddd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, double noundef %equityVol, double noundef %t1, double noundef %t2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::InterestRate", align 8
   %ref.tmp3 = alloca %"class.QuantLib::InterestRate", align 8
@@ -266,7 +266,7 @@ declare noundef double @_ZNK8QuantLib21BlackVolTermStructure15blackForwardVolEdd
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15FdmQuantoHelper16quantoAdjustmentERKNS_5ArrayEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %equityVol, double noundef %t1, double noundef %t2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib15FdmQuantoHelper16quantoAdjustmentERKNS_5ArrayEdd(ptr dead_on_unwind noalias writable writeonly sret(%"class.QuantLib::Array") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %equityVol, double noundef %t1, double noundef %t2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::InterestRate", align 8
   %ref.tmp3 = alloca %"class.QuantLib::InterestRate", align 8
@@ -656,7 +656,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #10
 declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 attributes #0 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #1 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

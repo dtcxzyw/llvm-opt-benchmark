@@ -123,7 +123,7 @@ list_length.exit:                                 ; preds = %2, %3
   %41 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %41)
   %42 = tail call i32 @errcode(i32 noundef 33579140) #10
-  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %36) #10
+  %43 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %36) #10
   %44 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, i32 noundef 63) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 139, ptr noundef nonnull @__func__.EnumValuesCreate) #10
   unreachable
@@ -167,7 +167,7 @@ list_length.exit:                                 ; preds = %2, %3
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr i8, ptr %76, i64 16
   store i64 %73, ptr %77, align 8
-  tail call void @namestrcpy(ptr noundef %37, ptr noundef %36) #10
+  tail call void @namestrcpy(ptr noundef %37, ptr noundef nonnull %36) #10
   %78 = ptrtoint ptr %37 to i64
   %79 = load ptr, ptr %47, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 24
@@ -241,7 +241,7 @@ declare ptr @MakeSingleTupleTableSlot(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: cold
 declare zeroext i1 @errstart_cold(i32 noundef, ptr noundef) local_unnamed_addr #3
@@ -257,7 +257,7 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -324,7 +324,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %15)
   %16 = tail call i32 @errcode(i32 noundef 33579140) #10
-  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %1) #10
+  %17 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %1) #10
   %18 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, i32 noundef 63) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 261, ptr noundef nonnull @__func__.AddEnumLabel) #10
   unreachable
@@ -347,7 +347,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 26:                                               ; preds = %24
   %27 = tail call i32 @errcode(i32 noundef 290948) #10
-  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef %1) #10
+  %28 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.3, ptr noundef nonnull %1) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 289, ptr noundef nonnull @__func__.AddEnumLabel) #10
   br label %222
 
@@ -355,7 +355,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %30 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %30)
   %31 = tail call i32 @errcode(i32 noundef 290948) #10
-  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %1) #10
+  %32 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %1) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 296, ptr noundef nonnull @__func__.AddEnumLabel) #10
   unreachable
 
@@ -706,7 +706,7 @@ RenumberEnumType.exit:                            ; preds = %146
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i64 %204, ptr %205, align 16
-  call void @namestrcpy(ptr noundef nonnull %10, ptr noundef %1) #10
+  call void @namestrcpy(ptr noundef nonnull %10, ptr noundef nonnull %1) #10
   %206 = ptrtoint ptr %10 to i64
   %207 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store i64 %206, ptr %207, align 8
@@ -752,7 +752,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 declare ptr @SearchSysCacheList(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @sort_order_cmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @sort_order_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -779,7 +779,7 @@ define internal range(i32 -1, 2) i32 @sort_order_cmp(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @ReleaseCatCacheList(ptr noundef) local_unnamed_addr #1
 
@@ -801,7 +801,7 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   %7 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %7)
   %8 = tail call i32 @errcode(i32 noundef 33579140) #10
-  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef %2) #10
+  %9 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str, ptr noundef nonnull %2) #10
   %10 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.1, i32 noundef 63) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 556, ptr noundef nonnull @__func__.RenameEnumLabel) #10
   unreachable
@@ -864,7 +864,7 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   %39 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   tail call void @llvm.assume(i1 %39)
   %40 = tail call i32 @errcode(i32 noundef 290948) #10
-  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef %2) #10
+  %41 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.4, ptr noundef nonnull %2) #10
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 599, ptr noundef nonnull @__func__.RenameEnumLabel) #10
   unreachable
 
@@ -878,7 +878,7 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   %49 = getelementptr i8, ptr %45, i64 %48
   tail call void @ReleaseCatCacheList(ptr noundef nonnull %14) #10
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  tail call void @namestrcpy(ptr noundef nonnull %50, ptr noundef %2) #10
+  tail call void @namestrcpy(ptr noundef nonnull %50, ptr noundef nonnull %2) #10
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 4
   tail call void @CatalogTupleUpdate(ptr noundef %12, ptr noundef nonnull %51, ptr noundef %43) #10
   tail call void @heap_freetuple(ptr noundef %43) #10
@@ -936,7 +936,7 @@ define dso_local range(i64 4, 1) i64 @EstimateUncommittedEnumsSpace() local_unna
 declare i64 @hash_get_num_entries(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SerializeUncommittedEnums(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @SerializeUncommittedEnums(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   %4 = load ptr, ptr @uncommitted_enums, align 8
   %.not = icmp eq ptr %4, null
@@ -1016,10 +1016,10 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

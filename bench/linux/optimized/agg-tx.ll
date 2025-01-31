@@ -72,7 +72,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_st
 @llvm.compiler.used = appending global [16 x ptr] [ptr @__UNIQUE_ID___addressable_ieee80211_refresh_tx_agg_session_timer2980, ptr @__UNIQUE_ID___addressable_ieee80211_send_bar2955, ptr @__UNIQUE_ID___addressable_ieee80211_start_tx_ba_cb_irqsafe2996, ptr @__UNIQUE_ID___addressable_ieee80211_start_tx_ba_session2989, ptr @__UNIQUE_ID___addressable_ieee80211_stop_tx_ba_cb_irqsafe3002, ptr @__UNIQUE_ID___addressable_ieee80211_stop_tx_ba_session3001, ptr @trace_api_start_tx_ba_cb.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2428, ptr @trace_api_start_tx_ba_cb.__UNIQUE_ID___addressable___SCK__tp_func_api_start_tx_ba_cb2427, ptr @trace_api_start_tx_ba_session.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2414, ptr @trace_api_start_tx_ba_session.__UNIQUE_ID___addressable___SCK__tp_func_api_start_tx_ba_session2413, ptr @trace_api_stop_tx_ba_cb.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2456, ptr @trace_api_stop_tx_ba_cb.__UNIQUE_ID___addressable___SCK__tp_func_api_stop_tx_ba_cb2455, ptr @trace_api_stop_tx_ba_session.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2442, ptr @trace_api_stop_tx_ba_session.__UNIQUE_ID___addressable___SCK__tp_func_api_stop_tx_ba_session2441, ptr @trace_drv_wake_tx_queue.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2246, ptr @trace_drv_wake_tx_queue.__UNIQUE_ID___addressable___SCK__tp_func_drv_wake_tx_queue2245], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_send_bar(ptr noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #0 align 16 {
+define dso_local void @ieee80211_send_bar(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i16 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr i8, ptr %0, i64 -2800
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
@@ -122,16 +122,16 @@ define dso_local void @ieee80211_send_bar(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @ieee80211_tx_skb_tid(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ieee80211_assign_tid_tx(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
@@ -298,7 +298,7 @@ define dso_local noundef range(i32 -114, 1) i32 @__ieee80211_stop_tx_ba_session(
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
@@ -408,7 +408,7 @@ define dso_local void @ieee80211_tx_ba_session_handle_start(ptr noundef %0, i32 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_agg_splice_packets(ptr nocapture noundef readonly %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_agg_splice_packets(ptr noundef readonly captures(none) %0, ptr noundef %1, i16 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 5070
@@ -491,7 +491,7 @@ define internal fastcc void @ieee80211_agg_splice_packets(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ieee80211_agg_start_txq(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ieee80211_agg_start_txq(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %5 = sext i32 %1 to i64
   %6 = getelementptr [17 x ptr], ptr %4, i64 0, i64 %5
@@ -1621,7 +1621,7 @@ define dso_local void @ieee80211_stop_tx_ba_cb_irqsafe(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_process_addba_resp(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_process_addba_resp(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 29
   %6 = load i16, ptr %5, align 1
   %7 = and i16 %6, 1

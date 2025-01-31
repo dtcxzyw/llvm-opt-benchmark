@@ -14,7 +14,7 @@ $_ZNSt6vectorIiSaIiEE17_M_default_appendEm = comdat any
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook5velox5cache14SsdFileTracker11fileTouchedEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %totalEntries) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox5cache14SsdFileTracker11fileTouchedEi(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %this, i32 noundef %totalEntries) local_unnamed_addr #0 align 2 {
 entry:
   %numTouches_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %numTouches_, align 8
@@ -52,7 +52,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8facebook5velox5cache14SsdFileTracker12regionFilledEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %region) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox5cache14SsdFileTracker12regionFilledEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %region) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -94,7 +94,7 @@ _ZSt11max_elementIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEET_S7_S7_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKSt6vectorIiSaIiEE(ptr noalias sret(%"class.std::vector.0") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %numCandidates, i32 noundef %numRegions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %regionPins) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKSt6vectorIiSaIiEE(ptr noalias sret(%"class.std::vector.0") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i32 noundef %numCandidates, i32 noundef %numRegions, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %regionPins) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp35 = icmp sgt i32 %numRegions, 0
   br i1 %cmp35, label %for.body.lr.ph, label %if.then7
@@ -481,7 +481,7 @@ return:                                           ; preds = %invoke.cont.i.i, %i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -495,10 +495,10 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #4
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr nocapture readonly %__comp.coerce) unnamed_addr #7 {
+define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEElNS0_5__ops15_Iter_comp_iterIZN8facebook5velox5cache14SsdFileTracker22findEvictionCandidatesEiiRKS5_E3$_0EEEvT_SH_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit, ptr readonly captures(none) %__comp.coerce) unnamed_addr #7 {
 entry:
   %__last.coerce.fr = freeze ptr %__last.coerce
   %__first.coerce.fr = freeze ptr %__first.coerce

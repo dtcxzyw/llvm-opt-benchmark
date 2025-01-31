@@ -123,7 +123,7 @@ define void @lv_subject_notify(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_subject_get_int(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @lv_subject_get_int(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -141,7 +141,7 @@ define i32 @lv_subject_get_int(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @lv_subject_get_previous_int(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define i32 @lv_subject_get_previous_int(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -227,7 +227,7 @@ define void @lv_subject_copy_string(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_subject_get_string(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_subject_get_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -245,7 +245,7 @@ define ptr @lv_subject_get_string(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_subject_get_previous_string(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_subject_get_previous_string(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -300,7 +300,7 @@ define void @lv_subject_set_pointer(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_subject_get_pointer(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_subject_get_pointer(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -318,7 +318,7 @@ define ptr @lv_subject_get_pointer(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_subject_get_previous_pointer(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define ptr @lv_subject_get_previous_pointer(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -352,7 +352,7 @@ define void @lv_subject_init_color(ptr noundef %0, i24 %1) local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define void @lv_subject_set_color(ptr noundef %0, i24 %1) local_unnamed_addr #0 {
@@ -375,7 +375,7 @@ define void @lv_subject_set_color(ptr noundef %0, i24 %1) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define i24 @lv_subject_get_color(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i24 @lv_subject_get_color(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -399,7 +399,7 @@ define i24 @lv_subject_get_color(ptr nocapture noundef readonly %0) local_unname
 declare i24 @lv_color_black() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i24 @lv_subject_get_previous_color(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i24 @lv_subject_get_previous_color(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 15
@@ -545,7 +545,7 @@ lv_subject_add_observer_obj.exit:                 ; preds = %4, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @group_notify_cb(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define internal void @group_notify_cb(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   tail call void @lv_subject_notify(ptr noundef %4)
@@ -682,7 +682,7 @@ define void @lv_observer_remove(ptr noundef %0) local_unnamed_addr #0 {
 declare void @lv_ll_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_subject_get_group_element(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @lv_subject_get_group_element(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 15
@@ -1028,7 +1028,7 @@ lv_subject_add_observer_obj.exit:                 ; preds = %33, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @obj_flag_observer_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @obj_flag_observer_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1071,7 +1071,7 @@ define ptr @lv_obj_bind_state_if_eq(ptr noundef %0, ptr noundef %1, i16 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @obj_state_observer_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @obj_state_observer_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1202,7 +1202,7 @@ lv_subject_add_observer_obj.exit:                 ; preds = %.thread, %19, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @label_text_observer_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @label_text_observer_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !17
   %5 = icmp eq ptr %4, null
@@ -1326,7 +1326,7 @@ lv_subject_set_int.exit:                          ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @arc_value_observer_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @arc_value_observer_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1415,7 +1415,7 @@ lv_subject_set_int.exit:                          ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @slider_value_observer_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @slider_value_observer_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1504,7 +1504,7 @@ lv_subject_set_int.exit:                          ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @roller_value_observer_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @roller_value_observer_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = tail call i32 @lv_roller_get_selected(ptr noundef %4) #7
@@ -1602,7 +1602,7 @@ lv_subject_set_int.exit:                          ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dropdown_value_observer_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal void @dropdown_value_observer_cb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32

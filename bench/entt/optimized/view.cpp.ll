@@ -2606,7 +2606,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
@@ -2741,13 +2741,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
+declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN40SingleComponentView_Functionalities_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN40SingleComponentView_Functionalities_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -6555,7 +6555,7 @@ _ZN4entt8internal16registry_contextISaINS_6entityEEED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN36SingleComponentView_InvalidView_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN36SingleComponentView_InvalidView_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareImjTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp30 = alloca %"class.testing::Message", align 8
@@ -8287,7 +8287,7 @@ _ZN4entt16basic_sparse_setINS_6entityESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37SingleComponentView_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37SingleComponentView_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %storage = alloca %"class.entt::basic_storage.75", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -8619,7 +8619,7 @@ ehcleanup160:                                     ; preds = %ehcleanup158, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN31SingleComponentView_Handle_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN31SingleComponentView_Handle_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -9967,7 +9967,7 @@ ehcleanup246:                                     ; preds = %ehcleanup242, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN50SingleComponentView_LazyTypeFromConstRegistry_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN50SingleComponentView_LazyTypeFromConstRegistry_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -11499,7 +11499,7 @@ ehcleanup354:                                     ; preds = %ehcleanup352, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38SingleComponentView_ElementAccess_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN38SingleComponentView_ElementAccess_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -12608,7 +12608,7 @@ ehcleanup164:                                     ; preds = %ehcleanup160, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN33SingleComponentView_Contains_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN33SingleComponentView_Contains_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -13384,7 +13384,7 @@ _ZN4entt16basic_sparse_setINS_6entityESaIS1_EE6removeES1_.exit: ; preds = %land.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30SingleComponentView_Empty_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30SingleComponentView_Empty_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -13944,7 +13944,7 @@ ehcleanup94:                                      ; preds = %ehcleanup92, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN29SingleComponentView_Each_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN29SingleComponentView_Each_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp.i.i = alloca %"class.testing::Message", align 8
@@ -16859,7 +16859,7 @@ ehcleanup361:                                     ; preds = %ehcleanup351, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN53SingleComponentView_ConstNonConstAndAllInBetween_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN53SingleComponentView_ConstNonConstAndAllInBetween_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -17822,7 +17822,7 @@ ehcleanup186:                                     ; preds = %ehcleanup139, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN66SingleComponentView_ConstNonConstAndAllInBetweenWithEmptyType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN66SingleComponentView_ConstNonConstAndAllInBetweenWithEmptyType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -18771,7 +18771,7 @@ ehcleanup169:                                     ; preds = %ehcleanup135, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN29SingleComponentView_Find_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN29SingleComponentView_Find_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -21753,7 +21753,7 @@ ehcleanup409:                                     ; preds = %ehcleanup407, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35SingleComponentView_EmptyTypes_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35SingleComponentView_EmptyTypes_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_.i.i347 = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp.i.i348 = alloca %"class.testing::Message", align 8
@@ -23088,7 +23088,7 @@ ehcleanup164:                                     ; preds = %ehcleanup142, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34SingleComponentView_FrontBack_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34SingleComponentView_FrontBack_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -24112,7 +24112,7 @@ ehcleanup140:                                     ; preds = %ehcleanup138, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN39SingleComponentView_DeductionGuide_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN39SingleComponentView_DeductionGuide_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -24294,7 +24294,7 @@ _ZN4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIiEED2Ev.exit7: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN59SingleComponentView_IterableViewAlgorithmCompatibility_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN59SingleComponentView_IterableViewAlgorithmCompatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -24641,7 +24641,7 @@ ehcleanup42:                                      ; preds = %ehcleanup34, %lpad4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35SingleComponentView_StableType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35SingleComponentView_StableType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_.i.i.i.i.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp.i.i.i.i.i.i.i.i949 = alloca %"class.testing::Message", align 8
@@ -27410,7 +27410,7 @@ ehcleanup336:                                     ; preds = %ehcleanup332, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32SingleComponentView_Storage_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32SingleComponentView_Storage_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -30396,7 +30396,7 @@ land.end:                                         ; preds = %for.cond.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7testing8internal8EqHelper7CompareIPN4entt16basic_sigh_mixinINS3_13basic_storageIiNS3_6entityESaIiEvEENS3_14basic_registryIS6_SaIS6_EEEEEDnTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSN_RKSF_RKSG_(ptr dead_on_unwind noalias writable sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr noundef %lhs_expression, ptr noundef %rhs_expression, ptr noundef nonnull align 8 dereferenceable(8) %lhs, ptr noundef nonnull align 8 dereferenceable(8) %rhs) local_unnamed_addr #4 comdat align 2 {
@@ -30437,7 +30437,7 @@ _ZN7testing8internal11CmpHelperEQIPKN4entt16basic_sigh_mixinINS2_13basic_storage
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN36SingleComponentView_SwapStorage_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN36SingleComponentView_SwapStorage_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i664:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -32188,7 +32188,7 @@ ehcleanup503:                                     ; preds = %ehcleanup492, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38SingleComponentView_StorageEntity_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN38SingleComponentView_StorageEntity_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %entt.addr.i.i.i.i.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -34598,7 +34598,7 @@ ehcleanup326:                                     ; preds = %ehcleanup322, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN39MultiComponentView_Functionalities_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN39MultiComponentView_Functionalities_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -38734,7 +38734,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35MultiComponentView_InvalidView_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35MultiComponentView_InvalidView_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareImjTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %ref.tmp.i.i.i.i.i.i.i.i1389 = alloca %"class.testing::Message", align 8
   %ref.tmp3.i.i.i.i.i.i.i.i1390 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -42353,7 +42353,7 @@ _ZN4entt16basic_sparse_setINS_6entityESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN36MultiComponentView_Constructors_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN36MultiComponentView_Constructors_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %storage = alloca %"class.entt::basic_storage.75", align 8
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
@@ -42685,7 +42685,7 @@ ehcleanup160:                                     ; preds = %ehcleanup158, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN30MultiComponentView_Handle_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN30MultiComponentView_Handle_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -45210,7 +45210,7 @@ ehcleanup479:                                     ; preds = %ehcleanup475, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN50MultiComponentView_LazyTypesFromConstRegistry_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN50MultiComponentView_LazyTypesFromConstRegistry_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -47409,7 +47409,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN57MultiComponentView_LazyExcludedTypeFromConstRegistry_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN57MultiComponentView_LazyExcludedTypeFromConstRegistry_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -49689,7 +49689,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32MultiComponentView_Iterator_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32MultiComponentView_Iterator_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %orig.i = alloca %"class.entt::internal::view_iterator.208", align 8
   %__tmp.i = alloca %"class.entt::internal::view_iterator.208", align 8
@@ -52038,7 +52038,7 @@ ehcleanup293:                                     ; preds = %ehcleanup287, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37MultiComponentView_ElementAccess_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37MultiComponentView_ElementAccess_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -52963,7 +52963,7 @@ ehcleanup103:                                     ; preds = %ehcleanup95, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32MultiComponentView_Contains_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32MultiComponentView_Contains_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -53841,7 +53841,7 @@ ehcleanup85:                                      ; preds = %ehcleanup72, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN32MultiComponentView_SizeHint_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN32MultiComponentView_SizeHint_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %other.i.i = alloca %"struct.std::array.285", align 16
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
@@ -54831,7 +54831,7 @@ cond.end:                                         ; preds = %cond.end.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37MultiComponentView_UseAndRefresh_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37MultiComponentView_UseAndRefresh_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %it.i701 = alloca %"class.entt::internal::view_iterator.292", align 8
   %it.i = alloca %"class.entt::internal::view_iterator.292", align 8
@@ -56749,7 +56749,7 @@ ehcleanup244:                                     ; preds = %ehcleanup242, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN28MultiComponentView_Each_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN28MultiComponentView_Each_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func.i979 = alloca %class.anon.304, align 4
   %ref.tmp11.i12.i.i = alloca %"class.std::tuple.295", align 8
@@ -60279,7 +60279,7 @@ cond.end:                                         ; preds = %cond.end.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i.i682 = alloca %"class.std::reverse_iterator.796", align 8
   %agg.tmp2.i.i.i.i.i.i683 = alloca %"class.std::reverse_iterator.796", align 8
@@ -62295,7 +62295,7 @@ ehcleanup155:                                     ; preds = %ehcleanup131, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37MultiComponentView_EachWithHoles_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37MultiComponentView_EachWithHoles_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11.i12.i.i = alloca %"class.std::tuple.330", align 8
   %ref.tmp11.i.i.i = alloca %"class.std::tuple.330", align 8
@@ -63672,7 +63672,7 @@ ehcleanup139:                                     ; preds = %ehcleanup117, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN52MultiComponentView_ConstNonConstAndAllInBetween_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN52MultiComponentView_ConstNonConstAndAllInBetween_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2.i = alloca %"class.entt::internal::view_iterator.284", align 8
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
@@ -64369,7 +64369,7 @@ ehcleanup100:                                     ; preds = %ehcleanup71, %lpad3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN28MultiComponentView_Find_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN28MultiComponentView_Find_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -67925,7 +67925,7 @@ cond.end:                                         ; preds = %cond.end.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42MultiComponentView_ExcludedComponents_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42MultiComponentView_ExcludedComponents_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -70573,7 +70573,7 @@ ehcleanup371:                                     ; preds = %ehcleanup345, %ehcl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34MultiComponentView_EmptyTypes_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34MultiComponentView_EmptyTypes_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func.i1645 = alloca %class.anon.390, align 1
   %func.i1297 = alloca %class.anon.389, align 4
@@ -75748,7 +75748,7 @@ _ZNK4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIN4test
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN33MultiComponentView_FrontBack_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN33MultiComponentView_FrontBack_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -77317,7 +77317,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35MultiComponentView_ExtendedGet_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35MultiComponentView_ExtendedGet_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7testing8internal8EqHelper7CompareImjTnPNSt9enable_ifIXoontsr3std11is_integralIT_EE5valuentsr3std10is_pointerIT0_EE5valueEvE4typeELPv0EEENS_15AssertionResultEPKcSC_RKS4_RKS5_.exit:
   %gtest_ar = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp2 = alloca %"class.testing::Message", align 8
@@ -77441,7 +77441,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN38MultiComponentView_DeductionGuide_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN38MultiComponentView_DeductionGuide_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -77648,7 +77648,7 @@ _ZN4entt4sighIFvRNS_14basic_registryINS_6entityESaIS2_EEES2_ESaIdEED2Ev.exit7: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN58MultiComponentView_IterableViewAlgorithmCompatibility_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN58MultiComponentView_IterableViewAlgorithmCompatibility_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -78185,7 +78185,7 @@ ehcleanup42:                                      ; preds = %ehcleanup34, %lpad6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN34MultiComponentView_StableType_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN34MultiComponentView_StableType_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func.i1182 = alloca %class.anon.411, align 1
   %func.i = alloca %class.anon.410, align 4
@@ -81565,7 +81565,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN55MultiComponentView_StableTypeWithExcludedComponent_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN55MultiComponentView_StableTypeWithExcludedComponent_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -84661,7 +84661,7 @@ ehcleanup430:                                     ; preds = %ehcleanup426, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN42MultiComponentView_SameComponentTypes_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN42MultiComponentView_SameComponentTypes_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11.i12.i.i = alloca %"class.std::tuple.439", align 8
   %ref.tmp11.i.i.i = alloca %"class.std::tuple.439", align 8
@@ -87470,7 +87470,7 @@ _ZN4entt9basic_anyILm16ELm8EED2Ev.exit:           ; preds = %if.then.i7, %_ZN4en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN31MultiComponentView_Storage_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN31MultiComponentView_Storage_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -93897,7 +93897,7 @@ _ZN7testing8internal11CmpHelperEQIPKN4entt16basic_sigh_mixinINS2_13basic_storage
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN35MultiComponentView_SwapStorage_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN35MultiComponentView_SwapStorage_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i491:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -95623,7 +95623,7 @@ ehcleanup395:                                     ; preds = %ehcleanup391, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN37MultiComponentView_StorageEntity_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN37MultiComponentView_StorageEntity_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func.i = alloca %class.anon.465, align 4
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
@@ -98623,7 +98623,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN58MultiComponentView_StorageEntityWithExcludedComponent_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN58MultiComponentView_StorageEntityWithExcludedComponent_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %func.i = alloca %class.anon.470, align 4
   %agg.tmp2.i = alloca %"class.entt::internal::view_iterator.292", align 8
@@ -101786,7 +101786,7 @@ cond.end:                                         ; preds = %cond.end.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN48MultiComponentView_StorageEntityExcludeOnly_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN48MultiComponentView_StorageEntityExcludeOnly_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -105253,7 +105253,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14View_Pipe_Test8TestBodyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14View_Pipe_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.37", align 1
   %registry = alloca %"class.entt::basic_registry", align 8
@@ -110037,7 +110037,7 @@ if.end44:                                         ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN4entt16basic_sigh_mixinINS0_13basic_storageIcNS0_6entityESaIcEvEENS0_14basic_registryIS3_SaIS3_EEEEES7_LN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #8 comdat align 2 {
@@ -113086,7 +113086,7 @@ _ZN4entt10type_indexINS_14basic_registryINS_6entityESaIS2_EEEvE5valueEv.exit: ; 
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt16basic_sigh_mixinINS_13basic_storageINS_6entityES2_SaIS2_EvEENS_14basic_registryIS2_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -117708,7 +117708,7 @@ unreachable:                                      ; preds = %invoke.cont11
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryImplI59SingleComponentView_IterableViewAlgorithmCompatibility_TestED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #7 comdat align 2 {
@@ -123599,7 +123599,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef zeroext i1 @_ZN7testing8internal6IsTrueEb(i1 noundef zeroext) local_unnamed_addr #0
 
@@ -126123,7 +126123,7 @@ if.then.i.i:                                      ; preds = %if.end
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %if.end
-  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 noundef %call.i.i)
+  %call2.i10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, i64 noundef %call.i.i)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -137933,7 +137933,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN28MultiComponentView_Each_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %__t) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN28MultiComponentView_Each_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %__t) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp.i.i.i.i = alloca i32, align 4
@@ -138747,7 +138747,7 @@ eh.resume.i.i.i.i:                                ; preds = %ehcleanup31.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_0St5tupleIJRiRcEEEDcOT_OT0_"(ptr nocapture noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_0St5tupleIJRiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %__f, i32 %__t.8.val.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %curr.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -138893,7 +138893,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_SK_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #16 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_SK_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull captures(none) %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #16 {
 entry:
   %agg.tmp.i.i9.i = alloca %"class.std::reverse_iterator.796", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.796", align 8
@@ -139195,7 +139195,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #17 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_"(ptr noundef nonnull readonly captures(none) %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #17 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -139368,7 +139368,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_1NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #18 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -139577,7 +139577,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_2St5tupleIJRiRcEEEDcOT_OT0_"(ptr nocapture noundef nonnull align 4 dereferenceable(4) %__f, i32 %__t.8.val.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_2St5tupleIJRiRcEEEDcOT_OT0_"(ptr noundef nonnull align 4 captures(none) dereferenceable(4) %__f, i32 %__t.8.val.0.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %curr.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -139723,7 +139723,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_SK_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #16 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_SK_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull captures(none) %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #16 {
 entry:
   %agg.tmp.i.i9.i = alloca %"class.std::reverse_iterator.796", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.796", align 8
@@ -140025,7 +140025,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #17 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_"(ptr noundef nonnull readonly captures(none) %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #17 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -140195,7 +140195,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_3NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #18 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -140404,7 +140404,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_SK_"(ptr nocapture noundef nonnull readonly %__first, ptr nocapture noundef nonnull %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #16 {
+define internal fastcc void @"_ZSt16__introsort_loopISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElNS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_SK_"(ptr noundef nonnull readonly captures(none) %__first, ptr noundef nonnull captures(none) %__last, i64 noundef range(i64 0, 128) %__depth_limit, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #16 {
 entry:
   %agg.tmp.i.i9.i = alloca %"class.std::reverse_iterator.796", align 8
   %agg.tmp.i.i.i = alloca %"class.std::reverse_iterator.796", align 8
@@ -140706,7 +140706,7 @@ while.end:                                        ; preds = %"_ZSt27__unguarded_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_"(ptr nocapture noundef nonnull readonly %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #17 {
+define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEElS4_NS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SJ_SJ_SK_T2_"(ptr noundef nonnull readonly captures(none) %__first, i64 noundef range(i64 -9223372036854775808, 9223372036854775807) %__holeIndex, i64 noundef range(i64 -2305843009213693952, 2305843009213693952) %__len, i32 noundef %__value, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #17 {
 entry:
   %sub = add nsw i64 %__len, -1
   %div = sdiv i64 %sub, 2
@@ -140876,7 +140876,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #18 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortIiZN45MultiComponentView_EachWithSuggestedType_Test8TestBodyEvE3$_4NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SJ_E_EEEvSO_SO_SJ_"(ptr %__first.0.val, ptr readnone %__last.0.val, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #18 {
 entry:
   %cmp.i.i = icmp eq ptr %__first.0.val, %__last.0.val
   %0 = ptrtoint ptr %__first.0.val to i64
@@ -141085,7 +141085,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN37MultiComponentView_EachWithHoles_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERcRiEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %__t) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN37MultiComponentView_EachWithHoles_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERcRiEEEDcOT_OT0_"(ptr noundef nonnull align 4 dereferenceable(4) %__f, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %__t) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %entity.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
@@ -141994,7 +141994,7 @@ while.end:                                        ; preds = %land.rhs.i, %land.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_1St5tupleIJRiRcEEEDcOT_OT0_"(ptr nocapture noundef nonnull align 1 dereferenceable(1) %__f) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_1St5tupleIJRiRcEEEDcOT_OT0_"(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %__f) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp.i.i.i.i = alloca %"class.testing::Message", align 8
@@ -142442,7 +142442,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_4St5tupleIJRiRcEEEDcOT_OT0_"(ptr nocapture noundef nonnull align 1 dereferenceable(1) %__f) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_EmptyTypes_Test8TestBodyEvE3$_4St5tupleIJRiRcEEEDcOT_OT0_"(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %__f) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp.i.i.i.i = alloca %"class.testing::Message", align 8
@@ -142750,7 +142750,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_StableType_Test8TestBodyEvE3$_1St5tupleIJRiRN4test14pointer_stableEEEEDcOT_OT0_"(ptr nocapture noundef nonnull align 1 dereferenceable(1) %__f) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN34MultiComponentView_StableType_Test8TestBodyEvE3$_1St5tupleIJRiRN4test14pointer_stableEEEEDcOT_OT0_"(ptr noundef nonnull align 1 captures(none) dereferenceable(1) %__f) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %gtest_ar_.i.i.i.i = alloca %"class.testing::AssertionResult", align 8
   %ref.tmp.i.i.i.i = alloca %"class.testing::Message", align 8
@@ -143322,7 +143322,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt5applyIRZN42MultiComponentView_SameComponentTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiS6_EEEDcOT_OT0_"(ptr %__f.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %__t) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt5applyIRZN42MultiComponentView_SameComponentTypes_Test8TestBodyEvE3$_0St5tupleIJN4entt6entityERiS6_EEEDcOT_OT0_"(ptr %__f.0.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %__t) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %entt.addr.i.i.i.i = alloca i32, align 4
   %gtest_ar.i.i.i.i = alloca %"class.testing::AssertionResult", align 8

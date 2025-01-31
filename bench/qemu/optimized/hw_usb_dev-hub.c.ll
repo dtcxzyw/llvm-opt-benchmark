@@ -134,7 +134,7 @@ entry:
 declare ptr @type_register_static(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_hub_class_initfn(ptr noundef %klass, ptr nocapture readnone %data) #0 {
+define internal void @usb_hub_class_initfn(ptr noundef %klass, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE_CLASS) #8
   %call.i12 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %klass, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.6, i32 noundef 270, ptr noundef nonnull @__func__.USB_DEVICE_CLASS) #8
@@ -905,7 +905,7 @@ sw.epilog194:                                     ; preds = %if.end.i177, %sw.bb
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_hub_handle_data(ptr nocapture noundef readonly %dev, ptr noundef %p) #0 {
+define internal void @usb_hub_handle_data(ptr noundef readonly captures(none) %dev, ptr noundef %p) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %buf = alloca [4 x i8], align 1
@@ -1094,7 +1094,7 @@ declare void @usb_desc_create_serial(ptr noundef) local_unnamed_addr #1
 declare void @usb_desc_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_hub_port_update_timer(ptr nocapture noundef %opaque) #0 {
+define internal void @usb_hub_port_update_timer(ptr noundef captures(none) %opaque) #0 {
 entry:
   %num_ports = getelementptr inbounds nuw i8, ptr %opaque, i64 5872
   %0 = load i32, ptr %num_ports, align 8
@@ -1200,7 +1200,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @usb_wakeup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_hub_attach(ptr nocapture noundef readonly %port1) #0 {
+define internal void @usb_hub_attach(ptr noundef readonly captures(none) %port1) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
@@ -1310,7 +1310,7 @@ usb_hub_port_update.exit:                         ; preds = %trace_usb_hub_attac
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_hub_detach(ptr nocapture noundef readonly %port1) #0 {
+define internal void @usb_hub_detach(ptr noundef readonly captures(none) %port1) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
@@ -1421,7 +1421,7 @@ usb_hub_port_clear.exit31:                        ; preds = %usb_hub_port_clear.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_hub_child_detach(ptr nocapture noundef readonly %port1, ptr noundef %child) #0 {
+define internal void @usb_hub_child_detach(ptr noundef readonly captures(none) %port1, ptr noundef %child) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
@@ -1436,7 +1436,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_hub_wakeup(ptr nocapture noundef readonly %port1) #0 {
+define internal void @usb_hub_wakeup(ptr noundef readonly captures(none) %port1) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %port1, i64 40
   %0 = load ptr, ptr %opaque, align 8
@@ -1468,7 +1468,7 @@ if.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @usb_hub_complete(ptr nocapture noundef readonly %port, ptr noundef %packet) #0 {
+define internal void @usb_hub_complete(ptr noundef readonly captures(none) %port, ptr noundef %packet) #0 {
 entry:
   %opaque = getelementptr inbounds nuw i8, ptr %port, i64 40
   %0 = load ptr, ptr %opaque, align 8
@@ -1483,7 +1483,7 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 
@@ -1500,7 +1500,7 @@ declare i64 @qemu_clock_get_ns(i32 noundef) local_unnamed_addr #1
 declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @usb_packet_copy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1511,7 +1511,7 @@ declare void @timer_del(ptr noundef) local_unnamed_addr #1
 declare void @g_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define internal zeroext i1 @usb_hub_port_timer_needed(ptr nocapture noundef readonly %opaque) #5 {
+define internal zeroext i1 @usb_hub_port_timer_needed(ptr noundef readonly captures(none) %opaque) #5 {
 entry:
   %port_power = getelementptr inbounds nuw i8, ptr %opaque, i64 5876
   %0 = load i8, ptr %port_power, align 4
@@ -1520,13 +1520,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

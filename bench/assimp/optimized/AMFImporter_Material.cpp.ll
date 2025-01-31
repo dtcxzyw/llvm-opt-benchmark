@@ -205,7 +205,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11AMFImporter15ParseNode_ColorERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11AMFImporter15ParseNode_ColorERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator", align 1
@@ -415,7 +415,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i.i, %la
   br i1 %tobool3.not.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %cond.true.i.i45
 
 cond.true.i.i45:                                  ; preds = %if.end.i.i
-  %call.i.i.i = call double @strtod(ptr nocapture noundef nonnull %18, ptr noundef null) #19
+  %call.i.i.i = call double @strtod(ptr noundef nonnull captures(none) %18, ptr noundef null) #19
   %conv.i.i.i = fptrunc double %call.i.i.i to float
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i
 
@@ -507,7 +507,7 @@ if.end.i.i67:                                     ; preds = %for.body.i.i.i58, %
   br i1 %tobool3.not.i.i70, label %_ZNK4pugi8xml_text8as_floatEf.exit.i65, label %cond.true.i.i71
 
 cond.true.i.i71:                                  ; preds = %if.end.i.i67
-  %call.i.i.i72 = call double @strtod(ptr nocapture noundef nonnull %30, ptr noundef null) #19
+  %call.i.i.i72 = call double @strtod(ptr noundef nonnull captures(none) %30, ptr noundef null) #19
   %conv.i.i.i73 = fptrunc double %call.i.i.i72 to float
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i65
 
@@ -569,7 +569,7 @@ if.end.i.i99:                                     ; preds = %for.body.i.i.i90, %
   br i1 %tobool3.not.i.i102, label %_ZNK4pugi8xml_text8as_floatEf.exit.i97, label %cond.true.i.i103
 
 cond.true.i.i103:                                 ; preds = %if.end.i.i99
-  %call.i.i.i104 = call double @strtod(ptr nocapture noundef nonnull %40, ptr noundef null) #19
+  %call.i.i.i104 = call double @strtod(ptr noundef nonnull captures(none) %40, ptr noundef null) #19
   %conv.i.i.i105 = fptrunc double %call.i.i.i104 to float
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i97
 
@@ -631,7 +631,7 @@ if.end.i.i131:                                    ; preds = %for.body.i.i.i122, 
   br i1 %tobool3.not.i.i134, label %if.end67.sink.split, label %cond.true.i.i135
 
 cond.true.i.i135:                                 ; preds = %if.end.i.i131
-  %call.i.i.i136 = call double @strtod(ptr nocapture noundef nonnull %50, ptr noundef null) #19
+  %call.i.i.i136 = call double @strtod(ptr noundef nonnull captures(none) %50, ptr noundef null) #19
   %conv.i.i.i137 = fptrunc double %call.i.i.i136 to float
   br label %if.end67.sink.split
 
@@ -731,7 +731,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nobuiltin allocsize(0)
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
@@ -785,7 +785,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11AMFImporter18ParseNode_MaterialERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11AMFImporter18ParseNode_MaterialERN4pugi8xml_nodeE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %id = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -1732,7 +1732,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare void @_ZNK6Assimp11AMFImporter25ParseHelper_Decode_Base64ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11AMFImporter16ParseNode_TexMapERN4pugi8xml_nodeEb(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node, i1 noundef zeroext %pUseOldName) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11AMFImporter16ParseNode_TexMapERN4pugi8xml_nodeEb(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %node, i1 noundef zeroext %pUseOldName) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rtexid = alloca %"class.std::__cxx11::basic_string", align 8
   %gtexid = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2031,7 +2031,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i.i, %la
   br i1 %tobool3.not.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %cond.true.i.i157
 
 cond.true.i.i157:                                 ; preds = %if.end.i.i
-  %call.i.i.i = call double @strtod(ptr nocapture noundef nonnull %29, ptr noundef null) #19
+  %call.i.i.i = call double @strtod(ptr noundef nonnull captures(none) %29, ptr noundef null) #19
   %conv.i.i.i = fptrunc double %call.i.i.i to float
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i
 
@@ -2108,7 +2108,7 @@ if.end.i.i179:                                    ; preds = %for.body.i.i.i170, 
   br i1 %tobool3.not.i.i182, label %_ZNK4pugi8xml_text8as_floatEf.exit.i177, label %cond.true.i.i183
 
 cond.true.i.i183:                                 ; preds = %if.end.i.i179
-  %call.i.i.i184 = call double @strtod(ptr nocapture noundef nonnull %41, ptr noundef null) #19
+  %call.i.i.i184 = call double @strtod(ptr noundef nonnull captures(none) %41, ptr noundef null) #19
   %conv.i.i.i185 = fptrunc double %call.i.i.i184 to float
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i177
 
@@ -2175,7 +2175,7 @@ if.end.i.i211:                                    ; preds = %for.body.i.i.i202, 
   br i1 %tobool3.not.i.i214, label %_ZNK4pugi8xml_text8as_floatEf.exit.i209, label %cond.true.i.i215
 
 cond.true.i.i215:                                 ; preds = %if.end.i.i211
-  %call.i.i.i216 = call double @strtod(ptr nocapture noundef nonnull %52, ptr noundef null) #19
+  %call.i.i.i216 = call double @strtod(ptr noundef nonnull captures(none) %52, ptr noundef null) #19
   %conv.i.i.i217 = fptrunc double %call.i.i.i216 to float
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i209
 
@@ -2242,7 +2242,7 @@ if.end.i.i243:                                    ; preds = %for.body.i.i.i234, 
   br i1 %tobool3.not.i.i246, label %_ZNK4pugi8xml_text8as_floatEf.exit.i241, label %cond.true.i.i247
 
 cond.true.i.i247:                                 ; preds = %if.end.i.i243
-  %call.i.i.i248 = call double @strtod(ptr nocapture noundef nonnull %63, ptr noundef null) #19
+  %call.i.i.i248 = call double @strtod(ptr noundef nonnull captures(none) %63, ptr noundef null) #19
   %conv.i.i.i249 = fptrunc double %call.i.i.i248 to float
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i241
 
@@ -2309,7 +2309,7 @@ if.end.i.i275:                                    ; preds = %for.body.i.i.i266, 
   br i1 %tobool3.not.i.i278, label %_ZNK4pugi8xml_text8as_floatEf.exit.i273, label %cond.true.i.i279
 
 cond.true.i.i279:                                 ; preds = %if.end.i.i275
-  %call.i.i.i280 = call double @strtod(ptr nocapture noundef nonnull %74, ptr noundef null) #19
+  %call.i.i.i280 = call double @strtod(ptr noundef nonnull captures(none) %74, ptr noundef null) #19
   %conv.i.i.i281 = fptrunc double %call.i.i.i280 to float
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i273
 
@@ -2376,7 +2376,7 @@ if.end.i.i307:                                    ; preds = %for.body.i.i.i298, 
   br i1 %tobool3.not.i.i310, label %_ZNK4pugi8xml_text8as_floatEf.exit.i305, label %cond.true.i.i311
 
 cond.true.i.i311:                                 ; preds = %if.end.i.i307
-  %call.i.i.i312 = call double @strtod(ptr nocapture noundef nonnull %85, ptr noundef null) #19
+  %call.i.i.i312 = call double @strtod(ptr noundef nonnull captures(none) %85, ptr noundef null) #19
   %conv.i.i.i313 = fptrunc double %call.i.i.i312 to float
   br label %_ZNK4pugi8xml_text8as_floatEf.exit.i305
 
@@ -2466,7 +2466,7 @@ if.end.i361:                                      ; preds = %invoke.cont194
   br i1 %tobool4.not.i363, label %invoke.cont200, label %cond.true.i
 
 cond.true.i:                                      ; preds = %if.end.i361
-  %call.i.i364 = call double @strtod(ptr nocapture noundef nonnull %90, ptr noundef null) #19
+  %call.i.i364 = call double @strtod(ptr noundef nonnull captures(none) %90, ptr noundef null) #19
   %conv.i.i = fptrunc double %call.i.i364 to float
   br label %invoke.cont200
 
@@ -2497,7 +2497,7 @@ if.end.i369:                                      ; preds = %if.else205
   br i1 %tobool4.not.i371, label %invoke.cont210, label %cond.true.i372
 
 cond.true.i372:                                   ; preds = %if.end.i369
-  %call.i.i373 = call double @strtod(ptr nocapture noundef nonnull %92, ptr noundef null) #19
+  %call.i.i373 = call double @strtod(ptr noundef nonnull captures(none) %92, ptr noundef null) #19
   %conv.i.i374 = fptrunc double %call.i.i373 to float
   br label %invoke.cont210
 
@@ -2518,7 +2518,7 @@ if.end.i380:                                      ; preds = %if.else215
   br i1 %tobool4.not.i382, label %invoke.cont220, label %cond.true.i383
 
 cond.true.i383:                                   ; preds = %if.end.i380
-  %call.i.i384 = call double @strtod(ptr nocapture noundef nonnull %93, ptr noundef null) #19
+  %call.i.i384 = call double @strtod(ptr noundef nonnull captures(none) %93, ptr noundef null) #19
   %conv.i.i385 = fptrunc double %call.i.i384 to float
   br label %invoke.cont220
 
@@ -2539,7 +2539,7 @@ if.end.i391:                                      ; preds = %if.else225
   br i1 %tobool4.not.i393, label %invoke.cont230, label %cond.true.i394
 
 cond.true.i394:                                   ; preds = %if.end.i391
-  %call.i.i395 = call double @strtod(ptr nocapture noundef nonnull %94, ptr noundef null) #19
+  %call.i.i395 = call double @strtod(ptr noundef nonnull captures(none) %94, ptr noundef null) #19
   %conv.i.i396 = fptrunc double %call.i.i395 to float
   br label %invoke.cont230
 
@@ -2560,7 +2560,7 @@ if.end.i402:                                      ; preds = %if.else235
   br i1 %tobool4.not.i404, label %invoke.cont240, label %cond.true.i405
 
 cond.true.i405:                                   ; preds = %if.end.i402
-  %call.i.i406 = call double @strtod(ptr nocapture noundef nonnull %95, ptr noundef null) #19
+  %call.i.i406 = call double @strtod(ptr noundef nonnull captures(none) %95, ptr noundef null) #19
   %conv.i.i407 = fptrunc double %call.i.i406 to float
   br label %invoke.cont240
 
@@ -2581,7 +2581,7 @@ if.end.i413:                                      ; preds = %if.else245
   br i1 %tobool4.not.i415, label %invoke.cont250, label %cond.true.i416
 
 cond.true.i416:                                   ; preds = %if.end.i413
-  %call.i.i417 = call double @strtod(ptr nocapture noundef nonnull %96, ptr noundef null) #19
+  %call.i.i417 = call double @strtod(ptr noundef nonnull captures(none) %96, ptr noundef null) #19
   %conv.i.i418 = fptrunc double %call.i.i417 to float
   br label %invoke.cont250
 
@@ -2702,10 +2702,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8AMFColorD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3234,7 +3234,7 @@ _ZN9AMFTexMapD2Ev.exit:                           ; preds = %while.body.i.i.i.i.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
@@ -3293,7 +3293,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #7
 
@@ -3356,10 +3356,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16

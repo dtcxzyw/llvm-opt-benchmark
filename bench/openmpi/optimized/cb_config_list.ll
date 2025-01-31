@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [3 x i8] c":,\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ADIOI_cb_bcast_rank_map(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define i32 @ADIOI_cb_bcast_rank_map(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
@@ -86,7 +86,7 @@ define i32 @ADIOI_cb_bcast_rank_map(ptr nocapture noundef readonly %0) local_unn
   %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %39, i64 noundef 257, ptr noundef nonnull @.str.2, i32 noundef %42) #10
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %45 = load ptr, ptr %44, align 8
-  %46 = call i32 @PMPI_Info_set(ptr noundef %45, ptr noundef nonnull @.str.3, ptr noundef %39) #10
+  %46 = call i32 @PMPI_Info_set(ptr noundef %45, ptr noundef nonnull @.str.3, ptr noundef nonnull %39) #10
   %47 = load ptr, ptr %3, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 20
   %49 = load i32, ptr %48, align 4
@@ -127,8 +127,8 @@ define i32 @ADIOI_cb_bcast_rank_map(ptr nocapture noundef readonly %0) local_unn
 
 ._crit_edge:                                      ; preds = %63, %52, %38
   %71 = load ptr, ptr %44, align 8
-  %72 = call i32 @PMPI_Info_set(ptr noundef %71, ptr noundef nonnull @.str.5, ptr noundef %39) #10
-  call void @ADIOI_Free_fn(ptr noundef %39, i32 noundef 102, ptr noundef nonnull @.str) #10
+  %72 = call i32 @PMPI_Info_set(ptr noundef %71, ptr noundef nonnull @.str.5, ptr noundef nonnull %39) #10
+  call void @ADIOI_Free_fn(ptr noundef nonnull %39, i32 noundef 102, ptr noundef nonnull @.str) #10
   br label %73
 
 73:                                               ; preds = %._crit_edge, %29
@@ -145,14 +145,14 @@ declare ptr @ADIOI_Malloc_fn(i64 noundef, i32 noundef, ptr noundef) local_unname
 declare i32 @MPIO_Err_create_code(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare i32 @PMPI_Info_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @ADIOI_Free_fn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ADIOI_cb_gather_name_array(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ADIOI_cb_gather_name_array(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -366,7 +366,7 @@ define range(i32 -1, 1) i32 @ADIOI_cb_gather_name_array(ptr noundef %0, ptr noun
 declare i32 @PMPI_Keyval_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ADIOI_cb_copy_name_array(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #3 {
+define noundef i32 @ADIOI_cb_copy_name_array(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(none) initializes((0, 4)) %5) #3 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %7
 
@@ -383,7 +383,7 @@ define noundef i32 @ADIOI_cb_copy_name_array(ptr nocapture readnone %0, i32 %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ADIOI_cb_delete_name_array(ptr nocapture readnone %0, i32 %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define noundef i32 @ADIOI_cb_delete_name_array(ptr readnone captures(none) %0, i32 %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i32, ptr %2, align 8
   %6 = add nsw i32 %5, -1
   store i32 %6, ptr %2, align 8
@@ -434,7 +434,7 @@ declare i32 @PMPI_Gatherv(ptr noundef, i32 noundef, ptr noundef, ptr noundef, pt
 declare i32 @PMPI_Attr_put(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ADIOI_cb_config_list_parse(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define i32 @ADIOI_cb_config_list_parse(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -1042,21 +1042,21 @@ match_procs.exit:                                 ; preds = %.critedge.i, %match
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @ADIOI_Strncpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #8
@@ -1065,10 +1065,10 @@ declare i32 @llvm.smin.i32(i32, i32) #8
 declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

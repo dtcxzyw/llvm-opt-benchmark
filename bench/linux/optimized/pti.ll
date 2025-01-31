@@ -154,7 +154,7 @@ define dso_local void @pti_check_boottime_disable() local_unnamed_addr #0 sectio
 declare dso_local zeroext i1 @cpu_mitigations_off() local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @pti_parse_cmdline(ptr nocapture noundef readonly %0) #2 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @pti_parse_cmdline(ptr noundef readonly captures(none) %0) #2 section ".init.text" align 16 {
   %2 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(4) @.str.5) #10
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %12, label %sub_0
@@ -192,7 +192,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: none, inaccessiblemem: none)
-define internal noundef i32 @pti_parse_cmdline_nopti(ptr nocapture readnone %0) #3 section ".init.text" align 16 {
+define internal noundef i32 @pti_parse_cmdline_nopti(ptr readnone captures(none) %0) #3 section ".init.text" align 16 {
   store i32 1, ptr @pti_mode, align 4
   ret i32 0
 }
@@ -404,13 +404,13 @@ define dso_local void @pti_finalize() local_unnamed_addr #6 align 16 {
 declare dso_local void @ptdump_walk_user_pgd_level_checkwx() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @pti_clone_p4d(i64 noundef range(i64 -2199023255552, -1099511627775) %0) unnamed_addr #0 section ".init.text" align 16 {

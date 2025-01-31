@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib13ErrorFunction3sb7E = local_unnamed_addr constant double 0xC03670E242712D62, align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef double @_ZNK8QuantLib13ErrorFunctionclEd(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, double noundef %x) local_unnamed_addr #0 align 2 {
+define noundef double @_ZNK8QuantLib13ErrorFunctionclEd(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, double noundef %x) local_unnamed_addr #0 align 2 {
 entry:
   %0 = tail call double @llvm.fabs.f64(double %x)
   %1 = fcmp ueq double %0, 0x7FF0000000000000

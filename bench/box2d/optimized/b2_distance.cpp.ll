@@ -85,10 +85,10 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15b2DistanceProxy3SetEPK6b2Vec2if(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 32)) %this, ptr noundef %vertices, i32 noundef %count, float noundef %radius) local_unnamed_addr #2 align 2 {
+define void @_ZN15b2DistanceProxy3SetEPK6b2Vec2if(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((16, 32)) %this, ptr noundef %vertices, i32 noundef %count, float noundef %radius) local_unnamed_addr #2 align 2 {
 entry:
   %m_vertices = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %vertices, ptr %m_vertices, align 8
@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9b2Simplex6Solve2Ev(ptr nocapture noundef nonnull align 4 dereferenceable(112) initializes((108, 112)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9b2Simplex6Solve2Ev(ptr noundef nonnull align 4 captures(none) dereferenceable(112) initializes((108, 112)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %w = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load float, ptr %w, align 4
@@ -158,7 +158,7 @@ return:                                           ; preds = %if.end14, %if.then8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9b2Simplex6Solve3Ev(ptr nocapture noundef nonnull align 4 dereferenceable(112) initializes((108, 112)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9b2Simplex6Solve3Ev(ptr noundef nonnull align 4 captures(none) dereferenceable(112) initializes((108, 112)) %this) local_unnamed_addr #3 align 2 {
 entry:
   %w = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load float, ptr %w, align 4
@@ -337,7 +337,7 @@ return:                                           ; preds = %if.end93, %if.then8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z10b2DistanceP16b2DistanceOutputP14b2SimplexCachePK15b2DistanceInput(ptr nocapture noundef %output, ptr noundef %cache, ptr noundef %input) local_unnamed_addr #4 {
+define void @_Z10b2DistanceP16b2DistanceOutputP14b2SimplexCachePK15b2DistanceInput(ptr noundef captures(none) %output, ptr noundef %cache, ptr noundef %input) local_unnamed_addr #4 {
 entry:
   %transformA = alloca %struct.b2Transform, align 4
   %transformB = alloca %struct.b2Transform, align 4
@@ -1224,7 +1224,7 @@ if.end54:                                         ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z11b2ShapeCastP17b2ShapeCastOutputPK16b2ShapeCastInput(ptr nocapture noundef writeonly initializes((0, 24)) %output, ptr nocapture noundef readonly %input) local_unnamed_addr #5 {
+define noundef zeroext i1 @_Z11b2ShapeCastP17b2ShapeCastOutputPK16b2ShapeCastInput(ptr noundef writeonly captures(none) initializes((0, 24)) %output, ptr noundef readonly captures(none) %input) local_unnamed_addr #5 {
 entry:
   %simplex = alloca %struct.b2Simplex, align 4
   %iterations = getelementptr inbounds nuw i8, ptr %output, i64 20
@@ -1806,7 +1806,7 @@ declare i32 @llvm.smax.i32(i32, i32) #7
 declare float @llvm.sqrt.f32(float) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

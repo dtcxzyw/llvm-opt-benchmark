@@ -165,7 +165,7 @@ target triple = "x86_64-pc-linux-gnu"
 @arginfo_class_RecursiveArrayIterator_getChildren = internal constant [1 x %struct._zend_internal_arg_info] [%struct._zend_internal_arg_info { ptr null, %struct.zend_type { ptr @.str.75, i32 545259522 }, ptr null }], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_offsetExists(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_offsetExists(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -455,7 +455,7 @@ spl_array_read_dimension_ex.exit:                 ; preds = %100, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_offsetGet(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_offsetGet(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -530,7 +530,7 @@ define hidden void @zim_ArrayObject_offsetGet(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_offsetSet(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayObject_offsetSet(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -885,7 +885,7 @@ spl_array_set_refcount.exit64:                    ; preds = %153, %150, %80, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @spl_array_iterator_append(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @spl_array_iterator_append(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -68
   %5 = load i32, ptr %4, align 4
@@ -942,7 +942,7 @@ define internal void @spl_array_write_dimension(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_append(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayObject_append(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1007,7 +1007,7 @@ spl_array_iterator_append.exit:                   ; preds = %32, %spl_array_is_o
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_offsetUnset(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayObject_offsetUnset(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -1239,7 +1239,7 @@ spl_array_is_object.exit:                         ; preds = %._crit_edge.i
   br i1 %103, label %spl_array_is_object.exit.thread, label %108
 
 spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl_array_is_object.exit
-  %104 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef %61)
+  %104 = call fastcc i32 @spl_array_skip_protected(ptr noundef nonnull %5, ptr noundef nonnull %61)
   br label %108
 
 105:                                              ; preds = %70
@@ -1298,7 +1298,7 @@ spl_array_set_refcount.exit58:                    ; preds = %128, %125, %spl_has
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_getArrayCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_getArrayCopy(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1408,7 +1408,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #1
 declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayObject___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -1461,7 +1461,7 @@ define hidden void @zim_ArrayObject___construct(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_array_set_array(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 0, 65536) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @spl_array_set_array(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef range(i64 0, 65536) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load i8, ptr %6, align 8
   %8 = icmp eq i8 %7, 7
@@ -1646,7 +1646,7 @@ define internal fastcc void @spl_array_set_array(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_setIteratorClass(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayObject_setIteratorClass(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1689,7 +1689,7 @@ declare zeroext i1 @zend_parse_arg_class(ptr noundef, ptr noundef, i32 noundef, 
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_getIteratorClass(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_getIteratorClass(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1741,7 +1741,7 @@ define hidden void @zim_ArrayObject_getIteratorClass(ptr nocapture noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_getFlags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_getFlags(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -1771,7 +1771,7 @@ define hidden void @zim_ArrayObject_getFlags(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_setFlags(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayObject_setFlags(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1804,7 +1804,7 @@ define hidden void @zim_ArrayObject_setFlags(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_exchangeArray(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_exchangeArray(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1926,7 +1926,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_getIterator(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_getIterator(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2220,7 +2220,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_count(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -2452,13 +2452,13 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_asort(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ArrayObject_asort(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   tail call fastcc void @spl_array_method(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.7, i64 noundef 5, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_array_method(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 5, 12) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
+define internal fastcc void @spl_array_method(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef range(i64 5, 12) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca [2 x %struct._zval_struct], align 16
   %8 = alloca ptr, align 8
@@ -2732,37 +2732,37 @@ spl_array_get_hash_table_ptr.exit:                ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_ksort(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ArrayObject_ksort(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   tail call fastcc void @spl_array_method(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.8, i64 noundef 5, i32 noundef 2)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_uasort(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ArrayObject_uasort(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   tail call fastcc void @spl_array_method(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.9, i64 noundef 6, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_uksort(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ArrayObject_uksort(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   tail call fastcc void @spl_array_method(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.10, i64 noundef 6, i32 noundef 1)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_natsort(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ArrayObject_natsort(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   tail call fastcc void @spl_array_method(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.11, i64 noundef 7, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_natcasesort(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ArrayObject_natcasesort(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   tail call fastcc void @spl_array_method(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.12, i64 noundef 11, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject_serialize(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca ptr, align 8
@@ -3006,7 +3006,7 @@ define hidden void @zim_ArrayObject_serialize(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare ptr @php_var_serialize_init() local_unnamed_addr #1
 
@@ -3017,7 +3017,7 @@ declare void @rebuild_object_properties(ptr noundef) local_unnamed_addr #1
 declare void @php_var_serialize_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject_unserialize(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayObject_unserialize(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
@@ -3267,7 +3267,7 @@ declare void @php_var_unserialize_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject___serialize(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
+define hidden void @zim_ArrayObject___serialize(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3373,7 +3373,7 @@ declare ptr @zend_proptable_to_symtable(ptr noundef, i1 noundef zeroext) local_u
 declare ptr @zend_std_get_properties(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject___unserialize(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayObject___unserialize(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -3541,7 +3541,7 @@ declare ptr @zend_throw_exception(ptr noundef, ptr noundef, i64 noundef) local_u
 declare ptr @zend_lookup_class(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayObject___debugInfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayObject___debugInfo(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4
@@ -3677,7 +3677,7 @@ spl_array_get_debug_info.exit:                    ; preds = %20, %60, %64, %69
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayIterator___construct(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayIterator___construct(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3715,7 +3715,7 @@ define hidden void @zim_ArrayIterator___construct(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayIterator_rewind(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayIterator_rewind(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3841,7 +3841,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayIterator_seek(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayIterator_seek(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -4071,7 +4071,7 @@ spl_array_next.exit:                              ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayIterator_current(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayIterator_current(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -4266,7 +4266,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 declare ptr @zend_hash_get_current_data_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @spl_array_iterator_key(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @spl_array_iterator_key(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -88
   %5 = getelementptr inbounds i8, ptr %3, i64 -68
@@ -4376,7 +4376,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 declare void @zend_hash_get_current_key_zval_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayIterator_key(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_ArrayIterator_key(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -4399,7 +4399,7 @@ define hidden void @zim_ArrayIterator_key(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayIterator_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 {
+define hidden void @zim_ArrayIterator_next(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -4502,7 +4502,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_array_next_ex(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_array_next_ex(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, -1
@@ -4571,7 +4571,7 @@ spl_array_is_object.exit.thread:                  ; preds = %._crit_edge.i, %spl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_ArrayIterator_valid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_ArrayIterator_valid(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -4700,7 +4700,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_RecursiveArrayIterator_hasChildren(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
+define hidden void @zim_RecursiveArrayIterator_hasChildren(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -4878,7 +4878,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_RecursiveArrayIterator_getChildren(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define hidden void @zim_RecursiveArrayIterator_getChildren(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -5418,7 +5418,7 @@ define internal noundef nonnull ptr @spl_array_object_new(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
 define internal noundef nonnull ptr @spl_array_object_clone(ptr noundef %0) #0 {
@@ -5546,7 +5546,7 @@ define internal range(i32 0, 2) i32 @spl_array_has_dimension(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @spl_array_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal range(i32 -1, 1) i32 @spl_array_object_count_elements(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load ptr, ptr %4, align 8
@@ -5716,7 +5716,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @spl_array_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @spl_array_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -88
   store ptr %4, ptr %1, align 8
   store i32 1, ptr %2, align 4
@@ -6140,7 +6140,7 @@ define internal void @spl_array_object_free_storage(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @spl_array_get_iterator(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 {
+define internal noundef ptr @spl_array_get_iterator(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = tail call noalias ptr @_emalloc_96() #11
   tail call void @zend_iterator_init(ptr noundef %4) #11
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
@@ -6163,7 +6163,7 @@ define internal noundef ptr @spl_array_get_iterator(ptr nocapture readnone %0, p
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_hash_key(ptr noundef nonnull initializes((16, 17)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_hash_key(ptr noundef nonnull initializes((16, 17)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %4, align 8
   br label %5
@@ -6350,7 +6350,7 @@ declare void @zend_incompatible_double_to_long_error(double noundef) local_unnam
 declare i64 @zend_dval_to_lval_slow(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
@@ -6637,7 +6637,7 @@ declare ptr @zend_hash_update_ind(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @zend_hash_move_forward_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_array_skip_protected(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_array_skip_protected(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6786,7 +6786,7 @@ declare void @zend_hash_internal_pointer_reset_ex(ptr noundef, ptr noundef) loca
 declare i32 @zend_hash_get_current_key_type_ex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_array_create_ht_iter(ptr noundef %0, ptr nocapture noundef initializes((16, 20)) %1) unnamed_addr #0 {
+define internal fastcc void @spl_array_create_ht_iter(ptr noundef %0, ptr noundef captures(none) initializes((16, 20)) %1) unnamed_addr #0 {
   %3 = tail call i32 @zend_hash_get_current_pos(ptr noundef %0) #11
   %4 = tail call i32 @zend_hash_iterator_add(ptr noundef %0, i32 noundef %3) #11
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -6845,7 +6845,7 @@ define internal void @spl_array_it_dtor(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @spl_array_it_valid(ptr nocapture noundef readonly %0) #0 {
+define internal range(i32 -1, 1) i32 @spl_array_it_valid(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -88
@@ -6956,7 +6956,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @spl_array_it_get_current_data(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @spl_array_it_get_current_data(ptr noundef readonly captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -7175,7 +7175,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_array_it_get_current_key(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal void @spl_array_it_get_current_key(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -88
@@ -7284,7 +7284,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_array_it_move_forward(ptr nocapture noundef readonly %0) #0 {
+define internal void @spl_array_it_move_forward(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -88
@@ -7371,7 +7371,7 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_array_it_rewind(ptr nocapture noundef readonly %0) #0 {
+define internal void @spl_array_it_rewind(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -88
@@ -7380,7 +7380,7 @@ define internal void @spl_array_it_rewind(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @spl_array_it_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #8 {
+define internal noalias noundef ptr @spl_array_it_get_gc(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) #8 {
   store i32 1, ptr %2, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %4, ptr %1, align 8
@@ -7395,10 +7395,10 @@ declare void @zend_ref_add_type_source(ptr noundef, ptr noundef) local_unnamed_a
 declare double @llvm.fabs.f64(double) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

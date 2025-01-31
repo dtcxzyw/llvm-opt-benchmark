@@ -250,7 +250,7 @@ pmix_obj_new_tma.exit.thread67:                   ; preds = %.lr.ph.i.i, %58
 
 use_component.exit.thread.us.i:                   ; preds = %.lr.ph.i45, %use_component.exit.thread.us.i
   %.027.us.i = phi ptr [ %.0.us.i, %use_component.exit.thread.us.i ], [ %.025.i, %.lr.ph.i45 ]
-  %106 = call i32 @pmix_mca_base_component_repository_open(ptr noundef %1, ptr noundef %.027.us.i) #12
+  %106 = call i32 @pmix_mca_base_component_repository_open(ptr noundef nonnull %1, ptr noundef %.027.us.i) #12
   %107 = getelementptr inbounds nuw i8, ptr %.027.us.i, i64 120
   %.0.us.i = load ptr, ptr %107, align 8
   %108 = load ptr, ptr %6, align 8
@@ -292,7 +292,7 @@ use_component.exit.thread.us.i:                   ; preds = %.lr.ph.i45, %use_co
   br i1 %.not.not.i.us.i, label %use_component.exit.thr_comm.us.i, label %.lr.ph.i.us.i, !llvm.loop !4
 
 use_component.exit.us.i:                          ; preds = %.lr.ph.i.us.i
-  %120 = call i32 @pmix_mca_base_component_repository_open(ptr noundef %1, ptr noundef %.027.us28.i) #12
+  %120 = call i32 @pmix_mca_base_component_repository_open(ptr noundef nonnull %1, ptr noundef %.027.us28.i) #12
   %.pre35.i = load ptr, ptr %6, align 8
   br label %use_component.exit.thr_comm.us.i
 
@@ -326,7 +326,7 @@ use_component.exit.thr_comm.us.i:                 ; preds = %117, %use_component
   br i1 %.not.i.i47, label %use_component.exit.i, label %127
 
 use_component.exit.thr_comm.i:                    ; preds = %127, %.preheader.i.i
-  %132 = call i32 @pmix_mca_base_component_repository_open(ptr noundef %1, ptr noundef %.027.i) #12
+  %132 = call i32 @pmix_mca_base_component_repository_open(ptr noundef nonnull %1, ptr noundef %.027.i) #12
   %.pre.i = load ptr, ptr %6, align 8
   br label %use_component.exit.i
 
@@ -439,7 +439,7 @@ pmix_obj_new_tma.exit.thread:                     ; preds = %57, %142, %componen
 declare void @pmix_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @pmix_mca_base_component_parse_requested(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @pmix_mca_base_component_parse_requested(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store i8 1, ptr %1, align 1
   %4 = icmp eq ptr %0, null
@@ -597,7 +597,7 @@ use_component.exit:                               ; preds = %.lr.ph.i
 .lr.ph.i46:                                       ; preds = %50, %.lr.ph.i46
   %56 = phi ptr [ %58, %.lr.ph.i46 ], [ %55, %50 ]
   %.07.i = phi ptr [ %57, %.lr.ph.i46 ], [ %54, %50 ]
-  tail call void %56(ptr noundef %.03670) #12
+  tail call void %56(ptr noundef nonnull %.03670) #12
   %57 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not.i47 = icmp eq ptr %58, null
@@ -713,13 +713,13 @@ component_find_check.exit:                        ; preds = %79, %.thread.i, %.t
 declare void @pmix_mca_base_component_unload(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_unnamed_addr #1
 
@@ -740,7 +740,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #5
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: cold nofree noreturn nounwind
 declare void @abort() local_unnamed_addr #9
@@ -755,19 +755,19 @@ declare i32 @pmix_mca_base_component_repository_get_components(ptr noundef, ptr 
 declare i32 @pmix_mca_base_component_repository_open(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nounwind
 declare i32 @gethostname(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -217,7 +217,7 @@ _ZN6icu_7512LocalPointerINS_13DecimalFormatEED2Ev.exit22: ; preds = %ehcleanup22
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_ZN6icu_7525ScientificNumberFormatter25createSuperscriptInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -543,7 +543,7 @@ _ZN6icu_7525ScientificNumberFormatter14createInstanceEPNS_13DecimalFormatEPNS0_5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZNK6icu_7525ScientificNumberFormatter16SuperscriptStyle5cloneEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define noundef ptr @_ZNK6icu_7525ScientificNumberFormatter16SuperscriptStyle5cloneEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 8) #6
   %new.isnull = icmp eq ptr %call, null
@@ -558,7 +558,7 @@ new.cont:                                         ; preds = %new.notnull, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7525ScientificNumberFormatter16SuperscriptStyle6formatERKNS_13UnicodeStringERNS_21FieldPositionIteratorES4_RS2_R10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %original, ptr noundef nonnull align 8 dereferenceable(20) %fpi, ptr noundef nonnull align 8 dereferenceable(64) %preExponent, ptr noundef nonnull returned align 8 dereferenceable(64) %appendTo, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7525ScientificNumberFormatter16SuperscriptStyle6formatERKNS_13UnicodeStringERNS_21FieldPositionIteratorES4_RS2_R10UErrorCode(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(64) %original, ptr noundef nonnull align 8 dereferenceable(20) %fpi, ptr noundef nonnull align 8 dereferenceable(64) %preExponent, ptr noundef nonnull returned align 8 dereferenceable(64) %appendTo, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i.i = alloca i16, align 2
   %srcChar.addr.i46 = alloca i16, align 2
@@ -835,7 +835,7 @@ new.cont:                                         ; preds = %invoke.cont.i, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7525ScientificNumberFormatter11MarkupStyle6formatERKNS_13UnicodeStringERNS_21FieldPositionIteratorES4_RS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(64) %original, ptr noundef nonnull align 8 dereferenceable(20) %fpi, ptr noundef nonnull align 8 dereferenceable(64) %preExponent, ptr noundef nonnull returned align 8 dereferenceable(64) %appendTo, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7525ScientificNumberFormatter11MarkupStyle6formatERKNS_13UnicodeStringERNS_21FieldPositionIteratorES4_RS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(64) %original, ptr noundef nonnull align 8 dereferenceable(20) %fpi, ptr noundef nonnull align 8 dereferenceable(64) %preExponent, ptr noundef nonnull returned align 8 dereferenceable(64) %appendTo, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fp = alloca %"class.icu_75::FieldPosition", align 8
   %0 = load i32, ptr %status, align 4
@@ -969,7 +969,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525ScientificNumberFormatterC2EPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 18), (72, 88)) %this, ptr noundef %fmtToAdopt, ptr noundef %styleToAdopt, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525ScientificNumberFormatterC2EPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 18), (72, 88)) %this, ptr noundef %fmtToAdopt, ptr noundef %styleToAdopt, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i64 16), ptr %this, align 8
   %fPreExponent = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1310,10 +1310,10 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare i32 @u_charDigitValue_75(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

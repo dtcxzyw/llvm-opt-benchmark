@@ -1574,10 +1574,10 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias nocapture align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %cps) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L5to_crERKNS_12CodePointSetE(ptr noalias align 8 captures(none) initializes((0, 32)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %cps) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   %_M_left.i.i.i.i = getelementptr inbounds nuw i8, ptr %cps, i64 24
@@ -1976,7 +1976,7 @@ declare void @_ZN3ue29getUcpVaiEv(ptr sret(%"class.ue2::CodePointSet") align 8) 
 declare void @_ZN3ue28getUcpYiEv(ptr sret(%"class.ue2::CodePointSet") align 8) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217getComponentClassERKNS_9ParseModeE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %utf8 = getelementptr inbounds nuw i8, ptr %mode, i64 5
   %0 = load i8, ptr %utf8, align 1
@@ -2016,7 +2016,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %c, i1 noundef zeroext %negate, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217generateComponentENS_15PredefinedClassEbRKNS_9ParseModeE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, i32 noundef %c, i1 noundef zeroext %negate, ptr noundef nonnull align 1 dereferenceable(6) %mode) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %utf8.i = getelementptr inbounds nuw i8, ptr %mode, i64 5
@@ -2085,7 +2085,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue224getLiteralComponentClassEhb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i8 noundef zeroext %c, i1 noundef zeroext %nocase) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue224getLiteralComponentClassEhb(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, i8 noundef zeroext %c, i1 noundef zeroext %nocase) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %mode = alloca %"struct.ue2::ParseMode", align 1
   %frombool = zext i1 %nocase to i8
@@ -2138,7 +2138,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(6) %mode_in) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue214ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(6) %mode_in) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN3ue214ComponentClassE, i64 16), ptr %this, align 8
@@ -2168,7 +2168,7 @@ entry:
 declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define hidden void @_ZN3ue214ComponentClassD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN3ue214ComponentClassD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.trap() #22
   unreachable
@@ -2215,7 +2215,7 @@ if.end8:                                          ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ue214ComponentClass6negateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) initializes((16, 17)) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3ue214ComponentClass6negateEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(29) initializes((16, 17)) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_negate = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i8 1, ptr %m_negate, align 8
@@ -2241,7 +2241,7 @@ declare noundef zeroext i1 @_ZNK3ue29Component24checkEmbeddedStartAnchorEb(ptr n
 declare noundef zeroext i1 @_ZNK3ue29Component22checkEmbeddedEndAnchorEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @_ZN3ue29CharReach3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
@@ -2344,7 +2344,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #15
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #15
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #4
 

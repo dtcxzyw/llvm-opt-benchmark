@@ -43,7 +43,7 @@ define range(i32 0, 2) i32 @inIntSet(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noalias noundef ptr @mkIntItem(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #2 {
+define internal noalias noundef ptr @mkIntItem(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #2 {
   %3 = tail call noalias dereferenceable_or_null(24) ptr @calloc(i64 noundef 1, i64 noundef 24) #12
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %gv_alloc.exit
@@ -61,13 +61,13 @@ gv_alloc.exit:                                    ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @freeIntItem(ptr nocapture noundef %0, ptr nocapture readnone %1) #3 {
+define internal void @freeIntItem(ptr noundef captures(none) %0, ptr readnone captures(none) %1) #3 {
   tail call void @free(ptr noundef %0) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @cmpid(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #4 {
+define internal range(i32 -1, 2) i32 @cmpid(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3) #4 {
   %5 = load i32, ptr %1, align 4
   %6 = load i32, ptr %2, align 4
   %.0 = tail call i32 @llvm.scmp.i32.i32(i32 %5, i32 %6)
@@ -75,7 +75,7 @@ define internal range(i32 -1, 2) i32 @cmpid(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #6 {
@@ -90,7 +90,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #10

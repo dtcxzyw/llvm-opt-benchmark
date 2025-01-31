@@ -92,7 +92,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandlerC2ENS_9ErrorCodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i8 zeroext %0) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen25CodecErrorResponseHandlerC2ENS_9ErrorCodeE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, i8 zeroext %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8proxygen25CodecErrorResponseHandlerE, i64 16), ptr %this, align 8
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandlerD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN8proxygen25CodecErrorResponseHandlerD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
@@ -118,7 +118,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandler14setTransactionEPNS_15HTTPTransactionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this, ptr noundef %txn) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen25CodecErrorResponseHandler14setTransactionEPNS_15HTTPTransactionE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((8, 16)) %this, ptr noundef %txn) unnamed_addr #3 align 2 {
 entry:
   %txn_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %txn, ptr %txn_, align 8
@@ -136,7 +136,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandler17onHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen25CodecErrorResponseHandler17onHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %1 = load ptr, ptr @_ZZN8proxygen25CodecErrorResponseHandler17onHeadersCompleteESt10unique_ptrINS_11HTTPMessageESt14default_deleteIS2_EEE8vlocal__, align 8
@@ -208,7 +208,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandler6onBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen25CodecErrorResponseHandler6onBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %1 = load ptr, ptr @_ZZN8proxygen25CodecErrorResponseHandler6onBodyESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EEE8vlocal__, align 8
@@ -255,7 +255,7 @@ terminate.lpad:                                   ; preds = %invoke.cont8, %invo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandler10onTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen25CodecErrorResponseHandler10onTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EE(ptr nonnull readnone align 8 captures(none) %this, ptr readnone captures(none) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %1 = load ptr, ptr @_ZZN8proxygen25CodecErrorResponseHandler10onTrailersESt10unique_ptrINS_11HTTPHeadersESt14default_deleteIS2_EEE8vlocal__, align 8
@@ -302,19 +302,19 @@ terminate.lpad:                                   ; preds = %invoke.cont8, %invo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandler5onEOMEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #4 align 2 {
+define void @_ZN8proxygen25CodecErrorResponseHandler5onEOMEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandler9onUpgradeENS_15UpgradeProtocolE(ptr nocapture nonnull readnone align 8 %this, i32 %0) unnamed_addr #4 align 2 {
+define void @_ZN8proxygen25CodecErrorResponseHandler9onUpgradeENS_15UpgradeProtocolE(ptr nonnull readnone align 8 captures(none) %this, i32 %0) unnamed_addr #4 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandler7onErrorERKNS_13HTTPExceptionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(96) %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen25CodecErrorResponseHandler7onErrorERKNS_13HTTPExceptionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(96) %error) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8
   %0 = load ptr, ptr @_ZZN8proxygen25CodecErrorResponseHandler7onErrorERKNS_13HTTPExceptionEE8vlocal__, align 8

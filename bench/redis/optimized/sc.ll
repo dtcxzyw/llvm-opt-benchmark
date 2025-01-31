@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @sc_data_init(ptr nocapture noundef writeonly %sc_data) local_unnamed_addr #1 {
+define hidden void @sc_data_init(ptr noundef writeonly captures(none) %sc_data) local_unnamed_addr #1 {
 entry:
   %sc37.i = getelementptr inbounds nuw i8, ptr %sc_data, i64 76
   br label %while.body35.i
@@ -204,7 +204,7 @@ size_classes.exit:                                ; preds = %while.end110.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @sc_data_update_slab_size(ptr nocapture noundef %data, i64 noundef %begin, i64 noundef %end, i32 noundef %pgs) local_unnamed_addr #2 {
+define hidden void @sc_data_update_slab_size(ptr noundef captures(none) %data, i64 noundef %begin, i64 noundef %end, i32 noundef %pgs) local_unnamed_addr #2 {
 entry:
   %nsizes = getelementptr inbounds nuw i8, ptr %data, i64 12
   %0 = load i32, ptr %nsizes, align 4
@@ -284,7 +284,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @sc_boot(ptr nocapture noundef writeonly %data) local_unnamed_addr #1 {
+define hidden void @sc_boot(ptr noundef writeonly captures(none) %data) local_unnamed_addr #1 {
 entry:
   tail call void @sc_data_init(ptr noundef %data)
   ret void

@@ -235,7 +235,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mt_find_afte
 declare dso_local i32 @__SCT__tp_func_ma_op(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_ma_op(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_ma_op(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_ma_op, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -256,21 +256,21 @@ define dso_local noundef i32 @__traceiter_ma_op(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_ma_op(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_ma_op(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @__SCT__tp_func_ma_read(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_ma_read(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
+define dso_local noundef i32 @__traceiter_ma_read(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_ma_read, i64 72), align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.loopexit, label %.preheader
@@ -291,7 +291,7 @@ define dso_local noundef i32 @__traceiter_ma_read(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_ma_read(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #2 align 16 {
+define dso_local void @__probestub_ma_read(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #2 align 16 {
   ret void
 }
 
@@ -299,7 +299,7 @@ define dso_local void @__probestub_ma_read(ptr nocapture readnone %0, ptr nocapt
 declare dso_local i32 @__SCT__tp_func_ma_write(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @__traceiter_ma_write(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #1 align 16 {
+define dso_local noundef i32 @__traceiter_ma_write(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) #1 align 16 {
   %6 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @__tracepoint_ma_write, i64 72), align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %.preheader
@@ -320,12 +320,12 @@ define dso_local noundef i32 @__traceiter_ma_write(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local void @__probestub_ma_write(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i64 %3, ptr nocapture readnone %4) #2 align 16 {
+define dso_local void @__probestub_ma_write(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 %3, ptr readnone captures(none) %4) #2 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_ma_op(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_ma_op(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -381,7 +381,7 @@ define internal void @trace_event_raw_event_ma_op(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_ma_op(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_ma_op(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -460,7 +460,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_ma_read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @trace_event_raw_event_ma_read(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -516,7 +516,7 @@ define internal void @trace_event_raw_event_ma_read(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_ma_read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define internal void @perf_trace_ma_read(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -589,7 +589,7 @@ define internal void @perf_trace_ma_read(ptr noundef %0, ptr noundef %1, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_ma_write(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) #1 align 16 {
+define internal void @trace_event_raw_event_ma_write(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #18
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -649,7 +649,7 @@ define internal void @trace_event_raw_event_ma_write(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_ma_write(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4) #1 align 16 {
+define internal void @perf_trace_ma_write(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef %4) #1 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #18
@@ -726,7 +726,7 @@ define internal void @perf_trace_ma_write(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_walk(ptr nocapture noundef initializes((32, 48), (56, 62)) %0) #1 align 16 {
+define dso_local ptr @mas_walk(ptr noundef captures(none) initializes((32, 48), (56, 62)) %0) #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1002,7 +1002,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split3
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_state_walk(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_state_walk(ptr noundef captures(none) %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -1241,7 +1241,7 @@ mtree_range_walk.exit:                            ; preds = %126, %130
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mas_empty_area(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local i32 @mas_empty_area(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = icmp ugt i64 %1, %2
   %6 = icmp eq i64 %3, 0
   %7 = or i1 %5, %6
@@ -1743,7 +1743,7 @@ define dso_local i32 @mas_empty_area(ptr nocapture noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @mas_skip_node(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc noundef zeroext i1 @mas_skip_node(ptr noundef captures(none) %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 7
@@ -1903,7 +1903,7 @@ define internal fastcc noundef zeroext i1 @mas_skip_node(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mas_empty_area_rev(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local i32 @mas_empty_area_rev(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ugt i64 %1, %2
@@ -2656,7 +2656,7 @@ define dso_local ptr @mas_store(ptr noundef %0, ptr noundef %1) #1 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
 define internal fastcc void @mas_wr_store_entry(ptr noundef %0) unnamed_addr #4 align 16 {
@@ -3100,7 +3100,7 @@ define dso_local i32 @mas_store_gfp(ptr noundef %0, ptr noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @mas_nomem(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef zeroext i1 @mas_nomem(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, inttoptr (i64 -46 to ptr)
@@ -3264,7 +3264,7 @@ define dso_local void @mas_store_prealloc(ptr noundef %0, ptr noundef %1) #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mas_destroy(ptr nocapture noundef %0) #1 align 16 {
+define dso_local void @mas_destroy(ptr noundef captures(none) %0) #1 align 16 {
   %2 = alloca %struct.maple_node, align 8
   %3 = alloca %struct.ma_state, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 62
@@ -5388,7 +5388,7 @@ define dso_local i32 @mas_preallocate(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @mas_wr_walk(ptr nocapture noundef initializes((32, 36)) %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @mas_wr_walk(ptr noundef captures(none) initializes((32, 36)) %0) unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5687,7 +5687,7 @@ mas_wr_walk_descend.exit:                         ; preds = %102, %105, %107, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mas_expected_entries(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local i32 @mas_expected_entries(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 62
@@ -5779,7 +5779,7 @@ define dso_local i32 @mas_expected_entries(ptr nocapture noundef %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_next(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local ptr @mas_next(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 3
@@ -5858,7 +5858,7 @@ mas_next_setup.exit:                              ; preds = %17, %.thread.i, %10
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @mas_next_slot(ptr noundef captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6342,7 +6342,7 @@ define internal fastcc ptr @mas_next_slot(ptr nocapture noundef %0, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_next_range(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local ptr @mas_next_range(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 3
@@ -6462,7 +6462,7 @@ mas_next_setup.exit:                              ; preds = %13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_prev(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local ptr @mas_prev(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store ptr null, ptr %3, align 8
@@ -6484,7 +6484,7 @@ define dso_local ptr @mas_prev(ptr nocapture noundef %0, i64 noundef %1) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @mas_prev_setup(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @mas_prev_setup(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %5, %1
@@ -6582,7 +6582,7 @@ thread-pre-split:                                 ; preds = %12
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @mas_prev_slot(ptr noundef captures(none) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6852,7 +6852,7 @@ define internal fastcc ptr @mas_prev_slot(ptr nocapture noundef %0, i64 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_prev_range(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local ptr @mas_prev_range(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store ptr null, ptr %3, align 8
@@ -6916,7 +6916,7 @@ define dso_local ptr @mt_prev(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @mas_pause(ptr nocapture noundef writeonly initializes((24, 32), (56, 60)) %0) #6 align 16 {
+define dso_local void @mas_pause(ptr noundef writeonly captures(none) initializes((24, 32), (56, 60)) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 4, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6925,7 +6925,7 @@ define dso_local void @mas_pause(ptr nocapture noundef writeonly initializes((24
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_find(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local ptr @mas_find(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %32 [
@@ -7055,7 +7055,7 @@ thread-pre-split:                                 ; preds = %20, %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_find_range(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local ptr @mas_find_range(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %32 [
@@ -7184,7 +7184,7 @@ thread-pre-split:                                 ; preds = %20, %27
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_find_rev(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local ptr @mas_find_rev(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store ptr null, ptr %3, align 8
@@ -7206,7 +7206,7 @@ define dso_local ptr @mas_find_rev(ptr nocapture noundef %0, i64 noundef %1) #1 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @mas_find_rev_setup(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 align 16 {
+define internal fastcc zeroext i1 @mas_find_rev_setup(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8
   switch i32 %5, label %31 [
@@ -7320,7 +7320,7 @@ define internal fastcc zeroext i1 @mas_find_rev_setup(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_find_range_rev(ptr nocapture noundef %0, i64 noundef %1) #1 align 16 {
+define dso_local ptr @mas_find_range_rev(ptr noundef captures(none) %0, i64 noundef %1) #1 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #18
   store ptr null, ptr %3, align 8
@@ -7675,7 +7675,7 @@ mas_nomem.exit:                                   ; preds = %170
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_alloc_nodes(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_alloc_nodes(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ne ptr %4, null
@@ -8509,7 +8509,7 @@ define dso_local i32 @mtree_insert(ptr noundef %0, i64 noundef %1, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mtree_alloc_range(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
+define dso_local i32 @mtree_alloc_range(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
   %8 = alloca %struct.ma_state, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #18
   store ptr %0, ptr %8, align 8
@@ -8592,7 +8592,7 @@ define dso_local i32 @mtree_alloc_range(ptr noundef %0, ptr nocapture noundef wr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mtree_alloc_rrange(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
+define dso_local i32 @mtree_alloc_rrange(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6) #1 align 16 {
   %8 = alloca %struct.ma_state, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8) #18
   store ptr %0, ptr %8, align 8
@@ -8799,7 +8799,7 @@ define dso_local i32 @__mt_dup(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_dup_build(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_dup_build(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #4 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4
@@ -9332,7 +9332,7 @@ define internal fastcc void @mas_dup_build(ptr nocapture noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mas_dup_free(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc void @mas_dup_free(ptr noundef captures(none) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 3
@@ -9776,7 +9776,7 @@ define dso_local void @mtree_destroy(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mt_find(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local ptr @mt_find(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = alloca %struct.ma_state, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #18
   store ptr %0, ptr %4, align 8
@@ -10138,7 +10138,7 @@ select.unfold:                                    ; preds = %.select.unfold_crit
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mt_find_after(ptr noundef %0, ptr nocapture noundef %1, i64 noundef %2) #1 align 16 {
+define dso_local ptr @mt_find_after(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) #1 align 16 {
   %4 = load i64, ptr %1, align 8
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %8, label %6
@@ -10280,7 +10280,7 @@ declare ptr @llvm.returnaddress(i32 immarg) #8
 declare ptr @llvm.frameaddress.p0(i32 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @mas_ascend(ptr noundef captures(none) %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -10535,7 +10535,7 @@ declare void @llvm.write_register.i64(metadata, i64) #10
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_wr_spanning_store(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_wr_spanning_store(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 16 {
   %2 = alloca %struct.maple_subtree_state, align 8
   %3 = alloca %struct.maple_big_node, align 8
   %4 = alloca %struct.ma_state, align 8
@@ -11633,7 +11633,7 @@ define internal fastcc void @mas_wr_spanning_store(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_new_root(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_new_root(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -14808,7 +14808,7 @@ mab_mas_cp.exit:                                  ; preds = %1733, %1728, %1717,
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_root_expand(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_root_expand(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -15035,10 +15035,10 @@ define internal fastcc void @mas_root_expand(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @mas_store_b_node(ptr nocapture noundef %0, ptr nocapture noundef initializes((612, 616)) %1, i8 noundef zeroext %2) unnamed_addr #13 align 16 {
+define internal fastcc void @mas_store_b_node(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((612, 616)) %1, i8 noundef zeroext %2) unnamed_addr #13 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
@@ -15395,7 +15395,7 @@ define internal fastcc void @mas_store_b_node(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @mas_mab_cp(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef writeonly %3, i8 noundef zeroext %4) unnamed_addr #13 align 16 {
+define internal fastcc void @mas_mab_cp(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef writeonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #13 align 16 {
   %6 = zext i8 %1 to i32
   %7 = zext i8 %4 to i32
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15579,7 +15579,7 @@ define internal fastcc void @mas_mab_cp(ptr nocapture noundef readonly %0, i8 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mas_spanning_rebalance(ptr nocapture noundef %0, ptr nocapture noundef initializes((16, 40)) %1, i8 noundef zeroext range(i8 1, 33) %2) unnamed_addr #1 align 16 {
+define internal fastcc void @mas_spanning_rebalance(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((16, 40)) %1, i8 noundef zeroext range(i8 1, 33) %2) unnamed_addr #1 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca %struct.ma_state, align 8
   %6 = alloca %struct.ma_state, align 8
@@ -17890,7 +17890,7 @@ mtree_range_walk.exit:                            ; preds = %1408, %1410
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mast_spanning_rebalance(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc void @mast_spanning_rebalance(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 16 {
   %2 = alloca %struct.ma_state, align 8
   %3 = alloca %struct.ma_state, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2)
@@ -18695,7 +18695,7 @@ mas_mab_cp.exit:                                  ; preds = %.thread19, %205, %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mast_ascend(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc void @mast_ascend(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -18957,7 +18957,7 @@ define internal fastcc void @mast_ascend(ptr nocapture noundef readonly %0) unna
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @mab_mas_cp(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #13 align 16 {
+define internal fastcc void @mab_mas_cp(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, ptr noundef captures(none) %3, i1 noundef zeroext %4) unnamed_addr #13 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -19138,7 +19138,7 @@ define internal fastcc void @mab_mas_cp(ptr nocapture noundef readonly %0, i8 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_wmb_replace(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_wmb_replace(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #4 align 16 {
   %3 = alloca [3 x %struct.ma_state], align 16
   %4 = alloca [3 x %struct.ma_state], align 16
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %3) #18
@@ -20372,10 +20372,10 @@ mas_free.exit:                                    ; preds = %.preheader.split, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc range(i32 -256, 256) i32 @mab_calc_split(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, i64 noundef %3) unnamed_addr #14 align 16 {
+define internal fastcc range(i32 -256, 256) i32 @mab_calc_split(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2, i64 noundef %3) unnamed_addr #14 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 608
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i32
@@ -20535,7 +20535,7 @@ define internal fastcc range(i32 -256, 256) i32 @mab_calc_split(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc noundef range(i32 0, 256) i32 @mab_no_null_split(ptr nocapture noundef readonly %0, i8 noundef zeroext range(i8 1, 0) %1, i8 noundef zeroext %2) unnamed_addr #15 align 16 {
+define internal fastcc noundef range(i32 0, 256) i32 @mab_no_null_split(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 1, 0) %1, i8 noundef zeroext %2) unnamed_addr #15 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %5 = zext i8 %1 to i64
   %6 = getelementptr [34 x ptr], ptr %4, i64 0, i64 %5
@@ -20579,7 +20579,7 @@ define internal fastcc noundef range(i32 0, 256) i32 @mab_no_null_split(ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc i64 @mas_leaf_max_gap(ptr nocapture noundef readonly %0) unnamed_addr #16 align 16 {
+define internal fastcc i64 @mas_leaf_max_gap(ptr noundef readonly captures(none) %0) unnamed_addr #16 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = ptrtoint ptr %3 to i64
@@ -20750,7 +20750,7 @@ define internal fastcc i64 @mas_leaf_max_gap(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_update_gap(ptr nocapture noundef readonly %0) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_update_gap(ptr noundef readonly captures(none) %0) unnamed_addr #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %4 = load i32, ptr %3, align 4
@@ -21544,7 +21544,7 @@ define internal void @mt_free_walk(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @mas_next_sibling(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
+define internal fastcc noundef zeroext i1 @mas_next_sibling(ptr noundef captures(none) %0) unnamed_addr #4 align 16 {
   %2 = alloca %struct.ma_state, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #18
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -21732,7 +21732,7 @@ define internal fastcc noundef zeroext i1 @mas_next_sibling(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mas_split_final_node(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #4 align 16 {
+define internal fastcc void @mas_split_final_node(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
@@ -22120,7 +22120,7 @@ mab_mas_cp.exit:                                  ; preds = %234, %.loopexit.i
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @mas_push_data(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #4 align 16 {
+define internal fastcc noundef zeroext i1 @mas_push_data(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) unnamed_addr #4 align 16 {
   %5 = alloca %struct.ma_state, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -22763,7 +22763,7 @@ mas_mab_cp.exit:                                  ; preds = %338, %331, %324, %.
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mast_split_data(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2) unnamed_addr #4 align 16 {
+define internal fastcc void @mast_split_data(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i8 noundef zeroext %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -23389,7 +23389,7 @@ mas_set_split_parent.exit13:                      ; preds = %mas_set_split_paren
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i8 noundef zeroext range(i8 1, 3) %2) unnamed_addr #4 align 16 {
+define internal fastcc void @mast_fill_bnode(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i8 noundef zeroext range(i8 1, 3) %2) unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 440
@@ -23808,7 +23808,7 @@ define internal fastcc void @mast_fill_bnode(ptr nocapture noundef readonly %0, 
 declare dso_local void @kmem_cache_free_bulk(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @mas_next_node(ptr nocapture noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @mas_next_node(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8
   %6 = icmp ult i64 %5, %2
@@ -24099,7 +24099,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #0
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @mas_prev_node(ptr nocapture noundef %0, i64 noundef %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @mas_prev_node(ptr noundef captures(none) %0, i64 noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64

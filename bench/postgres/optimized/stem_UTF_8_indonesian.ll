@@ -545,7 +545,7 @@ define internal range(i32 0, 2) i32 @r_VOWEL(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @r_SUFFIX_I_OK(ptr nocapture noundef %0) #2 {
+define internal range(i32 0, 2) i32 @r_SUFFIX_I_OK(ptr noundef captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -579,7 +579,7 @@ define internal range(i32 0, 2) i32 @r_SUFFIX_I_OK(ptr nocapture noundef %0) #2 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @r_SUFFIX_AN_OK(ptr nocapture noundef readonly %0) #3 {
+define internal range(i32 0, 2) i32 @r_SUFFIX_AN_OK(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
@@ -589,7 +589,7 @@ define internal range(i32 0, 2) i32 @r_SUFFIX_AN_OK(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @r_SUFFIX_KAN_OK(ptr nocapture noundef readonly %0) #3 {
+define internal range(i32 0, 2) i32 @r_SUFFIX_KAN_OK(ptr noundef readonly captures(none) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4

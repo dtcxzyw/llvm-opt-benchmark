@@ -1191,7 +1191,7 @@ define dso_local i32 @uint32in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
 declare ptr @__errno_location() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #3
+declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -1284,7 +1284,7 @@ define dso_local i64 @uint64in_subr(ptr noundef %0, ptr noundef writeonly %1, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 7) i32 @pg_itoa(i16 noundef signext %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = sext i16 %0 to i32
   %4 = icmp slt i16 %0, 0
   br i1 %4, label %.thread.i, label %7
@@ -1400,7 +1400,7 @@ pg_ltoa.exit:                                     ; preds = %9, %53, %62
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 12) i32 @pg_ltoa(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %.thread, label %6
 
@@ -1530,7 +1530,7 @@ pg_ultoa_n.exit:                                  ; preds = %8, %62, %73
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %0, 0
   br i1 %3, label %4, label %5
 
@@ -1642,7 +1642,7 @@ define dso_local range(i32 0, 11) i32 @pg_ultoa_n(i32 noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp eq i64 %0, 0
   br i1 %3, label %4, label %5
 
@@ -1804,7 +1804,7 @@ define dso_local range(i32 0, 21) i32 @pg_ulltoa_n(i64 noundef %0, ptr nocapture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local range(i32 0, 22) i32 @pg_lltoa(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
+define dso_local range(i32 0, 22) i32 @pg_lltoa(i64 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %4, label %6
 
@@ -1976,10 +1976,10 @@ pg_ultoa_n.exit:                                  ; preds = %14, %67, %78
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define dso_local ptr @pg_ultostr(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {

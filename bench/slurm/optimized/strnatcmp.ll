@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @strnatcmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @strnatcmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @strnatcmp0(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret i32 %3
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define internal fastcc i32 @strnatcmp0(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc i32 @strnatcmp0(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = tail call ptr @__ctype_b_loc() #4
   %5 = load ptr, ptr %4, align 8
   %.not53 = icmp eq i32 %2, 0
@@ -219,7 +219,7 @@ compare_left.exit.thread:                         ; preds = %._crit_edge.i56, %9
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define i32 @strnatcasecmp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @strnatcasecmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @strnatcmp0(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret i32 %3
 }

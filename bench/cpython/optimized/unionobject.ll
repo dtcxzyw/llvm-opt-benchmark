@@ -1328,7 +1328,7 @@ return:                                           ; preds = %lor.lhs.false4.i18,
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @_Py_union_args(ptr nocapture noundef readonly %self) local_unnamed_addr #2 {
+define hidden ptr @_Py_union_args(ptr noundef readonly captures(none) %self) local_unnamed_addr #2 {
 entry:
   %args = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %args, align 8
@@ -1408,7 +1408,7 @@ Py_XDECREF.exit12:                                ; preds = %Py_XDECREF.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @union_repr(ptr nocapture noundef readonly %self) #0 {
+define internal ptr @union_repr(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %qualname.i = alloca ptr, align 8
   %module.i = alloca ptr, align 8
@@ -1612,7 +1612,7 @@ return:                                           ; preds = %error, %for.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @union_hash(ptr nocapture noundef readonly %self) #0 {
+define internal i64 @union_hash(ptr noundef readonly captures(none) %self) #0 {
 entry:
   %args1 = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %args1, align 8
@@ -1674,7 +1674,7 @@ return:                                           ; preds = %if.end9, %if.then5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @union_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @union_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %args = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %args, align 8
@@ -1706,7 +1706,7 @@ return:                                           ; preds = %if.then7, %if.then,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @union_richcompare(ptr nocapture noundef readonly %a, ptr nocapture noundef readonly %b, i32 noundef %op) #0 {
+define internal ptr @union_richcompare(ptr noundef readonly captures(none) %a, ptr noundef readonly captures(none) %b, i32 noundef %op) #0 {
 entry:
   %0 = getelementptr i8, ptr %b, i64 8
   %b.val = load ptr, ptr %0, align 8
@@ -1976,7 +1976,7 @@ declare ptr @PySet_New(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_RichCompare(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @union_parameters(ptr nocapture noundef %self, ptr nocapture readnone %_unused_unused) #0 {
+define internal noundef ptr @union_parameters(ptr noundef captures(none) %self, ptr readnone captures(none) %_unused_unused) #0 {
 entry:
   %parameters = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load ptr, ptr %parameters, align 8
@@ -2013,10 +2013,10 @@ declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

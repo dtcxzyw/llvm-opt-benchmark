@@ -49,7 +49,7 @@ declare ptr @_cmsCalloc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUsetASCII(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsMLUsetASCII(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %7 = trunc i64 %6 to i32
@@ -129,10 +129,10 @@ strTo16.exit31:                                   ; preds = %strTo16.exit, %18
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @AddMLUBlock(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull readonly %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @AddMLUBlock(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef nonnull readonly captures(none) %2, i16 noundef zeroext %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -274,7 +274,7 @@ GrowMLUtable.exit.thread:                         ; preds = %45, %.lr.ph, %12, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUsetUTF8(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsMLUsetUTF8(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq ptr %1, null
   br i1 %6, label %strTo16.exit, label %7
@@ -635,7 +635,7 @@ cmsMLUalloc.exit.thread:                          ; preds = %3, %14, %1, %cmsMLU
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @_cmsMalloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -982,7 +982,7 @@ _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 1073741824) %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc i32 @encodeUTF8(ptr noundef writeonly %0, ptr noundef nonnull readonly captures(none) %1, i32 noundef range(i32 0, 1073741824) %2, i32 noundef %3) unnamed_addr #6 {
   %5 = load i32, ptr %1, align 4
   %6 = icmp ne i32 %5, 0
   %7 = icmp ne i32 %2, 0
@@ -1284,7 +1284,7 @@ _cmsMLUgetWide.exit.thread:                       ; preds = %._crit_edge.thread.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUgetTranslation(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 2) i32 @cmsMLUgetTranslation(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %strTo16.exit, label %7
 
@@ -1433,7 +1433,7 @@ define hidden i32 @cmsMLUtranslationsCount(ptr noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUtranslationsCodes(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @cmsMLUtranslationsCodes(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #8 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %27, label %6
 
@@ -1475,7 +1475,7 @@ define hidden range(i32 0, 2) i32 @cmsMLUtranslationsCodes(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsAllocNamedColorList(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define hidden ptr @cmsAllocNamedColorList(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp ugt i32 %2, 16
   br i1 %6, label %37, label %7
 
@@ -1583,7 +1583,7 @@ define hidden void @cmsFreeNamedColorList(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #9
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @cmsDupNamedColorList(ptr noundef readonly %0) local_unnamed_addr #0 {
@@ -1916,7 +1916,7 @@ cmsNamedColorCount.exit:                          ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define hidden i32 @cmsNamedColorIndex(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
@@ -1980,7 +1980,7 @@ define hidden ptr @_cmsStageAllocNamedColor(ptr noundef %0, i32 noundef %1) loca
 declare ptr @_cmsStageAllocPlaceholder(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvalNamedColorPCS(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @EvalNamedColorPCS(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load float, ptr %0, align 4
@@ -2052,7 +2052,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @EvalNamedColor(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal void @EvalNamedColor(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = load float, ptr %0, align 4
@@ -2132,7 +2132,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @DupNamedColorList(ptr nocapture noundef readonly %0) #0 {
+define internal ptr @DupNamedColorList(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @cmsDupNamedColorList(ptr noundef %3)
@@ -2140,7 +2140,7 @@ define internal ptr @DupNamedColorList(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @FreeNamedColorList(ptr nocapture noundef readonly %0) #0 {
+define internal void @FreeNamedColorList(ptr noundef readonly captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2628,7 +2628,7 @@ cmsMLUfree.exit30:                                ; preds = %26, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsDictAddEntry(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsDictAddEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @_cmsMallocZero(ptr noundef %7, i32 noundef 40) #13
@@ -2703,7 +2703,7 @@ DupWcs.exit23:                                    ; preds = %DupWcs.exit, %mywcs
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsDictDup(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define hidden ptr @cmsDictDup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @_cmsMallocZero(ptr noundef %3, i32 noundef 16) #13

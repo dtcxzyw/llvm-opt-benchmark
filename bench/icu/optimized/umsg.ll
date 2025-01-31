@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTVN6icu_7513FieldPositionE = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7520MessageFormatAdapter14getArgTypeListERKNS_13MessageFormatERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(816) %m, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN6icu_7520MessageFormatAdapter14getArgTypeListERKNS_13MessageFormatERi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(816) %m, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #0 align 2 {
 entry:
   %argTypeCount.i = getelementptr inbounds nuw i8, ptr %m, i64 704
   %0 = load i32, ptr %argTypeCount.i, align 8
@@ -56,7 +56,7 @@ u_vformatMessage_75.exit:                         ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_vformatMessage_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 {
+define noundef i32 @u_vformatMessage_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr noundef captures(none) %ap, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @umsg_open_75(ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %locale, ptr noundef null, ptr noundef %status)
   %call1 = tail call i32 @umsg_vformat_75(ptr noundef %call, ptr noundef %result, i32 noundef %resultLength, ptr noundef %ap, ptr noundef %status)
@@ -186,7 +186,7 @@ eh.resume:                                        ; preds = %cleanup.action22, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @umsg_vformat_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @umsg_vformat_75(ptr noundef %fmt, ptr noundef %result, i32 noundef %resultLength, ptr noundef captures(none) %ap, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %resultStr = alloca %"class.icu_75::UnicodeString", align 8
@@ -611,7 +611,7 @@ u_vformatMessageWithError_75.exit:                ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @u_vformatMessageWithError_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr noundef %parseError, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 {
+define noundef i32 @u_vformatMessageWithError_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %result, i32 noundef %resultLength, ptr noundef %parseError, ptr noundef captures(none) %ap, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @umsg_open_75(ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %locale, ptr noundef %parseError, ptr noundef %status)
   %call1 = tail call i32 @umsg_vformat_75(ptr noundef %call, ptr noundef %result, i32 noundef %resultLength, ptr noundef %ap, ptr noundef %status)
@@ -656,7 +656,7 @@ u_vparseMessage_75.exit:                          ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @u_vparseMessage_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %source, i32 noundef %sourceLength, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 {
+define void @u_vparseMessage_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %source, i32 noundef %sourceLength, ptr noundef captures(none) %ap, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %count = alloca i32, align 4
   %call = tail call ptr @umsg_open_75(ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %locale, ptr noundef null, ptr noundef %status)
@@ -677,7 +677,7 @@ umsg_close_75.exit:                               ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @umsg_vparse_75(ptr noundef %fmt, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %count, ptr nocapture noundef %ap, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @umsg_vparse_75(ptr noundef %fmt, ptr noundef %source, i32 noundef %sourceLength, ptr noundef %count, ptr noundef captures(none) %ap, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %srcString = alloca %"class.icu_75::UnicodeString", align 8
   %temp = alloca %"class.icu_75::UnicodeString", align 8
@@ -1046,7 +1046,7 @@ u_vparseMessageWithError_75.exit:                 ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @u_vparseMessageWithError_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %source, i32 noundef %sourceLength, ptr nocapture noundef %ap, ptr noundef %error, ptr noundef %status) local_unnamed_addr #1 {
+define void @u_vparseMessageWithError_75(ptr noundef %locale, ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %source, i32 noundef %sourceLength, ptr noundef captures(none) %ap, ptr noundef %error, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %count = alloca i32, align 4
   %call = tail call ptr @umsg_open_75(ptr noundef %pattern, i32 noundef %patternLength, ptr noundef %locale, ptr noundef %error, ptr noundef %status)
@@ -1546,10 +1546,10 @@ declare void @llvm.va_end.p0(ptr) #7
 declare i32 @llvm.umax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

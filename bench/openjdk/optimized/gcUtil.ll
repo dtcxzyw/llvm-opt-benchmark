@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN20LinearLeastSquareFitC1Ej = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN20LinearLeastSquareFitC2Ej
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef float @_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff(ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %0, float noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef float @_ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %0, float noundef %1, float noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i8, ptr %4, align 4
   %6 = trunc i8 %5 to i1
@@ -40,7 +40,7 @@ define hidden noundef float @_ZN23AdaptiveWeightedAverage24compute_adaptive_aver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(20) initializes((16, 20)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr noundef nonnull align 4 captures(none) dereferenceable(20) initializes((16, 20)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
@@ -86,7 +86,7 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK23AdaptiveWeightedAverage5printEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(20) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK23AdaptiveWeightedAverage5printEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(20) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #8
@@ -94,7 +94,7 @@ define hidden void @_ZNK23AdaptiveWeightedAverage5printEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK23AdaptiveWeightedAverage8print_onEP12outputStream(ptr nocapture noundef nonnull readnone align 4 dereferenceable(20) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK23AdaptiveWeightedAverage8print_onEP12outputStream(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(20) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 64, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #8
@@ -105,7 +105,7 @@ define hidden void @_ZNK23AdaptiveWeightedAverage8print_onEP12outputStream(ptr n
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK21AdaptivePaddedAverage5printEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK21AdaptivePaddedAverage5printEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 72, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #8
@@ -113,7 +113,7 @@ define hidden void @_ZNK21AdaptivePaddedAverage5printEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK21AdaptivePaddedAverage8print_onEP12outputStream(ptr nocapture noundef nonnull readnone align 4 dereferenceable(32) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK21AdaptivePaddedAverage8print_onEP12outputStream(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 72, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #8
@@ -121,7 +121,7 @@ define hidden void @_ZNK21AdaptivePaddedAverage8print_onEP12outputStream(ptr noc
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK30AdaptivePaddedNoZeroDevAverage5printEv(ptr nocapture noundef nonnull readnone align 4 dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK30AdaptivePaddedNoZeroDevAverage5printEv(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %2, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 80, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #8
@@ -129,7 +129,7 @@ define hidden void @_ZNK30AdaptivePaddedNoZeroDevAverage5printEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZNK30AdaptivePaddedNoZeroDevAverage8print_onEP12outputStream(ptr nocapture noundef nonnull readnone align 4 dereferenceable(32) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK30AdaptivePaddedNoZeroDevAverage8print_onEP12outputStream(ptr noundef nonnull readnone align 4 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @g_assert_poison, align 8
   store i8 88, ptr %3, align 1
   tail call void (ptr, i32, ptr, ptr, ...) @_Z15report_vm_errorPKciS0_S0_z(ptr noundef nonnull @.str, i32 noundef 80, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #8
@@ -137,7 +137,7 @@ define hidden void @_ZNK30AdaptivePaddedNoZeroDevAverage8print_onEP12outputStrea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN21AdaptivePaddedAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(32) initializes((16, 24)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN21AdaptivePaddedAverage6sampleEf(ptr noundef nonnull align 4 captures(none) dereferenceable(32) initializes((16, 24)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
@@ -214,7 +214,7 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN30AdaptivePaddedNoZeroDevAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(32) initializes((16, 24)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN30AdaptivePaddedNoZeroDevAverage6sampleEf(ptr noundef nonnull align 4 captures(none) dereferenceable(32) initializes((16, 24)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
@@ -301,7 +301,7 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %27, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20LinearLeastSquareFitC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 61), (64, 81), (84, 88)) %0, i32 noundef %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN20LinearLeastSquareFitC2Ej(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(88) initializes((0, 61), (64, 81), (84, 88)) %0, i32 noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store i32 %1, ptr %3, align 8
@@ -323,7 +323,7 @@ define hidden void @_ZN20LinearLeastSquareFitC2Ej(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN20LinearLeastSquareFit6updateEdd(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 68), (84, 88)) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20LinearLeastSquareFit6updateEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(88) initializes((64, 68), (84, 88)) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load double, ptr %0, align 8
   %5 = fadd double %1, %4
   store double %5, ptr %0, align 8
@@ -456,7 +456,7 @@ _ZN23AdaptiveWeightedAverage6sampleEf.exit16:     ; preds = %_ZN23AdaptiveWeight
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef double @_ZN20LinearLeastSquareFit1yEd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef double @_ZN20LinearLeastSquareFit1yEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %4, 1
@@ -482,7 +482,7 @@ define hidden noundef double @_ZN20LinearLeastSquareFit1yEd(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN20LinearLeastSquareFit23decrement_will_decreaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN20LinearLeastSquareFit23decrement_will_decreaseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load double, ptr %2, align 8
   %4 = fcmp oge double %3, 0.000000e+00
@@ -490,7 +490,7 @@ define hidden noundef zeroext i1 @_ZN20LinearLeastSquareFit23decrement_will_decr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN20LinearLeastSquareFit23increment_will_decreaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN20LinearLeastSquareFit23increment_will_decreaseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load double, ptr %2, align 8
   %4 = fcmp ole double %3, 0.000000e+00
@@ -504,7 +504,7 @@ declare float @llvm.fabs.f32(float) #4
 declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

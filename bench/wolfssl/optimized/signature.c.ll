@@ -179,10 +179,10 @@ declare i32 @wc_HashGetDigestSize(i32 noundef) local_unnamed_addr #1
 declare i32 @wc_ecc_verify_hash(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare i32 @wc_RsaSSL_VerifyInline(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -273,7 +273,7 @@ return:                                           ; preds = %if.then26, %if.end1
 declare i32 @wc_Hash(i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 1) i32 @wc_SignatureDerEncode(i32 noundef %hash_type, ptr noundef nonnull %hash_data, i32 noundef range(i32 0, -2147483648) %hash_len, ptr nocapture noundef nonnull writeonly %hash_enc_len) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 1) i32 @wc_SignatureDerEncode(i32 noundef %hash_type, ptr noundef nonnull %hash_data, i32 noundef range(i32 0, -2147483648) %hash_len, ptr noundef nonnull writeonly captures(none) %hash_enc_len) unnamed_addr #0 {
 entry:
   %call = tail call i32 @wc_HashGetOID(i32 noundef %hash_type) #6
   %cmp = icmp slt i32 %call, 0
@@ -521,7 +521,7 @@ declare i32 @wc_HashGetOID(i32 noundef) local_unnamed_addr #1
 declare i32 @wc_EncodeSignature(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #4
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #5

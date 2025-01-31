@@ -159,7 +159,7 @@ $_ZTSN5boost6detail15sp_counted_baseE = comdat any
 @_ZN5boost9iostreams20file_descriptor_sinkC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5boost9iostreams20file_descriptor_sinkC2ERKS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5boost9iostreams6detail20file_descriptor_implC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5boost9iostreams6detail20file_descriptor_implC2Ev(ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store i32 -1, ptr %0, align 4, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4, !tbaa !8
@@ -172,7 +172,7 @@ define hidden noundef i32 @_ZN5boost9iostreams6detail20file_descriptor_impl14inv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost9iostreams6detail20file_descriptor_implD2Ev(ptr nocapture noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9iostreams6detail20file_descriptor_implD2Ev(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %0, align 4, !tbaa !3
   %.not.i = icmp eq i32 %3, -1
@@ -205,7 +205,7 @@ _ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb(ptr nocapture noundef nonnull align 4 dereferenceable(8) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = load i32, ptr %0, align 4, !tbaa !3
   %.not = icmp eq i32 %5, -1
@@ -264,7 +264,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl4openEiNS2_5flagsE(ptr nocapture noundef nonnull align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl4openEiNS2_5flagsE(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"struct.boost::iostreams::detail::file_descriptor_impl", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #28
@@ -329,10 +329,10 @@ _ZN5boost9iostreams6detail20file_descriptor_implD2Ev.exit: ; preds = %3, %.noexc
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl5closeEv(ptr nocapture noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl5closeEv(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::ios_base::failure", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %0, align 4, !tbaa !3
@@ -378,10 +378,10 @@ _ZN5boost9iostreams6detail20file_descriptor_impl10close_implEbb.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl4openERKNS1_4pathESt13_Ios_Openmode(ptr nocapture noundef nonnull align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9iostreams6detail20file_descriptor_impl4openERKNS1_4pathESt13_Ios_Openmode(ptr noundef nonnull align 4 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"class.std::ios_base::failure", align 8
   %6 = alloca %"class.std::error_code", align 8
@@ -566,7 +566,7 @@ declare void @_ZNSt8ios_base7failureB5cxx11C1EPKcRKSt10error_code(ptr noundef no
 declare void @_ZNSt8ios_base7failureB5cxx11D1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #10
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost9iostreams6detail14system_failureB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::ios_base::failure") align 8 %0, ptr noundef %1) local_unnamed_addr #11 comdat personality ptr @__gxx_personality_v0 {
@@ -603,7 +603,7 @@ define linkonce_odr hidden void @_ZN5boost9iostreams6detail14system_failureB5cxx
   br i1 %20, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %16
-  %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %1, i64 noundef %17)
+  %21 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %1, i64 noundef %17)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit unwind label %38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
@@ -631,7 +631,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit9: ; preds 
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i10: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit9
-  %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef %11, i64 noundef %26)
+  %30 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %11, i64 noundef %26)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit13 unwind label %38
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit13: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i10
@@ -689,14 +689,14 @@ declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #
 declare i32 @close(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZNK5boost9iostreams6detail20file_descriptor_impl7is_openEv(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0) local_unnamed_addr #12 align 2 {
+define hidden noundef zeroext i1 @_ZNK5boost9iostreams6detail20file_descriptor_impl7is_openEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0) local_unnamed_addr #12 align 2 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = icmp ne i32 %2, -1
   ret i1 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i64 1, 0) i64 @_ZN5boost9iostreams6detail20file_descriptor_impl4readEPcl(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 1, 0) i64 @_ZN5boost9iostreams6detail20file_descriptor_impl4readEPcl(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = tail call ptr @__errno_location() #30
   store i32 0, ptr %5, align 4, !tbaa !9
@@ -732,10 +732,10 @@ define hidden noundef range(i64 1, 0) i64 @_ZN5boost9iostreams6detail20file_desc
 declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i64 -9223372036854775808, 2147483648) i64 @_ZN5boost9iostreams6detail20file_descriptor_impl5writeEPKcl(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i64 -9223372036854775808, 2147483648) i64 @_ZN5boost9iostreams6detail20file_descriptor_impl5writeEPKcl(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = load i32, ptr %0, align 4, !tbaa !3
   %6 = tail call i64 @write(i32 noundef %5, ptr noundef %1, i64 noundef %2)
@@ -765,10 +765,10 @@ define hidden noundef range(i64 -9223372036854775808, 2147483648) i64 @_ZN5boost
 }
 
 ; Function Attrs: nofree
-declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden { i64, i64 } @_ZN5boost9iostreams6detail20file_descriptor_impl4seekElSt12_Ios_Seekdir(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden { i64, i64 } @_ZN5boost9iostreams6detail20file_descriptor_impl4seekElSt12_Ios_Seekdir(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = load i32, ptr %0, align 4, !tbaa !3
   %6 = icmp eq i32 %2, 0
@@ -918,7 +918,7 @@ _ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2IS3_EEPT_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams15file_descriptor4openEiNS0_21file_descriptor_flagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams15file_descriptor4openEiNS0_21file_descriptor_flagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"struct.boost::iostreams::detail::file_descriptor_impl", align 4
   %6 = load ptr, ptr %0, align 8, !tbaa !19
@@ -1028,7 +1028,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams15file_descriptorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams15file_descriptorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #33
   store i32 -1, ptr %4, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1064,7 +1064,7 @@ _ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2IS3_EEPT_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams15file_descriptor4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams15file_descriptor4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.boost::iostreams::detail::path", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #28
@@ -1205,7 +1205,7 @@ _ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2IS3_EEPT_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams15file_descriptor4openEPKcSt13_Ios_Openmode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams15file_descriptor4openEPKcSt13_Ios_Openmode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.boost::iostreams::detail::path", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #28
@@ -1316,7 +1316,7 @@ _ZN5boost9iostreams6detail4pathD2Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams15file_descriptorC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams15file_descriptorC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !19
   store ptr %3, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1336,7 +1336,7 @@ _ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEEC2ERKS4_.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams15file_descriptor4openERKNS0_6detail4pathESt13_Ios_OpenmodeS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost9iostreams15file_descriptor4openERKNS0_6detail4pathESt13_Ios_OpenmodeS6_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = or i32 %3, %2
   %6 = load ptr, ptr %0, align 8, !tbaa !19
   tail call void @_ZN5boost9iostreams6detail20file_descriptor_impl4openERKNS1_4pathESt13_Ios_Openmode(ptr noundef nonnull align 4 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(65) %1, i32 noundef %5)
@@ -1389,7 +1389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK5boost9iostreams15file_descriptor7is_openEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #18 align 2 {
+define noundef zeroext i1 @_ZNK5boost9iostreams15file_descriptor7is_openEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #18 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = load i32, ptr %2, align 4, !tbaa !3
   %4 = icmp ne i32 %3, -1
@@ -1397,7 +1397,7 @@ define noundef zeroext i1 @_ZNK5boost9iostreams15file_descriptor7is_openEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams15file_descriptor5closeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams15file_descriptor5closeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::ios_base::failure", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1444,7 +1444,7 @@ _ZN5boost9iostreams6detail20file_descriptor_impl5closeEv.exit: ; preds = %1, %9,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 1, 0) i64 @_ZN5boost9iostreams15file_descriptor4readEPcl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 1, 0) i64 @_ZN5boost9iostreams15file_descriptor4readEPcl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !19
   %6 = tail call ptr @__errno_location() #30
@@ -1478,7 +1478,7 @@ _ZN5boost9iostreams6detail20file_descriptor_impl4readEPcl.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -9223372036854775808, 2147483648) i64 @_ZN5boost9iostreams15file_descriptor5writeEPKcl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, i64 noundef returned %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i64 -9223372036854775808, 2147483648) i64 @_ZN5boost9iostreams15file_descriptor5writeEPKcl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, i64 noundef returned %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !19
   %6 = load i32, ptr %5, align 4, !tbaa !3
@@ -1509,7 +1509,7 @@ _ZN5boost9iostreams6detail20file_descriptor_impl5writeEPKcl.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZN5boost9iostreams15file_descriptor4seekElSt12_Ios_Seekdir(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZN5boost9iostreams15file_descriptor4seekElSt12_Ios_Seekdir(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !19
   %6 = load i32, ptr %5, align 4, !tbaa !3
@@ -1544,7 +1544,7 @@ _ZN5boost9iostreams6detail20file_descriptor_impl4seekElSt12_Ios_Seekdir.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK5boost9iostreams15file_descriptor6handleEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0) local_unnamed_addr #18 align 2 {
+define noundef i32 @_ZNK5boost9iostreams15file_descriptor6handleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0) local_unnamed_addr #18 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = load i32, ptr %2, align 4, !tbaa !3
   ret i32 %3
@@ -1744,7 +1744,7 @@ _ZN5boost9iostreams15file_descriptorC2Ev.exit:    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams22file_descriptor_source4openEiNS0_21file_descriptor_flagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams22file_descriptor_source4openEiNS0_21file_descriptor_flagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"struct.boost::iostreams::detail::file_descriptor_impl", align 4
   %6 = load ptr, ptr %0, align 8, !tbaa !19
@@ -1854,7 +1854,7 @@ _ZN5boost10shared_ptrINS_9iostreams6detail20file_descriptor_implEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams22file_descriptor_sourceC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams22file_descriptor_sourceC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #33
   store i32 -1, ptr %4, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1890,7 +1890,7 @@ _ZN5boost9iostreams15file_descriptorC2Ev.exit:    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams22file_descriptor_source4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams22file_descriptor_source4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"class.std::error_code", align 8
   %6 = alloca i64, align 8
@@ -2068,7 +2068,7 @@ _ZN5boost9iostreams15file_descriptorC2Ev.exit:    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams22file_descriptor_source4openEPKcSt13_Ios_Openmode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams22file_descriptor_source4openEPKcSt13_Ios_Openmode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"class.std::error_code", align 8
   %6 = alloca i64, align 8
@@ -2216,7 +2216,7 @@ _ZN5boost9iostreams6detail4pathD2Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams22file_descriptor_sourceC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams22file_descriptor_sourceC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !19
   store ptr %3, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2236,7 +2236,7 @@ _ZN5boost9iostreams15file_descriptorC2ERKS1_.exit: ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams22file_descriptor_source4openERKNS0_6detail4pathESt13_Ios_Openmode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams22file_descriptor_source4openERKNS0_6detail4pathESt13_Ios_Openmode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"class.std::error_code", align 8
   %6 = and i32 %2, 48
@@ -2361,7 +2361,7 @@ _ZN5boost9iostreams15file_descriptorC2Ev.exit:    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams20file_descriptor_sink4openEiNS0_21file_descriptor_flagsE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams20file_descriptor_sink4openEiNS0_21file_descriptor_flagsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"struct.boost::iostreams::detail::file_descriptor_impl", align 4
   %6 = load ptr, ptr %0, align 8, !tbaa !19
@@ -2427,7 +2427,7 @@ _ZN5boost9iostreams15file_descriptor4openEiNS0_21file_descriptor_flagsE.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams20file_descriptor_sinkC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams20file_descriptor_sinkC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #33
   store i32 -1, ptr %4, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -2463,7 +2463,7 @@ _ZN5boost9iostreams15file_descriptorC2Ev.exit:    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams20file_descriptor_sink4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams20file_descriptor_sink4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt13_Ios_Openmode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"class.std::error_code", align 8
   %6 = alloca i64, align 8
@@ -2641,7 +2641,7 @@ _ZN5boost9iostreams15file_descriptorC2Ev.exit:    ; preds = %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams20file_descriptor_sink4openEPKcSt13_Ios_Openmode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams20file_descriptor_sink4openEPKcSt13_Ios_Openmode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"class.std::error_code", align 8
   %6 = alloca i64, align 8
@@ -2789,7 +2789,7 @@ _ZN5boost9iostreams6detail4pathD2Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams20file_descriptor_sinkC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams20file_descriptor_sinkC2ERKS1_(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !19
   store ptr %3, ptr %0, align 8, !tbaa !19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2809,7 +2809,7 @@ _ZN5boost9iostreams15file_descriptorC2ERKS1_.exit: ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams20file_descriptor_sink4openERKNS0_6detail4pathESt13_Ios_Openmode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams20file_descriptor_sink4openERKNS0_6detail4pathESt13_Ios_Openmode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::ios_base::failure", align 8
   %5 = alloca %"class.std::error_code", align 8
   %6 = and i32 %2, 8
@@ -2851,7 +2851,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #19
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #19
 
 declare void @_ZNSt8ios_base7failureB5cxx11C1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #8
 
@@ -2861,7 +2861,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5boost6detail12shared_countD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2909,7 +2909,7 @@ _ZN5boost6detail15sp_counted_base7releaseEv.exit: ; preds = %.noexc, %3, %14, %1
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #22
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #22
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #20

@@ -203,7 +203,7 @@ seqcst.i:                                         ; preds = %entry, %if.then
 declare void @_ZN13IlmThread_3_29Semaphore4postEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13IlmThread_3_210ThreadPool4DataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN13IlmThread_3_210ThreadPool4DataC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
@@ -610,7 +610,7 @@ _ZNSt12__shared_ptrIN13IlmThread_3_218ThreadPoolProviderELN9__gnu_cxx12_Lock_pol
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IlmThread_3_24TaskC2EPNS_9TaskGroupE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %g) unnamed_addr #0 align 2 {
+define void @_ZN13IlmThread_3_24TaskC2EPNS_9TaskGroupE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, ptr noundef %g) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13IlmThread_3_24TaskE, i64 16), ptr %this, align 8
   %_group = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -636,13 +636,13 @@ if.end:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN13IlmThread_3_24TaskD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN13IlmThread_3_24TaskD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN13IlmThread_3_24TaskD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define void @_ZN13IlmThread_3_24TaskD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
@@ -652,7 +652,7 @@ entry:
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN13IlmThread_3_24Task5groupEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZN13IlmThread_3_24Task5groupEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #10 align 2 {
 entry:
   %_group = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %_group, align 8
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IlmThread_3_29TaskGroupC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IlmThread_3_29TaskGroupC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #27
   store i32 0, ptr %call, align 4
@@ -688,7 +688,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13IlmThread_3_29TaskGroupD2Ev(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IlmThread_3_29TaskGroupD2Ev(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %isEmpty.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -740,7 +740,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IlmThread_3_29TaskGroup13finishOneTaskEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN13IlmThread_3_29TaskGroup13finishOneTaskEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = atomicrmw sub ptr %0, i32 1 seq_cst, align 4
@@ -759,27 +759,27 @@ _ZN13IlmThread_3_29TaskGroup4Data10removeTaskEv.exit: ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13IlmThread_3_218ThreadPoolProviderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN13IlmThread_3_218ThreadPoolProviderC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13IlmThread_3_218ThreadPoolProviderE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define void @_ZN13IlmThread_3_218ThreadPoolProviderD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN13IlmThread_3_218ThreadPoolProviderD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN13IlmThread_3_218ThreadPoolProviderD0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #8 align 2 {
+define void @_ZN13IlmThread_3_218ThreadPoolProviderD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.trap() #26
   unreachable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IlmThread_3_210ThreadPoolC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, i32 noundef %nthreads) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IlmThread_3_210ThreadPoolC2Ej(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 16)) %this, i32 noundef %nthreads) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13IlmThread_3_210ThreadPoolE, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
@@ -791,7 +791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IlmThread_3_210ThreadPool13setNumThreadsEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %count) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IlmThread_3_210ThreadPool13setNumThreadsEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i32 noundef %count) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__lock.i.i.i = alloca %"struct.std::_Sp_locker", align 1
   %sp = alloca %"class.std::shared_ptr", align 8
@@ -1204,7 +1204,7 @@ if.end27:                                         ; preds = %if.end27.sink.split
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13IlmThread_3_210ThreadPoolD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IlmThread_3_210ThreadPoolD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13IlmThread_3_210ThreadPoolE, i64 16), ptr %this, align 8
@@ -1318,7 +1318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK13IlmThread_3_210ThreadPool10numThreadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK13IlmThread_3_210ThreadPool10numThreadsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__lock.i.i.i = alloca %"struct.std::_Sp_locker", align 1
   %sp = alloca %"class.std::shared_ptr", align 8
@@ -1544,7 +1544,7 @@ _ZNSt12__shared_ptrIN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderELN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IlmThread_3_210ThreadPool17setThreadProviderEPNS_18ThreadPoolProviderE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %provider) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IlmThread_3_210ThreadPool17setThreadProviderEPNS_18ThreadPoolProviderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %provider) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1689,7 +1689,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13IlmThread_3_210ThreadPool7addTaskEPNS_4TaskE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %task) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13IlmThread_3_210ThreadPool7addTaskEPNS_4TaskE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef %task) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__lock.i.i.i = alloca %"struct.std::_Sp_locker", align 1
   %p = alloca %"class.std::shared_ptr", align 8
@@ -1970,7 +1970,7 @@ declare void @_ZNSt10_Sp_lockerC1EPKv(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZNSt10_Sp_lockerD1Ev(ptr noundef nonnull align 1 dereferenceable(2)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -2110,7 +2110,7 @@ _ZNSt12__shared_ptrIN13IlmThread_3_212_GLOBAL__N_121DefaultThreadPoolDataELN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2273,7 +2273,7 @@ _ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_ZNK13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider10numThreadsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZNK13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider10numThreadsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_data.val = load ptr, ptr %_data, align 8
@@ -2548,7 +2548,7 @@ for.end:                                          ; preds = %_ZNSt6threadD2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider7addTaskEPNS_4TaskE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %task) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider7addTaskEPNS_4TaskE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %task) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_data.val2 = load ptr, ptr %_data, align 8
@@ -2646,7 +2646,7 @@ lpad:                                             ; preds = %_ZNKSt6vectorIPN13I
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider6finishEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider6finishEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_data = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_data.val = load ptr, ptr %_data, align 8
@@ -2762,7 +2762,7 @@ lpad:                                             ; preds = %lpad.loopexit.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN13IlmThread_3_212_GLOBAL__N_121DefaultThreadPoolDataESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN13IlmThread_3_212_GLOBAL__N_121DefaultThreadPoolDataESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #7 align 2 {
 entry:
   ret void
 }
@@ -2863,10 +2863,10 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #18
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorISt6threadSaIS0_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -2985,7 +2985,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider10threadLoopESt10shared_ptrINS0_21DefaultThreadPoolDataEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %data) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProvider10threadLoopESt10shared_ptrINS0_21DefaultThreadPoolDataEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %data) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.val531 = load ptr, ptr %data, align 8
   tail call void @_ZN13IlmThread_3_29Semaphore4waitEv(ptr noundef nonnull align 8 dereferenceable(40) %data.val531)
@@ -3257,7 +3257,7 @@ _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN13IlmThread_3_212_GLOBAL__N_1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderEFvSt10shared_ptrINS4_21DefaultThreadPoolDataEEEPS5_S8_EEEEE6_M_runEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPoolProviderEFvSt10shared_ptrINS4_21DefaultThreadPoolDataEEEPS5_S8_EEEEE6_M_runEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i = alloca %"class.std::shared_ptr.7", align 8
   %_M_func = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3383,7 +3383,7 @@ _ZNSt6thread8_InvokerISt5tupleIJMN13IlmThread_3_212_GLOBAL__N_125DefaultThreadPo
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #20
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIPN13IlmThread_3_218ThreadPoolProviderELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 comdat align 2 {
@@ -3437,10 +3437,10 @@ declare void @llvm.assume(i1 noundef) #21
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #24

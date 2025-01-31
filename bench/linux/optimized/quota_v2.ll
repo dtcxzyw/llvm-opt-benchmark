@@ -336,7 +336,7 @@ define internal i32 @v2_write_file_info(ptr noundef %0, i32 noundef %1) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @v2_free_file_info(ptr nocapture noundef readonly %0, i32 noundef %1) #2 align 16 {
+define internal noundef i32 @v2_free_file_info(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 align 16 {
   %3 = sext i32 %1 to i64
   %.idx = mul nsw i64 %3, 72
   %4 = getelementptr i8, ptr %0, i64 392
@@ -443,13 +443,13 @@ define internal i32 @v2_get_next_id(ptr noundef %0, ptr noundef %1) #2 align 16 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__quota_error(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
@@ -467,7 +467,7 @@ declare dso_local void @up_read(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @v2r0_mem2diskdqb(ptr noundef initializes((0, 48)) %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @v2r0_mem2diskdqb(ptr noundef initializes((0, 48)) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -535,7 +535,7 @@ define internal void @v2r0_mem2diskdqb(ptr noundef initializes((0, 48)) %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @v2r0_disk2memdqb(ptr nocapture noundef writeonly initializes((136, 160), (168, 208)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal void @v2r0_disk2memdqb(ptr noundef writeonly captures(none) initializes((136, 160), (168, 208)) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   %3 = alloca %struct.v2r0_disk_dqblk, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -594,7 +594,7 @@ define internal void @v2r0_disk2memdqb(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @v2r0_is_id(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @v2r0_is_id(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -645,7 +645,7 @@ declare dso_local i32 @qtree_entry_unused(ptr noundef, ptr noundef) local_unname
 declare dso_local zeroext i1 @qid_eq(i64, i64) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @v2r1_mem2diskdqb(ptr noundef initializes((0, 72)) %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @v2r1_mem2diskdqb(ptr noundef initializes((0, 72)) %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -710,7 +710,7 @@ define internal void @v2r1_mem2diskdqb(ptr noundef initializes((0, 72)) %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @v2r1_disk2memdqb(ptr nocapture noundef writeonly initializes((136, 160), (168, 208)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define internal void @v2r1_disk2memdqb(ptr noundef writeonly captures(none) initializes((136, 160), (168, 208)) %0, ptr noundef readonly captures(none) %1) #6 align 16 {
   %3 = alloca %struct.v2r1_disk_dqblk, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -764,7 +764,7 @@ define internal void @v2r1_disk2memdqb(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @v2r1_is_id(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal range(i32 0, 2) i32 @v2r1_is_id(ptr noundef %0, ptr noundef readonly captures(none) %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -833,7 +833,7 @@ declare dso_local i32 @qtree_get_next_id(ptr noundef, ptr noundef) local_unnamed
 declare dso_local i32 @register_quota_format(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #7
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #7
 
 attributes #0 = { cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize "min-legal-vector-width"="0" "no-jump-tables"="true" "no-trapping-math"="true" "patchable-function-entry"="0" "patchable-function-prefix"="16" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+retpoline-external-thunk,+retpoline-indirect-branches,+retpoline-indirect-calls,-3dnow,-3dnowa,-aes,-avx,-avx10.1-256,-avx10.1-512,-avx2,-avx512bf16,-avx512bitalg,-avx512bw,-avx512cd,-avx512dq,-avx512er,-avx512f,-avx512fp16,-avx512ifma,-avx512pf,-avx512vbmi,-avx512vbmi2,-avx512vl,-avx512vnni,-avx512vp2intersect,-avx512vpopcntdq,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-f16c,-fma,-fma4,-gfni,-kl,-mmx,-pclmul,-sha,-sha512,-sm3,-sm4,-sse,-sse2,-sse3,-sse4.1,-sse4.2,-sse4a,-ssse3,-vaes,-vpclmulqdq,-widekl,-x87,-xop" "tune-cpu"="generic" }

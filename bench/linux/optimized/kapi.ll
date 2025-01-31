@@ -112,10 +112,10 @@ define dso_local ptr @pps_register_source(ptr noundef %0, i32 noundef %1) #0 ali
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @pps_echo_client_default(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture readnone %2) #3 align 16 {
+define internal void @pps_echo_client_default(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr readnone captures(none) %2) #3 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8
   %6 = and i32 %1, 1
@@ -150,7 +150,7 @@ define dso_local void @pps_unregister_source(ptr noundef %0) #0 align 16 {
 declare dso_local void @pps_unregister_cdev(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pps_event(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local void @pps_event(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = and i32 %2, 3
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %8, !prof !5

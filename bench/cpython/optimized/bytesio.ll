@@ -1074,7 +1074,7 @@ Py_DECREF.exit:                                   ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bytesio_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @bytesio_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -1117,7 +1117,7 @@ return:                                           ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @bytesio_clear(ptr nocapture noundef %self) #0 {
+define internal noundef i32 @bytesio_clear(ptr noundef captures(none) %self) #0 {
 entry:
   %dict = getelementptr inbounds nuw i8, ptr %self, i64 40
   %0 = load ptr, ptr %dict, align 8
@@ -1177,7 +1177,7 @@ if.end10:                                         ; preds = %if.end.i, %if.then1
 declare ptr @PyObject_SelfIter(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytesio_iternext(ptr nocapture noundef %self) #0 {
+define internal ptr @bytesio_iternext(ptr noundef captures(none) %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -1398,7 +1398,7 @@ exit:                                             ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytesio_new(ptr noundef %type, ptr nocapture readnone %args, ptr nocapture readnone %kwds) #0 {
+define internal ptr @bytesio_new(ptr noundef %type, ptr readnone captures(none) %args, ptr readnone captures(none) %kwds) #0 {
 entry:
   %tp_alloc = getelementptr inbounds nuw i8, ptr %type, i64 304
   %0 = load ptr, ptr %tp_alloc, align 8
@@ -1452,7 +1452,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @PyBytes_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_BytesIO_readable(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_BytesIO_readable(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -1470,7 +1470,7 @@ _io_BytesIO_readable_impl.exit:                   ; preds = %entry, %check_close
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_BytesIO_seekable(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_BytesIO_seekable(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -1488,7 +1488,7 @@ _io_BytesIO_seekable_impl.exit:                   ; preds = %entry, %check_close
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_BytesIO_writable(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_BytesIO_writable(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -1506,7 +1506,7 @@ _io_BytesIO_writable_impl.exit:                   ; preds = %entry, %check_close
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_BytesIO_close(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_BytesIO_close(ptr noundef captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 56
   %self.val.i = load i64, ptr %0, align 8
@@ -1547,7 +1547,7 @@ _io_BytesIO_close_impl.exit:                      ; preds = %check_exports.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_BytesIO_flush(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_BytesIO_flush(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -1565,7 +1565,7 @@ _io_BytesIO_flush_impl.exit:                      ; preds = %entry, %check_close
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_io_BytesIO_isatty(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef ptr @_io_BytesIO_isatty(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val = load ptr, ptr %0, align 8
@@ -1583,7 +1583,7 @@ _io_BytesIO_isatty_impl.exit:                     ; preds = %entry, %check_close
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_tell(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_io_BytesIO_tell(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 16
   %self.val.i = load ptr, ptr %0, align 8
@@ -1710,7 +1710,7 @@ return:                                           ; preds = %check_closed.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_read1(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_BytesIO_read1(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %size = alloca i64, align 8
   store i64 -1, ptr %size, align 8
@@ -1798,7 +1798,7 @@ exit:                                             ; preds = %if.end.i.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_readinto(ptr nocapture noundef %self, ptr noundef %arg) #0 {
+define internal ptr @_io_BytesIO_readinto(ptr noundef captures(none) %self, ptr noundef %arg) #0 {
 entry:
   %buffer = alloca %struct.Py_buffer, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %buffer, i8 0, i64 80, i1 false)
@@ -1858,7 +1858,7 @@ if.end3:                                          ; preds = %if.then2, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_readline(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_BytesIO_readline(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %size = alloca i64, align 8
   store i64 -1, ptr %size, align 8
@@ -1965,7 +1965,7 @@ exit:                                             ; preds = %if.end.i6.i, %if.en
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_readlines(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_BytesIO_readlines(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %or.cond = icmp ult i64 %nargs, 2
   br i1 %or.cond, label %if.end, label %lor.lhs.false
@@ -2212,7 +2212,7 @@ exit:                                             ; preds = %if.end38.i, %Py_DEC
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_read(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_BytesIO_read(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %size = alloca i64, align 8
   store i64 -1, ptr %size, align 8
@@ -2300,7 +2300,7 @@ exit:                                             ; preds = %if.end.i.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_getbuffer(ptr noundef %self, ptr nocapture noundef readonly %cls, ptr nocapture readnone %args, i64 noundef %nargs, ptr nocapture readnone %kwnames) #0 {
+define internal ptr @_io_BytesIO_getbuffer(ptr noundef %self, ptr noundef readonly captures(none) %cls, ptr readnone captures(none) %args, i64 noundef %nargs, ptr readnone captures(none) %kwnames) #0 {
 entry:
   %tobool.not = icmp eq i64 %nargs, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -2369,14 +2369,14 @@ return:                                           ; preds = %if.then1.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_getvalue(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_io_BytesIO_getvalue(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @_io_BytesIO_getvalue_impl(ptr noundef %self)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_seek(ptr nocapture noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_BytesIO_seek(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %0 = add i64 %nargs, -1
   %or.cond = icmp ult i64 %0, 2
@@ -2517,7 +2517,7 @@ exit:                                             ; preds = %if.end26.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_truncate(ptr noundef %self, ptr nocapture noundef readonly %args, i64 noundef %nargs) #0 {
+define internal ptr @_io_BytesIO_truncate(ptr noundef %self, ptr noundef readonly captures(none) %args, i64 noundef %nargs) #0 {
 entry:
   %size = alloca i64, align 8
   %pos = getelementptr inbounds nuw i8, ptr %self, i64 24
@@ -2599,7 +2599,7 @@ exit:                                             ; preds = %if.end15.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytesio_getstate(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @bytesio_getstate(ptr noundef %self, ptr readnone captures(none) %_unused_ignored) #0 {
 entry:
   %call = tail call fastcc ptr @_io_BytesIO_getvalue_impl(ptr noundef %self)
   %cmp = icmp eq ptr %call, null
@@ -2665,7 +2665,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @bytesio_setstate(ptr noundef %self, ptr nocapture noundef readonly %state) #0 {
+define internal noundef ptr @bytesio_setstate(ptr noundef %self, ptr noundef readonly captures(none) %state) #0 {
 entry:
   %0 = getelementptr i8, ptr %state, i64 8
   %state.val29 = load ptr, ptr %0, align 8
@@ -2827,7 +2827,7 @@ return:                                           ; preds = %if.end10, %check_ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytesio_sizeof(ptr nocapture noundef readonly %self, ptr nocapture readnone %unused) #0 {
+define internal ptr @bytesio_sizeof(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %unused) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -3069,7 +3069,7 @@ return:                                           ; preds = %if.then28, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @unshare_buffer(ptr nocapture noundef %self, i64 noundef %size) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @unshare_buffer(ptr noundef captures(none) %self, i64 noundef %size) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %size) #8
   %cmp = icmp eq ptr %call, null
@@ -3106,10 +3106,10 @@ return:                                           ; preds = %if.end, %if.then1.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @PyBuffer_Release(ptr noundef) local_unnamed_addr #1
 
@@ -3219,7 +3219,7 @@ declare i64 @_PySys_GetSizeOf(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromSize_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal nonnull ptr @bytesio_get_closed(ptr nocapture noundef readonly %self, ptr nocapture readnone %_unused_ignored) #5 {
+define internal nonnull ptr @bytesio_get_closed(ptr noundef readonly captures(none) %self, ptr readnone captures(none) %_unused_ignored) #5 {
 entry:
   %buf = getelementptr inbounds nuw i8, ptr %self, i64 16
   %0 = load ptr, ptr %buf, align 8
@@ -3284,7 +3284,7 @@ Py_DECREF.exit:                                   ; preds = %do.end, %if.then1.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bytesiobuf_traverse(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %visit, ptr noundef %arg) #0 {
+define internal i32 @bytesiobuf_traverse(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %visit, ptr noundef %arg) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val8 = load ptr, ptr %0, align 8
@@ -3389,7 +3389,7 @@ return:                                           ; preds = %if.then3, %if.end8,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @bytesiobuf_releasebuffer(ptr nocapture noundef readonly %obj, ptr nocapture readnone %view) #6 {
+define internal void @bytesiobuf_releasebuffer(ptr noundef readonly captures(none) %obj, ptr readnone captures(none) %view) #6 {
 entry:
   %source = getelementptr inbounds nuw i8, ptr %obj, i64 16
   %0 = load ptr, ptr %source, align 8

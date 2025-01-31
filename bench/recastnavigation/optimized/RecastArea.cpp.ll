@@ -21,7 +21,7 @@ $_ZZ15rcGetDirOffsetYiE6offset = comdat any
 @_ZZ15rcGetDirOffsetYiE6offset = linkonce_odr local_unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 0, i32 -1], comdat, align 16
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z19rcErodeWalkableAreaP9rcContextiR20rcCompactHeightfield(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z19rcErodeWalkableAreaP9rcContextiR20rcCompactHeightfield(ptr noundef %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %5 = icmp eq ptr %4, null
   %6 = icmp ne ptr %0, null
@@ -606,12 +606,12 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN9rcContext3logE13rcLogCategoryPKcz(ptr noundef nonnull align 8 dereferenceable(10), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare void @_Z6rcFreePv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z26rcMedianFilterWalkableAreaP9rcContextR20rcCompactHeightfield(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z26rcMedianFilterWalkableAreaP9rcContextR20rcCompactHeightfield(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca [9 x i8], align 1
   %4 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %5 = icmp eq ptr %4, null
@@ -910,10 +910,10 @@ _ZN13rcScopedTimerD2Ev.exit102:                   ; preds = %147, %150
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z13rcMarkBoxAreaP9rcContextPKfS2_hR20rcCompactHeightfield(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z13rcMarkBoxAreaP9rcContextPKfS2_hR20rcCompactHeightfield(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %7 = icmp eq ptr %6, null
   %8 = icmp ne ptr %0, null
@@ -1101,7 +1101,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %.loopexit, %100
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20rcMarkConvexPolyAreaP9rcContextPKfiffhR20rcCompactHeightfield(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, float noundef %3, float noundef %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z20rcMarkConvexPolyAreaP9rcContextPKfiffhR20rcCompactHeightfield(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, float noundef %3, float noundef %4, i8 noundef zeroext %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %9 = icmp eq ptr %8, null
   %10 = icmp ne ptr %0, null
@@ -1382,7 +1382,7 @@ _ZN13rcScopedTimerD2Ev.exit108:                   ; preds = %.loopexit, %146
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483647, -2147483648) i32 @_Z12rcOffsetPolyPKfifPfi(ptr nocapture noundef readonly %0, i32 noundef %1, float noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef range(i32 -2147483647, -2147483648) i32 @_Z12rcOffsetPolyPKfifPfi(ptr noundef readonly captures(none) %0, i32 noundef %1, float noundef %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
 
@@ -1560,7 +1560,7 @@ _ZL16rcVsafeNormalizePf.exit93:                   ; preds = %_ZL16rcVsafeNormali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18rcMarkCylinderAreaP9rcContextPKfffhR20rcCompactHeightfield(ptr noundef %0, ptr nocapture noundef readonly %1, float noundef %2, float noundef %3, i8 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z18rcMarkCylinderAreaP9rcContextPKfffhR20rcCompactHeightfield(ptr noundef %0, ptr noundef readonly captures(none) %1, float noundef %2, float noundef %3, i8 noundef zeroext %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %8 = icmp eq ptr %7, null
   %9 = icmp ne ptr %0, null

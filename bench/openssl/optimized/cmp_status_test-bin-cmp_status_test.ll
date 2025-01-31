@@ -87,7 +87,7 @@ lor.lhs.false16.i:                                ; preds = %if.end10.i
   %3 = load ptr, ptr %data.i, align 8
   %4 = load i32, ptr %call13.i, align 8
   %conv.i = sext i32 %4 to i64
-  %call20.i = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 61, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef %2, i64 noundef %call19.i, ptr noundef %3, i64 noundef %conv.i) #4
+  %call20.i = tail call i32 @test_mem_eq(ptr noundef nonnull @.str.3, i32 noundef 61, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull %2, i64 noundef %call19.i, ptr noundef %3, i64 noundef %conv.i) #4
   %tobool21.not.i = icmp eq i32 %call20.i, 0
   br i1 %tobool21.not.i, label %execute_PKISI_test.exit, label %if.end23.i
 
@@ -145,7 +145,7 @@ declare ptr @ossl_cmp_pkisi_get0_statusString(ptr noundef) local_unnamed_addr #2
 declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @ossl_cmp_pkisi_get_pkifailureinfo(ptr noundef) local_unnamed_addr #2
 

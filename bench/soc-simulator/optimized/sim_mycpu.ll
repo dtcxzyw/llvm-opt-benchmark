@@ -905,7 +905,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z12connect_wireR8axi4_ptrILj32ELj32ELj4EEP10Vmycpu_top(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((0, 232)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define dso_local void @_Z12connect_wireR8axi4_ptrILj32ELj32ELj4EEP10Vmycpu_top(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) initializes((0, 232)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 32, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1049,7 +1049,7 @@ define dso_local void @_Z10uart_inputR8uart8250(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind optsize
 declare i32 @tcgetattr(i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -1061,7 +1061,7 @@ declare i32 @tcsetattr(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare noundef i32 @getchar() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind optsize
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr dso_local void @_ZN8uart82504putcEc(ptr noundef nonnull align 8 dereferenceable(256) %0, i8 noundef signext %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1109,7 +1109,7 @@ define linkonce_odr dso_local void @_ZN8uart82504putcEc(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress optsize uwtable
 define dso_local void @_Z8func_runP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(232) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
@@ -3308,10 +3308,10 @@ define linkonce_odr dso_local void @_ZN10axi4_slaveILj32ELj32ELj4EE5resetEv(ptr 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind optsize
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #6
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
 define linkonce_odr dso_local void @_ZN10memory_busD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 {
@@ -3322,7 +3322,7 @@ define linkonce_odr dso_local void @_ZN10memory_busD2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z9bind_wireR8axi4_refILj32ELj32ELj4EER10axi4_ptr_t(ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(236) initializes((0, 232)) %1) local_unnamed_addr #3 {
+define dso_local void @_Z9bind_wireR8axi4_refILj32ELj32ELj4EER10axi4_ptr_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(236) initializes((0, 232)) %1) local_unnamed_addr #3 {
   %3 = load <2 x ptr>, ptr %0, align 8, !tbaa !18
   store <2 x ptr> %3, ptr %1, align 8, !tbaa !18
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3385,7 +3385,7 @@ define dso_local void @_Z9bind_wireR8axi4_refILj32ELj32ELj4EER10axi4_ptr_t(ptr n
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z21rtl_cemu_diff_genericP10Vmycpu_topR8axi4_refILj32ELj32ELj4EE(ptr noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_lock", align 8
   %4 = alloca %class.memory_bus, align 8
   %5 = alloca %struct.axi4_ptr_t, align 16
@@ -4737,7 +4737,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr dso_local void @_ZN8mmio_mem11load_binaryEmPKc(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -5796,7 +5796,7 @@ define linkonce_odr dso_local void @_ZN10axi4_ptr_tD2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress norecurse optsize uwtable
-define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.axi4_ptr, align 16
   %6 = alloca %struct.axi4_ref, align 16
@@ -6128,10 +6128,10 @@ define linkonce_odr dso_local void @_ZN9Verilated11commandArgsEiPPc(i32 noundef 
 declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind optsize willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #15
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind optsize
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #6
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nobuiltin optsize allocsize(0)
 declare noalias noundef nonnull ptr @_ZnwmSt11align_val_t(i64 noundef, i64 noundef) local_unnamed_addr #10
@@ -6401,7 +6401,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIcSaIcEE17_M_reallocate_mapEmb(pt
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress optsize uwtable
 define linkonce_odr dso_local noundef ptr @_ZNSt15__new_allocatorIPcE8allocateEmPKv(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #4 comdat align 2 {
@@ -24822,7 +24822,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #23
 declare void @llvm.assume(i1 noundef) #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #2

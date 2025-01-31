@@ -1252,7 +1252,7 @@ define noundef nonnull ptr @LGBM_GetLastError() local_unnamed_addr #3 {
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DumpParamAliases(i64 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DumpParamAliases(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -1377,7 +1377,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
@@ -1416,7 +1416,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define noundef i32 @LGBM_RegisterLogCallback(ptr noundef %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
@@ -2698,16 +2698,16 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare void @llvm.va_start.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_end.p0(ptr) #13
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #10
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -2837,10 +2837,10 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_SampleIndices(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_SampleIndices(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.LightGBM::Random", align 4
   %6 = alloca %"class.std::unordered_map", align 8
   %7 = alloca %"struct.LightGBM::Config", align 8
@@ -3626,7 +3626,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #17
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
 declare double @log2(double noundef) local_unnamed_addr #19
@@ -3663,7 +3663,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE8_M_er
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_ByteBufferGetAt(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_ByteBufferGetAt(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = sext i32 %1 to i64
@@ -3826,7 +3826,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateFromFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetCreateFromFile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unordered_map", align 8
   %6 = alloca %"struct.LightGBM::Config", align 8
   %7 = alloca %"class.LightGBM::DatasetLoader", align 8
@@ -4102,7 +4102,7 @@ declare noundef ptr @_ZN8LightGBM13DatasetLoader33LoadFromFileAlignWithOtherData
 declare void @_ZN8LightGBM13DatasetLoaderD1Ev(ptr noundef nonnull align 8 dereferenceable(201)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateFromSampledColumn(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetCreateFromSampledColumn(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::unordered_map", align 8
   %11 = alloca %"struct.LightGBM::Config", align 8
   %12 = alloca %"class.LightGBM::DatasetLoader", align 8
@@ -4339,7 +4339,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 declare noundef ptr @_ZN8LightGBM13DatasetLoader23ConstructFromSampleDataEPPdPPiiPKimil(ptr noundef nonnull align 8 dereferenceable(201), ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateByReference(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetCreateByReference(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -4496,7 +4496,7 @@ declare void @_ZN8LightGBM7DatasetD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN8LightGBM8Metadata15InitByReferenceEiPKS0_(ptr noundef nonnull align 8 dereferenceable(300), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateFromSerializedReference(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetCreateFromSerializedReference(ptr noundef %0, i32 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::unordered_map", align 8
   %8 = alloca %"struct.LightGBM::Config", align 8
   %9 = alloca %"class.LightGBM::DatasetLoader", align 8
@@ -5272,7 +5272,7 @@ _ZNSt8functionIFSt6vectorIdSaIdEEiEED2Ev.exit:    ; preds = %_ZNSt8functionIFSt6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26RowFunctionFromDenseMatricPKviiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.122") align 8 initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_Z26RowFunctionFromDenseMatricPKviiii(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.122") align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   switch i32 %4, label %21 [
     i32 0, label %7
     i32 1, label %14
@@ -5604,7 +5604,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit21:                  ; preds = %98, %96
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetPushRows.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(48) %6) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetPushRows.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(48) %6) #21 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -6745,10 +6745,10 @@ define linkonce_odr void @_ZN8LightGBM3Log5WriteENS_8LogLevelEPKcS3_P13__va_list
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #10
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #10
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn
 declare void @_ZSt17rethrow_exceptionNSt15__exception_ptr13exception_ptrE(ptr noundef) local_unnamed_addr #17
@@ -7094,7 +7094,7 @@ _ZNSt8functionIFSt6vectorIdSaIdEEiEED2Ev.exit:    ; preds = %_ZNSt8functionIFSt6
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetPushRowsWithMetadata.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(48) %8) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetPushRowsWithMetadata.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %7, ptr noundef nonnull align 8 dereferenceable(48) %8) #21 personality ptr @__gxx_personality_v0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -7947,7 +7947,7 @@ _ZNSt8functionIFSt6vectorISt4pairIidESaIS2_EEiEED2Ev.exit: ; preds = %_ZNSt8func
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetPushRowsByCSR.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(48) %6) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetPushRowsByCSR.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(48) %6) #21 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -9653,7 +9653,7 @@ _ZNSt8functionIFSt6vectorISt4pairIidESaIS2_EEiEED2Ev.exit: ; preds = %_ZNSt8func
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetPushRowsByCSRWithMetadata.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(48) %8) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetPushRowsByCSRWithMetadata.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(48) %8) #21 personality ptr @__gxx_personality_v0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
@@ -10003,7 +10003,7 @@ define noundef i32 @LGBM_DatasetMarkFinished(ptr noundef nonnull %0) local_unnam
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateFromMat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #5 {
+define noundef i32 @LGBM_DatasetCreateFromMat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #5 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   store ptr %0, ptr %9, align 8
@@ -10013,7 +10013,7 @@ define noundef i32 @LGBM_DatasetCreateFromMat(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateFromMats(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetCreateFromMats(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %11 = alloca i32, align 4
   %12 = alloca %"class.LightGBM::Random", align 4
@@ -11348,7 +11348,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetCreateFromMats.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetCreateFromMats.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #21 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -12002,7 +12002,7 @@ _ZNSt12_Vector_baseISt8functionIFSt6vectorIdSaIdEEiEESaIS5_EE13_M_deallocateEPS5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateFromCSR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetCreateFromCSR(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef writeonly captures(none) %10) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %13 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %14 = alloca i32, align 4
@@ -13243,7 +13243,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetCreateFromCSR.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(48) %5) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetCreateFromCSR.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(48) %5) #21 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -13377,7 +13377,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit:        ; preds = %.invoke, %35, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateFromCSRFunc(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetCreateFromCSRFunc(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %8 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %9 = alloca i32, align 4
@@ -14524,7 +14524,7 @@ _ZNSt8functionIFviRSt6vectorISt4pairIidESaIS2_EEEED2Ev.exit: ; preds = %_ZNSt8fu
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetCreateFromCSRFunc.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(48) %5) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetCreateFromCSRFunc.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(48) %5) #21 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -14638,7 +14638,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit:        ; preds = %47, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateFromCSC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetCreateFromCSC(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6, i64 noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef writeonly captures(none) %10) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %13 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %14 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -15537,7 +15537,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetCreateFromCSC.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %11, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %13) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetCreateFromCSC.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %11, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(48) %13) #21 personality ptr @__gxx_personality_v0 {
   %15 = alloca i32, align 4
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -15989,7 +15989,7 @@ _ZNKSt8functionIFSt4pairIidEiEEclEi.exit:         ; preds = %.lr.ph11
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetCreateFromCSC.omp_outlined.30(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(48) %11) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetCreateFromCSC.omp_outlined.30(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %10, ptr noundef nonnull align 8 dereferenceable(48) %11) #21 personality ptr @__gxx_personality_v0 {
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4
@@ -16906,7 +16906,7 @@ _ZNKSt8functionIFSt4pairIidEiEEclEi.exit:         ; preds = %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetCreateFromArrow(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetCreateFromArrow(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %8 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %9 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -18191,7 +18191,7 @@ _ZNSt6vectorIPK10ArrowArraySaIS2_EED2Ev.exit:     ; preds = %40, %.loopexit.spli
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetCreateFromArrow.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(48) %6) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetCreateFromArrow.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(48) %6) #21 personality ptr @__gxx_personality_v0 {
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -18846,7 +18846,7 @@ _ZNSt8functionIFdPK10ArrowArraymEED2Ev.exit8:     ; preds = %_ZNSt8functionIFdPK
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @LGBM_DatasetCreateFromArrow.omp_outlined.31(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(48) %4) #21 personality ptr @__gxx_personality_v0 {
+define internal void @LGBM_DatasetCreateFromArrow.omp_outlined.31(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(48) %4) #21 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -21824,7 +21824,7 @@ _ZNSt14_Function_base13_Base_managerISt8functionIFdPK10ArrowArraymEEE10_M_destro
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetGetSubset(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetGetSubset(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -22197,7 +22197,7 @@ declare void @_ZN8LightGBM7Dataset21CopyFeatureMapperFromEPKS0_(ptr noundef nonn
 declare void @_ZN8LightGBM7Dataset10CopySubrowEPKS0_PKiib(ptr noundef nonnull align 8 dereferenceable(864), ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8LightGBM6CommonL27CheckElementsIntervalClosedIiEEvPKT_S2_S2_iPKcENKUliE_clEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8LightGBM6CommonL27CheckElementsIntervalClosedIiEEvPKT_S2_S2_iPKcENKUliE_clEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
@@ -23534,7 +23534,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetGetFeatureNames(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, i64 noundef %3, ptr nocapture noundef initializes((0, 8)) %4, ptr nocapture noundef readonly %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetGetFeatureNames(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef captures(none) initializes((0, 8)) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
@@ -23833,7 +23833,7 @@ define noundef i32 @LGBM_DatasetSaveBinary(ptr noundef nonnull %0, ptr noundef %
 declare void @_ZN8LightGBM7Dataset14SaveBinaryFileEPKc(ptr noundef nonnull align 8 dereferenceable(864), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetSerializeReferenceToBinary(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetSerializeReferenceToBinary(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.269", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -24667,7 +24667,7 @@ _ZNSt6vectorIPK10ArrowArraySaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vector
 declare noundef zeroext i1 @_ZN8LightGBM7Dataset17SetFieldFromArrowEPKcRKNS_17ArrowChunkedArrayE(ptr noundef nonnull align 8 dereferenceable(864), ptr noundef, ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetGetField(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetGetField(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = invoke noundef zeroext i1 @_ZN8LightGBM7Dataset13GetFloatFieldEPKcPiPPKf(ptr noundef nonnull align 8 dereferenceable(864) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
@@ -26395,7 +26395,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @LGBM_DatasetGetNumData(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #23 {
+define noundef i32 @LGBM_DatasetGetNumData(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #23 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -26403,7 +26403,7 @@ define noundef i32 @LGBM_DatasetGetNumData(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @LGBM_DatasetGetNumFeature(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #23 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetGetNumFeature(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #23 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   store i32 %4, ptr %1, align 4
@@ -26411,7 +26411,7 @@ define noundef i32 @LGBM_DatasetGetNumFeature(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_DatasetGetFeatureNumBin(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_DatasetGetFeatureNumBin(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -26653,7 +26653,7 @@ define noundef i32 @LGBM_DatasetAddFeaturesFrom(ptr noundef nonnull %0, ptr noun
 declare void @_ZN8LightGBM7Dataset15AddFeaturesFromEPS0_(ptr noundef nonnull align 8 dereferenceable(864), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterCreate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterCreate(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = invoke noalias noundef nonnull dereferenceable(1816) ptr @_Znwm(i64 noundef 1816) #40
@@ -27925,7 +27925,7 @@ _ZNSt12_Vector_baseISt6vectorIdN8LightGBM6Common18AlignmentAllocatorIdLm32EEEESa
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #24
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8LightGBM7BoosterD2Ev(ptr noundef nonnull align 8 dereferenceable(1816) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -28120,7 +28120,7 @@ _ZNSt10unique_ptrIN8LightGBM8BoostingESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterCreateFromModelfile(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterCreateFromModelfile(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.283", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -28369,7 +28369,7 @@ _ZNSt10unique_ptrIN8LightGBM8BoostingESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterLoadModelFromString(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterLoadModelFromString(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr.283", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -28388,7 +28388,7 @@ define noundef i32 @LGBM_BoosterLoadModelFromString(ptr noundef %0, ptr nocaptur
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 248
   %15 = load ptr, ptr %14, align 8
-  %16 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef %0, i64 noundef %10)
+  %16 = invoke noundef zeroext i1 %15(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull %0, i64 noundef %10)
           to label %_ZN8LightGBM7Booster19LoadModelFromStringEPKc.exit unwind label %26
 
 _ZN8LightGBM7Booster19LoadModelFromStringEPKc.exit: ; preds = %9
@@ -28515,10 +28515,10 @@ _ZNSt10unique_ptrIN8LightGBM7BoosterESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #25
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetLoadedParam(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetLoadedParam(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -30338,7 +30338,7 @@ _ZSt5equalIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetNumClasses(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetNumClasses(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30444,7 +30444,7 @@ define noundef i32 @LGBM_BoosterGetNumClasses(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetLinear(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetLinear(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -30702,7 +30702,7 @@ _ZNSt11unique_lockIN4yamc9alternate18basic_shared_mutexINS0_6rwlock12ReaderPrefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterUpdateOneIter(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterUpdateOneIter(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = invoke noundef zeroext i1 @_ZN8LightGBM7Booster12TrainOneIterEv(ptr noundef nonnull align 8 dereferenceable(1816) %0)
@@ -30856,7 +30856,7 @@ _ZNSt11unique_lockIN4yamc9alternate18basic_shared_mutexINS0_6rwlock12ReaderPrefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterUpdateOneIterCustom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterUpdateOneIterCustom(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = invoke noundef zeroext i1 @_ZN8LightGBM7Booster12TrainOneIterEPKfS2_(ptr noundef nonnull align 8 dereferenceable(1816) %0, ptr noundef %1, ptr noundef %2)
@@ -31159,7 +31159,7 @@ _ZNSt11unique_lockIN4yamc9alternate18basic_shared_mutexINS0_6rwlock12ReaderPrefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetCurrentIteration(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetCurrentIteration(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -31265,7 +31265,7 @@ define noundef i32 @LGBM_BoosterGetCurrentIteration(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterNumModelPerIteration(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterNumModelPerIteration(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -31371,7 +31371,7 @@ define noundef i32 @LGBM_BoosterNumModelPerIteration(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterNumberOfTotalModel(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterNumberOfTotalModel(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -31477,7 +31477,7 @@ define noundef i32 @LGBM_BoosterNumberOfTotalModel(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetEvalCounts(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetEvalCounts(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = invoke noundef i32 @_ZNK8LightGBM7Booster13GetEvalCountsEv(ptr noundef nonnull align 8 dereferenceable(1816) %0)
@@ -31776,7 +31776,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit3:           ; preds = %20, %24, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetEvalNames(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetEvalNames(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = invoke noundef i32 @_ZNK8LightGBM7Booster12GetEvalNamesEPPcimPm(ptr noundef nonnull align 8 dereferenceable(1816) %0, ptr noundef %5, i32 noundef %1, i64 noundef %3, ptr noundef %4)
@@ -32003,7 +32003,7 @@ _ZN4yamc11shared_lockINS_9alternate18basic_shared_mutexINS_6rwlock12ReaderPrefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetFeatureNames(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetFeatureNames(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = invoke noundef i32 @_ZNK8LightGBM7Booster15GetFeatureNamesEPPcimPm(ptr noundef nonnull align 8 dereferenceable(1816) %0, ptr noundef %5, i32 noundef %1, i64 noundef %3, ptr noundef %4)
@@ -32241,7 +32241,7 @@ _ZN4yamc11shared_lockINS_9alternate18basic_shared_mutexINS_6rwlock12ReaderPrefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetNumFeature(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetNumFeature(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32348,7 +32348,7 @@ define noundef i32 @LGBM_BoosterGetNumFeature(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetEval(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetEval(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.13", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -32486,7 +32486,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetNumPredict(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetNumPredict(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32592,7 +32592,7 @@ define noundef i32 @LGBM_BoosterGetNumPredict(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetPredict(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetPredict(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -37951,7 +37951,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit15:      ; preds = %84, %85
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZZN8LightGBM9Predictor7PredictEPKcS2_bbbENKUliRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEE_clEiSD_.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #21 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN8LightGBM9Predictor7PredictEPKcS2_bbbENKUliRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEE_clEiSD_.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #21 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %11 = alloca ptr, align 8
@@ -39675,7 +39675,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterCalcNumPredict(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterCalcNumPredict(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -40472,7 +40472,7 @@ _ZN4yamc11shared_lockINS_9alternate18basic_shared_mutexINS_6rwlock12ReaderPrefer
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK8LightGBM7Booster7PredictEiiiiiSt8functionIFSt6vectorISt4pairIidESaIS4_EEiEERKNS_6ConfigEPdPl.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #21 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK8LightGBM7Booster7PredictEiiiiiSt8functionIFSt6vectorISt4pairIidESaIS4_EEiEERKNS_6ConfigEPdPl.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #21 personality ptr @__gxx_personality_v0 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
@@ -44740,7 +44740,7 @@ _ZNSt8functionIFvRKSt6vectorISt4pairIidESaIS2_EEPS0_ISt13unordered_mapIidSt4hash
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK8LightGBM7Booster16PredictSparseCSREiiiliSt8functionIFSt6vectorISt4pairIidESaIS4_EElEERKNS_6ConfigEPlPPviPPiSE_i.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %10, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %11, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %12, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(48) %14) #21 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK8LightGBM7Booster16PredictSparseCSREiiiliSt8functionIFSt6vectorISt4pairIidESaIS4_EElEERKNS_6ConfigEPlPPviPPiSE_i.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %8, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %9, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %10, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %11, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %12, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(48) %14) #21 personality ptr @__gxx_personality_v0 {
   %16 = alloca i64, align 8
   %17 = alloca i64, align 8
   %18 = alloca i64, align 8
@@ -45098,7 +45098,7 @@ _ZNSt12_Vector_baseISt6vectorISt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK8LightGBM7Booster13PredictSparseEiiiliSt8functionIFSt6vectorISt4pairIidESaIS4_EElEERKNS_6ConfigEPlPS2_IS2_ISt13unordered_mapIidSt4hashIiESt8equal_toIiESaIS3_IKidEEESaISL_EESaISN_EEPPiPPviPbi.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #21 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK8LightGBM7Booster13PredictSparseEiiiliSt8functionIFSt6vectorISt4pairIidESaIS4_EElEERKNS_6ConfigEPlPS2_IS2_ISt13unordered_mapIidSt4hashIiESt8equal_toIiESaIS3_IKidEEESaISL_EESaISN_EEPPiPPviPbi.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(48) %7) #21 personality ptr @__gxx_personality_v0 {
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8
@@ -46212,7 +46212,7 @@ _ZSt10_ConstructI15CSC_RowIteratorJRKS0_EEvPT_DpOT0_.exit: ; preds = %12, %.lr.p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EElEZ31LGBM_BoosterPredictSparseOutputE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.160") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EElEZ31LGBM_BoosterPredictSparseOutputE3$_0E9_M_invokeERKSt9_Any_dataOl"(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.160") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %.val = load i64, ptr %2, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !499)
@@ -46488,7 +46488,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EElEZ31LGBM_BoosterPredictSparseOutputE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EElEZ31LGBM_BoosterPredictSparseOutputE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ31LGBM_BoosterPredictSparseOutputE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -46512,7 +46512,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pair
 }
 
 ; Function Attrs: norecurse nounwind uwtable
-define internal void @_ZNK8LightGBM7Booster16PredictSparseCSCEiiiliSt8functionIFSt6vectorISt4pairIidESaIS4_EElEERKNS_6ConfigEPlPPviPPiSE_i.omp_outlined(ptr noalias nocapture noundef readonly %0, ptr noalias nocapture readnone %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(48) %10) #21 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK8LightGBM7Booster16PredictSparseCSCEiiiliSt8functionIFSt6vectorISt4pairIidESaIS4_EElEERKNS_6ConfigEPlPPviPPiSE_i.omp_outlined(ptr noalias noundef readonly captures(none) %0, ptr noalias readnone captures(none) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull readonly align 1 captures(none) dereferenceable(1) %8, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(48) %10) #21 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"struct.std::__detail::_AllocNode.537", align 8
   %13 = alloca i32, align 4
   %14 = alloca i32, align 4
@@ -47954,7 +47954,7 @@ _ZNSt8functionIFvRKSt6vectorISt4pairIidESaIS2_EEPdEED2Ev.exit: ; preds = %.body,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterPredictForCSRSingleRowFastInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterPredictForCSRSingleRowFastInit(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::unique_ptr.545", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -50063,7 +50063,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ25LGBM_BoosterPredictForCSCE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.160") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ25LGBM_BoosterPredictForCSCE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.160") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %.val = load i32, ptr %2, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !558)
@@ -50338,7 +50338,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ25LGBM_BoosterPredictForCSCE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ25LGBM_BoosterPredictForCSCE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ25LGBM_BoosterPredictForCSCE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -50362,7 +50362,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pair
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterValidateFeatureNames(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterValidateFeatureNames(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::vector.557", align 8
@@ -50491,7 +50491,7 @@ _ZN8LightGBM6CommonL10Vector2PtrIcEESt6vectorIPT_SaIS4_EEPS2_IS2_IS3_SaIS3_EESaI
 
 52:                                               ; preds = %.lr.ph
   %53 = trunc nuw nsw i64 %indvars.iv to i32
-  invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.131, ptr noundef %50, i32 noundef %53, ptr noundef %48)
+  invoke void (ptr, ...) @_ZN8LightGBM3Log5FatalEPKcz(ptr noundef nonnull @.str.131, ptr noundef nonnull %50, i32 noundef %53, ptr noundef nonnull %48)
           to label %66 unwind label %.thread
 
 .thread:                                          ; preds = %52
@@ -50771,7 +50771,7 @@ _ZNSt12_Vector_baseISt6vectorIcSaIcEESaIS2_EED2Ev.exit: ; preds = %.body, %28
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6vectorIS_IcSaIcEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -51200,7 +51200,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z30RowPairFunctionFromDenseMatricPKviiii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.157") align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_Z30RowPairFunctionFromDenseMatricPKviiii(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.157") align 8 captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::function.122", align 8
   %8 = alloca %class.anon.586, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !580)
@@ -51688,7 +51688,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterPredictForMatSingleRowFastInit(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterPredictForMatSingleRowFastInit(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::unique_ptr.545", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -52293,7 +52293,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z28RowPairFunctionFromDenseRowsPPKvii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.157") align 8 initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #26 personality ptr @__gxx_personality_v0 {
+define void @_Z28RowPairFunctionFromDenseRowsPPKvii(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.157") align 8 captures(none) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #26 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %0, align 8
@@ -53034,7 +53034,7 @@ _ZNSt12_Vector_baseIN8LightGBM17ArrowChunkedArray8IteratorIdEESaIS3_EE13_M_deall
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ27LGBM_BoosterPredictForArrowE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.160") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ27LGBM_BoosterPredictForArrowE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.160") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %.val = load i32, ptr %2, align 4
@@ -53262,7 +53262,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EED2Ev.exit.i.i.i:  ; preds = %92, %90
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ27LGBM_BoosterPredictForArrowE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ27LGBM_BoosterPredictForArrowE3$_0E10_M_managerERSt9_Any_dataRKS8_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ27LGBM_BoosterPredictForArrowE3$_0E10_M_managerERSt9_Any_dataRKS3_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -53286,7 +53286,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pair
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterSaveModel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterSaveModel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -53388,7 +53388,7 @@ _ZNK8LightGBM7Booster15SaveModelToFileEiiiPKc.exit: ; preds = %5, %38, %34, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterSaveModelToString(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterSaveModelToString(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
@@ -53508,7 +53508,7 @@ _ZNK8LightGBM7Booster17SaveModelToStringB5cxx11Eiii.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterDumpModel(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterDumpModel(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
@@ -53628,7 +53628,7 @@ _ZNK8LightGBM7Booster9DumpModelB5cxx11Eiii.exit:  ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetLeafValue(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetLeafValue(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = invoke noundef double @_ZNK8LightGBM7Booster12GetLeafValueEii(ptr noundef nonnull align 8 dereferenceable(1816) %0, i32 noundef %1, i32 noundef %2)
@@ -53942,7 +53942,7 @@ _ZNSt11unique_lockIN4yamc9alternate18basic_shared_mutexINS0_6rwlock12ReaderPrefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterFeatureImportance(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterFeatureImportance(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.13", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -54078,7 +54078,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %_ZNK8LightGBM7Boost
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetUpperBoundValue(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetUpperBoundValue(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = invoke noundef double @_ZNK8LightGBM7Booster15UpperBoundValueEv(ptr noundef nonnull align 8 dereferenceable(1816) %0)
@@ -54238,7 +54238,7 @@ _ZN4yamc11shared_lockINS_9alternate18basic_shared_mutexINS_6rwlock12ReaderPrefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @LGBM_BoosterGetLowerBoundValue(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef i32 @LGBM_BoosterGetLowerBoundValue(ptr noundef nonnull %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = invoke noundef double @_ZNK8LightGBM7Booster15LowerBoundValueEv(ptr noundef nonnull align 8 dereferenceable(1816) %0)
@@ -56174,7 +56174,7 @@ define noundef i32 @LGBM_SetMaxThreads(i32 noundef %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @LGBM_GetMaxThreads(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #28 {
+define noundef i32 @LGBM_GetMaxThreads(ptr noundef writeonly captures(none) initializes((0, 4)) %0) local_unnamed_addr #28 {
   %2 = load i32, ptr @LGBM_MAX_NUM_THREADS, align 4
   store i32 %2, ptr %0, align 4
   ret i32 0
@@ -56575,7 +56575,7 @@ _ZNSt14_Function_base13_Base_managerIZ33RowFunctionFromDenseMatric_helperIdESt8f
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ30RowPairFunctionFromDenseMatricPKviiiiE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.160") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ30RowPairFunctionFromDenseMatricPKviiiiE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.160") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::vector.13", align 8
   %.val = load ptr, ptr %1, align 8
@@ -56800,7 +56800,7 @@ _ZNSt6vectorISt4pairIidESaIS1_EE12emplace_backIJRiRdEEEvDpOT_.exit.i.i.i: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ30RowPairFunctionFromDenseMatricPKviiiiE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ30RowPairFunctionFromDenseMatricPKviiiiE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation"(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i32 noundef %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %6 [
     i32 0, label %4
     i32 1, label %5
@@ -56901,7 +56901,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pair
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ28RowPairFunctionFromDenseRowsPPKviiE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.160") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ28RowPairFunctionFromDenseRowsPPKviiE3$_0E9_M_invokeERKSt9_Any_dataOi"(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.160") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %2) #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::function.122", align 8
   %6 = alloca %"class.std::vector.13", align 8
@@ -57199,7 +57199,7 @@ _ZNSt8functionIFSt6vectorIdSaIdEEiEED2Ev.exit17.i.i.i: ; preds = %110, %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ28RowPairFunctionFromDenseRowsPPKviiE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pairIidESaIS2_EEiEZ28RowPairFunctionFromDenseRowsPPKviiE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation"(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2) #23 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %"_ZNSt14_Function_base13_Base_managerIZ28RowPairFunctionFromDenseRowsPPKviiE3$_0E10_M_managerERSt9_Any_dataRKS6_St18_Manager_operation.exit" [
     i32 0, label %4
     i32 1, label %5
@@ -57223,7 +57223,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorISt4pair
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22IterateFunctionFromCSCPKviPKiS0_illi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.197") align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i64 %7, i32 noundef %8) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_Z22IterateFunctionFromCSCPKviPKiS0_illi(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function.197") align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i64 %7, i32 noundef %8) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %10 = sext i32 %8 to i64
   %11 = icmp sgt i64 %6, %10
   %12 = icmp sgt i32 %8, -1
@@ -57632,7 +57632,7 @@ _ZNSt14_Function_base13_Base_managerIZ29IterateFunctionFromCSC_helperIdlESt8func
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15CSC_RowIteratorC2EPKviPKiS1_illi(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 17), (24, 56)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i64 %7, i32 noundef %8) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15CSC_RowIteratorC2EPKviPKiS1_illi(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 17), (24, 56)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, i64 %7, i32 noundef %8) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %10 = alloca %"class.std::function.197", align 8
   %11 = alloca %"class.std::function.197", align 8
@@ -57763,16 +57763,16 @@ declare i64 @llvm.umin.i64(i64, i64) #32
 declare void @llvm.experimental.noalias.scope.decl(metadata) #33
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #34
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #34
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #34
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #32
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #35
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #35
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

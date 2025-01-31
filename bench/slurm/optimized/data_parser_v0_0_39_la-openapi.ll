@@ -129,7 +129,7 @@ define void @set_openapi_parse_ref(ptr noundef %0, ptr noundef %1, ptr noundef %
 declare ptr @data_resolve_dict_path(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @_set_ref(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @_set_ref(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -205,7 +205,7 @@ _should_be_ref.exit.thread:                       ; preds = %12, %15, %18, %3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   switch i32 %5, label %14 [
@@ -424,7 +424,7 @@ define internal fastcc void @_set_openapi_parse(ptr noundef %0, ptr noundef %1, 
 declare ptr @_data_set_string_own(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_add_parser(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_add_parser(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -610,7 +610,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @data_dict_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 4) i32 @_foreach_check_skip(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #0 {
+define internal range(i32 1, 4) i32 @_foreach_check_skip(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(none) %2) #0 {
   %4 = tail call ptr @xstrstr(ptr noundef %0, ptr noundef nonnull @.str.22) #6
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %5
@@ -632,23 +632,23 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @get_parsers(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @data_parser_p_increment_reference(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #2 {
+define noundef i32 @data_parser_p_increment_reference(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #2 {
   store ptr inttoptr (i64 768602689902870592 to ptr), ptr %2, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @data_parser_p_populate_schema(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4) local_unnamed_addr #3 {
+define noundef i32 @data_parser_p_populate_schema(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #3 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @data_parser_p_populate_parameters(ptr nocapture noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5) local_unnamed_addr #3 {
+define noundef i32 @data_parser_p_populate_parameters(ptr noundef readnone captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #3 {
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @data_parser_p_release_references(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #2 {
+define void @data_parser_p_release_references(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #2 {
   store ptr null, ptr %1, align 8
   ret void
 }
@@ -660,7 +660,7 @@ declare ptr @data_set_list(ptr noundef) local_unnamed_addr #1
 declare ptr @data_list_append(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_resolve_parser_key(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_resolve_parser_key(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @data_new() #6
   %4 = tail call ptr @data_set_list(ptr noundef %3) #6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -952,10 +952,10 @@ declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare ptr @data_set_null(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

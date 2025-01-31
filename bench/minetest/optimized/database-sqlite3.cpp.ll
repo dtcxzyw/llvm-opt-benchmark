@@ -457,7 +457,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -516,10 +516,10 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i, %if
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !11
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -720,7 +720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN16Database_SQLite311busyHandlerEPvi(ptr nocapture noundef %data, i32 noundef %count) #6 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN16Database_SQLite311busyHandlerEPvi(ptr noundef captures(none) %data, i32 noundef %count) #6 align 2 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %arrayidx1 = getelementptr inbounds nuw i8, ptr %data, i64 8
@@ -1201,7 +1201,7 @@ if.end73:                                         ; preds = %if.end73.sink.split
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16Database_SQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %dbname) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16Database_SQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 17)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %savedir, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %dbname) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i3 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -1820,7 +1820,7 @@ if.then.i.i:                                      ; preds = %entry
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %entry
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef %__rhs, i64 noundef %call.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %__lhs, ptr noundef nonnull %__rhs, i64 noundef %call.i.i)
   %1 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %1, ptr %agg.result, align 8, !tbaa !4
   %2 = load ptr, ptr %call2.i, align 8, !tbaa !11
@@ -4203,7 +4203,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare i32 @sqlite3_close(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN16Database_SQLite3D0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #13 align 2 {
+define dso_local void @_ZN16Database_SQLite3D0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.trap() #32
   unreachable
@@ -4213,7 +4213,7 @@ entry:
 declare void @llvm.trap() #14
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18MapDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18MapDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 17)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -4274,7 +4274,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
@@ -4821,7 +4821,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18MapDatabaseSQLite314createDatabaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18MapDatabaseSQLite314createDatabaseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6312,7 +6312,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18MapDatabaseSQLite321listAllLoadableBlocksERSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %dst) unnamed_addr #4 align 2 {
+define dso_local void @_ZN18MapDatabaseSQLite321listAllLoadableBlocksERSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %dst) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN16Database_SQLite314verifyDatabaseEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
   %m_stmt_list = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -6413,10 +6413,10 @@ declare i48 @_ZN11MapDatabase17getIntegerAsBlockEl(i64 noundef) local_unnamed_ad
 declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #18
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn120_N18MapDatabaseSQLite321listAllLoadableBlocksERSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %dst) unnamed_addr #17 align 2 {
+define dso_local void @_ZThn120_N18MapDatabaseSQLite321listAllLoadableBlocksERSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %dst) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN18MapDatabaseSQLite321listAllLoadableBlocksERSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(24) %dst)
@@ -6424,7 +6424,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21PlayerDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21PlayerDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 17)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -8256,7 +8256,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21PlayerDatabaseSQLite314createDatabaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21PlayerDatabaseSQLite314createDatabaseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(240) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10913,7 +10913,7 @@ unreachable:                                      ; preds = %invoke.cont446, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN21PlayerDatabaseSQLite316playerDataExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN21PlayerDatabaseSQLite316playerDataExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN16Database_SQLite314verifyDatabaseEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
   %m_stmt_player_load = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -12689,7 +12689,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN21PlayerDatabaseSQLite312removePlayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN21PlayerDatabaseSQLite312removePlayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN16Database_SQLite314verifyDatabaseEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
   %m_stmt_player_load.i = getelementptr inbounds nuw i8, ptr %this, i64 128
@@ -12727,7 +12727,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn120_N21PlayerDatabaseSQLite312removePlayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZThn120_N21PlayerDatabaseSQLite312removePlayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   %call = tail call noundef zeroext i1 @_ZN21PlayerDatabaseSQLite312removePlayerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %name)
@@ -12865,7 +12865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19AuthDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19AuthDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 17)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -14082,7 +14082,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19AuthDatabaseSQLite314createDatabaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19AuthDatabaseSQLite314createDatabaseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15682,7 +15682,7 @@ unreachable:                                      ; preds = %invoke.cont276, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN19AuthDatabaseSQLite37getAuthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER9AuthEntry(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(104) %res) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN19AuthDatabaseSQLite37getAuthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER9AuthEntry(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(104) %res) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp24 = alloca %"class.std::basic_string_view", align 8
   tail call void @_ZN16Database_SQLite314verifyDatabaseEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
@@ -15791,7 +15791,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn120_N19AuthDatabaseSQLite37getAuthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER9AuthEntry(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(104) %res) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZThn120_N19AuthDatabaseSQLite37getAuthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER9AuthEntry(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(104) %res) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   %call = tail call noundef zeroext i1 @_ZN19AuthDatabaseSQLite37getAuthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER9AuthEntry(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(104) %res)
@@ -15916,7 +15916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN19AuthDatabaseSQLite310deleteAuthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN19AuthDatabaseSQLite310deleteAuthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN16Database_SQLite314verifyDatabaseEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
   %m_stmt_delete = getelementptr inbounds nuw i8, ptr %this, i64 152
@@ -15942,7 +15942,7 @@ entry:
 declare i32 @sqlite3_changes(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn120_N19AuthDatabaseSQLite310deleteAuthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZThn120_N19AuthDatabaseSQLite310deleteAuthERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN16Database_SQLite314verifyDatabaseEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
@@ -16018,19 +16018,19 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZN19AuthDatabaseSQLite36reloadEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #21 align 2 {
+define dso_local void @_ZN19AuthDatabaseSQLite36reloadEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #21 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local void @_ZThn120_N19AuthDatabaseSQLite36reloadEv(ptr nocapture readnone %this) unnamed_addr #21 align 2 {
+define dso_local void @_ZThn120_N19AuthDatabaseSQLite36reloadEv(ptr readnone captures(none) %this) unnamed_addr #21 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19AuthDatabaseSQLite315writePrivilegesERK9AuthEntry(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %authEntry) unnamed_addr #4 align 2 {
+define dso_local void @_ZN19AuthDatabaseSQLite315writePrivilegesERK9AuthEntry(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %authEntry) unnamed_addr #4 align 2 {
 entry:
   %m_stmt_delete_privs = getelementptr inbounds nuw i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_stmt_delete_privs, align 8, !tbaa !258
@@ -16080,7 +16080,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25ModStorageDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25ModStorageDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 17)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -17051,7 +17051,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25ModStorageDatabaseSQLite314createDatabaseEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25ModStorageDatabaseSQLite314createDatabaseEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18221,7 +18221,7 @@ unreachable:                                      ; preds = %invoke.cont208, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25ModStorageDatabaseSQLite313getModEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr noundef %storage) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25ModStorageDatabaseSQLite313getModEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef %storage) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18438,7 +18438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_
 declare i32 @sqlite3_errcode(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite313getModEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr noundef %storage) unnamed_addr #17 align 2 {
+define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite313getModEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef %storage) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN25ModStorageDatabaseSQLite313getModEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %modname, ptr noundef %storage)
@@ -18446,7 +18446,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25ModStorageDatabaseSQLite310getModKeysERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr noundef %storage) unnamed_addr #4 align 2 {
+define dso_local void @_ZN25ModStorageDatabaseSQLite310getModKeysERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef %storage) unnamed_addr #4 align 2 {
 entry:
   %key = alloca %"class.std::basic_string_view", align 8
   tail call void @_ZN16Database_SQLite314verifyDatabaseEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
@@ -18580,7 +18580,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite310getModKeysERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr noundef %storage) unnamed_addr #17 align 2 {
+define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite310getModKeysERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EE(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef %storage) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN25ModStorageDatabaseSQLite310getModKeysERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %modname, ptr noundef %storage)
@@ -18588,7 +18588,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite311getModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %key, ptr noundef %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite311getModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %key, ptr noundef %value) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18785,7 +18785,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite311getModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %key, ptr noundef %value) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite311getModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %key, ptr noundef %value) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   %call = tail call noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite311getModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_PS5_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %modname, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef %value)
@@ -18793,7 +18793,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite311hasModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %key) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite311hasModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %key) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18975,7 +18975,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite311hasModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %key) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite311hasModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %key) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   %call = tail call noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite311hasModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %modname, ptr noundef nonnull align 8 dereferenceable(32) %key)
@@ -18983,7 +18983,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite311setModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %key, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite311setModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %key, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19444,7 +19444,7 @@ unreachable:                                      ; preds = %invoke.cont78, %inv
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite311setModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St17basic_string_viewIcS3_E(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %key, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite311setModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St17basic_string_viewIcS3_E(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %key, i64 %value.coerce0, ptr %value.coerce1) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   %call = tail call noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite311setModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St17basic_string_viewIcS3_E(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %modname, ptr noundef nonnull align 8 dereferenceable(32) %key, i64 %value.coerce0, ptr %value.coerce1)
@@ -19452,7 +19452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite314removeModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %key) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite314removeModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %key) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19630,7 +19630,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite314removeModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %key) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite314removeModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %key) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   %call = tail call noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite314removeModEntryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %modname, ptr noundef nonnull align 8 dereferenceable(32) %key)
@@ -19638,7 +19638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite316removeModEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN25ModStorageDatabaseSQLite316removeModEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN16Database_SQLite314verifyDatabaseEv(ptr noundef nonnull align 8 dereferenceable(120) %this)
   %m_stmt_remove_all = getelementptr inbounds nuw i8, ptr %this, i64 176
@@ -19662,7 +19662,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite316removeModEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %modname) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZThn120_N25ModStorageDatabaseSQLite316removeModEntriesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %modname) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN16Database_SQLite314verifyDatabaseEv(ptr noundef nonnull align 8 dereferenceable(120) %0)
@@ -20072,7 +20072,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #23
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #20
@@ -21534,7 +21534,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare ptr @sqlite3_column_text(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @"_ZZN25ModStorageDatabaseSQLite38listModsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEN3$_08__invokeEPviPPcSD_"(ptr noundef nonnull %res_vp, i32 %n_col, ptr noundef nonnull %cols, ptr nocapture readnone %col_names) #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 0, 2) i32 @"_ZZN25ModStorageDatabaseSQLite38listModsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEEN3$_08__invokeEPviPPcSD_"(ptr noundef nonnull %res_vp, i32 %n_col, ptr noundef nonnull %cols, ptr readnone captures(none) %col_names) #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJRPcEEERS5_DpOT_(ptr noundef nonnull align 8 dereferenceable(24) %res_vp, ptr noundef nonnull align 8 dereferenceable(8) %cols)
           to label %"_ZZN25ModStorageDatabaseSQLite38listModsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEENK3$_0clEPviPPcSD_.exit" unwind label %lpad.i
@@ -23084,7 +23084,7 @@ declare i64 @llvm.umin.i64(i64, i64) #25
 declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #28
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #28
 
 attributes #0 = { "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

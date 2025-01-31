@@ -163,7 +163,7 @@ return:                                           ; preds = %if.end9, %err, %if.
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 declare void @ERR_new() local_unnamed_addr #2
 
@@ -351,7 +351,7 @@ return:                                           ; preds = %if.end31, %if.end23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
@@ -1109,7 +1109,7 @@ return:                                           ; preds = %err, %if.then14, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hpke_do_middle(ptr nocapture noundef nonnull %ctx, ptr noundef %info, i64 noundef range(i64 0, 1025) %infolen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_do_middle(ptr noundef nonnull captures(none) %ctx, ptr noundef %info, i64 noundef range(i64 0, 1025) %infolen) unnamed_addr #0 {
 entry:
   %ks_context = alloca [512 x i8], align 16
   %secret = alloca [512 x i8], align 16
@@ -1493,7 +1493,7 @@ return:                                           ; preds = %if.end27, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hpke_decap(ptr nocapture noundef nonnull %ctx, ptr noundef nonnull %enc, i64 noundef range(i64 1, 0) %enclen, ptr noundef nonnull %priv) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_decap(ptr noundef nonnull captures(none) %ctx, ptr noundef nonnull %enc, i64 noundef range(i64 1, 0) %enclen, ptr noundef nonnull %priv) unnamed_addr #0 {
 entry:
   %params = alloca [2 x %struct.ossl_param_st], align 16
   %lsslen = alloca i64, align 8
@@ -1807,7 +1807,7 @@ return:                                           ; preds = %if.else, %if.then27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hpke_aead_enc(ptr nocapture noundef nonnull readonly %hctx, ptr noundef nonnull %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef nonnull %pt, i64 noundef range(i64 1, 0) %ptlen, ptr noundef nonnull %ct, ptr nocapture noundef nonnull %ctlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_aead_enc(ptr noundef nonnull readonly captures(none) %hctx, ptr noundef nonnull %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef nonnull %pt, i64 noundef range(i64 1, 0) %ptlen, ptr noundef nonnull %ct, ptr noundef nonnull captures(none) %ctlen) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   %tag = alloca [16 x i8], align 16
@@ -2104,7 +2104,7 @@ return:                                           ; preds = %if.end29, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @hpke_aead_dec(ptr nocapture noundef nonnull readonly %hctx, ptr noundef nonnull %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef nonnull %ct, i64 noundef range(i64 1, 0) %ctlen, ptr noundef nonnull %pt, ptr nocapture noundef nonnull %ptlen) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @hpke_aead_dec(ptr noundef nonnull readonly captures(none) %hctx, ptr noundef nonnull %iv, ptr noundef %aad, i64 noundef %aadlen, ptr noundef nonnull %ct, i64 noundef range(i64 1, 0) %ctlen, ptr noundef nonnull %pt, ptr noundef nonnull captures(none) %ptlen) unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   store i32 0, ptr %len, align 4
@@ -2838,7 +2838,7 @@ declare i32 @EVP_PKEY_encapsulate_init(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @EVP_PKEY_encapsulate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 declare i32 @ossl_hpke_labeled_extract(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 

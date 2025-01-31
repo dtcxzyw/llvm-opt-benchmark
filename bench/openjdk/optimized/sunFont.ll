@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.56 = private unnamed_addr constant [13 x i8] c"lcdSubPixPos\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable
-define i64 @Java_sun_font_NullFontScaler_getNullScalerContext(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
+define i64 @Java_sun_font_NullFontScaler_getNullScalerContext(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @theNullScalerContext, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -95,7 +95,7 @@ define hidden range(i32 0, 2) i32 @isNullScalerContext(ptr noundef readnone %0) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
-define noundef i64 @Java_sun_font_NullFontScaler_getGlyphImage(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define noundef i64 @Java_sun_font_NullFontScaler_getGlyphImage(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = tail call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #10
   %6 = ptrtoint ptr %5 to i64
   ret i64 %6
@@ -105,7 +105,7 @@ define noundef i64 @Java_sun_font_NullFontScaler_getGlyphImage(ptr nocapture nou
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #5 {
+define void @Java_sun_font_SunFontManager_initIDs(ptr noundef %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #5 {
   %.b.i = load i1, ptr @initialisedFontIDs, align 4
   br i1 %.b.i, label %initFontIDs.exit, label %3
 
@@ -528,7 +528,7 @@ initFontIDs.exit:                                 ; preds = %2, %3, %9, %15, %21
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Java_sun_font_StrikeCache_freeIntPointer(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @Java_sun_font_StrikeCache_freeIntPointer(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %4
 
@@ -543,10 +543,10 @@ define void @Java_sun_font_StrikeCache_freeIntPointer(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Java_sun_font_StrikeCache_freeLongPointer(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2) local_unnamed_addr #6 {
+define void @Java_sun_font_StrikeCache_freeLongPointer(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, i64 noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %6, label %4
 
@@ -560,7 +560,7 @@ define void @Java_sun_font_StrikeCache_freeLongPointer(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_font_StrikeCache_freeIntMemory(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define void @Java_sun_font_StrikeCache_freeIntMemory(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1368
   %7 = load ptr, ptr %6, align 8
@@ -638,7 +638,7 @@ define void @Java_sun_font_StrikeCache_freeIntMemory(ptr noundef %0, ptr nocaptu
 declare void @AccelGlyphCache_RemoveAllCellInfos(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_font_StrikeCache_freeLongMemory(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 {
+define void @Java_sun_font_StrikeCache_freeLongMemory(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1368
   %7 = load ptr, ptr %6, align 8
@@ -713,7 +713,7 @@ define void @Java_sun_font_StrikeCache_freeLongMemory(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Java_sun_font_StrikeCache_getGlyphCacheDescription(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #5 {
+define void @Java_sun_font_StrikeCache_getGlyphCacheDescription(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 1368
   %6 = load ptr, ptr %5, align 8

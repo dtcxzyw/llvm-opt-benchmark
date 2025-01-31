@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden void @newhope_helprec(ptr nocapture noundef writeonly %c, ptr nocapture noundef readonly %v) local_unnamed_addr #0 {
+define hidden void @newhope_helprec(ptr noundef writeonly captures(none) %c, ptr noundef readonly captures(none) %v) local_unnamed_addr #0 {
 entry:
   %rand = alloca [32 x i8], align 16
   %call = call i32 @RAND_bytes(ptr noundef nonnull %rand, i64 noundef 32) #5
@@ -154,7 +154,7 @@ for.end:                                          ; preds = %for.body
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @newhope_reconcile(ptr nocapture noundef initializes((0, 32)) %key, ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
+define hidden void @newhope_reconcile(ptr noundef captures(none) initializes((0, 32)) %key, ptr noundef readonly captures(none) %v, ptr noundef readonly captures(none) %c) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %key, i8 0, i64 32, i1 false)
   br label %for.body
@@ -286,7 +286,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #4

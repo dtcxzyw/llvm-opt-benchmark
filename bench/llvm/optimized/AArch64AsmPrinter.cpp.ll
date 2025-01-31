@@ -440,15 +440,15 @@ declare noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm20getTheARM64_
 declare noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm22getTheAArch64_32TargetEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm2cl6parserI16PtrauthCheckModeED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #0 comdat align 2 {
@@ -866,7 +866,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #2
 
@@ -1243,7 +1243,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef
 declare void @_ZN4llvm2cl6Option11addArgumentEv(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef nonnull ptr @_ZN4llvm18RegisterAsmPrinterIN12_GLOBAL__N_117AArch64AsmPrinterEE9AllocatorERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(1232) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) #0 align 2 {
+define internal noundef nonnull ptr @_ZN4llvm18RegisterAsmPrinterIN12_GLOBAL__N_117AArch64AsmPrinterEE9AllocatorERNS_13TargetMachineEOSt10unique_ptrINS_10MCStreamerESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(1232) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %1) #0 align 2 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(1040) ptr @_Znwm(i64 noundef 1040) #24
   %5 = load i64, ptr %1, align 8
@@ -1350,7 +1350,7 @@ define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinterD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal { ptr, i64 } @_ZNK12_GLOBAL__N_117AArch64AsmPrinter11getPassNameEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #10 align 2 {
+define internal { ptr, i64 } @_ZNK12_GLOBAL__N_117AArch64AsmPrinter11getPassNameEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #10 align 2 {
   ret { ptr, i64 } { ptr @.str.10, i64 24 }
 }
 
@@ -1640,7 +1640,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_117AArch64AsmPrinter13lowerConstant
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter18emitStartOfAsmFileERN4llvm6ModuleE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter18emitStartOfAsmFileERN4llvm6ModuleE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1040) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
@@ -1884,7 +1884,7 @@ _ZN4llvm7mdconst15extract_or_nullINS_11ConstantIntEPNS_8MetadataEEENSt9enable_if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter16emitEndOfAsmFileERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter16emitEndOfAsmFileERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector.751", align 8
   %4 = alloca %"class.std::vector.751", align 8
   tail call fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter26emitHwasanMemaccessSymbolsERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(1040) %0)
@@ -5168,7 +5168,7 @@ define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter14emitXXStructorERKN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_117AArch64AsmPrinter20lowerConstantPtrAuthERKN4llvm15ConstantPtrAuthE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_117AArch64AsmPrinter20lowerConstantPtrAuthERKN4llvm15ConstantPtrAuthE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::function_ref", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -5527,14 +5527,14 @@ declare noundef zeroext i1 @_ZNK4llvm10AsmPrinter33isBlockOnlyReachableByFallthr
 declare void @_ZNK4llvm10AsmPrinter15emitImplicitDefEPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(785), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @_ZNK12_GLOBAL__N_117AArch64AsmPrinter23getIFuncMCSubtargetInfoEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %0) unnamed_addr #11 align 2 {
+define internal noundef ptr @_ZNK12_GLOBAL__N_117AArch64AsmPrinter23getIFuncMCSubtargetInfoEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1040) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 920
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter22emitMachOIFuncStubBodyERN4llvm6ModuleERKNS1_11GlobalIFuncEPNS1_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter22emitMachOIFuncStubBodyERN4llvm6ModuleERKNS1_11GlobalIFuncEPNS1_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nonnull readnone align 8 captures(none) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MCInst", align 8
   %6 = alloca %"class.llvm::MCOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8
@@ -5874,7 +5874,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit45:               ; preds = %_ZN4llvm13MCInstBui
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter28emitMachOIFuncStubHelperBodyERN4llvm6ModuleERKNS1_11GlobalIFuncEPNS1_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter28emitMachOIFuncStubHelperBodyERN4llvm6ModuleERKNS1_11GlobalIFuncEPNS1_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MCInstBuilder", align 8
   %6 = alloca %"class.llvm::MCInstBuilder", align 8
   %7 = alloca %"class.llvm::MCInstBuilder", align 8
@@ -7291,7 +7291,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm10AsmPrinter14getISAEncodingEv(p
 declare void @_ZNK4llvm10AsmPrinter14emitDebugValueEPKNS_6MCExprEj(ptr noundef nonnull align 8 dereferenceable(785), ptr noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK12_GLOBAL__N_117AArch64AsmPrinter24getCodeViewJumpTableInfoEiPKN4llvm12MachineInstrEPKNS1_8MCSymbolE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.327") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %1, i32 noundef %2, ptr nocapture readnone %3, ptr noundef %4) unnamed_addr #12 align 2 {
+define internal void @_ZNK12_GLOBAL__N_117AArch64AsmPrinter24getCodeViewJumpTableInfoEiPKN4llvm12MachineInstrEPKNS1_8MCSymbolE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::tuple.327") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1040) %1, i32 noundef %2, ptr readnone captures(none) %3, ptr noundef %4) unnamed_addr #12 align 2 {
 switch.lookup:
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %5, align 8
@@ -7698,7 +7698,7 @@ _ZN12_GLOBAL__N_117AArch64AsmPrinter18printAsmRegInClassERKN4llvm14MachineOperan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter21PrintAsmMemoryOperandEPKN4llvm12MachineInstrEjPKcRNS1_11raw_ostreamE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter21PrintAsmMemoryOperandEPKN4llvm12MachineInstrEjPKcRNS1_11raw_ostreamE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
 
@@ -7800,7 +7800,7 @@ declare void @_ZNK4llvm10AsmPrinter11emitLinkageEPKNS_11GlobalValueEPNS_8MCSymbo
 declare void @_ZN4llvm10AsmPrinter18emitFunctionHeaderEv(ptr noundef nonnull align 8 dereferenceable(785)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter25emitFunctionHeaderCommentEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter25emitFunctionHeaderCommentEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1040) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::optional.588", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
@@ -8019,7 +8019,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionEKNS_8ConstantEEEDaPT0_.exit.thread: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117AArch64AsmPrinter49shouldEmitWeakSwiftAsyncExtendedFramePointerFlagsEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1040) %0) unnamed_addr #11 align 2 {
+define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117AArch64AsmPrinter49shouldEmitWeakSwiftAsyncExtendedFramePointerFlagsEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1040) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 928
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -11251,7 +11251,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %1, %6
 declare noundef i32 @_ZNK4llvm10AsmPrinter25getFunctionCFISectionTypeERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(785), ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter21emitPtrauthAuthResignEPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter21emitPtrauthAuthResignEPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.llvm::MCInst", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -12112,7 +12112,7 @@ _ZN4llvm6MCInstD2Ev.exit147:                      ; preds = %_ZN4llvm6MCInstD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter22LowerLOADauthptrstaticERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture readonly %.32.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter22LowerLOADauthptrstaticERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr readonly captures(none) %.32.val) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::MachineOperand", align 8
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = alloca %"class.llvm::MCOperand", align 8
@@ -12323,7 +12323,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit36:               ; preds = %_ZN4llvm13MCInstBui
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture readonly %.32.val, i16 %.68.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter15LowerMOVaddrPACERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr readonly captures(none) %.32.val, i16 %.68.val) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::MachineOperand", align 8
   %3 = alloca %"class.llvm::MachineOperand", align 8
   %4 = alloca %"class.llvm::MCOperand", align 8
@@ -13487,7 +13487,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit225:              ; preds = %501, %506
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter17emitPtrauthBranchEPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture readonly %.32.val, i16 %.68.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter17emitPtrauthBranchEPKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr readonly captures(none) %.32.val, i16 %.68.val) unnamed_addr #0 align 2 {
   %2 = alloca i32, align 4
   %3 = alloca %"class.llvm::MCInst", align 8
   store i32 0, ptr %2, align 4
@@ -13601,7 +13601,7 @@ _ZN4llvm6MCInstD2Ev.exit:                         ; preds = %50, %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter24LowerHardenedBRJumpTableERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture readonly %.32.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter24LowerHardenedBRJumpTableERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr readonly captures(none) %.32.val) unnamed_addr #0 align 2 {
   %.sroa.023 = alloca { i32, %union.anon.807, ptr }, align 8
   %.sroa.4 = alloca [12 x i8], align 4
   %2 = alloca %"class.llvm::MCInstBuilder", align 8
@@ -15395,7 +15395,7 @@ _ZN4llvm13MCInstBuilderD2Ev.exit29:               ; preds = %_ZN4llvm13MCInstBui
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter16LowerFAULTING_OPERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117AArch64AsmPrinter16LowerFAULTING_OPERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(70) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::MCInst", align 8
   %4 = alloca %"class.llvm::MCOperand", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -17853,7 +17853,7 @@ declare void @_ZN4llvm11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 1, 0) i32 @_ZN12_GLOBAL__N_117AArch64AsmPrinter24emitPtrauthDiscriminatorEtjRj(ptr noundef nonnull align 8 dereferenceable(1040) %0, i16 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef range(i32 1, 0) i32 @_ZN12_GLOBAL__N_117AArch64AsmPrinter24emitPtrauthDiscriminatorEtjRj(ptr noundef nonnull align 8 dereferenceable(1040) %0, i16 noundef zeroext %1, i32 noundef %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MCInstBuilder", align 8
   %6 = alloca %"class.llvm::MCInstBuilder", align 8
   %7 = alloca %"class.llvm::MCInstBuilder", align 8
@@ -18235,7 +18235,7 @@ _ZSt4copyIPKN4llvm9MCOperandEPS1_ET0_T_S6_S5_.exit31: ; preds = %20, %19, %15
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 declare noundef zeroext i1 @_ZNK4llvm6Triple11isArch32BitEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
@@ -19697,7 +19697,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %23, %22, %20, %_ZN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter18printAsmRegInClassERKN4llvm14MachineOperandEPKNS1_19TargetRegisterClassEjRNS1_11raw_ostreamE(ptr %.920.val, i32 %.4.val, ptr nocapture readonly %.0.val.0.val, i32 noundef range(i32 0, 3) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter18printAsmRegInClassERKN4llvm14MachineOperandEPKNS1_19TargetRegisterClassEjRNS1_11raw_ostreamE(ptr %.920.val, i32 %.4.val, ptr readonly captures(none) %.0.val.0.val, i32 noundef range(i32 0, 3) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %.920.val, i64 936
   %4 = getelementptr inbounds nuw i8, ptr %.920.val, i64 1032
   %5 = load ptr, ptr %4, align 8
@@ -19849,16 +19849,16 @@ __cxx_global_var_init.exit:                       ; preds = %0, %13
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #17
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #20

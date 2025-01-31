@@ -973,7 +973,7 @@ return:                                           ; preds = %entry, %err, %if.en
 declare i32 @OSSL_CMP_CTX_set1_oldCert(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_exec_RR_ses_test(ptr nocapture noundef nonnull readonly %fixt) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_exec_RR_ses_test(ptr noundef nonnull readonly captures(none) %fixt) unnamed_addr #0 {
 entry:
   %cmp_ctx = getelementptr inbounds nuw i8, ptr %fixt, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
@@ -1099,7 +1099,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @OSSL_CMP_SRV_CTX_set_grant_implicit_confirm(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_exec_certrequest_ses_test(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_exec_certrequest_ses_test(ptr noundef nonnull readonly captures(none) %fixture) unnamed_addr #0 {
 entry:
   %cmp_ctx = getelementptr inbounds nuw i8, ptr %fixture, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
@@ -1393,7 +1393,7 @@ declare i32 @OSSL_CMP_CTX_set1_p10CSR(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @OSSL_CMP_CTX_set_certConf_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @test_certConf_cb(ptr noundef %ctx, ptr nocapture readnone %cert, i32 noundef %fail_info, ptr nocapture noundef writeonly %txt) #0 {
+define internal noundef i32 @test_certConf_cb(ptr noundef %ctx, ptr readnone captures(none) %cert, i32 noundef %fail_info, ptr noundef writeonly captures(none) %txt) #0 {
 entry:
   %call = tail call ptr @OSSL_CMP_CTX_get_certConf_cb_arg(ptr noundef %ctx) #4
   %0 = load i32, ptr %call, align 4
@@ -1480,7 +1480,7 @@ return:                                           ; preds = %entry, %execute_exe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_exec_GENM_ses_test_single(ptr nocapture noundef nonnull readonly %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_exec_GENM_ses_test_single(ptr noundef nonnull readonly captures(none) %fixture) unnamed_addr #0 {
 entry:
   %cmp_ctx = getelementptr inbounds nuw i8, ptr %fixture, i64 8
   %0 = load ptr, ptr %cmp_ctx, align 8
@@ -1537,10 +1537,10 @@ declare i32 @ossl_cmp_exchange_certConf(ptr noundef, i32 noundef, i32 noundef, p
 declare i32 @ossl_cmp_exchange_error(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

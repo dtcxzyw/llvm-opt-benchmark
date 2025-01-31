@@ -229,13 +229,13 @@ define dso_local noundef range(i32 -17, 1) i32 @svc_reg_xprt_class(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @svc_unreg_xprt_class(ptr noundef %0) #0 align 16 {
@@ -297,13 +297,13 @@ define dso_local i32 @svc_print_xprts(ptr noundef initializes((0, 1)) %0, i32 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-declare dso_local ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare dso_local ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @svc_xprt_deferred_close(ptr noundef %0) #0 align 16 {
@@ -676,7 +676,7 @@ define dso_local void @svc_xprt_init(ptr noundef %0, ptr noundef %1, ptr noundef
 declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @svc_xprt_received(ptr noundef %0) #0 align 16 {
@@ -767,7 +767,7 @@ define dso_local i32 @svc_xprt_create(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
+define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef %5, ptr noundef %6) unnamed_addr #0 align 16 {
   %8 = alloca %struct.sockaddr_in, align 4
   %9 = alloca %struct.sockaddr_in6, align 4
   tail call void @_raw_spin_lock(ptr noundef nonnull @svc_xprt_class_lock) #18
@@ -940,7 +940,7 @@ define internal fastcc i32 @_svc_xprt_create(ptr noundef %0, ptr nocapture nound
 declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @svc_xprt_copy_addrs(ptr nocapture noundef writeonly initializes((176, 184), (312, 320)) %0, ptr nocapture noundef readonly %1) #8 align 16 {
+define dso_local void @svc_xprt_copy_addrs(ptr noundef writeonly captures(none) initializes((176, 184), (312, 320)) %0, ptr noundef readonly captures(none) %1) #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 272
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 400
@@ -1003,7 +1003,7 @@ declare dso_local ptr @svc_pool_for_cpu(ptr noundef) local_unnamed_addr #6
 declare dso_local void @svc_pool_wake_idle_thread(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @svc_reserve(ptr nocapture noundef %0, i32 noundef %1) #0 align 16 {
+define dso_local void @svc_reserve(ptr noundef captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -1033,7 +1033,7 @@ define dso_local void @svc_reserve(ptr nocapture noundef %0, i32 noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @svc_wake_up(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @svc_wake_up(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 184
@@ -1043,7 +1043,7 @@ define dso_local void @svc_wake_up(ptr nocapture noundef readonly %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 2) i32 @svc_port_is_privileged(ptr nocapture noundef readonly %0) local_unnamed_addr #10 align 16 {
+define dso_local range(i32 0, 2) i32 @svc_port_is_privileged(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 align 16 {
   %2 = load i16, ptr %0, align 2
   switch i16 %2, label %9 [
     i16 2, label %3
@@ -2903,7 +2903,7 @@ define dso_local ptr @svc_find_xprt(ptr noundef %0, ptr noundef readonly %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @svc_xprt_names(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @svc_xprt_names(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %40, label %5
 
@@ -3601,7 +3601,7 @@ declare dso_local ptr @lwq_dequeue_all(ptr noundef) local_unnamed_addr #6
 declare dso_local ptr @llist_reverse_order(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @svc_pool_stats_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal ptr @svc_pool_stats_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3637,7 +3637,7 @@ define internal ptr @svc_pool_stats_start(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @svc_pool_stats_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @svc_pool_stats_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3647,7 +3647,7 @@ define internal void @svc_pool_stats_stop(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal ptr @svc_pool_stats_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #17 align 16 {
+define internal ptr @svc_pool_stats_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #17 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

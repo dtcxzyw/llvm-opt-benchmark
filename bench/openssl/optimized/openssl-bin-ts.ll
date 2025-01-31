@@ -1471,7 +1471,7 @@ if.end34:                                         ; preds = %create_digest.exit
   br i1 %tobool36.not, label %if.then72, label %if.end38
 
 if.end38:                                         ; preds = %if.end34
-  %call39 = call i32 @TS_REQ_set_msg_imprint(ptr noundef %call2, ptr noundef nonnull %call9) #7
+  %call39 = call i32 @TS_REQ_set_msg_imprint(ptr noundef nonnull %call2, ptr noundef nonnull %call9) #7
   %tobool40.not = icmp eq i32 %call39, 0
   br i1 %tobool40.not, label %if.then72, label %if.end42
 
@@ -1485,7 +1485,7 @@ land.lhs.true44:                                  ; preds = %if.end42
   br i1 %cmp46, label %if.then72, label %land.lhs.true50
 
 land.lhs.true50:                                  ; preds = %land.lhs.true44
-  %call51 = call i32 @TS_REQ_set_policy_id(ptr noundef %call2, ptr noundef nonnull %call45) #7
+  %call51 = call i32 @TS_REQ_set_policy_id(ptr noundef nonnull %call2, ptr noundef nonnull %call45) #7
   %tobool52.not = icmp eq i32 %call51, 0
   br i1 %tobool52.not, label %if.then72, label %if.end54
 
@@ -1500,13 +1500,13 @@ land.lhs.true56:                                  ; preds = %if.end54
   br i1 %cmp58, label %if.then72, label %land.lhs.true62
 
 land.lhs.true62:                                  ; preds = %land.lhs.true56
-  %call63 = call i32 @TS_REQ_set_nonce(ptr noundef %call2, ptr noundef nonnull %call57) #7
+  %call63 = call i32 @TS_REQ_set_nonce(ptr noundef nonnull %call2, ptr noundef nonnull %call57) #7
   %tobool64.not = icmp eq i32 %call63, 0
   br i1 %tobool64.not, label %if.then72, label %err
 
 err:                                              ; preds = %if.end54, %land.lhs.true62
   %nonce_asn1.137 = phi ptr [ %call57, %land.lhs.true62 ], [ null, %if.end54 ]
-  %call67 = call i32 @TS_REQ_set_cert_req(ptr noundef %call2, i32 noundef %cert) #7
+  %call67 = call i32 @TS_REQ_set_cert_req(ptr noundef nonnull %call2, i32 noundef %cert) #7
   %tobool68.not = icmp eq i32 %call67, 0
   br i1 %tobool68.not, label %if.then72, label %if.end74
 
@@ -1686,7 +1686,7 @@ declare i32 @RAND_bytes(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @ASN1_INTEGER_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 declare ptr @d2i_TS_RESP_bio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1889,7 +1889,7 @@ declare i32 @TS_RESP_verify_token(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @TS_RESP_verify_response(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare void @TS_VERIFY_CTX_free(ptr noundef) local_unnamed_addr #1
 
@@ -1918,7 +1918,7 @@ declare ptr @X509_STORE_new() local_unnamed_addr #1
 declare void @X509_STORE_set_verify_cb(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @verify_cb(i32 noundef returned %ok, ptr nocapture readnone %ctx) #4 {
+define internal noundef i32 @verify_cb(i32 noundef returned %ok, ptr readnone captures(none) %ctx) #4 {
 entry:
   ret i32 %ok
 }
@@ -1940,13 +1940,13 @@ declare i32 @X509_STORE_set1_param(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #5
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

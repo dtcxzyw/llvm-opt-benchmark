@@ -118,7 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [13 x i8] c"disconnected\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @usage(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define hidden void @usage(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @.str, ptr noundef %0) #15
   %4 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 9, i64 1, ptr %1)
   %5 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 76, i64 1, ptr %1)
@@ -147,10 +147,10 @@ define hidden void @usage(ptr noundef %0, ptr nocapture noundef %1) local_unname
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @main(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.sockaddr_in, align 4
   %4 = alloca [101 x i8], align 16
   %5 = alloca ptr, align 8
@@ -178,7 +178,7 @@ sub_0.preheader:                                  ; preds = %hwloc_utils_check_a
 
 15:                                               ; preds = %2
   %16 = load ptr, ptr @stderr, align 8
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.59, ptr noundef %.085, i32 noundef 196608, i32 noundef %11) #17
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.59, ptr noundef nonnull %.085, i32 noundef 196608, i32 noundef %11) #17
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -374,14 +374,14 @@ sub_1166:                                         ; preds = %.tail159.thread.thr
 
 75:                                               ; preds = %73
   %76 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr noundef %.085, ptr noundef %76)
+  tail call void @usage(ptr noundef nonnull %.085, ptr noundef %76)
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
 77:                                               ; preds = %73
   %78 = getelementptr inbounds nuw i8, ptr %.095232, i64 8
   %79 = load ptr, ptr %78, align 8
-  %80 = tail call i64 @strtol(ptr nocapture noundef %79, ptr noundef null, i32 noundef 10) #15
+  %80 = tail call i64 @strtol(ptr noundef captures(none) %79, ptr noundef null, i32 noundef 10) #15
   store i64 %80, ptr @only_pid, align 8
   br label %hwloc_utils_check_api_version.exit
 
@@ -396,14 +396,14 @@ sub_1166:                                         ; preds = %.tail159.thread.thr
 
 85:                                               ; preds = %83
   %86 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr noundef %.085, ptr noundef %86)
+  tail call void @usage(ptr noundef nonnull %.085, ptr noundef %86)
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
 87:                                               ; preds = %83
   %88 = getelementptr inbounds nuw i8, ptr %.095232, i64 8
   %89 = load ptr, ptr %88, align 8
-  %90 = tail call i64 @strtol(ptr nocapture noundef %89, ptr noundef null, i32 noundef 10) #15
+  %90 = tail call i64 @strtol(ptr noundef captures(none) %89, ptr noundef null, i32 noundef 10) #15
   store i64 %90, ptr @children_of_pid, align 8
   br label %hwloc_utils_check_api_version.exit
 
@@ -418,7 +418,7 @@ sub_1166:                                         ; preds = %.tail159.thread.thr
 
 95:                                               ; preds = %93
   %96 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr noundef %.085, ptr noundef %96)
+  tail call void @usage(ptr noundef nonnull %.085, ptr noundef %96)
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -439,7 +439,7 @@ sub_1166:                                         ; preds = %.tail159.thread.thr
 
 104:                                              ; preds = %102
   %105 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr noundef %.085, ptr noundef %105)
+  tail call void @usage(ptr noundef nonnull %.085, ptr noundef %105)
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -451,7 +451,7 @@ sub_1166:                                         ; preds = %.tail159.thread.thr
   br i1 %.not127, label %113, label %110
 
 110:                                              ; preds = %106
-  %111 = tail call i32 @atoi(ptr noundef %108) #16
+  %111 = tail call i32 @atoi(ptr noundef nonnull %108) #16
   %112 = sext i32 %111 to i64
   br label %113
 
@@ -481,7 +481,7 @@ sub_1166:                                         ; preds = %.tail159.thread.thr
 
 122:                                              ; preds = %120
   %123 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr noundef %.085, ptr noundef %123)
+  tail call void @usage(ptr noundef nonnull %.085, ptr noundef %123)
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -501,7 +501,7 @@ sub_1166:                                         ; preds = %.tail159.thread.thr
 
 131:                                              ; preds = %129
   %132 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr noundef %.085, ptr noundef %132)
+  tail call void @usage(ptr noundef nonnull %.085, ptr noundef %132)
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -563,7 +563,7 @@ sub_0170:                                         ; preds = %129
 
 158:                                              ; preds = %156
   %159 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr noundef %.085, ptr noundef %159)
+  tail call void @usage(ptr noundef nonnull %.085, ptr noundef %159)
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -615,7 +615,7 @@ sub_1175:                                         ; preds = %sub_0174
   br i1 %.not140, label %179, label %sub_0179
 
 179:                                              ; preds = %177
-  %180 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef %.085, ptr noundef nonnull @.str.55)
+  %180 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.54, ptr noundef nonnull %.085, ptr noundef nonnull @.str.55)
   tail call void @exit(i32 noundef 0) #20
   unreachable
 
@@ -641,7 +641,7 @@ sub_1180:                                         ; preds = %sub_0179
 
 187:                                              ; preds = %.tail178.thread, %.tail178
   %188 = load ptr, ptr @stdout, align 8
-  tail call void @usage(ptr noundef %.085, ptr noundef %188)
+  tail call void @usage(ptr noundef nonnull %.085, ptr noundef %188)
   tail call void @exit(i32 noundef 0) #20
   unreachable
 
@@ -649,7 +649,7 @@ sub_1180:                                         ; preds = %sub_0179
   %190 = load ptr, ptr @stderr, align 8
   %191 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %190, ptr noundef nonnull @.str.58, ptr noundef nonnull %18) #17
   %192 = load ptr, ptr @stderr, align 8
-  tail call void @usage(ptr noundef %.085, ptr noundef %192)
+  tail call void @usage(ptr noundef nonnull %.085, ptr noundef %192)
   tail call void @exit(i32 noundef 1) #18
   unreachable
 
@@ -973,22 +973,22 @@ declare i32 @getuid() local_unnamed_addr #3
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
@@ -997,7 +997,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @hwloc_topology_init(ptr noundef) local_unnamed_addr #9
 
@@ -1125,7 +1125,7 @@ print_process.exit:                               ; preds = %52, %35, %31, %34, 
 declare void @hwloc_topology_destroy(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @hwloc_get_api_version() local_unnamed_addr #9
 
@@ -1133,7 +1133,7 @@ declare i32 @hwloc_get_api_version() local_unnamed_addr #9
 declare i32 @socket(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #1
+declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #8
@@ -1149,16 +1149,16 @@ declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #3
 declare i32 @accept(i32 noundef, ptr, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fdopen(i32 noundef, ptr nocapture noundef readonly) local_unnamed_addr #1
+declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noundef i64 @read(i32 noundef, ptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
+declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 declare i32 @hwloc_ps_foreach_child(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
@@ -1597,12 +1597,12 @@ declare i32 @hwloc_bitmap_isincluded(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @hwloc_get_obj_by_depth(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #1
 
 declare i32 @hwloc_bitmap_asprintf(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @print_task(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #2 {
@@ -1837,19 +1837,19 @@ declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #9
 declare i32 @hwloc_bitmap_intersects(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #12
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

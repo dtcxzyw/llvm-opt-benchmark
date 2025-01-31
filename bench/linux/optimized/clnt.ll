@@ -529,16 +529,16 @@ define dso_local ptr @rpc_create(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @xprt_get(ptr noundef) local_unnamed_addr #1
@@ -810,7 +810,7 @@ define internal fastcc ptr @rpc_create_xprt(ptr noundef %0, ptr noundef %1) unna
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare dso_local noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @xprt_create_transport(ptr noundef) local_unnamed_addr #1
@@ -1646,7 +1646,7 @@ define dso_local void @rpc_release_client(ptr noundef %0) #0 align 16 {
 declare dso_local void @xprt_switch_put(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpc_clnt_iterate_for_each_xprt(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @rpc_clnt_iterate_for_each_xprt(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.rpc_xprt_iter, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #20
   tail call void @__rcu_read_lock() #20
@@ -1768,7 +1768,7 @@ define dso_local void @rpc_killall_tasks(ptr noundef %0) #0 align 16 {
 declare dso_local void @rpc_signal_task(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @rpc_cancel_tasks(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) #0 align 16 {
+define dso_local i64 @rpc_cancel_tasks(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %5
@@ -1826,7 +1826,7 @@ define dso_local void @rpc_clnt_disconnect(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @rpc_clnt_disconnect_xprt(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal noundef i32 @rpc_clnt_disconnect_xprt(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1032
   %5 = load volatile i64, ptr %4, align 8
   %6 = and i64 %5, 2
@@ -2069,7 +2069,7 @@ define dso_local noundef ptr @rpc_task_get_xprt(ptr noundef %0, ptr noundef retu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpc_task_release_transport(ptr nocapture noundef %0) #0 align 16 {
+define dso_local void @rpc_task_release_transport(ptr noundef captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -2102,7 +2102,7 @@ define dso_local void @rpc_task_release_transport(ptr nocapture noundef %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpc_task_release_client(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
+define dso_local void @rpc_task_release_client(ptr noundef captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -2302,7 +2302,7 @@ define dso_local ptr @rpc_run_task(ptr noundef %0) #0 align 16 {
 declare dso_local ptr @rpc_new_task(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @rpc_call_start(ptr nocapture noundef writeonly initializes((32, 40)) %0) #6 align 16 {
+define dso_local void @rpc_call_start(ptr noundef writeonly captures(none) initializes((32, 40)) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @call_start, ptr %2, align 8
   ret void
@@ -2607,7 +2607,7 @@ __rpc_call_rpcerror.exit:                         ; preds = %34, %35, %48, %52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @rpc_peeraddr(ptr noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #0 align 16 {
+define dso_local i64 @rpc_peeraddr(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 align 16 {
   tail call void @__rcu_read_lock() #20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load volatile ptr, ptr %4, align 8
@@ -2881,7 +2881,7 @@ define dso_local void @rpc_force_rebind(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @rpc_restart_call(ptr nocapture noundef writeonly initializes((4, 8), (32, 40), (212, 216)) %0) #6 align 16 {
+define dso_local noundef i32 @rpc_restart_call(ptr noundef writeonly captures(none) initializes((4, 8), (32, 40), (212, 216)) %0) #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -2892,7 +2892,7 @@ define dso_local noundef i32 @rpc_restart_call(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @rpc_restart_call_prepare(ptr nocapture noundef initializes((4, 8), (32, 40), (212, 216)) %0) #8 align 16 {
+define dso_local noundef i32 @rpc_restart_call_prepare(ptr noundef captures(none) initializes((4, 8), (32, 40), (212, 216)) %0) #8 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -2911,7 +2911,7 @@ define dso_local noundef i32 @rpc_restart_call_prepare(ptr nocapture noundef ini
 declare dso_local void @rpc_prepare_task(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local nonnull ptr @rpc_proc_name(ptr nocapture noundef readonly %0) local_unnamed_addr #9 align 16 {
+define dso_local nonnull ptr @rpc_proc_name(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -3073,7 +3073,7 @@ define internal void @rpc_cb_add_xprt_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 2) i32 @rpc_clnt_setup_test_and_add_xprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local range(i32 -2147483648, 2) i32 @rpc_clnt_setup_test_and_add_xprt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3) #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   %6 = alloca %struct.rpc_task_setup, align 8
   %7 = tail call ptr @xprt_get(ptr noundef %2) #20
@@ -3156,7 +3156,7 @@ declare dso_local void @rpc_xprt_switch_set_roundrobin(ptr noundef) local_unname
 declare dso_local void @rpc_xprt_switch_add_xprt(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rpc_clnt_probe_trunked_xprts(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @rpc_clnt_probe_trunked_xprts(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = alloca %struct.rpc_message, align 8
   %4 = alloca %struct.rpc_task_setup, align 8
   %5 = alloca %struct.rpc_xprt_iter, align 8
@@ -3357,7 +3357,7 @@ define dso_local void @rpc_clnt_manage_trunked_xprts(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -4, 2) i32 @rpc_xprt_offline(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 align 16 {
+define internal range(i32 -4, 2) i32 @rpc_xprt_offline(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 align 16 {
   %4 = tail call ptr @xprt_get(ptr noundef %1) #20
   tail call void @__rcu_read_lock() #20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3592,7 +3592,7 @@ define dso_local void @rpc_clnt_xprt_switch_remove_xprt(ptr noundef %0, ptr noun
 declare dso_local void @rpc_xprt_switch_remove_xprt(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rpc_pipefs_event(ptr nocapture readnone %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
+define internal i32 @rpc_pipefs_event(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 872
   %5 = trunc i64 %1 to i32
   %6 = load ptr, ptr %4, align 8
@@ -4241,12 +4241,12 @@ declare dso_local void @ida_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare dso_local i32 @__SCT__tp_func_rpc_clnt_new_err(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @rpcproc_encode_null(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #15 align 16 {
+define internal void @rpcproc_encode_null(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #15 align 16 {
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @rpc_null_call_prepare(ptr nocapture noundef initializes((32, 40)) %0, ptr nocapture readnone %1) #16 align 16 {
+define internal void @rpc_null_call_prepare(ptr noundef captures(none) initializes((32, 40)) %0, ptr readnone captures(none) %1) #16 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -16385
@@ -4257,7 +4257,7 @@ define internal void @rpc_null_call_prepare(ptr nocapture noundef initializes((3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal void @rpc_default_callback(ptr nocapture readnone %0, ptr nocapture readnone %1) #15 align 16 {
+define internal void @rpc_default_callback(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #15 align 16 {
   ret void
 }
 
@@ -8086,7 +8086,7 @@ declare dso_local i32 @__SCT__tp_func_rpc_refresh_status(ptr noundef, ptr nounde
 declare dso_local void @xprt_retry_reserve(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef i32 @rpcproc_decode_null(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #15 align 16 {
+define internal noundef i32 @rpcproc_decode_null(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #15 align 16 {
   ret i32 0
 }
 
@@ -8094,7 +8094,7 @@ define internal noundef i32 @rpcproc_decode_null(ptr nocapture readnone %0, ptr 
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rpc_cb_add_xprt_done(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @rpc_cb_add_xprt_done(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
@@ -8136,7 +8136,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #17
 declare i32 @llvm.umax.i32(i32, i32) #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #17

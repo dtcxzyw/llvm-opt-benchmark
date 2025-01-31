@@ -281,7 +281,7 @@ check_expected_areq.exit:                         ; preds = %.thread.i
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %97 = load ptr, ptr %96, align 8
   %98 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #11
-  %99 = call zeroext i1 @pg_md5_encrypt(ptr noundef nonnull %.050, ptr noundef %97, i64 noundef %98, ptr noundef %95, ptr noundef nonnull %14) #9
+  %99 = call zeroext i1 @pg_md5_encrypt(ptr noundef nonnull %.050, ptr noundef nonnull %97, i64 noundef %98, ptr noundef %95, ptr noundef nonnull %14) #9
   br i1 %99, label %102, label %100
 
 100:                                              ; preds = %94
@@ -426,7 +426,7 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
 
 156:                                              ; preds = %155, %151, %145
   %.1.i41 = phi ptr [ %.04365.i, %145 ], [ %.04365.i, %151 ], [ @.str.40, %155 ]
-  %157 = call i32 @pqGets(ptr noundef nonnull %12, ptr noundef %2) #9
+  %157 = call i32 @pqGets(ptr noundef nonnull %12, ptr noundef nonnull %2) #9
   %.not47.i = icmp eq i32 %157, 0
   br i1 %.not47.i, label %132, label %._crit_edge.i
 
@@ -435,7 +435,7 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   br i1 %.not48.i, label %159, label %160
 
 159:                                              ; preds = %158
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %2, ptr noundef nonnull @.str.41) #9
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.41) #9
   br label %216
 
 160:                                              ; preds = %158
@@ -558,7 +558,7 @@ pg_password_sendauth.exit:                        ; preds = %88, %102
   %218 = phi ptr [ %.pre.i, %..loopexit_crit_edge.i ], [ null, %132 ]
   call void @termPQExpBuffer(ptr noundef nonnull %12) #9
   call void @free(ptr noundef %218) #9
-  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef %2, ptr noundef nonnull @.str.11) #9
+  call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %2, ptr noundef nonnull @.str.11) #9
   br label %pg_SASL_init.exit.thread
 
 pg_SASL_init.exit.thread:                         ; preds = %216, %.loopexit.i
@@ -757,7 +757,7 @@ declare zeroext i1 @pg_get_user_name(i32 noundef, ptr noundef, i64 noundef) loca
 declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #2
+declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 declare void @libpq_append_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -807,7 +807,7 @@ define noundef ptr @PQencryptPassword(ptr noundef %0, ptr noundef %1) local_unna
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %7 = call zeroext i1 @pg_md5_encrypt(ptr noundef %0, ptr noundef %1, i64 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
+  %7 = call zeroext i1 @pg_md5_encrypt(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %6, ptr noundef nonnull %4, ptr noundef nonnull %3) #9
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %5
@@ -825,10 +825,10 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare zeroext i1 @pg_md5_encrypt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #5
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define ptr @PQencryptPasswordConn(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
@@ -949,7 +949,7 @@ sub_1:                                            ; preds = %sub_0
 51:                                               ; preds = %49
   store ptr null, ptr %7, align 8
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #11
-  %53 = call zeroext i1 @pg_md5_encrypt(ptr noundef %1, ptr noundef %2, i64 noundef %52, ptr noundef nonnull %50, ptr noundef nonnull %7) #9
+  %53 = call zeroext i1 @pg_md5_encrypt(ptr noundef %1, ptr noundef nonnull %2, i64 noundef %52, ptr noundef nonnull %50, ptr noundef nonnull %7) #9
   br i1 %53, label %58, label %54
 
 54:                                               ; preds = %51
@@ -986,10 +986,10 @@ declare i32 @PQnfields(ptr noundef) local_unnamed_addr #1
 declare ptr @PQgetvalue(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @pg_fe_scram_build_secret(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1009,7 +1009,7 @@ define ptr @PQchangePassword(ptr noundef %0, ptr noundef %1, ptr noundef %2) loc
 
 9:                                                ; preds = %6
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
-  %11 = tail call ptr @PQescapeIdentifier(ptr noundef %0, ptr noundef %1, i64 noundef %10) #9
+  %11 = tail call ptr @PQescapeIdentifier(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %10) #9
   %.not25 = icmp eq ptr %11, null
   br i1 %.not25, label %12, label %13
 
@@ -1063,10 +1063,10 @@ declare i32 @pqPutMsgEnd(ptr noundef) local_unnamed_addr #1
 declare i32 @pqFlush(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -304,7 +304,7 @@ define range(i32 0, 27) i32 @cli_scanelf(ptr noundef %0) local_unnamed_addr #0 {
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 23) i32 @cli_elf_fileheader(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 23) i32 @cli_elf_fileheader(ptr noundef %0, ptr noundef %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
@@ -539,7 +539,7 @@ fmap_readn.exit236.thread:                        ; preds = %49, %46, %fmap_read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef nonnull readonly %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = load i16, ptr %6, align 8
   %8 = zext i16 %7 to i32
@@ -892,7 +892,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr nocapture noundef nonnull readonly %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
@@ -1246,7 +1246,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
@@ -1520,7 +1520,7 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i16, ptr %6, align 4
   %8 = zext i16 %7 to i32
@@ -1789,7 +1789,7 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 27) i32 @cli_elfheader(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_elfheader(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %union.elf_file_hdr, align 8
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -1948,17 +1948,17 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @cli_bytecode_context_destroy(ptr noundef) local_unnamed_addr #1
 
 declare i32 @cli_append_potentially_unwanted(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
@@ -2068,7 +2068,7 @@ define internal fastcc void @cli_elf_sectionlog(i32 noundef %0, i32 noundef rang
 }
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #6
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.bswap.i16(i16) #7

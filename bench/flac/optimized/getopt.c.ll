@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [16 x i8] c"POSIXLY_CORRECT\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @share___getopt_internal(i32 noundef %argc, ptr nocapture noundef %argv, ptr noundef readonly %optstring, ptr noundef readonly %longopts, ptr noundef writeonly %longind, i32 noundef %long_only) local_unnamed_addr #0 {
+define dso_local i32 @share___getopt_internal(i32 noundef %argc, ptr noundef captures(none) %argv, ptr noundef readonly %optstring, ptr noundef readonly %longopts, ptr noundef writeonly %longind, i32 noundef %long_only) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr @share__optarg, align 8
   %0 = load i32, ptr @share__optind, align 4
@@ -1150,26 +1150,26 @@ return:                                           ; preds = %if.end503, %if.end2
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
 declare ptr @gettext(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @share__getopt(i32 noundef %argc, ptr nocapture noundef %argv, ptr noundef %optstring) local_unnamed_addr #0 {
+define dso_local i32 @share__getopt(i32 noundef %argc, ptr noundef captures(none) %argv, ptr noundef %optstring) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @share___getopt_internal(i32 noundef %argc, ptr noundef %argv, ptr noundef %optstring, ptr noundef null, ptr noundef null, i32 noundef 0)
   ret i32 %call
 }
 
 ; Function Attrs: nofree nounwind memory(read)
-declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

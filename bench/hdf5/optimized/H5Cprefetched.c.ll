@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5C__prefetched_entry_fsf_size = private unnamed_addr constant [31 x i8] c"H5C__prefetched_entry_fsf_size\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5C__prefetched_entry_get_initial_load_size(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @H5C__prefetched_entry_get_initial_load_size(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load i64, ptr @H5E_CACHE_g, align 8
   %4 = load i64, ptr @H5E_SYSTEM_g, align 8
   %5 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__prefetched_entry_get_initial_load_size, i32 noundef 120, i64 noundef %3, i64 noundef %4, ptr noundef nonnull @.str.2) #2
@@ -39,7 +39,7 @@ define internal noundef i32 @H5C__prefetched_entry_get_initial_load_size(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5C__prefetched_entry_get_final_load_size(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @H5C__prefetched_entry_get_final_load_size(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = load i64, ptr @H5E_CACHE_g, align 8
   %6 = load i64, ptr @H5E_SYSTEM_g, align 8
   %7 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__prefetched_entry_get_final_load_size, i32 noundef 132, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.2) #2
@@ -47,7 +47,7 @@ define internal noundef i32 @H5C__prefetched_entry_get_final_load_size(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5C__prefetched_entry_verify_chksum(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @H5C__prefetched_entry_verify_chksum(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2) #0 {
   %4 = load i64, ptr @H5E_CACHE_g, align 8
   %5 = load i64, ptr @H5E_SYSTEM_g, align 8
   %6 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__prefetched_entry_verify_chksum, i32 noundef 143, i64 noundef %4, i64 noundef %5, ptr noundef nonnull @.str.2) #2
@@ -55,7 +55,7 @@ define internal noundef i32 @H5C__prefetched_entry_verify_chksum(ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @H5C__prefetched_entry_deserialize(ptr nocapture readnone %0, i64 %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #0 {
+define internal noalias noundef ptr @H5C__prefetched_entry_deserialize(ptr readnone captures(none) %0, i64 %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = load i64, ptr @H5E_CACHE_g, align 8
   %6 = load i64, ptr @H5E_SYSTEM_g, align 8
   %7 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__prefetched_entry_deserialize, i32 noundef 154, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.2) #2
@@ -63,7 +63,7 @@ define internal noalias noundef ptr @H5C__prefetched_entry_deserialize(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5C__prefetched_entry_image_len(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @H5C__prefetched_entry_image_len(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load i64, ptr @H5E_CACHE_g, align 8
   %4 = load i64, ptr @H5E_SYSTEM_g, align 8
   %5 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__prefetched_entry_image_len, i32 noundef 164, i64 noundef %3, i64 noundef %4, ptr noundef nonnull @.str.2) #2
@@ -71,7 +71,7 @@ define internal noundef i32 @H5C__prefetched_entry_image_len(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5C__prefetched_entry_pre_serialize(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, i64 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #0 {
+define internal noundef i32 @H5C__prefetched_entry_pre_serialize(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, i64 %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
   %8 = load i64, ptr @H5E_CACHE_g, align 8
   %9 = load i64, ptr @H5E_SYSTEM_g, align 8
   %10 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__prefetched_entry_pre_serialize, i32 noundef 177, i64 noundef %8, i64 noundef %9, ptr noundef nonnull @.str.2) #2
@@ -79,7 +79,7 @@ define internal noundef i32 @H5C__prefetched_entry_pre_serialize(ptr nocapture r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5C__prefetched_entry_serialize(ptr nocapture readnone %0, ptr nocapture readnone %1, i64 %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @H5C__prefetched_entry_serialize(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 %2, ptr readnone captures(none) %3) #0 {
   %5 = load i64, ptr @H5E_CACHE_g, align 8
   %6 = load i64, ptr @H5E_SYSTEM_g, align 8
   %7 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__prefetched_entry_serialize, i32 noundef 188, i64 noundef %5, i64 noundef %6, ptr noundef nonnull @.str.2) #2
@@ -191,7 +191,7 @@ define internal range(i32 -1, 1) i32 @H5C__prefetched_entry_free_icr(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5C__prefetched_entry_fsf_size(ptr nocapture readnone %0, ptr nocapture readnone %1) #0 {
+define internal noundef i32 @H5C__prefetched_entry_fsf_size(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #0 {
   %3 = load i64, ptr @H5E_CACHE_g, align 8
   %4 = load i64, ptr @H5E_SYSTEM_g, align 8
   %5 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5C__prefetched_entry_fsf_size, i32 noundef 315, i64 noundef %3, i64 noundef %4, ptr noundef nonnull @.str.2) #2

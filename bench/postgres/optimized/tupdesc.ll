@@ -42,7 +42,7 @@ define dso_local noundef ptr @CreateTemplateTupleDesc(i32 noundef %0) local_unna
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @CreateTupleDesc(i32 noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @CreateTupleDesc(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
   %4 = mul nsw i64 %3, 104
   %5 = add nsw i64 %4, 24
@@ -79,10 +79,10 @@ define dso_local noundef ptr @CreateTupleDesc(i32 noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @CreateTupleDescCopy(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @CreateTupleDescCopy(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = sext i32 %2 to i64
   %4 = mul nsw i64 %3, 104
@@ -127,7 +127,7 @@ define dso_local noundef ptr @CreateTupleDescCopy(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @CreateTupleDescCopyConstr(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %0, align 8
@@ -339,7 +339,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @TupleDescCopy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define dso_local void @TupleDescCopy(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = load i32, ptr %1, align 8
   %4 = sext i32 %3 to i64
   %5 = mul nsw i64 %4, 104
@@ -371,7 +371,7 @@ define dso_local void @TupleDescCopy(ptr nocapture noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @TupleDescCopyEntry(ptr nocapture noundef writeonly %0, i16 noundef signext %1, ptr nocapture noundef readonly %2, i16 noundef signext %3) local_unnamed_addr #4 {
+define dso_local void @TupleDescCopyEntry(ptr noundef writeonly captures(none) %0, i16 noundef signext %1, ptr noundef readonly captures(none) %2, i16 noundef signext %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = sext i16 %1 to i64
   %7 = add nsw i64 %6, -1
@@ -550,7 +550,7 @@ define dso_local void @DecrTupleDescRefCount(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @equalTupleDescs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @equalTupleDescs(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, %4
@@ -942,12 +942,12 @@ define dso_local noundef zeroext i1 @equalTupleDescs(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 declare zeroext i1 @datumIsEqual(i64 noundef, i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @hashTupleDesc(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i32 @hashTupleDesc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = tail call i32 @hash_bytes_uint32(i32 noundef %2) #11
   %4 = add i32 %3, -1640531527
@@ -1106,7 +1106,7 @@ define dso_local void @TupleDescInitEntry(ptr noundef %0, i16 noundef signext %1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -1194,7 +1194,7 @@ define dso_local void @TupleDescInitBuiltinEntry(ptr noundef %0, i16 noundef sig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @TupleDescInitEntryCollation(ptr nocapture noundef writeonly %0, i16 noundef signext %1, i32 noundef %2) local_unnamed_addr #8 {
+define dso_local void @TupleDescInitEntryCollation(ptr noundef writeonly captures(none) %0, i16 noundef signext %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = sext i16 %1 to i64
   %5 = mul nsw i64 %4, 104
   %6 = getelementptr i8, ptr %0, i64 20
@@ -1334,7 +1334,7 @@ list_length.exit:                                 ; preds = %4, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @TupleDescGetDefault(ptr nocapture noundef readonly %0, i16 noundef signext %1) local_unnamed_addr #0 {
+define dso_local ptr @TupleDescGetDefault(ptr noundef readonly captures(none) %0, i16 noundef signext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

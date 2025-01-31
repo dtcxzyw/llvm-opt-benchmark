@@ -24,7 +24,7 @@ define hidden void @register_tap_listener_protocolinfo() local_unnamed_addr #0 {
 declare void @register_stat_tap_ui(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @protocolinfo_init(ptr noundef %0, ptr nocapture readnone %1) #0 {
+define internal void @protocolinfo_init(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(15) @.str.1, ptr noundef nonnull dereferenceable(1) %0, i64 noundef 14) #7
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %.thread
@@ -68,7 +68,7 @@ define internal void @protocolinfo_init(ptr noundef %0, ptr nocapture readnone %
 20:                                               ; preds = %11
   %21 = tail call noalias ptr @g_malloc(i64 noundef %18) #10
   store ptr %21, ptr %12, align 8
-  %22 = tail call i64 @g_strlcpy(ptr noundef %21, ptr noundef %5, i64 noundef %18) #6
+  %22 = tail call i64 @g_strlcpy(ptr noundef %21, ptr noundef nonnull %5, i64 noundef %18) #6
   br label %24
 
 23:                                               ; preds = %11
@@ -96,7 +96,7 @@ define internal void @protocolinfo_init(ptr noundef %0, ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #2
+declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -119,7 +119,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @protocolinfo_packet(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, i32 %4) #0 {
+define internal noundef i32 @protocolinfo_packet(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 @col_get_writable(ptr noundef %7, i32 noundef 25) #6

@@ -235,7 +235,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
 define hidden noalias noundef ptr @_Z20mk_is_qfauflia_probev() local_unnamed_addr #3 {
@@ -378,7 +378,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_118arith_degree_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_118arith_degree_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -391,7 +391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal double @_ZN12_GLOBAL__N_118arith_degree_probeclERK4goal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal double @_ZN12_GLOBAL__N_118arith_degree_probeclERK4goal(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack.i.i.i = alloca %class.sbuffer, align 8
   %visited.i = alloca %class.obj_mark, align 8
@@ -1455,7 +1455,7 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EED2Ev.exit:   ; preds = %entry, %if.end.i.i.
 declare void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 
@@ -2259,7 +2259,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2744,7 +2744,7 @@ return:                                           ; preds = %if.end, %sw.epilog,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_114arith_bw_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_114arith_bw_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -2757,7 +2757,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal double @_ZN12_GLOBAL__N_114arith_bw_probeclERK4goal(ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal double @_ZN12_GLOBAL__N_114arith_bw_probeclERK4goal(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %is_int.i.i138.i.i.i = alloca i8, align 1
   %val.i139.i.i.i = alloca %class.rational, align 8
@@ -3655,7 +3655,7 @@ declare noundef i32 @_ZN11mpz_managerILb1EE7bitsizeERK3mpz(ptr noundef nonnull a
 declare void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_114is_qflia_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_114is_qflia_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -3668,7 +3668,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_114is_qflia_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_114is_qflia_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_qflira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -3687,7 +3687,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_Z4testIN12_GLOBAL__N_121is_non_qflira_functorEEbRK4goalRT_(ptr noundef nonnull align 8 dereferenceable(124) %g, ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %proc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_Z4testIN12_GLOBAL__N_121is_non_qflira_functorEEbRK4goalRT_(ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %proc) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %stack.i.i = alloca %class.sbuffer, align 8
   %visited = alloca %class.ast_fast_mark, align 8
@@ -4631,7 +4631,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(26) %this, ptr noundef %n) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121is_non_qflira_functorclEP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(26) %this, ptr noundef %n) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef %n)
@@ -4818,7 +4818,7 @@ entry:
 declare noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_117is_qfauflia_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_117is_qfauflia_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -4831,7 +4831,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_117is_qfauflia_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN12_GLOBAL__N_117is_qfauflia_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack.i.i.i.i = alloca %class.sbuffer, align 8
   %visited.i.i = alloca %class.ast_fast_mark, align 8
@@ -5740,7 +5740,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3app(ptr nocapture noundef nonnull readonly align 8 dereferenceable(42) %this, ptr noundef %n) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124is_non_qfauflira_functorclEP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(42) %this, ptr noundef %n) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %call.i = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef %n)
@@ -5940,7 +5940,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_114is_qflra_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_114is_qflra_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -5953,7 +5953,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_114is_qflra_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_114is_qflra_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_qflira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -5972,7 +5972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_115is_qflira_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_115is_qflira_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -5985,7 +5985,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_115is_qflira_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_115is_qflira_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_qflira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -6004,7 +6004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_112is_ilp_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_112is_ilp_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -6017,7 +6017,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_112is_ilp_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_112is_ilp_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i.i = alloca %"struct.(anonymous namespace)::is_non_qflira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i.i)
@@ -6309,7 +6309,7 @@ return:                                           ; preds = %land.rhs.i.i, %_ZNK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_112is_mip_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_112is_mip_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -6322,7 +6322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_112is_mip_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_112is_mip_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i.i = alloca %"struct.(anonymous namespace)::is_non_qflira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i.i)
@@ -6355,7 +6355,7 @@ _ZN12_GLOBAL__N_16is_mipERK4goal.exit.thread:     ; preds = %if.end.i, %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_114is_qfnia_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_114is_qfnia_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -6368,7 +6368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_114is_qfnia_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_114is_qfnia_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_nira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -8791,7 +8791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_114is_qfnra_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_114is_qfnra_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -8804,7 +8804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_114is_qfnra_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_114is_qfnra_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_nira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -8841,7 +8841,7 @@ _ZN12_GLOBAL__N_18is_qfnraERK4goal.exit:          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_112is_nia_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_112is_nia_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -8854,7 +8854,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_112is_nia_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_112is_nia_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_nira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -8891,7 +8891,7 @@ _ZN12_GLOBAL__N_16is_niaERK4goal.exit:            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_112is_nra_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_112is_nra_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -8904,7 +8904,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_112is_nra_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_112is_nra_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_nira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -8941,7 +8941,7 @@ _ZN12_GLOBAL__N_16is_nraERK4goal.exit:            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_113is_nira_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_113is_nira_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -8954,7 +8954,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_113is_nira_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_113is_nira_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_nira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -8991,7 +8991,7 @@ _ZN12_GLOBAL__N_17is_niraERK4goal.exit:           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_112is_lia_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_112is_lia_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -9004,7 +9004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_112is_lia_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_112is_lia_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_nira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -9027,7 +9027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_112is_lra_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_112is_lra_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -9040,7 +9040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_112is_lra_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_112is_lra_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_nira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -9063,7 +9063,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_113is_lira_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_113is_lira_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -9076,7 +9076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_113is_lira_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
+define internal noundef double @_ZN12_GLOBAL__N_113is_lira_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 {
 entry:
   %p.i = alloca %"struct.(anonymous namespace)::is_non_nira_functor", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %p.i)
@@ -9093,7 +9093,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_116is_qfufnra_probeD2Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_116is_qfufnra_probeD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #5 align 2 {
 entry:
   ret void
 }
@@ -9106,7 +9106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZN12_GLOBAL__N_116is_qfufnra_probeclERK4goal(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZN12_GLOBAL__N_116is_qfufnra_probeclERK4goal(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack.i.i.i.i = alloca %class.sbuffer, align 8
   %visited.i.i = alloca %class.ast_fast_mark, align 8
@@ -10012,7 +10012,7 @@ _ZN12_GLOBAL__N_110is_qfufnraERK4goal.exit:       ; preds = %_Z4testIN12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functorclEP3app(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr nocapture noundef readonly %n) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122is_non_qfufnra_functorclEP3app(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(25) %this, ptr noundef readonly captures(none) %n) unnamed_addr #3 align 2 {
 entry:
   %m_decl.i.i = getelementptr inbounds nuw i8, ptr %n, i64 16
   %0 = load ptr, ptr %m_decl.i.i, align 8
@@ -10228,10 +10228,10 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #17
 declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #19
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #20

@@ -239,7 +239,7 @@ if.then60:                                        ; preds = %for.end
 for.body65:                                       ; preds = %if.then60, %for.body65
   %e.0123 = phi ptr [ %call71, %for.body65 ], [ %call61, %if.then60 ]
   %call67 = tail call ptr @ENGINE_get_id(ptr noundef nonnull %e.0123) #7
-  %call69 = tail call i32 @OPENSSL_sk_push(ptr noundef %call, ptr noundef %call67) #7
+  %call69 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %call, ptr noundef %call67) #7
   %call71 = tail call ptr @ENGINE_get_next(ptr noundef nonnull %e.0123) #7
   %cmp63.not = icmp eq ptr %call71, null
   br i1 %cmp63.not, label %if.end73, label %for.body65, !llvm.loop !9
@@ -794,7 +794,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   br i1 %cmp7, label %if.then8, label %if.else
 
 if.then8:                                         ; preds = %for.body
-  %call9 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e, ptr noundef %call5, ptr noundef null, i32 noundef 0) #7
+  %call9 = call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %e, ptr noundef nonnull %call5, ptr noundef null, i32 noundef 0) #7
   %tobool.not = icmp eq i32 %call9, 0
   br i1 %tobool.not, label %if.else34, label %if.then32
 
@@ -813,7 +813,7 @@ if.then14:                                        ; preds = %if.else
 if.end30:                                         ; preds = %if.else
   %sext = shl i64 %sub.ptr.sub, 32
   %conv21 = ashr exact i64 %sext, 32
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr align 1 %call5, i64 %conv21, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %call5, i64 %conv21, i1 false)
   %arrayidx = getelementptr inbounds [256 x i8], ptr %buf, i64 0, i64 %sub.ptr.sub
   store i8 0, ptr %arrayidx, align 1
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %strchr, i64 1
@@ -822,11 +822,11 @@ if.end30:                                         ; preds = %if.else
   br i1 %tobool27.not, label %if.else34, label %if.then32
 
 if.then32:                                        ; preds = %if.then8, %if.end30
-  %call33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.44, ptr noundef %call5) #7
+  %call33 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.44, ptr noundef nonnull %call5) #7
   br label %for.inc
 
 if.else34:                                        ; preds = %if.then8, %if.end30
-  %call35 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.45, ptr noundef %call5) #7
+  %call35 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %out, ptr noundef nonnull @.str.45, ptr noundef nonnull %call5) #7
   call void @ERR_print_errors(ptr noundef %out) #7
   br label %for.inc
 
@@ -840,12 +840,12 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @ENGINE_get_RSA(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @append_buf(ptr nocapture noundef %buf, ptr nocapture noundef %size, ptr nocapture noundef readonly %s) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @append_buf(ptr noundef captures(none) %buf, ptr noundef captures(none) %size, ptr noundef readonly captures(none) %s) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #8
   %0 = trunc i64 %call to i32
@@ -935,7 +935,7 @@ declare ptr @ENGINE_get_pkey_meths(ptr noundef) local_unnamed_addr #1
 declare i32 @OSSL_STORE_do_all_loaders(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @util_store_cap(ptr noundef %loader, ptr nocapture noundef %arg) #0 {
+define internal void @util_store_cap(ptr noundef %loader, ptr noundef captures(none) %arg) #0 {
 entry:
   %buf = alloca [256 x i8], align 16
   %call = tail call ptr @OSSL_STORE_LOADER_get0_engine(ptr noundef %loader) #7
@@ -984,17 +984,17 @@ declare void @BIO_free_all(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_ctrl_cmd_string(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @app_malloc(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #4
 
 declare ptr @OSSL_STORE_LOADER_get0_engine(ptr noundef) local_unnamed_addr #1
 

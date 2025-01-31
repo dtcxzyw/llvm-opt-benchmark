@@ -1010,7 +1010,7 @@ define hidden noundef zeroext i1 @_ZNK5ZMark14is_initializedEv(ptr noundef nonnu
 declare noundef zeroext i1 @_ZNK19ZMarkStackAllocator14is_initializedEv(ptr noundef nonnull align 64 dereferenceable(257)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i64 1, 17) i64 @_ZNK5ZMark18calculate_nstripesEj(ptr nocapture noundef nonnull readnone align 64 dereferenceable(2652) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef range(i64 1, 17) i64 @_ZNK5ZMark18calculate_nstripesEj(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(2652) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)
   %4 = xor i32 %3, 31
   %5 = shl nuw i32 1, %4
@@ -1129,7 +1129,7 @@ define hidden void @_ZNK5ZMark23verify_all_stacks_emptyEv(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK5ZMark7workersEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(2652) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK5ZMark7workersEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(2652) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 64
   %3 = tail call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #15
   ret ptr %3
@@ -1408,7 +1408,7 @@ define hidden noundef zeroext i1 @_ZN5ZMark19follow_work_partialEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK5ZMark8is_arrayE8zaddress(ptr nocapture noundef nonnull readnone align 64 dereferenceable(2652) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK5ZMark8is_arrayE8zaddress(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(2652) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = inttoptr i64 %1 to ptr
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
@@ -1495,7 +1495,7 @@ _ZN22ZMarkThreadLocalStacks4pushEP19ZMarkStackAllocatorP14ZMarkStripeSetP11ZMark
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZMark27follow_array_elements_smallEP8zpointermb(ptr nocapture noundef nonnull readonly align 64 dereferenceable(2652) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZMark27follow_array_elements_smallEP8zpointermb(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(2652) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i64, ptr %1, i64 %2
   %6 = icmp sgt i64 %2, 0
   br i1 %6, label %.lr.ph.i, label %_ZL25mark_barrier_on_oop_arrayPV8zpointermbb.exit
@@ -2031,7 +2031,7 @@ define linkonce_odr hidden void @_ZN28ZMarkBarrierFollowOopClosureILb0EL21ZGener
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZMark13follow_objectEP7oopDescb(ptr nocapture noundef nonnull readonly align 64 dereferenceable(2652) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZMark13follow_objectEP7oopDescb(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(2652) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ZMarkBarrierFollowOopClosure.7, align 8
   %5 = alloca %class.ZMarkBarrierFollowOopClosure, align 8
   %6 = alloca %class.ZMarkBarrierFollowOopClosure.7, align 8
@@ -2856,7 +2856,7 @@ _ZN22ZMarkThreadLocalStacks3popEP19ZMarkStackAllocatorP14ZMarkStripeSetP11ZMarkS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN5ZMark15try_steal_localEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN5ZMark15try_steal_localEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24600
@@ -2895,7 +2895,7 @@ define hidden noundef zeroext i1 @_ZN5ZMark15try_steal_localEP12ZMarkContext(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN5ZMark16try_steal_globalEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN5ZMark16try_steal_globalEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24600
@@ -3004,7 +3004,7 @@ _ZN11ZMarkStripe11steal_stackEv.exit.loopexit:    ; preds = %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN5ZMark9try_stealEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN5ZMark9try_stealEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24600
@@ -3251,7 +3251,7 @@ _ZN26SuspendibleThreadSetLeaverD2Ev.exit:         ; preds = %10, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN5ZMark13try_terminateEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN5ZMark13try_terminateEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2496
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24608
@@ -4314,7 +4314,7 @@ _ZN8ZLiveMap3setE13ZGenerationIdmbRb.exit:        ; preds = %62, %_ZN6ZStackI15Z
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
@@ -13899,10 +13899,10 @@ define internal void @_GLOBAL__sub_I_zMark.cpp() #7 section ".text.startup" {
 declare i32 @llvm.umin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #14
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #14
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -66,7 +66,7 @@ define internal void @swap_ex(ptr noundef %0, ptr noundef %1, i32 %2) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @trim_init_extable(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
+define dso_local void @trim_init_extable(ptr noundef captures(none) %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 300
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -192,7 +192,7 @@ define dso_local ptr @search_extable(ptr noundef %0, i64 noundef %1, i64 noundef
 declare dso_local ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 -1, 2) i32 @cmp_ex_search(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
+define internal range(i32 -1, 2) i32 @cmp_ex_search(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 align 16 {
   %3 = load i64, ptr %0, align 8
   %4 = ptrtoint ptr %1 to i64
   %5 = load i32, ptr %1, align 4

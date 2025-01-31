@@ -31,7 +31,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_hsiphash_4u3
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable___hsiphash_unaligned147, ptr @__UNIQUE_ID___addressable___siphash_unaligned140, ptr @__UNIQUE_ID___addressable_hsiphash_1u32148, ptr @__UNIQUE_ID___addressable_hsiphash_2u32149, ptr @__UNIQUE_ID___addressable_hsiphash_3u32150, ptr @__UNIQUE_ID___addressable_hsiphash_4u32151, ptr @__UNIQUE_ID___addressable_siphash_1u32145, ptr @__UNIQUE_ID___addressable_siphash_1u64141, ptr @__UNIQUE_ID___addressable_siphash_2u64142, ptr @__UNIQUE_ID___addressable_siphash_3u32146, ptr @__UNIQUE_ID___addressable_siphash_3u64143, ptr @__UNIQUE_ID___addressable_siphash_4u64144], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @__siphash_unaligned(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local i64 @__siphash_unaligned(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = and i64 %1, 7
   %6 = sub nsw i64 0, %5
@@ -201,7 +201,7 @@ define dso_local i64 @__siphash_unaligned(ptr noundef %0, i64 noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @siphash_1u64(i64 noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define dso_local i64 @siphash_1u64(i64 noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -329,7 +329,7 @@ define dso_local i64 @siphash_1u64(i64 noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @siphash_2u64(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define dso_local i64 @siphash_2u64(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = getelementptr i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %2, align 8
@@ -487,7 +487,7 @@ define dso_local i64 @siphash_2u64(i64 noundef %0, i64 noundef %1, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @siphash_3u64(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
+define dso_local i64 @siphash_3u64(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) #1 align 16 {
   %5 = getelementptr i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = load i64, ptr %3, align 8
@@ -675,7 +675,7 @@ define dso_local i64 @siphash_3u64(i64 noundef %0, i64 noundef %1, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @siphash_4u64(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef readonly %4) #1 align 16 {
+define dso_local i64 @siphash_4u64(i64 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4) #1 align 16 {
   %6 = getelementptr i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = load i64, ptr %4, align 8
@@ -893,7 +893,7 @@ define dso_local i64 @siphash_4u64(i64 noundef %0, i64 noundef %1, i64 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @siphash_1u32(i32 noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define dso_local i64 @siphash_1u32(i32 noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -993,7 +993,7 @@ define dso_local i64 @siphash_1u32(i32 noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i64 @siphash_3u32(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
+define dso_local i64 @siphash_3u32(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 align 16 {
   %5 = zext i32 %1 to i64
   %6 = shl nuw i64 %5, 32
   %7 = zext i32 %0 to i64
@@ -1127,7 +1127,7 @@ define dso_local i64 @siphash_3u32(i32 noundef %0, i32 noundef %1, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__hsiphash_unaligned(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local i32 @__hsiphash_unaligned(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 %1
   %5 = and i64 %1, 7
   %6 = sub nsw i64 0, %5
@@ -1256,7 +1256,7 @@ define dso_local i32 @__hsiphash_unaligned(ptr noundef %0, i64 noundef %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @hsiphash_1u32(i32 noundef %0, ptr nocapture noundef readonly %1) #1 align 16 {
+define dso_local i32 @hsiphash_1u32(i32 noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
@@ -1329,7 +1329,7 @@ define dso_local i32 @hsiphash_1u32(i32 noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @hsiphash_2u32(i32 noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #1 align 16 {
+define dso_local i32 @hsiphash_2u32(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #1 align 16 {
   %4 = zext i32 %1 to i64
   %5 = shl nuw i64 %4, 32
   %6 = zext i32 %0 to i64
@@ -1420,7 +1420,7 @@ define dso_local i32 @hsiphash_2u32(i32 noundef %0, i32 noundef %1, ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @hsiphash_3u32(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #1 align 16 {
+define dso_local i32 @hsiphash_3u32(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) #1 align 16 {
   %5 = zext i32 %1 to i64
   %6 = shl nuw i64 %5, 32
   %7 = zext i32 %0 to i64
@@ -1513,7 +1513,7 @@ define dso_local i32 @hsiphash_3u32(i32 noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local i32 @hsiphash_4u32(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) #1 align 16 {
+define dso_local i32 @hsiphash_4u32(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4) #1 align 16 {
   %6 = zext i32 %1 to i64
   %7 = shl nuw i64 %6, 32
   %8 = zext i32 %0 to i64

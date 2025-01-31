@@ -314,12 +314,12 @@ declare noundef ptr @_ZN8AddPNode21Ideal_base_and_offsetEP4NodeP11PhaseValuesRl(
 declare void @_ZN4Node9set_req_XEjPS_P8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(52), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16SubTypeCheckNode7size_ofEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK16SubTypeCheckNode7size_ofEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret i32 72
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef i32 @_ZNK16SubTypeCheckNode4hashEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZNK16SubTypeCheckNode4hashEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #3 align 2 {
   ret i32 0
 }
 

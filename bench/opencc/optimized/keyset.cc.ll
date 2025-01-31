@@ -50,7 +50,7 @@ $_ZTVN6marisa9ExceptionE = comdat any
 @_ZN6marisa6KeysetC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6marisa6KeysetC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa6KeysetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa6KeysetC2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((0, 104)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   ret void
 }
@@ -97,7 +97,7 @@ _ZN6marisa12scoped_arrayIcED2Ev.exit:             ; preds = %.preheader, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa6Keyset9push_backERKNS_3KeyE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN6marisa6Keyset9push_backERKNS_3KeyE(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -198,7 +198,7 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %15, %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 8
@@ -253,7 +253,7 @@ define noundef ptr @_ZN6marisa6Keyset7reserveEm(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa6Keyset9push_backERKNS_3KeyEc(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i8 noundef signext %2) local_unnamed_addr #2 align 2 {
+define void @_ZN6marisa6Keyset9push_backERKNS_3KeyEc(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i8 noundef signext %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load i64, ptr %4, align 8
   %6 = lshr i64 %5, 8
@@ -371,7 +371,7 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %21, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa6Keyset16append_key_blockEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa6Keyset16append_key_blockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.marisa::scoped_array.0", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8
@@ -528,7 +528,7 @@ _ZN6marisa12scoped_arrayINS_3KeyEED2Ev.exit:      ; preds = %.preheader.preheade
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa6Keyset9push_backEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa6Keyset9push_backEPKc(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %.preheader
 
@@ -571,7 +571,7 @@ define linkonce_odr void @_ZN6marisa9ExceptionD2Ev(ptr noundef nonnull align 8 d
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr noundef readonly %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa6Keyset9push_backEPKcmf(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef readonly %1, i64 noundef %2, float noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq ptr %1, null
   %6 = icmp ne i64 %2, 0
   %or.cond = and i1 %5, %6
@@ -705,7 +705,7 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa6Keyset5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((8, 16), (32, 40), (72, 104)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN6marisa6Keyset5resetEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(104) initializes((8, 16), (32, 40), (72, 104)) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -716,7 +716,7 @@ define void @_ZN6marisa6Keyset5resetEv(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa6Keyset5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa6Keyset5clearEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.marisa::Keyset", align 8
   call void @_ZN6marisa6KeysetC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %2)
   %3 = load ptr, ptr %2, align 8
@@ -800,7 +800,7 @@ define void @_ZN6marisa6Keyset5clearEv(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6marisa6Keyset4swapERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN6marisa6Keyset4swapERS0_(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(104) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -990,7 +990,7 @@ _ZN6marisa12scoped_arrayINS0_IcEEED2Ev.exit8:     ; preds = %_ZN6marisa12scoped_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa6Keyset18append_extra_blockEm(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.marisa::scoped_array", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i64, ptr %4, align 8
@@ -1146,7 +1146,7 @@ _ZN6marisa12scoped_arrayIcED2Ev.exit:             ; preds = %63, %71
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6marisa6Keyset17append_base_blockEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa6Keyset17append_base_blockEv(ptr noundef nonnull align 8 captures(none) dereferenceable(104) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.marisa::scoped_array", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -1372,7 +1372,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7

@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [44 x i8] c"../openssl/providers/common/provider_util.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_prov_cipher_reset(ptr nocapture noundef initializes((0, 8)) %pc) local_unnamed_addr #0 {
+define void @ossl_prov_cipher_reset(ptr noundef captures(none) initializes((0, 8)) %pc) local_unnamed_addr #0 {
 entry:
   %alloc_cipher = getelementptr inbounds nuw i8, ptr %pc, i64 8
   %0 = load ptr, ptr %alloc_cipher, align 8
@@ -34,7 +34,7 @@ declare void @EVP_CIPHER_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_finish(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_prov_cipher_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_cipher_copy(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %alloc_cipher = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %alloc_cipher, align 8
@@ -87,7 +87,7 @@ declare i32 @EVP_CIPHER_up_ref(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_prov_cipher_load_from_params(ptr nocapture noundef %pc, ptr noundef %params, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_cipher_load_from_params(ptr noundef captures(none) %pc, ptr noundef %params, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %propquery = alloca ptr, align 8
   %cmp = icmp eq ptr %params, null
@@ -165,7 +165,7 @@ return:                                           ; preds = %if.end6, %if.end2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @load_common(ptr noundef nonnull %params, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %propquery, ptr nocapture noundef %engine) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @load_common(ptr noundef nonnull %params, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %propquery, ptr noundef captures(none) %engine) unnamed_addr #0 {
 entry:
   store ptr null, ptr %propquery, align 8
   %call = tail call ptr @OSSL_PARAM_locate_const(ptr noundef nonnull %params, ptr noundef nonnull @.str.3) #5
@@ -235,14 +235,14 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 declare i32 @ERR_clear_last_mark() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_prov_cipher_cipher(ptr nocapture noundef readonly %pc) local_unnamed_addr #2 {
+define ptr @ossl_prov_cipher_cipher(ptr noundef readonly captures(none) %pc) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %pc, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_prov_cipher_engine(ptr nocapture noundef readonly %pc) local_unnamed_addr #2 {
+define ptr @ossl_prov_cipher_engine(ptr noundef readonly captures(none) %pc) local_unnamed_addr #2 {
 entry:
   %engine = getelementptr inbounds nuw i8, ptr %pc, i64 16
   %0 = load ptr, ptr %engine, align 8
@@ -250,7 +250,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_prov_digest_reset(ptr nocapture noundef initializes((0, 8)) %pd) local_unnamed_addr #0 {
+define void @ossl_prov_digest_reset(ptr noundef captures(none) initializes((0, 8)) %pd) local_unnamed_addr #0 {
 entry:
   %alloc_md = getelementptr inbounds nuw i8, ptr %pd, i64 8
   %0 = load ptr, ptr %alloc_md, align 8
@@ -266,7 +266,7 @@ entry:
 declare void @EVP_MD_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_prov_digest_copy(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_digest_copy(ptr noundef writeonly captures(none) %dst, ptr noundef readonly captures(none) %src) local_unnamed_addr #0 {
 entry:
   %alloc_md = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %alloc_md, align 8
@@ -317,7 +317,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 declare i32 @EVP_MD_up_ref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_prov_digest_fetch(ptr nocapture noundef initializes((0, 8)) %pd, ptr noundef %libctx, ptr noundef %mdname, ptr noundef %propquery) local_unnamed_addr #0 {
+define ptr @ossl_prov_digest_fetch(ptr noundef captures(none) initializes((0, 8)) %pd, ptr noundef %libctx, ptr noundef %mdname, ptr noundef %propquery) local_unnamed_addr #0 {
 entry:
   %alloc_md = getelementptr inbounds nuw i8, ptr %pd, i64 8
   %0 = load ptr, ptr %alloc_md, align 8
@@ -331,7 +331,7 @@ entry:
 declare ptr @EVP_MD_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_prov_digest_load_from_params(ptr nocapture noundef %pd, ptr noundef %params, ptr noundef %ctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_digest_load_from_params(ptr noundef captures(none) %pd, ptr noundef %params, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %propquery = alloca ptr, align 8
   %cmp = icmp eq ptr %params, null
@@ -411,14 +411,14 @@ return:                                           ; preds = %if.end6, %if.end2, 
 declare ptr @EVP_get_digestbyname(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_prov_digest_md(ptr nocapture noundef readonly %pd) local_unnamed_addr #2 {
+define ptr @ossl_prov_digest_md(ptr noundef readonly captures(none) %pd) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %pd, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_prov_digest_engine(ptr nocapture noundef readonly %pd) local_unnamed_addr #2 {
+define ptr @ossl_prov_digest_engine(ptr noundef readonly captures(none) %pd) local_unnamed_addr #2 {
 entry:
   %engine = getelementptr inbounds nuw i8, ptr %pd, i64 16
   %0 = load ptr, ptr %engine, align 8
@@ -572,7 +572,7 @@ return:                                           ; preds = %if.then25, %if.then
 declare void @OSSL_PARAM_construct_utf8_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) align 8, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -581,7 +581,7 @@ declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) 
 declare i32 @EVP_MAC_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_prov_macctx_load_from_params(ptr nocapture noundef %macctx, ptr noundef %params, ptr noundef %macname, ptr noundef %ciphername, ptr noundef %mdname, ptr noundef %libctx) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_macctx_load_from_params(ptr noundef captures(none) %macctx, ptr noundef %params, ptr noundef %macname, ptr noundef %ciphername, ptr noundef %mdname, ptr noundef %libctx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %macname, null
   br i1 %cmp, label %land.lhs.true, label %if.end4
@@ -674,7 +674,7 @@ declare ptr @EVP_MAC_CTX_new(ptr noundef) local_unnamed_addr #1
 declare void @EVP_MAC_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_prov_cache_exported_algorithms(ptr nocapture noundef readonly %in, ptr nocapture noundef %out) local_unnamed_addr #0 {
+define void @ossl_prov_cache_exported_algorithms(ptr noundef readonly captures(none) %in, ptr noundef captures(none) %out) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %out, align 8
   %cmp = icmp eq ptr %0, null
@@ -730,7 +730,7 @@ if.end23:                                         ; preds = %for.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_prov_memdup(ptr noundef %src, i64 noundef %src_len, ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr nocapture noundef writeonly %dest_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prov_memdup(ptr noundef %src, i64 noundef %src_len, ptr noundef writeonly captures(none) initializes((0, 8)) %dest, ptr noundef writeonly captures(none) %dest_len) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %src, null
   br i1 %cmp.not, label %if.else, label %if.then
@@ -762,7 +762,7 @@ declare ptr @ENGINE_by_id(ptr noundef) local_unnamed_addr #1
 declare i32 @ENGINE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

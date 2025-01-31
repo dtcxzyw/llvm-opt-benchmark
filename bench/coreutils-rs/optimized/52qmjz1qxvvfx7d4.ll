@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h51355e9f0f7efdd3E"(ptr nocapture readnone align 1 %0, ptr %1, i64 %2, i64 %3) unnamed_addr #0 {
+define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h51355e9f0f7efdd3E"(ptr readnone align 1 captures(none) %0, ptr %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %9, label %6
 
@@ -22,7 +22,7 @@ define hidden void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allo
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h2aa463a22b341e20E"(ptr nocapture readnone align 1 %0, i64 %1, i64 %2) unnamed_addr #0 {
+define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$15allocate_zeroed17h2aa463a22b341e20E"(ptr readnone align 1 captures(none) %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   %5 = add i64 %1, -1
   %6 = icmp sgt i64 %5, -1
@@ -45,7 +45,7 @@ _ZN5alloc5alloc6Global10alloc_impl17h2ed9ec6b59053c3cE.exit: ; preds = %7, %9
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17he61eb963c30aedfdE"(ptr nocapture readnone align 1 %0, ptr %1, i64 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 {
+define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$4grow17he61eb963c30aedfdE"(ptr readnone align 1 captures(none) %0, ptr %1, i64 %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 {
   %7 = icmp eq i64 %3, 0
   br i1 %7, label %8, label %19
 
@@ -118,7 +118,7 @@ _ZN5alloc5alloc6Global9grow_impl17hb979fd2c564419c5E.exit: ; preds = %10, %14, %
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h618d4fae6cd0ff6cE"(ptr nocapture readnone align 1 %0, i64 %1, i64 %2) unnamed_addr #0 {
+define hidden { ptr, i64 } @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$8allocate17h618d4fae6cd0ff6cE"(ptr readnone align 1 captures(none) %0, i64 %1, i64 %2) unnamed_addr #0 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %9
 
@@ -154,7 +154,7 @@ declare noalias ptr @__rust_alloc(i64, i64 allocalign) unnamed_addr #2
 declare noalias ptr @__rust_alloc_zeroed(i64, i64 allocalign) unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind nonlazybind allockind("realloc,aligned") allocsize(3) uwtable
 declare noalias ptr @__rust_realloc(ptr allocptr, i64, i64 allocalign, i64) unnamed_addr #5

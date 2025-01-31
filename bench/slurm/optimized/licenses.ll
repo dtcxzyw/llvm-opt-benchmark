@@ -211,7 +211,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr nocapture noundef initializes((0, 1)) %1) unnamed_addr #0 {
+define internal fastcc ptr @_build_license_list(ptr noundef %0, ptr noundef captures(none) initializes((0, 1)) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -602,7 +602,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_license_find_rec(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_license_find_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   %5 = icmp eq ptr %1, null
@@ -627,7 +627,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare void @list_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @license_add_remote(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @license_add_remote(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -688,7 +688,7 @@ define dso_local void @license_add_remote(ptr nocapture noundef readonly %0) loc
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_license_find_remote_rec(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_license_find_remote_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i8, ptr %3, align 4
   %.not = icmp eq i8 %4, 0
@@ -715,7 +715,7 @@ _license_find_rec.exit:                           ; preds = %9, %5, %2
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_add_res_rec_2_lic_list(ptr nocapture noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc void @_add_res_rec_2_lic_list(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.4, i32 noundef 261, ptr noundef nonnull @__func__._add_res_rec_2_lic_list) #11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -798,7 +798,7 @@ _handle_consumed.exit:                            ; preds = %33, %36, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @license_update_remote(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @license_update_remote(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -931,7 +931,7 @@ _handle_consumed.exit:                            ; preds = %46, %49, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @license_remove_remote(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @license_remove_remote(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @license_mutex) #11
   %.not = icmp eq i32 %3, 0
@@ -1304,7 +1304,7 @@ define dso_local void @license_free() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.assoc_mgr_lock_t, align 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %24, label %7
@@ -1586,7 +1586,7 @@ define dso_local ptr @license_validate(ptr noundef %0, i1 noundef zeroext %1, i1
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #1
 
@@ -1595,7 +1595,7 @@ declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @assoc_mgr_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 declare i32 @assoc_mgr_find_tres_pos(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
@@ -2589,7 +2589,7 @@ define dso_local ptr @slurm_bf_licenses_copy(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slurm_bf_licenses_deduct(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @slurm_bf_licenses_deduct(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.bf_licenses_find_resv_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %5 = load ptr, ptr %4, align 8
@@ -2682,7 +2682,7 @@ define dso_local void @slurm_bf_licenses_deduct(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_bf_licenses_find_resv(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @_bf_licenses_find_resv(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2704,7 +2704,7 @@ define internal range(i32 0, 2) i32 @_bf_licenses_find_resv(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_bf_licenses_find_rec(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_bf_licenses_find_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2723,7 +2723,7 @@ define internal range(i32 0, 2) i32 @_bf_licenses_find_rec(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2796,7 +2796,7 @@ define dso_local void @slurm_bf_licenses_transfer(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @slurm_bf_licenses_avail(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @slurm_bf_licenses_avail(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.bf_licenses_find_resv_t, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 472
   %5 = load ptr, ptr %4, align 8
@@ -2906,16 +2906,16 @@ define dso_local noundef zeroext i1 @slurm_bf_licenses_equal(ptr noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #7
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2925,10 +2925,10 @@ declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.usub.sat.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

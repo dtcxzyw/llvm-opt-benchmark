@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SPLITCOST = type { i16, i32 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsquery_compress(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gtsquery_compress(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -49,7 +49,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare i64 @makeTSQuerySign(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @gtsquery_consistent(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gtsquery_consistent(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -121,7 +121,7 @@ define dso_local range(i64 0, 2) i64 @gtsquery_consistent(ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @gtsquery_union(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @gtsquery_union(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -154,7 +154,7 @@ define dso_local i64 @gtsquery_union(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @gtsquery_same(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define dso_local i64 @gtsquery_same(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -169,7 +169,7 @@ define dso_local i64 @gtsquery_same(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i64 @gtsquery_penalty(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
+define dso_local i64 @gtsquery_penalty(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -202,7 +202,7 @@ hemdist.exit:                                     ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gtsquery_picksplit(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @gtsquery_picksplit(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -489,7 +489,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #4
 declare void @pg_qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @comparecost(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #5 {
+define internal range(i32 -1, 2) i32 @comparecost(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -502,7 +502,7 @@ define internal range(i32 -1, 2) i32 @comparecost(ptr nocapture noundef readonly
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @gtsquery_consistent_oldsig(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @gtsquery_consistent_oldsig(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr

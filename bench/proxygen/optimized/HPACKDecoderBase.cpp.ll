@@ -123,7 +123,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen16HPACKDecoderBase4emitERKNS_11HPACKHeaderEPNS_5HPACK17StreamingCallbackEPSt6vectorIS1_SaIS1_EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %header, ptr noundef %streamingCb, ptr noundef %emitted) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8proxygen16HPACKDecoderBase4emitERKNS_11HPACKHeaderEPNS_5HPACK17StreamingCallbackEPSt6vectorIS1_SaIS1_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %header, ptr noundef %streamingCb, ptr noundef %emitted) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %streamingCb, null
   br i1 %tobool.not, label %if.else, label %if.then
@@ -196,7 +196,7 @@ if.end7:                                          ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HPACKDecoderBase14completeDecodeENS_11HeaderCodec4TypeEPNS_5HPACK17StreamingCallbackEjjjb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i8 noundef zeroext %type, ptr noundef %streamingCb, i32 noundef %compressedSize, i32 noundef %compressedBlockSize, i32 noundef %emittedSize, i1 noundef zeroext %acknowledge) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen16HPACKDecoderBase14completeDecodeENS_11HeaderCodec4TypeEPNS_5HPACK17StreamingCallbackEjjjb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, i8 noundef zeroext %type, ptr noundef %streamingCb, i32 noundef %compressedSize, i32 noundef %compressedBlockSize, i32 noundef %emittedSize, i1 noundef zeroext %acknowledge) local_unnamed_addr #3 align 2 {
 entry:
   %decodedSize = alloca %"struct.proxygen::HTTPHeaderSize", align 8
   %tobool.not = icmp eq ptr %streamingCb, null
@@ -265,10 +265,10 @@ if.end30:                                         ; preds = %entry, %if.end26, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HPACKDecoderBase21setHeaderTableMaxSizeERNS_11HeaderTableEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((4, 8)) %this, ptr noundef nonnull align 8 dereferenceable(80) %table, i32 noundef %maxSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16HPACKDecoderBase21setHeaderTableMaxSizeERNS_11HeaderTableEj(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((4, 8)) %this, ptr noundef nonnull align 8 dereferenceable(80) %table, i32 noundef %maxSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.google::LogMessageFatal", align 8
   %maxTableSize_ = getelementptr inbounds nuw i8, ptr %this, i64 4
@@ -320,7 +320,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HPACKDecoderBase21handleTableSizeUpdateERNS_17HPACKDecodeBufferERNS_11HeaderTableEb(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, ptr noundef nonnull align 8 dereferenceable(80) %table, i1 noundef zeroext %isQpack) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16HPACKDecoderBase21handleTableSizeUpdateERNS_17HPACKDecodeBufferERNS_11HeaderTableEb(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, ptr noundef nonnull align 8 dereferenceable(80) %table, i1 noundef zeroext %isQpack) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arg = alloca i64, align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8
@@ -1119,7 +1119,7 @@ declare extern_weak i32 @mallctlbymib(ptr noundef, i64 noundef, ptr noundef, ptr
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef zeroext i1 @_ZZN5folly13usingTCMallocEvENK11InitializerclEv(ptr noundef nonnull align 1 dereferenceable(1) %this) local_unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -1441,10 +1441,10 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #21
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

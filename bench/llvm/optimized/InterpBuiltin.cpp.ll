@@ -259,7 +259,7 @@ $_ZN4llvm8DenseMapIPKN5clang13CXXRecordDeclENS1_9CharUnitsENS_12DenseMapInfoIS4_
 @_ZTVN5clang6interp8CompilerINS0_11EvalEmitterEEE = external unnamed_addr constant { [8 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 2, 5) i32 @_ZN5clang6interp14getIntPrimTypeERKNS0_11InterpStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 2, 5) i32 @_ZN5clang6interp14getIntPrimTypeERKNS0_11InterpStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -276,7 +276,7 @@ define dso_local noundef range(i32 2, 5) i32 @_ZN5clang6interp14getIntPrimTypeER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 2, 7) i32 @_ZN5clang6interp15getLongPrimTypeERKNS0_11InterpStateE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 2, 7) i32 @_ZN5clang6interp15getLongPrimTypeERKNS0_11InterpStateE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -306,7 +306,7 @@ define dso_local noundef range(i32 2, 7) i32 @_ZN5clang6interp15getLongPrimTypeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang6interp16InterpretBuiltinERNS0_11InterpStateENS0_7CodePtrEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang6interp16InterpretBuiltinERNS0_11InterpStateENS0_7CodePtrEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %"class.clang::interp::CodePtr", align 8
   %6 = alloca %"class.clang::CharSourceRange", align 8
   %7 = alloca %"class.llvm::APSInt", align 8
@@ -3903,7 +3903,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZN5clang18Optional
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL37interp__builtin_is_constant_evaluatedERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.clang::CharSourceRange", align 8
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -4178,10 +4178,10 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang6interpL22interp__builtin_strcmpERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clang6interpL22interp__builtin_strcmpERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = alloca %"class.clang::interp::Pointer", align 8
   %7 = alloca %"class.clang::interp::Pointer", align 8
@@ -4636,7 +4636,7 @@ select.unfold:                                    ; preds = %213, %_ZNK5clang6in
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang6interpL22interp__builtin_strlenERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clang6interpL22interp__builtin_strlenERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = alloca %"class.clang::interp::Pointer", align 8
   %7 = alloca %"class.clang::interp::Pointer", align 8
@@ -4865,7 +4865,7 @@ _ZNK5clang6interp7Pointer5derefIhEERT_v.exit:     ; preds = %96, %_ZNK5clang6int
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang6interpL19interp__builtin_nanERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clang6interpL19interp__builtin_nanERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEb(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::detail::IEEEFloat", align 8
   %7 = alloca %"class.clang::interp::Pointer", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -5483,7 +5483,7 @@ _ZN4llvm5APIntD2Ev.exit84:                        ; preds = %242, %239, %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL21interp__builtin_isnanERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL21interp__builtin_isnanERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5515,7 +5515,7 @@ define internal fastcc void @_ZN5clang6interpL21interp__builtin_isnanERNS0_11Int
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL27interp__builtin_issignalingERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL27interp__builtin_issignalingERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5544,7 +5544,7 @@ define internal fastcc void @_ZN5clang6interpL27interp__builtin_issignalingERNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEbPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEbPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -5600,7 +5600,7 @@ define internal fastcc void @_ZN5clang6interpL21interp__builtin_isinfERNS0_11Int
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL24interp__builtin_isfiniteERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL24interp__builtin_isfiniteERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5632,7 +5632,7 @@ define internal fastcc void @_ZN5clang6interpL24interp__builtin_isfiniteERNS0_11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL24interp__builtin_isnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL24interp__builtin_isnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5684,7 +5684,7 @@ _ZNK5clang6interp8Floating8isNormalEv.exit:       ; preds = %10, %_ZNK4llvm7APFl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL27interp__builtin_issubnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL27interp__builtin_issubnormalERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5720,7 +5720,7 @@ _ZNK5clang6interp8Floating10isDenormalEv.exit:    ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL22interp__builtin_iszeroERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL22interp__builtin_iszeroERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5752,7 +5752,7 @@ define internal fastcc void @_ZN5clang6interpL22interp__builtin_iszeroERNS0_11In
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL23interp__builtin_signbitERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL23interp__builtin_signbitERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5784,7 +5784,7 @@ define internal fastcc void @_ZN5clang6interpL23interp__builtin_signbitERNS0_11I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL25interp__builtin_isfpclassERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL25interp__builtin_isfpclassERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -5905,7 +5905,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL26interp__builtin_fpclassifyERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL26interp__builtin_fpclassifyERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -6010,7 +6010,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %25, %60, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL22interp__builtin_parityERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL22interp__builtin_parityERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -6079,7 +6079,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZNK4llvm5APInt8pop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL21interp__builtin_clrsbERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL21interp__builtin_clrsbERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -6185,7 +6185,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZNK4llvm5APInt18ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL29interp__builtin_classify_typeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL29interp__builtin_classify_typeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = load i32, ptr %1, align 8
   %5 = lshr i32 %4, 24
@@ -6216,7 +6216,7 @@ define internal fastcc void @_ZN5clang6interpL29interp__builtin_classify_typeERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL22interp__builtin_expectERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL22interp__builtin_expectERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
@@ -6305,7 +6305,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %44, %52, %55
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprEb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL22interp__builtin_rotateERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = alloca %"class.llvm::APSInt", align 8
@@ -6431,7 +6431,7 @@ _ZN4llvm6APSIntD2Ev.exit22:                       ; preds = %_ZN4llvm6APSIntD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL19interp__builtin_ffsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL19interp__builtin_ffsERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -6503,7 +6503,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZNK4llvm5APInt11co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL25interp__builtin_addressofERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL25interp__builtin_addressofERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %4 = lshr i32 %3, 24
   %5 = zext nneg i32 %4 to i64
@@ -6578,7 +6578,7 @@ _ZNK5clang6interp7Context8classifyEPKNS_4ExprE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL36interp__builtin_eh_return_data_regnoERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL36interp__builtin_eh_return_data_regnoERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -6643,7 +6643,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %2, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL11noopPointerERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL11noopPointerERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZNK5clang6interp11InterpStack8peekDataEm(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 56) #16
@@ -6654,7 +6654,7 @@ define internal fastcc void @_ZN5clang6interpL11noopPointerERNS0_11InterpStateEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL21interp__builtin_bswapERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL21interp__builtin_bswapERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -6950,7 +6950,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN5clang6interpL32interp__builtin_atomic_lock_freeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, i32 %.504.val, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN5clang6interpL32interp__builtin_atomic_lock_freeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, i32 %.504.val, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = load i32, ptr %1, align 8
@@ -7235,7 +7235,7 @@ _ZN4llvm6APSIntD2Ev.exit48:                       ; preds = %161, %163
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL23interp__builtin_complexERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL23interp__builtin_complexERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0) unnamed_addr #0 {
   %2 = alloca %"class.clang::interp::Pointer", align 8
   %3 = alloca %"class.clang::interp::Pointer", align 8
   %4 = alloca %"class.clang::interp::Pointer", align 8
@@ -8481,7 +8481,7 @@ _ZN4llvm6APSIntD2Ev.exit129:                      ; preds = %_ZN4llvm6APSIntD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL41interp__builtin_os_log_format_buffer_sizeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL41interp__builtin_os_log_format_buffer_sizeERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.clang::analyze_os_log::OSLogBufferLayout", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -8536,7 +8536,7 @@ _ZN5clang14analyze_os_log17OSLogBufferLayoutD2Ev.exit: ; preds = %_ZNK5clang14an
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL44interp__builtin_ptrauth_string_discriminatorERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL44interp__builtin_ptrauth_string_discriminatorERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -8680,7 +8680,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %_ZNK5clang6interp7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL26interp__builtin_constant_pERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL26interp__builtin_constant_pERNS0_11InterpStateENS0_7CodePtrEPKNS0_11InterpFrameEPKNS0_8FunctionEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APSInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
@@ -9033,7 +9033,7 @@ declare i32 @_ZNK5clang6interp11InterpFrame11getLocationENS0_7CodePtrE(ptr nound
 declare i64 @_ZNK5clang6interp11InterpFrame8getRangeENS0_7CodePtrE(ptr noundef nonnull align 8 dereferenceable(216), ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang6interp17InterpretOffsetOfERNS0_11InterpStateENS0_7CodePtrEPKNS_12OffsetOfExprEN4llvm8ArrayRefIlEERl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture readonly %3, i64 %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang6interp17InterpretOffsetOfERNS0_11InterpStateENS0_7CodePtrEPKNS_12OffsetOfExprEN4llvm8ArrayRefIlEERl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, ptr readonly captures(none) %3, i64 %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %8 = load i32, ptr %7, align 8
   %.not89 = icmp eq i32 %8, 0
@@ -9411,7 +9411,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang13CXXRecordDeclENS2_9CharUnitsENS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang6interp26SetThreeWayComparisonFieldERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerERKN4llvm6APSIntE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture readnone %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang6interp26SetThreeWayComparisonFieldERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerERKN4llvm6APSIntE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr readnone captures(none) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.clang::interp::Pointer", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load i32, ptr %6, align 8
@@ -12517,7 +12517,7 @@ _ZN4llvm11SmallVectorIN5clang15CharSourceRangeELj8EED2Ev.exit: ; preds = %_ZN4ll
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare noundef ptr @_ZN5clang6interp11InterpStack4growEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #2
 
@@ -12942,7 +12942,7 @@ declare noundef zeroext i1 @_ZN5clang6interp10CheckArrayERNS0_11InterpStateENS0_
 declare noundef zeroext i1 @_ZN5clang6interp10CheckDummyERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerENS_11AccessKindsE(ptr noundef nonnull align 8 dereferenceable(280), ptr, ptr noundef nonnull align 8 dereferenceable(52), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL11pushIntegerERNS0_11InterpStateERKN4llvm6APSIntENS_8QualTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL11pushIntegerERNS0_11InterpStateERKN4llvm6APSIntENS_8QualTypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(280) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(13) %1, i64 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @_ZNK5clang6interp7Context8classifyENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(40) %5, i64 %2) #16
@@ -13183,7 +13183,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 declare noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #2
 
@@ -13642,7 +13642,7 @@ declare noundef zeroext i1 @_ZNK4llvm6detail13DoubleAPFloat10isDenormalEv(ptr no
 declare noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL12peekToAPSIntERNS0_11InterpStackENS0_8PrimTypeEm(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = icmp eq i64 %3, 0
@@ -13883,7 +13883,7 @@ declare void @_ZNK4llvm5APInt7smul_ovERKS0_Rb(ptr dead_on_unwind writable sret(%
 declare void @_ZNK4llvm5APInt7umul_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6interpL13assignIntegerERNS0_7PointerENS0_8PrimTypeERKN4llvm6APSIntE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(13) %2) unnamed_addr #0 {
+define internal fastcc void @_ZN5clang6interpL13assignIntegerERNS0_7PointerENS0_8PrimTypeERKN4llvm6APSIntE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(52) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(13) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.clang::interp::IntegralAP", align 8
@@ -17702,7 +17702,7 @@ _ZNK5clang6interp7Pointer8isActiveEv.exit.thread: ; preds = %62, %_ZNK5clang6int
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang6interpL10copyRecordERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerERS4_bENK3$_0clERKNS0_6Record5FieldEb"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang6interpL10copyRecordERNS0_11InterpStateENS0_7CodePtrERKNS0_7PointerERS4_bENK3$_0clERKNS0_6Record5FieldEb"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::interp::Pointer", align 8
   %5 = alloca %"class.clang::interp::Pointer", align 8
   %6 = alloca %"class.clang::interp::Pointer", align 8
@@ -19833,13 +19833,13 @@ declare void @_ZNK5clang6interp7Pointer8activateEv(ptr noundef nonnull align 8 d
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #14

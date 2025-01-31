@@ -217,7 +217,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @g_io_stream_get_type() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_display_add_client_ready(ptr nocapture readnone %source_object, ptr noundef %res, ptr nocapture readnone %user_data) #0 {
+define internal void @dbus_display_add_client_ready(ptr readnone captures(none) %source_object, ptr noundef %res, ptr readnone captures(none) %user_data) #0 {
 entry:
   %err = alloca ptr, align 8
   store ptr null, ptr %err, align 8
@@ -417,7 +417,7 @@ do.end49:                                         ; preds = %do.body42, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_display_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @dbus_display_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.15, i32 noundef 12, ptr noundef nonnull @__func__.USER_CREATABLE_CLASS) #5
   %complete = getelementptr inbounds nuw i8, ptr %call.i, i64 112
@@ -652,7 +652,7 @@ glib_autoptr_cleanup_GError.exit:                 ; preds = %glib_autoptr_cleanu
 declare ptr @object_class_property_add_bool(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal zeroext i1 @get_dbus_p2p(ptr noundef %o, ptr nocapture readnone %errp) #0 {
+define internal zeroext i1 @get_dbus_p2p(ptr noundef %o, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
   %p2p = getelementptr inbounds nuw i8, ptr %call.i, i64 44
@@ -662,7 +662,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_dbus_p2p(ptr noundef %o, i1 noundef zeroext %p2p, ptr nocapture readnone %errp) #0 {
+define internal void @set_dbus_p2p(ptr noundef %o, i1 noundef zeroext %p2p, ptr readnone captures(none) %errp) #0 {
 entry:
   %frombool = zext i1 %p2p to i8
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
@@ -674,7 +674,7 @@ entry:
 declare ptr @object_class_property_add_str(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @get_dbus_addr(ptr noundef %o, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @get_dbus_addr(ptr noundef %o, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
   %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -684,7 +684,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_dbus_addr(ptr noundef %o, ptr noundef %str, ptr nocapture readnone %errp) #0 {
+define internal void @set_dbus_addr(ptr noundef %o, ptr noundef %str, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
   %dbus_addr = getelementptr inbounds nuw i8, ptr %call.i, i64 48
@@ -696,7 +696,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias ptr @get_audiodev(ptr noundef %o, ptr nocapture readnone %errp) #0 {
+define internal noalias ptr @get_audiodev(ptr noundef %o, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
   %audiodev = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -706,7 +706,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_audiodev(ptr noundef %o, ptr noundef %str, ptr nocapture readnone %errp) #0 {
+define internal void @set_audiodev(ptr noundef %o, ptr noundef %str, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
   %audiodev = getelementptr inbounds nuw i8, ptr %call.i, i64 56
@@ -720,7 +720,7 @@ entry:
 declare ptr @object_class_property_add_enum(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_gl_mode(ptr noundef %o, ptr nocapture readnone %errp) #0 {
+define internal i32 @get_gl_mode(ptr noundef %o, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
   %gl_mode = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -729,7 +729,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @set_gl_mode(ptr noundef %o, i32 noundef %val, ptr nocapture readnone %errp) #0 {
+define internal void @set_gl_mode(ptr noundef %o, i32 noundef %val, ptr readnone captures(none) %errp) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %o, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.9, i32 noundef 72, ptr noundef nonnull @__func__.DBUS_DISPLAY) #5
   %gl_mode = getelementptr inbounds nuw i8, ptr %call.i, i64 40
@@ -784,7 +784,7 @@ declare i64 @g_dbus_object_skeleton_get_type() local_unnamed_addr #2
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @early_dbus_init(ptr nocapture noundef readonly %opts) #0 {
+define internal void @early_dbus_init(ptr noundef readonly captures(none) %opts) #0 {
 entry:
   %has_gl = getelementptr inbounds nuw i8, ptr %opts, i64 10
   %0 = load i8, ptr %has_gl, align 2
@@ -807,7 +807,7 @@ if.end:                                           ; preds = %entry, %if.then, %c
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_init(ptr nocapture readnone %ds, ptr nocapture noundef readonly %opts) #0 {
+define internal void @dbus_init(ptr readnone captures(none) %ds, ptr noundef readonly captures(none) %opts) #0 {
 entry:
   %has_gl = getelementptr inbounds nuw i8, ptr %opts, i64 10
   %0 = load i8, ptr %has_gl, align 2
@@ -861,7 +861,7 @@ declare void @error_report(ptr noundef, ...) local_unnamed_addr #1
 declare ptr @type_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @dbus_vc_class_init(ptr noundef %oc, ptr nocapture readnone %data) #0 {
+define internal void @dbus_vc_class_init(ptr noundef %oc, ptr readnone captures(none) %data) #0 {
 entry:
   %call.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str, i32 noundef 423, ptr noundef nonnull @__func__.DBUS_VC_CLASS) #5
   %call.i3 = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %oc, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33, i32 noundef 231, ptr noundef nonnull @__func__.CHARDEV_CLASS) #5

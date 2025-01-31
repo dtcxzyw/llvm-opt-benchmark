@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.7 = private unnamed_addr constant [29 x i8] c"SAT-based search started ...\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @getDependencies(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @getDependencies(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Sim_ComputeFunSupp(ptr noundef %0, i32 noundef 0) #12
   %5 = getelementptr i8, ptr %0, i64 48
   %.val180 = load ptr, ptr %5, align 8
@@ -1072,7 +1072,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare ptr @Sim_ComputeFunSupp(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @initMatchList(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, i32 noundef %9) local_unnamed_addr #0 {
+define void @initMatchList(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7, ptr noundef writeonly captures(none) %8, i32 noundef %9) local_unnamed_addr #0 {
   %.not = icmp eq i32 %9, 0
   br i1 %.not, label %14, label %.preheader137
 
@@ -1583,10 +1583,10 @@ Vec_IntFree.exit133:                              ; preds = %187, %190
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @iSortDependencies(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @iSortDependencies(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
@@ -2003,7 +2003,7 @@ Vec_IntFree.exit66:                               ; preds = %._crit_edge84, %171
 }
 
 ; Function Attrs: nounwind uwtable
-define void @oSortDependencies(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @oSortDependencies(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
@@ -2420,7 +2420,7 @@ Vec_IntFree.exit66:                               ; preds = %._crit_edge84, %171
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @oSplitByDep(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define i32 @oSplitByDep(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %4, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph148, label %._crit_edge149
@@ -3025,10 +3025,10 @@ Vec_IntFree.exit127:                              ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @iSplitByDep(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define i32 @iSplitByDep(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %4, align 4
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph147, label %._crit_edge148
@@ -3625,7 +3625,7 @@ Vec_IntFree.exit126:                              ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @findTopologicalOrder(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define noalias noundef ptr @findTopologicalOrder(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 40
   %.val25 = load ptr, ptr %2, align 8
   %3 = getelementptr i8, ptr %.val25, i64 4
@@ -3890,7 +3890,7 @@ Abc_ObjFanout0Ntk.exit:                           ; preds = %Abc_NodeSetTravIdCu
 declare void @Abc_NtkDfsReverse_rec(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkSimulateOneNode(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkSimulateOneNode(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
@@ -4185,7 +4185,7 @@ Vec_PtrFree.exit:                                 ; preds = %._crit_edge78, %._c
 declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @refineIOBySimulation(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef %10, ptr nocapture noundef readonly %11) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @refineIOBySimulation(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef readonly captures(none) %9, ptr noundef captures(none) %10, ptr noundef readonly captures(none) %11) local_unnamed_addr #0 {
   %13 = getelementptr i8, ptr %0, i64 56
   %.val351 = load ptr, ptr %13, align 8
   %14 = getelementptr i8, ptr %.val351, i64 4
@@ -4602,7 +4602,7 @@ Vec_IntRemove.exit:                               ; preds = %173, %._crit_edge.i
   br i1 %198, label %199, label %.critedge4.thread
 
 199:                                              ; preds = %.critedge4
-  tail call void @iSortDependencies(ptr noundef %0, ptr noundef %4, ptr noundef %7)
+  tail call void @iSortDependencies(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %7)
   br label %.critedge4.thread
 
 .critedge4.thread:                                ; preds = %._crit_edge, %199, %.critedge4
@@ -4694,7 +4694,7 @@ Vec_IntAlloc.exit370:                             ; preds = %Vec_IntAlloc.exit36
   %.val337 = load ptr, ptr %232, align 8
   %240 = getelementptr inbounds nuw i32, ptr %.val337, i64 %indvars.iv609
   %241 = load i32, ptr %240, align 4
-  %242 = tail call ptr @Abc_NtkSimulateOneNode(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %241, ptr noundef %11)
+  %242 = tail call ptr @Abc_NtkSimulateOneNode(ptr noundef nonnull %0, ptr noundef nonnull %17, i32 noundef %241, ptr noundef %11)
   %243 = load ptr, ptr %205, align 8
   %244 = getelementptr i8, ptr %243, i64 8
   %.val336553 = load ptr, ptr %244, align 8
@@ -5279,7 +5279,7 @@ Vec_IntFree.exit429:                              ; preds = %Vec_IntFree.exit, %
   br i1 %497, label %498, label %.critedge6.thread
 
 498:                                              ; preds = %.critedge6
-  tail call void @oSortDependencies(ptr noundef %0, ptr noundef %8, ptr noundef %3)
+  tail call void @oSortDependencies(ptr noundef nonnull %0, ptr noundef %8, ptr noundef %3)
   br label %.critedge6.thread
 
 .critedge6.thread:                                ; preds = %.critedge4.thread, %498, %.critedge6
@@ -6543,7 +6543,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge6, %359
 declare ptr @Abc_NtkAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 declare ptr @Extra_UtilStrsav(ptr noundef) local_unnamed_addr #1
 
@@ -6558,7 +6558,7 @@ declare ptr @Abc_AigMiter(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Abc_NtkVerifyReportError(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
 .preheader66:
   %4 = alloca ptr, align 8
   %5 = tail call ptr @Abc_NtkVerifySimulatePattern(ptr noundef %0, ptr noundef %2) #12
@@ -7329,7 +7329,7 @@ declare ptr @Abc_NtkMulti(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i3
 declare i32 @Abc_NtkMiterSat(ptr noundef, i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @checkEquivalence(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define i32 @checkEquivalence(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = getelementptr i8, ptr %0, i64 40
   %.val34 = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %.val34, i64 4
@@ -7735,7 +7735,7 @@ Vec_PtrFree.exit70:                               ; preds = %Vec_PtrFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @computeCofactor(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define ptr @computeCofactor(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i32 @Abc_AigLevel(ptr noundef %0) #12
   %6 = tail call ptr @Abc_NtkAlloc(i32 noundef 3, i32 noundef 3, i32 noundef 1) #12
   %7 = tail call ptr @Extra_UtilStrsav(ptr noundef nonnull @.str.7) #12
@@ -8025,7 +8025,7 @@ declare void @Abc_NtkCleanCopy(ptr noundef) local_unnamed_addr #1
 declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @matchNonSingletonOutputs(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture noundef readnone %11, ptr nocapture noundef %12, ptr nocapture noundef readnone %13, ptr nocapture noundef readonly %14, ptr nocapture noundef readnone %15, ptr nocapture noundef %16, ptr nocapture noundef %17, ptr nocapture noundef %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @matchNonSingletonOutputs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef readonly captures(none) %9, ptr noundef readonly captures(none) %10, ptr noundef readnone captures(none) %11, ptr noundef captures(none) %12, ptr noundef readnone captures(none) %13, ptr noundef readonly captures(none) %14, ptr noundef readnone captures(none) %15, ptr noundef captures(none) %16, ptr noundef captures(none) %17, ptr noundef captures(none) %18, ptr noundef %19, ptr noundef %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, i32 noundef %24, i32 noundef %25, i32 noundef %26, i32 noundef %27) local_unnamed_addr #0 {
   store i1 false, ptr @matchNonSingletonOutputs.MATCH_FOUND, align 4
   %29 = getelementptr i8, ptr %23, i64 4
   %.val262 = load i32, ptr %29, align 4
@@ -8729,7 +8729,7 @@ Vec_IntPush.exit300:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @match1by1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture noundef readnone %11, ptr nocapture noundef %12, ptr nocapture noundef readnone %13, ptr nocapture noundef readonly %14, ptr nocapture noundef readnone %15, ptr nocapture noundef %16, ptr nocapture noundef %17, ptr nocapture noundef %18, ptr noundef %19, i32 noundef %20, i32 noundef %21) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @match1by1(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(none) %4, ptr noundef readnone captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef readonly captures(none) %9, ptr noundef readonly captures(none) %10, ptr noundef readnone captures(none) %11, ptr noundef captures(none) %12, ptr noundef readnone captures(none) %13, ptr noundef readonly captures(none) %14, ptr noundef readnone captures(none) %15, ptr noundef captures(none) %16, ptr noundef captures(none) %17, ptr noundef captures(none) %18, ptr noundef %19, i32 noundef %20, i32 noundef %21) local_unnamed_addr #0 {
   %23 = alloca ptr, align 8
   store i1 false, ptr @match1by1.MATCH_FOUND, align 4
   %24 = getelementptr i8, ptr %19, i64 4
@@ -9997,7 +9997,7 @@ Vec_PtrFree.exit468:                              ; preds = %Vec_IntFree.exit466
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntPushUnique(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntPushUnique(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, 0
@@ -10093,7 +10093,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define float @refineBySAT(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture readnone %7, ptr nocapture noundef readonly %8, ptr nocapture readnone %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr nocapture noundef readnone %12, ptr nocapture noundef readnone %13, ptr nocapture readnone %14, ptr nocapture noundef readonly %15, ptr nocapture noundef readnone %16, ptr nocapture readnone %17, ptr nocapture readnone %18, ptr nocapture noundef readonly %19) local_unnamed_addr #0 {
+define float @refineBySAT(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr readnone captures(none) %7, ptr noundef readonly captures(none) %8, ptr readnone captures(none) %9, ptr noundef %10, ptr noundef readonly captures(none) %11, ptr noundef readnone captures(none) %12, ptr noundef readnone captures(none) %13, ptr readnone captures(none) %14, ptr noundef readonly captures(none) %15, ptr noundef readnone captures(none) %16, ptr readnone captures(none) %17, ptr readnone captures(none) %18, ptr noundef readonly captures(none) %19) local_unnamed_addr #0 {
   %21 = alloca %struct.timespec, align 8
   %22 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
@@ -10245,7 +10245,7 @@ Vec_IntAlloc.exit316:                             ; preds = %Vec_IntAlloc.exit31
   %91 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
   store ptr %87, ptr %91, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %92 = call i32 @Abc_AigLevel(ptr noundef %0) #12
+  %92 = call i32 @Abc_AigLevel(ptr noundef nonnull %0) #12
   %93 = sext i32 %92 to i64
   %.not.not = icmp slt i64 %indvars.iv, %93
   br i1 %.not.not, label %.lr.ph, label %.preheader393, !llvm.loop !102
@@ -10957,7 +10957,7 @@ Vec_IntPush.exit354:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %430, label %.lr.ph411, label %.loopexit, !llvm.loop !109
 
 ._crit_edge:                                      ; preds = %.loopexit, %.preheader390
-  %431 = call i32 @match1by1(ptr noundef %0, ptr noundef %81, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %35, ptr noundef %2, ptr noundef %5, ptr noundef %6, ptr noundef %10, ptr noundef %147, ptr noundef %11, ptr noundef %13, ptr noundef nonnull %46, ptr noundef %12, ptr noundef %15, ptr noundef %16, ptr noundef nonnull %57, ptr noundef nonnull %68, ptr noundef nonnull %209, ptr noundef nonnull %29, i32 noundef 0, i32 noundef 0)
+  %431 = call i32 @match1by1(ptr noundef nonnull %0, ptr noundef %81, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %35, ptr noundef %2, ptr noundef %5, ptr noundef %6, ptr noundef %10, ptr noundef %147, ptr noundef %11, ptr noundef %13, ptr noundef nonnull %46, ptr noundef %12, ptr noundef %15, ptr noundef %16, ptr noundef nonnull %57, ptr noundef nonnull %68, ptr noundef nonnull %209, ptr noundef nonnull %29, i32 noundef 0, i32 noundef 0)
   %.not237 = icmp eq i32 %431, 0
   br i1 %.not237, label %506, label %432
 
@@ -11111,9 +11111,9 @@ Vec_IntFind.exit:                                 ; preds = %460, %.lr.ph416, %V
   br i1 %497, label %.lr.ph416, label %._crit_edge417, !llvm.loop !110
 
 ._crit_edge417:                                   ; preds = %Vec_IntFind.exit, %Vec_PtrAlloc.exit
-  %498 = call ptr @computeCofactor(ptr noundef %0, ptr noundef %81, ptr noundef null, ptr noundef nonnull %35)
+  %498 = call ptr @computeCofactor(ptr noundef nonnull %0, ptr noundef %81, ptr noundef null, ptr noundef nonnull %35)
   %499 = call ptr @computeCofactor(ptr noundef %10, ptr noundef %147, ptr noundef null, ptr noundef nonnull %46)
-  %500 = call i32 @matchNonSingletonOutputs(ptr noundef %0, ptr noundef %81, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %35, ptr noundef %2, ptr noundef %5, ptr noundef %6, ptr noundef %10, ptr noundef %147, ptr noundef %11, ptr noundef %13, ptr noundef nonnull %46, ptr noundef %2, ptr noundef %15, ptr noundef %16, ptr noundef nonnull %57, ptr noundef nonnull %68, ptr noundef nonnull %209, ptr noundef null, ptr noundef %498, ptr noundef %499, ptr noundef nonnull %440, ptr noundef nonnull %435, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
+  %500 = call i32 @matchNonSingletonOutputs(ptr noundef nonnull %0, ptr noundef %81, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %35, ptr noundef %2, ptr noundef %5, ptr noundef %6, ptr noundef %10, ptr noundef %147, ptr noundef %11, ptr noundef %13, ptr noundef nonnull %46, ptr noundef %2, ptr noundef %15, ptr noundef %16, ptr noundef nonnull %57, ptr noundef nonnull %68, ptr noundef nonnull %209, ptr noundef null, ptr noundef %498, ptr noundef %499, ptr noundef nonnull %440, ptr noundef nonnull %435, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0)
   %501 = load ptr, ptr %438, align 8
   %.not.i365 = icmp eq ptr %501, null
   br i1 %.not.i365, label %Vec_IntFree.exit, label %502
@@ -11161,7 +11161,7 @@ Abc_Clock.exit368:                                ; preds = %506, %509
   br i1 %.0229, label %558, label %516
 
 516:                                              ; preds = %Abc_Clock.exit368
-  %517 = call i32 @checkEquivalence(ptr noundef %0, ptr noundef nonnull %35, ptr noundef nonnull %57, ptr noundef %10, ptr noundef nonnull %46, ptr noundef nonnull %68)
+  %517 = call i32 @checkEquivalence(ptr noundef nonnull %0, ptr noundef nonnull %35, ptr noundef nonnull %57, ptr noundef %10, ptr noundef nonnull %46, ptr noundef nonnull %68)
   %518 = call noalias ptr @fopen(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   %.val252 = load ptr, ptr %33, align 8
   %519 = getelementptr i8, ptr %.val252, i64 4
@@ -11307,7 +11307,7 @@ Vec_IntFree.exit378:                              ; preds = %Vec_IntFree.exit376
 
 Vec_IntFree.exit380:                              ; preds = %Vec_IntFree.exit378, %570
   call void @free(ptr noundef nonnull %209) #12
-  %571 = call i32 @Abc_AigLevel(ptr noundef %0) #12
+  %571 = call i32 @Abc_AigLevel(ptr noundef nonnull %0) #12
   %.not240426 = icmp slt i32 %571, 0
   br i1 %.not240426, label %.preheader, label %.lr.ph428
 
@@ -11332,7 +11332,7 @@ Vec_IntFree.exit380:                              ; preds = %Vec_IntFree.exit378
 Vec_PtrFree.exit382:                              ; preds = %.lr.ph428, %577
   call void @free(ptr noundef nonnull %574) #12
   %indvars.iv.next469 = add nuw nsw i64 %indvars.iv468, 1
-  %578 = call i32 @Abc_AigLevel(ptr noundef %0) #12
+  %578 = call i32 @Abc_AigLevel(ptr noundef nonnull %0) #12
   %579 = sext i32 %578 to i64
   %.not240.not = icmp slt i64 %indvars.iv468, %579
   br i1 %.not240.not, label %.lr.ph428, label %.preheader, !llvm.loop !113
@@ -11382,16 +11382,16 @@ Vec_PtrFree.exit384:                              ; preds = %.lr.ph431, %584
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #4
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @checkListConsistency(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @checkListConsistency(ptr noundef readnone captures(none) %0, ptr noundef readnone captures(none) %1, ptr noundef readnone captures(none) %2, ptr noundef readnone captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #5 {
   %.not = icmp eq i32 %4, %6
   %.not5 = icmp eq i32 %5, %7
   %or.cond = and i1 %.not, %.not5
@@ -11822,8 +11822,8 @@ Abc_Clock.exit359:                                ; preds = %Abc_Clock.exit357, 
   br i1 %exitcond428.not, label %._crit_edge402, label %.lr.ph401, !llvm.loop !119
 
 ._crit_edge402:                                   ; preds = %._crit_edge398, %189
-  %219 = call i32 @refineIOBySimulation(ptr noundef %115, ptr noundef %37, ptr noundef nonnull %7, ptr noundef %43, ptr noundef %21, ptr noundef %38, ptr noundef nonnull %8, ptr noundef %46, ptr noundef %26, ptr noundef %55, ptr noundef %62, ptr noundef %186)
-  %220 = call i32 @refineIOBySimulation(ptr noundef %116, ptr noundef %39, ptr noundef nonnull %9, ptr noundef %49, ptr noundef %31, ptr noundef %40, ptr noundef nonnull %10, ptr noundef %52, ptr noundef %36, ptr noundef %59, ptr noundef %64, ptr noundef %187)
+  %219 = call i32 @refineIOBySimulation(ptr noundef nonnull %115, ptr noundef %37, ptr noundef nonnull %7, ptr noundef %43, ptr noundef %21, ptr noundef %38, ptr noundef nonnull %8, ptr noundef %46, ptr noundef %26, ptr noundef %55, ptr noundef %62, ptr noundef %186)
+  %220 = call i32 @refineIOBySimulation(ptr noundef nonnull %116, ptr noundef %39, ptr noundef nonnull %9, ptr noundef %49, ptr noundef %31, ptr noundef %40, ptr noundef nonnull %10, ptr noundef %52, ptr noundef %36, ptr noundef %59, ptr noundef %64, ptr noundef %187)
   %221 = icmp ne i32 %219, 0
   %222 = icmp ne i32 %220, 0
   %or.cond = and i1 %221, %222
@@ -11858,7 +11858,7 @@ Abc_Clock.exit359:                                ; preds = %Abc_Clock.exit357, 
   %236 = sitofp i64 %235 to float
   %237 = fdiv float %236, 1.000000e+06
   %puts300 = call i32 @puts(ptr nonnull dereferenceable(1) @str.7)
-  %238 = call float @refineBySAT(ptr noundef %115, ptr noundef %37, ptr noundef %43, ptr noundef %21, ptr noundef nonnull %7, ptr noundef %38, ptr noundef %46, ptr poison, ptr noundef nonnull %8, ptr poison, ptr noundef %116, ptr noundef %39, ptr noundef %49, ptr noundef %31, ptr nonnull poison, ptr noundef %40, ptr noundef %52, ptr poison, ptr nonnull poison, ptr noundef %64)
+  %238 = call float @refineBySAT(ptr noundef nonnull %115, ptr noundef %37, ptr noundef %43, ptr noundef %21, ptr noundef nonnull %7, ptr noundef %38, ptr noundef %46, ptr poison, ptr noundef nonnull %8, ptr poison, ptr noundef nonnull %116, ptr noundef %39, ptr noundef %49, ptr noundef %31, ptr nonnull poison, ptr noundef %40, ptr noundef %52, ptr poison, ptr nonnull poison, ptr noundef %64)
   %239 = fpext float %179 to double
   %240 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.22, double noundef %239)
   %241 = fpext float %237 to double
@@ -12230,7 +12230,7 @@ declare ptr @Abc_NtkStrash(ptr noundef, i32 noundef, i32 noundef, i32 noundef) l
 declare i32 @rand() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 declare ptr @Abc_NtkCreateObj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
@@ -12259,22 +12259,22 @@ define internal fastcc i64 @Abc_Clock() unnamed_addr #0 {
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #8
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

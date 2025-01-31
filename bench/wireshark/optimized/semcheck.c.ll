@@ -343,7 +343,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @df_error_new(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 4) i32 @mk_fvalue_from_val_string(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %9 [
@@ -1850,7 +1850,7 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   %49 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
   %50 = extractvalue { i64, i64 } %49, 0
   %51 = extractvalue { i64, i64 } %49, 1
-  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %50, i64 %51, ptr noundef nonnull @.str.55) #7
+  call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef nonnull %0, i32 noundef -1, i64 %50, i64 %51, ptr noundef nonnull @.str.55) #7
   unreachable
 
 52:                                               ; preds = %.lr.ph.i
@@ -1861,12 +1861,12 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   br i1 %.not35.i, label %57, label %56
 
 56:                                               ; preds = %52
-  call fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @ftype_can_cmp, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef %45)
-  call fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 noundef 11, ptr noundef nonnull @ftype_can_cmp, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef nonnull %55)
+  call fastcc void @check_relation_LHS_FIELD(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull @ftype_can_cmp, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef %45)
+  call fastcc void @check_relation_LHS_FIELD(ptr noundef nonnull %0, i32 noundef 11, ptr noundef nonnull @ftype_can_cmp, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef nonnull %55)
   br label %58
 
 57:                                               ; preds = %52
-  call fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 noundef 5, ptr noundef nonnull @ftype_can_eq, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef %45)
+  call fastcc void @check_relation_LHS_FIELD(ptr noundef nonnull %0, i32 noundef 5, ptr noundef nonnull @ftype_can_eq, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef %45)
   br label %58
 
 58:                                               ; preds = %57, %56
@@ -2287,7 +2287,7 @@ declare ptr @fvalue_modulo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_
 declare ptr @fvalue_bitwise_and(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_relation(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @check_relation(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %4, i1 noundef zeroext true)
   %7 = tail call i32 @stnode_type_id(ptr noundef %5) #6
   %.not.i = icmp eq i32 %7, 2
@@ -3023,7 +3023,7 @@ find_logical_ftype.exit38:                        ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @stnode_type_id(ptr noundef %5) #6
   %9 = icmp eq i32 %8, 8
   br i1 %9, label %10, label %14
@@ -3405,7 +3405,7 @@ op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 0) %6) unnamed_addr #0 {
+define internal fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 0) %6) unnamed_addr #0 {
   %8 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %4, i32 noundef %6)
   %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !12
   br i1 %9, label %16, label %10
@@ -3700,7 +3700,7 @@ is_bytes_type.exit101.thread:                     ; preds = %61, %61, %61, %61, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 0) %6) unnamed_addr #0 {
+define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 1, 0) %6) unnamed_addr #0 {
   %8 = tail call i32 @check_function(ptr noundef %0, ptr noundef %4, i32 noundef %6)
   %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !12
   br i1 %9, label %17, label %10
@@ -3995,10 +3995,10 @@ declare zeroext i1 @ftype_can_matches(i32 noundef) #1
 declare zeroext i1 @ftype_can_is_zero(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

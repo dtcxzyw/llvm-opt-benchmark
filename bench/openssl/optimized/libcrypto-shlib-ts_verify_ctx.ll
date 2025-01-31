@@ -35,7 +35,7 @@ cond.end:                                         ; preds = %entry
 declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
 define void @TS_VERIFY_CTX_free(ptr noundef %ctx) local_unnamed_addr #0 {
@@ -117,7 +117,7 @@ return:                                           ; preds = %entry, %TS_VERIFY_C
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @TS_VERIFY_CTX_add_flags(ptr nocapture noundef %ctx, i32 noundef %f) local_unnamed_addr #4 {
+define i32 @TS_VERIFY_CTX_add_flags(ptr noundef captures(none) %ctx, i32 noundef %f) local_unnamed_addr #4 {
 entry:
   %0 = load i32, ptr %ctx, align 8
   %or = or i32 %0, %f
@@ -126,14 +126,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @TS_VERIFY_CTX_set_flags(ptr nocapture noundef writeonly initializes((0, 4)) %ctx, i32 noundef returned %f) local_unnamed_addr #5 {
+define noundef i32 @TS_VERIFY_CTX_set_flags(ptr noundef writeonly captures(none) initializes((0, 4)) %ctx, i32 noundef returned %f) local_unnamed_addr #5 {
 entry:
   store i32 %f, ptr %ctx, align 8
   ret i32 %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @TS_VERIFY_CTX_set_data(ptr nocapture noundef writeonly initializes((56, 64)) %ctx, ptr noundef returned %b) local_unnamed_addr #5 {
+define noundef ptr @TS_VERIFY_CTX_set_data(ptr noundef writeonly captures(none) initializes((56, 64)) %ctx, ptr noundef returned %b) local_unnamed_addr #5 {
 entry:
   %data = getelementptr inbounds nuw i8, ptr %ctx, i64 56
   store ptr %b, ptr %data, align 8
@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @TS_VERIFY_CTX_set_store(ptr nocapture noundef writeonly initializes((8, 16)) %ctx, ptr noundef returned %s) local_unnamed_addr #5 {
+define noundef ptr @TS_VERIFY_CTX_set_store(ptr noundef writeonly captures(none) initializes((8, 16)) %ctx, ptr noundef returned %s) local_unnamed_addr #5 {
 entry:
   %store = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   store ptr %s, ptr %store, align 8
@@ -149,7 +149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @TS_VERIFY_CTX_set_certs(ptr nocapture noundef writeonly initializes((16, 24)) %ctx, ptr noundef returned %certs) local_unnamed_addr #5 {
+define noundef ptr @TS_VERIFY_CTX_set_certs(ptr noundef writeonly captures(none) initializes((16, 24)) %ctx, ptr noundef returned %certs) local_unnamed_addr #5 {
 entry:
   %certs1 = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   store ptr %certs, ptr %certs1, align 8
@@ -157,7 +157,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @TS_VERIFY_CTX_set_imprint(ptr nocapture noundef initializes((48, 52)) %ctx, ptr noundef returned %hexstr, i64 noundef %len) local_unnamed_addr #0 {
+define noundef ptr @TS_VERIFY_CTX_set_imprint(ptr noundef captures(none) initializes((48, 52)) %ctx, ptr noundef returned %hexstr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %imprint = getelementptr inbounds nuw i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %imprint, align 8
@@ -375,7 +375,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare ptr @ASN1_STRING_get0_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 declare ptr @ASN1_INTEGER_dup(ptr noundef) local_unnamed_addr #1
 

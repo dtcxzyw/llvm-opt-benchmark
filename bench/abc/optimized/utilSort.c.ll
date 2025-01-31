@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_SortMerge(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @Abc_SortMerge(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp ult ptr %0, %1
   %7 = icmp ult ptr %2, %3
   %8 = and i1 %6, %7
@@ -270,7 +270,7 @@ Abc_SortMerge.exit:                               ; preds = %.lr.ph50.i, %.prehe
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_MergeSort(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
@@ -294,10 +294,10 @@ define void @Abc_MergeSort(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_SortMergeCost2(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define void @Abc_SortMergeCost2(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = icmp ult ptr %0, %1
   %8 = icmp ult ptr %2, %3
   %9 = and i1 %7, %8
@@ -591,7 +591,7 @@ define void @Abc_MergeSortCost2(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_SortMergeCost2Reverse(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef readonly %5) local_unnamed_addr #0 {
+define void @Abc_SortMergeCost2Reverse(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = icmp ult ptr %0, %1
   %8 = icmp ult ptr %2, %3
   %9 = and i1 %7, %8
@@ -885,7 +885,7 @@ define void @Abc_MergeSortCost2Reverse(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_MergeSortCostMerge(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @Abc_MergeSortCostMerge(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp ult ptr %0, %1
   %7 = icmp ult ptr %2, %3
   %8 = and i1 %6, %7
@@ -1207,7 +1207,7 @@ Abc_MergeSortCostMerge.exit:                      ; preds = %.lr.ph61.i, %.prehe
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Abc_MergeSortCost(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
+define noalias noundef ptr @Abc_MergeSortCost(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = sext i32 %1 to i64
   %4 = tail call noalias ptr @calloc(i64 noundef 4, i64 noundef %3) #21
   %5 = icmp slt i32 %1, 2
@@ -1266,7 +1266,7 @@ define noalias noundef ptr @Abc_MergeSortCost(ptr nocapture noundef readonly %0,
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @Abc_SortNumCompare(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define i32 @Abc_SortNumCompare(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load i32, ptr %0, align 4
   %4 = load i32, ptr %1, align 4
   %5 = sub nsw i32 %3, %4
@@ -1342,10 +1342,10 @@ declare void @srand(i32 noundef) local_unnamed_addr #9
 declare i32 @rand() local_unnamed_addr #9
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @Abc_QuickSort1CompareInc(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define range(i32 -1, 2) i32 @Abc_QuickSort1CompareInc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load i64, ptr %0, align 8
   %4 = trunc i64 %3 to i32
   %5 = load i64, ptr %1, align 8
@@ -1355,7 +1355,7 @@ define range(i32 -1, 2) i32 @Abc_QuickSort1CompareInc(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @Abc_QuickSort1CompareDec(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #8 {
+define range(i32 -1, 2) i32 @Abc_QuickSort1CompareDec(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #8 {
   %3 = load i64, ptr %0, align 8
   %4 = trunc i64 %3 to i32
   %5 = load i64, ptr %1, align 8
@@ -1374,7 +1374,7 @@ define void @Abc_QuickSort1(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_QuickSort2Inc_rec(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Abc_QuickSort2Inc_rec(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i64, ptr %0, i64 %4
   %.not69 = icmp slt i32 %1, %2
@@ -1494,7 +1494,7 @@ Abc_SelectSortInc.exit:                           ; preds = %tailrecurse, %._cri
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_QuickSort2Dec_rec(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Abc_QuickSort2Dec_rec(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i64, ptr %0, i64 %4
   %.not69 = icmp slt i32 %1, %2
@@ -1614,7 +1614,7 @@ Abc_SelectSortDec.exit:                           ; preds = %tailrecurse, %._cri
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_QuickSort3Inc_rec(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Abc_QuickSort3Inc_rec(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i64, ptr %0, i64 %4
   %.not142 = icmp slt i32 %1, %2
@@ -1836,7 +1836,7 @@ Abc_SelectSortInc.exit:                           ; preds = %tailrecurse, %._cri
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_QuickSort3Dec_rec(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Abc_QuickSort3Dec_rec(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds i64, ptr %0, i64 %4
   %.not142 = icmp slt i32 %1, %2
@@ -2058,7 +2058,7 @@ Abc_SelectSortDec.exit:                           ; preds = %tailrecurse, %._cri
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_QuickSort2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Abc_QuickSort2(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %2, 0
   %4 = add nsw i32 %1, -1
   br i1 %.not, label %6, label %5
@@ -2076,7 +2076,7 @@ define void @Abc_QuickSort2(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_QuickSort3(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Abc_QuickSort3(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %2, 0
   %4 = add nsw i32 %1, -1
   br i1 %.not, label %.loopexit.loopexit, label %.loopexit.loopexit13
@@ -2094,7 +2094,7 @@ define void @Abc_QuickSort3(ptr nocapture noundef %0, i32 noundef %1, i32 nounde
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @Abc_QuickSortCostData(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
+define void @Abc_QuickSortCostData(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #1 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
 
@@ -2152,7 +2152,7 @@ Abc_QuickSort3.exit:                              ; preds = %.loopexit.loopexit1
 }
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Abc_QuickSortCost(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define noalias noundef ptr @Abc_QuickSortCost(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = sext i32 %1 to i64
   %5 = shl nsw i64 %4, 3
   %6 = tail call noalias ptr @malloc(i64 noundef %5) #19
@@ -2456,7 +2456,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #3 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #20
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #20
   call void @free(ptr noundef %9) #20
   br label %16
 
@@ -2479,10 +2479,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #15
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #16
@@ -2491,10 +2491,10 @@ declare void @llvm.va_start.p0(ptr) #16
 declare void @llvm.va_end.p0(ptr) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i32(i32, i32) #18

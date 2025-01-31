@@ -35,13 +35,13 @@ define ptr @PGTYPESdate_new() local_unnamed_addr #0 {
 declare ptr @pgtypes_alloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @PGTYPESdate_free(ptr nocapture noundef %0) local_unnamed_addr #2 {
+define void @PGTYPESdate_free(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   tail call void @free(ptr noundef %0) #11
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef range(i64 -106751991, 106751992) i64 @PGTYPESdate_from_timestamp(i64 noundef %0) local_unnamed_addr #4 {
@@ -75,7 +75,7 @@ define range(i64 -2147483648, 2147483648) i64 @PGTYPESdate_from_asc(ptr noundef 
 15:                                               ; preds = %2
   %.not = icmp eq ptr %1, null
   %16 = select i1 %.not, ptr %10, ptr %1
-  %17 = call i32 @ParseDateTime(ptr noundef %0, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %16) #11
+  %17 = call i32 @ParseDateTime(ptr noundef nonnull %0, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %6, ptr noundef nonnull %16) #11
   %.not12 = icmp eq i32 %17, 0
   br i1 %.not12, label %18, label %21
 
@@ -131,7 +131,7 @@ define range(i64 -2147483648, 2147483648) i64 @PGTYPESdate_from_asc(ptr noundef 
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @ParseDateTime(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -164,7 +164,7 @@ declare void @EncodeDateOnly(ptr noundef, i32 noundef, ptr noundef, i1 noundef z
 declare ptr @pgtypes_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @PGTYPESdate_julmdy(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #0 {
+define void @PGTYPESdate_julmdy(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -184,7 +184,7 @@ define void @PGTYPESdate_julmdy(i64 noundef %0, ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PGTYPESdate_mdyjul(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define void @PGTYPESdate_mdyjul(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr %0, align 4
@@ -209,7 +209,7 @@ define range(i32 -6, 7) i32 @PGTYPESdate_dayofweek(i64 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PGTYPESdate_today(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
+define void @PGTYPESdate_today(ptr noundef writeonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
   call void @GetCurrentDateTime(ptr noundef nonnull %2) #11
   %3 = tail call ptr @__errno_location() #12
@@ -238,7 +238,7 @@ define void @PGTYPESdate_today(ptr nocapture noundef writeonly %0) local_unnamed
 declare void @GetCurrentDateTime(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %1) #11
   %6 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #11
@@ -310,7 +310,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture n
 40:                                               ; preds = %29, %25, %23
   %.sroa.0.2.ph = phi ptr [ @.str.6, %23 ], [ %26, %25 ], [ %34, %29 ]
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sroa.0.2.ph) #13
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr align 1 %.sroa.0.2.ph, i64 %41, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %24, ptr nonnull align 1 %.sroa.0.2.ph, i64 %41, i1 false)
   br label %56
 
 42:                                               ; preds = %37, %35, %27
@@ -369,13 +369,13 @@ define range(i32 -1, 1) i32 @PGTYPESdate_fmt_asc(i64 noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #6
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -829,7 +829,7 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
   %208 = load i32, ptr %199, align 8
   %209 = sext i32 %208 to i64
   %210 = getelementptr i8, ptr %.0191, i64 %209
-  %211 = tail call i64 @strtol(ptr nocapture noundef %210, ptr noundef null, i32 noundef 10) #11
+  %211 = tail call i64 @strtol(ptr noundef captures(none) %210, ptr noundef null, i32 noundef 10) #11
   %212 = trunc i64 %211 to i32
   %213 = load i32, ptr %207, align 4
   %.not228 = icmp eq i32 %213, 0
@@ -929,15 +929,15 @@ define range(i32 -1, 1) i32 @PGTYPESdate_defmt_asc(ptr noundef writeonly %0, ptr
 declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
+declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #9
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

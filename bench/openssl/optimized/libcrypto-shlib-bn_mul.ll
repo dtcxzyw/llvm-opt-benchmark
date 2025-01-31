@@ -479,7 +479,7 @@ return:                                           ; preds = %if.end33, %if.end9,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare i32 @bn_cmp_part_words(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
@@ -747,7 +747,7 @@ if.else:                                          ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define void @bn_mul_low_normal(ptr noundef %r, ptr noundef %a, ptr nocapture noundef readonly %b, i32 noundef %n) local_unnamed_addr #0 {
+define void @bn_mul_low_normal(ptr noundef %r, ptr noundef %a, ptr noundef readonly captures(none) %b, i32 noundef %n) local_unnamed_addr #0 {
 entry:
   %0 = load i64, ptr %b, align 8
   %call = tail call i64 @bn_mul_words(ptr noundef %r, ptr noundef %a, i32 noundef %n, i64 noundef %0) #4

@@ -1446,7 +1446,7 @@ return:                                           ; preds = %if.then406.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @StoreKeys(ptr nocapture noundef %ssl, ptr nocapture noundef readonly %keyData, i32 noundef %side) local_unnamed_addr #2 {
+define noundef i32 @StoreKeys(ptr noundef captures(none) %ssl, ptr noundef readonly captures(none) %keyData, i32 noundef %side) local_unnamed_addr #2 {
 entry:
   %keys1 = getelementptr inbounds nuw i8, ptr %ssl, i64 716
   %specs = getelementptr inbounds nuw i8, ptr %ssl, i64 698
@@ -1560,13 +1560,13 @@ if.end63:                                         ; preds = %if.then61, %if.end5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @DeriveKeys(ptr nocapture noundef %ssl) local_unnamed_addr #0 {
+define i32 @DeriveKeys(ptr noundef captures(none) %ssl) local_unnamed_addr #0 {
 entry:
   %shaOutput = alloca [20 x i8], align 16
   %md5Input = alloca [68 x i8], align 16
@@ -2055,10 +2055,10 @@ declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #1
 declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

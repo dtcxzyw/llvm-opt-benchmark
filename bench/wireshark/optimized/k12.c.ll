@@ -675,7 +675,7 @@ define internal fastcc void @destroy_k12_file_data(ptr noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_record(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc i32 @get_record(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %.not = icmp eq i32 %3, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -851,7 +851,7 @@ declare ptr @ascii_strdown_inplace(ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
+define internal range(i32 0, 2) i32 @k12_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
@@ -988,7 +988,7 @@ define internal range(i32 0, 2) i32 @k12_read(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @k12_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @k12_seek_read(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1023,7 +1023,7 @@ define internal range(i32 0, 2) i32 @k12_seek_read(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @k12_close(ptr nocapture noundef %0) #0 {
+define internal void @k12_close(ptr noundef captures(none) %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1083,7 +1083,7 @@ declare void @g_hash_table_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @g_hash_table_foreach_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @destroy_srcdsc(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @destroy_srcdsc(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @g_free(ptr noundef %5) #11
@@ -1106,7 +1106,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 16, -2147483648) %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_packet_data(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 16, -2147483648) %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) unnamed_addr #0 {
   %8 = getelementptr i8, ptr %2, i64 4
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
@@ -1359,10 +1359,10 @@ declare ptr @wtap_block_create(i32 noundef) local_unnamed_addr #1
 declare void @ws_buffer_assure_space(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef range(i32 -9, 1) i32 @k12_dump_can_write_encap(i32 noundef %0) #8 {
@@ -1374,7 +1374,7 @@ define internal noundef range(i32 -9, 1) i32 @k12_dump_can_write_encap(i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @k12_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @k12_dump_open(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = tail call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @k12_file_magic, i64 noundef 8, ptr noundef %1) #11
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %16, label %5
@@ -1411,7 +1411,7 @@ declare i32 @wtap_dump_file_write(ptr noundef, ptr noundef, i64 noundef, ptr nou
 declare i64 @wtap_dump_file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @k12_dump(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture readnone %4) #0 {
+define internal range(i32 0, 2) i32 @k12_dump(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr readnone captures(none) %4) #0 {
   %6 = alloca %union.anon.3, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -1495,7 +1495,7 @@ define internal range(i32 0, 2) i32 @k12_dump(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @k12_dump_finish(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @k12_dump_finish(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca %union.anon.11, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -1572,7 +1572,7 @@ define internal range(i32 0, 2) i32 @k12_dump_finish(ptr noundef %0, ptr noundef
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @k12_dump_src_setting(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 {
+define internal void @k12_dump_src_setting(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca %union.anon.5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -1667,13 +1667,13 @@ define internal void @k12_dump_src_setting(ptr nocapture readnone %0, ptr nocapt
   %50 = zext nneg i32 %.036 to i64
   %51 = getelementptr i8, ptr %5, i64 %50
   %52 = zext i16 %22 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %51, ptr align 1 %19, i64 %52, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 4 %51, ptr nonnull align 1 %19, i64 %52, i1 false)
   %53 = load i16, ptr %23, align 4
   %54 = zext i16 %53 to i64
   %55 = getelementptr i8, ptr %51, i64 %54
   %56 = load i16, ptr %29, align 2
   %57 = zext i16 %56 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr align 1 %25, i64 %57, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %25, i64 %57, i1 false)
   %58 = load i16, ptr %23, align 4
   %59 = zext i16 %58 to i32
   %60 = add nuw nsw i32 %.036, %59
@@ -1760,7 +1760,7 @@ define internal fastcc range(i32 0, 2) i32 @k12_dump_record(ptr noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #10

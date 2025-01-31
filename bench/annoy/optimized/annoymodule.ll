@@ -664,7 +664,7 @@ define weak_odr void @_ZN5Annoy19AnnoyIndexInterfaceIifmED0Ev(ptr noundef nonnul
 declare void @llvm.trap() #1
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef ptr @_Z17get_nns_to_pythonRKSt6vectorIiSaIiEERKS_IfSaIfEEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @_Z17get_nns_to_pythonRKSt6vectorIiSaIiEERKS_IfSaIfEEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %0, align 8
@@ -816,7 +816,7 @@ declare ptr @PyFloat_FromDouble(double noundef nofpclass(nan inf)) local_unnamed
 declare ptr @PyTuple_Pack(i64 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_Z17check_constraintsP8py_annoyib(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
+define noundef zeroext i1 @_Z17check_constraintsP8py_annoyib(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %.sink.split, label %5
 
@@ -847,7 +847,7 @@ define noundef zeroext i1 @_Z17check_constraintsP8py_annoyib(ptr nocapture nound
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define noundef zeroext i1 @_Z22convert_list_to_vectorP7_objectiPSt6vectorIfSaIfEE(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 {
+define noundef zeroext i1 @_Z22convert_list_to_vectorP7_objectiPSt6vectorIfSaIfEE(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = tail call i64 @PyObject_Size(ptr noundef %0)
   %5 = icmp eq i64 %4, -1
   br i1 %5, label %.loopexit, label %6
@@ -1017,7 +1017,7 @@ define internal void @_ZL13py_an_deallocP8py_annoy(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef i32 @_ZL10py_an_initP8py_annoyP7_objectS2_(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal noundef i32 @_ZL10py_an_initP8py_annoyP7_objectS2_(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   store ptr null, ptr %4, align 8
@@ -1299,7 +1299,7 @@ define internal noundef ptr @_ZL9py_an_newP11_typeobjectP7_objectS2_(ptr noundef
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL10py_an_loadP8py_annoyP7_objectS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal noundef ptr @_ZL10py_an_loadP8py_annoyP7_objectS2_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -1345,7 +1345,7 @@ define internal noundef ptr @_ZL10py_an_loadP8py_annoyP7_objectS2_(ptr nocapture
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL10py_an_saveP8py_annoyP7_objectS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal noundef ptr @_ZL10py_an_saveP8py_annoyP7_objectS2_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
@@ -1391,7 +1391,7 @@ define internal noundef ptr @_ZL10py_an_saveP8py_annoyP7_objectS2_(ptr nocapture
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL21py_an_get_nns_by_itemP8py_annoyP7_objectS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL21py_an_get_nns_by_itemP8py_annoyP7_objectS2_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1527,7 +1527,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %49, %_ZNSt6vectorIf
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL23py_an_get_nns_by_vectorP8py_annoyP7_objectS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL23py_an_get_nns_by_vectorP8py_annoyP7_objectS2_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1721,17 +1721,17 @@ _ZNSt6vectorIfSaIfEED2Ev.exit26:                  ; preds = %86, %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL21py_an_get_item_vectorP8py_annoyP7_object(ptr nocapture noundef readonly %0, ptr noundef %1) #2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL21py_an_get_item_vectorP8py_annoyP7_object(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %_ZNSt6vectorIfSaIfEED2Ev.exit30, label %6
+  br i1 %.not, label %65, label %6
 
 6:                                                ; preds = %2
   %7 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.39, ptr noundef nonnull %3)
   %.not24 = icmp eq i32 %7, 0
-  br i1 %.not24, label %_ZNSt6vectorIfSaIfEED2Ev.exit30, label %8
+  br i1 %.not24, label %65, label %8
 
 8:                                                ; preds = %6
   %9 = load i32, ptr %3, align 4
@@ -1751,7 +1751,7 @@ _Z17check_constraintsP8py_annoyib.exit:           ; preds = %8, %11
   %.str.1.sink.i = phi ptr [ @.str, %8 ], [ @.str.1, %11 ]
   %17 = load ptr, ptr @PyExc_IndexError, align 8
   call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull %.str.1.sink.i)
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit30
+  br label %65
 
 18:                                               ; preds = %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1801,12 +1801,12 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.lr.ph.i.i.i.i.preh
 
 38:                                               ; preds = %34
   %39 = icmp eq ptr %37, null
-  br i1 %39, label %_ZL11_Py_XDECREFP7_object.exit, label %.preheader
+  br i1 %39, label %_ZNSt6vectorIfSaIfEED2Ev.exit30, label %.preheader
 
 .preheader:                                       ; preds = %38
   %40 = load i32, ptr %19, align 8
   %41 = icmp sgt i32 %40, 0
-  br i1 %41, label %.lr.ph, label %_ZL11_Py_XDECREFP7_object.exit
+  br i1 %41, label %.lr.ph, label %_ZNSt6vectorIfSaIfEED2Ev.exit30
 
 .thread.loopexit:                                 ; preds = %.lr.ph, %52
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -1853,33 +1853,29 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %.lr.ph.i.i.i.i.preh
   %55 = load i32, ptr %19, align 8
   %56 = sext i32 %55 to i64
   %57 = icmp slt i64 %indvars.iv.next, %56
-  br i1 %57, label %.lr.ph, label %_ZL11_Py_XDECREFP7_object.exit.thread, !llvm.loop !8
+  br i1 %57, label %.lr.ph, label %_ZNSt6vectorIfSaIfEED2Ev.exit30, !llvm.loop !8
 
 58:                                               ; preds = %50
   %59 = load i64, ptr %37, align 8
   %60 = add i64 %59, -1
   store i64 %60, ptr %37, align 8
   %.not.i.i = icmp eq i64 %60, 0
-  br i1 %.not.i.i, label %61, label %_ZL11_Py_XDECREFP7_object.exit.thread
+  br i1 %.not.i.i, label %61, label %_ZNSt6vectorIfSaIfEED2Ev.exit30
 
 61:                                               ; preds = %58
   invoke void @_Py_Dealloc(ptr noundef nonnull %37)
-          to label %_ZL11_Py_XDECREFP7_object.exit.thread unwind label %.thread.loopexit.split-lp
+          to label %_ZNSt6vectorIfSaIfEED2Ev.exit30 unwind label %.thread.loopexit.split-lp
 
-_ZL11_Py_XDECREFP7_object.exit:                   ; preds = %.preheader, %38
-  %.not.i.i.i29 = icmp eq ptr %.sroa.0.0, null
-  br i1 %.not.i.i.i29, label %_ZNSt6vectorIfSaIfEED2Ev.exit30, label %_ZL11_Py_XDECREFP7_object.exit.thread
-
-_ZL11_Py_XDECREFP7_object.exit.thread:            ; preds = %54, %61, %58, %_ZL11_Py_XDECREFP7_object.exit
-  %.145 = phi ptr [ %37, %_ZL11_Py_XDECREFP7_object.exit ], [ null, %58 ], [ null, %61 ], [ %37, %54 ]
+_ZNSt6vectorIfSaIfEED2Ev.exit30:                  ; preds = %54, %.preheader, %58, %61, %38
+  %.1 = phi ptr [ null, %38 ], [ null, %61 ], [ null, %58 ], [ %37, %.preheader ], [ %37, %54 ]
   %62 = ptrtoint ptr %.sroa.8.0 to i64
   %63 = ptrtoint ptr %.sroa.0.0 to i64
   %64 = sub i64 %62, %63
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %64) #28
-  br label %_ZNSt6vectorIfSaIfEED2Ev.exit30
+  br label %65
 
-_ZNSt6vectorIfSaIfEED2Ev.exit30:                  ; preds = %_ZL11_Py_XDECREFP7_object.exit.thread, %_ZL11_Py_XDECREFP7_object.exit, %_Z17check_constraintsP8py_annoyib.exit, %6, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %6 ], [ null, %_Z17check_constraintsP8py_annoyib.exit ], [ %37, %_ZL11_Py_XDECREFP7_object.exit ], [ %.145, %_ZL11_Py_XDECREFP7_object.exit.thread ]
+65:                                               ; preds = %_Z17check_constraintsP8py_annoyib.exit, %6, %2, %_ZNSt6vectorIfSaIfEED2Ev.exit30
+  %.0 = phi ptr [ %.1, %_ZNSt6vectorIfSaIfEED2Ev.exit30 ], [ null, %2 ], [ null, %6 ], [ null, %_Z17check_constraintsP8py_annoyib.exit ]
   ret ptr %.0
 
 _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.thread, %42
@@ -1888,7 +1884,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %.thread, %42
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL14py_an_add_itemP8py_annoyP7_objectS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL14py_an_add_itemP8py_annoyP7_objectS2_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::vector.0", align 8
@@ -2025,7 +2021,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %37, %35
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL19py_an_on_disk_buildP8py_annoyP7_objectS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal noundef ptr @_ZL19py_an_on_disk_buildP8py_annoyP7_objectS2_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2067,7 +2063,7 @@ define internal noundef ptr @_ZL19py_an_on_disk_buildP8py_annoyP7_objectS2_(ptr 
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL11py_an_buildP8py_annoyP7_objectS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #2 {
+define internal noundef ptr @_ZL11py_an_buildP8py_annoyP7_objectS2_(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -2114,7 +2110,7 @@ define internal noundef ptr @_ZL11py_an_buildP8py_annoyP7_objectS2_(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL13py_an_unbuildP8py_annoy(ptr nocapture noundef readonly %0) #2 {
+define internal noundef ptr @_ZL13py_an_unbuildP8py_annoy(ptr noundef readonly captures(none) %0) #2 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -2148,7 +2144,7 @@ define internal noundef ptr @_ZL13py_an_unbuildP8py_annoy(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL12py_an_unloadP8py_annoy(ptr nocapture noundef readonly %0) #2 {
+define internal noundef ptr @_ZL12py_an_unloadP8py_annoy(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2170,7 +2166,7 @@ define internal noundef ptr @_ZL12py_an_unloadP8py_annoy(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL18py_an_get_distanceP8py_annoyP7_object(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal noundef ptr @_ZL18py_an_get_distanceP8py_annoyP7_object(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2241,7 +2237,7 @@ _Z17check_constraintsP8py_annoyib.exit12:         ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL17py_an_get_n_itemsP8py_annoy(ptr nocapture noundef readonly %0) #2 {
+define internal noundef ptr @_ZL17py_an_get_n_itemsP8py_annoy(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2262,7 +2258,7 @@ define internal noundef ptr @_ZL17py_an_get_n_itemsP8py_annoy(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL17py_an_get_n_treesP8py_annoy(ptr nocapture noundef readonly %0) #2 {
+define internal noundef ptr @_ZL17py_an_get_n_treesP8py_annoy(ptr noundef readonly captures(none) %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -2283,7 +2279,7 @@ define internal noundef ptr @_ZL17py_an_get_n_treesP8py_annoy(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL13py_an_verboseP8py_annoyP7_object(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal noundef ptr @_ZL13py_an_verboseP8py_annoyP7_object(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -2314,7 +2310,7 @@ define internal noundef ptr @_ZL13py_an_verboseP8py_annoyP7_object(ptr nocapture
 }
 
 ; Function Attrs: mustprogress sspstrong uwtable
-define internal noundef ptr @_ZL14py_an_set_seedP8py_annoyP7_object(ptr nocapture noundef readonly %0, ptr noundef %1) #2 {
+define internal noundef ptr @_ZL14py_an_set_seedP8py_annoyP7_object(ptr noundef readonly captures(none) %0, ptr noundef %1) #2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -2347,7 +2343,7 @@ define internal noundef ptr @_ZL14py_an_set_seedP8py_annoyP7_object(ptr nocaptur
 declare i32 @PyArg_ParseTupleAndKeywords(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @PyEval_SaveThread() local_unnamed_addr #3
 
@@ -2381,7 +2377,7 @@ declare i32 @PyArg_ParseTuple(ptr noundef, ptr noundef, ...) local_unnamed_addr 
 declare i32 @PyErr_WarnEx(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress sspstrong uwtable
 define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_10DotProductENS_12Kiss64RandomENS_34AnnoyIndexMultiThreadedBuildPolicyEEC2Ei(ptr noundef nonnull align 8 dereferenceable(98) %0, i32 noundef %1) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -3427,7 +3423,7 @@ _ZN5Annoy21set_error_from_stringEPPcPKc.exit:     ; preds = %11, %8, %_ZN5Annoy7
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
@@ -3510,10 +3506,10 @@ define linkonce_odr void @_ZN5Annoy10AnnoyIndexIifNS_7AngularENS_12Kiss64RandomE
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 ; Function Attrs: nounwind
 declare ptr @mremap(ptr noundef, i64 noundef, i64 noundef, i32 noundef, ...) local_unnamed_addr #15
@@ -3759,7 +3755,7 @@ _ZNSt6vectorISt6threadSaIS0_EED2Ev.exit:          ; preds = %_ZNSt6vectorISt6thr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind sspstrong uwtable
 define linkonce_odr void @_ZN5Annoy20set_error_from_errnoEPPcPKc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 comdat {
@@ -5089,7 +5085,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #15
 declare i32 @pthread_rwlock_rdlock(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #16
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #16
 
 ; Function Attrs: nounwind
 declare i32 @pthread_rwlock_unlock(ptr noundef) local_unnamed_addr #15
@@ -5934,19 +5930,19 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #15
 declare ptr @__errno_location() local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
@@ -5954,7 +5950,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #3
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree
-declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #19
+declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #15
@@ -24347,10 +24343,10 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #21
 declare void @llvm.assume(i1 noundef) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #23
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #20

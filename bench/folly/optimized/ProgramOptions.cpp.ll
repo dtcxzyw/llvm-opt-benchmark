@@ -611,7 +611,7 @@ $_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ProgramOptions.cpp, ptr null }]
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN5folly12_GLOBAL__N_18addGFlagIbEEvON6google19CommandLineFlagInfoERN5boost15program_options19options_descriptionENS_19ProgramOptionsStyleE(ptr noundef nonnull align 8 dereferenceable(208) %flag, ptr noundef nonnull align 8 dereferenceable(128) %desc, i32 noundef %style) #1 personality ptr @__gxx_personality_v0 {
@@ -8019,7 +8019,7 @@ ehcleanup29:                                      ; preds = %if.then.i.i70, %_ZN
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFvON6google19CommandLineFlagInfoERN5boost15program_options19options_descriptionEN5folly19ProgramOptionsStyleEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SG_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -8300,7 +8300,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #9
@@ -8486,7 +8486,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #3
@@ -8777,7 +8777,7 @@ invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #4
 
@@ -8888,7 +8888,7 @@ for.end:                                          ; preds = %invoke.cont, %_ZNSt
 declare noundef i64 @_ZNKSt8__detail20_Prime_rehash_policy11_M_next_bktEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE16_M_insert_uniqueIRS7_RKS8_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEES6_INSA_14_Node_iteratorIS8_Lb0ELb1EEEbEOT_OT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %__k, ptr noundef nonnull align 8 dereferenceable(64) %__v, ptr noundef nonnull align 8 dereferenceable(8) %__node_gen) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -9704,7 +9704,7 @@ return:                                           ; preds = %for.inc, %land.rhs.
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !18
@@ -9717,31 +9717,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_122BoolGFlagValueSemantic10min_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_122BoolGFlagValueSemantic10min_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_122BoolGFlagValueSemantic10max_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_122BoolGFlagValueSemantic10max_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE12is_composingEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE12is_composingEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE11is_requiredEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE11is_requiredEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %strValue.i = alloca %"class.std::__cxx11::basic_string", align 8
   %msg.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10013,7 +10013,7 @@ unreachable:                                      ; preds = %invoke.cont11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src.i.i.i.i.i = alloca %"class.folly::Range", align 8
   %src.i.i.i = alloca %"class.folly::Range", align 8
@@ -10214,7 +10214,7 @@ _ZN5boost3anyaSIRbEERS0_OT_.exit:                 ; preds = %delete.notnull.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE6notifyERKN5boost3anyE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE6notifyERKN5boost3anyE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
@@ -10278,19 +10278,19 @@ _ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED2Ev.exit: ; preds = %if.then7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122BoolGFlagValueSemantic10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %tokens) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122BoolGFlagValueSemantic10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %tokens) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE9transformERb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 1 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbE9transformERb(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #18 align 2 {
 entry:
   tail call void @llvm.trap() #35
   unreachable
@@ -11087,7 +11087,7 @@ lpad:                                             ; preds = %_ZNR5folly8Expected
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -11202,7 +11202,7 @@ _ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED2Ev.exit: ; preds = %if.then7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_130NegativeBoolGFlagValueSemantic9transformERb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 1 dereferenceable(1) %val) unnamed_addr #16 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_130NegativeBoolGFlagValueSemantic9transformERb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 1 captures(none) dereferenceable(1) %val) unnamed_addr #16 align 2 {
 entry:
   %0 = load i8, ptr %val, align 1, !tbaa !142, !range !143, !noundef !144
   %frombool = xor i8 %0, 1
@@ -11501,7 +11501,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !18
@@ -11514,31 +11514,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIiE10min_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIiE10min_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIiE10max_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIiE10max_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE12is_composingEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE12is_composingEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE11is_requiredEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE11is_requiredEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca ptr, align 8
   %strValue.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11836,7 +11836,7 @@ unreachable:                                      ; preds = %invoke.cont10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5.i = alloca %"class.google::LogMessageFatal", align 8
@@ -11960,13 +11960,13 @@ _ZN5boost3anyaSIRiEERS0_OT_.exit:                 ; preds = %delete.notnull.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE6notifyERKN5boost3anyE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE6notifyERKN5boost3anyE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -12081,7 +12081,7 @@ _ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiED2Ev.exit: ; preds = %if.then7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIiE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIiE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %tokens, align 8, !tbaa !45
   %call17 = tail call noundef i32 @_ZN5folly2toIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXaasr12IsSomeStringIT0_EE5valuentsr3std7is_sameINS_5RangeIPKcEET_EE5valueESD_E4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -12089,13 +12089,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE9transformERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiE9transformERi(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #18 align 2 {
 entry:
   tail call void @llvm.trap() #35
   unreachable
@@ -12569,7 +12569,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !18
@@ -12582,31 +12582,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIlE10min_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIlE10min_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIlE10max_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIlE10max_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE12is_composingEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE12is_composingEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE11is_requiredEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE11is_requiredEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca ptr, align 8
   %strValue.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12904,7 +12904,7 @@ unreachable:                                      ; preds = %invoke.cont10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src.i.i.i.i.i = alloca %"class.folly::Range", align 8
   %src.i.i.i = alloca %"class.folly::Range", align 8
@@ -13105,13 +13105,13 @@ _ZN5boost3anyaSIRlEERS0_OT_.exit:                 ; preds = %delete.notnull.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE6notifyERKN5boost3anyE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE6notifyERKN5boost3anyE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -13226,7 +13226,7 @@ _ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlED2Ev.exit: ; preds = %if.then7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIlE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIlE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %tokens, align 8, !tbaa !45
   %call17 = tail call noundef i64 @_ZN5folly2toIlNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXaasr12IsSomeStringIT0_EE5valuentsr3std7is_sameINS_5RangeIPKcEET_EE5valueESD_E4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -13234,13 +13234,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE9transformERl(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlE9transformERl(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #18 align 2 {
 entry:
   tail call void @llvm.trap() #35
   unreachable
@@ -13709,7 +13709,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !18
@@ -13722,31 +13722,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIjE10min_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIjE10min_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIjE10max_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIjE10max_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE12is_composingEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE12is_composingEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE11is_requiredEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE11is_requiredEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %strValue.i = alloca %"class.std::__cxx11::basic_string", align 8
   %msg.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14017,7 +14017,7 @@ unreachable:                                      ; preds = %invoke.cont10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5.i = alloca %"class.google::LogMessageFatal", align 8
@@ -14141,13 +14141,13 @@ _ZN5boost3anyaSIRjEERS0_OT_.exit:                 ; preds = %delete.notnull.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE6notifyERKN5boost3anyE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE6notifyERKN5boost3anyE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -14262,7 +14262,7 @@ _ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjED2Ev.exit: ; preds = %if.then7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIjE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIjE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %tokens, align 8, !tbaa !45
   %call17 = tail call noundef i32 @_ZN5folly2toIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXaasr12IsSomeStringIT0_EE5valuentsr3std7is_sameINS_5RangeIPKcEET_EE5valueESD_E4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -14270,13 +14270,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE9transformERj(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjE9transformERj(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #18 align 2 {
 entry:
   tail call void @llvm.trap() #35
   unreachable
@@ -14741,7 +14741,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !18
@@ -14754,31 +14754,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticImE10min_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticImE10min_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticImE10max_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticImE10max_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE12is_composingEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE12is_composingEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE11is_requiredEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE11is_requiredEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %strValue.i = alloca %"class.std::__cxx11::basic_string", align 8
   %msg.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15049,7 +15049,7 @@ unreachable:                                      ; preds = %invoke.cont10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src.i.i.i.i.i = alloca %"class.folly::Range", align 8
   %src.i.i.i = alloca %"class.folly::Range", align 8
@@ -15250,13 +15250,13 @@ _ZN5boost3anyaSIRmEERS0_OT_.exit:                 ; preds = %delete.notnull.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE6notifyERKN5boost3anyE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE6notifyERKN5boost3anyE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -15371,7 +15371,7 @@ _ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImED2Ev.exit: ; preds = %if.then7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticImE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticImE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %tokens, align 8, !tbaa !45
   %call17 = tail call noundef i64 @_ZN5folly2toImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXaasr12IsSomeStringIT0_EE5valuentsr3std7is_sameINS_5RangeIPKcEET_EE5valueESD_E4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -15379,13 +15379,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE9transformERm(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseImE9transformERm(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #18 align 2 {
 entry:
   tail call void @llvm.trap() #35
   unreachable
@@ -15848,7 +15848,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE4nameB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !18
@@ -15861,31 +15861,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIdE10min_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIdE10min_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIdE10max_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIdE10max_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE12is_composingEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE12is_composingEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE11is_requiredEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE11is_requiredEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE5parseERN5boost3anyERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv.i = alloca %"class.double_conversion::DoubleToStringConverter", align 8
   %buffer.i = alloca [256 x i8], align 16
@@ -16262,7 +16262,7 @@ unreachable:                                      ; preds = %invoke.cont10
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %src.i.i.i.i.i = alloca %"class.folly::Range", align 8
   %src.i.i.i = alloca %"class.folly::Range", align 8
@@ -16463,13 +16463,13 @@ _ZN5boost3anyaSIRdEERS0_OT_.exit:                 ; preds = %delete.notnull.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE6notifyERKN5boost3anyE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE6notifyERKN5boost3anyE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -16584,7 +16584,7 @@ _ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdED2Ev.exit: ; preds = %if.then7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef double @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIdE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef double @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticIdE10parseValueERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %tokens, align 8, !tbaa !45
   %call17 = tail call noundef double @_ZN5folly2toIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSt9enable_ifIXaasr12IsSomeStringIT0_EE5valuentsr3std7is_sameINS_5RangeIPKcEET_EE5valueESD_E4typeERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -16592,13 +16592,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE9transformERd(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdE9transformERd(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #18 align 2 {
 entry:
   tail call void @llvm.trap() #35
   unreachable
@@ -17010,7 +17010,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameEv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4nameEv(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %0, ptr %agg.result, align 8, !tbaa !18
@@ -17023,31 +17023,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10min_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10min_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10max_tokensEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef i32 @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10max_tokensEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12is_composingEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12is_composingEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11is_requiredEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #17 align 2 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11is_requiredEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #17 align 2 {
 entry:
   ret i1 false
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5parseERN5boost3anyERKSt6vectorIS7_SaIS7_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5parseERN5boost3anyERKSt6vectorIS7_SaIS7_EEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore, ptr noundef nonnull align 8 dereferenceable(24) %tokens, i1 zeroext %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %result.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17580,7 +17580,7 @@ unreachable:                                      ; preds = %invoke.cont12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef zeroext i1 @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13apply_defaultERN5boost3anyE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %valueStore) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i.i.i = alloca i64, align 8
@@ -17843,13 +17843,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6notifyERKN5boost3anyE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6notifyERKN5boost3anyE(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -17964,7 +17964,7 @@ _ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10parseValueERKSt6vectorIS7_SaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10parseValueERKSt6vectorIS7_SaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %tokens) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %tokens, align 8, !tbaa !45
@@ -18044,13 +18044,13 @@ _ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EENSt9enable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9transformERS7_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #17 align 2 {
+define internal void @_ZNK5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9transformERS7_(ptr nonnull readnone align 8 captures(none) %this, ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #17 align 2 {
 entry:
   ret void
 }
 
 ; Function Attrs: cold inlinehint mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #18 align 2 {
+define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #18 align 2 {
 entry:
   tail call void @llvm.trap() #35
   unreachable
@@ -24220,7 +24220,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #27
 declare void @llvm.experimental.noalias.scope.decl(metadata) #28
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #29
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #27

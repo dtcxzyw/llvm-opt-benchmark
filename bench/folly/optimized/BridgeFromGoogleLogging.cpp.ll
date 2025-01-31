@@ -39,7 +39,7 @@ entry:
 declare void @_ZN6google7LogSink4sendEiPKcS2_iRKNS_14LogMessageTimeES2_m(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m(ptr nocapture nonnull readnone align 8 %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef %message, i64 noundef %message_len) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_m(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr noundef readonly captures(none) %pTime, ptr noundef %message, i64 noundef %message_len) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %time = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %time) #15
@@ -50,7 +50,7 @@ entry:
   %sub.i.i = add i64 %mul.i.i.i.i.neg, %call
   %div.i.i = sdiv i64 %sub.i.i, 1000
   %conv.i = trunc i64 %div.i.i to i32
-  tail call void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi(ptr nonnull align 8 poison, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr noundef %pTime, ptr noundef %message, i64 noundef %message_len, i32 noundef %conv.i)
+  tail call void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi(ptr nonnull align 8 poison, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr noundef nonnull %pTime, ptr noundef %message, i64 noundef %message_len, i32 noundef %conv.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %time) #15
   ret void
 }
@@ -118,7 +118,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi(ptr nocapture nonnull readnone align 8 %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr nocapture noundef readonly %pTime, ptr noundef readonly %message, i64 noundef %message_len, i32 noundef %usecs) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi(ptr nonnull readnone align 8 captures(none) %this, i32 noundef %severity, ptr noundef %full_filename, ptr noundef %base_filename, i32 noundef %line, ptr noundef readonly captures(none) %pTime, ptr noundef readonly %message, i64 noundef %message_len, i32 noundef %usecs) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %time = alloca %struct.tm, align 8
@@ -131,7 +131,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %logger) #15
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %full_filename) #15
   %add.ptr.i = getelementptr inbounds i8, ptr %full_filename, i64 %call.i.i.i
-  call void @_ZN5folly6LoggerC1ENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(8) %logger, ptr %full_filename, ptr %add.ptr.i)
+  call void @_ZN5folly6LoggerC1ENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(8) %logger, ptr nonnull %full_filename, ptr nonnull %add.ptr.i)
   %0 = icmp ult i32 %severity, 4
   br i1 %0, label %switch.lookup, label %_ZN5folly7logging12_GLOBAL__N_115asFollyLogLevelEi.exit
 
@@ -214,7 +214,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %9, i64 %8
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i) #15
-  invoke void @_ZN5folly10LogMessageC1EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176) %logMessage, ptr noundef nonnull %2, i32 noundef %retval.0.i, i64 %add.i.i, ptr %base_filename, ptr %add.ptr.i41, i32 noundef %line, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
+  invoke void @_ZN5folly10LogMessageC1EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176) %logMessage, ptr noundef nonnull %2, i32 noundef %retval.0.i, i64 %add.i.i, ptr nonnull %base_filename, ptr nonnull %add.ptr.i41, i32 noundef %line, ptr noundef nonnull byval(%"class.folly::Range") align 8 %agg.tmp14, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp15)
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont
@@ -343,20 +343,20 @@ if.end:                                           ; preds = %_ZN5folly10LogMessa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 declare void @_ZN5folly6LoggerC1ENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(8), ptr, ptr) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #9
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_ZN5folly10LogMessageC1EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef, i32 noundef, i64, ptr, ptr, i32 noundef, ptr noundef byval(%"class.folly::Range") align 8, ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 declare void @_ZNK5folly11LogCategory12admitMessageERKNS_10LogMessageE(ptr noundef nonnull align 8 dereferenceable(136), ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #1
 
@@ -421,7 +421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #12
@@ -435,7 +435,7 @@ declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #3
 declare void @llvm.assume(i1 noundef) #13
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

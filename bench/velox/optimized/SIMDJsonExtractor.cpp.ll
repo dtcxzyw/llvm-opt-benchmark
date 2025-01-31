@@ -395,7 +395,7 @@ _ZNSt12__shared_ptrIN8facebook5velox9functions6detail17SIMDJsonExtractorELN9__gn
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringE(ptr noalias nocapture writeonly sret(%"struct.simdjson::simdjson_result") align 8 initializes((0, 49), (56, 60)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %json) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringE(ptr noalias writeonly sret(%"struct.simdjson::simdjson_result") align 8 captures(none) initializes((0, 49), (56, 60)) %agg.result, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %json) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %.b = load i1, ptr @_ZGVZN8facebook5velox9functions6detail17SIMDJsonExtractor5parseERKN8simdjson13padded_stringEE6parser, align 1
   br i1 %.b, label %if.end.i, label %init.check, !prof !4
@@ -695,7 +695,7 @@ declare noundef zeroext i1 @_ZNK8facebook5velox9functions17JsonPathTokenizer7has
 declare void @_ZN8facebook5velox9functions17JsonPathTokenizer7getNextB5cxx11Ev(ptr sret(%"class.folly::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9functions6detail13extractObjectERN8simdjson7haswell8ondemand5valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8optionalIS6_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %jsonValue, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %ret) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8facebook5velox9functions6detail13extractObjectERN8simdjson7haswell8ondemand5valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8optionalIS6_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %jsonValue, ptr noundef nonnull align 8 dereferenceable(32) %key, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %ret) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %_start_position.i = getelementptr inbounds nuw i8, ptr %jsonValue, i64 16
   %_depth.i = getelementptr inbounds nuw i8, ptr %jsonValue, i64 8
@@ -1280,7 +1280,7 @@ return:                                           ; preds = %_ZN8simdjson15simdj
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN8facebook5velox9functions6detail12extractArrayERN8simdjson7haswell8ondemand5valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8optionalIS6_E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %jsonValue, ptr noundef nonnull align 8 dereferenceable(32) %index, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %ret) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8facebook5velox9functions6detail12extractArrayERN8simdjson7haswell8ondemand5valueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt8optionalIS6_E(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %jsonValue, ptr noundef nonnull align 8 dereferenceable(32) %index, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) %ret) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %src.i.i = alloca %"class.folly::Range", align 8
   %_start_position.i.i = getelementptr inbounds nuw i8, ptr %jsonValue, i64 16
@@ -1728,7 +1728,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 declare { ptr, ptr } @_ZN5folly15ltrimWhitespaceENS_5RangeIPKcEE(ptr, ptr) local_unnamed_addr #7
 
@@ -2976,13 +2976,13 @@ declare void @llvm.assume(i1 noundef) #16
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #18
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #19
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #17

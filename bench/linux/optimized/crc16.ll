@@ -15,7 +15,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_crc16: ; .as
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_crc16304, ptr @__UNIQUE_ID___addressable_crc16_table303, ptr @__UNIQUE_ID_description305, ptr @__UNIQUE_ID_file306, ptr @__UNIQUE_ID_license307], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local zeroext i16 @crc16(i16 noundef zeroext %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 align 16 {
+define dso_local zeroext i16 @crc16(i16 noundef zeroext %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %.loopexit, label %.preheader
 

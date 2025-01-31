@@ -52,7 +52,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_215defaultViewNameERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_215defaultViewNameERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %multiView, i64 8
@@ -113,7 +113,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_219viewFromChannelNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %channel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_219viewFromChannelNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EE(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %channel, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::vector", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -411,7 +411,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_17viewNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %view, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %multiView) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN7Imf_3_212_GLOBAL__N_17viewNumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS6_SaIS6_EE(ptr noundef nonnull align 8 dereferenceable(32) %view, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %multiView) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %multiView, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8
@@ -494,7 +494,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214channelsInViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelListERKSt6vectorIS5_SaIS5_EE(ptr noalias sret(%"class.Imf_3_2::ChannelList") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %viewName, ptr noundef nonnull align 8 dereferenceable(48) %channelList, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_214channelsInViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelListERKSt6vectorIS5_SaIS5_EE(ptr noalias sret(%"class.Imf_3_2::ChannelList") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %viewName, ptr noundef nonnull align 8 dereferenceable(48) %channelList, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %view = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -644,7 +644,7 @@ _ZNSt3mapIN7Imf_3_24NameENS0_7ChannelESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_216channelsInNoViewERKNS_11ChannelListERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias sret(%"class.Imf_3_2::ChannelList") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %channelList, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_216channelsInNoViewERKNS_11ChannelListERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noalias sret(%"class.Imf_3_2::ChannelList") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %channelList, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1
@@ -693,7 +693,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7Imf_3_215areCounterpartsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32) %channel1, ptr noundef nonnull align 8 dereferenceable(32) %channel2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7Imf_3_215areCounterpartsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_RKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(32) %channel1, ptr noundef nonnull align 8 dereferenceable(32) %channel2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %chan1 = alloca %"class.std::vector", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -996,7 +996,7 @@ eh.resume:                                        ; preds = %ehcleanup61, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_217channelInAllViewsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelListERKSt6vectorIS5_SaIS5_EE(ptr noalias sret(%"class.Imf_3_2::ChannelList") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %channelName, ptr noundef nonnull align 8 dereferenceable(48) %channelList, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_217channelInAllViewsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelListERKSt6vectorIS5_SaIS5_EE(ptr noalias sret(%"class.Imf_3_2::ChannelList") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %channelName, ptr noundef nonnull align 8 dereferenceable(48) %channelList, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %multiView) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp15 = alloca %"class.std::allocator", align 1
@@ -1103,7 +1103,7 @@ ehcleanup38:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218channelInOtherViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelListERKSt6vectorIS5_SaIS5_EES7_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %channelName, ptr noundef nonnull align 8 dereferenceable(48) %channelList, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %multiView, ptr noundef nonnull align 8 dereferenceable(32) %otherViewName) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_218channelInOtherViewERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelListERKSt6vectorIS5_SaIS5_EES7_(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %channelName, ptr noundef nonnull align 8 dereferenceable(48) %channelList, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %multiView, ptr noundef nonnull align 8 dereferenceable(32) %otherViewName) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1302,7 +1302,7 @@ eh.resume:                                        ; preds = %lpad43, %lpad.i34, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214insertViewNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EEi(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %channel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %multiView, i32 noundef %i) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_214insertViewNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EEi(ptr noalias sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %channel, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %multiView, i32 noundef %i) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::vector", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1973,7 +1973,7 @@ lpad:                                             ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_M_dataEPc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
@@ -2029,7 +2029,7 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14
@@ -2041,7 +2041,7 @@ declare i64 @llvm.umin.i64(i64, i64) #14
 declare void @llvm.assume(i1 noundef) #15
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #16
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #16
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

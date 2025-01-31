@@ -81,7 +81,7 @@ define hidden void @_ZN12G1InitLogger13print_workersEv(ptr noundef nonnull align
 declare void @_ZN12GCInitLogger13print_workersEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12G1InitLogger17print_gc_specificEv(ptr nocapture nonnull readnone align 8 %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12G1InitLogger17print_gc_specificEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   %3 = alloca %class.GCLogPreciousHandle, align 8
   %4 = alloca %class.GCLogPreciousHandle, align 8

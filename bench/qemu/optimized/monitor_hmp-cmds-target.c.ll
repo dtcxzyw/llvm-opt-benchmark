@@ -52,7 +52,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.35 = private unnamed_addr constant [17 x i8] c"Page not present\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @monitor_set_cpu(ptr nocapture noundef %mon, i32 noundef %cpu_index) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @monitor_set_cpu(ptr noundef captures(none) %mon, i32 noundef %cpu_index) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_get_cpu(i32 noundef %cpu_index) #7
   %cmp = icmp eq ptr %call, null
@@ -78,14 +78,14 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare ptr @object_get_canonical_path(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @mon_get_cpu(ptr nocapture noundef %mon) local_unnamed_addr #0 {
+define dso_local ptr @mon_get_cpu(ptr noundef captures(none) %mon) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @mon_get_cpu_sync(ptr noundef %mon, i1 noundef zeroext true)
   ret ptr %call
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @mon_get_cpu_sync(ptr nocapture noundef %mon, i1 noundef zeroext %synchronize) unnamed_addr #0 {
+define internal fastcc ptr @mon_get_cpu_sync(ptr noundef captures(none) %mon, i1 noundef zeroext %synchronize) unnamed_addr #0 {
 entry:
   %mon_cpu_path = getelementptr inbounds nuw i8, ptr %mon, i64 64
   %0 = load ptr, ptr %mon_cpu_path, align 8
@@ -155,7 +155,7 @@ return:                                           ; preds = %if.end28, %if.then3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @mon_get_cpu_env(ptr nocapture noundef %mon) local_unnamed_addr #0 {
+define dso_local ptr @mon_get_cpu_env(ptr noundef captures(none) %mon) local_unnamed_addr #0 {
 entry:
   %call.i = tail call fastcc ptr @mon_get_cpu_sync(ptr noundef %mon, i1 noundef zeroext true)
   %tobool.not = icmp eq ptr %call.i, null
@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @monitor_get_cpu_index(ptr nocapture noundef %mon) local_unnamed_addr #0 {
+define dso_local i32 @monitor_get_cpu_index(ptr noundef captures(none) %mon) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc ptr @mon_get_cpu_sync(ptr noundef %mon, i1 noundef zeroext false)
   %tobool.not = icmp eq ptr %call, null
@@ -467,7 +467,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @gpa2hva(ptr nocapture noundef writeonly %p_mr, i64 noundef %addr, i64 noundef %size, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local ptr @gpa2hva(ptr noundef writeonly captures(none) %p_mr, i64 noundef %addr, i64 noundef %size, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %mrs = alloca %struct.MemoryRegionSection, align 16
   %call = tail call ptr @get_system_memory() #7
@@ -720,7 +720,7 @@ declare void @monitor_printc(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @address_space_read_full(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree
-declare noundef i32 @open64(ptr nocapture noundef readonly, i32 noundef, ...) local_unnamed_addr #3
+declare noundef i32 @open64(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #3
 
 declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
@@ -738,10 +738,10 @@ declare i32 @getpagesize() local_unnamed_addr #4
 declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

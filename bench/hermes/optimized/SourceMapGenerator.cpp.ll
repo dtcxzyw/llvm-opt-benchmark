@@ -296,7 +296,7 @@ return:                                           ; preds = %if.end.i.i, %_ZNSt5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4llvh8OptionalIN6hermes6parser15JSONSharedValueEEESaIS5_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__new_size) local_unnamed_addr #0 comdat align 2 {
@@ -424,7 +424,7 @@ if.end6:                                          ; preds = %_ZSt8_DestroyIPN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 initializes((0, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %seg) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE(ptr noalias writeonly sret(%"struct.std::pair") align 8 captures(none) initializes((0, 40)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %seg) local_unnamed_addr #0 align 2 {
 entry:
   %inputSeg.sroa.0 = alloca [28 x i8], align 4
   %inputSeg.sroa.3 = alloca [3 x i8], align 1
@@ -487,7 +487,7 @@ if.end22:                                         ; preds = %if.then7, %if.then1
 declare void @_ZNK6hermes9SourceMap20getSegmentForAddressEjj(ptr sret(%"class.llvh::Optional.18") align 4, ptr noundef nonnull align 8 dereferenceable(104), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK6hermes18SourceMapGenerator18hasSourcesMetadataEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK6hermes18SourceMapGenerator18hasSourcesMetadataEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #3 align 2 {
 entry:
   %sourcesMetadata_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %sourcesMetadata_, align 8
@@ -520,7 +520,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes18SourceMapGenerator21encodeSourceLocationsERKNS0_5StateEN4llvh8ArrayRefINS_9SourceMap7SegmentEEERNS4_11raw_ostreamE(ptr noalias nocapture sret(%"struct.hermes::SourceMapGenerator::State") align 4 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %lastState, ptr readonly %segments.coerce0, i64 %segments.coerce1, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes18SourceMapGenerator21encodeSourceLocationsERKNS0_5StateEN4llvh8ArrayRefINS_9SourceMap7SegmentEEERNS4_11raw_ostreamE(ptr noalias sret(%"struct.hermes::SourceMapGenerator::State") align 4 captures(none) initializes((0, 20)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %lastState, ptr readonly %segments.coerce0, i64 %segments.coerce1, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
 entry:
   %state.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %lastState, i64 4
   %state.sroa.4.0.copyload = load i32, ptr %state.sroa.4.0..sroa_idx, align 4
@@ -639,7 +639,7 @@ for.end:                                          ; preds = %if.end52, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes18SourceMapGenerator20getVLQMappingsStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes18SourceMapGenerator20getVLQMappingsStringB5cxx11Ev(ptr noalias nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
   %OS = alloca %"class.llvh::raw_string_ostream", align 8
   %state = alloca %"struct.hermes::SourceMapGenerator::State", align 4
@@ -723,7 +723,7 @@ declare void @_ZN4llvh18raw_string_ostreamD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes18SourceMapGenerator10getSourcesEv(ptr noalias nocapture writeonly sret(%"class.std::vector.44") align 8 initializes((8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes18SourceMapGenerator10getSourcesEv(ptr noalias writeonly sret(%"class.std::vector.44") align 8 captures(none) initializes((8, 16)) %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !17
@@ -2041,7 +2041,7 @@ _ZNSt6vectorIN4llvh9StringRefESaIS1_EED2Ev.exit:  ; preds = %_ZN4llvh8DenseMapIj
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes18SourceMapGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 comdat align 2 {
@@ -2332,7 +2332,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes18SourceMapGenerator16outputAsJSONImplERN4llvh11raw_ostreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes18SourceMapGenerator16outputAsJSONImplERN4llvh11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
 entry:
   %json = alloca %"class.hermes::JSONEmitter", align 8
   %ref.tmp4 = alloca %"class.std::vector.44", align 8
@@ -2686,7 +2686,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.els
 declare void @_ZN6hermes11JSONEmitter9closeDictEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes18SourceMapGenerator18addFunctionOffsetsEOSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %functionOffsets, i32 noundef %segmentID) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes18SourceMapGenerator18addFunctionOffsetsEOSt6vectorIjSaIjEEj(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %functionOffsets, i32 noundef %segmentID) local_unnamed_addr #0 align 2 {
 entry:
   %segmentID.addr = alloca i32, align 4
   store i32 %segmentID, ptr %segmentID.addr, align 4
@@ -3319,7 +3319,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: noreturn
 declare void @_ZSt28__throw_bad_array_new_lengthv() local_unnamed_addr #6
@@ -3908,7 +3908,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
@@ -3918,7 +3918,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIN4llvh8OptionalIN6hermes6parser15JSONSharedValueEEESaIS5_EE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %__n) local_unnamed_addr #0 comdat align 2 {
@@ -4801,13 +4801,13 @@ for.end:                                          ; preds = %if.end, %_ZN4llvh12
 declare void @llvm.assume(i1 noundef) #11
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #12
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #14

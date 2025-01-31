@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [35 x i8] c"Verification of choice AIG FAILED.\00", align 1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Dch_ObjCountSupp_rec(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define i32 @Dch_ObjCountSupp_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val19 = load i32, ptr %3, align 8
   %4 = getelementptr i8, ptr %1, i64 32
@@ -77,7 +77,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Dch_ObjCountSupp(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define i32 @Dch_ObjCountSupp(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #1 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
   %3 = tail call i32 @Dch_ObjCountSupp_rec(ptr noundef %0, ptr noundef %1)
   ret i32 %3
@@ -86,7 +86,7 @@ define i32 @Dch_ObjCountSupp(ptr noundef %0, ptr nocapture noundef %1) local_unn
 declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Dch_DeriveChoiceCountReprs(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @Dch_DeriveChoiceCountReprs(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -141,7 +141,7 @@ Aig_ObjRepr.exit:                                 ; preds = %12, %13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Dch_DeriveChoiceCountEquivs(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
+define i32 @Dch_DeriveChoiceCountEquivs(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -196,7 +196,7 @@ Aig_ObjEquiv.exit:                                ; preds = %12, %13
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Dch_ObjMarkTfi_rec(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Dch_ObjMarkTfi_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %.lr.ph
 
@@ -271,7 +271,7 @@ define range(i32 0, 2) i32 @Dch_ObjCheckSuppRed(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Aig_ManCheckReprs(ptr nocapture noundef readonly %0) local_unnamed_addr #4 {
+define void @Aig_ManCheckReprs(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4
@@ -360,7 +360,7 @@ Aig_ObjRepr.exit.thread:                          ; preds = %13, %7, %Aig_ObjRep
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define void @Dch_CheckChoices(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
@@ -554,7 +554,7 @@ Dch_ObjCheckSuppRed.exit.thread:                  ; preds = %32, %Dch_ObjCheckSu
 declare void @Aig_ManCleanMarkA(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @Aig_ManCheckAcyclic_rec(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %1, i64 24
   %.val68 = load i64, ptr %4, align 8
   %5 = and i64 %.val68, 7
@@ -749,7 +749,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
   %10 = load ptr, ptr @stdout, align 8
   %11 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #12
   %12 = trunc i64 %11 to i32
-  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef %9) #11
+  %13 = call i32 @Gia_ManToBridgeText(ptr noundef %10, i32 noundef %12, ptr noundef nonnull %9) #11
   call void @free(ptr noundef %9) #11
   br label %16
 
@@ -962,7 +962,7 @@ Aig_ObjEquiv.exit16:                              ; preds = %16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dch_DeriveChoiceAigNode(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @Dch_DeriveChoiceAigNode(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %1, i64 256
   %.val55 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.val55, null
@@ -1203,8 +1203,8 @@ Aig_ObjEquiv.exit.i:                              ; preds = %143
   br i1 %.not.i70, label %.lr.ph22.i, label %143, !llvm.loop !11
 
 .lr.ph22.i:                                       ; preds = %143, %Aig_ObjEquiv.exit.i
-  tail call void @Aig_ManIncrementTravId(ptr noundef %0) #11
-  %152 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %126)
+  tail call void @Aig_ManIncrementTravId(ptr noundef nonnull %0) #11
+  %152 = tail call i32 @Dch_ObjCheckTfi_rec(ptr noundef nonnull %0, ptr noundef %126)
   br label %153
 
 153:                                              ; preds = %Aig_ObjEquiv.exit16.i, %.lr.ph22.i
@@ -1235,7 +1235,7 @@ Dch_ObjCheckTfi.exit:                             ; preds = %153, %Aig_ObjEquiv.
   br i1 %.not52, label %165, label %163
 
 163:                                              ; preds = %162
-  %164 = tail call i32 @Dch_ObjCheckSuppRed(ptr noundef %0, ptr noundef %126, ptr noundef %131)
+  %164 = tail call i32 @Dch_ObjCheckSuppRed(ptr noundef nonnull %0, ptr noundef %126, ptr noundef %131)
   %.not53 = icmp eq i32 %164, 0
   br i1 %.not53, label %._crit_edge, label %175
 
@@ -1479,7 +1479,7 @@ define ptr @Dch_DeriveChoiceAig(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @Aig_ManDupDfs(ptr noundef) local_unnamed_addr #2
 
@@ -1492,10 +1492,10 @@ declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_un
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #5
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
 declare void @llvm.va_start.p0(ptr) #9
@@ -1504,7 +1504,7 @@ declare void @llvm.va_start.p0(ptr) #9
 declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #10
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 attributes #0 = { nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

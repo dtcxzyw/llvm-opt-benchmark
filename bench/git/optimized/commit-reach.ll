@@ -535,7 +535,7 @@ return:                                           ; preds = %for.body, %for.end,
 declare i64 @commit_graph_generation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @paint_down_to_common(ptr noundef %r, ptr noundef %one, i32 noundef %n, ptr nocapture noundef readonly %twos, i64 noundef %min_generation) unnamed_addr #0 {
+define internal fastcc ptr @paint_down_to_common(ptr noundef %r, ptr noundef %one, i32 noundef %n, ptr noundef readonly captures(none) %twos, i64 noundef %min_generation) unnamed_addr #0 {
 entry:
   %queue = alloca %struct.prio_queue, align 8
   %result = alloca ptr, align 8
@@ -876,7 +876,7 @@ return:                                           ; preds = %entry, %for.end62
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @remove_redundant(ptr noundef %r, ptr nocapture noundef %array, i32 noundef %cnt) unnamed_addr #0 {
+define internal fastcc i32 @remove_redundant(ptr noundef %r, ptr noundef captures(none) %array, i32 noundef %cnt) unnamed_addr #0 {
 entry:
   %stack.i = alloca ptr, align 8
   %call = tail call i32 @generation_numbers_enabled(ptr noundef %r) #11
@@ -1423,10 +1423,10 @@ return:                                           ; preds = %remove_redundant_no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @reduce_heads_replace(ptr nocapture noundef %heads) local_unnamed_addr #0 {
+define dso_local void @reduce_heads_replace(ptr noundef captures(none) %heads) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %heads, align 8
   %call = tail call ptr @reduce_heads(ptr noundef %0)
@@ -1529,7 +1529,7 @@ declare ptr @deref_tag(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare ptr @parse_object(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @commit_contains(ptr nocapture noundef readonly %filter, ptr noundef %commit, ptr noundef %list, ptr nocapture noundef %cache) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @commit_contains(ptr noundef readonly captures(none) %filter, ptr noundef %commit, ptr noundef %list, ptr noundef captures(none) %cache) local_unnamed_addr #0 {
 entry:
   %commit.addr.i = alloca ptr, align 8
   %from_list.i = alloca ptr, align 8
@@ -1849,7 +1849,7 @@ return:                                           ; preds = %repo_is_descendant_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @can_all_from_reach_with_flag(ptr nocapture noundef readonly %from, i32 noundef %with_flag, i32 noundef %assign_flag, i64 noundef %min_commit_date, i64 noundef %min_generation) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @can_all_from_reach_with_flag(ptr noundef readonly captures(none) %from, i32 noundef %with_flag, i32 noundef %assign_flag, i64 noundef %min_commit_date, i64 noundef %min_generation) local_unnamed_addr #0 {
 entry:
   %stack = alloca ptr, align 8
   %0 = load i32, ptr %from, align 8
@@ -2123,7 +2123,7 @@ for.end179:                                       ; preds = %for.inc177, %cleanu
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @compare_commits_by_gen(ptr nocapture noundef readonly %_a, ptr nocapture noundef readonly %_b) #0 {
+define internal range(i32 -1, 2) i32 @compare_commits_by_gen(ptr noundef readonly captures(none) %_a, ptr noundef readonly captures(none) %_b) #0 {
 entry:
   %0 = load ptr, ptr %_a, align 8
   %1 = load ptr, ptr %_b, align 8
@@ -2157,7 +2157,7 @@ return:                                           ; preds = %if.end8, %if.end4, 
 declare ptr @pop_commit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 declare void @add_object_array(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2308,7 +2308,7 @@ while.end:                                        ; preds = %land.rhs, %while.co
 declare i32 @compare_commits_by_gen_then_commit_date(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @prio_queue_put(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -2317,7 +2317,7 @@ declare ptr @prio_queue_get(ptr noundef) local_unnamed_addr #1
 declare void @clear_prio_queue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ahead_behind(ptr noundef %r, ptr noundef %commits, i64 noundef %commits_nr, ptr nocapture noundef %counts, i64 noundef %counts_nr) local_unnamed_addr #0 {
+define dso_local void @ahead_behind(ptr noundef %r, ptr noundef %commits, i64 noundef %commits_nr, ptr noundef captures(none) %counts, i64 noundef %counts_nr) local_unnamed_addr #0 {
 entry:
   %queue = alloca %struct.prio_queue, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %queue, ptr noundef nonnull align 8 dereferenceable(40) @__const.paint_down_to_common.queue, i64 40, i1 false)
@@ -2958,7 +2958,7 @@ return:                                           ; preds = %entry, %done
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @compare_commit_and_index_by_generation(ptr nocapture noundef readonly %va, ptr nocapture noundef readonly %vb) #5 {
+define internal range(i32 -1, 2) i32 @compare_commit_and_index_by_generation(ptr noundef readonly captures(none) %va, ptr noundef readonly captures(none) %vb) #5 {
 entry:
   %generation = getelementptr inbounds nuw i8, ptr %va, i64 16
   %0 = load i64, ptr %generation, align 8
@@ -2988,7 +2988,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @load_commit_graph_info(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @contains_test(ptr noundef %candidate, ptr noundef readonly %want, ptr nocapture noundef %cache, i64 noundef range(i64 0, -9223372036854775808) %cutoff) unnamed_addr #0 {
+define internal fastcc i32 @contains_test(ptr noundef %candidate, ptr noundef readonly %want, ptr noundef captures(none) %cache, i64 noundef range(i64 0, -9223372036854775808) %cutoff) unnamed_addr #0 {
 entry:
   %0 = getelementptr i8, ptr %candidate, i64 64
   %candidate.val = load i32, ptr %0, align 8
@@ -3128,14 +3128,14 @@ declare void @parse_commit_or_die(ptr noundef) local_unnamed_addr #1
 declare void @die(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree
-declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #7
+declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @bitmap_word_alloc(i64 noundef) local_unnamed_addr #1
 
 declare void @bitmap_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #8
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
@@ -3147,10 +3147,10 @@ declare i32 @llvm.smax.i32(i32, i32) #9
 declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #10
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ucmp.i32.i64(i64, i64) #9

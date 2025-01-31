@@ -275,7 +275,7 @@ ehcleanup17:                                      ; preds = %ehcleanup16, %lpad4
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @getText(ptr noundef %source, i32 noundef %srcLen, ptr nocapture noundef readonly %dest, i32 noundef %destCapacity, ptr noundef %patternString, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @getText(ptr noundef %source, i32 noundef %srcLen, ptr noundef readonly captures(none) %dest, i32 noundef %destCapacity, ptr noundef %patternString, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stringArray = alloca [20 x %"class.icu_75::UnicodeString"], align 16
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -461,7 +461,7 @@ declare noundef signext i8 @_ZN6icu_7512RegexMatcher9lookingAtER10UErrorCode(ptr
 declare void @_ZNK6icu_7512RegexMatcher5groupEiR10UErrorCode(ptr sret(%"class.icu_75::UnicodeString") align 8, ptr noundef nonnull align 8 dereferenceable(336), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @getDescription(ptr noundef %source, i32 noundef %srcLen, ptr nocapture noundef readonly %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @getDescription(ptr noundef %source, i32 noundef %srcLen, ptr noundef readonly captures(none) %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stringArray = alloca [20 x %"class.icu_75::UnicodeString"], align 16
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -776,7 +776,7 @@ eh.resume:                                        ; preds = %arraydestroy.body54
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @getAt(ptr noundef %source, i32 noundef %srcLen, ptr nocapture noundef readonly %dest, i32 noundef %destCapacity, i32 noundef %index, i32 noundef %option, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @getAt(ptr noundef %source, i32 noundef %srcLen, ptr noundef readonly captures(none) %dest, i32 noundef %destCapacity, i32 noundef %index, i32 noundef %option, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stringArray = alloca [20 x %"class.icu_75::UnicodeString"], align 16
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -985,7 +985,7 @@ eh.resume:                                        ; preds = %arraydestroy.body59
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @getTranslate(ptr noundef %source, i32 noundef %srcLen, ptr nocapture noundef readonly %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @getTranslate(ptr noundef %source, i32 noundef %srcLen, ptr noundef readonly captures(none) %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %notePatternString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -1025,7 +1025,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @getNote(ptr noundef %source, i32 noundef %srcLen, ptr nocapture noundef readonly %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @getNote(ptr noundef %source, i32 noundef %srcLen, ptr noundef readonly captures(none) %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %notePatternString = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -1067,7 +1067,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 declare noundef i32 @_ZNK6icu_7513UnicodeString9doIndexOfEDsii(ptr noundef nonnull align 8 dereferenceable(64), i16 noundef zeroext, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

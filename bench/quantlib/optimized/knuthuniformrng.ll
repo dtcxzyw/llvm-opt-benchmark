@@ -20,7 +20,7 @@ $_ZGVZN8QuantLib9SingletonINS_13SeedGeneratorESt17integral_constantIbLb0EEE8inst
 @_ZN8QuantLib15KnuthUniformRngC1El = unnamed_addr alias void (ptr, i64), ptr @_ZN8QuantLib15KnuthUniformRngC2El
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15KnuthUniformRngC2El(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 24), (40, 64)) %this, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15KnuthUniformRngC2El(ptr noundef nonnull align 8 captures(none) dereferenceable(64) initializes((0, 24), (40, 64)) %this, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i4 = tail call noalias noundef nonnull dereferenceable(8072) ptr @_Znwm(i64 noundef 8072) #8
@@ -132,7 +132,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i14, %e
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15KnuthUniformRng10ranf_startEl(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, i64 noundef %seed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15KnuthUniformRng10ranf_startEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, i64 noundef %seed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i64 = tail call noalias noundef nonnull dereferenceable(1592) ptr @_Znwm(i64 noundef 1592) #8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i64, i64 8
@@ -335,7 +335,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit134:                 ; preds = %for.body160
 declare noundef i64 @_ZN8QuantLib13SeedGenerator3getEv(ptr noundef nonnull align 8 dereferenceable(5000)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib15KnuthUniformRng10ranf_arrayERSt6vectorIdSaIdEEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %aa, i32 noundef %n) local_unnamed_addr #2 align 2 {
+define void @_ZNK8QuantLib15KnuthUniformRng10ranf_arrayERSt6vectorIdSaIdEEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %aa, i32 noundef %n) local_unnamed_addr #2 align 2 {
 entry:
   %ran_u = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %ran_u, align 8, !tbaa !3
@@ -435,7 +435,7 @@ for.end52:                                        ; preds = %for.body37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef double @_ZNK8QuantLib15KnuthUniformRng14ranf_arr_cycleEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #2 align 2 {
+define noundef double @_ZNK8QuantLib15KnuthUniformRng14ranf_arr_cycleEv(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %this) local_unnamed_addr #2 align 2 {
 entry:
   %ran_u.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %ran_u.i, align 8, !tbaa !3
@@ -540,10 +540,10 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #5
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

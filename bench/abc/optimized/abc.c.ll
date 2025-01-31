@@ -4782,7 +4782,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.44 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FrameReplaceCex(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Abc_FrameReplaceCex(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4853,10 +4853,10 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FrameReplaceCexVec(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Abc_FrameReplaceCexVec(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4926,7 +4926,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FrameReplacePoEquivs(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Abc_FrameReplacePoEquivs(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4995,7 +4995,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %21
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Abc_FrameReplacePoStatuses(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @Abc_FrameReplacePoStatuses(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -5023,7 +5023,7 @@ Vec_IntFree.exit:                                 ; preds = %5, %8
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFree(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFree(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -5182,7 +5182,7 @@ define internal fastcc noalias noundef ptr @Vec_IntAlloc(i32 noundef %0) unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntFill(ptr nocapture noundef %0, i32 noundef %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #0 {
+define internal fastcc void @Vec_IntFill(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %.not.i = icmp slt i32 %4, %1
   br i1 %.not.i, label %5, label %Vec_IntGrow.exit
@@ -5367,7 +5367,7 @@ define void @Abc_FrameClearDesign() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_FrameUpdateGia(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Abc_FrameUpdateGia(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 
@@ -5564,7 +5564,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
   %23 = load ptr, ptr @stdout, align 8
   %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #31
   %25 = trunc i64 %24 to i32
-  %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef %22) #28
+  %26 = call i32 @Gia_ManToBridgeText(ptr noundef %23, i32 noundef %25, ptr noundef nonnull %22) #28
   call void @free(ptr noundef %22) #28
   br label %29
 
@@ -5583,7 +5583,7 @@ define internal void @Abc_Print(i32 noundef range(i32 -2, 2) %0, ptr noundef %1,
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_FrameGetGia(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define ptr @Abc_FrameGetGia(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -13893,7 +13893,7 @@ Vec_IntFree.exit:                                 ; preds = %82, %86
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandTestDec(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandTestDec(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -14012,7 +14012,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestDec(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandTestNpn(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandTestNpn(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -14167,7 +14167,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestNpn(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandTestRPO(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandTestRPO(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -14273,7 +14273,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestRPO(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandTestTruth(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandTestTruth(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -14326,7 +14326,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestTruth(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandRunSat(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRunSat(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca [1000 x i8], align 16
@@ -14524,7 +14524,7 @@ Abc_Clock.exit54:                                 ; preds = %._crit_edge, %62
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandRunEco(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRunEco(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [4 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #28
@@ -14725,7 +14725,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunEco(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandRunGen(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRunGen(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [4 x ptr], align 16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 16, i1 false)
@@ -14777,7 +14777,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRunGen(ptr nocapture readnone %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandRunTest(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRunTest(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [4 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #28
@@ -15427,7 +15427,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandResubstitute(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandResubCheck(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandResubCheck(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -15717,7 +15717,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandExtract(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandVarMin(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandVarMin(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -16886,7 +16886,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandBmsStart(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandBmsStart(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -17002,7 +17002,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmsStart(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandBmsStop(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandBmsStop(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -17051,7 +17051,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmsStop(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandBmsPs(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandBmsPs(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -17085,7 +17085,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandBmsPs(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandMajExact(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandMajExact(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -17246,7 +17246,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandMajExact(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_EsPar_t_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
@@ -17314,7 +17314,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone 
   store i32 %19, ptr %15, align 4
   store i32 %18, ptr %16, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.975)
-  br label %120
+  br label %118
 
 36:                                               ; preds = %33
   %37 = sext i32 %34 to i64
@@ -17336,7 +17336,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone 
   store i32 %19, ptr %15, align 4
   store i32 %18, ptr %16, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.555)
-  br label %120
+  br label %118
 
 46:                                               ; preds = %43
   %47 = sext i32 %44 to i64
@@ -17358,7 +17358,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone 
   store i32 %19, ptr %15, align 4
   store i32 %18, ptr %16, align 4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.807)
-  br label %120
+  br label %118
 
 56:                                               ; preds = %53
   %57 = sext i32 %54 to i64
@@ -17455,126 +17455,122 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone 
   br i1 %.not73, label %92, label %91
 
 91:                                               ; preds = %87
-  call void @Exa_ManExactSynthesis6(ptr noundef nonnull %4, ptr noundef %90) #28
-  br label %134
+  call void @Exa_ManExactSynthesis6(ptr noundef nonnull %4, ptr noundef nonnull %90) #28
+  br label %132
 
 92:                                               ; preds = %87
   %93 = getelementptr inbounds nuw i8, ptr %4, i64 72
   store ptr %90, ptr %93, align 8
-  %94 = icmp eq ptr %90, null
-  br i1 %94, label %.thread, label %95
+  %94 = add nsw i32 %30, -2
+  %95 = shl nuw i32 1, %94
+  %96 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #31
+  %97 = trunc i64 %96 to i32
+  %.not74 = icmp eq i32 %95, %97
+  br i1 %.not74, label %99, label %98
 
-.thread:                                          ; preds = %83, %92
+.thread:                                          ; preds = %83
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1297)
-  br label %134
+  br label %132
 
-95:                                               ; preds = %92
-  %96 = add nsw i32 %30, -2
-  %97 = shl nuw i32 1, %96
-  %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %90) #31
-  %99 = trunc i64 %98 to i32
-  %.not74 = icmp eq i32 %97, %99
-  br i1 %.not74, label %101, label %100
+98:                                               ; preds = %92
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1298, i32 noundef %95, i64 noundef %96)
+  br label %132
 
-100:                                              ; preds = %95
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1298, i32 noundef %97, i64 noundef %98)
-  br label %134
+99:                                               ; preds = %92
+  %100 = add nuw nsw i32 %22, 1
+  %101 = icmp samesign ugt i32 %30, %100
+  br i1 %101, label %102, label %103
 
-101:                                              ; preds = %95
-  %102 = add nuw nsw i32 %22, 1
-  %103 = icmp samesign ugt i32 %30, %102
-  br i1 %103, label %104, label %105
-
-104:                                              ; preds = %101
+102:                                              ; preds = %99
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1299, i32 noundef %30, i32 noundef %22)
-  br label %134
+  br label %132
 
-105:                                              ; preds = %101
-  %106 = icmp samesign ugt i32 %30, 10
-  br i1 %106, label %107, label %108
+103:                                              ; preds = %99
+  %104 = icmp samesign ugt i32 %30, 10
+  br i1 %104, label %105, label %106
 
-107:                                              ; preds = %105
+105:                                              ; preds = %103
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1300)
-  br label %134
+  br label %132
 
-108:                                              ; preds = %105
+106:                                              ; preds = %103
   %.not75 = icmp eq i32 %.063, 0
-  br i1 %.not75, label %110, label %109
+  br i1 %.not75, label %108, label %107
+
+107:                                              ; preds = %106
+  call void @Exa_ManExactSynthesis4(ptr noundef nonnull %4) #28
+  br label %132
+
+108:                                              ; preds = %106
+  %.not76 = icmp eq i32 %.062, 0
+  br i1 %.not76, label %110, label %109
 
 109:                                              ; preds = %108
-  call void @Exa_ManExactSynthesis4(ptr noundef nonnull %4) #28
-  br label %134
+  call void @Exa_ManExactSynthesis5(ptr noundef nonnull %4) #28
+  br label %132
 
 110:                                              ; preds = %108
-  %.not76 = icmp eq i32 %.062, 0
-  br i1 %.not76, label %112, label %111
+  %.not77 = icmp eq i32 %29, 0
+  br i1 %.not77, label %112, label %111
 
 111:                                              ; preds = %110
-  call void @Exa_ManExactSynthesis5(ptr noundef nonnull %4) #28
-  br label %134
+  call void @Exa_ManExactSynthesis(ptr noundef nonnull %4) #28
+  br label %132
 
 112:                                              ; preds = %110
-  %.not77 = icmp eq i32 %29, 0
-  br i1 %.not77, label %114, label %113
-
-113:                                              ; preds = %112
-  call void @Exa_ManExactSynthesis(ptr noundef nonnull %4) #28
-  br label %134
-
-114:                                              ; preds = %112
   call void @Exa_ManExactSynthesis2(ptr noundef nonnull %4) #28
-  br label %134
+  br label %132
 
 .loopexit:                                        ; preds = %36, %46, %56, %17
-  %115 = phi i32 [ %18, %36 ], [ %50, %46 ], [ %18, %56 ], [ %18, %17 ]
-  %116 = phi i32 [ %19, %36 ], [ %19, %46 ], [ %60, %56 ], [ %19, %17 ]
-  %117 = phi i32 [ %21, %36 ], [ %21, %46 ], [ %60, %56 ], [ %21, %17 ]
-  %118 = phi i32 [ %22, %36 ], [ %50, %46 ], [ %22, %56 ], [ %22, %17 ]
-  %119 = phi i32 [ %40, %36 ], [ %30, %46 ], [ %30, %56 ], [ %30, %17 ]
+  %113 = phi i32 [ %18, %36 ], [ %50, %46 ], [ %18, %56 ], [ %18, %17 ]
+  %114 = phi i32 [ %19, %36 ], [ %19, %46 ], [ %60, %56 ], [ %19, %17 ]
+  %115 = phi i32 [ %21, %36 ], [ %21, %46 ], [ %60, %56 ], [ %21, %17 ]
+  %116 = phi i32 [ %22, %36 ], [ %50, %46 ], [ %22, %56 ], [ %22, %17 ]
+  %117 = phi i32 [ %40, %36 ], [ %30, %46 ], [ %30, %56 ], [ %30, %17 ]
   store i32 %20, ptr %14, align 8
-  store i32 %116, ptr %15, align 4
-  store i32 %115, ptr %16, align 4
-  br label %120
+  store i32 %114, ptr %15, align 4
+  store i32 %113, ptr %16, align 4
+  br label %118
 
-120:                                              ; preds = %.loopexit, %55, %45, %35
-  %121 = phi i32 [ %117, %.loopexit ], [ %21, %55 ], [ %21, %45 ], [ %21, %35 ]
-  %122 = phi i32 [ %118, %.loopexit ], [ %22, %55 ], [ %22, %45 ], [ %22, %35 ]
-  %123 = phi i32 [ %119, %.loopexit ], [ %30, %55 ], [ %30, %45 ], [ %30, %35 ]
+118:                                              ; preds = %.loopexit, %55, %45, %35
+  %119 = phi i32 [ %115, %.loopexit ], [ %21, %55 ], [ %21, %45 ], [ %21, %35 ]
+  %120 = phi i32 [ %116, %.loopexit ], [ %22, %55 ], [ %22, %45 ], [ %22, %35 ]
+  %121 = phi i32 [ %117, %.loopexit ], [ %30, %55 ], [ %30, %45 ], [ %30, %35 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1301)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1302)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1288, i32 noundef %123)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1303, i32 noundef %122)
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1304, i32 noundef %121)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1288, i32 noundef %121)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1303, i32 noundef %120)
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1304, i32 noundef %119)
   %.not81 = icmp eq i32 %23, 0
-  %124 = select i1 %.not81, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1305, ptr noundef nonnull %124)
+  %122 = select i1 %.not81, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1305, ptr noundef nonnull %122)
   %.not82 = icmp eq i32 %24, 0
-  %125 = select i1 %.not82, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1306, ptr noundef nonnull %125)
+  %123 = select i1 %.not82, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1306, ptr noundef nonnull %123)
   %.not83 = icmp eq i32 %25, 0
-  %126 = select i1 %.not83, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1307, ptr noundef nonnull %126)
+  %124 = select i1 %.not83, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1307, ptr noundef nonnull %124)
   %.not84 = icmp eq i32 %26, 0
-  %127 = select i1 %.not84, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1308, ptr noundef nonnull %127)
+  %125 = select i1 %.not84, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1308, ptr noundef nonnull %125)
   %.not85 = icmp eq i32 %27, 0
-  %128 = select i1 %.not85, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1309, ptr noundef nonnull %128)
+  %126 = select i1 %.not85, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1309, ptr noundef nonnull %126)
   %.not86 = icmp eq i32 %28, 0
-  %129 = select i1 %.not86, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1310, ptr noundef nonnull %129)
+  %127 = select i1 %.not86, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1310, ptr noundef nonnull %127)
   %.not87 = icmp eq i32 %29, 0
-  %130 = select i1 %.not87, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1294, ptr noundef nonnull %130)
+  %128 = select i1 %.not87, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1294, ptr noundef nonnull %128)
   %.not88 = icmp eq i32 %.063, 0
-  %131 = select i1 %.not88, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1311, ptr noundef nonnull %131)
+  %129 = select i1 %.not88, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1311, ptr noundef nonnull %129)
   %.not89 = icmp eq i32 %.062, 0
-  %132 = select i1 %.not89, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1312, ptr noundef nonnull %132)
+  %130 = select i1 %.not89, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1312, ptr noundef nonnull %130)
   %.not90 = icmp eq i32 %31, 0
-  %133 = select i1 %.not90, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.942, ptr noundef nonnull %133)
+  %131 = select i1 %.not90, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.942, ptr noundef nonnull %131)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.670)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1313)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1219)
@@ -17584,15 +17580,15 @@ define internal range(i32 0, 2) i32 @Abc_CommandTwoExact(ptr nocapture readnone 
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1317)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1318)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1319)
-  br label %134
+  br label %132
 
-134:                                              ; preds = %109, %113, %114, %111, %120, %107, %104, %100, %.thread, %91
-  %.0 = phi i32 [ 1, %120 ], [ 0, %91 ], [ 1, %.thread ], [ 1, %100 ], [ 1, %104 ], [ 1, %107 ], [ 0, %111 ], [ 0, %114 ], [ 0, %113 ], [ 0, %109 ]
+132:                                              ; preds = %107, %111, %112, %109, %118, %105, %102, %98, %.thread, %91
+  %.0 = phi i32 [ 1, %118 ], [ 0, %91 ], [ 1, %.thread ], [ 1, %98 ], [ 1, %102 ], [ 1, %105 ], [ 0, %109 ], [ 0, %112 ], [ 0, %111 ], [ 0, %107 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_EsPar_t_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -17845,7 +17841,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandLutExact(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_EsPar_t_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false)
@@ -18230,7 +18226,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandTestExact(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandTestExact(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -18283,7 +18279,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandTestExact(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandMajGen(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandMajGen(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -22905,7 +22901,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCut(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandEspresso(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandEspresso(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = tail call ptr @Abc_FrameReadNtk(ptr noundef %0) #28
   %5 = icmp eq i32 %1, 2
   br i1 %5, label %sub_0, label %.tail.thread
@@ -23274,7 +23270,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandGen(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandGenFsm(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -23903,7 +23899,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandInter(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandBb2Wb(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandBb2Wb(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -24158,7 +24154,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandNodeDup(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [1000 x i8], align 16
   tail call void (...) @Extra_UtilGetoptReset() #28
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
@@ -24250,13 +24246,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandWrap(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @Abc_CommandTestColor(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @Abc_CommandTestColor(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #0 {
   tail call void (...) @Abc_ColorTest() #28
   ret i32 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandTest(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandTest(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -24905,7 +24901,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSenseInput(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandNpnLoad(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandNpnLoad(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -24936,7 +24932,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandNpnLoad(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandNpnSave(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandNpnSave(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -24967,7 +24963,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandNpnSave(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandSendAig(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandSendAig(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -25071,7 +25067,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSendAig(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandSendStatus(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandSendStatus(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -25196,13 +25192,13 @@ define internal range(i32 0, 2) i32 @Abc_CommandRestore(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @Abc_CommandMinisat(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #6 {
+define internal noundef i32 @Abc_CommandMinisat(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #6 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
   ret i32 1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @Abc_CommandMinisimp(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2) #6 {
+define internal noundef i32 @Abc_CommandMinisimp(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2) #6 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.9)
   ret i32 1
 }
@@ -27767,7 +27763,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigRestore(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandFraigClean(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandFraigClean(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -28007,7 +28003,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandFraigDress(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandDumpEquiv(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandDumpEquiv(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [2 x ptr], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   tail call void (...) @Extra_UtilGetoptReset() #28
@@ -28129,7 +28125,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDumpEquiv(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandRecStart3(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRecStart3(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -28313,7 +28309,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecStart3(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandRecStop3(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRecStop3(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1917) #28
   %.not = icmp eq i32 %4, -1
@@ -28344,7 +28340,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecStop3(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandRecPs3(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRecPs3(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -28432,7 +28428,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecAdd3(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandRecDump3(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRecDump3(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -28541,7 +28537,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandRecDump3(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandRecMerge3(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandRecMerge3(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.1917) #28
   %.not = icmp eq i32 %4, -1
@@ -31090,7 +31086,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandIfif(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandDsdSave(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandDsdSave(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -31167,7 +31163,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdSave(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandDsdLoad(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandDsdLoad(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -31275,7 +31271,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdLoad(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandDsdFree(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandDsdFree(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -31336,7 +31332,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdFree(ptr nocapture readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandDsdPs(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandDsdPs(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -31499,7 +31495,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdPs(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandDsdMatch(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandDsdMatch(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr (...) @Abc_FrameReadManDsd() #28
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %5
@@ -31699,7 +31695,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdMatch(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandDsdMerge(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandDsdMerge(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -31790,7 +31786,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDsdMerge(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandDsdFilter(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandDsdFilter(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = tail call ptr (...) @Abc_FrameReadManDsd() #28
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %5
@@ -34410,7 +34406,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSeqSweep2(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandTestSeqSweep(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandTestSeqSweep(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Fra_Ssw_t_, align 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -37265,8 +37261,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @globalUtilOptind, align 4
-  %.not71 = icmp slt i32 %7, %1
-  br i1 %.not71, label %9, label %8
+  %.not69 = icmp slt i32 %7, %1
+  br i1 %.not69, label %9, label %8
 
 8:                                                ; preds = %6
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2484)
@@ -37300,11 +37296,11 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
 
 21:                                               ; preds = %19
   %22 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2485, i32 noundef %.051.ph)
-  br label %107
+  br label %104
 
 23:                                               ; preds = %19
   tail call void @Ntk_SymFunGenerate(i32 noundef %.051.ph, i32 noundef %.0) #28
-  br label %107
+  br label %104
 
 24:                                               ; preds = %18
   %25 = load i32, ptr @globalUtilOptind, align 4
@@ -37314,7 +37310,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
 
 27:                                               ; preds = %24
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2474)
-  br label %107
+  br label %104
 
 28:                                               ; preds = %24
   %29 = sext i32 %25 to i64
@@ -37323,8 +37319,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #31
   %33 = trunc i64 %32 to i32
   %34 = add i32 %33, -1
-  %.not6481 = icmp slt i32 %34, 0
-  br i1 %.not6481, label %.critedge, label %.lr.ph.preheader
+  %.not6479 = icmp slt i32 %34, 0
+  br i1 %.not6479, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %28
   %wide.trip.count = and i64 %32, 4294967295
@@ -37345,7 +37341,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandSymFun(ptr noundef %0, i32 nound
 
 39:                                               ; preds = %.lr.ph
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.2486)
-  br label %107
+  br label %104
 
 .critedge:                                        ; preds = %35, %28
   %40 = icmp slt i32 %34, 7
@@ -37472,38 +37468,27 @@ Abc_TtSymFunGenerate.exit:                        ; preds = %.preheader.us20.i, 
   %98 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %85) #31
   %99 = add i64 %98, 100
   %100 = tail call noalias ptr @calloc(i64 noundef %99, i64 noundef 1) #32
-  %101 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.2489, ptr noundef %85) #28
-  %102 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef %100) #28
-  %.not69 = icmp eq ptr %100, null
-  br i1 %.not69, label %104, label %103
-
-103:                                              ; preds = %97
-  tail call void @free(ptr noundef nonnull %100) #28
+  %101 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) @.str.2489, ptr noundef nonnull %85) #28
+  %102 = tail call i32 @Cmd_CommandExecute(ptr noundef %0, ptr noundef nonnull %100) #28
+  tail call void @free(ptr noundef %100) #28
+  tail call void @free(ptr noundef %85) #28
   br label %104
-
-104:                                              ; preds = %97, %103
-  %.not70 = icmp eq ptr %85, null
-  br i1 %.not70, label %107, label %105
-
-105:                                              ; preds = %104
-  tail call void @free(ptr noundef nonnull %85) #28
-  br label %107
 
 .loopexit:                                        ; preds = %4, %17, %8
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2490)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2491)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2492)
-  %.not72 = icmp eq i32 %.0, 0
-  %106 = select i1 %.not72, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2493, ptr noundef nonnull %106)
+  %.not70 = icmp eq i32 %.0, 0
+  %103 = select i1 %.not70, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2493, ptr noundef nonnull %103)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.670)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2494)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2495)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.2496)
-  br label %107
+  br label %104
 
-107:                                              ; preds = %105, %104, %.loopexit, %39, %27, %23, %21
-  %.054 = phi i32 [ 1, %.loopexit ], [ 1, %21 ], [ 0, %23 ], [ 1, %27 ], [ 1, %39 ], [ 0, %104 ], [ 0, %105 ]
+104:                                              ; preds = %.loopexit, %97, %39, %27, %23, %21
+  %.054 = phi i32 [ 1, %.loopexit ], [ 1, %21 ], [ 0, %23 ], [ 1, %27 ], [ 1, %39 ], [ 0, %97 ]
   ret i32 %.054
 }
 
@@ -37781,7 +37766,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandUnpermute(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandCubeEnum(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandCubeEnum(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -37843,7 +37828,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCubeEnum(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandPathEnum(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandPathEnum(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -37914,7 +37899,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandPathEnum(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandFunEnum(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandFunEnum(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [100 x i8], align 16
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %5
@@ -40649,7 +40634,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDSat(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandXSat(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca ptr, align 8
@@ -40887,7 +40872,7 @@ Abc_Clock.exit75:                                 ; preds = %Abc_Clock.exit, %82
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandSatoko(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandSatoko(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.satoko_opts, align 8
@@ -41044,7 +41029,7 @@ Abc_Clock.exit17:                                 ; preds = %30, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Satoko(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Satoko(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.satoko_opts, align 8
   call void @satoko_default_opts(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -41160,7 +41145,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Satoko(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat3(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat3(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.satoko_opts, align 8
   call void @satoko_default_opts(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -42385,7 +42370,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandDebug(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandEco(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandEco(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [3 x ptr], align 16
   tail call void (...) @Extra_UtilGetoptReset() #28
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
@@ -47364,7 +47349,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandCexSave(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandCexSave(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -47410,7 +47395,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCexSave(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandCexLoad(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandCexLoad(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -47665,7 +47650,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandCexCut(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandCexMerge(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandCexMerge(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -48250,7 +48235,7 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %21, %Vec_VecFree.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbcSave(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbcSave(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -48412,7 +48397,7 @@ Abc_NtkCompareWithBest.exit.thread:               ; preds = %50, %52, %57, %59, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbcLoad(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbcLoad(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -48457,7 +48442,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbcLoad(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Get(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Get(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -49180,7 +49165,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %92
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9MoveNames(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9MoveNames(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -49795,7 +49780,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LoadAig(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Read(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Read(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -50005,7 +49990,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Read(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadBlif(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadBlif(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -50095,7 +50080,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadBlif(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadCBlif(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadCBlif(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -50208,7 +50193,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadCBlif(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadStg(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadStg(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -50296,7 +50281,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadStg(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadVer(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadVer(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -50396,7 +50381,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadVer(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteVer(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteVer(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -50500,7 +50485,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteVer(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Write(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Write(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -50722,7 +50707,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Write(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteLut(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteLut(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -50791,7 +50776,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteLut(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ps(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ps(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gps_Par_t_, align 8
   tail call void (...) @Extra_UtilGetoptReset() #28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -51001,7 +50986,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ps(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9PFan(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9PFan(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -51060,7 +51045,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PFan(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9PSig(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9PSig(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -51115,7 +51100,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PSig(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Status(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Status(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -51147,7 +51132,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Status(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxProfile(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxProfile(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -51304,7 +51289,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxProfile(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxPos(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxPos(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -51350,7 +51335,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxPos(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxStr(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxStr(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -51396,7 +51381,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxStr(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxDec(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxDec(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -51455,7 +51440,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9MuxDec(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintTruth(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintTruth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca i64, align 8
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
@@ -51602,7 +51587,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintTruth(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Unate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Unate(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -51660,7 +51645,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Unate(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Rex2Gia(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Rex2Gia(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -51733,7 +51718,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Rex2Gia(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9RexWalk(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9RexWalk(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -51830,7 +51815,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9RexWalk(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Show(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Show(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -52037,7 +52022,7 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SetRegNum(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SetRegNum(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -52121,7 +52106,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SetRegNum(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Strash(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Strash(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -52473,7 +52458,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Strash(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Topand(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Topand(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -52529,7 +52514,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Topand(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Add1Hot(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Add1Hot(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -52575,7 +52560,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Add1Hot(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cof(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cof(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -52729,7 +52714,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cof(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Trim(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Trim(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -52883,7 +52868,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Trim(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dfs(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dfs(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -53007,7 +52992,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dfs(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParSim_t_, align 4
   %5 = alloca [1000 x i8], align 16
   call void @Gia_ManSimSetDefaultParams(ptr noundef nonnull %4) #28
@@ -53217,7 +53202,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [2 x ptr], align 16
   %5 = alloca [2 x ptr], align 16
   tail call void (...) @Extra_UtilGetoptReset() #28
@@ -53575,7 +53560,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim2(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim3(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sim3(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Ssw_RarPars_t_, align 8
   call void @Ssw_RarSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -53879,7 +53864,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9MLGen(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9MLGen(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -54065,7 +54050,7 @@ Vec_WrdFreeP.exit:                                ; preds = %37, %44, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9MLTest(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9MLTest(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -54186,7 +54171,7 @@ Vec_WrdFreeP.exit:                                ; preds = %25, %32, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iwls21Test(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iwls21Test(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -54339,7 +54324,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iwls21Test(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadSim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadSim(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -54615,7 +54600,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReadSim(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -54887,7 +54872,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9WriteSim(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintSim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintSim(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -54952,7 +54937,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9PrintSim(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenSim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenSim(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -55164,7 +55149,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenSim(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SimRsb(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SimRsb(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -55256,7 +55241,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SimRsb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resim(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resim(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParSim_t_, align 4
   call void @Cec_ManSimSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -55356,7 +55341,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resim(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SpecI(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SpecI(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -55484,7 +55469,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SpecI(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParSim_t_, align 4
   call void @Cec_ManSimSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -55677,7 +55662,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv2(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -55893,7 +55878,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv2(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv3(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv3(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Ssw_RarPars_t_, align 8
   call void @Ssw_RarSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -56188,7 +56173,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Equiv3(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Semi(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Semi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParSmf_t_, align 4
   call void @Cec_ManSmfSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -56409,7 +56394,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Semi(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Times(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Times(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -56482,7 +56467,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Times(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Frames(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Frames(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParFra_t_, align 4
   call void @Gia_ManFraSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -56678,7 +56663,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Frames(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Retime(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Retime(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -56761,7 +56746,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Retime(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Enable(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Enable(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -56832,7 +56817,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Enable(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dc2(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dc2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -56891,7 +56876,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dc2(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsd(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsd(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -56941,7 +56926,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsd(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bidec(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bidec(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -57001,7 +56986,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bidec(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Shrink(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Shrink(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -57125,7 +57110,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Shrink(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fx(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fx(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -57272,7 +57257,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fx(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Extract(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Extract(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -57359,7 +57344,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Extract(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Balance(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Balance(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -57510,7 +57495,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Balance(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9BalanceLut(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9BalanceLut(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -57655,7 +57640,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BalanceLut(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resub(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resub(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -57815,7 +57800,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Resub(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Reshape(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Reshape(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -57915,7 +57900,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Reshape(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn2(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -58088,7 +58073,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn2(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn3(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn3(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -58147,7 +58132,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn3(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn4(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn4(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -58206,7 +58191,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Syn4(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Synch2(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Synch2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Dch_Pars_t_, align 8
   call void @Dch_ManSetDefaultParams(ptr noundef nonnull %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -58393,7 +58378,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Synch2(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9False(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9False(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -58506,7 +58491,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9False(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -58814,14 +58799,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter2(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
 4:                                                ; preds = %6, %3
   %.0 = phi i32 [ 0, %3 ], [ %7, %6 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.801) #28
-  switch i32 %5, label %43 [
+  switch i32 %5, label %40 [
     i32 -1, label %8
     i32 118, label %6
   ]
@@ -58838,7 +58823,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter2(ptr nocapture noundef
 
 11:                                               ; preds = %8
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1339)
-  br label %45
+  br label %42
 
 12:                                               ; preds = %8
   %13 = sext i32 %9 to i64
@@ -58870,8 +58855,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter2(ptr nocapture noundef
 24:                                               ; preds = %21
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.1608, ptr noundef %15)
   %25 = tail call ptr @Extra_FileGetSimilarName(ptr noundef %15, ptr noundef nonnull @.str.1965, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null) #28
-  %.not46 = icmp eq ptr %25, null
-  br i1 %.not46, label %27, label %26
+  %.not44 = icmp eq ptr %25, null
+  br i1 %.not44, label %27, label %26
 
 26:                                               ; preds = %24
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.1614, ptr noundef nonnull %25)
@@ -58879,7 +58864,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter2(ptr nocapture noundef
 
 27:                                               ; preds = %26, %24
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef 1, ptr noundef nonnull @.str.717)
-  br label %45
+  br label %42
 
 28:                                               ; preds = %21
   %29 = tail call i32 @fclose(ptr noundef nonnull %22)
@@ -58890,50 +58875,40 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Miter2(ptr nocapture noundef
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 64
-  %.val48 = load ptr, ptr %35, align 8
-  %36 = getelementptr i8, ptr %.val48, i64 4
-  %.val48.val = load i32, ptr %36, align 4
-  %.not43 = icmp eq i32 %.val48.val, %32
-  %.not44 = icmp eq ptr %30, null
-  br i1 %.not43, label %39, label %37
+  %.val46 = load ptr, ptr %35, align 8
+  %36 = getelementptr i8, ptr %.val46, i64 4
+  %.val46.val = load i32, ptr %36, align 4
+  %.not43 = icmp eq i32 %.val46.val, %32
+  br i1 %.not43, label %38, label %37
 
 37:                                               ; preds = %28
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3541, i64 noundef %31, i32 noundef %.val48.val)
-  br i1 %.not44, label %45, label %38
-
-38:                                               ; preds = %37
-  tail call void @free(ptr noundef nonnull %30) #28
-  br label %45
-
-39:                                               ; preds = %28
-  %40 = tail call ptr @Gia_ManMiter2(ptr noundef nonnull %34, ptr noundef %30, i32 noundef %.0) #28
-  br i1 %.not44, label %42, label %41
-
-41:                                               ; preds = %39
-  tail call void @free(ptr noundef nonnull %30) #28
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.3541, i64 noundef %31, i32 noundef %.val46.val)
+  tail call void @free(ptr noundef %30) #28
   br label %42
 
-42:                                               ; preds = %39, %41
-  tail call void @Abc_FrameUpdateGia(ptr noundef nonnull %0, ptr noundef %40)
-  br label %45
+38:                                               ; preds = %28
+  %39 = tail call ptr @Gia_ManMiter2(ptr noundef nonnull %34, ptr noundef nonnull %30, i32 noundef %.0) #28
+  tail call void @free(ptr noundef %30) #28
+  tail call void @Abc_FrameUpdateGia(ptr noundef nonnull %0, ptr noundef %39)
+  br label %42
 
-43:                                               ; preds = %4
+40:                                               ; preds = %4
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3542)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3543)
-  %.not47 = icmp eq i32 %.0, 0
-  %44 = select i1 %.not47, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.542, ptr noundef nonnull %44)
+  %.not45 = icmp eq i32 %.0, 0
+  %41 = select i1 %.not45, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.542, ptr noundef nonnull %41)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.528)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.3544)
-  br label %45
+  br label %42
 
-45:                                               ; preds = %38, %37, %43, %42, %27, %11
-  %.034 = phi i32 [ 1, %43 ], [ 1, %11 ], [ 1, %27 ], [ 0, %42 ], [ 1, %37 ], [ 1, %38 ]
+42:                                               ; preds = %40, %38, %37, %27, %11
+  %.034 = phi i32 [ 1, %40 ], [ 1, %11 ], [ 1, %27 ], [ 1, %37 ], [ 0, %38 ]
   ret i32 %.034
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Append(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Append(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -59033,7 +59008,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Append(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scl(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scl(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -59159,7 +59134,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scl(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lcorr(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lcorr(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCor_t_, align 8
   call void @Cec_ManCorSetDefaultParams(ptr noundef nonnull %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -59376,7 +59351,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lcorr(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scorr(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scorr(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCor_t_, align 8
   call void @Cec_ManCorSetDefaultParams(ptr noundef nonnull %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20
@@ -59717,7 +59692,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Scorr(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Choice(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Choice(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParChc_t_, align 4
   call void @Cec_ManChcSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -59807,7 +59782,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Choice(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sat(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParSat_t_, align 4
   %5 = alloca ptr, align 8
   call void @Cec_ManSatSetDefaultParams(ptr noundef nonnull %4) #28
@@ -60227,7 +60202,7 @@ Abc_FrameReplaceCexVec.exit:                      ; preds = %158, %154, %124, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatEnum(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatEnum(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -60324,7 +60299,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatEnum(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fraig(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fraig(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParFra_t_, align 4
   call void @Cec4_ManSetParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -60828,7 +60803,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fraig(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9CFraig(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9CFraig(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Ssc_Pars_t_, align 4
   call void @Ssc_ManSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -60952,7 +60927,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9CFraig(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [10 x i8], align 1
   %5 = alloca [10 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4, ptr noundef nonnull align 1 dereferenceable(10) @__const.Abc_CommandAbc9Srm.pFileName, i64 10, i1 false)
@@ -61159,7 +61134,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [10 x i8], align 1
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
@@ -61305,7 +61280,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Srm2(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Filter(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Filter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -61447,7 +61422,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Filter(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Reduce(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Reduce(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -61534,7 +61509,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Reduce(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9EquivMark(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9EquivMark(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -61610,7 +61585,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9EquivMark(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9EquivFilter(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9EquivFilter(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -61658,7 +61633,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9EquivFilter(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cec(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.Cec_ParCec_t_, align 4
   %.sroa.0 = alloca ptr, align 16
@@ -62474,7 +62449,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCec_t_, align 4
   %.sroa.0 = alloca ptr, align 16
   %.sroa.4 = alloca ptr, align 8
@@ -62842,7 +62817,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICec(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Verify(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Verify(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -62978,7 +62953,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Verify(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sweep(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sweep(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Dch_Pars_t_, align 8
   call void @Dch_ManSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -63139,7 +63114,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sweep(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Force(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Force(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -63226,7 +63201,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Force(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Embed(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Embed(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Emb_Par_t_, align 4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -63389,7 +63364,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Embed(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sopb(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sopb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -63552,7 +63527,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sopb(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -63766,7 +63741,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dsdb(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -63912,7 +63887,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow2(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -64075,7 +64050,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow2(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow3(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow3(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -64251,7 +64226,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Flow3(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca [200 x i8], align 16
   %6 = alloca %struct.If_Par_t_, align 8
@@ -65570,7 +65545,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iff(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iff(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -65635,7 +65610,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iff(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iiff(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iiff(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -66149,7 +66124,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9If2(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sif(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sif(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -66245,7 +66220,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Sif(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Jf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Jf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
   call void @Jf_ManSetDefaultPars(ptr noundef nonnull %5) #28
@@ -66575,7 +66550,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Jf(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
   call void @Kf_ManSetDefaultPars(ptr noundef nonnull %5) #28
@@ -66913,7 +66888,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Kf(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
   call void @Lf_ManSetDefaultPars(ptr noundef nonnull %5) #28
@@ -67419,7 +67394,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Lf(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
   call void @Mf_ManSetDefaultPars(ptr noundef nonnull %5) #28
@@ -67840,7 +67815,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mf(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Nf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Nf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
   call void @Nf_ManSetDefaultPars(ptr noundef nonnull %5) #28
@@ -68256,7 +68231,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Nf(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Of(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Of(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [200 x i8], align 16
   %5 = alloca %struct.Jf_Par_t_, align 8
   call void @Of_ManSetDefaultPars(ptr noundef nonnull %5) #28
@@ -68710,7 +68685,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Of(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pack(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pack(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -68872,7 +68847,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Pack(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Edge(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Edge(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -69148,7 +69123,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Edge(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatLut(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatLut(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -69346,7 +69321,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatLut(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetRead(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetRead(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -69383,7 +69358,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetRead(ptr nocapture nound
   br i1 %.not18, label %32, label %20
 
 20:                                               ; preds = %18
-  %21 = tail call ptr @Vec_WrdReadTest(ptr noundef %14) #28
+  %21 = tail call ptr @Vec_WrdReadTest(ptr noundef nonnull %14) #28
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %29
 
@@ -69416,7 +69391,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetRead(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetSim(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetSim(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -69478,7 +69453,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetSim(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetEval(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetEval(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -69565,7 +69540,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetEval(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -69744,7 +69719,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetOpt(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -69936,7 +69911,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Ttopt(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -70222,7 +70197,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Transduction(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9TranStoch(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9TranStoch(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -70654,7 +70629,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9LNetMap(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Unmap(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Unmap(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -70834,7 +70809,7 @@ Vec_IntFreeP.exit34:                              ; preds = %.thread.i33, %64, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Struct(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Struct(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -70899,7 +70874,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Struct(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Trace(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Trace(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -70980,7 +70955,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Trace(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Speedup(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Speedup(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -71135,7 +71110,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Speedup(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Era(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Era(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -71358,7 +71333,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dch(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dch(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Dch_Pars_t_, align 8
   call void @Dch_ManSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -71639,7 +71614,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Dch(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Rpm(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Rpm(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -71777,7 +71752,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Rpm(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9BackReach(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9BackReach(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -71915,7 +71890,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BackReach(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Posplit(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Posplit(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -71997,7 +71972,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Posplit(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Permute(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Permute(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -72093,7 +72068,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Permute(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachM(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachM(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParLlb_t_, align 8
   call void @Llb_ManSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -72423,7 +72398,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachM(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachP(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachP(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParLlb_t_, align 8
   call void @Llb_ManSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -72691,7 +72666,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachP(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachN(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachN(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParLlb_t_, align 8
   call void @Llb_ManSetDefaultParams(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -72977,7 +72952,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %87, %Vec_PtrFreeFre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachY(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ReachY(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Gia_ParLlb_t_, align 8
   call void @Llb_ManSetDefaultParams(ptr noundef nonnull %4) #28
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 52
@@ -73301,7 +73276,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %101, %Vec_PtrFreeFr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Undo(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Undo(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   %4 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.618) #28
   %.not = icmp eq i32 %4, -1
@@ -73346,7 +73321,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Undo(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mesh(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mesh(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -73528,7 +73503,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mesh(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iso(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Iso(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
@@ -73749,7 +73724,7 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %39, %Vec_VecFree.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9IsoNpn(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9IsoNpn(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %5
@@ -73892,7 +73867,7 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %27, %Vec_VecFree.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9IsoSt(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9IsoSt(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %5
@@ -74035,7 +74010,7 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %27, %Vec_VecFree.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Compare(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Compare(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -74123,7 +74098,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Compare(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9RevEng(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9RevEng(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -74220,7 +74195,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9RevEng(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Uif(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Uif(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -74305,7 +74280,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Uif(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9CexInfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9CexInfo(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -74364,7 +74339,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9CexInfo(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cycle(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cycle(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -74462,7 +74437,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cycle(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cone(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cone(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [1000 x i8], align 16
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %5
@@ -74844,7 +74819,7 @@ Abc_Base10Log.exit:                               ; preds = %.lr.ph.i, %66
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Slice(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Slice(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -74917,7 +74892,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Slice(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9PoPart(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9PoPart(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #28
@@ -75092,7 +75067,7 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %31, %Vec_VecFree.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9GroupProve(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9GroupProve(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -75204,7 +75179,7 @@ Vec_IntFree.exit:                                 ; preds = %31, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9MultiProve(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9MultiProve(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_MulPar_t_, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %4, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -75508,7 +75483,7 @@ Abc_FrameReplaceCexVec.exit:                      ; preds = %121, %117, %.loopex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitProve(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitProve(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -75725,7 +75700,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitProve(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SProve(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SProve(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -75985,7 +75960,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitSat(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitSat(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -76222,7 +76197,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SplitSat(ptr nocapture readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmc(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_AndPar_t_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -76568,7 +76543,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SBmc(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SBmc(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_AndPar_t_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -76923,7 +76898,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ChainBmc(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ChainBmc(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #28
@@ -77094,7 +77069,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_BCorePar_t_, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 32, i1 false)
@@ -77306,7 +77281,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BCore(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICheck(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ICheck(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -77506,7 +77481,7 @@ Vec_IntFreeP.exit:                                ; preds = %45, %52, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatTest(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatTest(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -77564,7 +77539,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatTest(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Bmc_ParFf_t_, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -78119,7 +78094,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Qbf(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Qbf(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -78357,7 +78332,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Qbf(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9QVar(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9QVar(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -78485,7 +78460,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9QVar(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenQbf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenQbf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -78513,28 +78488,28 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenQbf(ptr nocapture noundef
   %.044.ph246 = phi i32 [ %.044.ph241, %.outer236 ], [ %.044, %Abc_UtilStrsav.exit ]
   br label %.outer247
 
-.outer247:                                        ; preds = %.outer242, %50
-  %.047.ph248 = phi i32 [ %.047.ph244, %.outer242 ], [ %51, %50 ]
-  %.045.ph249 = phi i32 [ %.045.ph245, %.outer242 ], [ %.045.ph252, %50 ]
-  %.044.ph250 = phi i32 [ %.044.ph246, %.outer242 ], [ %.044, %50 ]
+.outer247:                                        ; preds = %.outer242, %49
+  %.047.ph248 = phi i32 [ %.047.ph244, %.outer242 ], [ %50, %49 ]
+  %.045.ph249 = phi i32 [ %.045.ph245, %.outer242 ], [ %.045.ph252, %49 ]
+  %.044.ph250 = phi i32 [ %.044.ph246, %.outer242 ], [ %.044, %49 ]
   br label %.outer251
 
-.outer251:                                        ; preds = %.outer247, %52
-  %.045.ph252 = phi i32 [ %.045.ph249, %.outer247 ], [ %53, %52 ]
-  %.044.ph253 = phi i32 [ %.044.ph250, %.outer247 ], [ %.044, %52 ]
+.outer251:                                        ; preds = %.outer247, %51
+  %.045.ph252 = phi i32 [ %.045.ph249, %.outer247 ], [ %52, %51 ]
+  %.044.ph253 = phi i32 [ %.044.ph250, %.outer247 ], [ %.044, %51 ]
   br label %4
 
 4:                                                ; preds = %.outer251, %9
   %.044 = phi i32 [ %13, %9 ], [ %.044.ph253, %.outer251 ]
   %5 = tail call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.4362) #28
   switch i32 %5, label %.loopexit [
-    i32 -1, label %54
+    i32 -1, label %53
     i32 70, label %6
     i32 75, label %16
     i32 78, label %26
     i32 83, label %36
-    i32 111, label %50
-    i32 118, label %52
+    i32 111, label %49
+    i32 118, label %51
   ]
 
 6:                                                ; preds = %4
@@ -78622,91 +78597,90 @@ Abc_UtilStrsav.exit:                              ; preds = %39
   %47 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull readonly dereferenceable(1) %42) #28
   %48 = add nsw i32 %37, 1
   store i32 %48, ptr @globalUtilOptind, align 4
-  %49 = icmp eq ptr %46, null
-  br i1 %49, label %.loopexit, label %.outer242, !llvm.loop !466
+  br label %.outer242, !llvm.loop !466
 
-50:                                               ; preds = %4
-  %51 = xor i32 %.047.ph248, 1
+49:                                               ; preds = %4
+  %50 = xor i32 %.047.ph248, 1
   br label %.outer247, !llvm.loop !466
 
-52:                                               ; preds = %4
-  %53 = xor i32 %.045.ph252, 1
+51:                                               ; preds = %4
+  %52 = xor i32 %.045.ph252, 1
   br label %.outer251, !llvm.loop !466
 
-54:                                               ; preds = %4
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %56 = load ptr, ptr %55, align 8
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %58, label %59
+53:                                               ; preds = %4
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %55 = load ptr, ptr %54, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %58
 
-58:                                               ; preds = %54
+57:                                               ; preds = %53
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4351)
-  br label %76
+  br label %75
 
-59:                                               ; preds = %54
-  %60 = getelementptr i8, ptr %56, i64 16
-  %.val = load i32, ptr %60, align 8
-  %61 = icmp eq i32 %.val, 0
-  br i1 %61, label %62, label %63
+58:                                               ; preds = %53
+  %59 = getelementptr i8, ptr %55, i64 16
+  %.val = load i32, ptr %59, align 8
+  %60 = icmp eq i32 %.val, 0
+  br i1 %60, label %61, label %62
 
-62:                                               ; preds = %59
+61:                                               ; preds = %58
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4363)
-  br label %76
+  br label %75
 
-63:                                               ; preds = %59
-  %64 = mul nuw nsw i32 %.051.ph237, %.054.ph
-  %65 = icmp slt i32 %.val, %64
-  br i1 %65, label %66, label %67
+62:                                               ; preds = %58
+  %63 = mul nuw nsw i32 %.051.ph237, %.054.ph
+  %64 = icmp slt i32 %.val, %63
+  br i1 %64, label %65, label %66
 
-66:                                               ; preds = %63
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4364, i32 noundef %.val, i32 noundef %64)
-  br label %76
+65:                                               ; preds = %62
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4364, i32 noundef %.val, i32 noundef %63)
+  br label %75
 
-67:                                               ; preds = %63
-  %68 = icmp ne i32 %.044, 1
-  %69 = icmp ne i32 %.054.ph, 1
-  %or.cond = or i1 %68, %69
-  br i1 %or.cond, label %70, label %71
+66:                                               ; preds = %62
+  %67 = icmp ne i32 %.044, 1
+  %68 = icmp ne i32 %.054.ph, 1
+  %or.cond = or i1 %67, %68
+  br i1 %or.cond, label %69, label %70
 
-70:                                               ; preds = %67
+69:                                               ; preds = %66
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4365)
-  br label %76
+  br label %75
 
-71:                                               ; preds = %67
-  %72 = tail call ptr @Gia_GenQbfMiter(ptr noundef nonnull %56, i32 noundef 1, i32 noundef 1, i32 noundef %.051.ph237, ptr noundef %.049.ph243, i32 noundef %.047.ph248, i32 noundef %.045.ph252) #28
-  tail call void @Abc_FrameUpdateGia(ptr noundef nonnull %0, ptr noundef %72)
+70:                                               ; preds = %66
+  %71 = tail call ptr @Gia_GenQbfMiter(ptr noundef nonnull %55, i32 noundef 1, i32 noundef 1, i32 noundef %.051.ph237, ptr noundef %.049.ph243, i32 noundef %.047.ph248, i32 noundef %.045.ph252) #28
+  tail call void @Abc_FrameUpdateGia(ptr noundef nonnull %0, ptr noundef %71)
   %.not71 = icmp eq ptr %.049.ph243, null
-  br i1 %.not71, label %76, label %73
+  br i1 %.not71, label %75, label %72
 
-73:                                               ; preds = %71
+72:                                               ; preds = %70
   tail call void @free(ptr noundef nonnull %.049.ph243) #28
-  br label %76
+  br label %75
 
-.loopexit:                                        ; preds = %19, %4, %9, %Abc_UtilStrsav.exit, %29, %Abc_UtilStrsav.exit.thread, %38, %28, %18, %8
-  %.155 = phi i32 [ %.054.ph, %38 ], [ %.054.ph, %28 ], [ %.054.ph, %18 ], [ %.054.ph, %8 ], [ %.054.ph, %Abc_UtilStrsav.exit.thread ], [ %.054.ph, %19 ], [ %.054.ph, %4 ], [ %.054.ph, %9 ], [ %.054.ph, %Abc_UtilStrsav.exit ], [ %33, %29 ]
-  %.152 = phi i32 [ %.051.ph237, %38 ], [ %.051.ph237, %28 ], [ %.051.ph237, %18 ], [ %.051.ph237, %8 ], [ %.051.ph237, %Abc_UtilStrsav.exit.thread ], [ %.051.ph237, %Abc_UtilStrsav.exit ], [ %.051.ph237, %9 ], [ %.051.ph237, %4 ], [ %23, %19 ], [ %.051.ph237, %29 ]
-  %.1 = phi i32 [ %.044, %38 ], [ %.044, %28 ], [ %.044, %18 ], [ %.044, %8 ], [ %.044, %Abc_UtilStrsav.exit.thread ], [ %13, %9 ], [ %.044, %4 ], [ %.044, %Abc_UtilStrsav.exit ], [ %.044, %19 ], [ %.044, %29 ]
+.loopexit:                                        ; preds = %19, %4, %9, %29, %Abc_UtilStrsav.exit.thread, %38, %28, %18, %8
+  %.155 = phi i32 [ %.054.ph, %38 ], [ %.054.ph, %28 ], [ %.054.ph, %18 ], [ %.054.ph, %8 ], [ %.054.ph, %Abc_UtilStrsav.exit.thread ], [ %.054.ph, %19 ], [ %.054.ph, %4 ], [ %.054.ph, %9 ], [ %33, %29 ]
+  %.152 = phi i32 [ %.051.ph237, %38 ], [ %.051.ph237, %28 ], [ %.051.ph237, %18 ], [ %.051.ph237, %8 ], [ %.051.ph237, %Abc_UtilStrsav.exit.thread ], [ %.051.ph237, %9 ], [ %.051.ph237, %4 ], [ %23, %19 ], [ %.051.ph237, %29 ]
+  %.1 = phi i32 [ %.044, %38 ], [ %.044, %28 ], [ %.044, %18 ], [ %.044, %8 ], [ %.044, %Abc_UtilStrsav.exit.thread ], [ %.044, %4 ], [ %13, %9 ], [ %.044, %19 ], [ %.044, %29 ]
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4366)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4367)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4368, i32 noundef %.1)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4369, i32 noundef %.152)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4370, i32 noundef %.155)
   %.not76 = icmp eq i32 %.047.ph248, 0
-  %74 = select i1 %.not76, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4371, ptr noundef nonnull %74)
+  %73 = select i1 %.not76, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4371, ptr noundef nonnull %73)
   %.not77 = icmp eq i32 %.045.ph252, 0
-  %75 = select i1 %.not77, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1879, ptr noundef nonnull %75)
+  %74 = select i1 %.not77, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.1879, ptr noundef nonnull %74)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.528)
-  br label %76
+  br label %75
 
-76:                                               ; preds = %73, %71, %.loopexit, %70, %66, %62, %58
-  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %58 ], [ 1, %62 ], [ 1, %66 ], [ 1, %70 ], [ 0, %71 ], [ 0, %73 ]
+75:                                               ; preds = %72, %70, %.loopexit, %69, %65, %61, %57
+  %.0 = phi i32 [ 1, %.loopexit ], [ 1, %57 ], [ 1, %61 ], [ 1, %65 ], [ 1, %69 ], [ 0, %70 ], [ 0, %72 ]
   ret i32 %.0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9HomoQbf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9HomoQbf(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -78794,7 +78768,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9HomoQbf(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatFx(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatFx(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -78914,7 +78888,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatFx(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatClp(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatClp(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -79039,7 +79013,7 @@ Vec_StrFree.exit:                                 ; preds = %33, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Inse(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Inse(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -79226,7 +79200,7 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %57, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Maxi(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Maxi(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -79394,7 +79368,7 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %46, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmci(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmci(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -79552,7 +79526,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Bmci(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9PoXsim(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9PoXsim(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -79663,7 +79637,7 @@ Vec_IntFreeP.exit:                                ; preds = %27, %34, %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Demiter(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Demiter(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca [1000 x i8], align 16
   %5 = alloca [1000 x i8], align 16
   %6 = alloca ptr, align 8
@@ -79876,7 +79850,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Demiter(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fadds(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fadds(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -80110,7 +80084,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fadds(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ATree(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ATree(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -80198,7 +80172,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ATree(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Polyn(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Polyn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -80414,7 +80388,7 @@ Vec_IntFreeP.exit:                                ; preds = %.thread.i, %46, %.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Acec_ParCec_t_, align 4
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -80866,7 +80840,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Acec(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Anorm(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Anorm(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -80925,7 +80899,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Anorm(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Decla(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Decla(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -80984,7 +80958,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Decla(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Esop(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Esop(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -81030,7 +81004,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Esop(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #28
@@ -81251,7 +81225,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Exorcism(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfs(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfs(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Sfm_Par_t_, align 4
   call void @Sfm_ParSetDefault(ptr noundef nonnull %4) #28
   store i32 5, ptr %4, align 4
@@ -81573,7 +81547,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfs(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfsd(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfsd(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Sbd_Par_t_, align 4
   call void @Sbd_ParSetDefault(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -81873,7 +81847,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Mfsd(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9DeepSyn(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9DeepSyn(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -82067,7 +82041,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9DeepSyn(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatSyn(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatSyn(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -82223,7 +82197,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9SatSyn(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -82382,7 +82356,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr nocapture nound
 
 62:                                               ; preds = %58
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4532)
-  br label %77
+  br label %76
 
 63:                                               ; preds = %58
   %64 = load i32, ptr @globalUtilOptind, align 4
@@ -82403,20 +82377,16 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StochSyn(ptr nocapture nound
 
 Abc_UtilStrsav.exit.thread:                       ; preds = %67
   tail call void @Gia_ManStochSyn(i32 noundef %.048.ph, i32 noundef %.045.ph227, i32 noundef %.042.ph233, i32 noundef %.039.ph238, i32 noundef %.0, ptr noundef null, i32 noundef %.037.ph242) #28
-  br label %77
+  br label %76
 
 Abc_UtilStrsav.exit:                              ; preds = %67
   %71 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %70) #31
   %72 = add i64 %71, 1
   %73 = tail call noalias ptr @malloc(i64 noundef %72) #29
   %74 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %73, ptr noundef nonnull readonly dereferenceable(1) %70) #28
-  tail call void @Gia_ManStochSyn(i32 noundef %.048.ph, i32 noundef %.045.ph227, i32 noundef %.042.ph233, i32 noundef %.039.ph238, i32 noundef %.0, ptr noundef %73, i32 noundef %.037.ph242) #28
-  %.not70 = icmp eq ptr %73, null
-  br i1 %.not70, label %77, label %75
-
-75:                                               ; preds = %Abc_UtilStrsav.exit
+  tail call void @Gia_ManStochSyn(i32 noundef %.048.ph, i32 noundef %.045.ph227, i32 noundef %.042.ph233, i32 noundef %.039.ph238, i32 noundef %.0, ptr noundef nonnull %73, i32 noundef %.037.ph242) #28
   tail call void @free(ptr noundef nonnull %73) #28
-  br label %77
+  br label %76
 
 .loopexit:                                        ; preds = %19, %39, %4, %49, %29, %9, %66, %48, %38, %28, %18, %8
   %.149 = phi i32 [ %.048.ph, %48 ], [ %.048.ph, %38 ], [ %.048.ph, %28 ], [ %.048.ph, %18 ], [ %.048.ph, %8 ], [ %.048.ph, %66 ], [ %.048.ph, %19 ], [ %.048.ph, %39 ], [ %.048.ph, %4 ], [ %.048.ph, %49 ], [ %.048.ph, %29 ], [ %13, %9 ]
@@ -82432,19 +82402,19 @@ Abc_UtilStrsav.exit:                              ; preds = %67
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4522, i32 noundef %.140)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4537, i32 noundef %.138)
   %.not76 = icmp eq i32 %.0, 0
-  %76 = select i1 %.not76, ptr @.str.527, ptr @.str.526
-  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.972, ptr noundef nonnull %76)
+  %75 = select i1 %.not76, ptr @.str.527, ptr @.str.526
+  tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.972, ptr noundef nonnull %75)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.670)
   tail call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4538)
-  br label %77
+  br label %76
 
-77:                                               ; preds = %Abc_UtilStrsav.exit.thread, %75, %Abc_UtilStrsav.exit, %.loopexit, %62
-  %.051 = phi i32 [ 1, %.loopexit ], [ 0, %62 ], [ 0, %Abc_UtilStrsav.exit ], [ 0, %75 ], [ 0, %Abc_UtilStrsav.exit.thread ]
+76:                                               ; preds = %Abc_UtilStrsav.exit.thread, %Abc_UtilStrsav.exit, %.loopexit, %62
+  %.051 = phi i32 [ 1, %.loopexit ], [ 0, %62 ], [ 0, %Abc_UtilStrsav.exit ], [ 0, %Abc_UtilStrsav.exit.thread ]
   ret i32 %.051
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsCreate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsCreate(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -82559,7 +82529,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsDerive(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsDerive(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -82625,7 +82595,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsDerive(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsRefine(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9AbsRefine(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -82812,7 +82782,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaDerive(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaDerive(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -82889,7 +82859,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaDerive(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaRefine(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaRefine(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -83076,7 +83046,7 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaShrink(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaShrink(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -83231,7 +83201,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GlaShrink(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Abs_Par_t_, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -83934,7 +83904,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Abs_Par_t_, align 8
   call void @Abs_ParSetDefaults(ptr noundef nonnull %4) #28
   call void (...) @Extra_UtilGetoptReset() #28
@@ -84288,7 +84258,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta2Gla(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Vta2Gla(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -84401,7 +84371,7 @@ Vec_IntFreeP.exit20:                              ; preds = %.thread.i19, %42, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla2Vta(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla2Vta(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 404
   %5 = load i32, ptr %4, align 4
   tail call void (...) @Extra_UtilGetoptReset() #28
@@ -84552,7 +84522,7 @@ Vec_IntFreeP.exit34:                              ; preds = %.thread.i33, %58, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fla2Gla(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Fla2Gla(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -84665,7 +84635,7 @@ Vec_IntFreeP.exit20:                              ; preds = %.thread.i19, %42, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla2Fla(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gla2Fla(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -84788,7 +84758,7 @@ declare i32 @Abc_CommandCS_kLiveness(ptr noundef, i32 noundef, ptr noundef) #5
 declare i32 @Abc_CommandNChooseK(ptr noundef, i32 noundef, ptr noundef) #5
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gen(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gen(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -84983,7 +84953,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Gen(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cfs(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cfs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -85169,7 +85139,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9Cfs(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9ProdAdd(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9ProdAdd(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -85314,7 +85284,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9ProdAdd(ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9AddFlop(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9AddFlop(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %4
 
@@ -85360,7 +85330,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9AddFlop(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9BMiter(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9BMiter(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -85470,7 +85440,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BMiter(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenHie(ptr nocapture readnone %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenHie(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -85543,7 +85513,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9GenHie(ptr nocapture readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9BRecover(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9BRecover(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCec_t_, align 4
   %5 = alloca %struct.Cec_ParFra_t_, align 4
   call void @Cec_ManCecSetDefaultParams(ptr noundef nonnull %4) #28
@@ -85782,7 +85752,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9BRecover(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9StrEco(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9StrEco(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.Cec_ParCec_t_, align 4
   %5 = alloca %struct.Cec_ParFra_t_, align 4
   call void @Cec_ManCecSetDefaultParams(ptr noundef nonnull %4) #28
@@ -85933,7 +85903,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9StrEco(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @Abc_CommandAbc9Test(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @Abc_CommandAbc9Test(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -86307,7 +86277,7 @@ declare void @Extra_UtilGetoptReset(...) local_unnamed_addr #5
 declare i32 @Extra_UtilGetopt(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
+declare i32 @atoi(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @Abc_FrameReadNtk(ptr noundef) local_unnamed_addr #5
 
@@ -86324,7 +86294,7 @@ declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #5
 declare void @Abc_CexFree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_CommandAbc9PoPart2(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_CommandAbc9PoPart2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   tail call void (...) @Extra_UtilGetoptReset() #28
@@ -86564,12 +86534,12 @@ Abc_FrameReplacePoEquivs.exit:                    ; preds = %55, %Vec_VecFree.ex
 declare ptr @Gia_ManFindPoPartition2(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @Abc_CommandAbc9CexCut(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #4 {
+define noundef i32 @Abc_CommandAbc9CexCut(ptr noundef readnone captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #4 {
   ret i32 -1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_CommandAbc9CexMerge(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_CommandAbc9CexMerge(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -86716,7 +86686,7 @@ define range(i32 0, 2) i32 @Abc_CommandAbc9CexMerge(ptr nocapture noundef %0, i3
 declare ptr @Abc_CexMerge(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_CommandAbc9CexMin(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_CommandAbc9CexMin(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void (...) @Extra_UtilGetoptReset() #28
   br label %.outer
 
@@ -86929,28 +86899,28 @@ Abc_FrameReplaceCex.exit:                         ; preds = %Vec_PtrFreeFree.exi
 declare ptr @Gia_ManCexMin(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #10
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 declare i32 @Abc_FrameIsBridgeMode(...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare i32 @Gia_ManToBridgeText(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 declare ptr @vnsprintf(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @vprintf(ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #11
+declare noundef i32 @vprintf(ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #11
 
 declare void @Abc_NtkPrintStats(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -87068,15 +87038,15 @@ declare void @Abc_NtkPrintPoEquivs(ptr noundef) local_unnamed_addr #5
 declare void @Abc_CexPrintStats(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 declare void @Abc_NtkDumpOneCexSpecial(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
 declare i32 @Nm_ManFindIdByName(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -87143,7 +87113,7 @@ declare i32 @Abc_NtkDsdLocal(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @Abc_NtkSparsify(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 declare i32 @Lpk_Resynthesize(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -87156,7 +87126,7 @@ declare i32 @Abc_NtkMfs(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @Sfm_ParSetDefault(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_IntFreeP(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Vec_IntFreeP(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4
@@ -87225,10 +87195,10 @@ declare i32 @Abc_RpoTest(ptr noundef, i32 noundef, i32 noundef, i32 noundef) loc
 declare ptr @Kit_TruthTest(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
+declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree
-declare noundef i32 @system(ptr nocapture noundef readonly) local_unnamed_addr #14
+declare noundef i32 @system(ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Abc_PrintTime(i64 noundef %0) unnamed_addr #0 {
@@ -87322,7 +87292,7 @@ declare i32 @Maj_ManExactSynthesis(i32 noundef, i32 noundef, i32 noundef, i32 no
 declare i32 @Maj_ManExactSynthesis2(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @Exa_ManExactSynthesis6(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -87359,7 +87329,7 @@ declare void @Abc_NtkShortNames(ptr noundef) local_unnamed_addr #5
 declare ptr @Abc_NtkMiter(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #16
 
 declare ptr @Abc_NtkReadNodeNames(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -87480,7 +87450,7 @@ declare void @Abc_NtkCutsOracle(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @Cut_OracleStop(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @Abc_GenAdder(ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -87519,7 +87489,7 @@ declare ptr @Abc_NtkDarOutdec(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare ptr @Abc_NtkNodeDup(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare void @Abc_ColorTest(...) local_unnamed_addr #5
 
@@ -87626,7 +87596,7 @@ declare void @Gia_AigerWrite(ptr noundef, ptr noundef, i32 noundef, i32 noundef,
 declare void @Abc_NtkRecLibMerge3(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @atof(ptr nocapture noundef) local_unnamed_addr #7
+declare double @atof(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare ptr @Abc_NtkMap(ptr noundef, double noundef, double noundef, double noundef, float noundef, float noundef, float noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -87879,7 +87849,7 @@ declare void @Gia_ManKissatCall(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare void @Mf_ManDumpCnf(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare i32 @Abc_NtkPartitionedSat(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
@@ -88028,7 +87998,7 @@ declare void @Abc_NtkTimeSetArrival(ptr noundef, i32 noundef, float noundef, flo
 declare void @Abc_NtkTimeSetRequired(ptr noundef, i32 noundef, float noundef, float noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Gia_ManCompareWithBest(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Gia_ManCompareWithBest(ptr noundef readonly %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -88260,7 +88230,7 @@ declare i32 @Gia_ManSimTwo(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i
 declare i32 @Ssw_RarSimulateGia(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WrdFreeP(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Vec_WrdFreeP(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %11, label %4
@@ -88768,10 +88738,10 @@ Vec_WrdAlloc.exit:                                ; preds = %1, %4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_WrdFillExtra(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @Vec_WrdFillExtra(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %1, %4
@@ -88868,7 +88838,7 @@ Vec_WrdGrow.exit:                                 ; preds = %Vec_WrdGrow.exit.si
 declare void @Extra_BitMatrixTransposeP(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Vec_WrdDumpBool(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
+define internal fastcc void @Vec_WrdDumpBool(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #6 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val20 = load i32, ptr %5, align 4
   %6 = sdiv i32 %.val20, %2
@@ -88942,7 +88912,7 @@ Vec_WrdDumpBoolOne.exit:                          ; preds = %.lr.ph, %Vec_WrdDum
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @Vec_WrdDumpHex(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #6 {
+define internal fastcc void @Vec_WrdDumpHex(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) unnamed_addr #6 {
   %4 = getelementptr i8, ptr %1, i64 4
   %.val19 = load i32, ptr %4, align 4
   %5 = sdiv i32 %.val19, %2
@@ -89031,7 +89001,7 @@ Vec_WrdDumpHexOne.exit:                           ; preds = %.lr.ph, %Vec_WrdDum
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Vec_WrdFree(ptr nocapture noundef %0) unnamed_addr #2 {
+define internal fastcc void @Vec_WrdFree(ptr noundef captures(none) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -89294,7 +89264,7 @@ declare ptr @Abc_CexAlloc(i32 noundef, i32 noundef, i32 noundef) local_unnamed_a
 declare ptr @Gia_ManDemiterToDual(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAppendCi(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Gia_ManAppendCi(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -89545,7 +89515,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noalias noundef ptr @Vec_WrdDup(ptr nocapture noundef nonnull readonly %0) unnamed_addr #20 {
+define internal fastcc noalias noundef ptr @Vec_WrdDup(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #20 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -89919,7 +89889,7 @@ declare ptr @Abc_ExorcismNtk2Esop(ptr noundef) local_unnamed_addr #5
 declare i32 @Abc_ExorcismMain(ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_WecFree(ptr nocapture noundef %0) unnamed_addr #0 {
+define internal fastcc void @Vec_WecFree(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %.lr.ph.i, label %._crit_edge.i
@@ -89980,7 +89950,7 @@ declare ptr @Gia_ManSyn(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 
 declare void @Gia_ManStochSyn(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok(ptr noundef, ptr nocapture noundef readonly) local_unnamed_addr #22
+declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #22
 
 declare ptr @Gia_ManDupAbsFlops(ptr noundef, ptr noundef) local_unnamed_addr #5
 
@@ -90094,13 +90064,13 @@ declare void @llvm.va_end.p0(ptr) #23
 declare i32 @llvm.fshl.i32(i32, i32, i32) #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #25
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare ptr @strchr(ptr, i32) local_unnamed_addr #26
@@ -90109,7 +90079,7 @@ declare ptr @strchr(ptr, i32) local_unnamed_addr #26
 declare i32 @llvm.smax.i32(i32, i32) #24
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fputc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #25
+declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24
@@ -90118,10 +90088,10 @@ declare i32 @llvm.smin.i32(i32, i32) #24
 declare i32 @llvm.umax.i32(i32, i32) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #27
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #24

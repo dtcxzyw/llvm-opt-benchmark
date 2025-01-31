@@ -264,13 +264,13 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_dma_controller_register(ptr
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local zeroext i1 @is_acpi_device_node(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
@@ -352,7 +352,7 @@ define dso_local noundef range(i32 -22, 1) i32 @devm_acpi_dma_controller_registe
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_acpi_dma_release(ptr noundef readnone %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @devm_acpi_dma_release(ptr noundef readnone %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %19, label %4
 
@@ -419,7 +419,7 @@ define dso_local void @devm_acpi_dma_controller_free(ptr noundef %0) #0 align 16
 declare dso_local i32 @devres_release(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr nocapture noundef readonly %0, i64 noundef %1) #0 align 16 {
+define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr noundef readonly captures(none) %0, i64 noundef %1) #0 align 16 {
   %3 = alloca %struct.acpi_dma_parser_data, align 8
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #7
@@ -530,13 +530,13 @@ define dso_local ptr @acpi_dma_request_slave_chan_by_index(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @acpi_dev_get_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @acpi_dma_parse_fixed_dma(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #4 align 16 {
+define internal noundef i32 @acpi_dma_parse_fixed_dma(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #4 align 16 {
   %3 = load i32, ptr %0, align 1
   %4 = icmp eq i32 %3, 18
   br i1 %4, label %5, label %20
@@ -622,7 +622,7 @@ sub_13:                                           ; preds = %sub_0
 declare dso_local i32 @device_property_match_string(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_dma_simple_xlate(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local ptr @acpi_dma_simple_xlate(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

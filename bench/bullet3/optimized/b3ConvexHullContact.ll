@@ -366,7 +366,7 @@ $_ZTI13b3OpenCLArrayI25b3CompoundOverlappingPairE = comdat any
 @_ZN15GpuSatCollisionD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN15GpuSatCollisionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_Z14b3BvhTraversalPK6b3Int4PK15b3RigidBodyDataPK12b3CollidableP6b3AabbPS_PViPK16b3BvhSubtreeInfoPK18b3QuantizedBvhNodePK9b3BvhInfoiii(ptr nocapture noundef readonly %pairs, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %collidables, ptr nocapture noundef readonly %aabbs, ptr nocapture noundef writeonly %concavePairsOut, ptr noundef %numConcavePairsOut, ptr nocapture noundef readonly %subtreeHeadersRoot, ptr nocapture noundef readonly %quantizedNodesRoot, ptr nocapture noundef readonly %bvhInfos, i32 %numPairs, i32 noundef %maxNumConcavePairsCapacity, i32 noundef %id) local_unnamed_addr #0 {
+define dso_local void @_Z14b3BvhTraversalPK6b3Int4PK15b3RigidBodyDataPK12b3CollidableP6b3AabbPS_PViPK16b3BvhSubtreeInfoPK18b3QuantizedBvhNodePK9b3BvhInfoiii(ptr noundef readonly captures(none) %pairs, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %collidables, ptr noundef readonly captures(none) %aabbs, ptr noundef writeonly captures(none) %concavePairsOut, ptr noundef %numConcavePairsOut, ptr noundef readonly captures(none) %subtreeHeadersRoot, ptr noundef readonly captures(none) %quantizedNodesRoot, ptr noundef readonly captures(none) %bvhInfos, i32 %numPairs, i32 noundef %maxNumConcavePairsCapacity, i32 noundef %id) local_unnamed_addr #0 {
 entry:
   %idxprom = sext i32 %id to i64
   %arrayidx = getelementptr inbounds %struct.b3Int4, ptr %pairs, i64 %idxprom
@@ -811,10 +811,10 @@ for.end113:                                       ; preds = %for.inc111, %for.in
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr nocapture noundef readonly %hullA, ptr nocapture noundef readonly %hullB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %DeltaC2, ptr nocapture noundef readonly %verticesA, ptr nocapture readnone %uniqueEdgesA, ptr nocapture noundef readonly %facesA, ptr nocapture readnone %indicesA, ptr nocapture noundef readonly %verticesB, ptr nocapture readnone %uniqueEdgesB, ptr nocapture readnone %facesB, ptr nocapture readnone %indicesB, ptr nocapture noundef %sep, ptr nocapture noundef %dmin) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_Z20b3FindSeparatingAxisPK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pf(ptr noundef readonly captures(none) %hullA, ptr noundef readonly captures(none) %hullB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posA1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posB1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %DeltaC2, ptr noundef readonly captures(none) %verticesA, ptr readnone captures(none) %uniqueEdgesA, ptr noundef readonly captures(none) %facesA, ptr readnone captures(none) %indicesA, ptr noundef readonly captures(none) %verticesB, ptr readnone captures(none) %uniqueEdgesB, ptr readnone captures(none) %facesB, ptr readnone captures(none) %indicesB, ptr noundef captures(none) %sep, ptr noundef captures(none) %dmin) local_unnamed_addr #2 {
 entry:
   %posA.sroa.0.0.copyload = load float, ptr %posA1, align 16
   %posA.sroa.2.0.posA1.sroa_idx = getelementptr inbounds nuw i8, ptr %posA1, i64 4
@@ -1135,7 +1135,7 @@ return:                                           ; preds = %_Z9b3ProjectPK22b3C
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_Z28b3FindSeparatingAxisEdgeEdgePK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pfb(ptr nocapture noundef readonly %hullA, ptr nocapture noundef readonly %hullB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %DeltaC2, ptr nocapture noundef readonly %verticesA, ptr nocapture noundef readonly %uniqueEdgesA, ptr nocapture readnone %facesA, ptr nocapture readnone %indicesA, ptr nocapture noundef readonly %verticesB, ptr nocapture noundef readonly %uniqueEdgesB, ptr nocapture readnone %facesB, ptr nocapture readnone %indicesB, ptr nocapture noundef %sep, ptr nocapture noundef %dmin, i1 noundef zeroext %searchAllEdgeEdge) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_Z28b3FindSeparatingAxisEdgeEdgePK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_PS3_S8_PK9b3GpuFacePKiS8_S8_SB_SD_PS2_Pfb(ptr noundef readonly captures(none) %hullA, ptr noundef readonly captures(none) %hullB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posA1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posB1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %DeltaC2, ptr noundef readonly captures(none) %verticesA, ptr noundef readonly captures(none) %uniqueEdgesA, ptr readnone captures(none) %facesA, ptr readnone captures(none) %indicesA, ptr noundef readonly captures(none) %verticesB, ptr noundef readonly captures(none) %uniqueEdgesB, ptr readnone captures(none) %facesB, ptr readnone captures(none) %indicesB, ptr noundef captures(none) %sep, ptr noundef captures(none) %dmin, i1 noundef zeroext %searchAllEdgeEdge) local_unnamed_addr #3 {
 entry:
   %posA.sroa.0.0.copyload = load float, ptr %posA1, align 16
   %posA.sroa.3.0.posA1.sroa_idx = getelementptr inbounds nuw i8, ptr %posA1, i64 4
@@ -1793,7 +1793,7 @@ return:                                           ; preds = %_Z9b3ProjectPK22b3C
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_Z9b3ProjectPK22b3ConvexPolyhedronDataRK9b3Vector3RK12b3QuaternionPS3_S8_PfS9_(ptr noundef %hull, ptr noundef nonnull align 16 dereferenceable(16) %pos, ptr noundef nonnull align 16 dereferenceable(16) %orn, ptr noundef %dir, ptr noundef %vertices, ptr noundef %min, ptr noundef %max) local_unnamed_addr #5 comdat {
@@ -1918,7 +1918,7 @@ if.end26:                                         ; preds = %if.then21, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z33b3FindConcaveSeparatingAxisKernelP6b3Int4PK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK9b3Vector3SC_PK9b3GpuFacePKiPK15b3GpuChildShapeP6b3AabbPSA_S0_SN_SN_SN_Piiii(ptr nocapture noundef %concavePairs, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %collidables, ptr noundef %convexShapes, ptr noundef %vertices, ptr nocapture noundef readonly %uniqueEdges, ptr noundef %faces, ptr noundef %indices, ptr nocapture noundef readonly %gpuChildShapes, ptr nocapture noundef readonly %aabbs, ptr nocapture noundef writeonly %concaveSeparatingNormalsOut, ptr noundef %clippingFacesOut, ptr noundef %worldVertsA1Out, ptr noundef %worldNormalsA1Out, ptr noundef %worldVertsB1Out, ptr nocapture noundef writeonly %hasSeparatingNormals, i32 noundef %vertexFaceCapacity, i32 %numConcavePairs, i32 noundef %pairIdx) local_unnamed_addr #5 {
+define dso_local void @_Z33b3FindConcaveSeparatingAxisKernelP6b3Int4PK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK9b3Vector3SC_PK9b3GpuFacePKiPK15b3GpuChildShapeP6b3AabbPSA_S0_SN_SN_SN_Piiii(ptr noundef captures(none) %concavePairs, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %collidables, ptr noundef %convexShapes, ptr noundef %vertices, ptr noundef readonly captures(none) %uniqueEdges, ptr noundef %faces, ptr noundef %indices, ptr noundef readonly captures(none) %gpuChildShapes, ptr noundef readonly captures(none) %aabbs, ptr noundef writeonly captures(none) %concaveSeparatingNormalsOut, ptr noundef %clippingFacesOut, ptr noundef %worldVertsA1Out, ptr noundef %worldNormalsA1Out, ptr noundef %worldVertsB1Out, ptr noundef writeonly captures(none) %hasSeparatingNormals, i32 noundef %vertexFaceCapacity, i32 %numConcavePairs, i32 noundef %pairIdx) local_unnamed_addr #5 {
 entry:
   %convexPolyhedronA = alloca %struct.b3ConvexPolyhedronData, align 16
   %verticesA = alloca [3 x %class.b3Vector3], align 16
@@ -2979,7 +2979,7 @@ for.end111:                                       ; preds = %for.body88, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_Z14clipFaceGlobalPK9b3Vector3iRS0_fPS_(ptr nocapture noundef readonly %pVtxIn, i32 noundef %numVertsIn, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %planeNormalWS, float noundef %planeEqWS, ptr nocapture noundef writeonly %ppVtxOut) local_unnamed_addr #2 {
+define dso_local noundef i32 @_Z14clipFaceGlobalPK9b3Vector3iRS0_fPS_(ptr noundef readonly captures(none) %pVtxIn, i32 noundef %numVertsIn, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %planeNormalWS, float noundef %planeEqWS, ptr noundef writeonly captures(none) %ppVtxOut) local_unnamed_addr #2 {
 entry:
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %planeNormalWS, i64 4
   %arrayidx6.i.i = getelementptr inbounds nuw i8, ptr %planeNormalWS, i64 8
@@ -3110,7 +3110,7 @@ for.end:                                          ; preds = %if.end34, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z30clipFacesAndFindContactsKernelPK9b3Vector3PKiP6b3Int4PS_S6_S6_S6_ii(ptr nocapture readnone %separatingNormals, ptr nocapture noundef readonly %hasSeparatingAxis, ptr nocapture noundef %clippingFacesOut, ptr nocapture noundef readonly %worldVertsA1, ptr nocapture noundef readonly %worldNormalsA1, ptr nocapture noundef %worldVertsB1, ptr nocapture noundef %worldVertsB2, i32 noundef %vertexFaceCapacity, i32 noundef %pairIndex) local_unnamed_addr #6 {
+define dso_local void @_Z30clipFacesAndFindContactsKernelPK9b3Vector3PKiP6b3Int4PS_S6_S6_S6_ii(ptr readnone captures(none) %separatingNormals, ptr noundef readonly captures(none) %hasSeparatingAxis, ptr noundef captures(none) %clippingFacesOut, ptr noundef readonly captures(none) %worldVertsA1, ptr noundef readonly captures(none) %worldNormalsA1, ptr noundef captures(none) %worldVertsB1, ptr noundef captures(none) %worldVertsB2, i32 noundef %vertexFaceCapacity, i32 noundef %pairIndex) local_unnamed_addr #6 {
 entry:
   %planeNormalWS = alloca %class.b3Vector3, align 16
   %idxprom = sext i32 %pairIndex to i64
@@ -3290,7 +3290,7 @@ if.end84:                                         ; preds = %for.body76, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 -2147483648, 5) i32 @_Z33b3ExtractManifoldSequentialGlobalPK9b3Vector3iRS0_P6b3Int4(ptr nocapture noundef readonly %p, i32 noundef %nPoints, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %nearNormal, ptr nocapture noundef %contactIdx) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -2147483648, 5) i32 @_Z33b3ExtractManifoldSequentialGlobalPK9b3Vector3iRS0_P6b3Int4(ptr noundef readonly captures(none) %p, i32 noundef %nPoints, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %nearNormal, ptr noundef captures(none) %contactIdx) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %nPoints, 0
   br i1 %cmp, label %return, label %if.end
@@ -3496,7 +3496,7 @@ return:                                           ; preds = %for.end88, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_Z27b3NewContactReductionKernelP6b3Int4PK15b3RigidBodyDataPK9b3Vector3PKiP14b3Contact4DataS0_PS4_PViiiii(ptr nocapture noundef %pairs, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %separatingNormals, ptr nocapture noundef readonly %hasSeparatingAxis, ptr nocapture noundef writeonly %globalContactsOut, ptr nocapture noundef readonly %clippingFaces, ptr nocapture noundef readonly %worldVertsB2, ptr noundef %nGlobalContactsOut, i32 noundef %vertexFaceCapacity, i32 noundef %contactCapacity, i32 noundef %numPairs, i32 noundef %pairIndex) local_unnamed_addr #0 {
+define dso_local void @_Z27b3NewContactReductionKernelP6b3Int4PK15b3RigidBodyDataPK9b3Vector3PKiP14b3Contact4DataS0_PS4_PViiiii(ptr noundef captures(none) %pairs, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %separatingNormals, ptr noundef readonly captures(none) %hasSeparatingAxis, ptr noundef writeonly captures(none) %globalContactsOut, ptr noundef readonly captures(none) %clippingFaces, ptr noundef readonly captures(none) %worldVertsB2, ptr noundef %nGlobalContactsOut, i32 noundef %vertexFaceCapacity, i32 noundef %contactCapacity, i32 noundef %numPairs, i32 noundef %pairIndex) local_unnamed_addr #0 {
 entry:
   %contactIdx = alloca %struct.b3Int4, align 16
   %normal = alloca %class.b3Vector3, align 16
@@ -4099,7 +4099,7 @@ invoke.cont166:                                   ; preds = %invoke.cont162
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13b3OpenCLArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(50) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -4827,7 +4827,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef float @_Z30signedDistanceFromPointToPlaneRK9b3Vector3S1_PS_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %point, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %planeEqn, ptr nocapture noundef writeonly initializes((0, 16)) %closestPointOnFace) local_unnamed_addr #13 {
+define dso_local noundef float @_Z30signedDistanceFromPointToPlaneRK9b3Vector3S1_PS_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %point, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %planeEqn, ptr noundef writeonly captures(none) initializes((0, 16)) %closestPointOnFace) local_unnamed_addr #13 {
 entry:
   %n.sroa.0.0.copyload = load float, ptr %planeEqn, align 16
   %n.sroa.3.0.planeEqn.sroa_idx = getelementptr inbounds nuw i8, ptr %planeEqn, i64 4
@@ -4861,7 +4861,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { <2 x float>, <2 x float> } @_Z9transformPK9b3Vector3S1_PK12b3Quaternion(ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %pos, ptr nocapture noundef readonly %orn) local_unnamed_addr #14 {
+define dso_local { <2 x float>, <2 x float> } @_Z9transformPK9b3Vector3S1_PK12b3Quaternion(ptr noundef readonly captures(none) %v, ptr noundef readonly captures(none) %pos, ptr noundef readonly captures(none) %orn) local_unnamed_addr #14 {
 entry:
   %tr.sroa.27.48.copyload = load float, ptr %pos, align 16
   %tr.sroa.29.48.pos.sroa_idx = getelementptr inbounds nuw i8, ptr %pos, i64 4
@@ -4930,7 +4930,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 -2147483648, 5) i32 @_Z31extractManifoldSequentialGlobalPK9b3Vector3iRS0_P6b3Int4(ptr nocapture noundef readonly %p, i32 noundef %nPoints, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %nearNormal, ptr nocapture noundef %contactIdx) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -2147483648, 5) i32 @_Z31extractManifoldSequentialGlobalPK9b3Vector3iRS0_P6b3Int4(ptr noundef readonly captures(none) %p, i32 noundef %nPoints, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %nearNormal, ptr noundef captures(none) %contactIdx) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %nPoints, 0
   br i1 %cmp, label %return, label %if.end
@@ -5136,7 +5136,7 @@ return:                                           ; preds = %for.end82, %land.lh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_Z26findSeparatingAxisEdgeEdgePK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiEPS2_Pf(ptr nocapture noundef readonly %hullA, ptr nocapture noundef readonly %hullB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %DeltaC2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %vertices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %uniqueEdges, ptr nocapture nonnull readnone align 8 %faces, ptr nocapture nonnull readnone align 1 %indices, ptr nocapture noundef %sep, ptr nocapture noundef %dmin) local_unnamed_addr #15 {
+define dso_local noundef zeroext i1 @_Z26findSeparatingAxisEdgeEdgePK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_S4_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiEPS2_Pf(ptr noundef readonly captures(none) %hullA, ptr noundef readonly captures(none) %hullB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posA1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posB1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %DeltaC2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %vertices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %uniqueEdges, ptr nonnull readnone align 8 captures(none) %faces, ptr nonnull readnone align 1 captures(none) %indices, ptr noundef captures(none) %sep, ptr noundef captures(none) %dmin) local_unnamed_addr #15 {
 entry:
   %posA.sroa.0.0.copyload = load float, ptr %posA1, align 16
   %posA.sroa.2.0.posA1.sroa_idx = getelementptr inbounds nuw i8, ptr %posA1, i64 4
@@ -5682,7 +5682,7 @@ if.end15:                                         ; preds = %if.then14, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_Z8clipFacePK9b3Vector3iRS_fPS_(ptr nocapture noundef readonly %pVtxIn, i32 noundef %numVertsIn, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %planeNormalWS, float noundef %planeEqWS, ptr nocapture noundef writeonly %ppVtxOut) local_unnamed_addr #2 {
+define dso_local noundef i32 @_Z8clipFacePK9b3Vector3iRS_fPS_(ptr noundef readonly captures(none) %pVtxIn, i32 noundef %numVertsIn, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %planeNormalWS, float noundef %planeEqWS, ptr noundef writeonly captures(none) %ppVtxOut) local_unnamed_addr #2 {
 entry:
   %cmp = icmp slt i32 %numVertsIn, 2
   br i1 %cmp, label %return, label %if.end
@@ -5812,7 +5812,7 @@ return:                                           ; preds = %if.end37, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z19clipFaceAgainstHullRK9b3Vector3PK22b3ConvexPolyhedronDataS1_RK12b3QuaternionPS_iS8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiES8_i(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %separatingNormal, ptr nocapture noundef readonly %hullA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef %worldVertsB1, i32 noundef %numWorldVertsB1, ptr nocapture noundef %worldVertsB2, i32 %capacityWorldVertsB2, float noundef %minDist, float noundef %maxDist, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indicesA, ptr nocapture noundef writeonly %contactsOut, i32 noundef %contactCapacity) local_unnamed_addr #5 {
+define dso_local noundef i32 @_Z19clipFaceAgainstHullRK9b3Vector3PK22b3ConvexPolyhedronDataS1_RK12b3QuaternionPS_iS8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiES8_i(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %separatingNormal, ptr noundef readonly captures(none) %hullA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornA, ptr noundef captures(none) %worldVertsB1, i32 noundef %numWorldVertsB1, ptr noundef captures(none) %worldVertsB2, i32 %capacityWorldVertsB2, float noundef %minDist, float noundef %maxDist, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %verticesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %facesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %indicesA, ptr noundef writeonly captures(none) %contactsOut, i32 noundef %contactCapacity) local_unnamed_addr #5 {
 entry:
   %planeNormalWS = alloca %class.b3Vector3, align 16
   %m_numFaces = getelementptr inbounds nuw i8, ptr %hullA, i64 72
@@ -6207,7 +6207,7 @@ return:                                           ; preds = %for.inc110, %entry,
 declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 -2147483648, 5) i32 @_Z15extractManifoldPK9b3Vector3iRS0_P6b3Int4(ptr nocapture noundef readonly %p, i32 noundef %nPoints, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %nearNormal, ptr nocapture noundef %contactIdx) local_unnamed_addr #2 {
+define dso_local noundef range(i32 -2147483648, 5) i32 @_Z15extractManifoldPK9b3Vector3iRS0_P6b3Int4(ptr noundef readonly captures(none) %p, i32 noundef %nPoints, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %nearNormal, ptr noundef captures(none) %contactIdx) local_unnamed_addr #2 {
 entry:
   %cmp = icmp eq i32 %nPoints, 0
   br i1 %cmp, label %return, label %if.end
@@ -6413,7 +6413,7 @@ return:                                           ; preds = %for.end82, %land.lh
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z18clipHullHullSingleiiRK9b3Vector3RK12b3QuaternionS1_S4_iiPK20b3AlignedObjectArrayI15b3RigidBodyDataEPS5_I10b3Contact4ERiRKS5_I22b3ConvexPolyhedronDataESH_RKS5_IS_ESK_RKS5_I9b3GpuFaceERKS5_IiESK_SK_SO_SR_RKS5_I12b3CollidableESV_S1_i(i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr nocapture noundef readonly %bodyBuf, ptr noundef %globalContactOut, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nContacts, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %hostConvexDataA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %hostConvexDataB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesA, ptr nocapture nonnull readnone align 8 %uniqueEdgesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indicesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesB, ptr nocapture nonnull readnone align 8 %uniqueEdgesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indicesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %hostCollidablesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %hostCollidablesB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %sepNormalWorldSpace, i32 noundef %maxContactCapacity) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_Z18clipHullHullSingleiiRK9b3Vector3RK12b3QuaternionS1_S4_iiPK20b3AlignedObjectArrayI15b3RigidBodyDataEPS5_I10b3Contact4ERiRKS5_I22b3ConvexPolyhedronDataESH_RKS5_IS_ESK_RKS5_I9b3GpuFaceERKS5_IiESK_SK_SO_SR_RKS5_I12b3CollidableESV_S1_i(i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr noundef readonly captures(none) %bodyBuf, ptr noundef %globalContactOut, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nContacts, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %hostConvexDataA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %hostConvexDataB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %verticesA, ptr nonnull readnone align 8 captures(none) %uniqueEdgesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %facesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %indicesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %verticesB, ptr nonnull readnone align 8 captures(none) %uniqueEdgesB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %facesB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %indicesB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %hostCollidablesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %hostCollidablesB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %sepNormalWorldSpace, i32 noundef %maxContactCapacity) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i113 = alloca %class.b3Quaternion, align 16
   %retval.i = alloca %class.b3Quaternion, align 16
@@ -6751,7 +6751,7 @@ if.end80:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL19clipHullAgainstHullRK9b3Vector3RK22b3ConvexPolyhedronDataS4_S1_RK12b3QuaternionS1_S7_PS_S8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiESC_SG_SJ_S8_i(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %separatingNormal, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %hullA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %hullB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornB, ptr nocapture noundef nonnull %worldVertsB1, ptr nocapture noundef nonnull %worldVertsB2, i32 noundef range(i32 64, 1025) %capacityWorldVerts, float noundef %minDist, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indicesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indicesB, ptr nocapture noundef nonnull writeonly %contactsOut, i32 noundef range(i32 64, 1025) %contactCapacity) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL19clipHullAgainstHullRK9b3Vector3RK22b3ConvexPolyhedronDataS4_S1_RK12b3QuaternionS1_S7_PS_S8_iffRK20b3AlignedObjectArrayIS_ERKS9_I9b3GpuFaceERKS9_IiESC_SG_SJ_S8_i(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %separatingNormal, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(96) %hullA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(96) %hullB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornB, ptr noundef nonnull captures(none) %worldVertsB1, ptr noundef nonnull captures(none) %worldVertsB2, i32 noundef range(i32 64, 1025) %capacityWorldVerts, float noundef %minDist, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %verticesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %facesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %indicesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %verticesB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %facesB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %indicesB, ptr noundef nonnull writeonly captures(none) %contactsOut, i32 noundef range(i32 64, 1025) %contactCapacity) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @b3EnterProfileZone(ptr noundef nonnull @.str.72)
   %m_numFaces = getelementptr inbounds nuw i8, ptr %hullB, i64 72
@@ -6973,7 +6973,7 @@ _ZN13b3ProfileZoneD2Ev.exit40:                    ; preds = %if.end49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_Z25computeContactPlaneConvexiiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK9b3Vector3PKiPK9b3GpuFaceP10b3Contact4Rii(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %collidables, ptr nocapture noundef readonly %convexShapes, ptr nocapture noundef readonly %convexVertices, ptr nocapture noundef readnone %convexIndices, ptr nocapture noundef readonly %faces, ptr nocapture noundef writeonly %globalContactsOut, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity) local_unnamed_addr #2 {
+define dso_local void @_Z25computeContactPlaneConvexiiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK9b3Vector3PKiPK9b3GpuFaceP10b3Contact4Rii(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %collidables, ptr noundef readonly captures(none) %convexShapes, ptr noundef readonly captures(none) %convexVertices, ptr noundef readnone captures(none) %convexIndices, ptr noundef readonly captures(none) %faces, ptr noundef writeonly captures(none) %globalContactsOut, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity) local_unnamed_addr #2 {
 entry:
   %planeNormalInConvex = alloca %class.b3Vector3, align 16
   %contactPoints = alloca [64 x %class.b3Vector3], align 16
@@ -7344,7 +7344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z23findCompoundPairsKerneliiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayI9b3Vector3ERKS8_I6b3AabbESG_PK15b3GpuChildShapeP6b3Int4PiiRS8_I18b3QuantizedBvhNodeERS8_I16b3BvhSubtreeInfoERS8_I9b3BvhInfoE(i32 %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %collidables, ptr nocapture readonly %convexShapes, ptr nocapture nonnull readnone align 8 %vertices, ptr nocapture nonnull readnone align 8 %aabbsWorldSpace, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %aabbsLocalSpace, ptr nocapture noundef readonly %gpuChildShapes, ptr nocapture noundef writeonly %gpuCompoundPairsOut, ptr nocapture noundef %numCompoundPairsOut, i32 noundef %maxNumCompoundPairsCapacity, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %treeNodesCPU, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %subTreesCPU, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %bvhInfoCPU) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z23findCompoundPairsKerneliiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayI9b3Vector3ERKS8_I6b3AabbESG_PK15b3GpuChildShapeP6b3Int4PiiRS8_I18b3QuantizedBvhNodeERS8_I16b3BvhSubtreeInfoERS8_I9b3BvhInfoE(i32 %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %collidables, ptr readonly captures(none) %convexShapes, ptr nonnull readnone align 8 captures(none) %vertices, ptr nonnull readnone align 8 captures(none) %aabbsWorldSpace, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %aabbsLocalSpace, ptr noundef readonly captures(none) %gpuChildShapes, ptr noundef writeonly captures(none) %gpuCompoundPairsOut, ptr noundef captures(none) %numCompoundPairsOut, i32 noundef %maxNumCompoundPairsCapacity, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %treeNodesCPU, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %subTreesCPU, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %bvhInfoCPU) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i1586 = alloca [4 x float], align 16
   %temp.i1509 = alloca [4 x float], align 16
@@ -9320,7 +9320,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z26processCompoundPairsKernelPK6b3Int4PK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayI9b3Vector3ESF_RKSB_I9b3GpuFaceERKSB_IiEP6b3AabbPK15b3GpuChildShapeRSD_RSK_ii(ptr nocapture noundef readonly %gpuCompoundPairs, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %collidables, ptr noundef %convexShapes, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %uniqueEdges, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %faces, ptr nocapture nonnull readnone align 8 %indices, ptr nocapture readnone %aabbs, ptr nocapture noundef readonly %gpuChildShapes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %gpuCompoundSepNormalsOut, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %gpuHasCompoundSepNormalsOut, i32 noundef %numCompoundPairs, i32 noundef %i) local_unnamed_addr #5 {
+define dso_local void @_Z26processCompoundPairsKernelPK6b3Int4PK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayI9b3Vector3ESF_RKSB_I9b3GpuFaceERKSB_IiEP6b3AabbPK15b3GpuChildShapeRSD_RSK_ii(ptr noundef readonly captures(none) %gpuCompoundPairs, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %collidables, ptr noundef %convexShapes, ptr noundef nonnull align 8 dereferenceable(25) %vertices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %uniqueEdges, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %faces, ptr nonnull readnone align 8 captures(none) %indices, ptr readnone captures(none) %aabbs, ptr noundef readonly captures(none) %gpuChildShapes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %gpuCompoundSepNormalsOut, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %gpuHasCompoundSepNormalsOut, i32 noundef %numCompoundPairs, i32 noundef %i) local_unnamed_addr #5 {
 entry:
   %ornA = alloca %class.b3Quaternion, align 16
   %posA = alloca %class.b3Vector3, align 16
@@ -9736,7 +9736,7 @@ if.end123:                                        ; preds = %if.else100, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(96) %hullA, ptr noundef nonnull align 16 dereferenceable(96) %hullB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %ornA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB1, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %verticesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %uniqueEdgesA, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %uniqueEdgesB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %facesB, ptr nocapture noundef nonnull align 16 dereferenceable(16) %sep) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL18findSeparatingAxisRK22b3ConvexPolyhedronDataS1_RK9b3Vector3RK12b3QuaternionS4_S7_RK20b3AlignedObjectArrayIS2_ESB_RKS8_I9b3GpuFaceERKS8_IiESB_SB_SF_SI_RS2_(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(96) %hullA, ptr noundef nonnull align 16 dereferenceable(96) %hullB, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posA1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %ornA, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(16) %posB1, ptr noundef nonnull align 16 dereferenceable(16) %ornB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %verticesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %uniqueEdgesA, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %facesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %uniqueEdgesB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %facesB, ptr noundef nonnull align 16 captures(none) dereferenceable(16) %sep) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %Min1.i220 = alloca float, align 4
   %Max1.i221 = alloca float, align 4
@@ -10667,7 +10667,7 @@ _ZN13b3ProfileZoneD2Ev.exit256:                   ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z27clipCompoundsHullHullKernelPK6b3Int4PK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayI9b3Vector3ESF_RKSB_I9b3GpuFaceERKSB_IiEPK15b3GpuChildShapeSF_SM_P14b3Contact4DataPiiii(ptr nocapture noundef readonly %gpuCompoundPairs, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %collidables, ptr nocapture noundef readonly %convexShapes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %vertices, ptr nocapture nonnull readnone align 8 %uniqueEdges, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %faces, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %indices, ptr nocapture noundef readonly %gpuChildShapes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %gpuCompoundSepNormalsOut, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %gpuHasCompoundSepNormalsOut, ptr nocapture noundef writeonly %globalContactsOut, ptr nocapture noundef %nGlobalContactsOut, i32 noundef %numCompoundPairs, i32 noundef %maxContactCapacity, i32 noundef %i) local_unnamed_addr #5 {
+define dso_local void @_Z27clipCompoundsHullHullKernelPK6b3Int4PK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataRK20b3AlignedObjectArrayI9b3Vector3ESF_RKSB_I9b3GpuFaceERKSB_IiEPK15b3GpuChildShapeSF_SM_P14b3Contact4DataPiiii(ptr noundef readonly captures(none) %gpuCompoundPairs, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %collidables, ptr noundef readonly captures(none) %convexShapes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %vertices, ptr nonnull readnone align 8 captures(none) %uniqueEdges, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %faces, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %indices, ptr noundef readonly captures(none) %gpuChildShapes, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %gpuCompoundSepNormalsOut, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %gpuHasCompoundSepNormalsOut, ptr noundef writeonly captures(none) %globalContactsOut, ptr noundef captures(none) %nGlobalContactsOut, i32 noundef %numCompoundPairs, i32 noundef %maxContactCapacity, i32 noundef %i) local_unnamed_addr #5 {
 entry:
   %worldVertsB1 = alloca [64 x %class.b3Vector3], align 16
   %worldVertsB2 = alloca [64 x %class.b3Vector3], align 16
@@ -11028,7 +11028,7 @@ if.end127:                                        ; preds = %if.then, %if.then76
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z30computeContactCompoundCompoundiiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK15b3GpuChildShapeRK20b3AlignedObjectArrayI6b3AabbESF_RKSB_I9b3Vector3ESJ_RKSB_IiERKSB_I9b3GpuFaceEP10b3Contact4RiiRSB_I18b3QuantizedBvhNodeERSB_I16b3BvhSubtreeInfoERSB_I9b3BvhInfoE(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %collidables, ptr noundef %convexShapes, ptr nocapture noundef readonly %cpuChildShapes, ptr nocapture noundef nonnull readnone align 8 dereferenceable(25) %hostAabbsWorldSpace, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %hostAabbsLocalSpace, ptr noundef nonnull align 8 dereferenceable(25) %convexVertices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %hostUniqueEdges, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %convexIndices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %faces, ptr nocapture noundef writeonly %globalContactsOut, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %treeNodesCPU, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %subTreesCPU, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %bvhInfoCPU) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z30computeContactCompoundCompoundiiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK15b3GpuChildShapeRK20b3AlignedObjectArrayI6b3AabbESF_RKSB_I9b3Vector3ESJ_RKSB_IiERKSB_I9b3GpuFaceEP10b3Contact4RiiRSB_I18b3QuantizedBvhNodeERSB_I16b3BvhSubtreeInfoERSB_I9b3BvhInfoE(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %collidables, ptr noundef %convexShapes, ptr noundef readonly captures(none) %cpuChildShapes, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(25) %hostAabbsWorldSpace, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %hostAabbsLocalSpace, ptr noundef nonnull align 8 dereferenceable(25) %convexVertices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %hostUniqueEdges, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %convexIndices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %faces, ptr noundef writeonly captures(none) %globalContactsOut, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %treeNodesCPU, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %subTreesCPU, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %bvhInfoCPU) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 if.then.i:
   %cpuCompoundPairsOut = alloca %class.b3AlignedObjectArray.66, align 8
   %numCompoundPairsOut = alloca i32, align 4
@@ -11417,7 +11417,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_Z27computeContactPlaneCompoundiiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK15b3GpuChildShapePK9b3Vector3PKiPK9b3GpuFaceP10b3Contact4Rii(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %collidables, ptr nocapture noundef readonly %convexShapes, ptr nocapture noundef readonly %cpuChildShapes, ptr nocapture noundef readonly %convexVertices, ptr nocapture noundef readnone %convexIndices, ptr nocapture noundef readonly %faces, ptr nocapture noundef writeonly %globalContactsOut, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity) local_unnamed_addr #2 {
+define dso_local void @_Z27computeContactPlaneCompoundiiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK15b3GpuChildShapePK9b3Vector3PKiPK9b3GpuFaceP10b3Contact4Rii(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %collidables, ptr noundef readonly captures(none) %convexShapes, ptr noundef readonly captures(none) %cpuChildShapes, ptr noundef readonly captures(none) %convexVertices, ptr noundef readnone captures(none) %convexIndices, ptr noundef readonly captures(none) %faces, ptr noundef writeonly captures(none) %globalContactsOut, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity) local_unnamed_addr #2 {
 entry:
   %planeNormalInConvex = alloca %class.b3Vector3, align 16
   %contactPoints = alloca [64 x %class.b3Vector3], align 16
@@ -11866,7 +11866,7 @@ for.end142:                                       ; preds = %for.inc140, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z26computeContactSphereConvexiiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK9b3Vector3PKiPK9b3GpuFaceP10b3Contact4Rii(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr nocapture noundef readonly %rigidBodies, ptr nocapture noundef readonly %collidables, ptr nocapture noundef readonly %convexShapes, ptr nocapture noundef readonly %convexVertices, ptr nocapture noundef readonly %convexIndices, ptr nocapture noundef readonly %faces, ptr nocapture noundef writeonly %globalContactsOut, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity) local_unnamed_addr #6 {
+define dso_local void @_Z26computeContactSphereConvexiiiiiPK15b3RigidBodyDataPK12b3CollidablePK22b3ConvexPolyhedronDataPK9b3Vector3PKiPK9b3GpuFaceP10b3Contact4Rii(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr noundef readonly captures(none) %rigidBodies, ptr noundef readonly captures(none) %collidables, ptr noundef readonly captures(none) %convexShapes, ptr noundef readonly captures(none) %convexVertices, ptr noundef readonly captures(none) %convexIndices, ptr noundef readonly captures(none) %faces, ptr noundef writeonly captures(none) %globalContactsOut, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity) local_unnamed_addr #6 {
 entry:
   %idxprom = sext i32 %collidableIndexA to i64
   %0 = getelementptr inbounds %struct.b3Collidable, ptr %collidables, i64 %idxprom, i32 1
@@ -12280,7 +12280,7 @@ if.end105:                                        ; preds = %for.end.thread232, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_Z27computeContactConvexConvex2iiiiiRK20b3AlignedObjectArrayI15b3RigidBodyDataERKS_I12b3CollidableERKS_I22b3ConvexPolyhedronDataERKS_I9b3Vector3ESF_RKS_IiERKS_I9b3GpuFaceERS_I10b3Contact4ERiiRKSO_(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %rigidBodies, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %collidables, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %convexShapes, ptr noundef nonnull align 8 dereferenceable(25) %convexVertices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %uniqueEdges, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %convexIndices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %globalContactsOut, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity, ptr nocapture noundef nonnull readnone align 8 dereferenceable(25) %oldContacts) local_unnamed_addr #7 {
+define dso_local noundef i32 @_Z27computeContactConvexConvex2iiiiiRK20b3AlignedObjectArrayI15b3RigidBodyDataERKS_I12b3CollidableERKS_I22b3ConvexPolyhedronDataERKS_I9b3Vector3ESF_RKS_IiERKS_I9b3GpuFaceERS_I10b3Contact4ERiiRKSO_(i32 noundef %pairIndex, i32 noundef %bodyIndexA, i32 noundef %bodyIndexB, i32 noundef %collidableIndexA, i32 noundef %collidableIndexB, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %rigidBodies, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %collidables, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %convexShapes, ptr noundef nonnull align 8 dereferenceable(25) %convexVertices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %uniqueEdges, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %convexIndices, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(25) %faces, ptr noundef nonnull align 8 dereferenceable(25) %globalContactsOut, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %nGlobalContactsOut, i32 noundef %maxContactCapacity, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(25) %oldContacts) local_unnamed_addr #7 {
 entry:
   %posA = alloca %class.b3Vector3, align 16
   %ornA = alloca %class.b3Quaternion, align 16
@@ -12330,7 +12330,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GpuSatCollision33computeConvexConvexContactsGPUSATEP13b3OpenCLArrayI6b3Int4EiPKS0_I15b3RigidBodyDataEPS0_I10b3Contact4ERiPKS9_iiRKS0_I22b3ConvexPolyhedronDataERKS0_I9b3Vector3ESL_RKS0_I9b3GpuFaceERKS0_IiERKS0_I12b3CollidableERKS0_I15b3GpuChildShapeERKS0_I6b3AabbES14_RSJ_RS2_S15_S15_S15_R20b3AlignedObjectArrayIP14b3OptimizedBvhEPS0_I18b3QuantizedBvhNodeEPS0_I16b3BvhSubtreeInfoEPS0_I9b3BvhInfoEiiS16_SB_(ptr noundef nonnull align 8 dereferenceable(864) %this, ptr noundef %pairs, i32 noundef %nPairs, ptr noundef %bodyBuf, ptr noundef %contactOut, ptr noundef nonnull align 4 dereferenceable(4) %nContacts, ptr nocapture noundef readnone %oldContacts, i32 noundef %maxContactCapacity, i32 noundef %compoundPairCapacity, ptr noundef nonnull align 8 dereferenceable(50) %convexData, ptr noundef nonnull align 8 dereferenceable(50) %gpuVertices, ptr noundef nonnull align 8 dereferenceable(50) %gpuUniqueEdges, ptr noundef nonnull align 8 dereferenceable(50) %gpuFaces, ptr noundef nonnull align 8 dereferenceable(50) %gpuIndices, ptr noundef nonnull align 8 dereferenceable(50) %gpuCollidables, ptr noundef nonnull align 8 dereferenceable(50) %gpuChildShapes, ptr noundef nonnull align 8 dereferenceable(50) %clAabbsWorldSpace, ptr nocapture noundef nonnull readonly align 8 dereferenceable(50) %clAabbsLocalSpace, ptr noundef nonnull align 8 dereferenceable(50) %worldVertsB1GPU, ptr noundef nonnull align 8 dereferenceable(50) %clippingFacesOutGPU, ptr noundef nonnull align 8 dereferenceable(50) %worldNormalsAGPU, ptr noundef nonnull align 8 dereferenceable(50) %worldVertsA1GPU, ptr noundef nonnull align 8 dereferenceable(50) %worldVertsB2GPU, ptr nocapture noundef nonnull readnone align 1 %bvhDataUnused, ptr noundef %treeNodesGPU, ptr nocapture noundef readonly %subTreesGPU, ptr noundef %bvhInfo, i32 noundef %numObjects, i32 noundef %maxTriConvexPairCapacity, ptr noundef nonnull align 8 dereferenceable(50) %triangleConvexPairsOut, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %numTriConvexPairsOut) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GpuSatCollision33computeConvexConvexContactsGPUSATEP13b3OpenCLArrayI6b3Int4EiPKS0_I15b3RigidBodyDataEPS0_I10b3Contact4ERiPKS9_iiRKS0_I22b3ConvexPolyhedronDataERKS0_I9b3Vector3ESL_RKS0_I9b3GpuFaceERKS0_IiERKS0_I12b3CollidableERKS0_I15b3GpuChildShapeERKS0_I6b3AabbES14_RSJ_RS2_S15_S15_S15_R20b3AlignedObjectArrayIP14b3OptimizedBvhEPS0_I18b3QuantizedBvhNodeEPS0_I16b3BvhSubtreeInfoEPS0_I9b3BvhInfoEiiS16_SB_(ptr noundef nonnull align 8 dereferenceable(864) %this, ptr noundef %pairs, i32 noundef %nPairs, ptr noundef %bodyBuf, ptr noundef %contactOut, ptr noundef nonnull align 4 dereferenceable(4) %nContacts, ptr noundef readnone captures(none) %oldContacts, i32 noundef %maxContactCapacity, i32 noundef %compoundPairCapacity, ptr noundef nonnull align 8 dereferenceable(50) %convexData, ptr noundef nonnull align 8 dereferenceable(50) %gpuVertices, ptr noundef nonnull align 8 dereferenceable(50) %gpuUniqueEdges, ptr noundef nonnull align 8 dereferenceable(50) %gpuFaces, ptr noundef nonnull align 8 dereferenceable(50) %gpuIndices, ptr noundef nonnull align 8 dereferenceable(50) %gpuCollidables, ptr noundef nonnull align 8 dereferenceable(50) %gpuChildShapes, ptr noundef nonnull align 8 dereferenceable(50) %clAabbsWorldSpace, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(50) %clAabbsLocalSpace, ptr noundef nonnull align 8 dereferenceable(50) %worldVertsB1GPU, ptr noundef nonnull align 8 dereferenceable(50) %clippingFacesOutGPU, ptr noundef nonnull align 8 dereferenceable(50) %worldNormalsAGPU, ptr noundef nonnull align 8 dereferenceable(50) %worldVertsA1GPU, ptr noundef nonnull align 8 dereferenceable(50) %worldVertsB2GPU, ptr noundef nonnull readnone align 1 captures(none) %bvhDataUnused, ptr noundef %treeNodesGPU, ptr noundef readonly captures(none) %subTreesGPU, ptr noundef %bvhInfo, i32 noundef %numObjects, i32 noundef %maxTriConvexPairCapacity, ptr noundef nonnull align 8 dereferenceable(50) %triangleConvexPairsOut, ptr noundef nonnull readnone align 4 captures(none) dereferenceable(4) %numTriConvexPairsOut) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %elem.i4290 = alloca i32, align 4
   %gRange.i.i4270 = alloca [3 x i64], align 16
@@ -25594,7 +25594,7 @@ while.body.i:                                     ; preds = %if.end108.i, %while
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dir.i246.i)
   store <2 x float> %dir.sroa.0.1180.i, ptr %dir.i246.i, align 16
   store <2 x float> %dir.sroa.47.1181.i, ptr %dir.sroa.47.0.dir.i246.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i246.i, ptr noundef nonnull %v1.i247.i)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i246.i, ptr noundef nonnull %v1.i247.i)
   %dir.sroa.0.0.vec.extract70.i = extractelement <2 x float> %dir.sroa.0.1180.i, i64 0
   %mul.i.i248.i = fneg float %dir.sroa.0.0.vec.extract70.i
   %dir.sroa.0.4.vec.extract110.i = extractelement <2 x float> %dir.sroa.0.1180.i, i64 1
@@ -25605,7 +25605,7 @@ while.body.i:                                     ; preds = %if.end108.i, %while
   %retval.sroa.3.12.vec.insert.i.i.i255.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul4.i.i252.i, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i254.i, ptr %dir.i246.i, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i255.i, ptr %dir.sroa.47.0.dir.i246.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i246.i, ptr noundef nonnull %v2.i257.i)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i246.i, ptr noundef nonnull %v2.i257.i)
   %64 = load float, ptr %v1.i247.i, align 16
   %65 = load float, ptr %v2.i257.i, align 16
   %sub.i.i258.i = fsub float %64, %65
@@ -25798,7 +25798,7 @@ if.end.i46:                                       ; preds = %for.body.i
   store float %mul.i.i.i.i.i, ptr %dir.i.i33, align 16
   store float %mul3.i.i.i.i.i, ptr %dir.sroa.6.0.dir.i.sroa_idx.i, align 4
   store <2 x float> %dir.sroa.11.8.vec.insert.i, ptr %dir.sroa.11.0.dir.i.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i33, ptr noundef nonnull %v1.i.i35)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i33, ptr noundef nonnull %v1.i.i35)
   %mul.i.i.i = fneg float %mul.i.i.i.i.i
   %mul2.i.i.i47 = fneg float %mul3.i.i.i.i.i
   %mul4.i.i.i48 = fneg float %mul5.i.i.i.i.i42
@@ -25807,7 +25807,7 @@ if.end.i46:                                       ; preds = %for.body.i
   %retval.sroa.3.12.vec.insert.i.i.i.i51 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul4.i.i.i48, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i50, ptr %dir.i.i33, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i.i51, ptr %dir.sroa.11.0.dir.i.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i33, ptr noundef nonnull %v2.i.i36)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i33, ptr noundef nonnull %v2.i.i36)
   %139 = load float, ptr %v1.i.i35, align 16
   %140 = load float, ptr %v2.i.i36, align 16
   %sub.i.i.i52 = fsub float %139, %140
@@ -25961,7 +25961,7 @@ for.body.i78:                                     ; preds = %_Z14b3ExpandPortalP
   store float %mul.i.i.i.i.i91, ptr %dir.i.i60, align 16
   store float %mul3.i.i.i.i.i92, ptr %dir.sroa.5.0.dir.i.sroa_idx.i, align 4
   store <2 x float> %dir.sroa.8.8.vec.insert.i, ptr %dir.sroa.8.0.dir.i.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i60, ptr noundef nonnull %v1.i.i71)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexA, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i60, ptr noundef nonnull %v1.i.i71)
   %mul.i.i.i94 = fneg float %mul.i.i.i.i.i91
   %mul2.i.i.i95 = fneg float %mul3.i.i.i.i.i92
   %mul4.i.i.i96 = fneg float %mul5.i.i.i.i.i93
@@ -25970,7 +25970,7 @@ for.body.i78:                                     ; preds = %_Z14b3ExpandPortalP
   %retval.sroa.3.12.vec.insert.i.i.i.i99 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul4.i.i.i96, i64 0
   store <2 x float> %retval.sroa.0.4.vec.insert.i.i.i.i98, ptr %dir.i.i60, align 16
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i.i.i99, ptr %dir.sroa.8.0.dir.i.sroa_idx.i, align 8
-  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i60, ptr noundef nonnull %v2.i.i72)
+  call fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndexB, ptr noundef nonnull readonly %cpuBodyBuf, ptr noundef readonly %cpuConvexData, ptr noundef readonly %cpuCollidables, ptr noundef readonly %cpuVertices, ptr noundef %dir.i.i60, ptr noundef nonnull %v2.i.i72)
   %180 = load float, ptr %v1.i.i71, align 16
   %181 = load float, ptr %v2.i.i72, align 16
   %sub.i.i.i100 = fsub float %180, %181
@@ -27676,7 +27676,7 @@ declare void @b3LeaveProfileZone() local_unnamed_addr #16
 declare float @sqrtf(float noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndex, ptr nocapture noundef readonly %cpuBodyBuf, ptr nocapture noundef readonly %cpuConvexData, ptr nocapture noundef readonly %cpuCollidables, ptr nocapture noundef readonly %cpuVertices, ptr nocapture noundef nonnull readonly %_dir, ptr nocapture noundef writeonly %outp) unnamed_addr #2 {
+define internal fastcc void @_ZL18b3MprConvexSupportiiPK15b3RigidBodyDataPK22b3ConvexPolyhedronDataPK12b3CollidablePK9b3Vector3PS8_SA_SB_i(i32 noundef %bodyIndex, ptr noundef readonly captures(none) %cpuBodyBuf, ptr noundef readonly captures(none) %cpuConvexData, ptr noundef readonly captures(none) %cpuCollidables, ptr noundef readonly captures(none) %cpuVertices, ptr noundef nonnull readonly captures(none) %_dir, ptr noundef writeonly captures(none) %outp) unnamed_addr #2 {
 entry:
   %idxprom = sext i32 %bodyIndex to i64
   %arrayidx = getelementptr inbounds %struct.b3RigidBodyData, ptr %cpuBodyBuf, i64 %idxprom
@@ -30125,16 +30125,16 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #22
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #24
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #23
@@ -30146,7 +30146,7 @@ declare i32 @llvm.umin.i32(i32, i32) #23
 declare i64 @llvm.umax.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #25
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #25
 
 attributes #0 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

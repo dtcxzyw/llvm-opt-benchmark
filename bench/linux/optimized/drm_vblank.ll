@@ -168,7 +168,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_crtc_han
 @llvm.compiler.used = appending global [36 x ptr] [ptr @__UNIQUE_ID___addressable_drm_calc_timestamping_constants452, ptr @__UNIQUE_ID___addressable_drm_crtc_accurate_vblank_count434, ptr @__UNIQUE_ID___addressable_drm_crtc_arm_vblank_event467, ptr @__UNIQUE_ID___addressable_drm_crtc_handle_vblank564, ptr @__UNIQUE_ID___addressable_drm_crtc_next_vblank_start465, ptr @__UNIQUE_ID___addressable_drm_crtc_send_vblank_event468, ptr @__UNIQUE_ID___addressable_drm_crtc_set_max_vblank_count526, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_count459, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_count_and_time464, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_get479, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_helper_get_vblank_timestamp458, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_helper_get_vblank_timestamp_internal457, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_off507, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_on535, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_put488, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_reset516, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_restore550, ptr @__UNIQUE_ID___addressable_drm_crtc_vblank_waitqueue447, ptr @__UNIQUE_ID___addressable_drm_crtc_wait_one_vblank502, ptr @__UNIQUE_ID___addressable_drm_dev_has_vblank446, ptr @__UNIQUE_ID___addressable_drm_handle_vblank563, ptr @__UNIQUE_ID___addressable_drm_vblank_init445, ptr @__UNIQUE_ID___addressable_drm_wait_one_vblank501, ptr @__UNIQUE_ID_timestamp_precision_usec412, ptr @__UNIQUE_ID_timestamp_precision_usectype410, ptr @__UNIQUE_ID_vblankoffdelay411, ptr @__UNIQUE_ID_vblankoffdelaytype409, ptr @__param_timestamp_precision_usec, ptr @__param_vblankoffdelay, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_drm_vblank_event.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace372, ptr @trace_drm_vblank_event.__UNIQUE_ID___addressable___SCK__tp_func_drm_vblank_event371, ptr @trace_drm_vblank_event_delivered.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace400, ptr @trace_drm_vblank_event_delivered.__UNIQUE_ID___addressable___SCK__tp_func_drm_vblank_event_delivered399, ptr @trace_drm_vblank_event_queued.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace386, ptr @trace_drm_vblank_event_queued.__UNIQUE_ID___addressable___SCK__tp_func_drm_vblank_event_queued385], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_vblank_count(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i64 @drm_vblank_count(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %4 = load i32, ptr %3, align 4
   %5 = icmp ugt i32 %4, %1
@@ -213,7 +213,7 @@ define dso_local i64 @drm_vblank_count(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
@@ -222,10 +222,10 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_crtc_accurate_vblank_count(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @drm_crtc_accurate_vblank_count(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
@@ -766,7 +766,7 @@ define internal void @vblank_disable_fn(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @__drmm_add_action_or_reset(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @drm_vblank_init_release(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define internal void @drm_vblank_init_release(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %4 = load volatile i8, ptr %3, align 8, !range !36, !noundef !37
   %5 = icmp eq i8 %4, 0
@@ -828,7 +828,7 @@ define internal void @drm_vblank_init_release(ptr nocapture noundef readonly %0,
 declare dso_local i32 @drm_vblank_worker_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @drm_dev_has_vblank(ptr nocapture noundef readonly %0) #3 align 16 {
+define dso_local zeroext i1 @drm_dev_has_vblank(ptr noundef readonly captures(none) %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %3 = load i32, ptr %2, align 4
   %4 = icmp ne i32 %3, 0
@@ -836,7 +836,7 @@ define dso_local zeroext i1 @drm_dev_has_vblank(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_crtc_vblank_waitqueue(ptr nocapture noundef readonly %0) #4 align 16 {
+define dso_local ptr @drm_crtc_vblank_waitqueue(ptr noundef readonly captures(none) %0) #4 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 320
   %4 = load ptr, ptr %3, align 8
@@ -848,7 +848,7 @@ define dso_local ptr @drm_crtc_vblank_waitqueue(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_calc_timestamping_constants(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_calc_timestamping_constants(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
@@ -994,7 +994,7 @@ declare dso_local void @drm_mode_copy(ptr noundef, ptr noundef) local_unnamed_ad
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_crtc_vblank_helper_get_vblank_timestamp_internal(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3, ptr noundef readonly %4) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_crtc_vblank_helper_get_vblank_timestamp_internal(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3, ptr noundef readonly %4) #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -1275,13 +1275,13 @@ define dso_local noundef zeroext i1 @drm_crtc_vblank_helper_get_vblank_timestamp
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local { i64, i64 } @ns_to_timespec64(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_crtc_vblank_helper_get_vblank_timestamp(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_crtc_vblank_helper_get_vblank_timestamp(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i1 noundef zeroext %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
@@ -1291,7 +1291,7 @@ define dso_local noundef zeroext i1 @drm_crtc_vblank_helper_get_vblank_timestamp
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_crtc_vblank_count(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i64 @drm_crtc_vblank_count(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
@@ -1339,7 +1339,7 @@ define dso_local i64 @drm_crtc_vblank_count(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @drm_crtc_vblank_count_and_time(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
+define dso_local i64 @drm_crtc_vblank_count_and_time(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
@@ -1348,7 +1348,7 @@ define dso_local i64 @drm_crtc_vblank_count_and_time(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @drm_vblank_count_and_time(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i64 @drm_vblank_count_and_time(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, %1
@@ -1496,7 +1496,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_crtc_next_vblank_start(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_arm_vblank_event(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_crtc_arm_vblank_event(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
@@ -1530,7 +1530,7 @@ define dso_local void @drm_crtc_arm_vblank_event(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_send_vblank_event(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_crtc_send_vblank_event(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
@@ -1887,7 +1887,7 @@ define internal fastcc i32 @drm_vblank_enable(ptr noundef %0, i32 noundef %1) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_crtc_vblank_get(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local i32 @drm_crtc_vblank_get(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
@@ -1896,7 +1896,7 @@ define dso_local i32 @drm_crtc_vblank_get(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_vblank_put(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @drm_vblank_put(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
   %5 = zext i32 %1 to i64
@@ -2035,7 +2035,7 @@ define dso_local void @drm_vblank_put(ptr nocapture noundef readonly %0, i32 nou
 declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_vblank_put(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_crtc_vblank_put(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
@@ -2296,7 +2296,7 @@ declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #2
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_wait_one_vblank(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_crtc_wait_one_vblank(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
@@ -2305,7 +2305,7 @@ define dso_local void @drm_crtc_wait_one_vblank(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_vblank_off(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_crtc_vblank_off(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
@@ -2549,7 +2549,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare dso_local void @drm_vblank_cancel_pending_works(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_vblank_reset(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_crtc_vblank_reset(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
@@ -2636,7 +2636,7 @@ define dso_local void @drm_crtc_vblank_reset(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_set_max_vblank_count(ptr nocapture noundef readonly %0, i32 noundef %1) #0 align 16 {
+define dso_local void @drm_crtc_set_max_vblank_count(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load i32, ptr %4, align 8
@@ -2710,7 +2710,7 @@ define dso_local void @drm_crtc_set_max_vblank_count(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_vblank_on(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_crtc_vblank_on(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %0, align 8
@@ -2916,7 +2916,7 @@ define dso_local void @drm_crtc_vblank_on(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_vblank_restore(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local void @drm_crtc_vblank_restore(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -3146,7 +3146,7 @@ define dso_local void @drm_crtc_vblank_restore(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_wait_vblank_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @drm_wait_vblank_ioctl(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %6 = load i32, ptr %5, align 4
@@ -3539,7 +3539,7 @@ drm_vblank_count.exit:                            ; preds = %104, %106
 declare dso_local zeroext i1 @drm_lease_held(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @drm_wait_vblank_reply(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc void @drm_wait_vblank_reply(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 364
   %5 = load i32, ptr %4, align 4
   %6 = icmp ugt i32 %5, %1
@@ -3624,7 +3624,7 @@ drm_vblank_count_and_time.exit:                   ; preds = %drm_vblank_count_an
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @drm_queue_vblank_event(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @drm_queue_vblank_event(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %7 = load ptr, ptr %6, align 8
   %8 = zext i32 %1 to i64
@@ -4215,7 +4215,7 @@ drm_vblank_count_and_time.exit:                   ; preds = %.loopexit.i, %30
 declare dso_local void @drm_handle_vblank_works(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @drm_crtc_handle_vblank(ptr nocapture noundef readonly %0) #0 align 16 {
+define dso_local noundef zeroext i1 @drm_crtc_handle_vblank(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
@@ -4224,7 +4224,7 @@ define dso_local noundef zeroext i1 @drm_crtc_handle_vblank(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_crtc_get_sequence_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @drm_crtc_get_sequence_ioctl(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176
@@ -4391,7 +4391,7 @@ declare dso_local i32 @drm_modeset_lock(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @drm_modeset_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_crtc_queue_sequence_ioctl(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @drm_crtc_queue_sequence_ioctl(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 176

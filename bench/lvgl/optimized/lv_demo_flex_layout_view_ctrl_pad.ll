@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [2 x i8] c"+\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @view_ctrl_pad_create(ptr noundef %0, ptr nocapture noundef initializes((56, 256)) %1) local_unnamed_addr #0 {
+define void @view_ctrl_pad_create(ptr noundef %0, ptr noundef captures(none) initializes((56, 256)) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @lv_tabview_create(ptr noundef %0) #3
   tail call void @lv_tabview_set_tab_bar_size(ptr noundef %4, i32 noundef 50) #3
@@ -225,7 +225,7 @@ define void @view_ctrl_pad_create(ptr noundef %0, ptr nocapture noundef initiali
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 declare ptr @lv_tabview_create(ptr noundef) local_unnamed_addr #2
 
@@ -254,7 +254,7 @@ declare void @lv_obj_set_height(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @lv_tabview_add_tab(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 declare void @lv_obj_set_flex_flow(ptr noundef, i32 noundef) local_unnamed_addr #2
 

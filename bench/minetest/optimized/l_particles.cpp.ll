@@ -280,7 +280,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %__s, ptr noundef nonnull align 1 dereferenceable(1) %__a) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -339,10 +339,10 @@ invoke.cont5:                                     ; preds = %if.end.i.i.i.i, %if
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #5 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !11
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -568,7 +568,7 @@ invoke.cont1:                                     ; preds = %if.then
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %tex, i64 112
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call2) #25
-  %call3.i.i54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string, i64 noundef 0, i64 noundef %0, ptr noundef %call2, i64 noundef %call.i.i.i)
+  %call3.i.i54 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string, i64 noundef 0, i64 noundef %0, ptr noundef nonnull %call2, i64 noundef %call.i.i.i)
           to label %cleanup unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont26, %invoke.cont25, %invoke.cont24, %invoke.cont23, %invoke.cont22, %if.end21, %invoke.cont13, %invoke.cont12, %invoke.cont10, %invoke.cont7, %invoke.cont6, %invoke.cont5, %if.end, %invoke.cont1, %if.then, %entry
@@ -593,7 +593,7 @@ invoke.cont7:                                     ; preds = %invoke.cont6
   %_M_string_length.i.i.i55 = getelementptr inbounds nuw i8, ptr %tex, i64 112
   %2 = load i64, ptr %_M_string_length.i.i.i55, align 8, !tbaa !14
   %call.i.i.i56 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call8) #25
-  %call3.i.i57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string9, i64 noundef 0, i64 noundef %2, ptr noundef %call8, i64 noundef %call.i.i.i56)
+  %call3.i.i57 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string9, i64 noundef 0, i64 noundef %2, ptr noundef nonnull %call8, i64 noundef %call.i.i.i56)
           to label %invoke.cont10 unwind label %lpad
 
 invoke.cont10:                                    ; preds = %invoke.cont7
@@ -697,7 +697,7 @@ declare i32 @lua_type(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare { i64, i64 } @_Z25read_animation_definitionP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17LuaParticleParams12readLuaValueEP9lua_StateRN18ParticleParamTypes9BlendModeE(ptr noundef %L, ptr noundef nonnull align 1 dereferenceable(1) %ret) local_unnamed_addr #7 comdat personality ptr @__gxx_personality_v0 {
@@ -1399,7 +1399,7 @@ invoke.cont28:                                    ; preds = %invoke.cont25
 invoke.cont30:                                    ; preds = %invoke.cont28
   %6 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !14
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call31) #25
-  %call3.i.i319 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string.i.i.i, i64 noundef 0, i64 noundef %6, ptr noundef %call31, i64 noundef %call.i.i.i)
+  %call3.i.i319 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string.i.i.i, i64 noundef 0, i64 noundef %6, ptr noundef nonnull %call31, i64 noundef %call.i.i.i)
           to label %invoke.cont32 unwind label %lpad
 
 invoke.cont32:                                    ; preds = %invoke.cont30
@@ -1417,7 +1417,7 @@ if.then37:                                        ; preds = %invoke.cont34
 invoke.cont38:                                    ; preds = %if.then37
   %7 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %call.i.i.i321 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call39) #25
-  %call3.i.i322 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %playername, i64 noundef 0, i64 noundef %7, ptr noundef %call39, i64 noundef %call.i.i.i321)
+  %call3.i.i322 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %playername, i64 noundef 0, i64 noundef %7, ptr noundef nonnull %call39, i64 noundef %call.i.i.i321)
           to label %if.end233 unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont234, %if.end233, %invoke.cont230, %invoke.cont229, %invoke.cont228, %invoke.cont227, %invoke.cont226, %invoke.cont225, %if.end224, %invoke.cont213, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit403, %invoke.cont194, %if.end193, %invoke.cont183, %invoke.cont179, %invoke.cont177, %if.end176, %if.then173, %invoke.cont169, %invoke.cont168, %invoke.cont165, %invoke.cont158, %invoke.cont153, %invoke.cont148, %invoke.cont143, %invoke.cont139, %invoke.cont135, %invoke.cont133, %if.end132, %invoke.cont120, %invoke.cont119, %if.end118, %invoke.cont97, %invoke.cont96, %if.end95, %invoke.cont83, %invoke.cont82, %if.end81, %invoke.cont60, %invoke.cont59, %if.end58, %invoke.cont46, %if.then45, %if.else, %invoke.cont38, %if.then37, %invoke.cont32, %invoke.cont30, %invoke.cont28, %invoke.cont25, %invoke.cont23, %invoke.cont19, %entry
@@ -3066,7 +3066,7 @@ invoke.cont107:                                   ; preds = %invoke.cont80
 invoke.cont109:                                   ; preds = %invoke.cont107
   %6 = load i64, ptr %_M_string_length.i.i.i.i.i.i, align 8, !tbaa !14
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call110) #25
-  %call3.i.i575 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string.i.i.i, i64 noundef 0, i64 noundef %6, ptr noundef %call110, i64 noundef %call.i.i.i)
+  %call3.i.i575 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %string.i.i.i, i64 noundef 0, i64 noundef %6, ptr noundef nonnull %call110, i64 noundef %call.i.i.i)
           to label %invoke.cont111 unwind label %lpad43
 
 invoke.cont111:                                   ; preds = %invoke.cont109
@@ -3084,7 +3084,7 @@ if.then116:                                       ; preds = %invoke.cont113
 invoke.cont117:                                   ; preds = %if.then116
   %7 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %call.i.i.i577 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call118) #25
-  %call3.i.i578 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %playername, i64 noundef 0, i64 noundef %7, ptr noundef %call118, i64 noundef %call.i.i.i577)
+  %call3.i.i578 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %playername, i64 noundef 0, i64 noundef %7, ptr noundef nonnull %call118, i64 noundef %call.i.i.i577)
           to label %if.end318 unwind label %lpad43
 
 lpad:                                             ; preds = %invoke.cont311, %if.end310, %invoke.cont300, %invoke.cont299, %if.end298, %invoke.cont276, %invoke.cont272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit678, %invoke.cont252, %if.end251, %if.then248, %invoke.cont244, %if.end243, %invoke.cont231, %invoke.cont230, %invoke.cont227, %invoke.cont220, %invoke.cont215, %invoke.cont210, %invoke.cont208, %invoke.cont207, %if.end206, %if.end5.i641, %call.i.i637.noexc, %if.then.i636, %.noexc643, %invoke.cont199, %if.then198, %if.end5.i, %call.i.i630.noexc, %if.then.i, %.noexc, %invoke.cont193, %invoke.cont192, %if.then191, %if.end187, %if.then183, %invoke.cont179, %invoke.cont178, %invoke.cont177, %invoke.cont176, %invoke.cont175, %if.then174, %invoke.cont170, %invoke.cont169, %invoke.cont168, %invoke.cont167, %invoke.cont166, %invoke.cont164, %invoke.cont162, %invoke.cont160, %invoke.cont158, %invoke.cont153, %invoke.cont137, %if.then134, %if.else, %invoke.cont6, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %entry
@@ -4777,7 +4777,7 @@ if.then:                                          ; preds = %invoke.cont
 invoke.cont2:                                     ; preds = %if.then
   %1 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !14
   %call.i.i.i = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %call3) #25
-  %call3.i.i14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %playername, i64 noundef 0, i64 noundef %1, ptr noundef %call3, i64 noundef %call.i.i.i)
+  %call3.i.i14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %playername, i64 noundef 0, i64 noundef %1, ptr noundef nonnull %call3, i64 noundef %call.i.i.i)
           to label %if.end unwind label %lpad
 
 lpad:                                             ; preds = %invoke.cont6, %if.end, %invoke.cont2, %if.then, %entry
@@ -5124,7 +5124,7 @@ declare void @_ZN18ParticleParamTypes25deSerializeParameterValueERSiRN3irr4core8
 declare <2 x float> @_ZN18ParticleParamTypes25interpolateParameterValueEfN3irr4core8vector2dIfEES3_(float noundef, <2 x float>, <2 x float>) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK18ParticleParamTypes9ParameterIN3irr4core8vector3dIfEELm3EE9serializeERSo(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #8 comdat align 2 {
@@ -5170,7 +5170,7 @@ declare { <2 x float>, float } @_ZN18ParticleParamTypes25interpolateParameterVal
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #18
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #18
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 

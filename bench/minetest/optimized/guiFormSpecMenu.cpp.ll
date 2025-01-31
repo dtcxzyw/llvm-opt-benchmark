@@ -951,15 +951,15 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
+define internal void @__cxx_global_array_dtor(ptr readnone captures(none) %0) #4 section ".text.startup" personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 384), align 16, !tbaa !4
   %cmp.i.i.i = icmp eq ptr %1, getelementptr inbounds nuw (i8, ptr @_ZL19accessDeniedStringsB5cxx11, i64 400)
@@ -1160,7 +1160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenuC2EP18JoystickControllerPN3irr3gui11IGUIElementEiP12IMenuManagerP6ClientPNS3_15IGUIEnvironmentEP20ISimpleTextureSourceP13ISoundManagerP11IFormSourceP8TextDestRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef %vtt, ptr noundef %joystick, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %client, ptr noundef %guienv, ptr noundef %tsrc, ptr noundef %sound_manager, ptr noundef %fsrc, ptr noundef %tdst, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %formspecPrepend, i1 noundef zeroext %remap_dbl_click) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenuC2EP18JoystickControllerPN3irr3gui11IGUIElementEiP12IMenuManagerP6ClientPNS3_15IGUIEnvironmentEP20ISimpleTextureSourceP13ISoundManagerP11IFormSourceP8TextDestRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef %vtt, ptr noundef %joystick, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %client, ptr noundef %guienv, ptr noundef %tsrc, ptr noundef %sound_manager, ptr noundef %fsrc, ptr noundef %tdst, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %formspecPrepend, i1 noundef zeroext %remap_dbl_click) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i158 = alloca i64, align 8
   %__dnew.i.i144 = alloca i64, align 8
@@ -2792,7 +2792,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 declare void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(384), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenuC1EP18JoystickControllerPN3irr3gui11IGUIElementEiP12IMenuManagerP6ClientPNS3_15IGUIEnvironmentEP20ISimpleTextureSourceP13ISoundManagerP11IFormSourceP8TextDestRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(2228) initializes((2232, 2252)) %this, ptr noundef %joystick, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %client, ptr noundef %guienv, ptr noundef %tsrc, ptr noundef %sound_manager, ptr noundef %fsrc, ptr noundef %tdst, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %formspecPrepend, i1 noundef zeroext %remap_dbl_click) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenuC1EP18JoystickControllerPN3irr3gui11IGUIElementEiP12IMenuManagerP6ClientPNS3_15IGUIEnvironmentEP20ISimpleTextureSourceP13ISoundManagerP11IFormSourceP8TextDestRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(2228) initializes((2232, 2252)) %this, ptr noundef %joystick, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %client, ptr noundef %guienv, ptr noundef %tsrc, ptr noundef %sound_manager, ptr noundef %fsrc, ptr noundef %tdst, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %formspecPrepend, i1 noundef zeroext %remap_dbl_click) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i161 = alloca i64, align 8
   %__dnew.i.i147 = alloca i64, align 8
@@ -4618,7 +4618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu6createERPS_P6ClientPN3irr3gui15IGUIEnvironmentEP18JoystickControllerP11IFormSourceP8TextDestRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP13ISoundManager(ptr nocapture noundef nonnull align 8 dereferenceable(8) %cur_formspec, ptr noundef %client, ptr noundef %guienv, ptr noundef %joystick, ptr noundef %fs_src, ptr noundef %txt_dest, ptr noundef nonnull align 8 dereferenceable(32) %formspecPrepend, ptr noundef %sound_manager) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu6createERPS_P6ClientPN3irr3gui15IGUIEnvironmentEP18JoystickControllerP11IFormSourceP8TextDestRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP13ISoundManager(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %cur_formspec, ptr noundef %client, ptr noundef %guienv, ptr noundef %joystick, ptr noundef %fs_src, ptr noundef %txt_dest, ptr noundef nonnull align 8 dereferenceable(32) %formspecPrepend, ptr noundef %sound_manager) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %cur_formspec, align 8, !tbaa !182
   %tobool.not = icmp eq ptr %0, null
@@ -4712,7 +4712,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 declare noundef ptr @_ZN6Client16getTextureSourceEv(ptr noundef nonnull align 8 dereferenceable(1746)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu13removeTooltipEv(ptr nocapture noundef nonnull align 8 dereferenceable(2228) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN15GUIFormSpecMenu13removeTooltipEv(ptr noundef nonnull align 8 captures(none) dereferenceable(2228) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_tooltip_element = getelementptr inbounds nuw i8, ptr %this, i64 1968
   %0 = load ptr, ptr %m_tooltip_element, align 8, !tbaa !167
@@ -4956,7 +4956,7 @@ cleanup160:                                       ; preds = %if.else, %if.then14
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN15GUIFormSpecMenu8getTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %tablename) local_unnamed_addr #12 align 2 {
+define dso_local noundef ptr @_ZN15GUIFormSpecMenu8getTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %tablename) local_unnamed_addr #12 align 2 {
 entry:
   %m_tables = getelementptr inbounds nuw i8, ptr %this, i64 1072
   %0 = load ptr, ptr %m_tables, align 8, !tbaa !182
@@ -5015,7 +5015,7 @@ cleanup8:                                         ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN15GUIFormSpecMenu17getDropDownValuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) local_unnamed_addr #12 align 2 {
+define dso_local noundef ptr @_ZN15GUIFormSpecMenu17getDropDownValuesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name) local_unnamed_addr #12 align 2 {
 entry:
   %m_dropdowns = getelementptr inbounds nuw i8, ptr %this, i64 1216
   %0 = load ptr, ptr %m_dropdowns, align 8, !tbaa !182
@@ -5076,7 +5076,7 @@ cleanup8:                                         ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local { i64, i64 } @_ZN15GUIFormSpecMenu15getAbsoluteRectEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this) local_unnamed_addr #13 align 2 {
+define dso_local { i64, i64 } @_ZN15GUIFormSpecMenu15getAbsoluteRectEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this) local_unnamed_addr #13 align 2 {
 entry:
   %AbsoluteRect = getelementptr inbounds nuw i8, ptr %this, i64 64
   %retval.sroa.0.0.copyload = load i64, ptr %AbsoluteRect, align 8, !tbaa.struct !257
@@ -5097,10 +5097,10 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i64 @_ZN15GUIFormSpecMenu17getElementBasePosEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr noundef readonly %v_pos) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZN15GUIFormSpecMenu17getElementBasePosEPKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef readonly %v_pos) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %padding = getelementptr inbounds nuw i8, ptr %this, i64 560
   %pos_offset = getelementptr inbounds nuw i8, ptr %this, i64 592
@@ -5118,13 +5118,13 @@ if.then:                                          ; preds = %entry
   %Y3.i = getelementptr inbounds nuw i8, ptr %this, i64 572
   %6 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %7 = load ptr, ptr %6, align 8, !tbaa !4
-  %call.i.i = tail call nsz double @strtod(ptr nocapture noundef nonnull %7, ptr noundef null) #34
+  %call.i.i = tail call nsz double @strtod(ptr noundef nonnull captures(none) %7, ptr noundef null) #34
   %8 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   %9 = load ptr, ptr %add.ptr.i, align 8, !tbaa !4
   %10 = load <4 x float>, ptr %spacing, align 8
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i33 = tail call nsz double @strtod(ptr nocapture noundef nonnull %9, ptr noundef null) #34
+  %call.i.i33 = tail call nsz double @strtod(ptr noundef nonnull captures(none) %9, ptr noundef null) #34
   %12 = insertelement <2 x double> poison, double %call.i.i, i64 0
   %13 = insertelement <2 x double> %12, double %call.i.i33, i64 1
   %14 = fptrunc <2 x double> %13 to <2 x float>
@@ -5150,11 +5150,11 @@ if.end:                                           ; preds = %if.then, %entry
 declare float @llvm.fmuladd.f32(float, float, float) #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i64 @_ZN15GUIFormSpecMenu24getRealCoordinateBasePosERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v_pos) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZN15GUIFormSpecMenu24getRealCoordinateBasePosERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %v_pos) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %1 = load ptr, ptr %0, align 8, !tbaa !4
-  %call.i.i = tail call nsz double @strtod(ptr nocapture noundef nonnull %1, ptr noundef null) #34
+  %call.i.i = tail call nsz double @strtod(ptr noundef nonnull captures(none) %1, ptr noundef null) #34
   %conv.i = fptrunc double %call.i.i to float
   %pos_offset = getelementptr inbounds nuw i8, ptr %this, i64 592
   %2 = load float, ptr %pos_offset, align 8, !tbaa !262
@@ -5167,7 +5167,7 @@ entry:
   %4 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %5 = load ptr, ptr %add.ptr.i, align 8, !tbaa !4
-  %call.i.i15 = tail call nsz double @strtod(ptr nocapture noundef nonnull %5, ptr noundef null) #34
+  %call.i.i15 = tail call nsz double @strtod(ptr noundef nonnull captures(none) %5, ptr noundef null) #34
   %conv.i16 = fptrunc double %call.i.i15 to float
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 596
   %6 = load float, ptr %Y, align 4, !tbaa !264
@@ -5185,11 +5185,11 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local i64 @_ZN15GUIFormSpecMenu25getRealCoordinateGeometryERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %v_geom) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i64 @_ZN15GUIFormSpecMenu25getRealCoordinateGeometryERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %v_geom) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %1 = load ptr, ptr %0, align 8, !tbaa !4
-  %call.i.i = tail call nsz double @strtod(ptr nocapture noundef nonnull %1, ptr noundef null) #34
+  %call.i.i = tail call nsz double @strtod(ptr noundef nonnull captures(none) %1, ptr noundef null) #34
   %conv.i = fptrunc double %call.i.i to float
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
   %2 = load i32, ptr %imgsize, align 8, !tbaa !263
@@ -5199,7 +5199,7 @@ entry:
   %3 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %3, i64 32
   %4 = load ptr, ptr %add.ptr.i, align 8, !tbaa !4
-  %call.i.i11 = tail call nsz double @strtod(ptr nocapture noundef nonnull %4, ptr noundef null) #34
+  %call.i.i11 = tail call nsz double @strtod(ptr noundef nonnull captures(none) %4, ptr noundef null) #34
   %conv.i12 = fptrunc double %call.i.i11 to float
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 580
   %5 = load i32, ptr %Y, align 4, !tbaa !265
@@ -5214,7 +5214,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu15precheckElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_mmRSt6vectorIS5_SaIS5_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %element, i64 noundef %args_min, i64 noundef %args_max, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %parts) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu15precheckElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_mmRSt6vectorIS5_SaIS5_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %element, i64 noundef %args_min, i64 noundef %args_max, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((16, 24)) %parts) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.165", align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #34
@@ -5794,7 +5794,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #19
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu9parseSizeEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu9parseSizeEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(2228) %this, ptr noundef writeonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -5987,7 +5987,7 @@ lpad:                                             ; preds = %if.then.i16.i.i
 if.end:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %if.then
   %31 = load ptr, ptr %parts, align 8, !tbaa !189
   %32 = load ptr, ptr %31, align 8, !tbaa !4
-  %call.i.i = call nsz double @strtod(ptr nocapture noundef nonnull %32, ptr noundef null) #34
+  %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %32, ptr noundef null) #34
   %conv.i = fptrunc double %call.i.i to float
   %cmp21 = fcmp nsz olt float %conv.i, 0.000000e+00
   br i1 %cmp21, label %cond.end, label %cond.false
@@ -5995,7 +5995,7 @@ if.end:                                           ; preds = %_ZNSt7__cxx1112basi
 cond.false:                                       ; preds = %if.end
   %33 = load ptr, ptr %parts, align 8, !tbaa !189
   %34 = load ptr, ptr %33, align 8, !tbaa !4
-  %call.i.i102 = call nsz double @strtod(ptr nocapture noundef nonnull %34, ptr noundef null) #34
+  %call.i.i102 = call nsz double @strtod(ptr noundef nonnull captures(none) %34, ptr noundef null) #34
   %conv.i103 = fptrunc double %call.i.i102 to float
   br label %cond.end
 
@@ -6006,7 +6006,7 @@ cond.end:                                         ; preds = %cond.false, %if.end
   %35 = load ptr, ptr %parts, align 8, !tbaa !189
   %add.ptr.i104 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %36 = load ptr, ptr %add.ptr.i104, align 8, !tbaa !4
-  %call.i.i105 = call nsz double @strtod(ptr nocapture noundef nonnull %36, ptr noundef null) #34
+  %call.i.i105 = call nsz double @strtod(ptr noundef nonnull captures(none) %36, ptr noundef null) #34
   %conv.i106 = fptrunc double %call.i.i105 to float
   %cmp28 = fcmp nsz olt float %conv.i106, 0.000000e+00
   br i1 %cmp28, label %cond.end34, label %cond.false30
@@ -6015,7 +6015,7 @@ cond.false30:                                     ; preds = %cond.end
   %37 = load ptr, ptr %parts, align 8, !tbaa !189
   %add.ptr.i107 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %38 = load ptr, ptr %add.ptr.i107, align 8, !tbaa !4
-  %call.i.i108 = call nsz double @strtod(ptr nocapture noundef nonnull %38, ptr noundef null) #34
+  %call.i.i108 = call nsz double @strtod(ptr noundef nonnull captures(none) %38, ptr noundef null) #34
   %conv.i109 = fptrunc double %call.i.i108 to float
   br label %cond.end34
 
@@ -6315,7 +6315,7 @@ ehcleanup77:                                      ; preds = %lpad65, %ehcleanup,
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu14parseContainerEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture readnone %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu14parseContainerEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr readnone captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -6521,7 +6521,7 @@ if.else.i.i:                                      ; preds = %if.end
 invoke.cont12:                                    ; preds = %if.else.i.i, %if.then.i.i49
   %33 = load ptr, ptr %parts, align 8, !tbaa !189
   %34 = load ptr, ptr %33, align 8, !tbaa !4
-  %call.i.i = call nsz double @strtod(ptr nocapture noundef nonnull %34, ptr noundef null) #34
+  %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %34, ptr noundef null) #34
   %conv.i = fptrunc double %call.i.i to float
   %35 = load float, ptr %pos_offset, align 8, !tbaa !262
   %add = fadd nsz float %35, %conv.i
@@ -6529,7 +6529,7 @@ invoke.cont12:                                    ; preds = %if.else.i.i, %if.th
   %36 = load ptr, ptr %parts, align 8, !tbaa !189
   %add.ptr.i50 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %37 = load ptr, ptr %add.ptr.i50, align 8, !tbaa !4
-  %call.i.i51 = call nsz double @strtod(ptr nocapture noundef nonnull %37, ptr noundef null) #34
+  %call.i.i51 = call nsz double @strtod(ptr noundef nonnull captures(none) %37, ptr noundef null) #34
   %conv.i52 = fptrunc double %call.i.i51 to float
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 596
   %38 = load float, ptr %Y, align 4, !tbaa !264
@@ -6726,7 +6726,7 @@ ehcleanup:                                        ; preds = %lpad27, %lpad11, %l
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu17parseContainerEndEPNS_10parserDataE(ptr nocapture noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture readnone %data) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu17parseContainerEndEPNS_10parserDataE(ptr noundef nonnull align 8 captures(none) dereferenceable(2228) %this, ptr readnone captures(none) %data) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 648
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 616
@@ -6844,7 +6844,7 @@ if.end:                                           ; preds = %_ZNSt5stackIN3irr4c
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu20parseScrollContainerEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu20parseScrollContainerEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i.i = alloca i64, align 8
   %__dnew.i.i225 = alloca i64, align 8
@@ -7060,7 +7060,7 @@ land.lhs.true:                                    ; preds = %invoke.cont18
 if.then22:                                        ; preds = %land.lhs.true
   %add.ptr.i237 = getelementptr inbounds nuw i8, ptr %.pre, i64 128
   %27 = load ptr, ptr %add.ptr.i237, align 8, !tbaa !4
-  %call.i.i240 = call nsz double @strtod(ptr nocapture noundef nonnull %27, ptr noundef null) #34
+  %call.i.i240 = call nsz double @strtod(ptr noundef nonnull captures(none) %27, ptr noundef null) #34
   %conv.i = fptrunc double %call.i.i240 to float
   br label %if.end27
 
@@ -7332,7 +7332,7 @@ call1.i.noexc559.invoke:                          ; preds = %_ZNKSt9basic_iosIcS
 
 invoke.cont66:                                    ; preds = %if.end44
   %62 = load ptr, ptr %34, align 8, !tbaa !4
-  %call.i.i.i314 = call nsz double @strtod(ptr nocapture noundef nonnull %62, ptr noundef null) #34
+  %call.i.i.i314 = call nsz double @strtod(ptr noundef nonnull captures(none) %62, ptr noundef null) #34
   %conv.i.i = fptrunc double %call.i.i.i314 to float
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %63 = load float, ptr %pos_offset.i, align 8, !tbaa !262
@@ -7345,7 +7345,7 @@ invoke.cont66:                                    ; preds = %if.end44
   %65 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %65, i64 32
   %66 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %66, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %66, ptr noundef null) #34
   %conv.i16.i = fptrunc double %call.i.i15.i to float
   %Y.i = getelementptr inbounds nuw i8, ptr %this, i64 596
   %67 = load float, ptr %Y.i, align 4, !tbaa !264
@@ -7359,13 +7359,13 @@ invoke.cont66:                                    ; preds = %if.end44
   %retval.sroa.2.0.insert.shift.i = shl nuw i64 %retval.sroa.2.0.insert.ext.i, 32
   %69 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %70 = load ptr, ptr %69, align 8, !tbaa !4
-  %call.i.i.i316 = call nsz double @strtod(ptr nocapture noundef nonnull %70, ptr noundef null) #34
+  %call.i.i.i316 = call nsz double @strtod(ptr noundef nonnull captures(none) %70, ptr noundef null) #34
   %71 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i321 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %72 = load ptr, ptr %add.ptr.i.i321, align 8, !tbaa !4
   %73 = load <4 x i32>, ptr %imgsize.i, align 8
   %74 = shufflevector <4 x i32> %73, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %72, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %72, ptr noundef null) #34
   %75 = insertelement <2 x double> poison, double %call.i.i.i316, i64 0
   %76 = insertelement <2 x double> %75, double %call.i.i11.i, i64 1
   %77 = fptrunc <2 x double> %76 to <2 x float>
@@ -8593,7 +8593,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %if.
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu23parseScrollContainerEndEPNS_10parserDataE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef %data) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu23parseScrollContainerEndEPNS_10parserDataE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef captures(none) %data) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current_parent = getelementptr inbounds nuw i8, ptr %data, i64 128
   %0 = load ptr, ptr %current_parent, align 8, !tbaa !322
@@ -9419,13 +9419,13 @@ if.end77:                                         ; preds = %if.else, %_ZN17Inve
   store i32 0, ptr %Y.i, align 4, !tbaa !325
   %71 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %72 = load ptr, ptr %71, align 8, !tbaa !4
-  %call.i.i535 = call i64 @strtol(ptr nocapture noundef nonnull %72, ptr noundef null, i32 noundef 10) #34
+  %call.i.i535 = call i64 @strtol(ptr noundef nonnull captures(none) %72, ptr noundef null, i32 noundef 10) #34
   %conv.i.i = trunc i64 %call.i.i535 to i32
   store i32 %conv.i.i, ptr %geom, align 8, !tbaa !324
   %73 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i536 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %74 = load ptr, ptr %add.ptr.i536, align 8, !tbaa !4
-  %call.i.i537 = call i64 @strtol(ptr nocapture noundef nonnull %74, ptr noundef null, i32 noundef 10) #34
+  %call.i.i537 = call i64 @strtol(ptr noundef nonnull captures(none) %74, ptr noundef null, i32 noundef 10) #34
   %conv.i.i538 = trunc i64 %call.i.i537 to i32
   store i32 %conv.i.i538, ptr %Y.i, align 4, !tbaa !325
   %75 = load i64, ptr %_M_string_length.i.i.i439, align 8, !tbaa !11
@@ -9434,7 +9434,7 @@ if.end77:                                         ; preds = %if.else, %_ZN17Inve
 
 if.then87:                                        ; preds = %if.end77
   %76 = load ptr, ptr %startindex, align 8, !tbaa !4
-  %call.i.i541 = call i64 @strtol(ptr nocapture noundef nonnull %76, ptr noundef null, i32 noundef 10) #34
+  %call.i.i541 = call i64 @strtol(ptr noundef nonnull captures(none) %76, ptr noundef null, i32 noundef 10) #34
   %conv.i.i542 = trunc i64 %call.i.i541 to i32
   %.pre = load i32, ptr %Y.i, align 4
   br label %if.end91
@@ -9804,7 +9804,7 @@ cond.true262:                                     ; preds = %invoke.cont205
   store <2 x float> %126, ptr %slot_spacing, align 8, !tbaa !260
   %127 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %128 = load ptr, ptr %127, align 8, !tbaa !4
-  %call.i.i.i697 = call nsz double @strtod(ptr nocapture noundef nonnull %128, ptr noundef null) #34
+  %call.i.i.i697 = call nsz double @strtod(ptr noundef nonnull captures(none) %128, ptr noundef null) #34
   %conv.i.i698 = fptrunc double %call.i.i.i697 to float
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %129 = load float, ptr %pos_offset.i, align 8, !tbaa !262
@@ -9816,7 +9816,7 @@ cond.true262:                                     ; preds = %invoke.cont205
   %131 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %131, i64 32
   %132 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %132, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %132, ptr noundef null) #34
   %conv.i16.i = fptrunc double %call.i.i15.i to float
   %Y.i700 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %133 = load float, ptr %Y.i700, align 4, !tbaa !264
@@ -10715,7 +10715,7 @@ lpad.body:                                        ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZN16GUIInventoryListC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEEP16InventoryManagerRK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS6_8vector2dIiEEiSR_RKNSO_IfEEP15GUIFormSpecMenuRKNS_7OptionsEPNS1_8IGUIFontE(ptr noundef nonnull align 8 dereferenceable(469), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(46), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu13parseListRingEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture readnone %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu13parseListRingEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr readnone captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i108 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -11405,7 +11405,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu13parseCheckboxEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu13parseCheckboxEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %__dnew.i.i266 = alloca i64, align 8
@@ -11946,7 +11946,7 @@ invoke.cont79:                                    ; preds = %invoke.cont65
 invoke.cont94:                                    ; preds = %invoke.cont79
   %72 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %73 = load ptr, ptr %72, align 8, !tbaa !4
-  %call.i.i.i325 = call nsz double @strtod(ptr nocapture noundef nonnull %73, ptr noundef null) #34
+  %call.i.i.i325 = call nsz double @strtod(ptr noundef nonnull captures(none) %73, ptr noundef null) #34
   %conv.i.i = fptrunc double %call.i.i.i325 to float
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %74 = load float, ptr %pos_offset.i, align 8, !tbaa !262
@@ -11959,7 +11959,7 @@ invoke.cont94:                                    ; preds = %invoke.cont79
   %76 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %76, i64 32
   %77 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %77, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %77, ptr noundef null) #34
   %conv.i16.i = fptrunc double %call.i.i15.i to float
   %Y.i326 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %78 = load float, ptr %Y.i326, align 4, !tbaa !264
@@ -12052,14 +12052,14 @@ invoke.cont120:                                   ; preds = %invoke.cont79
   %add4.i.i = fadd nsz float %mul4.i.i, %conv3.i
   %95 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %96 = load ptr, ptr %95, align 8, !tbaa !4
-  %call.i.i.i343 = call nsz double @strtod(ptr nocapture noundef nonnull %96, ptr noundef null) #34
+  %call.i.i.i343 = call nsz double @strtod(ptr noundef nonnull captures(none) %96, ptr noundef null) #34
   %conv.i.i344 = fptrunc double %call.i.i.i343 to float
   %97 = load float, ptr %spacing.i, align 8, !tbaa !368
   %98 = call nsz float @llvm.fmuladd.f32(float %conv.i.i344, float %97, float %add.i.i)
   %99 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i345 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %100 = load ptr, ptr %add.ptr.i.i345, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %100, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %100, ptr noundef null) #34
   %conv.i34.i = fptrunc double %call.i.i33.i to float
   %101 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %102 = call nsz float @llvm.fmuladd.f32(float %conv.i34.i, float %101, float %add4.i.i)
@@ -13335,7 +13335,7 @@ if.end52:                                         ; preds = %if.end35
 
 invoke.cont65:                                    ; preds = %if.end52
   %57 = load ptr, ptr %23, align 8, !tbaa !4
-  %call.i.i.i353 = call nsz double @strtod(ptr nocapture noundef nonnull %57, ptr noundef null) #34
+  %call.i.i.i353 = call nsz double @strtod(ptr noundef nonnull captures(none) %57, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %imgsize.i = getelementptr inbounds nuw i8, ptr %this, i64 576
   %58 = load i32, ptr %imgsize.i, align 8, !tbaa !263
@@ -13345,7 +13345,7 @@ invoke.cont65:                                    ; preds = %if.end52
   %Y.i354 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %61 = load <4 x float>, ptr %pos_offset.i, align 8
   %62 = shufflevector <4 x float> %61, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %60, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %60, ptr noundef null) #34
   %63 = insertelement <2 x double> poison, double %call.i.i.i353, i64 0
   %64 = insertelement <2 x double> %63, double %call.i.i15.i, i64 1
   %65 = fptrunc <2 x double> %64 to <2 x float>
@@ -13356,12 +13356,12 @@ invoke.cont65:                                    ; preds = %if.end52
   %69 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %70 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %71 = load ptr, ptr %70, align 8, !tbaa !4
-  %call.i.i.i355 = call nsz double @strtod(ptr nocapture noundef nonnull %71, ptr noundef null) #34
+  %call.i.i.i355 = call nsz double @strtod(ptr noundef nonnull captures(none) %71, ptr noundef null) #34
   %72 = load <4 x i32>, ptr %imgsize.i, align 8
   %73 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i360 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %74 = load ptr, ptr %add.ptr.i.i360, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %74, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %74, ptr noundef null) #34
   %75 = insertelement <2 x double> poison, double %call.i.i.i355, i64 0
   %76 = insertelement <2 x double> %75, double %call.i.i11.i, i64 1
   %77 = fptrunc <2 x double> %76 to <2 x float>
@@ -13386,13 +13386,13 @@ invoke.cont70:                                    ; preds = %if.end52
   %89 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %90 = fmul nsz <2 x float> %88, %89
   %91 = fadd nsz <2 x float> %90, %87
-  %call.i.i.i371 = call nsz double @strtod(ptr nocapture noundef nonnull %85, ptr noundef null) #34
+  %call.i.i.i371 = call nsz double @strtod(ptr noundef nonnull captures(none) %85, ptr noundef null) #34
   %92 = load <4 x float>, ptr %spacing.i, align 8
   %93 = shufflevector <4 x float> %92, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %94 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i373 = getelementptr inbounds nuw i8, ptr %94, i64 32
   %95 = load ptr, ptr %add.ptr.i.i373, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %95, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %95, ptr noundef null) #34
   %96 = insertelement <2 x double> poison, double %call.i.i.i371, i64 0
   %97 = insertelement <2 x double> %96, double %call.i.i33.i, i64 1
   %98 = fptrunc <2 x double> %97 to <2 x float>
@@ -13401,13 +13401,13 @@ invoke.cont70:                                    ; preds = %if.end52
   %101 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %98, <2 x float> %100, <2 x float> %91)
   %102 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %103 = load ptr, ptr %102, align 8, !tbaa !4
-  %call.i.i378 = call nsz double @strtod(ptr nocapture noundef nonnull %103, ptr noundef null) #34
+  %call.i.i378 = call nsz double @strtod(ptr noundef nonnull captures(none) %103, ptr noundef null) #34
   %104 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i380 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %105 = load ptr, ptr %add.ptr.i380, align 8, !tbaa !4
   %106 = load <4 x float>, ptr %spacing.i, align 8
   %107 = shufflevector <4 x float> %106, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i381 = call nsz double @strtod(ptr nocapture noundef nonnull %105, ptr noundef null) #34
+  %call.i.i381 = call nsz double @strtod(ptr noundef nonnull captures(none) %105, ptr noundef null) #34
   %108 = insertelement <2 x double> poison, double %call.i.i378, i64 0
   %109 = insertelement <2 x double> %108, double %call.i.i381, i64 1
   %110 = fptrunc <2 x double> %109 to <2 x float>
@@ -13662,7 +13662,7 @@ invoke.cont157:                                   ; preds = %invoke.cont156
   %154 = load ptr, ptr %e, align 8, !tbaa !182
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp158) #34
   %155 = load ptr, ptr %value, align 8, !tbaa !4
-  %call.i.i478 = call i64 @strtol(ptr nocapture noundef nonnull %155, ptr noundef null, i32 noundef 10) #34
+  %call.i.i478 = call i64 @strtol(ptr noundef nonnull captures(none) %155, ptr noundef null, i32 noundef 10) #34
   %conv.i.i479 = trunc i64 %call.i.i478 to i32
   store i32 %conv.i.i479, ptr %ref.tmp158, align 4, !tbaa !258
   invoke void @_ZN12GUIScrollBar6setPosERKi(ptr noundef nonnull align 8 dereferenceable(408) %154, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp158)
@@ -14217,7 +14217,7 @@ declare void @_ZN12GUIScrollBar12setLargeStepERKi(ptr noundef nonnull align 8 de
 declare void @_ZN12GUIScrollBar11setPageSizeERKi(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu21parseScrollBarOptionsEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu21parseScrollBarOptionsEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %options = alloca %"class.std::vector.165", align 8
@@ -14517,7 +14517,7 @@ if.end34:                                         ; preds = %invoke.cont21
 if.then38:                                        ; preds = %if.end34
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %35, i64 32
   %36 = load ptr, ptr %add.ptr.i, align 8, !tbaa !4
-  %call.i.i = call i64 @strtol(ptr nocapture noundef nonnull %36, ptr noundef null, i32 noundef 10) #34
+  %call.i.i = call i64 @strtol(ptr noundef nonnull captures(none) %36, ptr noundef null, i32 noundef 10) #34
   %conv.i.i = trunc i64 %call.i.i to i32
   store i32 %conv.i.i, ptr %scrollbar_options, align 8, !tbaa !374
   br label %cleanup
@@ -14531,7 +14531,7 @@ if.else:                                          ; preds = %if.end34
 if.then45:                                        ; preds = %if.else
   %add.ptr.i240 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %38 = load ptr, ptr %add.ptr.i240, align 8, !tbaa !4
-  %call.i.i241 = call i64 @strtol(ptr nocapture noundef nonnull %38, ptr noundef null, i32 noundef 10) #34
+  %call.i.i241 = call i64 @strtol(ptr noundef nonnull captures(none) %38, ptr noundef null, i32 noundef 10) #34
   %conv.i.i242 = trunc i64 %call.i.i241 to i32
   store i32 %conv.i.i242, ptr %min, align 4, !tbaa !375
   br label %cleanup
@@ -14545,7 +14545,7 @@ if.else50:                                        ; preds = %if.else
 if.then54:                                        ; preds = %if.else50
   %add.ptr.i245 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %40 = load ptr, ptr %add.ptr.i245, align 8, !tbaa !4
-  %call.i.i246 = call i64 @strtol(ptr nocapture noundef nonnull %40, ptr noundef null, i32 noundef 10) #34
+  %call.i.i246 = call i64 @strtol(ptr noundef nonnull captures(none) %40, ptr noundef null, i32 noundef 10) #34
   %conv.i.i247 = trunc i64 %call.i.i246 to i32
   %cmp59 = icmp slt i32 %conv.i.i247, 0
   %cond = select i1 %cmp59, i32 10, i32 %conv.i.i247
@@ -14561,7 +14561,7 @@ if.else61:                                        ; preds = %if.else50
 if.then65:                                        ; preds = %if.else61
   %add.ptr.i250 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %42 = load ptr, ptr %add.ptr.i250, align 8, !tbaa !4
-  %call.i.i251 = call i64 @strtol(ptr nocapture noundef nonnull %42, ptr noundef null, i32 noundef 10) #34
+  %call.i.i251 = call i64 @strtol(ptr noundef nonnull captures(none) %42, ptr noundef null, i32 noundef 10) #34
   %conv.i.i252 = trunc i64 %call.i.i251 to i32
   %cmp71 = icmp slt i32 %conv.i.i252, 0
   %cond75 = select i1 %cmp71, i32 100, i32 %conv.i.i252
@@ -14577,7 +14577,7 @@ if.else77:                                        ; preds = %if.else61
 if.then81:                                        ; preds = %if.else77
   %add.ptr.i255 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %44 = load ptr, ptr %add.ptr.i255, align 8, !tbaa !4
-  %call.i.i256 = call i64 @strtol(ptr nocapture noundef nonnull %44, ptr noundef null, i32 noundef 10) #34
+  %call.i.i256 = call i64 @strtol(ptr noundef nonnull captures(none) %44, ptr noundef null, i32 noundef 10) #34
   %conv.i.i257 = trunc i64 %call.i.i256 to i32
   %cond91 = call i32 @llvm.smax.i32(i32 %conv.i.i257, i32 1)
   store i32 %cond91, ptr %thumb_size, align 8, !tbaa !376
@@ -14910,7 +14910,7 @@ _ZN11StreamProxylsIRA33_KcEERS_OT_.exit:          ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu10parseImageEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu10parseImageEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15436,7 +15436,7 @@ if.end81:                                         ; preds = %if.then71, %invoke.
 invoke.cont85:                                    ; preds = %if.end81
   %64 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %65 = load ptr, ptr %64, align 8, !tbaa !4
-  %call.i.i.i390 = call nsz double @strtod(ptr nocapture noundef nonnull %65, ptr noundef null) #34
+  %call.i.i.i390 = call nsz double @strtod(ptr noundef nonnull captures(none) %65, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %66 = load <4 x float>, ptr %pos_offset.i, align 8
   %67 = shufflevector <4 x float> %66, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -15448,7 +15448,7 @@ invoke.cont85:                                    ; preds = %if.end81
   %Y10.i = getelementptr inbounds nuw i8, ptr %this, i64 580
   %70 = load <4 x i32>, ptr %imgsize.i, align 8
   %71 = shufflevector <4 x i32> %70, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %69, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %69, ptr noundef null) #34
   %72 = insertelement <2 x double> poison, double %call.i.i.i390, i64 0
   %73 = insertelement <2 x double> %72, double %call.i.i15.i, i64 1
   %74 = fptrunc <2 x double> %73 to <2 x float>
@@ -15463,12 +15463,12 @@ invoke.cont85:                                    ; preds = %if.end81
 
 invoke.cont93:                                    ; preds = %invoke.cont85
   %82 = load ptr, ptr %39, align 8, !tbaa !4
-  %call.i.i.i397 = call nsz double @strtod(ptr nocapture noundef nonnull %82, ptr noundef null) #34
+  %call.i.i.i397 = call nsz double @strtod(ptr noundef nonnull captures(none) %82, ptr noundef null) #34
   %add.ptr.i.i402 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %83 = load ptr, ptr %add.ptr.i.i402, align 8, !tbaa !4
   %84 = load <4 x i32>, ptr %imgsize.i, align 8
   %85 = shufflevector <4 x i32> %84, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %83, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %83, ptr noundef null) #34
   %86 = insertelement <2 x double> poison, double %call.i.i.i397, i64 0
   %87 = insertelement <2 x double> %86, double %call.i.i11.i, i64 1
   %88 = fptrunc <2 x double> %87 to <2 x float>
@@ -15492,13 +15492,13 @@ invoke.cont100:                                   ; preds = %if.end81
   %99 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %100 = fmul nsz <2 x float> %98, %99
   %101 = fadd nsz <2 x float> %100, %97
-  %call.i.i.i413 = call nsz double @strtod(ptr nocapture noundef nonnull %95, ptr noundef null) #34
+  %call.i.i.i413 = call nsz double @strtod(ptr noundef nonnull captures(none) %95, ptr noundef null) #34
   %102 = load <4 x float>, ptr %spacing.i, align 8
   %103 = shufflevector <4 x float> %102, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %104 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i415 = getelementptr inbounds nuw i8, ptr %104, i64 32
   %105 = load ptr, ptr %add.ptr.i.i415, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %105, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %105, ptr noundef null) #34
   %106 = insertelement <2 x double> poison, double %call.i.i.i413, i64 0
   %107 = insertelement <2 x double> %106, double %call.i.i33.i, i64 1
   %108 = fptrunc <2 x double> %107 to <2 x float>
@@ -15509,14 +15509,14 @@ invoke.cont100:                                   ; preds = %if.end81
 
 if.then105:                                       ; preds = %invoke.cont100
   %112 = load ptr, ptr %39, align 8, !tbaa !4
-  %call.i.i425 = call nsz double @strtod(ptr nocapture noundef nonnull %112, ptr noundef null) #34
+  %call.i.i425 = call nsz double @strtod(ptr noundef nonnull captures(none) %112, ptr noundef null) #34
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
   %add.ptr.i427 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %113 = load ptr, ptr %add.ptr.i427, align 8, !tbaa !4
   %Y117 = getelementptr inbounds nuw i8, ptr %this, i64 580
   %114 = load <4 x i32>, ptr %imgsize, align 8
   %115 = shufflevector <4 x i32> %114, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i428 = call nsz double @strtod(ptr nocapture noundef nonnull %113, ptr noundef null) #34
+  %call.i.i428 = call nsz double @strtod(ptr noundef nonnull captures(none) %113, ptr noundef null) #34
   %116 = insertelement <2 x double> poison, double %call.i.i425, i64 0
   %117 = insertelement <2 x double> %116, double %call.i.i428, i64 1
   %118 = fptrunc <2 x double> %117 to <2 x float>
@@ -16353,7 +16353,7 @@ ehcleanup250:                                     ; preds = %ehcleanup246, %ehcl
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu15parseMiddleRectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr4core4rectIiEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr nocapture noundef writeonly %parsed_rect) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu15parseMiddleRectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr4core4rectIiEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef writeonly captures(none) %parsed_rect) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v_rect = alloca %"class.std::vector.165", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %v_rect) #34
@@ -16373,7 +16373,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %1, align 8, !tbaa !4
-  %call.i.i = call i64 @strtol(ptr nocapture noundef nonnull %2, ptr noundef null, i32 noundef 10) #34
+  %call.i.i = call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #34
   %ref.tmp.sroa.4.0.insert.ext = and i64 %call.i.i, 4294967295
   %ref.tmp.sroa.0.0.insert.insert = mul nuw i64 %ref.tmp.sroa.4.0.insert.ext, 4294967297
   %sub = sub i64 0, %call.i.i
@@ -16383,11 +16383,11 @@ if.then:                                          ; preds = %entry
 
 if.then12:                                        ; preds = %entry
   %3 = load ptr, ptr %1, align 8, !tbaa !4
-  %call.i.i92 = call i64 @strtol(ptr nocapture noundef nonnull %3, ptr noundef null, i32 noundef 10) #34
+  %call.i.i92 = call i64 @strtol(ptr noundef nonnull captures(none) %3, ptr noundef null, i32 noundef 10) #34
   %4 = load ptr, ptr %v_rect, align 8, !tbaa !189
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %5 = load ptr, ptr %add.ptr.i, align 8, !tbaa !4
-  %call.i.i94 = call i64 @strtol(ptr nocapture noundef nonnull %5, ptr noundef null, i32 noundef 10) #34
+  %call.i.i94 = call i64 @strtol(ptr noundef nonnull captures(none) %5, ptr noundef null, i32 noundef 10) #34
   %ref.tmp22.sroa.4.0.insert.ext = shl i64 %call.i.i94, 32
   %ref.tmp22.sroa.0.0.insert.ext = and i64 %call.i.i92, 4294967295
   %ref.tmp22.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp22.sroa.4.0.insert.ext, %ref.tmp22.sroa.0.0.insert.ext
@@ -16399,22 +16399,22 @@ if.then12:                                        ; preds = %entry
 
 if.then39:                                        ; preds = %entry
   %6 = load ptr, ptr %1, align 8, !tbaa !4
-  %call.i.i103 = call i64 @strtol(ptr nocapture noundef nonnull %6, ptr noundef null, i32 noundef 10) #34
+  %call.i.i103 = call i64 @strtol(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 10) #34
   %7 = load ptr, ptr %v_rect, align 8, !tbaa !189
   %add.ptr.i105 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %8 = load ptr, ptr %add.ptr.i105, align 8, !tbaa !4
-  %call.i.i106 = call i64 @strtol(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 10) #34
+  %call.i.i106 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 10) #34
   %ref.tmp40.sroa.4.0.insert.ext = shl i64 %call.i.i106, 32
   %ref.tmp40.sroa.0.0.insert.ext = and i64 %call.i.i103, 4294967295
   %ref.tmp40.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp40.sroa.4.0.insert.ext, %ref.tmp40.sroa.0.0.insert.ext
   %9 = load ptr, ptr %v_rect, align 8, !tbaa !189
   %add.ptr.i109 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %10 = load ptr, ptr %add.ptr.i109, align 8, !tbaa !4
-  %call.i.i110 = call i64 @strtol(ptr nocapture noundef nonnull %10, ptr noundef null, i32 noundef 10) #34
+  %call.i.i110 = call i64 @strtol(ptr noundef nonnull captures(none) %10, ptr noundef null, i32 noundef 10) #34
   %11 = load ptr, ptr %v_rect, align 8, !tbaa !189
   %add.ptr.i112 = getelementptr inbounds nuw i8, ptr %11, i64 96
   %12 = load ptr, ptr %add.ptr.i112, align 8, !tbaa !4
-  %call.i.i113 = call i64 @strtol(ptr nocapture noundef nonnull %12, ptr noundef null, i32 noundef 10) #34
+  %call.i.i113 = call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #34
   %ref.tmp51.sroa.4.0.insert.ext = shl i64 %call.i.i113, 32
   %ref.tmp51.sroa.0.0.insert.ext = and i64 %call.i.i110, 4294967295
   %ref.tmp51.sroa.0.0.insert.insert = or disjoint i64 %ref.tmp51.sroa.4.0.insert.ext, %ref.tmp51.sroa.0.0.insert.ext
@@ -16587,7 +16587,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare void @_ZN16GUIAnimatedImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(368), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu18parseAnimatedImageEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu18parseAnimatedImageEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i257 = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -16823,11 +16823,11 @@ if.then.i.i29.i:                                  ; preds = %ehcleanup.i
 invoke.cont18:                                    ; preds = %for.inc.i, %if.then.i, %for.cond.preheader.i
   %add.ptr.i271 = getelementptr inbounds nuw i8, ptr %.pre, i64 128
   %31 = load ptr, ptr %add.ptr.i271, align 8, !tbaa !4
-  %call.i.i272 = call i64 @strtol(ptr nocapture noundef nonnull %31, ptr noundef null, i32 noundef 10) #34
+  %call.i.i272 = call i64 @strtol(ptr noundef nonnull captures(none) %31, ptr noundef null, i32 noundef 10) #34
   %conv.i.i = trunc i64 %call.i.i272 to i32
   %add.ptr.i273 = getelementptr inbounds nuw i8, ptr %.pre, i64 160
   %32 = load ptr, ptr %add.ptr.i273, align 8, !tbaa !4
-  %call.i.i274 = call i64 @strtol(ptr nocapture noundef nonnull %32, ptr noundef null, i32 noundef 10) #34
+  %call.i.i274 = call i64 @strtol(ptr noundef nonnull captures(none) %32, ptr noundef null, i32 noundef 10) #34
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %v_pos, i64 8
   %33 = load ptr, ptr %_M_finish.i, align 8, !tbaa !190
   %34 = load ptr, ptr %v_pos, align 8, !tbaa !189
@@ -17095,7 +17095,7 @@ if.end59:                                         ; preds = %if.end42
 
 invoke.cont72:                                    ; preds = %if.end59
   %67 = load ptr, ptr %34, align 8, !tbaa !4
-  %call.i.i.i346 = call nsz double @strtod(ptr nocapture noundef nonnull %67, ptr noundef null) #34
+  %call.i.i.i346 = call nsz double @strtod(ptr noundef nonnull captures(none) %67, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %68 = load <4 x float>, ptr %pos_offset.i, align 8
   %69 = shufflevector <4 x float> %68, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -17107,7 +17107,7 @@ invoke.cont72:                                    ; preds = %if.end59
   %Y10.i = getelementptr inbounds nuw i8, ptr %this, i64 580
   %72 = load <4 x i32>, ptr %imgsize.i, align 8
   %73 = shufflevector <4 x i32> %72, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %71, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %71, ptr noundef null) #34
   %74 = insertelement <2 x double> poison, double %call.i.i.i346, i64 0
   %75 = insertelement <2 x double> %74, double %call.i.i15.i, i64 1
   %76 = fptrunc <2 x double> %75 to <2 x float>
@@ -17120,7 +17120,7 @@ invoke.cont72:                                    ; preds = %if.end59
   %83 = fmul nsz <2 x float> %79, %82
   %84 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %85 = load ptr, ptr %84, align 8, !tbaa !4
-  %call.i.i.i349 = call nsz double @strtod(ptr nocapture noundef nonnull %85, ptr noundef null) #34
+  %call.i.i.i349 = call nsz double @strtod(ptr noundef nonnull captures(none) %85, ptr noundef null) #34
   %conv.i.i350 = fptrunc double %call.i.i.i349 to float
   %86 = load i32, ptr %imgsize.i, align 8, !tbaa !263
   %conv.i352 = sitofp i32 %86 to float
@@ -17128,7 +17128,7 @@ invoke.cont72:                                    ; preds = %if.end59
   %87 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i354 = getelementptr inbounds nuw i8, ptr %87, i64 32
   %88 = load ptr, ptr %add.ptr.i.i354, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %88, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %88, ptr noundef null) #34
   br label %if.end93
 
 lpad62:                                           ; preds = %call1.i.noexc664, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i653, %.noexc662, %if.end.i.i.i656, %if.then.i.i.i660, %if.then.i.i381, %_ZTW13warningstream.exit
@@ -17148,13 +17148,13 @@ invoke.cont77:                                    ; preds = %if.end59
   %94 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %95 = fmul nsz <2 x float> %93, %94
   %96 = fadd nsz <2 x float> %95, %92
-  %call.i.i.i365 = call nsz double @strtod(ptr nocapture noundef nonnull %90, ptr noundef null) #34
+  %call.i.i.i365 = call nsz double @strtod(ptr noundef nonnull captures(none) %90, ptr noundef null) #34
   %97 = load <4 x float>, ptr %spacing.i, align 8
   %98 = shufflevector <4 x float> %97, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %99 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i367 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %100 = load ptr, ptr %add.ptr.i.i367, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %100, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %100, ptr noundef null) #34
   %101 = insertelement <2 x double> poison, double %call.i.i.i365, i64 0
   %102 = insertelement <2 x double> %101, double %call.i.i33.i, i64 1
   %103 = fptrunc <2 x double> %102 to <2 x float>
@@ -17163,7 +17163,7 @@ invoke.cont77:                                    ; preds = %if.end59
   %106 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %103, <2 x float> %105, <2 x float> %96)
   %107 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %108 = load ptr, ptr %107, align 8, !tbaa !4
-  %call.i.i372 = call nsz double @strtod(ptr nocapture noundef nonnull %108, ptr noundef null) #34
+  %call.i.i372 = call nsz double @strtod(ptr noundef nonnull captures(none) %108, ptr noundef null) #34
   %conv.i373 = fptrunc double %call.i.i372 to float
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
   %109 = load i32, ptr %imgsize, align 8, !tbaa !263
@@ -17172,7 +17172,7 @@ invoke.cont77:                                    ; preds = %if.end59
   %110 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i374 = getelementptr inbounds nuw i8, ptr %110, i64 32
   %111 = load ptr, ptr %add.ptr.i374, align 8, !tbaa !4
-  %call.i.i375 = call nsz double @strtod(ptr nocapture noundef nonnull %111, ptr noundef null) #34
+  %call.i.i375 = call nsz double @strtod(ptr noundef nonnull captures(none) %111, ptr noundef null) #34
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 580
   br label %if.end93
 
@@ -17451,7 +17451,7 @@ invoke.cont148:                                   ; preds = %invoke.cont140
 if.then151:                                       ; preds = %invoke.cont148
   %add.ptr.i462 = getelementptr inbounds nuw i8, ptr %.pre, i64 192
   %147 = load ptr, ptr %add.ptr.i462, align 8, !tbaa !4
-  %call.i.i463 = call i64 @strtol(ptr nocapture noundef nonnull %147, ptr noundef null, i32 noundef 10) #34
+  %call.i.i463 = call i64 @strtol(ptr noundef nonnull captures(none) %147, ptr noundef null, i32 noundef 10) #34
   %conv.i.i464 = trunc i64 %call.i.i463 to i32
   %148 = call i32 @llvm.smax.i32(i32 %conv.i.i464, i32 1)
   %.sroa.speculated.i465 = add nsw i32 %148, -1
@@ -18025,7 +18025,7 @@ ehcleanup214:                                     ; preds = %ehcleanup212, %ehcl
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu14parseItemImageEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu14parseItemImageEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i215 = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -18420,7 +18420,7 @@ if.end49:                                         ; preds = %if.end32
 
 invoke.cont62:                                    ; preds = %if.end49
   %48 = load ptr, ptr %15, align 8, !tbaa !4
-  %call.i.i.i293 = call nsz double @strtod(ptr nocapture noundef nonnull %48, ptr noundef null) #34
+  %call.i.i.i293 = call nsz double @strtod(ptr noundef nonnull captures(none) %48, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %49 = load <4 x float>, ptr %pos_offset.i, align 8
   %50 = shufflevector <4 x float> %49, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -18432,7 +18432,7 @@ invoke.cont62:                                    ; preds = %if.end49
   %Y10.i = getelementptr inbounds nuw i8, ptr %this, i64 580
   %53 = load <4 x i32>, ptr %imgsize.i, align 8
   %54 = shufflevector <4 x i32> %53, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %52, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %52, ptr noundef null) #34
   %55 = insertelement <2 x double> poison, double %call.i.i.i293, i64 0
   %56 = insertelement <2 x double> %55, double %call.i.i15.i, i64 1
   %57 = fptrunc <2 x double> %56 to <2 x float>
@@ -18445,7 +18445,7 @@ invoke.cont62:                                    ; preds = %if.end49
   %64 = fmul nsz <2 x float> %60, %63
   %65 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %66 = load ptr, ptr %65, align 8, !tbaa !4
-  %call.i.i.i295 = call nsz double @strtod(ptr nocapture noundef nonnull %66, ptr noundef null) #34
+  %call.i.i.i295 = call nsz double @strtod(ptr noundef nonnull captures(none) %66, ptr noundef null) #34
   %conv.i.i296 = fptrunc double %call.i.i.i295 to float
   %67 = load i32, ptr %imgsize.i, align 8, !tbaa !263
   %conv.i298 = sitofp i32 %67 to float
@@ -18453,7 +18453,7 @@ invoke.cont62:                                    ; preds = %if.end49
   %68 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i300 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %69 = load ptr, ptr %add.ptr.i.i300, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %69, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %69, ptr noundef null) #34
   br label %if.end83
 
 lpad52:                                           ; preds = %call1.i.noexc603, %_ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i592, %.noexc601, %if.end.i.i.i595, %if.then.i.i.i599, %if.then.i.i327, %_ZTW13warningstream.exit
@@ -18473,13 +18473,13 @@ invoke.cont67:                                    ; preds = %if.end49
   %75 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %76 = fmul nsz <2 x float> %74, %75
   %77 = fadd nsz <2 x float> %76, %73
-  %call.i.i.i311 = call nsz double @strtod(ptr nocapture noundef nonnull %71, ptr noundef null) #34
+  %call.i.i.i311 = call nsz double @strtod(ptr noundef nonnull captures(none) %71, ptr noundef null) #34
   %78 = load <4 x float>, ptr %spacing.i, align 8
   %79 = shufflevector <4 x float> %78, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %80 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i313 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %81 = load ptr, ptr %add.ptr.i.i313, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %81, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %81, ptr noundef null) #34
   %82 = insertelement <2 x double> poison, double %call.i.i.i311, i64 0
   %83 = insertelement <2 x double> %82, double %call.i.i33.i, i64 1
   %84 = fptrunc <2 x double> %83 to <2 x float>
@@ -18488,7 +18488,7 @@ invoke.cont67:                                    ; preds = %if.end49
   %87 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %84, <2 x float> %86, <2 x float> %77)
   %88 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %89 = load ptr, ptr %88, align 8, !tbaa !4
-  %call.i.i318 = call nsz double @strtod(ptr nocapture noundef nonnull %89, ptr noundef null) #34
+  %call.i.i318 = call nsz double @strtod(ptr noundef nonnull captures(none) %89, ptr noundef null) #34
   %conv.i319 = fptrunc double %call.i.i318 to float
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
   %90 = load i32, ptr %imgsize, align 8, !tbaa !263
@@ -18497,7 +18497,7 @@ invoke.cont67:                                    ; preds = %if.end49
   %91 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i320 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %92 = load ptr, ptr %add.ptr.i320, align 8, !tbaa !4
-  %call.i.i321 = call nsz double @strtod(ptr nocapture noundef nonnull %92, ptr noundef null) #34
+  %call.i.i321 = call nsz double @strtod(ptr noundef nonnull captures(none) %92, ptr noundef null) #34
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 580
   br label %if.end83
 
@@ -19299,7 +19299,7 @@ ehcleanup179:                                     ; preds = %ehcleanup177, %ehcl
 declare void @_ZN12GUIItemImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_8IGUIFontEP6Client(ptr noundef nonnull align 8 dereferenceable(392), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu11parseButtonEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element, ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu11parseButtonEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element, ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %__dnew.i.i318 = alloca i64, align 8
@@ -19786,7 +19786,7 @@ invoke.cont70:                                    ; preds = %if.end47
 
 invoke.cont89:                                    ; preds = %invoke.cont70
   %59 = load ptr, ptr %30, align 8, !tbaa !4
-  %call.i.i.i406 = call nsz double @strtod(ptr nocapture noundef nonnull %59, ptr noundef null) #34
+  %call.i.i.i406 = call nsz double @strtod(ptr noundef nonnull captures(none) %59, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %imgsize.i = getelementptr inbounds nuw i8, ptr %this, i64 576
   %60 = load ptr, ptr %v_pos, align 8, !tbaa !189
@@ -19798,7 +19798,7 @@ invoke.cont89:                                    ; preds = %invoke.cont70
   %63 = shufflevector <4 x float> %62, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %64 = load <4 x i32>, ptr %imgsize.i, align 8
   %65 = shufflevector <4 x i32> %64, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %61, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %61, ptr noundef null) #34
   %66 = insertelement <2 x double> poison, double %call.i.i.i406, i64 0
   %67 = insertelement <2 x double> %66, double %call.i.i15.i, i64 1
   %68 = fptrunc <2 x double> %67 to <2 x float>
@@ -19812,13 +19812,13 @@ invoke.cont89:                                    ; preds = %invoke.cont70
   %76 = fptosi <2 x float> %75 to <2 x i32>
   %77 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %78 = load ptr, ptr %77, align 8, !tbaa !4
-  %call.i.i.i408 = call nsz double @strtod(ptr nocapture noundef nonnull %78, ptr noundef null) #34
+  %call.i.i.i408 = call nsz double @strtod(ptr noundef nonnull captures(none) %78, ptr noundef null) #34
   %79 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i413 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %80 = load ptr, ptr %add.ptr.i.i413, align 8, !tbaa !4
   %81 = load <4 x i32>, ptr %imgsize.i, align 8
   %82 = shufflevector <4 x i32> %81, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %80, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %80, ptr noundef null) #34
   %83 = insertelement <2 x double> poison, double %call.i.i.i408, i64 0
   %84 = insertelement <2 x double> %83, double %call.i.i11.i, i64 1
   %85 = fptrunc <2 x double> %84 to <2 x float>
@@ -19855,14 +19855,14 @@ invoke.cont127:                                   ; preds = %invoke.cont70
   %add.i.i = fadd nsz float %mul.i.i, %conv.i419
   %add4.i.i = fadd nsz float %mul4.i.i, %conv3.i421
   %99 = load ptr, ptr %30, align 8, !tbaa !4
-  %call.i.i.i424 = call nsz double @strtod(ptr nocapture noundef nonnull %99, ptr noundef null) #34
+  %call.i.i.i424 = call nsz double @strtod(ptr noundef nonnull captures(none) %99, ptr noundef null) #34
   %conv.i.i425 = fptrunc double %call.i.i.i424 to float
   %100 = load float, ptr %spacing.i, align 8, !tbaa !368
   %101 = call nsz float @llvm.fmuladd.f32(float %conv.i.i425, float %100, float %add.i.i)
   %102 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i426 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %103 = load ptr, ptr %add.ptr.i.i426, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %103, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %103, ptr noundef null) #34
   %conv.i34.i = fptrunc double %call.i.i33.i to float
   %104 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %105 = call nsz float @llvm.fmuladd.f32(float %conv.i34.i, float %104, float %add4.i.i)
@@ -19870,7 +19870,7 @@ invoke.cont127:                                   ; preds = %invoke.cont70
   %conv19.i = fptosi float %105 to i32
   %106 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %107 = load ptr, ptr %106, align 8, !tbaa !4
-  %call.i.i431 = call nsz double @strtod(ptr nocapture noundef nonnull %107, ptr noundef null) #34
+  %call.i.i431 = call nsz double @strtod(ptr noundef nonnull captures(none) %107, ptr noundef null) #34
   %conv.i432 = fptrunc double %call.i.i431 to float
   %108 = load float, ptr %spacing.i, align 8, !tbaa !368
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
@@ -19881,7 +19881,7 @@ invoke.cont127:                                   ; preds = %invoke.cont70
   %111 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i433 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %112 = load ptr, ptr %add.ptr.i433, align 8, !tbaa !4
-  %call.i.i434 = call nsz double @strtod(ptr nocapture noundef nonnull %112, ptr noundef null) #34
+  %call.i.i434 = call nsz double @strtod(ptr noundef nonnull captures(none) %112, ptr noundef null) #34
   %conv.i435 = fptrunc double %call.i.i434 to float
   %Y110 = getelementptr inbounds nuw i8, ptr %this, i64 580
   %113 = load i32, ptr %Y110, align 4, !tbaa !265
@@ -21364,7 +21364,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu15parseBackgroundEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu15parseBackgroundEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21810,7 +21810,7 @@ if.end49:                                         ; preds = %if.end32
 
 invoke.cont62:                                    ; preds = %if.end49
   %56 = load ptr, ptr %24, align 8, !tbaa !4
-  %call.i.i.i338 = call nsz double @strtod(ptr nocapture noundef nonnull %56, ptr noundef null) #34
+  %call.i.i.i338 = call nsz double @strtod(ptr noundef nonnull captures(none) %56, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %57 = load <4 x float>, ptr %pos_offset.i, align 8
   %58 = shufflevector <4 x float> %57, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -21821,7 +21821,7 @@ invoke.cont62:                                    ; preds = %if.end49
   %Y10.i = getelementptr inbounds nuw i8, ptr %this, i64 580
   %61 = load <4 x i32>, ptr %imgsize, align 8
   %62 = shufflevector <4 x i32> %61, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %60, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %60, ptr noundef null) #34
   %63 = insertelement <2 x double> poison, double %call.i.i.i338, i64 0
   %64 = insertelement <2 x double> %63, double %call.i.i15.i, i64 1
   %65 = fptrunc <2 x double> %64 to <2 x float>
@@ -21834,13 +21834,13 @@ invoke.cont62:                                    ; preds = %if.end49
   %72 = fmul nsz <2 x float> %68, %71
   %73 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %74 = load ptr, ptr %73, align 8, !tbaa !4
-  %call.i.i.i340 = call nsz double @strtod(ptr nocapture noundef nonnull %74, ptr noundef null) #34
+  %call.i.i.i340 = call nsz double @strtod(ptr noundef nonnull captures(none) %74, ptr noundef null) #34
   %75 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i345 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %76 = load ptr, ptr %add.ptr.i.i345, align 8, !tbaa !4
   %77 = load <4 x i32>, ptr %imgsize, align 8
   %78 = shufflevector <4 x i32> %77, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %76, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %76, ptr noundef null) #34
   %79 = insertelement <2 x double> poison, double %call.i.i.i340, i64 0
   %80 = insertelement <2 x double> %79, double %call.i.i11.i, i64 1
   %81 = fptrunc <2 x double> %80 to <2 x float>
@@ -21862,13 +21862,13 @@ invoke.cont67:                                    ; preds = %if.end49
   %90 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %91 = fmul nsz <2 x float> %89, %90
   %92 = fadd nsz <2 x float> %91, %88
-  %call.i.i.i356 = call nsz double @strtod(ptr nocapture noundef nonnull %86, ptr noundef null) #34
+  %call.i.i.i356 = call nsz double @strtod(ptr noundef nonnull captures(none) %86, ptr noundef null) #34
   %93 = load <4 x float>, ptr %spacing.i, align 8
   %94 = shufflevector <4 x float> %93, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %95 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i358 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %96 = load ptr, ptr %add.ptr.i.i358, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %96, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %96, ptr noundef null) #34
   %97 = insertelement <2 x double> poison, double %call.i.i.i356, i64 0
   %98 = insertelement <2 x double> %97, double %call.i.i33.i, i64 1
   %99 = fptrunc <2 x double> %98 to <2 x float>
@@ -21884,13 +21884,13 @@ invoke.cont67:                                    ; preds = %if.end49
   %109 = fsub nsz <2 x float> %108, %107
   %110 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %111 = load ptr, ptr %110, align 8, !tbaa !4
-  %call.i.i363 = call nsz double @strtod(ptr nocapture noundef nonnull %111, ptr noundef null) #34
+  %call.i.i363 = call nsz double @strtod(ptr noundef nonnull captures(none) %111, ptr noundef null) #34
   %112 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i365 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %113 = load ptr, ptr %add.ptr.i365, align 8, !tbaa !4
   %114 = load <4 x float>, ptr %spacing.i, align 8
   %115 = shufflevector <4 x float> %114, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i366 = call nsz double @strtod(ptr nocapture noundef nonnull %113, ptr noundef null) #34
+  %call.i.i366 = call nsz double @strtod(ptr noundef nonnull captures(none) %113, ptr noundef null) #34
   %116 = insertelement <2 x double> poison, double %call.i.i363, i64 0
   %117 = insertelement <2 x double> %116, double %call.i.i366, i64 1
   %118 = fptrunc <2 x double> %117 to <2 x float>
@@ -21952,11 +21952,11 @@ lpad105:                                          ; preds = %land.lhs.true
 if.else125:                                       ; preds = %if.then108
   %137 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %138 = load ptr, ptr %137, align 8, !tbaa !4
-  %call.i.i382 = call i64 @strtol(ptr nocapture noundef nonnull %138, ptr noundef null, i32 noundef 10) #34
+  %call.i.i382 = call i64 @strtol(ptr noundef nonnull captures(none) %138, ptr noundef null, i32 noundef 10) #34
   %139 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i384 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %140 = load ptr, ptr %add.ptr.i384, align 8, !tbaa !4
-  %call.i.i385 = call i64 @strtol(ptr nocapture noundef nonnull %140, ptr noundef null, i32 noundef 10) #34
+  %call.i.i385 = call i64 @strtol(ptr noundef nonnull captures(none) %140, ptr noundef null, i32 noundef 10) #34
   %141 = insertelement <2 x i64> poison, i64 %call.i.i382, i64 0
   %142 = insertelement <2 x i64> %141, i64 %call.i.i385, i64 1
   %143 = trunc <2 x i64> %142 to <2 x i32>
@@ -22691,7 +22691,7 @@ lor.lhs.false5:                                   ; preds = %lor.lhs.false
 
 lor.rhs:                                          ; preds = %lor.lhs.false5
   %8 = load ptr, ptr %s2, align 8, !tbaa !4
-  %call.i20 = call i64 @strtol(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 10) #34
+  %call.i20 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 10) #34
   %9 = and i64 %call.i20, 4294967295
   %cmp = icmp ne i64 %9, 0
   br label %lor.end
@@ -22720,7 +22720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 declare void @_ZN18GUIBackgroundImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_P20ISimpleTextureSourcebNS6_8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(380), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, i1 noundef zeroext, i64) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu17parseTableOptionsEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu17parseTableOptionsEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %opt = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23160,7 +23160,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu17parseTableColumnsEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu17parseTableColumnsEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %col_parts = alloca %"class.std::vector.165", align 8
@@ -24415,7 +24415,7 @@ if.end59:                                         ; preds = %if.end42
 
 invoke.cont72:                                    ; preds = %if.end59
   %51 = load ptr, ptr %22, align 8, !tbaa !4
-  %call.i.i.i388 = call nsz double @strtod(ptr nocapture noundef nonnull %51, ptr noundef null) #34
+  %call.i.i.i388 = call nsz double @strtod(ptr noundef nonnull captures(none) %51, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %imgsize.i = getelementptr inbounds nuw i8, ptr %this, i64 576
   %52 = load i32, ptr %imgsize.i, align 8, !tbaa !263
@@ -24425,7 +24425,7 @@ invoke.cont72:                                    ; preds = %if.end59
   %Y.i389 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %55 = load <4 x float>, ptr %pos_offset.i, align 8
   %56 = shufflevector <4 x float> %55, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %54, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %54, ptr noundef null) #34
   %57 = insertelement <2 x double> poison, double %call.i.i.i388, i64 0
   %58 = insertelement <2 x double> %57, double %call.i.i15.i, i64 1
   %59 = fptrunc <2 x double> %58 to <2 x float>
@@ -24436,12 +24436,12 @@ invoke.cont72:                                    ; preds = %if.end59
   %63 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %64 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %65 = load ptr, ptr %64, align 8, !tbaa !4
-  %call.i.i.i390 = call nsz double @strtod(ptr nocapture noundef nonnull %65, ptr noundef null) #34
+  %call.i.i.i390 = call nsz double @strtod(ptr noundef nonnull captures(none) %65, ptr noundef null) #34
   %66 = load <4 x i32>, ptr %imgsize.i, align 8
   %67 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i395 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %68 = load ptr, ptr %add.ptr.i.i395, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %68, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %68, ptr noundef null) #34
   %69 = insertelement <2 x double> poison, double %call.i.i.i390, i64 0
   %70 = insertelement <2 x double> %69, double %call.i.i11.i, i64 1
   %71 = fptrunc <2 x double> %70 to <2 x float>
@@ -24466,13 +24466,13 @@ invoke.cont77:                                    ; preds = %if.end59
   %83 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %84 = fmul nsz <2 x float> %82, %83
   %85 = fadd nsz <2 x float> %84, %81
-  %call.i.i.i406 = call nsz double @strtod(ptr nocapture noundef nonnull %79, ptr noundef null) #34
+  %call.i.i.i406 = call nsz double @strtod(ptr noundef nonnull captures(none) %79, ptr noundef null) #34
   %86 = load <4 x float>, ptr %spacing.i, align 8
   %87 = shufflevector <4 x float> %86, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %88 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i408 = getelementptr inbounds nuw i8, ptr %88, i64 32
   %89 = load ptr, ptr %add.ptr.i.i408, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %89, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %89, ptr noundef null) #34
   %90 = insertelement <2 x double> poison, double %call.i.i.i406, i64 0
   %91 = insertelement <2 x double> %90, double %call.i.i33.i, i64 1
   %92 = fptrunc <2 x double> %91 to <2 x float>
@@ -24481,13 +24481,13 @@ invoke.cont77:                                    ; preds = %if.end59
   %95 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %92, <2 x float> %94, <2 x float> %85)
   %96 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %97 = load ptr, ptr %96, align 8, !tbaa !4
-  %call.i.i413 = call nsz double @strtod(ptr nocapture noundef nonnull %97, ptr noundef null) #34
+  %call.i.i413 = call nsz double @strtod(ptr noundef nonnull captures(none) %97, ptr noundef null) #34
   %98 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i415 = getelementptr inbounds nuw i8, ptr %98, i64 32
   %99 = load ptr, ptr %add.ptr.i415, align 8, !tbaa !4
   %100 = load <4 x float>, ptr %spacing.i, align 8
   %101 = shufflevector <4 x float> %100, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i416 = call nsz double @strtod(ptr nocapture noundef nonnull %99, ptr noundef null) #34
+  %call.i.i416 = call nsz double @strtod(ptr noundef nonnull captures(none) %99, ptr noundef null) #34
   %102 = insertelement <2 x double> poison, double %call.i.i413, i64 0
   %103 = insertelement <2 x double> %102, double %call.i.i416, i64 1
   %104 = fptrunc <2 x double> %103 to <2 x float>
@@ -25124,7 +25124,7 @@ land.lhs.true:                                    ; preds = %if.end188
 if.then192:                                       ; preds = %land.lhs.true
   %210 = load ptr, ptr %e, align 8, !tbaa !182
   %211 = load ptr, ptr %str_initial_selection, align 8, !tbaa !4
-  %call.i.i555 = call i64 @strtol(ptr nocapture noundef nonnull %211, ptr noundef null, i32 noundef 10) #34
+  %call.i.i555 = call i64 @strtol(ptr noundef nonnull captures(none) %211, ptr noundef null, i32 noundef 10) #34
   %conv.i.i556 = trunc i64 %call.i.i555 to i32
   invoke void @_ZN8GUITable11setSelectedEi(ptr noundef nonnull align 8 dereferenceable(608) %210, i32 noundef %conv.i.i556)
           to label %if.end196 unwind label %lpad155
@@ -25850,7 +25850,7 @@ invoke.cont35:                                    ; preds = %if.end.i.i.i.i.i.i,
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !149
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #34, !noalias !437
   %23 = load ptr, ptr %new_size, align 8, !tbaa !4
-  %call.i.i = call nsz double @strtod(ptr nocapture noundef nonnull %23, ptr noundef null) #34
+  %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %23, ptr noundef null) #34
   %24 = load ptr, ptr @g_fontengine, align 8, !tbaa !182
   %call40 = invoke noundef i32 @_ZN10FontEngine11getFontSizeE8FontMode(ptr noundef nonnull align 8 dereferenceable(638) %24, i8 noundef zeroext %spec.sroa.6.0.lcssa)
           to label %invoke.cont39 unwind label %lpad38
@@ -25906,7 +25906,7 @@ ehcleanup:                                        ; preds = %if.then.i.i117, %_Z
   br label %ehcleanup73
 
 if.then50:                                        ; preds = %if.then30, %if.then30
-  %call.i.i122 = call i64 @strtol(ptr nocapture noundef nonnull %15, ptr noundef null, i32 noundef 10) #34
+  %call.i.i122 = call i64 @strtol(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #34
   %31 = load ptr, ptr @g_fontengine, align 8, !tbaa !182
   %call55 = invoke noundef i32 @_ZN10FontEngine11getFontSizeE8FontMode(ptr noundef nonnull align 8 dereferenceable(638) %31, i8 noundef zeroext %spec.sroa.6.0.lcssa)
           to label %invoke.cont54 unwind label %lpad53
@@ -25922,7 +25922,7 @@ lpad53:                                           ; preds = %if.then50
   br label %ehcleanup73
 
 if.else56:                                        ; preds = %if.then30
-  %call.i.i123 = call i64 @strtol(ptr nocapture noundef nonnull %15, ptr noundef null, i32 noundef 10) #34
+  %call.i.i123 = call i64 @strtol(ptr noundef nonnull captures(none) %15, ptr noundef null, i32 noundef 10) #34
   %conv.i.i124 = trunc i64 %call.i.i123 to i32
   br label %if.end59
 
@@ -26462,7 +26462,7 @@ if.end71:                                         ; preds = %if.end54
 
 invoke.cont84:                                    ; preds = %if.end71
   %52 = load ptr, ptr %23, align 8, !tbaa !4
-  %call.i.i.i426 = call nsz double @strtod(ptr nocapture noundef nonnull %52, ptr noundef null) #34
+  %call.i.i.i426 = call nsz double @strtod(ptr noundef nonnull captures(none) %52, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %imgsize.i = getelementptr inbounds nuw i8, ptr %this, i64 576
   %53 = load i32, ptr %imgsize.i, align 8, !tbaa !263
@@ -26472,7 +26472,7 @@ invoke.cont84:                                    ; preds = %if.end71
   %Y.i427 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %56 = load <4 x float>, ptr %pos_offset.i, align 8
   %57 = shufflevector <4 x float> %56, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %55, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %55, ptr noundef null) #34
   %58 = insertelement <2 x double> poison, double %call.i.i.i426, i64 0
   %59 = insertelement <2 x double> %58, double %call.i.i15.i, i64 1
   %60 = fptrunc <2 x double> %59 to <2 x float>
@@ -26483,12 +26483,12 @@ invoke.cont84:                                    ; preds = %if.end71
   %64 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %65 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %66 = load ptr, ptr %65, align 8, !tbaa !4
-  %call.i.i.i428 = call nsz double @strtod(ptr nocapture noundef nonnull %66, ptr noundef null) #34
+  %call.i.i.i428 = call nsz double @strtod(ptr noundef nonnull captures(none) %66, ptr noundef null) #34
   %67 = load <4 x i32>, ptr %imgsize.i, align 8
   %68 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i433 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %69 = load ptr, ptr %add.ptr.i.i433, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %69, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %69, ptr noundef null) #34
   %70 = insertelement <2 x double> poison, double %call.i.i.i428, i64 0
   %71 = insertelement <2 x double> %70, double %call.i.i11.i, i64 1
   %72 = fptrunc <2 x double> %71 to <2 x float>
@@ -26513,13 +26513,13 @@ invoke.cont89:                                    ; preds = %if.end71
   %84 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %85 = fmul nsz <2 x float> %83, %84
   %86 = fadd nsz <2 x float> %85, %82
-  %call.i.i.i444 = call nsz double @strtod(ptr nocapture noundef nonnull %80, ptr noundef null) #34
+  %call.i.i.i444 = call nsz double @strtod(ptr noundef nonnull captures(none) %80, ptr noundef null) #34
   %87 = load <4 x float>, ptr %spacing.i, align 8
   %88 = shufflevector <4 x float> %87, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %89 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i446 = getelementptr inbounds nuw i8, ptr %89, i64 32
   %90 = load ptr, ptr %add.ptr.i.i446, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %90, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %90, ptr noundef null) #34
   %91 = insertelement <2 x double> poison, double %call.i.i.i444, i64 0
   %92 = insertelement <2 x double> %91, double %call.i.i33.i, i64 1
   %93 = fptrunc <2 x double> %92 to <2 x float>
@@ -26528,13 +26528,13 @@ invoke.cont89:                                    ; preds = %if.end71
   %96 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %93, <2 x float> %95, <2 x float> %86)
   %97 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %98 = load ptr, ptr %97, align 8, !tbaa !4
-  %call.i.i451 = call nsz double @strtod(ptr nocapture noundef nonnull %98, ptr noundef null) #34
+  %call.i.i451 = call nsz double @strtod(ptr noundef nonnull captures(none) %98, ptr noundef null) #34
   %99 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i453 = getelementptr inbounds nuw i8, ptr %99, i64 32
   %100 = load ptr, ptr %add.ptr.i453, align 8, !tbaa !4
   %101 = load <4 x float>, ptr %spacing.i, align 8
   %102 = shufflevector <4 x float> %101, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i454 = call nsz double @strtod(ptr nocapture noundef nonnull %100, ptr noundef null) #34
+  %call.i.i454 = call nsz double @strtod(ptr noundef nonnull captures(none) %100, ptr noundef null) #34
   %103 = insertelement <2 x double> poison, double %call.i.i451, i64 0
   %104 = insertelement <2 x double> %103, double %call.i.i454, i64 1
   %105 = fptrunc <2 x double> %104 to <2 x float>
@@ -27175,7 +27175,7 @@ land.lhs.true:                                    ; preds = %if.end204
 if.then208:                                       ; preds = %land.lhs.true
   %213 = load ptr, ptr %e, align 8, !tbaa !182
   %214 = load ptr, ptr %str_initial_selection, align 8, !tbaa !4
-  %call.i.i596 = call i64 @strtol(ptr nocapture noundef nonnull %214, ptr noundef null, i32 noundef 10) #34
+  %call.i.i596 = call i64 @strtol(ptr noundef nonnull captures(none) %214, ptr noundef null, i32 noundef 10) #34
   %conv.i.i597 = trunc i64 %call.i.i596 to i32
   invoke void @_ZN8GUITable11setSelectedEi(ptr noundef nonnull align 8 dereferenceable(608) %213, i32 noundef %conv.i.i597)
           to label %if.end212 unwind label %lpad167
@@ -27779,7 +27779,7 @@ ehcleanup276:                                     ; preds = %ehcleanup274, %ehcl
 declare void @_ZN8GUITable11setTextListERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEb(ptr noundef nonnull align 8 dereferenceable(608), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu13parseDropDownEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu13parseDropDownEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string.5", align 8
@@ -28339,7 +28339,7 @@ call1.i.noexc968:                                 ; preds = %_ZNKSt9basic_iosIcS
 invoke.cont97:                                    ; preds = %if.end62
   %62 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %63 = load ptr, ptr %62, align 8, !tbaa !4
-  %call.i.i.i465 = call nsz double @strtod(ptr nocapture noundef nonnull %63, ptr noundef null) #34
+  %call.i.i.i465 = call nsz double @strtod(ptr noundef nonnull captures(none) %63, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %imgsize.i = getelementptr inbounds nuw i8, ptr %this, i64 576
   %64 = load ptr, ptr %v_pos, align 8, !tbaa !189
@@ -28352,7 +28352,7 @@ invoke.cont97:                                    ; preds = %if.end62
   %67 = shufflevector <4 x float> %66, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %68 = load <4 x i32>, ptr %imgsize.i, align 8
   %69 = shufflevector <4 x i32> %68, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %65, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %65, ptr noundef null) #34
   %70 = insertelement <2 x double> poison, double %call.i.i.i465, i64 0
   %71 = insertelement <2 x double> %70, double %call.i.i15.i, i64 1
   %72 = fptrunc <2 x double> %71 to <2 x float>
@@ -28366,13 +28366,13 @@ invoke.cont97:                                    ; preds = %if.end62
   %80 = fptosi <2 x float> %79 to <2 x i32>
   %81 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %82 = load ptr, ptr %81, align 8, !tbaa !4
-  %call.i.i.i467 = call nsz double @strtod(ptr nocapture noundef nonnull %82, ptr noundef null) #34
+  %call.i.i.i467 = call nsz double @strtod(ptr noundef nonnull captures(none) %82, ptr noundef null) #34
   %83 = load <4 x i32>, ptr %imgsize.i, align 8
   %84 = shufflevector <4 x i32> %83, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
   %85 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i472 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %86 = load ptr, ptr %add.ptr.i.i472, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %86, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %86, ptr noundef null) #34
   %87 = insertelement <2 x double> poison, double %call.i.i.i467, i64 0
   %88 = insertelement <2 x double> %87, double %call.i.i11.i, i64 1
   %89 = fptrunc <2 x double> %88 to <2 x float>
@@ -28452,13 +28452,13 @@ invoke.cont121:                                   ; preds = %invoke.cont51
   %106 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %107 = fmul nsz <2 x float> %105, %106
   %108 = fadd nsz <2 x float> %107, %104
-  %call.i.i.i485 = call nsz double @strtod(ptr nocapture noundef nonnull %102, ptr noundef null) #34
+  %call.i.i.i485 = call nsz double @strtod(ptr noundef nonnull captures(none) %102, ptr noundef null) #34
   %109 = load <4 x float>, ptr %spacing.i, align 8
   %110 = shufflevector <4 x float> %109, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %111 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i487 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %112 = load ptr, ptr %add.ptr.i.i487, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %112, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %112, ptr noundef null) #34
   %113 = insertelement <2 x double> poison, double %call.i.i.i485, i64 0
   %114 = insertelement <2 x double> %113, double %call.i.i33.i, i64 1
   %115 = fptrunc <2 x double> %114 to <2 x float>
@@ -28467,7 +28467,7 @@ invoke.cont121:                                   ; preds = %invoke.cont51
   %118 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %115, <2 x float> %117, <2 x float> %108)
   %119 = fptosi <2 x float> %118 to <2 x i32>
   %120 = load ptr, ptr %add.ptr.i492, align 8, !tbaa !4
-  %call.i.i493 = call nsz double @strtod(ptr nocapture noundef nonnull %120, ptr noundef null) #34
+  %call.i.i493 = call nsz double @strtod(ptr noundef nonnull captures(none) %120, ptr noundef null) #34
   %conv.i494 = fptrunc double %call.i.i493 to float
   %121 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %mul = fmul nsz float %121, %conv.i494
@@ -28942,7 +28942,7 @@ ehcleanup183:                                     ; preds = %if.then.i.i622, %_Z
 
 if.then195:                                       ; preds = %for.cond.cleanup
   %199 = load ptr, ptr %str_initial_selection, align 8, !tbaa !4
-  %call.i.i628 = call i64 @strtol(ptr nocapture noundef nonnull %199, ptr noundef null, i32 noundef 10) #34
+  %call.i.i628 = call i64 @strtol(ptr noundef nonnull captures(none) %199, ptr noundef null, i32 noundef 10) #34
   %conv.i.i629 = trunc i64 %call.i.i628 to i32
   %sub = add nsw i32 %conv.i.i629, -1
   %vtable198 = load ptr, ptr %call148, align 8, !tbaa !12
@@ -29904,10 +29904,10 @@ ehcleanup305:                                     ; preds = %ehcleanup303, %ehcl
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu24parseFieldEnterAfterEditEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture readnone %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu24parseFieldEnterAfterEditEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr readnone captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -30055,7 +30055,7 @@ ehcleanup15:                                      ; preds = %lpad9, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu22parseFieldCloseOnEnterEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture readnone %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu22parseFieldCloseOnEnterEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr readnone captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -30203,7 +30203,7 @@ ehcleanup15:                                      ; preds = %lpad9, %ehcleanup
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu13parsePwdFieldEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu13parsePwdFieldEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %def.i = alloca %"class.irr::video::SColor", align 4
   %spec.i = alloca %struct.FontSpec, align 4
@@ -30655,7 +30655,7 @@ if.end52:                                         ; preds = %if.end35
 
 invoke.cont65:                                    ; preds = %if.end52
   %57 = load ptr, ptr %23, align 8, !tbaa !4
-  %call.i.i.i386 = call nsz double @strtod(ptr nocapture noundef nonnull %57, ptr noundef null) #34
+  %call.i.i.i386 = call nsz double @strtod(ptr noundef nonnull captures(none) %57, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %imgsize.i = getelementptr inbounds nuw i8, ptr %this, i64 576
   %58 = load ptr, ptr %v_pos, align 8, !tbaa !189
@@ -30667,7 +30667,7 @@ invoke.cont65:                                    ; preds = %if.end52
   %61 = shufflevector <4 x float> %60, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %62 = load <4 x i32>, ptr %imgsize.i, align 8
   %63 = shufflevector <4 x i32> %62, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %59, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %59, ptr noundef null) #34
   %64 = insertelement <2 x double> poison, double %call.i.i.i386, i64 0
   %65 = insertelement <2 x double> %64, double %call.i.i15.i, i64 1
   %66 = fptrunc <2 x double> %65 to <2 x float>
@@ -30681,7 +30681,7 @@ invoke.cont65:                                    ; preds = %if.end52
   %74 = fptosi <2 x float> %73 to <2 x i32>
   %75 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %76 = load ptr, ptr %75, align 8, !tbaa !4
-  %call.i.i.i388 = call nsz double @strtod(ptr nocapture noundef nonnull %76, ptr noundef null) #34
+  %call.i.i.i388 = call nsz double @strtod(ptr noundef nonnull captures(none) %76, ptr noundef null) #34
   %conv.i.i389 = fptrunc double %call.i.i.i388 to float
   %77 = load i32, ptr %imgsize.i, align 8, !tbaa !263
   %conv.i391 = sitofp i32 %77 to float
@@ -30689,7 +30689,7 @@ invoke.cont65:                                    ; preds = %if.end52
   %78 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i393 = getelementptr inbounds nuw i8, ptr %78, i64 32
   %79 = load ptr, ptr %add.ptr.i.i393, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %79, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %79, ptr noundef null) #34
   %conv.i12.i = fptrunc double %call.i.i11.i to float
   %80 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %conv7.i = sitofp i32 %80 to float
@@ -30717,14 +30717,14 @@ invoke.cont70:                                    ; preds = %if.end52
   %add.i.i = fadd nsz float %mul.i.i, %conv.i399
   %add4.i.i = fadd nsz float %mul4.i.i, %conv3.i401
   %87 = load ptr, ptr %23, align 8, !tbaa !4
-  %call.i.i.i404 = call nsz double @strtod(ptr nocapture noundef nonnull %87, ptr noundef null) #34
+  %call.i.i.i404 = call nsz double @strtod(ptr noundef nonnull captures(none) %87, ptr noundef null) #34
   %conv.i.i405 = fptrunc double %call.i.i.i404 to float
   %88 = load float, ptr %spacing.i, align 8, !tbaa !368
   %89 = call nsz float @llvm.fmuladd.f32(float %conv.i.i405, float %88, float %add.i.i)
   %90 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i406 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %91 = load ptr, ptr %add.ptr.i.i406, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %91, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %91, ptr noundef null) #34
   %conv.i34.i = fptrunc double %call.i.i33.i to float
   %92 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %93 = call nsz float @llvm.fmuladd.f32(float %conv.i34.i, float %92, float %add4.i.i)
@@ -30735,7 +30735,7 @@ invoke.cont70:                                    ; preds = %if.end52
   %sub4.i = sub nsw i32 %conv19.i, %96
   %97 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %98 = load ptr, ptr %97, align 8, !tbaa !4
-  %call.i.i412 = call nsz double @strtod(ptr nocapture noundef nonnull %98, ptr noundef null) #34
+  %call.i.i412 = call nsz double @strtod(ptr noundef nonnull captures(none) %98, ptr noundef null) #34
   %conv.i413 = fptrunc double %call.i.i412 to float
   %99 = load float, ptr %spacing.i, align 8, !tbaa !368
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
@@ -30746,7 +30746,7 @@ invoke.cont70:                                    ; preds = %if.end52
   %102 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i414 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %103 = load ptr, ptr %add.ptr.i414, align 8, !tbaa !4
-  %call.i.i415 = call nsz double @strtod(ptr nocapture noundef nonnull %103, ptr noundef null) #34
+  %call.i.i415 = call nsz double @strtod(ptr noundef nonnull captures(none) %103, ptr noundef null) #34
   %conv.i416 = fptrunc double %call.i.i415 to float
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 580
   %104 = load i32, ptr %Y, align 4, !tbaa !265
@@ -31833,7 +31833,7 @@ lpad.body:                                        ; preds = %lpad, %lpad.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu15createTextFieldEPNS_10parserDataERNS_9FieldSpecERN3irr4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(200) %spec, ptr noundef nonnull align 4 dereferenceable(16) %rect, i1 noundef zeroext %is_multiline) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu15createTextFieldEPNS_10parserDataERNS_9FieldSpecERN3irr4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(200) %spec, ptr noundef nonnull align 4 dereferenceable(16) %rect, i1 noundef zeroext %is_multiline) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %spec.i = alloca %struct.FontSpec, align 4
   %def.i = alloca %"class.irr::video::SColor", align 4
@@ -32377,7 +32377,7 @@ declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE4swapERS4_(pt
 declare void @_ZN23GUIEditBoxWithScrollBarC1EPKwbPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP20ISimpleTextureSourcebb(ptr noundef nonnull align 8 dereferenceable(512), ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu16parseSimpleFieldEPNS_10parserDataERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %parts) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu16parseSimpleFieldEPNS_10parserDataERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef captures(none) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %parts) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i117 = alloca i64, align 8
   %__dnew.i.i104 = alloca i64, align 8
@@ -33449,7 +33449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit299: ; preds = %if
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu13parseTextAreaEPNS_10parserDataERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS8_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %parts, ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu13parseTextAreaEPNS_10parserDataERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKS8_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %parts, ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i241 = alloca i64, align 8
   %__dnew.i.i228 = alloca i64, align 8
@@ -33899,7 +33899,7 @@ if.end43:                                         ; preds = %if.end
 
 invoke.cont54:                                    ; preds = %if.end43
   %70 = load ptr, ptr %30, align 8, !tbaa !4
-  %call.i.i.i320 = call nsz double @strtod(ptr nocapture noundef nonnull %70, ptr noundef null) #34
+  %call.i.i.i320 = call nsz double @strtod(ptr noundef nonnull captures(none) %70, ptr noundef null) #34
   %conv.i.i = fptrunc double %call.i.i.i320 to float
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %71 = load float, ptr %pos_offset.i, align 8, !tbaa !262
@@ -33912,7 +33912,7 @@ invoke.cont54:                                    ; preds = %if.end43
   %73 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %73, i64 32
   %74 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %74, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %74, ptr noundef null) #34
   %conv.i16.i = fptrunc double %call.i.i15.i to float
   %Y.i321 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %75 = load float, ptr %Y.i321, align 4, !tbaa !264
@@ -33924,7 +33924,7 @@ invoke.cont54:                                    ; preds = %if.end43
   %conv13.i = fptosi float %mul12.i to i32
   %77 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %78 = load ptr, ptr %77, align 8, !tbaa !4
-  %call.i.i.i322 = call nsz double @strtod(ptr nocapture noundef nonnull %78, ptr noundef null) #34
+  %call.i.i.i322 = call nsz double @strtod(ptr noundef nonnull captures(none) %78, ptr noundef null) #34
   %conv.i.i323 = fptrunc double %call.i.i.i322 to float
   %79 = load i32, ptr %imgsize.i, align 8, !tbaa !263
   %conv.i325 = sitofp i32 %79 to float
@@ -33932,7 +33932,7 @@ invoke.cont54:                                    ; preds = %if.end43
   %80 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i327 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %81 = load ptr, ptr %add.ptr.i.i327, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %81, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %81, ptr noundef null) #34
   %conv.i12.i = fptrunc double %call.i.i11.i to float
   %82 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %conv7.i = sitofp i32 %82 to float
@@ -33960,14 +33960,14 @@ invoke.cont58:                                    ; preds = %if.end43
   %add.i.i = fadd nsz float %mul.i.i, %conv.i333
   %add4.i.i = fadd nsz float %mul4.i.i, %conv3.i335
   %89 = load ptr, ptr %30, align 8, !tbaa !4
-  %call.i.i.i338 = call nsz double @strtod(ptr nocapture noundef nonnull %89, ptr noundef null) #34
+  %call.i.i.i338 = call nsz double @strtod(ptr noundef nonnull captures(none) %89, ptr noundef null) #34
   %conv.i.i339 = fptrunc double %call.i.i.i338 to float
   %90 = load float, ptr %spacing.i, align 8, !tbaa !368
   %91 = call nsz float @llvm.fmuladd.f32(float %conv.i.i339, float %90, float %add.i.i)
   %92 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i340 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %93 = load ptr, ptr %add.ptr.i.i340, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %93, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %93, ptr noundef null) #34
   %conv.i34.i = fptrunc double %call.i.i33.i to float
   %94 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %95 = call nsz float @llvm.fmuladd.f32(float %conv.i34.i, float %94, float %add4.i.i)
@@ -33979,7 +33979,7 @@ invoke.cont58:                                    ; preds = %if.end43
   %sub4.i = sub nsw i32 %conv19.i, %97
   %98 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %99 = load ptr, ptr %98, align 8, !tbaa !4
-  %call.i.i = call nsz double @strtod(ptr nocapture noundef nonnull %99, ptr noundef null) #34
+  %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %99, ptr noundef null) #34
   %conv.i346 = fptrunc double %call.i.i to float
   %100 = load float, ptr %spacing.i, align 8, !tbaa !368
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
@@ -33992,7 +33992,7 @@ invoke.cont58:                                    ; preds = %if.end43
   %103 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i347 = getelementptr inbounds nuw i8, ptr %103, i64 32
   %104 = load ptr, ptr %add.ptr.i347, align 8, !tbaa !4
-  %call.i.i348 = call nsz double @strtod(ptr nocapture noundef nonnull %104, ptr noundef null) #34
+  %call.i.i348 = call nsz double @strtod(ptr noundef nonnull captures(none) %104, ptr noundef null) #34
   %conv.i349 = fptrunc double %call.i.i348 to float
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 580
   %105 = load i32, ptr %Y, align 4, !tbaa !265
@@ -35043,7 +35043,7 @@ ehcleanup191:                                     ; preds = %ehcleanup187, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu10parseFieldEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef %data, ptr noundef nonnull align 8 dereferenceable(32) %element, ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu10parseFieldEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element, ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %parts) #34
@@ -35122,7 +35122,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu14parseHyperTextEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu14parseHyperTextEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %__dnew.i.i262 = alloca i64, align 8
@@ -35575,7 +35575,7 @@ if.end52:                                         ; preds = %if.end35
 
 invoke.cont65:                                    ; preds = %if.end52
   %57 = load ptr, ptr %23, align 8, !tbaa !4
-  %call.i.i.i343 = call nsz double @strtod(ptr nocapture noundef nonnull %57, ptr noundef null) #34
+  %call.i.i.i343 = call nsz double @strtod(ptr noundef nonnull captures(none) %57, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %58 = load <4 x float>, ptr %pos_offset.i, align 8
   %59 = shufflevector <4 x float> %58, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -35585,14 +35585,14 @@ invoke.cont65:                                    ; preds = %if.end52
   %62 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %62, i64 32
   %63 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %63, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %63, ptr noundef null) #34
   %Y.i344 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %64 = load float, ptr %Y.i344, align 4, !tbaa !264
   %Y10.i = getelementptr inbounds nuw i8, ptr %this, i64 580
   %65 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %66 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %67 = load ptr, ptr %66, align 8, !tbaa !4
-  %call.i.i.i345 = call nsz double @strtod(ptr nocapture noundef nonnull %67, ptr noundef null) #34
+  %call.i.i.i345 = call nsz double @strtod(ptr noundef nonnull captures(none) %67, ptr noundef null) #34
   %68 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i350 = getelementptr inbounds nuw i8, ptr %68, i64 32
   %69 = load ptr, ptr %add.ptr.i.i350, align 8, !tbaa !4
@@ -35607,7 +35607,7 @@ invoke.cont65:                                    ; preds = %if.end52
   %78 = fptosi <2 x float> %77 to <2 x i32>
   %79 = load <4 x i32>, ptr %imgsize.i, align 8
   %80 = shufflevector <4 x i32> %79, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %69, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %69, ptr noundef null) #34
   %81 = insertelement <2 x double> poison, double %call.i.i.i345, i64 0
   %82 = insertelement <2 x double> %81, double %call.i.i11.i, i64 1
   %83 = fptrunc <2 x double> %82 to <2 x float>
@@ -35637,14 +35637,14 @@ invoke.cont70:                                    ; preds = %if.end52
   %add.i.i = fadd nsz float %mul.i.i, %conv.i356
   %add4.i.i = fadd nsz float %mul4.i.i, %conv3.i358
   %94 = load ptr, ptr %23, align 8, !tbaa !4
-  %call.i.i.i361 = call nsz double @strtod(ptr nocapture noundef nonnull %94, ptr noundef null) #34
+  %call.i.i.i361 = call nsz double @strtod(ptr noundef nonnull captures(none) %94, ptr noundef null) #34
   %conv.i.i362 = fptrunc double %call.i.i.i361 to float
   %95 = load float, ptr %spacing.i, align 8, !tbaa !368
   %96 = call nsz float @llvm.fmuladd.f32(float %conv.i.i362, float %95, float %add.i.i)
   %97 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i363 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %98 = load ptr, ptr %add.ptr.i.i363, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %98, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %98, ptr noundef null) #34
   %conv.i34.i = fptrunc double %call.i.i33.i to float
   %99 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %100 = call nsz float @llvm.fmuladd.f32(float %conv.i34.i, float %99, float %add4.i.i)
@@ -35656,7 +35656,7 @@ invoke.cont70:                                    ; preds = %if.end52
   %sub4.i = sub i32 %conv19.i, %102
   %103 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %104 = load ptr, ptr %103, align 8, !tbaa !4
-  %call.i.i369 = call nsz double @strtod(ptr nocapture noundef nonnull %104, ptr noundef null) #34
+  %call.i.i369 = call nsz double @strtod(ptr noundef nonnull captures(none) %104, ptr noundef null) #34
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
   %105 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i371 = getelementptr inbounds nuw i8, ptr %105, i64 32
@@ -35666,7 +35666,7 @@ invoke.cont70:                                    ; preds = %if.end52
   %108 = shufflevector <4 x float> %107, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %109 = load <4 x i32>, ptr %imgsize, align 8
   %110 = shufflevector <4 x i32> %109, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i372 = call nsz double @strtod(ptr nocapture noundef nonnull %106, ptr noundef null) #34
+  %call.i.i372 = call nsz double @strtod(ptr noundef nonnull captures(none) %106, ptr noundef null) #34
   %111 = insertelement <2 x double> poison, double %call.i.i369, i64 0
   %112 = insertelement <2 x double> %111, double %call.i.i372, i64 1
   %113 = fptrunc <2 x double> %112 to <2 x float>
@@ -36785,7 +36785,7 @@ ehcleanup213:                                     ; preds = %ehcleanup211, %ehcl
 declare void @_ZN12GUIHyperTextC1EPKwPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP6ClientP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(844), ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu10parseLabelEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu10parseLabelEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %def.i = alloca %"class.irr::video::SColor", align 4
   %parts = alloca %"class.std::vector.165", align 8
@@ -37556,7 +37556,7 @@ invoke.cont103:                                   ; preds = %if.end95
 invoke.cont107:                                   ; preds = %invoke.cont103
   %97 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %98 = load ptr, ptr %97, align 8, !tbaa !4
-  %call.i.i.i481 = call nsz double @strtod(ptr nocapture noundef nonnull %98, ptr noundef null) #34
+  %call.i.i.i481 = call nsz double @strtod(ptr noundef nonnull captures(none) %98, ptr noundef null) #34
   %conv.i.i = fptrunc double %call.i.i.i481 to float
   %99 = load float, ptr %pos_offset.i, align 8, !tbaa !262
   %add.i = fadd nsz float %99, %conv.i.i
@@ -37567,7 +37567,7 @@ invoke.cont107:                                   ; preds = %invoke.cont103
   %101 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %101, i64 32
   %102 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %102, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %102, ptr noundef null) #34
   %conv.i16.i = fptrunc double %call.i.i15.i to float
   %103 = load float, ptr %Y.i, align 4, !tbaa !264
   %add8.i = fadd nsz float %103, %conv.i16.i
@@ -37627,7 +37627,7 @@ invoke.cont139:                                   ; preds = %invoke.cont103
   %conv19.i = fptosi float %add4.i.i to i32
   %116 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %117 = load ptr, ptr %116, align 8, !tbaa !4
-  %call.i.i489 = call nsz double @strtod(ptr nocapture noundef nonnull %117, ptr noundef null) #34
+  %call.i.i489 = call nsz double @strtod(ptr noundef nonnull captures(none) %117, ptr noundef null) #34
   %conv.i490 = fptrunc double %call.i.i489 to float
   %118 = load float, ptr %spacing.i, align 8, !tbaa !368
   %conv147 = sitofp i32 %conv17.i to float
@@ -37636,7 +37636,7 @@ invoke.cont139:                                   ; preds = %invoke.cont103
   %120 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i491 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %121 = load ptr, ptr %add.ptr.i491, align 8, !tbaa !4
-  %call.i.i492 = call nsz double @strtod(ptr nocapture noundef nonnull %121, ptr noundef null) #34
+  %call.i.i492 = call nsz double @strtod(ptr noundef nonnull captures(none) %121, ptr noundef null) #34
   %conv.i493 = fptrunc double %call.i.i492 to float
   %add152 = fadd nsz float %conv.i493, 0x3FCDDDDDE0000000
   %122 = load float, ptr %Y3.i.i, align 4, !tbaa !261
@@ -38333,7 +38333,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu14parseVertLabelEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu14parseVertLabelEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %def.i = alloca %"class.irr::video::SColor", align 4
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string.5", align 8
@@ -38947,7 +38947,7 @@ invoke.cont75:                                    ; preds = %_ZNSt7__cxx1112basi
 invoke.cont80:                                    ; preds = %invoke.cont75
   %77 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %78 = load ptr, ptr %77, align 8, !tbaa !4
-  %call.i.i.i414 = call nsz double @strtod(ptr nocapture noundef nonnull %78, ptr noundef null) #34
+  %call.i.i.i414 = call nsz double @strtod(ptr noundef nonnull captures(none) %78, ptr noundef null) #34
   %conv.i.i = fptrunc double %call.i.i.i414 to float
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %79 = load float, ptr %pos_offset.i, align 8, !tbaa !262
@@ -38960,7 +38960,7 @@ invoke.cont80:                                    ; preds = %invoke.cont75
   %81 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %81, i64 32
   %82 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %82, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %82, ptr noundef null) #34
   %conv.i16.i = fptrunc double %call.i.i15.i to float
   %Y.i415 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %83 = load float, ptr %Y.i415, align 4, !tbaa !264
@@ -39024,13 +39024,13 @@ invoke.cont102:                                   ; preds = %invoke.cont75
   %101 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %102 = fmul nsz <2 x float> %100, %101
   %103 = fadd nsz <2 x float> %102, %99
-  %call.i.i.i425 = call nsz double @strtod(ptr nocapture noundef nonnull %97, ptr noundef null) #34
+  %call.i.i.i425 = call nsz double @strtod(ptr noundef nonnull captures(none) %97, ptr noundef null) #34
   %104 = load <4 x float>, ptr %spacing.i, align 8
   %105 = shufflevector <4 x float> %104, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %106 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i427 = getelementptr inbounds nuw i8, ptr %106, i64 32
   %107 = load ptr, ptr %add.ptr.i.i427, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %107, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %107, ptr noundef null) #34
   %108 = insertelement <2 x double> poison, double %call.i.i.i425, i64 0
   %109 = insertelement <2 x double> %108, double %call.i.i33.i, i64 1
   %110 = fptrunc <2 x double> %109 to <2 x float>
@@ -39834,7 +39834,7 @@ ehcleanup227:                                     ; preds = %ehcleanup225, %ehcl
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu16parseImageButtonEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element, ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu16parseImageButtonEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element, ptr noundef nonnull align 8 dereferenceable(32) %type) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %__dnew.i.i375 = alloca i64, align 8
@@ -40501,7 +40501,7 @@ if.end84:                                         ; preds = %if.then79, %if.end7
 invoke.cont97:                                    ; preds = %if.end84
   %82 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %83 = load ptr, ptr %82, align 8, !tbaa !4
-  %call.i.i.i484 = call nsz double @strtod(ptr nocapture noundef nonnull %83, ptr noundef null) #34
+  %call.i.i.i484 = call nsz double @strtod(ptr noundef nonnull captures(none) %83, ptr noundef null) #34
   %conv.i.i = fptrunc double %call.i.i.i484 to float
   %84 = load float, ptr %pos_offset.i500, align 8, !tbaa !262
   %add.i = fadd nsz float %84, %conv.i.i
@@ -40513,18 +40513,18 @@ invoke.cont97:                                    ; preds = %if.end84
   %Y10.i = getelementptr inbounds nuw i8, ptr %this, i64 580
   %87 = load <4 x i32>, ptr %imgsize.i, align 8
   %88 = shufflevector <4 x i32> %87, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %86, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %86, ptr noundef null) #34
   %89 = load float, ptr %Y.i485, align 4, !tbaa !264
   %90 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %91 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %92 = load ptr, ptr %91, align 8, !tbaa !4
-  %call.i.i.i486 = call nsz double @strtod(ptr nocapture noundef nonnull %92, ptr noundef null) #34
+  %call.i.i.i486 = call nsz double @strtod(ptr noundef nonnull captures(none) %92, ptr noundef null) #34
   %93 = load <4 x i32>, ptr %imgsize.i, align 8
   %94 = shufflevector <4 x i32> %93, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
   %95 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i491 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %96 = load ptr, ptr %add.ptr.i.i491, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %96, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %96, ptr noundef null) #34
   %97 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %98 = insertelement <2 x i32> %88, i32 %97, i64 1
   %99 = sitofp <2 x i32> %98 to <2 x float>
@@ -40560,17 +40560,17 @@ invoke.cont102:                                   ; preds = %if.end84
   %mul4.i.i = fmul nsz float %113, %114
   %115 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %116 = load ptr, ptr %115, align 8, !tbaa !4
-  %call.i.i.i502 = call nsz double @strtod(ptr nocapture noundef nonnull %116, ptr noundef null) #34
+  %call.i.i.i502 = call nsz double @strtod(ptr noundef nonnull captures(none) %116, ptr noundef null) #34
   %117 = load <4 x float>, ptr %spacing.i, align 8
   %118 = shufflevector <4 x float> %117, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %119 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i504 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %120 = load ptr, ptr %add.ptr.i.i504, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %120, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %120, ptr noundef null) #34
   %121 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %122 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %123 = load ptr, ptr %122, align 8, !tbaa !4
-  %call.i.i509 = call nsz double @strtod(ptr nocapture noundef nonnull %123, ptr noundef null) #34
+  %call.i.i509 = call nsz double @strtod(ptr noundef nonnull captures(none) %123, ptr noundef null) #34
   %124 = load <4 x float>, ptr %spacing.i, align 8
   %125 = shufflevector <4 x float> %124, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
@@ -40579,7 +40579,7 @@ invoke.cont102:                                   ; preds = %if.end84
   %128 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i511 = getelementptr inbounds nuw i8, ptr %128, i64 32
   %129 = load ptr, ptr %add.ptr.i511, align 8, !tbaa !4
-  %call.i.i512 = call nsz double @strtod(ptr nocapture noundef nonnull %129, ptr noundef null) #34
+  %call.i.i512 = call nsz double @strtod(ptr noundef nonnull captures(none) %129, ptr noundef null) #34
   %130 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %Y120 = getelementptr inbounds nuw i8, ptr %this, i64 580
   %131 = load i32, ptr %Y120, align 4, !tbaa !265
@@ -42166,7 +42166,7 @@ ehcleanup280:                                     ; preds = %ehcleanup278, %lpad
 declare noundef ptr @_ZN14GUIButtonImage9addButtonEPN3irr3gui15IGUIEnvironmentERKNS0_4core4rectIiEEP20ISimpleTextureSourcePNS1_11IGUIElementEiPKwSE_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu14parseTabHeaderEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu14parseTabHeaderEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %def.i = alloca %"class.irr::video::SColor", align 4
   %retval.i = alloca %"class.irr::video::SColor", align 4
@@ -42827,7 +42827,7 @@ invoke.cont106:                                   ; preds = %if.end.i.i.i.i.i644
   store i8 0, ptr %arrayidx.i.i.i642, align 1, !tbaa !149
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i637) #34
   %79 = load ptr, ptr %str_index, align 8, !tbaa !4
-  %call.i.i649 = call i64 @strtol(ptr nocapture noundef nonnull %79, ptr noundef null, i32 noundef 10) #34
+  %call.i.i649 = call i64 @strtol(ptr noundef nonnull captures(none) %79, ptr noundef null, i32 noundef 10) #34
   %conv.i.i = trunc i64 %call.i.i649 to i32
   %sub = add nsw i32 %conv.i.i, -1
   %_M_finish.i650 = getelementptr inbounds nuw i8, ptr %v_pos, i64 8
@@ -43067,7 +43067,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit743: ; preds = %if
 invoke.cont182:                                   ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit743
   %107 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %108 = load ptr, ptr %107, align 8, !tbaa !4
-  %call.i.i.i745 = call nsz double @strtod(ptr nocapture noundef nonnull %108, ptr noundef null) #34
+  %call.i.i.i745 = call nsz double @strtod(ptr noundef nonnull captures(none) %108, ptr noundef null) #34
   %conv.i.i746 = fptrunc double %call.i.i.i745 to float
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %109 = load float, ptr %pos_offset.i, align 8, !tbaa !262
@@ -43079,7 +43079,7 @@ invoke.cont182:                                   ; preds = %_ZNSt7__cxx1112basi
   %111 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i747 = getelementptr inbounds nuw i8, ptr %111, i64 32
   %112 = load ptr, ptr %add.ptr.i.i747, align 8, !tbaa !4
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %112, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %112, ptr noundef null) #34
   %conv.i16.i = fptrunc double %call.i.i15.i to float
   %Y.i748 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %113 = load float, ptr %Y.i748, align 4, !tbaa !264
@@ -43091,7 +43091,7 @@ invoke.cont182:                                   ; preds = %_ZNSt7__cxx1112basi
   %conv13.i = fptosi float %mul12.i to i32
   %115 = load ptr, ptr %v_geom, align 16, !tbaa !189
   %116 = load ptr, ptr %115, align 8, !tbaa !4
-  %call.i.i.i749 = call nsz double @strtod(ptr nocapture noundef nonnull %116, ptr noundef null) #34
+  %call.i.i.i749 = call nsz double @strtod(ptr noundef nonnull captures(none) %116, ptr noundef null) #34
   %conv.i.i750 = fptrunc double %call.i.i.i749 to float
   %117 = load i32, ptr %imgsize.i, align 8, !tbaa !263
   %conv.i752 = sitofp i32 %117 to float
@@ -43100,7 +43100,7 @@ invoke.cont182:                                   ; preds = %_ZNSt7__cxx1112basi
   %118 = load ptr, ptr %v_geom, align 16, !tbaa !189
   %add.ptr.i.i754 = getelementptr inbounds nuw i8, ptr %118, i64 32
   %119 = load ptr, ptr %add.ptr.i.i754, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %119, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %119, ptr noundef null) #34
   %conv.i12.i = fptrunc double %call.i.i11.i to float
   %120 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %conv7.i = sitofp i32 %120 to float
@@ -43257,14 +43257,14 @@ invoke.cont216:                                   ; preds = %_ZNSt7__cxx1112basi
   %mul4.i = fmul nsz float %141, %142
   %143 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %144 = load ptr, ptr %143, align 8, !tbaa !4
-  %call.i.i827 = call nsz double @strtod(ptr nocapture noundef nonnull %144, ptr noundef null) #34
+  %call.i.i827 = call nsz double @strtod(ptr noundef nonnull captures(none) %144, ptr noundef null) #34
   %conv.i828 = fptrunc double %call.i.i827 to float
   %145 = load float, ptr %spacing, align 8, !tbaa !368
   %146 = call nsz float @llvm.fmuladd.f32(float %conv.i828, float %145, float %mul.i825)
   %147 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i829 = getelementptr inbounds nuw i8, ptr %147, i64 32
   %148 = load ptr, ptr %add.ptr.i829, align 8, !tbaa !4
-  %call.i.i830 = call nsz double @strtod(ptr nocapture noundef nonnull %148, ptr noundef null) #34
+  %call.i.i830 = call nsz double @strtod(ptr noundef nonnull captures(none) %148, ptr noundef null) #34
   %conv.i831 = fptrunc double %call.i.i830 to float
   %149 = load float, ptr %Y3.i, align 4, !tbaa !261
   %m_btn_height231 = getelementptr inbounds nuw i8, ptr %this, i64 2208
@@ -44426,7 +44426,7 @@ ehcleanup430:                                     ; preds = %ehcleanup428, %lpad
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu20parseItemImageButtonEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu20parseItemImageButtonEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %__dnew.i.i638 = alloca i64, align 8
@@ -45433,7 +45433,7 @@ if.end71:                                         ; preds = %if.end54
 
 invoke.cont85:                                    ; preds = %if.end71
   %141 = load ptr, ptr %106, align 8, !tbaa !4
-  %call.i.i.i541 = call nsz double @strtod(ptr nocapture noundef nonnull %141, ptr noundef null) #34
+  %call.i.i.i541 = call nsz double @strtod(ptr noundef nonnull captures(none) %141, ptr noundef null) #34
   %conv.i.i = fptrunc double %call.i.i.i541 to float
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %142 = load float, ptr %pos_offset.i, align 8, !tbaa !262
@@ -45445,18 +45445,18 @@ invoke.cont85:                                    ; preds = %if.end71
   %Y10.i = getelementptr inbounds nuw i8, ptr %this, i64 580
   %145 = load <4 x i32>, ptr %imgsize.i, align 8
   %146 = shufflevector <4 x i32> %145, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %144, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %144, ptr noundef null) #34
   %147 = load float, ptr %Y.i28.i, align 4, !tbaa !264
   %148 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %149 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %150 = load ptr, ptr %149, align 8, !tbaa !4
-  %call.i.i.i543 = call nsz double @strtod(ptr nocapture noundef nonnull %150, ptr noundef null) #34
+  %call.i.i.i543 = call nsz double @strtod(ptr noundef nonnull captures(none) %150, ptr noundef null) #34
   %151 = load <4 x i32>, ptr %imgsize.i, align 8
   %152 = shufflevector <4 x i32> %151, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
   %153 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i548 = getelementptr inbounds nuw i8, ptr %153, i64 32
   %154 = load ptr, ptr %add.ptr.i.i548, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %154, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %154, ptr noundef null) #34
   %155 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %156 = insertelement <2 x i32> %146, i32 %155, i64 1
   %157 = sitofp <2 x i32> %156 to <2 x float>
@@ -45491,17 +45491,17 @@ invoke.cont90:                                    ; preds = %if.end71
   %172 = extractelement <4 x float> %bc96, i64 3
   %mul4.i.i = fmul nsz float %171, %172
   %173 = load ptr, ptr %106, align 8, !tbaa !4
-  %call.i.i.i559 = call nsz double @strtod(ptr nocapture noundef nonnull %173, ptr noundef null) #34
+  %call.i.i.i559 = call nsz double @strtod(ptr noundef nonnull captures(none) %173, ptr noundef null) #34
   %174 = load <4 x float>, ptr %spacing.i, align 8
   %175 = shufflevector <4 x float> %174, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %176 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i561 = getelementptr inbounds nuw i8, ptr %176, i64 32
   %177 = load ptr, ptr %add.ptr.i.i561, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %177, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %177, ptr noundef null) #34
   %178 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %179 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %180 = load ptr, ptr %179, align 8, !tbaa !4
-  %call.i.i567 = call nsz double @strtod(ptr nocapture noundef nonnull %180, ptr noundef null) #34
+  %call.i.i567 = call nsz double @strtod(ptr noundef nonnull captures(none) %180, ptr noundef null) #34
   %181 = load <4 x float>, ptr %spacing.i, align 8
   %182 = shufflevector <4 x float> %181, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
@@ -45510,7 +45510,7 @@ invoke.cont90:                                    ; preds = %if.end71
   %185 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i569 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %186 = load ptr, ptr %add.ptr.i569, align 8, !tbaa !4
-  %call.i.i570 = call nsz double @strtod(ptr nocapture noundef nonnull %186, ptr noundef null) #34
+  %call.i.i570 = call nsz double @strtod(ptr noundef nonnull captures(none) %186, ptr noundef null) #34
   %187 = load float, ptr %Y3.i.i, align 4, !tbaa !261
   %Y108 = getelementptr inbounds nuw i8, ptr %this, i64 580
   %188 = load i32, ptr %Y108, align 4, !tbaa !265
@@ -46880,7 +46880,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 declare noundef ptr @_ZN18GUIButtonItemImage9addButtonEPN3irr3gui15IGUIEnvironmentERKNS0_4core4rectIiEEP20ISimpleTextureSourcePNS1_11IGUIElementEiPKwRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6Client(ptr noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu8parseBoxEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu8parseBoxEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -47226,7 +47226,7 @@ if.end46:                                         ; preds = %if.end29
 
 invoke.cont59:                                    ; preds = %if.end46
   %39 = load ptr, ptr %7, align 8, !tbaa !4
-  %call.i.i.i336 = call nsz double @strtod(ptr nocapture noundef nonnull %39, ptr noundef null) #34
+  %call.i.i.i336 = call nsz double @strtod(ptr noundef nonnull captures(none) %39, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %imgsize.i = getelementptr inbounds nuw i8, ptr %this, i64 576
   %40 = load i32, ptr %imgsize.i, align 8, !tbaa !263
@@ -47236,7 +47236,7 @@ invoke.cont59:                                    ; preds = %if.end46
   %Y.i337 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %43 = load <4 x float>, ptr %pos_offset.i, align 8
   %44 = shufflevector <4 x float> %43, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %42, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %42, ptr noundef null) #34
   %45 = insertelement <2 x double> poison, double %call.i.i.i336, i64 0
   %46 = insertelement <2 x double> %45, double %call.i.i15.i, i64 1
   %47 = fptrunc <2 x double> %46 to <2 x float>
@@ -47247,12 +47247,12 @@ invoke.cont59:                                    ; preds = %if.end46
   %51 = load i32, ptr %Y10.i, align 4, !tbaa !265
   %52 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %53 = load ptr, ptr %52, align 8, !tbaa !4
-  %call.i.i.i338 = call nsz double @strtod(ptr nocapture noundef nonnull %53, ptr noundef null) #34
+  %call.i.i.i338 = call nsz double @strtod(ptr noundef nonnull captures(none) %53, ptr noundef null) #34
   %54 = load <4 x i32>, ptr %imgsize.i, align 8
   %55 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i343 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %56 = load ptr, ptr %add.ptr.i.i343, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %56, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %56, ptr noundef null) #34
   %57 = insertelement <2 x double> poison, double %call.i.i.i338, i64 0
   %58 = insertelement <2 x double> %57, double %call.i.i11.i, i64 1
   %59 = fptrunc <2 x double> %58 to <2 x float>
@@ -47277,13 +47277,13 @@ invoke.cont64:                                    ; preds = %if.end46
   %71 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %72 = fmul nsz <2 x float> %70, %71
   %73 = fadd nsz <2 x float> %72, %69
-  %call.i.i.i354 = call nsz double @strtod(ptr nocapture noundef nonnull %67, ptr noundef null) #34
+  %call.i.i.i354 = call nsz double @strtod(ptr noundef nonnull captures(none) %67, ptr noundef null) #34
   %74 = load <4 x float>, ptr %spacing.i, align 8
   %75 = shufflevector <4 x float> %74, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %76 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i356 = getelementptr inbounds nuw i8, ptr %76, i64 32
   %77 = load ptr, ptr %add.ptr.i.i356, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %77, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %77, ptr noundef null) #34
   %78 = insertelement <2 x double> poison, double %call.i.i.i354, i64 0
   %79 = insertelement <2 x double> %78, double %call.i.i33.i, i64 1
   %80 = fptrunc <2 x double> %79 to <2 x float>
@@ -47292,13 +47292,13 @@ invoke.cont64:                                    ; preds = %if.end46
   %83 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %80, <2 x float> %82, <2 x float> %73)
   %84 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %85 = load ptr, ptr %84, align 8, !tbaa !4
-  %call.i.i361 = call nsz double @strtod(ptr nocapture noundef nonnull %85, ptr noundef null) #34
+  %call.i.i361 = call nsz double @strtod(ptr noundef nonnull captures(none) %85, ptr noundef null) #34
   %86 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i363 = getelementptr inbounds nuw i8, ptr %86, i64 32
   %87 = load ptr, ptr %add.ptr.i363, align 8, !tbaa !4
   %88 = load <4 x float>, ptr %spacing.i, align 8
   %89 = shufflevector <4 x float> %88, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i364 = call nsz double @strtod(ptr nocapture noundef nonnull %87, ptr noundef null) #34
+  %call.i.i364 = call nsz double @strtod(ptr noundef nonnull captures(none) %87, ptr noundef null) #34
   %90 = insertelement <2 x double> poison, double %call.i.i361, i64 0
   %91 = insertelement <2 x double> %90, double %call.i.i364, i64 1
   %92 = fptrunc <2 x double> %91 to <2 x float>
@@ -48178,19 +48178,19 @@ invoke.cont:                                      ; preds = %if.end
 for.body.preheader:                               ; preds = %invoke.cont
   %1 = load ptr, ptr %strs, align 8, !tbaa !189
   %2 = load ptr, ptr %1, align 8, !tbaa !4
-  %call.i.i = call i64 @strtol(ptr nocapture noundef nonnull %2, ptr noundef null, i32 noundef 10) #34
+  %call.i.i = call i64 @strtol(ptr noundef nonnull captures(none) %2, ptr noundef null, i32 noundef 10) #34
   %3 = load ptr, ptr %strs, align 8, !tbaa !189
   %add.ptr.i.1 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %4 = load ptr, ptr %add.ptr.i.1, align 8, !tbaa !4
-  %call.i.i.1 = call i64 @strtol(ptr nocapture noundef nonnull %4, ptr noundef null, i32 noundef 10) #34
+  %call.i.i.1 = call i64 @strtol(ptr noundef nonnull captures(none) %4, ptr noundef null, i32 noundef 10) #34
   %5 = load ptr, ptr %strs, align 8, !tbaa !189
   %add.ptr.i.2 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %6 = load ptr, ptr %add.ptr.i.2, align 8, !tbaa !4
-  %call.i.i.2 = call i64 @strtol(ptr nocapture noundef nonnull %6, ptr noundef null, i32 noundef 10) #34
+  %call.i.i.2 = call i64 @strtol(ptr noundef nonnull captures(none) %6, ptr noundef null, i32 noundef 10) #34
   %7 = load ptr, ptr %strs, align 8, !tbaa !189
   %add.ptr.i.3 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %8 = load ptr, ptr %add.ptr.i.3, align 8, !tbaa !4
-  %call.i.i.3 = call i64 @strtol(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 10) #34
+  %call.i.i.3 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 10) #34
   %def.sroa.7.8.insert.ext = shl i64 %call.i.i.3, 32
   %def.sroa.4.8.insert.ext = and i64 %call.i.i.2, 4294967295
   %def.sroa.4.8.insert.insert = or disjoint i64 %def.sroa.7.8.insert.ext, %def.sroa.4.8.insert.ext
@@ -48268,7 +48268,7 @@ cleanup10:                                        ; preds = %_ZNSt6vectorINSt7__
 declare void @_ZN6GUIBoxC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKSt5arrayINS0_5video6SColorELm4EESG_RKSB_IiLm4EE(ptr noundef nonnull align 8 dereferenceable(356), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu20parseBackgroundColorEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture readnone %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu20parseBackgroundColorEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr readnone captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -48596,7 +48596,7 @@ ehcleanup77:                                      ; preds = %lpad11, %ehcleanup
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu15parseListColorsEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu15parseListColorsEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(2228) %this, ptr noundef %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -48943,7 +48943,7 @@ ehcleanup83:                                      ; preds = %lpad48, %lpad14, %l
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu12parseTooltipEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu12parseTooltipEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -49768,7 +49768,7 @@ if.end121:                                        ; preds = %if.end104
 
 invoke.cont135:                                   ; preds = %if.end121
   %96 = load ptr, ptr %59, align 8, !tbaa !4
-  %call.i.i.i475 = call nsz double @strtod(ptr nocapture noundef nonnull %96, ptr noundef null) #34
+  %call.i.i.i475 = call nsz double @strtod(ptr noundef nonnull captures(none) %96, ptr noundef null) #34
   %conv.i.i = fptrunc double %call.i.i.i475 to float
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %97 = load float, ptr %pos_offset.i, align 8, !tbaa !262
@@ -49781,7 +49781,7 @@ invoke.cont135:                                   ; preds = %if.end121
   %99 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %99, i64 32
   %100 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !4
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %100, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %100, ptr noundef null) #34
   %conv.i16.i = fptrunc double %call.i.i15.i to float
   %Y.i476 = getelementptr inbounds nuw i8, ptr %this, i64 596
   %101 = load float, ptr %Y.i476, align 4, !tbaa !264
@@ -49793,13 +49793,13 @@ invoke.cont135:                                   ; preds = %if.end121
   %conv13.i = fptosi float %mul12.i to i32
   %103 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %104 = load ptr, ptr %103, align 8, !tbaa !4
-  %call.i.i.i477 = call nsz double @strtod(ptr nocapture noundef nonnull %104, ptr noundef null) #34
+  %call.i.i.i477 = call nsz double @strtod(ptr noundef nonnull captures(none) %104, ptr noundef null) #34
   %105 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i482 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %106 = load ptr, ptr %add.ptr.i.i482, align 8, !tbaa !4
   %107 = load <4 x i32>, ptr %imgsize.i, align 8
   %108 = shufflevector <4 x i32> %107, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %106, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %106, ptr noundef null) #34
   %109 = insertelement <2 x double> poison, double %call.i.i.i477, i64 0
   %110 = insertelement <2 x double> %109, double %call.i.i11.i, i64 1
   %111 = fptrunc <2 x double> %110 to <2 x float>
@@ -49816,7 +49816,7 @@ if.else:                                          ; preds = %if.end121
   %pos.sroa.8.0.extract.trunc = trunc nuw i64 %pos.sroa.8.0.extract.shift to i32
   %116 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %117 = load ptr, ptr %116, align 8, !tbaa !4
-  %call.i.i488 = call nsz double @strtod(ptr nocapture noundef nonnull %117, ptr noundef null) #34
+  %call.i.i488 = call nsz double @strtod(ptr noundef nonnull captures(none) %117, ptr noundef null) #34
   %spacing = getelementptr inbounds nuw i8, ptr %this, i64 568
   %118 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i490 = getelementptr inbounds nuw i8, ptr %118, i64 32
@@ -49824,7 +49824,7 @@ if.else:                                          ; preds = %if.end121
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 572
   %120 = load <4 x float>, ptr %spacing, align 8
   %121 = shufflevector <4 x float> %120, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i491 = call nsz double @strtod(ptr nocapture noundef nonnull %119, ptr noundef null) #34
+  %call.i.i491 = call nsz double @strtod(ptr noundef nonnull captures(none) %119, ptr noundef null) #34
   %122 = insertelement <2 x double> poison, double %call.i.i488, i64 0
   %123 = insertelement <2 x double> %122, double %call.i.i491, i64 1
   %124 = fptrunc <2 x double> %123 to <2 x float>
@@ -50583,7 +50583,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu18parseVersionDirectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2228) %this, ptr noundef nonnull align 8 dereferenceable(32) %data) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu18parseVersionDirectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef nonnull align 8 dereferenceable(32) %data) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %data, i64 8
@@ -50698,7 +50698,7 @@ for.body.i:                                       ; preds = %if.end12, %for.cond
   br i1 %isdigit.i, label %for.cond.i, label %cleanup
 
 if.then18:                                        ; preds = %for.cond.i
-  %call.i.i36 = call i64 @strtol(ptr nocapture noundef nonnull %8, ptr noundef null, i32 noundef 10) #34
+  %call.i.i36 = call i64 @strtol(ptr noundef nonnull captures(none) %8, ptr noundef null, i32 noundef 10) #34
   %conv = trunc i64 %call.i.i36 to i16
   %m_formspec_version = getelementptr inbounds nuw i8, ptr %this, i64 2088
   store i16 %conv, ptr %m_formspec_version, align 8, !tbaa !176
@@ -50759,7 +50759,7 @@ return:                                           ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu15parseSizeDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu15parseSizeDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(2228) %this, ptr noundef writeonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -51167,7 +51167,7 @@ return:                                           ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu19parsePositionDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu19parsePositionDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef writeonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -51488,7 +51488,7 @@ return:                                           ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu13parsePositionEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu13parsePositionEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef writeonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %v_geom = alloca %"class.std::vector.165", align 8
@@ -51659,14 +51659,14 @@ lpad9:                                            ; preds = %call1.i.noexc, %_ZN
 
 if.end:                                           ; preds = %invoke.cont
   %19 = load ptr, ptr %4, align 8, !tbaa !4
-  %call.i.i = call nsz double @strtod(ptr nocapture noundef nonnull %19, ptr noundef null) #34
+  %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %19, ptr noundef null) #34
   %conv.i = fptrunc double %call.i.i to float
   %offset = getelementptr inbounds nuw i8, ptr %data, i64 20
   store float %conv.i, ptr %offset, align 4, !tbaa !551
   %20 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %add.ptr.i, align 8, !tbaa !4
-  %call.i.i86 = call nsz double @strtod(ptr nocapture noundef nonnull %21, ptr noundef null) #34
+  %call.i.i86 = call nsz double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #34
   %conv.i87 = fptrunc double %call.i.i86 to float
   %Y = getelementptr inbounds nuw i8, ptr %data, i64 24
   store float %conv.i87, ptr %Y, align 4, !tbaa !552
@@ -51912,7 +51912,7 @@ ehcleanup49:                                      ; preds = %lpad36, %lpad32, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu17parseAnchorDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu17parseAnchorDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef writeonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -52233,7 +52233,7 @@ return:                                           ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu11parseAnchorEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu11parseAnchorEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef writeonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %v_geom = alloca %"class.std::vector.165", align 8
@@ -52404,14 +52404,14 @@ lpad9:                                            ; preds = %call1.i.noexc, %_ZN
 
 if.end:                                           ; preds = %invoke.cont
   %19 = load ptr, ptr %4, align 8, !tbaa !4
-  %call.i.i = call nsz double @strtod(ptr nocapture noundef nonnull %19, ptr noundef null) #34
+  %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %19, ptr noundef null) #34
   %conv.i = fptrunc double %call.i.i to float
   %anchor = getelementptr inbounds nuw i8, ptr %data, i64 28
   store float %conv.i, ptr %anchor, align 4, !tbaa !553
   %20 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %add.ptr.i, align 8, !tbaa !4
-  %call.i.i86 = call nsz double @strtod(ptr nocapture noundef nonnull %21, ptr noundef null) #34
+  %call.i.i86 = call nsz double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #34
   %conv.i87 = fptrunc double %call.i.i86 to float
   %Y = getelementptr inbounds nuw i8, ptr %data, i64 32
   store float %conv.i87, ptr %Y, align 4, !tbaa !554
@@ -52657,7 +52657,7 @@ ehcleanup49:                                      ; preds = %lpad36, %lpad32, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu18parsePaddingDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu18parsePaddingDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef writeonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %parts = alloca %"class.std::vector.165", align 8
@@ -52978,7 +52978,7 @@ return:                                           ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu12parsePaddingEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr nocapture noundef writeonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu12parsePaddingEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef writeonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %v_geom = alloca %"class.std::vector.165", align 8
@@ -53149,14 +53149,14 @@ lpad9:                                            ; preds = %call1.i.noexc, %_ZN
 
 if.end:                                           ; preds = %invoke.cont
   %19 = load ptr, ptr %4, align 8, !tbaa !4
-  %call.i.i = call nsz double @strtod(ptr nocapture noundef nonnull %19, ptr noundef null) #34
+  %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %19, ptr noundef null) #34
   %conv.i = fptrunc double %call.i.i to float
   %padding = getelementptr inbounds nuw i8, ptr %data, i64 36
   store float %conv.i, ptr %padding, align 4, !tbaa !555
   %20 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %20, i64 32
   %21 = load ptr, ptr %add.ptr.i, align 8, !tbaa !4
-  %call.i.i86 = call nsz double @strtod(ptr nocapture noundef nonnull %21, ptr noundef null) #34
+  %call.i.i86 = call nsz double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #34
   %conv.i87 = fptrunc double %call.i.i86 to float
   %Y = getelementptr inbounds nuw i8, ptr %data, i64 40
   store float %conv.i87, ptr %Y, align 4, !tbaa !556
@@ -53402,7 +53402,7 @@ ehcleanup49:                                      ; preds = %lpad36, %lpad32, %e
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu10parseStyleEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture readnone %data, ptr noundef nonnull align 8 dereferenceable(32) %element, i1 noundef zeroext %style_type) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu10parseStyleEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr readnone captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element, i1 noundef zeroext %style_type) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i263 = alloca i64, align 8
   %__dnew.i.i.i.i.i223 = alloca i64, align 8
@@ -57844,7 +57844,7 @@ ehcleanup22:                                      ; preds = %lpad12, %ehcleanup
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN15GUIFormSpecMenu10parseModelEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture noundef readonly %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu10parseModelEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef readonly captures(none) %data, ptr noundef nonnull align 8 dereferenceable(32) %element) local_unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parts = alloca %"class.std::vector.165", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -58696,7 +58696,7 @@ if.end90:                                         ; preds = %if.end73
 
 invoke.cont104:                                   ; preds = %if.end90
   %125 = load ptr, ptr %86, align 8, !tbaa !4
-  %call.i.i.i579 = call nsz double @strtod(ptr nocapture noundef nonnull %125, ptr noundef null) #34
+  %call.i.i.i579 = call nsz double @strtod(ptr noundef nonnull captures(none) %125, ptr noundef null) #34
   %pos_offset.i = getelementptr inbounds nuw i8, ptr %this, i64 592
   %126 = load <4 x float>, ptr %pos_offset.i, align 8
   %127 = shufflevector <4 x float> %126, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
@@ -58708,7 +58708,7 @@ invoke.cont104:                                   ; preds = %if.end90
   %Y10.i = getelementptr inbounds nuw i8, ptr %this, i64 580
   %130 = load <4 x i32>, ptr %imgsize.i, align 8
   %131 = shufflevector <4 x i32> %130, <4 x i32> poison, <2 x i32> <i32 0, i32 poison>
-  %call.i.i15.i = call nsz double @strtod(ptr nocapture noundef nonnull %129, ptr noundef null) #34
+  %call.i.i15.i = call nsz double @strtod(ptr noundef nonnull captures(none) %129, ptr noundef null) #34
   %132 = insertelement <2 x double> poison, double %call.i.i.i579, i64 0
   %133 = insertelement <2 x double> %132, double %call.i.i15.i, i64 1
   %134 = fptrunc <2 x double> %133 to <2 x float>
@@ -58721,7 +58721,7 @@ invoke.cont104:                                   ; preds = %if.end90
   %141 = fmul nsz <2 x float> %137, %140
   %142 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %143 = load ptr, ptr %142, align 8, !tbaa !4
-  %call.i.i.i581 = call nsz double @strtod(ptr nocapture noundef nonnull %143, ptr noundef null) #34
+  %call.i.i.i581 = call nsz double @strtod(ptr noundef nonnull captures(none) %143, ptr noundef null) #34
   %conv.i.i582 = fptrunc double %call.i.i.i581 to float
   %144 = load i32, ptr %imgsize.i, align 8, !tbaa !263
   %conv.i584 = sitofp i32 %144 to float
@@ -58729,7 +58729,7 @@ invoke.cont104:                                   ; preds = %if.end90
   %145 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i.i586 = getelementptr inbounds nuw i8, ptr %145, i64 32
   %146 = load ptr, ptr %add.ptr.i.i586, align 8, !tbaa !4
-  %call.i.i11.i = call nsz double @strtod(ptr nocapture noundef nonnull %146, ptr noundef null) #34
+  %call.i.i11.i = call nsz double @strtod(ptr noundef nonnull captures(none) %146, ptr noundef null) #34
   br label %if.end125
 
 lpad93:                                           ; preds = %if.then.i620, %if.then.i.i614, %_ZTW13warningstream.exit
@@ -58749,13 +58749,13 @@ invoke.cont109:                                   ; preds = %if.end90
   %152 = load <2 x float>, ptr %spacing.i, align 8, !tbaa !260
   %153 = fmul nsz <2 x float> %151, %152
   %154 = fadd nsz <2 x float> %153, %150
-  %call.i.i.i597 = call nsz double @strtod(ptr nocapture noundef nonnull %148, ptr noundef null) #34
+  %call.i.i.i597 = call nsz double @strtod(ptr noundef nonnull captures(none) %148, ptr noundef null) #34
   %155 = load <4 x float>, ptr %spacing.i, align 8
   %156 = shufflevector <4 x float> %155, <4 x float> poison, <2 x i32> <i32 0, i32 poison>
   %157 = load ptr, ptr %v_pos, align 8, !tbaa !189
   %add.ptr.i.i599 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %158 = load ptr, ptr %add.ptr.i.i599, align 8, !tbaa !4
-  %call.i.i33.i = call nsz double @strtod(ptr nocapture noundef nonnull %158, ptr noundef null) #34
+  %call.i.i33.i = call nsz double @strtod(ptr noundef nonnull captures(none) %158, ptr noundef null) #34
   %159 = insertelement <2 x double> poison, double %call.i.i.i597, i64 0
   %160 = insertelement <2 x double> %159, double %call.i.i33.i, i64 1
   %161 = fptrunc <2 x double> %160 to <2 x float>
@@ -58764,7 +58764,7 @@ invoke.cont109:                                   ; preds = %if.end90
   %164 = call nsz <2 x float> @llvm.fmuladd.v2f32(<2 x float> %161, <2 x float> %163, <2 x float> %154)
   %165 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %166 = load ptr, ptr %165, align 8, !tbaa !4
-  %call.i.i604 = call nsz double @strtod(ptr nocapture noundef nonnull %166, ptr noundef null) #34
+  %call.i.i604 = call nsz double @strtod(ptr noundef nonnull captures(none) %166, ptr noundef null) #34
   %conv.i605 = fptrunc double %call.i.i604 to float
   %imgsize = getelementptr inbounds nuw i8, ptr %this, i64 576
   %167 = load i32, ptr %imgsize, align 8, !tbaa !263
@@ -58773,7 +58773,7 @@ invoke.cont109:                                   ; preds = %if.end90
   %168 = load ptr, ptr %v_geom, align 8, !tbaa !189
   %add.ptr.i606 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %169 = load ptr, ptr %add.ptr.i606, align 8, !tbaa !4
-  %call.i.i607 = call nsz double @strtod(ptr nocapture noundef nonnull %169, ptr noundef null) #34
+  %call.i.i607 = call nsz double @strtod(ptr noundef nonnull captures(none) %169, ptr noundef null) #34
   %Y = getelementptr inbounds nuw i8, ptr %this, i64 580
   br label %if.end125
 
@@ -59269,11 +59269,11 @@ ehcleanup210:                                     ; preds = %if.then.i.i776, %_Z
 
 if.then214:                                       ; preds = %for.cond.cleanup
   %246 = load ptr, ptr %209, align 8, !tbaa !4
-  %call.i.i781 = call nsz double @strtod(ptr nocapture noundef nonnull %246, ptr noundef null) #34
+  %call.i.i781 = call nsz double @strtod(ptr noundef nonnull captures(none) %246, ptr noundef null) #34
   %247 = load ptr, ptr %vec_rot, align 8, !tbaa !189
   %add.ptr.i783 = getelementptr inbounds nuw i8, ptr %247, i64 32
   %248 = load ptr, ptr %add.ptr.i783, align 8, !tbaa !4
-  %call.i.i784 = call nsz double @strtod(ptr nocapture noundef nonnull %248, ptr noundef null) #34
+  %call.i.i784 = call nsz double @strtod(ptr noundef nonnull captures(none) %248, ptr noundef null) #34
   %249 = insertelement <2 x double> poison, double %call.i.i781, i64 0
   %250 = insertelement <2 x double> %249, double %call.i.i784, i64 1
   %251 = fptrunc <2 x double> %250 to <2 x float>
@@ -59298,12 +59298,12 @@ if.end223:                                        ; preds = %if.then214, %for.co
 
 if.then228:                                       ; preds = %if.end223
   %254 = load ptr, ptr %253, align 8, !tbaa !4
-  %call.i.i793 = call i64 @strtol(ptr nocapture noundef nonnull %254, ptr noundef null, i32 noundef 10) #34
+  %call.i.i793 = call i64 @strtol(ptr noundef nonnull captures(none) %254, ptr noundef null, i32 noundef 10) #34
   %conv.i.i794 = trunc i64 %call.i.i793 to i32
   %255 = load ptr, ptr %frame_loop, align 8, !tbaa !189
   %add.ptr.i795 = getelementptr inbounds nuw i8, ptr %255, i64 32
   %256 = load ptr, ptr %add.ptr.i795, align 8, !tbaa !4
-  %call.i.i796 = call i64 @strtol(ptr nocapture noundef nonnull %256, ptr noundef null, i32 noundef 10) #34
+  %call.i.i796 = call i64 @strtol(ptr noundef nonnull captures(none) %256, ptr noundef null, i32 noundef 10) #34
   %conv.i.i797 = trunc i64 %call.i.i796 to i32
   br label %if.end236
 
@@ -59320,7 +59320,7 @@ if.end236:                                        ; preds = %if.then228, %if.end
 
 invoke.cont237:                                   ; preds = %if.end236
   %258 = load ptr, ptr %speed, align 8, !tbaa !4
-  %call.i.i798 = call nsz double @strtod(ptr nocapture noundef nonnull %258, ptr noundef null) #34
+  %call.i.i798 = call nsz double @strtod(ptr noundef nonnull captures(none) %258, ptr noundef null) #34
   %conv.i799 = fptrunc double %call.i.i798 to float
   invoke void @_ZN8GUIScene17setAnimationSpeedEf(ptr noundef nonnull align 8 dereferenceable(436) %call178, float noundef %conv.i799)
           to label %invoke.cont240 unwind label %lpad230
@@ -64795,7 +64795,7 @@ if.end191:                                        ; preds = %for.body, %if.then1
 declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIPN3irr3gui11IGUIElementEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr nocapture readonly %from.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIPN3irr3gui11IGUIElementEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr readonly captures(none) %from.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %Children = getelementptr inbounds nuw i8, ptr %this, i64 8
   %from.sroa.0.0 = load ptr, ptr %from.coerce, align 8, !tbaa !250
@@ -65112,7 +65112,7 @@ _ZNSt6vectorIN8GUITable6OptionESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK15GUIFormSpecMenu12getItemAtPosEN3irr4core8vector2dIiEE(ptr dead_on_unwind noalias writable sret(%"struct.GUIInventoryList::ItemSpec") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, i64 %p.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK15GUIFormSpecMenu12getItemAtPosEN3irr4core8vector2dIiEE(ptr dead_on_unwind noalias writable sret(%"struct.GUIInventoryList::ItemSpec") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, i64 %p.coerce) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.InventoryLocation, align 8
   %ref.tmp19 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -65371,7 +65371,7 @@ _ZN17InventoryLocationD2Ev.exit:                  ; preds = %if.then.i.i.i6, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu16drawSelectedItemEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu16drawSelectedItemEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %struct.ItemStack, align 8
@@ -67087,7 +67087,7 @@ if.end161:                                        ; preds = %_ZN9ItemStackD2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu11showTooltipERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERKN3irr5video6SColorESC_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef nonnull align 8 dereferenceable(32) %text, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %color, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %bgcolor) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu11showTooltipERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERKN3irr5video6SColorESC_(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef nonnull align 8 dereferenceable(32) %text, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %color, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %bgcolor) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ntext = alloca %class.EnrichedString, align 8
   %ref.tmp = alloca %"class.irr::video::SColor", align 4
@@ -67678,7 +67678,7 @@ return:                                           ; preds = %if.end51, %if.end34
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef signext i16 @_ZN15GUIFormSpecMenu20getNextInventoryRingERK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, ptr noundef nonnull align 8 dereferenceable(46) %inventoryloc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %listname) local_unnamed_addr #5 align 2 {
+define dso_local noundef signext i16 @_ZN15GUIFormSpecMenu20getNextInventoryRingERK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, ptr noundef nonnull align 8 dereferenceable(46) %inventoryloc, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %listname) local_unnamed_addr #5 align 2 {
 entry:
   %m_inventory_rings = getelementptr inbounds nuw i8, ptr %this, i64 856
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 864
@@ -70740,7 +70740,7 @@ if.then422:                                       ; preds = %invoke.cont419
 
 invoke.cont428:                                   ; preds = %if.then422
   %call.i.i1375 = call noundef i64 @wcslen(ptr noundef nonnull %call429) #38
-  invoke void @_Z12wide_to_utf8B5cxx11St17basic_string_viewIwSt11char_traitsIwEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp423, i64 %call.i.i1375, ptr %call429)
+  invoke void @_Z12wide_to_utf8B5cxx11St17basic_string_viewIwSt11char_traitsIwEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp423, i64 %call.i.i1375, ptr nonnull %call429)
           to label %invoke.cont430 unwind label %lpad427
 
 invoke.cont430:                                   ; preds = %invoke.cont428
@@ -78567,7 +78567,7 @@ declare noundef zeroext i1 @_ZN12GUIModalMenu12canTakeFocusEPN3irr3gui11IGUIElem
 declare noundef zeroext i1 @_ZN7porting8open_urlERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu11getNameByIDB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, i32 noundef %id) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu11getNameByIDB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, i32 noundef %id) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %m_fields = getelementptr inbounds nuw i8, ptr %this, i64 1048
@@ -78646,7 +78646,7 @@ return:                                           ; preds = %for.end, %cleanup7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN15GUIFormSpecMenu11getSpecByIDEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, i32 noundef %id) local_unnamed_addr #23 align 2 {
+define dso_local noundef ptr @_ZN15GUIFormSpecMenu11getSpecByIDEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, i32 noundef %id) local_unnamed_addr #23 align 2 {
 entry:
   %m_fields = getelementptr inbounds nuw i8, ptr %this, i64 1048
   %0 = load ptr, ptr %m_fields, align 8, !tbaa !182
@@ -78673,7 +78673,7 @@ cleanup7:                                         ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GUIFormSpecMenu12getLabelByIDB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.5") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2228) %this, i32 noundef %id) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GUIFormSpecMenu12getLabelByIDB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string.5") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2228) %this, i32 noundef %id) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %m_fields = getelementptr inbounds nuw i8, ptr %this, i64 1048
@@ -81950,7 +81950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #25
+declare double @strtod(ptr noundef readonly, ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nounwind
 declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
@@ -82100,7 +82100,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %if.th
 declare void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #25
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #25
 
 ; Function Attrs: uwtable
 define linkonce_odr dso_local noundef zeroext i1 @_ZNK9StyleSpec13parseVector2fERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr4core8vector2dIfEE(ptr noundef nonnull align 8 dereferenceable(833) %this, ptr noundef nonnull align 8 dereferenceable(32) %value, ptr noundef %parsed_vec) local_unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -82122,18 +82122,18 @@ entry:
 
 if.then:                                          ; preds = %entry
   %2 = load ptr, ptr %1, align 8, !tbaa !4
-  %call.i.i = call nsz double @strtod(ptr nocapture noundef nonnull %2, ptr noundef null) #34
+  %call.i.i = call nsz double @strtod(ptr noundef nonnull captures(none) %2, ptr noundef null) #34
   %conv.i = fptrunc double %call.i.i to float
   br label %if.end21
 
 if.then6:                                         ; preds = %entry
   %3 = load ptr, ptr %1, align 8, !tbaa !4
-  %call.i.i32 = call nsz double @strtod(ptr nocapture noundef nonnull %3, ptr noundef null) #34
+  %call.i.i32 = call nsz double @strtod(ptr noundef nonnull captures(none) %3, ptr noundef null) #34
   %conv.i33 = fptrunc double %call.i.i32 to float
   %4 = load ptr, ptr %v_vector, align 8, !tbaa !189
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %5 = load ptr, ptr %add.ptr.i, align 8, !tbaa !4
-  %call.i.i34 = call nsz double @strtod(ptr nocapture noundef nonnull %5, ptr noundef null) #34
+  %call.i.i34 = call nsz double @strtod(ptr noundef nonnull captures(none) %5, ptr noundef null) #34
   %conv.i35 = fptrunc double %call.i.i34 to float
   br label %if.end21
 
@@ -82763,10 +82763,10 @@ declare i32 @isspace(i32 noundef) local_unnamed_addr #21
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @memcmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #26
+declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #26
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #26
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
@@ -85556,7 +85556,7 @@ declare void @_ZN17ItemStackMetadata5clearEv(ptr noundef nonnull align 8 derefer
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #26
+declare i64 @wcslen(ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE18_M_assign_elementsIRKSL_EEvOT_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %__ht) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -88551,7 +88551,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPN3irr4c
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP18GUIScrollContainerESaIS9_EE17_M_realloc_insertIJRS6_RS8_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr %__position.coerce, ptr noundef nonnull align 8 dereferenceable(32) %__args, ptr noundef nonnull align 8 dereferenceable(8) %__args1) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -95866,7 +95866,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #5 {
 entry:
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce
   br i1 %cmp.i, label %for.end, label %for.cond.preheader
@@ -96038,7 +96038,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEElNS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_SI_T0_SJ_T1_"(ptr %__first.coerce, ptr %__middle.coerce, ptr %__last.coerce, i64 noundef %__len1, i64 noundef %__len2, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #5 {
 entry:
   %cmp187 = icmp eq i64 %__len1, 0
   %cmp5188 = icmp eq i64 %__len2, 0
@@ -96714,7 +96714,7 @@ return:                                           ; preds = %for.cond.cleanup102
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %__buffer, ptr nocapture nonnull readonly %__comp.coerce) unnamed_addr #5 {
+define internal fastcc void @"_ZSt24__merge_sort_with_bufferIN9__gnu_cxx17__normal_iteratorIPPN3irr3gui11IGUIElementESt6vectorIS5_SaIS5_EEEES6_NS0_5__ops15_Iter_comp_iterIZN15GUIFormSpecMenu18legacySortElementsESt14_List_iteratorIS5_EE3$_0EEEvT_SI_T0_T1_"(ptr %__first.coerce, ptr %__last.coerce, ptr noundef nonnull %__buffer, ptr nonnull readonly captures(none) %__comp.coerce) unnamed_addr #5 {
 entry:
   %sub.ptr.lhs.cast.i = ptrtoint ptr %__last.coerce to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
@@ -99527,7 +99527,7 @@ declare i64 @llvm.umax.i64(i64, i64) #16
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #31
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #31
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16

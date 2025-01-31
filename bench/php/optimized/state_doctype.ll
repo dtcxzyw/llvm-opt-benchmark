@@ -352,7 +352,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %65
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 declare ptr @lxb_html_token_attr_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -804,7 +804,7 @@ lxb_html_tokenizer_temp_append_data.exit122:      ; preds = %248
 declare ptr @lxb_html_tokenizer_state_data_before(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 declare ptr @lexbor_realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -1063,7 +1063,7 @@ define internal ptr @lxb_html_tokenizer_state_doctype_after_name(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_doctype_after_name_public(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_doctype_after_name_public(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %2 to i64
@@ -1135,7 +1135,7 @@ define internal ptr @lxb_html_tokenizer_state_doctype_after_name_public(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_doctype_after_name_system(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_doctype_after_name_system(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %2 to i64

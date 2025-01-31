@@ -194,7 +194,7 @@ list_length.exit73:                               ; preds = %29, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ExecMergeAppend(ptr nocapture noundef %0) #0 {
+define internal ptr @ExecMergeAppend(ptr noundef captures(none) %0) #0 {
   %2 = load volatile i32, ptr @InterruptPending, align 4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %3
@@ -398,7 +398,7 @@ declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %5 = load ptr, ptr %4, align 8
   %sext = shl i64 %0, 32
@@ -534,7 +534,7 @@ declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @PrepareSortSupportFromOrderingOp(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecEndMergeAppend(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local void @ExecEndMergeAppend(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -562,7 +562,7 @@ define dso_local void @ExecEndMergeAppend(ptr nocapture noundef readonly %0) loc
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanMergeAppend(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanMergeAppend(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

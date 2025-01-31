@@ -186,7 +186,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef i32 @_ZN16veloxtpFlexLexer6yywrapEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define noundef i32 @_ZN16veloxtpFlexLexer6yywrapEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret i32 1
 }
@@ -555,7 +555,7 @@ sw.bb84:                                          ; preds = %do_action
   %43 = load ptr, ptr %yytext, align 8
   %call.i.i.i = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %43) #36
   %add.ptr.i42 = getelementptr inbounds i8, ptr %43, i64 %call.i.i.i
-  %call87 = tail call noundef i32 @_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr %43, ptr %add.ptr.i42)
+  %call87 = tail call noundef i32 @_ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4typeES5_(ptr nonnull %43, ptr nonnull %add.ptr.i42)
   %conv88 = sext i32 %call87 to i64
   store i64 %conv88, ptr %yylval, align 8
   br label %return
@@ -1173,7 +1173,7 @@ _ZNO5folly8ExpectedINS_4UnitENS_14ConversionCodeEE11thenOrThrowIZNS_2toIiEENSt9e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN16veloxtpFlexLexer21yy_get_previous_stateEv(ptr nocapture noundef nonnull align 8 dereferenceable(732) %this) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN16veloxtpFlexLexer21yy_get_previous_stateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(732) %this) local_unnamed_addr #5 align 2 {
 entry:
   %yy_start = getelementptr inbounds nuw i8, ptr %this, i64 620
   %0 = load i32, ptr %yy_start, align 4
@@ -1232,7 +1232,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN16veloxtpFlexLexer16yy_try_NUL_transEi(ptr nocapture noundef nonnull align 8 dereferenceable(732) %this, i32 noundef %yy_current_state) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN16veloxtpFlexLexer16yy_try_NUL_transEi(ptr noundef nonnull align 8 captures(none) dereferenceable(732) %this, i32 noundef %yy_current_state) local_unnamed_addr #6 align 2 {
 entry:
   %idxprom = sext i32 %yy_current_state to i64
   %arrayidx = getelementptr inbounds [61 x i32], ptr @_ZL12yy_NUL_trans, i64 0, i64 %idxprom
@@ -1637,7 +1637,7 @@ declare void @_ZNSiC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonn
 declare void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16veloxtpFlexLexer11ctor_commonEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(732) initializes((20, 36), (40, 48), (608, 628), (632, 656), (672, 680), (712, 732)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN16veloxtpFlexLexer11ctor_commonEv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(732) initializes((20, 36), (40, 48), (608, 628), (632, 656), (672, 680), (712, 732)) %this) local_unnamed_addr #7 align 2 {
 entry:
   %yy_c_buf_p = getelementptr inbounds nuw i8, ptr %this, i64 608
   %yy_flex_debug = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1779,7 +1779,7 @@ terminate.lpad:                                   ; preds = %cond.end
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_Z11veloxtpfreePv(ptr nocapture noundef %ptr) local_unnamed_addr #10 {
+define void @_Z11veloxtpfreePv(ptr noundef captures(none) %ptr) local_unnamed_addr #10 {
 entry:
   tail call void @free(ptr noundef %ptr) #36
   ret void
@@ -1928,7 +1928,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @_Z14veloxtpreallocPvm(ptr nocapture noundef %ptr, i64 noundef %size) local_unnamed_addr #10 {
+define noalias noundef ptr @_Z14veloxtpreallocPvm(ptr noundef captures(none) %ptr, i64 noundef %size) local_unnamed_addr #10 {
 entry:
   %call = tail call ptr @realloc(ptr noundef %ptr, i64 noundef %size) #35
   ret ptr %call
@@ -2604,7 +2604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN16veloxtpFlexLexer16yy_delete_bufferEP15yy_buffer_state(ptr nocapture noundef nonnull readonly align 8 dereferenceable(732) %this, ptr noundef %b) unnamed_addr #14 align 2 {
+define void @_ZN16veloxtpFlexLexer16yy_delete_bufferEP15yy_buffer_state(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(732) %this, ptr noundef %b) unnamed_addr #14 align 2 {
 entry:
   %tobool.not = icmp eq ptr %b, null
   br i1 %tobool.not, label %return, label %if.end
@@ -2945,7 +2945,7 @@ if.end31:                                         ; preds = %if.end19, %entry, %
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16veloxtpFlexLexer13yy_push_stateEi(ptr noundef nonnull align 8 dereferenceable(732) %this, i32 noundef %_new_state) local_unnamed_addr #4 align 2 {
@@ -3040,7 +3040,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN16veloxtpFlexLexer12yy_top_stateEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(732) %this) local_unnamed_addr #17 align 2 {
+define noundef i32 @_ZN16veloxtpFlexLexer12yy_top_stateEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(732) %this) local_unnamed_addr #17 align 2 {
 entry:
   %yy_start_stack = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %yy_start_stack, align 8
@@ -3054,7 +3054,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn uwtable
-define void @_ZN16veloxtpFlexLexer10LexerErrorEPKc(ptr nocapture nonnull readnone align 8 %this, ptr noundef %msg) unnamed_addr #18 align 2 {
+define void @_ZN16veloxtpFlexLexer10LexerErrorEPKc(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %msg) unnamed_addr #18 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cerr, ptr noundef %msg)
   %call2 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
@@ -3075,13 +3075,13 @@ declare void @exit(i32 noundef) local_unnamed_addr #19
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #21
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #22
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress noreturn uwtable
-define noundef i32 @_ZN16veloxtpFlexLexer5yylexEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN16veloxtpFlexLexer5yylexEv(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #36
   invoke void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.11)
@@ -3337,7 +3337,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox4TypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #26
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox4type7ScannerD0Ev(ptr noundef nonnull align 8 dereferenceable(760) %this) unnamed_addr #8 comdat align 2 {
@@ -3673,10 +3673,10 @@ entry:
 declare void @llvm.experimental.noalias.scope.decl(metadata) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #31
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #32

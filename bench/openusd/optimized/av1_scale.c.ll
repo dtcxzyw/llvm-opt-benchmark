@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @av1_scale_mv(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define hidden i64 @av1_scale_mv(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = shl i32 %1, 4
   %6 = load i32, ptr %3, align 8
   %7 = shl i32 %6, 3
@@ -110,7 +110,7 @@ scaled_x.exit12:                                  ; preds = %65, %69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @scaled_x(i32 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @scaled_x(i32 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = load i32, ptr %1, align 8
   %4 = shl i32 %3, 3
   %5 = add i32 %4, -131072
@@ -140,7 +140,7 @@ define internal i32 @scaled_x(i32 noundef %0, ptr nocapture noundef readonly %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal i32 @scaled_y(i32 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @scaled_y(i32 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = shl i32 %4, 3
@@ -171,7 +171,7 @@ define internal i32 @scaled_y(i32 noundef %0, ptr nocapture noundef readonly %1)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @av1_setup_scale_factors_for_frame(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @av1_setup_scale_factors_for_frame(ptr noundef writeonly captures(none) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = shl nsw i32 %3, 1
   %.not.i = icmp slt i32 %6, %1
   %7 = shl nsw i32 %4, 1
@@ -241,7 +241,7 @@ av1_is_scaled.exit.thread:                        ; preds = %29, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 -2147483648, 2147483585) i32 @unscaled_value(i32 noundef %0, ptr nocapture readnone %1) #2 {
+define internal range(i32 -2147483648, 2147483585) i32 @unscaled_value(i32 noundef %0, ptr readnone captures(none) %1) #2 {
   %3 = shl nsw i32 %0, 6
   ret i32 %3
 }

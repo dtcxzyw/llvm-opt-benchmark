@@ -135,7 +135,7 @@ define dso_local void @PgArchShmemInit() local_unnamed_addr #0 {
 declare ptr @ShmemInitStruct(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @PgArchCanRestart() local_unnamed_addr #0 {
@@ -218,7 +218,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare ptr @binaryheap_allocate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @ready_file_comparator(i64 noundef %0, i64 noundef %1, ptr nocapture readnone %2) #6 {
+define internal i32 @ready_file_comparator(i64 noundef %0, i64 noundef %1, ptr readnone captures(none) %2) #6 {
   %4 = inttoptr i64 %0 to ptr
   %5 = inttoptr i64 %1 to ptr
   %6 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #20
@@ -226,7 +226,7 @@ define internal i32 @ready_file_comparator(i64 noundef %0, i64 noundef %1, ptr n
   br i1 %7, label %8, label %IsTLHistoryFileName.exit
 
 8:                                                ; preds = %3
-  %9 = tail call i64 @strspn(ptr noundef readonly %4, ptr noundef nonnull @.str.21) #20
+  %9 = tail call i64 @strspn(ptr noundef nonnull readonly %4, ptr noundef nonnull @.str.21) #20
   %10 = icmp eq i64 %9, 8
   br i1 %10, label %11, label %IsTLHistoryFileName.exit
 
@@ -243,7 +243,7 @@ IsTLHistoryFileName.exit:                         ; preds = %3, %8, %11
   br i1 %17, label %18, label %IsTLHistoryFileName.exit9.thr_comm
 
 18:                                               ; preds = %IsTLHistoryFileName.exit
-  %19 = tail call i64 @strspn(ptr noundef readonly %5, ptr noundef nonnull @.str.21) #20
+  %19 = tail call i64 @strspn(ptr noundef nonnull readonly %5, ptr noundef nonnull @.str.21) #20
   %20 = icmp eq i64 %19, 8
   br i1 %20, label %IsTLHistoryFileName.exit9, label %IsTLHistoryFileName.exit9.thr_comm
 
@@ -860,7 +860,7 @@ define internal fastcc void @HandlePgArchInterrupts() unnamed_addr #0 {
 21:                                               ; preds = %13, %8
   %22 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %10) #20
   %.not6 = icmp eq i32 %22, 0
-  tail call void @pfree(ptr noundef %10) #18
+  tail call void @pfree(ptr noundef nonnull %10) #18
   br i1 %.not6, label %28, label %23
 
 23:                                               ; preds = %21
@@ -904,27 +904,27 @@ declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__errno_location() local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
 
 declare void @pgstat_report_archiver(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #13
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 declare i32 @errcode_for_file_access() local_unnamed_addr #1
 
@@ -935,13 +935,13 @@ declare ptr @AllocateDir(ptr noundef) local_unnamed_addr #1
 declare ptr @ReadDir(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
+declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
 
 declare void @binaryheap_add_unordered(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -960,7 +960,7 @@ declare zeroext i1 @PostmasterIsAliveInternal() local_unnamed_addr #1
 declare void @set_ps_display_with_len(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @rename(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @rename(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 declare ptr @shell_archive_init() local_unnamed_addr #1
 
@@ -994,10 +994,10 @@ declare void @llvm.assume(i1 noundef) #15
 declare i64 @llvm.umax.i64(i64, i64) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #16

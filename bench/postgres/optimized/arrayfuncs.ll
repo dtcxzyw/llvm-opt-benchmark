@@ -120,7 +120,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.array_replace_internal = private unnamed_addr constant [23 x i8] c"array_replace_internal\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @array_in(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @array_in(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca [6 x i32], align 16
   %4 = alloca ptr, align 8
@@ -1146,15 +1146,15 @@ define dso_local noundef ptr @construct_empty_array(i32 noundef %0) local_unname
 declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CopyArrayEls(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
+define dso_local void @CopyArrayEls(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
@@ -1402,7 +1402,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ArrayCastAndSet(i64 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i8 noundef signext %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc i32 @ArrayCastAndSet(i64 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i8 noundef signext %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %7, label %28
 
@@ -1522,7 +1522,7 @@ store_att_byval.exit:                             ; preds = %15, %13, %11, %9, %
   %55 = phi i64 [ 10, %34 ], [ %50, %48 ], [ %39, %37 ], [ %53, %51 ]
   %sext = shl i64 %55, 32
   %56 = ashr exact i64 %sext, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr align 1 %30, i64 %56, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %4, ptr nonnull align 1 %30, i64 %56, i1 false)
   switch i8 %3, label %63 [
     i8 105, label %57
     i8 99, label %66
@@ -1555,7 +1555,7 @@ store_att_byval.exit:                             ; preds = %15, %13, %11, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_out(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @array_out(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [200 x i8], align 16
   %3 = alloca [6 x i32], align 16
   %4 = alloca %struct.array_iter, align 8
@@ -2088,7 +2088,7 @@ declare ptr @pstrdup(ptr noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @array_iter_next(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, i32 noundef %2, i32 noundef range(i32 -32768, 32768) %3, i1 noundef zeroext %4, i8 noundef signext %5) unnamed_addr #0 {
+define internal fastcc i64 @array_iter_next(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 1)) %1, i32 noundef %2, i32 noundef range(i32 -32768, 32768) %3, i1 noundef zeroext %4, i8 noundef signext %5) unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %20, label %8
@@ -2301,10 +2301,10 @@ declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #5
+declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @array_recv(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @array_recv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca [6 x i32], align 16
   %4 = alloca [6 x i32], align 16
@@ -2843,7 +2843,7 @@ declare void @ArrayCheckBounds(i32 noundef, ptr noundef, ptr noundef) local_unna
 declare ptr @format_type_be(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_send(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @array_send(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca %struct.array_iter, align 8
   %4 = alloca i8, align 1
@@ -3214,7 +3214,7 @@ declare void @pq_sendbytes(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare ptr @pq_endtypsend(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 7) i64 @array_ndims(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 7) i64 @array_ndims(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @DatumGetAnyArrayP(i64 noundef %3) #17
@@ -3242,7 +3242,7 @@ define dso_local range(i64 0, 7) i64 @array_ndims(ptr nocapture noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_dims(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local i64 @array_dims(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca [199 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
@@ -3319,7 +3319,7 @@ define dso_local i64 @array_dims(ptr nocapture noundef %0) local_unnamed_addr #0
 declare ptr @cstring_to_text(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @array_lower(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @array_lower(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @DatumGetAnyArrayP(i64 noundef %3) #17
@@ -3383,7 +3383,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @array_lower(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @array_upper(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @array_upper(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @DatumGetAnyArrayP(i64 noundef %3) #17
@@ -3454,7 +3454,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @array_upper(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @array_length(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @array_length(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @DatumGetAnyArrayP(i64 noundef %3) #17
@@ -3513,7 +3513,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @array_length(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @array_cardinality(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @array_cardinality(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @DatumGetAnyArrayP(i64 noundef %3) #17
@@ -3541,7 +3541,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @array_cardinality(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_get_element(i64 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define dso_local i64 @array_get_element(i64 noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = alloca [1 x i32], align 4
   %10 = alloca [1 x i32], align 4
   %11 = icmp sgt i32 %3, 0
@@ -4147,7 +4147,7 @@ define internal fastcc ptr @array_seek(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i32 noundef %6, i32 noundef %7, i1 zeroext %8, i8 noundef signext %9) local_unnamed_addr #0 {
+define dso_local noundef i64 @array_get_slice(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i32 noundef %6, i32 noundef %7, i1 zeroext %8, i8 noundef signext %9) local_unnamed_addr #0 {
   %11 = alloca [6 x i32], align 16
   %12 = alloca [6 x i32], align 16
   %13 = alloca [6 x i32], align 16
@@ -6006,7 +6006,7 @@ array_bitmap_copy.exit:                           ; preds = %558, %577, %515, %a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @construct_md_array(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i8 noundef signext %8) local_unnamed_addr #0 {
+define dso_local noundef ptr @construct_md_array(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7, i8 noundef signext %8) local_unnamed_addr #0 {
   %10 = icmp slt i32 %2, 0
   br i1 %10, label %11, label %15
 
@@ -6370,7 +6370,7 @@ define dso_local noundef ptr @construct_md_array(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @array_bitmap_copy(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define dso_local void @array_bitmap_copy(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = icmp slt i32 %4, 1
   br i1 %6, label %._crit_edge95.thread, label %7
 
@@ -6501,7 +6501,7 @@ define dso_local void @array_bitmap_copy(ptr nocapture noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, i64 noundef %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, i8 noundef signext %11) local_unnamed_addr #0 {
+define dso_local noundef i64 @array_set_slice(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, i64 noundef %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext %10, i8 noundef signext %11) local_unnamed_addr #0 {
   %13 = alloca [6 x i32], align 16
   %14 = alloca [6 x i32], align 16
   %15 = alloca [6 x i32], align 16
@@ -8146,7 +8146,7 @@ array_bitmap_copy.exit392:                        ; preds = %788, %807, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @deconstruct_array(ptr noundef %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef signext %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr noundef writeonly %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
+define dso_local void @deconstruct_array(ptr noundef %0, i32 %1, i32 noundef %2, i1 noundef zeroext %3, i8 noundef signext %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5, ptr noundef writeonly %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr i8, ptr %0, i64 16
@@ -8579,7 +8579,7 @@ fetch_att.exit:                                   ; preds = %158, %.lr.ph.split.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_ref(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
+define dso_local i64 @array_ref(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, ptr noundef writeonly captures(none) %7) local_unnamed_addr #0 {
   %9 = ptrtoint ptr %0 to i64
   %10 = tail call i64 @array_get_element(i64 noundef %9, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5, i8 noundef signext %6, ptr noundef %7)
   ret i64 %10
@@ -9102,7 +9102,7 @@ define dso_local noundef i64 @array_map(i64 noundef %0, ptr noundef %1, ptr noun
 declare void @get_typlenbyvalalign(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @construct_array(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i8 noundef signext %5) local_unnamed_addr #0 {
+define dso_local noundef ptr @construct_array(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, i8 noundef signext %5) local_unnamed_addr #0 {
   %7 = alloca [1 x i32], align 4
   %8 = alloca [1 x i32], align 4
   store i32 %1, ptr %7, align 4
@@ -9112,7 +9112,7 @@ define dso_local noundef ptr @construct_array(ptr nocapture noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @construct_array_builtin(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @construct_array_builtin(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x i32], align 4
   %5 = alloca [1 x i32], align 4
   switch i32 %2, label %13 [
@@ -9193,7 +9193,7 @@ declare i64 @expand_array(i64 noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @DatumGetEOHP(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @deconstruct_array_builtin(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define dso_local void @deconstruct_array_builtin(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   switch i32 %1, label %12 [
     i32 18, label %15
     i32 2275, label %6
@@ -9308,7 +9308,7 @@ define dso_local noundef zeroext i1 @array_contains_nulls(ptr noundef %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @array_eq(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @array_eq(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %union.anon, align 8
   %3 = alloca %struct.array_iter, align 8
   %4 = alloca %struct.array_iter, align 8
@@ -9761,14 +9761,14 @@ array_iter_setup.exit116:                         ; preds = %164, %188, %207
 declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @array_ne(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @array_ne(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call i64 @array_eq(ptr noundef %0)
   %3 = xor i64 %2, 1
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @array_lt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @array_lt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @array_cmp(ptr noundef %0)
   %.lobit = lshr i32 %2, 31
   %3 = zext nneg i32 %.lobit to i64
@@ -9776,7 +9776,7 @@ define dso_local range(i64 0, 2) i64 @array_lt(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @array_cmp(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @array_cmp(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %2 = alloca %union.anon.3, align 8
   %3 = alloca %struct.array_iter, align 8
   %4 = alloca %struct.array_iter, align 8
@@ -10290,7 +10290,7 @@ array_iter_setup.exit154:                         ; preds = %144, %168, %187
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @array_gt(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @array_gt(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @array_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, 0
   %4 = zext i1 %3 to i64
@@ -10298,7 +10298,7 @@ define dso_local range(i64 0, 2) i64 @array_gt(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @array_le(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @array_le(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @array_cmp(ptr noundef %0)
   %3 = icmp slt i32 %2, 1
   %4 = zext i1 %3 to i64
@@ -10306,7 +10306,7 @@ define dso_local range(i64 0, 2) i64 @array_le(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @array_ge(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @array_ge(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @array_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, -1
   %4 = zext i1 %3 to i64
@@ -10314,14 +10314,14 @@ define dso_local range(i64 0, 2) i64 @array_ge(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -1, 2) i64 @btarraycmp(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -1, 2) i64 @btarraycmp(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @array_cmp(ptr noundef %0)
   %3 = sext i32 %2 to i64
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 4294967296) i64 @hash_array(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 4294967296) i64 @hash_array(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %union.anon.1, align 8
   %3 = alloca %struct.array_iter, align 8
   %4 = alloca i8, align 1
@@ -10595,7 +10595,7 @@ array_iter_setup.exit:                            ; preds = %82, %106, %125
 declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @hash_array_extended(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @hash_array_extended(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %union.anon.2, align 8
   %3 = alloca %struct.array_iter, align 8
   %4 = alloca i8, align 1
@@ -10838,7 +10838,7 @@ array_iter_setup.exit:                            ; preds = %63, %87, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @arrayoverlap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @arrayoverlap(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @DatumGetAnyArrayP(i64 noundef %3) #17
@@ -10885,7 +10885,7 @@ define dso_local range(i64 0, 2) i64 @arrayoverlap(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @array_contain_compare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @array_contain_compare(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef captures(none) %4) unnamed_addr #0 {
   %6 = alloca %union.anon.4, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -11237,7 +11237,7 @@ array_iter_setup.exit:                            ; preds = %80, %104, %123
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @arraycontains(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @arraycontains(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @DatumGetAnyArrayP(i64 noundef %3) #17
@@ -11284,7 +11284,7 @@ define dso_local range(i64 0, 2) i64 @arraycontains(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 2) i64 @arraycontained(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 0, 2) i64 @arraycontained(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = tail call ptr @DatumGetAnyArrayP(i64 noundef %3) #17
@@ -11466,7 +11466,7 @@ define dso_local ptr @array_create_iterator(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @array_iterate(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @array_iterate(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -12109,7 +12109,7 @@ declare ptr @pg_detoast_datum_copy(ptr noundef) local_unnamed_addr #1
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @makeArrayResult(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i64 @makeArrayResult(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [1 x i32], align 4
   %4 = alloca [1 x i32], align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -12152,7 +12152,7 @@ makeMdArrayResult.exit:                           ; preds = %2, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @makeMdArrayResult(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define dso_local noundef i64 @makeMdArrayResult(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %4, ptr @CurrentMemoryContext, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12981,7 +12981,7 @@ define dso_local noundef ptr @accumArrayResultAny(ptr noundef readonly %0, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @makeArrayResultAny(ptr nocapture noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local noundef i64 @makeArrayResultAny(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [1 x i32], align 4
   %5 = alloca [1 x i32], align 4
   %6 = load ptr, ptr %0, align 8
@@ -13036,7 +13036,7 @@ makeMdArrayResult.exit:                           ; preds = %7, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_larger(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @array_larger(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @array_cmp(ptr noundef %0)
   %3 = icmp sgt i32 %2, 0
   %.0.in.v = select i1 %3, i64 32, i64 48
@@ -13046,7 +13046,7 @@ define dso_local i64 @array_larger(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_smaller(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @array_smaller(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @array_cmp(ptr noundef %0)
   %3 = icmp slt i32 %2, 0
   %.0.in.v = select i1 %3, i64 32, i64 48
@@ -13232,7 +13232,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @generate_subscripts_nod
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @array_fill_with_lower_bounds(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @array_fill_with_lower_bounds(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 48
   %4 = getelementptr i8, ptr %0, i64 56
@@ -13294,7 +13294,7 @@ define dso_local noundef i64 @array_fill_with_lower_bounds(ptr nocapture noundef
 declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @array_fill_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef range(i32 1, 0) %4, ptr nocapture noundef readonly %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @array_fill_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3, i32 noundef range(i32 1, 0) %4, ptr noundef readonly captures(none) %5) unnamed_addr #0 {
   %7 = alloca [6 x i32], align 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %9 = load i32, ptr %8, align 4
@@ -13828,7 +13828,7 @@ array_contains_nulls.exit149:                     ; preds = %.lr.ph.i145, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @array_fill(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @array_fill(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr i8, ptr %0, i64 56
   %4 = load i8, ptr %3, align 8
@@ -14116,7 +14116,7 @@ array_iter_setup.exit:                            ; preds = %20, %53, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @array_unnest_support(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local i64 @array_unnest_support(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
@@ -14160,7 +14160,7 @@ declare ptr @estimate_expression_value(ptr noundef, ptr noundef) local_unnamed_a
 declare double @estimate_array_length(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @array_remove(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @array_remove(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -14193,7 +14193,7 @@ define dso_local noundef i64 @array_remove(ptr nocapture noundef %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @array_replace_internal(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef readonly %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @array_replace_internal(ptr noundef %0, i64 noundef %1, i1 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca %union.anon.5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4
@@ -14748,7 +14748,7 @@ fetch_att.exit.thread:                            ; preds = %114, %111, %108, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @array_replace(ptr nocapture noundef %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @array_replace(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -14786,7 +14786,7 @@ define dso_local noundef i64 @array_replace(ptr nocapture noundef %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_array(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @width_bucket_array(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %union.anon.8, align 8
   %3 = alloca %union.anon.7, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -15464,7 +15464,7 @@ width_bucket_array_float8.exit:                   ; preds = %.lr.ph.i38, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @trim_array(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define dso_local noundef i64 @trim_array(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca i16, align 2
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -15535,10 +15535,10 @@ define dso_local noundef i64 @trim_array(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ReadDimensionInt(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ReadDimensionInt(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = tail call ptr @__ctype_b_loc() #20
   %6 = load ptr, ptr %5, align 8
@@ -15599,7 +15599,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #9
 declare ptr @__errno_location() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #10
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #10
 
 declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 
@@ -15627,7 +15627,7 @@ declare { i32, i1 } @llvm.sadd.with.overflow.i32(i32, i32) #11
 declare ptr @DatumGetExpandedArray(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 declare void @mda_get_prod(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -15651,7 +15651,7 @@ declare i32 @llvm.smax.i32(i32, i32) #13
 declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #14
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #13
@@ -15660,10 +15660,10 @@ declare i32 @llvm.ctpop.i32(i32) #13
 declare { i32, i1 } @llvm.smul.with.overflow.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #16

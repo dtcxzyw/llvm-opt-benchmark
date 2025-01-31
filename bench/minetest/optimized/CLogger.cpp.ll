@@ -51,7 +51,7 @@ $_ZTIN3irr7ILoggerE = comdat any
 @.str.1 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr7CLoggerC2EPNS_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %r) unnamed_addr #0 align 2 {
+define void @_ZN3irr7CLoggerC2EPNS_14IEventReceiverE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 24)) %this, ptr noundef readonly captures(none) %vtt, ptr noundef %r) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -78,7 +78,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr7CLoggerC1EPNS_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 44)) %this, ptr noundef %r) unnamed_addr #1 align 2 {
+define void @_ZN3irr7CLoggerC1EPNS_14IEventReceiverE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 12), (16, 44)) %this, ptr noundef %r) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %DebugName.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -95,7 +95,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZNK3irr7CLogger11getLogLevelEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 {
+define noundef i32 @_ZNK3irr7CLogger11getLogLevelEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this) unnamed_addr #2 align 2 {
 entry:
   %LogLevel = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %LogLevel, align 8, !tbaa !6
@@ -103,7 +103,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr7CLogger11setLogLevelENS_10ELOG_LEVELE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 12)) %this, i32 noundef %ll) unnamed_addr #1 align 2 {
+define void @_ZN3irr7CLogger11setLogLevelENS_10ELOG_LEVELE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((8, 12)) %this, i32 noundef %ll) unnamed_addr #1 align 2 {
 entry:
   %LogLevel = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %ll, ptr %LogLevel, align 8, !tbaa !6
@@ -111,7 +111,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr7CLogger3logEPKcNS_10ELOG_LEVELE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %text, i32 noundef %ll) unnamed_addr #3 align 2 {
+define void @_ZN3irr7CLogger3logEPKcNS_10ELOG_LEVELE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %this, ptr noundef %text, i32 noundef %ll) unnamed_addr #3 align 2 {
 entry:
   %event = alloca %"struct.irr::SEvent", align 8
   %LogLevel = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -148,10 +148,10 @@ return:                                           ; preds = %if.end6, %if.then2,
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 declare void @_ZN3irr2os7Printer5printEPKcNS_10ELOG_LEVELE(ptr noundef, i32 noundef) local_unnamed_addr #5
 
@@ -324,7 +324,7 @@ return:                                           ; preds = %_ZN3irr4core6string
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr7CLogger11setReceiverEPNS_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %this, ptr noundef %r) local_unnamed_addr #1 align 2 {
+define void @_ZN3irr7CLogger11setReceiverEPNS_14IEventReceiverE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((16, 24)) %this, ptr noundef %r) local_unnamed_addr #1 align 2 {
 entry:
   %Receiver = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %r, ptr %Receiver, align 8, !tbaa !12
@@ -401,7 +401,7 @@ declare void @llvm.trap() #10
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #5
 

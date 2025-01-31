@@ -253,7 +253,7 @@ define internal { double, double } @_ZL14poly_e_inverse5PJ_XYP8PJconsts(double %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal { double, double } @_ZL14poly_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #0 {
+define internal { double, double } @_ZL14poly_e_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @llvm.fabs.f64(double %1)
@@ -361,7 +361,7 @@ define internal { double, double } @_ZL14poly_s_inverse5PJ_XYP8PJconsts(double %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal { double, double } @_ZL14poly_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr nocapture noundef readonly %2) #4 {
+define internal { double, double } @_ZL14poly_s_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = tail call double @llvm.fabs.f64(double %1)
   %5 = fcmp ugt double %4, 1.000000e-10
   br i1 %5, label %10, label %6
@@ -396,7 +396,7 @@ define internal { double, double } @_ZL14poly_s_forward5PJ_LPP8PJconsts(double %
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #6

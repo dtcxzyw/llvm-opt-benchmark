@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [5 x i8] c"Unit\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @sgetri_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef initializes((0, 4)) %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 4)) %6) local_unnamed_addr #0 {
+define void @sgetri_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef initializes((0, 4)) %4, ptr noundef readonly captures(none) %5, ptr noundef initializes((0, 4)) %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4

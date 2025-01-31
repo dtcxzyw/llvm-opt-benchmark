@@ -1381,7 +1381,7 @@ declare void @_ZN24ZGenerationPagesIteratorD1Ev(ptr noundef nonnull align 8 dere
 declare void @_ZN22ZRelocationSetSelector6selectEv(ptr noundef nonnull align 8 dereferenceable(2584)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZGenerationYoung25select_tenuring_thresholdE27ZRelocationSetSelectorStatsb(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(6720) %0, ptr nocapture noundef readonly byval(%class.ZRelocationSetSelectorStats) align 8 %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZGenerationYoung25select_tenuring_thresholdE27ZRelocationSetSelectorStatsb(ptr noundef nonnull writeonly align 64 captures(none) dereferenceable(6720) %0, ptr noundef readonly byval(%class.ZRelocationSetSelectorStats) align 8 captures(none) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   br i1 %2, label %8, label %4
 
 4:                                                ; preds = %3
@@ -1585,7 +1585,7 @@ _ZN27ZRelocationSetSelectorGroupD2Ev.exit16:      ; preds = %_ZN18GrowableArrayC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11ZGeneration32relocation_set_parallel_iteratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ZRelocationSetIteratorImpl.23) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 64 dereferenceable(6592) %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11ZGeneration32relocation_set_parallel_iteratorEv(ptr dead_on_unwind noalias writable writeonly sret(%class.ZRelocationSetIteratorImpl.23) align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 64 captures(none) dereferenceable(6592) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 3104
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 3112
@@ -1730,28 +1730,28 @@ define hidden void @_ZN11ZGeneration18increase_compactedEm(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK11ZGeneration8gc_timerEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(6592) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZNK11ZGeneration8gc_timerEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(6592) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6584
   %3 = load ptr, ptr %2, align 8
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11ZGeneration12set_gc_timerEP17ConcurrentGCTimer(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(6592) initializes((6584, 6592)) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN11ZGeneration12set_gc_timerEP17ConcurrentGCTimer(ptr noundef nonnull writeonly align 64 captures(none) dereferenceable(6592) initializes((6584, 6592)) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6584
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11ZGeneration14clear_gc_timerEv(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(6592) initializes((6584, 6592)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN11ZGeneration14clear_gc_timerEv(ptr noundef nonnull writeonly align 64 captures(none) dereferenceable(6592) initializes((6584, 6592)) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6584
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZGeneration16log_phase_switchENS_5PhaseES0_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(6592) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZGeneration16log_phase_switchENS_5PhaseES0_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(6592) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i8, ptr %4, align 8
   %6 = icmp eq i8 %5, 1
@@ -1835,7 +1835,7 @@ _ZN20FormatStringEventLogILm256EE4logvEP6ThreadPKcP13__va_list_tag.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZGeneration9set_phaseENS_5PhaseE(ptr nocapture noundef nonnull align 64 dereferenceable(6592) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZGeneration9set_phaseENS_5PhaseE(ptr noundef nonnull align 64 captures(none) dereferenceable(6592) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3216
   %4 = load i32, ptr %3, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1904,7 +1904,7 @@ declare void @_ZN8ZWorkers12set_inactiveEv(ptr noundef nonnull align 8 dereferen
 declare void @_ZN10ZStatCycle6at_endEP12ZStatWorkersb(ptr noundef nonnull align 8 dereferenceable(376), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZNK11ZGeneration15phase_to_stringEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(6592) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull ptr @_ZNK11ZGeneration15phase_to_stringEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(6592) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3216
   %3 = load i32, ptr %2, align 16
   %4 = icmp ult i32 %3, 3
@@ -1922,7 +1922,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16ZYoungTypeSetterC2E10ZYoungType(ptr nocapture nonnull readnone align 1 %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN16ZYoungTypeSetterC2E10ZYoungType(ptr nonnull readnone align 1 captures(none) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   %3 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6592
   store i32 %1, ptr %4, align 64
@@ -1930,7 +1930,7 @@ define hidden void @_ZN16ZYoungTypeSetterC2E10ZYoungType(ptr nocapture nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN16ZYoungTypeSetterD2Ev(ptr nocapture nonnull readnone align 1 %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN16ZYoungTypeSetterD2Ev(ptr nonnull readnone align 1 captures(none) %0) unnamed_addr #8 align 2 {
   %2 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 6592
   store i32 4, ptr %3, align 64
@@ -1958,17 +1958,17 @@ define hidden void @_ZN16ZGenerationYoungC2EP10ZPageTablePK16ZForwardingTableP14
 declare void @_ZN11ZRememberedC1EP10ZPageTablePK16ZForwardingTableP14ZPageAllocator(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN16ZGenerationYoung18tenuring_thresholdEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(6720) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN16ZGenerationYoung18tenuring_thresholdEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6596
   %3 = load i32, ptr %2, align 4
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN16ZGenerationYoung19should_record_statsEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(6720) %0) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN16ZGenerationYoung19should_record_statsEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(6720) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6592
   %3 = load i32, ptr %2, align 64
   %4 = icmp eq i32 %3, 0
@@ -2259,7 +2259,7 @@ _ZN16ZGenerationYoung14pause_mark_endEv.exit:     ; preds = %62, %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZGenerationYoung16pause_mark_startEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZGenerationYoung16pause_mark_startEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.VM_ZMarkStartYoungAndOld, align 8
   %3 = alloca %class.VM_ZMarkStartYoung, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 6592
@@ -2406,7 +2406,7 @@ define hidden void @_ZN16ZGenerationYoung15concurrent_markEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16ZGenerationYoung14pause_mark_endEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN16ZGenerationYoung14pause_mark_endEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.VM_ZMarkEndYoung, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %3, align 8
@@ -2627,7 +2627,7 @@ define hidden void @_ZN16ZGenerationYoung32concurrent_select_relocation_setEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZGenerationYoung20pause_relocate_startEv(ptr nocapture nonnull readnone align 64 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZGenerationYoung20pause_relocate_startEv(ptr nonnull readnone align 64 captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.VM_ZRelocateStartYoung, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i64 0, ptr %3, align 8
@@ -2713,7 +2713,7 @@ define hidden void @_ZN16ZGenerationYoung19concurrent_relocateEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZGenerationYoung15flip_mark_startEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZGenerationYoung15flip_mark_startEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN16ZGlobalsPointers21flip_young_mark_startEv() #17
   %2 = tail call noundef ptr @_ZN11ZBarrierSet9assemblerEv() #17
   tail call void @_ZN20ZBarrierSetAssembler14patch_barriersEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #17
@@ -2730,7 +2730,7 @@ declare void @_ZN20ZBarrierSetAssembler14patch_barriersEv(ptr noundef nonnull al
 declare void @_ZN7ZVerify13on_color_flipEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZGenerationYoung19flip_relocate_startEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZGenerationYoung19flip_relocate_startEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN16ZGlobalsPointers25flip_young_relocate_startEv() #17
   %2 = tail call noundef ptr @_ZN11ZBarrierSet9assemblerEv() #17
   tail call void @_ZN20ZBarrierSetAssembler14patch_barriersEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #17
@@ -2796,7 +2796,7 @@ define hidden void @_ZN16ZGenerationYoung11mark_followEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN16ZGenerationYoung26compute_tenuring_thresholdE27ZRelocationSetSelectorStats(ptr nocapture nonnull readnone align 64 %0, ptr nocapture noundef readonly byval(%class.ZRelocationSetSelectorStats) align 8 %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN16ZGenerationYoung26compute_tenuring_thresholdE27ZRelocationSetSelectorStats(ptr nonnull readnone align 64 captures(none) %0, ptr noundef readonly byval(%class.ZRelocationSetSelectorStats) align 8 captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 784
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1552
   br label %5
@@ -3202,7 +3202,7 @@ declare void @_ZN10ZPageTable7replaceEP5ZPageS1_(ptr noundef nonnull align 8 der
 declare void @_ZN14ZPageAllocator12promote_usedEm(ptr noundef nonnull align 8 dereferenceable(609), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZGenerationYoung25in_place_relocate_promoteEP5ZPageS1_(ptr nocapture noundef nonnull readonly align 64 dereferenceable(6720) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZGenerationYoung25in_place_relocate_promoteEP5ZPageS1_(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(6720) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN10ZPageTable7replaceEP5ZPageS1_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %1, ptr noundef %2) #17
@@ -3276,7 +3276,7 @@ declare void @_ZN19ZWeakRootsProcessorC1EP8ZWorkers(ptr noundef nonnull align 8 
 declare void @_ZN7ZUnloadC1EP8ZWorkers(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef zeroext i1 @_ZN14ZGenerationOld19should_record_statsEv(ptr nocapture nonnull readnone align 64 %0) unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN14ZGenerationOld19should_record_statsEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #2 align 2 {
   ret i1 true
 }
 
@@ -3639,7 +3639,7 @@ define hidden void @_ZN14ZGenerationOld15concurrent_markEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14ZGenerationOld14pause_mark_endEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14ZGenerationOld14pause_mark_endEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.VM_ZMarkEndOld, align 8
   %3 = tail call noundef ptr @_ZN7ZDriver5majorEv() #17
   %4 = tail call noundef i32 @_ZN7ZDriver8gc_causeEv(ptr noundef nonnull align 8 dereferenceable(924) %3) #17
@@ -3838,7 +3838,7 @@ _ZN11ZGeneration20reset_relocation_setEv.exit:    ; preds = %_ZN16ZForwardingTab
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZGenerationOld12pause_verifyEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14ZGenerationOld12pause_verifyEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ZDriverLocker, align 1
   %3 = alloca %class.VM_ZVerifyOld, align 8
   %4 = load i8, ptr @ZVerifyRoots, align 1
@@ -3918,7 +3918,7 @@ define hidden void @_ZN14ZGenerationOld28concurrent_remap_young_rootsEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZGenerationOld20pause_relocate_startEv(ptr nocapture nonnull readnone align 64 %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14ZGenerationOld20pause_relocate_startEv(ptr nonnull readnone align 64 captures(none) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.VM_ZRelocateStartOld, align 8
   %3 = tail call noundef ptr @_ZN7ZDriver5majorEv() #17
   %4 = tail call noundef i32 @_ZN7ZDriver8gc_causeEv(ptr noundef nonnull align 8 dereferenceable(924) %3) #17
@@ -3990,7 +3990,7 @@ define hidden void @_ZN14ZGenerationOld19concurrent_relocateEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZGenerationOld15flip_mark_startEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14ZGenerationOld15flip_mark_startEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN16ZGlobalsPointers19flip_old_mark_startEv() #17
   %2 = tail call noundef ptr @_ZN11ZBarrierSet9assemblerEv() #17
   tail call void @_ZN20ZBarrierSetAssembler14patch_barriersEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #17
@@ -4001,7 +4001,7 @@ define hidden void @_ZN14ZGenerationOld15flip_mark_startEv(ptr nocapture noundef
 declare void @_ZN16ZGlobalsPointers19flip_old_mark_startEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZGenerationOld19flip_relocate_startEv(ptr nocapture noundef nonnull readnone align 64 dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14ZGenerationOld19flip_relocate_startEv(ptr noundef nonnull readnone align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN16ZGlobalsPointers23flip_old_relocate_startEv() #17
   %2 = tail call noundef ptr @_ZN11ZBarrierSet9assemblerEv() #17
   tail call void @_ZN20ZBarrierSetAssembler14patch_barriersEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #17
@@ -4406,7 +4406,7 @@ define linkonce_odr hidden void @_ZN20ZRemapYoungRootsTaskC2EP10ZPageTableP14ZPa
 declare void @_ZN8ZWorkers3runEP5ZTask(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZNK14ZGenerationOld26total_collections_at_startEv(ptr nocapture noundef nonnull readonly align 64 dereferenceable(6720) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZNK14ZGenerationOld26total_collections_at_startEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(6720) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6688
   %3 = load i32, ptr %2, align 32
   ret i32 %3
@@ -6494,10 +6494,10 @@ declare i32 @llvm.ctpop.i32(i32) #15
 declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #16
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.log.f64(double) #15

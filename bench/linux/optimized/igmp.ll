@@ -819,7 +819,7 @@ igmp_heard_report.exit:                           ; preds = %.loopexit.i, %435, 
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @dev_get_by_index_rcu(ptr noundef, i32 noundef) local_unnamed_addr #2
@@ -850,7 +850,7 @@ define internal fastcc zeroext i1 @pskb_may_pull(ptr noundef %0, i32 noundef ran
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @pim_rcv_v1(ptr noundef) local_unnamed_addr #2
@@ -1705,7 +1705,7 @@ define internal fastcc void @__igmp_group_dropped(ptr noundef %0, i32 noundef %1
 declare dso_local void @ip_rt_multicast_event(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ip_mc_unmap(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ip_mc_unmap(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @rtnl_is_locked() #14
   %3 = icmp ne i32 %2, 0
   %4 = load i1, ptr @ip_mc_unmap.__already_done, align 1
@@ -2715,7 +2715,7 @@ define internal void @igmp_ifc_timer_expire(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @ip_mc_up(ptr noundef initializes((80, 97)) %0) local_unnamed_addr #0 align 16 {
@@ -3027,13 +3027,13 @@ define internal fastcc void @igmpv3_clear_delrec(ptr noundef %0) unnamed_addr #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -105, 1) i32 @ip_mc_join_group(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @ip_mc_join_group(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = tail call fastcc i32 @__ip_mc_join_group(ptr noundef %0, ptr noundef %1, i32 noundef 0), !range !23
   ret i32 %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -105, 1) i32 @__ip_mc_join_group(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @__ip_mc_join_group(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.flowi4, align 8
   %5 = load i32, ptr %1, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -3170,13 +3170,13 @@ ip_mc_find_dev.exit.thread:                       ; preds = %54, %29, %34, %26, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -105, 1) i32 @ip_mc_join_group_ssm(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @ip_mc_join_group_ssm(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = tail call fastcc i32 @__ip_mc_join_group(ptr noundef %0, ptr noundef %1, i32 noundef %2), !range !23
   ret i32 %4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -99, 1) i32 @ip_mc_leave_group(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -99, 1) i32 @ip_mc_leave_group(ptr noundef %0, ptr noundef captures(none) %1) #0 align 16 {
   %3 = alloca %struct.flowi4, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -3378,7 +3378,7 @@ ip_mc_find_dev.exit:                              ; preds = %ip_mc_find_dev.exit
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.flowi4, align 8
   %7 = alloca %struct.ip_mreqn, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #14
@@ -3725,10 +3725,10 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_source(i32 noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -105, 1) i32 @ip_mc_add_src(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -105, 1) i32 @ip_mc_add_src(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %157, label %8
 
@@ -3999,7 +3999,7 @@ thread-pre-split:                                 ; preds = %49
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ip_mc_del_src(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
+define internal fastcc void @ip_mc_del_src(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 align 16 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %119, label %8
 
@@ -4200,7 +4200,7 @@ thread-pre-split:                                 ; preds = %49
 declare dso_local ptr @sock_kmalloc(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -105, 1) i32 @ip_mc_msfilter(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -105, 1) i32 @ip_mc_msfilter(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.flowi4, align 8
   %5 = alloca %struct.ip_mreqn, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #14
@@ -4419,7 +4419,7 @@ define dso_local noundef range(i32 -105, 1) i32 @ip_mc_msfilter(ptr noundef %0, 
 declare dso_local void @sock_kfree_s(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr nocapture noundef readonly %0, ptr noundef %1, ptr %2, i8 %3, ptr %4, i8 %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -99, 1) i32 @ip_mc_msfget(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr %2, i8 %3, ptr %4, i8 %5) local_unnamed_addr #0 align 16 {
   %7 = alloca %struct.flowi4, align 8
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #14
@@ -4628,7 +4628,7 @@ define internal fastcc i32 @copy_to_sockptr_offset(ptr %0, i8 %1, ptr noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -99, 1) i32 @ip_mc_gsfget(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr %2, i8 %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -99, 1) i32 @ip_mc_gsfget(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr %2, i8 %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca %struct.__kernel_sockaddr_storage, align 8
   %7 = tail call i32 @rtnl_is_locked() #14
   %8 = icmp ne i32 %7, 0
@@ -5782,7 +5782,7 @@ declare dso_local zeroext i16 @ip_compute_csum(ptr noundef, i32 noundef) local_u
 declare dso_local i32 @ip_local_out(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @add_grec(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 1, 7) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @add_grec(ptr noundef %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 1, 7) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 align 16 {
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 272
@@ -6484,7 +6484,7 @@ define internal fastcc ptr @igmpv3_newpack(ptr noundef %0, i32 noundef range(i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal fastcc range(i32 0, 2) i32 @is_in(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 1, 7) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #10 align 16 {
+define internal fastcc range(i32 0, 2) i32 @is_in(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 1, 7) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #10 align 16 {
   switch i32 %2, label %default.unreachable1 [
     i32 1, label %6
     i32 2, label %6
@@ -6971,7 +6971,7 @@ declare dso_local i32 @timer_delete(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @__ip_dev_find(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -3, 2) i32 @ip_mc_del1_src(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -3, 2) i32 @ip_mc_del1_src(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
@@ -7116,7 +7116,7 @@ define internal fastcc noundef range(i32 -3, 2) i32 @ip_mc_del1_src(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sf_setstate(ptr nocapture noundef nonnull %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @sf_setstate(ptr noundef nonnull captures(none) %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 96
@@ -7302,7 +7302,7 @@ define internal noundef range(i32 -12, 1) i32 @igmp_net_init(ptr noundef %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @igmp_net_exit(ptr nocapture noundef readonly %0) #0 align 16 {
+define internal void @igmp_net_exit(ptr noundef readonly captures(none) %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 32
   tail call void @remove_proc_entry(ptr noundef nonnull @.str.6, ptr noundef %3) #14
@@ -7336,7 +7336,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #11
 declare dso_local void @remove_proc_entry(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @igmp_mc_seq_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal ptr @igmp_mc_seq_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void @__rcu_read_lock() #14
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
@@ -7451,7 +7451,7 @@ define internal ptr @igmp_mc_seq_start(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @igmp_mc_seq_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @igmp_mc_seq_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7461,7 +7461,7 @@ define internal void @igmp_mc_seq_stop(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal ptr @igmp_mc_seq_next(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #12 align 16 {
+define internal ptr @igmp_mc_seq_next(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2) #12 align 16 {
   %4 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
@@ -7678,7 +7678,7 @@ declare dso_local void @seq_printf(ptr noundef, ptr noundef, ...) local_unnamed_
 declare dso_local i64 @jiffies_to_clock_t(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @igmp_mcf_seq_start(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal ptr @igmp_mcf_seq_start(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   tail call void @__rcu_read_lock() #14
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
@@ -7838,7 +7838,7 @@ define internal ptr @igmp_mcf_seq_start(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @igmp_mcf_seq_stop(ptr nocapture noundef readonly %0, ptr nocapture readnone %1) #0 align 16 {
+define internal void @igmp_mcf_seq_stop(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -7860,7 +7860,7 @@ define internal void @igmp_mcf_seq_stop(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @igmp_mcf_seq_next(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef %2) #0 align 16 {
+define internal ptr @igmp_mcf_seq_next(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) #0 align 16 {
   %4 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   br i1 %4, label %5, label %38
 
@@ -8046,7 +8046,7 @@ declare i32 @llvm.bswap.i32(i32) #7
 declare dso_local void @sock_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @igmp_netdev_event(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal noundef i32 @igmp_netdev_event(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) #0 align 16 {
   %4 = icmp eq i64 %1, 23
   br i1 %4, label %5, label %.loopexit
 
@@ -8170,7 +8170,7 @@ define internal noundef i32 @igmp_netdev_event(ptr nocapture readnone %0, i64 no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7

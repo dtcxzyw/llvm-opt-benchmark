@@ -46,7 +46,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.2 = private unnamed_addr constant [8 x i8] c"skipped\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @checkXenClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
+define dso_local range(i32 -1, 2) i32 @checkXenClocksource(ptr noundef writeonly captures(none) %error_msg) #0 {
 entry:
   %buf.i = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %buf.i)
@@ -89,14 +89,14 @@ if.end5:                                          ; preds = %read_sysfs_line.exi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 declare ptr @sdsnew(ptr noundef) local_unnamed_addr #2
 
 declare void @sdsfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @checkOvercommit(ptr nocapture noundef writeonly %error_msg) #0 {
+define dso_local range(i32 -1, 2) i32 @checkOvercommit(ptr noundef writeonly captures(none) %error_msg) #0 {
 entry:
   %buf = alloca [64 x i8], align 16
   %call = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.4)
@@ -110,7 +110,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp, label %return, label %if.end4
 
 if.end4:                                          ; preds = %if.end
-  %call7 = call i64 @strtol(ptr nocapture noundef nonnull %buf, ptr noundef null, i32 noundef 10) #8
+  %call7 = call i64 @strtol(ptr noundef nonnull captures(none) %buf, ptr noundef null, i32 noundef 10) #8
   %cmp8.not = icmp eq i64 %call7, 1
   br i1 %cmp8.not, label %return, label %if.then9
 
@@ -125,19 +125,19 @@ return:                                           ; preds = %if.end, %if.end4, %
 }
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @fopen64(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #4
+declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @checkTHPEnabled(ptr nocapture noundef writeonly %error_msg) #0 {
+define dso_local range(i32 -1, 2) i32 @checkTHPEnabled(ptr noundef writeonly captures(none) %error_msg) #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %call = tail call noalias ptr @fopen64(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.4)
@@ -166,10 +166,10 @@ return:                                           ; preds = %if.end, %if.end4, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #1
+declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @checkClocksource(ptr nocapture noundef writeonly %error_msg) #0 {
+define internal range(i32 -1, 2) i32 @checkClocksource(ptr noundef writeonly captures(none) %error_msg) #0 {
 entry:
   %buf.i6 = alloca [256 x i8], align 16
   %buf.i = alloca [256 x i8], align 16
@@ -349,7 +349,7 @@ while.end:                                        ; preds = %if.end10, %entry
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @sdstrim(ptr noundef, ptr noundef) local_unnamed_addr #2
 
@@ -367,13 +367,13 @@ declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @sdsempty() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #6
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

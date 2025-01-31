@@ -10379,7 +10379,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bgp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bgp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store volatile i32 0, ptr %5, align 4
@@ -10448,7 +10448,7 @@ define internal i32 @dissect_bgp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bgp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_bgp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -10950,7 +10950,7 @@ save_afi_safi_data.exit.i:                        ; preds = %254, %239
 
 279:                                              ; preds = %.lr.ph95.i70
   %280 = zext i8 %271 to i32
-  %281 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %270, ptr noundef nonnull @ei_bgp_route_refresh_orf_type_unknown, ptr noundef nonnull @.str.2469, i32 noundef %280) #4
+  %281 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef nonnull %1, ptr noundef %270, ptr noundef nonnull @ei_bgp_route_refresh_orf_type_unknown, ptr noundef nonnull @.str.2469, i32 noundef %280) #4
   %282 = add nsw i32 %278, %276
   br label %.backedge90.i
 
@@ -10999,7 +10999,7 @@ save_afi_safi_data.exit.i:                        ; preds = %254, %239
   %308 = call ptr @proto_tree_add_item(ptr noundef %289, i32 noundef %307, ptr noundef %0, i32 noundef %306, i32 noundef 1, i32 noundef 0) #4
   %309 = add nsw i32 %.191.i, 7
   %310 = load i32, ptr @hf_bgp_route_refresh_orf_entry_ip, align 4
-  %311 = call fastcc i32 @decode_prefix4(ptr noundef %289, ptr noundef %1, ptr noundef null, i32 noundef %310, ptr noundef %0, i32 noundef %309, ptr noundef nonnull @.str.2470)
+  %311 = call fastcc i32 @decode_prefix4(ptr noundef %289, ptr noundef nonnull %1, ptr noundef null, i32 noundef %310, ptr noundef %0, i32 noundef %309, ptr noundef nonnull @.str.2470)
   %312 = icmp slt i32 %311, 0
   br i1 %312, label %.backedge90.i, label %313
 
@@ -11049,7 +11049,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @p_add_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 5) i32 @decode_mp_next_hop_ipv4(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 5) i32 @decode_mp_next_hop_ipv4(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 0, 256) %4) unnamed_addr #0 {
   %cond = icmp eq i32 %4, 4
   br i1 %cond, label %6, label %12
 
@@ -11484,7 +11484,7 @@ declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i
 declare ptr @proto_tree_add_ipv4(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 258) i32 @decode_mcast_vpn_nlri(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 258) i32 @decode_mcast_vpn_nlri(ptr noundef %0, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = icmp eq i16 %3, 1
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #4
   %8 = load i32, ptr @hf_bgp_mcast_vpn_nlri_route_type, align 4
@@ -11634,7 +11634,7 @@ define internal fastcc range(i32 -1, 258) i32 @decode_mcast_vpn_nlri(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 18) i32 @decode_mdt_safi(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 18) i32 @decode_mdt_safi(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
   %.not = icmp eq i8 %5, -128
   br i1 %.not, label %6, label %19
@@ -14195,7 +14195,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @get_bgp_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_bgp_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 16
   %6 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %5) #4
   %7 = zext i16 %6 to i32
@@ -14620,10 +14620,10 @@ declare i8 @llvm.umin.i8(i8, i8) #2
 declare i32 @llvm.bswap.i32(i32) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #2

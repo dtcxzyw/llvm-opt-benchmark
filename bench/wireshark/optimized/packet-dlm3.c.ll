@@ -488,7 +488,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dlm3(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dlm3(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   %6 = icmp ult i32 %5, 16
   br i1 %6, label %dissect_dlm3_2.exit, label %7
@@ -712,7 +712,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 196609, 196611) %4, i32 noundef range(i32 16, 0) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i8 noundef zeroext %3, i32 noundef range(i32 196609, 196611) %4, i32 noundef range(i32 16, 0) %5, i32 noundef %6) unnamed_addr #0 {
   %.off = add i8 %3, -1
   %switch = icmp ult i8 %.off, 2
   br i1 %switch, label %8, label %242
@@ -1016,7 +1016,7 @@ declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 65536) i32 @get_dlm3_message_len(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3) #0 {
+define internal range(i32 0, 65536) i32 @get_dlm3_message_len(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = add i32 %2, 12
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %5) #2
   %7 = zext i16 %6 to i32
@@ -1024,7 +1024,7 @@ define internal range(i32 0, 65536) i32 @get_dlm3_message_len(ptr nocapture read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_dlm3_message(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_dlm3_message(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = tail call i32 @dissect_dlm3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   ret i32 %6

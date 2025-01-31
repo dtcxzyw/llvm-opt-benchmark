@@ -64,7 +64,7 @@ declare ptr @DSA_SIG_new() local_unnamed_addr #1
 declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %out) unnamed_addr #0 {
+define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %out) unnamed_addr #0 {
 entry:
   %call = tail call ptr @BN_new() #2
   store ptr %call, ptr %out, align 8
@@ -87,7 +87,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @DSA_SIG_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_SIG_marshal(ptr noundef %cbb, ptr nocapture noundef readonly %sig) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_SIG_marshal(ptr noundef %cbb, ptr noundef readonly captures(none) %sig) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #2
@@ -218,7 +218,7 @@ declare ptr @DSA_new() local_unnamed_addr #1
 declare void @DSA_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_marshal_public_key(ptr noundef %cbb, ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_marshal_public_key(ptr noundef %cbb, ptr noundef readonly captures(none) %dsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #2
@@ -352,7 +352,7 @@ return:                                           ; preds = %lor.lhs.false10, %e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_marshal_parameters(ptr noundef %cbb, ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_marshal_parameters(ptr noundef %cbb, ptr noundef readonly captures(none) %dsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #2
@@ -517,7 +517,7 @@ return:                                           ; preds = %lor.lhs.false23, %e
 declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_marshal_private_key(ptr noundef %cbb, ptr nocapture noundef readonly %dsa) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_marshal_private_key(ptr noundef %cbb, ptr noundef readonly captures(none) %dsa) local_unnamed_addr #0 {
 entry:
   %child = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_add_asn1(ptr noundef %cbb, ptr noundef nonnull %child, i8 noundef zeroext 48) #2
@@ -605,7 +605,7 @@ return:                                           ; preds = %lor.lhs.false18, %i
 declare i32 @CBB_add_asn1_uint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSA_SIG(ptr noundef %out_sig, ptr nocapture noundef %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSA_SIG(ptr noundef %out_sig, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -643,7 +643,7 @@ declare void @CBS_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @CBS_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_DSA_SIG(ptr nocapture noundef readonly %in, ptr noundef %outp) local_unnamed_addr #0 {
+define hidden i32 @i2d_DSA_SIG(ptr noundef readonly captures(none) %in, ptr noundef %outp) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0) #2
@@ -675,7 +675,7 @@ declare void @CBB_cleanup(ptr noundef) local_unnamed_addr #1
 declare i32 @CBB_finish_i2d(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSAPublicKey(ptr noundef %out, ptr nocapture noundef %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSAPublicKey(ptr noundef %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -709,7 +709,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_DSAPublicKey(ptr nocapture noundef readonly %in, ptr noundef %outp) local_unnamed_addr #0 {
+define hidden i32 @i2d_DSAPublicKey(ptr noundef readonly captures(none) %in, ptr noundef %outp) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0) #2
@@ -735,7 +735,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSAPrivateKey(ptr noundef %out, ptr nocapture noundef %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSAPrivateKey(ptr noundef %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -769,7 +769,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_DSAPrivateKey(ptr nocapture noundef readonly %in, ptr noundef %outp) local_unnamed_addr #0 {
+define hidden i32 @i2d_DSAPrivateKey(ptr noundef readonly captures(none) %in, ptr noundef %outp) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0) #2
@@ -795,7 +795,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSAparams(ptr noundef %out, ptr nocapture noundef %inp, i64 noundef %len) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSAparams(ptr noundef %out, ptr noundef captures(none) %inp, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cbs = alloca %struct.cbs_st, align 8
   %cmp = icmp slt i64 %len, 0
@@ -829,7 +829,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_DSAparams(ptr nocapture noundef readonly %in, ptr noundef %outp) local_unnamed_addr #0 {
+define hidden i32 @i2d_DSAparams(ptr noundef readonly captures(none) %in, ptr noundef %outp) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %call = call i32 @CBB_init(ptr noundef nonnull %cbb, i64 noundef 0) #2

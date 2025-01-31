@@ -600,7 +600,7 @@ define internal noundef i32 @libnbc_init_query(i1 zeroext %0, i1 zeroext %1) #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @libnbc_comm_query(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
+define internal noundef ptr @libnbc_comm_query(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @ompi_coll_libnbc_module_t_class, i64 56), align 8
   %4 = tail call noalias ptr @malloc(i64 noundef %3) #8
   %5 = load i32, ptr @opal_class_init_epoch, align 4
@@ -1158,7 +1158,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @request_construct(ptr nocapture noundef writeonly initializes((56, 60), (76, 80), (112, 136)) %0) #3 {
+define internal void @request_construct(ptr noundef writeonly captures(none) initializes((56, 60), (76, 80), (112, 136)) %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 4, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -1183,10 +1183,10 @@ declare i32 @mca_base_component_var_register(ptr noundef, ptr noundef, ptr nound
 declare i32 @mca_base_var_enum_create(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @libnbc_module_enable(ptr nocapture readnone %0, ptr nocapture readnone %1) #1 {
+define internal noundef i32 @libnbc_module_enable(ptr readnone captures(none) %0, ptr readnone captures(none) %1) #1 {
   ret i32 0
 }
 
@@ -1353,7 +1353,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @request_start(i64 noundef %0, ptr nocapture noundef readonly %1) #0 {
+define internal i32 @request_start(i64 noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %.not17 = icmp eq i64 %0, 0
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -1382,7 +1382,7 @@ define internal i32 @request_start(i64 noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 8) i32 @request_free(ptr nocapture noundef %0) #0 {
+define internal range(i32 0, 8) i32 @request_free(ptr noundef captures(none) %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %4 = load ptr, ptr %3, align 8
@@ -1477,7 +1477,7 @@ opal_free_list_return.exit:                       ; preds = %opal_lifo_push_atom
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef i32 @request_cancel(ptr nocapture readnone %0, i32 %1) #1 {
+define internal noundef i32 @request_cancel(ptr readnone captures(none) %0, i32 %1) #1 {
   ret i32 7
 }
 

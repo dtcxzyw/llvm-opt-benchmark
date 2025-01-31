@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @slurm_plugin_unload = alias void (ptr), ptr @plugin_unload
 
 ; Function Attrs: nounwind uwtable
-define i32 @plugin_get_syms(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define i32 @plugin_get_syms(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -101,7 +101,7 @@ define i32 @plugin_get_syms(ptr noundef %0, i32 noundef %1, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) #0 {
+define ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.stat, align 8
   %7 = alloca ptr, align 8
@@ -462,7 +462,7 @@ define internal fastcc range(i32 0, 8011) i32 @_verify_syms(ptr noundef nonnull 
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 8011) i32 @plugin_load_from_file(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 8011) i32 @plugin_load_from_file(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %3 = tail call ptr @dlerror() #10
   %4 = tail call ptr @dlopen(ptr noundef %1, i32 noundef 1) #10
@@ -518,7 +518,7 @@ declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: noreturn
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
@@ -804,7 +804,7 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 19
   %22 = load ptr, ptr %4, align 8
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #13
-  %24 = call i32 @xstrncmp(ptr noundef nonnull %21, ptr noundef %22, i64 noundef %23) #10
+  %24 = call i32 @xstrncmp(ptr noundef nonnull %21, ptr noundef nonnull %22, i64 noundef %23) #10
   %.not23 = icmp eq i32 %24, 0
   br i1 %.not23, label %26, label %.backedge
 
@@ -829,7 +829,7 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
   %34 = load ptr, ptr %5, align 8
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #13
   %36 = getelementptr inbounds i8, ptr %21, i64 %35
-  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %6, i64 noundef %33, ptr noundef nonnull @.str.28, ptr noundef %34, ptr noundef nonnull %36) #10
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %6, i64 noundef %33, ptr noundef nonnull @.str.28, ptr noundef nonnull %34, ptr noundef nonnull %36) #10
   %.not26 = icmp eq ptr %.2.ph34, null
   br i1 %.not26, label %38, label %40
 
@@ -874,22 +874,22 @@ define ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
-declare ptr @strtok_r(ptr noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #6
+declare ptr @strtok_r(ptr noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noalias noundef ptr @opendir(ptr nocapture noundef readonly) local_unnamed_addr #3
+declare noalias noundef ptr @opendir(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 declare ptr @readdir(ptr noundef) local_unnamed_addr #2
 
 declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #3
+declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #3
 
 declare ptr @list_create(ptr noundef) local_unnamed_addr #2
 
@@ -902,16 +902,16 @@ declare i32 @slurm_find_char_in_list(ptr noundef, ptr noundef) #2
 declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @closedir(ptr nocapture noundef) local_unnamed_addr #3
+declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree
 declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #9
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #9
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

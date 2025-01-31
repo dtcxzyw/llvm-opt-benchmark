@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_readahead_ex
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_file_ra_state_init480, ptr @__UNIQUE_ID___addressable_page_cache_async_ra494, ptr @__UNIQUE_ID___addressable_page_cache_ra_unbounded482, ptr @__UNIQUE_ID___addressable_page_cache_sync_ra493, ptr @__UNIQUE_ID___addressable_readahead_expand495], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @file_ra_state_init(ptr nocapture noundef writeonly initializes((16, 20), (24, 32)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @file_ra_state_init(ptr noundef writeonly captures(none) initializes((16, 20), (24, 32)) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call ptr @inode_to_bdi(ptr noundef %3) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -164,7 +164,7 @@ define dso_local void @page_cache_ra_unbounded(ptr noundef %0, i64 noundef %1, i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local ptr @xa_load(ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -407,7 +407,7 @@ declare dso_local ptr @filemap_alloc_folio(i32 noundef, i32 noundef) local_unnam
 declare dso_local i32 @filemap_add_folio(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @force_page_cache_ra(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
@@ -513,7 +513,7 @@ define internal fastcc void @do_page_cache_ra(ptr noundef %0, i64 noundef %1) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @page_cache_ra_order(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @page_cache_ra_order(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1033,13 +1033,13 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @ksys_readahead(i32 noun
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: null_pointer_is_valid
 declare dso_local i32 @vfs_fadvise(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_readahead(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_readahead(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1102,7 +1102,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_readahead(ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_readahead(ptr nocapture noundef readonly %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_readahead(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1167,7 +1167,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_readahead(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @readahead_expand(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local void @readahead_expand(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

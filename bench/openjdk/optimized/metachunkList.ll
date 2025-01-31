@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK9metaspace13MetachunkList24calc_committed_word_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK9metaspace13MetachunkList24calc_committed_word_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %cond = icmp eq ptr %2, null
   br i1 %cond, label %.loopexit, label %3
@@ -38,7 +38,7 @@ define hidden noundef i64 @_ZNK9metaspace13MetachunkList24calc_committed_word_si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK9metaspace13MetachunkList14calc_word_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZNK9metaspace13MetachunkList14calc_word_sizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %cond = icmp eq ptr %2, null
   br i1 %cond, label %.loopexit, label %3
@@ -66,7 +66,7 @@ define hidden noundef i64 @_ZNK9metaspace13MetachunkList14calc_word_sizeEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK9metaspace13MetachunkList8print_onEP12outputStream(ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK9metaspace13MetachunkList8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0

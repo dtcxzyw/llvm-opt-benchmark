@@ -269,7 +269,7 @@ declare void @X509_EXTENSION_free(ptr noundef) local_unnamed_addr #1
 declare void @sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_EXTENSION_create_by_NID(ptr noundef %ex, i32 noundef %nid, i32 noundef %crit, ptr nocapture noundef readonly %data) local_unnamed_addr #0 {
+define hidden ptr @X509_EXTENSION_create_by_NID(ptr noundef %ex, i32 noundef %nid, i32 noundef %crit, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @OBJ_nid2obj(i32 noundef %nid) #5
   %cmp = icmp eq ptr %call, null
@@ -289,7 +289,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_EXTENSION_create_by_OBJ(ptr noundef %ex, ptr noundef %obj, i32 noundef %crit, ptr nocapture noundef readonly %data) local_unnamed_addr #0 {
+define hidden ptr @X509_EXTENSION_create_by_OBJ(ptr noundef %ex, ptr noundef %obj, i32 noundef %crit, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %if.then, label %lor.lhs.false
@@ -407,7 +407,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_EXTENSION_set_data(ptr noundef readonly %ex, ptr nocapture noundef readonly %data) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_EXTENSION_set_data(ptr noundef readonly %ex, ptr noundef readonly captures(none) %data) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %ex, null
   br i1 %cmp, label %return, label %if.end

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [8 x i8] c"\0ANODES:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Lpk_CutTruthBdd_rec(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Lpk_CutTruthBdd_rec(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %35
@@ -68,7 +68,7 @@ define ptr @Lpk_CutTruthBdd_rec(ptr noundef %0, ptr noundef %1, ptr nocapture no
 declare ptr @Cloud_bddAnd(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Lpk_CutTruthBdd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define ptr @Lpk_CutTruthBdd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8241776
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -209,7 +209,7 @@ define ptr @Lpk_CutTruthBdd(ptr nocapture noundef readonly %0, ptr nocapture nou
 declare void @Hop_ObjCleanData_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @Lpk_CutTruth_rec(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define ptr @Lpk_CutTruth_rec(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %7, label %95
@@ -385,7 +385,7 @@ Kit_TruthFill.exit:                               ; preds = %select.unfold46.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Lpk_CutTruth(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Lpk_CutTruth(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -619,7 +619,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i63, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Lpk_NodeRecordImpact(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
+define void @Lpk_NodeRecordImpact(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8240040
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -874,7 +874,7 @@ Vec_PtrPush.exit43:                               ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Lpk_NodeCutsCheckDsd(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Lpk_NodeCutsCheckDsd(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8240084
   %4 = load i32, ptr %1, align 4
   %5 = shl i32 %4, 2
@@ -1147,10 +1147,10 @@ define range(i32 0, 2) i32 @Lpk_NodeCutsCheckDsd(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @Lpk_NodeCutsOneFilter(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Lpk_NodeCutsOneFilter(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph81, label %Lpk_NodeCutsOneDominance.exit
 
@@ -1323,7 +1323,7 @@ Lpk_NodeCutsOneDominance.exit:                    ; preds = %._crit_edge, %Lpk_N
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Lpk_NodePrintCut(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @Lpk_NodePrintCut(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %5
 
@@ -1411,10 +1411,10 @@ define void @Lpk_NodePrintCut(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
+declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Lpk_NodeCutSignature(ptr nocapture noundef initializes((4, 12)) %0) local_unnamed_addr #5 {
+define void @Lpk_NodeCutSignature(ptr noundef captures(none) initializes((4, 12)) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 4
@@ -1451,7 +1451,7 @@ define void @Lpk_NodeCutSignature(ptr nocapture noundef initializes((4, 12)) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Lpk_NodeCutsOne(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Lpk_NodeCutsOne(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 32
@@ -1832,7 +1832,7 @@ Lpk_NodeCutSignature.exit:                        ; preds = %144, %.critedge2
   %198 = zext nneg i32 %191 to i64
   %199 = getelementptr inbounds nuw [100 x i32], ptr %157, i64 0, i64 %198
   store i32 %2, ptr %199, align 4
-  %200 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %10)
+  %200 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef nonnull %10)
   %201 = load i32, ptr %58, align 4
   %202 = shl nuw nsw i32 %200, 12
   %203 = xor i32 %202, 4096
@@ -1854,7 +1854,7 @@ Lpk_NodeCutSignature.exit:                        ; preds = %144, %.critedge2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsTravIdCurrent(ptr nocapture noundef readonly %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @Abc_NodeIsTravIdCurrent(ptr noundef readonly captures(none) %0) unnamed_addr #0 {
   %.val2 = load ptr, ptr %0, align 8
   %2 = getelementptr i8, ptr %0, i64 16
   %.val3 = load i32, ptr %2, align 8
@@ -1966,10 +1966,10 @@ Abc_NodeTravId.exit:                              ; preds = %1, %._crit_edge.i.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @Lpk_CountSupp(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @Lpk_CountSupp(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val4448 = load i32, ptr %3, align 4
   %4 = icmp sgt i32 %.val4448, 0
@@ -2211,7 +2211,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %14, %._crit_edge.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Lpk_NodeCuts(ptr nocapture noundef initializes((24, 28)) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_NodeCuts(ptr noundef captures(none) initializes((24, 28)) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8240896
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -2456,13 +2456,13 @@ Lpk_NodeCutSignature.exit._crit_edge:             ; preds = %Lpk_NodeCutSignatur
 declare i32 @Abc_NodeMffcLabel(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #9
+declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #11
+declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #11

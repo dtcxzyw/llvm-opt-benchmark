@@ -69,7 +69,7 @@ define void @twopi_init_graph(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph39.i:                                       ; preds = %._crit_edge.i, %._crit_edge35.i
   %.137.i = phi ptr [ %35, %._crit_edge35.i ], [ %25, %._crit_edge.i ]
-  %26 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.137.i) #9
+  %26 = tail call ptr @agfstout(ptr noundef nonnull %0, ptr noundef nonnull %.137.i) #9
   %.not2731.i = icmp eq ptr %26, null
   br i1 %.not2731.i, label %._crit_edge35.i, label %.lr.ph34.i
 
@@ -83,12 +83,12 @@ define void @twopi_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 176
   store double %30, ptr %33, align 8
-  %34 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02432.i) #9
+  %34 = tail call ptr @agnxtout(ptr noundef nonnull %0, ptr noundef nonnull %.02432.i) #9
   %.not27.i = icmp eq ptr %34, null
   br i1 %.not27.i, label %._crit_edge35.i, label %.lr.ph34.i
 
 ._crit_edge35.i:                                  ; preds = %.lr.ph34.i, %.lr.ph39.i
-  %35 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.137.i) #9
+  %35 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.137.i) #9
   %.not26.i = icmp eq ptr %35, null
   br i1 %.not26.i, label %twopi_init_node_edge.exit, label %.lr.ph39.i
 
@@ -399,7 +399,7 @@ declare i32 @agerr(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 declare ptr @ccomps(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -410,7 +410,7 @@ declare i32 @agxset(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 declare i32 @adjustNodes(ptr noundef) local_unnamed_addr #1
 
@@ -519,7 +519,7 @@ define internal fastcc noalias noundef ptr @gv_calloc(i64 noundef range(i64 -214
 declare void @neato_init_node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
+declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: cold nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #5 {

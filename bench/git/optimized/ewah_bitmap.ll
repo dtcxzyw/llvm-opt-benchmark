@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ewah_add_empty_words(ptr nocapture noundef %self, i32 noundef %v, i64 noundef %number) local_unnamed_addr #0 {
+define dso_local i64 @ewah_add_empty_words(ptr noundef captures(none) %self, i32 noundef %v, i64 noundef %number) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %number, 0
   br i1 %cmp, label %return, label %if.end
@@ -31,7 +31,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @add_empty_words(ptr nocapture noundef %self, i32 noundef %v, i64 noundef %number) unnamed_addr #0 {
+define internal fastcc i64 @add_empty_words(ptr noundef captures(none) %self, i32 noundef %v, i64 noundef %number) unnamed_addr #0 {
 entry:
   %rlw = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %rlw, align 8
@@ -316,7 +316,7 @@ if.end37:                                         ; preds = %if.end35, %while.en
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ewah_add_dirty_words(ptr nocapture noundef %self, ptr nocapture noundef readonly %buffer, i64 noundef %number, i32 noundef %negate) local_unnamed_addr #0 {
+define dso_local void @ewah_add_dirty_words(ptr noundef captures(none) %self, ptr noundef readonly captures(none) %buffer, i64 noundef %number, i32 noundef %negate) local_unnamed_addr #0 {
 entry:
   %rlw = getelementptr inbounds nuw i8, ptr %self, i64 32
   %buffer_size = getelementptr inbounds nuw i8, ptr %self, i64 8
@@ -464,10 +464,10 @@ while.end:                                        ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 0, 3) i64 @ewah_add(ptr nocapture noundef %self, i64 noundef %word) local_unnamed_addr #0 {
+define dso_local range(i64 0, 3) i64 @ewah_add(ptr noundef captures(none) %self, i64 noundef %word) local_unnamed_addr #0 {
 entry:
   %bit_size = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %bit_size, align 8
@@ -496,7 +496,7 @@ return:                                           ; preds = %if.end4, %if.then2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 0, 2) i64 @add_empty_word(ptr nocapture noundef %self, i32 noundef range(i32 0, 2) %v) unnamed_addr #0 {
+define internal fastcc range(i64 0, 2) i64 @add_empty_word(ptr noundef captures(none) %self, i32 noundef range(i32 0, 2) %v) unnamed_addr #0 {
 entry:
   %rlw = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %rlw, align 8
@@ -600,7 +600,7 @@ return:                                           ; preds = %buffer_push_rlw.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i64 1, 3) i64 @add_literal(ptr nocapture noundef %self, i64 noundef range(i64 1, -1) %new_data) unnamed_addr #0 {
+define internal fastcc range(i64 1, 3) i64 @add_literal(ptr noundef captures(none) %self, i64 noundef range(i64 1, -1) %new_data) unnamed_addr #0 {
 entry:
   %rlw = getelementptr inbounds nuw i8, ptr %self, i64 32
   %0 = load ptr, ptr %rlw, align 8
@@ -757,7 +757,7 @@ return:                                           ; preds = %buffer_push.exit36,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ewah_set(ptr nocapture noundef %self, i64 noundef %i) local_unnamed_addr #0 {
+define dso_local void @ewah_set(ptr noundef captures(none) %self, i64 noundef %i) local_unnamed_addr #0 {
 entry:
   %add = add i64 %i, 1
   %sub = add i64 %i, 64
@@ -843,7 +843,7 @@ if.end41:                                         ; preds = %if.then32, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ewah_each_bit(ptr nocapture noundef readonly %self, ptr nocapture noundef readonly %callback, ptr noundef %payload) local_unnamed_addr #0 {
+define dso_local void @ewah_each_bit(ptr noundef readonly captures(none) %self, ptr noundef readonly captures(none) %callback, ptr noundef %payload) local_unnamed_addr #0 {
 entry:
   %buffer_size = getelementptr inbounds nuw i8, ptr %self, i64 8
   %0 = load i64, ptr %buffer_size, align 8
@@ -983,10 +983,10 @@ return:                                           ; preds = %entry, %if.end3
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr nocapture noundef writeonly %next, ptr nocapture noundef %it) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @ewah_iterator_next(ptr noundef writeonly captures(none) %next, ptr noundef captures(none) %it) local_unnamed_addr #5 {
 entry:
   %pointer = getelementptr inbounds nuw i8, ptr %it, i64 16
   %0 = load i64, ptr %pointer, align 8
@@ -1108,7 +1108,7 @@ return:                                           ; preds = %if.then7.i, %if.els
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @ewah_iterator_init(ptr nocapture noundef writeonly initializes((0, 60)) %it, ptr nocapture noundef readonly %parent) local_unnamed_addr #5 {
+define dso_local void @ewah_iterator_init(ptr noundef writeonly captures(none) initializes((0, 60)) %it, ptr noundef readonly captures(none) %parent) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %parent, align 8
   store ptr %0, ptr %it, align 8
@@ -1602,7 +1602,7 @@ return:                                           ; preds = %entry, %if.end3, %e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ewah_checksum(ptr nocapture noundef readonly %self) local_unnamed_addr #6 {
+define dso_local i32 @ewah_checksum(ptr noundef readonly captures(none) %self) local_unnamed_addr #6 {
 entry:
   %bit_size = getelementptr inbounds nuw i8, ptr %self, i64 24
   %0 = load i64, ptr %bit_size, align 8
@@ -1647,7 +1647,7 @@ declare i64 @llvm.umin.i64(i64, i64) #8
 declare i64 @llvm.umax.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
